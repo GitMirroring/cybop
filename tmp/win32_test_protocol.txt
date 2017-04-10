@@ -1,98 +1,98 @@
-binary:	995K Apr 19 23:07 cyboi_2157.exe
-libs:	75K Apr  6 23:20 libgnurx-0.dll
-		13K Apr  9 00:11 libXau-6.dll
-		104K Apr 9 00:07 libxcb-1.dll
-		12K Apr  9 00:07 libxcb-composite-0.dll
-		11K Apr  9 00:07 libxcb-damage-0.dll
-		11K Apr  9 00:07 libxcb-dpms-0.dll
-		61K Apr  9 00:07 libxcb-glx-0.dll
-		29K Apr  9 00:07 libxcb-randr-0.dll
-		14K Apr  9 00:07 libxcb-record-0.dll
-		28K Apr  9 00:07 libxcb-render-0.dll
-		11K Apr  9 00:07 libxcb-res-0.dll
-		11K Apr  9 00:07 libxcb-screensaver-0.dll
-		12K Apr  9 00:07 libxcb-shape-0.dll
-		11K Apr  9 00:07 libxcb-shm-0.dll
-		17K Apr  9 00:07 libxcb-sync-0.dll
-		21K Apr  9 00:07 libxcb-xfixes-0.dll
-		11K Apr  9 00:07 libxcb-xinerama-0.dll
-		9.6K Apr 9 00:07 libxcb-xtest-0.dll
-		21K Apr  9 00:14 libXdmcp-6.dll
-		73K Apr  6 23:33 pthreadGC2.dll
+binary:    995K Apr 19 23:07 cyboi_2157.exe
+libs:    75K Apr  6 23:20 libgnurx-0.dll
+        13K Apr  9 00:11 libXau-6.dll
+        104K Apr 9 00:07 libxcb-1.dll
+        12K Apr  9 00:07 libxcb-composite-0.dll
+        11K Apr  9 00:07 libxcb-damage-0.dll
+        11K Apr  9 00:07 libxcb-dpms-0.dll
+        61K Apr  9 00:07 libxcb-glx-0.dll
+        29K Apr  9 00:07 libxcb-randr-0.dll
+        14K Apr  9 00:07 libxcb-record-0.dll
+        28K Apr  9 00:07 libxcb-render-0.dll
+        11K Apr  9 00:07 libxcb-res-0.dll
+        11K Apr  9 00:07 libxcb-screensaver-0.dll
+        12K Apr  9 00:07 libxcb-shape-0.dll
+        11K Apr  9 00:07 libxcb-shm-0.dll
+        17K Apr  9 00:07 libxcb-sync-0.dll
+        21K Apr  9 00:07 libxcb-xfixes-0.dll
+        11K Apr  9 00:07 libxcb-xinerama-0.dll
+        9.6K Apr 9 00:07 libxcb-xtest-0.dll
+        21K Apr  9 00:14 libXdmcp-6.dll
+        73K Apr  6 23:33 pthreadGC2.dll
 
 
 
 [Examplename] [Executablestate]
-	[Explanation]
+    [Explanation]
 
 
 Executablestates:
-	y = yes, works
-	n = no does not work
-	unknown = no clue because it does not hung itself up but no shell output on unix(original cybol-version) and windows
+    y = yes, works
+    n = no does not work
+    unknown = no clue because it does not hung itself up but no shell output on unix(original cybol-version) and windows
 
 addition y 
-	2,3,4 (should print: "2,3,4")
+    2,3,4 (should print: "2,3,4")
 
 addition_dynamic_model y
-	5 (should print: "5")
+    5 (should print: "5")
 
 addition_dynamic_model_with_root y
-	7 (should print: "7")
+    7 (should print: "7")
 
 addition_static_model y
-	4 (should print: "4")
+    4 (should print: "4")
 
 addition_using_indices y
-	5 (should print "5")
+    5 (should print "5")
 
 addition_using_serialisation y
-	7 (should print "7")
+    7 (should print "7")
 
 character_encoding
 
 counter y
-	1
-	2
-	3
-	4
-	5
-	6
-	7
-	8
-	9
-	10 (print numbers from 1 to 10)
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    10 (print numbers from 1 to 10)
 
 counter_static_model n
-	1
-	2
-	3
-	4
-	5
-	6
-	7
-	8
-	9
-	10 (print numbers from 1 to 10)
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    10 (print numbers from 1 to 10)
 
 counter_storage
-	7
+    7
 
 document_generator
 
 double
-	Addition: 2.25 + 10.5 = 12.75, 25.5 + 11.11 = 36.61:
-	f,f
-	Multiplication: 12.75 * 10.5 = 133.875, 36.61 * 11.11 = 406.7371:
-	f,f
-	Subtraction: 133.875 - 10.5 = 123.375, 406.7371 - 11.11 = 395.6271:
-	f,f
-	Division: 123.375 / 10.5 = 11.75, 395.6271 / 11.11 = 35.61:
-	f,f
-	Negation: neg 10.5 = -10.5, neg 11.11 = -11.11:
-	f,f
-	Absolution: abs -10.5 = 10.5, abs -11.11 = 11.11:
-	f,f
+    Addition: 2.25 + 10.5 = 12.75, 25.5 + 11.11 = 36.61:
+    f,f
+    Multiplication: 12.75 * 10.5 = 133.875, 36.61 * 11.11 = 406.7371:
+    f,f
+    Subtraction: 133.875 - 10.5 = 123.375, 406.7371 - 11.11 = 395.6271:
+    f,f
+    Division: 123.375 / 10.5 = 11.75, 395.6271 / 11.11 = 35.61:
+    f,f
+    Negation: neg 10.5 = -10.5, neg 11.11 = -11.11:
+    f,f
+    Absolution: abs -10.5 = 10.5, abs -11.11 = 11.11:
+    f,f
 
 exit y
 
@@ -101,154 +101,154 @@ exit_cybol_file y
 exit_signal y
 
 get_count
-	7
-	3
+    7
+    3
 
 gui
-	empty window
+    empty window
 
 helloworld n
     clearScreen + "2JHello, World!"
 
 http_communication
-	ERROR: Could not handle operation. The operation is unknown *p6: -1
-	next: nothing...
+    ERROR: Could not handle operation. The operation is unknown *p6: -1
+    next: nothing...
 
 if-else
-	run1: false
-	run2: true
+    run1: false
+    run2: true
 
 index_usage
-	Test .test.node3: node3
-	Test .test.node1.node2: node2
-	Test .test.node1.node1#c: c
-	Test .test.node2#a: a
-	Test .test.node2#c.node3: node3
-	Test .test.node2#c.node1#b: b
-	Test .test.node1.nodex:
-	Test index .test.[1]#[2].[0]#[1]: b
-	Test .test.reference as knowledge: .test.node2#c.node1#b
-	Test .test.reference as reference: b
+    Test .test.node3: node3
+    Test .test.node1.node2: node2
+    Test .test.node1.node1#c: c
+    Test .test.node2#a: a
+    Test .test.node2#c.node3: node3
+    Test .test.node2#c.node1#b: b
+    Test .test.node1.nodex:
+    Test index .test.[1]#[2].[0]#[1]: b
+    Test .test.reference as knowledge: .test.node2#c.node1#b
+    Test .test.reference as reference: b
 
 indoor_climate
-	Error: The voltage is not valid.
-	Error: The voltage is not valid.
-	Error: The voltage is not valid.
-	Error: The voltage is not valid.
-	Error: The voltage is not valid.
-	Current temperature rounded in degree Celsius:
-	next: crash!
+    Error: The voltage is not valid.
+    Error: The voltage is not valid.
+    Error: The voltage is not valid.
+    Error: The voltage is not valid.
+    Error: The voltage is not valid.
+    Current temperature rounded in degree Celsius:
+    next: crash!
 
 knowledge_tree_access
-	part_1
+    part_1
 
 latex
 
 presence
-	ERROR: Could not handle operation. The operation is unknown *p6: -1
-	next: nothing...
+    ERROR: Could not handle operation. The operation is unknown *p6: -1
+    next: nothing...
 
 programme_execution
-	The system cannot find the path specified.
+    The system cannot find the path specified.
 
 shell_command_execution unknown 
-	The system cannot find the path specified. (UNIX: output the ls command)
+    The system cannot find the path specified. (UNIX: output the ls command)
 
 shell_output
-	clearScreen + "2JHello, World!" (UNIX: clearScreen + "Hello, World!")
+    clearScreen + "2JHello, World!" (UNIX: clearScreen + "Hello, World!")
 
 shell_output_branch
-	Hello, A World!
-	Hello, B World!
+    Hello, A World!
+    Hello, B World!
 
 shell_output_file
-	Hello, World 1!
-	Hello, World 2!
-	Hello, World 3!
+    Hello, World 1!
+    Hello, World 2!
+    Hello, World 3!
 
 shell_output_loop
-	Hello, World!
-	Hello, World!
-	Hello, World!
-	Hello, World!
-	Hello, World!
+    Hello, World!
+    Hello, World!
+    Hello, World!
+    Hello, World!
+    Hello, World!
 
 shell_output_sequence
-	Hello, World!
+    Hello, World!
 
 time_output_1
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
 
 time_output_2
-	The system cannot find the path specified.
-	13:44:05
-	The system cannot find the path specified.
-	13:44:05
-	The system cannot find the path specified.
-	13:44:05
+    The system cannot find the path specified.
+    13:44:05
+    The system cannot find the path specified.
+    13:44:05
+    The system cannot find the path specified.
+    13:44:05
 
 time_output_3
-	Current time:
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
-	The system cannot find the path specified.
+    Current time:
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
+    The system cannot find the path specified.
 
 tui n
-	2JMenum - Start Midnight Commander (MC)e - Exit ProgrammeYou may press the following keys:arrow down/up/left/right, enter, escape, m, e (im UNIX werden zwei Kacheln angezeigt, einmal grün und blau + Bei Tastaturpfeileingaben wird die Taste in der Shell ausgegeben)
+    2JMenum - Start Midnight Commander (MC)e - Exit ProgrammeYou may press the following keys:arrow down/up/left/right, enter, escape, m, e (im UNIX werden zwei Kacheln angezeigt, einmal grün und blau + Bei Tastaturpfeileingaben wird die Taste in der Shell ausgegeben)
 
 ui_control
-	+------------------------------------------------------------------------------+
-	|                                                                              |
-	|                                                                              |
-	|                                                                              |
-	|                                                                              |
-	|    +--------------------------------------------------------------------+    |
-	|    |                                                                    |    |
-	|    |                                                                    |    |
-	|    |                                                                    |    |
-	|    |                                                                    |    |
-	|    |                                                                    |    |
-	|    |                                                                    |    |
-	|    |                                                                    |    |
-	|    |                                                                    |    |
-	|    |                                                                    |    |
-	|    |                                                                    |    |
-	|    |                                                                    |    |
-	|    |                                                                    |    |
-	|    |                                                                    |    |
-	|    +--------------------------------------------------------------------+    |
-	|                                                                              |
-	|                                                                              |
-	|                         CYBOI Example -- Text User Interface (TUI) Application
-	Menum - Start Midnight Commander (MC)d - Start DOS Emulator (DOSemu)x - Open an
-	X Windowa - Show About Informatione - Exit Programmehttp://www.cybop.org/
-	TEST startup x window system window: 8388608
+    +------------------------------------------------------------------------------+
+    |                                                                              |
+    |                                                                              |
+    |                                                                              |
+    |                                                                              |
+    |    +--------------------------------------------------------------------+    |
+    |    |                                                                    |    |
+    |    |                                                                    |    |
+    |    |                                                                    |    |
+    |    |                                                                    |    |
+    |    |                                                                    |    |
+    |    |                                                                    |    |
+    |    |                                                                    |    |
+    |    |                                                                    |    |
+    |    |                                                                    |    |
+    |    |                                                                    |    |
+    |    |                                                                    |    |
+    |    |                                                                    |    |
+    |    |                                                                    |    |
+    |    +--------------------------------------------------------------------+    |
+    |                                                                              |
+    |                                                                              |
+    |                         CYBOI Example -- Text User Interface (TUI) Application
+    Menum - Start Midnight Commander (MC)d - Start DOS Emulator (DOSemu)x - Open an
+    X Windowa - Show About Informatione - Exit Programmehttp://www.cybop.org/
+    TEST startup x window system window: 8388608
 
 wui
-	nothing
+    nothing

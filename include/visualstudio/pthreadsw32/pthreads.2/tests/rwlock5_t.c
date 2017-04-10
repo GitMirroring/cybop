@@ -37,9 +37,9 @@
  * and then unlock it again.
  *
  * Depends on API functions: 
- *	pthread_rwlock_timedrdlock()
- *	pthread_rwlock_tryrdlock()
- *	pthread_rwlock_unlock()
+ *    pthread_rwlock_timedrdlock()
+ *    pthread_rwlock_tryrdlock()
+ *    pthread_rwlock_unlock()
  */
 
 #include "test.h"

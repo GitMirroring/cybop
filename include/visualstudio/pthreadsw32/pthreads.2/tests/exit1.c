@@ -41,10 +41,10 @@
 int
 main(int argc, char * argv[])
 {
-	/* A simple test first. */
-	pthread_exit((void *) 0);
+    /* A simple test first. */
+    pthread_exit((void *) 0);
 
-	/* Not reached */
-	assert(0);
-	return 0;
+    /* Not reached */
+    assert(0);
+    return 0;
 }

@@ -1,5 +1,5 @@
 <node>
-	<node name="channel" channel="inline" format="text/plain" model="">
+    <node name="channel" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="channel"/>
         <node name="description" channel="inline" format="text/plain" model="the channel whose service is to be interrupted (terminal, display, www etc.)"/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>

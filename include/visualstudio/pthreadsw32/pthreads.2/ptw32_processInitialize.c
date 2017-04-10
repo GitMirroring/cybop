@@ -89,4 +89,4 @@ ptw32_processInitialize (void)
 
   return (ptw32_processInitialized);
 
-}				/* processInitialize */
+}                /* processInitialize */

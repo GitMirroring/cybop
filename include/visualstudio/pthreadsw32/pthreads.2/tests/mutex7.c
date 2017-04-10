@@ -39,9 +39,9 @@
  * The thread should lock first time and EBUSY second time.
  *
  * Depends on API functions: 
- *	pthread_mutex_lock()
- *	pthread_mutex_trylock()
- *	pthread_mutex_unlock()
+ *    pthread_mutex_lock()
+ *    pthread_mutex_trylock()
+ *    pthread_mutex_unlock()
  */
 
 #include "test.h"

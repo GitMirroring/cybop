@@ -100,4 +100,4 @@ pthread_testcancel (void)
     }
 
   ptw32_mcs_lock_release (&stateLock);
-}				/* pthread_testcancel */
+}                /* pthread_testcancel */

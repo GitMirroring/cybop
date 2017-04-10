@@ -52,25 +52,25 @@
 /*
  * C-SNZI support
  */
-typedef union  ptw32_oll_counter_t_		ptw32_oll_counter_t;
-typedef struct ptw32_oll_snziRoot_t_		ptw32_oll_snziRoot_t;
-typedef struct ptw32_oll_snziNode_t_		ptw32_oll_snziNode_t;
-typedef union  ptw32_oll_snziNodeOrRoot_t_	ptw32_oll_snziNodeOrRoot_t;
-typedef struct ptw32_oll_queryResult_t_		ptw32_oll_queryResult_t;
-typedef struct ptw32_oll_ticket_t_		ptw32_oll_ticket_t;
-typedef struct ptw32_oll_csnzi_t_		ptw32_oll_csnzi_t;
+typedef union  ptw32_oll_counter_t_        ptw32_oll_counter_t;
+typedef struct ptw32_oll_snziRoot_t_        ptw32_oll_snziRoot_t;
+typedef struct ptw32_oll_snziNode_t_        ptw32_oll_snziNode_t;
+typedef union  ptw32_oll_snziNodeOrRoot_t_    ptw32_oll_snziNodeOrRoot_t;
+typedef struct ptw32_oll_queryResult_t_        ptw32_oll_queryResult_t;
+typedef struct ptw32_oll_ticket_t_        ptw32_oll_ticket_t;
+typedef struct ptw32_oll_csnzi_t_        ptw32_oll_csnzi_t;
 
 enum
 {
-  ptw32_archWidth	= sizeof(size_t)*8,
-  ptw32_oll_countWidth	= ptw32_archWidth-2
+  ptw32_archWidth    = sizeof(size_t)*8,
+  ptw32_oll_countWidth    = ptw32_archWidth-2
 };
 
 #define PTW32_OLL_MAXREADERS (((size_t)2<<(ptw32_oll_countWidth-1))-1)
 
 union ptw32_oll_counter_t_
 {
-  size_t	word	: ptw32_archWidth;
+  size_t    word    : ptw32_archWidth;
   struct
   {
     /*
@@ -81,9 +81,9 @@ union ptw32_oll_counter_t_
      *    ------------------------------------
      *     63 / 31  62 / 30   61 / 29 .. 0
      */
-    size_t	count	: ptw32_oll_countWidth;
-    size_t	root	: 1;			/* ROOT or NODE */
-    size_t	state	: 1;			/* OPEN or CLOSED (root only) */
+    size_t    count    : ptw32_oll_countWidth;
+    size_t    root    : 1;            /* ROOT or NODE */
+    size_t    state    : 1;            /* OPEN or CLOSED (root only) */
   } internal;
 };
 
@@ -93,19 +93,19 @@ struct ptw32_oll_snziRoot_t_
    * "counter" must be at same offset in both
    * ptw32_oll_snziNode_t and ptw32_oll_snziRoot_t
    */
-  ptw32_oll_counter_t	counter;
+  ptw32_oll_counter_t    counter;
 };
 
 enum
 {
-  ptw32_oll_snziRoot_open	= 0,
-  ptw32_oll_snziRoot_closed	= 1
+  ptw32_oll_snziRoot_open    = 0,
+  ptw32_oll_snziRoot_closed    = 1
 };
 
 enum
 {
-  ptw32_oll_snzi_root	= 0,
-  ptw32_oll_snzi_node	= 1
+  ptw32_oll_snzi_root    = 0,
+  ptw32_oll_snzi_node    = 1
 };
 
 /*
@@ -121,8 +121,8 @@ ptw32_oll_snziRoot_t ptw32_oll_snziRoot_closedAndZero = {.counter.internal.count
 
 struct ptw32_oll_queryResult_t_
 {
-  BOOL	nonZero;
-  BOOL	open;
+  BOOL    nonZero;
+  BOOL    open;
 };
 
 union ptw32_oll_snziNodeOrRoot_t_
@@ -136,21 +136,21 @@ struct ptw32_oll_snziNode_t_
   /* "counter" must be at same offset in both
    * ptw32_oll_snziNode_t and ptw32_oll_snziRoot_t
    */
-  ptw32_oll_counter_t		counter;
-  ptw32_oll_snziNodeOrRoot_t	parentPtr;
+  ptw32_oll_counter_t        counter;
+  ptw32_oll_snziNodeOrRoot_t    parentPtr;
 };
 
 struct ptw32_oll_ticket_t_
 {
-  ptw32_oll_snziNodeOrRoot_t	snziNodeOrRoot;
+  ptw32_oll_snziNodeOrRoot_t    snziNodeOrRoot;
 };
 
 ptw32_oll_ticket_t ptw32_oll_ticket_null = {NULL};
 
 struct ptw32_oll_csnzi_t_
 {
-  ptw32_oll_snziRoot_t	proxyRoot;
-  ptw32_oll_snziNode_t	leafs[];
+  ptw32_oll_snziRoot_t    proxyRoot;
+  ptw32_oll_snziNode_t    leafs[];
 };
 
 /*
@@ -175,26 +175,26 @@ enum
 
 struct ptw32_foll_node_t_
 {
-  ptw32_foll_node_t*	qNextPtr;
-  ptw32_oll_csnzi_t*	csnziPtr;
-  ptw32_foll_node_t*	nextPtr;
-  int			kind;
-  int			allocState;
-  BOOL			spin;
+  ptw32_foll_node_t*    qNextPtr;
+  ptw32_oll_csnzi_t*    csnziPtr;
+  ptw32_foll_node_t*    nextPtr;
+  int            kind;
+  int            allocState;
+  BOOL            spin;
 };
 
 struct ptw32_foll_local_t_
 {
-  ptw32_foll_node_t*	rNodePtr; // Default read node. Immutable
-  ptw32_foll_node_t*	wNodePtr; // Write node. Immutable.
-  ptw32_foll_node_t*	departFromPtr; // List node we last arrived at.
-  ptw32_oll_ticket_t	ticket; // C-SNZI ticket
+  ptw32_foll_node_t*    rNodePtr; // Default read node. Immutable
+  ptw32_foll_node_t*    wNodePtr; // Write node. Immutable.
+  ptw32_foll_node_t*    departFromPtr; // List node we last arrived at.
+  ptw32_oll_ticket_t    ticket; // C-SNZI ticket
 };
 
 struct ptw32_foll_rwlock_t_
 {
-  ptw32_foll_node_t*	tailPtr;
-  ptw32_foll_node_t*	rNodesPtr; // Head of reader node
+  ptw32_foll_node_t*    tailPtr;
+  ptw32_foll_node_t*    rNodesPtr; // Head of reader node
 };
 
 /*
@@ -496,14 +496,14 @@ typedef struct ptw32_srwl_local_t_ ptw32_srwl_local_t;
 
 enum
 {
-  ptw32_srwl_reader	= 0,
-  ptw32_srwl_writer	= 1
+  ptw32_srwl_reader    = 0,
+  ptw32_srwl_writer    = 1
 };
 
 enum
 {
-  ptw32_srwl_free	= 0,
-  ptw32_srwl_in_use	= 1
+  ptw32_srwl_free    = 0,
+  ptw32_srwl_in_use    = 1
 };
 
 struct ptw32_srwl_rwlock_t_
@@ -514,12 +514,12 @@ struct ptw32_srwl_rwlock_t_
 
 struct ptw32_srwl_node_t_
 {
-  ptw32_srwl_node_t*	qNextPtr;
-  ptw32_oll_csnzi_t*	csnziPtr;
-  ptw32_srwl_node_t*	nextReaderPtr;
-  int			kind;		/* ptw32_srwl_reader, ptw32_srwl_writer */
-  int			allocState;	/* ptw32_srwl_free, ptw32_srwl_in_use */
-  BOOL			spin;
+  ptw32_srwl_node_t*    qNextPtr;
+  ptw32_oll_csnzi_t*    csnziPtr;
+  ptw32_srwl_node_t*    nextReaderPtr;
+  int            kind;        /* ptw32_srwl_reader, ptw32_srwl_writer */
+  int            allocState;    /* ptw32_srwl_free, ptw32_srwl_in_use */
+  BOOL            spin;
 };
 
 /*
@@ -529,10 +529,10 @@ struct ptw32_srwl_node_t_
  */
 struct ptw32_srwl_local_t_
 {
-  ptw32_srwl_node_t*	rNodePtr;
-  ptw32_srwl_node_t*	wNodePtr;
-  ptw32_srwl_node_t*	departFromPtr;
-  ptw32_oll_ticket_t	ticket;
+  ptw32_srwl_node_t*    rNodePtr;
+  ptw32_srwl_node_t*    wNodePtr;
+  ptw32_srwl_node_t*    departFromPtr;
+  ptw32_oll_ticket_t    ticket;
 };
 
 /* Allocates a new reader node. */

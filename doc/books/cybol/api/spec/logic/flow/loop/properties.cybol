@@ -5,8 +5,8 @@
         <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="format" channel="inline" format="text/plain" model="path/* | logicvalue/boolean"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
-    </node>		
-	<node name="model" channel="inline" format="text/plain" model="">
+    </node>        
+    <node name="model" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="model"/>
         <node name="description" channel="inline" format="text/plain" model="the logic knowledge model to be executed repeatedly by the loop"/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>

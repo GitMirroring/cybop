@@ -74,7 +74,7 @@
 #include "test.h"
 
 enum {
-	NUMTHREADS = 1
+    NUMTHREADS = 1
 };
 
 static int washere = 0;

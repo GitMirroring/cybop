@@ -60,9 +60,9 @@ ptw32_new (void)
       tp = (ptw32_thread_t *) calloc (1, sizeof(ptw32_thread_t));
 
       if (tp == NULL)
-	{
-	  return nil;
-	}
+    {
+      return nil;
+    }
 
       /* ptHandle.p needs to point to it's parent ptw32_thread_t. */
       t.p = tp->ptHandle.p = tp;
@@ -79,9 +79,9 @@ ptw32_new (void)
   tp->threadLock = 0;
   tp->robustMxListLock = 0;
   tp->robustMxList = NULL;
-  tp->cancelEvent = CreateEvent (0, (int) PTW32_TRUE,	/* manualReset  */
-				 (int) PTW32_FALSE,	/* setSignaled  */
-				 NULL);
+  tp->cancelEvent = CreateEvent (0, (int) PTW32_TRUE,    /* manualReset  */
+                 (int) PTW32_FALSE,    /* setSignaled  */
+                 NULL);
 
   if (tp->cancelEvent == NULL)
     {

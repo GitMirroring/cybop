@@ -34,8 +34,8 @@
  * --------------------------------------------------------------------------
  *
  * Depends on API functions:
- *	pthread_create()
- *	pthread_exit()
+ *    pthread_create()
+ *    pthread_exit()
  */
 
 #include "test.h"
@@ -43,12 +43,12 @@
 void *
 func(void * arg)
 {
-	pthread_exit(arg);
+    pthread_exit(arg);
 
-	/* Never reached. */
-	assert(0);
+    /* Never reached. */
+    assert(0);
 
-	return NULL;
+    return NULL;
 }
 
 int

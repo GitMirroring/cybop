@@ -1,17 +1,17 @@
 From becker@informatik.uni-hamburg.de Tue Sep 30 22:53:17 2003
 Return-Path: <becker@informatik.uni-hamburg.de>
 Received: from virusgate.rz.tu-ilmenau.de (virusgate.rz.tu-ilmenau.de [141.24.4.19])
-	by ernie.rz.tu-ilmenau.de (8.12.10/8.12.10) with ESMTP id h8UKkZve022389
-	for hidden; Tue, 30 Sep 2003 22:46:35 +0200 (MET DST)
+    by ernie.rz.tu-ilmenau.de (8.12.10/8.12.10) with ESMTP id h8UKkZve022389
+    for hidden; Tue, 30 Sep 2003 22:46:35 +0200 (MET DST)
 Received: from piggy.rz.tu-ilmenau.de (localhost [127.0.0.1])
-	by virusgate.rz.tu-ilmenau.de (8.12.10/8.12.10) with ESMTP id h8UKk3js008398
-	for <christian.heller@tu-ilmenau.de>; Tue, 30 Sep 2003 22:46:03 +0200 (MEST)
+    by virusgate.rz.tu-ilmenau.de (8.12.10/8.12.10) with ESMTP id h8UKk3js008398
+    for <christian.heller@tu-ilmenau.de>; Tue, 30 Sep 2003 22:46:03 +0200 (MEST)
 Received: from natsmtp01.webmailer.de (natsmtp01.webmailer.de [192.67.198.81])
-	by piggy.rz.tu-ilmenau.de (8.12.10/8.12.10) with ESMTP id h8UKk2BL000020
-	for <christian.heller@tu-ilmenau.de>; Tue, 30 Sep 2003 22:46:03 +0200 (MET DST)
+    by piggy.rz.tu-ilmenau.de (8.12.10/8.12.10) with ESMTP id h8UKk2BL000020
+    for <christian.heller@tu-ilmenau.de>; Tue, 30 Sep 2003 22:46:03 +0200 (MET DST)
 Received: from informatik.uni-hamburg.de (p3EE2D6C9.dip.t-dialin.net [62.226.214.201])
-	by post.webmailer.de (8.12.10/8.12.10) with ESMTP id h8UKjqoR004478;
-	Tue, 30 Sep 2003 22:46:02 +0200 (MEST)
+    by post.webmailer.de (8.12.10/8.12.10) with ESMTP id h8UKjqoR004478;
+    Tue, 30 Sep 2003 22:46:02 +0200 (MEST)
 Message-ID: <3F79ED3D.8050805@informatik.uni-hamburg.de>
 Date: Tue, 30 Sep 2003 22:53:17 +0200
 From: Petra Becker-Pechau <becker@informatik.uni-hamburg.de>

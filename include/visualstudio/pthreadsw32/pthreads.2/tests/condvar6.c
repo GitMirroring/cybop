@@ -220,9 +220,9 @@ main()
       failed = !threadbag[i].started;
 
       if (failed)
-	{
-	  fprintf(stderr, "Thread %d: started %d\n", i, threadbag[i].started);
-	}
+    {
+      fprintf(stderr, "Thread %d: started %d\n", i, threadbag[i].started);
+    }
     }
 
   assert(!failed);

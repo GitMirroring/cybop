@@ -58,9 +58,9 @@ pthread_mutex_trylock (pthread_mutex_t * mutex)
   if (*mutex >= PTHREAD_ERRORCHECK_MUTEX_INITIALIZER)
     {
       if ((result = ptw32_mutex_check_need_init (mutex)) != 0)
-	{
-	  return (result);
-	}
+    {
+      return (result);
+    }
     }
 
   mx = *mutex;
@@ -70,27 +70,27 @@ pthread_mutex_trylock (pthread_mutex_t * mutex)
     {
       /* Non-robust */
       if (0 == (PTW32_INTERLOCKED_LONG) PTW32_INTERLOCKED_COMPARE_EXCHANGE_LONG (
-		         (PTW32_INTERLOCKED_LONGPTR) &mx->lock_idx,
-		         (PTW32_INTERLOCKED_LONG) 1,
-		         (PTW32_INTERLOCKED_LONG) 0))
+                 (PTW32_INTERLOCKED_LONGPTR) &mx->lock_idx,
+                 (PTW32_INTERLOCKED_LONG) 1,
+                 (PTW32_INTERLOCKED_LONG) 0))
         {
           if (kind != PTHREAD_MUTEX_NORMAL)
-	    {
-	      mx->recursive_count = 1;
-	      mx->ownerThread = pthread_self ();
-	    }
+        {
+          mx->recursive_count = 1;
+          mx->ownerThread = pthread_self ();
+        }
         }
       else
         {
           if (kind == PTHREAD_MUTEX_RECURSIVE &&
-	      pthread_equal (mx->ownerThread, pthread_self ()))
-	    {
-	      mx->recursive_count++;
-	    }
+          pthread_equal (mx->ownerThread, pthread_self ()))
+        {
+          mx->recursive_count++;
+        }
           else
-	    {
-	      result = EBUSY;
-	    }
+        {
+          result = EBUSY;
+        }
         }
     }
   else
@@ -115,9 +115,9 @@ pthread_mutex_trylock (pthread_mutex_t * mutex)
       kind = -kind - 1; /* Convert to non-robust range */
 
       if (0 == (PTW32_INTERLOCKED_LONG) PTW32_INTERLOCKED_COMPARE_EXCHANGE_LONG (
-        	         (PTW32_INTERLOCKED_LONGPTR) &mx->lock_idx,
-        	         (PTW32_INTERLOCKED_LONG) 1,
-        	         (PTW32_INTERLOCKED_LONG) 0))
+                     (PTW32_INTERLOCKED_LONGPTR) &mx->lock_idx,
+                     (PTW32_INTERLOCKED_LONG) 1,
+                     (PTW32_INTERLOCKED_LONG) 0))
         {
           if (kind != PTHREAD_MUTEX_NORMAL)
             {
@@ -143,10 +143,10 @@ pthread_mutex_trylock (pthread_mutex_t * mutex)
                 {
                   if (0 == result)
                     { 
-	              result = EBUSY;
+                  result = EBUSY;
                     }
                 }
-	    }
+        }
         }
     }
 

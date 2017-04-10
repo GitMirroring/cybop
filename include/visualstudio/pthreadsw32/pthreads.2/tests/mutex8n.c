@@ -29,16 +29,16 @@
  * Timed thread should timeout.
  *
  * Depends on API functions:
- *	pthread_create()
- *	pthread_mutexattr_init()
- *	pthread_mutexattr_destroy()
- *	pthread_mutexattr_settype()
- *	pthread_mutexattr_gettype()
- *	pthread_mutex_init()
- *	pthread_mutex_destroy()
- *	pthread_mutex_lock()
- *	pthread_mutex_timedlock()
- *	pthread_mutex_unlock()
+ *    pthread_create()
+ *    pthread_mutexattr_init()
+ *    pthread_mutexattr_destroy()
+ *    pthread_mutexattr_settype()
+ *    pthread_mutexattr_gettype()
+ *    pthread_mutex_init()
+ *    pthread_mutex_destroy()
+ *    pthread_mutex_lock()
+ *    pthread_mutex_timedlock()
+ *    pthread_mutex_unlock()
  */
 
 #include "test.h"

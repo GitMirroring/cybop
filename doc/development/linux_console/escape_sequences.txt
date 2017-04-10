@@ -12,8 +12,8 @@ return 0;
 
 
 
-Steuerzeichen: 		Bedeutung
-\a	 		BEL (bell) - akkustisches
+Steuerzeichen:         Bedeutung
+\a             BEL (bell) - akkustisches
 Warnsignal
 \b
 BS (backspace) - setzt
@@ -47,23 +47,23 @@ VT (vertical tab) - Cursor
 springt zur nächsten
 vertikalen Tabulatorposition
 
-\"			" wird ausgegeben
+\"            " wird ausgegeben
 
-\' 			' wird ausgegeben
+\'             ' wird ausgegeben
 
-\? 			? wird ausgegeben
+\?             ? wird ausgegeben
 
-\\			\ wird ausgegeben
+\\            \ wird ausgegeben
 
 \0
 NULL (ist die
 Endmarkierung eines
 Strings)
 
-\nnn 			Ausgabe eines Oktalwerts (z.
+\nnn             Ausgabe eines Oktalwerts (z.
 B. \033 = ESCAPE-Zeichen)
 
-\xhh 			Ausgabe eines
+\xhh             Ausgabe eines
 Hexdezimalwerts
 
 Farbe&:

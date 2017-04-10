@@ -146,22 +146,22 @@ old_mutex_init(old_mutex_t *mutex, const old_mutexattr_t *attr)
           }
 
       if (old_mutex_use == OLD_WIN32CS)
-	{
-	  InitializeCriticalSection(&mx->cs);
-	}
+    {
+      InitializeCriticalSection(&mx->cs);
+    }
       else if (old_mutex_use == OLD_WIN32MUTEX)
       {
-	  mx->mutex = CreateMutex (NULL,
-				   FALSE,
-				   NULL);
+      mx->mutex = CreateMutex (NULL,
+                   FALSE,
+                   NULL);
 
-	  if (mx->mutex == 0)
-	    {
-	      result = EAGAIN;
-	    }
-	}
+      if (mx->mutex == 0)
+        {
+          result = EAGAIN;
+        }
+    }
       else
-	{
+    {
         result = EINVAL;
       }
     }
@@ -203,16 +203,16 @@ old_mutex_lock(old_mutex_t *mutex)
   if (result == 0)
     {
       if (mx->mutex == 0)
-	{
-	  EnterCriticalSection(&mx->cs);
-	}
+    {
+      EnterCriticalSection(&mx->cs);
+    }
       else
-	{
-	  result = (WaitForSingleObject(mx->mutex, INFINITE) 
-		    == WAIT_OBJECT_0)
-	    ? 0
-	    : EINVAL;
-	}
+    {
+      result = (WaitForSingleObject(mx->mutex, INFINITE) 
+            == WAIT_OBJECT_0)
+        ? 0
+        : EINVAL;
+    }
     }
 
   return(result);
@@ -234,13 +234,13 @@ old_mutex_unlock(old_mutex_t *mutex)
   if (mx != (old_mutex_t) PTW32_OBJECT_AUTO_INIT)
     {
       if (mx->mutex == 0)
-	{
-	  LeaveCriticalSection(&mx->cs);
-	}
+    {
+      LeaveCriticalSection(&mx->cs);
+    }
       else
-	{
-	  result = (ReleaseMutex (mx->mutex) ? 0 : EINVAL);
-	}
+    {
+      result = (ReleaseMutex (mx->mutex) ? 0 : EINVAL);
+    }
     }
   else
     {
@@ -275,29 +275,29 @@ old_mutex_trylock(old_mutex_t *mutex)
   if (result == 0)
     {
       if (mx->mutex == 0)
-	{
-	  if (ptw32_try_enter_critical_section == NULL)
+    {
+      if (ptw32_try_enter_critical_section == NULL)
           {
             result = 0;
           }
         else if ((*ptw32_try_enter_critical_section)(&mx->cs) != TRUE)
-	    {
-	      result = EBUSY;
-	    }
-	}
+        {
+          result = EBUSY;
+        }
+    }
       else
-	{
-	  DWORD status;
+    {
+      DWORD status;
 
-	  status = WaitForSingleObject (mx->mutex, 0);
+      status = WaitForSingleObject (mx->mutex, 0);
 
-	  if (status != WAIT_OBJECT_0)
-	    {
-	      result = ((status == WAIT_TIMEOUT)
-			? EBUSY
-			: EINVAL);
-	    }
-	}
+      if (status != WAIT_OBJECT_0)
+        {
+          result = ((status == WAIT_TIMEOUT)
+            ? EBUSY
+            : EINVAL);
+        }
+    }
     }
 
   return(result);

@@ -72,13 +72,13 @@ ptw32_cancelable_wait (HANDLE waitHandle, DWORD timeout)
        * Get cancelEvent handle
        */
       if (sp->cancelState == PTHREAD_CANCEL_ENABLE)
-	{
+    {
 
-	  if ((handles[1] = sp->cancelEvent) != NULL)
-	    {
-	      nHandles++;
-	    }
-	}
+      if ((handles[1] = sp->cancelEvent) != NULL)
+        {
+          nHandles++;
+        }
+    }
     }
   else
     {
@@ -109,24 +109,24 @@ ptw32_cancelable_wait (HANDLE waitHandle, DWORD timeout)
       ResetEvent (handles[1]);
 
       if (sp != NULL)
-	{
+    {
           ptw32_mcs_local_node_t stateLock;
-	  /*
-	   * Should handle POSIX and implicit POSIX threads..
-	   * Make sure we haven't been async-canceled in the meantime.
-	   */
-	  ptw32_mcs_lock_acquire (&sp->stateLock, &stateLock);
-	  if (sp->state < PThreadStateCanceling)
-	    {
-	      sp->state = PThreadStateCanceling;
-	      sp->cancelState = PTHREAD_CANCEL_DISABLE;
-	      ptw32_mcs_lock_release (&stateLock);
-	      ptw32_throw (PTW32_EPS_CANCEL);
+      /*
+       * Should handle POSIX and implicit POSIX threads..
+       * Make sure we haven't been async-canceled in the meantime.
+       */
+      ptw32_mcs_lock_acquire (&sp->stateLock, &stateLock);
+      if (sp->state < PThreadStateCanceling)
+        {
+          sp->state = PThreadStateCanceling;
+          sp->cancelState = PTHREAD_CANCEL_DISABLE;
+          ptw32_mcs_lock_release (&stateLock);
+          ptw32_throw (PTW32_EPS_CANCEL);
 
-	      /* Never reached */
-	    }
-	  ptw32_mcs_lock_release (&stateLock);
-	}
+          /* Never reached */
+        }
+      ptw32_mcs_lock_release (&stateLock);
+    }
 
       /* Should never get to here. */
       result = EINVAL;
@@ -134,19 +134,19 @@ ptw32_cancelable_wait (HANDLE waitHandle, DWORD timeout)
 
     default:
       if (status == WAIT_TIMEOUT)
-	{
-	  result = ETIMEDOUT;
-	}
+    {
+      result = ETIMEDOUT;
+    }
       else
-	{
-	  result = EINVAL;
-	}
+    {
+      result = EINVAL;
+    }
       break;
     }
 
   return (result);
 
-}				/* CancelableWait */
+}                /* CancelableWait */
 
 int
 pthreadCancelableWait (HANDLE waitHandle)

@@ -39,9 +39,9 @@
  * This is the simplest test of the pthread mutex family that we can do.
  *
  * Depends on API functions:
- *	pthread_mutexattr_settype()
- * 	pthread_mutex_init()
- *	pthread_mutex_destroy()
+ *    pthread_mutexattr_settype()
+ *     pthread_mutex_init()
+ *    pthread_mutex_destroy()
  */
 
 #include "test.h"

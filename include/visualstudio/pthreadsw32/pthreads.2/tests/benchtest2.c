@@ -167,7 +167,7 @@ runTest (char * testNameString, int mType)
   assert(pthread_mutex_destroy(&gate1) == 0);
   durationMilliSecs = GetDurationMilliSecs(currSysTimeStart, currSysTimeStop) - overHeadMilliSecs;
   printf( "%-45s %15ld %15.3f\n",
-	    testNameString,
+        testNameString,
           durationMilliSecs,
           (float) durationMilliSecs * 1E3 / ITERATIONS / 4   /* Four locks/unlocks per iteration */);
 }
@@ -183,9 +183,9 @@ main (int argc, char *argv[])
   printf("%ld iterations, four locks/unlocks per iteration.\n\n", ITERATIONS);
 
   printf( "%-45s %15s %15s\n",
-	    "Test",
-	    "Total(msec)",
-	    "average(usec)");
+        "Test",
+        "Total(msec)",
+        "average(usec)");
   printf( "-----------------------------------------------------------------------------\n");
 
   /*
@@ -225,7 +225,7 @@ main (int argc, char *argv[])
   DeleteCriticalSection(&cs1);
   durationMilliSecs = GetDurationMilliSecs(currSysTimeStart, currSysTimeStop) - overHeadMilliSecs;
   printf( "%-45s %15ld %15.3f\n",
-	    "Simple Critical Section",
+        "Simple Critical Section",
           durationMilliSecs,
           (float) durationMilliSecs * 1E3 / ITERATIONS / 4 );
 
@@ -252,7 +252,7 @@ main (int argc, char *argv[])
   assert(old_mutex_destroy(&ox1) == 0);
   durationMilliSecs = GetDurationMilliSecs(currSysTimeStart, currSysTimeStop) - overHeadMilliSecs;
   printf( "%-45s %15ld %15.3f\n",
-	    "Old PT Mutex using a Critical Section (WNT)",
+        "Old PT Mutex using a Critical Section (WNT)",
           durationMilliSecs,
           (float) durationMilliSecs * 1E3 / ITERATIONS / 4);
 
@@ -279,7 +279,7 @@ main (int argc, char *argv[])
   assert(old_mutex_destroy(&ox1) == 0);
   durationMilliSecs = GetDurationMilliSecs(currSysTimeStart, currSysTimeStop) - overHeadMilliSecs;
   printf( "%-45s %15ld %15.3f\n",
-	    "Old PT Mutex using a Win32 Mutex (W9x)",
+        "Old PT Mutex using a Win32 Mutex (W9x)",
           durationMilliSecs,
           (float) durationMilliSecs * 1E3 / ITERATIONS / 4);
 

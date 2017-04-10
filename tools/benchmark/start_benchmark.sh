@@ -231,9 +231,9 @@ runTimes() {
   #   OUTPUT      #
   #---------------#
   printResultForViewer $readableTimePython $readableTimeJava \
-  		       $readableTimeCPlusPlus $readableTimeCybop \
-  		       $avgMemPython $avgMemJava \
-  		       $avgMemCPlusPlus $avgMemCybop
+                 $readableTimeCPlusPlus $readableTimeCybop \
+                 $avgMemPython $avgMemJava \
+                 $avgMemCPlusPlus $avgMemCybop
 
   printResult $readableTimePython $avgMemPython \
               $readableTimeJava $avgMemJava \

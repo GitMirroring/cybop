@@ -17,7 +17,7 @@ MainWndProc (HWND hwnd, UINT nMsg, WPARAM wParam, LPARAM lParam)
         RECT          rc;              /* ein rechteck für das zeichnen */
 
         
-	/* Entscheidung wie es weiter geht, in bezug auf erhaltenen messsages(ereignisse) */
+    /* Entscheidung wie es weiter geht, in bezug auf erhaltenen messsages(ereignisse) */
         switch (nMsg)
         {
                 case WM_CREATE:
@@ -71,7 +71,7 @@ MainWndProc (HWND hwnd, UINT nMsg, WPARAM wParam, LPARAM lParam)
                         break;
 
                 case WM_SIZE:
-                        /* fenstergröße verändert sich.wenn der button existiert,dann platziere 			 *ihn in der mitte des fenster */
+                        /* fenstergröße verändert sich.wenn der button existiert,dann platziere              *ihn in der mitte des fenster */
                         if (hwndButton &&
                                 (wParam == SIZEFULLSCREEN ||
                                  wParam == SIZENORMAL)
@@ -80,14 +80,14 @@ MainWndProc (HWND hwnd, UINT nMsg, WPARAM wParam, LPARAM lParam)
                                 rc.left = (LOWORD(lParam) - cx) / 2;
                                 rc.top = HIWORD(lParam) * 3 / 4 - cy / 2;
                                 MoveWindow (
-                                        	hwndButton,
-                                        	rc.left, rc.top, cx, cy, TRUE);
+                                            hwndButton,
+                                            rc.left, rc.top, cx, cy, TRUE);
                         }
                         break;
 
                 case WM_COMMAND:
                         /* überprüfen der control ID, notification code und
-                         * control handle zum überprüfen ob dies eine button click message für das 			 *child fenster ist*/
+                         * control handle zum überprüfen ob dies eine button click message für das              *child fenster ist*/
                         if (LOWORD(wParam) == 1 &&
                             HIWORD(wParam) == BN_CLICKED &&
                             (HWND) lParam == hwndButton)
@@ -99,7 +99,7 @@ MainWndProc (HWND hwnd, UINT nMsg, WPARAM wParam, LPARAM lParam)
                         break;
         }
 
-        /* sobald eine message nicht komplett behandelt wird, wird sie an das system 	 	 	 	 *übergeben für standart windows funktionen*/
+        /* sobald eine message nicht komplett behandelt wird, wird sie an das system                     *übergeben für standart windows funktionen*/
         return DefWindowProc (hwnd, nMsg, wParam, lParam);
 }
 
@@ -109,7 +109,7 @@ WinMain (HINSTANCE hInst, HINSTANCE hPrev, LPSTR lpCmd, int nShow)
 {
 
         /* als erstes erzeugen einer fensterklasse für das hauptfenster*/
-	HWND         hwndMain;        /* Handle für hauptfenster */
+    HWND         hwndMain;        /* Handle für hauptfenster */
         MSG          msg;             /* eine Win32 message striktur */
         WNDCLASSEX   wndclass;        /* eine fensterklassen struktur */
         char*        szMainWndClass = "WinTestWin";
@@ -130,9 +130,9 @@ WinMain (HINSTANCE hInst, HINSTANCE hPrev, LPSTR lpCmd, int nShow)
         /* alle fenster dieser klasse benutzen die MainWndProc fensterfunktion */
         wndclass.lpfnWndProc = MainWndProc;
 
-        wndclass.hInstance = hInst;		/*????*/
+        wndclass.hInstance = hInst;        /*????*/
 
-        /* benutze standart anwendung icons und cusors, die vom OS zu verfügung gestellt werden*/ 		wndclass.hIcon = LoadIcon (NULL, IDI_APPLICATION);
+        /* benutze standart anwendung icons und cusors, die vom OS zu verfügung gestellt werden*/         wndclass.hIcon = LoadIcon (NULL, IDI_APPLICATION);
         wndclass.hIconSm = LoadIcon (NULL, IDI_APPLICATION);
         wndclass.hCursor = LoadCursor (NULL, IDC_ARROW);
 
@@ -145,7 +145,7 @@ WinMain (HINSTANCE hInst, HINSTANCE hPrev, LPSTR lpCmd, int nShow)
         /* erzeugen des hauptfensters mit hilfe der fensterklasse */
         hwndMain = CreateWindow (
                 szMainWndClass,             /* Klassenname */
-                "Fuck Button", 	            /* Beschriftung */
+                "Fuck Button",                 /* Beschriftung */
                 WS_OVERLAPPEDWINDOW,        /* Style */
                 CW_USEDEFAULT,              /* Initial x (standard) */
                 CW_USEDEFAULT,              /* Initial y (standard) */
@@ -157,12 +157,12 @@ WinMain (HINSTANCE hInst, HINSTANCE hPrev, LPSTR lpCmd, int nShow)
                 NULL                        /* parameter */
                 );
         
-        /* Anzeigen des erzeugten fensters(mithilfe nShow, was erlaubt, das fenster minimiert zu 		 *starten usw  */
+        /* Anzeigen des erzeugten fensters(mithilfe nShow, was erlaubt, das fenster minimiert zu          *starten usw  */
         ShowWindow (hwndMain, nShow);
         UpdateWindow (hwndMain);
 
         /* Hauptschleife für nachrichten(ereignisse), alle werden mit GetMessage aufgenommen,
-	 * schleife endet mit dem schließen des fensters*/
+     * schleife endet mit dem schließen des fensters*/
         while (GetMessage (&msg, NULL, 0, 0))
         {
                 TranslateMessage (&msg);

@@ -1,13 +1,13 @@
 #!/bin/bash
 #
-# Copyright (C) 1999-2014. Christian Heller.
+# Copyright (C) 1999-2017. Christian Heller.
 #
 # This shell script runs the "presence" cybol application.
 #
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.16.0 2014-03-31
+# @version CYBOP 0.19.0 2017-04-10
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 

@@ -6,31 +6,31 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.19.0 2017-04-07
+# @version CYBOP 0.19.0 2017-04-10
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
 Source Code
 ___________
 
-Compile cyboi
-Test cybol applications
+Compile cyboi using "make cyboi"
+Test cybol applications, e.g. "../src/controller/cyboi counter/run.cybol"
 
 
 Administrative Data
 ___________________
 
-Adapt file "dist/prepare_release.sh"
-Execute file "dist/prepare_release.sh"
-Adapt directories, files, version in build/cmake/packaging.cmake
-Update and delete old todo/* files
+Adapt directories, files, version in file "build/cmake/packaging.cmake"
+Build project using "make" (automatically calls adjust copyright script)
+Update files in directory "todo/" and delete old ones
 Update ChangeLog
 Update AUTHORS reading ChangeLog entries
 Update NEWS subsumpting ChangeLog entries
 Commit SVN
 Tag SVN
-Pack
-Upload tarball file to sftp://USERNAME@download.savannah.gnu.org/releases/cybop
+Create tarball using "cpack"
+Create GPG binary signature for tarball file
+Upload tarball file to Savannah
 
 
 Website

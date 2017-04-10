@@ -121,7 +121,7 @@ test_udp (void *arg)
 
   bytes =
     recvfrom (UDPSocket, (char *) buffer, nbyte, 0,
-	      (struct sockaddr *) &clientAddress, &addr_len);
+          (struct sockaddr *) &clientAddress, &addr_len);
 
   closesocket (UDPSocket);
   WSACleanup ();
@@ -152,7 +152,7 @@ test_wait (void *arg)
 
   hEvent = CreateEvent (NULL, FALSE, FALSE, NULL);
 
-  dwEvent = WaitForSingleObject (hEvent, 1000);	/* WAIT_IO_COMPLETION */
+  dwEvent = WaitForSingleObject (hEvent, 1000);    /* WAIT_IO_COMPLETION */
 
   return NULL;
 }

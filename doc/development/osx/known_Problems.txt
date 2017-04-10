@@ -4,24 +4,24 @@ ____________
 - Hello World example works
 - ANSI Escape sequences works
 - The user input doesn't work
-	- It's not possible for the user to enter text
+    - It's not possible for the user to enter text
 
 GUI
 ___
 
 - Apple doesn't support the X11 library anymore
-	- An open source project existis to support X11 for mac (http://support.apple.com/kb/ht5293)
-	- In my opinion it should be better to use the native carbon or cocoa environment (https://developer.apple.com/library/mac/documentation/porting/conceptual/portingunix/environments/environments.html#//apple_ref/doc/uid/TP40002852-BBCIFCFH)
-	- Carbon doesn't support X64, deprecated since Oktober 2012
+    - An open source project existis to support X11 for mac (http://support.apple.com/kb/ht5293)
+    - In my opinion it should be better to use the native carbon or cocoa environment (https://developer.apple.com/library/mac/documentation/porting/conceptual/portingunix/environments/environments.html#//apple_ref/doc/uid/TP40002852-BBCIFCFH)
+    - Carbon doesn't support X64, deprecated since Oktober 2012
 - The following ways for a GUI are possible:
-		- use X11 library --> is needed to install on mac
-		- use Carbon --> deprecated
-		- use Cocoa -->
-			- its needed to wrap to C application with objective c code --> complex
+        - use X11 library --> is needed to install on mac
+        - use Carbon --> deprecated
+        - use Cocoa -->
+            - its needed to wrap to C application with objective c code --> complex
 
 
 Contact
 _______
-	
-Mail: markus@mhinkelmann.de	
-	
+    
+Mail: markus@mhinkelmann.de    
+    

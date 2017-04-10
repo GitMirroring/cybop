@@ -80,7 +80,7 @@ reportTest (char * testNameString)
   durationMilliSecs = GetDurationMilliSecs(currSysTimeStart, currSysTimeStop) - overHeadMilliSecs;
 
   printf( "%-45s %15ld %15.3f\n",
-	    testNameString,
+        testNameString,
           durationMilliSecs,
           (float) durationMilliSecs * 1E3 / ITERATIONS);
 }
@@ -93,9 +93,9 @@ main (int argc, char *argv[])
   printf( "\nOperations on a semaphore.\n%ld iterations\n\n",
           ITERATIONS);
   printf( "%-45s %15s %15s\n",
-	    "Test",
-	    "Total(msec)",
-	    "average(usec)");
+        "Test",
+        "Total(msec)",
+        "average(usec)");
   printf( "-----------------------------------------------------------------------------\n");
 
   /*

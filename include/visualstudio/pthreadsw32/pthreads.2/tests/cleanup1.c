@@ -188,10 +188,10 @@ main()
   for (i = 1; i <= NUMTHREADS; i++)
     {
       if (!threadbag[i].started)
-	{
-	  failed |= !threadbag[i].started;
-	  fprintf(stderr, "Thread %d: started %d\n", i, threadbag[i].started);
-	}
+    {
+      failed |= !threadbag[i].started;
+      fprintf(stderr, "Thread %d: started %d\n", i, threadbag[i].started);
+    }
     }
 
   assert(!failed);
@@ -210,12 +210,12 @@ main()
       fail = ((int)(size_t)result != (int) PTHREAD_CANCELED);
 
       if (fail)
-	{
-	  fprintf(stderr, "Thread %d: started %d: result %d\n",
-		  i,
-		  threadbag[i].started,
-		  (int)(size_t)result);
-	}
+    {
+      fprintf(stderr, "Thread %d: started %d: result %d\n",
+          i,
+          threadbag[i].started,
+          (int)(size_t)result);
+    }
       failed = (failed || fail);
     }
 

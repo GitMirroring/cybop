@@ -1,20 +1,20 @@
 From edoc-pc-chairs@dstc.edu.au Sat May 10 23:59:19 2003
 Return-Path: <www@obsolete.dstc.edu.au>
 Received: from virusgate.rz.tu-ilmenau.de (virusgate.rz.tu-ilmenau.de [141.24.4.19])
-	by ernie.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h4AM1P1t028861
-	for hidden; Sun, 11 May 2003 00:01:25 +0200 (MET DST)
+    by ernie.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h4AM1P1t028861
+    for hidden; Sun, 11 May 2003 00:01:25 +0200 (MET DST)
 Received: from piggy.rz.tu-ilmenau.de (localhost [127.0.0.1])
-	by virusgate.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h4AM0kxc005246
-	for hidden; Sun, 11 May 2003 00:00:48 +0200 (MEST)
+    by virusgate.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h4AM0kxc005246
+    for hidden; Sun, 11 May 2003 00:00:48 +0200 (MEST)
 Received: from piglet.dstc.edu.au (piglet.dstc.edu.au [130.102.176.1])
-	by piggy.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h4AM0i8j005117
-	for hidden; Sun, 11 May 2003 00:00:45 +0200 (MET DST)
+    by piggy.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h4AM0i8j005117
+    for hidden; Sun, 11 May 2003 00:00:45 +0200 (MET DST)
 Received: from obsolete.dstc.edu.au (www.dstc.edu.au [130.102.181.60])
-	by piglet.dstc.edu.au (8.12.9/8.12.8) with ESMTP id h4ALxOZV008790;
-	Sun, 11 May 2003 07:59:24 +1000 (EST)
+    by piglet.dstc.edu.au (8.12.9/8.12.8) with ESMTP id h4ALxOZV008790;
+    Sun, 11 May 2003 07:59:24 +1000 (EST)
 Received: (from www@localhost)
-	by obsolete.dstc.edu.au (8.9.3+Sun/8.8.8) id HAA18359;
-	Sun, 11 May 2003 07:59:19 +1000 (EST)
+    by obsolete.dstc.edu.au (8.9.3+Sun/8.8.8) id HAA18359;
+    Sun, 11 May 2003 07:59:19 +1000 (EST)
 Date: Sun, 11 May 2003 07:59:19 +1000 (EST)
 Message-Id: <200305102159.HAA18359@obsolete.dstc.edu.au>
 To: christian.heller@tu-ilmenau.de
@@ -66,10 +66,10 @@ Overall recommendation:              4
 **(0 = no mark set by reviewer)**
 
 Summary: 
- 			      
+                   
 
 Comments to the author: 
-	      
+          
 
 
 ---------------------------------------
@@ -86,10 +86,10 @@ Overall recommendation:              5
 **(0 = no mark set by reviewer)**
 
 Summary: 
- 			      This paper tries to propose a common abstract model for three situations currently found in software architecture: Backend, DataTransfer and FrontEnd.
+                   This paper tries to propose a common abstract model for three situations currently found in software architecture: Backend, DataTransfer and FrontEnd.
 
 Comments to the author: 
-	      impossible to read data from Figure 5.
+          impossible to read data from Figure 5.
 Figure 6 is not better.
 Difficult to completely evaluate the paper in these conditions.
 
@@ -120,10 +120,10 @@ Overall recommendation:              0
 **(0 = no mark set by reviewer)**
 
 Summary: 
- 			      
+                   
 
 Comments to the author: 
-	      
+          
 
 
 ---------------------------------------
@@ -140,12 +140,12 @@ Overall recommendation:              3
 **(0 = no mark set by reviewer)**
 
 Summary: 
- 			      The paper describes a software framework and its application 
+                   The paper describes a software framework and its application 
 in an open source software project. The framework provides support
 on persistence and communication pattern mappings. 
 
 Comments to the author: 
-	      - remove references from the abstract
+          - remove references from the abstract
 - well done, in terms of applying existing knowledge
 
 

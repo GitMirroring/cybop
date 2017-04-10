@@ -111,14 +111,14 @@ getValidPriorities(void * arg)
        prioSet <= maxPrio;
        prioSet++)
     {
-	/*
+    /*
        * If prioSet is invalid then the threads priority is unchanged
        * from the previous value. Make the previous value a known
        * one so that we can check later.
        */
         param.sched_priority = prioSet;
-	assert(pthread_setschedparam(thread, SCHED_OTHER, &param) == 0);
-	validPriorities[prioSet+(PTW32TEST_MAXPRIORITIES/2)] = GetThreadPriority(threadH);
+    assert(pthread_setschedparam(thread, SCHED_OTHER, &param) == 0);
+    validPriorities[prioSet+(PTW32TEST_MAXPRIORITIES/2)] = GetThreadPriority(threadH);
     }
 
   return (void *) 0;
@@ -160,7 +160,7 @@ main()
       result2 = pthread_barrier_wait(&endBarrier);
       assert(result2 == 0 || result2 == PTHREAD_BARRIER_SERIAL_THREAD);
       assert(GetThreadPriority(pthread_getw32threadhandle_np(t)) ==
-	  validPriorities[param.sched_priority+(PTW32TEST_MAXPRIORITIES/2)]);
+      validPriorities[param.sched_priority+(PTW32TEST_MAXPRIORITIES/2)]);
       pthread_join(t, &result);
       assert(param.sched_priority == (int)(size_t)result);
     }

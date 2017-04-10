@@ -1,18 +1,18 @@
 From psi03@iis.nsk.su Thu May 15 08:33:12 2003
 Return-Path: <psi03@iis.nsk.su>
 Received: from virusgate.rz.tu-ilmenau.de (virusgate.rz.tu-ilmenau.de [141.24.4.19])
-	by ernie.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h4F6ahQe012288
-	for hidden; Thu, 15 May 2003 08:36:44 +0200 (MET DST)
+    by ernie.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h4F6ahQe012288
+    for hidden; Thu, 15 May 2003 08:36:44 +0200 (MET DST)
 Received: from piggy.rz.tu-ilmenau.de (localhost [127.0.0.1])
-	by virusgate.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h4F6a4oq028939
-	for hidden; Thu, 15 May 2003 08:36:05 +0200 (MEST)
+    by virusgate.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h4F6a4oq028939
+    for hidden; Thu, 15 May 2003 08:36:05 +0200 (MEST)
 Received: from mx.iis.nsk.su (mx.iis.nsk.su [194.226.177.121])
-	by piggy.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h4F6a18j003877
-	for hidden; Thu, 15 May 2003 08:36:03 +0200 (MET DST)
+    by piggy.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h4F6a18j003877
+    for hidden; Thu, 15 May 2003 08:36:03 +0200 (MET DST)
 Received: from shera (onti.iis.nsk.su [194.226.177.131])
-	by mx.iis.nsk.su (8.12.8/8.12.8) with ESMTP id h4F6Zj1q030436
-	for <christian.heller@tu-ilmenau.de>; Thu, 15 May 2003 13:35:46 +0700 (NOVST)
-	(envelope-from psi03@iis.nsk.su)
+    by mx.iis.nsk.su (8.12.8/8.12.8) with ESMTP id h4F6Zj1q030436
+    for <christian.heller@tu-ilmenau.de>; Thu, 15 May 2003 13:35:46 +0700 (NOVST)
+    (envelope-from psi03@iis.nsk.su)
 From: psi03@iis.nsk.su
 To: christian.heller@tu-ilmenau.de
 Date: Thu, 15 May 2003 13:33:12 +0700

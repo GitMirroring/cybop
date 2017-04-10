@@ -102,4 +102,4 @@ pthread_kill (pthread_t thread, int sig)
 
   return result;
 
-}				/* pthread_kill */
+}                /* pthread_kill */

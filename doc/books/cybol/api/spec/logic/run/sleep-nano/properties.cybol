@@ -1,5 +1,5 @@
 <node>
-	<node name="channel" channel="inline" format="text/plain" model="">
+    <node name="channel" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="duration"/>
         <node name="description" channel="inline" format="text/plain" model="The amount of nanoseconds to sleep"/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>

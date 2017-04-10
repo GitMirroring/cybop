@@ -109,11 +109,11 @@ pthread_mutexattr_setrobust (pthread_mutexattr_t * attr, int robust)
         {
           case PTHREAD_MUTEX_STALLED:
           case PTHREAD_MUTEX_ROBUST:
-	    (*attr)->robustness = robust;
+        (*attr)->robustness = robust;
             result = 0;
             break;
         }
     }
 
   return (result);
-}				/* pthread_mutexattr_setrobust */
+}                /* pthread_mutexattr_setrobust */

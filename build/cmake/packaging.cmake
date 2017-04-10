@@ -1,7 +1,7 @@
 #
 # The project-specific variables.
 #
-set(CPACK_PACKAGE_NAME "CYBOP")
+set(CPACK_PACKAGE_NAME "cybop")
 set(CPACK_PACKAGE_CONTACT "christian.heller@tuxtax.de")
 set(CPACK_PACKAGE_DESCRIPTION_FILE "${ROOT_DIR}/README")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>")
@@ -24,7 +24,12 @@ SET(CPACK_PACKAGE_VERSION "${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSIO
 #
 
 # The cyboi component.
+INSTALL(DIRECTORY ${ROOT_DIR}/build/cmake/ DESTINATION build/cmake)
+INSTALL(DIRECTORY ${ROOT_DIR}/build/doxygen/ DESTINATION build/doxygen)
+INSTALL(DIRECTORY ${ROOT_DIR}/build/icon/ DESTINATION build/icon)
 INSTALL(FILES ${ROOT_DIR}/build/manpage/cyboi.1.gz DESTINATION build/manpage)
+INSTALL(FILES ${ROOT_DIR}/build/.clang-format DESTINATION build)
+INSTALL(FILES ${ROOT_DIR}/build/CMakeLists.txt DESTINATION build)
 INSTALL(DIRECTORY ${ROOT_DIR}/src/ DESTINATION src)
 
 # The cybol component.

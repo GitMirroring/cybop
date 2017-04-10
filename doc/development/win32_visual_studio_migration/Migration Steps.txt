@@ -3,20 +3,20 @@
 2. 
 c:\Users\M\Documents\Cybop.trunc\src\executor\commander\basic\change_permission_commander.c
 
-	//TODO: if file available remove ifndef WIN32 in related source code statement below
+    //TODO: if file available remove ifndef WIN32 in related source code statement below
     
-	//#include "../../../constant/name/command_option/win32/change_permission_win32_command_option_name.c"
+    //#include "../../../constant/name/command_option/win32/change_permission_win32_command_option_name.c"
 
 
 76 Fehler
 3.
 c:\Users\M\Documents\Cybop.trunc\src\executor\communicator\receiver\serial_port\character_serial_port_receiver.c
-Fehler	35	error C2065: 'ssize_t': nichtdeklarierter Bezeichner	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\serial_port\character_serial_port_receiver.c	149	1	cybop
+Fehler    35    error C2065: 'ssize_t': nichtdeklarierter Bezeichner    c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\serial_port\character_serial_port_receiver.c    149    1    cybop
 in cyboi_win_mapper deklariert und eingebunden
 
 4.
 c:\Users\M\Documents\Cybop.trunc\src\executor\communicator\receiver\serial_port\character_serial_port_receiver.c
-Fehler	35	error C4013: 'read' undefiniert; Annahme: extern mit Rückgabetyp int	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\serial_port\character_serial_port_receiver.c	158	1	cybop
+Fehler    35    error C4013: 'read' undefiniert; Annahme: extern mit Rückgabetyp int    c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\serial_port\character_serial_port_receiver.c    158    1    cybop
 
 #ifdef _MSC_VER 
 #include <io.h>
@@ -29,12 +29,12 @@ http://msdn.microsoft.com/en-us/library/b0084kay.aspx)
 
 5.
 c:\Users\M\Documents\Cybop.trunc\src\tester\communicator_tester.c
-Fehler	67	error C1083: Datei (Include) kann nicht geöffnet werden: "dirent.h": No such file or directory	c:\users\m\documents\cybop.trunc\src\tester\communicator_tester.c	49	1	cybop
+Fehler    67    error C1083: Datei (Include) kann nicht geöffnet werden: "dirent.h": No such file or directory    c:\users\m\documents\cybop.trunc\src\tester\communicator_tester.c    49    1    cybop
 #include <dirent.h> in #ifndef _MSC_VER verschoben
 
 104 Fehler, 7 Warnungen
 6.
-Fehler	38	error C2371: 'serialise_win32_console_character': Neudefinition; unterschiedliche Basistypen	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\win32_console\character_win32_console_serialiser.c	70	1	cybop
+Fehler    38    error C2371: 'serialise_win32_console_character': Neudefinition; unterschiedliche Basistypen    c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\win32_console\character_win32_console_serialiser.c    70    1    cybop
 in c:\Users\M\Documents\Cybop.trunc\src\executor\representer\serialiser\tui\newline_tui_serialiser.c
 #ifdef _MSC_VER
 #include "../../../../executor/representer/serialiser/win32_console/character_win32_console_serialiser.c"
@@ -42,7 +42,7 @@ in c:\Users\M\Documents\Cybop.trunc\src\executor\representer\serialiser\tui\newl
 
 eingefügt
 
-7. Fehler	2	error C2308: Nicht übereinstimmende Zeichenfolgen werden verkettet.	c:\users\m\documents\cybop.trunc\src\constant\model\cyboi\identification\identification_cyboi_model.c	51	1	cybop
+7. Fehler    2    error C2308: Nicht übereinstimmende Zeichenfolgen werden verkettet.    c:\users\m\documents\cybop.trunc\src\constant\model\cyboi\identification\identification_cyboi_model.c    51    1    cybop
 Kommentar MS:
 Verkettung von nicht übereinstimmenden Zeichenfolgen
 Sowohl breite als auch nicht breite Zeichenfolgen wurden für die Verkettung angegeben. Es ist nicht möglich, breite Zeichenfolgen mit nicht breiten Zeichenfolgen zu verketten.
@@ -58,30 +58,30 @@ static wchar_t* LICENCE_IDENTIFICATION_CYBOI_MODEL = L"CYBOI comes with NO WARRA
 99 Fehler 7 Warnungen
 
 8.
-Fehler	2	error C2308: Nicht übereinstimmende Zeichenfolgen werden verkettet.	c:\users\m\documents\cybop.trunc\src\constant\model\cyboi\identification\identification_cyboi_model.c	60	1	cybop
+Fehler    2    error C2308: Nicht übereinstimmende Zeichenfolgen werden verkettet.    c:\users\m\documents\cybop.trunc\src\constant\model\cyboi\identification\identification_cyboi_model.c    60    1    cybop
 
 84 Fehler
 
 9.
-Fehler	17	error C2065: 'ALL_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME_COUNT': nichtdeklarierter Bezeichner	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\list_contents_commander.c	148	1	cybop
+Fehler    17    error C2065: 'ALL_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME_COUNT': nichtdeklarierter Bezeichner    c:\users\m\documents\cybop.trunc\src\executor\commander\basic\list_contents_commander.c    148    1    cybop
 geändert in ALL_LIST_DIRECTORY_CONTENTS_WIN32_COMMAND_OPTION_NAME in #ifdef
 
 
 81 Fehler
 
 10. 
-Fehler	17	error C2065: 'LONG_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME_COUNT': nichtdeklarierter Bezeichner	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\list_contents_commander.c	164	1	cybop
+Fehler    17    error C2065: 'LONG_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME_COUNT': nichtdeklarierter Bezeichner    c:\users\m\documents\cybop.trunc\src\executor\commander\basic\list_contents_commander.c    164    1    cybop
 -> LONG_LIST_DIRECTORY_CONTENTS_WIN32_COMMAND_OPTION_NAME_COUNT
 
 80 Fehler
 
 11.
-Fehler	17	error C2065: 'ONE_ROW_PER_ENTRY_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME': nichtdeklarierter Bezeichner	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\list_contents_commander.c	187	1	cybop
-Fehler	19	error C2065: 'RECURSIVE_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME': nichtdeklarierter Bezeichner	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\list_contents_commander.c	199	1	cybop
-Fehler	21	error C2065: 'SORT_BY_FILE_SIZE_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME': nichtdeklarierter Bezeichner	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\list_contents_commander.c	211	1	cybop
-Fehler	23	error C2065: 'SORT_BY_MODIFICATION_TIME_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME': nichtdeklarierter Bezeichner	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\list_contents_commander.c	223	1	cybop
-Fehler	25	error C2065: 'SORT_BY_FILE_EXTENSION_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME': nichtdeklarierter Bezeichner	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\list_contents_commander.c	235	1	cybop
-Fehler	27	error C2065: 'ALMOST_ALL_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME': nichtdeklarierter Bezeichner	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\list_contents_commander.c	247	1	cybop
+Fehler    17    error C2065: 'ONE_ROW_PER_ENTRY_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME': nichtdeklarierter Bezeichner    c:\users\m\documents\cybop.trunc\src\executor\commander\basic\list_contents_commander.c    187    1    cybop
+Fehler    19    error C2065: 'RECURSIVE_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME': nichtdeklarierter Bezeichner    c:\users\m\documents\cybop.trunc\src\executor\commander\basic\list_contents_commander.c    199    1    cybop
+Fehler    21    error C2065: 'SORT_BY_FILE_SIZE_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME': nichtdeklarierter Bezeichner    c:\users\m\documents\cybop.trunc\src\executor\commander\basic\list_contents_commander.c    211    1    cybop
+Fehler    23    error C2065: 'SORT_BY_MODIFICATION_TIME_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME': nichtdeklarierter Bezeichner    c:\users\m\documents\cybop.trunc\src\executor\commander\basic\list_contents_commander.c    223    1    cybop
+Fehler    25    error C2065: 'SORT_BY_FILE_EXTENSION_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME': nichtdeklarierter Bezeichner    c:\users\m\documents\cybop.trunc\src\executor\commander\basic\list_contents_commander.c    235    1    cybop
+Fehler    27    error C2065: 'ALMOST_ALL_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME': nichtdeklarierter Bezeichner    c:\users\m\documents\cybop.trunc\src\executor\commander\basic\list_contents_commander.c    247    1    cybop
 
 ONE_ROW_PER_ENTRY_LIST_DIRECTORY_CONTENTS_WIN32_COMMAND_OPTION_NAME_COUNT in #ifdef
 RECURSIVE_LIST_DIRECTORY_CONTENTS_WIN32_COMMAND_OPTION_NAME
@@ -91,12 +91,12 @@ SORT_BY_FILE_EXTENSION_LIST_DIRECTORY_CONTENTS_WIN32_COMMAND_OPTION_NAME
 
 70 Fehler
 12.
-ifndef WIN32 für Block von 		append_item_element(arg, (void*) ALMOST_ALL_LIST_DIRECTORY_CONTENTS_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ALMOST_ALL_LIST_DIRECTORY_CONTENTS_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+ifndef WIN32 für Block von         append_item_element(arg, (void*) ALMOST_ALL_LIST_DIRECTORY_CONTENTS_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ALMOST_ALL_LIST_DIRECTORY_CONTENTS_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 da ALMOST_ALL_LIST_DIRECTORY_CONTENTS_WIN32_COMMAND_OPTION_NAME in WIN32 nicht verfügbar
 
 68 Fehler
 13.
-Fehler	27	error C2065: 'S_IRUSR': nichtdeklarierter Bezeichner	c:\users\m\documents\cybop.trunc\src\controller\optionaliser\log_file_optionaliser.c	92	1	cybop
+Fehler    27    error C2065: 'S_IRUSR': nichtdeklarierter Bezeichner    c:\users\m\documents\cybop.trunc\src\controller\optionaliser\log_file_optionaliser.c    92    1    cybop
 -> verschoben in             #ifdef WIN32
  else Block
 Siehe :
@@ -108,7 +108,7 @@ http://stackoverflow.com/questions/592448/c-how-to-set-file-permissions-cross-pl
 66 Fehler
 
 14.
-Fehler	30	error C2065: 'M_E': nichtdeklarierter Bezeichner	c:\users\m\documents\cybop.trunc\src\constant\model\cyboi\state\mathematics_state_cyboi_model.c	46	1	cybop
+Fehler    30    error C2065: 'M_E': nichtdeklarierter Bezeichner    c:\users\m\documents\cybop.trunc\src\constant\model\cyboi\state\mathematics_state_cyboi_model.c    46    1    cybop
 #ifdef _MSC_VER
 
 #define _USE_MATH_DEFINES
@@ -118,7 +118,7 @@ Fehler	30	error C2065: 'M_E': nichtdeklarierter Bezeichner	c:\users\m\documents\
 
 40 Fehler
 15.
-Fehler	8	error C2079: 't' verwendet undefiniertes struct 'timespec'	c:\users\m\documents\cybop.trunc\src\executor\runner\nano_sleeper.c	75	1	cybop
+Fehler    8    error C2079: 't' verwendet undefiniertes struct 'timespec'    c:\users\m\documents\cybop.trunc\src\executor\runner\nano_sleeper.c    75    1    cybop
 in cyboi_win_mapper deklariert und eingebunden
 
 36 Fehler
@@ -134,21 +134,21 @@ http://stackoverflow.com/questions/3523145/pointer-arithmetic-for-void-pointer-i
 -> zurückcasten
 -> kein Cast auf (int*) oder (size_t*), die addieren die Größe des Datentyps daze (4 bzw. 8 Byte)!
 
-Fehler	2	error C2036: 'void *': Unbekannte Größe	c:\users\m\documents\cybop.trunc\src\executor\memoriser\reallocator\array_reallocator.c	156	1	cybop
+Fehler    2    error C2036: 'void *': Unbekannte Größe    c:\users\m\documents\cybop.trunc\src\executor\memoriser\reallocator\array_reallocator.c    156    1    cybop
 void* na = *a + (ma - nma);
 
 ->
 void* na = (size_t) *a + (ma - nma);
 
 
-Fehler	3	error C2036: 'void *': Unbekannte Größe	c:\users\m\documents\cybop.trunc\src\executor\calculator\basic\pointer\add_pointer_calculator.c	52	1	cybop
+Fehler    3    error C2036: 'void *': Unbekannte Größe    c:\users\m\documents\cybop.trunc\src\executor\calculator\basic\pointer\add_pointer_calculator.c    52    1    cybop
 *sum = *sum + *s;
 
 ->
 *sum = (size_t) *sum + *s;
 
 
-Fehler	26	error C2036: 'void *': Unbekannte Größe	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	182	1	cybop
+Fehler    26    error C2036: 'void *': Unbekannte Größe    c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c    182    1    cybop
 in void test_character_array_single_element() {
 
 catest = (wchar_t*) (c + i);
@@ -161,9 +161,9 @@ void test_pointer_addition() {
 
 verschiedene Stellten, mit #ifdef _MSC_VER
 verschiedene (size_t) Casts eingefügt
-Fehler	31	error C2036: 'void *': Unbekannte Größe	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	505	1	cybop
+Fehler    31    error C2036: 'void *': Unbekannte Größe    c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c    505    1    cybop
 
-Fehler	7	error C2036: 'void *': Unbekannte Größe	c:\users\m\documents\cybop.trunc\src\executor\calculator\basic\pointer\subtract_pointer_calculator.c	52	1	cybop
+Fehler    7    error C2036: 'void *': Unbekannte Größe    c:\users\m\documents\cybop.trunc\src\executor\calculator\basic\pointer\subtract_pointer_calculator.c    52    1    cybop
 *d = *d - *s;
 
 ->
@@ -171,40 +171,40 @@ Fehler	7	error C2036: 'void *': Unbekannte Größe	c:\users\m\documents\cybop.trun
 
 
 17.
-Fehler	1	error C2065: 'pid_t': nichtdeklarierter Bezeichner	c:\users\m\documents\cybop.trunc\src\controller\globaliser\process_globaliser.c	41	1	cybop
+Fehler    1    error C2065: 'pid_t': nichtdeklarierter Bezeichner    c:\users\m\documents\cybop.trunc\src\controller\globaliser\process_globaliser.c    41    1    cybop
 als int in cyboi_win_mapper deklariert und eingebunden
 
 15 Fehler, 24 Warnungen
 
 18.
-Fehler	3	error C2057: Konstanter Ausdruck erwartet	c:\users\m\documents\cybop.trunc\src\executor\lifeguard\sensor\win32_console\win32_console_sensor.c	82	1	cybop
+Fehler    3    error C2057: Konstanter Ausdruck erwartet    c:\users\m\documents\cybop.trunc\src\executor\lifeguard\sensor\win32_console\win32_console_sensor.c    82    1    cybop
 #ifdef _MSC_VER
-		//Changed Benno Schilling 05.02.2014
-		//VLA's (variable length arrays) are supported by c99, but not by the visual studio compiler
-		//INPUT_RECORD i[is];
-		//To Workaround simply use dynamic array allocation with malloc
+        //Changed Benno Schilling 05.02.2014
+        //VLA's (variable length arrays) are supported by c99, but not by the visual studio compiler
+        //INPUT_RECORD i[is];
+        //To Workaround simply use dynamic array allocation with malloc
 #else
         INPUT_RECORD i[is];
 #endif
 
 19.
-Fehler	9	error C2065: 'BYTE_WORD_COUNT_UNIX_COMMAND_OPTION_NAME': nichtdeklarierter Bezeichner	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c	144	1	cybop
-Fehler	10	error C2065: 'BYTE_WORD_COUNT_UNIX_COMMAND_OPTION_NAME_COUNT': nichtdeklarierter Bezeichner	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c	144	1	cybop
-Fehler	11	error C2065: 'CHAR_WORD_COUNT_UNIX_COMMAND_OPTION_NAME': nichtdeklarierter Bezeichner	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c	157	1	cybop
-Fehler	12	error C2065: 'CHAR_WORD_COUNT_UNIX_COMMAND_OPTION_NAME_COUNT': nichtdeklarierter Bezeichner	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c	157	1	cybop
-Fehler	13	error C2065: 'LINE_WORD_COUNT_UNIX_COMMAND_OPTION_NAME': nichtdeklarierter Bezeichner	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c	171	1	cybop
-Fehler	14	error C2065: 'LINE_WORD_COUNT_UNIX_COMMAND_OPTION_NAME_COUNT': nichtdeklarierter Bezeichner	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c	171	1	cybop
-Fehler	15	error C2065: 'MAX_LINE_LENGTH_WORD_COUNT_UNIX_COMMAND_OPTION_NAME': nichtdeklarierter Bezeichner	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c	184	1	cybop
-Fehler	16	error C2065: 'MAX_LINE_LENGTH_WORD_COUNT_UNIX_COMMAND_OPTION_NAME_COUNT': nichtdeklarierter Bezeichner	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c	184	1	cybop
-Fehler	17	error C2065: 'WORD_WORD_COUNT_UNIX_COMMAND_OPTION_NAME': nichtdeklarierter Bezeichner	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c	197	1	cybop
-Fehler	18	error C2065: 'WORD_WORD_COUNT_UNIX_COMMAND_OPTION_NAME_COUNT': nichtdeklarierter Bezeichner	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c	197	1	cybop
+Fehler    9    error C2065: 'BYTE_WORD_COUNT_UNIX_COMMAND_OPTION_NAME': nichtdeklarierter Bezeichner    c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c    144    1    cybop
+Fehler    10    error C2065: 'BYTE_WORD_COUNT_UNIX_COMMAND_OPTION_NAME_COUNT': nichtdeklarierter Bezeichner    c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c    144    1    cybop
+Fehler    11    error C2065: 'CHAR_WORD_COUNT_UNIX_COMMAND_OPTION_NAME': nichtdeklarierter Bezeichner    c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c    157    1    cybop
+Fehler    12    error C2065: 'CHAR_WORD_COUNT_UNIX_COMMAND_OPTION_NAME_COUNT': nichtdeklarierter Bezeichner    c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c    157    1    cybop
+Fehler    13    error C2065: 'LINE_WORD_COUNT_UNIX_COMMAND_OPTION_NAME': nichtdeklarierter Bezeichner    c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c    171    1    cybop
+Fehler    14    error C2065: 'LINE_WORD_COUNT_UNIX_COMMAND_OPTION_NAME_COUNT': nichtdeklarierter Bezeichner    c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c    171    1    cybop
+Fehler    15    error C2065: 'MAX_LINE_LENGTH_WORD_COUNT_UNIX_COMMAND_OPTION_NAME': nichtdeklarierter Bezeichner    c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c    184    1    cybop
+Fehler    16    error C2065: 'MAX_LINE_LENGTH_WORD_COUNT_UNIX_COMMAND_OPTION_NAME_COUNT': nichtdeklarierter Bezeichner    c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c    184    1    cybop
+Fehler    17    error C2065: 'WORD_WORD_COUNT_UNIX_COMMAND_OPTION_NAME': nichtdeklarierter Bezeichner    c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c    197    1    cybop
+Fehler    18    error C2065: 'WORD_WORD_COUNT_UNIX_COMMAND_OPTION_NAME_COUNT': nichtdeklarierter Bezeichner    c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c    197    1    cybop
 
 unter Win32 nicht verfügbar: #ifndef WIN32 um gesamten Bereich
 
 1 Fehler, 20 Warnungen
 
 20.
-Fehler	6	error C2059: Syntaxfehler: '}'	c:\users\m\documents\cybop.trunc\src\constant\name\cybol\xml_cybol_name.c	104	1	cybop
+Fehler    6    error C2059: Syntaxfehler: '}'    c:\users\m\documents\cybop.trunc\src\constant\name\cybol\xml_cybol_name.c    104    1    cybop
 static wchar_t NODE_NAME_XML_CYBOL_NAME_ARRAY[] = {};
 ->
 static wchar_t NODE_NAME_XML_CYBOL_NAME_ARRAY[] = {'\0'};
@@ -216,7 +216,7 @@ Nanosleep-Funktion erstellt
 23 Warnungen:
 
 22.
-Warnung	5	warning C4133: 'Funktion': Inkompatible Typen - von 'int *' zu 'HWND'	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_display\process_win32_display_receiver.c	139	1	cybop
+Warnung    5    warning C4133: 'Funktion': Inkompatible Typen - von 'int *' zu 'HWND'    c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_display\process_win32_display_receiver.c    139    1    cybop
 DestroyWindow(w);
 ->
 DestroyWindow((HWND)w);
@@ -224,30 +224,30 @@ DestroyWindow((HWND)w);
 23.
 beseitigt: 22 Warnungen:
 zusätzliche casts:
-Warnung	3	warning C4018: '>': Konflikt zwischen 'signed' und 'unsigned'	c:\users\m\documents\cybop.trunc\src\executor\lifeguard\sensor\win32_console\win32_console_sensor.c	112	1	cybop
-Warnung	2	warning C4047: '=': Anzahl der Dereferenzierungen bei 'void *' und 'size_t' unterschiedlich	c:\users\m\documents\cybop.trunc\src\executor\calculator\basic\pointer\add_pointer_calculator.c	52	1	cybop
-Warnung	4	warning C4047: '=': Anzahl der Dereferenzierungen bei 'void *' und 'size_t' unterschiedlich	c:\users\m\documents\cybop.trunc\src\executor\calculator\basic\pointer\subtract_pointer_calculator.c	52	1	cybop
-Warnung	17	warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'char *' und 'size_t' unterschiedlich	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	554	1	cybop
-Warnung	18	warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'char *' und 'size_t' unterschiedlich	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	555	1	cybop
-Warnung	15	warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'double *' und 'size_t' unterschiedlich	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	530	1	cybop
-Warnung	16	warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'double *' und 'size_t' unterschiedlich	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	531	1	cybop
-Warnung	13	warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'int *' und 'size_t' unterschiedlich	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	505	1	cybop
-Warnung	14	warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'int *' und 'size_t' unterschiedlich	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	506	1	cybop
-Warnung	21	warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'unsigned long *' und 'size_t' unterschiedlich	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	602	1	cybop
-Warnung	22	warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'unsigned long *' und 'size_t' unterschiedlich	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	603	1	cybop
-Warnung	1	warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'void *' und 'size_t' unterschiedlich	c:\users\m\documents\cybop.trunc\src\executor\memoriser\reallocator\array_reallocator.c	162	1	cybop
-Warnung	8	warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'void *' und 'size_t' unterschiedlich	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	470	1	cybop
-Warnung	9	warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'void *' und 'size_t' unterschiedlich	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	471	1	cybop
-Warnung	10	warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'void *' und 'size_t' unterschiedlich	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	472	1	cybop
-Warnung	11	warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'void *' und 'size_t' unterschiedlich	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	474	1	cybop
-Warnung	12	warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'void *' und 'size_t' unterschiedlich	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	475	1	cybop
-Warnung	19	warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'wchar_t *' und 'size_t' unterschiedlich	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	578	1	cybop
-Warnung	20	warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'wchar_t *' und 'size_t' unterschiedlich	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	579	1	cybop
+Warnung    3    warning C4018: '>': Konflikt zwischen 'signed' und 'unsigned'    c:\users\m\documents\cybop.trunc\src\executor\lifeguard\sensor\win32_console\win32_console_sensor.c    112    1    cybop
+Warnung    2    warning C4047: '=': Anzahl der Dereferenzierungen bei 'void *' und 'size_t' unterschiedlich    c:\users\m\documents\cybop.trunc\src\executor\calculator\basic\pointer\add_pointer_calculator.c    52    1    cybop
+Warnung    4    warning C4047: '=': Anzahl der Dereferenzierungen bei 'void *' und 'size_t' unterschiedlich    c:\users\m\documents\cybop.trunc\src\executor\calculator\basic\pointer\subtract_pointer_calculator.c    52    1    cybop
+Warnung    17    warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'char *' und 'size_t' unterschiedlich    c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c    554    1    cybop
+Warnung    18    warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'char *' und 'size_t' unterschiedlich    c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c    555    1    cybop
+Warnung    15    warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'double *' und 'size_t' unterschiedlich    c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c    530    1    cybop
+Warnung    16    warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'double *' und 'size_t' unterschiedlich    c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c    531    1    cybop
+Warnung    13    warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'int *' und 'size_t' unterschiedlich    c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c    505    1    cybop
+Warnung    14    warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'int *' und 'size_t' unterschiedlich    c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c    506    1    cybop
+Warnung    21    warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'unsigned long *' und 'size_t' unterschiedlich    c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c    602    1    cybop
+Warnung    22    warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'unsigned long *' und 'size_t' unterschiedlich    c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c    603    1    cybop
+Warnung    1    warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'void *' und 'size_t' unterschiedlich    c:\users\m\documents\cybop.trunc\src\executor\memoriser\reallocator\array_reallocator.c    162    1    cybop
+Warnung    8    warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'void *' und 'size_t' unterschiedlich    c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c    470    1    cybop
+Warnung    9    warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'void *' und 'size_t' unterschiedlich    c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c    471    1    cybop
+Warnung    10    warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'void *' und 'size_t' unterschiedlich    c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c    472    1    cybop
+Warnung    11    warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'void *' und 'size_t' unterschiedlich    c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c    474    1    cybop
+Warnung    12    warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'void *' und 'size_t' unterschiedlich    c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c    475    1    cybop
+Warnung    19    warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'wchar_t *' und 'size_t' unterschiedlich    c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c    578    1    cybop
+Warnung    20    warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'wchar_t *' und 'size_t' unterschiedlich    c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c    579    1    cybop
 Konstantendefinition über Hexadezimalcode des Unicodezeichens:
-Warnung	5	warning C4066: Mit Ausnahme des ersten Zeichens werden die Zeichen in einer 'breiten' Zeichenkonstante ignoriert	c:\users\m\documents\cybop.trunc\src\tester\communicator_tester.c	116	1	cybop
-Warnung	6	warning C4066: Mit Ausnahme des ersten Zeichens werden die Zeichen in einer 'breiten' Zeichenkonstante ignoriert	c:\users\m\documents\cybop.trunc\src\tester\communicator_tester.c	120	1	cybop
+Warnung    5    warning C4066: Mit Ausnahme des ersten Zeichens werden die Zeichen in einer 'breiten' Zeichenkonstante ignoriert    c:\users\m\documents\cybop.trunc\src\tester\communicator_tester.c    116    1    cybop
+Warnung    6    warning C4066: Mit Ausnahme des ersten Zeichens werden die Zeichen in einer 'breiten' Zeichenkonstante ignoriert    c:\users\m\documents\cybop.trunc\src\tester\communicator_tester.c    120    1    cybop
 Zuweisung in if Anweisung (!) durch Vergleich ersetzt:
-Warnung	7	warning C4244: '=': Konvertierung von 'wchar_t' in 'char', möglicher Datenverlust	c:\users\m\documents\cybop.trunc\src\tester\comparator_tester.c	49	1	cybop
+Warnung    7    warning C4244: '=': Konvertierung von 'wchar_t' in 'char', möglicher Datenverlust    c:\users\m\documents\cybop.trunc\src\tester\comparator_tester.c    49    1    cybop
 
 (Not used:
 Solution for missing socketlen_t

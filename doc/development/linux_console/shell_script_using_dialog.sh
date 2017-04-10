@@ -44,7 +44,7 @@ delete_file()
      grep "*" /tmp/dirip.$$
      if [ $? -eq 1 ]
      then
-	mfile=$mfile/*
+    mfile=$mfile/*
      fi    
  fi
  
@@ -52,8 +52,8 @@ delete_file()
  do
     if [ -f $i ]
     then
-	echo "$i Delete?" >> /tmp/finallist.$$
-    fi	
+    echo "$i Delete?" >> /tmp/finallist.$$
+    fi    
  done    
 
 
@@ -70,21 +70,21 @@ delete_file()
       --yesno "\n\nDo you want to delete : $file2erase " 10 60
       
         if [ $? -eq 0 ] ; then
-	  rm -f  $file2erase         
+      rm -f  $file2erase         
          if [ $? -eq 0 ] ; then
             dialog --backtitle "Linux Shell Tutorial"\
-	    --title "Information: Delete Command" --infobox "File: $file2erase is Sucessfully deleted,Press a key" 5 60
-	    read
-	   else
-	    dialog --backtitle "Linux Shell Tutorial"\ 
-	    --title "Error: Delete Command" --infobox "Error deleting File: $file2erase, Press a key" 5 60
+        --title "Information: Delete Command" --infobox "File: $file2erase is Sucessfully deleted,Press a key" 5 60
+        read
+       else
+        dialog --backtitle "Linux Shell Tutorial"\ 
+        --title "Error: Delete Command" --infobox "Error deleting File: $file2erase, Press a key" 5 60
             read       
            fi
-	else
-	  dialog --backtitle "Linux Shell Tutorial"\
-	  --title "Information: Delete Command" --infobox "File: $file2erase is not deleted, Action is canceled, Press a key" 5 60
-	  read
-	fi
+    else
+      dialog --backtitle "Linux Shell Tutorial"\
+      --title "Information: Delete Command" --infobox "File: $file2erase is not deleted, Action is canceled, Press a key" 5 60
+      read
+    fi
      ;;
     1)  rm -f /tmp/dirip.$$ ; rm -f /tmp/finallist.$$ ; 
         rm -f /tmp/file2delete.tmp.$$; return;;
@@ -107,8 +107,8 @@ dialog --clear --title "Main Menu" \
         Choose the Service you like:" 20 51 4 \
         "Date/time"       "To see System Date & Time" \
         "Calender"        "To see Calaender"\
-	"Delete"          "To remove file"\
-	"Exit"            "To exit this Program" 2> menuchoice.temp.$$
+    "Delete"          "To remove file"\
+    "Exit"            "To exit this Program" 2> menuchoice.temp.$$
 
 retopt=$?
 
@@ -118,13 +118,13 @@ rm -f menuchoice.temp.$$
 
 case $retopt in
     0)
-	case $choice in
-	    Date/time) show_datetime ;;
-	    Calender) show_cal ;;
-	    Delete) delete_file ;;
-	    Exit) exit 0;; 
+    case $choice in
+        Date/time) show_datetime ;;
+        Calender) show_cal ;;
+        Delete) delete_file ;;
+        Exit) exit 0;; 
         esac    
-      ;;	
+      ;;    
      1) exit ;;
      255) exit ;;
  esac

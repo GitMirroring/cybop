@@ -4,11 +4,11 @@ X-Envelope-From: <christian.heller@tu-ilmenau.de>
 X-Envelope-To: <christian@familia-heller.de>
 X-Delivery-Time: 1103199105
 Received: from piggy.rz.tu-ilmenau.de (piggy.rz.tu-ilmenau.de [141.24.4.8])
-	by mailin.webmailer.de (8.13.1/8.13.1) with ESMTP id iBGCBiUi008028
-	for <christian@familia-heller.de>; Thu, 16 Dec 2004 13:11:44 +0100 (MET)
+    by mailin.webmailer.de (8.13.1/8.13.1) with ESMTP id iBGCBiUi008028
+    for <christian@familia-heller.de>; Thu, 16 Dec 2004 13:11:44 +0100 (MET)
 Received: from pi24.theoinf.tu-ilmenau.de (pi24.theoinf.tu-ilmenau.de [141.24.205.153])
-	by piggy.rz.tu-ilmenau.de (8.12.10/8.12.10) with ESMTP id iBGCBh0X006313
-	for finalrecipients; Thu, 16 Dec 2004 13:11:43 +0100 (MET)
+    by piggy.rz.tu-ilmenau.de (8.12.10/8.12.10) with ESMTP id iBGCBh0X006313
+    for finalrecipients; Thu, 16 Dec 2004 13:11:43 +0100 (MET)
 From: Christian Heller <christian.heller@tu-ilmenau.de>
 Organization: Technical University of Ilmenau
 Subject: Fwd: ECOOP 2005 Paper Submission Feedback
@@ -57,28 +57,28 @@ Title: A new Pattern Systematics
 
 Author 1:
  Name: Christian Heller
-	Affiliation: Technical University of Ilmenau
-	Email: christian.heller@tu-ilmenau.de
-	Country: Germany
+    Affiliation: Technical University of Ilmenau
+    Email: christian.heller@tu-ilmenau.de
+    Country: Germany
 
 Author 2:
-	Name: Detlef Streitferdt
-	Affiliation: Technical University of Ilmenau
-	Email: detlef.streitferdt@tu-ilmenau.de
-	Country: Germany
+    Name: Detlef Streitferdt
+    Affiliation: Technical University of Ilmenau
+    Email: detlef.streitferdt@tu-ilmenau.de
+    Country: Germany
 
 Author 3:
-	Name: Ilka Philippow
-	Affiliation: Technical University of Ilmenau
-	Email: ilka.philippow@tu-ilmenau.de
-	Country: Germany
+    Name: Ilka Philippow
+    Affiliation: Technical University of Ilmenau
+    Email: ilka.philippow@tu-ilmenau.de
+    Country: Germany
 
 More authors: No
 
 Author is Committee Member: No
 
 Main topic(s):
-	4. Design patterns
+    4. Design patterns
 
 
 Abstract:

@@ -89,7 +89,7 @@ thr(void * arg)
     if (err != EAGAIN)
     {
       printf("thread: sem_trywait 1: expecting error %s: got %s\n",
-	     error_string[EAGAIN], error_string[err]); fflush(stdout);
+         error_string[EAGAIN], error_string[err]); fflush(stdout);
     }
     assert(err == EAGAIN);
   }
@@ -130,7 +130,7 @@ main()
     if (err != EAGAIN)
     {
       printf("main: sem_trywait 1: expecting error %s: got %s\n",
-	     error_string[EAGAIN], error_string[err]); fflush(stdout);
+         error_string[EAGAIN], error_string[err]); fflush(stdout);
     }
     assert(err == EAGAIN);
   }

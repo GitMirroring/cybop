@@ -1,5 +1,5 @@
 #
-# Copyright (C) 1999-2016. Christian Heller.
+# Copyright (C) 1999-2017. Christian Heller.
 #
 # This file lists so-called "TODO" items, in other words open tasks
 # to be worked on in the future.
@@ -7,7 +7,7 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.18.0 2016-12-21
+# @version CYBOP 0.19.0 2017-04-10
 # @author Enrico Gallus <enrico.gallus@googlemail.com>
 #
 
@@ -24,12 +24,13 @@ _______
         * tests need to be adjusted to the new preprocessor
 
         * extract the tester files to the new "test" directory
-            - create an appropiate folder structure to easily identify unittests
+            - create an appropriate folder structure to easily identify unittests
             - convert the existing tester files to the new approach using assert
             - integrate the unittests afterwards to the ctest configuration which can be found in test/CMakeFiles.txt
 
 WUI
 _______
+
         * Check why parallel access of more than one client is not possible, even though the number of possible clients is greater zero at socket startup
             - http://www.adampetersen.se/Patterns%20in%20C%205,%20REACTOR.pdf
 
@@ -38,7 +39,7 @@ _______
 
         * var.cybol uses hardcoded date -> should be replaced by the new date type (current date seems not to be supported ATM)
 
-        
+
         * ATM, the spec/logic.cybol and spec/state.cybol contains a listing of all underlying files in the respectiv folder
             - try to use command/list-directory-contents to reduce impact on maintenance
 
@@ -207,7 +208,6 @@ push                added (but undefined)
 
 MODIFY
 append              done
-build               added (but undefined)
 empty               adjusted
 fill                undefined
 insert              undefined

@@ -80,7 +80,7 @@
  */
 
 enum {
-	NUMTHREADS = 10000
+    NUMTHREADS = 10000
 };
 
 
@@ -102,9 +102,9 @@ main()
   pthread_attr_t attr;
   int i;
   unsigned int notUnique = 0,
-	       totalHandles = 0,
-	       reuseMax = 0,
-	       reuseMin = NUMTHREADS;
+           totalHandles = 0,
+           reuseMax = 0,
+           reuseMin = NUMTHREADS;
 
   assert(pthread_attr_init(&attr) == 0);
   assert(pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED) == 0);
@@ -135,8 +135,8 @@ main()
           for (j = i+1; j < NUMTHREADS; j++)
             if (t[i].p == t[j].p)
               {
-		if (t[i].x == t[j].x)
-		  notUnique++;
+        if (t[i].x == t[j].x)
+          notUnique++;
                 if (thisMax < t[j].x)
                   thisMax = t[j].x;
                 t[j].p = NULL;

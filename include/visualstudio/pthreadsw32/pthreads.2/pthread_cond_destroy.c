@@ -137,9 +137,9 @@ pthread_cond_destroy (pthread_cond_t * cond)
        * waiter status - SEE NOTE 1 ABOVE!!!
        */
       if (ptw32_semwait (&(cv->semBlockLock)) != 0) /* Non-cancelable */
-	{
-	  result = errno;
-	}
+    {
+      result = errno;
+    }
       else
         {
           /*
@@ -148,11 +148,11 @@ pthread_cond_destroy (pthread_cond_t * cond)
            * signal/broadcast.
            */
           if ((result = pthread_mutex_trylock (&(cv->mtxUnblockLock))) != 0)
-	    {
-	      (void) sem_post (&(cv->semBlockLock));
-	    }
-	}
-	
+        {
+          (void) sem_post (&(cv->semBlockLock));
+        }
+    }
+    
       if (result != 0)
         {
           ptw32_mcs_lock_release(&node);
@@ -163,56 +163,56 @@ pthread_cond_destroy (pthread_cond_t * cond)
        * Check whether cv is still busy (still has waiters)
        */
       if (cv->nWaitersBlocked > cv->nWaitersGone)
-	{
-	  if (sem_post (&(cv->semBlockLock)) != 0)
-	    {
-	      result = errno;
-	    }
-	  result1 = pthread_mutex_unlock (&(cv->mtxUnblockLock));
-	  result2 = EBUSY;
-	}
+    {
+      if (sem_post (&(cv->semBlockLock)) != 0)
+        {
+          result = errno;
+        }
+      result1 = pthread_mutex_unlock (&(cv->mtxUnblockLock));
+      result2 = EBUSY;
+    }
       else
-	{
-	  /*
-	   * Now it is safe to destroy
-	   */
-	  *cond = NULL;
+    {
+      /*
+       * Now it is safe to destroy
+       */
+      *cond = NULL;
 
-	  if (sem_destroy (&(cv->semBlockLock)) != 0)
-	    {
-	      result = errno;
-	    }
-	  if (sem_destroy (&(cv->semBlockQueue)) != 0)
-	    {
-	      result1 = errno;
-	    }
-	  if ((result2 = pthread_mutex_unlock (&(cv->mtxUnblockLock))) == 0)
-	    {
-	      result2 = pthread_mutex_destroy (&(cv->mtxUnblockLock));
-	    }
+      if (sem_destroy (&(cv->semBlockLock)) != 0)
+        {
+          result = errno;
+        }
+      if (sem_destroy (&(cv->semBlockQueue)) != 0)
+        {
+          result1 = errno;
+        }
+      if ((result2 = pthread_mutex_unlock (&(cv->mtxUnblockLock))) == 0)
+        {
+          result2 = pthread_mutex_destroy (&(cv->mtxUnblockLock));
+        }
 
-	  /* Unlink the CV from the list */
+      /* Unlink the CV from the list */
 
-	  if (ptw32_cond_list_head == cv)
-	    {
-	      ptw32_cond_list_head = cv->next;
-	    }
-	  else
-	    {
-	      cv->prev->next = cv->next;
-	    }
+      if (ptw32_cond_list_head == cv)
+        {
+          ptw32_cond_list_head = cv->next;
+        }
+      else
+        {
+          cv->prev->next = cv->next;
+        }
 
-	  if (ptw32_cond_list_tail == cv)
-	    {
-	      ptw32_cond_list_tail = cv->prev;
-	    }
-	  else
-	    {
-	      cv->next->prev = cv->prev;
-	    }
+      if (ptw32_cond_list_tail == cv)
+        {
+          ptw32_cond_list_tail = cv->prev;
+        }
+      else
+        {
+          cv->next->prev = cv->prev;
+        }
 
-	  (void) free (cv);
-	}
+      (void) free (cv);
+    }
 
       ptw32_mcs_lock_release(&node);
     }
@@ -228,23 +228,23 @@ pthread_cond_destroy (pthread_cond_t * cond)
        * Check again.
        */
       if (*cond == PTHREAD_COND_INITIALIZER)
-	{
-	  /*
-	   * This is all we need to do to destroy a statically
-	   * initialised cond that has not yet been used (initialised).
-	   * If we get to here, another thread waiting to initialise
-	   * this cond will get an EINVAL. That's OK.
-	   */
-	  *cond = NULL;
-	}
+    {
+      /*
+       * This is all we need to do to destroy a statically
+       * initialised cond that has not yet been used (initialised).
+       * If we get to here, another thread waiting to initialise
+       * this cond will get an EINVAL. That's OK.
+       */
+      *cond = NULL;
+    }
       else
-	{
-	  /*
-	   * The cv has been initialised while we were waiting
-	   * so assume it's in use.
-	   */
-	  result = EBUSY;
-	}
+    {
+      /*
+       * The cv has been initialised while we were waiting
+       * so assume it's in use.
+       */
+      result = EBUSY;
+    }
 
       ptw32_mcs_lock_release(&node);
     }

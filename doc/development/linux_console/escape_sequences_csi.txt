@@ -10,21 +10,21 @@ PS:
        0     reset all attributes to their defaults
        1     set bold
        2     set half-bright (simulated with color on a color
- 		display)
+         display)
        4     set underscore (simulated with color on a color display)
-     		(the colors used to simulate dim or underline are set
-     		using ESC ] ...)
+             (the colors used to simulate dim or underline are set
+             using ESC ] ...)
        5     set blink
        7     set reverse video
        10    reset selected mapping, display control flag,
-     		and toggle meta flag.
+             and toggle meta flag.
 
        11    select null mapping, set display control flag,
-     		reset toggle meta flag.
+             reset toggle meta flag.
        12    select null mapping, set display control flag,
-     		set toggle meta flag. (The toggle meta flag
-     		causes the high bit of a byte to be toggled
-     		before the mapping table translation is done.)
+             set toggle meta flag. (The toggle meta flag
+             causes the high bit of a byte to be toggled
+             before the mapping table translation is done.)
        21    set normal intensity (this is not compatible with ECMA-48)
        22    set normal intensity
        24    underline off

@@ -5,7 +5,7 @@
         <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="format" channel="inline" format="text/plain" model="text/plain"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
-    </node>	
+    </node>    
     <node name="destination" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="destination"/>
         <node name="description" channel="inline" format="text/plain" model="the path of the directory which sould be moved"/>
@@ -26,12 +26,12 @@
         <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
-    </node>	
+    </node>    
     <node name="verbal" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="verbal"/>
         <node name="description" channel="inline" format="text/plain" model="the verbal option (shows what have been moved)"/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
-    </node>	
+    </node>    
 </node>

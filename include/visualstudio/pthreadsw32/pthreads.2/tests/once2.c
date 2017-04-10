@@ -37,8 +37,8 @@
  * through each.
  *
  * Depends on API functions:
- *	pthread_once()
- *	pthread_create()
+ *    pthread_once()
+ *    pthread_create()
  */
 
 #include "test.h"
@@ -92,9 +92,9 @@ main()
 
       for (i = 0; i < NUM_THREADS; i++)
         {
-	  /* GCC build: create was failing with EAGAIN after 790 threads */
+      /* GCC build: create was failing with EAGAIN after 790 threads */
           while (0 != pthread_create(&t[i][j], NULL, mythread, (void *)(size_t)j))
-	    sched_yield();
+        sched_yield();
         }
     }
 

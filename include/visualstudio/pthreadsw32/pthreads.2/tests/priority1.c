@@ -108,18 +108,18 @@ getValidPriorities(void * arg)
        prioSet <= maxPrio;
        prioSet++)
     {
-	/*
+    /*
        * If prioSet is invalid then the threads priority is unchanged
        * from the previous value. Make the previous value a known
        * one so that we can check later.
        */
         if (prioSet < 0)
-	  SetThreadPriority(threadH, THREAD_PRIORITY_LOWEST);
+      SetThreadPriority(threadH, THREAD_PRIORITY_LOWEST);
         else
-	  SetThreadPriority(threadH, THREAD_PRIORITY_HIGHEST);
-	SetThreadPriority(threadH, prioSet);
-	validPriorities[prioSet+(PTW32TEST_MAXPRIORITIES/2)] = GetThreadPriority(threadH);
-	printf("%10d %10d\n", prioSet, validPriorities[prioSet+(PTW32TEST_MAXPRIORITIES/2)]);
+      SetThreadPriority(threadH, THREAD_PRIORITY_HIGHEST);
+    SetThreadPriority(threadH, prioSet);
+    validPriorities[prioSet+(PTW32TEST_MAXPRIORITIES/2)] = GetThreadPriority(threadH);
+    printf("%10d %10d\n", prioSet, validPriorities[prioSet+(PTW32TEST_MAXPRIORITIES/2)]);
     }
 
   return (void *) 0;

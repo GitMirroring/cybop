@@ -1,19 +1,19 @@
 <node>
-	<node name="name" channel="inline" format="text/plain" model="">
+    <node name="name" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="name"/>
         <node name="description" channel="inline" format="text/plain" model="the name of the part to be created"/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="format" channel="inline" format="text/plain" model="text/plain"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
     </node>
-	<node name="format" channel="inline" format="text/plain" model="">
+    <node name="format" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="format"/>
         <node name="description" channel="inline" format="text/plain" model="the format of the part to be created, from which gets determined the type"/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="format" channel="inline" format="text/plain" model="meta/format"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
     </node>
-	<node name="element" channel="inline" format="text/plain" model="">
+    <node name="element" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="element"/>
         <node name="description" channel="inline" format="text/plain" model="the kind of element to be created (part, property);
         a part element will be added to the whole model's part hierarchy;
@@ -22,7 +22,7 @@
         <node name="format" channel="inline" format="text/plain" model="text/plain"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
     </node>
-	<node name="whole" channel="inline" format="text/plain" model="">
+    <node name="whole" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="whole"/>
         <node name="description" channel="inline" format="text/plain" model="If null, the new part will be added to the knowledge memory root.
        The compound to which to add to the new part."/>

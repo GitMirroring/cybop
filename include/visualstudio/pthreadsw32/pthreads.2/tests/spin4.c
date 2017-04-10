@@ -45,7 +45,7 @@ PTW32_STRUCT_TIMEB currSysTimeStart;
 PTW32_STRUCT_TIMEB currSysTimeStop;
 
 #define GetDurationMilliSecs(_TStart, _TStop) ((_TStop.time*1000+_TStop.millitm) \
-					       - (_TStart.time*1000+_TStart.millitm))
+                           - (_TStart.time*1000+_TStart.millitm))
 
 static int washere = 0;
 
@@ -71,7 +71,7 @@ main()
   if ((CPUs = pthread_num_processors_np()) == 1)
     {
       printf("Test not run - it requires multiple CPUs.\n");
-	exit(0);
+    exit(0);
     }
 
   assert(pthread_spin_lock(&lock) == 0);

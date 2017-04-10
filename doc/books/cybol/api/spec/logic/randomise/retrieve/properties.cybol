@@ -1,5 +1,5 @@
 <node>
-	<node name="result" channel="inline" format="text/plain" model="">
+    <node name="result" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="result"/>
         <node name="description" channel="inline" format="text/plain" model="The path where the retrieved random value is written to."/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>

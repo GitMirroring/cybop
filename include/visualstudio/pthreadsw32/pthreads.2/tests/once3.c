@@ -38,8 +38,8 @@
  * waiters waiting.
  *
  * Depends on API functions:
- *	pthread_once()
- *	pthread_create()
+ *    pthread_once()
+ *    pthread_create()
  *      pthread_testcancel()
  *      pthread_cancel()
  *      pthread_once()

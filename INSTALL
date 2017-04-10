@@ -1,12 +1,12 @@
 #
-# Copyright (C) 1999-2016. Christian Heller.
+# Copyright (C) 1999-2017. Christian Heller.
 #
 # This file gives installation instructions on how to get started with cybop.
 #
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.18.0 2016-12-21
+# @version CYBOP 0.19.0 2017-04-10
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
@@ -303,7 +303,7 @@ __________________
     make generatehtml
 
 CYBOP Codestyling
-__________________
+_________________
 
 - Change into cybop's build directory e.g.:
 
@@ -318,7 +318,7 @@ __________________
     make cppcheck
 
 CYBOP doxygen
-__________________
+_____________
 
 - Change into cybop's build directory e.g.:
 
@@ -327,39 +327,6 @@ __________________
 - Run the doxygen
 
     make doc
-
-CYBOP Distribution
-__________________
-
-- Modify the CYBOP version number in the build/cmake/packaging.cmake file:
-
-    SET(CPACK_PACKAGE_VERSION_MAJOR "0")
-    SET(CPACK_PACKAGE_VERSION_MINOR "19")
-    SET(CPACK_PACKAGE_VERSION_PATCH "0")
-
-- Change into cybop's build directory e.g.:
-
-    cd /home/cybop/build
-
-- Run the cpack command:
-
-    cpack
-
-See further stepwise instructions in file "dist/release.txt"!
-
-CYBOP Packaging
-_______________
-
-- Install the checkinstall Debian package:
-
-    apt-get install checkinstall
-
-- Execute the checkinstall command with:
-
-    checkinstall
-
-- Configure package answering the checkinstall questions
-
 
 Tagging SVN
 ___________
@@ -379,6 +346,51 @@ svn copy https://christian@svn.savannah.nongnu.org/cybop/trunk https://christian
 It shows the following error:
 
 svn: OPTIONS of 'https://christian@svn.savannah.nongnu.org/cybop': SSL handshake failed: SSL error: An unexpected TLS packet was received. (https://svn.savannah.nongnu.org)
+
+CYBOP Distribution
+__________________
+
+- Modify the CYBOP version number in the build/cmake/packaging.cmake file:
+
+    SET(CPACK_PACKAGE_VERSION_MAJOR "0")
+    SET(CPACK_PACKAGE_VERSION_MINOR "19")
+    SET(CPACK_PACKAGE_VERSION_PATCH "0")
+
+- Change into cybop's build directory:
+
+    cd /home/cybop/build
+
+- Run the cpack command (automatically calls adjust copyright script):
+
+    cpack
+
+- Create GPG binary signature for tarball file, e.g.:
+
+    gpg -b --use-agent cybop-0.19.0.tar.gz
+
+- Give read permissions to files:
+
+    chmod 644 *
+
+- Upload files:
+
+    scp cybop-0.19.0.tar.gz cybop-0.19.0.tar.gz.sig christian@dl.sv.nongnu.org:/releases/cybop/
+
+See further stepwise instructions in file "dist/release.txt"!
+
+CYBOP Packaging
+_______________
+
+- Install the checkinstall Debian package:
+
+    apt-get install checkinstall
+
+- Execute the checkinstall command with:
+
+    checkinstall
+
+- Configure package answering the checkinstall questions
+
 
 Instructions for new Developers
 _______________________________

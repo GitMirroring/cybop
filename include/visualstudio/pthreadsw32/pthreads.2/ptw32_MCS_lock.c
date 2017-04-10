@@ -103,9 +103,9 @@ INLINE void
 ptw32_mcs_flag_set (HANDLE * flag)
 {
   HANDLE e = (HANDLE)(PTW32_INTERLOCKED_SIZE)PTW32_INTERLOCKED_COMPARE_EXCHANGE_SIZE(
-						(PTW32_INTERLOCKED_SIZEPTR)flag,
-						(PTW32_INTERLOCKED_SIZE)-1,
-						(PTW32_INTERLOCKED_SIZE)0);
+                        (PTW32_INTERLOCKED_SIZEPTR)flag,
+                        (PTW32_INTERLOCKED_SIZE)-1,
+                        (PTW32_INTERLOCKED_SIZE)0);
   if ((HANDLE)0 != e)
     {
       /* another thread has already stored an event handle in the flag */
@@ -131,13 +131,13 @@ ptw32_mcs_flag_wait (HANDLE * flag)
       HANDLE e = CreateEvent(NULL, PTW32_FALSE, PTW32_FALSE, NULL);
 
       if ((PTW32_INTERLOCKED_SIZE)0 == PTW32_INTERLOCKED_COMPARE_EXCHANGE_SIZE(
-			                  (PTW32_INTERLOCKED_SIZEPTR)flag,
-			                  (PTW32_INTERLOCKED_SIZE)e,
-			                  (PTW32_INTERLOCKED_SIZE)0))
-	{
-	  /* stored handle in the flag. wait on it now. */
-	  WaitForSingleObject(e, INFINITE);
-	}
+                              (PTW32_INTERLOCKED_SIZEPTR)flag,
+                              (PTW32_INTERLOCKED_SIZE)e,
+                              (PTW32_INTERLOCKED_SIZE)0))
+    {
+      /* stored handle in the flag. wait on it now. */
+      WaitForSingleObject(e, INFINITE);
+    }
 
       CloseHandle(e);
     }
@@ -166,7 +166,7 @@ ptw32_mcs_lock_acquire (ptw32_mcs_lock_t * lock, ptw32_mcs_local_node_t * node)
   
   /* queue for the lock */
   pred = (ptw32_mcs_local_node_t *)PTW32_INTERLOCKED_EXCHANGE_PTR((PTW32_INTERLOCKED_PVOID_PTR)lock,
-								  (PTW32_INTERLOCKED_PVOID)node);
+                                  (PTW32_INTERLOCKED_PVOID)node);
 
   if (0 != pred)
     {
@@ -201,18 +201,18 @@ ptw32_mcs_lock_release (ptw32_mcs_local_node_t * node)
       /* no known successor */
 
       if (node == (ptw32_mcs_local_node_t *)
-	  PTW32_INTERLOCKED_COMPARE_EXCHANGE_PTR((PTW32_INTERLOCKED_PVOID_PTR)lock,
-						 (PTW32_INTERLOCKED_PVOID)0,
-						 (PTW32_INTERLOCKED_PVOID)node))
-	{
-	  /* no successor, lock is free now */
-	  return;
-	}
+      PTW32_INTERLOCKED_COMPARE_EXCHANGE_PTR((PTW32_INTERLOCKED_PVOID_PTR)lock,
+                         (PTW32_INTERLOCKED_PVOID)0,
+                         (PTW32_INTERLOCKED_PVOID)node))
+    {
+      /* no successor, lock is free now */
+      return;
+    }
   
       /* A successor has started enqueueing behind us so wait for them to link to us */
       ptw32_mcs_flag_wait(&node->nextFlag);
       next = (ptw32_mcs_local_node_t *)
-	PTW32_INTERLOCKED_EXCHANGE_ADD_SIZE((PTW32_INTERLOCKED_SIZEPTR)&node->next, (PTW32_INTERLOCKED_SIZE)0); /* MBR fence */
+    PTW32_INTERLOCKED_EXCHANGE_ADD_SIZE((PTW32_INTERLOCKED_SIZEPTR)&node->next, (PTW32_INTERLOCKED_SIZE)0); /* MBR fence */
     }
 
   /* pass the lock */

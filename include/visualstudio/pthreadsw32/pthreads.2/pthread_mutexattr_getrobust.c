@@ -110,4 +110,4 @@ pthread_mutexattr_getrobust (const pthread_mutexattr_t * attr, int * robust)
     }
 
   return (result);
-}				/* pthread_mutexattr_getrobust */
+}                /* pthread_mutexattr_getrobust */

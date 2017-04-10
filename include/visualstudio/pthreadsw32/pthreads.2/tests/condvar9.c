@@ -192,11 +192,11 @@ main()
       assert(pthread_mutex_lock(&start_flag) == 0);
 
       for (i = first; i <= last; i++)
-	{
-	  threadbag[i].started = threadbag[i].finished = 0;
-	  threadbag[i].threadnum = i;
-	  assert(pthread_create(&t[i], NULL, mythread, (void *) &threadbag[i]) == 0);
-	}
+    {
+      threadbag[i].started = threadbag[i].finished = 0;
+      threadbag[i].threadnum = i;
+      assert(pthread_create(&t[i], NULL, mythread, (void *) &threadbag[i]) == 0);
+    }
 
       /*
        * Code to control or munipulate child threads should probably go here.
@@ -225,19 +225,19 @@ main()
        * Standard check that all threads started - and wait for them to finish.
        */
       for (i = first; i <= last; i++)
-	{ 
-	  failed = !threadbag[i].started;
+    { 
+      failed = !threadbag[i].started;
 
           if (failed)
-	    {
-	      fprintf(stderr, "Thread %d: started %d\n", i, threadbag[i].started);
-	    }
-	  else
-	    {
-	      assert(pthread_join(t[i], NULL) == 0 || threadbag[i].finished == 0);
-//	      fprintf(stderr, "Thread %d: finished %d\n", i, threadbag[i].finished);
-	    }
-	}
+        {
+          fprintf(stderr, "Thread %d: started %d\n", i, threadbag[i].started);
+        }
+      else
+        {
+          assert(pthread_join(t[i], NULL) == 0 || threadbag[i].finished == 0);
+//          fprintf(stderr, "Thread %d: finished %d\n", i, threadbag[i].finished);
+        }
+    }
     }
 
   /* 

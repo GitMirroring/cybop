@@ -82,12 +82,12 @@ main()
         {
           LeaveCriticalSection(&cs);
         }
-	else
-	  {
-	    printf("Last Error [try enter] %ld\n", (long) GetLastError());
+    else
+      {
+        printf("Last Error [try enter] %ld\n", (long) GetLastError());
 
-	    _try_enter_critical_section = NULL;
-	  }
+        _try_enter_critical_section = NULL;
+      }
       DeleteCriticalSection(&cs);
     }
 

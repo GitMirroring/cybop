@@ -37,8 +37,8 @@
  * and then unlock it again.
  *
  * Depends on API functions: 
- *	pthread_mutex_lock()
- *	pthread_mutex_unlock()
+ *    pthread_mutex_lock()
+ *    pthread_mutex_unlock()
  */
 
 #include "test.h"

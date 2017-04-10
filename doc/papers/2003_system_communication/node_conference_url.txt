@@ -1,13 +1,13 @@
 From christian.heller@tu-ilmenau.de Wed Mar 19 15:19:41 2003
 Return-Path: <christian.heller@tu-ilmenau.de>
 Received: from virusgate.rz.tu-ilmenau.de (virusgate.rz.tu-ilmenau.de [141.24.4.19])
-	by ernie.rz.tu-ilmenau.de (8.9.3/8.9.3) with ESMTP id PAA00659Wed, 19 Mar 2003 15:15:42 +0100 (MET)
+    by ernie.rz.tu-ilmenau.de (8.9.3/8.9.3) with ESMTP id PAA00659Wed, 19 Mar 2003 15:15:42 +0100 (MET)
 Received: from piggy.rz.tu-ilmenau.de (localhost [127.0.0.1])
-	by virusgate.rz.tu-ilmenau.de (8.11.6/8.11.6) with ESMTP id h2JEFOL01584;
-	Wed, 19 Mar 2003 15:15:24 +0100 (MET)
+    by virusgate.rz.tu-ilmenau.de (8.11.6/8.11.6) with ESMTP id h2JEFOL01584;
+    Wed, 19 Mar 2003 15:15:24 +0100 (MET)
 Received: from pi24 (christian@pi24.theoinf.tu-ilmenau.de [141.24.205.153])
-	by piggy.rz.tu-ilmenau.de (8.9.3/8.9.3) with ESMTP id PAA04842;
-	Wed, 19 Mar 2003 15:15:24 +0100 (MET)
+    by piggy.rz.tu-ilmenau.de (8.9.3/8.9.3) with ESMTP id PAA04842;
+    Wed, 19 Mar 2003 15:15:24 +0100 (MET)
 From: Christian Heller <christian.heller@tu-ilmenau.de>
 Organization: TU Ilmenau
 To: volker.langenhan@tu-ilmenau.de

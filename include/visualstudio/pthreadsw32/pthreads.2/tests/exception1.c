@@ -228,7 +228,7 @@ main()
       int fail = 0;
       void* result = (void*)0;
 
-	/* Canceled thread */
+    /* Canceled thread */
       assert(pthread_join(ct[i], &result) == 0);
       assert(!(fail = (result != PTHREAD_CANCELED)));
 

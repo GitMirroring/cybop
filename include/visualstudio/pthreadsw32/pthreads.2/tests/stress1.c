@@ -172,20 +172,20 @@ masterThread (void * arg)
        * Finally, if abs(bias) exceeds timeout then timeout is incremented.
        */
       if (signalsSent % timeout == 0)
-	{
+    {
           if (timeoutCount > signalsTakenCount)
-	    {
-	      bias++;
-	    }
+        {
+          bias++;
+        }
           else if (timeoutCount < signalsTakenCount)
-	    {
-	      bias--;
-	    }
-	  if (bias < -timeout || bias > timeout)
-	    {
-	      timeout++;
-	    }
-	}
+        {
+          bias--;
+        }
+      if (bias < -timeout || bias > timeout)
+        {
+          timeout++;
+        }
+    }
       dither = (dither + 1 ) % (timeout * 2);
       sleepTime = (timeout - bias + dither) / 2;
       Sleep(sleepTime);
@@ -211,15 +211,15 @@ slaveThread (void * arg)
     {
       assert(pthread_mutex_lock(&control.mx) == 0);
       if (pthread_cond_timedwait(&control.cv,
-				 &control.mx,
-				 millisecondsFromNow(&time, control.value)) == ETIMEDOUT)
-	{
-	  timeoutCount++;
-	}
+                 &control.mx,
+                 millisecondsFromNow(&time, control.value)) == ETIMEDOUT)
+    {
+      timeoutCount++;
+    }
       else
-	{
-	  signalsTakenCount++;
-	}
+    {
+      signalsTakenCount++;
+    }
       assert(pthread_mutex_unlock(&control.mx) == 0);
 
       pthread_barrier_wait(&holdBarrier);
@@ -250,9 +250,9 @@ main ()
     {
       pthread_barrier_wait(&holdBarrier);
       if (i >= ITERATIONS)
-	{
-	  allExit = TRUE;
-	}
+    {
+      allExit = TRUE;
+    }
       pthread_barrier_wait(&readyBarrier);
     }
 
@@ -260,11 +260,11 @@ main ()
   assert(pthread_join(master, NULL) == 0);
 
   printf("Signals sent = %d\nWait timeouts = %d\nSignals taken = %d\nBias = %d\nTimeout = %d\n",
-	 signalsSent,
-	 timeoutCount,
-	 signalsTakenCount,
-	 (int) bias,
-	 timeout);
+     signalsSent,
+     timeoutCount,
+     signalsTakenCount,
+     (int) bias,
+     timeout);
 
   /* Cleanup */
   assert(pthread_barrier_destroy(&holdBarrier) == 0);

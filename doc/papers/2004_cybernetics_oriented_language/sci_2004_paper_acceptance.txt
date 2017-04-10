@@ -1,27 +1,27 @@
 From SCI04.System@iiis.org Sun Feb 22 00:24:45 2004
 Return-Path: <SCI04.System@iiis.org>
 Received: from rudy.rz.tu-ilmenau.de (rudy.rz.tu-ilmenau.de [141.24.4.15])
-	by ernie.rz.tu-ilmenau.de (8.12.10/8.12.10) with ESMTP id i1LNP1xh029967
-	for hidden; Sun, 22 Feb 2004 00:25:01 +0100 (MET)
+    by ernie.rz.tu-ilmenau.de (8.12.10/8.12.10) with ESMTP id i1LNP1xh029967
+    for hidden; Sun, 22 Feb 2004 00:25:01 +0100 (MET)
 Received: from elmo.rz.tu-ilmenau.de (localhost [127.0.0.1])
-	by rudy.rz.tu-ilmenau.de (8.12.10/8.12.10) with ESMTP id i1LNJP7P012175
-	for <ai008@ernie.rz.tu-ilmenau.de>; Sun, 22 Feb 2004 00:19:25 +0100 (MET)
+    by rudy.rz.tu-ilmenau.de (8.12.10/8.12.10) with ESMTP id i1LNJP7P012175
+    for <ai008@ernie.rz.tu-ilmenau.de>; Sun, 22 Feb 2004 00:19:25 +0100 (MET)
 Received: from localhost (localhost [127.0.0.1])
-	by elmo.rz.tu-ilmenau.de (8.12.9/8.12.9/Debian-5) with ESMTP id i1LN9vAp013454
-	for <ai008@ernie.rz.tu-ilmenau.de>; Sun, 22 Feb 2004 00:09:57 +0100
+    by elmo.rz.tu-ilmenau.de (8.12.9/8.12.9/Debian-5) with ESMTP id i1LN9vAp013454
+    for <ai008@ernie.rz.tu-ilmenau.de>; Sun, 22 Feb 2004 00:09:57 +0100
 Received: from elmo.rz.tu-ilmenau.de ([127.0.0.1])
-	by localhost (elmo [127.0.0.1]) (amavisd-new, port 10024) with ESMTP
-	id 13295-06 for <ai008@ernie.rz.tu-ilmenau.de>;
-	Sun, 22 Feb 2004 00:09:55 +0100 (CET)
+    by localhost (elmo [127.0.0.1]) (amavisd-new, port 10024) with ESMTP
+    id 13295-06 for <ai008@ernie.rz.tu-ilmenau.de>;
+    Sun, 22 Feb 2004 00:09:55 +0100 (CET)
 Received: from piggy.rz.tu-ilmenau.de (piggy.rz.tu-ilmenau.de [141.24.4.8])
-	by elmo.rz.tu-ilmenau.de (8.12.9/8.12.9/Debian-5) with ESMTP id i1LN9p3j013436
-	for <ai008@ernie.rz.tu-ilmenau.de>; Sun, 22 Feb 2004 00:09:51 +0100
+    by elmo.rz.tu-ilmenau.de (8.12.9/8.12.9/Debian-5) with ESMTP id i1LN9p3j013436
+    for <ai008@ernie.rz.tu-ilmenau.de>; Sun, 22 Feb 2004 00:09:51 +0100
 Received: from rs25s9.datacenter.cha.cantv.net (rs25s9.datacenter.cha.cantv.net [200.44.33.10])
-	by piggy.rz.tu-ilmenau.de (8.12.10/8.12.10) with ESMTP id i1LNOmCb028409
-	for finalrecipients; Sun, 22 Feb 2004 00:24:48 +0100 (MET)
+    by piggy.rz.tu-ilmenau.de (8.12.10/8.12.10) with ESMTP id i1LNOmCb028409
+    for finalrecipients; Sun, 22 Feb 2004 00:24:48 +0100 (MET)
 Received: from hppav (hat-01-057.ccs.ras.cantv.net [200.44.87.57])
-	by rs25s9.datacenter.cha.cantv.net (8.12.9/8.12.6/3.0) with SMTP id i1LNGa9t025152
-	for <christian.heller@tu-ilmenau.de>; Sat, 21 Feb 2004 19:24:45 -0400
+    by rs25s9.datacenter.cha.cantv.net (8.12.9/8.12.6/3.0) with SMTP id i1LNGa9t025152
+    for <christian.heller@tu-ilmenau.de>; Sat, 21 Feb 2004 19:24:45 -0400
 Date: Sat, 21 Feb 2004 19:24:45 -0400
 X-Matched-Lists: []
 Message-ID: <044d01c3f8d2$dd3710e0$39572cc8@hppav>

@@ -36,8 +36,8 @@
  * Create a static pthread_once and test that it calls myfunc once.
  *
  * Depends on API functions:
- *	pthread_once()
- *	pthread_create()
+ *    pthread_once()
+ *    pthread_create()
  */
 
 #include "test.h"

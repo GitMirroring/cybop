@@ -139,29 +139,29 @@ pthread_delay_np (struct timespec *interval)
        * Deferred cancelation will cancel us immediately.
        */
       if (WAIT_OBJECT_0 ==
-	  (status = WaitForSingleObject (sp->cancelEvent, wait_time)))
-	{
+      (status = WaitForSingleObject (sp->cancelEvent, wait_time)))
+    {
           ptw32_mcs_local_node_t stateLock;
-	  /*
-	   * Canceling!
-	   */
-	  ptw32_mcs_lock_acquire (&sp->stateLock, &stateLock);
-	  if (sp->state < PThreadStateCanceling)
-	    {
-	      sp->state = PThreadStateCanceling;
-	      sp->cancelState = PTHREAD_CANCEL_DISABLE;
-	      ptw32_mcs_lock_release (&stateLock);
+      /*
+       * Canceling!
+       */
+      ptw32_mcs_lock_acquire (&sp->stateLock, &stateLock);
+      if (sp->state < PThreadStateCanceling)
+        {
+          sp->state = PThreadStateCanceling;
+          sp->cancelState = PTHREAD_CANCEL_DISABLE;
+          ptw32_mcs_lock_release (&stateLock);
 
-	      ptw32_throw (PTW32_EPS_CANCEL);
-	    }
+          ptw32_throw (PTW32_EPS_CANCEL);
+        }
 
-	  ptw32_mcs_lock_release (&stateLock);
-	  return ESRCH;
-	}
+      ptw32_mcs_lock_release (&stateLock);
+      return ESRCH;
+    }
       else if (status != WAIT_TIMEOUT)
-	{
-	  return EINVAL;
-	}
+    {
+      return EINVAL;
+    }
     }
   else
     {

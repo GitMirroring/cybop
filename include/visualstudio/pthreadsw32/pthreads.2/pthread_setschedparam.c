@@ -40,7 +40,7 @@
 
 int
 pthread_setschedparam (pthread_t thread, int policy,
-		       const struct sched_param *param)
+               const struct sched_param *param)
 {
   int result;
 
@@ -94,7 +94,7 @@ ptw32_setthreadpriority (pthread_t thread, int policy, int priority)
       prio = THREAD_PRIORITY_LOWEST;
     }
   else if (THREAD_PRIORITY_TIME_CRITICAL > prio
-	   && THREAD_PRIORITY_HIGHEST < prio)
+       && THREAD_PRIORITY_HIGHEST < prio)
     {
       prio = THREAD_PRIORITY_HIGHEST;
     }

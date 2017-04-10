@@ -36,12 +36,12 @@
  * Test for pthread_self().
  *
  * Depends on API functions:
- *	pthread_create()
- *	pthread_self()
+ *    pthread_create()
+ *    pthread_self()
  *
  * Implicitly depends on:
- *	pthread_getspecific()
- *	pthread_setspecific()
+ *    pthread_getspecific()
+ *    pthread_setspecific()
  */
 
 #include "test.h"

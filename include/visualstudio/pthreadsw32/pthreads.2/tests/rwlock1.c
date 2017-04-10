@@ -36,8 +36,8 @@
  * Create a simple rwlock object and then destroy it.
  *
  * Depends on API functions:
- * 	pthread_rwlock_init()
- *	pthread_rwlock_destroy()
+ *     pthread_rwlock_init()
+ *    pthread_rwlock_destroy()
  */
 
 #include "test.h"

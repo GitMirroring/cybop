@@ -182,11 +182,11 @@ main()
       assert(pthread_mutex_lock(&start_flag) == 0);
 
       for (i = first; i <= last; i++)
-	{
-	  threadbag[i].started = 0;
-	  threadbag[i].threadnum = i;
-	  assert(pthread_create(&t[i], NULL, mythread, (void *) &threadbag[i]) == 0);
-	}
+    {
+      threadbag[i].started = 0;
+      threadbag[i].threadnum = i;
+      assert(pthread_create(&t[i], NULL, mythread, (void *) &threadbag[i]) == 0);
+    }
 
       /*
        * Code to control or munipulate child threads should probably go here.
@@ -210,9 +210,9 @@ main()
        * Give threads time to complete.
        */
       for (i = first; i <= last; i++)
-	{
-	  assert(pthread_join(t[i], NULL) == 0);
-	}
+    {
+      assert(pthread_join(t[i], NULL) == 0);
+    }
 
       assert(awoken == (i - 1));
     }
@@ -226,9 +226,9 @@ main()
       failed = !threadbag[i].started;
 
       if (failed)
-	{
-	  fprintf(stderr, "Thread %d: started %d\n", i, threadbag[i].started);
-	}
+    {
+      fprintf(stderr, "Thread %d: started %d\n", i, threadbag[i].started);
+    }
     }
 
   /* 

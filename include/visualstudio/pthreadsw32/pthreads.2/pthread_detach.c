@@ -122,15 +122,15 @@ pthread_detach (pthread_t thread)
       /* Thread is joinable */
 
       if (destroyIt)
-	{
-	  /* The thread has exited or is exiting but has not been joined or
-	   * detached. Need to wait in case it's still exiting.
-	   */
-	  (void) WaitForSingleObject(tp->threadH, INFINITE);
-	  ptw32_threadDestroy (thread);
-	}
+    {
+      /* The thread has exited or is exiting but has not been joined or
+       * detached. Need to wait in case it's still exiting.
+       */
+      (void) WaitForSingleObject(tp->threadH, INFINITE);
+      ptw32_threadDestroy (thread);
+    }
     }
 
   return (result);
 
-}				/* pthread_detach */
+}                /* pthread_detach */

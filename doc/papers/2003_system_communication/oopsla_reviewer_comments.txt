@@ -1,29 +1,29 @@
 From becker@informatik.uni-hamburg.de Fri Sep 12 18:45:40 2003
 Return-Path: <becker@informatik.uni-hamburg.de>
 Received: from rudy.rz.tu-ilmenau.de (rudy.rz.tu-ilmenau.de [141.24.4.15])
-	by ernie.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h8CGkoLL020830
-	for hidden; Fri, 12 Sep 2003 18:46:50 +0200 (MET DST)
+    by ernie.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h8CGkoLL020830
+    for hidden; Fri, 12 Sep 2003 18:46:50 +0200 (MET DST)
 Received: from localhost (localhost [127.0.0.1])
-	by rudy.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h8CGfUSr021598
-	for <ai008@ernie.rz.tu-ilmenau.de>; Fri, 12 Sep 2003 18:41:30 +0200 (MEST)
+    by rudy.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h8CGfUSr021598
+    for <ai008@ernie.rz.tu-ilmenau.de>; Fri, 12 Sep 2003 18:41:30 +0200 (MEST)
 Received: from rudy.rz.tu-ilmenau.de ([127.0.0.1])
  by localhost (rudy [127.0.0.1]) (amavisd-new, port 10028) with ESMTP
  id 21450-01-3 for <ai008@ernie.rz.tu-ilmenau.de>;
  Fri, 12 Sep 2003 18:41:28 +0200 (MEST)
 Received: from piggy.rz.tu-ilmenau.de (piggy.rz.tu-ilmenau.de [141.24.4.8])
-	by rudy.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h8CGewRq021489
-	for <ai008@ernie.rz.tu-ilmenau.de>; Fri, 12 Sep 2003 18:40:58 +0200 (MEST)
+    by rudy.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h8CGewRq021489
+    for <ai008@ernie.rz.tu-ilmenau.de>; Fri, 12 Sep 2003 18:40:58 +0200 (MEST)
 Received: from rzdspc1.informatik.uni-hamburg.de (rzdspc1.informatik.uni-hamburg.de [134.100.9.61])
-	by piggy.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h8CGjqKP015988
-	for <christian.heller@tu-ilmenau.de>; Fri, 12 Sep 2003 18:45:52 +0200 (MET DST)
+    by piggy.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h8CGjqKP015988
+    for <christian.heller@tu-ilmenau.de>; Fri, 12 Sep 2003 18:45:52 +0200 (MET DST)
 Received: from rzdspc2.informatik.uni-hamburg.de (root@rzdspc2.informatik.uni-hamburg.de [134.100.9.62])
-	by rzdspc1.informatik.uni-hamburg.de (8.12.9/8.12.9) with ESMTP id h8CGjnvi003541
-	(version=TLSv1/SSLv3 cipher=EDH-RSA-DES-CBC3-SHA bits=168 verify=FAIL);
-	Fri, 12 Sep 2003 18:45:49 +0200 (CEST)
+    by rzdspc1.informatik.uni-hamburg.de (8.12.9/8.12.9) with ESMTP id h8CGjnvi003541
+    (version=TLSv1/SSLv3 cipher=EDH-RSA-DES-CBC3-SHA bits=168 verify=FAIL);
+    Fri, 12 Sep 2003 18:45:49 +0200 (CEST)
 Received: from informatik.uni-hamburg.de (fbipc0816.informatik.uni-hamburg.de [134.100.8.226])
-	by rzdspc2.informatik.uni-hamburg.de (8.12.9/8.12.9) with ESMTP id h8CGjdV8005108
-	(version=TLSv1/SSLv3 cipher=RC4-MD5 bits=128 verify=NO);
-	Fri, 12 Sep 2003 18:45:39 +0200 (CEST)
+    by rzdspc2.informatik.uni-hamburg.de (8.12.9/8.12.9) with ESMTP id h8CGjdV8005108
+    (version=TLSv1/SSLv3 cipher=RC4-MD5 bits=128 verify=NO);
+    Fri, 12 Sep 2003 18:45:39 +0200 (CEST)
 Message-ID: <3F61F834.2050601@informatik.uni-hamburg.de>
 Date: Fri, 12 Sep 2003 18:45:40 +0200
 From: Petra Becker-Pechau <becker@informatik.uni-hamburg.de>

@@ -1,5 +1,5 @@
 #
-# Copyright (C) 1999-2016. Christian Heller.
+# Copyright (C) 1999-2017. Christian Heller.
 #
 # This file represents a record of user-visible changes to cybop.
 #
@@ -9,7 +9,7 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.18.0 2016-12-21
+# @version CYBOP 0.19.0 2017-04-10
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
@@ -48,6 +48,7 @@ CYBOP 0.19.0, 2017-04-09, Christian Heller  <christian.heller@tuxtax.de>
         * Project:
             - Add cmake build scripts to new directory "build/"
             - Include doxygen configuration to cmake
+            - Add python script "build/cmake/adjustcopyright.py"
             - Move icons and manpages to directory "build/"
             - Move testing functionality from "src/tester/" to new directory "test/"
             - Remove autotools configuration files, since they got replaced with cmake

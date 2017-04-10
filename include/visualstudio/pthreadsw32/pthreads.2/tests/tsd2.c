@@ -183,7 +183,7 @@ main()
    */
   for (i = 1; i < NUM_THREADS; i++)
     {
-	assert(pthread_join(thread[i], NULL) == 0);
+    assert(pthread_join(thread[i], NULL) == 0);
     }
 
   assert(pthread_key_delete(key) == 0);
@@ -192,19 +192,19 @@ main()
 
   for (i = 1; i < NUM_THREADS; i++)
     {
-	/*
-	 * The counter is incremented once when the key is set to
-	 * a value, and again when the key is destroyed. If the key
-	 * doesn't get set for some reason then it will still be
-	 * NULL and the destroy function will not be called, and
-	 * hence accesscount will not equal 2.
-	 */
-	if (accesscount[i] != 3)
-	  {
-	    fail++;
-	    fprintf(stderr, "Thread %d key, set = %d, destroyed = %d\n",
-			i, thread_set[i], thread_destroyed[i]);
-	  }
+    /*
+     * The counter is incremented once when the key is set to
+     * a value, and again when the key is destroyed. If the key
+     * doesn't get set for some reason then it will still be
+     * NULL and the destroy function will not be called, and
+     * hence accesscount will not equal 2.
+     */
+    if (accesscount[i] != 3)
+      {
+        fail++;
+        fprintf(stderr, "Thread %d key, set = %d, destroyed = %d\n",
+            i, thread_set[i], thread_destroyed[i]);
+      }
     }
 
   fflush(stderr);

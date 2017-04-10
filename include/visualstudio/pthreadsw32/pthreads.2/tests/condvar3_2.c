@@ -153,7 +153,7 @@ main()
   for (i = 1; i <= NUMTHREADS; i++)
     {
       assert(pthread_join(t[i], &result) == 0);
-	assert((int)(size_t)result == i);
+    assert((int)(size_t)result == i);
       /*
        * Approximately 2/3rds of the threads are expected to time out.
        * Signal the remainder after some threads have woken up and exited
@@ -179,10 +179,10 @@ main()
   if (result != 0)
     {
       fprintf(stderr, "Result = %s\n", error_string[result]);
-	fprintf(stderr, "\tWaitersBlocked = %ld\n", cv->nWaitersBlocked);
-	fprintf(stderr, "\tWaitersGone = %ld\n", cv->nWaitersGone);
-	fprintf(stderr, "\tWaitersToUnblock = %ld\n", cv->nWaitersToUnblock);
-	fflush(stderr);
+    fprintf(stderr, "\tWaitersBlocked = %ld\n", cv->nWaitersBlocked);
+    fprintf(stderr, "\tWaitersGone = %ld\n", cv->nWaitersGone);
+    fprintf(stderr, "\tWaitersToUnblock = %ld\n", cv->nWaitersToUnblock);
+    fflush(stderr);
     }
   assert(result == 0);
   }

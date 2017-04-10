@@ -61,7 +61,7 @@ pthread_barrier_destroy (pthread_barrier_t * barrier)
       result = EBUSY;
     }
   else
-	{
+    {
       if (0 == (result = sem_destroy (&(b->semBarrierBreeched))))
         {
           *barrier = (pthread_barrier_t) PTW32_OBJECT_INVALID;
@@ -76,9 +76,9 @@ pthread_barrier_destroy (pthread_barrier_t * barrier)
            * and will require a major version number increment.
            */
           ptw32_mcs_lock_release(&node);
-	  (void) free (b);
-	  return 0;
-	}
+      (void) free (b);
+      return 0;
+    }
       else
         {
           /*

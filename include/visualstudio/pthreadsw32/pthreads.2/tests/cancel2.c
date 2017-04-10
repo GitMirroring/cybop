@@ -135,9 +135,9 @@ mythread(void * arg)
       sched_yield();
 
       for (;;)
-	{
-	  pthread_testcancel();
-	}
+    {
+      pthread_testcancel();
+    }
     }
 #if !defined(__cplusplus)
   __except(EXCEPTION_EXECUTE_HANDLER)
@@ -205,10 +205,10 @@ main()
   for (i = 1; i <= NUMTHREADS; i++)
     { 
       if (!threadbag[i].started)
-	{
-	  failed |= !threadbag[i].started;
-	  fprintf(stderr, "Thread %d: started %d\n", i, threadbag[i].started);
-	}
+    {
+      failed |= !threadbag[i].started;
+      fprintf(stderr, "Thread %d: started %d\n", i, threadbag[i].started);
+    }
     }
 
   assert(!failed);
@@ -225,13 +225,13 @@ main()
       assert(pthread_join(t[i], &result) == 0);
       fail = ((int)(size_t)result != (int) PTHREAD_CANCELED);
       if (fail)
-	{
-	  fprintf(stderr, "Thread %d: started %d: location %d: cancel type %s\n",
-		  i,
-		  threadbag[i].started,
-		  (int)(size_t)result,
-		  (((int)(size_t)result % 2) == 0) ? "ASYNCHRONOUS" : "DEFERRED");
-	}
+    {
+      fprintf(stderr, "Thread %d: started %d: location %d: cancel type %s\n",
+          i,
+          threadbag[i].started,
+          (int)(size_t)result,
+          (((int)(size_t)result % 2) == 0) ? "ASYNCHRONOUS" : "DEFERRED");
+    }
       failed |= fail;
     }
 

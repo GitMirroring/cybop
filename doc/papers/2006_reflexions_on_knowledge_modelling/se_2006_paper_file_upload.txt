@@ -3,11 +3,11 @@ X-Envelope-From: <systemmail@paperdyne.com>
 X-Envelope-To: <christian.heller@tuxtax.de>
 X-Delivery-Time: 1130418852
 Received: from ebus011.informatik.uni-leipzig.de (ebus011.informatik.uni-leipzig.de [139.18.40.11])
-	by mailin.webmailer.de (8.13.1/8.13.1) with ESMTP id j9RDEBfn007086
-	for <christian.heller@tuxtax.de>; Thu, 27 Oct 2005 15:14:12 +0200 (MEST)
+    by mailin.webmailer.de (8.13.1/8.13.1) with ESMTP id j9RDEBfn007086
+    for <christian.heller@tuxtax.de>; Thu, 27 Oct 2005 15:14:12 +0200 (MEST)
 Received: from ebus011 (localhost [127.0.0.1])
-	by ebus011.informatik.uni-leipzig.de (Postfix) with ESMTP
-	id BEC3B1FD4E; Thu, 27 Oct 2005 15:14:10 +0200 (CEST)
+    by ebus011.informatik.uni-leipzig.de (Postfix) with ESMTP
+    id BEC3B1FD4E; Thu, 27 Oct 2005 15:14:10 +0200 (CEST)
 Message-ID: <4364221.1130418850775.JavaMail.se06@ebus011>
 From: Paperdyne System Mail <systemmail@paperdyne.com>
 Reply-To: Volker Gruhn <gruhn@ebus.informatik.uni-leipzig.de>
@@ -23,7 +23,7 @@ Date: Thu, 27 Oct 2005 15:14:10 +0200 (CEST)
 X-Spam-Checker-Version: SpamAssassin 3.0.4 (2005-06-05) on pluto.tuxtax
 X-Spam-Level: 
 X-Spam-Status: No, score=-1.2 required=5.0 tests=AWL,BAYES_00 autolearn=ham 
-	version=3.0.4
+    version=3.0.4
 X-UID: 
 X-Bogosity: Spam, tests=bogofilter, spamicity=1.000000, version=0.94.13
 Status: R

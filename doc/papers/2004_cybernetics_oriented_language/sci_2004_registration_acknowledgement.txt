@@ -1,26 +1,26 @@
 From informationsci2004@iiis.org Mon Mar 15 15:37:35 2004
 Return-Path: <informationsci2004@iiis.org>
 Received: from rudy.rz.tu-ilmenau.de (rudy.rz.tu-ilmenau.de [141.24.4.15])
-	by ernie.rz.tu-ilmenau.de (8.12.10/8.12.10) with ESMTP id i2FEaXSr021519
-	for hidden; Mon, 15 Mar 2004 15:36:33 +0100 (MET)
+    by ernie.rz.tu-ilmenau.de (8.12.10/8.12.10) with ESMTP id i2FEaXSr021519
+    for hidden; Mon, 15 Mar 2004 15:36:33 +0100 (MET)
 Received: from elmo.rz.tu-ilmenau.de (localhost [127.0.0.1])
-	by rudy.rz.tu-ilmenau.de (8.12.10/8.12.10) with ESMTP id i2FEUm7P012076
-	for <ai008@ernie.rz.tu-ilmenau.de>; Mon, 15 Mar 2004 15:30:48 +0100 (MET)
+    by rudy.rz.tu-ilmenau.de (8.12.10/8.12.10) with ESMTP id i2FEUm7P012076
+    for <ai008@ernie.rz.tu-ilmenau.de>; Mon, 15 Mar 2004 15:30:48 +0100 (MET)
 Received: from localhost (localhost [127.0.0.1])
-	by elmo.rz.tu-ilmenau.de (8.12.9/8.12.9/Debian-5) with ESMTP id i2FEZ074028619
-	for <ai008@ernie.rz.tu-ilmenau.de>; Mon, 15 Mar 2004 15:35:01 +0100
+    by elmo.rz.tu-ilmenau.de (8.12.9/8.12.9/Debian-5) with ESMTP id i2FEZ074028619
+    for <ai008@ernie.rz.tu-ilmenau.de>; Mon, 15 Mar 2004 15:35:01 +0100
 Received: from elmo.rz.tu-ilmenau.de ([127.0.0.1])
-	by localhost (elmo [127.0.0.1]) (amavisd-new, port 10024) with ESMTP
-	id 28483-01-4 for <ai008@ernie.rz.tu-ilmenau.de>;
-	Mon, 15 Mar 2004 15:34:59 +0100 (CET)
+    by localhost (elmo [127.0.0.1]) (amavisd-new, port 10024) with ESMTP
+    id 28483-01-4 for <ai008@ernie.rz.tu-ilmenau.de>;
+    Mon, 15 Mar 2004 15:34:59 +0100 (CET)
 Received: from piggy.rz.tu-ilmenau.de (piggy.rz.tu-ilmenau.de [141.24.4.8])
-	by elmo.rz.tu-ilmenau.de (8.12.9/8.12.9/Debian-5) with ESMTP id i2FEX56U028360
-	for <ai008@ernie.rz.tu-ilmenau.de>; Mon, 15 Mar 2004 15:33:05 +0100
+    by elmo.rz.tu-ilmenau.de (8.12.9/8.12.9/Debian-5) with ESMTP id i2FEX56U028360
+    for <ai008@ernie.rz.tu-ilmenau.de>; Mon, 15 Mar 2004 15:33:05 +0100
 Received: from ragnarok.iiisci.org (host-200-75-139-138.net-uno.net [200.75.139.138] (may be forged))
-	by piggy.rz.tu-ilmenau.de (8.12.10/8.12.10) with ESMTP id i2FEYPm9019723
-	for finalrecipients; Mon, 15 Mar 2004 15:34:26 +0100 (MET)
+    by piggy.rz.tu-ilmenau.de (8.12.10/8.12.10) with ESMTP id i2FEYPm9019723
+    for finalrecipients; Mon, 15 Mar 2004 15:34:26 +0100 (MET)
 Received: from mail pickup service by ragnarok.iiisci.org with Microsoft SMTPSVC;
-	 Mon, 15 Mar 2004 10:37:35 -0400
+     Mon, 15 Mar 2004 10:37:35 -0400
 From: <informationsci2004@iiis.org>
 To: <christian.heller@tu-ilmenau.de>
 Subject: SCI 2004 Registration Acknowledgement
@@ -40,7 +40,7 @@ This is a multi-part message in MIME format.
 
 ------=_NextPart_000_3528_01C40A79.8755E350
 Content-Type: text/plain;
-	charset="iso-8859-1"
+    charset="iso-8859-1"
 Content-Transfer-Encoding: 7bit
 
 *** PLEASE DO NOT REPLY TO THIS AUTO-ANSWER MESSAGE ***
@@ -168,7 +168,7 @@ sci2004@iiis.org, sci2004@telcel.net.ve, sci2004@cantv.net
 
 ------=_NextPart_000_3528_01C40A79.8755E350
 Content-Type: text/html;
-	charset="iso-8859-1"
+    charset="iso-8859-1"
 Content-Transfer-Encoding: quoted-printable
 
 *** PLEASE DO NOT REPLY TO THIS AUTO-ANSWER MESSAGE ***<br>This e-mail =

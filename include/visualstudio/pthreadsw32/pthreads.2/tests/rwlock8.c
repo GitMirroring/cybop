@@ -74,8 +74,8 @@ void *thread_routine (void *arg)
           data[element].data = self->thread_num;
           data[element].updates++;
           self->updates++;
-	  interval = 1 + rand_r (&seed) % 71;
-	  sched_yield();
+      interval = 1 + rand_r (&seed) % 71;
+      sched_yield();
           assert(pthread_rwlock_unlock (&data[element].lock) == 0);
         } else {
           /*
@@ -90,10 +90,10 @@ void *thread_routine (void *arg)
           if (data[element].data != self->thread_num)
             {
               self->changed++;
-	      interval = 1 + self->changed % 71;
+          interval = 1 + self->changed % 71;
             }
 
-	  sched_yield();
+      sched_yield();
 
           assert(pthread_rwlock_unlock (&data[element].lock) == 0);
         }

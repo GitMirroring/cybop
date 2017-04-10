@@ -60,20 +60,20 @@ ptw32_threadDestroy (pthread_t thread)
 
       /* Now work on the copy. */
       if (threadCopy.cancelEvent != NULL)
-	{
-	  CloseHandle (threadCopy.cancelEvent);
-	}
+    {
+      CloseHandle (threadCopy.cancelEvent);
+    }
 
 #if ! (defined(__MINGW64__) || defined(__MINGW32__)) || defined (__MSVCRT__) || defined (__DMC__)
       /*
        * See documentation for endthread vs endthreadex.
        */
       if (threadCopy.threadH != 0)
-	{
-	  CloseHandle (threadCopy.threadH);
-	}
+    {
+      CloseHandle (threadCopy.threadH);
+    }
 #endif
 
     }
-}				/* ptw32_threadDestroy */
+}                /* ptw32_threadDestroy */
 

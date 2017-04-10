@@ -63,50 +63,50 @@ pthread_mutex_unlock (pthread_mutex_t * mutex)
       if (kind >= 0)
         {
           if (kind == PTHREAD_MUTEX_NORMAL)
-	    {
-	      LONG idx;
+        {
+          LONG idx;
 
-	      idx = (LONG) PTW32_INTERLOCKED_EXCHANGE_LONG ((PTW32_INTERLOCKED_LONGPTR)&mx->lock_idx,
-							    (PTW32_INTERLOCKED_LONG)0);
-	      if (idx != 0)
-	        {
-	          if (idx < 0)
-		    {
-		      /*
-		       * Someone may be waiting on that mutex.
-		       */
-		      if (SetEvent (mx->event) == 0)
-		        {
-		          result = EINVAL;
-		        }
-		    }
-	        }
-	    }
+          idx = (LONG) PTW32_INTERLOCKED_EXCHANGE_LONG ((PTW32_INTERLOCKED_LONGPTR)&mx->lock_idx,
+                                (PTW32_INTERLOCKED_LONG)0);
+          if (idx != 0)
+            {
+              if (idx < 0)
+            {
+              /*
+               * Someone may be waiting on that mutex.
+               */
+              if (SetEvent (mx->event) == 0)
+                {
+                  result = EINVAL;
+                }
+            }
+            }
+        }
           else
-	    {
-	      if (pthread_equal (mx->ownerThread, pthread_self()))
-	        {
-	          if (kind != PTHREAD_MUTEX_RECURSIVE
-		      || 0 == --mx->recursive_count)
-		    {
-		      mx->ownerThread.p = NULL;
+        {
+          if (pthread_equal (mx->ownerThread, pthread_self()))
+            {
+              if (kind != PTHREAD_MUTEX_RECURSIVE
+              || 0 == --mx->recursive_count)
+            {
+              mx->ownerThread.p = NULL;
 
-		      if ((LONG) PTW32_INTERLOCKED_EXCHANGE_LONG ((PTW32_INTERLOCKED_LONGPTR)&mx->lock_idx,
-							          (PTW32_INTERLOCKED_LONG)0) < 0L)
-		        {
-		          /* Someone may be waiting on that mutex */
-		          if (SetEvent (mx->event) == 0)
-			    {
-			      result = EINVAL;
-			    }
-		        }
-		    }
-	        }
-	      else
-	        {
-	          result = EPERM;
-	        }
-	    }
+              if ((LONG) PTW32_INTERLOCKED_EXCHANGE_LONG ((PTW32_INTERLOCKED_LONGPTR)&mx->lock_idx,
+                                      (PTW32_INTERLOCKED_LONG)0) < 0L)
+                {
+                  /* Someone may be waiting on that mutex */
+                  if (SetEvent (mx->event) == 0)
+                {
+                  result = EINVAL;
+                }
+                }
+            }
+            }
+          else
+            {
+              result = EPERM;
+            }
+        }
         }
       else
         {

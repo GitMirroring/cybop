@@ -3,8 +3,8 @@ X-Envelope-From: <ivaldes@hal-pc.org>
 X-Envelope-To: <christian.heller@tuxtax.de>
 X-Delivery-Time: 1055168576
 Received: from mail.hal-pc.org (mail.hal-pc.org [206.180.145.133])
-	by mailin.webmailer.de (8.12.8/8.8.7) with ESMTP id h59EMtrD026866
-	for <christian.heller@tuxtax.de>; Mon, 9 Jun 2003 16:22:56 +0200 (MEST)
+    by mailin.webmailer.de (8.12.8/8.8.7) with ESMTP id h59EMtrD026866
+    for <christian.heller@tuxtax.de>; Mon, 9 Jun 2003 16:22:56 +0200 (MEST)
 Received: from [206.180.154.121] (HELO hal-pc.org)
   by mail.hal-pc.org (CommuniGate Pro SMTP 3.5.9)
   with ESMTP id 49514526 for christian.heller@tuxtax.de; Mon, 09 Jun 2003 09:22:53 -0500

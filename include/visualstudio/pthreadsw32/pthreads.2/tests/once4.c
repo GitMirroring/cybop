@@ -38,8 +38,8 @@
  * waiters waiting. Vary the priorities.
  *
  * Depends on API functions:
- *	pthread_once()
- *	pthread_create()
+ *    pthread_once()
+ *    pthread_create()
  *      pthread_testcancel()
  *      pthread_cancel()
  *      pthread_once()
@@ -79,10 +79,10 @@ mycleanupfunc(void * arg)
   EnterCriticalSection(&print_lock);
   /*      once thrd  prio error */
   printf("%4d %4d %4d %4d\n",
-	 bag->oncenum,
-	 bag->threadnum,
-	 bag->myPrio,
-	 bag->myPrio - GetThreadPriority(bag->w32Thread));
+     bag->oncenum,
+     bag->threadnum,
+     bag->myPrio,
+     bag->myPrio - GetThreadPriority(bag->w32Thread));
   LeaveCriticalSection(&print_lock);
 }
 
@@ -163,9 +163,9 @@ main()
 
       for (i = 0; i < NUM_THREADS; i++)
         {
-	  bag_t * bag = &threadbag[i][j];
-	  bag->threadnum = i;
-	  bag->oncenum = j;
+      bag_t * bag = &threadbag[i][j];
+      bag->threadnum = i;
+      bag->oncenum = j;
           /* GCC build: create was failing with EAGAIN after 790 threads */
           while (0 != pthread_create(&t[i][j], NULL, mythread, (void *)bag))
             sched_yield();

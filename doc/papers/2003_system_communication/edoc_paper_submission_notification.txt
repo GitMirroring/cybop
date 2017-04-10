@@ -1,20 +1,20 @@
 From edoc-pc-chairs@dstc.edu.au Thu Feb 27 19:46:31 2003
 Return-Path: <www@obsolete.dstc.edu.au>
 Received: from virusgate.rz.tu-ilmenau.de (virusgate.rz.tu-ilmenau.de [141.24.4.19])
-	by ernie.rz.tu-ilmenau.de (8.9.3/8.9.3) with ESMTP id TAA10417
-	Thu, 27 Feb 2003 19:47:30 +0100 (MET)
+    by ernie.rz.tu-ilmenau.de (8.9.3/8.9.3) with ESMTP id TAA10417
+    Thu, 27 Feb 2003 19:47:30 +0100 (MET)
 Received: from piggy.rz.tu-ilmenau.de (localhost [127.0.0.1])
-	by virusgate.rz.tu-ilmenau.de (8.11.2/8.11.2) with ESMTP id h1RIlL528637
-	Thu, 27 Feb 2003 19:47:21 +0100 (MET)
+    by virusgate.rz.tu-ilmenau.de (8.11.2/8.11.2) with ESMTP id h1RIlL528637
+    Thu, 27 Feb 2003 19:47:21 +0100 (MET)
 Received: from piglet.dstc.edu.au (piglet.dstc.edu.au [130.102.176.1])
-	by piggy.rz.tu-ilmenau.de (8.9.3/8.9.3) with ESMTP id TAA01965
-	; Thu, 27 Feb 2003 19:47:17 +0100 (MET)
+    by piggy.rz.tu-ilmenau.de (8.9.3/8.9.3) with ESMTP id TAA01965
+    ; Thu, 27 Feb 2003 19:47:17 +0100 (MET)
 Received: from obsolete.dstc.edu.au (www.dstc.edu.au [130.102.181.60])
-	by piglet.dstc.edu.au (8.12.3/8.12.3) with ESMTP id h1RIka8b025709;
-	Fri, 28 Feb 2003 04:46:36 +1000 (EST)
+    by piglet.dstc.edu.au (8.12.3/8.12.3) with ESMTP id h1RIka8b025709;
+    Fri, 28 Feb 2003 04:46:36 +1000 (EST)
 Received: (from www@localhost)
-	by obsolete.dstc.edu.au (8.9.3+Sun/8.8.8) id EAA12079;
-	Fri, 28 Feb 2003 04:46:31 +1000 (EST)
+    by obsolete.dstc.edu.au (8.9.3+Sun/8.8.8) id EAA12079;
+    Fri, 28 Feb 2003 04:46:31 +1000 (EST)
 Date: Fri, 28 Feb 2003 04:46:31 +1000 (EST)
 Message-Id: <200302271846.EAA12079@obsolete.dstc.edu.au>
 To: christian.heller@tu-ilmenau.de

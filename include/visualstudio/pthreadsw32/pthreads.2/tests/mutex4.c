@@ -36,9 +36,9 @@
  * Thread A locks mutex - thread B tries to unlock.
  *
  * Depends on API functions: 
- *	pthread_mutex_lock()
- *	pthread_mutex_trylock()
- *	pthread_mutex_unlock()
+ *    pthread_mutex_lock()
+ *    pthread_mutex_trylock()
+ *    pthread_mutex_unlock()
  */
 
 #include "test.h"

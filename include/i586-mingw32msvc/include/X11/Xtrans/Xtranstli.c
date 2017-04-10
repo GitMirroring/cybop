@@ -61,17 +61,17 @@ from The Open Group.
  */
 
 typedef struct _TLItrans2dev {
-    char	*transname;
-    char	*protofamily;
-    char	*devcotsname;
-    char	*devcltsname;
-    int	family;
+    char    *transname;
+    char    *protofamily;
+    char    *devcotsname;
+    char    *devcltsname;
+    int    family;
 } TLItrans2dev;
 
 static TLItrans2dev TLItrans2devtab[] = {
-	{"inet","inet","/dev/tcp","/dev/udp",AF_INET},
-	{"tcp","inet","/dev/tcp","/dev/udp",AF_INET},
-	{"tli","loopback","/dev/ticots","/dev/ticlts",AF_UNIX},
+    {"inet","inet","/dev/tcp","/dev/udp",AF_INET},
+    {"tcp","inet","/dev/tcp","/dev/udp",AF_INET},
+    {"tli","loopback","/dev/ticots","/dev/ticlts",AF_UNIX},
 };
 
 #define NUMTLIFAMILIES (sizeof(TLItrans2devtab)/sizeof(TLItrans2dev))
@@ -83,31 +83,31 @@ static TLItrans2dev TLItrans2devtab[] = {
  */
     
 #if defined(X11_t)
-#define TLINODENAME	"TLI:xserver"
+#define TLINODENAME    "TLI:xserver"
 #endif
     
 #if defined(XIM_t)
-#define TLINODENAME	"TLI:xim"
+#define TLINODENAME    "TLI:xim"
 #endif
     
 #if defined(FS_t) || defined(FONT_t)
-#define TLINODENAME	"TLI:fontserver"
+#define TLINODENAME    "TLI:fontserver"
 #endif
     
 #if defined(ICE_t)
-#define TLINODENAME	"TLI:ICE"
+#define TLINODENAME    "TLI:ICE"
 #endif
     
 #if defined(TEST_t)
-#define TLINODENAME	"TLI:test"
+#define TLINODENAME    "TLI:test"
 #endif
     
 #ifndef PORTBUFSIZE
 #ifdef TRANS_SERVER
-#define PORTBUFSIZE	64
+#define PORTBUFSIZE    64
 #else
 #ifdef TRANS_CLIENT
-#define PORTBUFSIZE	64
+#define PORTBUFSIZE    64
 #endif
 #endif
 #endif
@@ -127,8 +127,8 @@ TRANS(TLISelectFamily)(char *family)
     
     for(i=0;i<NUMTLIFAMILIES;i++)
     {
-	if( !strcmp(family,TLItrans2devtab[i].transname) )
-	    return i;
+    if( !strcmp(family,TLItrans2devtab[i].transname) )
+        return i;
     }
     return -1;
 }
@@ -143,8 +143,8 @@ static int
 TRANS(TLIGetAddr)(XtransConnInfo ciptr)
 
 {
-    Xtransaddr		sockname;
-    struct netbuf	netbuf;
+    Xtransaddr        sockname;
+    struct netbuf    netbuf;
     
     PRMSG(3,"TLIGetAddr(%x)\n", ciptr, 0,0 );
     
@@ -154,26 +154,26 @@ TRANS(TLIGetAddr)(XtransConnInfo ciptr)
     
     if( t_getname(ciptr->fd,&netbuf,LOCALNAME) < 0 )
     {
-	PRMSG(1,"TLIGetAddr: t_getname(LOCALNAME) failed: %d\n",
-	      errno, 0,0 );
-	return -1;
+    PRMSG(1,"TLIGetAddr: t_getname(LOCALNAME) failed: %d\n",
+          errno, 0,0 );
+    return -1;
     }
     
     PRMSG(4,"TLIGetAddr: got family %d len %d\n",
-	  ((struct sockaddr *) &sockname)->sa_family ,netbuf.len, 0 );
+      ((struct sockaddr *) &sockname)->sa_family ,netbuf.len, 0 );
     
     /*
      * Everything looks good: fill in the XtransConnInfo structure.
      */
     
     if( ciptr->addr )
-	xfree(ciptr->addr);
+    xfree(ciptr->addr);
     
     if( (ciptr->addr=(char *)xalloc(netbuf.len)) == NULL )
     {
-	PRMSG(1, "TLIGetAddr: Can't allocate space for the addr\n",
-	      0,0,0);
-	return -1;
+    PRMSG(1, "TLIGetAddr: Can't allocate space for the addr\n",
+          0,0,0);
+    return -1;
     }
     
     ciptr->family=((struct sockaddr *) &sockname)->sa_family;
@@ -193,8 +193,8 @@ static int
 TRANS(TLIGetPeerAddr)(XtransConnInfo ciptr)
 
 {
-    Xtransaddr		sockname;
-    struct netbuf	netbuf;
+    Xtransaddr        sockname;
+    struct netbuf    netbuf;
     
     PRMSG(3,"TLIGetPeerAddr(%x)\n", ciptr, 0,0 );
     
@@ -204,27 +204,27 @@ TRANS(TLIGetPeerAddr)(XtransConnInfo ciptr)
     
     if( t_getname(ciptr->fd,&netbuf,REMOTENAME) < 0 )
     {
-	PRMSG(1,"TLIGetPeerAddr: t_getname(REMOTENAME) failed: %d\n",
-	      errno, 0,0 );
-	return -1;
+    PRMSG(1,"TLIGetPeerAddr: t_getname(REMOTENAME) failed: %d\n",
+          errno, 0,0 );
+    return -1;
     }
     
     PRMSG(4,"TLIGetPeerAddr: got family %d len %d\n",
-	  ((struct sockaddr *) &sockname)->sa_family ,netbuf.len, 0 );
+      ((struct sockaddr *) &sockname)->sa_family ,netbuf.len, 0 );
     
     /*
      * Everything looks good: fill in the XtransConnInfo structure.
      */
     
     if( ciptr->peeraddr )
-	xfree(ciptr->peeraddr);
+    xfree(ciptr->peeraddr);
     
     if( (ciptr->peeraddr=(char *)xalloc(netbuf.len)) == NULL )
     {
-	PRMSG(1,
-	      "TLIGetPeerAddr: Can't allocate space for the addr\n",
-	      0,0,0);
-	return -1;
+    PRMSG(1,
+          "TLIGetPeerAddr: Can't allocate space for the addr\n",
+          0,0,0);
+    return -1;
     }
     
     ciptr->peeraddrlen=netbuf.len;
@@ -248,62 +248,62 @@ static int
 TRANS(TLITLIBindLocal)(int fd, int family, char *port)
 
 {
-    struct sockaddr_un	*sunaddr=NULL;
-    struct t_bind	*req=NULL;
+    struct sockaddr_un    *sunaddr=NULL;
+    struct t_bind    *req=NULL;
     
     PRMSG(2, "TLITLIBindLocal(%d,%d,%s)\n", fd, family, port);
     
     if( family == AF_UNIX )
     {
-	if( (req=(struct t_bind *)t_alloc(fd,T_BIND,0)) == NULL )
-	{
-	    PRMSG(1,
-		  "TLITLIBindLocal() failed to allocate a t_bind\n",
-		  0,0,0 );
-	    return -1;
-	}
-	
-	if( (sunaddr=(struct sockaddr_un *)
-	     malloc(sizeof(struct sockaddr_un))) == NULL )
-	{
-	    PRMSG(1,
-		  "TLITLIBindLocal: failed to allocate a sockaddr_un\n",
-		  0,0,0 );
-	    t_free((char *)req,T_BIND);
-	    return -1;
-	}
-	
-	sunaddr->sun_family=AF_UNIX;
-	
+    if( (req=(struct t_bind *)t_alloc(fd,T_BIND,0)) == NULL )
+    {
+        PRMSG(1,
+          "TLITLIBindLocal() failed to allocate a t_bind\n",
+          0,0,0 );
+        return -1;
+    }
+    
+    if( (sunaddr=(struct sockaddr_un *)
+         malloc(sizeof(struct sockaddr_un))) == NULL )
+    {
+        PRMSG(1,
+          "TLITLIBindLocal: failed to allocate a sockaddr_un\n",
+          0,0,0 );
+        t_free((char *)req,T_BIND);
+        return -1;
+    }
+    
+    sunaddr->sun_family=AF_UNIX;
+    
 #ifdef nuke
-	if( *port == '/' ) { /* A full pathname */
-	    (void) strcpy(sunaddr->sun_path, port);
-	} else {
-	    (void) sprintf(sunaddr->sun_path,"%s%s", TLINODENAME, port );
-	}
+    if( *port == '/' ) { /* A full pathname */
+        (void) strcpy(sunaddr->sun_path, port);
+    } else {
+        (void) sprintf(sunaddr->sun_path,"%s%s", TLINODENAME, port );
+    }
 #endif /*NUKE*/
-	
-	(void) sprintf(sunaddr->sun_path,"%s%d",
-		       TLINODENAME, getpid()^time(NULL) );
-	
-	PRMSG(4, "TLITLIBindLocal: binding to %s\n",
-	      sunaddr->sun_path, 0,0);
-	
-	req->addr.buf=(char *)sunaddr;
-	req->addr.len=sizeof(*sunaddr);
-	req->addr.maxlen=sizeof(*sunaddr);
+    
+    (void) sprintf(sunaddr->sun_path,"%s%d",
+               TLINODENAME, getpid()^time(NULL) );
+    
+    PRMSG(4, "TLITLIBindLocal: binding to %s\n",
+          sunaddr->sun_path, 0,0);
+    
+    req->addr.buf=(char *)sunaddr;
+    req->addr.len=sizeof(*sunaddr);
+    req->addr.maxlen=sizeof(*sunaddr);
     }
     
     if( t_bind(fd, req, NULL) < 0 )
     {
-	PRMSG(1,
-	      "TLIBindLocal: Unable to bind TLI device to %s\n",
-	      port, 0,0 );
-	if (sunaddr)
-	    free((char *) sunaddr);
-	if (req)
-	    t_free((char *)req,T_BIND);
-	return -1;
+    PRMSG(1,
+          "TLIBindLocal: Unable to bind TLI device to %s\n",
+          port, 0,0 );
+    if (sunaddr)
+        free((char *) sunaddr);
+    if (req)
+        t_free((char *)req,T_BIND);
+    return -1;
     }
     return 0;
 }
@@ -312,21 +312,21 @@ static XtransConnInfo
 TRANS(TLIOpen)(char *device)
 
 {
-    XtransConnInfo	ciptr;
+    XtransConnInfo    ciptr;
     
     PRMSG(3,"TLIOpen(%s)\n", device, 0,0 );
     
     if( (ciptr=(XtransConnInfo)xcalloc(1,sizeof(struct _XtransConnInfo))) == NULL )
     {
-	PRMSG(1, "TLIOpen: calloc failed\n", 0,0,0 );
-	return NULL;
+    PRMSG(1, "TLIOpen: calloc failed\n", 0,0,0 );
+    return NULL;
     }
     
     if( (ciptr->fd=t_open( device, O_RDWR, NULL )) < 0 )
     {
-	PRMSG(1, "TLIOpen: t_open failed for %s\n", device, 0,0 );
-	free(ciptr);
-	return NULL;
+    PRMSG(1, "TLIOpen: t_open failed for %s\n", device, 0,0 );
+    free(ciptr);
+    return NULL;
     }
     
     return ciptr;
@@ -339,20 +339,20 @@ static XtransConnInfo
 TRANS(TLIReopen)(char *device, int fd, char *port)
 
 {
-    XtransConnInfo	ciptr;
+    XtransConnInfo    ciptr;
     
     PRMSG(3,"TLIReopen(%s,%d, %s)\n", device, fd, port );
     
     if (t_sync (fd) < 0)
     {
-	PRMSG(1, "TLIReopen: t_sync failed\n", 0,0,0 );
-	return NULL;
+    PRMSG(1, "TLIReopen: t_sync failed\n", 0,0,0 );
+    return NULL;
     }
 
     if( (ciptr=(XtransConnInfo)xcalloc(1,sizeof(struct _XtransConnInfo))) == NULL )
     {
-	PRMSG(1, "TLIReopen: calloc failed\n", 0,0,0 );
-	return NULL;
+    PRMSG(1, "TLIReopen: calloc failed\n", 0,0,0 );
+    return NULL;
     }
     
     ciptr->fd = fd;
@@ -363,13 +363,13 @@ TRANS(TLIReopen)(char *device, int fd, char *port)
 #endif /* TRANS_REOPEN */
 
 
-static	int
+static    int
 TRANS(TLIAddrToNetbuf)(int tlifamily, char *host, char *port, 
-		       struct netbuf *netbufp)
+               struct netbuf *netbufp)
 
 {
     struct netconfig *netconfigp;
-    struct nd_hostserv	nd_hostserv;
+    struct nd_hostserv    nd_hostserv;
     struct nd_addrlist *nd_addrlistp = NULL;
     void *handlep;
     long lport;
@@ -377,40 +377,40 @@ TRANS(TLIAddrToNetbuf)(int tlifamily, char *host, char *port,
     PRMSG(3,"TLIAddrToNetbuf(%d,%s,%s)\n", tlifamily, host, port );
     
     if( (handlep=setnetconfig()) == NULL )
-	return -1;
+    return -1;
 
     lport = strtol (port, (char**)NULL, 10);
     if (lport < 1024 || lport > USHRT_MAX)
-	return -1;
+    return -1;
     
     nd_hostserv.h_host = host;
     if( port && *port ) {
-	nd_hostserv.h_serv = port;
+    nd_hostserv.h_serv = port;
     } else {
-	nd_hostserv.h_serv = NULL;
+    nd_hostserv.h_serv = NULL;
     }
     
     while( (netconfigp=getnetconfig(handlep)) != NULL )
     {
-	if( strcmp(netconfigp->nc_protofmly,
-		   TLItrans2devtab[tlifamily].protofamily) != 0 )
-	    continue;
-	PRMSG(5,"TLIAddrToNetbuf: Trying to resolve %s.%s for %s\n",
-	      host, port, TLItrans2devtab[tlifamily].protofamily );
-	if( netdir_getbyname(netconfigp,&nd_hostserv, &nd_addrlistp) == 0 )
-	{
-	    /* we have at least one address to use */
-	    
-	    PRMSG(5, "TLIAddrToNetbuf: found address for %s.%s\n", host, port, 0 );
-	    PRMSG(5, "TLIAddrToNetbuf: %s\n",taddr2uaddr(netconfigp,nd_addrlistp->n_addrs),
-		  0,0 );
-	    
-	    memcpy(netbufp->buf,nd_addrlistp->n_addrs->buf,
-		   nd_addrlistp->n_addrs->len);
-	    netbufp->len=nd_addrlistp->n_addrs->len;
-	    endnetconfig(handlep);
-	    return 0;
-	}
+    if( strcmp(netconfigp->nc_protofmly,
+           TLItrans2devtab[tlifamily].protofamily) != 0 )
+        continue;
+    PRMSG(5,"TLIAddrToNetbuf: Trying to resolve %s.%s for %s\n",
+          host, port, TLItrans2devtab[tlifamily].protofamily );
+    if( netdir_getbyname(netconfigp,&nd_hostserv, &nd_addrlistp) == 0 )
+    {
+        /* we have at least one address to use */
+        
+        PRMSG(5, "TLIAddrToNetbuf: found address for %s.%s\n", host, port, 0 );
+        PRMSG(5, "TLIAddrToNetbuf: %s\n",taddr2uaddr(netconfigp,nd_addrlistp->n_addrs),
+          0,0 );
+        
+        memcpy(netbufp->buf,nd_addrlistp->n_addrs->buf,
+           nd_addrlistp->n_addrs->len);
+        netbufp->len=nd_addrlistp->n_addrs->len;
+        endnetconfig(handlep);
+        return 0;
+    }
     }
     endnetconfig(handlep);
     
@@ -425,46 +425,46 @@ TRANS(TLIAddrToNetbuf)(int tlifamily, char *host, char *port,
 
 static XtransConnInfo
 TRANS(TLIOpenCOTSClient)(Xtransport *thistrans, char *protocol, 
-			 char *host, char *port)
+             char *host, char *port)
 
 {
-    XtransConnInfo	ciptr;
-    int 		i;
+    XtransConnInfo    ciptr;
+    int         i;
     
     PRMSG(2,"TLIOpenCOTSClient(%s,%s,%s)\n", protocol, host, port );
     
     if( (i=TRANS(TLISelectFamily)(thistrans->TransName)) < 0 )
     {
-	PRMSG(1,"TLIOpenCOTSClient: Unable to determine device for %s\n",
-	      thistrans->TransName, 0,0 );
-	return NULL;
+    PRMSG(1,"TLIOpenCOTSClient: Unable to determine device for %s\n",
+          thistrans->TransName, 0,0 );
+    return NULL;
     }
     
     if( (ciptr=TRANS(TLIOpen)(TLItrans2devtab[i].devcotsname)) == NULL )
     {
-	PRMSG(1,"TLIOpenCOTSClient: Unable to open device for %s\n",
-	      thistrans->TransName, 0,0 );
-	return NULL;
+    PRMSG(1,"TLIOpenCOTSClient: Unable to open device for %s\n",
+          thistrans->TransName, 0,0 );
+    return NULL;
     }
     
     if( TRANS(TLITLIBindLocal)(ciptr->fd,TLItrans2devtab[i].family,port) < 0 )
     {
-	PRMSG(1,
-	      "TLIOpenCOTSClient: ...TLITLIBindLocal() failed: %d\n",
-	      errno, 0,0 );
-	t_close(ciptr->fd);
-	xfree(ciptr);
-	return NULL;
+    PRMSG(1,
+          "TLIOpenCOTSClient: ...TLITLIBindLocal() failed: %d\n",
+          errno, 0,0 );
+    t_close(ciptr->fd);
+    xfree(ciptr);
+    return NULL;
     }
     
     if( TRANS(TLIGetAddr)(ciptr) < 0 )
     {
-	PRMSG(1,
-	      "TLIOpenCOTSClient: ...TLIGetAddr() failed: %d\n",
-	      errno, 0,0 );
-	t_close(ciptr->fd);
-	xfree(ciptr);
-	return NULL;
+    PRMSG(1,
+          "TLIOpenCOTSClient: ...TLIGetAddr() failed: %d\n",
+          errno, 0,0 );
+    t_close(ciptr->fd);
+    xfree(ciptr);
+    return NULL;
     }
     
     /* Save the TLIFamily for later use in TLIAddrToNetbuf() lookups */
@@ -480,28 +480,28 @@ TRANS(TLIOpenCOTSClient)(Xtransport *thistrans, char *protocol,
 
 static XtransConnInfo
 TRANS(TLIOpenCOTSServer)(Xtransport *thistrans, char *protocol, 
-			 char *host, char *port)
+             char *host, char *port)
 
 {
-    XtransConnInfo	ciptr;
-    int 		i;
+    XtransConnInfo    ciptr;
+    int         i;
     
     PRMSG(2,"TLIOpenCOTSServer(%s,%s,%s)\n", protocol, host, port );
     
     if( (i=TRANS(TLISelectFamily)(thistrans->TransName)) < 0 )
     {
-	PRMSG(1,
-	      "TLIOpenCOTSServer: Unable to determine device for %s\n",
-	      thistrans->TransName, 0,0 );
-	return NULL;
+    PRMSG(1,
+          "TLIOpenCOTSServer: Unable to determine device for %s\n",
+          thistrans->TransName, 0,0 );
+    return NULL;
     }
     
     if( (ciptr=TRANS(TLIOpen)(TLItrans2devtab[i].devcotsname)) == NULL )
     {
-	PRMSG(1,
-	      "TLIOpenCOTSServer: Unable to open device for %s\n",
-	      thistrans->TransName, 0,0 );
-	return NULL;
+    PRMSG(1,
+          "TLIOpenCOTSServer: Unable to open device for %s\n",
+          thistrans->TransName, 0,0 );
+    return NULL;
     }
     
     /* Set the family type */
@@ -523,52 +523,52 @@ TRANS(TLIOpenCOTSServer)(Xtransport *thistrans, char *protocol,
 
 static XtransConnInfo
 TRANS(TLIOpenCLTSClient)(Xtransport *thistrans, char *protocol, 
-			 char *host, char *port)
+             char *host, char *port)
 
 {
-    XtransConnInfo	ciptr;
-    int 		i;
+    XtransConnInfo    ciptr;
+    int         i;
     
     PRMSG(2,"TLIOpenCLTSClient(%s,%s,%s)\n", protocol, host, port );
     
     if( (i=TRANS(TLISelectFamily)(thistrans->TransName)) < 0 )
     {
-	PRMSG(1,
-	      "TLIOpenCLTSClient: Unable to determine device for %s\n",
-	      thistrans->TransName, 0,0 );
-	return NULL;
+    PRMSG(1,
+          "TLIOpenCLTSClient: Unable to determine device for %s\n",
+          thistrans->TransName, 0,0 );
+    return NULL;
     }
     
     if( (ciptr=TRANS(TLIOpen)(TLItrans2devtab[i].devcltsname)) == NULL )
     {
-	PRMSG(1,
-	      "TLIOpenCLTSClient: Unable to open device for %s\n",
-	      thistrans->TransName, 0,0 );
-	return NULL;
+    PRMSG(1,
+          "TLIOpenCLTSClient: Unable to open device for %s\n",
+          thistrans->TransName, 0,0 );
+    return NULL;
     }
     
     if( TRANS(TLITLIBindLocal)(ciptr->fd,TLItrans2devtab[i].family,port) < 0 )
     {
-	PRMSG(1,
-	      "TLIOpenCLTSClient: ...TLITLIBindLocal() failed: %d\n",
-	      errno, 0,0 );
-	t_close(ciptr->fd);
-	xfree(ciptr);
-	return NULL;
+    PRMSG(1,
+          "TLIOpenCLTSClient: ...TLITLIBindLocal() failed: %d\n",
+          errno, 0,0 );
+    t_close(ciptr->fd);
+    xfree(ciptr);
+    return NULL;
     }
     
     if( TRANS(TLIGetAddr)(ciptr) < 0 )
     {
-	PRMSG(1,
-	      "TLIOpenCLTSClient: ...TLIGetPeerAddr() failed: %d\n",
-	      errno, 0,0 );
-	t_close(ciptr->fd);
-	xfree(ciptr);
-	return NULL;
+    PRMSG(1,
+          "TLIOpenCLTSClient: ...TLIGetPeerAddr() failed: %d\n",
+          errno, 0,0 );
+    t_close(ciptr->fd);
+    xfree(ciptr);
+    return NULL;
     }
     
     return ciptr;
-}			
+}            
 
 #endif /* TRANS_CLIENT */
 
@@ -577,32 +577,32 @@ TRANS(TLIOpenCLTSClient)(Xtransport *thistrans, char *protocol,
 
 static XtransConnInfo
 TRANS(TLIOpenCLTSServer)(Xtransport *thistrans, char *protocol, 
-			 char *host, char *port)
+             char *host, char *port)
 
 {
-    XtransConnInfo	ciptr;
-    int 		i;
+    XtransConnInfo    ciptr;
+    int         i;
     
     PRMSG(2,"TLIOpenCLTSServer(%s,%s,%s)\n", protocol, host, port );
     
     if( (i=TRANS(TLISelectFamily)(thistrans->TransName)) < 0 )
     {
-	PRMSG(1,
-	      "TLIOpenCLTSServer: Unable to determine device for %s\n",
-	      thistrans->TransName, 0,0 );
-	return NULL;
+    PRMSG(1,
+          "TLIOpenCLTSServer: Unable to determine device for %s\n",
+          thistrans->TransName, 0,0 );
+    return NULL;
     }
     
     if( (ciptr=TRANS(TLIOpen)(TLItrans2devtab[i].devcltsname)) == NULL )
     {
-	PRMSG(1,
-	      "TLIOpenCLTSServer: Unable to open device for %s\n",
-	      thistrans->TransName, 0,0 );
-	return NULL;
+    PRMSG(1,
+          "TLIOpenCLTSServer: Unable to open device for %s\n",
+          thistrans->TransName, 0,0 );
+    return NULL;
     }
     
     return ciptr;
-}			
+}            
 
 #endif /* TRANS_SERVER */
 
@@ -613,26 +613,26 @@ static XtransConnInfo
 TRANS(TLIReopenCOTSServer)(Xtransport *thistrans, int fd, char *port)
 
 {
-    XtransConnInfo	ciptr;
-    int			i;
+    XtransConnInfo    ciptr;
+    int            i;
     
     PRMSG(2,"TLIReopenCOTSServer(%d, %s)\n", fd, port, 0 );
     
     if( (i=TRANS(TLISelectFamily)(thistrans->TransName)) < 0 )
     {
-	PRMSG(1,
-	      "TLIReopenCOTSServer: Unable to determine device for %s\n",
-	      thistrans->TransName, 0,0 );
-	return NULL;
+    PRMSG(1,
+          "TLIReopenCOTSServer: Unable to determine device for %s\n",
+          thistrans->TransName, 0,0 );
+    return NULL;
     }
 
     if( (ciptr=TRANS(TLIReopen)(
-	TLItrans2devtab[i].devcotsname, fd, port)) == NULL )
+    TLItrans2devtab[i].devcotsname, fd, port)) == NULL )
     {
-	PRMSG(1,
-	      "TLIReopenCOTSServer: Unable to open device for %s\n",
-	      thistrans->TransName, 0,0 );
-	return NULL;
+    PRMSG(1,
+          "TLIReopenCOTSServer: Unable to open device for %s\n",
+          thistrans->TransName, 0,0 );
+    return NULL;
     }
     
     /* Save the TLIFamily for later use in TLIAddrToNetbuf() lookups */
@@ -647,32 +647,32 @@ static XtransConnInfo
 TRANS(TLIReopenCLTSServer)(Xtransport *thistrans, int fd, char *port)
 
 {
-    XtransConnInfo	ciptr;
-    int 		i;
+    XtransConnInfo    ciptr;
+    int         i;
     
     PRMSG(2,"TLIReopenCLTSServer(%d, %s)\n", fd, port, 0 );
     
     if( (i=TRANS(TLISelectFamily)(thistrans->TransName)) < 0 )
     {
-	PRMSG(1,
-	      "TLIReopenCLTSServer: Unable to determine device for %s\n",
-	      thistrans->TransName, 0,0 );
-	return NULL;
+    PRMSG(1,
+          "TLIReopenCLTSServer: Unable to determine device for %s\n",
+          thistrans->TransName, 0,0 );
+    return NULL;
     }
 
     if( (ciptr=TRANS(TLIReopen)(
-	TLItrans2devtab[i].devcltsname, fd, port)) == NULL )
+    TLItrans2devtab[i].devcltsname, fd, port)) == NULL )
     {
-	PRMSG(1,
-	      "TLIReopenCLTSServer: Unable to open device for %s\n",
-	      thistrans->TransName, 0,0 );
-	return NULL;
+    PRMSG(1,
+          "TLIReopenCLTSServer: Unable to open device for %s\n",
+          thistrans->TransName, 0,0 );
+    return NULL;
     }
     
     ciptr->index = i;
 
     return ciptr;
-}			
+}            
 
 #endif /* TRANS_REOPEN */
 
@@ -693,33 +693,33 @@ static int
 TRANS(TLICreateListener)(XtransConnInfo ciptr, struct t_bind *req)
 
 {
-    struct t_bind	*ret;
+    struct t_bind    *ret;
     
     PRMSG(2,"TLICreateListener(%x->%d,%x)\n", ciptr, ciptr->fd, req );
     
     if( (ret=(struct t_bind *)t_alloc(ciptr->fd,T_BIND,T_ALL)) == NULL )
     {
-	PRMSG(1, "TLICreateListener: failed to allocate a t_bind\n",
-	      0,0,0 );
-	t_free((char *)req,T_BIND);
-	return TRANS_CREATE_LISTENER_FAILED;
+    PRMSG(1, "TLICreateListener: failed to allocate a t_bind\n",
+          0,0,0 );
+    t_free((char *)req,T_BIND);
+    return TRANS_CREATE_LISTENER_FAILED;
     }
     
     if( t_bind(ciptr->fd, req, ret) < 0 )
     {
-	PRMSG(1, "TLICreateListener: t_bind failed\n", 0,0,0 );
-	t_free((char *)req,T_BIND);
-	t_free((char *)ret,T_BIND);
-	return TRANS_CREATE_LISTENER_FAILED;
+    PRMSG(1, "TLICreateListener: t_bind failed\n", 0,0,0 );
+    t_free((char *)req,T_BIND);
+    t_free((char *)ret,T_BIND);
+    return TRANS_CREATE_LISTENER_FAILED;
     }
     
     if( memcmp(req->addr.buf,ret->addr.buf,req->addr.len) != 0 )
     {
-	PRMSG(1, "TLICreateListener: unable to bind to %x\n",
-	      req, 0,0 );
-	t_free((char *)req,T_BIND);
-	t_free((char *)ret,T_BIND);
-	return TRANS_ADDR_IN_USE;
+    PRMSG(1, "TLICreateListener: unable to bind to %x\n",
+          req, 0,0 );
+    t_free((char *)req,T_BIND);
+    t_free((char *)ret,T_BIND);
+    return TRANS_ADDR_IN_USE;
     }
     
     /*
@@ -728,12 +728,12 @@ TRANS(TLICreateListener)(XtransConnInfo ciptr, struct t_bind *req)
     
     if( (ciptr->addr=(char *)xalloc(ret->addr.len)) == NULL )
     {
-	PRMSG(1,
-	      "TLICreateListener: Unable to allocate space for the address\n",
-	      0,0,0 );
-	t_free((char *)req,T_BIND);
-	t_free((char *)ret, T_BIND);
-	return TRANS_CREATE_LISTENER_FAILED;
+    PRMSG(1,
+          "TLICreateListener: Unable to allocate space for the address\n",
+          0,0,0 );
+    t_free((char *)req,T_BIND);
+    t_free((char *)ret, T_BIND);
+    return TRANS_CREATE_LISTENER_FAILED;
     }
     
     ciptr->addrlen=ret->addr.len;
@@ -751,12 +751,12 @@ TRANS(TLIINETCreateListener)(XtransConnInfo ciptr, char *port, unsigned int flag
 
 {
     char    portbuf[PORTBUFSIZE];
-    struct t_bind	*req;
-    struct sockaddr_in	*sinaddr;
-    long		tmpport;
+    struct t_bind    *req;
+    struct sockaddr_in    *sinaddr;
+    long        tmpport;
     
     PRMSG(2,"TLIINETCreateListener(%x->%d,%s)\n", ciptr,
-	ciptr->fd, port ? port : "NULL" );
+    ciptr->fd, port ? port : "NULL" );
     
 #ifdef X11_t
     /*
@@ -770,34 +770,34 @@ TRANS(TLIINETCreateListener)(XtransConnInfo ciptr, char *port, unsigned int flag
     
     if (is_numeric (port))
     {
-	tmpport = X_TCP_PORT + strtol (port, (char**)NULL, 10);
-	sprintf(portbuf,"%u", tmpport);
-	port = portbuf;
+    tmpport = X_TCP_PORT + strtol (port, (char**)NULL, 10);
+    sprintf(portbuf,"%u", tmpport);
+    port = portbuf;
     }
 #endif
     
     if( (req=(struct t_bind *)t_alloc(ciptr->fd,T_BIND,T_ALL)) == NULL )
     {
-	PRMSG(1,
-	    "TLIINETCreateListener: failed to allocate a t_bind\n",
-	    0,0,0 );
-	return TRANS_CREATE_LISTENER_FAILED;
+    PRMSG(1,
+        "TLIINETCreateListener: failed to allocate a t_bind\n",
+        0,0,0 );
+    return TRANS_CREATE_LISTENER_FAILED;
     }
 
     if( port && *port ) {
-	if(TRANS(TLIAddrToNetbuf)(ciptr->index,HOST_SELF,port,&(req->addr)) < 0)
-	{
-	    PRMSG(1,
-		  "TLIINETCreateListener: can't resolve name:HOST_SELF.%s\n",
-		  port, 0,0 );
-	    t_free((char *)req,T_BIND);
-	    return TRANS_CREATE_LISTENER_FAILED;
-	}
+    if(TRANS(TLIAddrToNetbuf)(ciptr->index,HOST_SELF,port,&(req->addr)) < 0)
+    {
+        PRMSG(1,
+          "TLIINETCreateListener: can't resolve name:HOST_SELF.%s\n",
+          port, 0,0 );
+        t_free((char *)req,T_BIND);
+        return TRANS_CREATE_LISTENER_FAILED;
+    }
     } else {
-	sinaddr=(struct sockaddr_in *) req->addr.buf;
-	sinaddr->sin_family=AF_INET;
-	sinaddr->sin_port=htons(0);
-	sinaddr->sin_addr.s_addr=0;
+    sinaddr=(struct sockaddr_in *) req->addr.buf;
+    sinaddr->sin_family=AF_INET;
+    sinaddr->sin_port=htons(0);
+    sinaddr->sin_addr.s_addr=0;
     }
 
     /* Set the qlen */
@@ -812,40 +812,40 @@ static int
 TRANS(TLITLICreateListener)(XtransConnInfo ciptr, char *port, unsigned int flags)
 
 {
-    struct t_bind	*req;
-    struct sockaddr_un	*sunaddr;
-    int 		ret_value;
+    struct t_bind    *req;
+    struct sockaddr_un    *sunaddr;
+    int         ret_value;
     
     PRMSG(2,"TLITLICreateListener(%x->%d,%s)\n", ciptr, ciptr->fd,
-	port ? port : "NULL");
+    port ? port : "NULL");
     
     if( (req=(struct t_bind *)t_alloc(ciptr->fd,T_BIND,0)) == NULL )
     {
-	PRMSG(1,
-	      "TLITLICreateListener: failed to allocate a t_bind\n",
-	      0,0,0 );
-	return TRANS_CREATE_LISTENER_FAILED;
+    PRMSG(1,
+          "TLITLICreateListener: failed to allocate a t_bind\n",
+          0,0,0 );
+    return TRANS_CREATE_LISTENER_FAILED;
     }
     
     if( (sunaddr=(struct sockaddr_un *)
-	 malloc(sizeof(struct sockaddr_un))) == NULL )
+     malloc(sizeof(struct sockaddr_un))) == NULL )
     {
-	PRMSG(1,
-	      "TLITLICreateListener: failed to allocate a sockaddr_un\n",
-	      0,0,0 );
-	t_free((char *)req,T_BIND);
-	return TRANS_CREATE_LISTENER_FAILED;
+    PRMSG(1,
+          "TLITLICreateListener: failed to allocate a sockaddr_un\n",
+          0,0,0 );
+    t_free((char *)req,T_BIND);
+    return TRANS_CREATE_LISTENER_FAILED;
     }
     
     sunaddr->sun_family=AF_UNIX;
     if( port && *port ) {
-	if( *port == '/' ) { /* A full pathname */
-	    (void) strcpy(sunaddr->sun_path, port);
-	} else {
-	    (void) sprintf(sunaddr->sun_path,"%s%s", TLINODENAME, port );
-	}
+    if( *port == '/' ) { /* A full pathname */
+        (void) strcpy(sunaddr->sun_path, port);
     } else {
-	(void) sprintf(sunaddr->sun_path,"%s%d", TLINODENAME, getpid());
+        (void) sprintf(sunaddr->sun_path,"%s%s", TLINODENAME, port );
+    }
+    } else {
+    (void) sprintf(sunaddr->sun_path,"%s%d", TLINODENAME, getpid());
     }
     
     req->addr.buf=(char *)sunaddr;
@@ -868,28 +868,28 @@ static XtransConnInfo
 TRANS(TLIAccept)(XtransConnInfo ciptr, int *status)
 
 {
-    struct t_call	*call;
-    XtransConnInfo	newciptr;
-    int	i;
+    struct t_call    *call;
+    XtransConnInfo    newciptr;
+    int    i;
     
     PRMSG(2,"TLIAccept(%x->%d)\n", ciptr, ciptr->fd, 0 );
     
     if( (call=(struct t_call *)t_alloc(ciptr->fd,T_CALL,T_ALL)) == NULL )
     {
-	PRMSG(1, "TLIAccept() failed to allocate a t_call\n", 0,0,0 );
-	*status = TRANS_ACCEPT_BAD_MALLOC;
-	return NULL;
+    PRMSG(1, "TLIAccept() failed to allocate a t_call\n", 0,0,0 );
+    *status = TRANS_ACCEPT_BAD_MALLOC;
+    return NULL;
     }
     
     if( t_listen(ciptr->fd,call) < 0 )
     {
-	extern char *t_errlist[];
-	extern int t_errno;
-	PRMSG(1, "TLIAccept() t_listen() failed\n", 0,0,0 );
-	PRMSG(1, "TLIAccept: %s\n", t_errlist[t_errno], 0,0 );
-	t_free((char *)call,T_CALL);
-	*status = TRANS_ACCEPT_MISC_ERROR;
-	return NULL;
+    extern char *t_errlist[];
+    extern int t_errno;
+    PRMSG(1, "TLIAccept() t_listen() failed\n", 0,0,0 );
+    PRMSG(1, "TLIAccept: %s\n", t_errlist[t_errno], 0,0 );
+    t_free((char *)call,T_CALL);
+    *status = TRANS_ACCEPT_MISC_ERROR;
+    return NULL;
     }
     
     /*
@@ -900,100 +900,100 @@ TRANS(TLIAccept)(XtransConnInfo ciptr, int *status)
     
     if( (newciptr=TRANS(TLIOpen)(TLItrans2devtab[i].devcotsname)) == NULL )
     {
-	PRMSG(1, "TLIAccept() failed to open a new endpoint\n", 0,0,0 );
-	t_free((char *)call,T_CALL);
-	*status = TRANS_ACCEPT_MISC_ERROR;
-	return NULL;
+    PRMSG(1, "TLIAccept() failed to open a new endpoint\n", 0,0,0 );
+    t_free((char *)call,T_CALL);
+    *status = TRANS_ACCEPT_MISC_ERROR;
+    return NULL;
     }
     
     if( TRANS(TLITLIBindLocal)(newciptr->fd,TLItrans2devtab[i].family,"") < 0 )
     {
-	PRMSG(1,
-	      "TLIAccept: TRANS(TLITLIBindLocal)() failed: %d\n",
-	      errno, 0,0 );
-	t_free((char *)call,T_CALL);
-	t_close(newciptr->fd);
-	xfree(newciptr);
-	*status = TRANS_ACCEPT_MISC_ERROR;
-	return NULL;
+    PRMSG(1,
+          "TLIAccept: TRANS(TLITLIBindLocal)() failed: %d\n",
+          errno, 0,0 );
+    t_free((char *)call,T_CALL);
+    t_close(newciptr->fd);
+    xfree(newciptr);
+    *status = TRANS_ACCEPT_MISC_ERROR;
+    return NULL;
     }
     
     
     if( t_accept(ciptr->fd,newciptr->fd,call) < 0 )
     {
-	extern char *t_errlist[];
-	extern int t_errno;
-	PRMSG(1, "TLIAccept() t_accept() failed\n", 0,0,0 );
-	PRMSG(1, "TLIAccept: %s\n", t_errlist[t_errno], 0,0 );
-	if( t_errno == TLOOK )
-	{
-	    int evtype = t_look(ciptr->fd);
-	    PRMSG(1, "TLIAccept() t_look() returned %d\n", evtype,0,0 );
-	    switch( evtype )
-	    {
-		case T_DISCONNECT:
-		    if( t_rcvdis(ciptr->fd, NULL) < 0 )
-		    {
-			PRMSG(1, "TLIAccept() t_rcvdis() failed\n", 0,0,0 );
-			PRMSG(1, "TLIAccept: %s\n", t_errlist[t_errno], 0,0 );
-		    }
-		    break;
-		default:
-		    break;
-	    }
-	}
-	t_free((char *)call,T_CALL);
-	t_close(newciptr->fd);
-	free(newciptr);
-	*status = TRANS_ACCEPT_FAILED;
-	return NULL;
+    extern char *t_errlist[];
+    extern int t_errno;
+    PRMSG(1, "TLIAccept() t_accept() failed\n", 0,0,0 );
+    PRMSG(1, "TLIAccept: %s\n", t_errlist[t_errno], 0,0 );
+    if( t_errno == TLOOK )
+    {
+        int evtype = t_look(ciptr->fd);
+        PRMSG(1, "TLIAccept() t_look() returned %d\n", evtype,0,0 );
+        switch( evtype )
+        {
+        case T_DISCONNECT:
+            if( t_rcvdis(ciptr->fd, NULL) < 0 )
+            {
+            PRMSG(1, "TLIAccept() t_rcvdis() failed\n", 0,0,0 );
+            PRMSG(1, "TLIAccept: %s\n", t_errlist[t_errno], 0,0 );
+            }
+            break;
+        default:
+            break;
+        }
+    }
+    t_free((char *)call,T_CALL);
+    t_close(newciptr->fd);
+    free(newciptr);
+    *status = TRANS_ACCEPT_FAILED;
+    return NULL;
     }
     
     t_free((char *)call,T_CALL);
     
     if( TRANS(TLIGetAddr)(newciptr) < 0 )
     {
-	PRMSG(1,
-	      "TLIAccept: TRANS(TLIGetPeerAddr)() failed: %d\n",
-	      errno, 0,0 );
-	t_close(newciptr->fd);
-	xfree(newciptr);
-	*status = TRANS_ACCEPT_MISC_ERROR;
-	return NULL;
+    PRMSG(1,
+          "TLIAccept: TRANS(TLIGetPeerAddr)() failed: %d\n",
+          errno, 0,0 );
+    t_close(newciptr->fd);
+    xfree(newciptr);
+    *status = TRANS_ACCEPT_MISC_ERROR;
+    return NULL;
     }
     
     if( TRANS(TLIGetPeerAddr)(newciptr) < 0 )
     {
-	PRMSG(1,
-	      "TLIAccept: TRANS(TLIGetPeerAddr)() failed: %d\n",
-	      errno, 0,0 );
-	t_close(newciptr->fd);
-	xfree(newciptr->addr);
-	xfree(newciptr);
-	*status = TRANS_ACCEPT_MISC_ERROR;
-	return NULL;
+    PRMSG(1,
+          "TLIAccept: TRANS(TLIGetPeerAddr)() failed: %d\n",
+          errno, 0,0 );
+    t_close(newciptr->fd);
+    xfree(newciptr->addr);
+    xfree(newciptr);
+    *status = TRANS_ACCEPT_MISC_ERROR;
+    return NULL;
     }
     
     if( ioctl(newciptr->fd, I_POP,"timod") < 0 )
     {
-	PRMSG(1, "TLIAccept() ioctl(I_POP, \"timod\") failed %d\n",
-	      errno,0,0 );
-	t_close(newciptr->fd);
-	xfree(newciptr->addr);
-	xfree(newciptr);
-	*status = TRANS_ACCEPT_MISC_ERROR;
-	return NULL;
+    PRMSG(1, "TLIAccept() ioctl(I_POP, \"timod\") failed %d\n",
+          errno,0,0 );
+    t_close(newciptr->fd);
+    xfree(newciptr->addr);
+    xfree(newciptr);
+    *status = TRANS_ACCEPT_MISC_ERROR;
+    return NULL;
     }
     
     if( ioctl(newciptr->fd, I_PUSH,"tirdwr") < 0 )
     {
-	PRMSG(1, "TLIAccept() ioctl(I_PUSH,\"tirdwr\") failed %d\n",
-	      errno,0,0 );
-	t_close(newciptr->fd);
-	xfree(newciptr->addr);
-	xfree(newciptr);
-	*status = TRANS_ACCEPT_MISC_ERROR;
-	return NULL;
+    PRMSG(1, "TLIAccept() ioctl(I_PUSH,\"tirdwr\") failed %d\n",
+          errno,0,0 );
+    t_close(newciptr->fd);
+    xfree(newciptr->addr);
+    xfree(newciptr);
+    *status = TRANS_ACCEPT_MISC_ERROR;
+    return NULL;
     }
     
     *status = 0;
@@ -1014,18 +1014,18 @@ TRANS(TLIConnect)(XtransConnInfo ciptr, struct t_call *sndcall )
     
     if( t_connect(ciptr->fd,sndcall,NULL) < 0 )
     {
-	extern char *t_errlist[];
-	extern int t_errno;
-	PRMSG(1, "TLIConnect() t_connect() failed\n", 0,0,0 );
-	PRMSG(1, "TLIConnect: %s\n", t_errlist[t_errno], 0,0 );
-	t_free((char *)sndcall,T_CALL);
-	if (t_errno == TLOOK && t_look(ciptr->fd) == T_DISCONNECT)
-	{
-	    t_rcvdis(ciptr->fd,NULL);
-	    return TRANS_TRY_CONNECT_AGAIN;
-	}
-	else
-	    return TRANS_CONNECT_FAILED;
+    extern char *t_errlist[];
+    extern int t_errno;
+    PRMSG(1, "TLIConnect() t_connect() failed\n", 0,0,0 );
+    PRMSG(1, "TLIConnect: %s\n", t_errlist[t_errno], 0,0 );
+    t_free((char *)sndcall,T_CALL);
+    if (t_errno == TLOOK && t_look(ciptr->fd) == T_DISCONNECT)
+    {
+        t_rcvdis(ciptr->fd,NULL);
+        return TRANS_TRY_CONNECT_AGAIN;
+    }
+    else
+        return TRANS_CONNECT_FAILED;
     }
     
     t_free((char *)sndcall,T_CALL);
@@ -1036,32 +1036,32 @@ TRANS(TLIConnect)(XtransConnInfo ciptr, struct t_call *sndcall )
     
     if( TRANS(TLIGetAddr)(ciptr) < 0 )
     {
-	PRMSG(1,
-	      "TLIConnect: ...TLIGetAddr() failed: %d\n",
-	      errno, 0,0 );
-	return TRANS_CONNECT_FAILED;
+    PRMSG(1,
+          "TLIConnect: ...TLIGetAddr() failed: %d\n",
+          errno, 0,0 );
+    return TRANS_CONNECT_FAILED;
     }
     
     if( TRANS(TLIGetPeerAddr)(ciptr) < 0 )
     {
-	PRMSG(1,
-	      "TLIConnect: ...TLIGetPeerAddr() failed: %d\n",
-	      errno, 0,0 );
-	return TRANS_CONNECT_FAILED;
+    PRMSG(1,
+          "TLIConnect: ...TLIGetPeerAddr() failed: %d\n",
+          errno, 0,0 );
+    return TRANS_CONNECT_FAILED;
     }
     
     if( ioctl(ciptr->fd, I_POP,"timod") < 0 )
     {
-	PRMSG(1, "TLIConnect() ioctl(I_POP,\"timod\") failed %d\n",
-	      errno,0,0 );
-	return TRANS_CONNECT_FAILED;
+    PRMSG(1, "TLIConnect() ioctl(I_POP,\"timod\") failed %d\n",
+          errno,0,0 );
+    return TRANS_CONNECT_FAILED;
     }
     
     if( ioctl(ciptr->fd, I_PUSH,"tirdwr") < 0 )
     {
-	PRMSG(1, "TLIConnect() ioctl(I_PUSH,\"tirdwr\") failed %d\n",
-	      errno,0,0 );
-	return TRANS_CONNECT_FAILED;
+    PRMSG(1, "TLIConnect() ioctl(I_PUSH,\"tirdwr\") failed %d\n",
+          errno,0,0 );
+    return TRANS_CONNECT_FAILED;
     }
     
     return 0;
@@ -1072,9 +1072,9 @@ static int
 TRANS(TLIINETConnect)(XtransConnInfo ciptr, char *host, char *port)
 
 {
-    char	portbuf[PORTBUFSIZE];	
-    struct	t_call	*sndcall;
-    long	tmpport;
+    char    portbuf[PORTBUFSIZE];    
+    struct    t_call    *sndcall;
+    long    tmpport;
     
     PRMSG(2, "TLIINETConnect(%s,%s)\n", host, port, 0);
     
@@ -1090,24 +1090,24 @@ TRANS(TLIINETConnect)(XtransConnInfo ciptr, char *host, char *port)
     
     if (is_numeric (port))
     {
-	tmpport = X_TCP_PORT + strtol (port, (char**)NULL, 10);
-	sprintf(portbuf,"%u", tmpport );
-	port = portbuf;
+    tmpport = X_TCP_PORT + strtol (port, (char**)NULL, 10);
+    sprintf(portbuf,"%u", tmpport );
+    port = portbuf;
     }
 #endif
     
     if( (sndcall=(struct t_call *)t_alloc(ciptr->fd,T_CALL,T_ALL)) == NULL )
     {
-	PRMSG(1, "TLIINETConnect() failed to allocate a t_call\n", 0,0,0 );
-	return TRANS_CONNECT_FAILED;
+    PRMSG(1, "TLIINETConnect() failed to allocate a t_call\n", 0,0,0 );
+    return TRANS_CONNECT_FAILED;
     }
     
     if( TRANS(TLIAddrToNetbuf)(ciptr->index, host, port, &(sndcall->addr) ) < 0 )
     {
-	PRMSG(1, "TLIINETConnect() unable to resolve name:%s.%s\n",
-	      host, port, 0 );
-	t_free((char *)sndcall,T_CALL);
-	return TRANS_CONNECT_FAILED;
+    PRMSG(1, "TLIINETConnect() unable to resolve name:%s.%s\n",
+          host, port, 0 );
+    t_free((char *)sndcall,T_CALL);
+    return TRANS_CONNECT_FAILED;
     }
     
     return TRANS(TLIConnect)(ciptr, sndcall );
@@ -1118,35 +1118,35 @@ static int
 TRANS(TLITLIConnect)(XtransConnInfo ciptr, char *host, char *port)
 
 {
-    struct t_call	*sndcall;
-    struct sockaddr_un	*sunaddr;
-    int			ret_value;
+    struct t_call    *sndcall;
+    struct sockaddr_un    *sunaddr;
+    int            ret_value;
     
     PRMSG(2, "TLITLIConnect(%s,%s)\n", host, port, 0);
     
     if( (sndcall=(struct t_call *)t_alloc(ciptr->fd,T_CALL,T_OPT|T_UDATA)) == NULL )
     {
-	PRMSG(1, "TLITLIConnect() failed to allocate a t_call\n", 0,0,0 );
-	return TRANS_CONNECT_FAILED;
+    PRMSG(1, "TLITLIConnect() failed to allocate a t_call\n", 0,0,0 );
+    return TRANS_CONNECT_FAILED;
     }
     
     if( (sunaddr=(struct sockaddr_un *)
-	 malloc(sizeof(struct sockaddr_un))) == NULL )
+     malloc(sizeof(struct sockaddr_un))) == NULL )
     {
-	PRMSG(1,
-	      "TLITLIConnect: failed to allocate a sockaddr_un\n",
-	      0,0,0 );
-	t_free((char *)sndcall,T_CALL);
-	return TRANS_CONNECT_FAILED;
+    PRMSG(1,
+          "TLITLIConnect: failed to allocate a sockaddr_un\n",
+          0,0,0 );
+    t_free((char *)sndcall,T_CALL);
+    return TRANS_CONNECT_FAILED;
     }
     
     sunaddr->sun_family=AF_UNIX;
     if( *port == '/' ||
-	strncmp (port, TLINODENAME, strlen (TLINODENAME)) == 0) {
-	/* Use the port as is */
-	(void) strcpy(sunaddr->sun_path, port);
+    strncmp (port, TLINODENAME, strlen (TLINODENAME)) == 0) {
+    /* Use the port as is */
+    (void) strcpy(sunaddr->sun_path, port);
     } else {
-	(void) sprintf(sunaddr->sun_path,"%s%s", TLINODENAME, port );
+    (void) sprintf(sunaddr->sun_path,"%s%s", TLINODENAME, port );
     }
 
     sndcall->addr.buf=(char *)sunaddr;
@@ -1182,7 +1182,7 @@ TRANS(TLIBytesReadable)(XtransConnInfo ciptr, BytesReadable_t *pend)
     ret=ioctl(ciptr->fd, I_NREAD, (char *)pend);
 
     if( ret != 0 )
-	return ret; /* Data present or error */
+    return ret; /* Data present or error */
 
 
     /* Zero data, or POLLHUP message */
@@ -1193,15 +1193,15 @@ TRANS(TLIBytesReadable)(XtransConnInfo ciptr, BytesReadable_t *pend)
     ret=poll(&filedes, 1, 0);
  
     if( ret == 0 ) {
-	*pend=0;
-	return 0; /* Really, no data */
-	}
+    *pend=0;
+    return 0; /* Really, no data */
+    }
 
     if( ret < 0 )
-	return -1; /* just pass back the error */
+    return -1; /* just pass back the error */
 
     if( filedes.revents & (POLLHUP|POLLERR) ) /* check for hangup */
-	return -1;
+    return -1;
 
     /* Should only get here if data arrived after the first ioctl() */
     return ioctl(ciptr->fd, I_NREAD, (char *)pend);
@@ -1294,125 +1294,125 @@ TRANS(TLICloseForCloning)(XtransConnInfo ciptr)
 }
 
 
-Xtransport	TRANS(TLITCPFuncs) = {
-	/* TLI Interface */
-	"tcp",
-	0,
+Xtransport    TRANS(TLITCPFuncs) = {
+    /* TLI Interface */
+    "tcp",
+    0,
 #ifdef TRANS_CLIENT
-	TRANS(TLIOpenCOTSClient),
+    TRANS(TLIOpenCOTSClient),
 #endif /* TRANS_CLIENT */
 #ifdef TRANS_SERVER
-	NULL,
-	TRANS(TLIOpenCOTSServer),
+    NULL,
+    TRANS(TLIOpenCOTSServer),
 #endif /* TRANS_SERVER */
 #ifdef TRANS_CLIENT
-	TRANS(TLIOpenCLTSClient),
+    TRANS(TLIOpenCLTSClient),
 #endif /* TRANS_CLIENT */
 #ifdef TRANS_SERVER
-	TRANS(TLIOpenCLTSServer),
+    TRANS(TLIOpenCLTSServer),
 #endif /* TRANS_SERVER */
 #ifdef TRANS_REOPEN
-	TRANS(TLIReopenCOTSServer),
-	TRANS(TLIReopenCLTSServer),
+    TRANS(TLIReopenCOTSServer),
+    TRANS(TLIReopenCLTSServer),
 #endif
-	TRANS(TLISetOption),
+    TRANS(TLISetOption),
 #ifdef TRANS_SERVER
-	TRANS(TLIINETCreateListener),
-	NULL,		       			/* ResetListener */
-	TRANS(TLIAccept),
+    TRANS(TLIINETCreateListener),
+    NULL,                           /* ResetListener */
+    TRANS(TLIAccept),
 #endif /* TRANS_SERVER */
 #ifdef TRANS_CLIENT
-	TRANS(TLIINETConnect),
+    TRANS(TLIINETConnect),
 #endif /* TRANS_CLIENT */
-	TRANS(TLIBytesReadable),
-	TRANS(TLIRead),
-	TRANS(TLIWrite),
-	TRANS(TLIReadv),
-	TRANS(TLIWritev),
-	TRANS(TLIDisconnect),
-	TRANS(TLIClose),
-	TRANS(TLICloseForCloning),
+    TRANS(TLIBytesReadable),
+    TRANS(TLIRead),
+    TRANS(TLIWrite),
+    TRANS(TLIReadv),
+    TRANS(TLIWritev),
+    TRANS(TLIDisconnect),
+    TRANS(TLIClose),
+    TRANS(TLICloseForCloning),
 };
 
 #ifdef TRANS_SERVER
 static char * inet_aliases[] = { "tcp", NULL };
 #endif
-Xtransport	TRANS(TLIINETFuncs) = {
-	/* TLI Interface */
-	"inet",
-	TRANS_ALIAS,
+Xtransport    TRANS(TLIINETFuncs) = {
+    /* TLI Interface */
+    "inet",
+    TRANS_ALIAS,
 #ifdef TRANS_CLIENT
-	TRANS(TLIOpenCOTSClient),
+    TRANS(TLIOpenCOTSClient),
 #endif /* TRANS_CLIENT */
 #ifdef TRANS_SERVER
-	inet_aliases,
-	TRANS(TLIOpenCOTSServer),
+    inet_aliases,
+    TRANS(TLIOpenCOTSServer),
 #endif /* TRANS_SERVER */
 #ifdef TRANS_CLIENT
-	TRANS(TLIOpenCLTSClient),
+    TRANS(TLIOpenCLTSClient),
 #endif /* TRANS_CLIENT */
 #ifdef TRANS_SERVER
-	TRANS(TLIOpenCLTSServer),
+    TRANS(TLIOpenCLTSServer),
 #endif /* TRANS_SERVER */
 #ifdef TRANS_REOPEN
-	TRANS(TLIReopenCOTSServer),
-	TRANS(TLIReopenCLTSServer),
+    TRANS(TLIReopenCOTSServer),
+    TRANS(TLIReopenCLTSServer),
 #endif
-	TRANS(TLISetOption),
+    TRANS(TLISetOption),
 #ifdef TRANS_SERVER
-	TRANS(TLIINETCreateListener),
-	NULL,		       			/* ResetListener */
-	TRANS(TLIAccept),
+    TRANS(TLIINETCreateListener),
+    NULL,                           /* ResetListener */
+    TRANS(TLIAccept),
 #endif /* TRANS_SERVER */
 #ifdef TRANS_CLIENT
-	TRANS(TLIINETConnect),
+    TRANS(TLIINETConnect),
 #endif /* TRANS_CLIENT */
-	TRANS(TLIBytesReadable),
-	TRANS(TLIRead),
-	TRANS(TLIWrite),
-	TRANS(TLIReadv),
-	TRANS(TLIWritev),
-	TRANS(TLIDisconnect),
-	TRANS(TLIClose),
-	TRANS(TLICloseForCloning),
+    TRANS(TLIBytesReadable),
+    TRANS(TLIRead),
+    TRANS(TLIWrite),
+    TRANS(TLIReadv),
+    TRANS(TLIWritev),
+    TRANS(TLIDisconnect),
+    TRANS(TLIClose),
+    TRANS(TLICloseForCloning),
 };
 
-Xtransport	TRANS(TLITLIFuncs) = {
-	/* TLI Interface */
-	"tli",
-	0,
+Xtransport    TRANS(TLITLIFuncs) = {
+    /* TLI Interface */
+    "tli",
+    0,
 #ifdef TRANS_CLIENT
-	TRANS(TLIOpenCOTSClient),
+    TRANS(TLIOpenCOTSClient),
 #endif /* TRANS_CLIENT */
 #ifdef TRANS_SERVER
-	NULL,
-	TRANS(TLIOpenCOTSServer),
+    NULL,
+    TRANS(TLIOpenCOTSServer),
 #endif /* TRANS_SERVER */
 #ifdef TRANS_CLIENT
-	TRANS(TLIOpenCLTSClient),
+    TRANS(TLIOpenCLTSClient),
 #endif /* TRANS_CLIENT */
 #ifdef TRANS_SERVER
-	TRANS(TLIOpenCLTSServer),
+    TRANS(TLIOpenCLTSServer),
 #endif /* TRANS_SERVER */
 #ifdef TRANS_REOPEN
-	TRANS(TLIReopenCOTSServer),
-	TRANS(TLIReopenCLTSServer),
+    TRANS(TLIReopenCOTSServer),
+    TRANS(TLIReopenCLTSServer),
 #endif
-	TRANS(TLISetOption),
+    TRANS(TLISetOption),
 #ifdef TRANS_SERVER
-	TRANS(TLITLICreateListener),
-	NULL,		       			/* ResetListener */
-	TRANS(TLIAccept),
+    TRANS(TLITLICreateListener),
+    NULL,                           /* ResetListener */
+    TRANS(TLIAccept),
 #endif /* TRANS_SERVER */
 #ifdef TRANS_CLIENT
-	TRANS(TLITLIConnect),
+    TRANS(TLITLIConnect),
 #endif /* TRANS_CLIENT */
-	TRANS(TLIBytesReadable),
-	TRANS(TLIRead),
-	TRANS(TLIWrite),
-	TRANS(TLIReadv),
-	TRANS(TLIWritev),
-	TRANS(TLIDisconnect),
-	TRANS(TLIClose),
-	TRANS(TLICloseForCloning),
+    TRANS(TLIBytesReadable),
+    TRANS(TLIRead),
+    TRANS(TLIWrite),
+    TRANS(TLIReadv),
+    TRANS(TLIWritev),
+    TRANS(TLIDisconnect),
+    TRANS(TLIClose),
+    TRANS(TLICloseForCloning),
 };

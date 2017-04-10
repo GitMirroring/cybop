@@ -1,5 +1,5 @@
 <node>
-	<node name="model" channel="inline" format="text/plain" model="">
+    <node name="model" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="name"/>
         <node name="description" channel="inline" format="text/plain" model="the part to be destroyed"/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>

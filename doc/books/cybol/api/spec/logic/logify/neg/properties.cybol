@@ -1,12 +1,12 @@
 <node>
-	<node name="output" channel="inline" format="text/plain" model="">
+    <node name="output" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="output"/>
         <node name="description" channel="inline" format="text/plain" model="the knowledge model in which the output is stored; used as first input operand"/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
     </node>
-	<node name="input" channel="inline" format="text/plain" model="">
+    <node name="input" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="input"/>
         <node name="description" channel="inline" format="text/plain" model="the second input operand"/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>

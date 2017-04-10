@@ -70,7 +70,7 @@ pthread_barrier_wait (pthread_barrier_t * barrier)
        */
       result = (b->nInitialBarrierHeight > 1
                 ? sem_post_multiple (&(b->semBarrierBreeched),
-				     b->nInitialBarrierHeight - 1) : 0);
+                     b->nInitialBarrierHeight - 1) : 0);
     }
   else
     {
@@ -88,7 +88,7 @@ pthread_barrier_wait (pthread_barrier_t * barrier)
     }
 
   if ((PTW32_INTERLOCKED_LONG)PTW32_INTERLOCKED_INCREMENT_LONG((PTW32_INTERLOCKED_LONGPTR)&b->nCurrentBarrierHeight)
-		  == (PTW32_INTERLOCKED_LONG)b->nInitialBarrierHeight)
+          == (PTW32_INTERLOCKED_LONG)b->nInitialBarrierHeight)
     {
       /*
        * We are the last thread to cross this barrier

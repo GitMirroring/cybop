@@ -81,4 +81,4 @@ pthread_rwlockattr_destroy (pthread_rwlockattr_t * attr)
     }
 
   return (result);
-}				/* pthread_rwlockattr_destroy */
+}                /* pthread_rwlockattr_destroy */

@@ -1,19 +1,19 @@
 From kirsten@transit-online.de Wed Apr 23 09:03:31 2003
 Return-Path: <kirsten@transit-online.de>
 Received: from virusgate.rz.tu-ilmenau.de (virusgate.rz.tu-ilmenau.de [141.24.4.19])
-	by ernie.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h3N6w7pD022694
-	for hidden; Wed, 23 Apr 2003 08:58:07 +0200 (MET DST)
+    by ernie.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h3N6w7pD022694
+    for hidden; Wed, 23 Apr 2003 08:58:07 +0200 (MET DST)
 Received: from piggy.rz.tu-ilmenau.de (localhost [127.0.0.1])
-	by virusgate.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h3N6vbPJ012911
-	for hidden; Wed, 23 Apr 2003 08:57:37 +0200 (MEST)
+    by virusgate.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h3N6vbPJ012911
+    for hidden; Wed, 23 Apr 2003 08:57:37 +0200 (MEST)
 Received: from vanadium.transit-online.de (vanadium.transit-online.de [195.37.36.3])
-	by piggy.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h3N6va8j000958
-	for hidden; Wed, 23 Apr 2003 08:57:36 +0200 (MET DST)
+    by piggy.rz.tu-ilmenau.de (8.12.9/8.12.9) with ESMTP id h3N6va8j000958
+    for hidden; Wed, 23 Apr 2003 08:57:36 +0200 (MET DST)
 Received: from barium.transit-online.de (barium.transit-online.de [172.16.0.5])
-	by vanadium.transit-online.de (8.11.6+Sun/8.11.6/tranSIT) with ESMTP id h3N6vaw00453
-	for <christian.heller@tu-ilmenau.de>; Wed, 23 Apr 2003 08:57:36 +0200 (MET DST)
+    by vanadium.transit-online.de (8.11.6+Sun/8.11.6/tranSIT) with ESMTP id h3N6vaw00453
+    for <christian.heller@tu-ilmenau.de>; Wed, 23 Apr 2003 08:57:36 +0200 (MET DST)
 Received: by barium.transit-online.de with Internet Mail Service (5.5.2653.19)
-	id <JPLWQF2D>; Wed, 23 Apr 2003 09:03:31 +0200
+    id <JPLWQF2D>; Wed, 23 Apr 2003 09:03:31 +0200
 Message-ID: <23C5844AA491D342AB21C4F164B7920605DE@barium.transit-online.de>
 From: Kirsten Paradies <kirsten@transit-online.de>
 To: Christian Heller <christian.heller@tu-ilmenau.de>
@@ -40,11 +40,11 @@ tranSIT GmbH Ilmenau
 
 
 > -----Urspr=FCngliche Nachricht-----
-> Von:	Christian Heller [SMTP:christian.heller@tu-ilmenau.de]
-> Gesendet am:	Dienstag, 22. April 2003 14:43
-> An:	cfp-research@netobjectdays.org
-> Cc:	ilka.philippow@tu-ilmenau.de
-> Betreff:	Regular research paper
+> Von:    Christian Heller [SMTP:christian.heller@tu-ilmenau.de]
+> Gesendet am:    Dienstag, 22. April 2003 14:43
+> An:    cfp-research@netobjectdays.org
+> Cc:    ilka.philippow@tu-ilmenau.de
+> Betreff:    Regular research paper
 >=20
 > Dear Organizing Commitee,
 >=20

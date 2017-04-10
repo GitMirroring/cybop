@@ -47,5 +47,5 @@
         <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
-    </node>	
+    </node>    
 </node>
