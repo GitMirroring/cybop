@@ -28,7 +28,7 @@
 
 #include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
+
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../executor/comparator/basic/integer/equal_integer_comparator.c"
@@ -77,8 +77,6 @@ void apply_modify_deep(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
     } else {
 
-    fwprintf(stdout, L"TEST apply modify deep: move (shallow copy) 0 r: %i\n", r);
-
         //
         // The "move" flag IS set.
         // Therefore, SHALLOW copying is used (if applicable to the operation).
@@ -94,8 +92,6 @@ void apply_modify_deep(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         // CAUTION! Set deep copying flag to FALSE.
         modify_part(p0, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p4, p5, p6, p7, p8, p9);
 
-    fwprintf(stdout, L"TEST apply modify deep: move (shallow copy) 1 r: %i\n", r);
-
         //
         // Remove elements from source part.
         //
@@ -104,8 +100,6 @@ void apply_modify_deep(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         // leading to unpredictable errors in further processing.
         //
         modify_part(p11, *NULL_POINTER_STATE_CYBOI_MODEL, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p4, p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT, p10);
-
-    fwprintf(stdout, L"TEST apply modify deep: move (shallow copy) 2 r: %i\n", r);
     }
 }
 

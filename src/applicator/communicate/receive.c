@@ -29,8 +29,8 @@
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/communication/receive_communication_logic_cybol_name.c"
-#include "../../executor/communicator/receiver.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
+#include "../../executor/communicator/receiver.c"
 #include "../../logger/logger.c"
 
 /**

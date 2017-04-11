@@ -27,7 +27,7 @@
 #define CONFIG_NETWORK_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
+
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/config_network_commander_logic_cybol_name.c"
@@ -37,7 +37,7 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-    #include <unistd.h>
+#include <unistd.h>
 #endif
 
 /**
@@ -67,18 +67,18 @@ void apply_config_network(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The all part.
     void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-     // The resolver part model item.
+    // The resolver part model item.
     void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
-     // The stats part model item.
+    // The stats part model item.
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The version part model item.
     void* vm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The all part model item.
     void* am = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-     // The resolver part model item data.
+    // The resolver part model item data.
     void* rmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-     // The stats part model item data.
+    // The stats part model item data.
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The version part model item data.
     void* vmd = *NULL_POINTER_STATE_CYBOI_MODEL;

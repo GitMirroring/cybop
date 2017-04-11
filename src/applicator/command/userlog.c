@@ -27,7 +27,7 @@
 #define USERLOG_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
+
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/userlog_commander_logic_cybol_name.c"
@@ -37,7 +37,7 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-    #include <unistd.h>
+#include <unistd.h>
 #endif
 
 /**
@@ -116,7 +116,6 @@ void apply_userlog(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     command_userlog(hmd, umd, smd, omd);
 }
-
 
 /* USERLOG_SOURCE */
 #endif

@@ -28,7 +28,7 @@
 
 #include "../../constant/model/command/unix_command_model.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
+
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/command_option/unix/archive_unix_command_option_name.c"
@@ -40,7 +40,7 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-    #include <unistd.h>
+#include <unistd.h>
 #endif
 
 /**

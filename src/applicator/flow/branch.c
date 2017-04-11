@@ -26,7 +26,6 @@
 #ifndef BRANCH_SOURCE
 #define BRANCH_SOURCE
 
- 
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -103,26 +102,16 @@ void apply_branch(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     compare_integer_unequal((void*) &r, cmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-/*??
-fwprintf(stdout, L"TEST branch cmd: %i\n", cmd);
-fwprintf(stdout, L"TEST branch *cmd: %i\n", *((int*) cmd));
-*/
-
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-//?? fwprintf(stdout, L"TEST branch true: %i\n", r);
 
         // The criterion is true. Handle true model.
         handle(t, p4, p2, p3, p5, (void*) &x, p6);
 
     } else {
 
-//?? fwprintf(stdout, L"TEST branch false: %i\n", r);
-
         // The criterion is false. Handle false model.
         handle(f, p4, p2, p3, p5, (void*) &x, p6);
     }
-//?? fwprintf(stdout, L"TEST branch END: %i\n", r);
 }
 
 /* BRANCH_SOURCE */

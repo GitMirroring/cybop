@@ -27,7 +27,7 @@
 #define SPELLCHECK_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
+
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/spellcheck_commander_logic_cybol_name.c"
@@ -37,7 +37,7 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-    #include <unistd.h>
+#include <unistd.h>
 #endif
 
 /**
@@ -177,7 +177,7 @@ void apply_spellcheck(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get don't backup part model item data.
     copy_array_forward((void*) &dbmd, dbm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    command_spellcheck(pmd, pmc,  mmd,  mmc, smmd,  smmc, lmd,  lmc, emd,  emc, kmd,  kmc, mamd,  mamc, db);
+    command_spellcheck(pmd, pmc, mmd, mmc, smmd, smmc, lmd, lmc, emd, emc, kmd, kmc, mamd, mamc, db);
 }
 
 /* SPELLCHECK_SOURCE */

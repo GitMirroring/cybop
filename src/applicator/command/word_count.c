@@ -27,7 +27,7 @@
 #define WORD_COUNT_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
+
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/word_count_commander_logic_cybol_name.c"
@@ -37,7 +37,7 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-    #include <unistd.h>
+#include <unistd.h>
 #endif
 
 /**
@@ -109,11 +109,11 @@ void apply_word_count(void* p0, void* p1, void* p2, void* p3, void* p4) {
     get_part_name((void*) &b, p0, (void*) BYTE_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) BYTE_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get char part.
     get_part_name((void*) &c, p0, (void*) CHAR_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) CHAR_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-     // Get line part.
+    // Get line part.
     get_part_name((void*) &l, p0, (void*) LINE_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) LINE_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-     // Get max-line-length part.
+    // Get max-line-length part.
     get_part_name((void*) &m, p0, (void*) MAX_LINE_LENGTH_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) MAX_LINE_LENGTH_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-     // Get word part.
+    // Get word part.
     get_part_name((void*) &w, p0, (void*) WORD_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) WORD_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get path part model item.

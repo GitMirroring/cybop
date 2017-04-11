@@ -29,8 +29,8 @@
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/communication/send_communication_logic_cybol_name.c"
-#include "../../executor/communicator/sender.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
+#include "../../executor/communicator/sender.c"
 #include "../../logger/logger.c"
 
 /**
@@ -219,16 +219,16 @@ void apply_send(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // with elements pointing to different memory areas now.
     copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-/*??
-fwprintf(stdout, L"TEST apply send *fmd: %i\n", *((int*) fmd));
-fwprintf(stdout, L"TEST apply send *mmc: %i\n", *((int*) mmc));
-fwprintf(stdout, L"TEST apply send *mpc: %i\n", *((int*) mpc));
-if (*((int*) fmd) == *INTEGER_NUMBER_STATE_CYBOI_FORMAT) {
-    fwprintf(stdout, L"TEST apply send *mmd: %i\n", *((int*) mmd));
-} else {
-    fwprintf(stdout, L"TEST apply send *mmd: %i\n", mmd);
-}
-*/
+    /*??
+    fwprintf(stdout, L"TEST apply send *fmd: %i\n", *((int*) fmd));
+    fwprintf(stdout, L"TEST apply send *mmc: %i\n", *((int*) mmc));
+    fwprintf(stdout, L"TEST apply send *mpc: %i\n", *((int*) mpc));
+    if (*((int*) fmd) == *INTEGER_NUMBER_STATE_CYBOI_FORMAT) {
+        fwprintf(stdout, L"TEST apply send *mmd: %i\n", *((int*) mmd));
+    } else {
+        fwprintf(stdout, L"TEST apply send *mmd: %i\n", mmd);
+    }
+    */
 
     send_data(rm, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, cmd, emd, lmd, lpd, lpc, fmd, td, mmd, mmc, mpd, mpc, (void*) &m, clmd, nlmd, ntmd, p2, p3, p4);
 

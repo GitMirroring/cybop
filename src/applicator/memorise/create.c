@@ -26,13 +26,12 @@
 #ifndef CREATE_SOURCE
 #define CREATE_SOURCE
 
- 
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/memory/create_memory_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/memoriser/creator/creator.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
+#include "../../executor/memoriser/creator/creator.c"
 #include "../../logger/logger.c"
 
 /**
