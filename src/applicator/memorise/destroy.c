@@ -26,6 +26,7 @@
 #ifndef DESTROY_SOURCE
 #define DESTROY_SOURCE
 
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -41,9 +42,7 @@
  * Primitive models need a different creation than compound models.
  *
  * Expected parametres:
- * - model (required): the part to be destroyed
- *
- * Constraints:
+ * - part (required): the part to be destroyed
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -63,7 +62,7 @@ void apply_destroy(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* ptd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get part.
-    get_part_name((void*) &p, p0, (void*) MODEL_DESTROY_MEMORY_LOGIC_CYBOL_NAME, (void*) MODEL_DESTROY_MEMORY_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &p, p0, (void*) PART_DESTROY_MEMORY_LOGIC_CYBOL_NAME, (void*) PART_DESTROY_MEMORY_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get part type item.
     copy_array_forward((void*) &pt, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     // Get part type item data.

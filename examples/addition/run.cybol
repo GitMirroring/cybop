@@ -3,7 +3,7 @@
     <node name="create_result" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="result"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="element" channel="inline" format="text/plain" model="part"/>
+         
     </node>
     <node name="initialise_result" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="inline"/>

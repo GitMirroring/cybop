@@ -2,24 +2,24 @@
     <node name="create_domain" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="domain"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="element" channel="inline" format="text/plain" model="part"/>
+         
     </node>
     <node name="create_flag" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="flag"/>
         <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
-        <node name="element" channel="inline" format="text/plain" model="part"/>
+         
         <node name="whole" channel="inline" format="text/cybol-path" model=".domain"/>
     </node>
     <node name="create_true_model" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="true_model"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="element" channel="inline" format="text/plain" model="part"/>
+         
         <node name="whole" channel="inline" format="text/cybol-path" model=".domain"/>
     </node>
     <node name="create_false_model" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="false_model"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="element" channel="inline" format="text/plain" model="part"/>
+         
         <node name="whole" channel="inline" format="text/cybol-path" model=".domain"/>
     </node>
     <node name="initialise_flag" channel="inline" format="modify/overwrite" model="">

@@ -30,7 +30,6 @@
 #include "../../applicator/modify/index_modify.c"
 #include "../../applicator/modify/type_modify.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/modification/modification_logic_cybol_name.c"
@@ -241,10 +240,11 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     copy_integer((void*) &source_index, simd);
     // Set adjust flag to the value that was given as parametre.
     copy_integer((void*) &adjust, admd);
-    // Set destination part item index depending on
-    // the destination properties flag that was given as parametre.
+    // Set destination- and source part item index depending on
+    // the destination- and source properties flag that was given as parametre.
     apply_modify_index((void*) &destination_part_item_index, dprmd);
     apply_modify_index((void*) &source_part_item_index, sprmd);
+    // Get source array.
     apply_modify_array((void*) &source_array_data, (void*) &source_array_count, (void*) &spd, (void*) &spc, sprmd);
 
     // Compare destination- and source type.

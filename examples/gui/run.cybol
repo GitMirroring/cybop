@@ -2,7 +2,7 @@
     <node name="create_app" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="app"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="element" channel="inline" format="text/plain" model="part"/>
+         
     </node>
     <node name="initialise_app" channel="inline" format="communicate/receive" model="">
         <node name="message" channel="inline" format="text/cybol-path" model=".app"/>

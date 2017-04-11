@@ -2,7 +2,7 @@
     <node name="create_result" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="result"/>
         <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
-        <node name="element" channel="inline" format="text/plain" model="part"/>
+         
     </node>
     <node name="initialise_result" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>

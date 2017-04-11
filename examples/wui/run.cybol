@@ -2,7 +2,7 @@
     <node name="create_wui" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="wui"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="element" channel="inline" format="text/plain" model="part"/>
+         
     </node>
     <node name="initialise_wui" channel="inline" format="communicate/receive" model="">
         <node name="sender" channel="inline" format="text/plain" model="wui/wui.cybol"/>

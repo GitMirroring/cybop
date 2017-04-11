@@ -30,9 +30,9 @@
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The model destroy memory logic cybol name. */
-static wchar_t* MODEL_DESTROY_MEMORY_LOGIC_CYBOL_NAME = L"model";
-static int* MODEL_DESTROY_MEMORY_LOGIC_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The part destroy memory logic cybol name. */
+static wchar_t* PART_DESTROY_MEMORY_LOGIC_CYBOL_NAME = L"part";
+static int* PART_DESTROY_MEMORY_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* DESTROY_MEMORY_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

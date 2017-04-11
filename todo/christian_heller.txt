@@ -86,10 +86,6 @@ _________________
 Container
 _________
 
-        * Adapt applicator for "memorise/create" to use new cybol property "whole_properties"
-        * Rename property "element" of cybol operation "memorise/create" into "whole_properties" of type "logicvalue/boolean" in all cybol example applications
-            (false adds new node to "model"; true to "properties" container)
-
         * Adapt applicators for calculate | cast | compare | logify | manipulate to use the type of one operand instead of explicitly given property
         * Compare both operand types as done in "modify" container operations
 

@@ -3,7 +3,7 @@
     <node name="create_wui_toc_project_link" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/cybol-path" model="#project_name"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="element" channel="inline" format="text/plain" model="part"/>
+         
         <node name="whole" channel="inline" format="text/cybol-path" model=".wui.(#category_name).body.toc"/>
     </node>
 

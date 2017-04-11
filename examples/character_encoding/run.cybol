@@ -2,7 +2,7 @@
     <node name="create_text" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="text"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="element" channel="inline" format="text/plain" model="part"/>
+         
     </node>
     <node name="initialise_text" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>

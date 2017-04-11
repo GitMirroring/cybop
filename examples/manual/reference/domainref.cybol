@@ -3,14 +3,14 @@
     <node name="domain" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="domain"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="element" channel="inline" format="text/plain" model="part"/>
+         
     </node>
     
     <!-- node: print -->
     <node name="function_print" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="print"/>
                 <node name="format" channel="inline" format="meta/format" model="element/part"/>
-                <node name="element" channel="inline" format="text/plain" model="part"/>
+                 
             <node name="whole" channel="inline" format="text/cybol-path" model=".domain"/>
     </node>
 

@@ -3,7 +3,7 @@
     <node name="create_value" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="value"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="element" channel="inline" format="text/plain" model="part"/>
+         
     </node>
 
     <node name="init_value" channel="inline" format="communicate/receive" model="">
@@ -19,7 +19,7 @@
     <node name="create_bool" channel="inline" format="memorise/create" model="">
                 <node name="name" channel="inline" format="text/plain" model="bool"/>
                 <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
-                <node name="element" channel="inline" format="text/plain" model="part"/>
+                 
         </node>
 
         <node name="init_bool" channel="inline" format="communicate/receive" model="">
