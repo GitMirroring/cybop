@@ -32,11 +32,11 @@
 #include <wchar.h>
 
 #ifdef WIN32
-    #include <windows.h>
+#include <windows.h>
 #endif
 
 #ifndef _MSC_VER
-    #include <unistd.h>
+#include <unistd.h>
 #endif
 
 #include "../constant/model/character_code/unicode/unicode_character_code_model.c"
@@ -44,8 +44,8 @@
 #include "../constant/model/cyboi/log/level_name_log_cyboi_model.c"
 #include "../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../logger/level_name_logger.c"
