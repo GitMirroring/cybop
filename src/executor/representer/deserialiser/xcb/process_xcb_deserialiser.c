@@ -29,7 +29,6 @@
 #include <xcb/xcb.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/state/gui/event_gui_state_cybol_name.c"
 #include "../../../../constant/name/cybol/state/keyboard/keyboard_state_cybol_name.c"

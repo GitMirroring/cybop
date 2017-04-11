@@ -1,4 +1,5 @@
 <node>
+
     <node name="window" channel="file" format="element/part" model="gui/window.cybol">
         <!-- This flag indicates that this is a window to which the properties are to be applied. -->
         <node name="window" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -12,8 +13,10 @@
         <node name="background" channel="inline" format="colour/rgb" model="255,255,255"/>
         <node name="foreground" channel="inline" format="colour/rgb" model="255,0,0"/>
         <node name="layout" channel="inline" format="text/plain" model="absolute"/>
-        <node name="expose" channel="inline" format="text/plain" model=".app.logic.refresh_display"/>
+        <node name="expose" channel="inline" format="text/plain" model=".logic.refresh_display"/>
     </node>
-    <!-- CAUTION! The action is used in file "logic/handler/gui.cybol". -->
+
+    <!-- CAUTION! The action is used in file "handler.cybol". -->
     <node name="action" channel="inline" format="text/plain" model=""/>
+
 </node>

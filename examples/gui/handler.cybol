@@ -1,16 +1,19 @@
 <node>
+
     <!-- CAUTION! If the action was not reset here, then the last valid previous action would be executed again and again, neverendingly. -->
     <node name="reset_action" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.gui.action"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".gui.action"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
+
     <node name="receive_action" channel="inline" format="communicate/receive" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="display"/>
-        <node name="language" channel="inline" format="meta/language" model="message/gui"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".gui.action"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".gui.window"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".app.gui.action"/>
-        <node name="sender" channel="inline" format="text/cybol-path" model=".app.gui.window"/>
+        <node name="language" channel="inline" format="meta/language" model="message/gui"/>
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
     </node>
+
     <!--
         CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.
         Otherwise, another signal might be executed before, so that this signal could possibly
@@ -21,31 +24,7 @@
         a string pointing to the actual model to be executed.
     -->
     <node name="execute_action" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model="*.app.gui.action"/>
+        <node name="model" channel="inline" format="text/cybol-path" model="*.gui.action"/>
     </node>
+
 </node>
-
-<!--
-    Copyright (C) 1999-2017. Christian Heller.
-
-    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
-
-    CYBOL is free software: you can redistribute it and/or modify it
-    under the terms of the GNU General Public License as published
-    by the Free Software Foundation, either version 3 of the License,
-    or (at your option) any later version.
-
-    CYBOL is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty
-    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    See the GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
-
-    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
-    CYBOP Developers <cybop-developers@nongnu.org>
-
-    @version CYBOP 0.19.0 2017-04-10
-    @author Christian Heller <christian.heller@tuxtax.de>
--->

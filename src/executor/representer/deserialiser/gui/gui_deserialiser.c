@@ -27,7 +27,6 @@
 #define GUI_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../executor/representer/deserialiser/gui/part_gui_deserialiser.c"
 #include "../../../../logger/logger.c"
 

@@ -28,7 +28,6 @@
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../executor/streamer/reader/display/display_reader.c"

@@ -27,7 +27,6 @@
 #define DISPLAY_READER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
@@ -56,6 +55,8 @@ void read_display(void* p0, void* p1) {
     // events in the main thread and stores a found event
     // in internal memory, before it can be processed here.
     copy_array_forward((void*) &e, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EVENT_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+
+fwprintf(stdout, L"TEST: read display e: %p \n", e);
 
     // Reset event in internal memory.
     // CAUTION! This IS NECESSARY since otherwise,
