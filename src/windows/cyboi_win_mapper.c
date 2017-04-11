@@ -23,15 +23,15 @@
 * @author Christian Heller <christian.heller@tuxtax.de>
 */
 
-#include <time.h>
-#include <windows.h>
-#include <stdio.h> 
 #include <BaseTsd.h>
 #include <pthread.h>
+#include <stdio.h>
+#include <time.h>
+#include <windows.h>
 
 #include "cyboi_win_mapper.h"
 
-int nanosleep(struct timespec *__requested_time, struct timespec *__remaining){
+int nanosleep(struct timespec* __requested_time, struct timespec* __remaining) {
     // Replacement for glibc version
     // based on:
     // http://www.c-plusplus.de/forum/43364-full
@@ -53,43 +53,41 @@ int nanosleep(struct timespec *__requested_time, struct timespec *__remaining){
        nanosecond precision.  It is defined as follows:
 
            struct timespec {
-               time_t tv_sec;        // seconds 
-                long   tv_nsec;      // nanoseconds 
+               time_t tv_sec;        // seconds
+                long   tv_nsec;      // nanoseconds
             };
 
         The value of the nanoseconds field must be in the range 0 to
         999999999.
         */
 
-    //see: http://man7.org/linux/man-pages/man2/nanosleep.2.html
+    // see: http://man7.org/linux/man-pages/man2/nanosleep.2.html
 
-            HANDLE hTimer = NULL;
-            LARGE_INTEGER liDueTime;
+    HANDLE hTimer = NULL;
+    LARGE_INTEGER liDueTime;
 
-            // Wartezeit in 100ns Schritten
-            liDueTime.QuadPart = -(__requested_time->tv_sec * 10000000 + __requested_time->tv_nsec);
-                //-100 000 000; = 10s
-                // negativer Wert= relative Zeit, positiv=absoluter Zeit (siehe SetWaitableTimer) 
+    // Wartezeit in 100ns Schritten
+    liDueTime.QuadPart = -(__requested_time->tv_sec * 10000000 + __requested_time->tv_nsec);
+    //-100 000 000; = 10s
+    // negativer Wert= relative Zeit, positiv=absoluter Zeit (siehe SetWaitableTimer)
 
-            // Create a waitable timer. 
-            hTimer = CreateWaitableTimer(NULL, TRUE, "WaitableTimer");
-            if (!hTimer)
-            {
-                printf("CreateWaitableTimer failed (%d)\n", GetLastError());
-                return 1;
-            }
+    // Create a waitable timer.
+    hTimer = CreateWaitableTimer(NULL, TRUE, "WaitableTimer");
+    if (!hTimer) {
+        printf("CreateWaitableTimer failed (%d)\n", GetLastError());
+        return 1;
+    }
 
-            //printf("Waiting for %i seconds...\n", liDueTime.QuadPart / -10000000);
-            // Set a timer to wait for 10 seconds. 
-            if (!SetWaitableTimer(hTimer, &liDueTime, 0, NULL, NULL, 0))
-            {
-                printf("SetWaitableTimer failed (%d)\n", GetLastError());
-                return 2;
-            }
+    // printf("Waiting for %i seconds...\n", liDueTime.QuadPart / -10000000);
+    // Set a timer to wait for 10 seconds.
+    if (!SetWaitableTimer(hTimer, &liDueTime, 0, NULL, NULL, 0)) {
+        printf("SetWaitableTimer failed (%d)\n", GetLastError());
+        return 2;
+    }
 
-            // Wait for the timer. 
-            if (WaitForSingleObject(hTimer, INFINITE) != WAIT_OBJECT_0)
-                printf("WaitForSingleObject failed (%d)\n", GetLastError());
-            //else printf("Timer was signaled.\n");
-            return 0;
+    // Wait for the timer.
+    if (WaitForSingleObject(hTimer, INFINITE) != WAIT_OBJECT_0)
+        printf("WaitForSingleObject failed (%d)\n", GetLastError());
+    // else printf("Timer was signaled.\n");
+    return 0;
 }

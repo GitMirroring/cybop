@@ -1,5 +1,5 @@
 /*
-Example main entry point for windows gui app. 
+Example main entry point for windows gui app.
 The WinMain program entry point is automatical set by VC compiler if systemtype will be set to Windows (/SUBSYSTEM:WINDOWS)
 M. F.
 
@@ -19,20 +19,17 @@ http://www.paulgriffiths.net/program/c/srcs/winhellosrc.html
 
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
-
 /*  WinMain(), our entry point  */
 
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
-    LPSTR szCmdLine, int iCmdShow) {
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR szCmdLine, int iCmdShow) {
     static char szAppName[] = "Cyboi";
-    HWND        hwnd;
-    MSG         msg;
-    WNDCLASSEX  wndclass;
-
+    HWND hwnd;
+    MSG msg;
+    WNDCLASSEX wndclass;
 
     /*  Fill in WNDCLASSEX struct members  */
 
-    wndclass.cbSize = sizeof (wndclass);
+    wndclass.cbSize = sizeof(wndclass);
     wndclass.style = CS_HREDRAW | CS_VREDRAW;
     wndclass.lpfnWndProc = WndProc;
     wndclass.cbClsExtra = 0;
@@ -45,47 +42,36 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     wndclass.lpszClassName = szAppName;
     wndclass.lpszMenuName = NULL;
 
-
     /*  Register a new window class with Windows  */
 
     RegisterClassEx(&wndclass);
 
-
     /*  Create a window based on our new class  */
 
-    hwnd = CreateWindow(szAppName, "Hello, cyboi!",
-        WS_OVERLAPPEDWINDOW,
-        CW_USEDEFAULT, CW_USEDEFAULT,
-        CW_USEDEFAULT, CW_USEDEFAULT,
-        NULL, NULL, hInstance, NULL);
-
+    hwnd = CreateWindow(szAppName, "Hello, cyboi!", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, NULL, NULL, hInstance, NULL);
 
     /*  Show and update our window  */
 
     ShowWindow(hwnd, iCmdShow);
     UpdateWindow(hwnd);
 
-
     /*  Retrieve and process messages until we get WM_QUIT  */
 
     while (GetMessage(&msg, NULL, 0, 0)) {
-        TranslateMessage(&msg);    /*  for certain keyboard messages  */
-        DispatchMessage(&msg);     /*  send message to WndProc        */
+        TranslateMessage(&msg); /*  for certain keyboard messages  */
+        DispatchMessage(&msg);  /*  send message to WndProc        */
     }
-
 
     /*  Exit with status specified in WM_QUIT message  */
 
     return msg.wParam;
 }
 
-
 /*  Window procedure  */
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam) {
     PAINTSTRUCT ps;
-    HDC         hdc;
-
+    HDC hdc;
 
     /*  Switch according to what type of message we have received  */
 
@@ -106,7 +92,6 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam) {
         PostQuitMessage(0);
         return 0;
     }
-
 
     /*  Send any messages we don't handle to default window procedure  */
 
