@@ -27,7 +27,6 @@
 #define IRQ_CHECKER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -66,7 +65,7 @@ void check_irq(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??        check_irq_all((void*) &r, p0, p1, p2, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        check_irq_all((void*) &r, p0, p1, p2, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -105,6 +104,7 @@ void check_irq(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // this and further interrupts are NOT checked.
             //
 
+/*??
             if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
                 log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected display interrupt.");
@@ -116,6 +116,7 @@ void check_irq(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
 //??    fwprintf(stdout, L"TEST check irq display irq: %i\n", *((int*) *irq));
             }
+*/
 
             if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
@@ -146,6 +147,7 @@ void check_irq(void* p0, void* p1, void* p2, void* p3, void* p4) {
             if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
                 log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check interrupt. No interrupt request was detected.");
+                fwprintf(stdout, L"Warning: Could not check interrupt. No interrupt request was detected.\n");
             }
 
         } else {

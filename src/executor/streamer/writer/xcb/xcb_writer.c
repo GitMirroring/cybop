@@ -29,7 +29,6 @@
 #include <xcb/xcb.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
@@ -62,6 +61,8 @@ void write_xcb(void* p0) {
         if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write xcb.");
+
+fwprintf(stdout, L"TEST write xcb: %i\n", *((int*) w));
 
             // Use xcb type.
             xcb_window_t window = *((int*) w);

@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-04-12  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Prepare reactivation of x window system with new io entry structure for storage in internal memory
+
 2017-04-11  Christian Heller  <christian.heller@tuxtax.de>
 
         * Fix potential memory leak on reallocation error in file "array_reallocator.c"

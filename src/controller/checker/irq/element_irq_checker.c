@@ -27,7 +27,6 @@
 #define ELEMENT_IRQ_CHECKER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -84,12 +83,12 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             // The enable flag is set.
 
             // The interrupt request.
-            int i = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+            int irq = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
             // Get interrupt request from io entry.
-            get_io_entry_element((void*) &i, (void*) &io, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            get_io_entry_element((void*) &irq, (void*) &io, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-            if (i != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            if (irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 // The interrupt request is set.
 

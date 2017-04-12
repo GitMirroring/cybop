@@ -29,7 +29,6 @@
 #include <xcb/xcb.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -61,16 +60,56 @@
  */
 void startup_x_window_system(void* p0) {
 
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup x window system.");
+
+/*??
+    // The internal memory index.
+    int i = *DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+    // The socket io entry.
+    void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The connexion.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Get socket io entry.
+    copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+
+    if (io == *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        // Only establish connexion if not existent.
+
+        // Allocate io entry.
+        //
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        allocate_array((void*) &io, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
+
+fwprintf(stdout, L"TEST startup x window system io: %i\n", io);
+
+        // Store connexion in io entry.
+        //
+        // CAUTION! Do NOT use "overwrite_array" function here,
+        // since it adapts the array count and size.
+        // But the array's count and size are CONSTANT.
+        set_io_entry_element((void*) &io, (void*) &c, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+        // Store io entry in internal memory.
+        //
+        // CAUTION! Do NOT use "overwrite_array" function here,
+        // since it adapts the array count and size.
+        // But the internal array's count and size are CONSTANT.
+        copy_array_forward(p0, (void*) &io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+*/
+
+//?? TODO: ------------------------------------
+
     // The connexion.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get connexion.
     copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-    // Only establish connexion if not existent.
+    // Only destroy connexion if existent.
     if (c == *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup x window system.");
 
         // Allocate and open connexion.
         // CAUTION! Do NOT allocate the connexion manually here.
@@ -202,12 +241,8 @@ fwprintf(stdout, L"TEST startup x window system s: %i\n", s);
                     uint32_t gcm = XCB_GC_FOREGROUND | XCB_GC_GRAPHICS_EXPOSURES;
 
                     // The window values.
-                    // CAUTION! They have to be in the
-                    // SAME ORDER as given in the mask above.
                     uint32_t wv[2];
                     // The graphic context values.
-                    // CAUTION! They have to be in the
-                    // SAME ORDER as given in the mask above.
                     uint32_t gcv[2];
 
                     // CAUTION! Initialise values BEFORE using
@@ -215,8 +250,12 @@ fwprintf(stdout, L"TEST startup x window system s: %i\n", s);
                     // Otherwise, drawing errors will occur.
 
                     // Initialise window background.
+                    // CAUTION! The index has to be in the
+                    // SAME ORDER as given in the mask above.
                     wv[0] = (*((xcb_screen_t*) s)).white_pixel;
                     // Register for all possible event types.
+                    // CAUTION! The index has to be in the
+                    // SAME ORDER as given in the mask above.
                     wv[1] =
                         // Expose.
                         // - a window that covered part of the current window has moved away, exposing part (or all) of the current window
@@ -243,6 +282,8 @@ fwprintf(stdout, L"TEST startup x window system s: %i\n", s);
                         | XCB_EVENT_MASK_KEY_RELEASE;
 
                     // Initialise graphic context values.
+                    // CAUTION! The index has to be in the
+                    // SAME ORDER as given in the mask above.
                     gcv[0] = (*((xcb_screen_t*) s)).black_pixel;
                     gcv[1] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 /*??
@@ -313,7 +354,7 @@ fwprintf(stdout, L"TEST startup x window system s: %i\n", s);
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup x window system. The x window system is already running.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup x window system. The x window system io entry already exists in internal memory.");
     }
 }
 

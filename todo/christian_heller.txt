@@ -14,6 +14,14 @@
 GUI
 ___
 
+        * Switch x window system to new io entry for writing values directly into system internal memory
+        * Use io entry structure in files "x_window_system_starter.c" and "x_window_system_shutter.c"
+        * Uncomment display section in file "irq_checker.c"
+        SEE:
+        * empty_checker.c
+        * irq_checker.c
+        * io_entry_getter.c
+
         * Handle platform-specific event message that gets handed over as argument to gui/xcb/win32_display deserialiser
 
         * Create io entry array structure for display i/o at startup and destroy at shutdown

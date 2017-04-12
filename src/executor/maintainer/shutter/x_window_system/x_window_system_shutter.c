@@ -29,7 +29,6 @@
 #include <xcb/xcb.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
@@ -49,6 +48,54 @@
  */
 void shutdown_x_window_system(void* p0, void* p1, void* p2) {
 
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown x window system.");
+
+/*??
+    // The internal memory index.
+    int i = *DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+    // The socket io entry.
+    void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The connexion.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Get socket io entry.
+    copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+
+    if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+fwprintf(stdout, L"TEST shutdown x window system io: %i\n", io);
+
+        // Only deallocate socket resources if a socket exists.
+
+        // Interrupt socket service thread.
+        interrupt_thread(p1, p2);
+
+        // Get connexion from io entry.
+        //
+        // CAUTION! Do NOT use "overwrite_array" function here,
+        // since it adapts the array count and size.
+        // But the array's count and size are CONSTANT.
+        get_io_entry_element((void*) &s, (void*) &io, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+        // Close server socket.
+        shutdown_socket_close((void*) &s);
+
+        // Deallocate io entry.
+        // CAUTION! The second argument "count" is NULL,
+        // since it is only needed for looping elements of type PART,
+        // in order to decrement the rubbish (garbage) collection counter.
+        deallocate_array((void*) &io, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
+
+        // Reset values.
+        //
+        // CAUTION! Assign NULL to the internal memory.
+        // It is ESSENTIAL, since cyboi tests for null pointers.
+        // Otherwise, wild pointers would lead to memory corruption.
+        copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+*/
+
+//?? TODO: -------------------------------
+
     // The connexion.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -57,8 +104,6 @@ void shutdown_x_window_system(void* p0, void* p1, void* p2) {
 
     // Only destroy connexion if existent.
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown x window system.");
 
         // Interrupt x window system service thread.
         interrupt_thread(p1, p2);

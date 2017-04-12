@@ -30,7 +30,6 @@
 #include <signal.h>
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
@@ -65,7 +64,7 @@ void check_empty(void* p0, void* p1, void* p2) {
     // CAUTION! It CANNOT be handed over as parametre (like the interrupt).
     pthread_mutex_t* mtOLD = (pthread_mutex_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
-//?? fwprintf(stdout, L"TEST check empty irq: %i\n", irq);
+fwprintf(stdout, L"TEST check empty irq: %i\n", irq);
 
     // The signal memory is empty, so that the cyboi system
     // may check for new interrupt requests now.
@@ -90,8 +89,8 @@ void check_empty(void* p0, void* p1, void* p2) {
         // because otherwise, the "else" branch below would not always be reached.
         || ((irqOLD != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) irqOLD) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
-//?? fwprintf(stdout, L"TEST check empty found irq: %i\n", irq);
-//?? fwprintf(stdout, L"TEST check empty found s: %i\n", s);
+fwprintf(stdout, L"TEST check empty found irq: %i\n", irq);
+fwprintf(stdout, L"TEST check empty found s: %p\n", s);
 
         // Add part model (signal) to signal memory.
         //
