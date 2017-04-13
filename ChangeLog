@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-04-13  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Use io entry structure in files "x_window_system_starter.c" and "x_window_system_shutter.c"
+        * Remove old display internal memory state cyboi name constants
+
 2017-04-12  Christian Heller  <christian.heller@tuxtax.de>
 
         * Prepare reactivation of x window system with new io entry structure for storage in internal memory

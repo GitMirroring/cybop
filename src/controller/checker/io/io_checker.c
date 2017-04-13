@@ -27,7 +27,6 @@
 #define IO_CHECKER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/comparator/basic/integer/unequal_integer_comparator.c"
@@ -51,28 +50,13 @@ void check_io(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io.");
 
-    //?? TODO: The following lines are OLD and will be deleted in the future.
-
-    // The display enable flag and interrupt request.
-    void* di = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The serial enable flag and interrupt request.
-    void* si = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The terminal enable flag and interrupt request.
-    void* ti = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Get display enable flag and interrupt request.
-    copy_array_forward((void*) &di, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    // Get serial enable flag and interrupt request.
-    copy_array_forward((void*) &si, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    // Get terminal enable flag and interrupt request.
-    copy_array_forward((void*) &ti, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         sense_display((void*) &r, p1);
+//??        check_io_all((void*) &r, p1, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

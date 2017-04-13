@@ -14,9 +14,8 @@
 GUI
 ___
 
-        * Switch x window system to new io entry for writing values directly into system internal memory
-        * Use io entry structure in files "x_window_system_starter.c" and "x_window_system_shutter.c"
-        * Uncomment display section in file "irq_checker.c"
+        * Switch x window system to new io entry structure for writing values into internal memory
+        * Check all affected files, also reader/writer, de-/serialiser, sensor, interrupter etc.
         SEE:
         * empty_checker.c
         * irq_checker.c

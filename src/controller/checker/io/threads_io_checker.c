@@ -27,7 +27,7 @@
 #define THREADS_IO_CHECKER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
+
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../executor/logifier/boolean/and_boolean_logifier.c"
 #include "../../../executor/logifier/boolean/or_boolean_logifier.c"
@@ -49,9 +49,6 @@ void check_io_threads(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io threads.");
 
-    // The display enable flag and interrupt request.
-    void* de = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* di = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The serial enable flag and interrupt request.
     void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* si = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -59,9 +56,6 @@ void check_io_threads(void* p0, void* p1) {
     void* te = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* ti = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get display enable flag and interrupt request.
-    copy_array_forward((void*) &de, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &di, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get serial enable flag and interrupt request.
     copy_array_forward((void*) &se, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     copy_array_forward((void*) &si, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
@@ -70,21 +64,18 @@ void check_io_threads(void* p0, void* p1) {
     copy_array_forward((void*) &ti, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     // The results.
-    int d = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     int s = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     int t = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Initialise results.
-    logify_boolean_or((void*) &d, de);
     logify_boolean_or((void*) &s, se);
     logify_boolean_or((void*) &t, te);
 
     // Check if both, enabled flag AND interrupt request are TRUE.
-    logify_boolean_and((void*) &d, di);
     logify_boolean_and((void*) &s, si);
     logify_boolean_and((void*) &t, ti);
 
-    if (d || s || t) {
+    if (s || t) {
 
         // Set break flag.
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

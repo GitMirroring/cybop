@@ -27,7 +27,6 @@
 #define INITIAL_GUI_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../executor/copier/array_copier.c"
@@ -70,6 +69,7 @@ fwprintf(stdout, L"TEST serialise gui initial: %i\n", *((int*) p7));
     // The win32 device context.
     void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+/*??
     // Get x window system items.
     // CAUTION! Do NOT use "overwrite_array" function here,
     // since it adapts the array count and size.
@@ -80,6 +80,7 @@ fwprintf(stdout, L"TEST serialise gui initial: %i\n", *((int*) p7));
     copy_array_forward((void*) &gc, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     copy_array_forward((void*) &f, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FONT_XCB_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     copy_array_forward((void*) &dc, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DEVICE_CONTEXT_WIN32_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+*/
 
     serialise_gui_part_element_content(c, s, w, gc, f, dc, p0, p1, p2, p3, p4, p5, p6, p7);
 }

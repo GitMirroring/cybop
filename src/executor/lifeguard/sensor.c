@@ -28,7 +28,6 @@
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
@@ -95,6 +94,7 @@ void sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6)
 
             // CAUTION! The order of function calls is IMPORTANT!
 
+/*??
             // Set handler.
             copy_array_forward(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
@@ -104,6 +104,7 @@ void sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6)
             // Set enable flag.
             copy_array_forward((void*) &e, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
             copy_integer(e, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+*/
         }
     }
 

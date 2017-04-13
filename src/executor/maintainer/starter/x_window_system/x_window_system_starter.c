@@ -32,8 +32,10 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/accessor/setter/io_entry_setter.c"
 #include "../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../logger/logger.c"
 
@@ -62,54 +64,27 @@ void startup_x_window_system(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup x window system.");
 
-/*??
     // The internal memory index.
     int i = *DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-    // The socket io entry.
+    // The display io entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The connexion.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The screen.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The window.
+    void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The graphic context.
+    void* gc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The font.
+    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get socket io entry.
+    // Get display io entry.
     copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
     if (io == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // Only establish connexion if not existent.
-
-        // Allocate io entry.
-        //
-        // CAUTION! Due to memory allocation handling, the size MUST NOT
-        // be negative or zero, but have at least a value of ONE.
-        allocate_array((void*) &io, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
-
-fwprintf(stdout, L"TEST startup x window system io: %i\n", io);
-
-        // Store connexion in io entry.
-        //
-        // CAUTION! Do NOT use "overwrite_array" function here,
-        // since it adapts the array count and size.
-        // But the array's count and size are CONSTANT.
-        set_io_entry_element((void*) &io, (void*) &c, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-        // Store io entry in internal memory.
-        //
-        // CAUTION! Do NOT use "overwrite_array" function here,
-        // since it adapts the array count and size.
-        // But the internal array's count and size are CONSTANT.
-        copy_array_forward(p0, (void*) &io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-*/
-
-//?? TODO: ------------------------------------
-
-    // The connexion.
-    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Get connexion.
-    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-
-    // Only destroy connexion if existent.
-    if (c == *NULL_POINTER_STATE_CYBOI_MODEL) {
+        // Only allocate display resources if NOT existent.
 
         // Allocate and open connexion.
         // CAUTION! Do NOT allocate the connexion manually here.
@@ -132,18 +107,11 @@ fwprintf(stdout, L"TEST startup x window system c: %i\n", c);
                 // Get first screen.
                 // CAUTION! Do NOT allocate the screen manually here.
                 // It gets allocated through the connexion above.
-                void* s = (void*) iter.data;
+                s = (void*) iter.data;
 
                 if (s != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
 fwprintf(stdout, L"TEST startup x window system s: %i\n", s);
-
-                    // The window.
-                    void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
-                    // The graphic context.
-                    void* gc = *NULL_POINTER_STATE_CYBOI_MODEL;
-                    // The font.
-                    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
 
                     // Allocate window.
                     //
@@ -326,17 +294,6 @@ fwprintf(stdout, L"TEST startup x window system s: %i\n", s);
                     // and it already IS one, since it is an array.
                     xcb_create_gc((xcb_connection_t*) c, (xcb_gcontext_t) *((int*) gc), (xcb_drawable_t) *((int*) w), gcm, gcv);
 
-                    // Store x window system items in internal memory.
-                    //
-                    // CAUTION! Do NOT use "overwrite_array" function here,
-                    // since it adapts the array count and size.
-                    // But the internal array's count and size are CONSTANT.
-                    copy_array_forward(p0, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CONNEXION_XCB_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-                    copy_array_forward(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SCREEN_XCB_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-                    copy_array_forward(p0, (void*) &w, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) WINDOW_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-                    copy_array_forward(p0, (void*) &gc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-                    copy_array_forward(p0, (void*) &f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FONT_XCB_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
                 } else {
 
                     log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup x window system. The screen is null.");
@@ -351,6 +308,30 @@ fwprintf(stdout, L"TEST startup x window system s: %i\n", s);
 
             log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup x window system. The connexion is null.");
         }
+
+        // Allocate io entry.
+        //
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        allocate_array((void*) &io, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
+
+        // Set connexion into io entry.
+        set_io_entry_element((void*) &io, (void*) &c, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        // Set screen into io entry.
+        set_io_entry_element((void*) &io, (void*) &s, (void*) SCREEN_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        // Set window into io entry.
+        set_io_entry_element((void*) &io, (void*) &w, (void*) WINDOW_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        // Set graphic context into io entry.
+        set_io_entry_element((void*) &io, (void*) &gc, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        // Set font into io entry.
+        set_io_entry_element((void*) &io, (void*) &f, (void*) FONT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+        // Store io entry in internal memory.
+        //
+        // CAUTION! Do NOT use "overwrite_array" function here,
+        // since it adapts the array count and size.
+        // But the internal array's count and size are CONSTANT.
+        copy_array_forward(p0, (void*) &io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     } else {
 
