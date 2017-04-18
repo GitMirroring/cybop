@@ -23,17 +23,17 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef TYPE_MODIFY_SOURCE
-#define TYPE_MODIFY_SOURCE
+#ifndef TYPE_CALCULATE_SOURCE
+#define TYPE_CALCULATE_SOURCE
 
-#include "../../applicator/modify/deep_modify.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../executor/calculator/all/part_all_calculator.c"
 #include "../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../logger/logger.c"
 
 /**
- * Compares the type of destination- and source node.
+ * Compares the type of result- and operand node.
  *
  * If a wrong knowledge path is given, e.g. with non-existing node-names,
  * then a cybol operation might write data into a wrong destination,
@@ -42,42 +42,34 @@
  *
  * Therefore, the types have to be IDENTICAL.
  *
- * @param p0 the destination part
- * @param p1 the source array
- * @param p2 the type
- * @param p3 the move flag (NOT deep copying flag)
- * @param p4 the count
- * @param p5 the destination index
- * @param p6 the source index
- * @param p7 the adjust count flag
- * @param p8 the operation type
- * @param p9 the destination part item index
- * @param p10 the source part item index
- * @param p11 the source part
- * @param p12 the source type
+ * @param p0 the result part, which contains the operand BEFORE the operation
+ * @param p1 the operand part
+ * @param p2 the operation type
+ * @param p3 the type
+ * @param p4 the operand type
  */
-void apply_modify_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void apply_calculate_type(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply modify type.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply calculate type.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, p2, p12);
+    compare_integer_equal((void*) &r, p3, p4);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // The destination- and source type are identical.
+        // The result- and operand type are identical.
 
-        apply_modify_deep(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
+        calculate_all_part(p0, p1, p2, p3);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply modify type. The destination type and source type are different.");
-        fwprintf(stdout, L"ERROR: Could not apply modify type. The destination type and source type are different.\n");
-        fwprintf(stdout, L"ERROR: Destination type: %i. Source type: %i.\n", *((int*) p2), *((int*) p12));
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply calculate type. The result type and operand type are different.");
+        fwprintf(stdout, L"ERROR: Could not apply calculate type. The result type and operand type are different.\n");
+        fwprintf(stdout, L"ERROR: Result type: %i. Operand type: %i.\n", *((int*) p3), *((int*) p4));
     }
 }
 
-/* TYPE_MODIFY_SOURCE */
+/* TYPE_CALCULATE_SOURCE */
 #endif

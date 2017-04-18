@@ -3,12 +3,12 @@
     <node name="create_result" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="result"/>
         <node name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
-         
+
     </node>
     <node name="create_operand" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="operand"/>
         <node name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
-         
+
     </node>
 
     <!-- Initialisation -->
@@ -30,7 +30,6 @@
     <node name="add_operand" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="operand" channel="inline" format="text/cybol-path" model=".operand"/>
-        <node name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
     </node>
     <node name="print_addition" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -53,7 +52,6 @@
     <node name="multiply_operand" channel="inline" format="calculate/multiply" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="operand" channel="inline" format="text/cybol-path" model=".operand"/>
-        <node name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
     </node>
     <node name="print_multiplication" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -76,7 +74,6 @@
     <node name="subtract_operand" channel="inline" format="calculate/subtract" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="operand" channel="inline" format="text/cybol-path" model=".operand"/>
-        <node name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
     </node>
     <node name="print_subtraction" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -99,7 +96,6 @@
     <node name="divide_operand" channel="inline" format="calculate/divide" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="operand" channel="inline" format="text/cybol-path" model=".operand"/>
-        <node name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
     </node>
     <node name="print_division" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -122,7 +118,6 @@
     <node name="negate_operand" channel="inline" format="calculate/negate" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="operand" channel="inline" format="text/cybol-path" model=".operand"/>
-        <node name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
     </node>
     <node name="print_negation" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -146,7 +141,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
         <!-- CAUTION! Do NOT use the "operand", but "result" instead, since it has a negative value. -->
         <node name="operand" channel="inline" format="text/cybol-path" model=".result"/>
-        <node name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
     </node>
     <node name="print_absolution" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>

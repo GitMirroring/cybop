@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-04-18  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt applicator for operation "calculate" to use the type of one operand instead of explicitly given property
+        * Delete superfluous property "type" for arithmetic operations like "calculate/add" or "calculate/subtract" in all cybol example applications
+
 2017-04-13  Christian Heller  <christian.heller@tuxtax.de>
 
         * Use io entry structure in files "x_window_system_starter.c" and "x_window_system_shutter.c"

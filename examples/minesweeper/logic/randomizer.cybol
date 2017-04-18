@@ -17,12 +17,10 @@
     <node name="inc_seed1_inc" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".app.r1_inc"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="add_to_seed1" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".app.seed"/>
         <node name="operand" channel="inline" format="text/cybol-path" model=".app.r1_inc"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="set_seed1" channel="inline" format="randomise/sow" model="">
         <node name="seed" channel="inline" format="text/cybol-path" model=".app.seed"/>
@@ -45,12 +43,10 @@
     <node name="inc_seed2_inc" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".app.r2_inc"/>
         <node name="operand" channel="inline" format="number/integer" model="2"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="add_to_seed2" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".app.seed"/>
         <node name="operand" channel="inline" format="text/cybol-path" model=".app.r2_inc"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="set_seed2" channel="inline" format="randomise/sow" model="">
         <node name="seed" channel="inline" format="text/cybol-path" model=".app.seed"/>

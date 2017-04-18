@@ -118,7 +118,7 @@
     <node name="create_result" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="result"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-         
+
     </node>
 
     <node name="initialise_result" channel="inline" format="communicate/receive" model="">
@@ -134,25 +134,21 @@
     <node name="add_player" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="operand" channel="inline" format="text/cybol-path" model=".app.var.field_5"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
 
     <node name="add_player2" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="operand" channel="inline" format="text/cybol-path" model=".app.var.field_6"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
 
     <node name="add_player3" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="operand" channel="inline" format="text/cybol-path" model=".app.var.field_7"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
 
     <node name="add_player4" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="operand" channel="inline" format="text/cybol-path" model=".app.var.field_8"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
 
     <node name="wert_player" channel="inline" format="communicate/send" model="">
@@ -203,7 +199,7 @@
         <node name="true" channel="inline" format="text/cybol-path" model=".app.print_loose"/>
     </node>
 
-<node name="compare_player_equals_21" channel="inline" format="compare/equal" model="">
+    <node name="compare_player_equals_21" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="right" channel="inline" format="number/integer" model="21"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
@@ -219,8 +215,7 @@
     <node name="if-then-else1" channel="inline" format="flow/branch" model="">
         <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.stop_flag"/>
         <node name="true" channel="inline" format="text/cybol-path" model=".app.exit.exit_app"/>
-    <node name="false" channel="inline" format="text/cybol-path" model=".app.computerturn"/>
-
+        <node name="false" channel="inline" format="text/cybol-path" model=".app.computerturn"/>
     </node>
 
 </node>

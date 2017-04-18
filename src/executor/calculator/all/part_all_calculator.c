@@ -26,7 +26,7 @@
 #ifndef PART_ALL_CALCULATOR_SOURCE
 #define PART_ALL_CALCULATOR_SOURCE
 
- 
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/part_state_cyboi_name.c"
@@ -39,7 +39,7 @@
 /**
  * Calculates all elements of the result part with those of the operand array.
  *
- * @param p0 the result part, which contains the operands BEFORE the operation
+ * @param p0 the result part, which contains the operand BEFORE the operation
  * @param p1 the operand array
  * @param p2 the operation type
  * @param p3 the operand type
@@ -63,7 +63,7 @@ void calculate_all_part_element(void* p0, void* p1, void* p2, void* p3, void* p4
 /**
  * Calculates all elements of the result- with those of the operand part.
  *
- * @param p0 the result part, which contains the operands BEFORE the operation
+ * @param p0 the result part, which contains the operand BEFORE the operation
  * @param p1 the operand part
  * @param p2 the operation type
  * @param p3 the operand type
@@ -95,7 +95,7 @@ void calculate_all_part(void* p0, void* p1, void* p2, void* p3) {
  * This function is only called when calculating two parts
  * including their parts etc. (deep calculation).
  *
- * @param p0 the result part, which contains the operands BEFORE the operation
+ * @param p0 the result part, which contains the operand BEFORE the operation
  * @param p1 the operand part
  * @param p2 the operation type
  */

@@ -3,7 +3,7 @@
     <node name="create_result" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="result"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-         
+
     </node>
     <!-- CAUTION! This initialisation IS NECESSARY since otherwise, the result number would be empty (not zero, just plain empty without space in the array). -->
     <node name="initialise_result" channel="inline" format="communicate/receive" model="">
@@ -24,7 +24,6 @@
     <node name="test_add" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="operand" channel="inline" format="number/integer" model="2"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="print_add" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -42,7 +41,6 @@
     <node name="test_subtract" channel="inline" format="calculate/subtract" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="operand" channel="inline" format="number/integer" model="2"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="print_subtract" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -60,7 +58,6 @@
     <node name="test_multiply" channel="inline" format="calculate/multiply" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="operand" channel="inline" format="number/integer" model="2"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="print_multiply" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -78,7 +75,6 @@
     <node name="test_divide" channel="inline" format="calculate/divide" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="operand" channel="inline" format="number/integer" model="2"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="print_divide" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -96,7 +92,6 @@
     <node name="test_modulo" channel="inline" format="calculate/modulo" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="operand" channel="inline" format="number/integer" model="2"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="print_modulo" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -110,7 +105,6 @@
     <node name="test_negate" channel="inline" format="calculate/negate" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="operand" channel="inline" format="number/integer" model="2"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="print_negate" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -124,7 +118,6 @@
     <node name="test_absolute" channel="inline" format="calculate/absolute" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="operand" channel="inline" format="number/integer" model="-2"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="print_absolute" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -141,29 +134,4 @@
 
 <!--
     This example applies a number of arithmetic operations.
--->
-
-<!--
-    Copyright (C) 1999-2017. Christian Heller.
-
-    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
-
-    CYBOL is free software: you can redistribute it and/or modify it
-    under the terms of the GNU General Public License as published
-    by the Free Software Foundation, either version 3 of the License,
-    or (at your option) any later version.
-
-    CYBOL is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty
-    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    See the GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
-
-    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
-    CYBOP Developers <cybop-developers@nongnu.org>
-
-    @version CYBOP 0.19.0 2017-04-10
-    @author Christian Heller <christian.heller@tuxtax.de>
 -->

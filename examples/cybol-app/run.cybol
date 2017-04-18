@@ -3,7 +3,7 @@
     <node name="create_app" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="app"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-         
+
     </node>
 
     <node name="initialise_app" channel="inline" format="communicate/receive" model="">
@@ -18,7 +18,6 @@
     <node name="add" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".app.domain.sum"/>
         <node name="operand" channel="inline" format="text/cybol-path" model=".app.domain.summand"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
 
     <!-- Write knowledge tree into file. -->

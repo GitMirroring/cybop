@@ -2,7 +2,7 @@
     <node name="create_domain" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="domain"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-         
+
     </node>
     <node name="initialise_domain" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -26,7 +26,6 @@
     <node name="add_operand" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".domain.sum"/>
         <node name="operand" channel="inline" format="text/cybol-path" model=".domain.summand"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <!-- Write knowledge tree into file. -->
     <node name="test_knowledge_tree_2" channel="inline" format="communicate/send" model="">

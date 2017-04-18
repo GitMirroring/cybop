@@ -1,4 +1,5 @@
 <node>
+
     <node name="cast_high_byte" channel="inline" format="cast/integer" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".settings.voltage_high_byte"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer_high_byte"/>
@@ -12,16 +13,14 @@
     <node name="add_high_byte" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".settings.voltage"/>
         <node name="operand" channel="inline" format="text/cybol-path" model=".settings.voltage_high_byte"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="calculate_high_byte" channel="inline" format="calculate/multiply" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".settings.voltage"/>
         <node name="operand" channel="inline" format="text/cybol-path" model=".settings.voltage_byte_value"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="add_low_byte" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".settings.voltage"/>
         <node name="operand" channel="inline" format="text/cybol-path" model=".settings.voltage_low_byte"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
+
 </node>

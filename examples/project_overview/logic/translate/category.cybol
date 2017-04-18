@@ -27,7 +27,7 @@
     <node name="create_wui_page" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/cybol-path" model="#category_name"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-         
+
         <node name="whole" channel="inline" format="text/cybol-path" model=".wui"/>
     </node>
     <node name="initialise_wui_page" channel="inline" format="communicate/receive" model="">
@@ -101,7 +101,6 @@
     <node name="increment_index" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model="#category_index"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
     <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">

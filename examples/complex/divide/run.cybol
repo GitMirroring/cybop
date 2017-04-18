@@ -2,7 +2,7 @@
     <node name="create_model" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="model"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-         
+
     </node>
     <node name="initialise_model" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -18,7 +18,6 @@
     <node name="add_operand" channel="inline" format="calculate/divide" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".model.result"/>
         <node name="operand" channel="inline" format="text/cybol-path" model=".model.operand"/>
-        <node name="type" channel="inline" format="meta/type" model="number/complex-cartesian"/>
     </node>
     <node name="print_addition" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>

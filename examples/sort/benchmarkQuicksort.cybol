@@ -3,7 +3,7 @@
     <node name="variableUnsorted" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="unsorted"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-         
+
     </node>
     <node name="initialiseUnsorted" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".unsorted"/>
@@ -12,7 +12,7 @@
     <node name="variableResult" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="result"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-         
+
     </node>
     <node name="initialiseResult" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
@@ -23,7 +23,7 @@
     <node name="variableBefore" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="before"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-         
+
     </node>
     <node name="initialiseBefore" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".before"/>
@@ -32,7 +32,7 @@
     <node name="variableAfter" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="after"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-         
+
     </node>
     <node name="initialiseAfter" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".after"/>
@@ -41,7 +41,7 @@
     <node name="variableDiff" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="diff"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-         
+
     </node>
     <node name="initialiseDiff" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".diff"/>
@@ -67,12 +67,10 @@
     <node name="calcTimeDiff" channel="inline" format="calculate/subtract" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".after"/>
         <node name="operand" channel="inline" format="text/cybol-path" model=".before"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="calcTimeDiff_copy" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".diff"/>
         <node name="operand" channel="inline" format="text/cybol-path" model=".after"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
 
 <!-- show results -->

@@ -59,15 +59,3 @@
     <node name="checksum_criterion_default" channel="inline" format="logicvalue/boolean" model="false"/>
     <node name="checksum_error" channel="inline" format="text/plain" model="Error: The checksum is not valid."/>
 </node>
-
-<!--
-    Copyright (C) 2012-2013. Ingolf Brunner, Ronny Mauersberger, Christian Heller.
-
-    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
-    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
-
-    @version Indoor Climate 1.0.0 2013-03-05
-    @author Ingolf Brunner <ingolf.brunner@ba-leipzig.de>
-    @author Ronny Mauersberger <mauigeyer2@web.de>
-    @author Christian Heller <christian.heller@tuxtax.de>
--->

@@ -17,7 +17,6 @@
     <node name="sub" channel="inline" format="calculate/subtract" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="operand" channel="inline" format="number/integer" model="48"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
 
 //Ausgabe der Nachricht

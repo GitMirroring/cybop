@@ -18,12 +18,10 @@
     <node name="calculate_average" channel="inline" format="calculate/divide" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".settings.adc"/>
         <node name="operand" channel="inline" format="text/cybol-path" model=".settings.adc_maximum_count_divisor"/>
-        <node name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
     </node>
     <node name="calculate_adc" channel="inline" format="calculate/divide" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".settings.adc"/>
         <node name="operand" channel="inline" format="text/cybol-path" model=".settings.adc_conversion_factor"/>
-        <node name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
     </node>
     <node name="print_adc" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>

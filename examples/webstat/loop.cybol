@@ -136,7 +136,6 @@
     <node name="decrement_loop_count" channel="inline" format="calculate/subtract" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.count"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <!-- CAUTION! The break condition has to be GREATER-tested AFTER having incremented the loop count, since this is a post-test loop. -->
     <node name="compare_loop_count" channel="inline" format="compare/greater" model="">

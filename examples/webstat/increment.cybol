@@ -125,13 +125,11 @@
     <node name="increment_today" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.visits_today"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
 
     <node name="increment_total" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.visits_total"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
 
     <!-- speicher Zaehler -->

@@ -26,15 +26,14 @@
 #ifndef CALCULATE_SOURCE
 #define CALCULATE_SOURCE
 
+#include "../../applicator/calculate/type_calculate.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/calculation/calculation_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/accessor/name_getter/array_name_getter.c"
-#include "../../executor/calculator/all/part_all_calculator.c"
 #include "../../executor/copier/array_copier.c"
 #include "../../logger/logger.c"
 
@@ -44,15 +43,14 @@
  * Expected parametres:
  * - result (required): the knowledge model in which the result is stored; used as first operand
  * - operand (required): the second operand
- * - type (required): the operand type which is equal for both operands
  *
  * CAUTION! Do NOT use the "add" operation for characters!
- * They may be concatenated by using the "append" or "overwrite" operation.
+ * They may be concatenated by using the "modify/append" or "modify/overwrite" operation.
  *
  * CAUTION! There are several ways to use addition, with unary or binary operators.
  * This function works like an UNARY operator.
- * The "result" parametre represents the first operand;
- * the "operand" parametre the second.
+ * The "result" parametre represents the FIRST operand;
+ * the "operand" parametre the SECOND.
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -69,30 +67,45 @@ void apply_calculate(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
     void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The operand part.
     void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The type part.
-    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The type part model item.
-    void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The result part type item.
+    void* rt = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The operand part type item.
+    void* ot = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The type part model item data.
-    void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The result part type item data.
+    void* rtd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The operand part type item data.
+    void* otd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get result part.
     get_part_name((void*) &r, p0, (void*) RESULT_CALCULATION_LOGIC_CYBOL_NAME, (void*) RESULT_CALCULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get operand part.
     get_part_name((void*) &o, p0, (void*) OPERAND_CALCULATION_LOGIC_CYBOL_NAME, (void*) OPERAND_CALCULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get type part.
-    get_part_name((void*) &t, p0, (void*) TYPE_CALCULATION_LOGIC_CYBOL_NAME, (void*) TYPE_CALCULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
-    // Get type part model item.
-    copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get result part type item.
+    copy_array_forward((void*) &rt, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    // Get operand part type item.
+    copy_array_forward((void*) &ot, o, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
 
-    // Get type part model item data.
-    copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get result part type item data.
+    copy_array_forward((void*) &rtd, rt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get operand part type item data.
+    copy_array_forward((void*) &otd, ot, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    // Calculate result by applying operation.
-    calculate_all_part(r, o, p5, tmd);
+    // The default values.
+    int type = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+
+    // CAUTION! The following values are ONLY copied,
+    // if the source value is NOT NULL.
+    // This is tested inside the "copy_integer" function.
+    // Otherwise, the destination value remains as is.
+
+    // Use the result part type data by default.
+    copy_integer((void*) &type, rtd);
+
+    // Compare result- and operand type.
+    apply_calculate_type(r, o, p5, (void*) &type, otd);
 }
 
 /* CALCULATE_SOURCE */
