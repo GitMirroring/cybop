@@ -54,7 +54,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.increment"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.path"/>
         <node name="right" channel="inline" format="text/plain" model="webstat/files/index.html"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 

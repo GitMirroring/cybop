@@ -13,7 +13,7 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.counter_x_b"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.counter_x"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".app.var.counter_x_max"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
+
 </node>

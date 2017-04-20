@@ -3,7 +3,7 @@
     <node name="create_value" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="value"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-         
+
     </node>
 
     <node name="init_value" channel="inline" format="communicate/receive" model="">
@@ -19,7 +19,7 @@
     <node name="create_bool" channel="inline" format="memorise/create" model="">
                 <node name="name" channel="inline" format="text/plain" model="bool"/>
                 <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
-                 
+
         </node>
 
         <node name="init_bool" channel="inline" format="communicate/receive" model="">
@@ -35,10 +35,9 @@
     <node name="compare" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".value"/>
         <node name="right" channel="inline" format="text/plain" model="Text"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".bool"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
-    </node>    
+    </node>
 
     <node name="startup" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>

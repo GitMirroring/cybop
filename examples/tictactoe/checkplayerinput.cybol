@@ -74,7 +74,6 @@
     <node name="comparison1" channel="inline" format="compare/equal" model="">
     <node name="left" channel="inline" format="text/cybol-path" model=".app.var.command"/>
     <node name="right" channel="inline" format="text/plain" model="1"/>
-    <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_1"/>
     <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -88,7 +87,6 @@
     <node name="flag_empty_1" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_1"/>
         <node name="right" channel="inline" format="text/plain" model="_"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -103,7 +101,6 @@
     <node name="comparison2" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.command"/>
         <node name="right" channel="inline" format="text/plain" model="2"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_2"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -117,7 +114,6 @@
     <node name="flag_empty_2" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_2"/>
         <node name="right" channel="inline" format="text/plain" model="_"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -132,7 +128,6 @@
     <node name="comparison3" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.command"/>
         <node name="right" channel="inline" format="text/plain" model="3"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_3"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -146,7 +141,6 @@
     <node name="flag_empty_3" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_3"/>
         <node name="right" channel="inline" format="text/plain" model="_"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -161,7 +155,6 @@
     <node name="comparison4" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.command"/>
         <node name="right" channel="inline" format="text/plain" model="4"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_4"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -175,7 +168,6 @@
     <node name="flag_empty_4" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_4"/>
         <node name="right" channel="inline" format="text/plain" model="_"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -190,7 +182,6 @@
     <node name="comparison5" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.command"/>
         <node name="right" channel="inline" format="text/plain" model="5"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_5"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -204,7 +195,6 @@
     <node name="flag_empty_5" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_5"/>
         <node name="right" channel="inline" format="text/plain" model="_"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -219,7 +209,6 @@
     <node name="comparison6" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.command"/>
         <node name="right" channel="inline" format="text/plain" model="6"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_6"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -233,7 +222,6 @@
     <node name="flag_empty_6" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_6"/>
         <node name="right" channel="inline" format="text/plain" model="_"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -248,7 +236,6 @@
     <node name="comparison7" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.command"/>
         <node name="right" channel="inline" format="text/plain" model="7"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_7"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -262,7 +249,6 @@
     <node name="flag_empty_7" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_7"/>
         <node name="right" channel="inline" format="text/plain" model="_"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -277,7 +263,6 @@
     <node name="comparison8" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.command"/>
         <node name="right" channel="inline" format="text/plain" model="8"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_8"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -291,7 +276,6 @@
     <node name="flag_empty_8" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_8"/>
         <node name="right" channel="inline" format="text/plain" model="_"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -306,7 +290,6 @@
     <node name="comparison9" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.command"/>
         <node name="right" channel="inline" format="text/plain" model="9"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_9"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -320,7 +303,6 @@
     <node name="flag_empty_9" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_9"/>
         <node name="right" channel="inline" format="text/plain" model="_"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -337,7 +319,6 @@
     <node name="comparison3" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.command"/>
         <node name="right" channel="inline" format="text/plain" model="q"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.exit_flag"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>

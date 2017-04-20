@@ -2,7 +2,7 @@
     <node name="create_result" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="result"/>
         <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
-         
+
     </node>
     <node name="initialise_result" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
@@ -18,7 +18,6 @@
         <node name="right" channel="inline" format="text/plain" model="Halli"/>
 -->
         <node name="right" channel="inline" format="text/plain" model="Hallo"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="print" channel="inline" format="communicate/send" model="">

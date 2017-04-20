@@ -2,30 +2,30 @@
     <node name="create_application" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="counter"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-         
+
     </node>
     <node name="create_break" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="break"/>
         <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
-         
+
         <node name="whole" channel="inline" format="text/cybol-path" model=".counter"/>
     </node>
     <node name="create_count" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="count"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-         
+
         <node name="whole" channel="inline" format="text/cybol-path" model=".counter"/>
     </node>
     <node name="create_maximum" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="maximum"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-         
+
         <node name="whole" channel="inline" format="text/cybol-path" model=".counter"/>
     </node>
     <node name="create_model" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="model"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-         
+
         <node name="whole" channel="inline" format="text/cybol-path" model=".counter"/>
     </node>
     <node name="initialise_break" channel="inline" format="modify/overwrite" model="">
@@ -65,7 +65,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".counter.break"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".counter.count"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".counter.maximum"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="call_loop" channel="inline" format="flow/loop" model="">

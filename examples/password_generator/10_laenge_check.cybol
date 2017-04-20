@@ -33,7 +33,6 @@
     <node name="comparison1" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="1"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_1"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -42,7 +41,6 @@
     <node name="comparison2" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="2"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_2"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -51,7 +49,6 @@
     <node name="comparison3" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="3"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_3"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -60,7 +57,6 @@
     <node name="comparison4" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="4"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_4"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -69,7 +65,6 @@
     <node name="comparison5" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="5"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_5"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -78,7 +73,6 @@
     <node name="comparison6" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="6"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_6"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -87,7 +81,6 @@
     <node name="comparison7" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="7"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_7"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -96,7 +89,6 @@
     <node name="comparison8" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="8"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_8"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -105,7 +97,6 @@
     <node name="comparison9" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="9"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_9"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>

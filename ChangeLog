@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-04-20  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt applicator for operation "compare" to use the type of one operand instead of explicitly given property
+        * Delete superfluous property "type" for comparison operations like "compare/equal" or "compare/greater-or-equal" in all cybol example applications
+
 2017-04-18  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt applicator for operation "calculate" to use the type of one operand instead of explicitly given property

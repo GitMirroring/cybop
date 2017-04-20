@@ -85,7 +85,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive data.");
 
-fwprintf(stdout, L"TEST receive data p15: %i\n", *((int*) p15));
+//?? fwprintf(stdout, L"TEST receive data p15: %i\n", *((int*) p15));
 
     // The pointer message item, e.g. an xcb display event or win32 input record.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;

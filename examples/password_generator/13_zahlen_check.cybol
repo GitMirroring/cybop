@@ -29,7 +29,6 @@
     <node name="comparison1" channel="inline" format="compare/equal" model="">
     <node name="left" channel="inline" format="text/cybol-path" model=".app.var.zahlen"/>
     <node name="right" channel="inline" format="text/plain" model="y"/>
-    <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_zahlen_y"/>
     <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -38,7 +37,6 @@
     <node name="comparison2" channel="inline" format="compare/equal" model="">
     <node name="left" channel="inline" format="text/cybol-path" model=".app.var.zahlen"/>
     <node name="right" channel="inline" format="text/plain" model="n"/>
-    <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_zahlen_n"/>
     <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>

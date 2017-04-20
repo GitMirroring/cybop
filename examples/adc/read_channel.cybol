@@ -1,4 +1,5 @@
 <node>
+
     <node name="send_request" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="text/cybol-path" model=".settings.device"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -13,11 +14,11 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".settings.voltage_break"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".settings.voltage_count"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".settings.voltage_maximum_count"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="read_voltage" channel="inline" format="flow/loop" model="">
         <node name="break" channel="inline" format="text/cybol-path" model=".settings.voltage_break"/>
         <node name="model" channel="file" format="element/part" model="adc/read_voltage.cybol"/>
     </node>
+
 </node>

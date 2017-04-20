@@ -1,4 +1,5 @@
 <node>
+
     <node name="reset_voltage" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="file" format="element/part" model="indoor_climate/reset_voltage.cybol"/>
     </node>
@@ -9,7 +10,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".settings.voltage_criterion"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".settings.voltage"/>
         <node name="right" channel="inline" format="number/integer" model="0"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="branch_voltage" channel="inline" format="flow/branch" model="">
@@ -26,7 +26,7 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".settings.temperature_break"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".settings.temperature_count"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".settings.temperature_maximum_count"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
+
 </node>

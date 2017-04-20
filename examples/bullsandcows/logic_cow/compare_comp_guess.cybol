@@ -34,7 +34,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.x_equal_y_flag"/>
         <node name="left" channel="inline" format="text/cybol-path" model="*.app.var.comp_adress"/>
         <node name="right" channel="inline" format="text/cybol-path" model="*.app.var.guess_adress"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
@@ -57,4 +56,5 @@
         <node name="true" channel="inline" format="text/cybol-path" model=".app.set_visited"/>
         <node name="false" channel="inline" format="text/cybol-path" model=""/>
     </node>
+
 </node>

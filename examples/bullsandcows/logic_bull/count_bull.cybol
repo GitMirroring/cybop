@@ -23,28 +23,24 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".app.help_array.flag1"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".app.comp_array.random1"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".app.guess_array.choice1"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="compare_equal" channel="inline" format="compare/equal" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".app.help_array.flag2"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".app.comp_array.random2"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".app.guess_array.choice2"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="compare_equal" channel="inline" format="compare/equal" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".app.help_array.flag3"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".app.comp_array.random3"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".app.guess_array.choice3"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="compare_equal" channel="inline" format="compare/equal" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".app.help_array.flag4"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".app.comp_array.random4"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".app.guess_array.choice4"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
