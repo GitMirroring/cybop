@@ -82,7 +82,6 @@
     <node name="flag_1" channel="inline" format="logify/and" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_1"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
 //Flag setzen Eingabe 2
@@ -109,7 +108,6 @@
     <node name="flag_2" channel="inline" format="logify/and" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_2"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
 //Flag setzen Eingabe 3
@@ -136,7 +134,6 @@
     <node name="flag_3" channel="inline" format="logify/and" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_3"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
 //Flag setzen Eingabe 4
@@ -163,7 +160,6 @@
     <node name="flag_4" channel="inline" format="logify/and" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_4"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
 //Flag setzen Eingabe 5
@@ -190,7 +186,6 @@
     <node name="flag_5" channel="inline" format="logify/and" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_5"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
 //Flag setzen Eingabe 6
@@ -217,7 +212,6 @@
     <node name="flag_6" channel="inline" format="logify/and" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_6"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
 //Flag setzen Eingabe 7
@@ -244,7 +238,6 @@
     <node name="flag_7" channel="inline" format="logify/and" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_7"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
 //Flag setzen Eingabe 8
@@ -271,7 +264,6 @@
     <node name="flag_8" channel="inline" format="logify/and" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_8"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
 //Flag setzen Eingabe 9
@@ -298,7 +290,6 @@
     <node name="flag_9" channel="inline" format="logify/and" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_9"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
 
@@ -369,55 +360,46 @@
     <node name="flag_selected_9" channel="inline" format="logify/or" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_9"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_8" channel="inline" format="logify/or" model="">
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_8"/>
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_7" channel="inline" format="logify/or" model="">
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_7"/>
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_6" channel="inline" format="logify/or" model="">
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_6"/>
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_5" channel="inline" format="logify/or" model="">
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_5"/>
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_4" channel="inline" format="logify/or" model="">
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_4"/>
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_3" channel="inline" format="logify/or" model="">
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_3"/>
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_2" channel="inline" format="logify/or" model="">
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_2"/>
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_1" channel="inline" format="logify/or" model="">
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_1"/>
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
 

@@ -56,78 +56,63 @@
     <node name="operation" channel="inline" format="logify/nor" model="">
         <node name="input" channel="inline" format="text/cybol-path" model=".app.corner1"/>
         <node name="output" channel="inline" format="text/cybol-path" model=".app.c1"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/nor" model="">
         <node name="input" channel="inline" format="text/cybol-path" model=".app.corner2"/>
         <node name="output" channel="inline" format="text/cybol-path" model=".app.c2"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/nor" model="">
         <node name="input" channel="inline" format="text/cybol-path" model=".app.corner3"/>
         <node name="output" channel="inline" format="text/cybol-path" model=".app.c3"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/nor" model="">
         <node name="input" channel="inline" format="text/cybol-path" model=".app.corner4"/>
         <node name="output" channel="inline" format="text/cybol-path" model=".app.c4"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/nor" model="">
         <node name="input" channel="inline" format="text/cybol-path" model=".app.border_top"/>
         <node name="output" channel="inline" format="text/cybol-path" model=".app.b1"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/nor" model="">
         <node name="input" channel="inline" format="text/cybol-path" model=".app.border_right"/>
         <node name="output" channel="inline" format="text/cybol-path" model=".app.b2"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/nor" model="">
         <node name="input" channel="inline" format="text/cybol-path" model=".app.border_bottom"/>
         <node name="output" channel="inline" format="text/cybol-path" model=".app.b3"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/nor" model="">
         <node name="input" channel="inline" format="text/cybol-path" model=".app.border_left"/>
         <node name="output" channel="inline" format="text/cybol-path" model=".app.b4"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="operation" channel="inline" format="logify/and" model="">
         <node name="input" channel="inline" format="text/cybol-path" model=".app.c1"/>
         <node name="output" channel="inline" format="text/cybol-path" model=".app.c2"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/and" model="">
         <node name="input" channel="inline" format="text/cybol-path" model=".app.c2"/>
         <node name="output" channel="inline" format="text/cybol-path" model=".app.c3"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/and" model="">
         <node name="input" channel="inline" format="text/cybol-path" model=".app.c3"/>
         <node name="output" channel="inline" format="text/cybol-path" model=".app.c4"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/and" model="">
         <node name="input" channel="inline" format="text/cybol-path" model=".app.c4"/>
         <node name="output" channel="inline" format="text/cybol-path" model=".app.b1"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/and" model="">
         <node name="input" channel="inline" format="text/cybol-path" model=".app.b1"/>
         <node name="output" channel="inline" format="text/cybol-path" model=".app.b2"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/and" model="">
         <node name="input" channel="inline" format="text/cybol-path" model=".app.b2"/>
         <node name="output" channel="inline" format="text/cybol-path" model=".app.b3"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/and" model="">
         <node name="input" channel="inline" format="text/cybol-path" model=".app.b3"/>
         <node name="output" channel="inline" format="text/cybol-path" model=".app.b4"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="compare" channel="inline" format="flow/branch" model="">

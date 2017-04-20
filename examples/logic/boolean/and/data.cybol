@@ -1,9 +1,11 @@
 <node>
+
     <node name="result" channel="inline" format="logicvalue/boolean" model="false"/>
     <node name="operand" channel="inline" format="logicvalue/boolean" model="false"/>
+
     <node name="operation" channel="inline" format="logify/nand" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.result"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.operand"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
+
 </node>

@@ -27,7 +27,6 @@
 #define VALUE_LOGIFIER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
@@ -85,7 +84,7 @@ void logify_value(void* p0, void* p1, void* p2, void* p3) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p3, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE);
-    
+
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             logify_boolean(p0, p1, p2);
@@ -97,25 +96,25 @@ void logify_value(void* p0, void* p1, void* p2, void* p3) {
     //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-      
+
         compare_integer_equal((void*) &r, p3, (void*) BYTE_NUMBER_STATE_CYBOI_TYPE);
-    
+
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-      
+
             logify_character(p0, p1, p2);
         }
     }
-    
+
     //
     // number - INTEGER
     //
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p3, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-        
+
             logify_integer(p0, p1, p2);
         }
     }

@@ -93,10 +93,7 @@ _________________
 Container
 _________
 
-        * Adapt applicator for operation "logify" | "manipulate" to use the type of one operand instead of explicitly given property
-        * Compare both operand types as done in "modify" container operations
-
-        * Delete superfluous property "type" for boolean logic operations like "logify/and" or "logify/or" in all cybol example applications
+        * Adapt applicator for operation "manipulate" to use the type of one operand instead of explicitly given property
         * Delete superfluous property "type" for bit manipulation operations like "manipulate/shift-left" or "manipulate/rotate-right" in all cybol example applications
 
         * Optimise executor for "calculator" | "caster" | "comparator" | "logifier" | "manipulator" using part | item | array

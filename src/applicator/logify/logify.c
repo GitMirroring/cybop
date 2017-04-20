@@ -26,15 +26,14 @@
 #ifndef LOGIFY_SOURCE
 #define LOGIFY_SOURCE
 
+#include "../../applicator/logify/type_logify.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/logic/logic_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/copier/array_copier.c"
-#include "../../executor/logifier/value_logifier.c"
 #include "../../logger/logger.c"
 
 /**
@@ -46,8 +45,8 @@
  *
  * CAUTION! There are several ways to use addition, with unary or binary operators.
  * This function works like an UNARY operator.
- * The "output" parametre represents the first operand;
- * the "input" parametre the second.
+ * The "output" parametre represents the FIRST operand;
+ * the "input" parametre the SECOND.
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -64,46 +63,53 @@ void apply_logify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The input part.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The type part.
-    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The output part model item.
+    // The output part type, model item.
+    void* ot = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* om = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The input part model item.
+    // The input part type, model item.
+    void* it = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The type part model item.
-    void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The output part model item data.
+    // The output part type, model item data.
+    void* otd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* omd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The input part model item data.
+    // The input part type, model item data.
+    void* itd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The type part model item data.
-    void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get output part.
     get_part_name((void*) &o, p0, (void*) OUTPUT_LOGIC_LOGIC_CYBOL_NAME, (void*) OUTPUT_LOGIC_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get input part.
     get_part_name((void*) &i, p0, (void*) INPUT_LOGIC_LOGIC_CYBOL_NAME, (void*) INPUT_LOGIC_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get type part.
-    get_part_name((void*) &t, p0, (void*) TYPE_LOGIC_LOGIC_CYBOL_NAME, (void*) TYPE_LOGIC_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
-    // Get output part model item.
+    // Get output part type, model item.
+    copy_array_forward((void*) &ot, o, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &om, o, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get input part model item.
+    // Get input part type, model item.
+    copy_array_forward((void*) &it, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get type part model item.
-    copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Get output part model item data.
+    // Get output part type, model item data.
+    copy_array_forward((void*) &otd, ot, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &omd, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get input part model item data.
+    // Get input part type, model item data.
+    copy_array_forward((void*) &itd, it, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get type part model item data.
-    copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    // Calculate output by applying operation.
-    logify_value(omd, imd, p5, tmd);
+    // The default values.
+    int type = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+
+    // CAUTION! The following values are ONLY copied,
+    // if the source value is NOT NULL.
+    // This is tested inside the "copy_integer" function.
+    // Otherwise, the destination value remains as is.
+
+    // Use the output part type data by default.
+    copy_integer((void*) &type, otd);
+
+    // Compare output- and input type.
+    apply_logify_type(omd, imd, p5, (void*) &type, itd);
 }
 
 /* LOGIFY_SOURCE */

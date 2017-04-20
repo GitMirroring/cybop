@@ -145,25 +145,21 @@
     <node name="flag_selected_9" channel="inline" format="logify/or" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_1"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_9" channel="inline" format="logify/and" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_2"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_9" channel="inline" format="logify/and" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_3"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_9" channel="inline" format="logify/or" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.wingame"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
 //Empty-Field Flag rücksetzen
@@ -178,25 +174,21 @@
     <node name="flag_selected_9" channel="inline" format="logify/or" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_4"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_9" channel="inline" format="logify/and" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_5"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_9" channel="inline" format="logify/and" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_6"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_9" channel="inline" format="logify/or" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.wingame"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
 //Empty-Field Flag rücksetzen
@@ -211,25 +203,21 @@
     <node name="flag_selected_9" channel="inline" format="logify/or" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_7"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_9" channel="inline" format="logify/and" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_8"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_9" channel="inline" format="logify/and" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_9"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_9" channel="inline" format="logify/or" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.wingame"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
 //Empty-Field Flag rücksetzen
@@ -244,25 +232,21 @@
     <node name="flag_selected_9" channel="inline" format="logify/or" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_1"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_9" channel="inline" format="logify/and" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_5"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_9" channel="inline" format="logify/and" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_9"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_9" channel="inline" format="logify/or" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.wingame"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
 //Empty-Field Flag rücksetzen
@@ -275,25 +259,21 @@
     <node name="flag_selected_9" channel="inline" format="logify/or" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_3"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_9" channel="inline" format="logify/and" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_5"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_9" channel="inline" format="logify/and" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_7"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_9" channel="inline" format="logify/or" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.wingame"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
 //Empty-Field Flag rücksetzen
@@ -306,25 +286,21 @@
     <node name="flag_selected_9" channel="inline" format="logify/or" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_1"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_9" channel="inline" format="logify/and" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_4"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_9" channel="inline" format="logify/and" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_7"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_9" channel="inline" format="logify/or" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.wingame"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
 //Empty-Field Flag rücksetzen
@@ -337,25 +313,21 @@
     <node name="flag_selected_9" channel="inline" format="logify/or" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_2"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_9" channel="inline" format="logify/and" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_5"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_9" channel="inline" format="logify/and" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_8"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_9" channel="inline" format="logify/or" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.wingame"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
 //Empty-Field Flag rücksetzen
@@ -368,25 +340,21 @@
     <node name="flag_selected_9" channel="inline" format="logify/or" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_3"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_9" channel="inline" format="logify/and" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_6"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_9" channel="inline" format="logify/and" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_9"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="flag_selected_9" channel="inline" format="logify/or" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.var.wingame"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
 

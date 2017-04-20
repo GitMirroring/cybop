@@ -27,7 +27,6 @@
 #define INTEGER_LOGIFIER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/format/cyboi/logic_cyboi_format.c"
@@ -55,8 +54,6 @@ void logify_integer(void* p0, void* p1, void* p2) {
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-      //AND
-    
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) AND_LOGIFY_LOGIC_CYBOI_FORMAT);
@@ -67,9 +64,8 @@ void logify_integer(void* p0, void* p1, void* p2) {
         }
     }
 
-    //NAND
-
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         compare_integer_equal((void*) &r, p2, (void*) NAND_LOGIFY_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -77,8 +73,6 @@ void logify_integer(void* p0, void* p1, void* p2) {
             logify_integer_nand(p0, p1);
         }
     }
-    
-      //NEG
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -91,8 +85,6 @@ void logify_integer(void* p0, void* p1, void* p2) {
         }
     }
 
-    //NOR
-    
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NOR_LOGIFY_LOGIC_CYBOI_FORMAT);
@@ -103,18 +95,17 @@ void logify_integer(void* p0, void* p1, void* p2) {
         }
     }
 
-    //NOT
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         compare_integer_equal((void*) &r, p2, (void*) NOT_LOGIFY_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-        
+
             // CAUTION! Only ONE parametre is required.
             logify_integer_not(p0);
         }
     }
 
-    //OR
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) OR_LOGIFY_LOGIC_CYBOI_FORMAT);
@@ -125,8 +116,6 @@ void logify_integer(void* p0, void* p1, void* p2) {
         }
     }
 
-    //XNOR
-    
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) XNOR_LOGIFY_LOGIC_CYBOI_FORMAT);
@@ -137,8 +126,6 @@ void logify_integer(void* p0, void* p1, void* p2) {
         }
     }
 
-    //XOR
-    
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) XOR_LOGIFY_LOGIC_CYBOI_FORMAT);
