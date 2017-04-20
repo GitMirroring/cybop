@@ -27,7 +27,6 @@
 #define CAST_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/cast/cast_logic_cybol_name.c"
@@ -44,9 +43,6 @@
  * Expected parametres:
  * - destination (required): the knowledge model to cast to
  * - source (required): the knowledge model to cast from
- * - type (required): the source type
- *
- * Constraints:
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -63,30 +59,26 @@ void apply_cast(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The type part.
-    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The type part model item.
-    void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source part type item.
+    void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The type part model item data.
-    void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source part type item data.
+    void* std = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination part.
     get_part_name((void*) &d, p0, (void*) DESTINATION_CAST_LOGIC_CYBOL_NAME, (void*) DESTINATION_CAST_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get source part.
     get_part_name((void*) &s, p0, (void*) SOURCE_CAST_LOGIC_CYBOL_NAME, (void*) SOURCE_CAST_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get type part.
-    get_part_name((void*) &t, p0, (void*) TYPE_CAST_LOGIC_CYBOL_NAME, (void*) TYPE_CAST_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
-    // Get type part model item.
-    copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get source part type item.
+    copy_array_forward((void*) &st, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
 
-    // Get type part model item data.
-    copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get source part type item data.
+    copy_array_forward((void*) &std, st, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Cast value by applying operation.
-    cast_all_part(d, s, tmd, p5);
+    cast_all_part(d, s, std, p5);
 }
 
 /* CAST_SOURCE */

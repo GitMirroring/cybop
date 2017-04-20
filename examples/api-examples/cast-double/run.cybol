@@ -3,17 +3,11 @@
     <node name="create_part_1" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="part_1"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-         
     </node>
     <node name="create_part_2" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="part_2"/>
         <node name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
-         
     </node>
-
-
-
-
 
     <node name="initialise_part_1" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".part_1"/>
@@ -24,15 +18,10 @@
         <node name="source" channel="inline" format="number/fraction-decimal" model=""/>
     </node>
 
-
-
     <node name="cast_double" channel="inline" format="cast/double" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".part_2"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".part_1"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
-
-
 
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -45,5 +34,7 @@
         <node name="message" channel="inline" format="text/cybol-path" model=".part_2"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
 </node>
