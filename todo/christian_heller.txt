@@ -899,3 +899,12 @@ Tester
 ______
 
         * Clean up directory "tester/" and related constants and functionality
+
+Database
+________
+
+        * See Apache Derby
+            - database written entirely in Java
+            - http://db.apache.org/derby/
+        * Provide dBASE database interface
+
