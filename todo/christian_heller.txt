@@ -93,9 +93,6 @@ _________________
 Container
 _________
 
-        * Adapt applicator for operation "manipulate" to use the type of one operand instead of explicitly given property
-        * Delete superfluous property "type" for bit manipulation operations like "manipulate/shift-left" or "manipulate/rotate-right" in all cybol example applications
-
         * Optimise executor for "calculator" | "caster" | "comparator" | "logifier" | "manipulator" using part | item | array
 
         * Fix terminology in special chapter at begin of design document, e.g.: model and property, both of them are a part|node, item, array|data etc., xml node|element|tag|attribute etc.

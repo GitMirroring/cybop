@@ -20,10 +20,11 @@
 
 2017-04-20  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Adapt applicators for operations "cast" | "compare" | "logify" to use the type of one operand instead of explicitly given property
+        * Adapt applicators for operations "cast" | "compare" | "logify" | "manipulate" to use the type of one operand instead of explicitly given property
         * Delete superfluous property "type" for casting operations like "cast/integer" or "cast/double" in all cybol example applications
         * Delete superfluous property "type" for comparison operations like "compare/equal" or "compare/greater-or-equal" in all cybol example applications
         * Delete superfluous property "type" for boolean logic operations like "logify/and" or "logify/or" in all cybol example applications
+        * Delete superfluous property "type" for bit manipulation operations like "manipulate/shift-left" or "manipulate/rotate-right" in all cybol example applications
 
 2017-04-18  Christian Heller  <christian.heller@tuxtax.de>
 

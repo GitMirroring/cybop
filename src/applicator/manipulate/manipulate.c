@@ -27,7 +27,6 @@
 #define MANIPULATE_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/manipulation/manipulation_logic_cybol_name.c"
@@ -43,13 +42,10 @@
  * Expected parametres:
  * - value (required): the knowledge model representing the value
  * - position (required): the bit position within the value
- * - type (required): the value type
  * - count (optional; if null, the value part model count will be used instead):
  *   the number of values to be manipulated
  * - index (optional; if null, an index of zero will be used instead):
  *   the index from which to start manipulating values
- *
- * Constraints:
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -66,30 +62,26 @@ void apply_manipulate(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     void* v = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The position part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The type part.
-    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The count part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The index part.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The value part model item.
+    // The value part type, model item.
+    void* vt = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* vm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The position part model item.
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The type part model item.
-    void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The count part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The index part model item.
     void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The value part model item count.
+    // The value part type, model item data, count.
+    void* vtd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* vmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The position part model item data.
     void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The type part model item data.
-    void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The count part model item data.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The index part model item data.
@@ -99,30 +91,26 @@ void apply_manipulate(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     get_part_name((void*) &v, p0, (void*) VALUE_MANIPULATION_LOGIC_CYBOL_NAME, (void*) VALUE_MANIPULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get position part.
     get_part_name((void*) &p, p0, (void*) POSITION_MANIPULATION_LOGIC_CYBOL_NAME, (void*) POSITION_MANIPULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get type part.
-    get_part_name((void*) &t, p0, (void*) TYPE_MANIPULATION_LOGIC_CYBOL_NAME, (void*) TYPE_MANIPULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get count part.
     get_part_name((void*) &c, p0, (void*) COUNT_MANIPULATION_LOGIC_CYBOL_NAME, (void*) COUNT_MANIPULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get index part.
     get_part_name((void*) &i, p0, (void*) INDEX_MANIPULATION_LOGIC_CYBOL_NAME, (void*) INDEX_MANIPULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
-    // Get value part model item.
+    // Get value part type, model item.
+    copy_array_forward((void*) &vt, v, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &vm, v, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get position part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get type part model item.
-    copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get count part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get index part model item.
     copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Get value part model item count.
+    // Get value part type, model item data, count.
+    copy_array_forward((void*) &vtd, vt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &vmc, vm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get position part model item data.
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get type part model item data.
-    copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get count part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get index part model item data.
@@ -145,7 +133,7 @@ void apply_manipulate(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     copy_integer((void*) &index, imd);
 
     // Manipulate value bitwise by applying operation.
-    manipulate_part(v, pmd, p5, tmd, (void*) &count, (void*) &index);
+    manipulate_part(v, pmd, p5, vtd, (void*) &count, (void*) &index);
 }
 
 /* MANIPULATE_SOURCE */
