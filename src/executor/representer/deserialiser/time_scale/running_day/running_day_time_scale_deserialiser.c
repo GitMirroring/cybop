@@ -30,9 +30,9 @@
  
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../executor/calculator/basic/integer/add_integer_calculator.c"
-#include "../../../../../executor/calculator/basic/integer/multiply_integer_calculator.c"
-#include "../../../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
+#include "../../../../../executor/calculator/integer/add_integer_calculator.c"
+#include "../../../../../executor/calculator/integer/multiply_integer_calculator.c"
+#include "../../../../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../executor/representer/deserialiser/time_scale/correction/detection_leap_year_correction_time_scale_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/time_scale/correction/leap_year_correction_time_scale_deserialiser.c"

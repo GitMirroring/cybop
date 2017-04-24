@@ -30,9 +30,9 @@
  
 #include "../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
 #include "../../../../../constant/model/time_scale/duration_time_scale_model.c"
-#include "../../../../../executor/calculator/basic/double/add_double_calculator.c"
-#include "../../../../../executor/calculator/basic/double/divide_double_calculator.c"
-#include "../../../../../executor/calculator/basic/double/multiply_double_calculator.c"
+#include "../../../../../executor/calculator/double/add_double_calculator.c"
+#include "../../../../../executor/calculator/double/divide_double_calculator.c"
+#include "../../../../../executor/calculator/double/multiply_double_calculator.c"
 #include "../../../../../executor/caster/basic/double/integer_double_caster.c"
 #include "../../../../../executor/copier/double_copier.c"
 #include "../../../../../logger/logger.c"

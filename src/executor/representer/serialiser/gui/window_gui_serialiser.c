@@ -35,7 +35,7 @@
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../../../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../executor/copier/array_copier.c"
 #include "../../../../logger/logger.c"
 

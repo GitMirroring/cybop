@@ -27,7 +27,7 @@
 #define COMPARE_POINTER_TESTER
 
 #include <assert.h>
-#include "../../../src/executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../src/executor/calculator/integer/add_integer_calculator.c"
 #include "../../../src/executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../../src/executor/comparator/basic/integer/greater_integer_comparator.c"
 #include "../../../src/executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"

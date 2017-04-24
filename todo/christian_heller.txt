@@ -14,7 +14,6 @@
 Container
 _________
 
-        * Optimise calculator and restructure directory "executor/calculator/" with focus on part | item | array
         * Optimise caster and restructure directory "executor/caster/" with focus on part | item | array
         * Optimise comparator and restructure directory "executor/comparator/" with focus on part | item | array
         * Optimise logifier and restructure directory "executor/logifier/" with focus on part | item | array

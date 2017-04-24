@@ -28,8 +28,8 @@
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
  
-#include "../../../../../executor/calculator/basic/integer/add_integer_calculator.c"
-#include "../../../../../executor/calculator/basic/integer/multiply_integer_calculator.c"
+#include "../../../../../executor/calculator/integer/add_integer_calculator.c"
+#include "../../../../../executor/calculator/integer/multiply_integer_calculator.c"
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../logger/logger.c"
 

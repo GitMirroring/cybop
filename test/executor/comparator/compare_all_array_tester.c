@@ -30,7 +30,7 @@
 #include "../../../src/constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../src/constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../src/constant/model/cyboi/state/double_state_cyboi_model.c"
-#include "../../../src/executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../src/executor/calculator/integer/add_integer_calculator.c"
 #include "../../../src/executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../../src/executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
 #include "../../../src/executor/comparator/basic/integer/equal_integer_comparator.c"

@@ -29,7 +29,7 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/fraction_state_cyboi_name.c"
-#include "../../../../executor/calculator/basic/integer/multiply_integer_calculator.c"
+#include "../../../../executor/calculator/integer/multiply_integer_calculator.c"
 #include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/copier/fraction_copier.c"
 

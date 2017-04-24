@@ -27,7 +27,7 @@
 #define COMPARE_DOUBLE_TESTER
 
 #include <assert.h>
-#include "../../../src/executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../src/executor/calculator/integer/add_integer_calculator.c"
 #include "../../../src/executor/comparator/basic/double/equal_double_comparator.c"
 #include "../../../src/executor/comparator/basic/double/greater_double_comparator.c"
 #include "../../../src/executor/comparator/basic/double/greater_or_equal_double_comparator.c"
