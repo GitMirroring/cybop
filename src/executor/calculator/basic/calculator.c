@@ -23,28 +23,21 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef VALUE_CALCULATOR_SOURCE
-#define VALUE_CALCULATOR_SOURCE
+#ifndef CALCULATOR_SOURCE
+#define CALCULATOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/calculator/basic/character_calculator.c"
 #include "../../../executor/calculator/basic/complex_calculator.c"
 #include "../../../executor/calculator/basic/double_calculator.c"
 #include "../../../executor/calculator/basic/fraction_calculator.c"
 #include "../../../executor/calculator/basic/integer_calculator.c"
-#include "../../../executor/calculator/basic/part_calculator.c"
 #include "../../../executor/calculator/basic/pointer_calculator.c"
+#include "../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../executor/memoriser/offset_adder.c"
 #include "../../../logger/logger.c"
-
-//
-// Forward declarations.
-//
-
-void calculate_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 
 //
 // Models of type "complex" or "fraction" are not
@@ -75,26 +68,12 @@ void calculate_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
  * @param p2 the operation type
  * @param p3 the operand type
  */
-void calculate_value(void* p0, void* p1, void* p2, void* p3) {
+void calculate(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate value.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    //
-    // element
-    //
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p3, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            calculate_part(p0, p1, p2);
-        }
-    }
 
     //
     // number
@@ -181,7 +160,7 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate value. The operand type is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate. The operand type is unknown.");
     }
 }
 
@@ -195,22 +174,39 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
  * @param p3 the operand type
  * @param p4 the index
  */
-void calculate_value_offset(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void calculate_offset(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate value offset.");
+    // CAUTION! These null pointer comparisons are IMPORTANT,
+    // in order to avoid a system crash if parametre values are null!
 
-    // The result value, operand value.
-    // CAUTION! They HAVE TO BE initialised with p0 and p1,
-    // since an offset is added below.
-    void* r = p0;
-    void* o = p1;
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // Add offset.
-    add_offset((void*) &r, p3, p4);
-    add_offset((void*) &o, p3, p4);
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    calculate_value(r, o, p2, p3);
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate offset.");
+
+            // The result and operand.
+            // CAUTION! They HAVE TO BE initialised with p0 and p1,
+            // since an offset is added below.
+            void* r = p0;
+            void* o = p1;
+
+            // Add offset.
+            add_offset((void*) &r, p3, p4);
+            add_offset((void*) &o, p3, p4);
+
+            calculate(r, o, p2, p3);
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate offset. The result (operand before the operation) is null.");
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate offset. The operand is null.");
+    }
 }
 
-/* VALUE_CALCULATOR_SOURCE */
+/* CALCULATOR_SOURCE */
 #endif

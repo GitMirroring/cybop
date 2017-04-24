@@ -43,6 +43,12 @@
  * Expected parametres:
  * - result (required): the knowledge model in which the result is stored; used as first operand
  * - operand (required): the second operand
+ * - count (optional; if null, the operand part model count will be used instead):
+ *   the number of elements to be calculated
+ * - result_index (optional; if null, an index of zero will be used instead):
+ *   the result index from which to start calculating
+ * - operand_index (optional; if null, an index of zero will be used instead):
+ *   the operand index from which to start calculating
  *
  * CAUTION! Do NOT use the "add" operation for characters!
  * They may be concatenated by using the "modify/append" or "modify/overwrite" operation.
@@ -67,34 +73,77 @@ void apply_calculate(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
     void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The operand part.
     void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The count part.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The result index part.
+    void* ri = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The operand index part.
+    void* oi = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The result part type item.
     void* rt = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The operand part type item.
+    // The operand part type, model item.
     void* ot = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* om = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The count part model item.
+    void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The result index part model item.
+    void* rim = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The operand index part model item.
+    void* oim = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The result part type item data.
     void* rtd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The operand part type item data.
+    // The operand part type, model item data, count.
     void* otd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* omc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The count part model item data.
+    void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The result index part model item data.
+    void* rimd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The operand index part model item data.
+    void* oimd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get result part.
     get_part_name((void*) &r, p0, (void*) RESULT_CALCULATION_LOGIC_CYBOL_NAME, (void*) RESULT_CALCULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get operand part.
     get_part_name((void*) &o, p0, (void*) OPERAND_CALCULATION_LOGIC_CYBOL_NAME, (void*) OPERAND_CALCULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get count part.
+    get_part_name((void*) &c, p0, (void*) COUNT_CALCULATION_LOGIC_CYBOL_NAME, (void*) COUNT_CALCULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get result index part.
+    get_part_name((void*) &ri, p0, (void*) RESULT_INDEX_CALCULATION_LOGIC_CYBOL_NAME, (void*) RESULT_INDEX_CALCULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get operand index part.
+    get_part_name((void*) &oi, p0, (void*) OPERAND_INDEX_CALCULATION_LOGIC_CYBOL_NAME, (void*) OPERAND_INDEX_CALCULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get result part type item.
     copy_array_forward((void*) &rt, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
-    // Get operand part type item.
+    // Get operand part type, model item.
     copy_array_forward((void*) &ot, o, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &om, o, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get count part model item.
+    copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get result index part model item.
+    copy_array_forward((void*) &rim, ri, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get operand index part model item.
+    copy_array_forward((void*) &oim, oi, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Get result part type item data.
     copy_array_forward((void*) &rtd, rt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get operand part type item data.
+    // Get operand part type, model item data, count.
     copy_array_forward((void*) &otd, ot, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &omc, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Get count part model item data.
+    copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get result index part model item data.
+    copy_array_forward((void*) &rimd, rim, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get operand index part model item data.
+    copy_array_forward((void*) &oimd, oim, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // The default values.
     int type = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    int count = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int result_index = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int operand_index = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // CAUTION! The following values are ONLY copied,
     // if the source value is NOT NULL.
@@ -103,9 +152,17 @@ void apply_calculate(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
     // Use the result part type data by default.
     copy_integer((void*) &type, rtd);
+    // Use the operand part model count by default.
+    copy_integer((void*) &count, omc);
+    // Use the explicit count that was given as parametre.
+    copy_integer((void*) &count, cmd);
+    // Use the explicit result index that was given as parametre.
+    copy_integer((void*) &result_index, rimd);
+    // Use the explicit operand index that was given as parametre.
+    copy_integer((void*) &operand_index, oimd);
 
     // Compare result- and operand type.
-    apply_calculate_type(r, o, p5, (void*) &type, otd);
+    apply_calculate_type(r, o, p5, (void*) &type, (void*) &count, (void*) &result_index, (void*) &operand_index, otd);
 }
 
 /* CALCULATE_SOURCE */

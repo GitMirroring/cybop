@@ -11,6 +11,15 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+Container
+_________
+
+        * Optimise calculator and restructure directory "executor/calculator/" with focus on part | item | array
+        * Optimise caster and restructure directory "executor/caster/" with focus on part | item | array
+        * Optimise comparator and restructure directory "executor/comparator/" with focus on part | item | array
+        * Optimise logifier and restructure directory "executor/logifier/" with focus on part | item | array
+        * Optimise manipulator and restructure directory "executor/manipulator/" with focus on part | item | array
+
 GUI
 ___
 
@@ -89,15 +98,6 @@ _________________
         * Delete operation "create" at beginning of "run.cybol" and initialise to knowledge memory root "." instead
         * Replace all code where knowledge path was assembled manually a la "[index]" --> search for "["
             --> many operations only adding path elements or an index like "[", "index", "]" may get deleted in the future
-
-Container
-_________
-
-        * Optimise executor for "calculator" | "caster" | "comparator" | "logifier" | "manipulator" using part | item | array
-
-        * Fix terminology in special chapter at begin of design document, e.g.: model and property, both of them are a part|node, item, array|data etc., xml node|element|tag|attribute etc.
-
-        * Delete superfluous parametres "count", "size", "type" in function "deallocate_array"
 
 String
 ______
@@ -512,6 +512,8 @@ General CYBOI
 _____________
 
         * Rename "applicator/sort/sorters.c"
+
+        * Delete superfluous parametres "count", "size", "type" in function "deallocate_array"
 
         * Eliminate bugs mentioned on project portal bug tracker at gnu savannah
 

@@ -28,7 +28,7 @@
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../executor/calculator/all/part_all_calculator.c"
+#include "../../executor/calculator/basic/part_calculator.c"
 #include "../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../logger/logger.c"
 
@@ -45,23 +45,26 @@
  * @param p0 the result part, which contains the operand BEFORE the operation
  * @param p1 the operand part
  * @param p2 the operation type
- * @param p3 the type
- * @param p4 the operand type
+ * @param p3 the result type
+ * @param p4 the count
+ * @param p5 the result index
+ * @param p6 the operand index
+ * @param p7 the operand type
  */
-void apply_calculate_type(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void apply_calculate_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply calculate type.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, p3, p4);
+    compare_integer_equal((void*) &r, p3, p7);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // The result- and operand type are identical.
 
-        calculate_all_part(p0, p1, p2, p3);
+        calculate_part(p0, p1, p2, p3, p4, p5, p6);
 
     } else {
 

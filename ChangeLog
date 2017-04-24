@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-04-24  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Optimise calculator and restructure directory "executor/calculator/" with focus on part | item | array
+
 2017-04-20  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt applicators for operations "cast" | "compare" | "logify" | "manipulate" to use the type of one operand instead of explicitly given property
