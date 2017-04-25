@@ -16,8 +16,6 @@ _________
 
         * Optimise caster and restructure directory "executor/caster/" with focus on part | item | array
         * Optimise comparator and restructure directory "executor/comparator/" with focus on part | item | array
-        * Optimise logifier and restructure directory "executor/logifier/" with focus on part | item | array
-        * Optimise manipulator and restructure directory "executor/manipulator/" with focus on part | item | array
 
 GUI
 ___

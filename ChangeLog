@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-04-25  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Rename "value_logifier.c" into "logifier.c"
+
 2017-04-24  Christian Heller  <christian.heller@tuxtax.de>
 
         * Optimise calculator and restructure directory "executor/calculator/" with focus on part | item | array

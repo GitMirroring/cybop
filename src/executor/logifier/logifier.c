@@ -23,56 +23,29 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef VALUE_LOGIFIER_SOURCE
-#define VALUE_LOGIFIER_SOURCE
+#ifndef LOGIFIER_SOURCE
+#define LOGIFIER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../executor/logifier/boolean_logifier.c"
 #include "../../executor/logifier/integer_logifier.c"
 #include "../../executor/logifier/character_logifier.c"
 #include "../../logger/logger.c"
 
-
-// Forward declarations.
-//
-
-void calculate_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
-
-//
-// Models of type "complex" or "fraction" are not
-// considered as container, since the comparison of their
-// elements follows special rules.
-//
-// Example:
-//
-// The two fractions 4 / 2 and 2 / 1 are identical even though
-// their numerators and denominators differ. If the fractions
-// were treated as containers and their elements compared one by one,
-// then neither the numerators 4 and 2 nor the denominators 2 and 1
-// would be equal.
-//
-// Therefore, such constructs are static and treated as
-// primitive data types, but NOT as dynamic containers.
-// The number of their elements is fixed.
-// The fraction has two elements: numerator and denominator.
-// It needs a special comparison function that knows how to
-// treat fractions correctly.
-//
-
 /**
- * Calculates the result using the given operand and operation.
+ * Applies boolean logic to the given result and operand.
  *
  * @param p0 the result, which is the operand BEFORE the operation
  * @param p1 the operand
  * @param p2 the operation type
  * @param p3 the operand type
  */
-void logify_value(void* p0, void* p1, void* p2, void* p3) {
+void logify(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Logify value.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Logify.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -121,9 +94,9 @@ void logify_value(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate value. The operand type is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify. The operand type is unknown.");
     }
 }
 
-/* VALUE_LOGIFIER_SOURCE */
+/* LOGIFIER_SOURCE */
 #endif
