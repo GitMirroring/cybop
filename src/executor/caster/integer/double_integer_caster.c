@@ -24,50 +24,45 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef INTEGER_CHARACTER_CASTER_SOURCE
-#define INTEGER_CHARACTER_CASTER_SOURCE
+#ifndef DOUBLE_INTEGER_CASTER_SOURCE
+#define DOUBLE_INTEGER_CASTER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../logger/logger.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../logger/logger.c"
 
 /**
- * Casts the source of type integer to the destination of type character.
+ * Casts the source of type double to the destination of type integer.
  *
- * CAUTION! This is a LOSSY cast, since type
- * unsigned char has a smaller value range.
- * However, if integer numbers in the range
- * 0..255 are given as source,
- * there will not be a loss of information.
+ * CAUTION! Any fractional/decimal parts are lost.
  *
  * @param p0 the destination
  * @param p1 the source
  */
-void cast_character_integer(void* p0, void* p1) {
+void cast_integer_double(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* s = (int*) p1;
+        double* s = (double*) p1;
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            unsigned char* d = (unsigned char*) p0;
+            int* d = (int*) p0;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cast character integer.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cast integer double.");
 
-            *d = (unsigned char) *s;
+            *d = (int) *s;
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast character integer. The destination is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast integer double. The destination is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast character integer. The source is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast integer double. The source is null.");
     }
 }
 
-/* INTEGER_CHARACTER_CASTER_SOURCE */
+/* DOUBLE_INTEGER_CASTER_SOURCE */
 #endif

@@ -82,7 +82,7 @@ void calculate_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4) 
 }
 
 /**
- * Calculates result- and operand array, starting from the given offset.
+ * Adds offset to destination and source.
  *
  * @param p0 the result array, which contains the operand BEFORE the operation
  * @param p1 the operand array
@@ -127,7 +127,7 @@ void calculate_array_offset(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 }
 
 /**
- * Calculates result- and operand array, checking for null pointers first.
+ * Tests result and operand for null pointers.
  *
  * @param p0 the result array, which contains the operand BEFORE the operation
  * @param p1 the operand array
@@ -140,16 +140,16 @@ void calculate_array_offset(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 void calculate_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     // The result index comparison result.
-    int rr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The operand index comparison result.
-    int or = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    int o = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_smaller((void*) &rr, p5, p4);
-    compare_integer_smaller((void*) &or, p6, p4);
+    compare_integer_smaller((void*) &r, p5, p4);
+    compare_integer_smaller((void*) &o, p6, p4);
 
-    if (or != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (o != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        if (rr != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate array.");
 

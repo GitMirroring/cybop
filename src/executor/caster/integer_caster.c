@@ -23,45 +23,54 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef DOUBLE_CASTER_SOURCE
-#define DOUBLE_CASTER_SOURCE
+#ifndef INTEGER_CASTER_SOURCE
+#define INTEGER_CASTER_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/caster/basic/double/integer_double_caster.c"
-#include "../../../logger/logger.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../executor/caster/integer/character_integer_caster.c"
+#include "../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../logger/logger.c"
 
 /**
- * Casts the source into the double destination according to the given source type.
+ * Casts the source into the integer destination according to the given source type.
  *
  * @param p0 the destination data
  * @param p1 the source data
  * @param p2 the source type
  */
-void cast_double(void* p0, void* p1, void* p2) {
+void cast_integer(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cast double.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cast integer.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p2, (void*) BYTE_NUMBER_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            cast_double_integer(p0, p1);
+            cast_integer_character(p0, p1);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast double. The source type is unknown.");
+        compare_integer_equal((void*) &r, p2, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            cast_integer_character(p0, p1);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast integer. The source type is unknown.");
     }
 }
 
-/* DOUBLE_CASTER_SOURCE */
+/* INTEGER_CASTER_SOURCE */
 #endif

@@ -36,7 +36,7 @@
 #include "../../../../../executor/calculator/double/floor_double_calculator.c"
 #include "../../../../../executor/calculator/double/multiply_double_calculator.c"
 #include "../../../../../executor/calculator/double/subtract_double_calculator.c"
-#include "../../../../../executor/caster/basic/integer/double_integer_caster.c"
+#include "../../../../../executor/caster/integer/double_integer_caster.c"
 #include "../../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../../../executor/modifier/item_modifier.c"

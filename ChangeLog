@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-04-26  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Optimise caster and restructure directory "executor/caster/" with focus on part | item | array
+
 2017-04-25  Christian Heller  <christian.heller@tuxtax.de>
 
         * Rename "value_logifier.c" into "logifier.c"

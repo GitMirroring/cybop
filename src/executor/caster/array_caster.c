@@ -26,14 +26,15 @@
 #ifndef ARRAY_CASTER_SOURCE
 #define ARRAY_CASTER_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/caster/basic/value_caster.c"
-#include "../../../logger/logger.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../executor/caster/caster.c"
+#include "../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
+#include "../../executor/copier/integer_copier.c"
+#include "../../executor/memoriser/offset_adder.c"
+#include "../../logger/logger.c"
 
 /**
  * Casts count elements of the source- to the destination array.
@@ -41,7 +42,7 @@
  * @param p0 the destination array
  * @param p1 the source array
  * @param p2 the source type
- * @param p3 the operation type
+ * @param p3 the operation (destination) type
  * @param p4 the count
  */
 void cast_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4) {
@@ -74,30 +75,27 @@ void cast_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4) {
             break;
         }
 
-        cast_value_offset(p0, p1, p2, p3, (void*) &j);
+        cast_offset(p0, p1, p2, p3, (void*) &j);
 
         j++;
     }
 }
 
 /**
- * Casts count elements of the source- to the destination array,
- * starting from the given offset.
+ * Adds offset to destination and source.
  *
  * @param p0 the destination array
  * @param p1 the source array
  * @param p2 the source type
- * @param p3 the operation type
+ * @param p3 the operation (destination) type
  * @param p4 the count
  * @param p5 the destination index
  * @param p6 the source index
  */
-void cast_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void cast_array_offset(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    // CAUTION! These null pointer comparisons are IMPORTANT, in order to
-    // avoid a system crash if one or both of the two arrays are null!
-    // All other cast functions are based on this cast function,
-    // so that checking for null pointer right here suffices.
+    // CAUTION! These null pointer comparisons are IMPORTANT,
+    // in order to avoid a system crash if parametre values are null!
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -115,11 +113,6 @@ void cast_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
             add_offset((void*) &d, p3, p5);
             add_offset((void*) &s, p2, p6);
 
-/*??
-fwprintf(stdout, L"TEST cast array *d: %i\n", *((char*) d));
-fwprintf(stdout, L"TEST cast array *s: %i\n", *((int*) s));
-*/
-
             cast_array_elements(d, s, p2, p3, p4);
 
         } else {
@@ -130,6 +123,46 @@ fwprintf(stdout, L"TEST cast array *s: %i\n", *((int*) s));
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast array. The source array is null.");
+    }
+}
+
+/**
+ * Tests destination and source for null pointers.
+ *
+ * @param p0 the destination array
+ * @param p1 the source array
+ * @param p2 the source type
+ * @param p3 the operation (destination) type
+ * @param p4 the count
+ * @param p5 the destination index
+ * @param p6 the source index
+ */
+void cast_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+
+    // The destination index comparison result.
+    int d = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The source index comparison result.
+    int s = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    compare_integer_smaller((void*) &d, p5, p4);
+    compare_integer_smaller((void*) &s, p6, p4);
+
+    if (s != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        if (d != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cast array.");
+
+            cast_array_offset(p0, p1, p2, p3, p4, p5, p6);
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast array. The destination index is not smaller than the count.");
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast array. The source index is not smaller than the count.");
     }
 }
 
