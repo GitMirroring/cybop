@@ -29,20 +29,19 @@
 #include <assert.h>
 
 #include "../../../src/constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../src/constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../src/constant/type/cyboi/state_cyboi_type.c"
-#include "../../../src/executor/caster/basic/double/integer_double_caster.c"
-#include "../../../src/executor/caster/basic/double_caster.c"
+#include "../../../src/executor/caster/double/integer_double_caster.c"
+#include "../../../src/executor/caster/double_caster.c"
+#include "../../../src/executor/comparator/all/part_all_comparator.c"
 #include "../../../src/executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../../src/executor/comparator/basic/integer/greater_integer_comparator.c"
 #include "../../../src/executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
 #include "../../../src/executor/comparator/basic/integer/unequal_integer_comparator.c"
+#include "../../../src/executor/copier/array_copier.c"
 #include "../../../src/executor/memoriser/allocator/array_allocator.c"
 #include "../../../src/executor/memoriser/deallocator/array_deallocator.c"
-#include "../../../src/executor/copier/array_copier.c"
 #include "../../../src/executor/modifier/array_modifier.c"
 #include "../../../src/executor/modifier/part_modifier.c"
-#include "../../../src/executor/comparator/all/part_all_comparator.c"
 
 void cast_double_from_integer() {
 

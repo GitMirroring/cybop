@@ -31,12 +31,14 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../executor/caster/basic/integer/double_integer_caster.c"
+#include "../../../../../executor/caster/integer/double_integer_caster.c"
 #include "../../../../../logger/logger.c"
+
 /**
  * Tests type caster double to integer.
  */
 void test_caster_double_integer() {
+
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test caster double to integer.");
 
     int i = 0;
@@ -88,10 +90,12 @@ void test_caster_char_integer_type() {
     else
         fwprintf(stdout, L"TEST failed.\n");
 }
+
 /**
  * Tests type caster.
  */
 void test_caster_integer() {
+
     // Uncomment below functions as needed,
     // in order for them to be executed.
 

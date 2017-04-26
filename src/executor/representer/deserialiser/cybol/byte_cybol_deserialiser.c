@@ -26,13 +26,14 @@
 #ifndef BYTE_CYBOL_DESERIALISER_SOURCE
 #define BYTE_CYBOL_DESERIALISER_SOURCE
 
-#include "../../../../constant/format/cybol/logic/cast_logic_cybol_format.c"
+#include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/caster/array_caster.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 
@@ -52,8 +53,9 @@ void deserialise_cybol_byte(void* p0, void* p1, void* p2) {
     // The integer item data, count.
     void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* ic = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The initial character data.
-    char c = (char) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The destination byte item data, count.
+    void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate integer item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
@@ -69,25 +71,30 @@ void deserialise_cybol_byte(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &id, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &ic, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-/*??
-fwprintf(stdout, L"TEST deserialise cybol byte *p2: %i\n", *((int*) p2));
-fwprintf(stdout, L"TEST deserialise cybol byte *ic: %i\n", *((int*) ic));
-fwprintf(stdout, L"TEST deserialise cybol byte *id: %i\n", *((int*) id));
-*/
-
     // Fill destination item with initial number zero byte elements.
-    // The number of elements to fill in is determined by the integer item count.
-    // CAUTION! This IS NECESSARY in order to ensure that
+    //
+    // CAUTION! The number of elements to fill in is determined by the integer item count.
+    // This IS NECESSARY in order to ensure that
     // source- and destination have an equal count of elements.
     // Otherwise, the elements will not be casted.
-    modify_item(p0, (void*) &c, (void*) BYTE_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, ic, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FILL_MODIFY_LOGIC_CYBOI_FORMAT);
+    modify_item(p0, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) BYTE_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, ic, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FILL_MODIFY_LOGIC_CYBOI_FORMAT);
 
-    // Cast all source- into destination array elements.
-    // CAUTION! Assigning the destination array to the destination item
-    // is NOT necessary, since a reallocation does NOT happen here.
-    // Neither the count, nor the size of the destination array gets changed.
-    // They already got adjusted while filling the item with initial values above.
-    cast_all_item_element(p0, id, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) BYTE_CAST_LOGIC_CYBOI_FORMAT, ic, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get destination byte item data, count.
+    //
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &bd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &bc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    // Cast integer item data (array) elements into destination byte item data (array) elements.
+    //
+    // CAUTION! A reallocation of the destination byte item data (array) does NOT happen here,
+    // since it already got adjusted while filling the item p0 with initial values above.
+    // Therefore, the values of bc and ic should be equal.
+    // However, to be on the safe side, the destination byte item count bc and NOT ic is used here,
+    // so that its array bounds do not get injured.
+    cast_array(bd, id, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) BYTE_CAST_LOGIC_CYBOI_FORMAT, bc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     // Deallocate integer item.
     deallocate_item((void*) &i, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);

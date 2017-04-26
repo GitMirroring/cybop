@@ -14,7 +14,6 @@
 Container
 _________
 
-        * Optimise caster and restructure directory "executor/caster/" with focus on part | item | array
         * Optimise comparator and restructure directory "executor/comparator/" with focus on part | item | array
 
 GUI
