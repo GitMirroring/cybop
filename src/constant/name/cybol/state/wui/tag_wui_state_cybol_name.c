@@ -39,8 +39,14 @@ static wchar_t* PREFORMATTED_WUI_STATE_CYBOL_NAME = L"preformatted";
 static int* PREFORMATTED_WUI_STATE_CYBOL_NAME_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The property wui state cybol name. */
+/*??
 static wchar_t* PROPERTY_WUI_STATE_CYBOL_NAME = L"property";
 static int* PROPERTY_WUI_STATE_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+*/
+
+/** The document_type wui state cybol name. */
+static wchar_t* DOCUMENT_TYPE_WUI_STATE_CYBOL_NAME = L"document_type";
+static int* DOCUMENT_TYPE_WUI_STATE_CYBOL_NAME_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* TAG_WUI_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

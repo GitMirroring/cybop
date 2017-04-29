@@ -27,7 +27,6 @@
 #define ATTRIBUTE_HTML_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -78,13 +77,17 @@ void serialise_html_attribute(void* p0, void* p1, void* p2) {
 
     // The following names are NOT to be treated as attributes.
     // They therefore have to be EXCLUDED here!
+    //
     // CAUTION! Many comparisons may be done in a sequence.
     // If a comparison's result is not true, then the return value
     // is NOT altered, so that the following comparisons are not affected.
     compare_all_array((void*) &r, nd, (void*) TAG_WUI_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, nc, (void*) TAG_WUI_STATE_CYBOL_NAME_COUNT);
     compare_all_array((void*) &r, nd, (void*) PREFORMATTED_WUI_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, nc, (void*) PREFORMATTED_WUI_STATE_CYBOL_NAME_COUNT);
+    compare_all_array((void*) &r, nd, (void*) DOCUMENT_TYPE_WUI_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, nc, (void*) DOCUMENT_TYPE_WUI_STATE_CYBOL_NAME_COUNT);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Treat property as attribute.
 
         // The numeric character reference item.
         void* ref = *NULL_POINTER_STATE_CYBOI_MODEL;

@@ -1,31 +1,10 @@
 <node>
+
     <node name="index" channel="file" format="element/part" model="ui/wui/index.cybol">
         <node name="tag" channel="inline" format="text/plain" model="html"/>
+        <node name="document_type" channel="inline" format="text/plain" model="html"/>
     </node>
+
     <!-- Further html files may follow here. -->
+
 </node>
-
-<!--
-    Copyright (C) 1999-2017. Christian Heller.
-
-    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
-
-    CYBOL is free software: you can redistribute it and/or modify it
-    under the terms of the GNU General Public License as published
-    by the Free Software Foundation, either version 3 of the License,
-    or (at your option) any later version.
-
-    CYBOL is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty
-    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    See the GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
-
-    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
-    CYBOP Developers <cybop-developers@nongnu.org>
-
-    @version CYBOP 0.19.0 2017-04-10
-    @author Christian Heller <christian.heller@tuxtax.de>
--->

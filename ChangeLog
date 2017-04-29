@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-04-29  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt html serialiser to allow flexible document type
+
 2017-04-26  Christian Heller  <christian.heller@tuxtax.de>
 
         * Optimise caster and restructure directory "executor/caster/" with focus on part | item | array

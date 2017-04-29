@@ -1,5 +1,6 @@
 <node>
 
     <node name="tag" channel="inline" format="text/plain" model="html"/>
+    <node name="document_type" channel="inline" format="text/plain" model="html"/>
 
 </node>

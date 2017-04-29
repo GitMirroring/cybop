@@ -27,7 +27,6 @@
 #define CONTENT_ELEMENT_PART_HTML_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/state/wui/tag_wui_state_cybol_name.c"
@@ -35,6 +34,7 @@
 #include "../../../../executor/representer/serialiser/character_reference/character_reference_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/begin_tag_html_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/break_html_serialiser.c"
+#include "../../../../executor/representer/serialiser/html/document_type_html_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/empty_element_part_html_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/end_tag_html_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/filled_element_part_html_serialiser.c"
@@ -62,38 +62,58 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The preformatted part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The document type part.
+    void* dt = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The tag part model.
     void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The preformatted part model.
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The document type part model.
+    void* dtm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The tag part model data, count.
     void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* tmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The preformatted part model data.
     void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The document type part model data, count.
+    void* dtmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* dtmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The empty flag.
     int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The void flag.
     int v = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Get tag part by name.
+    // Get tag part.
     get_name_array((void*) &t, p3, (void*) TAG_WUI_STATE_CYBOL_NAME, (void*) TAG_WUI_STATE_CYBOL_NAME_COUNT, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Get preformatted part by name.
+    // Get preformatted part.
     get_name_array((void*) &p, p3, (void*) PREFORMATTED_WUI_STATE_CYBOL_NAME, (void*) PREFORMATTED_WUI_STATE_CYBOL_NAME_COUNT, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    // Get document type part.
+    get_name_array((void*) &dt, p3, (void*) DOCUMENT_TYPE_WUI_STATE_CYBOL_NAME, (void*) DOCUMENT_TYPE_WUI_STATE_CYBOL_NAME_COUNT, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     // Get tag part model item.
     copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get preformatted part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get document type part model item.
+    copy_array_forward((void*) &dtm, dt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Get tag part model item data, count.
     copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &tmc, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get preformatted part model item data.
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get document type part model item data, count.
+    copy_array_forward((void*) &dtmd, dtm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &dtmc, dtm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    if ((dtmd != *NULL_POINTER_STATE_CYBOI_MODEL) && (dtmc != *NULL_POINTER_STATE_CYBOI_MODEL)) {
+
+        // Serialise document type.
+        serialise_html_document_type(p0, dtmd, dtmc, p5);
+    }
 
     // TEST: This block is NOT necessary and for testing only.
     // The generated html file will contain an error message for each nameless tag.

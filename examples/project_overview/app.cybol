@@ -3,7 +3,7 @@
     <node name="list" channel="file" format="element/part" model="project_overview/list.cybol"/>
 
     <!-- This node gets created and IS NEEDED in the programme, even if the file does not exist. -->
-    <node name="wui" channel="file" format="element/part" model="project_overview/wui.cybol"/>
+    <node name="wui" channel="inline" format="element/part" model=""/>
 
     <node name="logic" channel="file" format="element/part" model="project_overview/logic.cybol"/>
 

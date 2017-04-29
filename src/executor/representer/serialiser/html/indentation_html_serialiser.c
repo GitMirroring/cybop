@@ -26,7 +26,7 @@
 #ifndef INDENTATION_HTML_SERIALISER_SOURCE
 #define INDENTATION_HTML_SERIALISER_SOURCE
 
- 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -49,6 +49,8 @@ void serialise_html_indentation(void* p0, void* p1, void* p2) {
     compare_integer_unequal((void*) &r, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise html indentation.");
 
         // The formatting flag IS set, i.e. indentation IS WANTED.
 

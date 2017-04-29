@@ -38,8 +38,10 @@
  * It was introduced with the html5 specification:
  * http://www.w3.org/TR/html-markup/
  */
-static wchar_t* HTML_DOCUMENT_TYPE_HTML_MODEL = L"<!DOCTYPE html>";
-static int* HTML_DOCUMENT_TYPE_HTML_MODEL_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* HTML_DOCUMENT_TYPE_HTML_MODEL = L"DOCTYPE";
+static int* HTML_DOCUMENT_TYPE_HTML_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//?? TODO: Possibly add the old html document types (very long lines) here, used up to version HTML 4
 
 /* DOCUMENT_TYPE_HTML_MODEL_CONSTANT_SOURCE */
 #endif
