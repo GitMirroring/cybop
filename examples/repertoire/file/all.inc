@@ -1,0 +1,95 @@
+<table>
+    <thead>
+        <tr>
+            <th>
+                K&#xFC;nstler
+            </th>
+            <th>
+                Titel
+            </th>
+            <th>
+                Genre
+            </th>
+            <th>
+                Jahr
+            </th>
+            <th>
+                L&#xE4;nge
+            </th>
+            <th>
+                Tonart
+            </th>
+            <th>
+                Gesang
+            </th>
+            <th>
+                Anmerkung
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                Alan Parsons Project
+            </td>
+            <td>
+                Eye In The Sky
+            </td>
+            <td>
+                1980er Rock-Pop &#x26; Synthi Pop
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Alcazar
+            </td>
+            <td>
+                Crying At The Discotheque
+            </td>
+            <td>
+                2000er Rock-Pop
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Elton John
+            </td>
+            <td>
+                Sacrifice
+            </td>
+            <td>
+                1980er Rock-Pop &#x26; Synthi Pop
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </tbody>
+</table>

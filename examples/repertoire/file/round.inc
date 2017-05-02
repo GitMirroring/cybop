@@ -1,0 +1,70 @@
+<main>
+    <div>
+        <h2>
+            Tanzrunde 1
+        </h2>
+        <table>
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                    Sacrifice (Elton John)
+                </td>
+                <td>
+                    0:00
+                </td>
+                <td>
+                </td>
+                <td>
+                    Chris
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    2
+                </td>
+                <td>
+                    Eye In The Sky (Alan Parsons Project)
+                </td>
+                <td>
+                    0:00
+                </td>
+                <td>
+                </td>
+                <td>
+                    Chris
+                </td>
+                <td>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <h2>
+            Tanzrunde 2
+        </h2>
+        <table>
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                    Crying At The Discotheque (Alcazar)
+                </td>
+                <td>
+                    0:00
+                </td>
+                <td>
+                </td>
+                <td>
+                    Chris
+                </td>
+                <td>
+                </td>
+            </tr>
+        </table>
+    </div>
+</main>

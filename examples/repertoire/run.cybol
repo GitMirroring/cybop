@@ -11,7 +11,6 @@
 
     <!-- Write knowledge into file. -->
 <!--
--->
     <node name="test_knowledge" channel="inline" format="communicate/send" model="">
         <node name="receiver" channel="inline" format="text/plain" model="test_repertoire.txt"/>
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -20,14 +19,11 @@
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model="."/>
     </node>
+-->
 
-    <!-- TEST ONLY. DELETE LATER. -->
-    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    </node>
+    <node name="execute_logic" channel="inline" format="text/cybol-path" model=".logic.execute"/>
 
-    <node name="startup" channel="inline" format="text/cybol-path" model=".logic.startup"/>
-    <node name="shutdown" channel="inline" format="text/cybol-path" model=".logic.shutdown"/>
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
 
 </node>
 
