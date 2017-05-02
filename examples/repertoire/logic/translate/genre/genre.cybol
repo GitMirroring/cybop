@@ -12,7 +12,7 @@
     <node name="create_wui_section" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/cybol-path" model="#name"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="whole" channel="inline" format="text/cybol-path" model=".wui.genre"/>
+        <node name="whole" channel="inline" format="text/cybol-path" model=".wui.(#destination)"/>
     </node>
 
     <node name="initialise_section_model" channel="inline" format="communicate/receive" model="">
@@ -21,7 +21,7 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="sender" channel="inline" format="text/plain" model="repertoire/wui/genre/section_model.cybol"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".wui.genre.(#name)"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.(#destination).(#name)"/>
     </node>
     <node name="initialise_section_properties" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -29,13 +29,13 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/property"/>
         <node name="sender" channel="inline" format="text/plain" model="repertoire/wui/genre/section_properties.cybol"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".wui.genre.(#name)"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.(#destination).(#name)"/>
     </node>
 
     <!-- Fill wui genre section -->
 
     <node name="assign_heading" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.genre.(#name).heading"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#destination).(#name).heading"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".db.genre.[#index]"/>
     </node>
 

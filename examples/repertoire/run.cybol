@@ -9,18 +9,6 @@
         <node name="message" channel="inline" format="text/cybol-path" model="."/>
     </node>
 
-    <!-- Write knowledge into file. -->
-<!--
-    <node name="test_knowledge" channel="inline" format="communicate/send" model="">
-        <node name="receiver" channel="inline" format="text/plain" model="test_repertoire.txt"/>
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="text/cybol-path" model="."/>
-    </node>
--->
-
     <node name="execute_logic" channel="inline" format="text/cybol-path" model=".logic.execute"/>
 
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
@@ -29,14 +17,15 @@
 
 <!--
     Song list:
-    - database of songs in form of cybol (xml) files
-    - complete data with all details, as listed further below
+    - song.cybol (database of songs with all details in form of cybol/xml files)
+    - idea.cybol (choice of new songs)
 
     Generated files:
     - all.inc (complete list with all details)
     - artist.inc (sorted by artist)
     - title.inc (sorted by title)
-    - genre.inc (for website)
+    - genre.inc (in sections, for website)
+    - idea.inc (in sections, choice of new songs)
     - round.inc (songs sorted by dance round)
 
     Song details:

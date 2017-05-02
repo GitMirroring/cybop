@@ -4,7 +4,7 @@
 
     <node name="count_nodes" channel="inline" format="access/count" model="">
         <node name="count" channel="inline" format="text/cybol-path" model="#count"/>
-        <node name="part" channel="inline" format="text/cybol-path" model=".db.song"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".db.(#source)"/>
     </node>
 
     <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->

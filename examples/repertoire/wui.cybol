@@ -3,16 +3,17 @@
     <node name="all" channel="inline" format="element/part" model="">
         <node name="tag" channel="inline" format="text/plain" model="table"/>
     </node>
-
     <node name="artist" channel="inline" format="element/part" model="">
         <node name="tag" channel="inline" format="text/plain" model="table"/>
     </node>
-
     <node name="title" channel="inline" format="element/part" model="">
         <node name="tag" channel="inline" format="text/plain" model="table"/>
     </node>
 
     <node name="genre" channel="inline" format="element/part" model="">
+        <node name="tag" channel="inline" format="text/plain" model="main"/>
+    </node>
+    <node name="idea" channel="inline" format="element/part" model="">
         <node name="tag" channel="inline" format="text/plain" model="main"/>
     </node>
 

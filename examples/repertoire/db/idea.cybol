@@ -1,0 +1,7 @@
+<node>
+
+    <node name="postchor_brandenburg_-_es_wollt_ein_maedchen_frueh_aufstehn" channel="file" format="element/part" model="repertoire/db/idea/postchor_brandenburg_-_es_wollt_ein_maedchen_frueh_aufstehn.cybol"/>
+    <node name="rem_-_the_one_i_love" channel="file" format="element/part" model="repertoire/db/idea/rem_-_the_one_i_love.cybol"/>
+    <node name="wolfgang_ziegler_-_verdammt" channel="file" format="element/part" model="repertoire/db/idea/wolfgang_ziegler_-_verdammt.cybol"/>
+
+</node>

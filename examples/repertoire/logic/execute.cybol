@@ -50,7 +50,38 @@
 
     <!-- Translate genre -->
 
+    <node name="assign_initial_value" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".logic.translate.genre.genres:destination"/>
+        <node name="source" channel="inline" format="text/plain" model="genre"/>
+    </node>
     <node name="translate" channel="inline" format="text/cybol-path" model=".logic.translate.genre.genres"/>
+
+    <node name="assign_initial_value" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".logic.translate.genre.songs:destination"/>
+        <node name="source" channel="inline" format="text/plain" model="genre"/>
+    </node>
+    <node name="assign_initial_value" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".logic.translate.genre.songs:source"/>
+        <node name="source" channel="inline" format="text/plain" model="song"/>
+    </node>
+    <node name="translate" channel="inline" format="text/cybol-path" model=".logic.translate.genre.songs"/>
+
+    <!-- Translate idea -->
+
+    <node name="assign_initial_value" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".logic.translate.genre.genres:destination"/>
+        <node name="source" channel="inline" format="text/plain" model="idea"/>
+    </node>
+    <node name="translate" channel="inline" format="text/cybol-path" model=".logic.translate.genre.genres"/>
+
+    <node name="assign_initial_value" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".logic.translate.genre.songs:destination"/>
+        <node name="source" channel="inline" format="text/plain" model="idea"/>
+    </node>
+    <node name="assign_initial_value" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".logic.translate.genre.songs:source"/>
+        <node name="source" channel="inline" format="text/plain" model="idea"/>
+    </node>
     <node name="translate" channel="inline" format="text/cybol-path" model=".logic.translate.genre.songs"/>
 
     <!-- Translate round -->
@@ -102,6 +133,18 @@
     <node name="assign_initial_value" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".logic.generate:filename"/>
         <node name="source" channel="inline" format="text/plain" model="repertoire/file/genre.inc"/>
+    </node>
+    <node name="generate" channel="inline" format="text/cybol-path" model=".logic.generate"/>
+
+    <!-- Generate idea -->
+
+    <node name="assign_initial_value" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".logic.generate:knowledge"/>
+        <node name="source" channel="inline" format="text/plain" model=".wui.idea"/>
+    </node>
+    <node name="assign_initial_value" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".logic.generate:filename"/>
+        <node name="source" channel="inline" format="text/plain" model="repertoire/file/idea.inc"/>
     </node>
     <node name="generate" channel="inline" format="text/cybol-path" model=".logic.generate"/>
 
