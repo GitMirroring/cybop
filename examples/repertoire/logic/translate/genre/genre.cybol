@@ -1,0 +1,56 @@
+<node>
+
+    <!-- Determine genre node name -->
+
+    <node name="get_name" channel="inline" format="access/get-name" model="">
+        <node name="element" channel="inline" format="text/cybol-path" model="#name"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".db.genre.[#index]"/>
+    </node>
+
+    <!-- Create wui genre section -->
+
+    <node name="create_wui_section" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/cybol-path" model="#name"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="whole" channel="inline" format="text/cybol-path" model=".wui.genre"/>
+    </node>
+
+    <node name="initialise_section_model" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="sender" channel="inline" format="text/plain" model="repertoire/wui/genre/section_model.cybol"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.genre.(#name)"/>
+    </node>
+    <node name="initialise_section_properties" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/property"/>
+        <node name="sender" channel="inline" format="text/plain" model="repertoire/wui/genre/section_properties.cybol"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.genre.(#name)"/>
+    </node>
+
+    <!-- Fill wui genre section -->
+
+    <node name="assign_heading" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.genre.(#name).heading"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".db.genre.[#index]"/>
+    </node>
+
+    <!-- Loop test. -->
+
+    <node name="increment_index" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#index"/>
+        <node name="operand" channel="inline" format="number/integer" model="1"/>
+    </node>
+    <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
+    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="#index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model="#count"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+</node>

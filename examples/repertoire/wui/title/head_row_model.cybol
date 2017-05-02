@@ -1,0 +1,19 @@
+<node>
+
+    <node name="title" channel="inline" format="text/plain" model="Titel">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+
+    <node name="artist" channel="inline" format="text/plain" model="Künstler">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+
+    <node name="genre" channel="inline" format="text/plain" model="Genre">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+
+    <node name="year" channel="inline" format="text/plain" model="Jahr">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+
+</node>

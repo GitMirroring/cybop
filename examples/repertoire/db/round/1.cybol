@@ -1,0 +1,6 @@
+<node>
+
+    <node name="1" channel="inline" format="text/plain" model="elton_john_-_sacrifice"/>
+    <node name="2" channel="inline" format="text/plain" model="alan_parsons_project_-_eye_in_the_sky"/>
+
+</node>

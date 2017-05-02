@@ -1,0 +1,18 @@
+<node>
+
+    <node name="1950" channel="inline" format="text/plain" model="1950er Rock 'n' Roll & Rockabilly"/>
+    <node name="1960" channel="inline" format="text/plain" model="1960er Beat & Flower Power"/>
+    <node name="1970" channel="inline" format="text/plain" model="1970er Rock & Pop"/>
+    <node name="1980" channel="inline" format="text/plain" model="1980er Rock-Pop & Synthi Pop"/>
+    <node name="1990" channel="inline" format="text/plain" model="1990er Rock-Pop & Independent"/>
+    <node name="2000" channel="inline" format="text/plain" model="2000er Rock-Pop"/>
+    <node name="2010" channel="inline" format="text/plain" model="2000er Rock-Pop"/>
+    <node name="country" channel="inline" format="text/plain" model="Country Music"/>
+    <node name="deutsch" channel="inline" format="text/plain" model="Deutschrock"/>
+    <node name="englisch" channel="inline" format="text/plain" model="Englischer Schlager"/>
+    <node name="ndw" channel="inline" format="text/plain" model="Neue Deutsche Welle (NDW)"/>
+    <node name="ostrock" channel="inline" format="text/plain" model="Ostrock"/>
+    <node name="schlager" channel="inline" format="text/plain" model="Schlager"/>
+    <node name="volksmusik" channel="inline" format="text/plain" model="Volksmusik & Stimmungsmusik"/>
+
+</node>

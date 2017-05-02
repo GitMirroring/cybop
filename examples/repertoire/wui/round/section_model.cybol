@@ -1,0 +1,11 @@
+<node>
+
+    <node name="heading" channel="inline" format="text/plain" model="">
+        <node name="tag" channel="inline" format="text/plain" model="h2"/>
+    </node>
+
+    <node name="content" channel="inline" format="element/part" model="">
+        <node name="tag" channel="inline" format="text/plain" model="table"/>
+    </node>
+
+</node>

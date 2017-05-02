@@ -1,0 +1,27 @@
+<node>
+
+    <node name="number" channel="inline" format="text/plain" model="">
+        <node name="tag" channel="inline" format="text/plain" model="td"/>
+    </node>
+
+    <node name="title" channel="inline" format="text/plain" model="">
+        <node name="tag" channel="inline" format="text/plain" model="td"/>
+    </node>
+
+    <node name="time" channel="inline" format="text/plain" model="">
+        <node name="tag" channel="inline" format="text/plain" model="td"/>
+    </node>
+
+    <node name="key" channel="inline" format="text/plain" model="">
+        <node name="tag" channel="inline" format="text/plain" model="td"/>
+    </node>
+
+    <node name="vocals" channel="inline" format="text/plain" model="">
+        <node name="tag" channel="inline" format="text/plain" model="td"/>
+    </node>
+
+    <node name="remark" channel="inline" format="text/plain" model="">
+        <node name="tag" channel="inline" format="text/plain" model="td"/>
+    </node>
+
+</node>

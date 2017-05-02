@@ -1,0 +1,7 @@
+<node>
+
+    <node name="alan_parsons_project_-_eye_in_the_sky" channel="file" format="element/part" model="repertoire/db/song/alan_parsons_project_-_eye_in_the_sky.cybol"/>
+    <node name="alcazar_-_crying_at_the_discotheque" channel="file" format="element/part" model="repertoire/db/song/alcazar_-_crying_at_the_discotheque.cybol"/>
+    <node name="elton_john_-_sacrifice" channel="file" format="element/part" model="repertoire/db/song/elton_john_-_sacrifice.cybol"/>
+
+</node>

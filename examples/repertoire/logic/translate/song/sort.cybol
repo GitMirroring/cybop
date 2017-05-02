@@ -1,0 +1,17 @@
+<node>
+
+    <!--
+        Sort song list by artist.
+        TODO:
+        - provide string comparison with alphabet as criterion
+        - verify cybol sort (bubble, quick) operations in cyboi
+    -->
+
+<!--
+    <node name="sort_by_title" channel="inline" format="modify/overwrite" model="">
+        <node name="model" channel="inline" format="text/cybol-path" model=".db.(#list)"/>
+        <node name="criterion" channel="inline" format="text/plain" model="ALPHABET | AUFSTEIGEND | ABSTEIGEND etc."/>
+    </node>
+-->
+
+</node>
