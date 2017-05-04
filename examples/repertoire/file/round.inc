@@ -3,7 +3,7 @@
         <h2>
             Tanzrunde 1
         </h2>
-        <table>
+        <table class="table table-striped table-bordered table-hover table-condensed">
             <tr>
                 <td>
                     1
@@ -46,7 +46,7 @@
         <h2>
             Tanzrunde 2
         </h2>
-        <table>
+        <table class="table table-striped table-bordered table-hover table-condensed">
             <tr>
                 <td>
                     1
