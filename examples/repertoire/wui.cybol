@@ -2,12 +2,15 @@
 
     <node name="all" channel="inline" format="element/part" model="">
         <node name="tag" channel="inline" format="text/plain" model="table"/>
+        <node name="class" channel="inline" format="text/plain" model="table table-striped table-bordered table-hover table-condensed"/>
     </node>
     <node name="artist" channel="inline" format="element/part" model="">
         <node name="tag" channel="inline" format="text/plain" model="table"/>
+        <node name="class" channel="inline" format="text/plain" model="table table-striped table-bordered table-hover table-condensed"/>
     </node>
     <node name="title" channel="inline" format="element/part" model="">
         <node name="tag" channel="inline" format="text/plain" model="table"/>
+        <node name="class" channel="inline" format="text/plain" model="table table-striped table-bordered table-hover table-condensed"/>
     </node>
 
     <node name="genre" channel="inline" format="element/part" model="">
