@@ -11,15 +11,23 @@
 
 <!-- TODO: Add a search here in ".db.remain" for "#song_name" with found index as return value; then use it as "destination_index" below!
 
+    <node name="reset_remain_index" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#remain_index"/>
+        <node name="source" channel="inline" format="number/integer" model="-1"/>
+    </node>
+
+    TODO: CAUTION! Verify if "search" operation ignores index < 0 inside cyboi! It has to! Otherwise, change initial value above.
+
     <node name="search_node" channel="inline" format="search/TODO" model="">
-        <node name="index" channel="inline" format="number/integer" model="TODO"/>
+        <node name="index" channel="inline" format="text/cybol-path" model="#remain_index"/>
         <node name="part" channel="inline" format="text/cybol-path" model=".db.remain"/>
-        <node name="name" channel="inline" format="text/cybol-path" model=".db.remain"/>
+        <node name="name" channel="inline" format="text/cybol-path" model="#song_name"/>
     </node>
 
     <node name="remove_node" channel="inline" format="modify/remove" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".db.remain"/>
-        <node name="destination_index" channel="inline" format="number/integer" model="TODO"/>
+        <node name="destination_index" channel="inline" format="number/integer" model="#remain_index"/>
+        <node name="count" channel="inline" format="number/integer" model="1"/>
     </node>
 -->
 

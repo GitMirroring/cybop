@@ -67,4 +67,11 @@
             </tr>
         </table>
     </div>
+    <div>
+        <h2>
+            Tanzrunde Reserve
+        </h2>
+        <table class="table table-striped table-bordered table-hover table-condensed">
+        </table>
+    </div>
 </main>

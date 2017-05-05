@@ -31,4 +31,6 @@
         <node name="model" channel="inline" format="text/cybol-path" model="#round_model"/>
     </node>
 
+    <node name="process_remain" channel="inline" format="text/cybol-path" model="#remain_model"/>
+
 </node>

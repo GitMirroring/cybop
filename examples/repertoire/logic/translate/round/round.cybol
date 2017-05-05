@@ -46,6 +46,12 @@
 
     <!-- Iterate through songs -->
 
+    <!-- TODO: Replace ONLY FOR LAST iteration:
+        <node name="part" channel="inline" format="text/cybol-path" model=".db.round.[#round_index]"/>
+        WITH:
+        <node name="part" channel="inline" format="text/cybol-path" model=".db.remain"/>
+        CAUTION! The "remain_index" must then NOT be reset in file "song.cybol". How to distinguish this?
+    -->
     <node name="count_nodes" channel="inline" format="access/count" model="">
         <node name="count" channel="inline" format="text/cybol-path" model="#song_count"/>
         <node name="part" channel="inline" format="text/cybol-path" model=".db.round.[#round_index]"/>

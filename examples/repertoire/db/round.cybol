@@ -3,4 +3,6 @@
     <node name="1" channel="file" format="element/part" model="repertoire/db/round/1.cybol"/>
     <node name="2" channel="file" format="element/part" model="repertoire/db/round/2.cybol"/>
 
+    <node name="Reserve" channel="inline" format="element/part" model=""/>
+
 </node>

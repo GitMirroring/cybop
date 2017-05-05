@@ -11,6 +11,24 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+Repertoire
+__________
+
+        * Implement cybol operation "search" or "find" in cyboi
+        * Adjust removal of added items from "remain" node in directory "repertoire/logic/translate/round/"
+        * Add "remain" nodes to last section of wui "round"
+            How to reuse file "round.cybol" for last iteration of "remain" songs?
+            Problem: the "#remain_index" is reset in file "song.cybol", which is not wanted when processing ".db.remain"
+
+        * Implement cybol operation "sort" in cyboi
+        * Sort nodes of db list "title" in directory "repertoire/logic/translate/song/"
+
+Debug
+_____
+
+        * Search for cybol operation "modify/empty" (and related "modify" operations) in all cybol example applications
+        * Verify correct property name: currently, "part" is used, but shouldn't it be "destination"?
+
 Container
 _________
 

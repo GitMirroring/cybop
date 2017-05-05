@@ -14,6 +14,7 @@
         <node name="song_index" channel="inline" format="number/integer" model="0"/>
         <node name="song_model" channel="inline" format="text/cybol-path" model=".logic.translate.round.song"/>
         <node name="song_name" channel="inline" format="text/plain" model="EMPTY"/>
+        <node name="remain_index" channel="inline" format="number/integer" model="-1"/>
     </node>
 
     <node name="song" channel="file" format="element/part" model="repertoire/logic/translate/round/song.cybol"/>
