@@ -1,5 +1,16 @@
 <node>
 
+    <!-- Duplicate song list. -->
+
+    <!--
+        CAUTION! Cloning it here in memory is much faster
+        than receiving it a second time from some file.
+    -->
+    <node name="duplicate_songs" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".db.remain"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".db.song"/>
+    </node>
+
     <!-- Iterate through rounds -->
 
     <node name="count_nodes" channel="inline" format="access/count" model="">

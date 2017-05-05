@@ -7,6 +7,22 @@
         <node name="part" channel="inline" format="text/cybol-path" model=".db.round.[#round_index].[#song_index]"/>
     </node>
 
+    <!-- Remove node name from duplicated database "remain". If the name does not exist, then nothing will be done. -->
+
+<!-- TODO: Add a search here in ".db.remain" for "#song_name" with found index as return value; then use it as "destination_index" below!
+
+    <node name="search_node" channel="inline" format="search/TODO" model="">
+        <node name="index" channel="inline" format="number/integer" model="TODO"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".db.remain"/>
+        <node name="name" channel="inline" format="text/cybol-path" model=".db.remain"/>
+    </node>
+
+    <node name="remove_node" channel="inline" format="modify/remove" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".db.remain"/>
+        <node name="destination_index" channel="inline" format="number/integer" model="TODO"/>
+    </node>
+-->
+
     <!-- Create wui round song -->
 
     <node name="create_wui_song" channel="inline" format="memorise/create" model="">

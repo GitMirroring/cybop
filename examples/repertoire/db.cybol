@@ -14,5 +14,6 @@
 
     <!-- Document with dance rounds -->
     <node name="round" channel="file" format="element/part" model="repertoire/db/round.cybol"/>
+    <node name="remain" channel="inline" format="element/part" model=""/>
 
 </node>
