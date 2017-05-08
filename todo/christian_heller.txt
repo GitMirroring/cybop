@@ -916,3 +916,7 @@ ________
             - http://db.apache.org/derby/
         * Provide dBASE database interface
 
+        * Connectivity libraries written in C:
+            https://sourceforge.net/projects/libopendbx/
+            http://www.tildeslash.com/libzdb/#
+
