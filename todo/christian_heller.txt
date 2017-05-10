@@ -416,6 +416,8 @@ ___
         * Debug runtime errors; see file "todo/memcheck.log" (created on 64 Bit machine)
 
         * Check why only one of many files (css or js or image etc.) referenced from within html is delivered by server
+            https://de.wikipedia.org/wiki/Keepalive
+            https://de.wikipedia.org/wiki/HTTP-Pipelining
             --> Is non-blocking mode used?
             --> possible reason is parallel request by browser
             --> enable multiple (not only one) parallel requests on server socket
