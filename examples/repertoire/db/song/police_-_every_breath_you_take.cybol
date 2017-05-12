@@ -1,0 +1,13 @@
+<node>
+
+    <node name="artist" channel="inline" format="text/plain" model="TODO"/>
+    <node name="title" channel="inline" format="text/plain" model="TODO"/>
+    <node name="genre" channel="inline" format="text/plain" model="1980"/>
+    <node name="year" channel="inline" format="text/plain" model=""/>
+
+    <node name="time" channel="inline" format="text/plain" model="0:00"/>
+    <node name="key" channel="inline" format="text/plain" model="Ab-Dur Rock 4/4 Takt"/>
+    <node name="vocals" channel="inline" format="text/plain" model="Chris"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>
