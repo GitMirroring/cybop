@@ -1,6 +1,13 @@
 <node>
 
-    <node name="1" channel="inline" format="text/plain" model="elton_john_-_sacrifice"/>
-    <node name="2" channel="inline" format="text/plain" model="alan_parsons_project_-_eye_in_the_sky"/>
+    <node name="1" channel="inline" format="text/plain" model="toto_-_child's_anthem"/>
+    <node name="2" channel="inline" format="text/plain" model="howard_carpendale_-_hello_again"/>
+    <node name="3" channel="inline" format="text/plain" model="mavericks_-_foolish_heart"/>
+    <node name="4" channel="inline" format="text/plain" model="fugees_-_killing_me_softly"/>
+    <node name="5" channel="inline" format="text/plain" model="doris_day_-_whatever_will_be_will_be_(que_sera_sera)"/>
+    <node name="6" channel="inline" format="text/plain" model="udo_juergens_-_griechischer_wein"/>
+    <node name="7" channel="inline" format="text/plain" model="phil_and_john_-_hello_mary_lou"/>
+    <node name="8" channel="inline" format="text/plain" model="cliff_richard_-_rote_lippen_soll_man_kuessen"/>
+    <node name="9" channel="inline" format="text/plain" model="elvis_presley_-_are_you_lonesome_tonight"/>
 
 </node>

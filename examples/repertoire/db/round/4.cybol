@@ -1,5 +1,14 @@
 <node>
 
-    <node name="1" channel="inline" format="text/plain" model="alcazar_-_crying_at_the_discotheque"/>
+    <node name="1" channel="inline" format="text/plain" model="men_at_work_-_who_can_it_be_now"/>
+    <node name="2" channel="inline" format="text/plain" model="village_people_-_y_m_c_a"/>
+    <node name="3" channel="inline" format="text/plain" model="depeche_mode_-_enjoy_the_silence"/>
+    <node name="4" channel="inline" format="text/plain" model="alcazar_-_crying_at_the_discotheque"/>
+    <node name="5" channel="inline" format="text/plain" model="bronski_beat_-_smalltown_boy"/>
+    <node name="6" channel="inline" format="text/plain" model="black_-_everything's_coming_up_roses"/>
+    <node name="7" channel="inline" format="text/plain" model="gibson_brothers_-_que_sera_mi_vida"/>
+    <node name="8" channel="inline" format="text/plain" model="cliff_richard_-_dreamin"/>
+    <node name="9" channel="inline" format="text/plain" model="fiction_factory_-_feels_like_heaven"/>
+    <node name="10" channel="inline" format="text/plain" model="elvis_presley_-_always_on_my_mind"/>
 
 </node>

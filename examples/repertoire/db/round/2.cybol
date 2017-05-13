@@ -1,5 +1,20 @@
 <node>
 
-    <node name="1" channel="inline" format="text/plain" model="alcazar_-_crying_at_the_discotheque"/>
+    <node name="1" channel="inline" format="text/plain" model="john_paul_young_-_love_is_in_the_air"/>
+    <node name="2" channel="inline" format="text/plain" model="barry_manilow_-_copacabana"/>
+    <node name="3" channel="inline" format="text/plain" model="roy_orbison_-_i_drove_all_night"/>
+    <node name="4" channel="inline" format="text/plain" model="police_-_every_breath_you_take"/>
+    <node name="5" channel="inline" format="text/plain" model="gottlieb_wendehals_-_polonaese_blankenese"/>
+    <node name="6" channel="inline" format="text/plain" model="costa_cordalis_-_anita"/>
+    <node name="7" channel="inline" format="text/plain" model="keimzeit_-_kling_klang"/>
+    <node name="8" channel="inline" format="text/plain" model="marius_mueller-westernhagen_-_willenlos"/>
+    <node name="9" channel="inline" format="text/plain" model="udo_juergens_-_mit_66_jahren"/>
+    <node name="10" channel="inline" format="text/plain" model="volkslied_-_kufsteiner_lied"/>
+    <node name="11" channel="inline" format="text/plain" model="volkslied_-_rosamunde"/>
+    <node name="12" channel="inline" format="text/plain" model="beatles_-_ob-la-di_ob-la-da"/>
+    <node name="13" channel="inline" format="text/plain" model="klaus-renft-combo_-_apfeltraum"/>
+    <node name="14" channel="inline" format="text/plain" model="volkslied_-_what_shall_we_do_with_the_drunken_sailor"/>
+    <node name="15" channel="inline" format="text/plain" model="achim_reichel_-_aloha_heja_he"/>
+    <node name="16" channel="inline" format="text/plain" model="udo_juergens_-_ich_war_noch_niemals_in_new_york"/>
 
 </node>

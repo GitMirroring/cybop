@@ -1,5 +1,13 @@
 <node>
 
-    <node name="1" channel="inline" format="text/plain" model="alcazar_-_crying_at_the_discotheque"/>
+    <node name="1" channel="inline" format="text/plain" model="nek_-_laura_non_c'e"/>
+    <node name="2" channel="inline" format="text/plain" model="heroes_del_silencio_-_entre_dos_tierras"/>
+    <node name="3" channel="inline" format="text/plain" model="tom_petty_-_learning_to_fly"/>
+    <node name="4" channel="inline" format="text/plain" model="tom_petty_-_i_won't_back_down"/>
+    <node name="5" channel="inline" format="text/plain" model="bruce_springsteen_-_i_m_on_fire"/>
+    <node name="6" channel="inline" format="text/plain" model="scott_mc_kenzie_-_san_francisco"/>
+    <node name="7" channel="inline" format="text/plain" model="nick_kamen_-_i_promised_myself"/>
+    <node name="8" channel="inline" format="text/plain" model="robbie_williams_-_angels"/>
+    <node name="9" channel="inline" format="text/plain" model="eric_clapton_-_wonderful_tonight"/>
 
 </node>

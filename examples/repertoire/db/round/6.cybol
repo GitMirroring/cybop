@@ -1,5 +1,16 @@
 <node>
 
-    <node name="1" channel="inline" format="text/plain" model="alcazar_-_crying_at_the_discotheque"/>
+    <node name="1" channel="inline" format="text/plain" model="bap_-_verdamp_lang_her"/>
+    <node name="2" channel="inline" format="text/plain" model="rainhard_fendrich_-_macho_macho"/>
+    <node name="3" channel="inline" format="text/plain" model="peter_maffay_-_eiszeit"/>
+    <node name="4" channel="inline" format="text/plain" model="muenchener_freiheit_-_herzschlag_ist_der_takt"/>
+    <node name="5" channel="inline" format="text/plain" model="steinwolke_-_katharine_katharine"/>
+    <node name="6" channel="inline" format="text/plain" model="klaus_lage_band_-_1000_und_1_nacht_(zoom!)"/>
+    <node name="7" channel="inline" format="text/plain" model="purple_schulz_-_du_hast_mir_gerade_noch_gefehlt"/>
+    <node name="8" channel="inline" format="text/plain" model="purple_schulz_-_kleine_seen"/>
+    <node name="9" channel="inline" format="text/plain" model="heinz-rudolf_kunze_-_dein_ist_mein_ganzes_herz"/>
+    <node name="10" channel="inline" format="text/plain" model="muenchener_freiheit_-_tausendmal_du"/>
+    <node name="11" channel="inline" format="text/plain" model="joachim_witt_-_goldener_reiter"/>
+    <node name="12" channel="inline" format="text/plain" model="udo_lindenberg_-_mein_ding"/>
 
 </node>
