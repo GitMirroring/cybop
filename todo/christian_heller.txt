@@ -14,6 +14,9 @@
 Repertoire
 __________
 
+        * Use new cybol channel "directory" for reading in files of directory "repertoire/db/song/" in cybol example application "repertoire"
+            SEE file "repertoire/db.cybol"
+
         * Implement cybol operation "search" or "find" in cyboi
         * Adjust removal of added items from "remain" node in directory "repertoire/logic/translate/round/"
         * Add "remain" nodes to last section of wui "round"
