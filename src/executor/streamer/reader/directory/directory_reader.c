@@ -27,6 +27,7 @@
 #define DIRECTORY_READER_SOURCE
 
 #include <dirent.h>
+#include <errno.h>
 #include <stdio.h>
 
 #include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
@@ -45,7 +46,8 @@
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/copier/array_copier.c"
-#include "../../../../executor/streamer/reader/file/content_file_reader.c"
+#include "../../../../executor/streamer/reader/directory/close_directory_reader.c"
+#include "../../../../executor/streamer/reader/directory/entries_directory_reader.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -105,91 +107,11 @@ void read_directory(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     if (d != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // Initialise error number.
-        // It is a global variable/function and other operations
-        // may have set some value that is not wanted here.
-        //
-        // CAUTION! Initialise the error number BEFORE calling
-        // the procedure that might cause an error.
-        errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // Read directory entries.
+//??        read_directory_entries((void*) d);
 
-        // Read next entry from directory stream.
-        struct dirent* e = readdir(d);
-
-        if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-/*??
-            char* f_??_filename = e->d_name;
-
-
-
-            //?? TODO: Add actual logic for processing file here!
-
-
-
-            while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                if (c == EOF) {
-
-                    break;
-                }
-
-                // Append character to destination data.
-                modify_item(p0, (void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-
-                // Read next character.
-                c = fgetc(p1);
-            }
-*/
-
-            // Close directory stream.
-            int e = closedir(d);
-
-            if (e != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                // An error occured.
-
-                if (errno == EBADF) {
-
-                    fwprintf(stdout, L"Could not read directory. The stream closing return value is unequal zero. The dirstream argument is not valid. error EBADF: %i\n", errno);
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read directory. The stream closing return value is unequal zero. The dirstream argument is not valid.");
-
-                } else {
-
-                    fwprintf(stdout, L"Could not read directory. The stream closing return value is unequal zero. An unknown error occured. errno: %i directory: %s\n", errno, (char*) td);
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read directory. The stream closing return value is unequal zero. An unknown error occured.");
-                }
-
-                // CAUTION! The gnu c library manual writes:
-                // To avoid entering an infinite loop, you should stop
-                // reading from the directory after the first error.
-                // Therefore, the BREAK FLAG is set here, in order to
-                // leave the loop that is processing directory entries.
-//??                copy_integer(px??_break_flag, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-            }
-
-        } else {
-
-            // An error occured.
-
-            if (errno == EBADF) {
-
-                fwprintf(stdout, L"Could not read directory. The directory entry is null. The dirstream argument is not valid. error EBADF: %i\n", errno);
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read directory. The directory entry is null. The dirstream argument is not valid.");
-
-            } else {
-
-                fwprintf(stdout, L"Could not read directory. The directory entry is null. An unknown error occured. errno: %i directory: %s\n", errno, (char*) td);
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read directory. The directory entry is null. An unknown error occured.");
-            }
-
-            // CAUTION! The gnu c library manual writes:
-            // To avoid entering an infinite loop, you should stop
-            // reading from the directory after the first error.
-            // Therefore, the BREAK FLAG is set here, in order to
-            // leave the loop that is processing directory entries.
-//??            copy_integer(px??_break_flag, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
+        // Close directory stream.
+        read_directory_close((void*) d);
 
     } else {
 

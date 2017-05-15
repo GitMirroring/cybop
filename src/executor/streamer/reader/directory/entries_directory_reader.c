@@ -23,32 +23,32 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef STREAM_SERIAL_PORT_READER_SOURCE
-#define STREAM_SERIAL_PORT_READER_SOURCE
+#ifndef ENTRIES_DIRECTORY_READER_SOURCE
+#define ENTRIES_DIRECTORY_READER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../executor/streamer/reader/serial_port/read_serial_port_reader.c"
+#include "../../../../executor/streamer/reader/directory/entry_directory_reader.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Reads data stream from serial port.
+ * Reads all entries (files) within the given directory.
  *
  * @param p0 the destination item
- * @param p1 the source file descriptor data
- * @param p2 the source mutex
- * @param p3 the minimum number of bytes to be received in one call of the read function
- * @param p4 the maximum number of bytes to be received in one call of the read function
+ * @param p1 the source model data (directory name)
+ * @param p2 the source model count
+ * @param p3 the source properties data (binary mode etc.)
+ * @param p4 the source properties count
+ * @param p5 the knowledge memory part (pointer reference)
+ * @param p6 the stack memory item
+ * @param p7 the internal memory data
  */
-void read_serial_port_stream(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void read_directory_entries(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read serial port.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read directory entries.");
 
     // The loop break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The character count.
-    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -57,9 +57,9 @@ void read_serial_port_stream(void* p0, void* p1, void* p2, void* p3, void* p4) {
             break;
         }
 
-        read_serial_port_read(p0, p1, p2, p3, p4, (void*) &c, (void*) &b);
+//??        read_directory_entry((void*) &b);
     }
 }
 
-/* STREAM_SERIAL_PORT_READER_SOURCE */
+/* ENTRIES_DIRECTORY_READER_SOURCE */
 #endif
