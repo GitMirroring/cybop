@@ -638,15 +638,13 @@
                     4
                 </td>
                 <td>
-                    Crying At The Discotheque (Alcazar)
-                </td>
-                <td>
-                    0:00
+                     ()
                 </td>
                 <td>
                 </td>
                 <td>
-                    Chris
+                </td>
+                <td>
                 </td>
                 <td>
                 </td>
@@ -855,15 +853,13 @@
                     7
                 </td>
                 <td>
-                    Eye In The Sky (Alan Parsons Project)
-                </td>
-                <td>
-                    0:00
+                     ()
                 </td>
                 <td>
                 </td>
                 <td>
-                    Chris
+                </td>
+                <td>
                 </td>
                 <td>
                 </td>
@@ -969,15 +965,13 @@
                     14
                 </td>
                 <td>
-                    Sacrifice (Elton John)
-                </td>
-                <td>
-                    0:00
+                     ()
                 </td>
                 <td>
                 </td>
                 <td>
-                    Chris
+                </td>
+                <td>
                 </td>
                 <td>
                 </td>
@@ -1186,6 +1180,157 @@
     <div>
         <h2>
             Tanzrunde 7
+        </h2>
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                     ()
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    2
+                </td>
+                <td>
+                     ()
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    3
+                </td>
+                <td>
+                     ()
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    4
+                </td>
+                <td>
+                     ()
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    5
+                </td>
+                <td>
+                     ()
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    6
+                </td>
+                <td>
+                     ()
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    7
+                </td>
+                <td>
+                     ()
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    8
+                </td>
+                <td>
+                     ()
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    9
+                </td>
+                <td>
+                     ()
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <h2>
+            Tanzrunde 8
         </h2>
         <table class="table table-striped table-bordered table-hover table-condensed">
             <tr>

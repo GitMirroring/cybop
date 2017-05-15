@@ -30,6 +30,7 @@
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../executor/streamer/writer/directory/directory_writer.c"
 #include "../../executor/streamer/writer/display/display_writer.c"
 #include "../../executor/streamer/writer/file/file_writer.c"
 #include "../../executor/streamer/writer/inline/inline_writer.c"
@@ -62,6 +63,16 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            compare_integer_equal((void*) &r, p5, (void*) DIRECTORY_CYBOI_CHANNEL);
+
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                write_directory(p0, *d, p2);
+            }
+        }
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -34,6 +34,10 @@
 static wchar_t* CLOCK_CYBOL_CHANNEL = L"clock";
 static int* CLOCK_CYBOL_CHANNEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The directory cybol channel. */
+static wchar_t* DIRECTORY_CYBOL_CHANNEL = L"directory";
+static int* DIRECTORY_CYBOL_CHANNEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The display cybol channel. */
 static wchar_t* DISPLAY_CYBOL_CHANNEL = L"display";
 static int* DISPLAY_CYBOL_CHANNEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;

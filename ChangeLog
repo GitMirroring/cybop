@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-05-15  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add error codes to file stream reader/writer
+        * Add directory stream reader/writer
+
 2017-05-02  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add cybol example application "repertoire"

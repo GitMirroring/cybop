@@ -30,6 +30,7 @@
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../executor/streamer/reader/directory/directory_reader.c"
 #include "../../executor/streamer/reader/display/display_reader.c"
 #include "../../executor/streamer/reader/file/file_reader.c"
 #include "../../executor/streamer/reader/inline/inline_reader.c"
@@ -64,6 +65,16 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p11, (void*) DIRECTORY_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            read_directory(p0, p1, p2, p3, p4, p5, p6, p7);
+        }
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -25,12 +25,6 @@
             1980er Rock-Pop &#x26; Synthi Pop
         </h2>
         <ol>
-            <li>
-                Alan Parsons Project - Eye In The Sky
-            </li>
-            <li>
-                Elton John - Sacrifice
-            </li>
         </ol>
     </div>
     <div>
@@ -45,9 +39,6 @@
             2000er Rock-Pop
         </h2>
         <ol>
-            <li>
-                Alcazar - Crying At The Discotheque
-            </li>
         </ol>
     </div>
     <div>

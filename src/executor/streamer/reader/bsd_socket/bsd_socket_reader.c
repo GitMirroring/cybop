@@ -31,7 +31,6 @@
 #include <stddef.h> // size_t
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
@@ -141,38 +140,32 @@ void read_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
                         if (errno == EBADF) {
 
-                        fwprintf(stdout, L"TEST read bsd socket error EBADF: %i\n", errno);
-
+                            fwprintf(stdout, L"TEST read bsd socket error EBADF: %i\n", errno);
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read bsd socket. The socket argument is not a valid file descriptor.");
 
                         } else if (errno == ENOTSOCK) {
 
-                        fwprintf(stdout, L"TEST read bsd socket error ENOTSOCK: %i\n", errno);
-
+                            fwprintf(stdout, L"TEST read bsd socket error ENOTSOCK: %i\n", errno);
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read bsd socket. The descriptor socket is not a socket.");
 
                         } else if (errno == EWOULDBLOCK) {
 
-                        fwprintf(stdout, L"TEST read bsd socket error EWOULDBLOCK: %i\n", errno);
-
+                            fwprintf(stdout, L"TEST read bsd socket error EWOULDBLOCK: %i\n", errno);
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read bsd socket. The read operation would block even though nonblocking mode has been set on the socket.");
 
                         } else if (errno == EINTR) {
 
-                        fwprintf(stdout, L"TEST read bsd socket error EINTR: %i\n", errno);
-
+                            fwprintf(stdout, L"TEST read bsd socket error EINTR: %i\n", errno);
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read bsd socket. The operation was interrupted by a signal before any data was received.");
 
                         } else if (errno == ENOTCONN) {
 
-                        fwprintf(stdout, L"TEST read bsd socket error ENOTCONN: %i\n", errno);
-
+                            fwprintf(stdout, L"TEST read bsd socket error ENOTCONN: %i\n", errno);
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read bsd socket. The socket was never connected.");
 
                         } else {
 
-                        fwprintf(stdout, L"TEST read bsd socket error UNKNOWN: %i\n", errno);
-
+                            fwprintf(stdout, L"TEST read bsd socket error UNKNOWN: %i\n", errno);
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read bsd socket. An unknown error occured.");
                         }
                     }
