@@ -26,8 +26,12 @@
 #ifndef HELPER_SOURCE
 #define HELPER_SOURCE
 
-#include "../constant/model/character_code/unicode/unicode_character_code_model.c"
+//?? TEST
 #include "../constant/model/cyboi/identification/identification_cyboi_model.c"
+
+
+#include "../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../constant/model/cyboi/help/help_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../executor/memoriser/allocator/array_allocator.c"
@@ -43,32 +47,47 @@ void help(void* p0) {
 
     // The message.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int mc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // Set size to arbitrary big value, so that message does
-    // not have to be reallocated for every character below.
-    // This lets the programme run faster.
-    int ms = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
+    // The message item data.
+    void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Allocate message.
+    // Allocate message item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-    allocate_array((void*) &m, (void*) &ms, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // CAUTION! Set size to arbitrary big value, so that message does
+    // not have to be reallocated for every character below.
+    // This lets the programme possibly run faster.
+    allocate_item((void*) &m, (void*) NUMBER_1024_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // Copy message.
-    modify_overwrite((void*) &m, (void*) HELP_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) HELP_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Copy line feed control wide character.
-    modify_overwrite((void*) &m, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Copy null termination wide character.
-    modify_overwrite((void*) &m, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    // Append arguments help.
+    modify_item(m, (void*) ARGUMENTS_HELP_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ARGUMENTS_HELP_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    // Append line feed control.
+    modify_item(m, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    // Append usage help.
+    modify_item(m, (void*) USAGE_HELP_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) USAGE_HELP_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    // Append line feed control.
+    modify_item(m, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    // Append examples help.
+    modify_item(m, (void*) EXAMPLES_HELP_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) EXAMPLES_HELP_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    // Append line feed control.
+    modify_item(m, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    // Append bugs help.
+    modify_item(m, (void*) BUGS_HELP_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) BUGS_HELP_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    // Append line feed control.
+    modify_item(m, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    // Append null termination.
+    modify_item(m, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    // Get message item data.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &md, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Log message.
-    log_write(p0, m);
+    log_write(p0, md);
 
-    // Deallocate message.
-    // CAUTION! The second argument "count" is NULL,
-    // since it is only needed for looping elements of type PART,
-    // in order to decrement the rubbish (garbage) collection counter.
-    deallocate_array((void*) &m, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &ms, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate message item.
+    deallocate_item((void*) &m, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* HELPER_SOURCE */

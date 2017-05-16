@@ -35,7 +35,7 @@ static wchar_t* NAME_IDENTIFICATION_CYBOI_MODEL = L"Cybernetics Oriented Interpr
 static int* NAME_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_40_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The version identification cyboi model. */
-static wchar_t* VERSION_IDENTIFICATION_CYBOI_MODEL = L"0.19.0";
+static wchar_t* VERSION_IDENTIFICATION_CYBOI_MODEL = L"0.20.0";
 static int* VERSION_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The slogan identification cyboi model. */
@@ -54,22 +54,6 @@ static wchar_t* LICENCE_IDENTIFICATION_CYBOI_MODEL = L"CYBOI comes with NO WARRA
                                                      L"For more information about these matters,\n"
                                                      L"see the files named COPYING.";
 static int* LICENCE_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_220_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The help identification cyboi model. */
-static wchar_t* HELP_IDENTIFICATION_CYBOI_MODEL = L"Arguments have to be given!\n"
-                                                  L"Usage: cyboi ARG [--knowledge=ARG] [--loglevel=ARG] [--logfile=ARG] [--help] [--version]\n"
-                                                  L"\tARG\t\tStarts cyboi in knowledge mode. Takes ARG as cybol knowledge file. This is the standard way to use cyboi.\n"
-                                                  L"\t--knowledge=ARG\tStarts cyboi in knowledge mode. Takes ARG as cybol knowledge file. This is the long form.\n"
-                                                  L"\t--loglevel=ARG\tSets the log level. The ARG may be one of: off, error, warning, information, debug. The default is off.\n"
-                                                  L"\t--logfile=ARG\tLogs messages to the file specified by ARG.\n"
-                                                  L"\t--help\t\tDisplays this help message.\n"
-                                                  L"\t--version\tDisplays the current version.\n"
-                                                  L"Examples:\n"
-                                                  L"\tcyboi resmedicinae/run.cybol\n"
-                                                  L"\tcyboi --knowledge=resmedicinae/run.cybol\n"
-                                                  L"\tcyboi --knowledge=resmedicinae/run.cybol --loglevel=error --logfile=error.log\n"
-                                                  L"Report bugs to <cybop-developers@nongnu.org> or <christian.heller@tuxtax.de>.";
-static int* HELP_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_965_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* IDENTIFICATION_CYBOI_MODEL_CONSTANT_SOURCE */
 #endif

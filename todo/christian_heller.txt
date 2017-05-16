@@ -14,6 +14,8 @@
 Repertoire
 __________
 
+        * Reflect on reading a cybol app as zip file (e.g. with suffix "cyboz" or "cyboa")
+        * Use the same code for reading zip and directory, since both consist of files
         * Use new cybol channel "directory" for reading in files of directory "repertoire/db/song/" in cybol example application "repertoire"
             SEE file "repertoire/db.cybol"
 
