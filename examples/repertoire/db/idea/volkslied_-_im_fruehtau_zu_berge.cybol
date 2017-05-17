@@ -1,0 +1,13 @@
+<node>
+
+    <node name="artist" channel="inline" format="text/plain" model="Postchor Brandenburg"/>
+    <node name="title" channel="inline" format="text/plain" model="Es wollt ein Mädchen früh aufstehn"/>
+    <node name="genre" channel="inline" format="text/plain" model="volksmusik"/>
+    <node name="year" channel="inline" format="text/plain" model=""/>
+
+    <node name="time" channel="inline" format="text/plain" model="0:00"/>
+    <node name="key" channel="inline" format="text/plain" model=""/>
+    <node name="vocals" channel="inline" format="text/plain" model="Chris"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>
