@@ -3,8 +3,9 @@
     <!-- Database with all details -->
 <!--
     <node name="song" channel="file" format="element/part" model="repertoire/db/song.cybol"/>
--->
     <node name="song" channel="directory" format="element/part" model="repertoire/db/song/"/>
+-->
+    <node name="song" channel="file" format="element/part" model="repertoire/db/song.cybol"/>
     <node name="idea" channel="file" format="element/part" model="repertoire/db/idea.cybol"/>
 
     <!-- Extracts from database in form of a table -->
