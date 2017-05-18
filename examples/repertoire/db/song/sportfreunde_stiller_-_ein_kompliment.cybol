@@ -1,8 +1,8 @@
 <node>
 
-    <node name="artist" channel="inline" format="text/plain" model="TODO"/>
-    <node name="title" channel="inline" format="text/plain" model="TODO"/>
-    <node name="genre" channel="inline" format="text/plain" model="TODO"/>
+    <node name="artist" channel="inline" format="text/plain" model="Sportfreunde Stiller"/>
+    <node name="title" channel="inline" format="text/plain" model="Ein Kompliment"/>
+    <node name="genre" channel="inline" format="text/plain" model="2000"/>
     <node name="year" channel="inline" format="text/plain" model=""/>
 
     <node name="time" channel="inline" format="text/plain" model="0:00"/>

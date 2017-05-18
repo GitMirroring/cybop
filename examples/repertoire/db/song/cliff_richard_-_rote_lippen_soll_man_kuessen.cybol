@@ -1,7 +1,7 @@
 <node>
 
-    <node name="artist" channel="inline" format="text/plain" model="TODO"/>
-    <node name="title" channel="inline" format="text/plain" model="TODO"/>
+    <node name="artist" channel="inline" format="text/plain" model="Cliff Richard"/>
+    <node name="title" channel="inline" format="text/plain" model="Rote Lippen Soll Man Küssen"/>
     <node name="genre" channel="inline" format="text/plain" model="schlager"/>
     <node name="year" channel="inline" format="text/plain" model=""/>
 

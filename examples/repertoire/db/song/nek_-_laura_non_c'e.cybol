@@ -1,8 +1,8 @@
 <node>
 
-    <node name="artist" channel="inline" format="text/plain" model="TODO"/>
-    <node name="title" channel="inline" format="text/plain" model="TODO"/>
-    <node name="genre" channel="inline" format="text/plain" model="TODO"/>
+    <node name="artist" channel="inline" format="text/plain" model="Nek"/>
+    <node name="title" channel="inline" format="text/plain" model="Laura Non C'e"/>
+    <node name="genre" channel="inline" format="text/plain" model="2010"/>
     <node name="year" channel="inline" format="text/plain" model=""/>
 
     <node name="time" channel="inline" format="text/plain" model="0:00"/>

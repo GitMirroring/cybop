@@ -1,8 +1,8 @@
 <node>
 
-    <node name="artist" channel="inline" format="text/plain" model="TODO"/>
-    <node name="title" channel="inline" format="text/plain" model="TODO"/>
-    <node name="genre" channel="inline" format="text/plain" model="TODO"/>
+    <node name="artist" channel="inline" format="text/plain" model="Andreas Bourani"/>
+    <node name="title" channel="inline" format="text/plain" model="Alles Nur In Meinem Kopf"/>
+    <node name="genre" channel="inline" format="text/plain" model="2010"/>
     <node name="year" channel="inline" format="text/plain" model=""/>
 
     <node name="time" channel="inline" format="text/plain" model="0:00"/>

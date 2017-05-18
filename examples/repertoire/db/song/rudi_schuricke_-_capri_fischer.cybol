@@ -1,7 +1,7 @@
 <node>
 
-    <node name="artist" channel="inline" format="text/plain" model="TODO"/>
-    <node name="title" channel="inline" format="text/plain" model="TODO"/>
+    <node name="artist" channel="inline" format="text/plain" model="Rudi Schuricke"/>
+    <node name="title" channel="inline" format="text/plain" model="Capri Fischer"/>
     <node name="genre" channel="inline" format="text/plain" model="schlager"/>
     <node name="year" channel="inline" format="text/plain" model=""/>
 

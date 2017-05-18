@@ -1,8 +1,8 @@
 <node>
 
-    <node name="artist" channel="inline" format="text/plain" model="TODO"/>
-    <node name="title" channel="inline" format="text/plain" model="TODO"/>
-    <node name="genre" channel="inline" format="text/plain" model="TODO"/>
+    <node name="artist" channel="inline" format="text/plain" model="Doris Day"/>
+    <node name="title" channel="inline" format="text/plain" model="Whatever Will Be Will Be (Que Sera Sera)"/>
+    <node name="genre" channel="inline" format="text/plain" model="1950"/>
     <node name="year" channel="inline" format="text/plain" model=""/>
 
     <node name="time" channel="inline" format="text/plain" model="0:00"/>
