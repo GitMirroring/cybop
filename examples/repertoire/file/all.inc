@@ -41,10 +41,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -62,10 +64,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -83,10 +87,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                K&#xF6;gi
             </td>
             <td>
             </td>
@@ -104,10 +110,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -125,10 +133,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                K&#xF6;gi
             </td>
             <td>
             </td>
@@ -146,10 +156,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -167,10 +179,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -188,10 +202,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -209,10 +225,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                K&#xF6;gi
             </td>
             <td>
             </td>
@@ -230,10 +248,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -251,10 +271,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -272,10 +294,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -293,10 +317,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -314,10 +340,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -335,10 +363,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                K&#xF6;gi
             </td>
             <td>
             </td>
@@ -356,10 +386,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -377,10 +409,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -398,10 +432,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -419,10 +455,13 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
+                D-Dur Shuffle 4/4 Takt
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -440,10 +479,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -461,10 +502,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -482,10 +525,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -503,10 +548,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -524,10 +571,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -545,10 +594,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -566,10 +617,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                K&#xF6;gi
             </td>
             <td>
             </td>
@@ -587,10 +640,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -608,10 +663,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -629,10 +686,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -650,10 +709,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -671,10 +732,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -692,10 +755,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -713,10 +778,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                K&#xF6;gi
             </td>
             <td>
             </td>
@@ -734,10 +801,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                K&#xF6;gi / Chris
             </td>
             <td>
             </td>
@@ -755,10 +824,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -776,10 +847,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -795,12 +868,15 @@
                 1980er Rock-Pop &#x26; Synthi Pop
             </td>
             <td>
+                1985
+            </td>
+            <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
-            </td>
-            <td>
+                Chris
             </td>
             <td>
             </td>
@@ -818,10 +894,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -839,10 +917,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -860,10 +940,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -881,10 +963,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -902,10 +986,13 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
+                B-Moll Rock 4/4 Takt
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -923,10 +1010,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -944,10 +1033,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -965,10 +1056,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -986,10 +1079,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1007,10 +1102,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1028,10 +1125,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                K&#xF6;gi / Chris
             </td>
             <td>
             </td>
@@ -1049,10 +1148,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1070,10 +1171,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1091,10 +1194,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                K&#xF6;gi / Chris
             </td>
             <td>
             </td>
@@ -1112,10 +1217,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1133,10 +1240,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1154,10 +1263,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1175,10 +1286,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1196,10 +1309,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                K&#xF6;gi / Chris
             </td>
             <td>
             </td>
@@ -1217,10 +1332,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                K&#xF6;gi / Chris
             </td>
             <td>
             </td>
@@ -1238,10 +1355,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1259,10 +1378,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1280,10 +1401,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1301,10 +1424,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1322,10 +1447,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1343,10 +1470,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1364,10 +1493,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                K&#xF6;gi
             </td>
             <td>
             </td>
@@ -1385,10 +1516,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1406,10 +1539,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1427,10 +1562,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1448,10 +1585,13 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
+                Ab-Dur Rock 4/4 Takt
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1469,10 +1609,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1490,10 +1632,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                K&#xF6;gi
             </td>
             <td>
             </td>
@@ -1511,10 +1655,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                K&#xF6;gi
             </td>
             <td>
             </td>
@@ -1532,10 +1678,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                K&#xF6;gi / Chris
             </td>
             <td>
             </td>
@@ -1553,10 +1701,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1574,10 +1724,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1595,10 +1747,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1616,10 +1770,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1637,10 +1793,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1658,10 +1816,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1679,10 +1839,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1700,10 +1862,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1721,10 +1885,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1742,10 +1908,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1763,10 +1931,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1784,10 +1954,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                K&#xF6;gi / Chris
             </td>
             <td>
             </td>
@@ -1805,10 +1977,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                K&#xF6;gi
             </td>
             <td>
             </td>
@@ -1826,10 +2000,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1847,10 +2023,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1868,10 +2046,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                K&#xF6;gi / Chris
             </td>
             <td>
             </td>
@@ -1889,10 +2069,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1910,10 +2092,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1931,10 +2115,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                K&#xF6;gi / Chris
             </td>
             <td>
             </td>
@@ -1952,10 +2138,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1973,10 +2161,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -1993,10 +2183,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -2013,10 +2205,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>
@@ -2033,10 +2227,12 @@
             <td>
             </td>
             <td>
+                0:00
             </td>
             <td>
             </td>
             <td>
+                Chris
             </td>
             <td>
             </td>

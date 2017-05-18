@@ -7,7 +7,7 @@
 
     <node name="time" channel="inline" format="text/plain" model="0:00"/>
     <node name="key" channel="inline" format="text/plain" model=""/>
-    <node name="vocals" channel="inline" format="text/plain" model="Chris"/>
+    <node name="vocals" channel="inline" format="text/plain" model="Kögi"/>
     <node name="remark" channel="inline" format="text/plain" model=""/>
 
 </node>
