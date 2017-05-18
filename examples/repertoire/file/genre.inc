@@ -396,13 +396,13 @@
         </h2>
         <ol>
             <li>
-                 - Kufsteiner Lied
+                Volkslied - Kufsteiner Lied
             </li>
             <li>
-                 - Rosamunde
+                Volkslied - Rosamunde
             </li>
             <li>
-                 - What Shall We Do With The Drunken Sailor
+                Volkslied - What Shall We Do With The Drunken Sailor
             </li>
         </ol>
     </div>

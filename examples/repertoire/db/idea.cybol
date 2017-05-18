@@ -111,7 +111,7 @@
     <node name="secret_service_-_ten_o'clock_postman" channel="file" format="element/part" model="repertoire/db/idea/secret_service_-_ten_o'clock_postman.cybol"/>
     <node name="shorts_-_comment_ca_va" channel="file" format="element/part" model="repertoire/db/idea/shorts_-_comment_ca_va.cybol"/>
     <node name="simon_&_garfunkel_-_sound_of_silence" channel="file" format="element/part" model="repertoire/db/idea/simon_&_garfunkel_-_sound_of_silence.cybol"/>
-    <node name="simple_minds_-_don't_you_forget_about_me" channel="file" format="element/part" model="repertoire/db/idea/simple_minds_-_don't_you_forget_about_me.cybol"/>
+    <node name="simple_minds_-_don't_you_(forget_about_me)" channel="file" format="element/part" model="repertoire/db/idea/simple_minds_-_don't_you_(forget_about_me).cybol"/>
     <node name="smokie_-_i'll_meet_you_at_midnight" channel="file" format="element/part" model="repertoire/db/idea/smokie_-_i'll_meet_you_at_midnight.cybol"/>
     <node name="sparks_-_when_do_i_get_to_sing_my_way" channel="file" format="element/part" model="repertoire/db/idea/sparks_-_when_do_i_get_to_sing_my_way.cybol"/>
     <node name="status_quo_-_rockin'_all_over_the_world" channel="file" format="element/part" model="repertoire/db/idea/status_quo_-_rockin'_all_over_the_world.cybol"/>

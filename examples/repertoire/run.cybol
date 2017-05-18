@@ -9,6 +9,21 @@
         <node name="message" channel="inline" format="text/cybol-path" model="."/>
     </node>
 
+    <!-- Write knowledge into file. -->
+<!--
+    <node name="TEST_knowledge" channel="inline" format="communicate/send" model="">
+        <node name="receiver" channel="inline" format="text/plain" model="test_repertoire.txt"/>
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
+    </node>
+    <node name="TEST_startup_terminal" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </node>
+-->
+
     <node name="execute_logic" channel="inline" format="text/cybol-path" model=".logic.execute"/>
 
     <node name="exit_application" channel="inline" format="live/exit" model=""/>

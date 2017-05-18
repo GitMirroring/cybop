@@ -117,13 +117,15 @@
                     7
                 </td>
                 <td>
-                     ()
+                    Hello Mary Lou (Phil &#x26; John)
+                </td>
+                <td>
+                    0:00
                 </td>
                 <td>
                 </td>
                 <td>
-                </td>
-                <td>
+                    Chris
                 </td>
                 <td>
                 </td>
@@ -339,7 +341,7 @@
                     10
                 </td>
                 <td>
-                    Kufsteiner Lied ()
+                    Kufsteiner Lied (Volkslied)
                 </td>
                 <td>
                     0:00
@@ -357,7 +359,7 @@
                     11
                 </td>
                 <td>
-                    Rosamunde ()
+                    Rosamunde (Volkslied)
                 </td>
                 <td>
                     0:00
@@ -411,7 +413,7 @@
                     14
                 </td>
                 <td>
-                    What Shall We Do With The Drunken Sailor ()
+                    What Shall We Do With The Drunken Sailor (Volkslied)
                 </td>
                 <td>
                     0:00
@@ -616,13 +618,15 @@
                     9
                 </td>
                 <td>
-                     ()
+                    Walking On Sunshine (Katrina &#x26; The Waves)
+                </td>
+                <td>
+                    0:00
                 </td>
                 <td>
                 </td>
                 <td>
-                </td>
-                <td>
+                    Chris
                 </td>
                 <td>
                 </td>
@@ -783,13 +787,15 @@
                     8
                 </td>
                 <td>
-                     ()
+                    Dreamin&#x27; (Cliff Richard)
+                </td>
+                <td>
+                    0:00
                 </td>
                 <td>
                 </td>
                 <td>
-                </td>
-                <td>
+                    Chris
                 </td>
                 <td>
                 </td>
@@ -1398,13 +1404,15 @@
                     5
                 </td>
                 <td>
-                     ()
+                    I&#x27;m On Fire (Bruce Springsteen)
+                </td>
+                <td>
+                    0:00
                 </td>
                 <td>
                 </td>
                 <td>
-                </td>
-                <td>
+                    K&#xF6;gi
                 </td>
                 <td>
                 </td>
@@ -1493,7 +1501,7 @@
                     1
                 </td>
                 <td>
-                    Laura Non C&#x27;e (Nek)
+                    Capri Fischer (Rudi Schuricke)
                 </td>
                 <td>
                     0:00
@@ -1511,132 +1519,7 @@
                     2
                 </td>
                 <td>
-                    Entre Dos Tierras (Heroes del Silencio)
-                </td>
-                <td>
-                    0:00
-                </td>
-                <td>
-                    B-Moll Rock 4/4 Takt
-                </td>
-                <td>
-                    Chris
-                </td>
-                <td>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    3
-                </td>
-                <td>
-                    Learning To Fly (Tom Petty)
-                </td>
-                <td>
-                    0:00
-                </td>
-                <td>
-                </td>
-                <td>
-                    Chris
-                </td>
-                <td>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    4
-                </td>
-                <td>
-                    I Won&#x27;t Back Down (Tom Petty)
-                </td>
-                <td>
-                    0:00
-                </td>
-                <td>
-                </td>
-                <td>
-                    Chris
-                </td>
-                <td>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    5
-                </td>
-                <td>
-                     ()
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    6
-                </td>
-                <td>
-                    San Francisco (Scott Mc Kenzie)
-                </td>
-                <td>
-                    0:00
-                </td>
-                <td>
-                </td>
-                <td>
-                    Chris
-                </td>
-                <td>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    7
-                </td>
-                <td>
-                    I Promised Myself (Nick Kamen)
-                </td>
-                <td>
-                    0:00
-                </td>
-                <td>
-                </td>
-                <td>
-                    Chris
-                </td>
-                <td>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    8
-                </td>
-                <td>
-                    Angels (Robbie Williams)
-                </td>
-                <td>
-                    0:00
-                </td>
-                <td>
-                </td>
-                <td>
-                    Chris
-                </td>
-                <td>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    9
-                </td>
-                <td>
-                    Wonderful Tonight (Eric Clapton)
+                    Wilde Kirschen (Udo J&#xFC;rgens)
                 </td>
                 <td>
                     0:00

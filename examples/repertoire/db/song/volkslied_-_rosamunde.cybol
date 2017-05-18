@@ -1,6 +1,6 @@
 <node>
 
-    <node name="artist" channel="inline" format="text/plain" model=""/>
+    <node name="artist" channel="inline" format="text/plain" model="Volkslied"/>
     <node name="title" channel="inline" format="text/plain" model="Rosamunde"/>
     <node name="genre" channel="inline" format="text/plain" model="volksmusik"/>
     <node name="year" channel="inline" format="text/plain" model=""/>

@@ -1231,6 +1231,7 @@
                 Kufsteiner Lied
             </td>
             <td>
+                Volkslied
             </td>
             <td>
                 Volksmusik &#x26; Stimmungsmusik
@@ -1243,6 +1244,7 @@
                 Rosamunde
             </td>
             <td>
+                Volkslied
             </td>
             <td>
                 Volksmusik &#x26; Stimmungsmusik
@@ -1255,6 +1257,7 @@
                 What Shall We Do With The Drunken Sailor
             </td>
             <td>
+                Volkslied
             </td>
             <td>
                 Volksmusik &#x26; Stimmungsmusik
