@@ -1,8 +1,8 @@
 <node>
 
-    <node name="artist" channel="inline" format="text/plain" model="TODO"/>
-    <node name="title" channel="inline" format="text/plain" model="TODO"/>
-    <node name="genre" channel="inline" format="text/plain" model="ostrock"/>
+    <node name="artist" channel="inline" format="text/plain" model="Puhdys"/>
+    <node name="title" channel="inline" format="text/plain" model="Wenn Träume Sterben"/>
+    <node name="genre" channel="inline" format="text/plain" model="ost"/>
     <node name="year" channel="inline" format="text/plain" model=""/>
 
     <node name="time" channel="inline" format="text/plain" model="0:00"/>

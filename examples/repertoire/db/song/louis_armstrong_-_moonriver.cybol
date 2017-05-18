@@ -2,7 +2,7 @@
 
     <node name="artist" channel="inline" format="text/plain" model="Louis Armstrong"/>
     <node name="title" channel="inline" format="text/plain" model="Moonriver"/>
-    <node name="genre" channel="inline" format="text/plain" model="englisch"/>
+    <node name="genre" channel="inline" format="text/plain" model="en"/>
     <node name="year" channel="inline" format="text/plain" model=""/>
 
     <node name="time" channel="inline" format="text/plain" model="0:00"/>

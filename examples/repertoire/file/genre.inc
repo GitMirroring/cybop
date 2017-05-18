@@ -5,16 +5,19 @@
         </h2>
         <ol>
             <li>
-                TODO - TODO
+                Doris Day - Whatever Will Be Will Be (Que Sera Sera)
             </li>
             <li>
-                TODO - TODO
+                Elvis Presley - Always On My Mind
             </li>
             <li>
-                TODO - TODO
+                Elvis Presley - Are You Lonesome Tonight
             </li>
             <li>
-                TODO - TODO
+                Elvis Presley - Devil In Disguise
+            </li>
+            <li>
+                Mavericks - Foolish Heart
             </li>
         </ol>
     </div>
@@ -24,10 +27,13 @@
         </h2>
         <ol>
             <li>
-                TODO - TODO
+                Beatles - Ob-la-di Ob-la-da
             </li>
             <li>
-                TODO - TODO
+                Bob Dylan - Knockin&#x27; On Heaven&#x27;s Door
+            </li>
+            <li>
+                Scott Mc Kenzie - San Francisco
             </li>
         </ol>
     </div>
@@ -37,22 +43,22 @@
         </h2>
         <ol>
             <li>
-                TODO - TODO
+                C.C.R. - Bad Moon Rising
             </li>
             <li>
-                TODO - TODO
+                C.C.R. - Hey Tonight
             </li>
             <li>
-                TODO - TODO
+                Eagles - Take It Easy
             </li>
             <li>
-                TODO - TODO
+                Eric Clapton - Lay Down Sally
             </li>
             <li>
-                TODO - TODO
+                Eric Clapton - Promises
             </li>
             <li>
-                TODO - TODO
+                Village People - Y.M.C.A.
             </li>
         </ol>
     </div>
@@ -62,34 +68,70 @@
         </h2>
         <ol>
             <li>
+                &#xC4;rzte - Westerland
+            </li>
+            <li>
                 Alan Parsons Project - Eye In The Sky
             </li>
             <li>
-                TODO - TODO
+                Black - Everything&#x27;s Coming Up Roses
             </li>
             <li>
-                TODO - TODO
+                Bronski Beat - Smalltown Boy
+            </li>
+            <li>
+                Bruce Springsteen - I&#x27;m On Fire
+            </li>
+            <li>
+                Bryan Adams - Run To You
+            </li>
+            <li>
+                Bryan Adams - Somebody
+            </li>
+            <li>
+                Bryan Adams - Summer Of &#x27;69
+            </li>
+            <li>
+                Depeche Mode - Enjoy The Silence
+            </li>
+            <li>
+                Dire Straits - Sultans Of Swing
             </li>
             <li>
                 Elton John - Sacrifice
             </li>
             <li>
-                TODO - TODO
+                Fiction Factory - Feels Like Heaven
             </li>
             <li>
-                TODO - TODO
+                Gibson Brothers - Que Sera Mi Vida
             </li>
             <li>
-                TODO - TODO
+                Katrina &#x26; The Waves - Walking On Sunshine
             </li>
             <li>
-                TODO - TODO
+                Kiss - I Was Made For Loving You
             </li>
             <li>
-                TODO - TODO
+                Men At Work - Who Can It Be Now
             </li>
             <li>
-                TODO - TODO
+                Nick Straker Band - A Walk In The Park
+            </li>
+            <li>
+                Policy - Every Breath You Take
+            </li>
+            <li>
+                Soulsister - The Way To Your Heart
+            </li>
+            <li>
+                Toto - Africa
+            </li>
+            <li>
+                Toto - Child&#x27;s Anthem
+            </li>
+            <li>
+                Ultravox - Dancing With Tears In My Eyes
             </li>
         </ol>
     </div>
@@ -99,28 +141,28 @@
         </h2>
         <ol>
             <li>
-                TODO - TODO
+                Eric Clapton - Tears In Heaven
             </li>
             <li>
-                TODO - TODO
+                Eric Clapton - Wonderful Tonight
             </li>
             <li>
-                TODO - TODO
+                Heroes del Silencio - Entre Dos Tierras
             </li>
             <li>
-                TODO - TODO
+                Londonbeat - I&#x27;ve Been Thinking About You
             </li>
             <li>
-                TODO - TODO
+                Nick Kamen - I Promised Myself
             </li>
             <li>
-                TODO - TODO
+                Roy Orbison - I Drove All Night
             </li>
             <li>
-                TODO - TODO
+                Tom Petty - I Won&#x27;t Back Down
             </li>
             <li>
-                TODO - TODO
+                Tom Petty - Learning To Fly
             </li>
         </ol>
     </div>
@@ -129,44 +171,52 @@
             2000er Rock-Pop
         </h2>
         <ol>
+            <li>
+                a-ha - Foot Of The Mountain
+            </li>
             <li>
                 Alcazar - Crying At The Discotheque
             </li>
             <li>
-                TODO - TODO
+                Fugees - Killing Me Softly
             </li>
             <li>
-                TODO - TODO
+                Phil Collins - You&#x27;ll Be In My Heart
             </li>
             <li>
-                TODO - TODO
+                Robbie Williams - Angels
+            </li>
+            <li>
+                Simply Red - Something Got Me Started
+            </li>
+            <li>
+                Sportfreunde Stiller - Ein Kompliment
             </li>
         </ol>
     </div>
     <div>
         <h2>
-            2000er Rock-Pop
+            2010er Rock-Pop
         </h2>
         <ol>
             <li>
-                TODO - TODO
+                A-Teens - Mama Mia
             </li>
             <li>
-                TODO - TODO
+                Andreas Bourani - Alles Nur In Meinem Kopf
             </li>
             <li>
-                TODO - TODO
+                Daft Punk - Get Lucky
             </li>
             <li>
-                TODO - TODO
+                Lost Frequencies feat. Janieck Devy - Reality
             </li>
-        </ol>
-    </div>
-    <div>
-        <h2>
-            Chanson
-        </h2>
-        <ol>
+            <li>
+                Nek - Laura Non C&#x27;e
+            </li>
+            <li>
+                Philipp Dittberner &#x26; Marv - Wolke 4
+            </li>
         </ol>
     </div>
     <div>
@@ -175,7 +225,10 @@
         </h2>
         <ol>
             <li>
-                TODO - TODO
+                John Denver - Country Roads
+            </li>
+            <li>
+                Ricky Nelson - Hello Mary Lou
             </li>
         </ol>
     </div>
@@ -185,40 +238,40 @@
         </h2>
         <ol>
             <li>
-                TODO - TODO
+                Achim Reichel - Aloha Heja He
             </li>
             <li>
-                TODO - TODO
+                BAP - Verdamp Lang Her
             </li>
             <li>
-                TODO - TODO
+                Heinz-Rudolf Kunze - Dein Ist Mein Ganzes Herz
             </li>
             <li>
-                TODO - TODO
+                Klaus Lage Band - 1000 und 1 Nacht (Zoom!)
             </li>
             <li>
-                TODO - TODO
+                Marius M&#xFC;ller-Westernhagen - Willenlos
             </li>
             <li>
-                TODO - TODO
+                M&#xFC;nchener Freiheit - Herzschlag Ist Der Takt
             </li>
             <li>
-                TODO - TODO
+                M&#xFC;nchener Freiheit - Tausendmal Du
             </li>
             <li>
-                TODO - TODO
+                Peter Maffay - Eiszeit
             </li>
             <li>
-                TODO - TODO
+                Purple Schulz - Du Hast Mir Gerade Noch Gefehlt
             </li>
             <li>
-                TODO - TODO
+                Purple Schulz - Kleine Seen
             </li>
             <li>
-                TODO - TODO
+                Rainhard Fendrich - Macho Macho
             </li>
             <li>
-                TODO - TODO
+                Udo Lindenberg - Mein Ding
             </li>
         </ol>
     </div>
@@ -228,19 +281,36 @@
         </h2>
         <ol>
             <li>
-                TODO - TODO
+                Barry Manilow - Copacabana
             </li>
             <li>
-                TODO - TODO
+                Cliff Richard - Dreamin
             </li>
             <li>
-                TODO - TODO
+                John Paul Young - Love Is In The Air
             </li>
             <li>
-                TODO - TODO
+                Louis Armstrong - Moonriver
             </li>
             <li>
-                TODO - TODO
+                Louis Armstrong - What A Wonderful World
+            </li>
+        </ol>
+    </div>
+    <div>
+        <h2>
+            Franz&#xF6;sischer Rock-Pop &#x26; Chanson
+        </h2>
+        <ol>
+        </ol>
+    </div>
+    <div>
+        <h2>
+            Italienische Musik &#x26; Italo-Pop
+        </h2>
+        <ol>
+            <li>
+                Adriano Celentano - Azzuro
             </li>
         </ol>
     </div>
@@ -250,27 +320,34 @@
         </h2>
         <ol>
             <li>
-                TODO - TODO
+                Joachim Witt - Goldener Reiter
             </li>
             <li>
-                TODO - TODO
+                Steinwolke - Katharine Katharine
             </li>
         </ol>
     </div>
     <div>
         <h2>
-            Ostrock
+            Ostrock (DDR)
         </h2>
         <ol>
             <li>
-                TODO - TODO
+                Keimzeit - Kling Klang
             </li>
             <li>
-                TODO - TODO
+                Klaus-Renft-Combo - Apfeltraum
             </li>
             <li>
-                TODO - TODO
+                Puhdys - Alt Wie Ein Baum
             </li>
+        </ol>
+    </div>
+    <div>
+        <h2>
+            Polnischer Rock-Pop
+        </h2>
+        <ol>
         </ol>
     </div>
     <div>
@@ -279,34 +356,37 @@
         </h2>
         <ol>
             <li>
-                TODO - TODO
+                Cliff Richard - Rote Lippen Soll Man K&#xFC;ssen
             </li>
             <li>
-                TODO - TODO
+                Costa Cordalis - Anita
             </li>
             <li>
-                TODO - TODO
+                Gottlieb Wendehals - Polon&#xE4;se Blankenese
             </li>
             <li>
-                TODO - TODO
+                Howard Carpendale - Hello Again
             </li>
             <li>
-                TODO - TODO
+                Phil &#x26; John - Hello Mary Lou
             </li>
             <li>
-                TODO - TODO
+                Rudi Schuricke - Capri Fischer
             </li>
             <li>
-                TODO - TODO
+                Udo J&#xFC;rgens - Aber Bitte Mit Sahne
             </li>
             <li>
-                TODO - TODO
+                Udo J&#xFC;rgens - Griechischer Wein
             </li>
             <li>
-                TODO - TODO
+                Udo J&#xFC;rgens - Ich War Noch Niemals In New York
             </li>
             <li>
-                TODO - TODO
+                Udo J&#xFC;rgens - Mit 66 Jahren
+            </li>
+            <li>
+                Udo J&#xFC;rgens - Wilde Kirschen
             </li>
         </ol>
     </div>
@@ -315,56 +395,15 @@
             Volksmusik &#x26; Stimmungsmusik
         </h2>
         <ol>
+            <li>
+                 - Kufsteiner Lied
+            </li>
+            <li>
+                 - Rosamunde
+            </li>
+            <li>
+                 - What Shall We Do With The Drunken Sailor
+            </li>
         </ol>
     </div>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
 </main>

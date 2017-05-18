@@ -1,8 +1,8 @@
 <node>
 
-    <node name="artist" channel="inline" format="text/plain" model="TODO"/>
-    <node name="title" channel="inline" format="text/plain" model="TODO"/>
-    <node name="genre" channel="inline" format="text/plain" model="chanson"/>
+    <node name="artist" channel="inline" format="text/plain" model="Michel Delpech"/>
+    <node name="title" channel="inline" format="text/plain" model="Pour Un Flirt"/>
+    <node name="genre" channel="inline" format="text/plain" model="fr"/>
     <node name="year" channel="inline" format="text/plain" model=""/>
 
     <node name="time" channel="inline" format="text/plain" model="0:00"/>

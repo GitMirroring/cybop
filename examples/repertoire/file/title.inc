@@ -18,22 +18,10 @@
     <tbody>
         <tr>
             <td>
-                TODO
+                Foot Of The Mountain
             </td>
             <td>
-                TODO
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
+                a-ha
             </td>
             <td>
                 2000er Rock-Pop
@@ -43,10 +31,23 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Mama Mia
             </td>
             <td>
-                TODO
+                A-Teens
+            </td>
+            <td>
+                2010er Rock-Pop
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Aloha Heja He
+            </td>
+            <td>
+                Achim Reichel
             </td>
             <td>
                 Deutschrock
@@ -56,24 +57,26 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Azzuro
             </td>
             <td>
-                TODO
+                Adriano Celentano
             </td>
             <td>
+                Italienische Musik &#x26; Italo-Pop
             </td>
             <td>
             </td>
         </tr>
         <tr>
             <td>
-                TODO
+                Westerland
             </td>
             <td>
-                TODO
+                &#xC4;rzte
             </td>
             <td>
+                1980er Rock-Pop &#x26; Synthi Pop
             </td>
             <td>
             </td>
@@ -106,22 +109,23 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Alles Nur In Meinem Kopf
             </td>
             <td>
-                TODO
+                Andreas Bourani
             </td>
             <td>
+                2010er Rock-Pop
             </td>
             <td>
             </td>
         </tr>
         <tr>
             <td>
-                TODO
+                Verdamp Lang Her
             </td>
             <td>
-                TODO
+                BAP
             </td>
             <td>
                 Deutschrock
@@ -131,10 +135,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Copacabana
             </td>
             <td>
-                TODO
+                Barry Manilow
             </td>
             <td>
                 Englischer Schlager
@@ -144,34 +148,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Ob-la-di Ob-la-da
             </td>
             <td>
-                TODO
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
+                Beatles
             </td>
             <td>
                 1960er Beat &#x26; Flower Power
@@ -181,22 +161,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Everything&#x27;s Coming Up Roses
             </td>
             <td>
-                TODO
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
+                Black
             </td>
             <td>
                 1980er Rock-Pop &#x26; Synthi Pop
@@ -206,46 +174,88 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Knockin&#x27; On Heaven&#x27;s Door
             </td>
             <td>
-                TODO
+                Bob Dylan
             </td>
             <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
-            </td>
-            <td>
+                1960er Beat &#x26; Flower Power
             </td>
             <td>
             </td>
         </tr>
         <tr>
             <td>
-                TODO
+                Smalltown Boy
             </td>
             <td>
-                TODO
+                Bronski Beat
             </td>
             <td>
+                1980er Rock-Pop &#x26; Synthi Pop
             </td>
             <td>
             </td>
         </tr>
         <tr>
             <td>
-                TODO
+                I&#x27;m On Fire
             </td>
             <td>
-                TODO
+                Bruce Springsteen
+            </td>
+            <td>
+                1980er Rock-Pop &#x26; Synthi Pop
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Run To You
+            </td>
+            <td>
+                Bryan Adams
+            </td>
+            <td>
+                1980er Rock-Pop &#x26; Synthi Pop
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Somebody
+            </td>
+            <td>
+                Bryan Adams
+            </td>
+            <td>
+                1980er Rock-Pop &#x26; Synthi Pop
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Summer Of &#x27;69
+            </td>
+            <td>
+                Bryan Adams
+            </td>
+            <td>
+                1980er Rock-Pop &#x26; Synthi Pop
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Bad Moon Rising
+            </td>
+            <td>
+                C.C.R.
             </td>
             <td>
                 1970er Rock &#x26; Pop
@@ -255,10 +265,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Hey Tonight
             </td>
             <td>
-                TODO
+                C.C.R.
             </td>
             <td>
                 1970er Rock &#x26; Pop
@@ -268,10 +278,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Dreamin
             </td>
             <td>
-                TODO
+                Cliff Richard
             </td>
             <td>
                 Englischer Schlager
@@ -281,23 +291,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Rote Lippen Soll Man K&#xFC;ssen
             </td>
             <td>
-                TODO
-            </td>
-            <td>
-                Schlager
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
+                Cliff Richard
             </td>
             <td>
                 Schlager
@@ -307,23 +304,36 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Anita
             </td>
             <td>
-                TODO
+                Costa Cordalis
             </td>
             <td>
-                2000er Rock-Pop
+                Schlager
             </td>
             <td>
             </td>
         </tr>
         <tr>
             <td>
-                TODO
+                Get Lucky
             </td>
             <td>
-                TODO
+                Daft Punk
+            </td>
+            <td>
+                2010er Rock-Pop
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Enjoy The Silence
+            </td>
+            <td>
+                Depeche Mode
             </td>
             <td>
                 1980er Rock-Pop &#x26; Synthi Pop
@@ -333,34 +343,36 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Sultans Of Swing
             </td>
             <td>
-                TODO
+                Dire Straits
             </td>
             <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
-            </td>
-            <td>
+                1980er Rock-Pop &#x26; Synthi Pop
             </td>
             <td>
             </td>
         </tr>
         <tr>
             <td>
-                TODO
+                Whatever Will Be Will Be (Que Sera Sera)
             </td>
             <td>
-                TODO
+                Doris Day
+            </td>
+            <td>
+                1950er Rock &#x27;n&#x27; Roll &#x26; Rockabilly
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Take It Easy
+            </td>
+            <td>
+                Eagles
             </td>
             <td>
                 1970er Rock &#x26; Pop
@@ -383,23 +395,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Always On My Mind
             </td>
             <td>
-                TODO
-            </td>
-            <td>
-                1950er Rock &#x27;n&#x27; Roll &#x26; Rockabilly
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
+                Elvis Presley
             </td>
             <td>
                 1950er Rock &#x27;n&#x27; Roll &#x26; Rockabilly
@@ -409,10 +408,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Are You Lonesome Tonight
             </td>
             <td>
-                TODO
+                Elvis Presley
             </td>
             <td>
                 1950er Rock &#x27;n&#x27; Roll &#x26; Rockabilly
@@ -422,10 +421,23 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Devil In Disguise
             </td>
             <td>
-                TODO
+                Elvis Presley
+            </td>
+            <td>
+                1950er Rock &#x27;n&#x27; Roll &#x26; Rockabilly
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Lay Down Sally
+            </td>
+            <td>
+                Eric Clapton
             </td>
             <td>
                 1970er Rock &#x26; Pop
@@ -435,10 +447,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Promises
             </td>
             <td>
-                TODO
+                Eric Clapton
             </td>
             <td>
                 1970er Rock &#x26; Pop
@@ -448,23 +460,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Tears In Heaven
             </td>
             <td>
-                TODO
-            </td>
-            <td>
-                1990er Rock-Pop &#x26; Independent
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
+                Eric Clapton
             </td>
             <td>
                 1990er Rock-Pop &#x26; Independent
@@ -474,10 +473,23 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Wonderful Tonight
             </td>
             <td>
-                TODO
+                Eric Clapton
+            </td>
+            <td>
+                1990er Rock-Pop &#x26; Independent
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Feels Like Heaven
+            </td>
+            <td>
+                Fiction Factory
             </td>
             <td>
                 1980er Rock-Pop &#x26; Synthi Pop
@@ -487,10 +499,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Killing Me Softly
             </td>
             <td>
-                TODO
+                Fugees
             </td>
             <td>
                 2000er Rock-Pop
@@ -500,60 +512,23 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Que Sera Mi Vida
             </td>
             <td>
-                TODO
+                Gibson Brothers
             </td>
             <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
-            </td>
-            <td>
+                1980er Rock-Pop &#x26; Synthi Pop
             </td>
             <td>
             </td>
         </tr>
         <tr>
             <td>
-                TODO
+                Polon&#xE4;se Blankenese
             </td>
             <td>
-                TODO
-            </td>
-            <td>
-                Deutschrock
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
-            </td>
-            <td>
-                1990er Rock-Pop &#x26; Independent
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
+                Gottlieb Wendehals
             </td>
             <td>
                 Schlager
@@ -563,10 +538,49 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Dein Ist Mein Ganzes Herz
             </td>
             <td>
-                TODO
+                Heinz-Rudolf Kunze
+            </td>
+            <td>
+                Deutschrock
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Entre Dos Tierras
+            </td>
+            <td>
+                Heroes del Silencio
+            </td>
+            <td>
+                1990er Rock-Pop &#x26; Independent
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Hello Again
+            </td>
+            <td>
+                Howard Carpendale
+            </td>
+            <td>
+                Schlager
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Goldener Reiter
+            </td>
+            <td>
+                Joachim Witt
             </td>
             <td>
                 Neue Deutsche Welle (NDW)
@@ -576,10 +590,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Country Roads
             </td>
             <td>
-                TODO
+                John Denver
             </td>
             <td>
                 Country Music
@@ -589,10 +603,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Love Is In The Air
             </td>
             <td>
-                TODO
+                John Paul Young
             </td>
             <td>
                 Englischer Schlager
@@ -602,10 +616,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Walking On Sunshine
             </td>
             <td>
-                TODO
+                Katrina &#x26; The Waves
             </td>
             <td>
                 1980er Rock-Pop &#x26; Synthi Pop
@@ -615,35 +629,36 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Kling Klang
             </td>
             <td>
-                TODO
+                Keimzeit
             </td>
             <td>
-                Ostrock
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
-            </td>
-            <td>
+                Ostrock (DDR)
             </td>
             <td>
             </td>
         </tr>
         <tr>
             <td>
-                TODO
+                I Was Made For Loving You
             </td>
             <td>
-                TODO
+                Kiss
+            </td>
+            <td>
+                1980er Rock-Pop &#x26; Synthi Pop
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                1000 und 1 Nacht (Zoom!)
+            </td>
+            <td>
+                Klaus Lage Band
             </td>
             <td>
                 Deutschrock
@@ -653,23 +668,23 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Apfeltraum
             </td>
             <td>
-                TODO
+                Klaus-Renft-Combo
             </td>
             <td>
-                Ostrock
+                Ostrock (DDR)
             </td>
             <td>
             </td>
         </tr>
         <tr>
             <td>
-                TODO
+                I&#x27;ve Been Thinking About You
             </td>
             <td>
-                TODO
+                Londonbeat
             </td>
             <td>
                 1990er Rock-Pop &#x26; Independent
@@ -679,23 +694,23 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Reality
             </td>
             <td>
-                TODO
+                Lost Frequencies feat. Janieck Devy
             </td>
             <td>
-                2000er Rock-Pop
+                2010er Rock-Pop
             </td>
             <td>
             </td>
         </tr>
         <tr>
             <td>
-                TODO
+                Moonriver
             </td>
             <td>
-                TODO
+                Louis Armstrong
             </td>
             <td>
                 Englischer Schlager
@@ -705,10 +720,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                What A Wonderful World
             </td>
             <td>
-                TODO
+                Louis Armstrong
             </td>
             <td>
                 Englischer Schlager
@@ -718,10 +733,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Willenlos
             </td>
             <td>
-                TODO
+                Marius M&#xFC;ller-Westernhagen
             </td>
             <td>
                 Deutschrock
@@ -731,10 +746,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Foolish Heart
             </td>
             <td>
-                TODO
+                Mavericks
             </td>
             <td>
                 1950er Rock &#x27;n&#x27; Roll &#x26; Rockabilly
@@ -744,73 +759,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Who Can It Be Now
             </td>
             <td>
-                TODO
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
-            </td>
-            <td>
-                Deutschrock
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
-            </td>
-            <td>
-                Deutschrock
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
-            </td>
-            <td>
-                1990er Rock-Pop &#x26; Independent
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
+                Men At Work
             </td>
             <td>
                 1980er Rock-Pop &#x26; Synthi Pop
@@ -820,87 +772,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Herzschlag Ist Der Takt
             </td>
             <td>
-                TODO
-            </td>
-            <td>
-                Deutschrock
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
-            </td>
-            <td>
-                Schlager
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
-            </td>
-            <td>
-                2000er Rock-Pop
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
-            </td>
-            <td>
-                1980er Rock-Pop &#x26; Synthi Pop
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
-            </td>
-            <td>
-                Ostrock
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
+                M&#xFC;nchener Freiheit
             </td>
             <td>
                 Deutschrock
@@ -910,23 +785,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Tausendmal Du
             </td>
             <td>
-                TODO
-            </td>
-            <td>
-                Deutschrock
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
+                M&#xFC;nchener Freiheit
             </td>
             <td>
                 Deutschrock
@@ -936,35 +798,23 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Laura Non C&#x27;e
             </td>
             <td>
-                TODO
+                Nek
             </td>
             <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
-            </td>
-            <td>
-                2000er Rock-Pop
+                2010er Rock-Pop
             </td>
             <td>
             </td>
         </tr>
         <tr>
             <td>
-                TODO
+                I Promised Myself
             </td>
             <td>
-                TODO
+                Nick Kamen
             </td>
             <td>
                 1990er Rock-Pop &#x26; Independent
@@ -974,10 +824,36 @@
         </tr>
         <tr>
             <td>
-                TODO
+                A Walk In The Park
             </td>
             <td>
-                TODO
+                Nick Straker Band
+            </td>
+            <td>
+                1980er Rock-Pop &#x26; Synthi Pop
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Eiszeit
+            </td>
+            <td>
+                Peter Maffay
+            </td>
+            <td>
+                Deutschrock
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Hello Mary Lou
+            </td>
+            <td>
+                Phil &#x26; John
             </td>
             <td>
                 Schlager
@@ -987,10 +863,153 @@
         </tr>
         <tr>
             <td>
-                TODO
+                You&#x27;ll Be In My Heart
             </td>
             <td>
-                TODO
+                Phil Collins
+            </td>
+            <td>
+                2000er Rock-Pop
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Wolke 4
+            </td>
+            <td>
+                Philipp Dittberner &#x26; Marv
+            </td>
+            <td>
+                2010er Rock-Pop
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Every Breath You Take
+            </td>
+            <td>
+                Policy
+            </td>
+            <td>
+                1980er Rock-Pop &#x26; Synthi Pop
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Alt Wie Ein Baum
+            </td>
+            <td>
+                Puhdys
+            </td>
+            <td>
+                Ostrock (DDR)
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Du Hast Mir Gerade Noch Gefehlt
+            </td>
+            <td>
+                Purple Schulz
+            </td>
+            <td>
+                Deutschrock
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Kleine Seen
+            </td>
+            <td>
+                Purple Schulz
+            </td>
+            <td>
+                Deutschrock
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Macho Macho
+            </td>
+            <td>
+                Rainhard Fendrich
+            </td>
+            <td>
+                Deutschrock
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Hello Mary Lou
+            </td>
+            <td>
+                Ricky Nelson
+            </td>
+            <td>
+                Country Music
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Angels
+            </td>
+            <td>
+                Robbie Williams
+            </td>
+            <td>
+                2000er Rock-Pop
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                I Drove All Night
+            </td>
+            <td>
+                Roy Orbison
+            </td>
+            <td>
+                1990er Rock-Pop &#x26; Independent
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Capri Fischer
+            </td>
+            <td>
+                Rudi Schuricke
+            </td>
+            <td>
+                Schlager
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                San Francisco
+            </td>
+            <td>
+                Scott Mc Kenzie
             </td>
             <td>
                 1960er Beat &#x26; Flower Power
@@ -1000,10 +1019,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Something Got Me Started
             </td>
             <td>
-                TODO
+                Simply Red
             </td>
             <td>
                 2000er Rock-Pop
@@ -1013,34 +1032,36 @@
         </tr>
         <tr>
             <td>
-                TODO
+                The Way To Your Heart
             </td>
             <td>
-                TODO
+                Soulsister
             </td>
             <td>
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
-            </td>
-            <td>
+                1980er Rock-Pop &#x26; Synthi Pop
             </td>
             <td>
             </td>
         </tr>
         <tr>
             <td>
-                TODO
+                Ein Kompliment
             </td>
             <td>
-                TODO
+                Sportfreunde Stiller
+            </td>
+            <td>
+                2000er Rock-Pop
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Katharine Katharine
+            </td>
+            <td>
+                Steinwolke
             </td>
             <td>
                 Neue Deutsche Welle (NDW)
@@ -1050,23 +1071,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                I Won&#x27;t Back Down
             </td>
             <td>
-                TODO
-            </td>
-            <td>
-                1990er Rock-Pop &#x26; Independent
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
+                Tom Petty
             </td>
             <td>
                 1990er Rock-Pop &#x26; Independent
@@ -1076,10 +1084,23 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Learning To Fly
             </td>
             <td>
-                TODO
+                Tom Petty
+            </td>
+            <td>
+                1990er Rock-Pop &#x26; Independent
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Africa
+            </td>
+            <td>
+                Toto
             </td>
             <td>
                 1980er Rock-Pop &#x26; Synthi Pop
@@ -1089,22 +1110,23 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Child&#x27;s Anthem
             </td>
             <td>
-                TODO
+                Toto
             </td>
             <td>
+                1980er Rock-Pop &#x26; Synthi Pop
             </td>
             <td>
             </td>
         </tr>
         <tr>
             <td>
-                TODO
+                Aber Bitte Mit Sahne
             </td>
             <td>
-                TODO
+                Udo J&#xFC;rgens
             </td>
             <td>
                 Schlager
@@ -1114,23 +1136,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Griechischer Wein
             </td>
             <td>
-                TODO
-            </td>
-            <td>
-                Schlager
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
+                Udo J&#xFC;rgens
             </td>
             <td>
                 Schlager
@@ -1140,23 +1149,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Ich War Noch Niemals In New York
             </td>
             <td>
-                TODO
-            </td>
-            <td>
-                Schlager
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
+                Udo J&#xFC;rgens
             </td>
             <td>
                 Schlager
@@ -1166,10 +1162,36 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Mit 66 Jahren
             </td>
             <td>
-                TODO
+                Udo J&#xFC;rgens
+            </td>
+            <td>
+                Schlager
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Wilde Kirschen
+            </td>
+            <td>
+                Udo J&#xFC;rgens
+            </td>
+            <td>
+                Schlager
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Mein Ding
+            </td>
+            <td>
+                Udo Lindenberg
             </td>
             <td>
                 Deutschrock
@@ -1179,10 +1201,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Dancing With Tears In My Eyes
             </td>
             <td>
-                TODO
+                Ultravox
             </td>
             <td>
                 1980er Rock-Pop &#x26; Synthi Pop
@@ -1192,10 +1214,10 @@
         </tr>
         <tr>
             <td>
-                TODO
+                Y.M.C.A.
             </td>
             <td>
-                TODO
+                Village People
             </td>
             <td>
                 1970er Rock &#x26; Pop
@@ -1205,36 +1227,36 @@
         </tr>
         <tr>
             <td>
-                TODO
-            </td>
-            <td>
-                TODO
+                Kufsteiner Lied
             </td>
             <td>
             </td>
             <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                TODO
-            </td>
-            <td>
-                TODO
-            </td>
-            <td>
+                Volksmusik &#x26; Stimmungsmusik
             </td>
             <td>
             </td>
         </tr>
         <tr>
             <td>
-                TODO
+                Rosamunde
             </td>
             <td>
-                TODO
             </td>
             <td>
+                Volksmusik &#x26; Stimmungsmusik
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                What Shall We Do With The Drunken Sailor
+            </td>
+            <td>
+            </td>
+            <td>
+                Volksmusik &#x26; Stimmungsmusik
             </td>
             <td>
             </td>

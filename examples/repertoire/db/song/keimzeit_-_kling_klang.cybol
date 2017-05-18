@@ -2,7 +2,7 @@
 
     <node name="artist" channel="inline" format="text/plain" model="Keimzeit"/>
     <node name="title" channel="inline" format="text/plain" model="Kling Klang"/>
-    <node name="genre" channel="inline" format="text/plain" model="ostrock"/>
+    <node name="genre" channel="inline" format="text/plain" model="ost"/>
     <node name="year" channel="inline" format="text/plain" model=""/>
 
     <node name="time" channel="inline" format="text/plain" model="0:00"/>

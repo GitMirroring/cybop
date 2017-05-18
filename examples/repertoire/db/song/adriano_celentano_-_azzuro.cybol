@@ -2,7 +2,7 @@
 
     <node name="artist" channel="inline" format="text/plain" model="Adriano Celentano"/>
     <node name="title" channel="inline" format="text/plain" model="Azzuro"/>
-    <node name="genre" channel="inline" format="text/plain" model="1960"/>
+    <node name="genre" channel="inline" format="text/plain" model="it"/>
     <node name="year" channel="inline" format="text/plain" model=""/>
 
     <node name="time" channel="inline" format="text/plain" model="0:00"/>

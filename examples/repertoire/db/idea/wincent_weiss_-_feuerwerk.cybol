@@ -1,7 +1,7 @@
 <node>
 
-    <node name="artist" channel="inline" format="text/plain" model="TODO"/>
-    <node name="title" channel="inline" format="text/plain" model="TODO"/>
+    <node name="artist" channel="inline" format="text/plain" model="Wincent Weiss"/>
+    <node name="title" channel="inline" format="text/plain" model="Feuerwerk"/>
     <node name="genre" channel="inline" format="text/plain" model="2010"/>
     <node name="year" channel="inline" format="text/plain" model=""/>
 

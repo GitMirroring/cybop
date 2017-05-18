@@ -2,7 +2,7 @@
 
     <node name="artist" channel="inline" format="text/plain" model="Klaus Lage Band"/>
     <node name="title" channel="inline" format="text/plain" model="1000 und 1 Nacht (Zoom!)"/>
-    <node name="genre" channel="inline" format="text/plain" model="deutsch"/>
+    <node name="genre" channel="inline" format="text/plain" model="de"/>
     <node name="year" channel="inline" format="text/plain" model=""/>
 
     <node name="time" channel="inline" format="text/plain" model="0:00"/>

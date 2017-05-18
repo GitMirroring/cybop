@@ -1,7 +1,7 @@
 <node>
 
-    <node name="artist" channel="inline" format="text/plain" model="TODO"/>
-    <node name="title" channel="inline" format="text/plain" model="TODO"/>
+    <node name="artist" channel="inline" format="text/plain" model="George McCrae"/>
+    <node name="title" channel="inline" format="text/plain" model="Rock Your Baby"/>
     <node name="genre" channel="inline" format="text/plain" model="1970"/>
     <node name="year" channel="inline" format="text/plain" model=""/>
 

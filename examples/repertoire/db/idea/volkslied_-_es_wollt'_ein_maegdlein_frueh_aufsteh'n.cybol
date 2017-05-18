@@ -1,7 +1,7 @@
 <node>
 
-    <node name="artist" channel="inline" format="text/plain" model="Postchor Brandenburg"/>
-    <node name="title" channel="inline" format="text/plain" model="Es wollt ein Mädchen früh aufstehn"/>
+    <node name="artist" channel="inline" format="text/plain" model="Volkslied"/>
+    <node name="title" channel="inline" format="text/plain" model="Es Wollt' Ein Mägdlein Früh Aufsteh'n"/>
     <node name="genre" channel="inline" format="text/plain" model="volksmusik"/>
     <node name="year" channel="inline" format="text/plain" model=""/>
 

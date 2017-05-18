@@ -7,12 +7,14 @@
     <node name="1990" channel="inline" format="text/plain" model="1990er Rock-Pop & Independent"/>
     <node name="2000" channel="inline" format="text/plain" model="2000er Rock-Pop"/>
     <node name="2010" channel="inline" format="text/plain" model="2010er Rock-Pop"/>
-    <node name="chanson" channel="inline" format="text/plain" model="Chanson"/>
     <node name="country" channel="inline" format="text/plain" model="Country Music"/>
-    <node name="deutsch" channel="inline" format="text/plain" model="Deutschrock"/>
-    <node name="englisch" channel="inline" format="text/plain" model="Englischer Schlager"/>
+    <node name="de" channel="inline" format="text/plain" model="Deutschrock"/>
+    <node name="en" channel="inline" format="text/plain" model="Englischer Schlager"/>
+    <node name="fr" channel="inline" format="text/plain" model="Französischer Rock-Pop & Chanson"/>
+    <node name="it" channel="inline" format="text/plain" model="Italienische Musik & Italo-Pop"/>
     <node name="ndw" channel="inline" format="text/plain" model="Neue Deutsche Welle (NDW)"/>
-    <node name="ostrock" channel="inline" format="text/plain" model="Ostrock"/>
+    <node name="ost" channel="inline" format="text/plain" model="Ostrock (DDR)"/>
+    <node name="pl" channel="inline" format="text/plain" model="Polnischer Rock-Pop"/>
     <node name="schlager" channel="inline" format="text/plain" model="Schlager"/>
     <node name="volksmusik" channel="inline" format="text/plain" model="Volksmusik & Stimmungsmusik"/>
 
