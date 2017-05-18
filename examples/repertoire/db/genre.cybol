@@ -6,7 +6,7 @@
     <node name="1980" channel="inline" format="text/plain" model="1980er Rock-Pop & Synthi Pop"/>
     <node name="1990" channel="inline" format="text/plain" model="1990er Rock-Pop & Independent"/>
     <node name="2000" channel="inline" format="text/plain" model="2000er Rock-Pop"/>
-    <node name="2010" channel="inline" format="text/plain" model="2000er Rock-Pop"/>
+    <node name="2010" channel="inline" format="text/plain" model="2010er Rock-Pop"/>
     <node name="chanson" channel="inline" format="text/plain" model="Chanson"/>
     <node name="country" channel="inline" format="text/plain" model="Country Music"/>
     <node name="deutsch" channel="inline" format="text/plain" model="Deutschrock"/>
