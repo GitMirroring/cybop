@@ -15,14 +15,14 @@
     <node name="black_-_everything's_coming_up_roses" channel="file" format="element/part" model="repertoire/db/song/black_-_everything's_coming_up_roses.cybol"/>
     <node name="bob_dylan_-_knockin'_on_heaven's_door" channel="file" format="element/part" model="repertoire/db/song/bob_dylan_-_knockin'_on_heaven's_door.cybol"/>
     <node name="bronski_beat_-_smalltown_boy" channel="file" format="element/part" model="repertoire/db/song/bronski_beat_-_smalltown_boy.cybol"/>
-    <node name="bruce_springsteen_-_i_m_on_fire" channel="file" format="element/part" model="repertoire/db/song/bruce_springsteen_-_i_m_on_fire.cybol"/>
+    <node name="bruce_springsteen_-_i'm_on_fire" channel="file" format="element/part" model="repertoire/db/song/bruce_springsteen_-_i'm_on_fire.cybol"/>
     <node name="bryan_adams_-_run_to_you" channel="file" format="element/part" model="repertoire/db/song/bryan_adams_-_run_to_you.cybol"/>
     <node name="bryan_adams_-_somebody" channel="file" format="element/part" model="repertoire/db/song/bryan_adams_-_somebody.cybol"/>
-    <node name="bryan_adams_-_summer_of_69" channel="file" format="element/part" model="repertoire/db/song/bryan_adams_-_summer_of_69.cybol"/>
+    <node name="bryan_adams_-_summer_of_'69" channel="file" format="element/part" model="repertoire/db/song/bryan_adams_-_summer_of_'69.cybol"/>
 
     <node name="ccr_-_bad_moon_rising" channel="file" format="element/part" model="repertoire/db/song/ccr_-_bad_moon_rising.cybol"/>
     <node name="ccr_-_hey_tonight" channel="file" format="element/part" model="repertoire/db/song/ccr_-_hey_tonight.cybol"/>
-    <node name="cliff_richard_-_dreamin" channel="file" format="element/part" model="repertoire/db/song/cliff_richard_-_dreamin.cybol"/>
+    <node name="cliff_richard_-_dreamin'" channel="file" format="element/part" model="repertoire/db/song/cliff_richard_-_dreamin'.cybol"/>
     <node name="cliff_richard_-_rote_lippen_soll_man_kuessen" channel="file" format="element/part" model="repertoire/db/song/cliff_richard_-_rote_lippen_soll_man_kuessen.cybol"/>
     <node name="costa_cordalis_-_anita" channel="file" format="element/part" model="repertoire/db/song/costa_cordalis_-_anita.cybol"/>
 
@@ -55,7 +55,7 @@
     <node name="john_denver_-_country_roads" channel="file" format="element/part" model="repertoire/db/song/john_denver_-_country_roads.cybol"/>
     <node name="john_paul_young_-_love_is_in_the_air" channel="file" format="element/part" model="repertoire/db/song/john_paul_young_-_love_is_in_the_air.cybol"/>
 
-    <node name="katrina_and_the_waves_-_walking_on_sunshine" channel="file" format="element/part" model="repertoire/db/song/katrina_and_the_waves_-_walking_on_sunshine.cybol"/>
+    <node name="katrina_&_the_waves_-_walking_on_sunshine" channel="file" format="element/part" model="repertoire/db/song/katrina_&_the_waves_-_walking_on_sunshine.cybol"/>
     <node name="keimzeit_-_kling_klang" channel="file" format="element/part" model="repertoire/db/song/keimzeit_-_kling_klang.cybol"/>
     <node name="kiss_-_i_was_made_for_loving_you" channel="file" format="element/part" model="repertoire/db/song/kiss_-_i_was_made_for_loving_you.cybol"/>
     <node name="klaus_lage_band_-_1000_und_1_nacht_(zoom!)" channel="file" format="element/part" model="repertoire/db/song/klaus_lage_band_-_1000_und_1_nacht_(zoom!).cybol"/>
@@ -77,7 +77,7 @@
     <node name="nick_straker_band_-_a_walk_in_the_park" channel="file" format="element/part" model="repertoire/db/song/nick_straker_band_-_a_walk_in_the_park.cybol"/>
 
     <node name="peter_maffay_-_eiszeit" channel="file" format="element/part" model="repertoire/db/song/peter_maffay_-_eiszeit.cybol"/>
-    <node name="phil_and_john_-_hello_mary_lou" channel="file" format="element/part" model="repertoire/db/song/phil_and_john_-_hello_mary_lou.cybol"/>
+    <node name="phil_&_john_-_hello_mary_lou" channel="file" format="element/part" model="repertoire/db/song/phil_&_john_-_hello_mary_lou.cybol"/>
     <node name="phil_collins_-_you'll_be_in_my_heart" channel="file" format="element/part" model="repertoire/db/song/phil_collins_-_you'll_be_in_my_heart.cybol"/>
     <node name="philipp_dittberner_&_marv_-_wolke_4" channel="file" format="element/part" model="repertoire/db/song/philipp_dittberner_&_marv_-_wolke_4.cybol"/>
     <node name="police_-_every_breath_you_take" channel="file" format="element/part" model="repertoire/db/song/police_-_every_breath_you_take.cybol"/>

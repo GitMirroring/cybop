@@ -117,15 +117,13 @@
                     7
                 </td>
                 <td>
-                    Hello Mary Lou (Phil &#x26; John)
-                </td>
-                <td>
-                    0:00
+                     ()
                 </td>
                 <td>
                 </td>
                 <td>
-                    Chris
+                </td>
+                <td>
                 </td>
                 <td>
                 </td>
@@ -618,15 +616,13 @@
                     9
                 </td>
                 <td>
-                    Walking On Sunshine (Katrina &#x26; The Waves)
-                </td>
-                <td>
-                    0:00
+                     ()
                 </td>
                 <td>
                 </td>
                 <td>
-                    Chris
+                </td>
+                <td>
                 </td>
                 <td>
                 </td>
@@ -787,15 +783,13 @@
                     8
                 </td>
                 <td>
-                    Dreamin (Cliff Richard)
-                </td>
-                <td>
-                    0:00
+                     ()
                 </td>
                 <td>
                 </td>
                 <td>
-                    Chris
+                </td>
+                <td>
                 </td>
                 <td>
                 </td>
@@ -1404,15 +1398,13 @@
                     5
                 </td>
                 <td>
-                    I&#x27;m On Fire (Bruce Springsteen)
-                </td>
-                <td>
-                    0:00
+                     ()
                 </td>
                 <td>
                 </td>
                 <td>
-                    K&#xF6;gi
+                </td>
+                <td>
                 </td>
                 <td>
                 </td>
@@ -1574,15 +1566,13 @@
                     5
                 </td>
                 <td>
-                    I&#x27;m On Fire (Bruce Springsteen)
-                </td>
-                <td>
-                    0:00
+                     ()
                 </td>
                 <td>
                 </td>
                 <td>
-                    K&#xF6;gi
+                </td>
+                <td>
                 </td>
                 <td>
                 </td>

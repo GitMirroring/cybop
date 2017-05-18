@@ -1,8 +1,8 @@
 <node>
 
-    <node name="artist" channel="inline" format="text/plain" model="Peter Cornelius"/>
-    <node name="title" channel="inline" format="text/plain" model="Du Entschuldige I Kenn Di"/>
-    <node name="genre" channel="inline" format="text/plain" model="schlager"/>
+    <node name="artist" channel="inline" format="text/plain" model="Bad Boys Blue"/>
+    <node name="title" channel="inline" format="text/plain" model="Kisses And Tears"/>
+    <node name="genre" channel="inline" format="text/plain" model="1980"/>
     <node name="year" channel="inline" format="text/plain" model=""/>
 
     <node name="time" channel="inline" format="text/plain" model="0:00"/>
