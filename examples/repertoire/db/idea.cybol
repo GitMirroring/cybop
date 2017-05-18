@@ -129,7 +129,7 @@
     <node name="ultravox_-_hymn" channel="file" format="element/part" model="repertoire/db/idea/ultravox_-_hymn.cybol"/>
     <node name="ute_freudenberg_-_jugendliebe" channel="file" format="element/part" model="repertoire/db/idea/ute_freudenberg_-_jugendliebe.cybol"/>
 
-    <node name="volkslied_-_es_wollt_ein_maedchen_frueh_aufstehn" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_es_wollt_ein_maedchen_frueh_aufstehn.cybol"/>
+    <node name="volkslied_-_es_wollt'_ein_maegdlein_frueh_aufsteh'n" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_es_wollt'_ein_maegdlein_frueh_aufsteh'n.cybol"/>
     <node name="volkslied_-_es_zogen_auf_sonnigen_wegen" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_es_zogen_auf_sonnigen_wegen.cybol"/>
     <node name="volkslied_-_heute_wollen_wir_das_raenzlein_schnueren" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_heute_wollen_wir_das_raenzlein_schnueren.cybol"/>
     <node name="volkslied_-_im_fruehtau_zu_berge" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_im_fruehtau_zu_berge.cybol"/>
