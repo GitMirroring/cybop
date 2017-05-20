@@ -2,7 +2,7 @@
 
     <node name="artist" channel="inline" format="text/plain" model="Heroes del Silencio"/>
     <node name="title" channel="inline" format="text/plain" model="Entre Dos Tierras"/>
-    <node name="genre" channel="inline" format="text/plain" model="1990"/>
+    <node name="genre" channel="inline" format="text/plain" model="es"/>
     <node name="year" channel="inline" format="text/plain" model=""/>
 
     <node name="time" channel="inline" format="text/plain" model="0:00"/>

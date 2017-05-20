@@ -68,9 +68,6 @@
         </h2>
         <ol>
             <li>
-                &#xC4;rzte - Westerland
-            </li>
-            <li>
                 Alan Parsons Project - Eye In The Sky
             </li>
             <li>
@@ -119,7 +116,7 @@
                 Nick Straker Band - A Walk In The Park
             </li>
             <li>
-                Policy - Every Breath You Take
+                Police - Every Breath You Take
             </li>
             <li>
                 Soulsister - The Way To Your Heart
@@ -145,9 +142,6 @@
             </li>
             <li>
                 Eric Clapton - Wonderful Tonight
-            </li>
-            <li>
-                Heroes del Silencio - Entre Dos Tierras
             </li>
             <li>
                 Londonbeat - I&#x27;ve Been Thinking About You
@@ -241,6 +235,9 @@
                 Achim Reichel - Aloha Heja He
             </li>
             <li>
+                &#xC4;rzte - Westerland
+            </li>
+            <li>
                 BAP - Verdamp Lang Her
             </li>
             <li>
@@ -294,6 +291,16 @@
             </li>
             <li>
                 Louis Armstrong - What A Wonderful World
+            </li>
+        </ol>
+    </div>
+    <div>
+        <h2>
+            Spanischer Gitarren-Rock
+        </h2>
+        <ol>
+            <li>
+                Heroes del Silencio - Entre Dos Tierras
             </li>
         </ol>
     </div>

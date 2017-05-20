@@ -76,7 +76,7 @@
                 &#xC4;rzte
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                Deutschrock
             </td>
             <td>
             </td>
@@ -558,7 +558,7 @@
                 Heroes del Silencio
             </td>
             <td>
-                1990er Rock-Pop &#x26; Independent
+                Spanischer Gitarren-Rock
             </td>
             <td>
             </td>
@@ -893,7 +893,7 @@
                 Every Breath You Take
             </td>
             <td>
-                Policy
+                Police
             </td>
             <td>
                 1980er Rock-Pop &#x26; Synthi Pop

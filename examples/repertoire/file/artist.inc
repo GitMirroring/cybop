@@ -76,7 +76,7 @@
                 Westerland
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                Deutschrock
             </td>
             <td>
             </td>
@@ -558,7 +558,7 @@
                 Entre Dos Tierras
             </td>
             <td>
-                1990er Rock-Pop &#x26; Independent
+                Spanischer Gitarren-Rock
             </td>
             <td>
             </td>
@@ -890,7 +890,7 @@
         </tr>
         <tr>
             <td>
-                Policy
+                Police
             </td>
             <td>
                 Every Breath You Take
