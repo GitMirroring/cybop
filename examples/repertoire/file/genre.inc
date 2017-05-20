@@ -296,16 +296,6 @@
     </div>
     <div>
         <h2>
-            Spanischer Gitarren-Rock
-        </h2>
-        <ol>
-            <li>
-                Heroes del Silencio - Entre Dos Tierras
-            </li>
-        </ol>
-    </div>
-    <div>
-        <h2>
             Franz&#xF6;sischer Rock-Pop &#x26; Chanson
         </h2>
         <ol>
@@ -394,6 +384,16 @@
             </li>
             <li>
                 Udo J&#xFC;rgens - Wilde Kirschen
+            </li>
+        </ol>
+    </div>
+    <div>
+        <h2>
+            Spanischer Gitarren-Rock
+        </h2>
+        <ol>
+            <li>
+                Heroes del Silencio - Entre Dos Tierras
             </li>
         </ol>
     </div>

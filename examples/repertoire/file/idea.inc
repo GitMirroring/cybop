@@ -323,13 +323,6 @@
     </div>
     <div>
         <h2>
-            Spanischer Gitarren-Rock
-        </h2>
-        <ol>
-        </ol>
-    </div>
-    <div>
-        <h2>
             Franz&#xF6;sischer Rock-Pop &#x26; Chanson
         </h2>
         <ol>
@@ -443,6 +436,13 @@
             <li>
                 Wolfgang Petry - Sieben Tage Sieben N&#xE4;chte
             </li>
+        </ol>
+    </div>
+    <div>
+        <h2>
+            Spanischer Gitarren-Rock
+        </h2>
+        <ol>
         </ol>
     </div>
     <div>

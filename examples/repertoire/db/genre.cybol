@@ -10,13 +10,13 @@
     <node name="country" channel="inline" format="text/plain" model="Country Music"/>
     <node name="de" channel="inline" format="text/plain" model="Deutschrock"/>
     <node name="en" channel="inline" format="text/plain" model="Englischer Schlager"/>
-    <node name="es" channel="inline" format="text/plain" model="Spanischer Gitarren-Rock"/>
     <node name="fr" channel="inline" format="text/plain" model="Französischer Rock-Pop & Chanson"/>
     <node name="it" channel="inline" format="text/plain" model="Italienische Musik & Italo-Pop"/>
     <node name="ndw" channel="inline" format="text/plain" model="Neue Deutsche Welle (NDW)"/>
     <node name="ost" channel="inline" format="text/plain" model="Ostrock (DDR)"/>
     <node name="pl" channel="inline" format="text/plain" model="Polnischer Rock-Pop"/>
     <node name="schlager" channel="inline" format="text/plain" model="Schlager"/>
+    <node name="es" channel="inline" format="text/plain" model="Spanischer Gitarren-Rock"/>
     <node name="volksmusik" channel="inline" format="text/plain" model="Volksmusik & Stimmungsmusik"/>
 
 </node>
