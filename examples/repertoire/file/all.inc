@@ -1419,7 +1419,7 @@
                 Laura Non C&#x27;e
             </td>
             <td>
-                2010er Rock-Pop
+                Italienische Musik &#x26; Italo-Pop
             </td>
             <td>
             </td>
