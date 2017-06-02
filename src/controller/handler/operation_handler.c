@@ -98,11 +98,10 @@
 #include "../../applicator/represent/serialise.c"
 #include "../../applicator/run/run.c"
 #include "../../applicator/run/sleep.c"
-#include "../../applicator/sort/sorters.c"
+#include "../../applicator/sort/sort.c"
 #include "../../applicator/time/time.c"
 #include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../logger/logger.c"
 
 /**
@@ -690,7 +689,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_sort(p0, p1, p3, p4, p2);
+            apply_command_sort(p0, p1, p3, p4, p2);
         }
     }
 
@@ -1394,7 +1393,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_quicksort(p0, p1, p3, p4, p2);
+            apply_sort(p0, p1, p3, p4, p2, (void*) QUICK_SORT_LOGIC_CYBOI_FORMAT);
         }
     }
 
@@ -1404,7 +1403,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_bubblesort(p0, p1, p3, p4, p2);
+            apply_sort(p0, p1, p3, p4, p2, (void*) BUBBLE_SORT_LOGIC_CYBOI_FORMAT);
         }
     }
 

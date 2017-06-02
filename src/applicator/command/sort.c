@@ -23,11 +23,10 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SORT_SOURCE
-#define SORT_SOURCE
+#ifndef COMMAND_SORT_SOURCE
+#define COMMAND_SORT_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/sort_commander_logic_cybol_name.c"
@@ -37,7 +36,7 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
@@ -55,9 +54,9 @@
  * @param p3 the stack memory item
  * @param p4 the internal memory data
  */
-void apply_sort(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void apply_command_sort(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sort.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply command sort.");
 
     // The file part.
     void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -110,5 +109,5 @@ void apply_sort(void* p0, void* p1, void* p2, void* p3, void* p4) {
     command_sort(fmd, fmc, omd, omc, rmd, rmc);
 }
 
-/* SORT_SOURCE */
+/* COMMAND_SORT_SOURCE */
 #endif

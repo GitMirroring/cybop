@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-06-02  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Prepare new sort operations
+
 2017-05-15  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add error codes to file stream reader/writer

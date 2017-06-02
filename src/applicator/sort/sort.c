@@ -23,33 +23,42 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SORTERS_SOURCE
-#define SORTERS_SOURCE
+#ifndef SORT_SOURCE
+#define SORT_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/sort/sort_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/copier/array_copier.c"
-#include "../../executor/sorter/bubblesorter.c"
-#include "../../executor/sorter/quicksorter.c"
+#include "../../executor/sorter/sorter.c"
 #include "../../logger/logger.c"
 
 /*
- * Sorts numbers using quicksort algorithm.
+ * Sorts numbers using algorithm.
+ *
+ * Expected parametres:
+ * - result (required): the knowledge model in which the result is stored; used as first operand
+ * - operand (required): the second operand
+ * - count (optional; if null, the operand part model count will be used instead):
+ *   the number of elements to be calculated
+ * - result_index (optional; if null, an index of zero will be used instead):
+ *   the result index from which to start calculating
+ * - operand_index (optional; if null, an index of zero will be used instead):
+ *   the operand index from which to start calculating
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)
  * @param p3 the stack memory item
  * @param p4 the internal memory data
+ * @param p5 the operation type
  */
-void apply_quicksort(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void apply_sort(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply quicksort.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sort.");
 
     // The input part.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -87,60 +96,9 @@ void apply_quicksort(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &omc, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &oms, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
-    sorter_quick(imd, imc, (void*) &omd, omc, oms);
+//??    sort(imd, imc, (void*) &omd, omc, oms);
+    sort();
 }
 
-/*
- * Sorts numbers using bubblesort algorithm.
- *
- * @param p0 the parametres data
- * @param p1 the parametres count
- * @param p2 the knowledge memory part
- * @param p3 the stack memory item
- * @param p4 the internal memory data
- */
-void apply_bubblesort(void* p0, void* p1, void* p2, void* p3, void* p4) {
-
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply bubblesort.");
-
-    // The input part.
-    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The output part.
-    void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // The input part model item.
-    void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The output part model item.
-    void* om = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // The input part model item data and count.
-    void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* imc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The output part model item data, count, size.
-    void* omd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* omc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* oms = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Get input part.
-    get_part_name((void*) &i, p0, (void*) INPUT_SORT_LOGIC_CYBOL_NAME, (void*) INPUT_SORT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get output part.
-    get_part_name((void*) &o, p0, (void*) OUTPUT_SORT_LOGIC_CYBOL_NAME, (void*) OUTPUT_SORT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-
-    // Get file part model item.
-    copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get output part model item.
-    copy_array_forward((void*) &om, o, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-
-    // Get file part model item data and count.
-    copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &imc, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get output part model item data and count.
-    copy_array_forward((void*) &omd, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &omc, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &oms, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
-
-    sorter_bubble(imd, imc, (void*) &omd, omc, oms);
-}
-
-/* SORTERS_SOURCE */
+/* SORT_SOURCE */
 #endif

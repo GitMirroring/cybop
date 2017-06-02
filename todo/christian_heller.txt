@@ -14,6 +14,13 @@
 Repertoire
 __________
 
+        * Introduce "executor/swapper/" with files for all types
+        * See prepared function "swap_integer" in file "bubble_sorter.c"
+
+        * Implement cybol operation "sort" in cyboi
+        * See file "todo/christian_heller_sorting.png"
+        * Sort nodes of db list "title" in directory "repertoire/logic/translate/song/"
+
         * Reflect on reading a cybol app as zip file (e.g. with suffix "cyboz" or "cyboa")
         * Use the same code for reading zip and directory, since both consist of files
         * Use new cybol channel "directory" for reading in files of directory "repertoire/db/song/" in cybol example application "repertoire"
@@ -24,9 +31,6 @@ __________
         * Add "remain" nodes to last section of wui "round"
             How to reuse file "round.cybol" for last iteration of "remain" songs?
             Problem: the "#remain_index" is reset in file "song.cybol", which is not wanted when processing ".db.remain"
-
-        * Implement cybol operation "sort" in cyboi
-        * Sort nodes of db list "title" in directory "repertoire/logic/translate/song/"
 
 Debug
 _____
