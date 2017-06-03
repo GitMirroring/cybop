@@ -18,6 +18,7 @@ __________
         * See prepared function "swap_integer" in file "bubble_sorter.c"
 
         * Implement cybol operation "sort" in cyboi
+        * Add sort operation property "descending" and use "ascending" as default
         * See file "todo/christian_heller_sorting.png"
         * Sort nodes of db list "title" in directory "repertoire/logic/translate/song/"
 

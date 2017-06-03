@@ -26,21 +26,79 @@
 #ifndef SORTER_SOURCE
 #define SORTER_SOURCE
 
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/memoriser/allocator/item_allocator.c"
-#include "../../executor/modifier/overwrite_modifier.c"
-#include "../../executor/runner/executor.c"
-#include "../../variable/reallocation_factor.c"
+#include "../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../executor/sorter/bubble/bubble_sorter.c"
+/*??
+#include "../../executor/sorter/insertion/insertion_sorter.c"
+#include "../../executor/sorter/quick/quick_sorter.c"
+#include "../../executor/sorter/selection/selection_sorter.c"
+*/
+#include "../../logger/logger.c"
 
 /*
- * Sorts the given data.
+ * Sorts the data array using the given algorithm (operation type).
  *
- * @param
- * @param
+ * @param p0 the array data
+ * @param p1 the type
+ * @param p2 the array count
+ * @param p3 the operation type
  */
-void sort() {
+void sort(void* p0, void* p1, void* p2, void* p3) {
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort.");
+
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) BUBBLE_SORT_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            sort_bubble(p0, p1, p2);
+        }
+    }
+
+/*??
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) INSERTION_SORT_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            sort_insertion(p0, p1, p2);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) QUICK_SORT_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            sort_quick(p0, p1, p2);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) SELECTION_SORT_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            sort_selection(p0, p1, p2);
+        }
+    }
+*/
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sort. The operation type is unknown.");
+    }
 }
 
 /* SORTER_SOURCE */

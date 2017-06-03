@@ -17,42 +17,44 @@
  * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
  *
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
- * CYBOP Developers <cybop-developers@nongnu.org>
+ * Christian Heller <christian.heller@tuxtax.de>
  *
  * @version CYBOP 0.19.0 2017-04-10
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef VECTOR_POLAR_COMPLEX_CYBOL_SERIALISER_SOURCE
-#define VECTOR_POLAR_COMPLEX_CYBOL_SERIALISER_SOURCE
+#ifndef BUBBLE_BUBBLE_SORTER_SOURCE
+#define BUBBLE_BUBBLE_SORTER_SOURCE
 
-#include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
+#include "../../../executor/copier/integer_copier.c"
+#include "../../../executor/sorter/bubble/compare_bubble_sorter.c"
+#include "../../../logger/logger.c"
 
-#include "../../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../../executor/representer/serialiser/cybol/complex/polar/element_polar_complex_cybol_serialiser.c"
-#include "../../../../../../logger/logger.c"
-
-/**
- * Serialises the complex data in cartesian coordinates
- * into a complex item in polar coordinates.
+/*
+ * Bubbles up the greater value, i.e. it gets moved to the right.
  *
- * @param p0 the destination complex item
- * @param p1 the source complex data
- * @param p2 the source complex count
+ * @param p0 the data
+ * @param p1 the type
+ * @param p2 the swapped flag
+ * @param p3 the loop count
  */
-void serialise_cybol_complex_polar_vector(void* p0, void* p1, void* p2) {
+void sort_bubble_bubble(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol complex polar vector.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort bubble bubble.");
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The successor index.
+    int j1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
@@ -66,22 +68,22 @@ void serialise_cybol_complex_polar_vector(void* p0, void* p1, void* p2) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // CAUTION! The comparison of j suffices here,
-        // since if j is greater or equal the source count,
-        // then also i is.
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p3);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }
 
-        serialise_cybol_complex_polar_element(p0, p1, (void*) &j);
+        // Calculate successor index.
+        j1 = j + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+
+        sort_bubble_compare(p0, p1, p2, (void*) &j, (void*) &j1);
 
         // Increment loop variable.
         j++;
     }
 }
 
-/* VECTOR_POLAR_COMPLEX_CYBOL_SERIALISER_SOURCE */
+/* BUBBLE_BUBBLE_SORTER_SOURCE */
 #endif

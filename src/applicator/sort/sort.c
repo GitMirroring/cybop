@@ -40,14 +40,7 @@
  * Sorts numbers using algorithm.
  *
  * Expected parametres:
- * - result (required): the knowledge model in which the result is stored; used as first operand
- * - operand (required): the second operand
- * - count (optional; if null, the operand part model count will be used instead):
- *   the number of elements to be calculated
- * - result_index (optional; if null, an index of zero will be used instead):
- *   the result index from which to start calculating
- * - operand_index (optional; if null, an index of zero will be used instead):
- *   the operand index from which to start calculating
+ * - part (required): the knowledge model to be sorted
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -60,44 +53,31 @@ void apply_sort(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sort.");
 
-    // The input part.
-    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The output part.
-    void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The part.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The input part model item.
-    void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The output part model item.
-    void* om = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The part type, model item.
+    void* pt = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The input part model item data and count.
-    void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* imc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The output part model item data and count.
-    void* omd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* omc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* oms = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The part type, model item data, count.
+    void* ptd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get input part.
-    get_part_name((void*) &i, p0, (void*) INPUT_SORT_LOGIC_CYBOL_NAME, (void*) INPUT_SORT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get output part.
-    get_part_name((void*) &o, p0, (void*) OUTPUT_SORT_LOGIC_CYBOL_NAME, (void*) OUTPUT_SORT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get part.
+    get_part_name((void*) &p, p0, (void*) PART_SORT_LOGIC_CYBOL_NAME, (void*) PART_SORT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
-    // Get file part model item.
-    copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get output part model item.
-    copy_array_forward((void*) &om, o, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get part type, model item.
+    copy_array_forward((void*) &pt, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Get file part model item data and count.
-    copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &imc, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get output part model item data and count.
-    copy_array_forward((void*) &omd, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &omc, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &oms, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
+    // Get part type, model item data, count.
+    copy_array_forward((void*) &ptd, pt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &pmc, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-//??    sort(imd, imc, (void*) &omd, omc, oms);
-    sort();
+    sort(pmd, ptd, pmc, p5);
 }
 
 /* SORT_SOURCE */

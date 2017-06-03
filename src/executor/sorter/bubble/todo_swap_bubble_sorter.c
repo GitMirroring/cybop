@@ -17,22 +17,37 @@
  * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
  *
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
- * CYBOP Developers <cybop-developers@nongnu.org>
+ * Christian Heller <christian.heller@tuxtax.de>
  *
  * @version CYBOP 0.19.0 2017-04-10
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SORT_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
-#define SORT_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
+#ifndef SWAP_BUBBLE_SORTER_SOURCE
+#define SWAP_BUBBLE_SORTER_SOURCE
 
-#include <stddef.h>
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../executor/copier/integer_copier.c"
+#include "../../../logger/logger.c"
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+/*
+ * Swaps the given integer values.
+ *
+ * @param p0 the first value
+ * @param p1 the second value
+ */
+void swap_integer(void* p0, void* p1) {
 
-/** The part sort logic cybol name. */
-static wchar_t* PART_SORT_LOGIC_CYBOL_NAME = L"part";
-static int* PART_SORT_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Swap integer.");
 
-/* SORT_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */
+    // The temporary value.
+    int t = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    copy_integer((void*) &t, p0);
+    copy_integer(p0, p1);
+    copy_integer(p1, (void*) &t);
+}
+
+/* SWAP_BUBBLE_SORTER_SOURCE */
 #endif

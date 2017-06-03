@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-06-03  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Implement bubble sort
+
 2017-06-02  Christian Heller  <christian.heller@tuxtax.de>
 
         * Prepare new sort operations
