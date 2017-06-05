@@ -48,13 +48,35 @@ void sort_bubble(void* p0, void* p1, void* p2) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort bubble.");
 
     // The loop variable.
-    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // CAUTION! Initialise it with value "1".
+    int j = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The swapped flag.
     int s = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The left value.
+    void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The right value.
+    void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The bubble loop count.
     int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    //
+    // CAUTION! Do NOT use local variables for left and right value here.
+    // Their type is unknown at design time and only determined
+    // by parametre argument at runtime.
+    // Therefore, the "allocate_array" function has to be used,
+    // in order to be able to forward the given type argument.
+    //
+
+    // Allocate left value.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_array((void*) &l, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, p1);
+    // Allocate right value.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_array((void*) &r, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, p1);
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -93,7 +115,7 @@ void sort_bubble(void* p0, void* p1, void* p2) {
         calculate_integer_subtract((void*) &c, (void*) &j);
 
         // Bubble up the greater value.
-        sort_bubble_bubble(p0, p1, (void*) &s, (void*) &c);
+        sort_bubble_bubble(p0, p1, (void*) &s, l, r, (void*) &c);
 
         // CAUTION! This is an optimisation.
         // Break loop if nothing is left to be sorted.
@@ -107,6 +129,17 @@ void sort_bubble(void* p0, void* p1, void* p2) {
         // Increment loop variable.
         j++;
     }
+
+    // Deallocate left value.
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    deallocate_array((void*) &l, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, p1);
+    // Deallocate right value.
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    deallocate_array((void*) &r, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, p1);
 }
 
 /* BUBBLE_SORTER_SOURCE */

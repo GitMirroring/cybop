@@ -18,9 +18,15 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-06-05  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Complete bubble sorter
+        * Decide that a "swapper" is not needed, since values are copied inside the sorter already
+        * Adapt cybol example application "sorter"
+
 2017-06-03  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Implement bubble sort
+        * Implement bubble sorter
 
 2017-06-02  Christian Heller  <christian.heller@tuxtax.de>
 

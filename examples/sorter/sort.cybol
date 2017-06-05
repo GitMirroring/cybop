@@ -1,0 +1,30 @@
+<node>
+
+    <!-- boolean -->
+
+    <node name="sort_boolean" channel="inline" format="sort/bubble" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".boolean"/>
+    </node>
+
+    <!-- number -->
+
+    <node name="sort_complex" channel="inline" format="sort/bubble" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".complex"/>
+    </node>
+    <node name="sort_fraction" channel="inline" format="sort/bubble" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".fraction"/>
+    </node>
+    <node name="sort_integer" channel="inline" format="sort/bubble" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".integer"/>
+    </node>
+
+    <!-- text -->
+
+    <node name="sort_ascii" channel="inline" format="sort/bubble" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".ascii"/>
+    </node>
+    <node name="sort_wide" channel="inline" format="sort/bubble" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".wide"/>
+    </node>
+
+</node>

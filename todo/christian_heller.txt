@@ -11,16 +11,20 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-Repertoire
-__________
+Sorting
+_______
 
-        * Introduce "executor/swapper/" with files for all types
-        * See prepared function "swap_integer" in file "bubble_sorter.c"
-
-        * Implement cybol operation "sort" in cyboi
+        * Implement missing cybol operations "insertion", "quick", "selection" in cyboi
         * Add sort operation property "descending" and use "ascending" as default
         * See file "todo/christian_heller_sorting.png"
         * Sort nodes of db list "title" in directory "repertoire/logic/translate/song/"
+
+        * Look for new sorting ideas (linear, binär, sortieren) in:
+            tmp/datetime/plate_-_programmieren_in_c_datumsberechnung.html (8 Ausgewählte Algorithmen (Teil 1) | 8.5 Suchen und Sortieren)
+        * Implement cybol operations for calculating statistical things
+
+Repertoire
+__________
 
         * Reflect on reading a cybol app as zip file (e.g. with suffix "cyboz" or "cyboa")
         * Use the same code for reading zip and directory, since both consist of files
@@ -503,10 +507,6 @@ ___________
             - Minimum, Maximum, Median, Modalwert
             - Lineare Regression
 
-        * Implement cybol operations for calculating statistical things:
-            tmp/datetime/plate_-_programmieren_in_c_datumsberechnung.html (8 Ausgewählte Algorithmen (Teil 1) | 8.5 Suchen und Sortieren)
-            - linear, binär, sortieren
-
 LDAP
 ____
 
@@ -536,8 +536,6 @@ ___________
 
 General CYBOI
 _____________
-
-        * Rename "applicator/sort/sorters.c"
 
         * Delete superfluous parametres "count", "size", "type" in function "deallocate_array"
 

@@ -41,20 +41,22 @@
  * @param p0 the data
  * @param p1 the type
  * @param p2 the swapped flag
- * @param p3 the loop count
+ * @param p3 the left value
+ * @param p4 the right value
+ * @param p5 the loop count
  */
-void sort_bubble_bubble(void* p0, void* p1, void* p2, void* p3) {
+void sort_bubble_bubble(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort bubble bubble.");
 
-    // The loop variable.
+    // The loop variable as left index.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The successor index.
+    // The right index.
     int j1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p5 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
@@ -68,7 +70,7 @@ void sort_bubble_bubble(void* p0, void* p1, void* p2, void* p3) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p3);
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p5);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -78,7 +80,7 @@ void sort_bubble_bubble(void* p0, void* p1, void* p2, void* p3) {
         // Calculate successor index.
         j1 = j + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
-        sort_bubble_compare(p0, p1, p2, (void*) &j, (void*) &j1);
+        sort_bubble_compare(p0, p1, p2, p3, p4, (void*) &j, (void*) &j1);
 
         // Increment loop variable.
         j++;

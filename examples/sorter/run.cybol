@@ -1,0 +1,38 @@
+<node>
+
+    <node name="initialise_application" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="sender" channel="inline" format="text/plain" model="sorter/app.cybol"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
+    </node>
+
+    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </node>
+
+    <node name="print_values" channel="inline" format="text/cybol-path" model=".print"/>
+
+    <node name="get_time" channel="inline" format="time/current" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".before"/>
+    </node>
+
+    <node name="sort_values" channel="inline" format="text/cybol-path" model=".sort"/>
+
+    <node name="get_time" channel="inline" format="time/current" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".after"/>
+    </node>
+
+    <node name="print_values" channel="inline" format="text/cybol-path" model=".print"/>
+
+    <node name="print_time" channel="inline" format="text/cybol-path" model=".print_time"/>
+
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
+</node>
+
+<!--
+    This example sorts data arrays of different type.
+-->

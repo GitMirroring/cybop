@@ -35,7 +35,6 @@
 #include "../../../executor/comparator/basic/value_comparator.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
-//?? #include "../../../executor/swapper/swapper.c"
 #include "../../../logger/logger.c"
 
 /*
@@ -44,32 +43,32 @@
  * @param p0 the data
  * @param p1 the type
  * @param p2 the swapped flag
- * @param p3 the current index
- * @param p4 the successor index
+ * @param p3 the left value
+ * @param p4 the right value
+ * @param p5 the left index
+ * @param p6 the right index
  */
-void sort_bubble_compare(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void sort_bubble_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort bubble compare.");
 
-    // The current value.
-    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The successor value.
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Get current value.
-    copy_array_forward((void*) &c, p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p3);
+    copy_array_forward(p3, p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p5);
     // Get successor value.
-    copy_array_forward((void*) &s, p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p4);
+    copy_array_forward(p4, p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
 
     // Compare current and successor value.
-    compare_value((void*) &r, (void*) &c, (void*) &s, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT, p1);
+    compare_value((void*) &r, p3, p4, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT, p1);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Swap values.
-//??        swap((void*) &c, (void*) &s, p1);
+        // Set current value.
+        copy_array_forward(p0, p4, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p5, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        // Set successor value.
+        copy_array_forward(p0, p3, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p6, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         // Set swapped flag.
         copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

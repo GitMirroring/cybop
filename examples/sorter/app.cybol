@@ -1,0 +1,24 @@
+<node>
+
+    <!-- boolean -->
+    <node name="boolean" channel="inline" format="logicvalue/boolean" model="true"/>
+
+    <!-- number -->
+    <node name="complex" channel="inline" format="number/complex-cartesian" model="7.8,3.4"/>
+    <node name="fraction" channel="inline" format="number/fraction-vulgar" model="3.0,4.0"/>
+    <node name="integer" channel="inline" format="number/integer" model="56,7,-8,74,-716,9,32,34,24,1971"/>
+
+    <!-- text -->
+    <node name="ascii" channel="inline" format="text/ascii" model="a4v,e9-/3+*)#'123"/>
+    <node name="wide" channel="inline" format="text/plain" model="w1i2d3e4%?⭝|฿Hઊ"/>
+
+    <!-- logic -->
+    <node name="sort" channel="file" format="element/part" model="sorter/sort.cybol"/>
+    <node name="print" channel="file" format="element/part" model="sorter/print.cybol"/>
+
+    <!-- time -->
+    <node name="before" channel="inline" format="number/integer" model="0"/>
+    <node name="after" channel="inline" format="number/integer" model="0"/>
+    <node name="print_time" channel="file" format="element/part" model="sorter/print_time.cybol"/>
+
+</node>
