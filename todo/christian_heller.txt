@@ -11,12 +11,88 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+Aside
+_____
+
+        * Replace direct comparison in file "value_comparator.c" with function "compare_integer_equal"
+
+Comparison
+__________
+
+        * Implement string comparison
+        * CAUTION! Java knows "equals" with boolean return value AND "compareTo" with int return value
+            --> should there be two operations or is "compare" sufficient ?
+        * See file "array_comparator.c"
+
+/**
+ * Compares count elements of the left- and right array lexicographically.
+ *
+ * If the operand type is "character" or "wide_character",
+ * then the unicode values of the characters get compared.
+ *
+ * The return value is the difference in the alphabet,
+ * between the first two characters that do NOT match.
+ *
+ * @param p0 the result (0 if equal;
+ *      negative value if left is lesser, i.e. precedes in alphabet;
+ *      positive value if left is greater, i.e. follows in alphabet)
+ * @param p1 the left array
+ * @param p2 the right array
+ * @param p3 the operation type
+ * @param p4 the operand type
+ * @param p5 the count
+ */
+TODO
+
+--
+
+/**
+ * Compares two arrays.
+ *
+ * @param p0 the return value
+ * @param p1 the left array
+ * @param p2 the right array
+ */
+int compare(void* p0, void* p1, void* p2) {
+
+    copy_integer(p0, NUMBER_0_INTEGER);
+
+    while (true) {
+
+        if (j >= count) {
+
+            break;
+        }
+
+        if (p1[j] != p2[j]) {
+
+            if (p1[j] < p2[j]) {
+
+                copy_integer(p0, NUMBER_MINUS_1_INTEGER);
+
+            } else {
+
+                // The values are not equal, which was tested above.
+                // The p1[j] value is not lesser either, which was tested above.
+                // Therefore, p1[j] can only be greater than p2[j].
+                copy_integer(p0, NUMBER_1_INTEGER);
+            }
+
+            copy_integer(p0, r);
+            break;
+        }
+
+        j++;
+    }
+}
+
 Sorting
 _______
 
+        * Reflect about string sorting
         * Implement missing cybol operations "insertion", "quick", "selection" in cyboi
         * Add sort operation property "descending" and use "ascending" as default
-        * See file "todo/christian_heller_sorting.png"
+        * Add sort operation property "criterion" pointing to a part that is to be compared for sorting
         * Sort nodes of db list "title" in directory "repertoire/logic/translate/song/"
 
         * Look for new sorting ideas (linear, binär, sortieren) in:
