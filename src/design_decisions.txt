@@ -637,3 +637,57 @@ ____________________
 - however, the destination node always has to exist already
 - then adapt cybol operations in "applicator/modify/"
 
+Comparison
+__________
+
+Difference:
+==> standard comparison: delivers MANY results, one for each element in an array (vector), so that the result is again an array (vector)
+==> lexicographical comparison: delivers just ONE result
+- many programming languages implement these return values: -1 if lesser, 0 if equal, 1 if greater
+- cyboi should better (?? VERIFY THIS LATER) stick to a standard flag (0 or 1) as return value of the comparison
+- do NOT implement new operation for lexicographical comparison, but a cybol boolean property "lexicographic" (true | false)
+- distinguish "lexicographic" or not in "applicator/compare/" and call corresponding function in "executor/comparator/"
+- Java knows "equals" with boolean return value AND "compareTo" with int return value
+--> merge these two and only use "compare" with boolean return value(s) in cyboi
+
+Operators:
+- directory: "executor/comparator/"
+- standard comparison operators are implemented: ==, !=, <, >, <=, >=
+- others are possible in the future: ~ for "similar" etc.
+- the cybol operations are called e.g. "compare/smaller-or-equal"
+
+Types:
+- operations may be applied to different types, e.g. "number/integer", "number/fraction-decimal" (double), "text/plain" (wchar_t)
+- the result is always either "0" for "false" or "1" for "true"
+
+Dimension:
+- two scalar numbers: direct comparison and just one result
+- two vectors: elements get processed one by one and results (0 or 1) are written one by one into a vector (as done e.g. in MATLAB)
+- similar to the cybol operation "calculate/add"
+- two matrices: not represented by just one node, but by a tree of nodes (matrix-row-column or matrix-x-y-z), so that n-dimensional matrices are possible
+
+Lexicographical order:
+https://en.wikipedia.org/wiki/Lexicographical_order#Numeral_systems_and_dates
+- integer: an integer is larger than another one if either it has more digits (ignoring leading zeroes) or the number of digits is the same and the first digit which differs is larger
+- real numbers written in decimal notation:
+    - a slightly different variant of the lexicographical order is used
+    - the parts on the left of the decimal point are compared as with integer
+    - if they are equal, the parts at the right of the decimal point are compared with the lexicographical order
+- negative numbers:
+    - reverse the order for comparing negative numbers
+    - testing the sign in computers takes some time
+    - consider two's complement representation for representing signed integers
+- string: array of "char" or "wchar_t"; use ASCII and UNICODE, i.e. alphabetical order
+- date: represented as Julian Date (JD) in cyboi; YYYY-MM-DD etc. get converted into JD; simple number comparison suffices
+
+Arbitrary-precision arithmetic (Langzahlarithmetik)
+___________________________________________________
+
+- Rechnen mit ganzen Zahlen beliebiger Länge
+- Länge nur durch verfügbaren Arbeitsspeicher begrenzt
+- numerischer Vergleich beginnt wie der lexikographische bei beiden Operanden am höchstrangigen Ende
+- Rang einer Stelle nicht von ihrem Abstand vom höchstrangigen Ende bestimmt, sondern von ihrem Abstand vom niedrigstrangigen Ende, der "Einerstelle"
+- vor dem Vergleich müssen also die Längen der beiden Operanden durch Auffüllen mit führenden Nullen angeglichen werden
+- danach werden (beim numerischen wie beim lexikographischen Vergleich) gleiche Ränge in beiden Operanden miteinander verglichen
+- Verarbeitungsrichtung: bei Division von hochrangig zu niedrigrangig; bei Addition, Subtraktion und Multiplikation jedoch umgekehrt
+

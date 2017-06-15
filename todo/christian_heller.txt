@@ -20,31 +20,20 @@ Comparison
 __________
 
         * Implement string comparison
-        * CAUTION! Java knows "equals" with boolean return value AND "compareTo" with int return value
-            --> should there be two operations or is "compare" sufficient ?
         * See file "array_comparator.c"
+        * See file "design_decisions.txt" and search for "Comparison"
 
-/**
- * Compares count elements of the left- and right array lexicographically.
- *
- * If the operand type is "character" or "wide_character",
- * then the unicode values of the characters get compared.
- *
- * The return value is the difference in the alphabet,
- * between the first two characters that do NOT match.
- *
- * @param p0 the result (0 if equal;
- *      negative value if left is lesser, i.e. precedes in alphabet;
- *      positive value if left is greater, i.e. follows in alphabet)
- * @param p1 the left array
- * @param p2 the right array
- * @param p3 the operation type
- * @param p4 the operand type
- * @param p5 the count
- */
-TODO
-
---
+            Difference:
+            ==> standard comparison: delivers MANY results, one for each element in an array (vector), so that the result is again an array (vector)
+            ==> lexicographical comparison: delivers just ONE result
+            - many programming languages implement these return values: -1 if lesser, 0 if equal, 1 if greater
+            - cyboi should better stick to a standard boolean return value (0 or 1)
+            - do NOT implement new operation for lexicographical comparison, but a cybol boolean property "lexicographic" (true | false) with default "false"
+            - distinguish "lexicographic" or not in "applicator/compare/" and call corresponding function in "executor/comparator/"
+            - the comparison for primitive types is the same for lexicographic or not
+            - only the comparison of arrays differs:
+                - standard delivers many boolean results as elements in a result array
+                - lexicographic delivers ONE boolean result
 
 /**
  * Compares two arrays.
@@ -98,6 +87,11 @@ _______
         * Look for new sorting ideas (linear, binär, sortieren) in:
             tmp/datetime/plate_-_programmieren_in_c_datumsberechnung.html (8 Ausgewählte Algorithmen (Teil 1) | 8.5 Suchen und Sortieren)
         * Implement cybol operations for calculating statistical things
+
+Arbitrary-precision arithmetic (Langzahlarithmetik)
+___________________________________________________
+
+        * See file "design_decisions.txt" and search for "Arbitrary-precision arithmetic (Langzahlarithmetik)"
 
 Repertoire
 __________
