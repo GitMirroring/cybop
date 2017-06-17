@@ -12,6 +12,7 @@
     <node name="en" channel="inline" format="text/plain" model="Englischer Schlager"/>
     <node name="fr" channel="inline" format="text/plain" model="Französischer Rock-Pop & Chanson"/>
     <node name="it" channel="inline" format="text/plain" model="Italienische Musik & Italo-Pop"/>
+    <node name="jazz" channel="inline" format="text/plain" model="Jazz & Hintergrundmusik (Dinner, Lounge)"/>
     <node name="ndw" channel="inline" format="text/plain" model="Neue Deutsche Welle (NDW)"/>
     <node name="ost" channel="inline" format="text/plain" model="Ostrock (DDR)"/>
     <node name="pl" channel="inline" format="text/plain" model="Polnischer Rock-Pop"/>

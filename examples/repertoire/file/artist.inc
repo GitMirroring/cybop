@@ -356,6 +356,20 @@
         </tr>
         <tr>
             <td>
+                DJ &#xD6;tzi
+            </td>
+            <td>
+                Anton Aus Tirol
+            </td>
+            <td>
+                Volksmusik &#x26; Stimmungsmusik
+            </td>
+            <td>
+                1999
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Doris Day
             </td>
             <td>
@@ -443,6 +457,7 @@
                 1970er Rock &#x26; Pop
             </td>
             <td>
+                1977
             </td>
         </tr>
         <tr>
@@ -456,6 +471,7 @@
                 1970er Rock &#x26; Pop
             </td>
             <td>
+                1977
             </td>
         </tr>
         <tr>
@@ -466,9 +482,10 @@
                 Tears In Heaven
             </td>
             <td>
-                1990er Rock-Pop &#x26; Independent
+                Jazz &#x26; Hintergrundmusik (Dinner, Lounge)
             </td>
             <td>
+                1992
             </td>
         </tr>
         <tr>
@@ -479,9 +496,10 @@
                 Wonderful Tonight
             </td>
             <td>
-                1990er Rock-Pop &#x26; Independent
+                Jazz &#x26; Hintergrundmusik (Dinner, Lounge)
             </td>
             <td>
+                1977
             </td>
         </tr>
         <tr>
@@ -496,6 +514,20 @@
             </td>
             <td>
                 1985
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Frank Sinatra
+            </td>
+            <td>
+                Strangers In The Night
+            </td>
+            <td>
+                Jazz &#x26; Hintergrundmusik (Dinner, Lounge)
+            </td>
+            <td>
+                1966
             </td>
         </tr>
         <tr>
@@ -535,6 +567,20 @@
                 Schlager
             </td>
             <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Hans Albers
+            </td>
+            <td>
+                Auf Der Reeperbahn Nachts Um Halb Eins
+            </td>
+            <td>
+                Volksmusik &#x26; Stimmungsmusik
+            </td>
+            <td>
+                1943
             </td>
         </tr>
         <tr>
@@ -773,6 +819,20 @@
         </tr>
         <tr>
             <td>
+                Moby
+            </td>
+            <td>
+                Lift Me Up
+            </td>
+            <td>
+                2000er Rock-Pop
+            </td>
+            <td>
+                2005
+            </td>
+        </tr>
+        <tr>
+            <td>
                 M&#xFC;nchener Freiheit
             </td>
             <td>
@@ -838,6 +898,20 @@
         </tr>
         <tr>
             <td>
+                Paul Kuhn
+            </td>
+            <td>
+                Es Gibt Kein Bier Auf Hawaii
+            </td>
+            <td>
+                Volksmusik &#x26; Stimmungsmusik
+            </td>
+            <td>
+                1963
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Peter Maffay
             </td>
             <td>
@@ -847,6 +921,20 @@
                 Deutschrock
             </td>
             <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Peter Maffay
+            </td>
+            <td>
+                Tiefer
+            </td>
+            <td>
+                Deutschrock
+            </td>
+            <td>
+                1989
             </td>
         </tr>
         <tr>

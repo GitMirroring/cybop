@@ -356,6 +356,20 @@
         </tr>
         <tr>
             <td>
+                Anton Aus Tirol
+            </td>
+            <td>
+                DJ &#xD6;tzi
+            </td>
+            <td>
+                Volksmusik &#x26; Stimmungsmusik
+            </td>
+            <td>
+                1999
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Whatever Will Be Will Be (Que Sera Sera)
             </td>
             <td>
@@ -443,6 +457,7 @@
                 1970er Rock &#x26; Pop
             </td>
             <td>
+                1977
             </td>
         </tr>
         <tr>
@@ -456,6 +471,7 @@
                 1970er Rock &#x26; Pop
             </td>
             <td>
+                1977
             </td>
         </tr>
         <tr>
@@ -466,9 +482,10 @@
                 Eric Clapton
             </td>
             <td>
-                1990er Rock-Pop &#x26; Independent
+                Jazz &#x26; Hintergrundmusik (Dinner, Lounge)
             </td>
             <td>
+                1992
             </td>
         </tr>
         <tr>
@@ -479,9 +496,10 @@
                 Eric Clapton
             </td>
             <td>
-                1990er Rock-Pop &#x26; Independent
+                Jazz &#x26; Hintergrundmusik (Dinner, Lounge)
             </td>
             <td>
+                1977
             </td>
         </tr>
         <tr>
@@ -496,6 +514,20 @@
             </td>
             <td>
                 1985
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Strangers In The Night
+            </td>
+            <td>
+                Frank Sinatra
+            </td>
+            <td>
+                Jazz &#x26; Hintergrundmusik (Dinner, Lounge)
+            </td>
+            <td>
+                1966
             </td>
         </tr>
         <tr>
@@ -535,6 +567,20 @@
                 Schlager
             </td>
             <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Auf Der Reeperbahn Nachts Um Halb Eins
+            </td>
+            <td>
+                Hans Albers
+            </td>
+            <td>
+                Volksmusik &#x26; Stimmungsmusik
+            </td>
+            <td>
+                1943
             </td>
         </tr>
         <tr>
@@ -773,6 +819,20 @@
         </tr>
         <tr>
             <td>
+                Lift Me Up
+            </td>
+            <td>
+                Moby
+            </td>
+            <td>
+                2000er Rock-Pop
+            </td>
+            <td>
+                2005
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Herzschlag Ist Der Takt
             </td>
             <td>
@@ -838,6 +898,20 @@
         </tr>
         <tr>
             <td>
+                Es Gibt Kein Bier Auf Hawaii
+            </td>
+            <td>
+                Paul Kuhn
+            </td>
+            <td>
+                Volksmusik &#x26; Stimmungsmusik
+            </td>
+            <td>
+                1963
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Eiszeit
             </td>
             <td>
@@ -847,6 +921,20 @@
                 Deutschrock
             </td>
             <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Tiefer
+            </td>
+            <td>
+                Peter Maffay
+            </td>
+            <td>
+                Deutschrock
+            </td>
+            <td>
+                1989
             </td>
         </tr>
         <tr>

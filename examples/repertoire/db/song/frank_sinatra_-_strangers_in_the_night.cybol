@@ -1,9 +1,9 @@
 <node>
 
-    <node name="artist" channel="inline" format="text/plain" model="Eric Clapton"/>
-    <node name="title" channel="inline" format="text/plain" model="Wonderful Tonight"/>
+    <node name="artist" channel="inline" format="text/plain" model="Frank Sinatra"/>
+    <node name="title" channel="inline" format="text/plain" model="Strangers In The Night"/>
     <node name="genre" channel="inline" format="text/plain" model="jazz"/>
-    <node name="year" channel="inline" format="text/plain" model="1977"/>
+    <node name="year" channel="inline" format="text/plain" model="1966"/>
 
     <node name="time" channel="inline" format="text/plain" model="0:00"/>
     <node name="key" channel="inline" format="text/plain" model=""/>

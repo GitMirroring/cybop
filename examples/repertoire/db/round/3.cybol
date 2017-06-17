@@ -5,10 +5,11 @@
     <node name="3" channel="inline" format="text/plain" model="aerzte_-_westerland"/>
     <node name="4" channel="inline" format="text/plain" model="andreas_bourani_-_alles_nur_in_meinem_kopf"/>
     <node name="5" channel="inline" format="text/plain" model="lost_frequencies_feat_janieck_devy_-_reality"/>
-    <node name="6" channel="inline" format="text/plain" model="simply_red_-_something_got_me_started"/>
-    <node name="7" channel="inline" format="text/plain" model="nick_straker_band_-_a_walk_in_the_park"/>
-    <node name="8" channel="inline" format="text/plain" model="a-teens_-_mama_mia"/>
-    <node name="9" channel="inline" format="text/plain" model="katrina_&_the_waves_-_walking_on_sunshine"/>
-    <node name="10" channel="inline" format="text/plain" model="londonbeat_-_i've_been_thinking_about_you"/>
+    <node name="6" channel="inline" format="text/plain" model="nick_kamen_-_i_promised_myself"/>
+    <node name="7" channel="inline" format="text/plain" model="simply_red_-_something_got_me_started"/>
+    <node name="8" channel="inline" format="text/plain" model="nick_straker_band_-_a_walk_in_the_park"/>
+    <node name="9" channel="inline" format="text/plain" model="a-teens_-_mama_mia"/>
+    <node name="10" channel="inline" format="text/plain" model="katrina_&_the_waves_-_walking_on_sunshine"/>
+    <node name="11" channel="inline" format="text/plain" model="londonbeat_-_i've_been_thinking_about_you"/>
 
 </node>

@@ -247,9 +247,6 @@
                 Lara Fabian - I Will Love Again
             </li>
             <li>
-                Moby - Lift Me Up
-            </li>
-            <li>
                 Puhdys - Hey Wir Wollen Die Eisb&#xE4;ren Seh&#x27;n
             </li>
             <li>
@@ -342,6 +339,13 @@
             <li>
                 Ricchi e Poveri - Sara Perche Ti Amo
             </li>
+        </ol>
+    </div>
+    <div>
+        <h2>
+            Jazz &#x26; Hintergrundmusik (Dinner, Lounge)
+        </h2>
+        <ol>
         </ol>
     </div>
     <div>

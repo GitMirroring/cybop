@@ -75,7 +75,6 @@
     <node name="michel_delpech_-_pour_un_flirt" channel="file" format="element/part" model="repertoire/db/idea/michel_delpech_-_pour_un_flirt.cybol"/>
     <node name="mike_&_the_mechanics_-_another_cup_of_coffee" channel="file" format="element/part" model="repertoire/db/idea/mike_&_the_mechanics_-_another_cup_of_coffee.cybol"/>
     <node name="mikis_theodorakis_-_sirtaki" channel="file" format="element/part" model="repertoire/db/idea/mikis_theodorakis_-_sirtaki.cybol"/>
-    <node name="moby_-_lift_me_up" channel="file" format="element/part" model="repertoire/db/idea/moby_-_lift_me_up.cybol"/>
 
     <node name="nazareth_-_dream_on" channel="file" format="element/part" model="repertoire/db/idea/nazareth_-_dream_on.cybol"/>
     <node name="nico_haak_-_schmidtchen_schleicher" channel="file" format="element/part" model="repertoire/db/idea/nico_haak_-_schmidtchen_schleicher.cybol"/>

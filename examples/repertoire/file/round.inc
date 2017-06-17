@@ -251,7 +251,7 @@
                     5
                 </td>
                 <td>
-                    Polon&#xE4;se Blankenese (Gottlieb Wendehals)
+                    What A Wonderful World (Louis Armstrong)
                 </td>
                 <td>
                     0:00
@@ -269,7 +269,7 @@
                     6
                 </td>
                 <td>
-                    Anita (Costa Cordalis)
+                    Polon&#xE4;se Blankenese (Gottlieb Wendehals)
                 </td>
                 <td>
                     0:00
@@ -287,7 +287,7 @@
                     7
                 </td>
                 <td>
-                    Kling Klang (Keimzeit)
+                    Anita (Costa Cordalis)
                 </td>
                 <td>
                     0:00
@@ -295,7 +295,7 @@
                 <td>
                 </td>
                 <td>
-                    K&#xF6;gi / Chris
+                    Chris
                 </td>
                 <td>
                 </td>
@@ -305,7 +305,7 @@
                     8
                 </td>
                 <td>
-                    Willenlos (Marius M&#xFC;ller-Westernhagen)
+                    Kling Klang (Keimzeit)
                 </td>
                 <td>
                     0:00
@@ -323,7 +323,7 @@
                     9
                 </td>
                 <td>
-                    Mit 66 Jahren (Udo J&#xFC;rgens)
+                    Willenlos (Marius M&#xFC;ller-Westernhagen)
                 </td>
                 <td>
                     0:00
@@ -331,7 +331,7 @@
                 <td>
                 </td>
                 <td>
-                    Chris
+                    K&#xF6;gi / Chris
                 </td>
                 <td>
                 </td>
@@ -341,7 +341,7 @@
                     10
                 </td>
                 <td>
-                    Kufsteiner Lied (Volkslied)
+                    Mit 66 Jahren (Udo J&#xFC;rgens)
                 </td>
                 <td>
                     0:00
@@ -359,7 +359,7 @@
                     11
                 </td>
                 <td>
-                    Rosamunde (Volkslied)
+                    Kufsteiner Lied (Volkslied)
                 </td>
                 <td>
                     0:00
@@ -377,7 +377,7 @@
                     12
                 </td>
                 <td>
-                    Ob-la-di Ob-la-da (Beatles)
+                    Rosamunde (Volkslied)
                 </td>
                 <td>
                     0:00
@@ -395,6 +395,24 @@
                     13
                 </td>
                 <td>
+                    Ob-la-di Ob-la-da (Beatles)
+                </td>
+                <td>
+                    0:00
+                </td>
+                <td>
+                </td>
+                <td>
+                    Chris
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    14
+                </td>
+                <td>
                     Apfeltraum (Klaus-Renft-Combo)
                 </td>
                 <td>
@@ -410,7 +428,7 @@
             </tr>
             <tr>
                 <td>
-                    14
+                    15
                 </td>
                 <td>
                     What Shall We Do With The Drunken Sailor (Volkslied)
@@ -428,7 +446,7 @@
             </tr>
             <tr>
                 <td>
-                    15
+                    16
                 </td>
                 <td>
                     Aloha Heja He (Achim Reichel)
@@ -446,7 +464,7 @@
             </tr>
             <tr>
                 <td>
-                    16
+                    17
                 </td>
                 <td>
                     Ich War Noch Niemals In New York (Udo J&#xFC;rgens)
@@ -458,6 +476,24 @@
                 </td>
                 <td>
                     K&#xF6;gi / Chris
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    18
+                </td>
+                <td>
+                    Strangers In The Night (Frank Sinatra)
+                </td>
+                <td>
+                    0:00
+                </td>
+                <td>
+                </td>
+                <td>
+                    Chris
                 </td>
                 <td>
                 </td>
@@ -564,7 +600,7 @@
                     6
                 </td>
                 <td>
-                    Something Got Me Started (Simply Red)
+                    I Promised Myself (Nick Kamen)
                 </td>
                 <td>
                     0:00
@@ -582,7 +618,7 @@
                     7
                 </td>
                 <td>
-                    A Walk In The Park (Nick Straker Band)
+                    Something Got Me Started (Simply Red)
                 </td>
                 <td>
                     0:00
@@ -600,7 +636,7 @@
                     8
                 </td>
                 <td>
-                    Mama Mia (A-Teens)
+                    A Walk In The Park (Nick Straker Band)
                 </td>
                 <td>
                     0:00
@@ -618,7 +654,7 @@
                     9
                 </td>
                 <td>
-                    Walking On Sunshine (Katrina &#x26; The Waves)
+                    Mama Mia (A-Teens)
                 </td>
                 <td>
                     0:00
@@ -634,6 +670,24 @@
             <tr>
                 <td>
                     10
+                </td>
+                <td>
+                    Walking On Sunshine (Katrina &#x26; The Waves)
+                </td>
+                <td>
+                    0:00
+                </td>
+                <td>
+                </td>
+                <td>
+                    Chris
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    11
                 </td>
                 <td>
                     I&#x27;ve Been Thinking About You (Londonbeat)
@@ -715,7 +769,7 @@
                     4
                 </td>
                 <td>
-                    Crying At The Discotheque (Alcazar)
+                    Lift Me Up (Moby)
                 </td>
                 <td>
                     0:00
@@ -723,7 +777,7 @@
                 <td>
                 </td>
                 <td>
-                    Chris
+                    K&#xF6;gi / Chris
                 </td>
                 <td>
                 </td>
@@ -733,7 +787,7 @@
                     5
                 </td>
                 <td>
-                    Smalltown Boy (Bronski Beat)
+                    Crying At The Discotheque (Alcazar)
                 </td>
                 <td>
                     0:00
@@ -751,7 +805,7 @@
                     6
                 </td>
                 <td>
-                    Everything&#x27;s Coming Up Roses (Black)
+                    Smalltown Boy (Bronski Beat)
                 </td>
                 <td>
                     0:00
@@ -769,7 +823,7 @@
                     7
                 </td>
                 <td>
-                    Que Sera Mi Vida (Gibson Brothers)
+                    Everything&#x27;s Coming Up Roses (Black)
                 </td>
                 <td>
                     0:00
@@ -787,7 +841,7 @@
                     8
                 </td>
                 <td>
-                    Dreamin&#x27; (Cliff Richard)
+                    Que Sera Mi Vida (Gibson Brothers)
                 </td>
                 <td>
                     0:00
@@ -805,7 +859,7 @@
                     9
                 </td>
                 <td>
-                    Feels Like Heaven (Fiction Factory)
+                    Dreamin&#x27; (Cliff Richard)
                 </td>
                 <td>
                     0:00
@@ -823,12 +877,67 @@
                     10
                 </td>
                 <td>
+                    Foot Of The Mountain (a-ha)
+                </td>
+                <td>
+                    0:00
+                </td>
+                <td>
+                </td>
+                <td>
+                    Chris
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    11
+                </td>
+                <td>
+                    Feels Like Heaven (Fiction Factory)
+                </td>
+                <td>
+                    0:00
+                </td>
+                <td>
+                </td>
+                <td>
+                    Chris
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    12
+                </td>
+                <td>
                     Always On My Mind (Elvis Presley)
                 </td>
                 <td>
                     0:00
                 </td>
                 <td>
+                </td>
+                <td>
+                    Chris
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    13
+                </td>
+                <td>
+                    Bad Moon Rising (C.C.R.)
+                </td>
+                <td>
+                    0:00
+                </td>
+                <td>
+                    D-Dur Shuffle 4/4 Takt
                 </td>
                 <td>
                     Chris
@@ -848,25 +957,6 @@
                     1
                 </td>
                 <td>
-                    Bad Moon Rising (C.C.R.)
-                </td>
-                <td>
-                    0:00
-                </td>
-                <td>
-                    D-Dur Shuffle 4/4 Takt
-                </td>
-                <td>
-                    Chris
-                </td>
-                <td>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    2
-                </td>
-                <td>
                     Hey Tonight (C.C.R.)
                 </td>
                 <td>
@@ -882,7 +972,7 @@
             </tr>
             <tr>
                 <td>
-                    3
+                    2
                 </td>
                 <td>
                     Country Roads (John Denver)
@@ -900,7 +990,7 @@
             </tr>
             <tr>
                 <td>
-                    4
+                    3
                 </td>
                 <td>
                     Africa (Toto)
@@ -918,7 +1008,7 @@
             </tr>
             <tr>
                 <td>
-                    5
+                    4
                 </td>
                 <td>
                     Somebody (Bryan Adams)
@@ -936,10 +1026,28 @@
             </tr>
             <tr>
                 <td>
-                    6
+                    5
                 </td>
                 <td>
                     Dancing With Tears In My Eyes (Ultravox)
+                </td>
+                <td>
+                    0:00
+                </td>
+                <td>
+                </td>
+                <td>
+                    Chris
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    6
+                </td>
+                <td>
+                    I Was Made For Loving You (Kiss)
                 </td>
                 <td>
                     0:00
@@ -975,7 +1083,7 @@
                     8
                 </td>
                 <td>
-                    I Was Made For Loving You (Kiss)
+                    Take It Easy (Eagles)
                 </td>
                 <td>
                     0:00
@@ -993,24 +1101,6 @@
                     9
                 </td>
                 <td>
-                    Take It Easy (Eagles)
-                </td>
-                <td>
-                    0:00
-                </td>
-                <td>
-                </td>
-                <td>
-                    Chris
-                </td>
-                <td>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    10
-                </td>
-                <td>
                     Promises (Eric Clapton)
                 </td>
                 <td>
@@ -1026,7 +1116,7 @@
             </tr>
             <tr>
                 <td>
-                    11
+                    10
                 </td>
                 <td>
                     Sultans Of Swing (Dire Straits)
@@ -1044,7 +1134,7 @@
             </tr>
             <tr>
                 <td>
-                    12
+                    11
                 </td>
                 <td>
                     Knockin&#x27; On Heaven&#x27;s Door (Bob Dylan)
@@ -1062,7 +1152,7 @@
             </tr>
             <tr>
                 <td>
-                    13
+                    12
                 </td>
                 <td>
                     You&#x27;ll Be In My Heart (Phil Collins)
@@ -1080,7 +1170,7 @@
             </tr>
             <tr>
                 <td>
-                    14
+                    13
                 </td>
                 <td>
                     Sacrifice (Elton John)
@@ -1440,7 +1530,7 @@
                     7
                 </td>
                 <td>
-                    I Promised Myself (Nick Kamen)
+                    Angels (Robbie Williams)
                 </td>
                 <td>
                     0:00
@@ -1458,7 +1548,7 @@
                     8
                 </td>
                 <td>
-                    Angels (Robbie Williams)
+                    Moonriver (Louis Armstrong)
                 </td>
                 <td>
                     0:00
@@ -1501,7 +1591,7 @@
                     1
                 </td>
                 <td>
-                    Capri Fischer (Rudi Schuricke)
+                    Anton Aus Tirol (DJ &#xD6;tzi)
                 </td>
                 <td>
                     0:00
@@ -1519,7 +1609,115 @@
                     2
                 </td>
                 <td>
+                    Auf Der Reeperbahn Nachts Um Halb Eins (Hans Albers)
+                </td>
+                <td>
+                    0:00
+                </td>
+                <td>
+                </td>
+                <td>
+                    K&#xF6;gi / Chris
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    3
+                </td>
+                <td>
+                    Es Gibt Kein Bier Auf Hawaii (Paul Kuhn)
+                </td>
+                <td>
+                    0:00
+                </td>
+                <td>
+                </td>
+                <td>
+                    K&#xF6;gi / Chris
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    4
+                </td>
+                <td>
+                    Capri Fischer (Rudi Schuricke)
+                </td>
+                <td>
+                    0:00
+                </td>
+                <td>
+                </td>
+                <td>
+                    Chris
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    5
+                </td>
+                <td>
                     Wilde Kirschen (Udo J&#xFC;rgens)
+                </td>
+                <td>
+                    0:00
+                </td>
+                <td>
+                </td>
+                <td>
+                    K&#xF6;gi / Chris
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    6
+                </td>
+                <td>
+                    Tiefer (Peter Maffay)
+                </td>
+                <td>
+                    0:00
+                </td>
+                <td>
+                </td>
+                <td>
+                    K&#xF6;gi
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    7
+                </td>
+                <td>
+                    Alt Wie Ein Baum (Puhdys)
+                </td>
+                <td>
+                    0:00
+                </td>
+                <td>
+                </td>
+                <td>
+                    Chris
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    8
+                </td>
+                <td>
+                    Tears In Heaven (Eric Clapton)
                 </td>
                 <td>
                     0:00

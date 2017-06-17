@@ -2,8 +2,8 @@
 
     <node name="artist" channel="inline" format="text/plain" model="Eric Clapton"/>
     <node name="title" channel="inline" format="text/plain" model="Tears In Heaven"/>
-    <node name="genre" channel="inline" format="text/plain" model="1990"/>
-    <node name="year" channel="inline" format="text/plain" model=""/>
+    <node name="genre" channel="inline" format="text/plain" model="jazz"/>
+    <node name="year" channel="inline" format="text/plain" model="1992"/>
 
     <node name="time" channel="inline" format="text/plain" model="0:00"/>
     <node name="key" channel="inline" format="text/plain" model=""/>

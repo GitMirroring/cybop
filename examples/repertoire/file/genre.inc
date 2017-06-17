@@ -138,12 +138,6 @@
         </h2>
         <ol>
             <li>
-                Eric Clapton - Tears In Heaven
-            </li>
-            <li>
-                Eric Clapton - Wonderful Tonight
-            </li>
-            <li>
                 Londonbeat - I&#x27;ve Been Thinking About You
             </li>
             <li>
@@ -173,6 +167,9 @@
             </li>
             <li>
                 Fugees - Killing Me Softly
+            </li>
+            <li>
+                Moby - Lift Me Up
             </li>
             <li>
                 Phil Collins - You&#x27;ll Be In My Heart
@@ -256,6 +253,9 @@
                 Peter Maffay - Eiszeit
             </li>
             <li>
+                Peter Maffay - Tiefer
+            </li>
+            <li>
                 Purple Schulz - Du Hast Mir Gerade Noch Gefehlt
             </li>
             <li>
@@ -308,6 +308,22 @@
             </li>
             <li>
                 Nek - Laura Non C&#x27;e
+            </li>
+        </ol>
+    </div>
+    <div>
+        <h2>
+            Jazz &#x26; Hintergrundmusik (Dinner, Lounge)
+        </h2>
+        <ol>
+            <li>
+                Eric Clapton - Tears In Heaven
+            </li>
+            <li>
+                Eric Clapton - Wonderful Tonight
+            </li>
+            <li>
+                Frank Sinatra - Strangers In The Night
             </li>
         </ol>
     </div>
@@ -402,6 +418,15 @@
             Volksmusik &#x26; Stimmungsmusik
         </h2>
         <ol>
+            <li>
+                DJ &#xD6;tzi - Anton Aus Tirol
+            </li>
+            <li>
+                Hans Albers - Auf Der Reeperbahn Nachts Um Halb Eins
+            </li>
+            <li>
+                Paul Kuhn - Es Gibt Kein Bier Auf Hawaii
+            </li>
             <li>
                 Volkslied - Kufsteiner Lied
             </li>

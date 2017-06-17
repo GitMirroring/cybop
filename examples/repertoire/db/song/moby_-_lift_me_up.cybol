@@ -3,11 +3,11 @@
     <node name="artist" channel="inline" format="text/plain" model="Moby"/>
     <node name="title" channel="inline" format="text/plain" model="Lift Me Up"/>
     <node name="genre" channel="inline" format="text/plain" model="2000"/>
-    <node name="year" channel="inline" format="text/plain" model=""/>
+    <node name="year" channel="inline" format="text/plain" model="2005"/>
 
     <node name="time" channel="inline" format="text/plain" model="0:00"/>
     <node name="key" channel="inline" format="text/plain" model=""/>
-    <node name="vocals" channel="inline" format="text/plain" model="Chris"/>
+    <node name="vocals" channel="inline" format="text/plain" model="Kögi / Chris"/>
     <node name="remark" channel="inline" format="text/plain" model=""/>
 
 </node>

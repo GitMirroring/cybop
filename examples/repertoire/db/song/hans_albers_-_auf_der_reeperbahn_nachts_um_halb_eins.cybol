@@ -1,0 +1,13 @@
+<node>
+
+    <node name="artist" channel="inline" format="text/plain" model="Hans Albers"/>
+    <node name="title" channel="inline" format="text/plain" model="Auf Der Reeperbahn Nachts Um Halb Eins"/>
+    <node name="genre" channel="inline" format="text/plain" model="volksmusik"/>
+    <node name="year" channel="inline" format="text/plain" model="1943"/>
+
+    <node name="time" channel="inline" format="text/plain" model="0:00"/>
+    <node name="key" channel="inline" format="text/plain" model=""/>
+    <node name="vocals" channel="inline" format="text/plain" model="Kögi / Chris"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

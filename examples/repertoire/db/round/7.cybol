@@ -6,8 +6,8 @@
     <node name="4" channel="inline" format="text/plain" model="tom_petty_-_i_won't_back_down"/>
     <node name="5" channel="inline" format="text/plain" model="bruce_springsteen_-_i'm_on_fire"/>
     <node name="6" channel="inline" format="text/plain" model="scott_mc_kenzie_-_san_francisco"/>
-    <node name="7" channel="inline" format="text/plain" model="nick_kamen_-_i_promised_myself"/>
-    <node name="8" channel="inline" format="text/plain" model="robbie_williams_-_angels"/>
+    <node name="7" channel="inline" format="text/plain" model="robbie_williams_-_angels"/>
+    <node name="8" channel="inline" format="text/plain" model="louis_armstrong_-_moonriver"/>
     <node name="9" channel="inline" format="text/plain" model="eric_clapton_-_wonderful_tonight"/>
 
 </node>
