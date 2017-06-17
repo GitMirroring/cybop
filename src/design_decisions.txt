@@ -664,7 +664,16 @@ Dimension:
 - two scalar numbers: direct comparison and just one result
 - two vectors: elements get processed one by one and results (0 or 1) are written one by one into a vector (as done e.g. in MATLAB)
 - similar to the cybol operation "calculate/add"
-- two matrices: not represented by just one node, but by a tree of nodes (matrix-row-column or matrix-x-y-z), so that n-dimensional matrices are possible
+- two matrices: not represented by just one node (part), but by a tree of nodes (matrix-row-column or matrix-x-y-z), so that n-dimensional matrices are possible
+- CAUTION! matrix comparison has to be implemented in cybol (!), not cyboi, e.g. using a comparison operation operand path like:
+    .domain.matrix.[z].[y].[x]
+- n dimensions (not only 3, but also more) are possible
+- the cybol application developer has to use n nested loops for these n dimensions
+- alternatively, n recursive calls using a new stack loop variable for each tree level
+- possibly, provide a cybol library offering matrix comparison over n dimensions
+- possibly, this library may be used for ANY comparison (?)
+- the library always has to be instantiated using "communicate/receive" in memory before usage,
+    since it will depend on stack variables, which only exist in the tree after having been instantiated
 
 Lexicographical order:
 https://en.wikipedia.org/wiki/Lexicographical_order#Numeral_systems_and_dates
