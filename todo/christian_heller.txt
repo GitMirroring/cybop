@@ -826,9 +826,8 @@ _______
         * Check possible simplification of constants definition using:
             int* var = (int[]) { 6 };
 
-        * Make sure types are compared for correctness when copying a value (called by receive, overwrite, append etc.);
-            usually a "type" property is given; the two arguments also have a type; all three have to be identical
-            since otherwise, segmentation faults will occur; this happened in some cybol applications
+        * Implement some functions in assembly language to accelerate execution, see:
+            http://menuetos.net/
 
         * Search for comments with "??", "TODO", "TEST", in order to clean them up
 
