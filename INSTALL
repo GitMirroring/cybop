@@ -22,28 +22,24 @@ __________________
     tar -xvzf cybop-0.14.0.tar.gz
     tar -xvjf cybop-0.14.0.tar.bz2
 
-CMake Installation
-__________________
-
-- It requires CMake version >= 3.0.2 which can be found here https://cmake.org/install/
 
 Package and Library Installation POSIX
 ______________________________________
 
 Debian packages for CYBOL application execution:
+    libc6
     xorg
-
-Debian packages for compilation:
     freeglut3
-    (freeglut3-dev ??)
-    (libxi ??)
-    (libxmu ??)
-    mesa etc.
-    libxcb (xlibs not used anymore)
-    xorg-dev
 
-Debian packages for development:
-    graphviz including dot tool
+Debian packages for CYBOI compilation:
+    cmake (version >= 3.0.2)
+    libxcb1-dev (libx11-dev "xlibs" not used anymore)
+    freeglut3-dev
+
+Debian packages for CYBOP development (helpful, but not essential):
+    doxygen
+    valgrind
+    graphviz
 
 
 Package and Library Installation Windows (GCC)
@@ -192,9 +188,14 @@ _______________________
 
     make clean
 
-- Create the cyboi binary
+- Create the cyboi binary including any test cases:
 
     make
+
+- Create the cyboi binary only:
+
+    make cyboi
+
 
 CYBOL Application Execution
 ___________________________
@@ -286,8 +287,9 @@ You may also want to have a look at the Res Medicinae project, where more CYBOL
 application modules for the healthcare domain might be provided some day:
 http://www.resmedicinae.org/
 
+
 CYBOP Testing
-__________________
+_____________
 
 - Change into cybop's build directory e.g.:
 
@@ -301,6 +303,7 @@ __________________
 
     make codecoverage
     make generatehtml
+
 
 CYBOP Codestyling
 _________________
@@ -317,6 +320,7 @@ _________________
 
     make cppcheck
 
+
 CYBOP doxygen
 _____________
 
@@ -327,6 +331,7 @@ _____________
 - Run the doxygen
 
     make doc
+
 
 Tagging SVN
 ___________
@@ -346,6 +351,7 @@ svn copy https://christian@svn.savannah.nongnu.org/cybop/trunk https://christian
 It shows the following error:
 
 svn: OPTIONS of 'https://christian@svn.savannah.nongnu.org/cybop': SSL handshake failed: SSL error: An unexpected TLS packet was received. (https://svn.savannah.nongnu.org)
+
 
 CYBOP Distribution
 __________________
@@ -377,6 +383,7 @@ __________________
     scp cybop-0.19.0.tar.gz cybop-0.19.0.tar.gz.sig christian@dl.sv.nongnu.org:/releases/cybop/
 
 See further stepwise instructions in file "dist/release.txt"!
+
 
 CYBOP Packaging
 _______________
