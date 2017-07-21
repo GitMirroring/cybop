@@ -29,10 +29,11 @@
 #include <stdint.h> // for uint32_t
 
 #if defined(__linux__) || defined(__unix__)
+    #include <arpa/inet.h>
     #include <netinet/in.h>
 #elif defined(__APPLE__) && defined(__MACH__)
-    #include <netinet/in.h>
     #include <arpa/inet.h>
+    #include <netinet/in.h>
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
     #include <winsock.h>
@@ -42,7 +43,7 @@
 #endif
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
+
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
