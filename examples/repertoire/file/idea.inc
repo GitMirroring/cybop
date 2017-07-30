@@ -488,9 +488,6 @@
                 Volkslied - Heute Wollen Wir Das R&#xE4;nzlein Schn&#xFC;ren
             </li>
             <li>
-                Volkslied - Hoch Auf Dem Gelben Wagen
-            </li>
-            <li>
                 Volkslied - Im Fr&#xFC;htau Zu Berge
             </li>
             <li>

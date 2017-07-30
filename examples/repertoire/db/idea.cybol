@@ -133,7 +133,6 @@
     <node name="volkslied_-_es_wollt'_ein_maegdlein_frueh_aufsteh'n" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_es_wollt'_ein_maegdlein_frueh_aufsteh'n.cybol"/>
     <node name="volkslied_-_es_zogen_auf_sonnigen_wegen" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_es_zogen_auf_sonnigen_wegen.cybol"/>
     <node name="volkslied_-_heute_wollen_wir_das_raenzlein_schnueren" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_heute_wollen_wir_das_raenzlein_schnueren.cybol"/>
-    <node name="volkslied_-_hoch_auf_dem_gelben_wagen" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_hoch_auf_dem_gelben_wagen.cybol"/>
     <node name="volkslied_-_im_fruehtau_zu_berge" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_im_fruehtau_zu_berge.cybol"/>
     <node name="volkslied_-_muss_i_denn_muss_i_denn_zum_staedtele_hinaus" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_muss_i_denn_muss_i_denn_zum_staedtele_hinaus.cybol"/>
     <node name="volkslied_-_schneewalzer_(herbert_roth)" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_schneewalzer_(herbert_roth).cybol"/>

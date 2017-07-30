@@ -428,6 +428,9 @@
                 Paul Kuhn - Es Gibt Kein Bier Auf Hawaii
             </li>
             <li>
+                Volkslied - Hoch Auf Dem Gelben Wagen
+            </li>
+            <li>
                 Volkslied - Kufsteiner Lied
             </li>
             <li>

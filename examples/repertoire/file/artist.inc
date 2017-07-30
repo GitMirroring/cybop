@@ -1319,6 +1319,20 @@
                 Volkslied
             </td>
             <td>
+                Hoch Auf Dem Gelben Wagen
+            </td>
+            <td>
+                Volksmusik &#x26; Stimmungsmusik
+            </td>
+            <td>
+                1922
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Volkslied
+            </td>
+            <td>
                 Kufsteiner Lied
             </td>
             <td>
