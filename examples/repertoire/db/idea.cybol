@@ -61,6 +61,7 @@
     <node name="juergen_hart_-_sing_mei_sachse_sing" channel="file" format="element/part" model="repertoire/db/idea/juergen_hart_-_sing_mei_sachse_sing.cybol"/>
 
     <node name="karat_-_der_blaue_planet" channel="file" format="element/part" model="repertoire/db/idea/karat_-_der_blaue_planet.cybol"/>
+    <node name="karat_-_gewitterregen" channel="file" format="element/part" model="repertoire/db/idea/karat_-_gewitterregen.cybol"/>
     <node name="karat_-_jede_stunde" channel="file" format="element/part" model="repertoire/db/idea/karat_-_jede_stunde.cybol"/>
     <node name="killers_-_human" channel="file" format="element/part" model="repertoire/db/idea/killers_-_human.cybol"/>
 
@@ -108,6 +109,7 @@
     <node name="scorpions_-_white_dove" channel="file" format="element/part" model="repertoire/db/idea/scorpions_-_white_dove.cybol"/>
     <node name="scorpions_-_wind_of_change" channel="file" format="element/part" model="repertoire/db/idea/scorpions_-_wind_of_change.cybol"/>
     <node name="secret_service_-_ten_o'clock_postman" channel="file" format="element/part" model="repertoire/db/idea/secret_service_-_ten_o'clock_postman.cybol"/>
+    <node name="sheppard_-_geronimo" channel="file" format="element/part" model="repertoire/db/idea/sheppard_-_geronimo.cybol"/>
     <node name="shorts_-_comment_ca_va" channel="file" format="element/part" model="repertoire/db/idea/shorts_-_comment_ca_va.cybol"/>
     <node name="simon_&_garfunkel_-_sound_of_silence" channel="file" format="element/part" model="repertoire/db/idea/simon_&_garfunkel_-_sound_of_silence.cybol"/>
     <node name="simple_minds_-_don't_you_(forget_about_me)" channel="file" format="element/part" model="repertoire/db/idea/simple_minds_-_don't_you_(forget_about_me).cybol"/>

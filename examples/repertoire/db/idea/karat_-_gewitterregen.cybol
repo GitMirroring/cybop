@@ -1,9 +1,9 @@
 <node>
 
-    <node name="artist" channel="inline" format="text/plain" model="City"/>
-    <node name="title" channel="inline" format="text/plain" model="Am Fenster"/>
+    <node name="artist" channel="inline" format="text/plain" model="Karat"/>
+    <node name="title" channel="inline" format="text/plain" model="Gewitterregen"/>
     <node name="genre" channel="inline" format="text/plain" model="ost"/>
-    <node name="year" channel="inline" format="text/plain" model="1977"/>
+    <node name="year" channel="inline" format="text/plain" model="1979"/>
 
     <node name="time" channel="inline" format="text/plain" model="0:00"/>
     <node name="key" channel="inline" format="text/plain" model=""/>

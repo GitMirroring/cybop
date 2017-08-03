@@ -263,6 +263,9 @@
         </h2>
         <ol>
             <li>
+                Sheppard - Geronimo
+            </li>
+            <li>
                 Wincent Weiss - Feuerwerk
             </li>
         </ol>
@@ -371,6 +374,9 @@
             </li>
             <li>
                 Karat - Der Blaue Planet
+            </li>
+            <li>
+                Karat - Gewitterregen
             </li>
             <li>
                 Karat - Jede Stunde
