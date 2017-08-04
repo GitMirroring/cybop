@@ -485,6 +485,12 @@
                 Roland Steinel - Liechtensteiner Polka
             </li>
             <li>
+                Volkslied - Das Lieben Bringt Gro&#xDF; Freud
+            </li>
+            <li>
+                Volkslied - Die Gedanken Sind Frei
+            </li>
+            <li>
                 Volkslied - Es Wollt&#x27; Ein M&#xE4;gdlein Fr&#xFC;h Aufsteh&#x27;n
             </li>
             <li>
@@ -492,9 +498,6 @@
             </li>
             <li>
                 Volkslied - Heute Wollen Wir Das R&#xE4;nzlein Schn&#xFC;ren
-            </li>
-            <li>
-                Volkslied - Im Fr&#xFC;htau Zu Berge
             </li>
             <li>
                 Volkslied - Muss I Denn Muss I Denn Zum Staedtele Hinaus
@@ -509,7 +512,7 @@
                 Volkslied - Wem Gott Will Rechte Gunst Erweisen
             </li>
             <li>
-                Volkslied - Wenn Wir Erklimmen Felsige H&#xF6;hen
+                Volkslied - Wenn Wir Erklimmen (Bergvagabunden)
             </li>
             <li>
                 Volkslied - Wir Lieben Die St&#xFC;rme Die Brausenden Wogen
