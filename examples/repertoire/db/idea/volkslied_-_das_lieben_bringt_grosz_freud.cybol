@@ -1,7 +1,7 @@
 <node>
 
     <node name="artist" channel="inline" format="text/plain" model="Volkslied"/>
-    <node name="title" channel="inline" format="text/plain" model="Wenn Wir Erklimmen Felsige Höhen"/>
+    <node name="title" channel="inline" format="text/plain" model="Das Lieben Bringt Groß Freud"/>
     <node name="genre" channel="inline" format="text/plain" model="volksmusik"/>
     <node name="year" channel="inline" format="text/plain" model=""/>
 

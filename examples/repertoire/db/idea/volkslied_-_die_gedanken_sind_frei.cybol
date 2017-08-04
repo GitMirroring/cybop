@@ -1,7 +1,7 @@
 <node>
 
     <node name="artist" channel="inline" format="text/plain" model="Volkslied"/>
-    <node name="title" channel="inline" format="text/plain" model="Im Frühtau Zu Berge"/>
+    <node name="title" channel="inline" format="text/plain" model="Die Gedanken Sind Frei"/>
     <node name="genre" channel="inline" format="text/plain" model="volksmusik"/>
     <node name="year" channel="inline" format="text/plain" model=""/>
 

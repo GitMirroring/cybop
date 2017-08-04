@@ -132,16 +132,24 @@
     <node name="ultravox_-_hymn" channel="file" format="element/part" model="repertoire/db/idea/ultravox_-_hymn.cybol"/>
     <node name="ute_freudenberg_-_jugendliebe" channel="file" format="element/part" model="repertoire/db/idea/ute_freudenberg_-_jugendliebe.cybol"/>
 
+    <!--
+        Diese Volkslieder sind OHNE Urheberrechte, bereits geprüft mit Hilfe dieser Seite:
+        https://www.evangeliums.net/lieder/liederbuch_poverello.html
+    -->
+    <node name="volkslied_-_das_lieben_bringt_grosz_freud" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_das_lieben_bringt_grosz_freud.cybol"/>
+    <node name="volkslied_-_die_gedanken_sind_frei" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_die_gedanken_sind_frei.cybol"/>
+    <node name="volkslied_-_wem_gott_will_rechte_gunst_erweisen" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_wem_gott_will_rechte_gunst_erweisen.cybol"/>
+    <node name="volkslied_-_wir_lieben_die_stuerme_die_brausenden_wogen" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_wir_lieben_die_stuerme_die_brausenden_wogen.cybol"/>
+
+    <!--
+        Bei diesen Volksliedern sind die Urheberrechte noch unklar.
+    -->
     <node name="volkslied_-_es_wollt'_ein_maegdlein_frueh_aufsteh'n" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_es_wollt'_ein_maegdlein_frueh_aufsteh'n.cybol"/>
     <node name="volkslied_-_es_zogen_auf_sonnigen_wegen" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_es_zogen_auf_sonnigen_wegen.cybol"/>
     <node name="volkslied_-_heute_wollen_wir_das_raenzlein_schnueren" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_heute_wollen_wir_das_raenzlein_schnueren.cybol"/>
-    <node name="volkslied_-_im_fruehtau_zu_berge" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_im_fruehtau_zu_berge.cybol"/>
     <node name="volkslied_-_muss_i_denn_muss_i_denn_zum_staedtele_hinaus" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_muss_i_denn_muss_i_denn_zum_staedtele_hinaus.cybol"/>
     <node name="volkslied_-_schneewalzer_(herbert_roth)" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_schneewalzer_(herbert_roth).cybol"/>
     <node name="volkslied_-_wahre_freundschaft_soll_nicht_wanken" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_wahre_freundschaft_soll_nicht_wanken.cybol"/>
-    <node name="volkslied_-_wem_gott_will_rechte_gunst_erweisen" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_wem_gott_will_rechte_gunst_erweisen.cybol"/>
-    <node name="volkslied_-_wenn_wir_erklimmen_felsige_hoehen" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_wenn_wir_erklimmen_felsige_hoehen.cybol"/>
-    <node name="volkslied_-_wir_lieben_die_stuerme_die_brausenden_wogen" channel="file" format="element/part" model="repertoire/db/idea/volkslied_-_wir_lieben_die_stuerme_die_brausenden_wogen.cybol"/>
 
     <node name="wildecker_herzbuben_-_hallo_frau_nachbarin" channel="file" format="element/part" model="repertoire/db/idea/wildecker_herzbuben_-_hallo_frau_nachbarin.cybol"/>
     <node name="wilki_-_bohema" channel="file" format="element/part" model="repertoire/db/idea/wilki_-_bohema.cybol"/>
