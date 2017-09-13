@@ -30,9 +30,9 @@
  
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/time_scale/gregorian_calendar_time_scale_model.c"
-#include "../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
-#include "../../../../../executor/comparator/basic/integer/greater_integer_comparator.c"
-#include "../../../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
+#include "../../../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../../../executor/comparator/integer/greater_integer_comparator.c"
+#include "../../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../logger/logger.c"
 

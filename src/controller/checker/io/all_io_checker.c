@@ -32,7 +32,7 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../controller/checker/io/element_io_checker.c"
 #include "../../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
+#include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"
 

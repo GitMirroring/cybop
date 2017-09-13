@@ -29,8 +29,8 @@
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
  
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
-#include "../../executor/comparator/basic/integer/smaller_integer_comparator.c"
+#include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
+#include "../../executor/comparator/integer/smaller_integer_comparator.c"
 #include "../../executor/modifier/inside_insert_modifier.c"
 #include "../../executor/modifier/overwrite_modifier.c"
 #include "../../logger/logger.c"

@@ -34,7 +34,7 @@
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../executor/accessor/name_getter/item_name_getter.c"
 #include "../../../../executor/accessor/name_getter/part_name_getter.c"
-#include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/copier/pointer_copier.c"
 #include "../../../../logger/logger.c"
 

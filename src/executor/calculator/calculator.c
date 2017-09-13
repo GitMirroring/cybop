@@ -35,7 +35,7 @@
 #include "../../executor/calculator/fraction_calculator.c"
 #include "../../executor/calculator/integer_calculator.c"
 #include "../../executor/calculator/pointer_calculator.c"
-#include "../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/memoriser/offset_adder.c"
 #include "../../logger/logger.c"
 

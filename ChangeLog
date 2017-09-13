@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-09-13  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Replace direct comparison in file "value_comparator.c" with function "compare_integer_equal"
+        * Optimise comparator and restructure directory "executor/comparator/" with focus on part | item | array
+
 2017-06-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete bubble sorter

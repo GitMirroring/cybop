@@ -32,7 +32,7 @@
  
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../../executor/modifier/item_modifier.c"
 #include "../../../../../executor/representer/serialiser/xdt/datetime/ddmmyyyy/ddmmyyyy_datetime_xdt_serialiser.c"
 #include "../../../../../executor/representer/serialiser/xdt/datetime/mmyy/mmyy_datetime_xdt_serialiser.c"

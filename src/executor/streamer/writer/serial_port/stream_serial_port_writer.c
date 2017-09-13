@@ -47,7 +47,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../../../executor/calculator/pointer/add_pointer_calculator.c"
-#include "../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../../executor/comparator/integer/smaller_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
 #include "../../../../executor/streamer/writer/serial_port/write_serial_port_writer.c"

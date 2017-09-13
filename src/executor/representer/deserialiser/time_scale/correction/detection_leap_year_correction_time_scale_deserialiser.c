@@ -32,8 +32,8 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../../../executor/calculator/integer/modulo_integer_calculator.c"
-#include "../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
-#include "../../../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
+#include "../../../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../logger/logger.c"
 

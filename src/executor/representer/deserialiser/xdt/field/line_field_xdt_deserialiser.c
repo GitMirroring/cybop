@@ -33,7 +33,7 @@
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../constant/name/xdt/bdt_xdt_name.c"
 #include "../../../../../executor/calculator/integer/subtract_integer_calculator.c"
-#include "../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../executor/representer/deserialiser/cybol/integer/primitive_value_integer_cybol_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/xdt/field/content_field_xdt_deserialiser.c"

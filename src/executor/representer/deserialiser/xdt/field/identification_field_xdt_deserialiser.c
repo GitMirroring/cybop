@@ -31,7 +31,7 @@
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
+#include "../../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../../executor/copier/pointer_copier.c"
 #include "../../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../../logger/logger.c"

@@ -34,7 +34,7 @@
 #include "../../../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../../../executor/calculator/pointer/add_pointer_calculator.c"
 #include "../../../../executor/streamer/writer/socket/buffer_socket_writer.c"
-#include "../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../../executor/comparator/integer/smaller_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
 #include "../../../../logger/logger.c"

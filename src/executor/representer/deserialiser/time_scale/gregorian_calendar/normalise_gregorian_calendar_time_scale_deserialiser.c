@@ -40,7 +40,7 @@
 #include "../../../../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../../../../executor/caster/double/integer_double_caster.c"
 #include "../../../../../executor/caster/integer/double_integer_caster.c"
-#include "../../../../../executor/comparator/basic/double/smaller_double_comparator.c"
+#include "../../../../../executor/comparator/double/smaller_double_comparator.c"
 #include "../../../../../executor/copier/double_copier.c"
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../logger/logger.c"

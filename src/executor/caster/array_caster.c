@@ -31,7 +31,7 @@
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../executor/caster/caster.c"
-#include "../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
+#include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../executor/copier/integer_copier.c"
 #include "../../executor/memoriser/offset_adder.c"
 #include "../../logger/logger.c"

@@ -42,7 +42,7 @@
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../../executor/maintainer/starter/socket/server/bind_server_socket_starter.c"
 #include "../../../../../executor/maintainer/starter/socket/server/listen_server_socket_starter.c"
 #include "../../../../../executor/maintainer/starter/socket/socket_address/socket_address_socket_starter.c"

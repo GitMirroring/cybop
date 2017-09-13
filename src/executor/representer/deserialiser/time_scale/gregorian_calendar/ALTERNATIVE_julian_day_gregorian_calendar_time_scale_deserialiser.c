@@ -40,7 +40,7 @@
 #include "../../../../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../../../../executor/caster/double/integer_double_caster.c"
 #include "../../../../../executor/caster/integer/double_integer_caster.c"
-#include "../../../../../executor/comparator/basic/integer/smaller_integer_comparator.c"
+#include "../../../../../executor/comparator/integer/smaller_integer_comparator.c"
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../executor/representer/deserialiser/time_scale/gregorian_calendar/check_reform_julian_day_gregorian_calendar_time_scale_deserialiser.c"
 #include "../../../../../logger/logger.c"

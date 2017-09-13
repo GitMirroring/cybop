@@ -11,11 +11,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-Aside
-_____
-
-        * Replace direct comparison in file "value_comparator.c" with function "compare_integer_equal"
-
 Comparison
 __________
 
@@ -37,7 +32,7 @@ __________
             - cyboi should better stick to a standard boolean return value (0 or 1)
             - do NOT implement new operation for lexicographical comparison, but a cybol boolean property "lexicographic" (true | false) with default "false"
             - distinguish "lexicographic" or not in "applicator/compare/" and call corresponding function in "executor/comparator/"
-            - the comparison for primitive types is the same for lexicographic or not
+            - the comparison for primitive types is *the same* for lexicographic or not
             - only the comparison of arrays differs:
                 - standard delivers many boolean results as elements in a result array
                 - lexicographic delivers ONE boolean result
@@ -122,11 +117,6 @@ _____
 
         * Search for cybol operation "modify/empty" (and related "modify" operations) in all cybol example applications
         * Verify correct property name: currently, "part" is used, but shouldn't it be "destination"?
-
-Container
-_________
-
-        * Optimise comparator and restructure directory "executor/comparator/" with focus on part | item | array
 
 GUI
 ___

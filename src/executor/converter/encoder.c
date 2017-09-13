@@ -28,9 +28,9 @@
 
 #include "../../constant/encoding/cyboi/cyboi_encoding.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/converter/encoder/utf/utf_16_encoder.c"
 #include "../../executor/converter/encoder/utf/utf_8_encoder.c"
 #include "../../logger/logger.c"

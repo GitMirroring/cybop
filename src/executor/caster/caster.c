@@ -32,7 +32,7 @@
 #include "../../executor/caster/character_caster.c"
 #include "../../executor/caster/double_caster.c"
 #include "../../executor/caster/integer_caster.c"
-#include "../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/memoriser/offset_adder.c"
 #include "../../logger/logger.c"
 

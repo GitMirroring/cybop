@@ -30,7 +30,7 @@
  
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../../executor/maintainer/starter/socket/socket_address/inet_socket_address_socket_starter.c"
 //?? TODO: This ifndef can be removed as soon as the mingw compiler supports ipv6.
 #ifndef _WIN32

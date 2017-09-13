@@ -34,7 +34,7 @@
 #include "../../../../constant/model/cybol/socket/service_socket_cybol_model.c"
 #include "../../../../constant/model/service/port_service_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
