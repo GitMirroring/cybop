@@ -34,9 +34,6 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/comparator/all/array_all_comparator.c"
 #include "../../executor/comparator/all/part_all_comparator.c"
-#include "../../executor/comparator/prefix/part_prefix_comparator.c"
-#include "../../executor/comparator/subsequence/part_subsequence_comparator.c"
-#include "../../executor/comparator/suffix/part_suffix_comparator.c"
 #include "../../logger/logger.c"
 
 /**
@@ -71,36 +68,6 @@ void compare_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p7, (void*) PREFIX_SELECTION_COMPARE_LOGIC_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) PREFIX_SELECTION_COMPARE_LOGIC_CYBOL_MODEL_COUNT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            compare_prefix_part_element(p0, p1, p2, p3, p4, p5, p6);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_all_array((void*) &r, p7, (void*) SUFFIX_SELECTION_COMPARE_LOGIC_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) SUFFIX_SELECTION_COMPARE_LOGIC_CYBOL_MODEL_COUNT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            compare_suffix_part_element(p0, p1, p2, p3, p4, p5, p6);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_all_array((void*) &r, p7, (void*) SUBSEQUENCE_SELECTION_COMPARE_LOGIC_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) SUBSEQUENCE_SELECTION_COMPARE_LOGIC_CYBOL_MODEL_COUNT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            compare_subsequence_part_element(p0, p1, p2, p3, p4, p5, p6);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare element. The selection is unknown.");
     }
 }
@@ -130,36 +97,6 @@ void compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             compare_all_part(p0, p1, p2, p3, p4);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_all_array((void*) &r, p5, (void*) PREFIX_SELECTION_COMPARE_LOGIC_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p6, (void*) PREFIX_SELECTION_COMPARE_LOGIC_CYBOL_MODEL_COUNT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            compare_prefix_part(p0, p1, p2, p3, p4);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_all_array((void*) &r, p5, (void*) SUFFIX_SELECTION_COMPARE_LOGIC_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p6, (void*) SUFFIX_SELECTION_COMPARE_LOGIC_CYBOL_MODEL_COUNT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            compare_suffix_part(p0, p1, p2, p3, p4);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_all_array((void*) &r, p5, (void*) SUBSEQUENCE_SELECTION_COMPARE_LOGIC_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p6, (void*) SUBSEQUENCE_SELECTION_COMPARE_LOGIC_CYBOL_MODEL_COUNT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            compare_subsequence_part(p0, p1, p2, p3, p4);
         }
     }
 
