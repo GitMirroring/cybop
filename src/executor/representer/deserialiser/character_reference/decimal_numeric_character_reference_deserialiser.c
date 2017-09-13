@@ -71,7 +71,7 @@ void deserialise_character_reference_numeric_decimal(void* p0, void* p1, void* p
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_smaller_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_less_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

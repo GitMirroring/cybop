@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SMALLER_FRACTION_COMPARATOR_SOURCE
-#define SMALLER_FRACTION_COMPARATOR_SOURCE
+#ifndef LESS_OR_EQUAL_FRACTION_COMPARATOR_SOURCE
+#define LESS_OR_EQUAL_FRACTION_COMPARATOR_SOURCE
 
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -34,13 +34,13 @@
 #include "../../../executor/copier/fraction_copier.c"
 
 /**
- * Compares the left- with the right double for smallerness.
+ * Compares the left- with the right double for lessness and equality.
  *
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left value
  * @param p2 the right value
  */
-void compare_fraction_smaller(void* p0, void* p1, void* p2) {
+void compare_fraction_less_or_equal(void* p0, void* p1, void* p2) {
 
     // The left numerator, denominator.
     int ln = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -68,8 +68,8 @@ void compare_fraction_smaller(void* p0, void* p1, void* p2) {
     calculate_integer_multiply((void*) &ern, (void*) &ld);
 
     // Compare expanded numerators.
-    compare_integer_smaller(p0, (void*) &eln, (void*) &ern);
+    compare_integer_less_or_equal(p0, (void*) &eln, (void*) &ern);
 }
 
-/* SMALLER_FRACTION_COMPARATOR_SOURCE */
+/* LESS_OR_EQUAL_FRACTION_COMPARATOR_SOURCE */
 #endif

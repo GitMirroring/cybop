@@ -34,7 +34,7 @@
 #include "../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../../executor/comparator/integer/smaller_integer_comparator.c"
+#include "../../../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/representer/deserialiser/xdt/part_record_xdt_deserialiser.c"
 #include "../../../../executor/searcher/mover/position_mover.c"
@@ -140,7 +140,7 @@ fwprintf(stdout, L"TEST select xdt field hierarchy dependency hierarchy: %i\n", 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_smaller((void*) &r, p8, p2);
+        compare_integer_less((void*) &r, p8, p2);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

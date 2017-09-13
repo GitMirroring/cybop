@@ -35,7 +35,7 @@
 #include "../../../../../executor/calculator/integer/negate_integer_calculator.c"
 #include "../../../../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../../../../executor/comparator/integer/greater_integer_comparator.c"
-#include "../../../../../executor/comparator/integer/smaller_integer_comparator.c"
+#include "../../../../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../executor/representer/deserialiser/time_scale/correction/leap_year_correction_time_scale_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/time_scale/correction/month_correction_time_scale_deserialiser.c"
@@ -83,7 +83,7 @@ void serialise_time_scale_running_day_day(void* p0, void* p1, void* p2) {
     // CAUTION! For some values of running day,
     // the formula delivers a too big month value.
     compare_integer_greater((void*) &rm, p1, (void*) NUMBER_12_INTEGER_STATE_CYBOI_MODEL);
-    compare_integer_smaller((void*) &rd, p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    compare_integer_less((void*) &rd, p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
     if ((rm != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) || (rd != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
 

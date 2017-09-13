@@ -144,8 +144,8 @@ void calculate_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
     // The operand index comparison result.
     int o = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_smaller((void*) &r, p5, p4);
-    compare_integer_smaller((void*) &o, p6, p4);
+    compare_integer_less((void*) &r, p5, p4);
+    compare_integer_less((void*) &o, p6, p4);
 
     if (o != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

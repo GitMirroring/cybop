@@ -85,24 +85,24 @@ static wchar_t* GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/greater-
 static int* GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The compare/smaller logic cybol format.
+ * The compare/less logic cybol format.
  *
- * Compare for smallerness: <
+ * Compare for lessness: <
  *
  * This is a CYBOL extension.
  */
-static wchar_t* SMALLER_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/smaller";
-static int* SMALLER_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* LESS_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/less";
+static int* LESS_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The compare/smaller-or-equal logic cybol format.
+ * The compare/less-or-equal logic cybol format.
  *
- * Compare for smallerness or equality: <=
+ * Compare for lessness or equality: <=
  *
  * This is a CYBOL extension.
  */
-static wchar_t* SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/smaller-or-equal";
-static int* SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* LESS_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/less-or-equal";
+static int* LESS_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The compare/unequal logic cybol format.

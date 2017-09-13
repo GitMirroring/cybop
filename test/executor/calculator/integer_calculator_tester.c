@@ -34,16 +34,12 @@
 #include "../../../src/executor/calculator/integer/multiply_integer_calculator.c"
 #include "../../../src/executor/calculator/integer/negate_integer_calculator.c"
 #include "../../../src/executor/calculator/integer/subtract_integer_calculator.c"
-#include "../../../src/executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../src/executor/comparator/integer/greater_integer_comparator.c"
-#include "../../../src/executor/comparator/integer/smaller_or_equal_integer_comparator.c"
-#include "../../../src/executor/comparator/integer/unequal_integer_comparator.c"
+#include "../../../src/executor/comparator/all/part_all_comparator.c"
+#include "../../../src/executor/copier/array_copier.c"
 #include "../../../src/executor/memoriser/allocator/array_allocator.c"
 #include "../../../src/executor/memoriser/deallocator/array_deallocator.c"
-#include "../../../src/executor/copier/array_copier.c"
 #include "../../../src/executor/modifier/array_modifier.c"
 #include "../../../src/executor/modifier/part_modifier.c"
-#include "../../../src/executor/comparator/all/part_all_comparator.c"
 
 #ifndef INTEGER_CALCULATOR_TESTER_SOURCE
 #define INTEGER_CALCULATOR_TESTER_SOURCE
@@ -170,4 +166,5 @@ int main() {
 
     return 0;
 }
+
 #endif

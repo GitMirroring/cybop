@@ -27,10 +27,9 @@
 #define CHARACTER_ISO_8859_DECODER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../executor/comparator/integer/smaller_integer_comparator.c"
+#include "../../../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../../../executor/converter/decoder/ascii/ascii_decoder.c"
 #include "../../../../executor/converter/decoder/iso_8859/extension_iso_8859_decoder.c"
 #include "../../../../logger/logger.c"
@@ -57,9 +56,9 @@ void decode_iso_8859_character(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // CAUTION! Do NOT use function "compare_integer_smaller" here.
+        // CAUTION! Do NOT use function "compare_integer_less" here.
         // It will not work correctly.
-        compare_character_smaller((void*) &r, p1, (void*) NUMBER_128_INTEGER_STATE_CYBOI_MODEL);
+        compare_character_less((void*) &r, p1, (void*) NUMBER_128_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

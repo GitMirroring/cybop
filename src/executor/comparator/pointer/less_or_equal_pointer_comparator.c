@@ -23,36 +23,36 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SMALLER_INTEGER_COMPARATOR_SOURCE
-#define SMALLER_INTEGER_COMPARATOR_SOURCE
+#ifndef LESS_OR_EQUAL_POINTER_COMPARATOR_SOURCE
+#define LESS_OR_EQUAL_POINTER_COMPARATOR_SOURCE
 
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/copier/integer_copier.c"
+#include "../../../executor/copier/pointer_copier.c"
 
 /**
- * Compares the left- with the right integer for smallerness.
+ * Compares the left- with the right pointer for lessness and equality.
  *
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left value
  * @param p2 the right value
  */
-void compare_integer_smaller(void* p0, void* p1, void* p2) {
+void compare_pointer_less_or_equal(void* p0, void* p1, void* p2) {
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* rv = (int*) p2;
+        void** rv = (void**) p2;
 
         if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* lv = (int*) p1;
+            void** lv = (void**) p1;
 
             // CAUTION! Do NOT call the logger here.
             // It might use functions that cause circular references.
 
-            if (*lv < *rv) {
+            if (*lv <= *rv) {
 
-                copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                copy_pointer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
             }
 
         } else {
@@ -68,5 +68,5 @@ void compare_integer_smaller(void* p0, void* p1, void* p2) {
     }
 }
 
-/* SMALLER_INTEGER_COMPARATOR_SOURCE */
+/* LESS_OR_EQUAL_POINTER_COMPARATOR_SOURCE */
 #endif

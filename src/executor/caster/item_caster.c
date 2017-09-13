@@ -34,7 +34,7 @@
 #include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/caster/array_caster.c"
-#include "../../executor/comparator/integer/smaller_or_equal_integer_comparator.c"
+#include "../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../executor/copier/array_copier.c"
 #include "../../logger/logger.c"
 
@@ -70,8 +70,8 @@ void cast_item_count(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
     // The source count comparison result.
     int s = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_smaller_or_equal((void*) &d, p4, p7);
-    compare_integer_smaller_or_equal((void*) &s, p4, p8);
+    compare_integer_less_or_equal((void*) &d, p4, p7);
+    compare_integer_less_or_equal((void*) &s, p4, p8);
 
     if (s != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

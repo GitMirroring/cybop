@@ -107,7 +107,7 @@ void get_item_metadata(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         // Otherwise, array boundaries might get crossed and
         // false pointer values returned.
         // Therefore, this is checked here.
-        compare_integer_smaller((void*) &r, p5, c);
+        compare_integer_less((void*) &r, p5, c);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

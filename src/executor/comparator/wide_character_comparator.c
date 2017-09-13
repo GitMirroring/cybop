@@ -37,8 +37,8 @@
 #include "../../executor/comparator/wide_character/equal_wide_character_comparator.c"
 #include "../../executor/comparator/wide_character/greater_or_equal_wide_character_comparator.c"
 #include "../../executor/comparator/wide_character/greater_wide_character_comparator.c"
-#include "../../executor/comparator/wide_character/smaller_or_equal_wide_character_comparator.c"
-#include "../../executor/comparator/wide_character/smaller_wide_character_comparator.c"
+#include "../../executor/comparator/wide_character/less_or_equal_wide_character_comparator.c"
+#include "../../executor/comparator/wide_character/less_wide_character_comparator.c"
 #include "../../executor/comparator/wide_character/unequal_wide_character_comparator.c"
 #include "../../logger/logger.c"
 
@@ -95,21 +95,21 @@ void compare_wide_character(void* p0, void* p1, void* p2, void* p3) {
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *SMALLER_COMPARE_LOGIC_CYBOI_FORMAT) {
+            if (*a == *LESS_COMPARE_LOGIC_CYBOI_FORMAT) {
 
                 r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                compare_wide_character_smaller(p0, p1, p2);
+                compare_wide_character_less(p0, p1, p2);
             }
         }
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
+            if (*a == *LESS_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
 
                 r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                compare_wide_character_smaller_or_equal(p0, p1, p2);
+                compare_wide_character_less_or_equal(p0, p1, p2);
             }
         }
 

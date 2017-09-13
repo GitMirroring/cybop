@@ -280,11 +280,11 @@ static int* GREATER_COMPARE_LOGIC_CYBOI_FORMAT = NUMBER_1501_INTEGER_STATE_CYBOI
 /** The greater-or-equal compare logic cyboi format. */
 static int* GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT = NUMBER_1502_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The smaller compare logic cyboi format. */
-static int* SMALLER_COMPARE_LOGIC_CYBOI_FORMAT = NUMBER_1503_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The less compare logic cyboi format. */
+static int* LESS_COMPARE_LOGIC_CYBOI_FORMAT = NUMBER_1503_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The smaller-or-equal compare logic cyboi format. */
-static int* SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT = NUMBER_1504_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The less-or-equal compare logic cyboi format. */
+static int* LESS_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT = NUMBER_1504_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The unequal compare logic cyboi format. */
 static int* UNEQUAL_COMPARE_LOGIC_CYBOI_FORMAT = NUMBER_1505_INTEGER_STATE_CYBOI_MODEL_ARRAY;

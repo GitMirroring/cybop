@@ -28,24 +28,19 @@
 
 #include <assert.h>
 
-#include "../../../src/executor/calculator/integer/add_integer_calculator.c"
-#include "../../../src/executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../src/executor/comparator/integer/greater_integer_comparator.c"
-#include "../../../src/executor/comparator/integer/smaller_or_equal_integer_comparator.c"
-#include "../../../src/executor/comparator/integer/unequal_integer_comparator.c"
-#include "../../../src/executor/comparator/pointer/equal_pointer_comparator.c"
-#include "../../../src/executor/comparator/pointer/greater_or_equal_pointer_comparator.c"
-#include "../../../src/executor/comparator/pointer/greater_pointer_comparator.c"
-#include "../../../src/executor/comparator/pointer/smaller_or_equal_pointer_comparator.c"
-#include "../../../src/executor/comparator/pointer/smaller_pointer_comparator.c"
-#include "../../../src/executor/comparator/pointer/unequal_pointer_comparator.c"
+#include "../../../src/executor/comparator/all/part_all_comparator.c"
 #include "../../../src/executor/comparator/pointer_comparator.c"
+#include "../../../src/executor/copier/array_copier.c"
 #include "../../../src/executor/memoriser/allocator/array_allocator.c"
 #include "../../../src/executor/memoriser/deallocator/array_deallocator.c"
-#include "../../../src/executor/copier/array_copier.c"
 #include "../../../src/executor/modifier/array_modifier.c"
 #include "../../../src/executor/modifier/part_modifier.c"
-#include "../../../src/executor/comparator/all/part_all_comparator.c"
+
+//
+// Forward declarations.
+//
+
+void compare_integer_unequal(void* p0, void* p1, void* p2);
 
 void compare_pointer_for_equal_should_fail() {
 
@@ -64,7 +59,7 @@ void compare_pointer_for_smaller_should_fail() {
     int p2 = 2;
     int result = 0;
 
-    compare_pointer(&result, &p1, &p2, (void*) SMALLER_COMPARE_LOGIC_CYBOI_FORMAT);
+    compare_pointer(&result, &p1, &p2, (void*) LESS_COMPARE_LOGIC_CYBOI_FORMAT);
 
     assert(result == 0);
 }
@@ -86,7 +81,7 @@ void compare_pointer_for_smaller_or_equal_should_fail() {
     int p2 = 2;
     int result = 0;
 
-    compare_pointer(&result, &p1, &p2, (void*) SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+    compare_pointer(&result, &p1, &p2, (void*) LESS_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
     assert(result == 0);
 }

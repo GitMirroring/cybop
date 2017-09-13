@@ -34,7 +34,7 @@
 #include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/calculator/array_calculator.c"
-#include "../../executor/comparator/integer/smaller_or_equal_integer_comparator.c"
+#include "../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../executor/copier/array_copier.c"
 #include "../../logger/logger.c"
 
@@ -70,8 +70,8 @@ void calculate_item_count(void* p0, void* p1, void* p2, void* p3, void* p4, void
     // The operand count comparison result.
     int o = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_smaller_or_equal((void*) &r, p4, p7);
-    compare_integer_smaller_or_equal((void*) &o, p4, p8);
+    compare_integer_less_or_equal((void*) &r, p4, p7);
+    compare_integer_less_or_equal((void*) &o, p4, p8);
 
     if (o != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -39,7 +39,7 @@
  *
  * Due to their two-dimensional field nature, they cannot
  * be represented on a number line (German: Zahlenstrahl).
- * Thus, a comparison (greater, smaller) is NOT possible.
+ * Thus, a comparison (greater, less) is NOT possible.
  *
  * http://www.informatik.uni-leipzig.de/~meiler/Schuelerseiten.dir/DPlotzki/html/complex.htm
  * http://answers.yahoo.com/question/index?qid=20081223173853AAAbUug

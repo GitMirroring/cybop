@@ -16,13 +16,13 @@ __________
 
         * Optimise comparator and restructure directory "executor/comparator/" with focus on part | item | array
         * Remove "all" comparator
-        * Remove file "selection_compare_logic_cybol_model.c"
 
         * Adapt applicator for operation "compare" to use given property "lexicographic"
-        * Rename cybol operation "smaller" and "smaller-or-equal" into "lesser" and "lesser-or-equal" in cyboi and all cybol example applications
 
         * Move cybol operations for "prefix", "suffix", "subsequence", "all" from "executor/comparator/" to "executor/searcher/"
-        * Merge directory "executor/container/" with "executor/searcher/"
+        * Remove file "selection_compare_logic_cybol_model.c" (??)
+
+        * Merge almost empty directory "executor/container/" with "executor/searcher/"
         * Use new comparator functions in "executor/searcher/name_finder/"
         * Merge "executor/searcher/finder/" with "executor/searcher/name_finder/"
 

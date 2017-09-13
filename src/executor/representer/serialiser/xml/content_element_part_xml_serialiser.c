@@ -102,7 +102,7 @@ void serialise_xml_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     }
 
     // Test if source model count is empty.
-    compare_integer_smaller_or_equal((void*) &e, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    compare_integer_less_or_equal((void*) &e, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     // Serialise indentation.
     serialise_xml_indentation(p0, p5, p6);
     // Append begin tag.

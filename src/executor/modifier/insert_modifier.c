@@ -30,7 +30,7 @@
  
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
-#include "../../executor/comparator/integer/smaller_integer_comparator.c"
+#include "../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../executor/modifier/inside_insert_modifier.c"
 #include "../../executor/modifier/overwrite_modifier.c"
 #include "../../logger/logger.c"
@@ -73,7 +73,7 @@ void modify_insert(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_smaller((void*) &r, p5, p7);
+        compare_integer_less((void*) &r, p5, p7);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

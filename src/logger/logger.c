@@ -99,7 +99,7 @@
 
 void calculate_integer_add(void* p0, void* p1);
 void compare_integer_equal(void* p0, void* p1, void* p2);
-void compare_integer_smaller_or_equal(void* p0, void* p1, void* p2);
+void compare_integer_less_or_equal(void* p0, void* p1, void* p2);
 void copy_integer(void* p0, void* p1);
 void copy_pointer(void* p0, void* p1);
 void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
@@ -122,7 +122,7 @@ void log_message(void* p0, void* p1, void* p2) {
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_smaller_or_equal((void*) &r, p0, (void*) LOG_LEVEL);
+    compare_integer_less_or_equal((void*) &r, p0, (void*) LOG_LEVEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

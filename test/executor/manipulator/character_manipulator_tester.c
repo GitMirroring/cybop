@@ -38,7 +38,7 @@
 #include "../../../src/executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../../src/executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../src/executor/comparator/integer/greater_integer_comparator.c"
-#include "../../../src/executor/comparator/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../src/executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../src/executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../src/executor/memoriser/allocator/array_allocator.c"
 #include "../../../src/executor/memoriser/deallocator/array_deallocator.c"

@@ -33,15 +33,10 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
-#include "../../executor/comparator/integer/smaller_integer_comparator.c"
+#include "../../executor/comparator/integer/less_integer_comparator.c"
+#include "../../executor/copier/copier.c"
 #include "../../executor/memoriser/offset_adder.c"
 #include "../../logger/logger.c"
-
-//
-// Forward declarations.
-//
-
-#include "../../executor/copier/copier.c"
 
 /**
  * Copies count source array elements into the destination array.
@@ -131,7 +126,7 @@ void copy_array_elements_backward(void* p0, void* p1, void* p2, void* p3, void* 
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_smaller((void*) &b, (void*) &j, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_less((void*) &b, (void*) &j, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

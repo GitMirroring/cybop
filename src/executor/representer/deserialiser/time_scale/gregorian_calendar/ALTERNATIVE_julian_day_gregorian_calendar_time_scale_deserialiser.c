@@ -40,7 +40,7 @@
 #include "../../../../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../../../../executor/caster/double/integer_double_caster.c"
 #include "../../../../../executor/caster/integer/double_integer_caster.c"
-#include "../../../../../executor/comparator/integer/smaller_integer_comparator.c"
+#include "../../../../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../executor/representer/deserialiser/time_scale/gregorian_calendar/check_reform_julian_day_gregorian_calendar_time_scale_deserialiser.c"
 #include "../../../../../logger/logger.c"
@@ -75,7 +75,7 @@ void deserialise_time_scale_gregorian_calendar_julian_day(void* p0, void* p1, vo
     double Y_CONSTANT = 30.6001;
     int Z_CONSTANT = 1720994;
 
-    compare_integer_smaller((void*) &r, p2, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL);
+    compare_integer_less((void*) &r, p2, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -105,7 +105,7 @@ void deserialise_time_scale_gregorian_calendar_julian_day(void* p0, void* p1, vo
     // Reset comparison result.
     copy_integer((void*) &r, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    compare_integer_smaller((void*) &r, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    compare_integer_less((void*) &r, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

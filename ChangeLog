@@ -23,6 +23,7 @@
         * Replace direct comparison in file "value_comparator.c" with function "compare_integer_equal"
         * Optimise comparator and restructure directory "executor/comparator/" with focus on part | item | array
         * Remove prefix-, suffix-, subsequence comparator
+        * Rename cybol operation "smaller" and "smaller-or-equal" into "less" and "less-or-equal"
 
 2017-06-05  Christian Heller  <christian.heller@tuxtax.de>
 

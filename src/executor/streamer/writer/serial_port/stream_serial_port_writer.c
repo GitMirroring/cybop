@@ -47,7 +47,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../../../executor/calculator/pointer/add_pointer_calculator.c"
-#include "../../../../executor/comparator/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
 #include "../../../../executor/streamer/writer/serial_port/write_serial_port_writer.c"
@@ -101,7 +101,7 @@ void write_serial_port_stream(void* p0, void* p1, void* p2) {
         // in a loop, until the complete message has been transmitted!
         while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_smaller_or_equal((void*) &b, (void*) &c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            compare_integer_less_or_equal((void*) &b, (void*) &c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
             if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

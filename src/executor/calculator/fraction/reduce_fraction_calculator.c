@@ -55,8 +55,8 @@ void calculate_fraction_reduce(void* p0) {
     get_fraction_element((void*) &n, (void*) p0, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
     get_fraction_element((void*) &d, (void*) p0, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
 
-    compare_integer_smaller((void*) &nn, (void*) &n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-    compare_integer_smaller((void*) &nd, (void*) &d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    compare_integer_less((void*) &nn, (void*) &n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    compare_integer_less((void*) &nd, (void*) &d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     // Determine absolute values.
     calculate_integer_absolute((void*) &rn, (void*) &n);

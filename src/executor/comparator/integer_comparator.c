@@ -36,8 +36,8 @@
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/comparator/integer/greater_integer_comparator.c"
 #include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
-#include "../../executor/comparator/integer/smaller_integer_comparator.c"
-#include "../../executor/comparator/integer/smaller_or_equal_integer_comparator.c"
+#include "../../executor/comparator/integer/less_integer_comparator.c"
+#include "../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../logger/logger.c"
 
@@ -94,21 +94,21 @@ void compare_integer(void* p0, void* p1, void* p2, void* p3) {
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *SMALLER_COMPARE_LOGIC_CYBOI_FORMAT) {
+            if (*a == *LESS_COMPARE_LOGIC_CYBOI_FORMAT) {
 
                 r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                compare_integer_smaller(p0, p1, p2);
+                compare_integer_less(p0, p1, p2);
             }
         }
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
+            if (*a == *LESS_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
 
                 r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                compare_integer_smaller_or_equal(p0, p1, p2);
+                compare_integer_less_or_equal(p0, p1, p2);
             }
         }
 

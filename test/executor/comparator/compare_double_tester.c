@@ -28,24 +28,21 @@
 
 #include <assert.h>
 
-#include "../../../src/executor/calculator/integer/add_integer_calculator.c"
-#include "../../../src/executor/comparator/double/equal_double_comparator.c"
-#include "../../../src/executor/comparator/double/greater_double_comparator.c"
-#include "../../../src/executor/comparator/double/greater_or_equal_double_comparator.c"
-#include "../../../src/executor/comparator/double/smaller_double_comparator.c"
-#include "../../../src/executor/comparator/double/smaller_or_equal_double_comparator.c"
-#include "../../../src/executor/comparator/double/unequal_double_comparator.c"
+#include "../../../src/executor/comparator/all/part_all_comparator.c"
 #include "../../../src/executor/comparator/double_comparator.c"
-#include "../../../src/executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../src/executor/comparator/integer/greater_integer_comparator.c"
-#include "../../../src/executor/comparator/integer/smaller_or_equal_integer_comparator.c"
-#include "../../../src/executor/comparator/integer/unequal_integer_comparator.c"
+#include "../../../src/executor/copier/array_copier.c"
 #include "../../../src/executor/memoriser/allocator/array_allocator.c"
 #include "../../../src/executor/memoriser/deallocator/array_deallocator.c"
-#include "../../../src/executor/copier/array_copier.c"
 #include "../../../src/executor/modifier/array_modifier.c"
 #include "../../../src/executor/modifier/part_modifier.c"
-#include "../../../src/executor/comparator/all/part_all_comparator.c"
+
+//
+// Forward declarations.
+//
+
+void allocate_array(void* p0, void* p1, void* p2) {
+void compare_integer_greater(void* p0, void* p1, void* p2);
+void compare_integer_unequal(void* p0, void* p1, void* p2);
 
 void compare_double_for_equal_should_fail() {
 
@@ -64,7 +61,7 @@ void compare_double_for_smaller_should_succeed() {
     double r = 1.3;
     int res = 0;
 
-    compare_double((void*) &res, (void*) &l, (void*) &r, (void*) SMALLER_COMPARE_LOGIC_CYBOI_FORMAT);
+    compare_double((void*) &res, (void*) &l, (void*) &r, (void*) LESS_COMPARE_LOGIC_CYBOI_FORMAT);
 
     assert(res == 1);
 }
@@ -86,7 +83,7 @@ void compare_double_for_smaller_or_equal_should_succeed() {
     double r = 1.3;
     int res = 0;
 
-    compare_double((void*) &res, (void*) &l, (void*) &r, (void*) SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+    compare_double((void*) &res, (void*) &l, (void*) &r, (void*) LESS_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
     assert(res == 1);
 }

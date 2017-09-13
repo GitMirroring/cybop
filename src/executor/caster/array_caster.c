@@ -144,8 +144,8 @@ void cast_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     // The source index comparison result.
     int s = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_smaller((void*) &d, p5, p4);
-    compare_integer_smaller((void*) &s, p6, p4);
+    compare_integer_less((void*) &d, p5, p4);
+    compare_integer_less((void*) &s, p6, p4);
 
     if (s != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

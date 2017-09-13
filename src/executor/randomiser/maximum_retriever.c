@@ -63,7 +63,7 @@ void retrieve_maximum(void* p0, void* p1) {
             // The comparison result.
             int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-            compare_integer_smaller_or_equal((void*) &r, p1, (void*) &mv);
+            compare_integer_less_or_equal((void*) &r, p1, (void*) &mv);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

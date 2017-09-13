@@ -34,7 +34,7 @@
 #include "../../../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../../../executor/calculator/pointer/add_pointer_calculator.c"
 #include "../../../../executor/streamer/writer/socket/buffer_socket_writer.c"
-#include "../../../../executor/comparator/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
 #include "../../../../logger/logger.c"
@@ -82,7 +82,7 @@ void write_socket(void* p0, void* p1, void* p2) {
     // the complete message has been transmitted!
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_smaller_or_equal((void*) &b, (void*) &rem, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_less_or_equal((void*) &b, (void*) &rem, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

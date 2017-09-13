@@ -33,7 +33,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
-#include "../../../../executor/comparator/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
@@ -76,7 +76,7 @@ void deserialise_percent_encoding_character(void* p0, void* p1, void* p2) {
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Test if characters are left.
-        compare_integer_smaller_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_less_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         // Test percent encoding character count.
         // CAUTION! Following the specification, it consists of TWO DIGITS at most.

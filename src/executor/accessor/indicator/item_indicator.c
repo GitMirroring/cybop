@@ -32,7 +32,7 @@
 #include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/comparator/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../logger/logger.c"
 
@@ -66,7 +66,7 @@ void indicate_item(void* p0, void* p1, void* p2) {
             // CAUTION! Do NOT merge this function with the one above.
             // The function above passes a pointer REFERENCE and
             // CANNOT pass p0 as destination integer pointer straightforward.
-            compare_integer_smaller_or_equal(p0, ic, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            compare_integer_less_or_equal(p0, ic, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 

@@ -31,7 +31,7 @@
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../executor/comparator/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../executor/representer/deserialiser/xdt/field/line_field_xdt_deserialiser.c"
 #include "../../../../../logger/logger.c"
@@ -66,7 +66,7 @@ void deserialise_xdt_field_lines(void* p0, void* p1, void* p2) {
 
 //?? fwprintf(stdout, L"TEST deserialise xdt field lines rem: %i\n", *((int*) p2));
 
-        compare_integer_smaller_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_less_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

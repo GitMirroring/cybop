@@ -38,8 +38,8 @@
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../../../executor/comparator/integer/smaller_integer_comparator.c"
-#include "../../../../executor/comparator/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../../executor/comparator/integer/less_integer_comparator.c"
+#include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
@@ -92,7 +92,7 @@ void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     // CAUTION! The minimum has to be SMALLER than the maximum.
     // Equality IS ALSO possible, e.g. when just reading one character.
-    compare_integer_smaller_or_equal((void*) &rminmax, (void*) &min, (void*) &max);
+    compare_integer_less_or_equal((void*) &rminmax, (void*) &min, (void*) &max);
 
     if (rminmax != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -196,7 +196,7 @@ void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                         // The maximum comparison result.
                         int rmax = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                        compare_integer_smaller((void*) &rmax, p5, (void*) &max);
+                        compare_integer_less((void*) &rmax, p5, (void*) &max);
 
                         if (rmax != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -207,7 +207,7 @@ void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                             // The minimum comparison result.
                             int rmin = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                            compare_integer_smaller((void*) &rmin, p5, (void*) &min);
+                            compare_integer_less((void*) &rmin, p5, (void*) &min);
 
                             if (rmin != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

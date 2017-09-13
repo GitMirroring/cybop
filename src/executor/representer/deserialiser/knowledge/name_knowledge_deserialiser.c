@@ -27,11 +27,10 @@
 #define NAME_KNOWLEDGE_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/comparator/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
 #include "../../../../executor/searcher/selector/knowledge/identification_knowledge_selector.c"
@@ -86,7 +85,7 @@ void deserialise_knowledge_name(void* p0, void* p1, void* p2, void* p3, void* p4
 
 //?? fwprintf(stdout, L"TEST deserialise knowledge name nc: %i\n", nc);
 
-        compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_less_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

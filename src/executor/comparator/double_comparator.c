@@ -30,14 +30,13 @@
 #include <string.h>
 
 #include "../../constant/format/cyboi/logic_cyboi_format.c"
-
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../executor/comparator/double/equal_double_comparator.c"
 #include "../../executor/comparator/double/greater_double_comparator.c"
 #include "../../executor/comparator/double/greater_or_equal_double_comparator.c"
-#include "../../executor/comparator/double/smaller_double_comparator.c"
-#include "../../executor/comparator/double/smaller_or_equal_double_comparator.c"
+#include "../../executor/comparator/double/less_double_comparator.c"
+#include "../../executor/comparator/double/less_or_equal_double_comparator.c"
 #include "../../executor/comparator/double/unequal_double_comparator.c"
 #include "../../logger/logger.c"
 
@@ -92,21 +91,21 @@ void compare_double(void* p0, void* p1, void* p2, void* p3) {
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *SMALLER_COMPARE_LOGIC_CYBOI_FORMAT) {
+            if (*a == *LESS_COMPARE_LOGIC_CYBOI_FORMAT) {
 
                 r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                compare_double_smaller(p0, p1, p2);
+                compare_double_less(p0, p1, p2);
             }
         }
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
+            if (*a == *LESS_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
 
                 r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                compare_double_smaller_or_equal(p0, p1, p2);
+                compare_double_less_or_equal(p0, p1, p2);
             }
         }
 

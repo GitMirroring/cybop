@@ -32,7 +32,7 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../../../../executor/comparator/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../executor/copier/pointer_copier.c"
 #include "../../../../../executor/searcher/selector/xdt/field/end_field_xdt_selector.c"
@@ -70,7 +70,7 @@ void deserialise_xdt_field_content(void* p0, void* p1, void* p2, void* p3) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_less_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -46,7 +46,7 @@
 #include "../../../../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../../../../executor/caster/double/integer_double_caster.c"
 #include "../../../../../executor/caster/integer/double_integer_caster.c"
-#include "../../../../../executor/comparator/integer/smaller_integer_comparator.c"
+#include "../../../../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../../../../executor/copier/double_copier.c"
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../executor/representer/serialiser/time_scale/julian_date/julian_date_time_scale_serialiser.c"
@@ -124,7 +124,7 @@ void serialise_time_scale_gregorian_calendar(void* p0, void* p1, void* p2, void*
     calculate_double_subtract((void*) &f, (void*) &zd);
     calculate_double_multiply((void*) &f, (void*) &B_CONSTANT);
 
-    compare_integer_smaller((void*) &r, (void*) &z, (void*) &A_CONSTANT);
+    compare_integer_less((void*) &r, (void*) &z, (void*) &A_CONSTANT);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -190,7 +190,7 @@ void serialise_time_scale_gregorian_calendar(void* p0, void* p1, void* p2, void*
     // Reset comparison result.
     copy_integer((void*) &r, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    compare_integer_smaller((void*) &r, (void*) &e, (void*) NUMBER_14_INTEGER_STATE_CYBOI_MODEL);
+    compare_integer_less((void*) &r, (void*) &e, (void*) NUMBER_14_INTEGER_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -207,7 +207,7 @@ void serialise_time_scale_gregorian_calendar(void* p0, void* p1, void* p2, void*
     // Reset comparison result.
     copy_integer((void*) &r, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    compare_integer_smaller((void*) &r, p1, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL);
+    compare_integer_less((void*) &r, p1, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

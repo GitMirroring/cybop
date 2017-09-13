@@ -125,7 +125,7 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
     }
 
     // Test if source model count is empty.
-    compare_integer_smaller_or_equal((void*) &e, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    compare_integer_less_or_equal((void*) &e, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     // Test if element is allowed to be void.
     serialise_html_void_element((void*) &v, tmd, tmc);
     // Serialise indentation.

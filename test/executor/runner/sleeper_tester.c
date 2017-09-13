@@ -1,6 +1,5 @@
 /*
  * Copyright (C) 1999-2017. Christian Heller.
-
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -28,6 +27,7 @@
 #define SLEEPER_TESTER
 
 #include <assert.h>
+
 #include "math.h"
 #include "time.h"
 
@@ -35,7 +35,7 @@
 #include "../../../src/constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../src/executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../src/executor/comparator/integer/greater_integer_comparator.c"
-#include "../../../src/executor/comparator/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../src/executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../src/executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../src/executor/memoriser/allocator/array_allocator.c"
 #include "../../../src/executor/memoriser/deallocator/array_deallocator.c"

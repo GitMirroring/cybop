@@ -23,21 +23,21 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SMALLER_CHARACTER_COMPARATOR_SOURCE
-#define SMALLER_CHARACTER_COMPARATOR_SOURCE
+#ifndef LESS_CHARACTER_COMPARATOR_SOURCE
+#define LESS_CHARACTER_COMPARATOR_SOURCE
 
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/copier/integer_copier.c"
 
 /**
- * Compares the left- with the right character for smallerness.
+ * Compares the left- with the right character for lessness.
  *
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left value
  * @param p2 the right value
  */
-void compare_character_smaller(void* p0, void* p1, void* p2) {
+void compare_character_less(void* p0, void* p1, void* p2) {
 
     //
     // CAUTION! Use "unsigned char" with range 0..+255
@@ -77,5 +77,5 @@ void compare_character_smaller(void* p0, void* p1, void* p2) {
     }
 }
 
-/* SMALLER_CHARACTER_COMPARATOR_SOURCE */
+/* LESS_CHARACTER_COMPARATOR_SOURCE */
 #endif

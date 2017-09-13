@@ -31,7 +31,7 @@
  
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../executor/comparator/integer/greater_integer_comparator.c"
-#include "../../../../executor/comparator/integer/smaller_integer_comparator.c"
+#include "../../../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../../../executor/logifier/boolean/and_boolean_logifier.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
@@ -58,7 +58,7 @@ void contain_integer_none(void* p0, void* p1, void* p2, void* p3) {
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     compare_integer_greater((void*) &rl, p1, p2);
-    compare_integer_smaller((void*) &rr, p1, p3);
+    compare_integer_less((void*) &rr, p1, p3);
 
     // Initialise result which serves as first operand.
     copy_integer((void*) &r, (void*) &rl);

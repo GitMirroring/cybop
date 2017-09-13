@@ -49,7 +49,7 @@ void retrieve(void* p0, void* p1, void* p2) {
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_smaller((void*) &r, p1, p2);
+    compare_integer_less((void*) &r, p1, p2);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -30,7 +30,7 @@
  
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../executor/comparator/integer/smaller_integer_comparator.c"
+#include "../../../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../../../executor/converter/decoder/ascii/ascii_decoder.c"
 #include "../../../../executor/converter/decoder/iso_8859/extension_iso_8859_decoder.c"
 #include "../../../../executor/converter/decoder/windows/special_windows_1252_decoder.c"
@@ -65,7 +65,7 @@ void decode_windows_1252(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_smaller((void*) &r, p1, (void*) NUMBER_128_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_less((void*) &r, p1, (void*) NUMBER_128_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -79,7 +79,7 @@ void decode_windows_1252(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_smaller((void*) &r, p1, (void*) NUMBER_160_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_less((void*) &r, p1, (void*) NUMBER_160_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

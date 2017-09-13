@@ -23,34 +23,43 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SMALLER_WIDE_CHARACTER_COMPARATOR_SOURCE
-#define SMALLER_WIDE_CHARACTER_COMPARATOR_SOURCE
+#ifndef LESS_OR_EQUAL_CHARACTER_COMPARATOR_SOURCE
+#define LESS_OR_EQUAL_CHARACTER_COMPARATOR_SOURCE
 
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/copier/integer_copier.c"
 
 /**
- * Compares the left- with the right wide character for smallerness.
+ * Compares the left- with the right character for lessness and equality.
  *
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left value
  * @param p2 the right value
  */
-void compare_wide_character_smaller(void* p0, void* p1, void* p2) {
+void compare_character_less_or_equal(void* p0, void* p1, void* p2) {
+
+    //
+    // CAUTION! Use "unsigned char" with range 0..+255
+    // and NOT just "char" here.
+    // The reason is that this type is most commonly used for
+    // characters from 0..255 (ascii extended by iso-8859),
+    // for which the simple "char" type with range -128..+127
+    // would NOT suffice.
+    //
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        wchar_t* rv = (wchar_t*) p2;
+        unsigned char* rv = (unsigned char*) p2;
 
         if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            wchar_t* lv = (wchar_t*) p1;
+            unsigned char* lv = (unsigned char*) p1;
 
             // CAUTION! Do NOT call the logger here.
             // It might use functions that cause circular references.
 
-            if (*lv < *rv) {
+            if (*lv <= *rv) {
 
                 copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
             }
@@ -68,5 +77,5 @@ void compare_wide_character_smaller(void* p0, void* p1, void* p2) {
     }
 }
 
-/* SMALLER_WIDE_CHARACTER_COMPARATOR_SOURCE */
+/* LESS_OR_EQUAL_CHARACTER_COMPARATOR_SOURCE */
 #endif

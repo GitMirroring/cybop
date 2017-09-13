@@ -32,7 +32,7 @@
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../executor/calculator/integer/subtract_integer_calculator.c"
-#include "../../executor/comparator/integer/smaller_integer_comparator.c"
+#include "../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../executor/memoriser/reallocator/array_reallocator.c"
 #include "../../executor/copier/array_copier.c"
 #include "../../executor/referencer/referencer.c"
@@ -151,7 +151,7 @@ void modify_remove_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void
                         // int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
                         //
                         // // Test if new size is smaller than array size.
-                        // compare_integer_smaller((void*) &r, (void*) &n, p5);
+                        // compare_integer_less((void*) &r, (void*) &n, p5);
                         //
                         // if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
                         //

@@ -27,7 +27,6 @@
 #define NORMALISE_GREGORIAN_CALENDAR_TIME_SCALE_DESERIALISER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -40,7 +39,7 @@
 #include "../../../../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../../../../executor/caster/double/integer_double_caster.c"
 #include "../../../../../executor/caster/integer/double_integer_caster.c"
-#include "../../../../../executor/comparator/double/smaller_double_comparator.c"
+#include "../../../../../executor/comparator/double/less_double_comparator.c"
 #include "../../../../../executor/copier/double_copier.c"
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../logger/logger.c"
@@ -69,7 +68,7 @@ void deserialise_time_scale_gregorian_calendar_normalise(void* p0, void* p1) {
     calculate_double_divide((void*) &od, (void*) DAY_SOLAR_DURATION_TIME_SCALE_MODEL);
     cast_integer_double((void*) &oi, (void*) &od);
 
-    compare_double_smaller((void*) &r, p1, (void*) NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL);
+    compare_double_less((void*) &r, p1, (void*) NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -92,7 +91,7 @@ void deserialise_time_scale_gregorian_calendar_normalise(void* p0, void* p1) {
     // Reset comparison result.
     copy_integer((void*) &r, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     // Compare left and right side.
-    compare_double_smaller((void*) &r, (void*) &sl, (void*) &sr);
+    compare_double_less((void*) &r, (void*) &sl, (void*) &sr);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

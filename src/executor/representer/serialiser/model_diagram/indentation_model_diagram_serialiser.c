@@ -97,7 +97,7 @@ void serialise_model_diagram_indentation_line(void* p0, void* p1, void* p2, void
     n++;
 
     // Check if the last of many indentations has been reached.
-    compare_integer_smaller((void*) &l, (void*) &n, p2);
+    compare_integer_less((void*) &l, (void*) &n, p2);
 
     if (l != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
