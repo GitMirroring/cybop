@@ -654,7 +654,7 @@ Operators:
 - directory: "executor/comparator/"
 - standard comparison operators are implemented: ==, !=, <, >, <=, >=
 - others are possible in the future: ~ for "similar" etc.
-- the cybol operations are called e.g. "compare/smaller-or-equal"
+- the cybol operations are called e.g. "compare/less-or-equal"
 
 Types:
 - operations may be applied to different types, e.g. "number/integer", "number/fraction-decimal" (double), "text/plain" (wchar_t)
