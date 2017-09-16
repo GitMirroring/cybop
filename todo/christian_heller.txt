@@ -14,6 +14,12 @@
 Comparison
 __________
 
+        * Add new directory "executor/lexicographer/" for lexicographic comparison
+        * Use existing directory "executor/comparator/" for standard comparison
+
+        --> OPEN question: how to distinguish between ONE or MANY comparison results?
+            (single return value or vector with many comparison entries as return value)
+
         * Optimise comparator and restructure directory "executor/comparator/" with focus on part | item | array
         * Remove "all" comparator
 
