@@ -98,6 +98,9 @@
                 Elton John - Sacrifice
             </li>
             <li>
+                Erasure - Ship Of Fools
+            </li>
+            <li>
                 Fiction Factory - Feels Like Heaven
             </li>
             <li>
@@ -204,6 +207,9 @@
             </li>
             <li>
                 Philipp Dittberner &#x26; Marv - Wolke 4
+            </li>
+            <li>
+                Sheppard - Geronimo
             </li>
         </ol>
     </div>

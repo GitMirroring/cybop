@@ -77,21 +77,6 @@
                 Bad Boys Blue - A World Without You
             </li>
             <li>
-                Bad Boys Blue - Come Back And Stay
-            </li>
-            <li>
-                Bad Boys Blue - I Wanna Hear Your Heartbeat
-            </li>
-            <li>
-                Bad Boys Blue - Kisses And Tears
-            </li>
-            <li>
-                Bad Boys Blue - Pretty Young Girl
-            </li>
-            <li>
-                Bad Boys Blue - You&#x27;re A Woman
-            </li>
-            <li>
                 Bangles - Be With You
             </li>
             <li>
@@ -105,9 +90,6 @@
             </li>
             <li>
                 E.L.O. - Calling America
-            </li>
-            <li>
-                Erasure - Ship Of Fools
             </li>
             <li>
                 Europe - Carrie
@@ -262,9 +244,6 @@
             2010er Rock-Pop
         </h2>
         <ol>
-            <li>
-                Sheppard - Geronimo
-            </li>
             <li>
                 Wincent Weiss - Feuerwerk
             </li>
@@ -519,4 +498,6 @@
             </li>
         </ol>
     </div>
+    <ERROR_MISSING_TAG_NAME>
+    </ERROR_MISSING_TAG_NAME>
 </main>

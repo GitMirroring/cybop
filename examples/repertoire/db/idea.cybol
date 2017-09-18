@@ -8,11 +8,6 @@
     <node name="asia_-_heat_of_the_moment" channel="file" format="element/part" model="repertoire/db/idea/asia_-_heat_of_the_moment.cybol"/>
 
     <node name="bad_boys_blue_-_a_world_without_you" channel="file" format="element/part" model="repertoire/db/idea/bad_boys_blue_-_a_world_without_you.cybol"/>
-    <node name="bad_boys_blue_-_come_back_and_stay" channel="file" format="element/part" model="repertoire/db/idea/bad_boys_blue_-_come_back_and_stay.cybol"/>
-    <node name="bad_boys_blue_-_i_wanna_hear_your_heartbeat" channel="file" format="element/part" model="repertoire/db/idea/bad_boys_blue_-_i_wanna_hear_your_heartbeat.cybol"/>
-    <node name="bad_boys_blue_-_kisses_and_tears" channel="file" format="element/part" model="repertoire/db/idea/bad_boys_blue_-_kisses_and_tears.cybol"/>
-    <node name="bad_boys_blue_-_pretty_young_girl" channel="file" format="element/part" model="repertoire/db/idea/bad_boys_blue_-_pretty_young_girl.cybol"/>
-    <node name="bad_boys_blue_-_you're_a_woman" channel="file" format="element/part" model="repertoire/db/idea/bad_boys_blue_-_you're_a_woman.cybol"/>
     <node name="bajm_-_mysli_i_slowa" channel="file" format="element/part" model="repertoire/db/idea/bajm_-_mysli_i_slowa.cybol"/>
     <node name="bangles_-_be_with_you" channel="file" format="element/part" model="repertoire/db/idea/bangles_-_be_with_you.cybol"/>
     <node name="bap_-_do_kanns_zaubere" channel="file" format="element/part" model="repertoire/db/idea/bap_-_do_kanns_zaubere.cybol"/>
@@ -37,7 +32,6 @@
 
     <node name="echt_-_du_traegst_keine_liebe_in_dir" channel="file" format="element/part" model="repertoire/db/idea/echt_-_du_traegst_keine_liebe_in_dir.cybol"/>
     <node name="elo_-_calling_america" channel="file" format="element/part" model="repertoire/db/idea/elo_-_calling_america.cybol"/>
-    <node name="erasure_-_ship_of_fools" channel="file" format="element/part" model="repertoire/db/idea/erasure_-_ship_of_fools.cybol"/>
     <node name="europe_-_carrie" channel="file" format="element/part" model="repertoire/db/idea/europe_-_carrie.cybol"/>
     <node name="europe_-_the_final_countdown" channel="file" format="element/part" model="repertoire/db/idea/europe_-_the_final_countdown.cybol"/>
 
@@ -109,8 +103,8 @@
     <node name="scorpions_-_white_dove" channel="file" format="element/part" model="repertoire/db/idea/scorpions_-_white_dove.cybol"/>
     <node name="scorpions_-_wind_of_change" channel="file" format="element/part" model="repertoire/db/idea/scorpions_-_wind_of_change.cybol"/>
     <node name="secret_service_-_ten_o'clock_postman" channel="file" format="element/part" model="repertoire/db/idea/secret_service_-_ten_o'clock_postman.cybol"/>
-    <node name="sheppard_-_geronimo" channel="file" format="element/part" model="repertoire/db/idea/sheppard_-_geronimo.cybol"/>
     <node name="shorts_-_comment_ca_va" channel="file" format="element/part" model="repertoire/db/idea/shorts_-_comment_ca_va.cybol"/>
+    <node name="silent_circle_-_touch_in_the_night" channel="file" format="element/part" model="repertoire/db/idea/silent_circle_-_touch_in_the_night.cybol"/>
     <node name="simon_&_garfunkel_-_sound_of_silence" channel="file" format="element/part" model="repertoire/db/idea/simon_&_garfunkel_-_sound_of_silence.cybol"/>
     <node name="simple_minds_-_don't_you_(forget_about_me)" channel="file" format="element/part" model="repertoire/db/idea/simple_minds_-_don't_you_(forget_about_me).cybol"/>
     <node name="smokie_-_i'll_meet_you_at_midnight" channel="file" format="element/part" model="repertoire/db/idea/smokie_-_i'll_meet_you_at_midnight.cybol"/>

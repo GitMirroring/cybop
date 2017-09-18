@@ -448,6 +448,20 @@
         </tr>
         <tr>
             <td>
+                Ship Of Fools
+            </td>
+            <td>
+                Erasure
+            </td>
+            <td>
+                1980er Rock-Pop &#x26; Synthi Pop
+            </td>
+            <td>
+                1988
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Lay Down Sally
             </td>
             <td>
@@ -1104,6 +1118,20 @@
                 1960er Beat &#x26; Flower Power
             </td>
             <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Geronimo
+            </td>
+            <td>
+                Sheppard
+            </td>
+            <td>
+                2010er Rock-Pop
+            </td>
+            <td>
+                2014
             </td>
         </tr>
         <tr>
