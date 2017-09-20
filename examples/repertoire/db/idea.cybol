@@ -59,6 +59,7 @@
     <node name="karat_-_jede_stunde" channel="file" format="element/part" model="repertoire/db/idea/karat_-_jede_stunde.cybol"/>
     <node name="killers_-_human" channel="file" format="element/part" model="repertoire/db/idea/killers_-_human.cybol"/>
 
+    <node name="la's_-_there_she_goes" channel="file" format="element/part" model="repertoire/db/idea/la's_-_there_she_goes.cybol"/>
     <node name="lara_fabian_-_i_will_love_again" channel="file" format="element/part" model="repertoire/db/idea/lara_fabian_-_i_will_love_again.cybol"/>
     <node name="level_42_-_lessons_in_love" channel="file" format="element/part" model="repertoire/db/idea/level_42_-_lessons_in_love.cybol"/>
     <node name="lightening_seeds_-_life_of_riley" channel="file" format="element/part" model="repertoire/db/idea/lightening_seeds_-_life_of_riley.cybol"/>
@@ -72,6 +73,7 @@
     <node name="mikis_theodorakis_-_sirtaki" channel="file" format="element/part" model="repertoire/db/idea/mikis_theodorakis_-_sirtaki.cybol"/>
 
     <node name="nazareth_-_dream_on" channel="file" format="element/part" model="repertoire/db/idea/nazareth_-_dream_on.cybol"/>
+    <node name="new_order_-_true_faith" channel="file" format="element/part" model="repertoire/db/idea/new_order_-_true_faith.cybol"/>
     <node name="nico_haak_-_schmidtchen_schleicher" channel="file" format="element/part" model="repertoire/db/idea/nico_haak_-_schmidtchen_schleicher.cybol"/>
     <node name="nina_&_mike_-_fahrende_musikanten_das_sind_wir" channel="file" format="element/part" model="repertoire/db/idea/nina_&_mike_-_fahrende_musikanten_das_sind_wir.cybol"/>
     <node name="no_mercy_-_where_do_you_go" channel="file" format="element/part" model="repertoire/db/idea/no_mercy_-_where_do_you_go.cybol"/>
@@ -107,6 +109,7 @@
     <node name="silent_circle_-_touch_in_the_night" channel="file" format="element/part" model="repertoire/db/idea/silent_circle_-_touch_in_the_night.cybol"/>
     <node name="simon_&_garfunkel_-_sound_of_silence" channel="file" format="element/part" model="repertoire/db/idea/simon_&_garfunkel_-_sound_of_silence.cybol"/>
     <node name="simple_minds_-_don't_you_(forget_about_me)" channel="file" format="element/part" model="repertoire/db/idea/simple_minds_-_don't_you_(forget_about_me).cybol"/>
+    <node name="smiths_-_girlfriend_in_a_coma" channel="file" format="element/part" model="repertoire/db/idea/smiths_-_girlfriend_in_a_coma.cybol"/>
     <node name="smokie_-_i'll_meet_you_at_midnight" channel="file" format="element/part" model="repertoire/db/idea/smokie_-_i'll_meet_you_at_midnight.cybol"/>
     <node name="sparks_-_when_do_i_get_to_sing_my_way" channel="file" format="element/part" model="repertoire/db/idea/sparks_-_when_do_i_get_to_sing_my_way.cybol"/>
     <node name="status_quo_-_rockin'_all_over_the_world" channel="file" format="element/part" model="repertoire/db/idea/status_quo_-_rockin'_all_over_the_world.cybol"/>
