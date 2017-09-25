@@ -641,20 +641,24 @@ Comparison
 __________
 
 Difference:
-==> standard comparison: delivers MANY results, one for each element in an array (vector), so that the result is again an array (vector)
-==> lexicographical comparison: delivers just ONE result
-- many programming languages implement these return values: -1 if lesser, 0 if equal, 1 if greater
-- cyboi should better (?? VERIFY THIS LATER) stick to a standard flag (0 or 1) as return value of the comparison
-- do NOT implement new operation for lexicographical comparison, but a cybol boolean property "lexicographic" (true | false)
+- standard comparison: delivers MANY results, one for each element in an array (vector), so that the result is again an array (vector)
+- lexicographical comparison: delivers just ONE result
+
+Implementation:
+- many programming languages (e.g. Java) return value -1 if lesser, 0 if equal, 1 if greater
+- cyboi should better stick to a standard flag (0 or 1) as return value of the comparison
+- do NOT implement new operation for lexicographical comparison (to avoid redundancies), but use "compare" together with a cybol boolean property "lexicon"
+- provide file "lexicon_comparator.c" parallel to "array_comparator.c"
 - distinguish "lexicographic" or not in "applicator/compare/" and call corresponding function in "executor/comparator/"
 - Java knows "equals" with boolean return value AND "compareTo" with int return value
---> merge these two and only use "compare" with boolean return value(s) in cyboi
+--> these two are merged in cybol and only one operation "compare" exists, with boolean return value
 
 Operators:
 - directory: "executor/comparator/"
 - standard comparison operators are implemented: ==, !=, <, >, <=, >=
 - others are possible in the future: ~ for "similar" etc.
 - the cybol operations are called e.g. "compare/less-or-equal"
+- the size of the result array gets extended to the one of the bigger input operand array
 
 Types:
 - operations may be applied to different types, e.g. "number/integer", "number/fraction-decimal" (double), "text/plain" (wchar_t)
@@ -688,6 +692,14 @@ https://en.wikipedia.org/wiki/Lexicographical_order#Numeral_systems_and_dates
     - consider two's complement representation for representing signed integers
 - string: array of "char" or "wchar_t"; use ASCII and UNICODE, i.e. alphabetical order
 - date: represented as Julian Date (JD) in cyboi; YYYY-MM-DD etc. get converted into JD; simple number comparison suffices
+
+Search
+______
+
+- the Java "String" class and other languages know methods like: startsWith, endsWith, subString, indexOf, contains
+- these are also applicable to a vector of types like: int, double, char etc.
+- provide corresponding cybol operations: search/prefix, search/suffix, search/subsequence, search/index
+- the corresponding cyboi-internal function use "compare" functions as described above
 
 Arbitrary-precision arithmetic (Langzahlarithmetik)
 ___________________________________________________

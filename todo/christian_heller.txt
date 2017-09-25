@@ -14,16 +14,36 @@
 Comparison
 __________
 
+        * Add file "executor/comparator/lexicon_comparator.c" in parallel to "array_comparator.c"
+        * Use boolean cybol property "lexicon" for operations of category "compare/" with default "false"
+        * Distinguish property "lexicon" or not in "applicator/compare/" and call corresponding function in "executor/comparator/"
+            - the comparison for primitive types is *the same* for lexicographic or not
+            - only the comparison of arrays differs:
+                - standard delivers many boolean results as elements in a result array
+                - lexicographic delivers ONE boolean result
+        * Optimise comparator and restructure directory "executor/comparator/" with focus on part | item | array
+        * Remove "all" comparator
+        * See file "design_decisions.txt", section "Comparison"
+
+        Lexicographical order:
+        https://en.wikipedia.org/wiki/Lexicographical_order#Numeral_systems_and_dates
+        - integer: an integer is larger than another one if either it has more digits (ignoring leading zeroes) or the number of digits is the same and the first digit which differs is larger
+        - real numbers written in decimal notation:
+            - a slightly different variant of the lexicographical order is used
+            - the parts on the left of the decimal point are compared as with integer
+            - if they are equal, the parts at the right of the decimal point are compared with the lexicographical order
+        - negative numbers:
+            - reverse the order for comparing negative numbers
+            - testing the sign in computers takes some time
+            - consider two's complement representation for representing signed integers
+        - string: array of "char" or "wchar_t"; use ASCII and UNICODE, i.e. alphabetical order
+        - date: represented as Julian Date (JD) in cyboi; YYYY-MM-DD etc. get converted into JD; simple number comparison suffices
+
         * Add new directory "executor/lexicographer/" for lexicographic comparison
         * Use existing directory "executor/comparator/" for standard comparison
 
         --> OPEN question: how to distinguish between ONE or MANY comparison results?
             (single return value or vector with many comparison entries as return value)
-
-        * Optimise comparator and restructure directory "executor/comparator/" with focus on part | item | array
-        * Remove "all" comparator
-
-        * Adapt applicator for operation "compare" to use given property "lexicographic"
 
         * Move cybol operations for "prefix", "suffix", "subsequence", "all" from "executor/comparator/" to "executor/searcher/"
         * Remove file "selection_compare_logic_cybol_model.c" (??)
@@ -31,22 +51,6 @@ __________
         * Merge almost empty directory "executor/container/" with "executor/searcher/"
         * Use new comparator functions in "executor/searcher/name_finder/"
         * Merge "executor/searcher/finder/" with "executor/searcher/name_finder/"
-
-        * See file "design_decisions.txt" and search for "Comparison"
-            Difference:
-            ==> standard comparison: delivers MANY results, one for each element in an array (vector), so that the result is again an array (vector)
-            ==> lexicographical comparison: delivers just ONE result
-            - many programming languages implement these return values: -1 if lesser, 0 if equal, 1 if greater
-            - cyboi should better stick to a standard boolean return value (0 or 1)
-            - do NOT implement new operation for lexicographical comparison, but a cybol boolean property "lexicographic" (true | false) with default "false"
-            - distinguish "lexicographic" or not in "applicator/compare/" and call corresponding function in "executor/comparator/"
-            - the comparison for primitive types is *the same* for lexicographic or not
-            - only the comparison of arrays differs:
-                - standard delivers many boolean results as elements in a result array
-                - lexicographic delivers ONE boolean result
-
-        * See file "array_comparator.c"
-        * Implement string comparison
 
 /**
  * Compares two arrays.
