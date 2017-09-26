@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef LEXICON_COMPARATOR_SOURCE
-#define LEXICON_COMPARATOR_SOURCE
+#ifndef CHECKER_SOURCE
+#define CHECKER_SOURCE
 
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -33,7 +33,7 @@
 #include "../../logger/logger.c"
 
 /**
- * Compares ...
+ * Checks two arrays lexicographically.
  *
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left array
@@ -42,10 +42,12 @@
  * @param p4 the operand type
  * @param p5 the count
  */
-void compare_lexicon(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void check(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare lexicon.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check.");
+
+    //?? TODO: Distinguish types.
 }
 
-/* LEXICON_COMPARATOR_SOURCE */
+/* CHECKER_SOURCE */
 #endif

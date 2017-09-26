@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-09-26  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add directory "executor/checker/" for lexicographical comparison
+
 2017-09-13  Christian Heller  <christian.heller@tuxtax.de>
 
         * Replace direct comparison in file "value_comparator.c" with function "compare_integer_equal"

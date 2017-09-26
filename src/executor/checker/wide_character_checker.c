@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef WIDE_CHARACTER_COMPARATOR_SOURCE
-#define WIDE_CHARACTER_COMPARATOR_SOURCE
+#ifndef WIDE_CHARACTER_CHECKER_SOURCE
+#define WIDE_CHARACTER_CHECKER_SOURCE
 
 #include <stdlib.h>
 #include <string.h>
@@ -42,20 +42,20 @@
 #include "../../logger/logger.c"
 
 /**
- * Compares the left- with the right wide character.
+ * Checks the left- with the right wide character.
  *
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left value
  * @param p2 the right value
  * @param p3 the operation type
  */
-void compare_wide_character(void* p0, void* p1, void* p2, void* p3) {
+void check_wide_character(void* p0, void* p1, void* p2, void* p3) {
 
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* a = (int*) p3;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare wide character.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check wide character.");
 
         // The comparison result.
         // CAUTION! It is used instead of if-else statements.
@@ -68,7 +68,7 @@ void compare_wide_character(void* p0, void* p1, void* p2, void* p3) {
 
                 r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                compare_wide_character_equal(p0, p1, p2);
+                check_wide_character_equal(p0, p1, p2);
             }
         }
 
@@ -78,7 +78,7 @@ void compare_wide_character(void* p0, void* p1, void* p2, void* p3) {
 
                 r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                compare_wide_character_greater(p0, p1, p2);
+                check_wide_character_greater(p0, p1, p2);
             }
         }
 
@@ -88,7 +88,7 @@ void compare_wide_character(void* p0, void* p1, void* p2, void* p3) {
 
                 r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                compare_wide_character_greater_or_equal(p0, p1, p2);
+                check_wide_character_greater_or_equal(p0, p1, p2);
             }
         }
 
@@ -98,7 +98,7 @@ void compare_wide_character(void* p0, void* p1, void* p2, void* p3) {
 
                 r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                compare_wide_character_less(p0, p1, p2);
+                check_wide_character_less(p0, p1, p2);
             }
         }
 
@@ -108,7 +108,7 @@ void compare_wide_character(void* p0, void* p1, void* p2, void* p3) {
 
                 r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                compare_wide_character_less_or_equal(p0, p1, p2);
+                check_wide_character_less_or_equal(p0, p1, p2);
             }
         }
 
@@ -118,20 +118,20 @@ void compare_wide_character(void* p0, void* p1, void* p2, void* p3) {
 
                 r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                compare_wide_character_unequal(p0, p1, p2);
+                check_wide_character_unequal(p0, p1, p2);
             }
         }
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare wide character. The operation type is unknown.");
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check wide character. The operation type is unknown.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare wide character. The operation type is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check wide character. The operation type is null.");
     }
 }
 
-/* WIDE_CHARACTER_COMPARATOR_SOURCE */
+/* WIDE_CHARACTER_CHECKER_SOURCE */
 #endif
