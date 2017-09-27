@@ -26,12 +26,8 @@
 #ifndef VALUE_COMPARATOR_SOURCE
 #define VALUE_COMPARATOR_SOURCE
 
-#include <stdlib.h>
-#include <string.h>
-
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/comparator/character_comparator.c"
@@ -42,6 +38,7 @@
 #include "../../executor/comparator/part_comparator.c"
 #include "../../executor/comparator/pointer_comparator.c"
 #include "../../executor/comparator/wide_character_comparator.c"
+#include "../../executor/memoriser/offset_adder.c"
 #include "../../logger/logger.c"
 
 //

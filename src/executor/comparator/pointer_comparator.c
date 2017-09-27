@@ -26,13 +26,10 @@
 #ifndef POINTER_COMPARATOR_SOURCE
 #define POINTER_COMPARATOR_SOURCE
 
-#include <stdlib.h>
-#include <string.h>
-
 #include "../../constant/format/cyboi/logic_cyboi_format.c"
-
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/comparator/pointer/equal_pointer_comparator.c"
 #include "../../executor/comparator/pointer/greater_or_equal_pointer_comparator.c"
 #include "../../executor/comparator/pointer/greater_pointer_comparator.c"
@@ -51,83 +48,74 @@
  */
 void compare_pointer(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare pointer.");
 
-        int* a = (int*) p3;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare pointer.");
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // The comparison result.
-        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        compare_integer_equal((void*) &r, p3, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
-
-                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
-
-                compare_pointer_equal(p0, p1, p2);
-            }
+            compare_pointer_equal(p0, p1, p2);
         }
+    }
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *GREATER_COMPARE_LOGIC_CYBOI_FORMAT) {
+        compare_integer_equal((void*) &r, p3, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT);
 
-                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                compare_pointer_greater(p0, p1, p2);
-            }
+            compare_pointer_greater(p0, p1, p2);
         }
+    }
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
+        compare_integer_equal((void*) &r, p3, (void*) GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
-                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                compare_pointer_greater_or_equal(p0, p1, p2);
-            }
+            compare_pointer_greater_or_equal(p0, p1, p2);
         }
+    }
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *LESS_COMPARE_LOGIC_CYBOI_FORMAT) {
+        compare_integer_equal((void*) &r, p3, (void*) LESS_COMPARE_LOGIC_CYBOI_FORMAT);
 
-                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                compare_pointer_less(p0, p1, p2);
-            }
+            compare_pointer_less(p0, p1, p2);
         }
+    }
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *LESS_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
+        compare_integer_equal((void*) &r, p3, (void*) LESS_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
-                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                compare_pointer_less_or_equal(p0, p1, p2);
-            }
+            compare_pointer_less_or_equal(p0, p1, p2);
         }
+    }
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *UNEQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
+        compare_integer_equal((void*) &r, p3, (void*) UNEQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
-                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                compare_pointer_unequal(p0, p1, p2);
-            }
+            compare_pointer_unequal(p0, p1, p2);
         }
+    }
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare pointer. The operation type is unknown.");
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare pointer. The operation type is null.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare pointer. The operation type is unknown.");
     }
 }
 

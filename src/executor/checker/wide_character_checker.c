@@ -26,20 +26,18 @@
 #ifndef WIDE_CHARACTER_CHECKER_SOURCE
 #define WIDE_CHARACTER_CHECKER_SOURCE
 
-#include <stdlib.h>
-#include <string.h>
-
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../logger/logger.c"
+--
+#include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../executor/comparator/wide_character/equal_wide_character_comparator.c"
 #include "../../executor/comparator/wide_character/greater_or_equal_wide_character_comparator.c"
 #include "../../executor/comparator/wide_character/greater_wide_character_comparator.c"
 #include "../../executor/comparator/wide_character/less_or_equal_wide_character_comparator.c"
 #include "../../executor/comparator/wide_character/less_wide_character_comparator.c"
 #include "../../executor/comparator/wide_character/unequal_wide_character_comparator.c"
-#include "../../logger/logger.c"
 
 /**
  * Checks the left- with the right wide character.

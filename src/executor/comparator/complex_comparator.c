@@ -26,15 +26,12 @@
 #ifndef COMPLEX_COMPARATOR_SOURCE
 #define COMPLEX_COMPARATOR_SOURCE
 
-#include <stdlib.h>
-#include <string.h>
-
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-
+#include "../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../executor/comparator/complex/equal_complex_comparator.c"
 #include "../../executor/comparator/complex/unequal_complex_comparator.c"
+#include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../logger/logger.c"
 
 /**
@@ -47,43 +44,34 @@
  */
 void compare_complex(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare complex.");
 
-        int* a = (int*) p3;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare complex.");
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // The comparison result.
-        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        compare_integer_equal((void*) &r, p3, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
-
-                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
-
-                compare_complex_equal(p0, p1, p2);
-            }
+            compare_complex_equal(p0, p1, p2);
         }
+    }
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *UNEQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
+        compare_integer_equal((void*) &r, p3, (void*) UNEQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
-                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                compare_complex_unequal(p0, p1, p2);
-            }
+            compare_complex_unequal(p0, p1, p2);
         }
+    }
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare complex. The operation type is unknown.");
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare complex. The operation type is null.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare complex. The operation type is unknown.");
     }
 }
 

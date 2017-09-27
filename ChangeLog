@@ -18,13 +18,17 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-09-27  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Replace direct comparison with function "compare_integer_equal" in several files of "executor/comparator/"
+
 2017-09-26  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add directory "executor/checker/" for lexicographical comparison
 
 2017-09-13  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Replace direct comparison in file "value_comparator.c" with function "compare_integer_equal"
+        * Replace direct comparison with function "compare_integer_equal" in file "value_comparator.c"
         * Optimise comparator and restructure directory "executor/comparator/" with focus on part | item | array
         * Remove prefix-, suffix-, subsequence comparator
         * Rename cybol operation "smaller" and "smaller-or-equal" into "less" and "less-or-equal"
