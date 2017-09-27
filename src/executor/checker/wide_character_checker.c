@@ -26,108 +26,101 @@
 #ifndef WIDE_CHARACTER_CHECKER_SOURCE
 #define WIDE_CHARACTER_CHECKER_SOURCE
 
+#include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../logger/logger.c"
---
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/comparator/wide_character/equal_wide_character_comparator.c"
+/*??
 #include "../../executor/comparator/wide_character/greater_or_equal_wide_character_comparator.c"
 #include "../../executor/comparator/wide_character/greater_wide_character_comparator.c"
 #include "../../executor/comparator/wide_character/less_or_equal_wide_character_comparator.c"
 #include "../../executor/comparator/wide_character/less_wide_character_comparator.c"
 #include "../../executor/comparator/wide_character/unequal_wide_character_comparator.c"
+*/
+#include "../../logger/logger.c"
 
 /**
- * Checks the left- with the right wide character.
+ * Checks the left- with the right wide character array lexicographically.
  *
  * @param p0 the result (number 1 if true; unchanged otherwise)
- * @param p1 the left value
- * @param p2 the right value
- * @param p3 the operation type
+ * @param p1 the left array
+ * @param p2 the right array
+ * @param p3 the count
+ * @param p4 the operation type
  */
-void check_wide_character(void* p0, void* p1, void* p2, void* p3) {
+void check_wide_character(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check wide character.");
 
-        int* a = (int*) p3;
+    // The comparison result.
+    // CAUTION! It is used instead of if-else statements.
+    // May be one day, this is useful when using assembler or implementing cyboi as hardware chip.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check wide character.");
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // The comparison result.
-        // CAUTION! It is used instead of if-else statements.
-        // May be one day, this is useful when using assembler or implementing cyboi as hardware chip.
-        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        compare_integer_equal((void*) &r, p3, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
-
-                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
-
-                check_wide_character_equal(p0, p1, p2);
-            }
+            check_wide_character_equal(p0, p1, p2);
         }
+    }
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *GREATER_COMPARE_LOGIC_CYBOI_FORMAT) {
+        compare_integer_equal((void*) &r, p3, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT);
 
-                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                check_wide_character_greater(p0, p1, p2);
-            }
+//??            check_wide_character_greater(p0, p1, p2);
         }
+    }
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
+        compare_integer_equal((void*) &r, p3, (void*) GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
-                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                check_wide_character_greater_or_equal(p0, p1, p2);
-            }
+//??            check_wide_character_greater_or_equal(p0, p1, p2);
         }
+    }
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *LESS_COMPARE_LOGIC_CYBOI_FORMAT) {
+        compare_integer_equal((void*) &r, p3, (void*) LESS_COMPARE_LOGIC_CYBOI_FORMAT);
 
-                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                check_wide_character_less(p0, p1, p2);
-            }
+//??            check_wide_character_less(p0, p1, p2);
         }
+    }
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *LESS_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
+        compare_integer_equal((void*) &r, p3, (void*) LESS_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
-                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                check_wide_character_less_or_equal(p0, p1, p2);
-            }
+//??            check_wide_character_less_or_equal(p0, p1, p2);
         }
+    }
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *UNEQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
+        compare_integer_equal((void*) &r, p3, (void*) UNEQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
-                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                check_wide_character_unequal(p0, p1, p2);
-            }
+//??            check_wide_character_unequal(p0, p1, p2);
         }
+    }
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check wide character. The operation type is unknown.");
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check wide character. The operation type is null.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check wide character. The operation type is unknown.");
     }
 }
 

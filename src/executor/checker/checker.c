@@ -26,10 +26,11 @@
 #ifndef CHECKER_SOURCE
 #define CHECKER_SOURCE
 
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/comparator/value_comparator.c"
+#include "../../executor/checker/wide_character_checker.c"
+#include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../logger/logger.c"
 
 /**
@@ -38,15 +39,33 @@
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left array
  * @param p2 the right array
- * @param p3 the operation type
- * @param p4 the operand type
- * @param p5 the count
+ * @param p3 the count
+ * @param p4 the operation type
+ * @param p5 the operand type
  */
 void check(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check.");
 
-    //?? TODO: Distinguish types.
+    // The comparison result.
+    // CAUTION! It is used instead of if-else statements.
+    // May be one day, this is useful when using assembler or implementing cyboi as hardware chip.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p5, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            check_wide_character(p0, p1, p2, p3, p4);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check. The operand type is unknown.");
+    }
 }
 
 /* CHECKER_SOURCE */

@@ -14,6 +14,8 @@
 Comparison
 __________
 
+        * Continue with files "offset_checker.c", "item_checker.c", "part_checker.c"
+        * Adapt "applicator/check/check_applicator.c"
         * Continue adding files to directory "executor/checker/" for lexicographical comparison
 
 check equal:

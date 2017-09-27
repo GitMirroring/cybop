@@ -36,12 +36,12 @@
 #include "../../../logger/logger.c"
 
 /**
- * Checks the left- with the right wide character for equality.
+ * Checks the left- with the right wide character array lexicographically for equality.
  *
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left array
  * @param p2 the right array
- * @param p3 the index
+ * @param p3 the count
  */
 void check_wide_character_equal(void* p0, void* p1, void* p2, void* p3) {
 
