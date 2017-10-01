@@ -274,12 +274,28 @@
     </div>
     <div>
         <h2>
-            Englischer Schlager
+            Duett
         </h2>
         <ol>
             <li>
                 Carpenters - Top Of The World
             </li>
+            <li>
+                Chris Norman &#x26; Suzi Quatro - Stumblin&#x27; In
+            </li>
+            <li>
+                Elton John &#x26; Kiki Dee - Don&#x27;t Go Breaking My Heart
+            </li>
+            <li>
+                John Travolta &#x26; Olivia Newton-John - You&#x27;re The One That I Want
+            </li>
+        </ol>
+    </div>
+    <div>
+        <h2>
+            Englischer Schlager
+        </h2>
+        <ol>
             <li>
                 George Baker Selection - Paloma Blanca
             </li>

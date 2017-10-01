@@ -277,6 +277,13 @@
     </div>
     <div>
         <h2>
+            Duett
+        </h2>
+        <ol>
+        </ol>
+    </div>
+    <div>
+        <h2>
             Englischer Schlager
         </h2>
         <ol>

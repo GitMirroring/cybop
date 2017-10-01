@@ -18,6 +18,7 @@
     <node name="carpenters_-_top_of_the_world" channel="file" format="element/part" model="repertoire/db/idea/carpenters_-_top_of_the_world.cybol"/>
     <node name="ccr_-_have_you_ever_seen_the_rain" channel="file" format="element/part" model="repertoire/db/idea/ccr_-_have_you_ever_seen_the_rain.cybol"/>
     <node name="ccr_-_proud_mary" channel="file" format="element/part" model="repertoire/db/idea/ccr_-_proud_mary.cybol"/>
+    <node name="chris_norman_&_suzi_quatro_-_stumblin'_in" channel="file" format="element/part" model="repertoire/db/idea/chris_norman_&_suzi_quatro_-_stumblin'_in.cybol"/>
     <node name="chyp_notic_-_i_can't_get_enough" channel="file" format="element/part" model="repertoire/db/idea/chyp_notic_-_i_can't_get_enough.cybol"/>
     <node name="city_-_am_fenster" channel="file" format="element/part" model="repertoire/db/idea/city_-_am_fenster.cybol"/>
     <node name="coldplay_-_speed_of_sound" channel="file" format="element/part" model="repertoire/db/idea/coldplay_-_speed_of_sound.cybol"/>
@@ -32,6 +33,7 @@
 
     <node name="echt_-_du_traegst_keine_liebe_in_dir" channel="file" format="element/part" model="repertoire/db/idea/echt_-_du_traegst_keine_liebe_in_dir.cybol"/>
     <node name="elo_-_calling_america" channel="file" format="element/part" model="repertoire/db/idea/elo_-_calling_america.cybol"/>
+    <node name="elton_john_&_kiki_dee_-_don't_go_breaking_my_heart" channel="file" format="element/part" model="repertoire/db/idea/elton_john_&_kiki_dee_-_don't_go_breaking_my_heart.cybol"/>
     <node name="europe_-_carrie" channel="file" format="element/part" model="repertoire/db/idea/europe_-_carrie.cybol"/>
     <node name="europe_-_the_final_countdown" channel="file" format="element/part" model="repertoire/db/idea/europe_-_the_final_countdown.cybol"/>
 
@@ -51,6 +53,7 @@
     <node name="herbert_roth_-_rennsteiglied" channel="file" format="element/part" model="repertoire/db/idea/herbert_roth_-_rennsteiglied.cybol"/>
     <node name="hubert_kah_-_sternenhimmel" channel="file" format="element/part" model="repertoire/db/idea/hubert_kah_-_sternenhimmel.cybol"/>
 
+    <node name="john_travolta_&_olivia_newton-john_-_you're_the_one_that_i_want" channel="file" format="element/part" model="repertoire/db/idea/john_travolta_&_olivia_newton-john_-_you're_the_one_that_i_want.cybol"/>
     <node name="jon_&_vangelis_-_i'll_find_my_way_home" channel="file" format="element/part" model="repertoire/db/idea/jon_&_vangelis_-_i'll_find_my_way_home.cybol"/>
     <node name="juergen_hart_-_sing_mei_sachse_sing" channel="file" format="element/part" model="repertoire/db/idea/juergen_hart_-_sing_mei_sachse_sing.cybol"/>
 
