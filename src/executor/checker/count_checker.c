@@ -41,8 +41,8 @@
  * @param p3 the count
  * @param p4 the operation type
  * @param p5 the operand type
- * @param p6 the left data
- * @param p7 the right data
+ * @param p6 the left count
+ * @param p7 the right count
  */
 void check_count(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 

@@ -14,9 +14,14 @@
 Comparison
 __________
 
-        * Continue with files "offset_checker.c", "item_checker.c", "part_checker.c"
-        * Adapt "applicator/check/check_applicator.c"
+        * Rethink usage of "count" in checker --> therefore, the count must NOT be compared beforehand, since:
+            - an integer is larger than another one if either it has more digits (count is greater), i.e. compare count FIRST and digits at SECOND place
+            - consider this for new datatype "big_decimal" with unlimited length
+            - if a string (prefix) is equal to another, it is greater anyway if it is longer than the other,
+                i.e. compare characters FIRST (with count of shorter array as loop count) and compare count at SECOND place, only if both strings are equal, where the longer one is greater then
         * Continue adding files for various types to directory "executor/checker/" for lexicographical comparison, e.g. "integer_checker.c"
+            --> used for big_decimal, detect comma automatically and do NOT give it as cybol property, to be more flexible
+        * Adapt "applicator/check/check_applicator.c"
 
 check equal:
 loop

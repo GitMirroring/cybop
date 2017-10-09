@@ -54,8 +54,6 @@ void check_wide_character(void* p0, void* p1, void* p2, void* p3, void* p4) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check wide character.");
 
     // The comparison result.
-    // CAUTION! It is used instead of if-else statements.
-    // May be one day, this is useful when using assembler or implementing cyboi as hardware chip.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
