@@ -30,67 +30,71 @@
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../executor/comparator/value_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"
 
 /**
- * Checks the left- with the right wide character array lexicographically for equality.
+ * Checks two wide character arrays lexicographically for equality.
  *
  * @param p0 the result (number 1 if true; unchanged otherwise)
- * @param p1 the left array
- * @param p2 the right array
- * @param p3 the count
+ * @param p1 the left data
+ * @param p2 the right data
+ * @param p3 the left count
+ * @param p4 the right count
  */
-void check_wide_character_equal(void* p0, void* p1, void* p2, void* p3) {
+void check_wide_character_equal(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check wide character equal.");
 
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The loop count.
+    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The unequal comparison result.
+    int u = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // Compare array counts.
+    compare_integer_equal((void*) &r, p3, p4);
 
-        // CAUTION! If the loop count handed over as parametre is NULL,
-        // then the break flag will NEVER be set to true, because the loop
-        // variable comparison does (correctly) not consider null values.
-        // Therefore, in this case, the break flag is set to true already here.
-        // Initialising the break flag with true will NOT work either, since it:
-        // a) will be left untouched if a comparison operand is null;
-        // b) would have to be reset to true in each loop cycle.
-        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    }
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+        // Assign loop count.
+        // Either p3 or p4 may be used, since both are equal (tested above).
+        copy_integer((void*) &c, p3);
 
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p3);
+        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            compare_integer_greater_or_equal((void*) &b, (void*) &j, (void*) &c);
 
-            // All elements have been compared successfully.
-            // The comparison of all element pairs delivered "true".
-            //
-            // CAUTION! The arrays are expected to be EQUAL, even if
-            // the count is zero. This is important, because the PROPERTIES
-            // (meta properties) of many otherwise equal models are empty.
-            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            break;
+                // All elements have been compared successfully.
+                // The comparison of all element pairs delivered "true".
+                //
+                // CAUTION! The arrays are expected to be EQUAL, even if the count is zero.
+                // This is important, because the cybol properties
+                // of many otherwise equal models are often EMPTY.
+                copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+                break;
+            }
+
+            compare_value_offset((void*) &u, p1, p2, (void*) UNEQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &j);
+
+            if (u != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                break;
+            }
+
+            j++;
         }
-
-        compare_value_offset((void*) &r, p1, p2, (void*) UNEQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &j);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            break;
-        }
-
-        j++;
     }
 }
 

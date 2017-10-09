@@ -33,7 +33,7 @@
 #include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/checker/count_checker.c"
+#include "../../executor/checker/array_checker.c"
 #include "../../executor/copier/array_copier.c"
 #include "../../logger/logger.c"
 
@@ -43,11 +43,10 @@
  * @param p0 the result item (number 1 if true; unchanged otherwise)
  * @param p1 the left item
  * @param p2 the right item
- * @param p3 the count
- * @param p4 the operation type
- * @param p5 the operand type
+ * @param p3 the operation type
+ * @param p4 the operand type
  */
-void check_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void check_item(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check item.");
 
@@ -60,7 +59,7 @@ void check_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     void* rd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* rc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get result data, count.
+    // Get result data.
     copy_array_forward((void*) &resd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get left data, count.
     copy_array_forward((void*) &ld, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -69,8 +68,8 @@ void check_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     copy_array_forward((void*) &rd, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &rc, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // Check count of left and right array.
-    check_count(resd, ld, rd, p3, p4, p5, lc, rc);
+    // Check arrays lexicographically.
+    check_array(resd, ld, rd, lc, rc, p3, p4);
 }
 
 /* ITEM_CHECKER_SOURCE */

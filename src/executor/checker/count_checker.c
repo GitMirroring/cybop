@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ITEM_CHECKER_SOURCE
-#define ITEM_CHECKER_SOURCE
+#ifndef COUNT_CHECKER_SOURCE
+#define COUNT_CHECKER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -33,55 +33,30 @@
 #include "../../logger/logger.c"
 
 /**
- * Tests if given count is smaller or equal to the arrays' count.
+ * Returns the lesser array count.
  *
- * @param p0 the result item (number 1 if true; unchanged otherwise)
- * @param p1 the left data
- * @param p2 the right data
- * @param p3 the count
- * @param p4 the operation type
- * @param p5 the operand type
- * @param p6 the left count
- * @param p7 the right count
+ * @param p0 the result count
+ * @param p1 the left count
+ * @param p2 the right count
  */
-void check_count(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void check_count(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check count.");
 
-    //
-    // CAUTION! The data counts do NOT have to be identical,
-    // as long as the given count is smaller than both of them,
-    // the corresponding elements may be checked.
-    //
-    // CAUTION! The sizes do NOT matter anyway,
-    // since they just represent allocated memory,
-    // but only the count as actual number of elements is of interest.
-    //
-
-    // The left count comparison result.
-    int l = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The right count comparison result.
+    // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_less_or_equal((void*) &l, p3, p6);
-    compare_integer_less_or_equal((void*) &r, p3, p7);
+    compare_integer_less((void*) &r, p1, p2);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        if (l != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            check(p0, p1, p2, p3, p4, p5);
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check count. The given count is greater than the left count.");
-        }
+        copy_integer(p0, p1);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check count. The given count is greater than the right count.");
+        copy_integer(p0, p2);
     }
 }
 
-/* ITEM_CHECKER_SOURCE */
+/* COUNT_CHECKER_SOURCE */
 #endif

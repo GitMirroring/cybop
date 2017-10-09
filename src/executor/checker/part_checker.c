@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PART_CALCULATOR_SOURCE
-#define PART_CALCULATOR_SOURCE
+#ifndef PART_CHECKER_SOURCE
+#define PART_CHECKER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../logger/logger.c"
@@ -41,14 +41,13 @@
 /**
  * Checks two parts lexicographically.
  *
- * @param p0 the result item (number 1 if true; unchanged otherwise)
- * @param p1 the left item
- * @param p2 the right item
- * @param p3 the count
- * @param p4 the operation type
- * @param p5 the operand type
+ * @param p0 the result part (number 1 if true; unchanged otherwise)
+ * @param p1 the left part
+ * @param p2 the right part
+ * @param p3 the operation type
+ * @param p4 the operand type
  */
-void check_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void check_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check part.");
 
@@ -66,9 +65,9 @@ void check_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // Get right model item.
     copy_array_forward((void*) &rm, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Check left and right item lexicographically.
-    check_item(resm, lm, rm, p3, p4, p5);
+    // Check model items lexicographically.
+    check_item(resm, lm, rm, p3, p4);
 }
 
-/* PART_CALCULATOR_SOURCE */
+/* PART_CHECKER_SOURCE */
 #endif

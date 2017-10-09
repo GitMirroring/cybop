@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CHECKER_SOURCE
-#define CHECKER_SOURCE
+#ifndef ARRAY_CHECKER_SOURCE
+#define ARRAY_CHECKER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -37,36 +37,35 @@
  * Checks two arrays lexicographically.
  *
  * @param p0 the result (number 1 if true; unchanged otherwise)
- * @param p1 the left array
- * @param p2 the right array
- * @param p3 the count
- * @param p4 the operation type
- * @param p5 the operand type
+ * @param p1 the left data
+ * @param p2 the right data
+ * @param p3 the left count
+ * @param p4 the right count
+ * @param p5 the operation type
+ * @param p6 the operand type
  */
-void check(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void check_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check array.");
 
     // The comparison result.
-    // CAUTION! It is used instead of if-else statements.
-    // May be one day, this is useful when using assembler or implementing cyboi as hardware chip.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            check_wide_character(p0, p1, p2, p3, p4);
+            check_wide_character(p0, p1, p2, p3, p4, p5);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check. The operand type is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check array. The operand type is unknown.");
     }
 }
 
-/* CHECKER_SOURCE */
+/* ARRAY_CHECKER_SOURCE */
 #endif

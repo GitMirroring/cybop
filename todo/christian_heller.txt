@@ -23,7 +23,11 @@ __________
             --> used for big_decimal, detect comma automatically and do NOT give it as cybol property, to be more flexible
         * Adapt "applicator/check/check_applicator.c"
 
+(the following applies for wide_character, NOT integer comparison)
+
 check equal:
+compare_integer_equal with both counts of the two arrays
+if equal, then continue else leave function with warning
 loop
     compare unequal
     if true, then break false
@@ -40,6 +44,7 @@ loop
     else
     compare greater
     if true, then break false
+if still false, then compare_integer_smaller with both counts and the shorter is less
 
 check greater:
 loop
@@ -139,6 +144,13 @@ int compare(void* p0, void* p1, void* p2) {
         j++;
     }
 }
+
+General
+_______
+
+        * Use "overwrite" instead of "copy_integer" for setting the result in operations like "calculate", "compare" etc. ??
+            the reason is that the result value might have a count of zero (and not one as expected)
+            alternatively, test if result count is greater zero / or equal to one before assigning the result value using "copy_integer"
 
 Sorting
 _______
