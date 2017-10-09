@@ -33,62 +33,9 @@
 #include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/calculator/array_calculator.c"
-#include "../../executor/comparator/integer/less_or_equal_integer_comparator.c"
+#include "../../executor/checker/count_checker.c"
 #include "../../executor/copier/array_copier.c"
 #include "../../logger/logger.c"
-
-/**
- * Compares if given count is smaller or equal to the items' count.
- *
- * @param p0 the result data, which contains the operand BEFORE the operation
- * @param p1 the operand data
- * @param p2 the operation type
- * @param p3 the operand type
- * @param p4 the count
- * @param p5 the result index
- * @param p6 the operand index
- * @param p7 the result count
- * @param p8 the operand count
- */
-void check_item_count(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
-
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check item count.");
-
-    //
-    // CAUTION! The data counts do NOT have to be identical,
-    // as long as the given count is smaller than both of them,
-    // the corresponding elements may be checkd.
-    //
-    // CAUTION! The sizes do NOT matter anyway,
-    // since they just represent allocated memory,
-    // but only the count as actual number of elements is of interest.
-    //
-
-    // The result count comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The operand count comparison result.
-    int o = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    compare_integer_less_or_equal((void*) &r, p4, p7);
-    compare_integer_less_or_equal((void*) &o, p4, p8);
-
-    if (o != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            check_array(p0, p1, p2, p3, p4, p5, p6);
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check item count. The given count is greater than the result count.");
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check item count. The given count is greater than the operand count.");
-    }
-}
 
 /**
  * Checks two items lexicographically.
@@ -99,30 +46,31 @@ void check_item_count(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
  * @param p3 the count
  * @param p4 the operation type
  * @param p5 the operand type
---
- * @param p5 the result index
- * @param p6 the operand index
  */
-void check_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void check_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check item.");
 
-    // The result data, count.
+    // The result data.
+    void* resd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The left data, count.
+    void* ld = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* lc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The right data, count.
     void* rd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* rc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The operand data, count.
-    void* od = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* oc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get result data, count.
-    copy_array_forward((void*) &rd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &rc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get operand data, count.
-    copy_array_forward((void*) &od, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &oc, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &resd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get left data, count.
+    copy_array_forward((void*) &ld, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &lc, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Get right data, count.
+    copy_array_forward((void*) &rd, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &rc, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // Check elements of the result- with those of the operand array.
-    check_item_count(rd, od, p2, p3, p4, p5, p6, rc, oc);
+    // Check count of left and right array.
+    check_count(resd, ld, rd, p3, p4, p5, lc, rc);
 }
 
 /* ITEM_CHECKER_SOURCE */

@@ -27,6 +27,8 @@
 #define PART_CALCULATOR_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../logger/logger.c"
+--
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/state_cyboi_model.c"
@@ -35,35 +37,37 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/calculator/item_calculator.c"
 #include "../../executor/copier/array_copier.c"
-#include "../../logger/logger.c"
 
 /**
- * Calculates the elements of the result- with those of the operand part.
+ * Checks two parts lexicographically.
  *
- * @param p0 the result part, which contains the operand BEFORE the operation
- * @param p1 the operand part
- * @param p2 the operation type
- * @param p3 the operand type
- * @param p4 the count
- * @param p5 the result index
- * @param p6 the operand index
+ * @param p0 the result item (number 1 if true; unchanged otherwise)
+ * @param p1 the left item
+ * @param p2 the right item
+ * @param p3 the count
+ * @param p4 the operation type
+ * @param p5 the operand type
  */
-void calculate_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void check_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate part.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check part.");
 
     // The result model item.
+    void* resm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The left model item.
+    void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The right model item.
     void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The operand model item.
-    void* om = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get result model item.
-    copy_array_forward((void*) &rm, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get operand model item.
-    copy_array_forward((void*) &om, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &resm, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get left model item.
+    copy_array_forward((void*) &lm, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get right model item.
+    copy_array_forward((void*) &rm, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Calculate elements of the result- with those of the operand model item.
-    calculate_item(rm, om, p2, p3, p4, p5, p6);
+    // Check left and right item lexicographically.
+    check_item(resm, lm, rm, p3, p4, p5);
 }
 
 /* PART_CALCULATOR_SOURCE */
