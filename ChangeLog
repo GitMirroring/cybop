@@ -21,6 +21,8 @@
 2017-10-09  Christian Heller  <christian.heller@tuxtax.de>
 
         * Rethink usage of "count" in checker for lexicographical comparison
+        * Add "check" operation constants, cybol de-/serialiser entry, operation handler section, directory "applicator/check/"
+        * Test cybol application "string_comparison" successfully with new cybol operation "check/equal"
 
 2017-09-27  Christian Heller  <christian.heller@tuxtax.de>
 

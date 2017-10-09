@@ -1,0 +1,118 @@
+/*
+ * Copyright (C) 1999-2017. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.19.0 2017-04-10
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef CHECK_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
+#define CHECK_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
+
+#include <stddef.h>
+
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+
+//
+// The CYBOL type constants' names and values have been adapted to follow
+// the style of the Internet media type / content type that is also
+// known under the name Multipurpose Internet Mail Extensions (MIME).
+// These types are managed by the Internet Assigned Numbers Authority (IANA).
+// See document "Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types":
+// http://tools.ietf.org/html/rfc2046
+//
+// Since the MIME standard does not offer media types for certain data,
+// CYBOL had to invent new languages (media types), e.g. for dates, numbers etc.
+// This is not meant to pollute the MIME standard, just to fill a gap!
+// In case IANA adopts these extensions one day -- fine.
+// If, however, other media type values replacing ours are proposed,
+// we are open to adapt the CYBOL language specification accordingly.
+//
+
+//
+// Check (some operation to be processed over time).
+//
+// IANA media type: not defined
+// Self-defined media type: check
+// This media type is a CYBOL extension.
+//
+
+/**
+ * The check/equal logic cybol format.
+ *
+ * Check lexicographically for equality: ==
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* EQUAL_CHECK_LOGIC_CYBOL_FORMAT = L"check/equal";
+static int* EQUAL_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The check/greater logic cybol format.
+ *
+ * Check lexicographically for greaterness: >
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* GREATER_CHECK_LOGIC_CYBOL_FORMAT = L"check/greater";
+static int* GREATER_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The check/greater-or-equal logic cybol format.
+ *
+ * Check lexicographically for greaterness or equality: >=
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* GREATER_OR_EQUAL_CHECK_LOGIC_CYBOL_FORMAT = L"check/greater-or-equal";
+static int* GREATER_OR_EQUAL_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The check/less logic cybol format.
+ *
+ * Check lexicographically for lessness: <
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* LESS_CHECK_LOGIC_CYBOL_FORMAT = L"check/less";
+static int* LESS_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The check/less-or-equal logic cybol format.
+ *
+ * Check lexicographically for lessness or equality: <=
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* LESS_OR_EQUAL_CHECK_LOGIC_CYBOL_FORMAT = L"check/less-or-equal";
+static int* LESS_OR_EQUAL_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The check/unequal logic cybol format.
+ *
+ * Check lexicographically for unequality: !=
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* UNEQUAL_CHECK_LOGIC_CYBOL_FORMAT = L"check/unequal";
+static int* UNEQUAL_CHECK_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/* CHECK_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
+#endif

@@ -90,7 +90,7 @@ _____
         * Procedure to add a new cybol operation to cyboi:
             doc/development/add_new_cybol_operation.txt
 
-    * Sort  shell-commands alphabetically e.g. in: "src/constant/model/command/unix_command_model.c" and in some other files
+        * Sort  shell-commands alphabetically e.g. in: "src/constant/model/command/unix_command_model.c" and in some other files
         * Implement standard algorithms for search, sort etc.
 
         * Add calculator functions for types datetime, duration
@@ -145,3 +145,4 @@ ____
         * Offer quickfixes in list for automatic error correction, as known from Eclipse Java plug-in
 
         * Extend benchmark tool with further algorithms, tui/gui/wui, languages, options, diagrams
+

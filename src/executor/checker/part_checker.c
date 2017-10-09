@@ -27,21 +27,20 @@
 #define PART_CHECKER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../logger/logger.c"
---
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/calculator/item_calculator.c"
+#include "../../executor/checker/item_checker.c"
 #include "../../executor/copier/array_copier.c"
+#include "../../logger/logger.c"
 
 /**
  * Checks two parts lexicographically.
  *
- * @param p0 the result part (number 1 if true; unchanged otherwise)
+ * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left part
  * @param p2 the right part
  * @param p3 the operation type
@@ -51,22 +50,18 @@ void check_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check part.");
 
-    // The result model item.
-    void* resm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The left model item.
     void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The right model item.
     void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get result model item.
-    copy_array_forward((void*) &resm, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get left model item.
     copy_array_forward((void*) &lm, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get right model item.
     copy_array_forward((void*) &rm, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Check model items lexicographically.
-    check_item(resm, lm, rm, p3, p4);
+    check_item(p0, lm, rm, p3, p4);
 }
 
 /* PART_CHECKER_SOURCE */

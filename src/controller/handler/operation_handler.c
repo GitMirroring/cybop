@@ -32,6 +32,7 @@
 #include "../../applicator/access/indicate.c"
 #include "../../applicator/calculate/calculate.c"
 #include "../../applicator/cast/cast.c"
+#include "../../applicator/check/check.c"
 #include "../../applicator/command/archive_file.c"
 #include "../../applicator/command/change_directory.c"
 #include "../../applicator/command/change_permission.c"
@@ -345,6 +346,70 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             apply_cast(p0, p1, p3, p4, p2, (void*) INTEGER_CAST_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    //
+    // check
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_check(p0, p1, p3, p4, p2, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) GREATER_CHECK_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_check(p0, p1, p3, p4, p2, (void*) GREATER_CHECK_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) GREATER_OR_EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_check(p0, p1, p3, p4, p2, (void*) GREATER_OR_EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) LESS_CHECK_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_check(p0, p1, p3, p4, p2, (void*) LESS_CHECK_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) LESS_OR_EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_check(p0, p1, p3, p4, p2, (void*) LESS_OR_EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) UNEQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_check(p0, p1, p3, p4, p2, (void*) UNEQUAL_CHECK_LOGIC_CYBOI_FORMAT);
         }
     }
 

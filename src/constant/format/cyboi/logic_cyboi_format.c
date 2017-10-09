@@ -122,6 +122,28 @@ static int* DOUBLE_CAST_LOGIC_CYBOI_FORMAT = NUMBER_1202_INTEGER_STATE_CYBOI_MOD
 static int* INTEGER_CAST_LOGIC_CYBOI_FORMAT = NUMBER_1203_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
+// check
+//
+
+/** The equal check logic cyboi format. */
+static int* EQUAL_CHECK_LOGIC_CYBOI_FORMAT = NUMBER_1250_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The greater check logic cyboi format. */
+static int* GREATER_CHECK_LOGIC_CYBOI_FORMAT = NUMBER_1251_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The greater-or-equal check logic cyboi format. */
+static int* GREATER_OR_EQUAL_CHECK_LOGIC_CYBOI_FORMAT = NUMBER_1252_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The less check logic cyboi format. */
+static int* LESS_CHECK_LOGIC_CYBOI_FORMAT = NUMBER_1253_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The less-or-equal check logic cyboi format. */
+static int* LESS_OR_EQUAL_CHECK_LOGIC_CYBOI_FORMAT = NUMBER_1254_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The unequal check logic cyboi format. */
+static int* UNEQUAL_CHECK_LOGIC_CYBOI_FORMAT = NUMBER_1255_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
 // command
 //
 

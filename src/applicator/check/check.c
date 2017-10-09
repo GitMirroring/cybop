@@ -30,7 +30,7 @@
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/logic/comparison/comparison_logic_cybol_name.c"
+#include "../../constant/name/cybol/logic/checking/checking_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/copier/array_copier.c"
@@ -77,11 +77,11 @@ void apply_check(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     void* rotd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get result part.
-    get_part_name((void*) &r, p0, (void*) RESULT_CHECK_LOGIC_CYBOL_NAME, (void*) RESULT_CHECK_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &r, p0, (void*) RESULT_CHECKING_LOGIC_CYBOL_NAME, (void*) RESULT_CHECKING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get left operand part.
-    get_part_name((void*) &lo, p0, (void*) LEFT_CHECK_LOGIC_CYBOL_NAME, (void*) LEFT_CHECK_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &lo, p0, (void*) LEFT_CHECKING_LOGIC_CYBOL_NAME, (void*) LEFT_CHECKING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get right operand part.
-    get_part_name((void*) &ro, p0, (void*) RIGHT_CHECK_LOGIC_CYBOL_NAME, (void*) RIGHT_CHECK_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &ro, p0, (void*) RIGHT_CHECKING_LOGIC_CYBOL_NAME, (void*) RIGHT_CHECKING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get result part model item.
     copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

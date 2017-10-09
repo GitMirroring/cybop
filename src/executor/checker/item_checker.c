@@ -40,7 +40,7 @@
 /**
  * Checks two items lexicographically.
  *
- * @param p0 the result item (number 1 if true; unchanged otherwise)
+ * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left item
  * @param p2 the right item
  * @param p3 the operation type
@@ -50,8 +50,6 @@ void check_item(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check item.");
 
-    // The result data.
-    void* resd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The left data, count.
     void* ld = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* lc = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -59,8 +57,6 @@ void check_item(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* rd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* rc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get result data.
-    copy_array_forward((void*) &resd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get left data, count.
     copy_array_forward((void*) &ld, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &lc, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
@@ -69,7 +65,7 @@ void check_item(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &rc, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Check arrays lexicographically.
-    check_array(resd, ld, rd, lc, rc, p3, p4);
+    check_array(p0, ld, rd, lc, rc, p3, p4);
 }
 
 /* ITEM_CHECKER_SOURCE */

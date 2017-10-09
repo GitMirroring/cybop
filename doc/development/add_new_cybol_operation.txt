@@ -18,7 +18,7 @@ ___________________________________________
 
 * Write cybol example application using operation, in order to identify an operation name as well as necessary properties
 
-* Add operation to file "constant/format/cybol/logic/command_logic_cybol_format.c"
+* Add operation to file "constant/format/cybol/logic/*_logic_cybol_format.c"
 * Add operation to file "constant/format/cyboi/logic_cyboi_format.c"
 * Add file with cybol options for each new operation to directory "constant/name/cybol/logic/"
 

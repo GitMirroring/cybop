@@ -14,6 +14,10 @@
 Comparison
 __________
 
+        * Replace cybol operation "compare/equal" with "check/equal" in all cybol examples, but ONLY for "text/plain" ("wide_character")
+        * Remove property "selection" with value "all"
+        * Remove "all" comparator in directory "executor/comparator/" with focus on part | item | array
+
         * Rethink usage of "count" in checker --> therefore, the count must NOT be compared beforehand, since:
             - an integer is larger than another one if either it has more digits (count is greater), i.e. compare count FIRST and digits at SECOND place
             - consider this for new datatype "big_decimal" with unlimited length
@@ -21,16 +25,8 @@ __________
                 i.e. compare characters FIRST (with count of shorter array as loop count) and compare count at SECOND place, only if both strings are equal, where the longer one is greater then
         * Continue adding files for various types to directory "executor/checker/" for lexicographical comparison, e.g. "integer_checker.c"
             --> used for big_decimal, detect comma automatically and do NOT give it as cybol property, to be more flexible
-        * Adapt "applicator/check/check_applicator.c"
 
 (the following applies for wide_character, NOT integer comparison)
-
-check equal:
-compare_integer_equal with both counts of the two arrays
-if equal, then continue else leave function with warning
-loop
-    compare unequal
-    if true, then break false
 
 check unequal:
 loop
@@ -75,15 +71,10 @@ check greater or equal:
     if true, then break true
 --
 
-        * Add corresponding cybol operations for lexicographical comparison, e.g. "check/equal", "check/less" etc.
-        * Provide "applicator/check/" and call corresponding function in "executor/comparator/"
-            - the comparison for primitive types is *the same* for lexicographic or not
-            - only the comparison of arrays differs:
-                - standard delivers many boolean results as elements in a result array
-                - lexicographic delivers ONE boolean result
-        * Remove "all" comparator in directory "executor/comparator/" with focus on part | item | array
+        * Hint: the comparison for primitive types is *the same* for lexicographic or not, only the comparison of arrays differs:
+            - standard delivers many boolean results as elements in a result array
+            - lexicographic delivers ONE boolean result
         * See file "design_decisions.txt", section "Comparison"
-
         Lexicographical order:
         https://en.wikipedia.org/wiki/Lexicographical_order#Numeral_systems_and_dates
         - integer: an integer is larger than another one if either it has more digits (ignoring leading zeroes) or the number of digits is the same and the first digit which differs is larger
@@ -104,46 +95,6 @@ check greater or equal:
         * Merge almost empty directory "executor/container/" with "executor/searcher/"
         * Use new comparator functions in "executor/searcher/name_finder/"
         * Merge "executor/searcher/finder/" with "executor/searcher/name_finder/"
-
-/**
- * Compares two arrays.
- *
- * @param p0 the return value
- * @param p1 the left array
- * @param p2 the right array
- */
-int compare(void* p0, void* p1, void* p2) {
-
-    copy_integer(p0, NUMBER_0_INTEGER);
-
-    while (true) {
-
-        if (j >= count) {
-
-            break;
-        }
-
-        if (p1[j] != p2[j]) {
-
-            if (p1[j] < p2[j]) {
-
-                copy_integer(p0, NUMBER_MINUS_1_INTEGER);
-
-            } else {
-
-                // The values are not equal, which was tested above.
-                // The p1[j] value is not lesser either, which was tested above.
-                // Therefore, p1[j] can only be greater than p2[j].
-                copy_integer(p0, NUMBER_1_INTEGER);
-            }
-
-            copy_integer(p0, r);
-            break;
-        }
-
-        j++;
-    }
-}
 
 General
 _______

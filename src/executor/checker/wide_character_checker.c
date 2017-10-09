@@ -30,13 +30,13 @@
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/comparator/wide_character/equal_wide_character_comparator.c"
+#include "../../executor/checker/wide_character/equal_wide_character_checker.c"
 /*??
-#include "../../executor/comparator/wide_character/greater_or_equal_wide_character_comparator.c"
-#include "../../executor/comparator/wide_character/greater_wide_character_comparator.c"
-#include "../../executor/comparator/wide_character/less_or_equal_wide_character_comparator.c"
-#include "../../executor/comparator/wide_character/less_wide_character_comparator.c"
-#include "../../executor/comparator/wide_character/unequal_wide_character_comparator.c"
+#include "../../executor/checker/wide_character/greater_or_equal_wide_character_checker.c"
+#include "../../executor/checker/wide_character/greater_wide_character_checker.c"
+#include "../../executor/checker/wide_character/less_or_equal_wide_character_checker.c"
+#include "../../executor/checker/wide_character/less_wide_character_checker.c"
+#include "../../executor/checker/wide_character/unequal_wide_character_checker.c"
 */
 #include "../../logger/logger.c"
 
@@ -59,7 +59,7 @@ void check_wide_character(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p5, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -69,7 +69,7 @@ void check_wide_character(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p5, (void*) GREATER_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -79,7 +79,7 @@ void check_wide_character(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p5, (void*) GREATER_OR_EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -89,7 +89,7 @@ void check_wide_character(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) LESS_COMPARE_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p5, (void*) LESS_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -99,7 +99,7 @@ void check_wide_character(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) LESS_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p5, (void*) LESS_OR_EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -109,7 +109,7 @@ void check_wide_character(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) UNEQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p5, (void*) UNEQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
