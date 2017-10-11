@@ -17,8 +17,9 @@ __________
         * Remove "all" comparator and remove "comparator" in directory "executor/comparator/"
         * Remove file "selection_compare_logic_cybol_model.c"
         * Rename "value_comparator.c" into "comparator.c"
-        * Replace cybol operation "compare/equal" with "check/equal" and remove property "selection" with value "all", in all cybol examples, for "number/integer" and others
 
+        * Remove property "selection" with value "all", in all cybol examples, for "number/integer" and others
+        * CAUTION! Leave cybol operation "compare/equal" and do NOT replace it with "check/equal"
         * Hint: the comparison for primitive types is *the same* for lexicographic or not, only the comparison of arrays differs:
             - standard delivers many boolean results as elements in a result array
             - lexicographic delivers ONE boolean result
