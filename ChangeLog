@@ -21,6 +21,8 @@
 2017-10-11  Christian Heller  <christian.heller@tuxtax.de>
 
         * Replace cybol operation "compare/equal" with "check/equal" and remove property "selection" with value "all", in all cybol examples, for "text/plain"
+        * Optimise checker, since it applies only to type "wide_character", because others may be compared internally and serialised afterwards
+        * Add remaining lexicographical comparison functions to directory "executor/checker/"
 
 2017-10-09  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -30,7 +32,7 @@
 
 2017-09-27  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Replace direct comparison with function "compare_integer_equal" in several files of "executor/comparator/"
+        * Replace direct comparison with function "compare_integer_equal" in several files of directory "executor/comparator/"
         * Continue checker for lexicographical comparison
 
 2017-09-26  Christian Heller  <christian.heller@tuxtax.de>

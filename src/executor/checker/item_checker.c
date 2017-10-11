@@ -44,9 +44,8 @@
  * @param p1 the left item
  * @param p2 the right item
  * @param p3 the operation type
- * @param p4 the operand type
  */
-void check_item(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void check_item(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check item.");
 
@@ -65,7 +64,7 @@ void check_item(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &rc, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Check arrays lexicographically.
-    check_array(p0, ld, rd, lc, rc, p3, p4);
+    check_array(p0, ld, rd, lc, rc, p3);
 }
 
 /* ITEM_CHECKER_SOURCE */

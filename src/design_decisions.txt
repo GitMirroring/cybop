@@ -645,13 +645,16 @@ Difference:
 - lexicographical comparison: delivers just ONE result
 
 Implementation:
+Implement lexicographical comparison in cybop directory called "src/executor/checker/"
+ONLY for type "wide_character", since "lexicographical" in effect means "type wide_character".
+If integer, double or fraction, a date-time etc. have to be sorted lexicographically,
+then sort them internally (for date using e.g. cyboi type "datetime") and
+only afterwards, serialise them into type "wide_character" (string)!
+
+Java:
 - many programming languages (e.g. Java) return value -1 if lesser, 0 if equal, 1 if greater
-- cyboi should better stick to a standard flag (0 or 1) as return value of the comparison
-- do NOT implement new operation for lexicographical comparison (to avoid redundancies), but use "compare" together with a cybol boolean property "lexicon"
-- provide file "lexicon_comparator.c" parallel to "array_comparator.c"
-- distinguish "lexicographic" or not in "applicator/compare/" and call corresponding function in "executor/comparator/"
 - Java knows "equals" with boolean return value AND "compareTo" with int return value
---> these two are merged in cybol and only one operation "compare" exists, with boolean return value
+- cyboi should better stick to a standard flag (0 or 1) as return value of the comparison
 
 Operators:
 - directory: "executor/comparator/"
@@ -659,10 +662,6 @@ Operators:
 - others are possible in the future: ~ for "similar" etc.
 - the cybol operations are called e.g. "compare/less-or-equal"
 - the size of the result array gets extended to the one of the bigger input operand array
-
-Types:
-- operations may be applied to different types, e.g. "number/integer", "number/fraction-decimal" (double), "text/plain" (wchar_t)
-- the result is always either "0" for "false" or "1" for "true"
 
 Dimension:
 - two scalar numbers: direct comparison and just one result

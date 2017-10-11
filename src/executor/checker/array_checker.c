@@ -26,10 +26,15 @@
 #ifndef ARRAY_CHECKER_SOURCE
 #define ARRAY_CHECKER_SOURCE
 
+#include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/checker/wide_character_checker.c"
+#include "../../executor/checker/equal_checker.c"
+#include "../../executor/checker/greater_checker.c"
+#include "../../executor/checker/greater_or_equal_checker.c"
+#include "../../executor/checker/less_checker.c"
+#include "../../executor/checker/less_or_equal_checker.c"
+#include "../../executor/checker/unequal_checker.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../logger/logger.c"
 
@@ -42,9 +47,8 @@
  * @param p3 the left count
  * @param p4 the right count
  * @param p5 the operation type
- * @param p6 the operand type
  */
-void check_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void check_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check array.");
 
@@ -53,17 +57,67 @@ void check_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p5, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            check_wide_character(p0, p1, p2, p3, p4, p5);
+            check_equal(p0, p1, p2, p3, p4);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check array. The operand type is unknown.");
+        compare_integer_equal((void*) &r, p5, (void*) GREATER_CHECK_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            check_greater(p0, p1, p2, p3, p4);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p5, (void*) GREATER_OR_EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            check_greater_or_equal(p0, p1, p2, p3, p4);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p5, (void*) LESS_CHECK_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            check_less(p0, p1, p2, p3, p4);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p5, (void*) LESS_OR_EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            check_less_or_equal(p0, p1, p2, p3, p4);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p5, (void*) UNEQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            check_unequal(p0, p1, p2, p3, p4);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check array. The operation type is unknown.");
     }
 }
 

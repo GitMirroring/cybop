@@ -23,21 +23,22 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef EQUAL_WIDE_CHARACTER_CHECKER_SOURCE
-#define EQUAL_WIDE_CHARACTER_CHECKER_SOURCE
+#ifndef UNEQUAL_CHECKER_SOURCE
+#define UNEQUAL_CHECKER_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
-#include "../../../executor/comparator/value_comparator.c"
-#include "../../../executor/copier/integer_copier.c"
-#include "../../../logger/logger.c"
+#include "../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
+#include "../../executor/comparator/value_comparator.c"
+#include "../../executor/copier/integer_copier.c"
+#include "../../logger/logger.c"
 
 /**
- * Checks two wide character arrays lexicographically for equality.
+ * Checks two arrays lexicographically for unequality.
  *
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left data
@@ -45,9 +46,9 @@
  * @param p3 the left count
  * @param p4 the right count
  */
-void check_wide_character_equal(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void check_unequal(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check wide character equal.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check unequal.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -61,9 +62,9 @@ void check_wide_character_equal(void* p0, void* p1, void* p2, void* p3, void* p4
     int u = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Compare array counts.
-    compare_integer_equal((void*) &r, p3, p4);
+    compare_integer_unequal((void*) &r, p3, p4);
 
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Assign loop count.
         // Either p3 or p4 may be used, since both are equal (tested above).
@@ -75,13 +76,7 @@ void check_wide_character_equal(void* p0, void* p1, void* p2, void* p3, void* p4
 
             if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                // All elements have been compared successfully.
-                // The comparison of all element pairs delivered "true".
-                //
-                // CAUTION! The arrays are expected to be EQUAL, even if the count is zero.
-                // This is important, because the cybol properties
-                // of many otherwise equal models are often EMPTY.
-                copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                // All elements have been compared and were equal.
 
                 break;
             }
@@ -89,6 +84,9 @@ void check_wide_character_equal(void* p0, void* p1, void* p2, void* p3, void* p4
             compare_value_offset((void*) &u, p1, p2, (void*) UNEQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &j);
 
             if (u != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                // An unequal element has been found.
+                copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                 break;
             }
@@ -98,5 +96,5 @@ void check_wide_character_equal(void* p0, void* p1, void* p2, void* p3, void* p4
     }
 }
 
-/* EQUAL_WIDE_CHARACTER_CHECKER_SOURCE */
+/* UNEQUAL_CHECKER_SOURCE */
 #endif

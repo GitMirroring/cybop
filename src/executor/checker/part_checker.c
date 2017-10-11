@@ -44,9 +44,8 @@
  * @param p1 the left part
  * @param p2 the right part
  * @param p3 the operation type
- * @param p4 the operand type
  */
-void check_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void check_part(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check part.");
 
@@ -61,7 +60,7 @@ void check_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &rm, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Check model items lexicographically.
-    check_item(p0, lm, rm, p3, p4);
+    check_item(p0, lm, rm, p3);
 }
 
 /* PART_CHECKER_SOURCE */

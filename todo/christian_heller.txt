@@ -14,83 +14,16 @@
 Comparison
 __________
 
-        * Add lexicographical comparison for integer + fraction + complex + big_decimal to directory "executor/checker/"
-            --> for big_decimal, detect comma automatically and do NOT give it as cybol property, to be more flexible
+        * Remove "all" comparator and remove "comparator" in directory "executor/comparator/"
+        * Remove file "selection_compare_logic_cybol_model.c"
+        * Rename "value_comparator.c" into "comparator.c"
         * Replace cybol operation "compare/equal" with "check/equal" and remove property "selection" with value "all", in all cybol examples, for "number/integer" and others
-        * Remove "all" comparator in directory "executor/comparator/" with focus on part | item | array
-
-        * Rethink usage of "count" in checker --> therefore, the count must NOT be compared beforehand, since:
-            - an integer is larger than another one if either it has more digits (count is greater), i.e. compare count FIRST and digits at SECOND place
-            - consider this for new datatype "big_decimal" with unlimited length
-            - if a string (prefix) is equal to another, it is greater anyway if it is longer than the other,
-                i.e. compare characters FIRST (with count of shorter array as loop count) and compare count at SECOND place, only if both strings are equal, where the longer one is greater then
-
-(the following applies for wide_character, NOT integer comparison)
-
-check unequal:
-loop
-    compare unequal
-    if true, then break true
-
-check less:
-loop
-    compare less
-    if true, then break true
-    else
-    compare greater
-    if true, then break false
-if still false, then compare_integer_smaller with both counts and the shorter is less
-
-check greater:
-loop
-    compare greater
-    if true, then break true
-    else
-    compare less
-    if true, then break false
-
-check less or equal:
-    // CAUTION! Call check_less function FIRST for more efficiency,
-    // since it suffices to find the first matching element,
-    // whereas for equality, all elements have to be checked.
-    call check less
-    if true, then break true
-    else
-    call check equal
-    if true, then break true
-
-check greater or equal:
-    // CAUTION! Call check_greater function FIRST for more efficiency,
-    // since it suffices to find the first matching element,
-    // whereas for equality, all elements have to be checked.
-    call check greater
-    if true, then break true
-    else
-    call check equal
-    if true, then break true
---
 
         * Hint: the comparison for primitive types is *the same* for lexicographic or not, only the comparison of arrays differs:
             - standard delivers many boolean results as elements in a result array
             - lexicographic delivers ONE boolean result
-        * See file "design_decisions.txt", section "Comparison"
-        Lexicographical order:
-        https://en.wikipedia.org/wiki/Lexicographical_order#Numeral_systems_and_dates
-        - integer: an integer is larger than another one if either it has more digits (ignoring leading zeroes) or the number of digits is the same and the first digit which differs is larger
-        - real numbers written in decimal notation:
-            - a slightly different variant of the lexicographical order is used
-            - the parts on the left of the decimal point are compared as with integer
-            - if they are equal, the parts at the right of the decimal point are compared with the lexicographical order
-        - negative numbers:
-            - reverse the order for comparing negative numbers
-            - testing the sign in computers takes some time
-            - consider two's complement representation for representing signed integers
-        - string: array of "char" or "wchar_t"; use ASCII and UNICODE, i.e. alphabetical order
-        - date: represented as Julian Date (JD) in cyboi; YYYY-MM-DD etc. get converted into JD; simple number comparison suffices
 
         * Move cybol operations for "prefix", "suffix", "subsequence", "all" from "executor/comparator/" to "executor/searcher/"
-        * Remove file "selection_compare_logic_cybol_model.c" (??)
-
         * Merge almost empty directory "executor/container/" with "executor/searcher/"
         * Use new comparator functions in "executor/searcher/name_finder/"
         * Merge "executor/searcher/finder/" with "executor/searcher/name_finder/"

@@ -23,54 +23,54 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef TYPE_CHECK_SOURCE
-#define TYPE_CHECK_SOURCE
+#ifndef CHARACTER_CHECK_SOURCE
+#define CHARACTER_CHECK_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../applicator/check/character_check.c"
+#include "../../executor/checker/part_checker.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../logger/logger.c"
 
 /**
- * Checks the type of left- and right operand.
+ * Tests if the operand type is "wide_character".
  *
- * If a wrong knowledge path is given, e.g. with non-existing node-names,
- * then a cybol operation might write data into a wrong destination,
- * e.g. source data of format "text/plain" (type wide character)
- * into a destination of format "element/part" (type pointer).
+ * If other types than cybol "text/plain" (which is "wide_character" in cyboi)
+ * are to be sorted lexicographically, e.g. integer, double/fraction, datetime etc.,
+ * then they have to be sorted first using the cyboi-internal type, e.g. "datetime",
+ * and only AFTERWARDS, they may be serialised into type "wide_character".
  *
- * Therefore, the types have to be IDENTICAL.
+ * Therefore, lexicographical comparison in cyboi ALWAYS relies on type "wide_character",
+ * which is why it is verified here.
  *
  * @param p0 the result
  * @param p1 the left operand part
  * @param p2 the right operand part
  * @param p3 the operation type
- * @param p4 the left operand type
- * @param p5 the right operand type
+ * @param p4 the operand type
  */
-void apply_check_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void apply_check_character(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply check type.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply check character.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, p4, p5);
+    compare_integer_equal((void*) &r, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // The result- and operand type are identical.
+        // The operand type is "wide_character".
 
-        apply_check_character(p0, p1, p2, p3, p4);
+        check_part(p0, p1, p2, p3);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply check type. The left operand type and right operand type are different.");
-        fwprintf(stdout, L"ERROR: Could not apply check type. The left operand type and right operand type are different.\n");
-        fwprintf(stdout, L"ERROR: Left operand type: %i. Right operand type: %i.\n", *((int*) p4), *((int*) p5));
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply check character. The operand type is not wide_character.");
+        fwprintf(stdout, L"ERROR: Could not apply check character. The operand type is not wide_character.\n");
+        fwprintf(stdout, L"ERROR: Operand type: %i.\n", *((int*) p4));
     }
 }
 
-/* TYPE_CHECK_SOURCE */
+/* CHARACTER_CHECK_SOURCE */
 #endif
