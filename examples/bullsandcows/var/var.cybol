@@ -1,5 +1,5 @@
-
 <node>
+
     <node name="command" channel="inline" format="text/plain" model=""/>
     <node name="newgame_flag" channel="inline" format="logicvalue/boolean" model="false"/>
     <node name="no_newgame_flag" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -39,4 +39,5 @@
     <node name="max_round" channel="inline" format="number/integer" model="15"/>
     <node name="win_flag" channel="inline" format="logicvalue/boolean" model="false"/>
     <node name="loose_flag" channel="inline" format="logicvalue/boolean" model="false"/>
+
 </node>

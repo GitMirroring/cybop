@@ -1,6 +1,8 @@
 <node>
-<node name="random1" channel="inline" format="number/integer" model="1"/>
-<node name="random2" channel="inline" format="number/integer" model="2"/>
-<node name="random3" channel="inline" format="number/integer" model="3"/>
-<node name="random4" channel="inline" format="number/integer" model="4"/>
+
+    <node name="random1" channel="inline" format="number/integer" model="1"/>
+    <node name="random2" channel="inline" format="number/integer" model="2"/>
+    <node name="random3" channel="inline" format="number/integer" model="3"/>
+    <node name="random4" channel="inline" format="number/integer" model="4"/>
+
 </node>

@@ -1,6 +1,7 @@
 <node>
-     <node name="var" channel="file" format="element/part" model="bullsandcows/var/var.cybol"/>
-     <node name="checknewgame" channel="file" format="element/part" model="bullsandcows/logic/checknewgame.cybol"/>
+
+    <node name="var" channel="file" format="element/part" model="bullsandcows/var/var.cybol"/>
+    <node name="checknewgame" channel="file" format="element/part" model="bullsandcows/logic/checknewgame.cybol"/>
     <node name="exit" channel="file" format="element/part" model="bullsandcows/exit.cybol"/>
     <node name="initialise_game" channel="file" format="element/part" model="bullsandcows/logic/initialise_game.cybol"/>
     <node name="prompt_guess" channel="file" format="element/part" model="bullsandcows/logic/prompt_guess.cybol"/>
@@ -25,4 +26,5 @@
     <node name="win_dialog" channel="file" format="element/part" model="bullsandcows/logic/win_dialog.cybol"/>
     <node name="loose_dialog" channel="file" format="element/part" model="bullsandcows/logic/loose_dialog.cybol"/>
     <node name="inkrement_round_counter" channel="file" format="element/part" model="bullsandcows/logic/inkrement_round_counter.cybol"/>
+
 </node>

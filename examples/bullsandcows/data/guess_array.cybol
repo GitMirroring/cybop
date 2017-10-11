@@ -1,6 +1,8 @@
 <node>
+
     <node name="choice1" channel="inline" format="number/integer" model=""/>
     <node name="choice2" channel="inline" format="number/integer" model=""/>
     <node name="choice3" channel="inline" format="number/integer" model=""/>
     <node name="choice4" channel="inline" format="number/integer" model=""/>
+
 </node>

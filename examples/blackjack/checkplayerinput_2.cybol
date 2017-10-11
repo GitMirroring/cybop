@@ -26,28 +26,25 @@
     </node>
 
     //Flag setzen Eingabe h
-    <node name="comparison1" channel="inline" format="compare/equal" model="">
+    <node name="comparison1" channel="inline" format="check/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.command_2"/>
         <node name="right" channel="inline" format="text/plain" model="h"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.hit_card_2"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 
     //Flag setzen Eingabe s
-    <node name="comparison2" channel="inline" format="compare/equal" model="">
+    <node name="comparison2" channel="inline" format="check/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.command_2"/>
         <node name="right" channel="inline" format="text/plain" model="s"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.stand_2"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     //Flag setzen Eingabe q
-    <node name="comparison3" channel="inline" format="compare/equal" model="">
+    <node name="comparison3" channel="inline" format="check/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.command_2"/>
         <node name="right" channel="inline" format="text/plain" model="q"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.exit_flag"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     //If-Abfrage hit

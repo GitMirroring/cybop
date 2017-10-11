@@ -59,11 +59,10 @@
 
 
 //Flag setzen Eingabe 1
-    <node name="comparison1" channel="inline" format="compare/equal" model="">
+    <node name="comparison1" channel="inline" format="check/equal" model="">
     <node name="left" channel="inline" format="text/cybol-path" model=".app.var.command"/>
     <node name="right" channel="inline" format="text/plain" model="1"/>
     <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_1"/>
-    <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //Empty-Field Flag rücksetzen
@@ -72,11 +71,10 @@
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
-    <node name="flag_empty_1" channel="inline" format="compare/equal" model="">
+    <node name="flag_empty_1" channel="inline" format="check/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_1"/>
         <node name="right" channel="inline" format="text/plain" model="_"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="flag_1" channel="inline" format="logify/and" model="">
@@ -85,11 +83,10 @@
     </node>
 
 //Flag setzen Eingabe 2
-    <node name="comparison2" channel="inline" format="compare/equal" model="">
+    <node name="comparison2" channel="inline" format="check/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.command"/>
         <node name="right" channel="inline" format="text/plain" model="2"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_2"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //Empty-Field Flag rücksetzen
@@ -98,11 +95,10 @@
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
-    <node name="flag_empty_2" channel="inline" format="compare/equal" model="">
+    <node name="flag_empty_2" channel="inline" format="check/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_2"/>
         <node name="right" channel="inline" format="text/plain" model="_"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="flag_2" channel="inline" format="logify/and" model="">
@@ -111,11 +107,10 @@
     </node>
 
 //Flag setzen Eingabe 3
-    <node name="comparison3" channel="inline" format="compare/equal" model="">
+    <node name="comparison3" channel="inline" format="check/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.command"/>
         <node name="right" channel="inline" format="text/plain" model="3"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_3"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //Empty-Field Flag rücksetzen
@@ -124,11 +119,10 @@
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
-    <node name="flag_empty_3" channel="inline" format="compare/equal" model="">
+    <node name="flag_empty_3" channel="inline" format="check/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_3"/>
         <node name="right" channel="inline" format="text/plain" model="_"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="flag_3" channel="inline" format="logify/and" model="">
@@ -137,11 +131,10 @@
     </node>
 
 //Flag setzen Eingabe 4
-    <node name="comparison4" channel="inline" format="compare/equal" model="">
+    <node name="comparison4" channel="inline" format="check/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.command"/>
         <node name="right" channel="inline" format="text/plain" model="4"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_4"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //Empty-Field Flag rücksetzen
@@ -150,11 +143,10 @@
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
-    <node name="flag_empty_4" channel="inline" format="compare/equal" model="">
+    <node name="flag_empty_4" channel="inline" format="check/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_4"/>
         <node name="right" channel="inline" format="text/plain" model="_"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="flag_4" channel="inline" format="logify/and" model="">
@@ -163,11 +155,10 @@
     </node>
 
 //Flag setzen Eingabe 5
-    <node name="comparison5" channel="inline" format="compare/equal" model="">
+    <node name="comparison5" channel="inline" format="check/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.command"/>
         <node name="right" channel="inline" format="text/plain" model="5"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_5"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //Empty-Field Flag rücksetzen
@@ -176,11 +167,10 @@
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
-    <node name="flag_empty_5" channel="inline" format="compare/equal" model="">
+    <node name="flag_empty_5" channel="inline" format="check/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_5"/>
         <node name="right" channel="inline" format="text/plain" model="_"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="flag_5" channel="inline" format="logify/and" model="">
@@ -189,11 +179,10 @@
     </node>
 
 //Flag setzen Eingabe 6
-    <node name="comparison6" channel="inline" format="compare/equal" model="">
+    <node name="comparison6" channel="inline" format="check/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.command"/>
         <node name="right" channel="inline" format="text/plain" model="6"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_6"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //Empty-Field Flag rücksetzen
@@ -202,11 +191,10 @@
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
-    <node name="flag_empty_6" channel="inline" format="compare/equal" model="">
+    <node name="flag_empty_6" channel="inline" format="check/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_6"/>
         <node name="right" channel="inline" format="text/plain" model="_"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="flag_6" channel="inline" format="logify/and" model="">
@@ -215,11 +203,10 @@
     </node>
 
 //Flag setzen Eingabe 7
-    <node name="comparison7" channel="inline" format="compare/equal" model="">
+    <node name="comparison7" channel="inline" format="check/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.command"/>
         <node name="right" channel="inline" format="text/plain" model="7"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_7"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //Empty-Field Flag rücksetzen
@@ -228,11 +215,10 @@
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
-    <node name="flag_empty_7" channel="inline" format="compare/equal" model="">
+    <node name="flag_empty_7" channel="inline" format="check/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_7"/>
         <node name="right" channel="inline" format="text/plain" model="_"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="flag_7" channel="inline" format="logify/and" model="">
@@ -241,11 +227,10 @@
     </node>
 
 //Flag setzen Eingabe 8
-    <node name="comparison8" channel="inline" format="compare/equal" model="">
+    <node name="comparison8" channel="inline" format="check/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.command"/>
         <node name="right" channel="inline" format="text/plain" model="8"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_8"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //Empty-Field Flag rücksetzen
@@ -254,11 +239,10 @@
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
-    <node name="flag_empty_8" channel="inline" format="compare/equal" model="">
+    <node name="flag_empty_8" channel="inline" format="check/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_8"/>
         <node name="right" channel="inline" format="text/plain" model="_"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="flag_8" channel="inline" format="logify/and" model="">
@@ -267,11 +251,10 @@
     </node>
 
 //Flag setzen Eingabe 9
-    <node name="comparison9" channel="inline" format="compare/equal" model="">
+    <node name="comparison9" channel="inline" format="check/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.command"/>
         <node name="right" channel="inline" format="text/plain" model="9"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_9"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //Empty-Field Flag rücksetzen
@@ -280,11 +263,10 @@
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
-    <node name="flag_empty_9" channel="inline" format="compare/equal" model="">
+    <node name="flag_empty_9" channel="inline" format="check/equal" model="">
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_9"/>
         <node name="right" channel="inline" format="text/plain" model="_"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_field_empty"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="flag_9" channel="inline" format="logify/and" model="">

@@ -25,20 +25,18 @@
     </node>
 
 
-//Flag setzen Eingabe yes
-    <node name="comparison1" channel="inline" format="compare/equal" model="">
-    <node name="left" channel="inline" format="text/cybol-path" model=".app.var.zahlen"/>
-    <node name="right" channel="inline" format="text/plain" model="y"/>
-    <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_zahlen_y"/>
-    <node name="selection" channel="inline" format="text/plain" model="all"/>
+    //Flag setzen Eingabe yes
+    <node name="comparison1" channel="inline" format="check/equal" model="">
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.zahlen"/>
+        <node name="right" channel="inline" format="text/plain" model="y"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_zahlen_y"/>
     </node>
 
-//Flag setzen Eingabe no
-    <node name="comparison2" channel="inline" format="compare/equal" model="">
-    <node name="left" channel="inline" format="text/cybol-path" model=".app.var.zahlen"/>
-    <node name="right" channel="inline" format="text/plain" model="n"/>
-    <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_zahlen_n"/>
-    <node name="selection" channel="inline" format="text/plain" model="all"/>
+    //Flag setzen Eingabe no
+    <node name="comparison2" channel="inline" format="check/equal" model="">
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.zahlen"/>
+        <node name="right" channel="inline" format="text/plain" model="n"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_zahlen_n"/>
     </node>
 
 

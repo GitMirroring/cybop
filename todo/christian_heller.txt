@@ -14,8 +14,9 @@
 Comparison
 __________
 
-        * Replace cybol operation "compare/equal" with "check/equal" in all cybol examples, but ONLY for "text/plain" ("wide_character")
-        * Remove property "selection" with value "all"
+        * Add lexicographical comparison for integer + fraction + complex + big_decimal to directory "executor/checker/"
+            --> for big_decimal, detect comma automatically and do NOT give it as cybol property, to be more flexible
+        * Replace cybol operation "compare/equal" with "check/equal" and remove property "selection" with value "all", in all cybol examples, for "number/integer" and others
         * Remove "all" comparator in directory "executor/comparator/" with focus on part | item | array
 
         * Rethink usage of "count" in checker --> therefore, the count must NOT be compared beforehand, since:
@@ -23,8 +24,6 @@ __________
             - consider this for new datatype "big_decimal" with unlimited length
             - if a string (prefix) is equal to another, it is greater anyway if it is longer than the other,
                 i.e. compare characters FIRST (with count of shorter array as loop count) and compare count at SECOND place, only if both strings are equal, where the longer one is greater then
-        * Continue adding files for various types to directory "executor/checker/" for lexicographical comparison, e.g. "integer_checker.c"
-            --> used for big_decimal, detect comma automatically and do NOT give it as cybol property, to be more flexible
 
 (the following applies for wide_character, NOT integer comparison)
 
