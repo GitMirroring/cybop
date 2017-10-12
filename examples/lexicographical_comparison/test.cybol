@@ -29,7 +29,7 @@
     </node>
     <node name="compare_less_false" channel="inline" format="check/less" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result_less_false"/>
-        <node name="left" channel="inline" format="text/cybol-path" model=".word_2"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".word_3"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".word_1"/>
     </node>
     <node name="compare_less_or_equal_true" channel="inline" format="check/less-or-equal" model="">
