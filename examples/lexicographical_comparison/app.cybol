@@ -1,0 +1,24 @@
+<node>
+
+    <node name="word_1" channel="inline" format="text/plain" model="Hello"/>
+    <node name="word_2" channel="inline" format="text/plain" model="Welcome"/>
+    <node name="word_3" channel="inline" format="text/plain" model="HelloWorld"/>
+
+    <node name="result_equal_true" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="result_equal_false" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="result_unequal_true" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="result_unequal_false" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="result_less_true" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="result_less_false" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="result_less_or_equal_true" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="result_less_or_equal_false" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="result_greater_true" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="result_greater_false" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="result_greater_or_equal_true" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="result_greater_or_equal_false" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="result_count_true" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="result_count_false" channel="inline" format="logicvalue/boolean" model="false"/>
+
+    <node name="test" channel="file" format="element/part" model="lexicographical_comparison/test.cybol"/>
+
+</node>

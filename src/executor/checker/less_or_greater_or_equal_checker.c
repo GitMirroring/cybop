@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef LESS_OR_EQUAL_CHECKER_SOURCE
-#define LESS_OR_EQUAL_CHECKER_SOURCE
+#ifndef LESS_OR_GREATER_OR_EQUAL_CHECKER_SOURCE
+#define LESS_OR_GREATER_OR_EQUAL_CHECKER_SOURCE
 
 #include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -39,7 +39,7 @@
 #include "../../logger/logger.c"
 
 /**
- * Checks two arrays lexicographically for lessness or equalness.
+ * Checks two arrays lexicographically for lessness or greaterness or equalness.
  *
  * https://de.wikipedia.org/wiki/Lexikographische_Ordnung
  * https://en.wikipedia.org/wiki/Lexicographical_order
@@ -49,10 +49,13 @@
  * @param p2 the right data
  * @param p3 the left count
  * @param p4 the right count
+ * @param p5 the element success operation type
+ * @param p6 the element failure operation type
+ * @param p7 the count success operation type
  */
-void check_less_or_equal(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void check_less_or_greater_or_equal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check less or equal.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check less or greater or equal.");
 
     // The loop count.
     int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -79,7 +82,7 @@ void check_less_or_equal(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             // All elements have been compared and were equal.
             // Therefore, the array count (length) has to decide now.
-            compare_integer_less_or_equal((void*) &r3, p3, p4);
+            compare_integer((void*) &r3, p3, p4, p7);
 
             if (r3 != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -96,7 +99,7 @@ void check_less_or_equal(void* p0, void* p1, void* p2, void* p3, void* p4) {
             }
         }
 
-        compare_value_offset((void*) &r1, p1, p2, (void*) LESS_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &j);
+        compare_value_offset((void*) &r1, p1, p2, p5, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &j);
 
         if (r1 != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -106,7 +109,7 @@ void check_less_or_equal(void* p0, void* p1, void* p2, void* p3, void* p4) {
             break;
         }
 
-        compare_value_offset((void*) &r2, p1, p2, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &j);
+        compare_value_offset((void*) &r2, p1, p2, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &j);
 
         if (r2 != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -119,5 +122,5 @@ void check_less_or_equal(void* p0, void* p1, void* p2, void* p3, void* p4) {
     }
 }
 
-/* LESS_OR_EQUAL_CHECKER_SOURCE */
+/* LESS_OR_GREATER_OR_EQUAL_CHECKER_SOURCE */
 #endif

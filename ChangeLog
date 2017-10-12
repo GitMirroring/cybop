@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-10-12  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Optimise lexicographical comparison functions in checker, by deleting redundant functions and using parametres instead
+        * Add cybol example application "lexicographical_comparison"
+
 2017-10-11  Christian Heller  <christian.heller@tuxtax.de>
 
         * Replace cybol operation "compare/equal" with "check/equal" and remove property "selection" with value "all", in all cybol examples, for "text/plain"

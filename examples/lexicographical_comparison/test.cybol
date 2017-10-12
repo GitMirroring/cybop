@@ -1,0 +1,253 @@
+<node>
+
+    <!-- Comparison -->
+
+    <node name="compare_equal_true" channel="inline" format="check/equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".result_equal_true"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".word_1"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".word_1"/>
+    </node>
+    <node name="compare_equal_false" channel="inline" format="check/equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".result_equal_false"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".word_1"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".word_2"/>
+    </node>
+    <node name="compare_unequal_true" channel="inline" format="check/unequal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".result_unequal_true"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".word_1"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".word_2"/>
+    </node>
+    <node name="compare_unequal_false" channel="inline" format="check/unequal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".result_unequal_false"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".word_1"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".word_1"/>
+    </node>
+    <node name="compare_less_true" channel="inline" format="check/less" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".result_less_true"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".word_1"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".word_2"/>
+    </node>
+    <node name="compare_less_false" channel="inline" format="check/less" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".result_less_false"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".word_2"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".word_1"/>
+    </node>
+    <node name="compare_less_or_equal_true" channel="inline" format="check/less-or-equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".result_less_or_equal_true"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".word_1"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".word_2"/>
+    </node>
+    <node name="compare_less_or_equal_false" channel="inline" format="check/less-or-equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".result_less_or_equal_false"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".word_2"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".word_1"/>
+    </node>
+    <node name="compare_greater_true" channel="inline" format="check/greater" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".result_greater_true"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".word_2"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".word_1"/>
+    </node>
+    <node name="compare_greater_false" channel="inline" format="check/greater" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".result_greater_false"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".word_2"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".word_2"/>
+    </node>
+    <node name="compare_greater_or_equal_true" channel="inline" format="check/greater-or-equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".result_greater_or_equal_true"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".word_2"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".word_2"/>
+    </node>
+    <node name="compare_greater_or_equal_false" channel="inline" format="check/greater-or-equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".result_greater_or_equal_false"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".word_1"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".word_2"/>
+    </node>
+    <node name="compare_count_true" channel="inline" format="check/less" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".result_count_true"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".word_1"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".word_3"/>
+    </node>
+    <node name="compare_count_false" channel="inline" format="check/less" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".result_count_false"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".word_3"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".word_1"/>
+    </node>
+
+    <!-- Printing -->
+
+    <node name="print_equal" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="equal:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="print_equal_true" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".result_equal_true"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="print_equal_false" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".result_equal_false"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="print_unequal" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="unequal:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="print_unequal_true" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".result_unequal_true"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="print_unequal_false" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".result_unequal_false"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="print_less" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="less:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="print_less_true" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".result_less_true"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="print_less_false" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".result_less_false"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="print_less_or_equal" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="less_or_equal:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="print_less_or_equal_true" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".result_less_or_equal_true"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="print_less_or_equal_false" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".result_less_or_equal_false"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="print_greater" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="greater:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="print_greater_true" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".result_greater_true"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="print_greater_false" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".result_greater_false"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="print_greater_or_equal" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="greater_or_equal:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="print_greater_or_equal_true" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".result_greater_or_equal_true"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="print_greater_or_equal_false" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".result_greater_or_equal_false"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="print_count" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="count (array length):"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="print_count_true" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".result_count_true"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="print_count_false" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".result_count_false"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+</node>
