@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef LESS_OR_GREATER_OR_EQUAL_CHECKER_SOURCE
-#define LESS_OR_GREATER_OR_EQUAL_CHECKER_SOURCE
+#ifndef ELEMENT_CHECKER_SOURCE
+#define ELEMENT_CHECKER_SOURCE
 
 #include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -39,7 +39,10 @@
 #include "../../logger/logger.c"
 
 /**
- * Checks two arrays lexicographically for lessness or greaterness or equalness.
+ * Checks two arrays lexicographically.
+ *
+ * At first, elements are compared.
+ * Afterwards, the array count (length) gets compared.
  *
  * https://de.wikipedia.org/wiki/Lexikographische_Ordnung
  * https://en.wikipedia.org/wiki/Lexicographical_order
@@ -53,9 +56,9 @@
  * @param p6 the element failure operation type
  * @param p7 the count success operation type
  */
-void check_less_or_greater_or_equal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void check_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check less or greater or equal.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check element.");
 
     // The loop count.
     int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -122,5 +125,5 @@ void check_less_or_greater_or_equal(void* p0, void* p1, void* p2, void* p3, void
     }
 }
 
-/* LESS_OR_GREATER_OR_EQUAL_CHECKER_SOURCE */
+/* ELEMENT_CHECKER_SOURCE */
 #endif

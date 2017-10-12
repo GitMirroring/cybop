@@ -14,8 +14,6 @@
 Comparison
 __________
 
-        * Optimise lexicographical comparison functions "equal" and "unequal" in checker, by deleting redundant functions and using parametres instead
-
         * Remove "all" comparator and remove "comparator" in directory "executor/comparator/"
         * Remove file "selection_compare_logic_cybol_model.c"
         * Rename "value_comparator.c" into "comparator.c"
