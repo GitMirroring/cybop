@@ -22,7 +22,8 @@
 
         * Replace function call of "compare_all_array" with "check_array"
         * Provide function "check_array_ascii" for type "character", to be used in file "header_field_http_request_selector.c"
-        * Remove property "selection" with value "all" for cybol operations "compare/", in all cybol examples
+        * Remove property "selection" with value "all" for cybol operations "compare/", in all cybol example applications
+        * Search bug causing cybol example applications to not run at all
 
 2017-10-12  Christian Heller  <christian.heller@tuxtax.de>
 

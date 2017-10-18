@@ -28,7 +28,6 @@
 
 #include "../../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../../../../constant/model/cyboi/state/colour/terminal_colour_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -59,7 +58,7 @@ void deserialise_cybol_colour_terminal(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) BLACK_TERMINAL_COLOUR_CYBOL_MODEL, p2, (void*) BLACK_TERMINAL_COLOUR_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) BLACK_TERMINAL_COLOUR_CYBOL_MODEL, p2, (void*) BLACK_TERMINAL_COLOUR_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -69,7 +68,7 @@ void deserialise_cybol_colour_terminal(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) BLUE_TERMINAL_COLOUR_CYBOL_MODEL, p2, (void*) BLUE_TERMINAL_COLOUR_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) BLUE_TERMINAL_COLOUR_CYBOL_MODEL, p2, (void*) BLUE_TERMINAL_COLOUR_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -79,7 +78,7 @@ void deserialise_cybol_colour_terminal(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) CYAN_TERMINAL_COLOUR_CYBOL_MODEL, p2, (void*) CYAN_TERMINAL_COLOUR_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) CYAN_TERMINAL_COLOUR_CYBOL_MODEL, p2, (void*) CYAN_TERMINAL_COLOUR_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -89,7 +88,7 @@ void deserialise_cybol_colour_terminal(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) GREEN_TERMINAL_COLOUR_CYBOL_MODEL, p2, (void*) GREEN_TERMINAL_COLOUR_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) GREEN_TERMINAL_COLOUR_CYBOL_MODEL, p2, (void*) GREEN_TERMINAL_COLOUR_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -99,7 +98,7 @@ void deserialise_cybol_colour_terminal(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) MAGENTA_TERMINAL_COLOUR_CYBOL_MODEL, p2, (void*) MAGENTA_TERMINAL_COLOUR_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) MAGENTA_TERMINAL_COLOUR_CYBOL_MODEL, p2, (void*) MAGENTA_TERMINAL_COLOUR_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -109,7 +108,7 @@ void deserialise_cybol_colour_terminal(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) RED_TERMINAL_COLOUR_CYBOL_MODEL, p2, (void*) RED_TERMINAL_COLOUR_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) RED_TERMINAL_COLOUR_CYBOL_MODEL, p2, (void*) RED_TERMINAL_COLOUR_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -119,7 +118,7 @@ void deserialise_cybol_colour_terminal(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) WHITE_TERMINAL_COLOUR_CYBOL_MODEL, p2, (void*) WHITE_TERMINAL_COLOUR_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) WHITE_TERMINAL_COLOUR_CYBOL_MODEL, p2, (void*) WHITE_TERMINAL_COLOUR_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -129,7 +128,7 @@ void deserialise_cybol_colour_terminal(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) YELLOW_TERMINAL_COLOUR_CYBOL_MODEL, p2, (void*) YELLOW_TERMINAL_COLOUR_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) YELLOW_TERMINAL_COLOUR_CYBOL_MODEL, p2, (void*) YELLOW_TERMINAL_COLOUR_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -26,6 +26,7 @@
 #ifndef ARRAY_CHECKER_SOURCE
 #define ARRAY_CHECKER_SOURCE
 
+#include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/checker/internal_array_checker.c"

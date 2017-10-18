@@ -28,6 +28,7 @@
 
 #include <stdio.h>
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -71,7 +72,7 @@ void read_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) STANDARD_INPUT_STREAM_TERMINAL_MODEL, p2, (void*) STANDARD_INPUT_STREAM_TERMINAL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) STANDARD_INPUT_STREAM_TERMINAL_MODEL, p2, (void*) STANDARD_INPUT_STREAM_TERMINAL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

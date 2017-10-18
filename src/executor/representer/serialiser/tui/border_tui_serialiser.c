@@ -26,9 +26,9 @@
 #ifndef BORDER_TUI_SERIALISER_SOURCE
 #define BORDER_TUI_SERIALISER_SOURCE
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -58,7 +58,7 @@ void serialise_tui_border(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p6, (void*) ASCII_LINE_BORDER_CYBOL_MODEL, p7, (void*) ASCII_LINE_BORDER_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p6, (void*) ASCII_LINE_BORDER_CYBOL_MODEL, p7, (void*) ASCII_LINE_BORDER_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -73,7 +73,7 @@ void serialise_tui_border(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p6, (void*) DOUBLE_LINE_BORDER_CYBOL_MODEL, p7, (void*) DOUBLE_LINE_BORDER_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p6, (void*) DOUBLE_LINE_BORDER_CYBOL_MODEL, p7, (void*) DOUBLE_LINE_BORDER_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -88,7 +88,7 @@ void serialise_tui_border(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p6, (void*) ROUND_LINE_BORDER_CYBOL_MODEL, p7, (void*) ROUND_LINE_BORDER_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p6, (void*) ROUND_LINE_BORDER_CYBOL_MODEL, p7, (void*) ROUND_LINE_BORDER_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -103,7 +103,7 @@ void serialise_tui_border(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p6, (void*) SIMPLE_LINE_BORDER_CYBOL_MODEL, p7, (void*) SIMPLE_LINE_BORDER_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p6, (void*) SIMPLE_LINE_BORDER_CYBOL_MODEL, p7, (void*) SIMPLE_LINE_BORDER_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

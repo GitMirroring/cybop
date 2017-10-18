@@ -26,8 +26,8 @@
 #ifndef POSITION_LAYOUT_SERIALISER_SOURCE
 #define POSITION_LAYOUT_SERIALISER_SOURCE
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cybol/layout/layout_cybol_model.c"
 #include "../../../../executor/checker/array_checker.c"
@@ -57,7 +57,7 @@ void serialise_layout_position(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p7, (void*) ABSOLUTE_LAYOUT_CYBOL_MODEL, p8, (void*) ABSOLUTE_LAYOUT_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p7, (void*) ABSOLUTE_LAYOUT_CYBOL_MODEL, p8, (void*) ABSOLUTE_LAYOUT_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -67,7 +67,7 @@ void serialise_layout_position(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p7, (void*) BORDER_LAYOUT_CYBOL_MODEL, p8, (void*) BORDER_LAYOUT_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p7, (void*) BORDER_LAYOUT_CYBOL_MODEL, p8, (void*) BORDER_LAYOUT_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -77,7 +77,7 @@ void serialise_layout_position(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p7, (void*) BOX_LAYOUT_CYBOL_MODEL, p8, (void*) BOX_LAYOUT_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p7, (void*) BOX_LAYOUT_CYBOL_MODEL, p8, (void*) BOX_LAYOUT_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -90,7 +90,7 @@ void serialise_layout_position(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p7, (void*) FLOW_LAYOUT_CYBOL_MODEL, p8, (void*) FLOW_LAYOUT_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p7, (void*) FLOW_LAYOUT_CYBOL_MODEL, p8, (void*) FLOW_LAYOUT_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -100,7 +100,7 @@ void serialise_layout_position(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p7, (void*) GRID_LAYOUT_CYBOL_MODEL, p8, (void*) GRID_LAYOUT_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p7, (void*) GRID_LAYOUT_CYBOL_MODEL, p8, (void*) GRID_LAYOUT_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

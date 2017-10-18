@@ -26,8 +26,8 @@
 #ifndef ARRAY_DETECTOR_SOURCE
 #define ARRAY_DETECTOR_SOURCE
 
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
@@ -81,7 +81,7 @@ void detect_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
                 // CAUTION! The remaining count may NOT be handed over as position count,
                 // since it might be greater than the array count and would thus differ.
-                check_array(p0, *((void**) p1), p3, p5, p5, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+                check_array(p0, *((void**) p1), p3, p5, p5, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
                 if (*r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

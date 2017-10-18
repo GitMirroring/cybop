@@ -39,8 +39,8 @@
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
+#include "../../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -92,7 +92,7 @@ void startup_socket_host_address_inet6(void* p0, void* p1, void* p2) {
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            check_array((void*) &r, p1, (void*) LOOPBACK_ADDRESS_SOCKET_CYBOL_MODEL, p2, (void*) LOOPBACK_ADDRESS_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+            check_array((void*) &r, p1, (void*) LOOPBACK_ADDRESS_SOCKET_CYBOL_MODEL, p2, (void*) LOOPBACK_ADDRESS_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -119,7 +119,7 @@ void startup_socket_host_address_inet6(void* p0, void* p1, void* p2) {
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            check_array((void*) &r, p1, (void*) ANY_ADDRESS_SOCKET_CYBOL_MODEL, p2, (void*) ANY_ADDRESS_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+            check_array((void*) &r, p1, (void*) ANY_ADDRESS_SOCKET_CYBOL_MODEL, p2, (void*) ANY_ADDRESS_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

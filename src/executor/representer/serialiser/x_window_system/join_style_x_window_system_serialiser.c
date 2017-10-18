@@ -70,7 +70,7 @@ void serialise_x_window_system_join_style(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) MITER_JOIN_STYLE_XCB_CYBOL_MODEL, p2, (void*) MITER_JOIN_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) MITER_JOIN_STYLE_XCB_CYBOL_MODEL, p2, (void*) MITER_JOIN_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -81,7 +81,7 @@ void serialise_x_window_system_join_style(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) ROUND_JOIN_STYLE_XCB_CYBOL_MODEL, p2, (void*) ROUND_JOIN_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) ROUND_JOIN_STYLE_XCB_CYBOL_MODEL, p2, (void*) ROUND_JOIN_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -92,7 +92,7 @@ void serialise_x_window_system_join_style(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) BEVEL_JOIN_STYLE_XCB_CYBOL_MODEL, p2, (void*) BEVEL_JOIN_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) BEVEL_JOIN_STYLE_XCB_CYBOL_MODEL, p2, (void*) BEVEL_JOIN_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
