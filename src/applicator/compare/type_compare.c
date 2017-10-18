@@ -29,7 +29,7 @@
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/comparator/comparator.c"
+#include "../../executor/comparator/part_comparator.c"
 #include "../../logger/logger.c"
 
 /**
@@ -47,30 +47,30 @@
  * @param p2 the right operand part
  * @param p3 the operation type
  * @param p4 the left operand type
- * @param p5 the selection data
- * @param p6 the selection count
- * @param p7 the right operand type
+ * @param p5 the right operand type
  */
-void apply_compare_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void apply_compare_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply compare type.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, p4, p7);
+    compare_integer_equal((void*) &r, p4, p5);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // The result- and operand type are identical.
 
-        compare(p0, p1, p2, p3, p4, p5, p6);
+        //?? TODO: Replace last three arguments (count, left_index, right_index) with cybol property values!
+        //?? Replace PRIMITIVE_STATE_CYBOI_MODEL_COUNT with actual count!
+        compare_part(p0, p1, p2, p3, p4, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply compare type. The left operand type and right operand type are different.");
         fwprintf(stdout, L"ERROR: Could not apply compare type. The left operand type and right operand type are different.\n");
-        fwprintf(stdout, L"ERROR: Left operand type: %i. Right operand type: %i.\n", *((int*) p4), *((int*) p7));
+        fwprintf(stdout, L"ERROR: Left operand type: %i. Right operand type: %i.\n", *((int*) p4), *((int*) p5));
     }
 }
 

@@ -28,7 +28,6 @@
 
 #include "../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/http/header/entity_header_http_cyboi_name.c"
 #include "../../../../constant/name/cyboi/http/header/general_header_http_cyboi_name.c"
@@ -39,7 +38,7 @@
 #include "../../../../constant/name/http/header/request_header_http_name.c"
 #include "../../../../constant/name/http/header/response_header_http_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/comparator/all/array_all_comparator.c"
+#include "../../../../executor/checker/ascii_array_checker.c"
 #include "../../../../executor/representer/deserialiser/http_request/decode_http_request_deserialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -79,6 +78,12 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select http request header field.");
 
+    //
+    // CAUTION! The comparisons below use the function "check_array_ascii" instead of only "check_array".
+    // The reason is that http metadata are available as ascii characters.
+    // Converting them into wide characters only for comparison would not make sense.
+    //
+
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -88,7 +93,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) ALLOW_ENTITY_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ALLOW_ENTITY_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) ALLOW_ENTITY_HEADER_HTTP_NAME, p2, (void*) ALLOW_ENTITY_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -98,7 +103,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) CONTENT_ENCODING_ENTITY_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CONTENT_ENCODING_ENTITY_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) CONTENT_ENCODING_ENTITY_HEADER_HTTP_NAME, p2, (void*) CONTENT_ENCODING_ENTITY_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -108,7 +113,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) CONTENT_LANGUAGE_ENTITY_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CONTENT_LANGUAGE_ENTITY_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) CONTENT_LANGUAGE_ENTITY_HEADER_HTTP_NAME, p2, (void*) CONTENT_LANGUAGE_ENTITY_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -118,7 +123,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) CONTENT_LENGTH_ENTITY_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CONTENT_LENGTH_ENTITY_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) CONTENT_LENGTH_ENTITY_HEADER_HTTP_NAME, p2, (void*) CONTENT_LENGTH_ENTITY_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -128,7 +133,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) CONTENT_LOCATION_ENTITY_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CONTENT_LOCATION_ENTITY_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) CONTENT_LOCATION_ENTITY_HEADER_HTTP_NAME, p2, (void*) CONTENT_LOCATION_ENTITY_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -138,7 +143,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) CONTENT_MD5_ENTITY_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CONTENT_MD5_ENTITY_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) CONTENT_MD5_ENTITY_HEADER_HTTP_NAME, p2, (void*) CONTENT_MD5_ENTITY_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -148,7 +153,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) CONTENT_RANGE_ENTITY_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CONTENT_RANGE_ENTITY_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) CONTENT_RANGE_ENTITY_HEADER_HTTP_NAME, p2, (void*) CONTENT_RANGE_ENTITY_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -158,7 +163,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) CONTENT_TYPE_ENTITY_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CONTENT_TYPE_ENTITY_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) CONTENT_TYPE_ENTITY_HEADER_HTTP_NAME, p2, (void*) CONTENT_TYPE_ENTITY_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -168,7 +173,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) EXPIRES_ENTITY_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) EXPIRES_ENTITY_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) EXPIRES_ENTITY_HEADER_HTTP_NAME, p2, (void*) EXPIRES_ENTITY_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -178,7 +183,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) LAST_MODIFIED_ENTITY_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) LAST_MODIFIED_ENTITY_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) LAST_MODIFIED_ENTITY_HEADER_HTTP_NAME, p2, (void*) LAST_MODIFIED_ENTITY_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -192,7 +197,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) ACCEPT_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ACCEPT_REQUEST_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) ACCEPT_REQUEST_HEADER_HTTP_NAME, p2, (void*) ACCEPT_REQUEST_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -202,7 +207,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) ACCEPT_CHARSET_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ACCEPT_CHARSET_REQUEST_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) ACCEPT_CHARSET_REQUEST_HEADER_HTTP_NAME, p2, (void*) ACCEPT_CHARSET_REQUEST_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -212,7 +217,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) ACCEPT_ENCODING_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ACCEPT_ENCODING_REQUEST_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) ACCEPT_ENCODING_REQUEST_HEADER_HTTP_NAME, p2, (void*) ACCEPT_ENCODING_REQUEST_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -222,7 +227,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) ACCEPT_LANGUAGE_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ACCEPT_LANGUAGE_REQUEST_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) ACCEPT_LANGUAGE_REQUEST_HEADER_HTTP_NAME, p2, (void*) ACCEPT_LANGUAGE_REQUEST_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -232,7 +237,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) AUTHORIZATION_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) AUTHORIZATION_REQUEST_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) AUTHORIZATION_REQUEST_HEADER_HTTP_NAME, p2, (void*) AUTHORIZATION_REQUEST_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -242,7 +247,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) EXPECT_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) EXPECT_REQUEST_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) EXPECT_REQUEST_HEADER_HTTP_NAME, p2, (void*) EXPECT_REQUEST_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -252,7 +257,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) FROM_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) FROM_REQUEST_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) FROM_REQUEST_HEADER_HTTP_NAME, p2, (void*) FROM_REQUEST_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -262,7 +267,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) HOST_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) HOST_REQUEST_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) HOST_REQUEST_HEADER_HTTP_NAME, p2, (void*) HOST_REQUEST_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -272,7 +277,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) IF_MATCH_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) IF_MATCH_REQUEST_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) IF_MATCH_REQUEST_HEADER_HTTP_NAME, p2, (void*) IF_MATCH_REQUEST_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -282,7 +287,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) IF_MODIFIED_SINCE_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) IF_MODIFIED_SINCE_REQUEST_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) IF_MODIFIED_SINCE_REQUEST_HEADER_HTTP_NAME, p2, (void*) IF_MODIFIED_SINCE_REQUEST_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -292,7 +297,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) IF_NONE_MATCH_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) IF_NONE_MATCH_REQUEST_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) IF_NONE_MATCH_REQUEST_HEADER_HTTP_NAME, p2, (void*) IF_NONE_MATCH_REQUEST_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -302,7 +307,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) IF_RANGE_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) IF_RANGE_REQUEST_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) IF_RANGE_REQUEST_HEADER_HTTP_NAME, p2, (void*) IF_RANGE_REQUEST_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -312,7 +317,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) IF_UNMODIFIED_SINCE_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) IF_UNMODIFIED_SINCE_REQUEST_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) IF_UNMODIFIED_SINCE_REQUEST_HEADER_HTTP_NAME, p2, (void*) IF_UNMODIFIED_SINCE_REQUEST_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -322,7 +327,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) MAX_FORWARDS_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) MAX_FORWARDS_REQUEST_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) MAX_FORWARDS_REQUEST_HEADER_HTTP_NAME, p2, (void*) MAX_FORWARDS_REQUEST_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -332,7 +337,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) PROXY_AUTHORIZATION_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) PROXY_AUTHORIZATION_REQUEST_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) PROXY_AUTHORIZATION_REQUEST_HEADER_HTTP_NAME, p2, (void*) PROXY_AUTHORIZATION_REQUEST_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -342,7 +347,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) RANGE_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) RANGE_REQUEST_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) RANGE_REQUEST_HEADER_HTTP_NAME, p2, (void*) RANGE_REQUEST_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -352,7 +357,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) REFERER_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) REFERER_REQUEST_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) REFERER_REQUEST_HEADER_HTTP_NAME, p2, (void*) REFERER_REQUEST_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -362,7 +367,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) TE_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) TE_REQUEST_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) TE_REQUEST_HEADER_HTTP_NAME, p2, (void*) TE_REQUEST_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -372,7 +377,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) USER_AGENT_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) USER_AGENT_REQUEST_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) USER_AGENT_REQUEST_HEADER_HTTP_NAME, p2, (void*) USER_AGENT_REQUEST_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -382,7 +387,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) VARY_REQUEST_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) VARY_REQUEST_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) VARY_REQUEST_HEADER_HTTP_NAME, p2, (void*) VARY_REQUEST_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -396,7 +401,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) ACCEPT_RANGES_RESPONSE_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ACCEPT_RANGES_RESPONSE_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) ACCEPT_RANGES_RESPONSE_HEADER_HTTP_NAME, p2, (void*) ACCEPT_RANGES_RESPONSE_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -406,7 +411,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) AGE_RESPONSE_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) AGE_RESPONSE_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) AGE_RESPONSE_HEADER_HTTP_NAME, p2, (void*) AGE_RESPONSE_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -416,7 +421,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) ETAG_RESPONSE_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ETAG_RESPONSE_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) ETAG_RESPONSE_HEADER_HTTP_NAME, p2, (void*) ETAG_RESPONSE_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -426,7 +431,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) LOCATION_RESPONSE_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) LOCATION_RESPONSE_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) LOCATION_RESPONSE_HEADER_HTTP_NAME, p2, (void*) LOCATION_RESPONSE_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -436,7 +441,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) PROXY_AUTHENTICATE_RESPONSE_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) PROXY_AUTHENTICATE_RESPONSE_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) PROXY_AUTHENTICATE_RESPONSE_HEADER_HTTP_NAME, p2, (void*) PROXY_AUTHENTICATE_RESPONSE_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -446,7 +451,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) RETRY_AFTER_RESPONSE_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) RETRY_AFTER_RESPONSE_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) RETRY_AFTER_RESPONSE_HEADER_HTTP_NAME, p2, (void*) RETRY_AFTER_RESPONSE_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -456,7 +461,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) SERVER_RESPONSE_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) SERVER_RESPONSE_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) SERVER_RESPONSE_HEADER_HTTP_NAME, p2, (void*) SERVER_RESPONSE_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -466,7 +471,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) WWW_AUTHENTICATE_RESPONSE_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) WWW_AUTHENTICATE_RESPONSE_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) WWW_AUTHENTICATE_RESPONSE_HEADER_HTTP_NAME, p2, (void*) WWW_AUTHENTICATE_RESPONSE_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -480,7 +485,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) CACHE_CONTROL_GENERAL_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CACHE_CONTROL_GENERAL_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) CACHE_CONTROL_GENERAL_HEADER_HTTP_NAME, p2, (void*) CACHE_CONTROL_GENERAL_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -490,7 +495,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) CONNECTION_GENERAL_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CONNECTION_GENERAL_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) CONNECTION_GENERAL_HEADER_HTTP_NAME, p2, (void*) CONNECTION_GENERAL_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -500,7 +505,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) DATE_GENERAL_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) DATE_GENERAL_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) DATE_GENERAL_HEADER_HTTP_NAME, p2, (void*) DATE_GENERAL_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -510,7 +515,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) PRAGMA_GENERAL_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) PRAGMA_GENERAL_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) PRAGMA_GENERAL_HEADER_HTTP_NAME, p2, (void*) PRAGMA_GENERAL_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -520,7 +525,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) TRAILER_GENERAL_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) TRAILER_GENERAL_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) TRAILER_GENERAL_HEADER_HTTP_NAME, p2, (void*) TRAILER_GENERAL_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -530,7 +535,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) TRANSFER_ENCODING_GENERAL_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) TRANSFER_ENCODING_GENERAL_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) TRANSFER_ENCODING_GENERAL_HEADER_HTTP_NAME, p2, (void*) TRANSFER_ENCODING_GENERAL_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -540,7 +545,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) UPGRADE_GENERAL_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) UPGRADE_GENERAL_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) UPGRADE_GENERAL_HEADER_HTTP_NAME, p2, (void*) UPGRADE_GENERAL_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -550,7 +555,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) VIA_GENERAL_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) VIA_GENERAL_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) VIA_GENERAL_HEADER_HTTP_NAME, p2, (void*) VIA_GENERAL_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -560,7 +565,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) WARNING_GENERAL_HEADER_HTTP_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) WARNING_GENERAL_HEADER_HTTP_NAME_COUNT);
+        check_array_ascii((void*) &r, p1, (void*) WARNING_GENERAL_HEADER_HTTP_NAME, p2, (void*) WARNING_GENERAL_HEADER_HTTP_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

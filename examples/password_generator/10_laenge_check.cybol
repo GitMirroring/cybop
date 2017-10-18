@@ -34,7 +34,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="1"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_1"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //Abfrage 2
@@ -42,7 +41,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="2"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_2"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //Abfrage 3
@@ -50,7 +48,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="3"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_3"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //Abfrage 4
@@ -58,7 +55,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="4"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_4"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //Abfrage 5
@@ -66,7 +62,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="5"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_5"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //Abfrage 6
@@ -74,7 +69,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="6"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_6"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //Abfrage 7
@@ -82,7 +76,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="7"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_7"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //Abfrage 8
@@ -90,7 +83,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="8"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_8"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //Abfrage 9
@@ -98,7 +90,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="9"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_9"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 

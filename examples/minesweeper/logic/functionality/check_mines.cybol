@@ -293,7 +293,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.mine_count"/>
         <node name="right" channel="inline" format="number/integer" model="0"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.bool"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="print_if_close_mines" channel="inline" format="flow/branch" model="">

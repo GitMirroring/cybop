@@ -14,20 +14,25 @@
 Comparison
 __________
 
-        * Remove "all" comparator and remove "comparator" in directory "executor/comparator/"
-        * Remove file "selection_compare_logic_cybol_model.c"
-        * Rename "value_comparator.c" into "comparator.c"
+        * Find bug that cybol example applications are not running properly
+        * Replace last three arguments (count, left_index, right_index) of function call "compare_part" with cybol property values in file "type_compare.c"
+        * Add indices as property in "apply_compare"
+        * Fix count comparison in item_comparator and item_calculator etc. where (count + index) has to be considered (index forgotten up to now)
+        * Continue updating comparator, to make it work again with vectors
 
-        * Remove property "selection" with value "all", in all cybol examples, for "number/integer" and others
-        * CAUTION! Leave cybol operation "compare/equal" and do NOT replace it with "check/equal"
-        * Hint: the comparison for primitive types is *the same* for lexicographic or not, only the comparison of arrays differs:
-            - standard delivers many boolean results as elements in a result array
-            - lexicographic delivers ONE boolean result
+        * Adapt function call of "compare_all_part_element" in function "find_name_array_fifo" of file "executor/searcher/name_finder/fifo_array_name_finder.c" using new checker or search functions
+        * Adapt function call of "compare_all_part_element" in function "find_name_array_lifo" of file "executor/searcher/name_finder/lifo_array_name_finder.c" using new checker or search functions
+        * Adapt function call of "count_array_element" in function "count_array_element" of file "executor/accessor/counter/array_counter.c" using new checker or search functions
+            + Adapt corresponding cybol example "get_count"
+        * Reactivate function call of "compare_part" for PART_ELEMENT_STATE_CYBOI_TYPE in file "comparator.c" ??
+
+        * Clean up sections marked "TODO" in file "executor/comparator/part_comparator.c"
 
         * Move cybol operations for "prefix", "suffix", "subsequence", "all" from "executor/comparator/" to "executor/searcher/"
         * Merge almost empty directory "executor/container/" with "executor/searcher/"
         * Use new comparator functions in "executor/searcher/name_finder/"
         * Merge "executor/searcher/finder/" with "executor/searcher/name_finder/"
+        * Move or remove file "selection_compare_logic_cybol_model.c"
 
 General
 _______

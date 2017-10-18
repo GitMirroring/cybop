@@ -88,7 +88,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model="#project_break"/>
         <node name="left" channel="inline" format="text/cybol-path" model="#project_index"/>
         <node name="right" channel="inline" format="text/cybol-path" model="#project_count"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="loop_projects" channel="inline" format="flow/loop" model="">
@@ -106,7 +105,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model="#category_break"/>
         <node name="left" channel="inline" format="text/cybol-path" model="#category_index"/>
         <node name="right" channel="inline" format="text/cybol-path" model="#category_count"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 </node>

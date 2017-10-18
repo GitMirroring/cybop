@@ -32,7 +32,7 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/comparator/all/array_all_comparator.c"
+#include "../../../executor/checker/array_checker.c"
 #include "../../../executor/accessor/getter/item_getter.c"
 #include "../../../logger/logger.c"
 

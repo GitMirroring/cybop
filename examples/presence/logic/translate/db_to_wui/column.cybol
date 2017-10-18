@@ -72,7 +72,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.loop.break"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.loop.index"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.loop.count"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 </node>

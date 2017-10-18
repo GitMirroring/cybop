@@ -36,7 +36,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".settings.checksum_criterion"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".settings.checksum"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer_checksum"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="test_checksum" channel="inline" format="flow/branch" model="">
         <node name="criterion" channel="inline" format="text/cybol-path" model=".settings.checksum_criterion"/>

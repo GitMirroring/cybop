@@ -28,15 +28,12 @@
 
 #include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/calculator/integer/subtract_integer_calculator.c"
-#include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
-#include "../../executor/comparator/integer/less_integer_comparator.c"
-#include "../../executor/comparator/value_comparator.c"
+#include "../../executor/comparator/integer/greater_integer_comparator.c"
 #include "../../executor/copier/array_copier.c"
 #include "../../executor/memoriser/reallocator/array_reallocator.c"
 #include "../../executor/referencer/referencer.c"

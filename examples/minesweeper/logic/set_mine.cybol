@@ -20,6 +20,5 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".app.break"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".app.count"/>
         <node name="right" channel="inline" format="number/integer" model="9"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 </node>

@@ -51,7 +51,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.loose_flag"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.round_counter"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".app.var.max_round"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="reset_win_flag" channel="inline" format="modify/overwrite" model="">
@@ -63,7 +62,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.win_flag"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.bull"/>
         <node name="right" channel="inline" format="number/integer" model="4"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else" channel="inline" format="flow/branch" model="">

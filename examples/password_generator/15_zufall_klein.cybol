@@ -4,7 +4,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model="2"/>
         <node name="right" channel="inline" format="number/integer" model="1"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_1"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //sleep

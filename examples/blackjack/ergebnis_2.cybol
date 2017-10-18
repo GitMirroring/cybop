@@ -81,7 +81,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_win"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".result_pc"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else15" channel="inline" format="flow/branch" model="">

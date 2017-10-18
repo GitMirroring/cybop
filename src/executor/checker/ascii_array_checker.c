@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ARRAY_CHECKER_SOURCE
-#define ARRAY_CHECKER_SOURCE
+#ifndef ASCII_ARRAY_CHECKER_SOURCE
+#define ASCII_ARRAY_CHECKER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
@@ -32,7 +32,7 @@
 #include "../../logger/logger.c"
 
 /**
- * Checks two arrays lexicographically, using type wide_character.
+ * Checks two arrays lexicographically, using type character (ascii).
  *
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left data
@@ -41,12 +41,12 @@
  * @param p4 the right count
  * @param p5 the operation type
  */
-void check_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void check_array_ascii(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check array.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check array ascii.");
 
-    check_array_internal(p0, p1, p2, p3, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p5);
+    check_array_internal(p0, p1, p2, p3, p4, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p5);
 }
 
-/* ARRAY_CHECKER_SOURCE */
+/* ASCII_ARRAY_CHECKER_SOURCE */
 #endif

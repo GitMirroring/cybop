@@ -26,7 +26,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".criterion"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".counted_files"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".standard_files"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="remove_empty_home_directory" channel="inline" format="flow/branch" model="">
@@ -44,7 +43,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".break"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".index"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".count"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 </node>

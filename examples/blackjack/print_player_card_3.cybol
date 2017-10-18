@@ -164,7 +164,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_loose"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="right" channel="inline" format="number/integer" model="21"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else15" channel="inline" format="flow/branch" model="">
@@ -176,7 +175,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="right" channel="inline" format="number/integer" model="21"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_win"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else1" channel="inline" format="flow/branch" model="">

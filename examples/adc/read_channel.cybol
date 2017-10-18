@@ -14,7 +14,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".settings.voltage_break"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".settings.voltage_count"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".settings.voltage_maximum_count"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="read_voltage" channel="inline" format="flow/loop" model="">
         <node name="break" channel="inline" format="text/cybol-path" model=".settings.voltage_break"/>

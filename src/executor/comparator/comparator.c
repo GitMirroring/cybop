@@ -28,82 +28,198 @@
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/model/cybol/logic/selection_compare_logic_cybol_model.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/comparator/all/array_all_comparator.c"
-#include "../../executor/comparator/all/part_all_comparator.c"
+#include "../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../executor/comparator/character_comparator.c"
+#include "../../executor/comparator/complex_comparator.c"
+#include "../../executor/comparator/double_comparator.c"
+#include "../../executor/comparator/fraction_comparator.c"
+#include "../../executor/comparator/integer_comparator.c"
+// CAUTION Do NOT include "part_comparator.c" here.
+// Use forward declaration, if necessary.
+//?? #include "../../executor/comparator/part_comparator.c"
+#include "../../executor/comparator/pointer_comparator.c"
+#include "../../executor/comparator/wide_character_comparator.c"
+#include "../../executor/memoriser/offset_adder.c"
 #include "../../logger/logger.c"
 
-/**
- * Compares the part with the element.
- *
- * @param p0 the result
- * @param p1 the left part
- * @param p2 the right data
- * @param p3 the operation type
- * @param p4 the operand type
- * @param p5 the right array count
- * @param p6 the left part element index
- * @param p7 the selection data
- * @param p8 the selection count
- */
-void compare_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
-
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare element.");
-
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_all_array((void*) &r, p7, (void*) ALL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) ALL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL_COUNT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            compare_all_part_element(p0, p1, p2, p3, p4, p5, p6);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare element. The selection is unknown.");
-    }
-}
+//
+// Models of type "complex" or "fraction" are not
+// considered as container, since the comparison of their
+// elements follows special rules.
+//
+// Example:
+//
+// The two fractions 4 / 2 and 2 / 1 are identical even though
+// their numerators and denominators differ. If the fractions
+// were treated as containers and their elements compared one by one,
+// then neither the numerators 4 and 2 nor the denominators 2 and 1
+// would be equal.
+//
+// Therefore, such constructs are static and treated as
+// primitive data types, but NOT as dynamic containers.
+// The number of their elements is fixed.
+// The fraction has two elements: numerator and denominator.
+// It needs a special comparison function that knows how to
+// treat fractions correctly.
+//
 
 /**
- * Compares two parts.
+ * Compares the left- with the right operand.
  *
- * @param p0 the result
- * @param p1 the left operand part
- * @param p2 the right operand part
+ * @param p0 the result (number 1 if true; unchanged otherwise)
+ * @param p1 the left operand
+ * @param p2 the right operand
  * @param p3 the operation type
  * @param p4 the operand type
- * @param p5 the selection data
- * @param p6 the selection count
  */
-void compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void compare(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare.");
 
     // The comparison result.
+    // CAUTION! It is used instead of if-else statements.
+    // May be one day, this is useful when using assembler or implementing cyboi as hardware chip.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    //
+    // element
+    //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p5, (void*) ALL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p6, (void*) ALL_SELECTION_COMPARE_LOGIC_CYBOL_MODEL_COUNT);
+        compare_integer_equal((void*) &r, p4, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_all_part(p0, p1, p2, p3, p4);
+//??            compare_part(p0, p1, p2, p3, p4);
+        }
+    }
+
+    //
+    // number
+    //
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) BYTE_NUMBER_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            compare_character(p0, p1, p2, p3);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare. The selection is unknown.");
+        compare_integer_equal((void*) &r, p4, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            compare_complex(p0, p1, p2, p3);
+        }
     }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            compare_double(p0, p1, p2, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            compare_fraction(p0, p1, p2, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            compare_integer(p0, p1, p2, p3);
+        }
+    }
+
+    //
+    // pointer
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) POINTER_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            compare_pointer(p0, p1, p2, p3);
+        }
+    }
+
+    //
+    // text
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            compare_character(p0, p1, p2, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            compare_wide_character(p0, p1, p2, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare. The operand type is unknown.");
+    }
+}
+
+/**
+ * Compares the left- with the right operand
+ * using the given index to calculate an offset.
+ *
+ * @param p0 the result (number 1 if true; unchanged otherwise)
+ * @param p1 the left operand
+ * @param p2 the right operand
+ * @param p3 the operation type
+ * @param p4 the operand type
+ * @param p5 the index
+ */
+void compare_offset(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare offset.");
+
+    // The left operand, right operand.
+    // CAUTION! They HAVE TO BE initialised with p1 and p2,
+    // since an offset is added below.
+    void* l = p1;
+    void* r = p2;
+
+    // Add offset to left operand, right operand.
+    add_offset((void*) &l, p4, p5);
+    add_offset((void*) &r, p4, p5);
+
+    // Compare left operand with right operand.
+    compare(p0, l, r, p3, p4);
 }
 
 /* COMPARATOR_SOURCE */

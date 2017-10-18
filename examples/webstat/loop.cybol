@@ -142,7 +142,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.break"/>
         <node name="left" channel="inline" format="number/integer" model="0"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".app.var.count"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 </node>

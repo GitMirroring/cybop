@@ -33,7 +33,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer_criterion"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer_count"/>
         <node name="right" channel="inline" format="number/integer" model="0"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="copy_response_elements" channel="inline" format="flow/branch" model="">
         <node name="criterion" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer_criterion"/>
@@ -56,7 +55,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".settings.voltage_break"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".settings.voltage_count"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".settings.voltage_maximum_count"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <!-- Sleep for 100 ms = 100,000 us = 100,000,000 ns. -->
     <node name="sleep" channel="inline" format="run/sleep-nano" model="">

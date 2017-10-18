@@ -34,7 +34,7 @@
 #include "../../executor/checker/count_checker.c"
 #include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../executor/comparator/integer/less_integer_comparator.c"
-#include "../../executor/comparator/value_comparator.c"
+#include "../../executor/comparator/comparator.c"
 #include "../../executor/copier/integer_copier.c"
 #include "../../logger/logger.c"
 
@@ -52,11 +52,12 @@
  * @param p2 the right data
  * @param p3 the left count
  * @param p4 the right count
- * @param p5 the element success operation type
- * @param p6 the element failure operation type
- * @param p7 the count success operation type
+ * @param p5 the operand type
+ * @param p6 the element success operation type
+ * @param p7 the element failure operation type
+ * @param p8 the count success operation type
  */
-void check_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void check_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check element.");
 
@@ -74,7 +75,6 @@ void check_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     int r3 = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Assign loop count.
-    // Either p3 or p4 may be used, since both are equal (tested above).
     check_count((void*) &c, p3, p4);
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -85,7 +85,7 @@ void check_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
             // All elements have been compared and were equal.
             // Therefore, the array count (length) has to decide now.
-            compare_integer((void*) &r3, p3, p4, p7);
+            compare_integer((void*) &r3, p3, p4, p8);
 
             if (r3 != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -102,7 +102,7 @@ void check_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
             }
         }
 
-        compare_value_offset((void*) &r1, p1, p2, p5, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &j);
+        compare_offset((void*) &r1, p1, p2, p6, p5, (void*) &j);
 
         if (r1 != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -112,7 +112,7 @@ void check_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
             break;
         }
 
-        compare_value_offset((void*) &r2, p1, p2, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &j);
+        compare_offset((void*) &r2, p1, p2, p7, p5, (void*) &j);
 
         if (r2 != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

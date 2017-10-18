@@ -40,7 +40,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_1"/>
         <node name="right" channel="inline" format="number/integer" model="11"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_1_J"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else1" channel="inline" format="flow/branch" model="">
@@ -57,7 +56,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_1"/>
         <node name="right" channel="inline" format="number/integer" model="12"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_1_Q"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else3" channel="inline" format="flow/branch" model="">
@@ -74,7 +72,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_1"/>
         <node name="right" channel="inline" format="number/integer" model="13"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_1_K"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else5" channel="inline" format="flow/branch" model="">
@@ -91,7 +88,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_1"/>
         <node name="right" channel="inline" format="number/integer" model="14"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_1_A"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else7" channel="inline" format="flow/branch" model="">
@@ -110,7 +106,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_2"/>
         <node name="right" channel="inline" format="number/integer" model="11"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_2_J"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else11" channel="inline" format="flow/branch" model="">
@@ -127,7 +122,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_2"/>
         <node name="right" channel="inline" format="number/integer" model="12"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_2_Q"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else13" channel="inline" format="flow/branch" model="">
@@ -144,7 +138,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_2"/>
         <node name="right" channel="inline" format="number/integer" model="13"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_2_K"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else15" channel="inline" format="flow/branch" model="">
@@ -161,7 +154,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_2"/>
         <node name="right" channel="inline" format="number/integer" model="14"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_2_A"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else17" channel="inline" format="flow/branch" model="">
@@ -180,7 +172,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_3"/>
         <node name="right" channel="inline" format="number/integer" model="11"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_3_J"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else21" channel="inline" format="flow/branch" model="">
@@ -197,7 +188,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_3"/>
         <node name="right" channel="inline" format="number/integer" model="12"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_3_Q"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else23" channel="inline" format="flow/branch" model="">
@@ -214,7 +204,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_3"/>
         <node name="right" channel="inline" format="number/integer" model="13"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_3_K"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else25" channel="inline" format="flow/branch" model="">
@@ -231,7 +220,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_3"/>
         <node name="right" channel="inline" format="number/integer" model="14"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_3_A"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else27" channel="inline" format="flow/branch" model="">
@@ -252,7 +240,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_4"/>
         <node name="right" channel="inline" format="number/integer" model="11"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_4_J"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else31" channel="inline" format="flow/branch" model="">
@@ -269,7 +256,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_4"/>
         <node name="right" channel="inline" format="number/integer" model="12"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_4_Q"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else33" channel="inline" format="flow/branch" model="">
@@ -286,7 +272,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_4"/>
         <node name="right" channel="inline" format="number/integer" model="13"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_4_K"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else35" channel="inline" format="flow/branch" model="">
@@ -303,7 +288,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_4"/>
         <node name="right" channel="inline" format="number/integer" model="14"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_4_A"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else37" channel="inline" format="flow/branch" model="">
@@ -323,7 +307,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_5"/>
         <node name="right" channel="inline" format="number/integer" model="11"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_5_J"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else41" channel="inline" format="flow/branch" model="">
@@ -340,7 +323,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_5"/>
         <node name="right" channel="inline" format="number/integer" model="12"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_5_Q"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else43" channel="inline" format="flow/branch" model="">
@@ -357,7 +339,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_5"/>
         <node name="right" channel="inline" format="number/integer" model="13"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_5_K"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else45" channel="inline" format="flow/branch" model="">
@@ -374,7 +355,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_5"/>
         <node name="right" channel="inline" format="number/integer" model="14"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_5_A"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else47" channel="inline" format="flow/branch" model="">
@@ -394,7 +374,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_6"/>
         <node name="right" channel="inline" format="number/integer" model="11"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_6_J"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else51" channel="inline" format="flow/branch" model="">
@@ -411,7 +390,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_6"/>
         <node name="right" channel="inline" format="number/integer" model="12"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_6_Q"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else53" channel="inline" format="flow/branch" model="">
@@ -428,7 +406,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_6"/>
         <node name="right" channel="inline" format="number/integer" model="13"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_6_K"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else55" channel="inline" format="flow/branch" model="">
@@ -445,7 +422,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_6"/>
         <node name="right" channel="inline" format="number/integer" model="14"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_6_A"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else57" channel="inline" format="flow/branch" model="">
@@ -464,7 +440,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_7"/>
         <node name="right" channel="inline" format="number/integer" model="11"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_7_J"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else61" channel="inline" format="flow/branch" model="">
@@ -481,7 +456,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_7"/>
         <node name="right" channel="inline" format="number/integer" model="12"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_7_Q"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else63" channel="inline" format="flow/branch" model="">
@@ -498,7 +472,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_7"/>
         <node name="right" channel="inline" format="number/integer" model="13"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_7_K"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else65" channel="inline" format="flow/branch" model="">
@@ -515,7 +488,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_7"/>
         <node name="right" channel="inline" format="number/integer" model="14"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_7_A"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else67" channel="inline" format="flow/branch" model="">
@@ -534,7 +506,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_8"/>
         <node name="right" channel="inline" format="number/integer" model="11"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_8_J"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else71" channel="inline" format="flow/branch" model="">
@@ -551,7 +522,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_8"/>
         <node name="right" channel="inline" format="number/integer" model="12"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_8_Q"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else73" channel="inline" format="flow/branch" model="">
@@ -568,7 +538,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_8"/>
         <node name="right" channel="inline" format="number/integer" model="13"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_8_K"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else75" channel="inline" format="flow/branch" model="">
@@ -585,7 +554,6 @@
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_8"/>
         <node name="right" channel="inline" format="number/integer" model="14"/>
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_8_A"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else77" channel="inline" format="flow/branch" model="">

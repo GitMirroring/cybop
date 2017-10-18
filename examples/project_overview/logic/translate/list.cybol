@@ -40,7 +40,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model="#category_break"/>
         <node name="left" channel="inline" format="text/cybol-path" model="#category_index"/>
         <node name="right" channel="inline" format="text/cybol-path" model="#category_count"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="show_message" channel="inline" format="flow/branch" model="">

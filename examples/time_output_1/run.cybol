@@ -65,7 +65,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".counter.break"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".counter.count"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".counter.maximum"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="call_loop" channel="inline" format="flow/loop" model="">
         <node name="break" channel="inline" format="text/cybol-path" model=".counter.break"/>

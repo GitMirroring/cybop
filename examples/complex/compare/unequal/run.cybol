@@ -19,7 +19,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".model.result"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".model.left"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".model.right"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="print_unequal" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>

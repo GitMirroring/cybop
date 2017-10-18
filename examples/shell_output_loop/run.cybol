@@ -32,7 +32,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".shell_output_loop.break"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".shell_output_loop.count"/>
         <node name="right" channel="inline" format="number/integer" model="4"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="print" channel="inline" format="flow/loop" model="">
         <node name="break" channel="inline" format="text/cybol-path" model=".shell_output_loop.break"/>

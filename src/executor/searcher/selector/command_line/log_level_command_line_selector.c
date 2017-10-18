@@ -30,7 +30,7 @@
 #include "../../../../constant/model/cyboi/option/log_level_option_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/comparator/all/array_all_comparator.c"
+#include "../../../../executor/checker/array_checker.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 
@@ -53,7 +53,7 @@ void select_command_line_log_level(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) OFF_LOG_LEVEL_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) OFF_LOG_LEVEL_OPTION_CYBOI_MODEL_COUNT);
+        check_array((void*) &r, p1, (void*) OFF_LOG_LEVEL_OPTION_CYBOI_MODEL, p2, (void*) OFF_LOG_LEVEL_OPTION_CYBOI_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -63,7 +63,7 @@ void select_command_line_log_level(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) ERROR_LOG_LEVEL_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ERROR_LOG_LEVEL_OPTION_CYBOI_MODEL_COUNT);
+        check_array((void*) &r, p1, (void*) ERROR_LOG_LEVEL_OPTION_CYBOI_MODEL, p2, (void*) ERROR_LOG_LEVEL_OPTION_CYBOI_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -73,7 +73,7 @@ void select_command_line_log_level(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) WARNING_LOG_LEVEL_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) WARNING_LOG_LEVEL_OPTION_CYBOI_MODEL_COUNT);
+        check_array((void*) &r, p1, (void*) WARNING_LOG_LEVEL_OPTION_CYBOI_MODEL, p2, (void*) WARNING_LOG_LEVEL_OPTION_CYBOI_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -83,7 +83,7 @@ void select_command_line_log_level(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) INFORMATION_LOG_LEVEL_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) INFORMATION_LOG_LEVEL_OPTION_CYBOI_MODEL_COUNT);
+        check_array((void*) &r, p1, (void*) INFORMATION_LOG_LEVEL_OPTION_CYBOI_MODEL, p2, (void*) INFORMATION_LOG_LEVEL_OPTION_CYBOI_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -93,7 +93,7 @@ void select_command_line_log_level(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) DEBUG_LOG_LEVEL_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) DEBUG_LOG_LEVEL_OPTION_CYBOI_MODEL_COUNT);
+        check_array((void*) &r, p1, (void*) DEBUG_LOG_LEVEL_OPTION_CYBOI_MODEL, p2, (void*) DEBUG_LOG_LEVEL_OPTION_CYBOI_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -38,10 +38,10 @@
 #endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
+
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cybol/socket/protocol_socket_cybol_model.c"
-#include "../../../../executor/comparator/all/array_all_comparator.c"
+#include "../../../../executor/checker/array_checker.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 
@@ -77,7 +77,7 @@ void startup_socket_protocol(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) BTHPROTO_RFCOMM_PROTOCOL_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) BTHPROTO_RFCOMM_PROTOCOL_SOCKET_CYBOL_MODEL_COUNT);
+        check_array((void*) &r, p1, (void*) BTHPROTO_RFCOMM_PROTOCOL_SOCKET_CYBOL_MODEL, p2, (void*) BTHPROTO_RFCOMM_PROTOCOL_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -87,7 +87,7 @@ void startup_socket_protocol(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) ICMP_PROTOCOL_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ICMP_PROTOCOL_SOCKET_CYBOL_MODEL_COUNT);
+        check_array((void*) &r, p1, (void*) ICMP_PROTOCOL_SOCKET_CYBOL_MODEL, p2, (void*) ICMP_PROTOCOL_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -97,7 +97,7 @@ void startup_socket_protocol(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) ICMPV6_PROTOCOL_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ICMPV6_PROTOCOL_SOCKET_CYBOL_MODEL_COUNT);
+        check_array((void*) &r, p1, (void*) ICMPV6_PROTOCOL_SOCKET_CYBOL_MODEL, p2, (void*) ICMPV6_PROTOCOL_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -110,7 +110,7 @@ void startup_socket_protocol(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) IGMP_PROTOCOL_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) IGMP_PROTOCOL_SOCKET_CYBOL_MODEL_COUNT);
+        check_array((void*) &r, p1, (void*) IGMP_PROTOCOL_SOCKET_CYBOL_MODEL, p2, (void*) IGMP_PROTOCOL_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -120,7 +120,7 @@ void startup_socket_protocol(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) RAW_PROTOCOL_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) RAW_PROTOCOL_SOCKET_CYBOL_MODEL_COUNT);
+        check_array((void*) &r, p1, (void*) RAW_PROTOCOL_SOCKET_CYBOL_MODEL, p2, (void*) RAW_PROTOCOL_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -130,7 +130,7 @@ void startup_socket_protocol(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) RM_PROTOCOL_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) RM_PROTOCOL_SOCKET_CYBOL_MODEL_COUNT);
+        check_array((void*) &r, p1, (void*) RM_PROTOCOL_SOCKET_CYBOL_MODEL, p2, (void*) RM_PROTOCOL_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -140,7 +140,7 @@ void startup_socket_protocol(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) TCP_PROTOCOL_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) TCP_PROTOCOL_SOCKET_CYBOL_MODEL_COUNT);
+        check_array((void*) &r, p1, (void*) TCP_PROTOCOL_SOCKET_CYBOL_MODEL, p2, (void*) TCP_PROTOCOL_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -150,7 +150,7 @@ void startup_socket_protocol(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) UDP_PROTOCOL_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) UDP_PROTOCOL_SOCKET_CYBOL_MODEL_COUNT);
+        check_array((void*) &r, p1, (void*) UDP_PROTOCOL_SOCKET_CYBOL_MODEL, p2, (void*) UDP_PROTOCOL_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

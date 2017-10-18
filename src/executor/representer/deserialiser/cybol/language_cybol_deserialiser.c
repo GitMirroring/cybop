@@ -33,9 +33,9 @@
 #include "../../../../constant/language/cybol/state/message_state_cybol_language.c"
 #include "../../../../constant/language/cybol/state/text_state_cybol_language.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
+
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../executor/comparator/all/array_all_comparator.c"
+#include "../../../../executor/checker/array_checker.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 
@@ -70,7 +70,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) BUDDHIST_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) BUDDHIST_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) BUDDHIST_CHRONOLOGY_STATE_CYBOL_LANGUAGE, p2, (void*) BUDDHIST_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -80,7 +80,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) COPTIC_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) COPTIC_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) COPTIC_CHRONOLOGY_STATE_CYBOL_LANGUAGE, p2, (void*) COPTIC_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -90,7 +90,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) ETHIOPIC_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ETHIOPIC_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) ETHIOPIC_CHRONOLOGY_STATE_CYBOL_LANGUAGE, p2, (void*) ETHIOPIC_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -100,7 +100,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) GREGORIAN_JULIAN_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) GREGORIAN_JULIAN_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) GREGORIAN_JULIAN_CHRONOLOGY_STATE_CYBOL_LANGUAGE, p2, (void*) GREGORIAN_JULIAN_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -110,7 +110,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) GREGORIAN_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) GREGORIAN_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) GREGORIAN_CHRONOLOGY_STATE_CYBOL_LANGUAGE, p2, (void*) GREGORIAN_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -120,7 +120,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) ISLAMIC_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ISLAMIC_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) ISLAMIC_CHRONOLOGY_STATE_CYBOL_LANGUAGE, p2, (void*) ISLAMIC_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -130,7 +130,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) ISO_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ISO_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) ISO_CHRONOLOGY_STATE_CYBOL_LANGUAGE, p2, (void*) ISO_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -140,7 +140,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) JD_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) JD_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) JD_CHRONOLOGY_STATE_CYBOL_LANGUAGE, p2, (void*) JD_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -150,7 +150,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) JULIAN_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) JULIAN_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) JULIAN_CHRONOLOGY_STATE_CYBOL_LANGUAGE, p2, (void*) JULIAN_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -160,7 +160,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) MJD_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) MJD_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) MJD_CHRONOLOGY_STATE_CYBOL_LANGUAGE, p2, (void*) MJD_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -170,7 +170,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) POSIX_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) POSIX_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) POSIX_CHRONOLOGY_STATE_CYBOL_LANGUAGE, p2, (void*) POSIX_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -180,7 +180,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) TAI_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) TAI_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) TAI_CHRONOLOGY_STATE_CYBOL_LANGUAGE, p2, (void*) TAI_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -190,7 +190,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) TI_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) TI_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) TI_CHRONOLOGY_STATE_CYBOL_LANGUAGE, p2, (void*) TI_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -200,7 +200,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) TJD_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) TJD_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) TJD_CHRONOLOGY_STATE_CYBOL_LANGUAGE, p2, (void*) TJD_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -210,7 +210,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) UTC_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) UTC_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) UTC_CHRONOLOGY_STATE_CYBOL_LANGUAGE, p2, (void*) UTC_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -225,7 +225,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 /*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) X_WINAMP_SKIN_INTERFACE_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) X_WINAMP_SKIN_INTERFACE_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) X_WINAMP_SKIN_INTERFACE_STATE_CYBOL_LANGUAGE, p2, (void*) X_WINAMP_SKIN_INTERFACE_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -240,7 +240,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) BINARY_MESSAGE_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) BINARY_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) BINARY_MESSAGE_STATE_CYBOL_LANGUAGE, p2, (void*) BINARY_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -250,7 +250,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) CLI_MESSAGE_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CLI_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) CLI_MESSAGE_STATE_CYBOL_LANGUAGE, p2, (void*) CLI_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -260,7 +260,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) GUI_MESSAGE_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) GUI_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) GUI_MESSAGE_STATE_CYBOL_LANGUAGE, p2, (void*) GUI_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -270,7 +270,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) HTTP_REQUEST_MESSAGE_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) HTTP_REQUEST_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) HTTP_REQUEST_MESSAGE_STATE_CYBOL_LANGUAGE, p2, (void*) HTTP_REQUEST_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -280,7 +280,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) HTTP_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) HTTP_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) HTTP_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE, p2, (void*) HTTP_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -290,7 +290,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) NEWS_MESSAGE_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) NEWS_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) NEWS_MESSAGE_STATE_CYBOL_LANGUAGE, p2, (void*) NEWS_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -300,7 +300,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) TUI_MESSAGE_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) TUI_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) TUI_MESSAGE_STATE_CYBOL_LANGUAGE, p2, (void*) TUI_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -314,7 +314,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) BDT_TEXT_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) BDT_TEXT_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) BDT_TEXT_STATE_CYBOL_LANGUAGE, p2, (void*) BDT_TEXT_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -324,7 +324,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) CYBOL_TEXT_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CYBOL_TEXT_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) CYBOL_TEXT_STATE_CYBOL_LANGUAGE, p2, (void*) CYBOL_TEXT_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -334,7 +334,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) GDT_TEXT_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) GDT_TEXT_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) GDT_TEXT_STATE_CYBOL_LANGUAGE, p2, (void*) GDT_TEXT_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -344,7 +344,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) HTML_TEXT_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) HTML_TEXT_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) HTML_TEXT_STATE_CYBOL_LANGUAGE, p2, (void*) HTML_TEXT_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -354,7 +354,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) LDT_TEXT_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) LDT_TEXT_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) LDT_TEXT_STATE_CYBOL_LANGUAGE, p2, (void*) LDT_TEXT_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -364,7 +364,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) MODEL_DIAGRAM_TEXT_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) MODEL_DIAGRAM_TEXT_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) MODEL_DIAGRAM_TEXT_STATE_CYBOL_LANGUAGE, p2, (void*) MODEL_DIAGRAM_TEXT_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -374,7 +374,7 @@ void deserialise_cybol_language(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) XDT_FIELD_DESCRIPTION_TEXT_STATE_CYBOL_LANGUAGE, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) XDT_FIELD_DESCRIPTION_TEXT_STATE_CYBOL_LANGUAGE_COUNT);
+        check_array((void*) &r, p1, (void*) XDT_FIELD_DESCRIPTION_TEXT_STATE_CYBOL_LANGUAGE, p2, (void*) XDT_FIELD_DESCRIPTION_TEXT_STATE_CYBOL_LANGUAGE_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

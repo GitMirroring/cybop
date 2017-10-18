@@ -648,8 +648,8 @@ Implementation:
 Implement lexicographical comparison in cybop directory called "src/executor/checker/"
 ONLY for type "wide_character", since "lexicographical" in effect means "type wide_character".
 If integer, double or fraction, a date-time etc. have to be sorted lexicographically,
-then sort them internally (for date using e.g. cyboi type "datetime") and
-only afterwards, serialise them into type "wide_character" (string)!
+then sort them INTERNALLY (for date using e.g. cyboi type "datetime") and
+only AFTERWARDS, serialise them into type "wide_character" (string)!
 
 Java:
 - many programming languages (e.g. Java) return value -1 if lesser, 0 if equal, 1 if greater

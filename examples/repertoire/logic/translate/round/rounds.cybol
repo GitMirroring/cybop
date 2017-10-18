@@ -23,7 +23,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model="#round_break"/>
         <node name="left" channel="inline" format="text/cybol-path" model="#round_index"/>
         <node name="right" channel="inline" format="text/cybol-path" model="#round_count"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="loop_nodes" channel="inline" format="flow/loop" model="">

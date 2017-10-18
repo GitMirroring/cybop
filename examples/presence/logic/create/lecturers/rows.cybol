@@ -12,7 +12,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.lecturers.loop.break"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".app.var.lecturers.loop.index"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".app.var.lecturers.loop.count"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="loop_lecturers" channel="inline" format="flow/loop" model="">

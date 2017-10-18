@@ -18,10 +18,18 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-10-18  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Replace function call of "compare_all_array" with "check_array"
+        * Provide function "check_array_ascii" for type "character", to be used in file "header_field_http_request_selector.c"
+        * Remove property "selection" with value "all" for cybol operations "compare/", in all cybol examples
+
 2017-10-12  Christian Heller  <christian.heller@tuxtax.de>
 
         * Optimise lexicographical comparison functions in checker, by deleting redundant functions and using parametres instead
-        * Add cybol example application "lexicographical_comparison"
+        * Replace cybol example application "string_comparison" with "lexicographical_comparison"
+        * Remove "all" comparator in directory "executor/comparator/"
+        * Rename "value_comparator.c" into "comparator.c"
 
 2017-10-11  Christian Heller  <christian.heller@tuxtax.de>
 
