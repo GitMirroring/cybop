@@ -15,7 +15,10 @@ Comparison
 __________
 
         * Search bug causing cybol example applications to not run at all
+            - signal created in file "initialiser.c" is empty
+            - is it read in correctly in cybol deserialiser?
     fwprintf(stdout, L"TEST communicator.\n");
+        * Remove function call of "test" in file "initialiser.c"
 
         * Replace last three arguments (count, left_index, right_index) of function call "compare_part" with cybol property values in file "type_compare.c"
         * Add indices as property in "apply_compare"

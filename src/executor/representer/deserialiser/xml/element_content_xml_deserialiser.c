@@ -27,7 +27,6 @@
 #define ELEMENT_CONTENT_XML_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -60,6 +59,9 @@ void deserialise_xml_element_content(void* p0, void* p1, void* p2, void* p3) {
         // b) would have to be reset to true in each loop cycle.
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
+
+    fwprintf(stdout, L"TEST deserialise xml element content p3 rem: %i\n", *((int*) p3));
+    fwprintf(stdout, L"TEST deserialise xml element content p2 pos: %ls\n", (wchar_t*) *((void**) p2));
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -1,4 +1,4 @@
-/*
+ /*
  * Copyright (C) 1999-2017. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
