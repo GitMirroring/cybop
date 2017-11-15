@@ -14,15 +14,12 @@
 Comparison
 __________
 
-        * Adapt function call of "count_array_element" in function "count_array_element" of file "executor/accessor/counter/array_counter.c" using new checker or search functions
-            + Adapt corresponding cybol example "get_count"
-        * Reactivate function call of "compare_part" for PART_ELEMENT_STATE_CYBOI_TYPE in file "comparator.c" ??
-
         * Replace last three arguments (count, left_index, right_index) of function call "compare_part" with cybol property values in file "type_compare.c"
         * Add indices as property in "apply_compare"
         * Fix count comparison in item_comparator and item_calculator etc. where (count + index) has to be considered (index forgotten up to now)
         * Continue updating comparator, to make it work again with vectors
 
+        * Reactivate function call of "compare_part" for PART_ELEMENT_STATE_CYBOI_TYPE in file "comparator.c" ??
         * Clean up sections marked "TODO" in file "executor/comparator/part_comparator.c"
 
         * Move cybol operations for "prefix", "suffix", "subsequence", "all" from "executor/comparator/" to "executor/searcher/"
@@ -31,6 +28,9 @@ __________
         * Merge "executor/searcher/finder/" with "executor/searcher/name_finder/"
         * Check if it is necessary to adapt function "find_array_elements" to using "check_array" instead of "compare_array", in file "array_finder.c"
         * Move or remove file "selection_compare_logic_cybol_model.c"
+
+        * Adapt function "count_array_element" of file "executor/accessor/counter/array_counter.c" using new searcher / finder for filter string and selection
+        * Adapt corresponding cybol example application "get_count"
 
 General
 _______

@@ -21,6 +21,8 @@
 2017-11-15  Christian Heller  <christian.heller@tuxtax.de>
 
         * Test dereferenced pointers for null in all files of pointer calculator, so that function "add_offset" does not produce wild pointers
+        * Replace function call of "compare_element" with new checker in function "count_array_element" of file "executor/accessor/counter/array_counter.c"
+        * Adapt corresponding cybol example application "get_count"
 
 2017-11-14  Christian Heller  <christian.heller@tuxtax.de>
 

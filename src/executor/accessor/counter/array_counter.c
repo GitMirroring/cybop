@@ -32,8 +32,8 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/calculator/integer/add_integer_calculator.c"
+#include "../../../executor/checker/array_checker.c"
 #include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
-#include "../../../executor/comparator/comparator.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"
@@ -55,14 +55,24 @@ void count_array_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
     // The part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The part name item.
+    void* pn = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The part name item data, count.
+    void* pnd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pnc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Get part at index from investigated pointer array.
     copy_array_forward((void*) &p, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
+    // Get part name item.
+    copy_array_forward((void*) &pn, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
+    // Get part name item data, count.
+    copy_array_forward((void*) &pnd, pn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &pnc, pn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Compare part name item with given filter string.
-//??    compare_element((void*) &r, p, p3, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) NAME_PART_STATE_CYBOI_NAME, p5, p6);
+    check_array((void*) &r, pnd, p3, pnc, p4, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

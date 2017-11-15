@@ -27,7 +27,6 @@
 #define COUNT_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/access/count_access_logic_cybol_name.c"
@@ -48,8 +47,6 @@
  * - filter (optional; corresponds with "selection" property):
  *   string to compare the elements' names with;
  *   only those parts will be counted whose name matches the filter string
- *
- * Constraints:
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

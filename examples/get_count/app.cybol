@@ -1,0 +1,9 @@
+<node>
+
+    <node name="count" channel="inline" format="number/integer" model="0"/>
+
+    <node name="hello" channel="inline" format="number/integer" model="0"/>
+    <node name="world" channel="inline" format="number/integer" model="0"/>
+    <node name="blubla" channel="inline" format="number/integer" model="0"/>
+
+</node>

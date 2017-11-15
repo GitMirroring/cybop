@@ -26,7 +26,6 @@
 #ifndef ITEM_COUNTER_SOURCE
 #define ITEM_COUNTER_SOURCE
 
- 
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
@@ -60,26 +59,25 @@ void count_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     copy_array_forward((void*) &d, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+    //
     // CAUTION! Only parts with format "element/part" have
     // child nodes which again have names that may be filtered.
-    // A part representing an array of primitive data like
-    // "number/integer" has children, but those children
-    // (the single integer numbers) do not have a name to
-    // compare with.
+    // A part representing an array of primitive data like "number/integer" has children,
+    // but those children (the single integer numbers) do not have a name to compare with.
     //
-    // Ignoring the following test would lead to
-    // "Segmentation fault" errors in cyboi.
+    // Ignoring the following test would lead to "Segmentation fault" errors in cyboi.
     //
     // Therefore, filtering for the selection makes sense
     // ONLY if the part's format is "element/part"
     // (which means the part's children are of that type).
+    //
     compare_integer_equal((void*) &r, p6, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // The part's format is "element/part".
 
-        // CAUTION! Test both, selection AND filter for null.
+        // CAUTION! Test both, filter AND selection for null.
         // Otherwise, a "Segmentation fault" might occur.
         if ((p2 != *NULL_POINTER_STATE_CYBOI_MODEL) && (p4 != *NULL_POINTER_STATE_CYBOI_MODEL)) {
 
