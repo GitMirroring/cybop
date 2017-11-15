@@ -26,7 +26,6 @@
 #ifndef SUBTRACT_POINTER_CALCULATOR_SOURCE
 #define SUBTRACT_POINTER_CALCULATOR_SOURCE
 
- 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../logger/logger.c"
@@ -47,9 +46,24 @@ void calculate_pointer_subtract(void* p0, void* p1) {
 
             void** d = (void**) p0;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate pointer subtract.");
+            //
+            // CAUTION! This test of the dereferenced pointer for null IS IMPORTANT.
+            // Functions like "add_offset" use pointer calculation
+            // WITHOUT testing operands for null before.
+            // Therefore, also the INTERNAL (encapsulated) pointer has to be tested here.
+            // Otherwise, an offset might be added to a null pointer
+            // leading to wild pointers with unpredictable behaviour.
+            //
+            if (*d != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            *d = (void*) ((size_t) *d - *s);
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate pointer subtract.");
+
+                *d = (void*) ((size_t) *d - *s);
+
+            } else {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate pointer subtract. The dereferenced difference is null.");
+            }
 
         } else {
 

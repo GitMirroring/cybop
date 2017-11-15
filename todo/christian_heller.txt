@@ -14,21 +14,9 @@
 Comparison
 __________
 
-        * BUG is caused by:
-        * File "executor/checker/element_checker.c" is using "comparator.c"
-        * Test for null before adding offset in function "compare_offset" of file "comparator.c"
-
         * Adapt function call of "count_array_element" in function "count_array_element" of file "executor/accessor/counter/array_counter.c" using new checker or search functions
             + Adapt corresponding cybol example "get_count"
         * Reactivate function call of "compare_part" for PART_ELEMENT_STATE_CYBOI_TYPE in file "comparator.c" ??
-
-        * Search bug causing cybol example applications to not run at all
-            --> problem lies in commented out function call of "compare_all_part_element" in file "executor/searcher/name_finder/fifo_array_name_finder.c"
-            + also adapt file "executor/searcher/name_finder/lifo_array_name_finder.c"
-            - signal created in file "initialiser.c" is empty
-            - is it read in correctly in cybol deserialiser?
-    fwprintf(stdout, L"TEST communicator.\n");
-        * Remove function call of "test" in file "initialiser.c"
 
         * Replace last three arguments (count, left_index, right_index) of function call "compare_part" with cybol property values in file "type_compare.c"
         * Add indices as property in "apply_compare"

@@ -26,7 +26,6 @@
 #ifndef MULTIPLY_POINTER_CALCULATOR_SOURCE
 #define MULTIPLY_POINTER_CALCULATOR_SOURCE
 
- 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../logger/logger.c"
@@ -52,9 +51,39 @@ void calculate_pointer_difference(void* p0, void* p1, void* p2) {
 
                 int* d = (int*) p0;
 
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate pointer difference.");
+                //
+                // CAUTION! This test of the dereferenced pointer for null IS IMPORTANT.
+                // Functions like "add_offset" use pointer calculation
+                // WITHOUT testing operands for null before.
+                // Therefore, also the INTERNAL (encapsulated) pointer has to be tested here.
+                // Otherwise, an offset might be added to a null pointer
+                // leading to wild pointers with unpredictable behaviour.
+                //
+                if (*s != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                *d = *m - *s;
+                    //
+                    // CAUTION! This test of the dereferenced pointer for null IS IMPORTANT.
+                    // Functions like "add_offset" use pointer calculation
+                    // WITHOUT testing operands for null before.
+                    // Therefore, also the INTERNAL (encapsulated) pointer has to be tested here.
+                    // Otherwise, an offset might be added to a null pointer
+                    // leading to wild pointers with unpredictable behaviour.
+                    //
+                    if (*m != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate pointer difference.");
+
+                        *d = *m - *s;
+
+                    } else {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate pointer difference. The dereferenced minuend is null.");
+                    }
+
+                } else {
+
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate pointer difference. The dereferenced subtrahend is null.");
+                }
 
             } else {
 

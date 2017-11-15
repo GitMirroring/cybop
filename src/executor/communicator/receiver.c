@@ -160,12 +160,12 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // CAUTION! The buffer argument may be of e.g.
     // type "char" or type "wchar_t" or type "void*", which is IRRELEVANT.
     // This function knows how to handle it, depending on the given language.
-fwprintf(stdout, L"TEST receive data ac: %i\n", *((int*) ac));
-fwprintf(stdout, L"TEST receive data ad: %ls\n", (wchar_t*) ad);
+//?? fwprintf(stdout, L"TEST receive data deserialise pre *ac: %i\n", *((int*) ac));
+//?? fwprintf(stdout, L"TEST receive data deserialise pre ad: %ls\n", (wchar_t*) ad);
     receive_deserialise(p0, p1, ad, ac, p6, p7, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p12, p13);
     if ((p13 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p13) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
-//?? fwprintf(stdout, L"TEST receive data deserialise *ac: %i\n", *((int*) ac));
-//?? fwprintf(stdout, L"TEST receive data deserialise ad: %s\n", (char*) ad);
+//?? fwprintf(stdout, L"TEST receive data deserialise post *ac: %i\n", *((int*) ac));
+//?? fwprintf(stdout, L"TEST receive data deserialise post ad: %s\n", (char*) ad);
     }
     // Deallocate display event.
     receive_deallocate(b, p15);

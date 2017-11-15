@@ -28,7 +28,6 @@
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../controller/manager/services_shutdown_manager.c"
 #include "../../executor/maintainer/shutter/display/display_shutter.c"
@@ -51,13 +50,13 @@ void manage_shutdown(void* p0) {
     // corresponding service shutdown operation in cybol logic templates.
     // The "interrupt" procedures are called within the "shutdown" procedures.
 
-//?? fwprintf(stdout, L"TEST manage shutdown p0: %i\n", p0);
-
     // Shutdown display.
     shutdown_display(p0, (void*) DISPLAY_THREAD, (void*) DISPLAY_EXIT); //?? TODO: This is the OLD version, soon to be replaced with "manage_shutdown_all"
     // Shutdown serial port.
     shutdown_serial_port(p0, (void*) SERIAL_THREAD, (void*) SERIAL_EXIT); //?? TODO: This is the OLD version, soon to be replaced with "manage_shutdown_all"
     // Shutdown socket.
+    // CAUTION! The delay is caused by the large number of potential services (65536).
+    // However, speed is more important at system startup than at shutdown.
     manage_shutdown_services(p0, (void*) NUMBER_65536_INTEGER_STATE_CYBOI_MODEL, (void*) SOCKET_CYBOI_CHANNEL);
     // Shutdown terminal.
     shutdown_terminal(p0, (void*) TERMINAL_THREAD, (void*) TERMINAL_EXIT); //?? TODO: This is the OLD version, soon to be replaced with "manage_shutdown_all"

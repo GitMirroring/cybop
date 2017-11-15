@@ -149,15 +149,12 @@ void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* 
     void* smmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get source name, channel, encoding, language, format, model part.
-fwprintf(stdout, L"TEST deserialise cybol part element content 0: %i\n", sn);
     get_name_array((void*) &sn, p3, (void*) NAME_CYBOL_NAME, (void*) NAME_CYBOL_NAME_COUNT, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-fwprintf(stdout, L"TEST deserialise cybol part element content 1: %i\n", sn);
     get_name_array((void*) &sc, p3, (void*) CHANNEL_CYBOL_NAME, (void*) CHANNEL_CYBOL_NAME_COUNT, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     get_name_array((void*) &se, p3, (void*) ENCODING_CYBOL_NAME, (void*) ENCODING_CYBOL_NAME_COUNT, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     get_name_array((void*) &sl, p3, (void*) LANGUAGE_CYBOL_NAME, (void*) LANGUAGE_CYBOL_NAME_COUNT, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     get_name_array((void*) &sf, p3, (void*) FORMAT_CYBOL_NAME, (void*) FORMAT_CYBOL_NAME_COUNT, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     get_name_array((void*) &sm, p3, (void*) MODEL_CYBOL_NAME, (void*) MODEL_CYBOL_NAME_COUNT, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-fwprintf(stdout, L"TEST deserialise cybol part element content 2: %i\n", sn);
 
     //
     // Get source name, channel, encoding, language, format, model item.
@@ -178,16 +175,13 @@ fwprintf(stdout, L"TEST deserialise cybol part element content 2: %i\n", sn);
     // with elements pointing to different memory areas now.
     //
     copy_array_forward((void*) &snm, sn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-fwprintf(stdout, L"TEST deserialise cybol part element content 3: %i\n", sn);
     copy_array_forward((void*) &scm, sc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sem, se, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &slm, sl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sfm, sf, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smm, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get source name, channel, encoding, language, format, model data, count.
-fwprintf(stdout, L"TEST deserialise cybol part element content 4: %i\n", sn);
     copy_array_forward((void*) &snmd, snm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-fwprintf(stdout, L"TEST deserialise cybol part element content 5: %i\n", sn);
     copy_array_forward((void*) &snmc, snm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &scmd, scm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &scmc, scm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
@@ -199,7 +193,6 @@ fwprintf(stdout, L"TEST deserialise cybol part element content 5: %i\n", sn);
     copy_array_forward((void*) &sfmc, sfm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smmd, smm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smmc, smm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-fwprintf(stdout, L"TEST deserialise cybol part element content 6: %i\n", sn);
 
     // The root flag.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -233,8 +226,6 @@ fwprintf(stdout, L"TEST deserialise cybol part element content 6: %i\n", sn);
 
         copy_integer((void*) &r, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
-
-fwprintf(stdout, L"TEST deserialise cybol part element content 7 r: %i\n", r);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -287,8 +278,6 @@ fwprintf(stdout, L"TEST deserialise cybol part element content 7 r: %i\n", r);
         modify_item(f, (void*) ASCII_TEXT_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
         modify_item(t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
-fwprintf(stdout, L"TEST deserialise cybol part element content 8 r: %i\n", r);
-
         // Decode cybol source format (mime type as string) into cyboi-internal format (an integer).
         deserialise_cybol_format(f, sfmd, sfmc);
         // Get temporary format item data.
@@ -307,7 +296,6 @@ fwprintf(stdout, L"TEST deserialise cybol part element content 8 r: %i\n", r);
         // Inside the structure, arrays may have been reallocated,
         // with elements pointing to different memory areas now.
         copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-fwprintf(stdout, L"TEST deserialise cybol part element content 9 r: %i\n", r);
 
 /*??
 fwprintf(stdout, L"TEST content element part cybol deserialiser *slmc: %i\n", *((int*) slmc));
@@ -340,31 +328,19 @@ fwprintf(stdout, L"TEST content element part cybol deserialiser td: %i\n", *((in
         copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
         copy_array_forward((void*) &pp, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
-fwprintf(stdout, L"TEST deserialise cybol part element content 10 r: %i\n", r);
         // Fill part name item.
         modify_item(pn, snmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, snmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-fwprintf(stdout, L"TEST deserialise cybol part element content 11 scmc: %i\n", *((int*) scmc));
-fwprintf(stdout, L"TEST deserialise cybol part element content 11 scmd: %ls\n", (wchar_t*) scmd);
         // Fill part channel item.
         deserialise_cybol_channel(pc, scmd, scmc);
-fwprintf(stdout, L"TEST deserialise cybol part element content 12 semc: %i\n", semc);
-//?? fwprintf(stdout, L"TEST deserialise cybol part element content 12 *semc: %i\n", *((int*) semc));
-fwprintf(stdout, L"TEST deserialise cybol part element content 12 semd: %ls\n", (wchar_t*) semd);
         // Fill part encoding item.
         deserialise_cybol_encoding(pe, semd, semc);
-fwprintf(stdout, L"TEST deserialise cybol part element content 12a slmc: %i\n", slmc);
-//?? fwprintf(stdout, L"TEST deserialise cybol part element content 12a slmc: %i\n", *((int*) slmc));
-fwprintf(stdout, L"TEST deserialise cybol part element content 12a slmd: %ls\n", (wchar_t*) slmd);
         // Fill part language item.
         deserialise_cybol_language(pl, slmd, slmc);
-fwprintf(stdout, L"TEST deserialise cybol part element content 12b r: %i\n", r);
 //??        modify_item(pl, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
         // Fill part format item.
         modify_item(pf, fd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-fwprintf(stdout, L"TEST deserialise cybol part element content 12c r: %i\n", r);
         // Fill part type item.
         modify_item(pt, td, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-fwprintf(stdout, L"TEST deserialise cybol part element content 13 r: %i\n", r);
 
         // Get part channel item data.
         // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -381,8 +357,6 @@ fwprintf(stdout, L"TEST deserialise cybol part element content 13 r: %i\n", r);
         // Inside the structure, arrays may have been reallocated,
         // with elements pointing to different memory areas now.
         copy_array_forward((void*) &pld, pl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-fwprintf(stdout, L"TEST deserialise cybol part element content 14 r: %i\n", r);
 
 //?? fwprintf(stdout, L"TEST content element part cybol deserialiser 1 ped: %i\n", ped);
 //?? fwprintf(stdout, L"TEST content element part cybol deserialiser 1 *ped: %i\n", *((int*) ped));
@@ -453,8 +427,6 @@ fwprintf(stdout, L"TEST deserialise cybol part element content 14 r: %i\n", r);
             }
         }
 
-fwprintf(stdout, L"TEST deserialise cybol part element content 15 r: %i\n", r);
-
 //?? fwprintf(stdout, L"TEST content element part cybol deserialiser 2 ped: %i\n", ped);
 //?? fwprintf(stdout, L"TEST content element part cybol deserialiser 2 *ped: %i\n", *((int*) ped));
 
@@ -468,12 +440,10 @@ fwprintf(stdout, L"TEST deserialise cybol part element content 15 r: %i\n", r);
         // but the internal memory (second-last parametre) is only necessary for
         // "terminal", "display" and similar channels.
         receive_data(pm, *NULL_POINTER_STATE_CYBOI_MODEL, smmd, smmc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, fd, pld, ped, pcd);
-fwprintf(stdout, L"TEST deserialise cybol part element content 16 r: %i\n", r);
         // Fill part properties item taken from cybol source part model.
         // CAUTION! What is the model hierarchy in a parsed xml/cybol file,
         // becomes the properties (meta data) in the cyboi-internal knowledge tree.
         deserialise_cybol_part(pp, p1, p2);
-fwprintf(stdout, L"TEST deserialise cybol part element content 17 r: %i\n", r);
 
         //?? TEST ONLY:
         if (pld != *NULL_POINTER_STATE_CYBOI_MODEL) {
@@ -498,8 +468,6 @@ fwprintf(stdout, L"TEST deserialise cybol part element content 17 r: %i\n", r);
         // This is necessary in order to activate rubbish (garbage) collection.
         modify_item(p0, (void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
-fwprintf(stdout, L"TEST deserialise cybol part element content 18 r: %i\n", r);
-
         // Deallocate temporary format, type item.
         //
         // CAUTION! Deallocate these ONLY HERE, since they are used
@@ -510,8 +478,6 @@ fwprintf(stdout, L"TEST deserialise cybol part element content 18 r: %i\n", r);
     } else {
 
         // This is a root node.
-
-fwprintf(stdout, L"TEST deserialise cybol part element content root: %i\n", r);
 
         // Fill part properties taken from cybol source part model.
         // CAUTION! What is the model hierarchy in a parsed xml/cybol file,
