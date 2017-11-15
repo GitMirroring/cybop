@@ -60,9 +60,6 @@ void deserialise_xml_element_content(void* p0, void* p1, void* p2, void* p3) {
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
-    fwprintf(stdout, L"TEST deserialise xml element content p3 rem: %i\n", *((int*) p3));
-    fwprintf(stdout, L"TEST deserialise xml element content p2 pos: %ls\n", (wchar_t*) *((void**) p2));
-
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_less_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);

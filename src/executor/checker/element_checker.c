@@ -74,12 +74,20 @@ void check_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     // The comparison result 3.
     int r3 = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+fwprintf(stdout, L"TEST check element 0: %i\n", c);
+
     // Assign loop count.
     check_count((void*) &c, p3, p4);
 
+fwprintf(stdout, L"TEST check element 1: %i\n", c);
+
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+fwprintf(stdout, L"TEST check element 2: %i\n", c);
+
         compare_integer_greater_or_equal((void*) &b, (void*) &j, (void*) &c);
+
+fwprintf(stdout, L"TEST check element 3: %i\n", c);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -87,10 +95,16 @@ void check_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
             // Therefore, the array count (length) has to decide now.
             compare_integer((void*) &r3, p3, p4, p8);
 
+fwprintf(stdout, L"TEST check element 3.1: %i\n", c);
+
             if (r3 != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+fwprintf(stdout, L"TEST check element 3.1.1: %i\n", c);
 
                 // The left array count matches the comparison criterion.
                 copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+fwprintf(stdout, L"TEST check element 3.1.2: %i\n", c);
 
                 break;
 
@@ -98,28 +112,46 @@ void check_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
                 // The left array count fails the comparison criterion.
 
+fwprintf(stdout, L"TEST check element 3.1.2: %i\n", c);
+
                 break;
             }
         }
 
+fwprintf(stdout, L"TEST check element 4: %i\n", c);
+
         compare_offset((void*) &r1, p1, p2, p6, p5, (void*) &j);
 
+fwprintf(stdout, L"TEST check element 5: %i\n", c);
+
         if (r1 != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+fwprintf(stdout, L"TEST check element 5.1: %i\n", c);
 
             // An element that matches the comparison criterion has been found.
             copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
+fwprintf(stdout, L"TEST check element 5.2: %i\n", c);
+
             break;
         }
 
+fwprintf(stdout, L"TEST check element 6: %i\n", c);
+
         compare_offset((void*) &r2, p1, p2, p7, p5, (void*) &j);
+
+fwprintf(stdout, L"TEST check element 7: %i\n", c);
 
         if (r2 != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // An element that fails the comparison criterion has been found.
 
+fwprintf(stdout, L"TEST check element 7.1: %i\n", c);
+
             break;
         }
+
+fwprintf(stdout, L"TEST check element 8: %i\n", c);
 
         j++;
     }

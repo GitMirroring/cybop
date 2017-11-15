@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-11-15  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Replace function call of "compare_all_part_element" with new checker in functions "find_name_array_fifo" and "find_name_array_lifo" of directory "executor/searcher/name_finder/"
+
 2017-11-11  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add file "controller/tester.c" for writing a part's model and properties to a file
