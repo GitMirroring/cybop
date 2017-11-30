@@ -5,6 +5,7 @@
     <node name="achim_reichel_-_aloha_heja_he" channel="file" format="element/part" model="repertoire/db/song/achim_reichel_-_aloha_heja_he.cybol"/>
     <node name="adriano_celentano_-_azzuro" channel="file" format="element/part" model="repertoire/db/song/adriano_celentano_-_azzuro.cybol"/>
     <node name="aerzte_-_westerland" channel="file" format="element/part" model="repertoire/db/song/aerzte_-_westerland.cybol"/>
+    <node name="al_corley_-_square_rooms" channel="file" format="element/part" model="repertoire/db/song/al_corley_-_square_rooms.cybol"/>
     <node name="alan_parsons_project_-_eye_in_the_sky" channel="file" format="element/part" model="repertoire/db/song/alan_parsons_project_-_eye_in_the_sky.cybol"/>
     <node name="alcazar_-_crying_at_the_discotheque" channel="file" format="element/part" model="repertoire/db/song/alcazar_-_crying_at_the_discotheque.cybol"/>
     <node name="andreas_bourani_-_alles_nur_in_meinem_kopf" channel="file" format="element/part" model="repertoire/db/song/andreas_bourani_-_alles_nur_in_meinem_kopf.cybol"/>
@@ -65,6 +66,7 @@
     <node name="klaus_lage_band_-_1000_und_1_nacht_(zoom!)" channel="file" format="element/part" model="repertoire/db/song/klaus_lage_band_-_1000_und_1_nacht_(zoom!).cybol"/>
     <node name="klaus-renft-combo_-_apfeltraum" channel="file" format="element/part" model="repertoire/db/song/klaus-renft-combo_-_apfeltraum.cybol"/>
 
+    <node name="la's_-_there_she_goes" channel="file" format="element/part" model="repertoire/db/song/la's_-_there_she_goes.cybol"/>
     <node name="londonbeat_-_i've_been_thinking_about_you" channel="file" format="element/part" model="repertoire/db/song/londonbeat_-_i've_been_thinking_about_you.cybol"/>
     <node name="lost_frequencies_feat_janieck_devy_-_reality" channel="file" format="element/part" model="repertoire/db/song/lost_frequencies_feat_janieck_devy_-_reality.cybol"/>
     <node name="louis_armstrong_-_moonriver" channel="file" format="element/part" model="repertoire/db/song/louis_armstrong_-_moonriver.cybol"/>
@@ -109,6 +111,7 @@
     <node name="tom_petty_-_learning_to_fly" channel="file" format="element/part" model="repertoire/db/song/tom_petty_-_learning_to_fly.cybol"/>
     <node name="toto_-_africa" channel="file" format="element/part" model="repertoire/db/song/toto_-_africa.cybol"/>
     <node name="toto_-_child's_anthem" channel="file" format="element/part" model="repertoire/db/song/toto_-_child's_anthem.cybol"/>
+    <node name="twins_-_not_the_loving_kind" channel="file" format="element/part" model="repertoire/db/song/twins_-_not_the_loving_kind.cybol"/>
 
     <node name="udo_juergens_-_aber_bitte_mit_sahne" channel="file" format="element/part" model="repertoire/db/song/udo_juergens_-_aber_bitte_mit_sahne.cybol"/>
     <node name="udo_juergens_-_griechischer_wein" channel="file" format="element/part" model="repertoire/db/song/udo_juergens_-_griechischer_wein.cybol"/>

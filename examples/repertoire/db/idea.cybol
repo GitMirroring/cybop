@@ -2,7 +2,6 @@
 
     <node name="a_flock_of_seagulls_-_i_ran_so_far_away" channel="file" format="element/part" model="repertoire/db/idea/a_flock_of_seagulls_-_i_ran_so_far_away.cybol"/>
     <node name="a_flock_of_seagulls_-_the_more_you_live_the_more_you_love" channel="file" format="element/part" model="repertoire/db/idea/a_flock_of_seagulls_-_the_more_you_live_the_more_you_love.cybol"/>
-    <node name="al_corley_-_square_rooms" channel="file" format="element/part" model="repertoire/db/idea/al_corley_-_square_rooms.cybol"/>
     <node name="alan_parsons_project_-_don't_answer_me" channel="file" format="element/part" model="repertoire/db/idea/alan_parsons_project_-_don't_answer_me.cybol"/>
     <node name="amy_macdonald_-_this_is_the_life" channel="file" format="element/part" model="repertoire/db/idea/amy_macdonald_-_this_is_the_life.cybol"/>
     <node name="asia_-_heat_of_the_moment" channel="file" format="element/part" model="repertoire/db/idea/asia_-_heat_of_the_moment.cybol"/>
@@ -62,7 +61,6 @@
     <node name="karat_-_jede_stunde" channel="file" format="element/part" model="repertoire/db/idea/karat_-_jede_stunde.cybol"/>
     <node name="killers_-_human" channel="file" format="element/part" model="repertoire/db/idea/killers_-_human.cybol"/>
 
-    <node name="la's_-_there_she_goes" channel="file" format="element/part" model="repertoire/db/idea/la's_-_there_she_goes.cybol"/>
     <node name="lara_fabian_-_i_will_love_again" channel="file" format="element/part" model="repertoire/db/idea/lara_fabian_-_i_will_love_again.cybol"/>
     <node name="level_42_-_lessons_in_love" channel="file" format="element/part" model="repertoire/db/idea/level_42_-_lessons_in_love.cybol"/>
     <node name="lightening_seeds_-_life_of_riley" channel="file" format="element/part" model="repertoire/db/idea/lightening_seeds_-_life_of_riley.cybol"/>
@@ -124,7 +122,6 @@
     <node name="tina_york_-_wir_lassen_uns_das_singen_nicht_verbieten" channel="file" format="element/part" model="repertoire/db/idea/tina_york_-_wir_lassen_uns_das_singen_nicht_verbieten.cybol"/>
     <node name="tokens_-_the_lion_sleeps_tonight" channel="file" format="element/part" model="repertoire/db/idea/tokens_-_the_lion_sleeps_tonight.cybol"/>
     <node name="tom_petty_-_into_the_great_wide_open" channel="file" format="element/part" model="repertoire/db/idea/tom_petty_-_into_the_great_wide_open.cybol"/>
-    <node name="twins_-_not_the_loving_kind" channel="file" format="element/part" model="repertoire/db/idea/twins_-_not_the_loving_kind.cybol"/>
 
     <node name="u2_-_i_still_haven't_found_what_i'm_looking_for" channel="file" format="element/part" model="repertoire/db/idea/u2_-_i_still_haven't_found_what_i'm_looking_for.cybol"/>
     <node name="u2_-_pride_(in_the_name_of_love)" channel="file" format="element/part" model="repertoire/db/idea/u2_-_pride_(in_the_name_of_love).cybol"/>

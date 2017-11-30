@@ -83,6 +83,20 @@
         </tr>
         <tr>
             <td>
+                Square Rooms
+            </td>
+            <td>
+                Al Corley
+            </td>
+            <td>
+                1980er Rock-Pop &#x26; Synthi Pop
+            </td>
+            <td>
+                1984
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Eye In The Sky
             </td>
             <td>
@@ -742,6 +756,20 @@
         </tr>
         <tr>
             <td>
+                There She Goes
+            </td>
+            <td>
+                La&#x27;s
+            </td>
+            <td>
+                1980er Rock-Pop &#x26; Synthi Pop
+            </td>
+            <td>
+                1988
+            </td>
+        </tr>
+        <tr>
+            <td>
                 I&#x27;ve Been Thinking About You
             </td>
             <td>
@@ -1236,6 +1264,20 @@
                 1980er Rock-Pop &#x26; Synthi Pop
             </td>
             <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Not The Loving Kind
+            </td>
+            <td>
+                Twins
+            </td>
+            <td>
+                1980er Rock-Pop &#x26; Synthi Pop
+            </td>
+            <td>
+                1983
             </td>
         </tr>
         <tr>

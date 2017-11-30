@@ -83,6 +83,20 @@
         </tr>
         <tr>
             <td>
+                Al Corley
+            </td>
+            <td>
+                Square Rooms
+            </td>
+            <td>
+                1980er Rock-Pop &#x26; Synthi Pop
+            </td>
+            <td>
+                1984
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Alan Parsons Project
             </td>
             <td>
@@ -742,6 +756,20 @@
         </tr>
         <tr>
             <td>
+                La&#x27;s
+            </td>
+            <td>
+                There She Goes
+            </td>
+            <td>
+                1980er Rock-Pop &#x26; Synthi Pop
+            </td>
+            <td>
+                1988
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Londonbeat
             </td>
             <td>
@@ -1236,6 +1264,20 @@
                 1980er Rock-Pop &#x26; Synthi Pop
             </td>
             <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Twins
+            </td>
+            <td>
+                Not The Loving Kind
+            </td>
+            <td>
+                1980er Rock-Pop &#x26; Synthi Pop
+            </td>
+            <td>
+                1983
             </td>
         </tr>
         <tr>

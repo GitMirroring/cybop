@@ -68,6 +68,9 @@
         </h2>
         <ol>
             <li>
+                Al Corley - Square Rooms
+            </li>
+            <li>
                 Alan Parsons Project - Eye In The Sky
             </li>
             <li>
@@ -113,6 +116,9 @@
                 Kiss - I Was Made For Loving You
             </li>
             <li>
+                La&#x27;s - There She Goes
+            </li>
+            <li>
                 Men At Work - Who Can It Be Now
             </li>
             <li>
@@ -129,6 +135,9 @@
             </li>
             <li>
                 Toto - Child&#x27;s Anthem
+            </li>
+            <li>
+                Twins - Not The Loving Kind
             </li>
             <li>
                 Ultravox - Dancing With Tears In My Eyes

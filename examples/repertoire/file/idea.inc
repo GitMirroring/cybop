@@ -65,9 +65,6 @@
                 A Flock Of Seagulls - The More You Live The More You Love
             </li>
             <li>
-                Al Corley - Square Rooms
-            </li>
-            <li>
                 Alan Parsons Project - Don&#x27;t Answer Me
             </li>
             <li>
@@ -147,9 +144,6 @@
             </li>
             <li>
                 Tears for Fears - Everybody Wants To Rule The World
-            </li>
-            <li>
-                Twins - Not The Loving Kind
             </li>
             <li>
                 U2 - I Still Haven&#x27;t Found What I&#x27;m Looking For
@@ -514,8 +508,6 @@
             </li>
         </ol>
     </div>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
     <ERROR_MISSING_TAG_NAME>
     </ERROR_MISSING_TAG_NAME>
     <ERROR_MISSING_TAG_NAME>
