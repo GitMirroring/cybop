@@ -1,17 +1,18 @@
 <node>
 
-    <node name="1" channel="inline" format="text/plain" model="ccr_-_hey_tonight"/>
-    <node name="2" channel="inline" format="text/plain" model="john_denver_-_country_roads"/>
-    <node name="3" channel="inline" format="text/plain" model="toto_-_africa"/>
-    <node name="4" channel="inline" format="text/plain" model="bryan_adams_-_somebody"/>
-    <node name="5" channel="inline" format="text/plain" model="ultravox_-_dancing_with_tears_in_my_eyes"/>
-    <node name="6" channel="inline" format="text/plain" model="kiss_-_i_was_made_for_loving_you"/>
-    <node name="7" channel="inline" format="text/plain" model="alan_parsons_project_-_eye_in_the_sky"/>
-    <node name="8" channel="inline" format="text/plain" model="eagles_-_take_it_easy"/>
-    <node name="9" channel="inline" format="text/plain" model="eric_clapton_-_promises"/>
-    <node name="10" channel="inline" format="text/plain" model="dire_straits_-_sultans_of_swing"/>
-    <node name="11" channel="inline" format="text/plain" model="bob_dylan_-_knockin'_on_heaven's_door"/>
-    <node name="12" channel="inline" format="text/plain" model="phil_collins_-_you'll_be_in_my_heart"/>
-    <node name="13" channel="inline" format="text/plain" model="elton_john_-_sacrifice"/>
+    <node name="1" channel="inline" format="text/plain" model="ccr_-_bad_moon_rising"/>
+    <node name="2" channel="inline" format="text/plain" model="ccr_-_hey_tonight"/>
+    <node name="3" channel="inline" format="text/plain" model="john_denver_-_country_roads"/>
+    <node name="4" channel="inline" format="text/plain" model="toto_-_africa"/>
+    <node name="5" channel="inline" format="text/plain" model="bryan_adams_-_somebody"/>
+    <node name="6" channel="inline" format="text/plain" model="ultravox_-_dancing_with_tears_in_my_eyes"/>
+    <node name="7" channel="inline" format="text/plain" model="kiss_-_i_was_made_for_loving_you"/>
+    <node name="8" channel="inline" format="text/plain" model="alan_parsons_project_-_eye_in_the_sky"/>
+    <node name="9" channel="inline" format="text/plain" model="eagles_-_take_it_easy"/>
+    <node name="10" channel="inline" format="text/plain" model="eric_clapton_-_promises"/>
+    <node name="11" channel="inline" format="text/plain" model="dire_straits_-_sultans_of_swing"/>
+    <node name="12" channel="inline" format="text/plain" model="bob_dylan_-_knockin'_on_heaven's_door"/>
+    <node name="13" channel="inline" format="text/plain" model="phil_collins_-_you'll_be_in_my_heart"/>
+    <node name="14" channel="inline" format="text/plain" model="elton_john_-_sacrifice"/>
 
 </node>

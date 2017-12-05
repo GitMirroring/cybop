@@ -8,10 +8,12 @@
     <node name="6" channel="inline" format="text/plain" model="bronski_beat_-_smalltown_boy"/>
     <node name="7" channel="inline" format="text/plain" model="black_-_everything's_coming_up_roses"/>
     <node name="8" channel="inline" format="text/plain" model="gibson_brothers_-_que_sera_mi_vida"/>
-    <node name="9" channel="inline" format="text/plain" model="cliff_richard_-_dreamin'"/>
-    <node name="10" channel="inline" format="text/plain" model="a-ha_-_foot_of_the_mountain"/>
-    <node name="11" channel="inline" format="text/plain" model="fiction_factory_-_feels_like_heaven"/>
-    <node name="12" channel="inline" format="text/plain" model="elvis_presley_-_always_on_my_mind"/>
-    <node name="13" channel="inline" format="text/plain" model="ccr_-_bad_moon_rising"/>
+    <node name="9" channel="inline" format="text/plain" model="soulsister_-_the_way_to_your_heart"/>
+    <node name="10" channel="inline" format="text/plain" model="twins_-_not_the_loving_kind"/>
+    <node name="11" channel="inline" format="text/plain" model="al_corley_-_square_rooms"/>
+    <node name="12" channel="inline" format="text/plain" model="cliff_richard_-_dreamin'"/>
+    <node name="13" channel="inline" format="text/plain" model="a-ha_-_foot_of_the_mountain"/>
+    <node name="14" channel="inline" format="text/plain" model="fiction_factory_-_feels_like_heaven"/>
+    <node name="15" channel="inline" format="text/plain" model="elvis_presley_-_always_on_my_mind"/>
 
 </node>
