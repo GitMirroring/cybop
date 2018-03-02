@@ -3,7 +3,7 @@
     <node name="1950" channel="inline" format="text/plain" model="1950er Rock 'n' Roll & Rockabilly"/>
     <node name="1960" channel="inline" format="text/plain" model="1960er Beat & Flower Power"/>
     <node name="1970" channel="inline" format="text/plain" model="1970er Rock & Pop"/>
-    <node name="1980" channel="inline" format="text/plain" model="1980er Rock-Pop & Synthi Pop"/>
+    <node name="1980" channel="inline" format="text/plain" model="1980er Rock-Pop & Synthie Pop"/>
     <node name="1990" channel="inline" format="text/plain" model="1990er Rock-Pop & Independent"/>
     <node name="2000" channel="inline" format="text/plain" model="2000er Rock-Pop"/>
     <node name="2010" channel="inline" format="text/plain" model="2010er Rock-Pop"/>
