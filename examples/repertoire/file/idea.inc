@@ -4,6 +4,9 @@
             1950er Rock &#x27;n&#x27; Roll &#x26; Rockabilly
         </h2>
         <ol>
+            <li>
+                Elvis Presley - Devil In Disguise
+            </li>
         </ol>
     </div>
     <div>
@@ -55,7 +58,7 @@
     </div>
     <div>
         <h2>
-            1980er Rock-Pop &#x26; Synthi Pop
+            1980er Rock-Pop &#x26; Synthie Pop
         </h2>
         <ol>
             <li>
@@ -264,6 +267,9 @@
             <li>
                 Echt - Du Tr&#xE4;gst Keine Liebe In Dir
             </li>
+            <li>
+                Peter Maffay - Tiefer
+            </li>
         </ol>
     </div>
     <div>
@@ -326,6 +332,9 @@
         </h2>
         <ol>
             <li>
+                Adriano Celentano - Azzuro
+            </li>
+            <li>
                 Ricchi e Poveri - Acapulco
             </li>
             <li>
@@ -338,6 +347,9 @@
             Jazz &#x26; Hintergrundmusik (Dinner, Lounge)
         </h2>
         <ol>
+            <li>
+                Eric Clapton - Tears In Heaven
+            </li>
         </ol>
     </div>
     <div>
@@ -369,6 +381,9 @@
             </li>
             <li>
                 Karat - Jede Stunde
+            </li>
+            <li>
+                Puhdys - Alt Wie Ein Baum
             </li>
             <li>
                 Puhdys - Wenn Tr&#xE4;ume Sterben

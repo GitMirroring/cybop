@@ -2,6 +2,7 @@
 
     <node name="a_flock_of_seagulls_-_i_ran_so_far_away" channel="file" format="element/part" model="repertoire/db/idea/a_flock_of_seagulls_-_i_ran_so_far_away.cybol"/>
     <node name="a_flock_of_seagulls_-_the_more_you_live_the_more_you_love" channel="file" format="element/part" model="repertoire/db/idea/a_flock_of_seagulls_-_the_more_you_live_the_more_you_love.cybol"/>
+    <node name="adriano_celentano_-_azzuro" channel="file" format="element/part" model="repertoire/db/idea/adriano_celentano_-_azzuro.cybol"/>
     <node name="alan_parsons_project_-_don't_answer_me" channel="file" format="element/part" model="repertoire/db/idea/alan_parsons_project_-_don't_answer_me.cybol"/>
     <node name="amy_macdonald_-_this_is_the_life" channel="file" format="element/part" model="repertoire/db/idea/amy_macdonald_-_this_is_the_life.cybol"/>
     <node name="asia_-_heat_of_the_moment" channel="file" format="element/part" model="repertoire/db/idea/asia_-_heat_of_the_moment.cybol"/>
@@ -33,6 +34,8 @@
     <node name="echt_-_du_traegst_keine_liebe_in_dir" channel="file" format="element/part" model="repertoire/db/idea/echt_-_du_traegst_keine_liebe_in_dir.cybol"/>
     <node name="elo_-_calling_america" channel="file" format="element/part" model="repertoire/db/idea/elo_-_calling_america.cybol"/>
     <node name="elton_john_&_kiki_dee_-_don't_go_breaking_my_heart" channel="file" format="element/part" model="repertoire/db/idea/elton_john_&_kiki_dee_-_don't_go_breaking_my_heart.cybol"/>
+    <node name="elvis_presley_-_devil_in_disguise" channel="file" format="element/part" model="repertoire/db/idea/elvis_presley_-_devil_in_disguise.cybol"/>
+    <node name="eric_clapton_-_tears_in_heaven" channel="file" format="element/part" model="repertoire/db/idea/eric_clapton_-_tears_in_heaven.cybol"/>
     <node name="europe_-_carrie" channel="file" format="element/part" model="repertoire/db/idea/europe_-_carrie.cybol"/>
     <node name="europe_-_the_final_countdown" channel="file" format="element/part" model="repertoire/db/idea/europe_-_the_final_countdown.cybol"/>
 
@@ -84,10 +87,12 @@
     <node name="pet_shop_boys_-_it's_a_sin" channel="file" format="element/part" model="repertoire/db/idea/pet_shop_boys_-_it's_a_sin.cybol"/>
     <node name="peter_cornelius_-_du_entschuldige_i_kenn'_di" channel="file" format="element/part" model="repertoire/db/idea/peter_cornelius_-_du_entschuldige_i_kenn'_di.cybol"/>
     <node name="peter_kent_-_it's_a_real_good_feeling" channel="file" format="element/part" model="repertoire/db/idea/peter_kent_-_it's_a_real_good_feeling.cybol"/>
+    <node name="peter_maffay_-_tiefer" channel="file" format="element/part" model="repertoire/db/idea/peter_maffay_-_tiefer.cybol"/>
     <node name="peter_schilling_-_major_tom" channel="file" format="element/part" model="repertoire/db/idea/peter_schilling_-_major_tom.cybol"/>
     <node name="pink_floyd_-_wish_you_were_here" channel="file" format="element/part" model="repertoire/db/idea/pink_floyd_-_wish_you_were_here.cybol"/>
     <node name="poison_-_every_rose_has_its_thorn" channel="file" format="element/part" model="repertoire/db/idea/poison_-_every_rose_has_its_thorn.cybol"/>
     <node name="police_-_message_in_a_bottle" channel="file" format="element/part" model="repertoire/db/idea/police_-_message_in_a_bottle.cybol"/>
+    <node name="puhdys_-_alt_wie_ein_baum" channel="file" format="element/part" model="repertoire/db/idea/puhdys_-_alt_wie_ein_baum.cybol"/>
     <node name="puhdys_-_hey_wir_wollen_die_eisbaeren_seh'n" channel="file" format="element/part" model="repertoire/db/idea/puhdys_-_hey_wir_wollen_die_eisbaeren_seh'n.cybol"/>
     <node name="puhdys_-_wenn_traeume_sterben" channel="file" format="element/part" model="repertoire/db/idea/puhdys_-_wenn_traeume_sterben.cybol"/>
     <node name="pussycat_-_mississippi" channel="file" format="element/part" model="repertoire/db/idea/pussycat_-_mississippi.cybol"/>

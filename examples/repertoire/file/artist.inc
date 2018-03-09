@@ -57,19 +57,6 @@
         </tr>
         <tr>
             <td>
-                Adriano Celentano
-            </td>
-            <td>
-                Azzuro
-            </td>
-            <td>
-                Italienische Musik &#x26; Italo-Pop
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
                 &#xC4;rzte
             </td>
             <td>
@@ -89,7 +76,7 @@
                 Square Rooms
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
                 1984
@@ -103,7 +90,7 @@
                 Eye In The Sky
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -181,7 +168,7 @@
                 Everything&#x27;s Coming Up Roses
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -207,7 +194,7 @@
                 Smalltown Boy
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -220,7 +207,7 @@
                 I&#x27;m On Fire
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -233,7 +220,7 @@
                 Run To You
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -246,7 +233,7 @@
                 Somebody
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -259,7 +246,7 @@
                 Summer Of &#x27;69
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -350,7 +337,7 @@
                 Enjoy The Silence
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -363,7 +350,7 @@
                 Sultans Of Swing
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -416,7 +403,7 @@
                 Sacrifice
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -449,26 +436,13 @@
         </tr>
         <tr>
             <td>
-                Elvis Presley
-            </td>
-            <td>
-                Devil In Disguise
-            </td>
-            <td>
-                1950er Rock &#x27;n&#x27; Roll &#x26; Rockabilly
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
                 Erasure
             </td>
             <td>
                 Ship Of Fools
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
                 1988
@@ -507,20 +481,6 @@
                 Eric Clapton
             </td>
             <td>
-                Tears In Heaven
-            </td>
-            <td>
-                Jazz &#x26; Hintergrundmusik (Dinner, Lounge)
-            </td>
-            <td>
-                1992
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Eric Clapton
-            </td>
-            <td>
                 Wonderful Tonight
             </td>
             <td>
@@ -538,7 +498,7 @@
                 Feels Like Heaven
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
                 1985
@@ -579,7 +539,7 @@
                 Que Sera Mi Vida
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -697,7 +657,7 @@
                 Walking On Sunshine
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -723,7 +683,7 @@
                 I Was Made For Loving You
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -762,7 +722,7 @@
                 There She Goes
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
                 1988
@@ -854,7 +814,7 @@
                 Who Can It Be Now
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -933,7 +893,7 @@
                 A Walk In The Park
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -963,20 +923,6 @@
                 Deutschrock
             </td>
             <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Peter Maffay
-            </td>
-            <td>
-                Tiefer
-            </td>
-            <td>
-                Deutschrock
-            </td>
-            <td>
-                1989
             </td>
         </tr>
         <tr>
@@ -1026,20 +972,7 @@
                 Every Breath You Take
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Puhdys
-            </td>
-            <td>
-                Alt Wie Ein Baum
-            </td>
-            <td>
-                Ostrock (DDR)
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -1183,7 +1116,7 @@
                 The Way To Your Heart
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -1248,7 +1181,7 @@
                 Africa
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -1261,7 +1194,7 @@
                 Child&#x27;s Anthem
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -1274,7 +1207,7 @@
                 Not The Loving Kind
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
                 1983
@@ -1366,7 +1299,7 @@
                 Dancing With Tears In My Eyes
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>

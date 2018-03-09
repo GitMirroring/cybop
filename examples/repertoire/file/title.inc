@@ -57,19 +57,6 @@
         </tr>
         <tr>
             <td>
-                Azzuro
-            </td>
-            <td>
-                Adriano Celentano
-            </td>
-            <td>
-                Italienische Musik &#x26; Italo-Pop
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
                 Westerland
             </td>
             <td>
@@ -89,7 +76,7 @@
                 Al Corley
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
                 1984
@@ -103,7 +90,7 @@
                 Alan Parsons Project
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -181,7 +168,7 @@
                 Black
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -207,7 +194,7 @@
                 Bronski Beat
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -220,7 +207,7 @@
                 Bruce Springsteen
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -233,7 +220,7 @@
                 Bryan Adams
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -246,7 +233,7 @@
                 Bryan Adams
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -259,7 +246,7 @@
                 Bryan Adams
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -350,7 +337,7 @@
                 Depeche Mode
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -363,7 +350,7 @@
                 Dire Straits
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -416,7 +403,7 @@
                 Elton John
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -449,26 +436,13 @@
         </tr>
         <tr>
             <td>
-                Devil In Disguise
-            </td>
-            <td>
-                Elvis Presley
-            </td>
-            <td>
-                1950er Rock &#x27;n&#x27; Roll &#x26; Rockabilly
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
                 Ship Of Fools
             </td>
             <td>
                 Erasure
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
                 1988
@@ -504,20 +478,6 @@
         </tr>
         <tr>
             <td>
-                Tears In Heaven
-            </td>
-            <td>
-                Eric Clapton
-            </td>
-            <td>
-                Jazz &#x26; Hintergrundmusik (Dinner, Lounge)
-            </td>
-            <td>
-                1992
-            </td>
-        </tr>
-        <tr>
-            <td>
                 Wonderful Tonight
             </td>
             <td>
@@ -538,7 +498,7 @@
                 Fiction Factory
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
                 1985
@@ -579,7 +539,7 @@
                 Gibson Brothers
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -697,7 +657,7 @@
                 Katrina &#x26; The Waves
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -723,7 +683,7 @@
                 Kiss
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -762,7 +722,7 @@
                 La&#x27;s
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
                 1988
@@ -854,7 +814,7 @@
                 Men At Work
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -933,7 +893,7 @@
                 Nick Straker Band
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -963,20 +923,6 @@
                 Deutschrock
             </td>
             <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Tiefer
-            </td>
-            <td>
-                Peter Maffay
-            </td>
-            <td>
-                Deutschrock
-            </td>
-            <td>
-                1989
             </td>
         </tr>
         <tr>
@@ -1026,20 +972,7 @@
                 Police
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Alt Wie Ein Baum
-            </td>
-            <td>
-                Puhdys
-            </td>
-            <td>
-                Ostrock (DDR)
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -1183,7 +1116,7 @@
                 Soulsister
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -1248,7 +1181,7 @@
                 Toto
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -1261,7 +1194,7 @@
                 Toto
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>
@@ -1274,7 +1207,7 @@
                 Twins
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
                 1983
@@ -1366,7 +1299,7 @@
                 Ultravox
             </td>
             <td>
-                1980er Rock-Pop &#x26; Synthi Pop
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
             </td>

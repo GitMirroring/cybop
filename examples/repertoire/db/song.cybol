@@ -3,7 +3,6 @@
     <node name="a-ha_-_foot_of_the_mountain" channel="file" format="element/part" model="repertoire/db/song/a-ha_-_foot_of_the_mountain.cybol"/>
     <node name="a-teens_-_mama_mia" channel="file" format="element/part" model="repertoire/db/song/a-teens_-_mama_mia.cybol"/>
     <node name="achim_reichel_-_aloha_heja_he" channel="file" format="element/part" model="repertoire/db/song/achim_reichel_-_aloha_heja_he.cybol"/>
-    <node name="adriano_celentano_-_azzuro" channel="file" format="element/part" model="repertoire/db/song/adriano_celentano_-_azzuro.cybol"/>
     <node name="aerzte_-_westerland" channel="file" format="element/part" model="repertoire/db/song/aerzte_-_westerland.cybol"/>
     <node name="al_corley_-_square_rooms" channel="file" format="element/part" model="repertoire/db/song/al_corley_-_square_rooms.cybol"/>
     <node name="alan_parsons_project_-_eye_in_the_sky" channel="file" format="element/part" model="repertoire/db/song/alan_parsons_project_-_eye_in_the_sky.cybol"/>
@@ -37,11 +36,9 @@
     <node name="elton_john_-_sacrifice" channel="file" format="element/part" model="repertoire/db/song/elton_john_-_sacrifice.cybol"/>
     <node name="elvis_presley_-_always_on_my_mind" channel="file" format="element/part" model="repertoire/db/song/elvis_presley_-_always_on_my_mind.cybol"/>
     <node name="elvis_presley_-_are_you_lonesome_tonight" channel="file" format="element/part" model="repertoire/db/song/elvis_presley_-_are_you_lonesome_tonight.cybol"/>
-    <node name="elvis_presley_-_devil_in_disguise" channel="file" format="element/part" model="repertoire/db/song/elvis_presley_-_devil_in_disguise.cybol"/>
     <node name="erasure_-_ship_of_fools" channel="file" format="element/part" model="repertoire/db/song/erasure_-_ship_of_fools.cybol"/>
     <node name="eric_clapton_-_lay_down_sally" channel="file" format="element/part" model="repertoire/db/song/eric_clapton_-_lay_down_sally.cybol"/>
     <node name="eric_clapton_-_promises" channel="file" format="element/part" model="repertoire/db/song/eric_clapton_-_promises.cybol"/>
-    <node name="eric_clapton_-_tears_in_heaven" channel="file" format="element/part" model="repertoire/db/song/eric_clapton_-_tears_in_heaven.cybol"/>
     <node name="eric_clapton_-_wonderful_tonight" channel="file" format="element/part" model="repertoire/db/song/eric_clapton_-_wonderful_tonight.cybol"/>
 
     <node name="fiction_factory_-_feels_like_heaven" channel="file" format="element/part" model="repertoire/db/song/fiction_factory_-_feels_like_heaven.cybol"/>
@@ -85,12 +82,10 @@
 
     <node name="paul_kuhn_-_es_gibt_kein_bier_auf_hawaii" channel="file" format="element/part" model="repertoire/db/song/paul_kuhn_-_es_gibt_kein_bier_auf_hawaii.cybol"/>
     <node name="peter_maffay_-_eiszeit" channel="file" format="element/part" model="repertoire/db/song/peter_maffay_-_eiszeit.cybol"/>
-    <node name="peter_maffay_-_tiefer" channel="file" format="element/part" model="repertoire/db/song/peter_maffay_-_tiefer.cybol"/>
-    <node name="phil_&_john_-_hello_mary_lou" channel="file" format="element/part" model="repertoire/db/song/phil_&_john_-_hello_mary_lou.cybol"/>
+    <node name="peter_kraus_-_hello_mary_lou" channel="file" format="element/part" model="repertoire/db/song/peter_kraus_-_hello_mary_lou.cybol"/>
     <node name="phil_collins_-_you'll_be_in_my_heart" channel="file" format="element/part" model="repertoire/db/song/phil_collins_-_you'll_be_in_my_heart.cybol"/>
     <node name="philipp_dittberner_&_marv_-_wolke_4" channel="file" format="element/part" model="repertoire/db/song/philipp_dittberner_&_marv_-_wolke_4.cybol"/>
     <node name="police_-_every_breath_you_take" channel="file" format="element/part" model="repertoire/db/song/police_-_every_breath_you_take.cybol"/>
-    <node name="puhdys_-_alt_wie_ein_baum" channel="file" format="element/part" model="repertoire/db/song/puhdys_-_alt_wie_ein_baum.cybol"/>
     <node name="purple_schulz_-_du_hast_mir_gerade_noch_gefehlt" channel="file" format="element/part" model="repertoire/db/song/purple_schulz_-_du_hast_mir_gerade_noch_gefehlt.cybol"/>
     <node name="purple_schulz_-_kleine_seen" channel="file" format="element/part" model="repertoire/db/song/purple_schulz_-_kleine_seen.cybol"/>
 

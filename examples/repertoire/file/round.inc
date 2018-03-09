@@ -117,15 +117,13 @@
                     7
                 </td>
                 <td>
-                    Hello Mary Lou (Phil &#x26; John)
-                </td>
-                <td>
-                    0:00
+                     ()
                 </td>
                 <td>
                 </td>
                 <td>
-                    Chris
+                </td>
+                <td>
                 </td>
                 <td>
                 </td>
@@ -1789,15 +1787,13 @@
                     6
                 </td>
                 <td>
-                    Tiefer (Peter Maffay)
-                </td>
-                <td>
-                    0:00
+                     ()
                 </td>
                 <td>
                 </td>
                 <td>
-                    K&#xF6;gi
+                </td>
+                <td>
                 </td>
                 <td>
                 </td>
@@ -1807,15 +1803,13 @@
                     7
                 </td>
                 <td>
-                    Alt Wie Ein Baum (Puhdys)
-                </td>
-                <td>
-                    0:00
+                     ()
                 </td>
                 <td>
                 </td>
                 <td>
-                    Chris
+                </td>
+                <td>
                 </td>
                 <td>
                 </td>
@@ -1825,15 +1819,13 @@
                     8
                 </td>
                 <td>
-                    Tears In Heaven (Eric Clapton)
-                </td>
-                <td>
-                    0:00
+                     ()
                 </td>
                 <td>
                 </td>
                 <td>
-                    Chris
+                </td>
+                <td>
                 </td>
                 <td>
                 </td>

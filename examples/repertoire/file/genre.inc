@@ -14,9 +14,6 @@
                 Elvis Presley - Are You Lonesome Tonight
             </li>
             <li>
-                Elvis Presley - Devil In Disguise
-            </li>
-            <li>
                 Mavericks - Foolish Heart
             </li>
         </ol>
@@ -64,7 +61,7 @@
     </div>
     <div>
         <h2>
-            1980er Rock-Pop &#x26; Synthi Pop
+            1980er Rock-Pop &#x26; Synthie Pop
         </h2>
         <ol>
             <li>
@@ -268,9 +265,6 @@
                 Peter Maffay - Eiszeit
             </li>
             <li>
-                Peter Maffay - Tiefer
-            </li>
-            <li>
                 Purple Schulz - Du Hast Mir Gerade Noch Gefehlt
             </li>
             <li>
@@ -326,9 +320,6 @@
         </h2>
         <ol>
             <li>
-                Adriano Celentano - Azzuro
-            </li>
-            <li>
                 Nek - Laura Non C&#x27;e
             </li>
         </ol>
@@ -338,9 +329,6 @@
             Jazz &#x26; Hintergrundmusik (Dinner, Lounge)
         </h2>
         <ol>
-            <li>
-                Eric Clapton - Tears In Heaven
-            </li>
             <li>
                 Eric Clapton - Wonderful Tonight
             </li>
@@ -372,9 +360,6 @@
             </li>
             <li>
                 Klaus-Renft-Combo - Apfeltraum
-            </li>
-            <li>
-                Puhdys - Alt Wie Ein Baum
             </li>
         </ol>
     </div>
