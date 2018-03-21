@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2018-03-21  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Experiment with vector as return value for comparison results in files "array_comparator.c", "element_checker.c", "comparator.c"
+
 2017-11-15  Christian Heller  <christian.heller@tuxtax.de>
 
         * Test dereferenced pointers for null in all files of pointer calculator, so that function "add_offset" does not produce wild pointers

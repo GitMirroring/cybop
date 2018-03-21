@@ -208,18 +208,20 @@ void compare_offset(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare offset.");
 
-    // The left operand, right operand.
-    // CAUTION! They HAVE TO BE initialised with p1 and p2,
+    // The result, left operand, right operand.
+    // CAUTION! They HAVE TO BE initialised with p0, p1 and p2,
     // since an offset is added below.
-    void* l = p1;
-    void* r = p2;
+    void* r = p0;
+    void* lo = p1;
+    void* ro = p2;
 
-    // Add offset to left operand, right operand.
-    add_offset((void*) &l, p4, p5);
+    // Add offset to result, left operand, right operand.
     add_offset((void*) &r, p4, p5);
+    add_offset((void*) &lo, p4, p5);
+    add_offset((void*) &ro, p4, p5);
 
     // Compare left operand with right operand.
-    compare(p0, l, r, p3, p4);
+    compare(r, lo, ro, p3, p4);
 }
 
 /* COMPARATOR_SOURCE */

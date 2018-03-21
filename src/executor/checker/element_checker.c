@@ -89,6 +89,11 @@ void check_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
             if (r3 != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+                // CAUTION! Just a hint: If the data are compared for equality,
+                // then they are expected to be EQUAL, even if their count is zero.
+                // This is important, because the PROPERTIES (cybol meta properties)
+                // of many otherwise equal models are EMPTY.
+
                 // The left array count matches the comparison criterion.
                 copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 

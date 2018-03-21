@@ -35,7 +35,7 @@
 /**
  * Compares count elements of the left- and right array.
  *
- * @param p0 the result (number 1 if true; unchanged otherwise)
+ * @param p0 the result array (number 1 if true; unchanged otherwise)
  * @param p1 the left array
  * @param p2 the right array
  * @param p3 the operation type
@@ -48,8 +48,6 @@ void compare_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The value comparison result.
-    int vr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -71,33 +69,12 @@ void compare_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // All elements have been compared successfully.
-            // The comparison of all element pairs delivered "true".
-            //
-            // CAUTION! The arrays are expected to be EQUAL, even if
-            // the count is zero. This is important, because the PROPERTIES
-            // (meta properties) of many otherwise equal models are empty.
-            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
             break;
         }
-
-        // Reset value comparison result.
-        vr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         // CAUTION! This function does not change the result flag, if the comparison result is false.
         // Therefore, the result flag ALWAYS has to be initialised with FALSE before!
-        compare_offset((void*) &vr, p1, p2, p3, p4, (void*) &j);
-
-        if (vr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Stop comparison if two elements do not match the
-            // criteria, i.e. the comparison delivered "false".
-            // Because then, the comparison of the two arrays is "false".
-            // The final comparison result r is left as is,
-            // since it was not touched.
-            break;
-        }
+        compare_offset(p0, p1, p2, p3, p4, (void*) &j);
 
         j++;
     }
