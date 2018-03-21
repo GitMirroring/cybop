@@ -17,6 +17,8 @@ __________
         (remark: checker is complete; nothing else to be done there)
 
         * Deliver MANY results for standard comparison, one for each element in an array (vector), so that the result is again an array (vector)
+            adapt file "compare_array_elements" accordingly
+            remaining source code files are probably NOT affected, it is NOT used anywhere else and its appearances had been replaced with "check" function
         * Replace last three arguments (count, left_index, right_index) of function call "compare_part" with cybol property values in file "type_compare.c"
         * Add indices as property in "apply_compare"
         * Fix count comparison in item_comparator and item_calculator etc. where (count + index) has to be considered (index forgotten up to now)
