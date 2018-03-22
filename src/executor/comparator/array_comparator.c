@@ -74,7 +74,7 @@ void compare_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
         // CAUTION! This function does not change the result flag, if the comparison result is false.
         // Therefore, the result flag ALWAYS has to be initialised with FALSE before!
-        compare_offset(p0, p1, p2, p3, p4, (void*) &j);
+        compare_vector(p0, p1, p2, p3, p4, (void*) &j);
 
         j++;
     }
