@@ -14,7 +14,7 @@
 Comparison
 __________
 
-        * remark: checker and comparator are complete; nothing else to be done there
+        * the following are complete: sorter (bubble), checker, comparator
 
         CONTINUE:
         * Replace last three arguments (count, left_index, right_index) of function call "compare_part" with cybol property values in file "type_compare.c"
@@ -49,7 +49,7 @@ _______
         * Implement missing cybol operations "insertion", "quick", "selection" in cyboi
         * Add sort operation property "descending" and use "ascending" as default
         * Add sort operation property "criterion" pointing to a part that is to be compared for sorting
-        * Sort nodes of db list "title" in directory "repertoire/logic/translate/song/"
+        * Sort nodes of db list "title" in directory "repertoire/logic/translate/song/sort.cybol"
 
         * Look for new sorting ideas (linear, binär, sortieren) in:
             tmp/datetime/plate_-_programmieren_in_c_datumsberechnung.html (8 Ausgewählte Algorithmen (Teil 1) | 8.5 Suchen und Sortieren)

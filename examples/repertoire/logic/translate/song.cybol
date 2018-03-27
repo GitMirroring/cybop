@@ -13,4 +13,6 @@
 
     <node name="song" channel="file" format="element/part" model="repertoire/logic/translate/song/song.cybol"/>
 
+    <node name="sort" channel="file" format="element/part" model="repertoire/logic/translate/song/sort.cybol"/>
+
 </node>

@@ -13,9 +13,7 @@
 
     <!-- Sort duplicated song list -->
 
-<!--
     <node name="sort_list" channel="inline" format="text/cybol-path" model=".logic.translate.song.sort"/>
--->
 
     <!-- Create wui table head and body -->
 

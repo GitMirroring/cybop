@@ -1,17 +1,15 @@
 <node>
 
     <!--
-        Sort song list by artist.
+        Sort song list.
+
         TODO:
-        - provide string comparison with alphabet as criterion
-        - verify cybol sort (bubble, quick) operations in cyboi
+        * Reflect about string sorting
+        * Add sort operation property "criterion" pointing to a part that is to be compared for sorting
     -->
 
-<!--
-    <node name="sort_by_title" channel="inline" format="modify/overwrite" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".db.(#list)"/>
-        <node name="criterion" channel="inline" format="text/plain" model="ALPHABET | AUFSTEIGEND | ABSTEIGEND etc."/>
+    <node name="sort_by_title" channel="inline" format="sort/bubble" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".db.(#list)"/>
     </node>
--->
 
 </node>
