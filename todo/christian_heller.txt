@@ -17,6 +17,7 @@ __________
         * the following are complete: sorter (bubble), checker, comparator
 
         CONTINUE:
+        * Insert function calls not only for "wide_character" and "character", but for all types in "checker" and just forward / delegate to comparator (normal return value, not return value vector)
         * See file "compare_bubble_sorter.c"
         * Test if type is "element/part"
         * YES: get the two child parts to be compared, by using additional given parametre "criterion (sub path within given container)"
