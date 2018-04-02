@@ -17,19 +17,12 @@ __________
         * the following are complete: sorter (bubble), checker, comparator
 
         CONTINUE:
-        * Insert function calls not only for "wide_character" and "character", but for all types in "checker" and just forward / delegate to comparator (normal return value, not return value vector)
-        * See file "compare_bubble_sorter.c"
-        * Test if type is "element/part"
-        * YES: get the two child parts to be compared, by using additional given parametre "criterion (sub path within given container)"
-        * Determine their type
-        * Test if type is "wide_character" (or possibly also "character")
-        * YES: Apply lexicographic comparison "checker"
-        * NO: Apply standard comparison with only ONE return value (NOT a return value vector)
+        * See TODO in file "compare_bubble_sorter.c"
 
-        * Replace last three arguments (count, left_index, right_index) of function call "compare_part" with cybol property values in file "type_compare.c"
+        * Replace last three arguments (count, left_index, right_index) of function call "compare_part" with cybol property values in file "applicator/compare/type_compare.c"
         * Add indices as property in "apply_compare"
         * Fix count comparison in item_comparator and item_calculator etc. where (count + index) has to be considered (index forgotten up to now)
-        * Continue updating comparator, to make it work again with vectors
+        * Continue updating comparator, to make it work again with vectors (possibly already done??)
 
         * Reactivate function call of "compare_part" for PART_ELEMENT_STATE_CYBOI_TYPE in file "comparator.c" ??
         * Clean up sections marked "TODO" in file "executor/comparator/part_comparator.c"

@@ -60,6 +60,20 @@ void sort_bubble_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     // Get successor value.
     copy_array_forward(p4, p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
 
+    //?? TODO:
+    //
+    //?? HINT: The assignment of parametres p3 and p4 above is correct even if they are pointers,
+    //?? since they represent the actual part or element to be sorted within a container.
+    //
+    // Test if type is "element/part".
+    // YES: Get comparison values using criterion given as parametre.
+    //?? EXAMPLE: The comparison criterion may be given as sub path within the given container.
+    // NO: Use p3 and p4 themselves as comparison values.
+    //
+    // Test if type of comparison values is "wide_character" (or possibly also "character")
+    // YES: Apply lexicographic comparison "checker"
+    // NO: Apply standard comparison with only ONE return value (NOT a return value vector)
+
     // Compare current and successor value.
     compare((void*) &r, p3, p4, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT, p1);
 
