@@ -1,5 +1,8 @@
 <node>
 
+    <!-- part -->
+    <node name="part" channel="file" format="element/part" model="sorter/part.cybol"/>
+
     <!-- boolean -->
     <node name="boolean" channel="inline" format="logicvalue/boolean" model="true"/>
 

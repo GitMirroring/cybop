@@ -1,0 +1,10 @@
+<node>
+
+    <node name="word_0" channel="inline" format="text/plain" model="car"/>
+    <node name="word_1" channel="inline" format="text/plain" model="youngsters"/>
+    <node name="word_2" channel="inline" format="text/plain" model="A"/>
+    <node name="word_3" channel="inline" format="text/plain" model="driving"/>
+    <node name="word_4" channel="inline" format="text/plain" model="with"/>
+    <node name="word_5" channel="inline" format="text/plain" model="fast"/>
+
+</node>

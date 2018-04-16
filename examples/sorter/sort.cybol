@@ -1,5 +1,15 @@
 <node>
 
+    <!-- part -->
+
+    <node name="sort_part" channel="inline" format="sort/bubble" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".part"/>
+        <!-- criterion as path to e.g. a string within the part -->
+<!--
+        <node name="criterion" channel="inline" format="text/cybol-path" model=""/>
+-->
+    </node>
+
     <!-- boolean -->
 
     <node name="sort_boolean" channel="inline" format="sort/bubble" model="">

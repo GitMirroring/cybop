@@ -32,7 +32,7 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../executor/sorter/bubble/compare_bubble_sorter.c"
+#include "../../../executor/sorter/bubble/swap_bubble_sorter.c"
 #include "../../../logger/logger.c"
 
 /*
@@ -80,7 +80,7 @@ void sort_bubble_bubble(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         // Calculate successor index.
         j1 = j + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
-        sort_bubble_compare(p0, p1, p2, p3, p4, (void*) &j, (void*) &j1);
+        sort_bubble_swap(p0, p1, p2, p3, p4, (void*) &j, (void*) &j1);
 
         // Increment loop variable.
         j++;

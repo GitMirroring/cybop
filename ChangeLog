@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2018-04-16  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add file "swap_bubble_sorter.c"
+
 2018-03-22  Christian Heller  <christian.heller@tuxtax.de>
 
         * Introduce new function "compare_vector" to file "comparator.c", adding an offset to the result and expecting it to be an array (vector)

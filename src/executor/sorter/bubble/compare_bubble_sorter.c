@@ -26,66 +26,106 @@
 #ifndef COMPARE_BUBBLE_SORTER_SOURCE
 #define COMPARE_BUBBLE_SORTER_SOURCE
 
-#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/comparator/comparator.c"
 #include "../../../executor/copier/array_copier.c"
-#include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"
 
 /*
- * Compares the given values and swaps them if necessary.
+ * Compares the given operands.
  *
- * @param p0 the data
- * @param p1 the type
- * @param p2 the swapped flag
- * @param p3 the left value
- * @param p4 the right value
- * @param p5 the left index
- * @param p6 the right index
+ * The comparison criterion is a path to some value belonging to a part.
+ * For example, the title of a song in a list of songs to be sorted.
+ *
+ * @param p0 the result
+ * @param p1 the left operand
+ * @param p2 the right operand
+ * @param p3 the operation type
+ * @param p4 the operand type
+ * @param p5 the comparison criterion
  */
-void sort_bubble_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void sort_bubble_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort bubble compare.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Get current value.
-    copy_array_forward(p3, p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p5);
-    // Get successor value.
-    copy_array_forward(p4, p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    //?? TODO:
-    //
-    //?? HINT: The assignment of parametres p3 and p4 above is correct even if they are pointers,
-    //?? since they represent the actual part or element to be sorted within a container.
-    //
-    // Test if type is "element/part".
-    // YES: Get comparison values using criterion given as parametre.
-    //?? EXAMPLE: The comparison criterion may be given as sub path within the given container.
-    // NO: Use p3 and p4 themselves as comparison values.
-    //
-    // Test if type of comparison values is "wide_character" (or possibly also "character")
-    // YES: Apply lexicographic comparison "checker"
-    // NO: Apply standard comparison with only ONE return value (NOT a return value vector)
+        compare_integer_equal((void*) &r, p4, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
-    // Compare current and successor value.
-    compare((void*) &r, p3, p4, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT, p1);
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            //
+            // This is a compound element.
+            //
 
-        // Set current value.
-        copy_array_forward(p0, p4, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p5, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        // Set successor value.
-        copy_array_forward(p0, p3, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p6, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            // The left part.
+            // CAUTION! Initialise with given left operand.
+            void* l = p1;
+            // The right part.
+            // CAUTION! Initialise with given right operand.
+            void* r = p2;
 
-        // Set swapped flag.
-        copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            // The left part model item.
+            void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The right part model item.
+            void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+            // The left part model item data, count.
+            void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* lmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The right part model item data, count.
+            void* rmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* rmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+            if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                // A comparison criterion EXISTS.
+                // Therefore, determine left- and right part using criterion as path.
+
+                //?? TODO
+
+                // Get left part.
+//??            get_part_name((void*) &l, p1, p?? [CRITERION-PATH_as_argument], p?? [CRITERION-PATH_as_argument_COUNT], p1, p2, p3, p4);
+                // Get right part.
+//??            get_part_name((void*) &r, p1, p?? [CRITERION-PATH_as_argument], p?? [CRITERION-PATH_as_argument_COUNT], p1, p2, p3, p4);
+            }
+
+            // Get left part model item.
+            copy_array_forward((void*) &lm, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+            // Get right part model item.
+            copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+
+            // Get left part model item data.
+            copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            // Get right part model item data.
+            copy_array_forward((void*) &rmd, rm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+            //
+            // Test if type of comparison values is "text/plain" (wide_character) or "text/ascii" (character).
+            //     YES: Apply lexicographic comparison "checker", which always delivers just one return value
+            //     NO: Apply standard comparison with only ONE return value (NOT a return value vector)
+            //
+
+            //?? TODO
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        //
+        // Use standard comparison for all other cases.
+        //
+
+        compare(p0, p1, p2, p3, p4);
     }
 }
 
