@@ -20,6 +20,7 @@
     <node name="bryan_adams_-_somebody" channel="file" format="element/part" model="repertoire/db/song/bryan_adams_-_somebody.cybol"/>
     <node name="bryan_adams_-_summer_of_'69" channel="file" format="element/part" model="repertoire/db/song/bryan_adams_-_summer_of_'69.cybol"/>
 
+    <node name="calvin_harris_-_feel_so_close" channel="file" format="element/part" model="repertoire/db/song/calvin_harris_-_feel_so_close.cybol"/>
     <node name="ccr_-_bad_moon_rising" channel="file" format="element/part" model="repertoire/db/song/ccr_-_bad_moon_rising.cybol"/>
     <node name="ccr_-_hey_tonight" channel="file" format="element/part" model="repertoire/db/song/ccr_-_hey_tonight.cybol"/>
     <node name="cliff_richard_-_dreamin'" channel="file" format="element/part" model="repertoire/db/song/cliff_richard_-_dreamin'.cybol"/>
@@ -101,6 +102,7 @@
     <node name="soulsister_-_the_way_to_your_heart" channel="file" format="element/part" model="repertoire/db/song/soulsister_-_the_way_to_your_heart.cybol"/>
     <node name="sportfreunde_stiller_-_ein_kompliment" channel="file" format="element/part" model="repertoire/db/song/sportfreunde_stiller_-_ein_kompliment.cybol"/>
     <node name="steinwolke_-_katharine_katharine" channel="file" format="element/part" model="repertoire/db/song/steinwolke_-_katharine_katharine.cybol"/>
+    <node name="sunrise_avenue_-_hollywood_hills_forever" channel="file" format="element/part" model="repertoire/db/song/sunrise_avenue_-_hollywood_hills_forever.cybol"/>
 
     <node name="tom_petty_-_i_won't_back_down" channel="file" format="element/part" model="repertoire/db/song/tom_petty_-_i_won't_back_down.cybol"/>
     <node name="tom_petty_-_learning_to_fly" channel="file" format="element/part" model="repertoire/db/song/tom_petty_-_learning_to_fly.cybol"/>
@@ -119,6 +121,7 @@
     <node name="village_people_-_y_m_c_a" channel="file" format="element/part" model="repertoire/db/song/village_people_-_y_m_c_a.cybol"/>
     <node name="volkslied_-_hoch_auf_dem_gelben_wagen" channel="file" format="element/part" model="repertoire/db/song/volkslied_-_hoch_auf_dem_gelben_wagen.cybol"/>
     <node name="volkslied_-_kufsteiner_lied" channel="file" format="element/part" model="repertoire/db/song/volkslied_-_kufsteiner_lied.cybol"/>
+    <node name="volkslied_-_muss_i_denn" channel="file" format="element/part" model="repertoire/db/song/volkslied_-_muss_i_denn.cybol"/>
     <node name="volkslied_-_rosamunde" channel="file" format="element/part" model="repertoire/db/song/volkslied_-_rosamunde.cybol"/>
     <node name="volkslied_-_what_shall_we_do_with_the_drunken_sailor" channel="file" format="element/part" model="repertoire/db/song/volkslied_-_what_shall_we_do_with_the_drunken_sailor.cybol"/>
 

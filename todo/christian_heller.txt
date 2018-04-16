@@ -16,6 +16,7 @@ __________
 
         * the following are complete: sorter (bubble), checker, comparator
 
+        REACTIVATE (UNCOMMENT): function call at end of "applicator/sort.c"
         CONTINUE:
         * See TODO in file "compare_bubble_sorter.c"
 

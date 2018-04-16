@@ -253,6 +253,20 @@
         </tr>
         <tr>
             <td>
+                Feel So Close
+            </td>
+            <td>
+                Calvin Harris
+            </td>
+            <td>
+                2010er Rock-Pop
+            </td>
+            <td>
+                2011
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Bad Moon Rising
             </td>
             <td>
@@ -1149,6 +1163,20 @@
         </tr>
         <tr>
             <td>
+                Hollywood Hills
+            </td>
+            <td>
+                Sunrise Avenue
+            </td>
+            <td>
+                2010er Rock-Pop
+            </td>
+            <td>
+                2011
+            </td>
+        </tr>
+        <tr>
+            <td>
                 I Won&#x27;t Back Down
             </td>
             <td>
@@ -1342,6 +1370,20 @@
                 Volksmusik &#x26; Stimmungsmusik
             </td>
             <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Muss I Denn
+            </td>
+            <td>
+                Volkslied
+            </td>
+            <td>
+                Volksmusik &#x26; Stimmungsmusik
+            </td>
+            <td>
+                1827
             </td>
         </tr>
         <tr>

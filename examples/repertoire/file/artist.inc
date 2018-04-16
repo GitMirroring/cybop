@@ -253,6 +253,20 @@
         </tr>
         <tr>
             <td>
+                Calvin Harris
+            </td>
+            <td>
+                Feel So Close
+            </td>
+            <td>
+                2010er Rock-Pop
+            </td>
+            <td>
+                2011
+            </td>
+        </tr>
+        <tr>
+            <td>
                 C.C.R.
             </td>
             <td>
@@ -1149,6 +1163,20 @@
         </tr>
         <tr>
             <td>
+                Sunrise Avenue
+            </td>
+            <td>
+                Hollywood Hills
+            </td>
+            <td>
+                2010er Rock-Pop
+            </td>
+            <td>
+                2011
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Tom Petty
             </td>
             <td>
@@ -1342,6 +1370,20 @@
                 Volksmusik &#x26; Stimmungsmusik
             </td>
             <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Volkslied
+            </td>
+            <td>
+                Muss I Denn
+            </td>
+            <td>
+                Volksmusik &#x26; Stimmungsmusik
+            </td>
+            <td>
+                1827
             </td>
         </tr>
         <tr>

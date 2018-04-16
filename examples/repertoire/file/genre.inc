@@ -206,6 +206,9 @@
                 Andreas Bourani - Alles Nur In Meinem Kopf
             </li>
             <li>
+                Calvin Harris - Feel So Close
+            </li>
+            <li>
                 Daft Punk - Get Lucky
             </li>
             <li>
@@ -216,6 +219,9 @@
             </li>
             <li>
                 Sheppard - Geronimo
+            </li>
+            <li>
+                Sunrise Avenue - Hollywood Hills
             </li>
         </ol>
     </div>
@@ -439,6 +445,9 @@
             </li>
             <li>
                 Volkslied - Kufsteiner Lied
+            </li>
+            <li>
+                Volkslied - Muss I Denn
             </li>
             <li>
                 Volkslied - Rosamunde
