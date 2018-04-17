@@ -28,13 +28,10 @@
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/comparator/comparator.c"
-#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/sorter/bubble/part_bubble_sorter.c"
 #include "../../../logger/logger.c"
 
 /*
@@ -61,59 +58,7 @@ void sort_bubble_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        //
-        // This is a compound element.
-        //
-
-        // The left part.
-        // CAUTION! Initialise with given left operand.
-        void* l = p1;
-        // The right part.
-        // CAUTION! Initialise with given right operand.
-        void* r = p2;
-
-        // The left part model item.
-        void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The right part model item.
-        void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-        // The left part model item data, count.
-        void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* lmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The right part model item data, count.
-        void* rmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* rmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-        if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            // A comparison criterion EXISTS.
-            // Therefore, determine left- and right part using criterion as path.
-
-            //?? TODO
-
-            // Get left part.
-//??            get_part_name((void*) &l, p1, p?? [CRITERION-PATH_as_argument], p?? [CRITERION-PATH_as_argument_COUNT], p1, p2, p3, p4);
-            // Get right part.
-//??            get_part_name((void*) &r, p1, p?? [CRITERION-PATH_as_argument], p?? [CRITERION-PATH_as_argument_COUNT], p1, p2, p3, p4);
-        }
-
-        // Get left part model item.
-        copy_array_forward((void*) &lm, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-        // Get right part model item.
-        copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-
-        // Get left part model item data.
-        copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        // Get right part model item data.
-        copy_array_forward((void*) &rmd, rm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-        //
-        // Test if type of comparison values is "text/plain" (wide_character) or "text/ascii" (character).
-        //     YES: Apply lexicographic comparison "checker", which always delivers just one return value
-        //     NO: Apply standard comparison with only ONE return value (NOT a return value vector)
-        //
-
-        //?? TODO
+        sort_bubble_part(p0, p1, p2, p3, p4, p5);
 
     } else {
 
