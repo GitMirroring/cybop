@@ -81,11 +81,12 @@ void sort_bubble_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         //?? TODO
 
         // Get left part.
-//??            get_part_name((void*) &lp, p1, p?? [CRITERION-PATH_as_argument], p?? [CRITERION-PATH_as_argument_COUNT], p1, p2, p3, p4);
+//??        get_part_name((void*) &lp, p1, p?? [CRITERION-PATH_as_argument], p?? [CRITERION-PATH_as_argument_COUNT], p1, p2, p3, p4);
         // Get right part.
-//??            get_part_name((void*) &rp, p1, p?? [CRITERION-PATH_as_argument], p?? [CRITERION-PATH_as_argument_COUNT], p1, p2, p3, p4);
+//??        get_part_name((void*) &rp, p1, p?? [CRITERION-PATH_as_argument], p?? [CRITERION-PATH_as_argument_COUNT], p1, p2, p3, p4);
     }
 
+fwprintf(stdout, L"TEST sort bubble part p1: %i \n", p1);
 fwprintf(stdout, L"TEST sort bubble part lp: %i \n", lp);
 fwprintf(stdout, L"TEST sort bubble part pre lm: %i \n", lm);
 
@@ -95,6 +96,7 @@ fwprintf(stdout, L"TEST sort bubble part pre lm: %i \n", lm);
     copy_array_forward((void*) &rm, rp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
 fwprintf(stdout, L"TEST sort bubble part post lm: %i \n", lm);
+fwprintf(stdout, L"TEST sort bubble part post rm: %i \n", rm);
 fwprintf(stdout, L"TEST sort bubble part pre lmd: %i \n", lmd);
 
     // Get left part model item data.

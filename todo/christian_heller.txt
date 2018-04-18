@@ -26,6 +26,9 @@ __________
         * Reactivate function call of "compare_part" for PART_ELEMENT_STATE_CYBOI_TYPE in file "comparator.c" ??
         * Clean up sections marked "TODO" in file "executor/comparator/part_comparator.c"
 
+Searching
+_________
+
         * Move cybol operations for "prefix", "suffix", "subsequence", "all" from "executor/comparator/" to "executor/searcher/"
         * Merge almost empty directory "executor/container/" with "executor/searcher/"
         * Use new comparator functions in "executor/searcher/name_finder/"
