@@ -58,7 +58,7 @@ void sort_bubble_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        sort_bubble_part(p0, p1, p2, p3, p4, p5);
+        sort_bubble_part(p0, p1, p2, p3, p5);
 
     } else {
 

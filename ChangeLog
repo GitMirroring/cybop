@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2018-04-19  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Debug file "part_bubble_sorter.c" using pointer reference
+        * Make string comparison work there
+
 2018-04-17  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add file "part_bubble_sorter.c"

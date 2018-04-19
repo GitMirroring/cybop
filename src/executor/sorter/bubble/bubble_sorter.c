@@ -48,7 +48,10 @@ void sort_bubble(void* p0, void* p1, void* p2) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort bubble.");
 
     // The loop variable.
-    // CAUTION! Initialise it with value "1".
+    // CAUTION! Initialise it with value "1",
+    // in order to fulfill the requirements of the algorithm,
+    // so that e.g. predecessor and successor are determined correctly
+    // without crossing array boundaries.
     int j = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -111,6 +114,11 @@ void sort_bubble(void* p0, void* p1, void* p2) {
         // This causes the loop to sort only that part of
         // the array that has not been sorted yet.
         //
+        // CAUTION! Since j got initialised with 1 (one) above,
+        // it may happen that the result is -1 (negative),
+        // in case the array count p2 is zero.
+        // However, this is NOT a problem, since the loop criterion inside the
+        // "sort_bubble_bubble" function uses the "greater_or_equal" operation.
         copy_integer((void*) &c, p2);
         calculate_integer_subtract((void*) &c, (void*) &j);
 

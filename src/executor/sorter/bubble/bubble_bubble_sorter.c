@@ -78,6 +78,10 @@ void sort_bubble_bubble(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         }
 
         // Calculate successor index.
+        //
+        // CAUTION! The data array boundaries are NOT crossed and all is FINE here.
+        // The reason is that p0 is the original pointer to the first data element
+        // and the loop count p5 got already reduced by 1 (one) before calling this function.
         j1 = j + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
         sort_bubble_swap(p0, p1, p2, p3, p4, (void*) &j, (void*) &j1);
