@@ -2,14 +2,14 @@
 
     <!--
         Sort song list.
-
-        TODO:
-        * Reflect about string sorting
-        * Add sort operation property "criterion" pointing to a part that is to be compared for sorting
     -->
 
     <node name="sort_by_title" channel="inline" format="sort/bubble" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".db.(#list)"/>
+        <!-- The criterion is given as path to an element within the part that is to be compared, e.g. a string -->
+<!--
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".title"/>
+-->
     </node>
 
 </node>
