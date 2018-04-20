@@ -83,8 +83,6 @@ void sort_bubble_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // A comparison criterion EXISTS.
         // Therefore, determine left- and right part using criterion as path.
 
-        //?? TODO
-
         // Get left part.
 //??        get_part_name((void*) &lp, p1, p?? [CRITERION-PATH_as_argument], p?? [CRITERION-PATH_as_argument_COUNT], p1, p2, p3, TODO??(type));
         // Get right part.
