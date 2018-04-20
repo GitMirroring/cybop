@@ -27,7 +27,6 @@
 #define URI_HTTP_REQUEST_SELECTOR_SOURCE
 
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
- 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/http/separator_http_name.c"

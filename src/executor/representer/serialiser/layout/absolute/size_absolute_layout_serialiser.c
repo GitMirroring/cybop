@@ -27,7 +27,6 @@
 #define SIZE_ABSOLUTE_LAYOUT_SERIALISER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../../executor/representer/serialiser/layout/part_layout_serialiser.c"
 #include "../../../../../logger/logger.c"
 

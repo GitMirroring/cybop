@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2018-04-20  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Remove empty include line in all affected files
+
 2018-04-19  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug file "part_bubble_sorter.c" using pointer reference

@@ -27,7 +27,6 @@
 #define WEEKDAY_TIME_SCALE_SERIALISER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
 #include "../../../../../constant/model/time_scale/week_time_scale_model.c"
 #include "../../../../../executor/calculator/double/add_double_calculator.c"

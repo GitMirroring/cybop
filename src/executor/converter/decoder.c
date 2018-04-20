@@ -28,7 +28,6 @@
 
 #include "../../constant/encoding/cyboi/cyboi_encoding.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../executor/converter/decoder/iso_8859/iso_8859_decoder.c"
 #include "../../executor/converter/decoder/utf/utf_16_decoder.c"

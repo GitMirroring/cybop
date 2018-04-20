@@ -27,7 +27,6 @@
 #define SEPARATOR_BOOLEAN_CYBOL_SERIALISER_SOURCE
 
 #include "../../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
- 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"

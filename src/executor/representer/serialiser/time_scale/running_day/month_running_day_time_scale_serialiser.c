@@ -27,7 +27,6 @@
 #define MONTH_RUNNING_DAY_TIME_SCALE_SERIALISER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../../executor/calculator/integer/divide_integer_calculator.c"

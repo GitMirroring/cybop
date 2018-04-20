@@ -27,7 +27,6 @@
 #define FOREGROUND_WIN32_CONSOLE_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../constant/model/cyboi/state/colour/terminal_colour_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"

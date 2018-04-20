@@ -33,7 +33,6 @@
 #include "../../../../constant/language/cybol/state/number_state_cybol_language.c"
 #include "../../../../constant/language/cybol/state/text_state_cybol_language.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/modifier/item_modifier.c"

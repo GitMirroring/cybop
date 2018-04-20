@@ -30,7 +30,6 @@
 #include <fcntl.h> // fcntl function
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/maintainer/starter/bsd_socket/set_status_bsd_socket_starter.c"

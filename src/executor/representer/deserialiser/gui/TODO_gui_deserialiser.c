@@ -27,7 +27,6 @@
 #define DISPLAY_READER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)

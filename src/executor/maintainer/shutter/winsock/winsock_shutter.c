@@ -27,7 +27,6 @@
 #define WINSOCK_SHUTTER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../executor/maintainer/shutter/winsock/cleanup_winsock_shutter.c"
 #include "../../../../executor/maintainer/shutter/winsock/close_winsock_shutter.c"
 #include "../../../../logger/logger.c"

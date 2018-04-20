@@ -27,7 +27,6 @@
 #define INLINE_WRITER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 

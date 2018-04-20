@@ -27,7 +27,6 @@
 #define MOTION_NOTIFY_MOUSE_GUI_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../logger/logger.c"
 
 /**

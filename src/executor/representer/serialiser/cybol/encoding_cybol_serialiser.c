@@ -33,7 +33,6 @@
 #include "../../../../constant/encoding/cybol/unicode_cybol_encoding.c"
 #include "../../../../constant/encoding/cybol/windows_cybol_encoding.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"

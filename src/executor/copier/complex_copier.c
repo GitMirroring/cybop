@@ -27,7 +27,6 @@
 #define COMPLEX_COPIER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../constant/model/cyboi/state/double_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/complex_state_cyboi_name.c"
 #include "../../executor/accessor/getter/complex_getter.c"
