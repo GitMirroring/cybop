@@ -62,6 +62,64 @@ void sort_bubble_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // CAUTION! Use as pointer reference, since this is a compound part.
     void** rp = (void**) p2;
 
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        // A comparison criterion EXISTS.
+        // Therefore, determine left- and right part using criterion as path.
+
+        // The comparison criterion part type, model item.
+        void* ct = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The comparison criterion part type, model item data, count.
+        void* ctd = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* cmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The left source data position and source count remaining.
+        void* lpos = *NULL_POINTER_STATE_CYBOI_MODEL;
+        int lrem = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The right source data position and source count remaining.
+        void* rpos = *NULL_POINTER_STATE_CYBOI_MODEL;
+        int rrem = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The comparison result.
+        int rREPLACE = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+        // Get comparison criterion part type, model item.
+        copy_array_forward((void*) &ct, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &cm, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+        // Get comparison criterion part type, model item data, count.
+        copy_array_forward((void*) &ctd, ct, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &cmc, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+        compare_integer_equal((void*) &rREPLACE, ctd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (rREPLACE != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // CAUTION! The left and right source data position gets copied and
+            // used independently, since it is handed over as pointer reference
+            // and gets manipulated inside the "deserialise_knowledge" function.
+
+            // Initialise left source data position and source count remaining.
+            copy_pointer((void*) &lpos, (void*) &cmd);
+            copy_integer((void*) &lrem, cmc);
+            // Initialise right source data position and source count remaining.
+            copy_pointer((void*) &rpos, (void*) &cmd);
+            copy_integer((void*) &rrem, cmc);
+
+            // Get left part.
+            // CAUTION! The arguments lp and p1 ALREADY ARE a pointer reference.
+            deserialise_knowledge((void*) lp, p1, (void*) &lpos, (void*) &lrem, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+            // Get right part.
+            // CAUTION! The arguments rp and p2 ALREADY ARE a pointer reference.
+            deserialise_knowledge((void*) rp, p2, (void*) &rpos, (void*) &rrem, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+
+        } else {
+
+            fwprintf(stdout, L"Error: Could not sort bubble part. The comparison criterion type is not WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sort bubble part. The comparison criterion type is not WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE.");
+        }
+    }
+
     // The left part type, model item.
     void* lt = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -77,17 +135,6 @@ void sort_bubble_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* rtd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* rmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* rmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        // A comparison criterion EXISTS.
-        // Therefore, determine left- and right part using criterion as path.
-
-        // Get left part.
-//??        get_part_name((void*) &lp, p1, p?? [CRITERION-PATH_as_argument], p?? [CRITERION-PATH_as_argument_COUNT], p1, p2, p3, TODO??(type));
-        // Get right part.
-//??        get_part_name((void*) &rp, p1, p?? [CRITERION-PATH_as_argument], p?? [CRITERION-PATH_as_argument_COUNT], p1, p2, p3, TODO??(type));
-    }
 
     // Get left part type, model item.
     copy_array_forward((void*) &lt, *lp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);

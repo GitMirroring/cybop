@@ -1,15 +1,5 @@
 <node>
 
-    <!-- part -->
-
-    <node name="sort_part" channel="inline" format="sort/bubble" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".part"/>
-        <!-- criterion as path to e.g. a string within the part -->
-<!--
-        <node name="criterion" channel="inline" format="text/cybol-path" model=""/>
--->
-    </node>
-
     <!-- boolean -->
 
     <node name="sort_boolean" channel="inline" format="sort/bubble" model="">
@@ -35,6 +25,20 @@
     </node>
     <node name="sort_wide" channel="inline" format="sort/bubble" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".wide"/>
+    </node>
+
+    <!-- part -->
+
+    <node name="sort_part" channel="inline" format="sort/bubble" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".part"/>
+    </node>
+
+    <!-- addressbook part -->
+
+    <node name="sort_addressbook" channel="inline" format="sort/bubble" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".addressbook"/>
+        <!-- criterion as path to e.g. a string within the part -->
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".last_name"/>
     </node>
 
 </node>

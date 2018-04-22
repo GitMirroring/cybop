@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2018-04-22  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Continue file "part_bubble_sorter.c"
+        * Extend cybol example application "sort"
+
 2018-04-20  Christian Heller  <christian.heller@tuxtax.de>
 
         * Remove empty include line in all affected files

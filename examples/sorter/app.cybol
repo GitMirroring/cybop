@@ -1,8 +1,5 @@
 <node>
 
-    <!-- part -->
-    <node name="part" channel="file" format="element/part" model="sorter/part.cybol"/>
-
     <!-- boolean -->
     <node name="boolean" channel="inline" format="logicvalue/boolean" model="true"/>
 
@@ -23,5 +20,11 @@
     <node name="before" channel="inline" format="number/integer" model="0"/>
     <node name="after" channel="inline" format="number/integer" model="0"/>
     <node name="print_time" channel="file" format="element/part" model="sorter/print_time.cybol"/>
+
+    <!-- part with model of type string -->
+    <node name="part" channel="file" format="element/part" model="sorter/part.cybol"/>
+
+    <!-- addressbook as part containing person parts to be sorted by a given criterion such as the family name -->
+    <node name="addressbook" channel="file" format="element/part" model="sorter/addressbook.cybol"/>
 
 </node>

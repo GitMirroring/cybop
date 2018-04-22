@@ -16,7 +16,8 @@ __________
 
         * REMARK: the following are complete: sorter (bubble), checker, comparator
 
-        * CONTINUE: How to process just a sub string of a knowledge path? Specify prefix and suffix as two independent cybol properties?
+        * CONTINUE: Criterion does not work in "examples/sort/sort.cybol"
+        * How to process just a sub string of a knowledge path? Specify prefix and suffix as two independent cybol properties?
         * Implement / activate sorting criterion in file "part_bubble_sorter.c" using either of files: "knowledge_deserialiser.c", "part_knowledge_deserialiser.c", "knowledge_part_getter.c"
         * Test with cybol example applications "sorter" and "repertoire"
         * Split file "part_bubble_sorter.c" into several, for more overview

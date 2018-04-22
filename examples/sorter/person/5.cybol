@@ -1,0 +1,7 @@
+<node>
+
+    <node name="first_name" channel="inline" format="text/plain" model="Hans"/>
+    <node name="last_name" channel="inline" format="text/plain" model="Albers"/>
+    <node name="profession" channel="inline" format="text/plain" model="Schauspieler"/>
+
+</node>

@@ -1,0 +1,10 @@
+<node>
+
+    <node name="person_0" channel="file" format="element/part" model="sorter/person/0.cybol"/>
+    <node name="person_1" channel="file" format="element/part" model="sorter/person/1.cybol"/>
+    <node name="person_2" channel="file" format="element/part" model="sorter/person/2.cybol"/>
+    <node name="person_3" channel="file" format="element/part" model="sorter/person/3.cybol"/>
+    <node name="person_4" channel="file" format="element/part" model="sorter/person/4.cybol"/>
+    <node name="person_5" channel="file" format="element/part" model="sorter/person/5.cybol"/>
+
+</node>
