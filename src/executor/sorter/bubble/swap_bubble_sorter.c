@@ -33,7 +33,7 @@
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../executor/sorter/bubble/compare_bubble_sorter.c"
+#include "../../../executor/sorter/bubble/type_bubble_sorter.c"
 #include "../../../logger/logger.c"
 
 /*
@@ -46,8 +46,11 @@
  * @param p4 the right value
  * @param p5 the left index
  * @param p6 the right index
+ * @param p7 the criterion data (pointer reference)
+ * @param p8 the criterion count
+ * @param p9 the criterion type
  */
-void sort_bubble_swap(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void sort_bubble_swap(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort bubble swap.");
 
@@ -69,8 +72,8 @@ void sort_bubble_swap(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // Get successor value.
     copy_array_forward(p4, p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
 
-    // Compare current and successor value.
-    sort_bubble_compare((void*) &r, p3, p4, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT, p1, *NULL_POINTER_STATE_CYBOI_MODEL);
+    // Determine type of current and successor value.
+    sort_bubble_type((void*) &r, p3, p4, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT, (void*) GREATER_CHECK_LOGIC_CYBOI_FORMAT, p1, p7, p8, p9);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -86,9 +86,6 @@
                 Bryan Adams - Somebody
             </li>
             <li>
-                Bryan Adams - Summer Of &#x27;69
-            </li>
-            <li>
                 Depeche Mode - Enjoy The Silence
             </li>
             <li>
@@ -286,13 +283,6 @@
     </div>
     <div>
         <h2>
-            Duett
-        </h2>
-        <ol>
-        </ol>
-    </div>
-    <div>
-        <h2>
             Englischer Schlager
         </h2>
         <ol>
@@ -301,6 +291,12 @@
             </li>
             <li>
                 Cliff Richard - Dreamin&#x27;
+            </li>
+            <li>
+                Eric Clapton - Wonderful Tonight
+            </li>
+            <li>
+                Frank Sinatra - Strangers In The Night
             </li>
             <li>
                 John Paul Young - Love Is In The Air
@@ -315,31 +311,11 @@
     </div>
     <div>
         <h2>
-            Franz&#xF6;sischer Rock-Pop &#x26; Chanson
-        </h2>
-        <ol>
-        </ol>
-    </div>
-    <div>
-        <h2>
             Italienische Musik &#x26; Italo-Pop
         </h2>
         <ol>
             <li>
                 Nek - Laura Non C&#x27;e
-            </li>
-        </ol>
-    </div>
-    <div>
-        <h2>
-            Jazz &#x26; Hintergrundmusik (Dinner, Lounge)
-        </h2>
-        <ol>
-            <li>
-                Eric Clapton - Wonderful Tonight
-            </li>
-            <li>
-                Frank Sinatra - Strangers In The Night
             </li>
         </ol>
     </div>
@@ -371,13 +347,6 @@
     </div>
     <div>
         <h2>
-            Polnischer Rock-Pop
-        </h2>
-        <ol>
-        </ol>
-    </div>
-    <div>
-        <h2>
             Schlager
         </h2>
         <ol>
@@ -394,7 +363,7 @@
                 Howard Carpendale - Hello Again
             </li>
             <li>
-                Phil &#x26; John - Hello Mary Lou
+                Peter Kraus - Hello Mary Lou
             </li>
             <li>
                 Rudi Schuricke - Capri Fischer

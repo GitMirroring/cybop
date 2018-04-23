@@ -83,6 +83,9 @@
                 Barclay James Harvest - Life Is For Living
             </li>
             <li>
+                Bryan Adams - Summer Of &#x27;69
+            </li>
+            <li>
                 Bryan Ferry &#x26; Roxy Music - Jealous Guy
             </li>
             <li>
@@ -274,28 +277,12 @@
     </div>
     <div>
         <h2>
-            Duett
-        </h2>
-        <ol>
-            <li>
-                Carpenters - Top Of The World
-            </li>
-            <li>
-                Chris Norman &#x26; Suzi Quatro - Stumblin&#x27; In
-            </li>
-            <li>
-                Elton John &#x26; Kiki Dee - Don&#x27;t Go Breaking My Heart
-            </li>
-            <li>
-                John Travolta &#x26; Olivia Newton-John - You&#x27;re The One That I Want
-            </li>
-        </ol>
-    </div>
-    <div>
-        <h2>
             Englischer Schlager
         </h2>
         <ol>
+            <li>
+                Eric Clapton - Tears In Heaven
+            </li>
             <li>
                 George Baker Selection - Paloma Blanca
             </li>
@@ -318,16 +305,6 @@
     </div>
     <div>
         <h2>
-            Franz&#xF6;sischer Rock-Pop &#x26; Chanson
-        </h2>
-        <ol>
-            <li>
-                Michel Delpech - Pour Un Flirt
-            </li>
-        </ol>
-    </div>
-    <div>
-        <h2>
             Italienische Musik &#x26; Italo-Pop
         </h2>
         <ol>
@@ -339,16 +316,6 @@
             </li>
             <li>
                 Ricchi e Poveri - Sara Perche Ti Amo
-            </li>
-        </ol>
-    </div>
-    <div>
-        <h2>
-            Jazz &#x26; Hintergrundmusik (Dinner, Lounge)
-        </h2>
-        <ol>
-            <li>
-                Eric Clapton - Tears In Heaven
             </li>
         </ol>
     </div>
@@ -393,22 +360,6 @@
             </li>
             <li>
                 Wolfgang Ziegler - Verdammt
-            </li>
-        </ol>
-    </div>
-    <div>
-        <h2>
-            Polnischer Rock-Pop
-        </h2>
-        <ol>
-            <li>
-                Bajm - Mysli I Slowa
-            </li>
-            <li>
-                Wilki - Bohema
-            </li>
-            <li>
-                Wilki - Urke
             </li>
         </ol>
     </div>
@@ -523,6 +474,22 @@
             </li>
         </ol>
     </div>
+    <ERROR_MISSING_TAG_NAME>
+    </ERROR_MISSING_TAG_NAME>
+    <ERROR_MISSING_TAG_NAME>
+    </ERROR_MISSING_TAG_NAME>
+    <ERROR_MISSING_TAG_NAME>
+    </ERROR_MISSING_TAG_NAME>
+    <ERROR_MISSING_TAG_NAME>
+    </ERROR_MISSING_TAG_NAME>
+    <ERROR_MISSING_TAG_NAME>
+    </ERROR_MISSING_TAG_NAME>
+    <ERROR_MISSING_TAG_NAME>
+    </ERROR_MISSING_TAG_NAME>
+    <ERROR_MISSING_TAG_NAME>
+    </ERROR_MISSING_TAG_NAME>
+    <ERROR_MISSING_TAG_NAME>
+    </ERROR_MISSING_TAG_NAME>
     <ERROR_MISSING_TAG_NAME>
     </ERROR_MISSING_TAG_NAME>
     <ERROR_MISSING_TAG_NAME>

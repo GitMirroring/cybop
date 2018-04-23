@@ -422,29 +422,6 @@
         </tr>
         <tr>
             <td>
-                Bryan Adams
-            </td>
-            <td>
-                Summer Of &#x27;69
-            </td>
-            <td>
-                1980er Rock-Pop &#x26; Synthie Pop
-            </td>
-            <td>
-            </td>
-            <td>
-                0:00
-            </td>
-            <td>
-            </td>
-            <td>
-                Chris
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
                 Calvin Harris
             </td>
             <td>
@@ -871,7 +848,7 @@
                 Wonderful Tonight
             </td>
             <td>
-                Jazz &#x26; Hintergrundmusik (Dinner, Lounge)
+                Englischer Schlager
             </td>
             <td>
                 1977
@@ -919,7 +896,7 @@
                 Strangers In The Night
             </td>
             <td>
-                Jazz &#x26; Hintergrundmusik (Dinner, Lounge)
+                Englischer Schlager
             </td>
             <td>
                 1966
@@ -1655,7 +1632,7 @@
         </tr>
         <tr>
             <td>
-                Phil &#x26; John
+                Peter Kraus
             </td>
             <td>
                 Hello Mary Lou

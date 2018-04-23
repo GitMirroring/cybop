@@ -240,19 +240,6 @@
         </tr>
         <tr>
             <td>
-                Summer Of &#x27;69
-            </td>
-            <td>
-                Bryan Adams
-            </td>
-            <td>
-                1980er Rock-Pop &#x26; Synthie Pop
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
                 Feel So Close
             </td>
             <td>
@@ -498,7 +485,7 @@
                 Eric Clapton
             </td>
             <td>
-                Jazz &#x26; Hintergrundmusik (Dinner, Lounge)
+                Englischer Schlager
             </td>
             <td>
                 1977
@@ -526,7 +513,7 @@
                 Frank Sinatra
             </td>
             <td>
-                Jazz &#x26; Hintergrundmusik (Dinner, Lounge)
+                Englischer Schlager
             </td>
             <td>
                 1966
@@ -944,7 +931,7 @@
                 Hello Mary Lou
             </td>
             <td>
-                Phil &#x26; John
+                Peter Kraus
             </td>
             <td>
                 Schlager

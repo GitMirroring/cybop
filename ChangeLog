@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2018-04-23  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Split file "part_bubble_sorter.c" into several, for more overview
+        * Handle comparison criterion in files "part_bubble_sorter.c" and "criterion_bubble_sorter.c"
+        * Add comparison criterion as argument to all sort functions
+
 2018-04-22  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue file "part_bubble_sorter.c"

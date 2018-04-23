@@ -44,8 +44,11 @@
  * @param p3 the left value
  * @param p4 the right value
  * @param p5 the loop count
+ * @param p6 the criterion data (pointer reference)
+ * @param p7 the criterion count
+ * @param p8 the criterion type
  */
-void sort_bubble_bubble(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void sort_bubble_bubble(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort bubble bubble.");
 
@@ -84,7 +87,7 @@ void sort_bubble_bubble(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         // and the loop count p5 got already reduced by 1 (one) before calling this function.
         j1 = j + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
-        sort_bubble_swap(p0, p1, p2, p3, p4, (void*) &j, (void*) &j1);
+        sort_bubble_swap(p0, p1, p2, p3, p4, (void*) &j, (void*) &j1, p6, p7, p8);
 
         // Increment loop variable.
         j++;

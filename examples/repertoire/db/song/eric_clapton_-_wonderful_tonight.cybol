@@ -2,7 +2,10 @@
 
     <node name="artist" channel="inline" format="text/plain" model="Eric Clapton"/>
     <node name="title" channel="inline" format="text/plain" model="Wonderful Tonight"/>
-    <node name="genre" channel="inline" format="text/plain" model="jazz"/>
+<!--
+    <node name="genre" channel="inline" format="text/plain" model="blues"/>
+-->
+    <node name="genre" channel="inline" format="text/plain" model="en"/>
     <node name="year" channel="inline" format="text/plain" model="1977"/>
 
     <node name="time" channel="inline" format="text/plain" model="0:00"/>

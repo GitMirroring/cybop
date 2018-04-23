@@ -42,8 +42,11 @@
  * @param p0 the array data
  * @param p1 the type
  * @param p2 the array count
+ * @param p3 the criterion data (pointer reference)
+ * @param p4 the criterion count
+ * @param p5 the criterion type
  */
-void sort_bubble(void* p0, void* p1, void* p2) {
+void sort_bubble(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort bubble.");
 
@@ -123,7 +126,7 @@ void sort_bubble(void* p0, void* p1, void* p2) {
         calculate_integer_subtract((void*) &c, (void*) &j);
 
         // Bubble up the greater value.
-        sort_bubble_bubble(p0, p1, (void*) &s, l, r, (void*) &c);
+        sort_bubble_bubble(p0, p1, (void*) &s, l, r, (void*) &c, p3, p4, p5);
 
         // CAUTION! This is an optimisation.
         // Break loop if nothing is left to be sorted.

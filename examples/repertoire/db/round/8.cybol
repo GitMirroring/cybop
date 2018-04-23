@@ -5,8 +5,5 @@
     <node name="3" channel="inline" format="text/plain" model="paul_kuhn_-_es_gibt_kein_bier_auf_hawaii"/>
     <node name="4" channel="inline" format="text/plain" model="rudi_schuricke_-_capri_fischer"/>
     <node name="5" channel="inline" format="text/plain" model="udo_juergens_-_wilde_kirschen"/>
-    <node name="6" channel="inline" format="text/plain" model="peter_maffay_-_tiefer"/>
-    <node name="7" channel="inline" format="text/plain" model="puhdys_-_alt_wie_ein_baum"/>
-    <node name="8" channel="inline" format="text/plain" model="eric_clapton_-_tears_in_heaven"/>
 
 </node>

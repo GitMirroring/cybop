@@ -18,7 +18,6 @@
     <node name="bruce_springsteen_-_i'm_on_fire" channel="file" format="element/part" model="repertoire/db/song/bruce_springsteen_-_i'm_on_fire.cybol"/>
     <node name="bryan_adams_-_run_to_you" channel="file" format="element/part" model="repertoire/db/song/bryan_adams_-_run_to_you.cybol"/>
     <node name="bryan_adams_-_somebody" channel="file" format="element/part" model="repertoire/db/song/bryan_adams_-_somebody.cybol"/>
-    <node name="bryan_adams_-_summer_of_'69" channel="file" format="element/part" model="repertoire/db/song/bryan_adams_-_summer_of_'69.cybol"/>
 
     <node name="calvin_harris_-_feel_so_close" channel="file" format="element/part" model="repertoire/db/song/calvin_harris_-_feel_so_close.cybol"/>
     <node name="ccr_-_bad_moon_rising" channel="file" format="element/part" model="repertoire/db/song/ccr_-_bad_moon_rising.cybol"/>

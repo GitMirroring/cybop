@@ -37,8 +37,11 @@
 
     <node name="sort_addressbook" channel="inline" format="sort/bubble" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".addressbook"/>
-        <!-- criterion as path to e.g. a string within the part -->
-        <node name="criterion" channel="inline" format="text/cybol-path" model=".last_name"/>
+        <!--
+            criterion as path to e.g. a string within the part
+            CAUTION! Do NOT use format "text/cybol-path", but "text/plain" instead.
+        -->
+        <node name="criterion" channel="inline" format="text/plain" model=".last_name"/>
     </node>
 
 </node>

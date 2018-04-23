@@ -13,6 +13,7 @@
     <node name="bap_-_do_kanns_zaubere" channel="file" format="element/part" model="repertoire/db/idea/bap_-_do_kanns_zaubere.cybol"/>
     <node name="barclay_james_harvest_-_life_is_for_living" channel="file" format="element/part" model="repertoire/db/idea/barclay_james_harvest_-_life_is_for_living.cybol"/>
     <node name="birds_-_mr_tambourine_man" channel="file" format="element/part" model="repertoire/db/idea/birds_-_mr_tambourine_man.cybol"/>
+    <node name="bryan_adams_-_summer_of_'69" channel="file" format="element/part" model="repertoire/db/idea/bryan_adams_-_summer_of_'69.cybol"/>
     <node name="bryan_ferry_&_roxy_music_-_jealous_guy" channel="file" format="element/part" model="repertoire/db/idea/bryan_ferry_&_roxy_music_-_jealous_guy.cybol"/>
 
     <node name="carpenters_-_top_of_the_world" channel="file" format="element/part" model="repertoire/db/idea/carpenters_-_top_of_the_world.cybol"/>

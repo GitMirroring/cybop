@@ -29,44 +29,78 @@
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/checker/array_checker.c"
+#include "../../../executor/checker/ascii_array_checker.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/comparator/comparator.c"
-#include "../../../executor/sorter/bubble/part_bubble_sorter.c"
 #include "../../../logger/logger.c"
 
 /*
  * Compares the given operands.
  *
- * The comparison criterion is a path to some value belonging to a part.
- * For example, the title of a song in a list of songs to be sorted.
+ * If their type is string (wide or ascii), then a checker
+ * function is called for lexicographic comparison.
+ * For all other types, standard comparison is used.
  *
  * @param p0 the result
- * @param p1 the left operand
- * @param p2 the right operand
- * @param p3 the operation type
- * @param p4 the operand type
- * @param p5 the comparison criterion
+ * @param p1 the left model data
+ * @param p2 the right model data
+ * @param p3 the left model count
+ * @param p4 the right model count
+ * @param p5 the operation type
+ * @param p6 the string operation type
+ * @param p7 the operand type
  */
-void sort_bubble_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void sort_bubble_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort bubble compare.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, p4, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        compare_integer_equal((void*) &r, p7, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-        sort_bubble_part(p0, p1, p2, p3, p5);
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    } else {
+            // Apply lexicographic comparison "checker",
+            // which always delivers just one return value.
+            //
+            // CAUTION! Do NOT use the tiven operation type p3 here,
+            // since it represents a comparison (but NOT check) logic.
+            // Instead, use the GREATER_CHECK_LOGIC_CYBOI_FORMAT.
+            check_array_ascii(p0, p1, p2, p3, p4, p6);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Apply lexicographic comparison "checker",
+            // which always delivers just one return value.
+            //
+            // CAUTION! Do NOT use the tiven operation type p3 here,
+            // since it represents a comparison (but NOT check) logic.
+            // Instead, use the GREATER_CHECK_LOGIC_CYBOI_FORMAT.
+            check_array(p0, p1, p2, p3, p4, p6);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
         // Use standard comparison for all other cases.
         //
 
-        compare(p0, p1, p2, p3, p4);
+        // Apply standard comparison with only ONE return value,
+        // i.e. NOT a return value vector.
+        //
+        //?? TODO: Use DEEP compare flag here if implemented one day in the future.
+        compare(p0, p1, p2, p5, p7);
     }
 }
 

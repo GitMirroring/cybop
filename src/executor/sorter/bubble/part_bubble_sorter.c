@@ -31,10 +31,13 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/comparator/comparator.c"
 #include "../../../executor/copier/array_copier.c"
+#include "../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../executor/sorter/bubble/compare_bubble_sorter.c"
+#include "../../../executor/sorter/bubble/criterion_bubble_sorter.c"
 #include "../../../logger/logger.c"
 
 /*
@@ -47,9 +50,12 @@
  * @param p1 the left operand
  * @param p2 the right operand
  * @param p3 the operation type
- * @param p4 the comparison criterion
+ * @param p4 the string operation type
+ * @param p5 the criterion data (pointer reference)
+ * @param p6 the criterion count
+ * @param p7 the criterion type
  */
-void sort_bubble_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void sort_bubble_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort bubble part.");
 
@@ -62,62 +68,17 @@ void sort_bubble_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // CAUTION! Use as pointer reference, since this is a compound part.
     void** rp = (void**) p2;
 
-    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+fwprintf(stdout, L"TEST sort bubble part p7: %i \n", p7);
+
+    // This condition is not really needed, since nothing happens
+    // inside the called function, if the criterion is null.
+    // However, it improves performance by avoiding unnecessary function calls.
+    if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // A comparison criterion EXISTS.
         // Therefore, determine left- and right part using criterion as path.
 
-        // The comparison criterion part type, model item.
-        void* ct = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The comparison criterion part type, model item data, count.
-        void* ctd = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* cmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The left source data position and source count remaining.
-        void* lpos = *NULL_POINTER_STATE_CYBOI_MODEL;
-        int lrem = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // The right source data position and source count remaining.
-        void* rpos = *NULL_POINTER_STATE_CYBOI_MODEL;
-        int rrem = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // The comparison result.
-        int rREPLACE = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-        // Get comparison criterion part type, model item.
-        copy_array_forward((void*) &ct, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &cm, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-        // Get comparison criterion part type, model item data, count.
-        copy_array_forward((void*) &ctd, ct, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &cmc, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-        compare_integer_equal((void*) &rREPLACE, ctd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-        if (rREPLACE != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // CAUTION! The left and right source data position gets copied and
-            // used independently, since it is handed over as pointer reference
-            // and gets manipulated inside the "deserialise_knowledge" function.
-
-            // Initialise left source data position and source count remaining.
-            copy_pointer((void*) &lpos, (void*) &cmd);
-            copy_integer((void*) &lrem, cmc);
-            // Initialise right source data position and source count remaining.
-            copy_pointer((void*) &rpos, (void*) &cmd);
-            copy_integer((void*) &rrem, cmc);
-
-            // Get left part.
-            // CAUTION! The arguments lp and p1 ALREADY ARE a pointer reference.
-            deserialise_knowledge((void*) lp, p1, (void*) &lpos, (void*) &lrem, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-            // Get right part.
-            // CAUTION! The arguments rp and p2 ALREADY ARE a pointer reference.
-            deserialise_knowledge((void*) rp, p2, (void*) &rpos, (void*) &rrem, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-
-        } else {
-
-            fwprintf(stdout, L"Error: Could not sort bubble part. The comparison criterion type is not WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE.");
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sort bubble part. The comparison criterion type is not WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE.");
-        }
+        sort_bubble_criterion((void*) lp, (void*) rp, p1, p2, p5, p6, p7);
     }
 
     // The left part type, model item.
@@ -152,63 +113,14 @@ void sort_bubble_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &rmd, rm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &rmc, rm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-fwprintf(stdout, L"TEST sort bubble part ltd: %i \n", ltd);
-fwprintf(stdout, L"TEST sort bubble part *ltd: %i \n", *((int*) ltd));
-
     // The comparison result.
-    int rTODO = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &rTODO, ltd, rtd);
+    compare_integer_equal((void*) &r, ltd, rtd);
 
-    if (rTODO != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // The comparison result.
-        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            compare_integer_equal((void*) &r, ltd, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // Apply lexicographic comparison "checker",
-                // which always delivers just one return value.
-                //
-                // CAUTION! Do NOT use the tiven operation type p3 here,
-                // since it represents a comparison (but NOT check) logic.
-                // Instead, use the GREATER_CHECK_LOGIC_CYBOI_FORMAT.
-                check_array_ascii(p0, lmd, rmd, lmc, rmc, (void*) GREATER_CHECK_LOGIC_CYBOI_FORMAT);
-            }
-        }
-
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            compare_integer_equal((void*) &r, ltd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // Apply lexicographic comparison "checker",
-                // which always delivers just one return value.
-                //
-                // CAUTION! Do NOT use the tiven operation type p3 here,
-                // since it represents a comparison (but NOT check) logic.
-                // Instead, use the GREATER_CHECK_LOGIC_CYBOI_FORMAT.
-                check_array(p0, lmd, rmd, lmc, rmc, (void*) GREATER_CHECK_LOGIC_CYBOI_FORMAT);
-            }
-        }
-
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //
-            // Use standard comparison for all other cases.
-            //
-
-            // Apply standard comparison with only ONE return value,
-            // i.e. NOT a return value vector.
-            //
-            //?? TODO: Use DEEP compare flag here if implemented one day in the future.
-            compare(p0, lmd, rmd, p3, ltd);
-        }
+        sort_bubble_compare(p0, lmd, rmd, lmc, rmc, p3, p4, ltd);
 
     } else {
 
