@@ -42,7 +42,7 @@
  * function is called for lexicographic comparison.
  * For all other types, standard comparison is used.
  *
- * @param p0 the result
+ * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left model data
  * @param p2 the right model data
  * @param p3 the left model count
@@ -67,9 +67,9 @@ void sort_bubble_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void*
             // Apply lexicographic comparison "checker",
             // which always delivers just one return value.
             //
-            // CAUTION! Do NOT use the tiven operation type p3 here,
-            // since it represents a comparison (but NOT check) logic.
-            // Instead, use the GREATER_CHECK_LOGIC_CYBOI_FORMAT.
+            // CAUTION! Do NOT use the given operation type here,
+            // since it represents a comparison logic.
+            // Instead, use the given string comparison ("check") logic.
             check_array_ascii(p0, p1, p2, p3, p4, p6);
         }
     }
@@ -83,9 +83,9 @@ void sort_bubble_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void*
             // Apply lexicographic comparison "checker",
             // which always delivers just one return value.
             //
-            // CAUTION! Do NOT use the tiven operation type p3 here,
-            // since it represents a comparison (but NOT check) logic.
-            // Instead, use the GREATER_CHECK_LOGIC_CYBOI_FORMAT.
+            // CAUTION! Do NOT use the given operation type here,
+            // since it represents a comparison logic.
+            // Instead, use the given string comparison ("check") logic.
             check_array(p0, p1, p2, p3, p4, p6);
         }
     }

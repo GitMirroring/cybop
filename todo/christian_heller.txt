@@ -17,7 +17,8 @@ __________
         * REMARK: the following are complete: sorter (bubble), checker, comparator
 
         CONTINUE:
-        * Debug handling of comparison criterion in file "criterion_bubble_sorter.c"
+        * All files done; only think through remaining file "swap_bubble_sorter"
+        * Debug usage of pointer references in files of bubble sorter (void* or void** or void***)
         * Test with cybol example applications "sorter" and "repertoire"
 
         * Generalise sort functions for other algorithms besides "bubble"

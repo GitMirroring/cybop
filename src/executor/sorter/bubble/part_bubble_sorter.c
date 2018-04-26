@@ -47,8 +47,8 @@
  * For example, the title of a song (in a list of songs to be sorted).
  *
  * @param p0 the result (number 1 if true; unchanged otherwise)
- * @param p1 the left operand (pointer reference)
- * @param p2 the right operand (pointer reference)
+ * @param p1 the left part (pointer reference)
+ * @param p2 the right part (pointer reference)
  * @param p3 the operation type
  * @param p4 the string operation type
  * @param p5 the criterion data (pointer reference)
@@ -62,23 +62,30 @@ void sort_bubble_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // The left part.
     // CAUTION! Initialise with given left operand.
     // CAUTION! Use as pointer reference, since this is a compound part.
-    void** lp = (void**) p1;
+    void* lp = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The right part.
     // CAUTION! Initialise with given right operand.
     // CAUTION! Use as pointer reference, since this is a compound part.
-    void** rp = (void**) p2;
+    void* rp = *NULL_POINTER_STATE_CYBOI_MODEL;
 
 fwprintf(stdout, L"TEST sort bubble part p7: %i \n", p7);
 
-    // This condition is not really needed, since nothing happens
-    // inside the called function, if the criterion is null.
-    // However, it improves performance by avoiding unnecessary function calls.
     if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // A comparison criterion EXISTS.
-        // Therefore, determine left- and right part using criterion as path.
+        // Therefore, determine left- and right part
+        // as child elements of the given parts,
+        // using the criterion as path.
 
-        sort_bubble_criterion((void*) lp, (void*) rp, p1, p2, p5, p6, p7);
+        sort_bubble_criterion((void*) &lp, (void*) &rp, p1, p2, p5, p6, p7);
+
+    } else {
+
+        // A comparison criterion does NOT exist.
+        // Therefore, assign left- and right part themselves.
+
+        copy_pointer((void*) &lp, p1);
+        copy_pointer((void*) &rp, p2);
     }
 
     // The left part type, model item.
@@ -98,11 +105,11 @@ fwprintf(stdout, L"TEST sort bubble part p7: %i \n", p7);
     void* rmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get left part type, model item.
-    copy_array_forward((void*) &lt, *lp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &lm, *lp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &lt, lp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &lm, lp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get right part type, model item.
-    copy_array_forward((void*) &rt, *rp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &rm, *rp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &rt, rp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &rm, rp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Get left part type, model item data, count.
     copy_array_forward((void*) &ltd, lt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
