@@ -47,8 +47,8 @@
  * For example, the title of a song (in a list of songs to be sorted).
  *
  * @param p0 the result (number 1 if true; unchanged otherwise)
- * @param p1 the left operand
- * @param p2 the right operand
+ * @param p1 the left operand (pointer reference)
+ * @param p2 the right operand (pointer reference)
  * @param p3 the operation type
  * @param p4 the string operation type
  * @param p5 the criterion data (pointer reference)

@@ -42,14 +42,14 @@
  * using the first-in-first-out (fifo) principle (queue).
  *
  * @param p0 the index (if found; unchanged otherwise)
- * @param p1 the investigated data (each element pointing to a part)
+ * @param p1 the investigated data (pointer reference) (each element pointing to a part)
  * @param p2 the searched name data
  * @param p3 the searched name count
  * @param p4 the investigated count
  */
 void find_name_array_fifo(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find name array fifo.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find name array fifo.");
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -77,6 +77,11 @@ void find_name_array_fifo(void* p0, void* p1, void* p2, void* p3, void* p4) {
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
+fwprintf(stdout, L"TEST find name array fifo p4: %i\n", p4);
+if (p4 != 0) {
+    fwprintf(stdout, L"TEST find name array fifo *p4: %i\n", *((int*) p4));
+}
+
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_greater_or_equal((void*) &b, (void*) &j, p4);
@@ -91,8 +96,12 @@ void find_name_array_fifo(void* p0, void* p1, void* p2, void* p3, void* p4) {
             break;
         }
 
+fwprintf(stdout, L"TEST find name array fifo p1: %i\n", p1);
+fwprintf(stdout, L"TEST find name array fifo 1 j: %i\n", j);
         // Get part j from investigated pointer array p1.
         copy_array_forward((void*) &p, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j);
+fwprintf(stdout, L"TEST find name array fifo p: %i\n", p);
+fwprintf(stdout, L"TEST find name array fifo 2 j: %i\n", j);
         // Get part name item.
         copy_array_forward((void*) &pn, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
         // Get part name item data, count.

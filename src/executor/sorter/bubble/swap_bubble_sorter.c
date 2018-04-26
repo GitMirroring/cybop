@@ -39,11 +39,11 @@
 /*
  * Swap the given values depending on comparison.
  *
- * @param p0 the data
+ * @param p0 the data (pointer reference)
  * @param p1 the type
  * @param p2 the swapped flag
- * @param p3 the left value
- * @param p4 the right value
+ * @param p3 the left value (pointer reference)
+ * @param p4 the right value (pointer reference)
  * @param p5 the left index
  * @param p6 the right index
  * @param p7 the criterion data (pointer reference)
@@ -56,6 +56,10 @@ void sort_bubble_swap(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The left value.
+//??    void* lv = (void**) p3;
+    // The right value.
+//??    void* rv = (void**) p4;
 
     //
     // The assignment of values to parametres p3 and p4 IS CORRECT.
@@ -72,7 +76,7 @@ void sort_bubble_swap(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // Get successor value.
     copy_array_forward(p4, p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
 
-    // Determine type of current and successor value.
+    // Determine type of current and successor value and compare them.
     sort_bubble_type((void*) &r, p3, p4, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT, (void*) GREATER_CHECK_LOGIC_CYBOI_FORMAT, p1, p7, p8, p9);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

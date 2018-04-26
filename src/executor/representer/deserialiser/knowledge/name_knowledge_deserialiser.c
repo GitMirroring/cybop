@@ -94,6 +94,8 @@ void deserialise_knowledge_name(void* p0, void* p1, void* p2, void* p3, void* p4
 
             if (nc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
+//?? fwprintf(stdout, L"TEST deserialise knowledge name TEST: %i\n", nc);
+
                 //
                 // CAUTION! Only call function below if a name EXISTS.
                 // Calling the function with an empty name anyway,

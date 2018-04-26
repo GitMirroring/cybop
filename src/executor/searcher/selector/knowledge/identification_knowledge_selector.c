@@ -60,32 +60,28 @@ void select_knowledge_identification(void* p0, void* p1, void* p2, void* p3, voi
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge identification.");
 
-//?? fwprintf(stdout, L"TEST select knowledge identification *p6: %i\n", *((int*) p6));
-
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        compare_integer_unequal((void*) &r, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-            compare_integer_unequal((void*) &r, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+//?? fwprintf(stdout, L"TEST select knowledge identification r: %i\n", r);
 
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                // The index flag IS set.
-                // Treat part name data as index.
+            // The index flag IS set.
+            // Treat part name data as index.
 
-                // CAUTION! The stack memory argument p4 is NOT needed here,
-                // since it is forbidden to access arbitrary stack variables via index.
-                // Otherwise, the whole stack order might get ignored,
-                // which is not wanted.
-                //
-                // CAUTION! Do NOT use the "copy_array_forward" function,
-                // since it is low-level and does not check array boundaries!
-                get_part_metadata(p0, *s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2, p5);
-            }
-        }
+            // CAUTION! The stack memory argument p4 is NOT needed here,
+            // since it is forbidden to access arbitrary stack variables via index.
+            // Otherwise, the whole stack order might get ignored,
+            // which is not wanted.
+            //
+            // CAUTION! Do NOT use the "copy_array_forward" function,
+            // since it is low-level and does not check array boundaries!
+            get_part_metadata(p0, *s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2, p5);
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        } else {
 
             // The index flag is NOT set.
             // Treat part name data as name.

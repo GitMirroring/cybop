@@ -37,7 +37,7 @@
  * Finds a part with the given name in the investigated array.
  *
  * @param p0 the index (if found; unchanged otherwise)
- * @param p1 the investigated data (each element pointing to a part)
+ * @param p1 the investigated data (pointer reference) (each element pointing to a part)
  * @param p2 the searched name data
  * @param p3 the searched name count
  * @param p4 the investigated count
@@ -50,19 +50,15 @@ void find_name_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    compare_integer_unequal((void*) &r, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        compare_integer_unequal((void*) &r, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        // The lifo flag IS set.
 
-            // The lifo flag IS set.
+        find_name_array_lifo(p0, p1, p2, p3, p4);
 
-            find_name_array_lifo(p0, p1, p2, p3, p4);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    } else {
 
         // The lifo flag is NOT set.
 

@@ -41,7 +41,7 @@
 /*
  * Sorts the data array using the given algorithm (operation type).
  *
- * @param p0 the array data
+ * @param p0 the array data (pointer reference)
  * @param p1 the type
  * @param p2 the array count
  * @param p3 the criterion data (pointer reference)

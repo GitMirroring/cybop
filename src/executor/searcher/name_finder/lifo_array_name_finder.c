@@ -42,14 +42,14 @@
  * using the last-in-first-out (lifo) principle (stack).
  *
  * @param p0 the index (if found; unchanged otherwise)
- * @param p1 the investigated data (each element pointing to a part)
+ * @param p1 the investigated data (pointer reference) (each element pointing to a part)
  * @param p2 the searched name data
  * @param p3 the searched name count
  * @param p4 the investigated count
  */
 void find_name_array_lifo(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find name array lifo.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find name array lifo.");
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

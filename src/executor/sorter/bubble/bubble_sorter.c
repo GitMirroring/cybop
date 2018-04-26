@@ -39,7 +39,7 @@
 /*
  * Sorts the given data array using the bubble algorithm.
  *
- * @param p0 the array data
+ * @param p0 the array data (pointer reference)
  * @param p1 the type
  * @param p2 the array count
  * @param p3 the criterion data (pointer reference)
@@ -73,6 +73,9 @@ void sort_bubble(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // by parametre argument at runtime.
     // Therefore, the "allocate_array" function has to be used,
     // in order to be able to forward the given type argument.
+    //
+    // This is done ONLY ONCE right here and NOT INSIDE the loop
+    // and called functions, since memory allocation takes time.
     //
 
     // Allocate left value.
@@ -126,7 +129,7 @@ void sort_bubble(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
         calculate_integer_subtract((void*) &c, (void*) &j);
 
         // Bubble up the greater value.
-        sort_bubble_bubble(p0, p1, (void*) &s, l, r, (void*) &c, p3, p4, p5);
+        sort_bubble_bubble(p0, p1, (void*) &s, (void*) &l, (void*) &r, (void*) &c, p3, p4, p5);
 
         // CAUTION! This is an optimisation.
         // Break loop if nothing is left to be sorted.

@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2018-04-25  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Investigate segmentation fault memory access errors in bubble sorter
+        * Add sequence diagram in "src/" showing function calls for sorting algorithm
+
 2018-04-23  Christian Heller  <christian.heller@tuxtax.de>
 
         * Split file "part_bubble_sorter.c" into several, for more overview

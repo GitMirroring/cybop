@@ -20,6 +20,9 @@ __________
         * Debug handling of comparison criterion in file "criterion_bubble_sorter.c"
         * Test with cybol example applications "sorter" and "repertoire"
 
+        * Generalise sort functions for other algorithms besides "bubble"
+        * Provide cybol sort operation property "ascending" of type boolean
+
         * Replace last three arguments (count, left_index, right_index) of function call "compare_part" with cybol property values in file "applicator/compare/type_compare.c"
         * Add indices as property in "apply_compare"
         * Fix count comparison in item_comparator and item_calculator etc. where (count + index) has to be considered (index forgotten up to now)
