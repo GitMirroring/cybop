@@ -11,19 +11,27 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * REMARK: the following are complete: sorter (bubble), checker, comparator
+
+Sorting
+_______
+
+        CONTINUE:
+        * Fix sorting of nodes in db list "title" in cybol example application file "repertoire/logic/translate/song/sort.cybol",
+            since it sorts both, by artist and by title, even though only the SECOND (by title) is wanted
+            (possibly, this is due to a SHALLOW COPY in file "repertoire/logic/translate/song/songs.cybol", which should rather be a DEEP COPY)
+
+        * Add sort operation property "descending" and use "ascending" as default
+        * Implement missing cybol operations "insertion", "quick", "selection" in cyboi
+
+        * Look for new sorting ideas (linear, binär, sortieren) in:
+            tmp/datetime/plate_-_programmieren_in_c_datumsberechnung.html (8 Ausgewählte Algorithmen (Teil 1) | 8.5 Suchen und Sortieren)
+        * Implement cybol operations for calculating statistical things
+
 Comparison
 __________
 
-        * REMARK: the following are complete: sorter (bubble), checker, comparator
-
         CONTINUE:
-        * All files done; only think through remaining file "swap_bubble_sorter"
-        * Debug usage of pointer references in files of bubble sorter (void* or void** or void***)
-        * Test with cybol example applications "sorter" and "repertoire"
-
-        * Generalise sort functions for other algorithms besides "bubble"
-        * Provide cybol sort operation property "ascending" of type boolean
-
         * Replace last three arguments (count, left_index, right_index) of function call "compare_part" with cybol property values in file "applicator/compare/type_compare.c"
         * Add indices as property in "apply_compare"
         * Fix count comparison in item_comparator and item_calculator etc. where (count + index) has to be considered (index forgotten up to now)
@@ -51,19 +59,6 @@ _______
         * Use "overwrite" instead of "copy_integer" for setting the result in operations like "calculate", "compare" etc. ??
             the reason is that the result value might have a count of zero (and not one as expected), if it hadn't been initialised within the corresponding cybol application
             alternatively, test if result count is greater zero / or equal to one before assigning the result value using "copy_integer"
-
-Sorting
-_______
-
-        * Reflect about string sorting
-        * Implement missing cybol operations "insertion", "quick", "selection" in cyboi
-        * Add sort operation property "descending" and use "ascending" as default
-        * Add sort operation property "criterion" pointing to a part that is to be compared for sorting
-        * Sort nodes of db list "title" in directory "repertoire/logic/translate/song/sort.cybol"
-
-        * Look for new sorting ideas (linear, binär, sortieren) in:
-            tmp/datetime/plate_-_programmieren_in_c_datumsberechnung.html (8 Ausgewählte Algorithmen (Teil 1) | 8.5 Suchen und Sortieren)
-        * Implement cybol operations for calculating statistical things
 
 Arbitrary-precision arithmetic (Langzahlarithmetik)
 ___________________________________________________

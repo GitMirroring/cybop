@@ -2,15 +2,12 @@
 
     <!-- boolean -->
 
-<!--
     <node name="sort_boolean" channel="inline" format="sort/bubble" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".boolean"/>
     </node>
--->
 
     <!-- number -->
 
-<!--
     <node name="sort_complex" channel="inline" format="sort/bubble" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".complex"/>
     </node>
@@ -20,34 +17,34 @@
     <node name="sort_integer" channel="inline" format="sort/bubble" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".integer"/>
     </node>
--->
 
     <!-- text -->
 
-<!--
     <node name="sort_ascii" channel="inline" format="sort/bubble" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".ascii"/>
     </node>
     <node name="sort_wide" channel="inline" format="sort/bubble" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".wide"/>
     </node>
--->
 
     <!-- part -->
 
-<!--
     <node name="sort_part" channel="inline" format="sort/bubble" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".part"/>
     </node>
--->
 
     <!-- addressbook part -->
 
     <node name="sort_addressbook" channel="inline" format="sort/bubble" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".addressbook"/>
         <!--
-            criterion as path to e.g. a string within the part
+            The criterion is given as path to an element within the part that is to be compared, e.g. a string.
             CAUTION! Do NOT use format "text/cybol-path", but "text/plain" instead.
+            Examples:
+            <node name="criterion" channel="inline" format="text/plain" model=".first_name"/>
+            <node name="criterion" channel="inline" format="text/plain" model=".last_name"/>
+            <node name="criterion" channel="inline" format="text/plain" model=".age"/>
+            <node name="criterion" channel="inline" format="text/plain" model=".profession"/>
         -->
         <node name="criterion" channel="inline" format="text/plain" model=".last_name"/>
     </node>

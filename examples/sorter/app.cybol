@@ -12,6 +12,13 @@
     <node name="ascii" channel="inline" format="text/ascii" model="a4v,e9-/3+*)#'123"/>
     <node name="wide" channel="inline" format="text/plain" model="w1i2d3e4%?⭝|฿Hઊ"/>
 
+    <!-- part with model of type string | integer -->
+    <node name="part" channel="file" format="element/part" model="sorter/part.cybol"/>
+    <node name="integer_part" channel="file" format="element/part" model="sorter/integer_part.cybol"/>
+
+    <!-- addressbook as part containing person parts to be sorted by a given criterion such as the family name -->
+    <node name="addressbook" channel="file" format="element/part" model="sorter/addressbook.cybol"/>
+
     <!-- logic -->
     <node name="sort" channel="file" format="element/part" model="sorter/sort.cybol"/>
     <node name="print" channel="file" format="element/part" model="sorter/print.cybol"/>
@@ -20,11 +27,5 @@
     <node name="before" channel="inline" format="number/integer" model="0"/>
     <node name="after" channel="inline" format="number/integer" model="0"/>
     <node name="print_time" channel="file" format="element/part" model="sorter/print_time.cybol"/>
-
-    <!-- part with model of type string -->
-    <node name="part" channel="file" format="element/part" model="sorter/part.cybol"/>
-
-    <!-- addressbook as part containing person parts to be sorted by a given criterion such as the family name -->
-    <node name="addressbook" channel="file" format="element/part" model="sorter/addressbook.cybol"/>
 
 </node>

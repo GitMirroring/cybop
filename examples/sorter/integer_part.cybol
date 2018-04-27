@@ -1,0 +1,10 @@
+<node>
+
+    <node name="word_0" channel="inline" format="number/integer" model="-1"/>
+    <node name="word_1" channel="inline" format="number/integer" model="234"/>
+    <node name="word_2" channel="inline" format="number/integer" model="-3"/>
+    <node name="word_3" channel="inline" format="number/integer" model="0"/>
+    <node name="word_4" channel="inline" format="number/integer" model="70"/>
+    <node name="word_5" channel="inline" format="number/integer" model="5"/>
+
+</node>
