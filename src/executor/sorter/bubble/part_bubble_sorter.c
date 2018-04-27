@@ -68,8 +68,6 @@ void sort_bubble_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // CAUTION! Use as pointer reference, since this is a compound part.
     void* rp = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-fwprintf(stdout, L"TEST sort bubble part p7: %i \n", p7);
-
     if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // A comparison criterion EXISTS.

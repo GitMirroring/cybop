@@ -68,11 +68,6 @@ void sort_bubble_criterion(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-fwprintf(stdout, L"TEST sort bubble criterion p6: %i \n", p6);
-fwprintf(stdout, L"TEST sort bubble criterion *p6: %i \n", *((int*) p6));
-fwprintf(stdout, L"TEST sort bubble criterion *p4: %ls \n", (wchar_t*) *((void**) p4));
-fwprintf(stdout, L"TEST sort bubble criterion *p5: %i \n", *((int*) p5));
-
     compare_integer_equal((void*) &r, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -81,24 +76,17 @@ fwprintf(stdout, L"TEST sort bubble criterion *p5: %i \n", *((int*) p5));
         // used independently, since it is handed over as pointer reference
         // and gets manipulated inside the "deserialise_knowledge" function.
 
-fwprintf(stdout, L"TEST sort bubble criterion 0 *p6: %i \n", *((int*) p6));
         // Initialise left source data position and source count remaining.
         copy_pointer((void*) &lpos, p4);
-fwprintf(stdout, L"TEST sort bubble criterion 1 lpos: %ls \n", (wchar_t*) lpos);
         copy_integer((void*) &lrem, p5);
-fwprintf(stdout, L"TEST sort bubble criterion 2 lrem: %i \n", lrem);
         // Initialise right source data position and source count remaining.
         copy_pointer((void*) &rpos, p4);
-fwprintf(stdout, L"TEST sort bubble criterion 3 rpos: %ls \n", (wchar_t*) rpos);
         copy_integer((void*) &rrem, p5);
-fwprintf(stdout, L"TEST sort bubble criterion 4 rrem: %i \n", rrem);
 
         // Get left part.
         deserialise_knowledge(p0, p2, (void*) &lpos, (void*) &lrem, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-fwprintf(stdout, L"TEST sort bubble criterion 5 p0: %i \n", p0);
         // Get right part.
         deserialise_knowledge(p1, p3, (void*) &rpos, (void*) &rrem, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-fwprintf(stdout, L"TEST sort bubble criterion 6 p1: %i \n", p1);
 
     } else {
 

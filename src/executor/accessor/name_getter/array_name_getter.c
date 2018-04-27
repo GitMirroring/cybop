@@ -50,24 +50,10 @@ void get_name_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     // The index of the searched part.
     int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
-fwprintf(stdout, L"TEST get name array *p3: %i\n", *((int*) p3));
-fwprintf(stdout, L"TEST get name array p2: %ls\n", (wchar_t*) p2);
-
-if (p4 != 0) {
-    fwprintf(stdout, L"TEST get name array *p4: %i\n", *((int*) p4));
-} else {
-    fwprintf(stdout, L"TEST get name array p4: %i\n", p4);
-}
-
     // Determine index of searched part.
     find_name_array((void*) &i, p1, p2, p3, p4, p5);
 
-fwprintf(stdout, L"TEST get name array TEST post find p5: %i\n", p5);
-fwprintf(stdout, L"TEST get name array TEST post find *p5: %i\n", *((int*) p5));
-
     if (i > *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
-
-fwprintf(stdout, L"TEST get name array TEST found i: %i\n", i);
 
         // A part with the given name was found.
 

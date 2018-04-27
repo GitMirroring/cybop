@@ -38,8 +38,8 @@
  * Distinguishes operands between part and primitive type.
  *
  * @param p0 the result
- * @param p1 the left operand (pointer reference)
- * @param p2 the right operand (pointer reference)
+ * @param p1 the left operand (pointer reference only if type is part or pointer)
+ * @param p2 the right operand (pointer reference only if type is part or pointer)
  * @param p3 the operation type
  * @param p4 the string operation type
  * @param p5 the operand type
@@ -49,46 +49,28 @@
  */
 void sort_bubble_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort bubble type.");
 
-        void** ro = (void**) p2;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    compare_integer_equal((void*) &r, p5, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
-            void** lo = (void**) p1;
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort bubble type.");
+        //
+        // Use special comparison for compound parts.
+        //
 
-            // The comparison result.
-            int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-            compare_integer_equal((void*) &r, p5, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                //
-                // Use special comparison for compound parts.
-                //
-
-                sort_bubble_part(p0, p1, p2, p3, p4, p6, p7, p8);
-
-            } else {
-
-                //
-                // Use standard comparison for all other cases.
-                //
-
-                compare(p0, *lo, *ro, p3, p5);
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort bubble type. The left operand is null.");
-        }
+        sort_bubble_part(p0, p1, p2, p3, p4, p6, p7, p8);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sort bubble type. The right operand is null.");
+        //
+        // Use standard comparison for all other cases.
+        //
+
+        compare(p0, p1, p2, p3, p5);
     }
 }
 

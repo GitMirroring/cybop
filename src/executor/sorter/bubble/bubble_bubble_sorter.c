@@ -38,11 +38,11 @@
 /*
  * Bubbles up the greater value, i.e. it gets moved to the right.
  *
- * @param p0 the data (pointer reference)
+ * @param p0 the data (pointer reference only if type is part or pointer)
  * @param p1 the type
  * @param p2 the swapped flag
- * @param p3 the left value (pointer reference)
- * @param p4 the right value (pointer reference)
+ * @param p3 the left value (pointer reference only if type is part or pointer)
+ * @param p4 the right value (pointer reference only if type is part or pointer)
  * @param p5 the loop count
  * @param p6 the criterion data (pointer reference)
  * @param p7 the criterion count

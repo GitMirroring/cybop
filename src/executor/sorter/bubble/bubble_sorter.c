@@ -39,7 +39,7 @@
 /*
  * Sorts the given data array using the bubble algorithm.
  *
- * @param p0 the array data (pointer reference)
+ * @param p0 the array data (pointer reference only if type is part or pointer)
  * @param p1 the type
  * @param p2 the array count
  * @param p3 the criterion data (pointer reference)
