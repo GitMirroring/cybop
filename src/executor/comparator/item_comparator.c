@@ -66,17 +66,27 @@ void compare_item_count(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     // but only the count as actual number of elements is of interest.
     //
 
-    // The left count comparison result.
-    int l = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The right count comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The left- and right count.
+    int lc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int rc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The left- and right count comparison result.
+    int lr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    int rr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_less_or_equal((void*) &l, p5, p8);
-    compare_integer_less_or_equal((void*) &r, p5, p9);
+    // Calculate left count as sum of left index and count.
+    calculate_integer_add((void*) &lc, p6);
+    calculate_integer_add((void*) &lc, p5);
+    // Calculate right count as sum of right index and count.
+    calculate_integer_add((void*) &rc, p7);
+    calculate_integer_add((void*) &rc, p5);
 
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    // Compare calculated count with actual left- and right count.
+    compare_integer_less_or_equal((void*) &lr, (void*) &lc, p8);
+    compare_integer_less_or_equal((void*) &rr, (void*) &rc, p9);
 
-        if (l != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (rr != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        if (lr != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             compare_array(p0, p1, p2, p3, p4, p5, p6, p7);
 

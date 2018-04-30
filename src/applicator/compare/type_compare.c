@@ -48,8 +48,11 @@
  * @param p3 the operation type
  * @param p4 the left operand type
  * @param p5 the right operand type
+ * @param p6 the count
+ * @param p7 the left index
+ * @param p8 the right index
  */
-void apply_compare_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void apply_compare_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply compare type.");
 
@@ -62,9 +65,7 @@ void apply_compare_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
         // The result- and operand type are identical.
 
-        //?? TODO: Replace last three arguments (count, left_index, right_index) with cybol property values!
-        //?? Replace PRIMITIVE_STATE_CYBOI_MODEL_COUNT with actual count!
-        compare_part(p0, p1, p2, p3, p4, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_part(p0, p1, p2, p3, p4, p6, p7, p8);
 
     } else {
 

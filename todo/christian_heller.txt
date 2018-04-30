@@ -13,25 +13,13 @@
 
         * REMARK: the following are complete: sorter (bubble), checker, comparator
 
-Sorting
-_______
-
-        CONTINUE:
-        * Add sort operation property "descending" and use "ascending" as default
-        * Figure out how to sort capital/small letters, German Umlauts etc.
-        * Implement missing cybol operations "insertion", "quick", "selection" in cyboi
-
-        * Look for new sorting ideas (linear, binär, sortieren) in:
-            tmp/datetime/plate_-_programmieren_in_c_datumsberechnung.html (8 Ausgewählte Algorithmen (Teil 1) | 8.5 Suchen und Sortieren)
-        * Implement cybol operations for calculating statistical things
-
 Comparison
 __________
 
         CONTINUE:
-        * Replace last three arguments (count, left_index, right_index) of function call "compare_part" with cybol property values in file "applicator/compare/type_compare.c"
-        * Add indices as property in "apply_compare"
-        * Fix count comparison in item_comparator and item_calculator etc. where (count + index) has to be considered (index forgotten up to now)
+        * Fix comparison using sum of index and count (index forgotten up to now) in: calculate (item_calculator.c), cast, manipulate, modify
+            NO others, all searched through
+            DONE in file "item_comparator.c"; see there as example
         * Continue updating comparator, to make it work again with vectors (possibly already done??)
 
         * Reactivate function call of "compare_part" for PART_ELEMENT_STATE_CYBOI_TYPE in file "comparator.c" ??
@@ -57,6 +45,18 @@ _______
             the reason is that the result value might have a count of zero (and not one as expected), if it hadn't been initialised within the corresponding cybol application
             alternatively, test if result count is greater zero / or equal to one before assigning the result value using "copy_integer"
 
+Sorting
+_______
+
+        CONTINUE:
+        * Add sort operation property "descending" and use "ascending" as default
+        * Figure out how to sort capital/small letters, German Umlauts etc.
+        * Implement missing cybol operations "insertion", "quick", "selection" in cyboi
+
+        * Look for new sorting ideas (linear, binär, sortieren) in:
+            tmp/datetime/plate_-_programmieren_in_c_datumsberechnung.html (8 Ausgewählte Algorithmen (Teil 1) | 8.5 Suchen und Sortieren)
+        * Implement cybol operations for calculating statistical things
+
 Arbitrary-precision arithmetic (Langzahlarithmetik)
 ___________________________________________________
 
@@ -75,12 +75,6 @@ __________
         * Add "remain" nodes to last section of wui "round"
             How to reuse file "round.cybol" for last iteration of "remain" songs?
             Problem: the "#remain_index" is reset in file "song.cybol", which is not wanted when processing ".db.remain"
-
-Debug
-_____
-
-        * Search for cybol operation "modify/empty" (and related "modify" operations) in all cybol example applications
-        * Verify correct property name: currently, "part" is used, but shouldn't it be "destination"?
 
 GUI
 ___
