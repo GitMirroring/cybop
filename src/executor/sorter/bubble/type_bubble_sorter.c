@@ -46,8 +46,11 @@
  * @param p6 the criterion data (pointer reference)
  * @param p7 the criterion count
  * @param p8 the criterion type
+ * @param p9 the knowledge memory part (pointer reference)
+ * @param p10 the stack memory item
+ * @param p11 the internal memory data
  */
-void sort_bubble_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void sort_bubble_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort bubble type.");
 
@@ -62,7 +65,7 @@ void sort_bubble_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         // Use special comparison for compound parts.
         //
 
-        sort_bubble_part(p0, p1, p2, p3, p4, p6, p7, p8);
+        sort_bubble_part(p0, p1, p2, p3, p4, p6, p7, p8, p9, p10, p11);
 
     } else {
 

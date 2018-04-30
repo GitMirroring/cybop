@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2018-04-30  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix sorting of db list "title" in cybol example application file "repertoire/logic/translate/song/sort.cybol", by using stack variable ".(#list)"
+
 2018-04-27  Christian Heller  <christian.heller@tuxtax.de>
 
         * Fix segmentation fault error by adjusting pointer references in files of bubble sorter

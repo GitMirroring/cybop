@@ -8,9 +8,11 @@
         <node name="part" channel="inline" format="text/cybol-path" model=".db.(#list)"/>
         <!--
             The criterion is given as path to an element within the part that is to be compared, e.g. a string.
+            Example properties of a song are: .artist, .title.
+            The stack variable (#list) contains one of these.
             CAUTION! Do NOT use format "text/cybol-path", but "text/plain" instead.
         -->
-        <node name="criterion" channel="inline" format="text/plain" model=".title"/>
+        <node name="criterion" channel="inline" format="text/plain" model=".(#list)"/>
     </node>
 
 </node>

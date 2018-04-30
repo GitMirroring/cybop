@@ -17,11 +17,8 @@ Sorting
 _______
 
         CONTINUE:
-        * Fix sorting of nodes in db list "title" in cybol example application file "repertoire/logic/translate/song/sort.cybol",
-            since it sorts both, by artist and by title, even though only the SECOND (by title) is wanted
-            (possibly, this is due to a SHALLOW COPY in file "repertoire/logic/translate/song/songs.cybol", which should rather be a DEEP COPY)
-
         * Add sort operation property "descending" and use "ascending" as default
+        * Figure out how to sort capital/small letters, German Umlauts etc.
         * Implement missing cybol operations "insertion", "quick", "selection" in cyboi
 
         * Look for new sorting ideas (linear, binär, sortieren) in:

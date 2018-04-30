@@ -54,8 +54,11 @@
  * @param p4 the criterion data (pointer reference)
  * @param p5 the criterion count
  * @param p6 the criterion type
+ * @param p7 the knowledge memory part (pointer reference)
+ * @param p8 the stack memory item
+ * @param p9 the internal memory data
  */
-void sort_bubble_criterion(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void sort_bubble_criterion(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort bubble criterion.");
 
@@ -84,9 +87,9 @@ void sort_bubble_criterion(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         copy_integer((void*) &rrem, p5);
 
         // Get left part.
-        deserialise_knowledge(p0, p2, (void*) &lpos, (void*) &lrem, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+        deserialise_knowledge(p0, p2, (void*) &lpos, (void*) &lrem, p7, p8, p9, *NULL_POINTER_STATE_CYBOI_MODEL);
         // Get right part.
-        deserialise_knowledge(p1, p3, (void*) &rpos, (void*) &rrem, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+        deserialise_knowledge(p1, p3, (void*) &rpos, (void*) &rrem, p7, p8, p9, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     } else {
 

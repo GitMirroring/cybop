@@ -47,9 +47,12 @@
  * @param p3 the criterion data (pointer reference)
  * @param p4 the criterion count
  * @param p5 the criterion type
- * @param p6 the operation type
+ * @param p6 the knowledge memory part (pointer reference)
+ * @param p7 the stack memory item
+ * @param p8 the internal memory data
+ * @param p9 the operation type
  */
-void sort(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void sort(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort.");
 
@@ -58,18 +61,18 @@ void sort(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) BUBBLE_SORT_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p9, (void*) BUBBLE_SORT_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            sort_bubble(p0, p1, p2, p3, p4, p5);
+            sort_bubble(p0, p1, p2, p3, p4, p5, p6, p7, p8);
         }
     }
 
 /*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) INSERTION_SORT_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p9, (void*) INSERTION_SORT_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -79,7 +82,7 @@ void sort(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) QUICK_SORT_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p9, (void*) QUICK_SORT_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -89,7 +92,7 @@ void sort(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) SELECTION_SORT_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p9, (void*) SELECTION_SORT_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
