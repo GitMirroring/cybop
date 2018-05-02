@@ -17,6 +17,7 @@ Comparison
 __________
 
         CONTINUE:
+        * Provide ONE function testing index and count (see below) with just one return value (true or false), for ALL cybol operations that need it
         * Fix comparison using sum of index and count (index forgotten up to now) in: calculate (item_calculator.c), cast, manipulate, modify
             NO others, all searched through
             DONE in file "item_comparator.c"; see there as example
