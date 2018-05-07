@@ -33,73 +33,10 @@
 #include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../executor/comparator/array_comparator.c"
 #include "../../executor/copier/array_copier.c"
+#include "../../executor/verifier/index_count_verifier.c"
 #include "../../logger/logger.c"
-
-/**
- * Compares if given count is smaller or equal to the items' count.
- *
- * @param p0 the result (number 1 if true; unchanged otherwise)
- * @param p1 the left data
- * @param p2 the right data
- * @param p3 the operation type
- * @param p4 the operand type
- * @param p5 the count
- * @param p6 the left index
- * @param p7 the right index
- * @param p8 the left count
- * @param p9 the right count
- */
-void compare_item_count(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
-
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare item count.");
-
-    //
-    // CAUTION! The data counts do NOT have to be identical,
-    // as long as the given count is smaller than both of them,
-    // the corresponding elements may be compared.
-    //
-    // CAUTION! The sizes do NOT matter anyway,
-    // since they just represent allocated memory,
-    // but only the count as actual number of elements is of interest.
-    //
-
-    // The left- and right count.
-    int lc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int rc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The left- and right count comparison result.
-    int lr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    int rr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    // Calculate left count as sum of left index and count.
-    calculate_integer_add((void*) &lc, p6);
-    calculate_integer_add((void*) &lc, p5);
-    // Calculate right count as sum of right index and count.
-    calculate_integer_add((void*) &rc, p7);
-    calculate_integer_add((void*) &rc, p5);
-
-    // Compare calculated count with actual left- and right count.
-    compare_integer_less_or_equal((void*) &lr, (void*) &lc, p8);
-    compare_integer_less_or_equal((void*) &rr, (void*) &rc, p9);
-
-    if (rr != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        if (lr != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            compare_array(p0, p1, p2, p3, p4, p5, p6, p7);
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare item count. The given count is greater than the left count.");
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare item count. The given count is greater than the right count.");
-    }
-}
 
 /**
  * Compares left- with right item.
@@ -123,6 +60,8 @@ void compare_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // The right data, count.
     void* rd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* rc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Get left data.
     copy_array_forward((void*) &ld, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -131,7 +70,16 @@ void compare_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     copy_array_forward((void*) &rd, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &rc, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    compare_item_count(p0, ld, rd, p3, p4, p5, p6, p7, lc, rc);
+    verify_index_count((void*) &r, p5, p6, p7, lc, rc);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_array(p0, ld, rd, p3, p4, p5, p6, p7);
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare count. The sum of the given index and count is outside the data array count.");
+    }
 }
 
 /* ITEM_COMPARATOR_SOURCE */

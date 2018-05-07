@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2018-05-07  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add new directory "executor/verifier/" for basic verification functions such as those checking if index and count are outside a data array's boundaries
+
 2018-04-30  Christian Heller  <christian.heller@tuxtax.de>
 
         * Fix sorting of db list "title" in cybol example application file "repertoire/logic/translate/song/sort.cybol", by using stack variable ".(#list)"
