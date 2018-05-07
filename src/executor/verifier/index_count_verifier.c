@@ -40,53 +40,55 @@
  * This is necessary to avoid segmentation fault errors caused by
  * pointers adressing memory that is outside the given data array.
  *
- * The left and right data count do NOT have to be identical,
+ * The first and second data count do NOT have to be identical,
  * as long as the sum of the given index and count is smaller than
  * or equal to both of them.
  *
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the count
- * @param p2 the left index
- * @param p3 the right index
- * @param p4 the left count
- * @param p5 the right count
+ * @param p2 the first index
+ * @param p3 the second index
+ * @param p4 the first count
+ * @param p5 the second count
  */
 void verify_index_count(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Verify index count.");
 
-    // The left- and right count.
-    int lc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int rc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The left- and right count comparison result.
-    int lr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    int rr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The first and second count.
+    int c1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int c2 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The first and second count comparison result.
+    int r1 = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    int r2 = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Calculate left count as sum of left index and count.
-    calculate_integer_add((void*) &lc, p2);
-    calculate_integer_add((void*) &lc, p1);
-    // Calculate right count as sum of right index and count.
-    calculate_integer_add((void*) &rc, p3);
-    calculate_integer_add((void*) &rc, p1);
+    // Calculate first count as sum of first index and count.
+    calculate_integer_add((void*) &c1, p2);
+    calculate_integer_add((void*) &c1, p1);
+    // Calculate second count as sum of second index and count.
+    calculate_integer_add((void*) &c2, p3);
+    calculate_integer_add((void*) &c2, p1);
 
-    // Compare calculated count with actual left- and right count.
-    compare_integer_less_or_equal((void*) &lr, (void*) &lc, p4);
-    compare_integer_less_or_equal((void*) &rr, (void*) &rc, p5);
+    // Compare calculated count with actual first and second count.
+    compare_integer_less_or_equal((void*) &r1, (void*) &c1, p4);
+    compare_integer_less_or_equal((void*) &r2, (void*) &c2, p5);
 
-    if (rr != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r2 != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        if (lr != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r1 != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not verify index count. The sum of the given index and count is greater than the left count.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not verify index count. The sum of the given index and count is greater than the first count.");
+            fwprintf(stdout, L"ERROR: Could not verify index count. The sum of the given index and count is greater than the first count.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not verify index count. The sum of the given index and count is greater than the right count.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not verify index count. The sum of the given index and count is greater than the second count.");
+        fwprintf(stdout, L"ERROR: Could not verify index count. The sum of the given index and count is greater than the second count.");
     }
 }
 

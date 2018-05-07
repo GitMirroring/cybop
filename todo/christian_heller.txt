@@ -11,16 +11,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * REMARK: the following are complete: sorter (bubble), checker, comparator
-
 Comparison
 __________
 
+        * REMARK: the following are complete: sorter (bubble), checker, comparator
+
         CONTINUE:
-        * Use directory "executor/verifier/" for ALL cybol operations that need it, e.g.: calculate (item_calculator.c), cast, manipulate, modify
-            DONE in file "item_comparator.c"; see there as example
-            NO others, all searched through
-        * Continue updating comparator, to make it work again with vectors (possibly already done??)
+        * Update comparator, to make it work again with vectors (possibly already done??)
 
         * Reactivate function call of "compare_part" for PART_ELEMENT_STATE_CYBOI_TYPE in file "comparator.c" ??
         * Clean up sections marked "TODO" in file "executor/comparator/part_comparator.c"

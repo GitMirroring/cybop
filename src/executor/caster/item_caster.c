@@ -36,6 +36,7 @@
 #include "../../executor/caster/array_caster.c"
 #include "../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../executor/copier/array_copier.c"
+#include "../../executor/verifier/index_count_verifier.c"
 #include "../../logger/logger.c"
 
 /**
@@ -111,6 +112,8 @@ void cast_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // The source data, count.
     void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Get destination data, count.
     copy_array_forward((void*) &dd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -119,8 +122,16 @@ void cast_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     copy_array_forward((void*) &sd, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sc, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // Cast elements of the source- into the destination array.
-    cast_item_count(dd, sd, p2, p3, p4, p5, p6, dc, sc);
+    verify_index_count((void*) &r, p4, p5, p6, dc, sc);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        cast_array(dd, sd, p2, p3, p4, p5, p6);
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast item. The sum of the given index and count is outside the data array count.");
+    }
 }
 
 /* ITEM_CASTER_SOURCE */

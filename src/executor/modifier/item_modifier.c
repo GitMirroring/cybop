@@ -35,6 +35,7 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/copier/array_copier.c"
 #include "../../executor/modifier/array_modifier.c"
+#include "../../executor/verifier/index_count_verifier.c"
 #include "../../logger/logger.c"
 
 /**
@@ -58,24 +59,54 @@ void modify_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Get destination data, count, size.
     copy_array_forward((void*) &d, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
-    // Modify destination data.
-    // The count and size are adjusted inside.
-    modify_array((void*) &d, p1, p2, p3, p4, p5, p6, c, s, p7, p8);
+    //
+    // CAUTION! The parametre p4 is the SOURCE array count (last argument).
+    // It is used as DESTINATION array count (second last argument) here AS WELL,
+    // since the latter is mostly too small so that the verification would fail.
+    //
+    // If, for example, "five" values are to be added to an empty destination container,
+    // then its initial count is "zero" and the given source count is "five",
+    // so that the verification fails.
+    //
+    // Therefore, the source count of "five" is used as placeholder
+    // instead of the true destination count, so that the verification works.
+    //
+    // CAUTION! Some functions called internally do NOT use a source index.
+    // However, this is not a problem, since DEFAULT VALUES are defined
+    // in file "applicator/modify/modify.c".
+    //
+    // Therefore, this "verify_index_count" function may be called ALWAYS,
+    // even for functions that do not use an index, e.g.: empty, fill, remove.
+    //
+    verify_index_count((void*) &r, p4, p5, p6, p4, p4);
 
-    // Set data array as destination item element.
-    //
-    // CAUTION! This IS NECESSARY, because reallocation may have happened
-    // above which would return a completely new data array (memory area).
-    //
-    // CAUTION! It is NOT necessary to also set count and size,
-    // since only their references were used above to modify values.
-    copy_array_forward(p0, (void*) &d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DATA_ITEM_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Modify destination data.
+        // The count and size are adjusted inside.
+        modify_array((void*) &d, p1, p2, p3, p4, p5, p6, c, s, p7, p8);
+
+        // Set data array as destination item element.
+        //
+        // CAUTION! This IS NECESSARY, because reallocation may have happened
+        // above which would return a completely new data array (memory area).
+        //
+        // CAUTION! It is NOT necessary to also set count and size,
+        // since only their references were used above to modify values.
+        copy_array_forward(p0, (void*) &d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DATA_ITEM_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify item. The sum of the given index and count is outside the data array count.");
+    }
 }
 
 /* ITEM_MODIFIER_SOURCE */

@@ -27,8 +27,10 @@
 #define ITEM_MANIPULATOR_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../executor/manipulator/array_manipulator.c"
+#include "../../executor/verifier/index_count_verifier.c"
 #include "../../logger/logger.c"
 
 /**
@@ -45,13 +47,29 @@ void manipulate_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manipulate item.");
 
-    // The data.
+    // The data, count.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Get data.
     copy_array_forward((void*) &d, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    manipulate_array(d, p1, p2, p3, p4, p5);
+    // CAUTION! The fourth argument NUMBER_0_INTEGER_STATE_CYBOI_MODEL and last argument p4
+    // are just placeholders to enable the verification to return true,
+    // since a second operand does NOT exist for the "manipulate" operation.
+    verify_index_count((void*) &r, p4, p5, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, c, p4);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        manipulate_array(d, p1, p2, p3, p4, p5);
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not manipulate item. The sum of the given index and count is outside the data array count.");
+    }
 }
 
 /* ITEM_MANIPULATOR_SOURCE */
