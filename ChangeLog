@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2018-05-08  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add new file "equal_part_comparator.c"
+
 2018-05-07  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add new directory "executor/verifier/" for basic verification functions such as those checking if index and count are outside a data array's boundaries

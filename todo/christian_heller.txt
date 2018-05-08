@@ -17,10 +17,8 @@ __________
         * REMARK: the following are complete: sorter (bubble), checker, comparator
 
         CONTINUE:
-        * Update comparator, to make it work again with vectors (possibly already done??)
-
-        * Reactivate function call of "compare_part" for PART_ELEMENT_STATE_CYBOI_TYPE in file "comparator.c" ??
-        * Clean up sections marked "TODO" in file "executor/comparator/part_comparator.c"
+        * Rollback to old state of file "part_comparator.c" and uncomment function call in file "type_compare.c"
+        * Continue sections marked "TODO" in file "equal_part_comparator.c"
 
 Searching
 _________

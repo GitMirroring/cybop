@@ -65,7 +65,7 @@ void apply_compare_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
         // The result- and operand type are identical.
 
-        compare_part(p0, p1, p2, p3, p4, p6, p7, p8);
+//??        compare_part(p0, p1, p2, p3, p4, p6, p7, p8);
 
     } else {
 
