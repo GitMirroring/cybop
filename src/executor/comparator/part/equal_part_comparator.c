@@ -39,9 +39,7 @@
 
 /*??
 #include "../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/comparator/part/equal_part_comparator.c"
 #include "../../../executor/comparator/item_comparator.c"
 */
 
