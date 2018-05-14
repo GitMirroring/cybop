@@ -1,0 +1,14 @@
+<node>
+
+    <node name="compare_ab" channel="inline" format="compare/equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".result_ab"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".person_a"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".person_b"/>
+    </node>
+    <node name="compare_bc" channel="inline" format="compare/equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".result_bc"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".person_b"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".person_c"/>
+    </node>
+
+</node>

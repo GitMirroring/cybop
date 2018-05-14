@@ -1,0 +1,43 @@
+<node>
+
+    <!-- Person a remains as is -->
+
+    <!-- Person b -->
+
+    <node name="modify_b_last_name" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".person_b.last_name"/>
+        <node name="source" channel="inline" format="text/plain" model="Otte"/>
+    </node>
+    <node name="modify_b_age" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".person_b.age"/>
+        <node name="source" channel="inline" format="number/integer" model="30"/>
+    </node>
+    <node name="modify_b_city" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".person_b.address.city"/>
+        <node name="source" channel="inline" format="text/plain" model="Leipzig"/>
+    </node>
+    <node name="modify_b_postcode" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".person_b.address.postcode"/>
+        <node name="source" channel="inline" format="text/plain" model="04000"/>
+    </node>
+
+    <!-- Person c -->
+
+    <node name="modify_c_first_name" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".person_c.first_name"/>
+        <node name="source" channel="inline" format="text/plain" model="Hans"/>
+    </node>
+    <node name="modify_c_age" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".person_c.age"/>
+        <node name="source" channel="inline" format="number/integer" model="40"/>
+    </node>
+    <node name="modify_c_city" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".person_c.address.city"/>
+        <node name="source" channel="inline" format="text/plain" model="Erfurt"/>
+    </node>
+    <node name="modify_c_postcode" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".person_c.address.postcode"/>
+        <node name="source" channel="inline" format="text/plain" model="90000"/>
+    </node>
+
+</node>

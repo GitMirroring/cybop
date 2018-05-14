@@ -1,0 +1,17 @@
+<node>
+
+    <!-- result -->
+    <node name="result_ab" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="result_bc" channel="inline" format="logicvalue/boolean" model="false"/>
+
+    <!-- person -->
+    <node name="person_a" channel="file" format="element/part" model="comparator/person.cybol"/>
+    <node name="person_b" channel="file" format="element/part" model="comparator/person.cybol"/>
+    <node name="person_c" channel="file" format="element/part" model="comparator/person.cybol"/>
+
+    <!-- logic -->
+    <node name="manipulate" channel="file" format="element/part" model="comparator/manipulate.cybol"/>
+    <node name="compare" channel="file" format="element/part" model="comparator/compare.cybol"/>
+    <node name="print" channel="file" format="element/part" model="comparator/print.cybol"/>
+
+</node>

@@ -33,21 +33,13 @@
 #include "../../executor/comparator/character_comparator.c"
 #include "../../executor/comparator/complex_comparator.c"
 #include "../../executor/comparator/double_comparator.c"
+#include "../../executor/comparator/element_part_comparator.c"
 #include "../../executor/comparator/fraction_comparator.c"
 #include "../../executor/comparator/integer_comparator.c"
-// CAUTION Do NOT include "part_comparator.c" here.
-// Use forward declaration, if necessary.
-// #include "../../executor/comparator/part_comparator.c"
 #include "../../executor/comparator/pointer_comparator.c"
 #include "../../executor/comparator/wide_character_comparator.c"
 #include "../../executor/memoriser/offset_adder.c"
 #include "../../logger/logger.c"
-
-//
-// Forward declarations.
-//
-
-void compare_part(void* p0, void* p1, void* p2, void* p3);
 
 //
 // Models of type "complex" or "fraction" are not
@@ -96,7 +88,7 @@ void compare(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_part(p0, p1, p2, p3);
+            compare_part_element(p0, p1, p2, p3);
         }
     }
 

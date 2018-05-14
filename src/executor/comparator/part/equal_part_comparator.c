@@ -33,15 +33,19 @@
 #include "../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
+// CAUTION! Do NOT include the "item_comparator.c" module here,
+// since it would lead to circular references.
+// Instead, "compare_item" is mentioned as forward declaration below.
+// #include "../../../executor/comparator/item_comparator.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"
 
-/*??
-#include "../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/comparator/item_comparator.c"
-*/
+//
+// Forward declarations.
+//
+
+void compare_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
  * Compares the left- with the right part for equality.
@@ -53,11 +57,6 @@
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left part
  * @param p2 the right part
- * @param p3 the operation type
- * @param p4 the operand type
- * @param p5 the count
- * @param p6 the left index
- * @param p7 the right index
  */
 void compare_part_equal(void* p0, void* p1, void* p2) {
 
@@ -69,8 +68,6 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
 
             void** l = (void**) p1;
 
-            // CAUTION! Do NOT call the logger here.
-            // It might use functions that cause circular references.
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare part equal.");
 
             // The left part name, type, model, properties item.
@@ -83,8 +80,11 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
             void* rt = *NULL_POINTER_STATE_CYBOI_MODEL;
             void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
             void* rp = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The right part type data.
-            void* rtd = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The left part name, type, model, properties item data, count.
+            void* lnc = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* ltd = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* lmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* lpc = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The name, type, model, properties comparison results.
             int nr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
             int tr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -101,11 +101,14 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
             copy_array_forward((void*) &rt, *r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
             copy_array_forward((void*) &rm, *r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
             copy_array_forward((void*) &rp, *r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
-            // Get right part item data.
-            copy_array_forward((void*) &rtd, rt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            // Get left part name, type, model, properties item data, count.
+            copy_array_forward((void*) &lnc, ln, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &ltd, lt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &lmc, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &lpc, lp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
             // Compare left- with right part type item.
-//??            compare_item_equal((void*) &tr, lt, rt, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            compare_item((void*) &tr, lt, rt, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             if (tr != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -116,15 +119,13 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
                 // then severe memory access errors might occur.
                 //
 
-                // Compare left- with right part items.
-                // CAUTION! Do NOT use the basic function "compare_item" here,
-                // since it does NOT compare the item counts.
-                //?? TODO: Manually compare item counts?
-/*?? TODO:
-                compare_item_equal((void*) &nr, ln, rn, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-                compare_item_equal((void*) &mr, lm, rm, p3, rtd);
-                compare_item_equal((void*) &pr, lp, rp, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-*/
+                // Compare left- with right part name, model, properties item.
+                compare_item((void*) &nr, ln, rn, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, lnc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+                // Recursively call comparison function, which in turn
+                // may call this comparison function and so forth.
+                // This is processing knowledge tree hierarchies.
+                compare_item((void*) &mr, lm, rm, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, ltd, lmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+                compare_item((void*) &pr, lp, rp, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, lpc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
                 if ((nr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) || (tr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) || (mr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) || (pr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
 
@@ -152,32 +153,6 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare part equal. The right part is null.");
     }
 }
-
-//
-// Recursively call a comparison function, which in turn
-// may call this comparison function and so forth.
-// This is necessary when processing knowledge tree hierarchies.
-//
-
-/*??
-void compare_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
-
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare part.");
-
-    // The left model.
-    void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The right model.
-    void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Get left model.
-    copy_array_forward((void*) &lm, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get right model.
-    copy_array_forward((void*) &rm, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-
-    // Compare all elements of the left- with those of the right part model item.
-    compare_item(p0, lm, rm, p3, p4, p5, p6, p7);
-}
-*/
 
 /* EQUAL_PART_COMPARATOR_SOURCE */
 #endif

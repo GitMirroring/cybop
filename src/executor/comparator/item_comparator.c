@@ -70,6 +70,16 @@ void compare_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     copy_array_forward((void*) &rd, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &rc, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+    //
+    // CAUTION! An extra comparison of left- and right count is NOT necessary,
+    // since the function "verify_index_count" called below tests if
+    // left- and right index plus count are smaller than the left- and right count.
+    //
+    // If so, then this also means that the given count p5 which determines the
+    // number of elements to be compared is used EQUALLY for the left- AND right side
+    // and hence does NOT have to be compared here.
+    //
+
     verify_index_count((void*) &r, p5, p6, p7, lc, rc);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

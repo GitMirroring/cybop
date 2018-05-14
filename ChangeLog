@@ -18,6 +18,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2018-05-14  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add new files "element_part_comparator.c", "unequal_part_comparator.c"
+        * Rollback to old state of file "part_comparator.c"
+        * Complete file "equal_part_comparator.c"
+        * Add new cybol example application "comparator"
+
 2018-05-08  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add new file "equal_part_comparator.c"
