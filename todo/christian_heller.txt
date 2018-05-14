@@ -17,7 +17,11 @@ __________
         * REMARK: the following are complete: sorter (bubble), checker, comparator
 
         * Test new cybol example application "comparator"
-        * Debug file "equal_part_comparator.c"
+        * Debug part comparator:
+            - cybol operation "compare/equal" does not get executed at all
+            - use different default value for "count" in function "apply_compare" ??
+            - use simple instead of double reference in file "equal_part_comparator.c" ??
+            - use "checker" instead of "compare" for string comparison ??
 
 Searching
 _________

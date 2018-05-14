@@ -84,6 +84,8 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply compare.");
 
+    fwprintf(stdout, L"TEST apply 0:");
+
     // The result part.
     void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The left operand part.
@@ -181,6 +183,8 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     copy_integer((void*) &left_index, limd);
     // Use the given right index.
     copy_integer((void*) &right_index, rimd);
+
+    fwprintf(stdout, L"TEST apply 1:");
 
     // Compare left- and right operand type.
     apply_compare_type(rmd, lo, ro, p5, (void*) &type, rotd, (void*) &count, (void*) &left_index, (void*) &right_index);

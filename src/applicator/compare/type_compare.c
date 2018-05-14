@@ -59,18 +59,20 @@ void apply_compare_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    fwprintf(stdout, L"TEST apply type:");
+
     compare_integer_equal((void*) &r, p4, p5);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // The result- and operand type are identical.
+        // The left- and right type are identical.
 
         compare_part(p0, p1, p2, p3, p4, p6, p7, p8);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply compare type. The left operand type and right operand type are different.");
-        fwprintf(stdout, L"ERROR: Could not apply compare type. The left operand type and right operand type are different.\n");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply compare type. The left- and right operand type are different.");
+        fwprintf(stdout, L"ERROR: Could not apply compare type. The left- and right operand type are different.\n");
         fwprintf(stdout, L"ERROR: Left operand type: %i. Right operand type: %i.\n", *((int*) p4), *((int*) p5));
     }
 }

@@ -13,10 +13,23 @@
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
 
-    <node name="print_values" channel="inline" format="text/cybol-path" model=".print"/>
-    <node name="sort_values" channel="inline" format="text/cybol-path" model=".manipulate"/>
-    <node name="sort_values" channel="inline" format="text/cybol-path" model=".compare"/>
-    <node name="print_values" channel="inline" format="text/cybol-path" model=".print"/>
+    <node name="print_values_pre" channel="inline" format="text/cybol-path" model=".print"/>
+    <node name="manipulate_values" channel="inline" format="text/cybol-path" model=".manipulate"/>
+
+    <!-- Write knowledge into file. -->
+<!--
+    <node name="test_knowledge" channel="inline" format="communicate/send" model="">
+        <node name="receiver" channel="inline" format="text/plain" model="test_comparator.txt"/>
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
+    </node>
+-->
+
+    <node name="compare_values" channel="inline" format="text/cybol-path" model=".compare"/>
+    <node name="print_values_post" channel="inline" format="text/cybol-path" model=".print"/>
 
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
 
