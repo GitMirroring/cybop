@@ -59,8 +59,6 @@ void apply_compare_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    fwprintf(stdout, L"TEST apply type:");
-
     compare_integer_equal((void*) &r, p4, p5);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

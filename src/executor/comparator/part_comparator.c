@@ -44,6 +44,10 @@
  * @param p1 the left part
  * @param p2 the right part
  * @param p3 the operation type
+ * @param p4 the operand type
+ * @param p5 the count
+ * @param p6 the left index
+ * @param p7 the right index
  */
 void compare_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 

@@ -41,12 +41,13 @@
  * @param p3 the left count
  * @param p4 the right count
  * @param p5 the operation type
+ * @param p6 the operand type
  */
-void check_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void check_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check array.");
 
-    check_array_internal(p0, p1, p2, p3, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p5);
+    check_array_internal(p0, p1, p2, p3, p4, p6, p5);
 }
 
 /* ARRAY_CHECKER_SOURCE */

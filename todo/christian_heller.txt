@@ -18,10 +18,11 @@ __________
 
         * Test new cybol example application "comparator"
         * Debug part comparator:
-            - cybol operation "compare/equal" does not get executed at all
+            - use "checker" instead of "compare" for string comparison in "equal_part_comparator.c"
+            - extend "checker" to be usable not only for strings, but for all types
+                --> CAUTION! Is this possible or not? Read "JavaDoc" comment in file "character_check.c"
             - use different default value for "count" in function "apply_compare" ??
             - use simple instead of double reference in file "equal_part_comparator.c" ??
-            - use "checker" instead of "compare" for string comparison ??
 
 Searching
 _________
