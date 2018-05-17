@@ -1,13 +1,13 @@
 <node>
 
     <node name="artist" channel="inline" format="text/plain" model="Mikis Theodorakis"/>
-    <node name="title" channel="inline" format="text/plain" model="Sirtaki"/>
+    <node name="title" channel="inline" format="text/plain" model="Zorba's Dance"/>
     <node name="genre" channel="inline" format="text/plain" model="volksmusik"/>
-    <node name="year" channel="inline" format="text/plain" model=""/>
+    <node name="year" channel="inline" format="text/plain" model="1964"/>
 
     <node name="time" channel="inline" format="text/plain" model="0:00"/>
     <node name="key" channel="inline" format="text/plain" model=""/>
-    <node name="vocals" channel="inline" format="text/plain" model="Chris"/>
+    <node name="vocals" channel="inline" format="text/plain" model="(Tanz)"/>
     <node name="remark" channel="inline" format="text/plain" model=""/>
 
 </node>

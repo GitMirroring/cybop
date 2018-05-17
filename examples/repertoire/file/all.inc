@@ -446,6 +446,30 @@
         </tr>
         <tr>
             <td>
+                Calvin Harris
+            </td>
+            <td>
+                My Way
+            </td>
+            <td>
+                2010er Rock-Pop
+            </td>
+            <td>
+                2016
+            </td>
+            <td>
+                0:00
+            </td>
+            <td>
+            </td>
+            <td>
+                K&#xF6;gi / Chris
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 C.C.R.
             </td>
             <td>
@@ -664,6 +688,30 @@
                 1950er Rock &#x27;n&#x27; Roll &#x26; Rockabilly
             </td>
             <td>
+            </td>
+            <td>
+                0:00
+            </td>
+            <td>
+            </td>
+            <td>
+                Chris
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Dschinghis Khan
+            </td>
+            <td>
+                Moskau
+            </td>
+            <td>
+                Schlager
+            </td>
+            <td>
+                1979
             </td>
             <td>
                 0:00
@@ -1440,6 +1488,30 @@
             </td>
             <td>
                 Chris
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Mikis Theodorakis
+            </td>
+            <td>
+                Zorba&#x27;s Dance
+            </td>
+            <td>
+                Volksmusik &#x26; Stimmungsmusik
+            </td>
+            <td>
+                1964
+            </td>
+            <td>
+                0:00
+            </td>
+            <td>
+            </td>
+            <td>
+                (Tanz)
             </td>
             <td>
             </td>

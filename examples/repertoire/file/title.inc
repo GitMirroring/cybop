@@ -925,6 +925,20 @@
         </tr>
         <tr>
             <td>
+                Moskau
+            </td>
+            <td>
+                Dschinghis Khan
+            </td>
+            <td>
+                Schlager
+            </td>
+            <td>
+                1979
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Muss I Denn Muss I Denn Zum St&#xE4;dtele Hinaus
             </td>
             <td>
@@ -935,6 +949,20 @@
             </td>
             <td>
                 1827
+            </td>
+        </tr>
+        <tr>
+            <td>
+                My Way
+            </td>
+            <td>
+                Calvin Harris
+            </td>
+            <td>
+                2010er Rock-Pop
+            </td>
+            <td>
+                2016
             </td>
         </tr>
         <tr>
@@ -1397,6 +1425,20 @@
                 2000er Rock-Pop
             </td>
             <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Zorba&#x27;s Dance
+            </td>
+            <td>
+                Mikis Theodorakis
+            </td>
+            <td>
+                Volksmusik &#x26; Stimmungsmusik
+            </td>
+            <td>
+                1964
             </td>
         </tr>
     </tbody>

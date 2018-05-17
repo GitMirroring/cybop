@@ -434,9 +434,6 @@
                 J&#xFC;rgen Hart - Sing Mei Sachse Sing
             </li>
             <li>
-                Mikis Theodorakis - Sirtaki
-            </li>
-            <li>
                 Roland Steinel - Liechtensteiner Polka
             </li>
             <li>

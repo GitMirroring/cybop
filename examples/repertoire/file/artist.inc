@@ -254,6 +254,20 @@
         </tr>
         <tr>
             <td>
+                Calvin Harris
+            </td>
+            <td>
+                My Way
+            </td>
+            <td>
+                2010er Rock-Pop
+            </td>
+            <td>
+                2016
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Cliff Richard
             </td>
             <td>
@@ -355,6 +369,20 @@
                 1950er Rock &#x27;n&#x27; Roll &#x26; Rockabilly
             </td>
             <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Dschinghis Khan
+            </td>
+            <td>
+                Moskau
+            </td>
+            <td>
+                Schlager
+            </td>
+            <td>
+                1979
             </td>
         </tr>
         <tr>
@@ -792,6 +820,20 @@
                 1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Mikis Theodorakis
+            </td>
+            <td>
+                Zorba&#x27;s Dance
+            </td>
+            <td>
+                Volksmusik &#x26; Stimmungsmusik
+            </td>
+            <td>
+                1964
             </td>
         </tr>
         <tr>

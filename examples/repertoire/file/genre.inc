@@ -206,6 +206,9 @@
                 Calvin Harris - Feel So Close
             </li>
             <li>
+                Calvin Harris - My Way
+            </li>
+            <li>
                 Daft Punk - Get Lucky
             </li>
             <li>
@@ -357,6 +360,9 @@
                 Costa Cordalis - Anita
             </li>
             <li>
+                Dschinghis Khan - Moskau
+            </li>
+            <li>
                 Gottlieb Wendehals - Polon&#xE4;se Blankenese
             </li>
             <li>
@@ -405,6 +411,9 @@
             </li>
             <li>
                 Hans Albers - Auf Der Reeperbahn Nachts Um Halb Eins
+            </li>
+            <li>
+                Mikis Theodorakis - Zorba&#x27;s Dance
             </li>
             <li>
                 Paul Kuhn - Es Gibt Kein Bier Auf Hawaii

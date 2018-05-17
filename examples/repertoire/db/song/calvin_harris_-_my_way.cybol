@@ -1,0 +1,13 @@
+<node>
+
+    <node name="artist" channel="inline" format="text/plain" model="Calvin Harris"/>
+    <node name="title" channel="inline" format="text/plain" model="My Way"/>
+    <node name="genre" channel="inline" format="text/plain" model="2010"/>
+    <node name="year" channel="inline" format="text/plain" model="2016"/>
+
+    <node name="time" channel="inline" format="text/plain" model="0:00"/>
+    <node name="key" channel="inline" format="text/plain" model=""/>
+    <node name="vocals" channel="inline" format="text/plain" model="Kögi / Chris"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

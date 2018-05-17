@@ -20,6 +20,7 @@
     <node name="bryan_adams_-_somebody" channel="file" format="element/part" model="repertoire/db/song/bryan_adams_-_somebody.cybol"/>
 
     <node name="calvin_harris_-_feel_so_close" channel="file" format="element/part" model="repertoire/db/song/calvin_harris_-_feel_so_close.cybol"/>
+    <node name="calvin_harris_-_my_way" channel="file" format="element/part" model="repertoire/db/song/calvin_harris_-_my_way.cybol"/>
     <node name="ccr_-_bad_moon_rising" channel="file" format="element/part" model="repertoire/db/song/ccr_-_bad_moon_rising.cybol"/>
     <node name="ccr_-_hey_tonight" channel="file" format="element/part" model="repertoire/db/song/ccr_-_hey_tonight.cybol"/>
     <node name="cliff_richard_-_dreamin'" channel="file" format="element/part" model="repertoire/db/song/cliff_richard_-_dreamin'.cybol"/>
@@ -31,6 +32,7 @@
     <node name="dire_straits_-_sultans_of_swing" channel="file" format="element/part" model="repertoire/db/song/dire_straits_-_sultans_of_swing.cybol"/>
     <node name="dj_oetzi_-_anton_aus_tirol" channel="file" format="element/part" model="repertoire/db/song/dj_oetzi_-_anton_aus_tirol.cybol"/>
     <node name="doris_day_-_whatever_will_be_will_be_(que_sera_sera)" channel="file" format="element/part" model="repertoire/db/song/doris_day_-_whatever_will_be_will_be_(que_sera_sera).cybol"/>
+    <node name="dschinghis_khan_-_moskau" channel="file" format="element/part" model="repertoire/db/song/dschinghis_khan_-_moskau.cybol"/>
 
     <node name="eagles_-_take_it_easy" channel="file" format="element/part" model="repertoire/db/song/eagles_-_take_it_easy.cybol"/>
     <node name="elton_john_-_sacrifice" channel="file" format="element/part" model="repertoire/db/song/elton_john_-_sacrifice.cybol"/>
@@ -72,6 +74,7 @@
     <node name="marius_mueller-westernhagen_-_willenlos" channel="file" format="element/part" model="repertoire/db/song/marius_mueller-westernhagen_-_willenlos.cybol"/>
     <node name="mavericks_-_foolish_heart" channel="file" format="element/part" model="repertoire/db/song/mavericks_-_foolish_heart.cybol"/>
     <node name="men_at_work_-_who_can_it_be_now" channel="file" format="element/part" model="repertoire/db/song/men_at_work_-_who_can_it_be_now.cybol"/>
+    <node name="mikis_theodorakis_-_zorba's_dance" channel="file" format="element/part" model="repertoire/db/song/mikis_theodorakis_-_zorba's_dance.cybol"/>
     <node name="moby_-_lift_me_up" channel="file" format="element/part" model="repertoire/db/song/moby_-_lift_me_up.cybol"/>
     <node name="muenchener_freiheit_-_herzschlag_ist_der_takt" channel="file" format="element/part" model="repertoire/db/song/muenchener_freiheit_-_herzschlag_ist_der_takt.cybol"/>
     <node name="muenchener_freiheit_-_tausendmal_du" channel="file" format="element/part" model="repertoire/db/song/muenchener_freiheit_-_tausendmal_du.cybol"/>
