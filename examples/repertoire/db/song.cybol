@@ -17,7 +17,6 @@
     <node name="bronski_beat_-_smalltown_boy" channel="file" format="element/part" model="repertoire/db/song/bronski_beat_-_smalltown_boy.cybol"/>
     <node name="bruce_springsteen_-_i'm_on_fire" channel="file" format="element/part" model="repertoire/db/song/bruce_springsteen_-_i'm_on_fire.cybol"/>
     <node name="bryan_adams_-_run_to_you" channel="file" format="element/part" model="repertoire/db/song/bryan_adams_-_run_to_you.cybol"/>
-    <node name="bryan_adams_-_somebody" channel="file" format="element/part" model="repertoire/db/song/bryan_adams_-_somebody.cybol"/>
 
     <node name="calvin_harris_-_feel_so_close" channel="file" format="element/part" model="repertoire/db/song/calvin_harris_-_feel_so_close.cybol"/>
     <node name="calvin_harris_-_my_way" channel="file" format="element/part" model="repertoire/db/song/calvin_harris_-_my_way.cybol"/>
@@ -27,7 +26,6 @@
     <node name="cliff_richard_-_rote_lippen_soll_man_kuessen" channel="file" format="element/part" model="repertoire/db/song/cliff_richard_-_rote_lippen_soll_man_kuessen.cybol"/>
     <node name="costa_cordalis_-_anita" channel="file" format="element/part" model="repertoire/db/song/costa_cordalis_-_anita.cybol"/>
 
-    <node name="daft_punk_-_get_lucky" channel="file" format="element/part" model="repertoire/db/song/daft_punk_-_get_lucky.cybol"/>
     <node name="depeche_mode_-_enjoy_the_silence" channel="file" format="element/part" model="repertoire/db/song/depeche_mode_-_enjoy_the_silence.cybol"/>
     <node name="dire_straits_-_sultans_of_swing" channel="file" format="element/part" model="repertoire/db/song/dire_straits_-_sultans_of_swing.cybol"/>
     <node name="dj_oetzi_-_anton_aus_tirol" channel="file" format="element/part" model="repertoire/db/song/dj_oetzi_-_anton_aus_tirol.cybol"/>

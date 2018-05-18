@@ -201,19 +201,6 @@
         </tr>
         <tr>
             <td>
-                Bryan Adams
-            </td>
-            <td>
-                Somebody
-            </td>
-            <td>
-                1980er Rock-Pop &#x26; Synthie Pop
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
                 C.C.R.
             </td>
             <td>
@@ -317,19 +304,6 @@
             </td>
             <td>
                 1999
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Daft Punk
-            </td>
-            <td>
-                Get Lucky
-            </td>
-            <td>
-                2010er Rock-Pop
-            </td>
-            <td>
             </td>
         </tr>
         <tr>

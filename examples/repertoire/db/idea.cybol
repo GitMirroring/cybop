@@ -13,6 +13,7 @@
     <node name="bap_-_do_kanns_zaubere" channel="file" format="element/part" model="repertoire/db/idea/bap_-_do_kanns_zaubere.cybol"/>
     <node name="barclay_james_harvest_-_life_is_for_living" channel="file" format="element/part" model="repertoire/db/idea/barclay_james_harvest_-_life_is_for_living.cybol"/>
     <node name="birds_-_mr_tambourine_man" channel="file" format="element/part" model="repertoire/db/idea/birds_-_mr_tambourine_man.cybol"/>
+    <node name="bryan_adams_-_somebody" channel="file" format="element/part" model="repertoire/db/song/bryan_adams_-_somebody.cybol"/>
     <node name="bryan_adams_-_summer_of_'69" channel="file" format="element/part" model="repertoire/db/idea/bryan_adams_-_summer_of_'69.cybol"/>
     <node name="bryan_ferry_&_roxy_music_-_jealous_guy" channel="file" format="element/part" model="repertoire/db/idea/bryan_ferry_&_roxy_music_-_jealous_guy.cybol"/>
 
@@ -29,6 +30,7 @@
     <node name="cranberries_-_dreams" channel="file" format="element/part" model="repertoire/db/idea/cranberries_-_dreams.cybol"/>
     <node name="cure_-_friday_i'm_in_love" channel="file" format="element/part" model="repertoire/db/idea/cure_-_friday_i'm_in_love.cybol"/>
 
+    <node name="daft_punk_-_get_lucky" channel="file" format="element/part" model="repertoire/db/song/daft_punk_-_get_lucky.cybol"/>
     <node name="doors_-_love_street" channel="file" format="element/part" model="repertoire/db/idea/doors_-_love_street.cybol"/>
     <node name="dr_hook_-_when_you're_in_love_with_a_beautiful_woman" channel="file" format="element/part" model="repertoire/db/idea/dr_hook_-_when_you're_in_love_with_a_beautiful_woman.cybol"/>
 

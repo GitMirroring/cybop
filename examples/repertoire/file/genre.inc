@@ -83,9 +83,6 @@
                 Bryan Adams - Run To You
             </li>
             <li>
-                Bryan Adams - Somebody
-            </li>
-            <li>
                 Depeche Mode - Enjoy The Silence
             </li>
             <li>
@@ -207,9 +204,6 @@
             </li>
             <li>
                 Calvin Harris - My Way
-            </li>
-            <li>
-                Daft Punk - Get Lucky
             </li>
             <li>
                 Lost Frequencies feat. Janieck Devy - Reality

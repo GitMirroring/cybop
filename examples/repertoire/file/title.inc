@@ -492,19 +492,6 @@
         </tr>
         <tr>
             <td>
-                Get Lucky
-            </td>
-            <td>
-                Daft Punk
-            </td>
-            <td>
-                2010er Rock-Pop
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
                 Goldener Reiter
             </td>
             <td>
@@ -1130,19 +1117,6 @@
             </td>
             <td>
                 Bronski Beat
-            </td>
-            <td>
-                1980er Rock-Pop &#x26; Synthie Pop
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Somebody
-            </td>
-            <td>
-                Bryan Adams
             </td>
             <td>
                 1980er Rock-Pop &#x26; Synthie Pop

@@ -83,6 +83,9 @@
                 Barclay James Harvest - Life Is For Living
             </li>
             <li>
+                Bryan Adams - Somebody
+            </li>
+            <li>
                 Bryan Adams - Summer Of &#x27;69
             </li>
             <li>
@@ -244,6 +247,9 @@
             2010er Rock-Pop
         </h2>
         <ol>
+            <li>
+                Daft Punk - Get Lucky
+            </li>
             <li>
                 Wincent Weiss - Feuerwerk
             </li>
