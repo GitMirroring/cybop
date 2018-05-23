@@ -5,7 +5,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/plain" model="comparator/app.cybol"/>
+        <node name="sender" channel="inline" format="text/plain" model="checker/app.cybol"/>
         <node name="message" channel="inline" format="text/cybol-path" model="."/>
     </node>
 
@@ -19,7 +19,7 @@
     <!-- Write knowledge into file. -->
 <!--
     <node name="test_knowledge" channel="inline" format="communicate/send" model="">
-        <node name="receiver" channel="inline" format="text/plain" model="test_comparator.txt"/>
+        <node name="receiver" channel="inline" format="text/plain" model="test_checker.txt"/>
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
@@ -28,7 +28,7 @@
     </node>
 -->
 
-    <node name="compare_values" channel="inline" format="text/cybol-path" model=".compare"/>
+    <node name="check_values" channel="inline" format="text/cybol-path" model=".check"/>
     <node name="print_values_post" channel="inline" format="text/cybol-path" model=".print"/>
 
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
@@ -36,8 +36,8 @@
 </node>
 
 <!--
-    This example compares primitive values as well as compound parts.
-    Standard comparison returns a vector with potentially MANY boolean result values.
-    Checking, on the other hand, is comparison with only ONE boolean result value.
+    This example checks primitive values as well as compound parts.
+    Checking is just comparison that returns ONE boolean result value.
+    Standard comparison, on the other hand, returns a vector with MANY boolean result values.
     For compound parts, DEEP comparison is used.
 -->

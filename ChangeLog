@@ -22,6 +22,8 @@
 
         * Add operand type as argument to all calls of function "check_array"
         * Simplify checker by deleting files "ascii_array_checker.c" and "internal_array_checker.c"
+        * Extend cybol example application "comparator" with primitive values
+        * Add new cybol example application "checker"
 
 2018-05-14  Christian Heller  <christian.heller@tuxtax.de>
 

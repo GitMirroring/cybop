@@ -14,16 +14,17 @@
 Comparison
 __________
 
-        * REMARK: the following are complete: sorter (bubble), checker, comparator
-
-        * Test new cybol example application "comparator"
+        * Delete file "applicator/check/character_check.c", since checker is now usable not only for strings, but for all types
+        * Use "checker" instead of "compare" for string comparison in file "equal_part_comparator.c"
         * Debug part comparator:
-            - use "checker" instead of "compare" for string comparison in "equal_part_comparator.c"
-            - extend "checker" to be usable not only for strings, but for all types
-                --> CAUTION! Is this possible or not? Read "JavaDoc" comment in file "character_check.c"
             - use different default value for "count" in function "apply_compare" ??
             - use simple instead of double reference in file "equal_part_comparator.c" ??
+        * Test using cybol example applications "checker" and "comparator"
         * Simplify or eliminate file "compare_bubble_sorter.c" due to new checker functions
+
+        * Implement deserialisation of boolean vectors in cyboi (not just one, but many values)
+        * Test boolean vectors using cybol example application "comparator" (sse file "app.cybol" with two boolean vectors)
+        * Adapt cybol example application "comparator" to using result *boolean vectors* and NOT just one value --> the "checker" may be used if only ONE result value is expected
 
 Searching
 _________

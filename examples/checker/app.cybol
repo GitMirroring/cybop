@@ -32,13 +32,13 @@
     <node name="wide_right" channel="inline" format="text/plain" model="w1i2d3e4%?⭝|฿Hઊ"/>
 
     <!-- part -->
-    <node name="person_a" channel="file" format="element/part" model="comparator/person.cybol"/>
-    <node name="person_b" channel="file" format="element/part" model="comparator/person.cybol"/>
-    <node name="person_c" channel="file" format="element/part" model="comparator/person.cybol"/>
+    <node name="person_a" channel="file" format="element/part" model="checker/person.cybol"/>
+    <node name="person_b" channel="file" format="element/part" model="checker/person.cybol"/>
+    <node name="person_c" channel="file" format="element/part" model="checker/person.cybol"/>
 
     <!-- logic -->
-    <node name="manipulate" channel="file" format="element/part" model="comparator/manipulate.cybol"/>
-    <node name="check" channel="file" format="element/part" model="comparator/check.cybol"/>
-    <node name="print" channel="file" format="element/part" model="comparator/print.cybol"/>
+    <node name="manipulate" channel="file" format="element/part" model="checker/manipulate.cybol"/>
+    <node name="check" channel="file" format="element/part" model="checker/check.cybol"/>
+    <node name="print" channel="file" format="element/part" model="checker/print.cybol"/>
 
 </node>
