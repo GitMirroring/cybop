@@ -21,6 +21,7 @@
 2018-05-23  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add operand type as argument to all calls of function "check_array"
+        * Simplify checker by deleting files "ascii_array_checker.c" and "internal_array_checker.c"
 
 2018-05-14  Christian Heller  <christian.heller@tuxtax.de>
 

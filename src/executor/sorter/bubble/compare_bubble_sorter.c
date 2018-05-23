@@ -30,7 +30,6 @@
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/checker/array_checker.c"
-#include "../../../executor/checker/ascii_array_checker.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/comparator/comparator.c"
 #include "../../../logger/logger.c"
@@ -70,7 +69,7 @@ void sort_bubble_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void*
             // CAUTION! Do NOT use the given operation type here,
             // since it represents a comparison logic.
             // Instead, use the given string comparison ("check") logic.
-            check_array_ascii(p0, p1, p2, p3, p4, p6);
+            check_array(p0, p1, p2, p3, p4, p6, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
         }
     }
 
