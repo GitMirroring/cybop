@@ -70,7 +70,7 @@ void serialise_x_window_system_line_style(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) SOLID_LINE_STYLE_XCB_CYBOL_MODEL, p2, (void*) SOLID_LINE_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) SOLID_LINE_STYLE_XCB_CYBOL_MODEL, p2, (void*) SOLID_LINE_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -81,7 +81,7 @@ void serialise_x_window_system_line_style(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) DOUBLE_DASH_LINE_STYLE_XCB_CYBOL_MODEL, p2, (void*) DOUBLE_DASH_LINE_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) DOUBLE_DASH_LINE_STYLE_XCB_CYBOL_MODEL, p2, (void*) DOUBLE_DASH_LINE_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -92,7 +92,7 @@ void serialise_x_window_system_line_style(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) ON_OFF_DASH_LINE_STYLE_XCB_CYBOL_MODEL, p2, (void*) ON_OFF_DASH_LINE_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) ON_OFF_DASH_LINE_STYLE_XCB_CYBOL_MODEL, p2, (void*) ON_OFF_DASH_LINE_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

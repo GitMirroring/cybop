@@ -70,7 +70,7 @@ void serialise_x_window_system_fill_style(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) SOLID_FILL_STYLE_XCB_CYBOL_MODEL, p2, (void*) SOLID_FILL_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) SOLID_FILL_STYLE_XCB_CYBOL_MODEL, p2, (void*) SOLID_FILL_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -81,7 +81,7 @@ void serialise_x_window_system_fill_style(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) TILED_FILL_STYLE_XCB_CYBOL_MODEL, p2, (void*) TILED_FILL_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) TILED_FILL_STYLE_XCB_CYBOL_MODEL, p2, (void*) TILED_FILL_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -92,7 +92,7 @@ void serialise_x_window_system_fill_style(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) STIPPLED_FILL_STYLE_XCB_CYBOL_MODEL, p2, (void*) STIPPLED_FILL_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) STIPPLED_FILL_STYLE_XCB_CYBOL_MODEL, p2, (void*) STIPPLED_FILL_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -103,7 +103,7 @@ void serialise_x_window_system_fill_style(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) OPAQUE_STIPPLED_FILL_STYLE_XCB_CYBOL_MODEL, p2, (void*) OPAQUE_STIPPLED_FILL_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) OPAQUE_STIPPLED_FILL_STYLE_XCB_CYBOL_MODEL, p2, (void*) OPAQUE_STIPPLED_FILL_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

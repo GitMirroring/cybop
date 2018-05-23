@@ -230,7 +230,13 @@ seconds meaningfully. The Realtime and Advanced Realtime extensions
 to POSIX now offer two separate clocks:
 http://pubs.opengroup.org/onlinepubs/007904975/basedefs/time.h.html
 
-Decision: CYBOI will use TWO TIMES (separate clocks) internally.
+Decision: CYBOI will use TWO TIMES (separate clocks) internally:
+1 Julian Date (JD) based on solar second
+2 International Time (TI) or Temps Atomique International (TAI) based on SI second
+--> both, JD and TI (or TAI) are determined using the Real Time Clock (RTC) on mainboard
+    (Zählerstand Sekunden seit Unix-Epoche 1970)
+Remark: auch Betriebssysteme führen eine interne Software-Uhr als Zähler und beziehen nur das Taktsignal via IRQ von der Hardware
+Abgleich: erfolgt entweder (1) beim Booten mit Hardware-Uhr oder (2) fortlaufend mit Zeitserver via NTP
 
 A "leap second" as well as "daylight/summer time" are decisions
 by some humans to reset all of the clocks to comply with changes.
@@ -690,7 +696,7 @@ https://en.wikipedia.org/wiki/Lexicographical_order#Numeral_systems_and_dates
     - testing the sign in computers takes some time
     - consider two's complement representation for representing signed integers
 - string: array of "char" or "wchar_t"; use ASCII and UNICODE, i.e. alphabetical order
-- date: represented as Julian Date (JD) in cyboi; YYYY-MM-DD etc. get converted into JD; simple number comparison suffices
+- date: represented as Julian Date (JD) integer in cyboi; YYYY-MM-DD etc. get converted into JD integer; thus, a simple number comparison suffices
 
 Search
 ______

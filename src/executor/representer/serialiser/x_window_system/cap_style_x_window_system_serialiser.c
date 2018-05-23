@@ -70,7 +70,7 @@ void serialise_x_window_system_cap_style(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) NOT_LAST_CAP_STYLE_XCB_CYBOL_MODEL, p2, (void*) NOT_LAST_CAP_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) NOT_LAST_CAP_STYLE_XCB_CYBOL_MODEL, p2, (void*) NOT_LAST_CAP_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -81,7 +81,7 @@ void serialise_x_window_system_cap_style(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) BUTT_CAP_STYLE_XCB_CYBOL_MODEL, p2, (void*) BUTT_CAP_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) BUTT_CAP_STYLE_XCB_CYBOL_MODEL, p2, (void*) BUTT_CAP_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -92,7 +92,7 @@ void serialise_x_window_system_cap_style(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) ROUND_CAP_STYLE_XCB_CYBOL_MODEL, p2, (void*) ROUND_CAP_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) ROUND_CAP_STYLE_XCB_CYBOL_MODEL, p2, (void*) ROUND_CAP_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -103,7 +103,7 @@ void serialise_x_window_system_cap_style(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) PROJECTING_CAP_STYLE_XCB_CYBOL_MODEL, p2, (void*) PROJECTING_CAP_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) PROJECTING_CAP_STYLE_XCB_CYBOL_MODEL, p2, (void*) PROJECTING_CAP_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

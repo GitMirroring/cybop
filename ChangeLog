@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2018-05-23  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add operand type as argument to all calls of function "check_array"
+
 2018-05-14  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add new files "element_part_comparator.c", "unequal_part_comparator.c"

@@ -83,7 +83,7 @@ void select_knowledge_root(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            check_array((void*) &r, *d, (void*) KNOWLEDGE_MEMORY_SEPARATOR_KNOWLEDGE_CYBOI_NAME, p3, (void*) KNOWLEDGE_MEMORY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+            check_array((void*) &r, *d, (void*) KNOWLEDGE_MEMORY_SEPARATOR_KNOWLEDGE_CYBOI_NAME, p3, (void*) KNOWLEDGE_MEMORY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -94,7 +94,7 @@ void select_knowledge_root(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            check_array((void*) &r, *d, (void*) SIGNAL_MEMORY_SEPARATOR_KNOWLEDGE_CYBOI_NAME, p3, (void*) SIGNAL_MEMORY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+            check_array((void*) &r, *d, (void*) SIGNAL_MEMORY_SEPARATOR_KNOWLEDGE_CYBOI_NAME, p3, (void*) SIGNAL_MEMORY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -105,7 +105,7 @@ void select_knowledge_root(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            check_array((void*) &r, *d, (void*) STACK_MEMORY_SEPARATOR_KNOWLEDGE_CYBOI_NAME, p3, (void*) STACK_MEMORY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+            check_array((void*) &r, *d, (void*) STACK_MEMORY_SEPARATOR_KNOWLEDGE_CYBOI_NAME, p3, (void*) STACK_MEMORY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

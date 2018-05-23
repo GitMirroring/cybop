@@ -23,6 +23,7 @@ __________
                 --> CAUTION! Is this possible or not? Read "JavaDoc" comment in file "character_check.c"
             - use different default value for "count" in function "apply_compare" ??
             - use simple instead of double reference in file "equal_part_comparator.c" ??
+        * Simplify or eliminate file "compare_bubble_sorter.c" due to new checker functions
 
 Searching
 _________

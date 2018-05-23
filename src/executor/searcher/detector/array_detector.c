@@ -81,7 +81,7 @@ void detect_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
                 // CAUTION! The remaining count may NOT be handed over as position count,
                 // since it might be greater than the array count and would thus differ.
-                check_array(p0, *((void**) p1), p3, p5, p5, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+                check_array(p0, *((void**) p1), p3, p5, p5, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
                 if (*r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

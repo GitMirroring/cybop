@@ -54,7 +54,7 @@ void select_command_line_log_level(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) OFF_LOG_LEVEL_OPTION_CYBOI_MODEL, p2, (void*) OFF_LOG_LEVEL_OPTION_CYBOI_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) OFF_LOG_LEVEL_OPTION_CYBOI_MODEL, p2, (void*) OFF_LOG_LEVEL_OPTION_CYBOI_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -64,7 +64,7 @@ void select_command_line_log_level(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) ERROR_LOG_LEVEL_OPTION_CYBOI_MODEL, p2, (void*) ERROR_LOG_LEVEL_OPTION_CYBOI_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) ERROR_LOG_LEVEL_OPTION_CYBOI_MODEL, p2, (void*) ERROR_LOG_LEVEL_OPTION_CYBOI_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -74,7 +74,7 @@ void select_command_line_log_level(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) WARNING_LOG_LEVEL_OPTION_CYBOI_MODEL, p2, (void*) WARNING_LOG_LEVEL_OPTION_CYBOI_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) WARNING_LOG_LEVEL_OPTION_CYBOI_MODEL, p2, (void*) WARNING_LOG_LEVEL_OPTION_CYBOI_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -84,7 +84,7 @@ void select_command_line_log_level(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) INFORMATION_LOG_LEVEL_OPTION_CYBOI_MODEL, p2, (void*) INFORMATION_LOG_LEVEL_OPTION_CYBOI_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) INFORMATION_LOG_LEVEL_OPTION_CYBOI_MODEL, p2, (void*) INFORMATION_LOG_LEVEL_OPTION_CYBOI_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -94,7 +94,7 @@ void select_command_line_log_level(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) DEBUG_LOG_LEVEL_OPTION_CYBOI_MODEL, p2, (void*) DEBUG_LOG_LEVEL_OPTION_CYBOI_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+        check_array((void*) &r, p1, (void*) DEBUG_LOG_LEVEL_OPTION_CYBOI_MODEL, p2, (void*) DEBUG_LOG_LEVEL_OPTION_CYBOI_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

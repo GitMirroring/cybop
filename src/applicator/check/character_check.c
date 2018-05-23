@@ -62,7 +62,7 @@ void apply_check_character(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         // The operand type is "wide_character".
 
-        check_part(p0, p1, p2, p3);
+        check_part(p0, p1, p2, p3, p4);
 
     } else {
 
