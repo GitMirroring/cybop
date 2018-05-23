@@ -19,7 +19,10 @@ __________
             - use different default value for "count" in function "apply_compare" ??
             - use simple instead of double reference in file "equal_part_comparator.c" ??
         * Test using cybol example applications "checker" and "comparator"
+
         * Simplify or eliminate file "compare_bubble_sorter.c" due to new checker functions
+            --> CAUTION! The operation arguments p5 and p6 differ (checker for string and comparator for other types)
+            --> figure out how to handle that BEFORE deleting file "compare_bubble_sorter.c" mentioned above
 
         * Implement deserialisation of boolean vectors in cyboi (not just one, but many values)
         * Test boolean vectors using cybol example application "comparator" (sse file "app.cybol" with two boolean vectors)
