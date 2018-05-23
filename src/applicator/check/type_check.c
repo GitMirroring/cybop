@@ -28,7 +28,7 @@
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../applicator/check/character_check.c"
+#include "../../executor/checker/part_checker.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../logger/logger.c"
 
@@ -62,7 +62,7 @@ void apply_check_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         // The result- and operand type are identical.
 
-        apply_check_character(p0, p1, p2, p3, p4);
+        check_part(p0, p1, p2, p3, p4);
 
     } else {
 

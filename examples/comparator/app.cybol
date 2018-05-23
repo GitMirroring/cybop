@@ -38,7 +38,7 @@
 
     <!-- logic -->
     <node name="manipulate" channel="file" format="element/part" model="comparator/manipulate.cybol"/>
-    <node name="check" channel="file" format="element/part" model="comparator/check.cybol"/>
+    <node name="compare" channel="file" format="element/part" model="comparator/compare.cybol"/>
     <node name="print" channel="file" format="element/part" model="comparator/print.cybol"/>
 
 </node>

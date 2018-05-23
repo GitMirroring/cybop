@@ -14,7 +14,6 @@
 Comparison
 __________
 
-        * Delete file "applicator/check/character_check.c", since checker is now usable not only for strings, but for all types
         * Use "checker" instead of "compare" for string comparison in file "equal_part_comparator.c"
         * Debug part comparator:
             - use different default value for "count" in function "apply_compare" ??

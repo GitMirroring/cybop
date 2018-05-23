@@ -24,6 +24,7 @@
         * Simplify checker by deleting files "ascii_array_checker.c" and "internal_array_checker.c"
         * Extend cybol example application "comparator" with primitive values
         * Add new cybol example application "checker"
+        * Delete file "applicator/check/character_check.c" filtering strings, since checker is now usable for all types
 
 2018-05-14  Christian Heller  <christian.heller@tuxtax.de>
 
