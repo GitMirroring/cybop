@@ -47,6 +47,11 @@
  * https://de.wikipedia.org/wiki/Lexikographische_Ordnung
  * https://en.wikipedia.org/wiki/Lexicographical_order
  *
+ * Three operation types are handed over, for these cases:
+ * - match criterion
+ * - fail criterion
+ * - count comparison
+ *
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left data
  * @param p2 the right data

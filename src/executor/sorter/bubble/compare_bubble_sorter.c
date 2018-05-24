@@ -42,10 +42,10 @@
  * For all other types, standard comparison is used.
  *
  * @param p0 the result (number 1 if true; unchanged otherwise)
- * @param p1 the left model data
- * @param p2 the right model data
- * @param p3 the left model count
- * @param p4 the right model count
+ * @param p1 the left data
+ * @param p2 the right data
+ * @param p3 the left count
+ * @param p4 the right count
  * @param p5 the operation type
  * @param p6 the string operation type
  * @param p7 the operand type
