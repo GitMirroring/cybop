@@ -14,6 +14,8 @@
 Comparison
 __________
 
+        * How to handle integer vectors ?? (separate digits or numbers)
+        * Use "lexicographical" flag (cybol property) instead of operations "comparison" + "check" ??
         * Hand over count, left_index, right_index in function call of "compare_array" in file "operand_checker.c"
         * Simplify or eliminate file "compare_bubble_sorter.c" due to new checker functions
             - CAUTION! The operation arguments p5 and p6 differ (checker for string and comparator for other types),
@@ -22,7 +24,8 @@ __________
             - figure out how to handle that BEFORE deleting file "compare_bubble_sorter.c" as mentioned above
         * Recreate file "checking_logic_cybol_name.c" with redundant content to comparison constants
 
-        * Test result vector count in function "apply_compare" or later, in order to avoid crossing array boundaries
+        * Test result vector count == min(left, right) in function "apply_compare" or later, in order to avoid crossing array boundaries
+        * Test result count == 1 in function "apply_check" or later, otherwise show a warning
 
         * Use "checker" instead of "compare" for string comparison in file "equal_part_comparator.c"
         * Debug part comparator:
