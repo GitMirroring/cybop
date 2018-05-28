@@ -36,7 +36,7 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/checker/array_checker.c"
+#include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 
@@ -70,7 +70,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) DOS_850_CYBOL_ENCODING, p2, (void*) DOS_850_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) DOS_850_CYBOL_ENCODING, p2, (void*) DOS_850_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -84,7 +84,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) ASCII_CYBOL_ENCODING, p2, (void*) ASCII_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) ASCII_CYBOL_ENCODING, p2, (void*) ASCII_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -98,7 +98,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) ISO_8859_1_CYBOL_ENCODING, p2, (void*) ISO_8859_1_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) ISO_8859_1_CYBOL_ENCODING, p2, (void*) ISO_8859_1_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -108,7 +108,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) ISO_8859_2_CYBOL_ENCODING, p2, (void*) ISO_8859_2_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) ISO_8859_2_CYBOL_ENCODING, p2, (void*) ISO_8859_2_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -118,7 +118,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) ISO_8859_3_CYBOL_ENCODING, p2, (void*) ISO_8859_3_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) ISO_8859_3_CYBOL_ENCODING, p2, (void*) ISO_8859_3_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -128,7 +128,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) ISO_8859_4_CYBOL_ENCODING, p2, (void*) ISO_8859_4_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) ISO_8859_4_CYBOL_ENCODING, p2, (void*) ISO_8859_4_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -138,7 +138,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) ISO_8859_5_CYBOL_ENCODING, p2, (void*) ISO_8859_5_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) ISO_8859_5_CYBOL_ENCODING, p2, (void*) ISO_8859_5_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -148,7 +148,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) ISO_8859_6_CYBOL_ENCODING, p2, (void*) ISO_8859_6_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) ISO_8859_6_CYBOL_ENCODING, p2, (void*) ISO_8859_6_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -158,7 +158,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) ISO_8859_7_CYBOL_ENCODING, p2, (void*) ISO_8859_7_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) ISO_8859_7_CYBOL_ENCODING, p2, (void*) ISO_8859_7_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -168,7 +168,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) ISO_8859_8_CYBOL_ENCODING, p2, (void*) ISO_8859_8_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) ISO_8859_8_CYBOL_ENCODING, p2, (void*) ISO_8859_8_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -178,7 +178,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) ISO_8859_9_CYBOL_ENCODING, p2, (void*) ISO_8859_9_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) ISO_8859_9_CYBOL_ENCODING, p2, (void*) ISO_8859_9_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -188,7 +188,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) ISO_8859_10_CYBOL_ENCODING, p2, (void*) ISO_8859_10_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) ISO_8859_10_CYBOL_ENCODING, p2, (void*) ISO_8859_10_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -198,7 +198,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) ISO_8859_11_CYBOL_ENCODING, p2, (void*) ISO_8859_11_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) ISO_8859_11_CYBOL_ENCODING, p2, (void*) ISO_8859_11_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -208,7 +208,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) ISO_8859_12_CYBOL_ENCODING, p2, (void*) ISO_8859_12_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) ISO_8859_12_CYBOL_ENCODING, p2, (void*) ISO_8859_12_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -218,7 +218,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) ISO_8859_13_CYBOL_ENCODING, p2, (void*) ISO_8859_13_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) ISO_8859_13_CYBOL_ENCODING, p2, (void*) ISO_8859_13_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -228,7 +228,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) ISO_8859_14_CYBOL_ENCODING, p2, (void*) ISO_8859_14_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) ISO_8859_14_CYBOL_ENCODING, p2, (void*) ISO_8859_14_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -238,7 +238,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) ISO_8859_15_CYBOL_ENCODING, p2, (void*) ISO_8859_15_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) ISO_8859_15_CYBOL_ENCODING, p2, (void*) ISO_8859_15_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -248,7 +248,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) ISO_8859_16_CYBOL_ENCODING, p2, (void*) ISO_8859_16_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) ISO_8859_16_CYBOL_ENCODING, p2, (void*) ISO_8859_16_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -262,7 +262,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) UTF_16_UNICODE_CYBOL_ENCODING, p2, (void*) UTF_16_UNICODE_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) UTF_16_UNICODE_CYBOL_ENCODING, p2, (void*) UTF_16_UNICODE_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -272,7 +272,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) UTF_8_UNICODE_CYBOL_ENCODING, p2, (void*) UTF_8_UNICODE_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) UTF_8_UNICODE_CYBOL_ENCODING, p2, (void*) UTF_8_UNICODE_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -286,7 +286,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) WINDOWS_874_CYBOL_ENCODING, p2, (void*) WINDOWS_874_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) WINDOWS_874_CYBOL_ENCODING, p2, (void*) WINDOWS_874_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -296,7 +296,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) WINDOWS_932_CYBOL_ENCODING, p2, (void*) WINDOWS_932_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) WINDOWS_932_CYBOL_ENCODING, p2, (void*) WINDOWS_932_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -306,7 +306,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) WINDOWS_936_CYBOL_ENCODING, p2, (void*) WINDOWS_936_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) WINDOWS_936_CYBOL_ENCODING, p2, (void*) WINDOWS_936_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -316,7 +316,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) WINDOWS_949_CYBOL_ENCODING, p2, (void*) WINDOWS_949_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) WINDOWS_949_CYBOL_ENCODING, p2, (void*) WINDOWS_949_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -326,7 +326,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) WINDOWS_950_CYBOL_ENCODING, p2, (void*) WINDOWS_950_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) WINDOWS_950_CYBOL_ENCODING, p2, (void*) WINDOWS_950_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -336,7 +336,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) WINDOWS_1250_CYBOL_ENCODING, p2, (void*) WINDOWS_1250_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) WINDOWS_1250_CYBOL_ENCODING, p2, (void*) WINDOWS_1250_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -346,7 +346,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) WINDOWS_1251_CYBOL_ENCODING, p2, (void*) WINDOWS_1251_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) WINDOWS_1251_CYBOL_ENCODING, p2, (void*) WINDOWS_1251_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -356,7 +356,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) WINDOWS_1252_CYBOL_ENCODING, p2, (void*) WINDOWS_1252_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) WINDOWS_1252_CYBOL_ENCODING, p2, (void*) WINDOWS_1252_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -366,7 +366,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) WINDOWS_1253_CYBOL_ENCODING, p2, (void*) WINDOWS_1253_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) WINDOWS_1253_CYBOL_ENCODING, p2, (void*) WINDOWS_1253_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -376,7 +376,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) WINDOWS_1254_CYBOL_ENCODING, p2, (void*) WINDOWS_1254_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) WINDOWS_1254_CYBOL_ENCODING, p2, (void*) WINDOWS_1254_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -386,7 +386,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) WINDOWS_1255_CYBOL_ENCODING, p2, (void*) WINDOWS_1255_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) WINDOWS_1255_CYBOL_ENCODING, p2, (void*) WINDOWS_1255_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -396,7 +396,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) WINDOWS_1256_CYBOL_ENCODING, p2, (void*) WINDOWS_1256_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) WINDOWS_1256_CYBOL_ENCODING, p2, (void*) WINDOWS_1256_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -406,7 +406,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) WINDOWS_1257_CYBOL_ENCODING, p2, (void*) WINDOWS_1257_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) WINDOWS_1257_CYBOL_ENCODING, p2, (void*) WINDOWS_1257_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -416,7 +416,7 @@ void deserialise_cybol_encoding(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p1, (void*) WINDOWS_1258_CYBOL_ENCODING, p2, (void*) WINDOWS_1258_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) WINDOWS_1258_CYBOL_ENCODING, p2, (void*) WINDOWS_1258_CYBOL_ENCODING_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

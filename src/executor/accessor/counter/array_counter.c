@@ -32,7 +32,7 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../../executor/checker/array_checker.c"
+#include "../../../executor/checker/operation_checker.c"
 #include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
@@ -72,7 +72,7 @@ void count_array_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     copy_array_forward((void*) &pnc, pn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Compare part name item with given filter string.
-    check_array((void*) &r, pnd, p3, pnc, p4, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    check_operation((void*) &r, pnd, p3, pnc, p4, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -72,7 +72,7 @@ void deserialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p9, (void*) EXPOSE_EVENT_GUI_STATE_CYBOL_NAME, p10, (void*) EXPOSE_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p9, (void*) EXPOSE_EVENT_GUI_STATE_CYBOL_NAME, p10, (void*) EXPOSE_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -82,7 +82,7 @@ void deserialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p9, (void*) BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME, p10, (void*) BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p9, (void*) BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME, p10, (void*) BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -92,7 +92,7 @@ void deserialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p9, (void*) BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME, p10, (void*) BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p9, (void*) BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME, p10, (void*) BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -102,7 +102,7 @@ void deserialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p9, (void*) MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME, p10, (void*) MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p9, (void*) MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME, p10, (void*) MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -112,7 +112,7 @@ void deserialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p9, (void*) ENTER_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME, p10, (void*) ENTER_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p9, (void*) ENTER_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME, p10, (void*) ENTER_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -122,7 +122,7 @@ void deserialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p9, (void*) LEAVE_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME, p10, (void*) LEAVE_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p9, (void*) LEAVE_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME, p10, (void*) LEAVE_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -132,7 +132,7 @@ void deserialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p9, (void*) KEY_PRESS_KEYBOARD_STATE_CYBOL_NAME, p10, (void*) KEY_PRESS_KEYBOARD_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p9, (void*) KEY_PRESS_KEYBOARD_STATE_CYBOL_NAME, p10, (void*) KEY_PRESS_KEYBOARD_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -142,7 +142,7 @@ void deserialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p9, (void*) KEY_RELEASE_KEYBOARD_STATE_CYBOL_NAME, p10, (void*) KEY_RELEASE_KEYBOARD_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p9, (void*) KEY_RELEASE_KEYBOARD_STATE_CYBOL_NAME, p10, (void*) KEY_RELEASE_KEYBOARD_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -18,6 +18,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2018-05-28  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Delete file "checking_logic_cybol_name.c" and use comparison constants instead
+        * Rename function call of "check_array" to "check_operation" in all code
+        * Implement new function call order of files: part_checker -> item_checker -> operand_checker (new) -> operation_checker (formerly array_checker) -> array_checker (formerly element_checker)
+        * Delegate function calls of checker to comparator, for primitive types, in file "operand_checker.c" (taken from file "compare_bubble_sorter.c")
+
 2018-05-23  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add operand type as argument to all calls of function "check_array"

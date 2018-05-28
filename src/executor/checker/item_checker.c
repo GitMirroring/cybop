@@ -33,7 +33,7 @@
 #include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/checker/array_checker.c"
+#include "../../executor/checker/operand_checker.c"
 #include "../../executor/copier/array_copier.c"
 #include "../../logger/logger.c"
 
@@ -65,7 +65,7 @@ void check_item(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &rc, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Check arrays lexicographically.
-    check_array(p0, ld, rd, lc, rc, p3, p4);
+    check_operand(p0, ld, rd, lc, rc, p3, p4);
 }
 
 /* ITEM_CHECKER_SOURCE */

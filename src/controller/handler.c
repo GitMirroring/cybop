@@ -35,7 +35,7 @@
 #include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../controller/handler/operation_handler.c"
 #include "../controller/handler/part_handler.c"
-#include "../executor/checker/array_checker.c"
+#include "../executor/checker/operation_checker.c"
 #include "../executor/representer/deserialiser/knowledge/knowledge_deserialiser.c"
 #include "../logger/logger.c"
 

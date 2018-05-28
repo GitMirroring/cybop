@@ -33,7 +33,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/state/wui/tag_wui_state_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/checker/array_checker.c"
+#include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/representer/serialiser/html/attribute_html_serialiser.c"
@@ -81,9 +81,9 @@ void serialise_html_attribute(void* p0, void* p1, void* p2) {
     // CAUTION! Many comparisons may be done in a sequence.
     // If a comparison's result is not true, then the return value
     // is NOT altered, so that the following comparisons are not affected.
-    check_array((void*) &r, nd, (void*) TAG_WUI_STATE_CYBOL_NAME, nc, (void*) TAG_WUI_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    check_array((void*) &r, nd, (void*) PREFORMATTED_WUI_STATE_CYBOL_NAME, nc, (void*) PREFORMATTED_WUI_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    check_array((void*) &r, nd, (void*) DOCUMENT_TYPE_WUI_STATE_CYBOL_NAME, nc, (void*) DOCUMENT_TYPE_WUI_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    check_operation((void*) &r, nd, (void*) TAG_WUI_STATE_CYBOL_NAME, nc, (void*) TAG_WUI_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    check_operation((void*) &r, nd, (void*) PREFORMATTED_WUI_STATE_CYBOL_NAME, nc, (void*) PREFORMATTED_WUI_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    check_operation((void*) &r, nd, (void*) DOCUMENT_TYPE_WUI_STATE_CYBOL_NAME, nc, (void*) DOCUMENT_TYPE_WUI_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

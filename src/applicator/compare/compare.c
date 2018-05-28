@@ -37,7 +37,7 @@
 #include "../../logger/logger.c"
 
 /**
- * Compares left and right parametre.
+ * Compares left and right operand.
  *
  * Expected parametres:
  * - result (required): the knowledge model, in which the result is stored (of type boolean)
@@ -56,7 +56,7 @@
  * operation: equal
  * left operand: 33
  * right operand: 3
- * result vector: 0 (which corresponds to "false")
+ * result value: 0 (which corresponds to "false")
  *
  * 2 Vector:
  *
@@ -70,8 +70,8 @@
  * right operand: 1,2,3
  * result vector: 0,1,1 (which corresponds to "false,true,true")
  *
- * For lexicographical comparison of "wide_character" strings,
- * see cybol operation "check"!
+ * For lexicographical comparison of text, i.e. strings of type
+ * "wide_character" or "character", see cybol operation "check"!
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

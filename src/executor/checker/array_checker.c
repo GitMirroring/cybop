@@ -29,92 +29,109 @@
 #include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../executor/checker/element_checker.c"
-#include "../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/checker/count_checker.c"
+#include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
+#include "../../executor/comparator/integer/less_integer_comparator.c"
+#include "../../executor/comparator/comparator.c"
+#include "../../executor/copier/integer_copier.c"
 #include "../../logger/logger.c"
 
 /**
  * Checks two arrays lexicographically.
+ *
+ * At first, elements are compared.
+ * Afterwards, the array count (length) gets compared.
+ *
+ * https://de.wikipedia.org/wiki/Lexikographische_Ordnung
+ * https://en.wikipedia.org/wiki/Lexicographical_order
+ *
+ * Three operation types are handed over, for these cases:
+ * - match criterion
+ * - fail criterion
+ * - count comparison
  *
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left data
  * @param p2 the right data
  * @param p3 the left count
  * @param p4 the right count
- * @param p5 the operation type
- * @param p6 the operand type
+ * @param p5 the operand type
+ * @param p6 the element success operation type
+ * @param p7 the element failure operation type
+ * @param p8 the count success operation type
  */
-void check_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void check_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check array.");
 
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The loop count.
+    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The loop variable.
+    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The comparison result 1.
+    int r1 = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The comparison result 2.
+    int r2 = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The comparison result 3.
+    int r3 = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    // Assign loop count.
+    check_count((void*) &c, p3, p4);
 
-        compare_integer_equal((void*) &r, p5, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, (void*) &c);
 
-            check_element(p0, p1, p2, p3, p4, p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) UNEQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // All elements have been compared and were equal.
+            // Therefore, the array count (length) has to decide now.
+            compare_integer((void*) &r3, p3, p4, p8);
+
+            if (r3 != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                // CAUTION! Just a hint: If the data are compared for equality,
+                // then they are expected to be EQUAL, even if their count is zero.
+                // This is important, because the PROPERTIES (cybol meta properties)
+                // of many otherwise equal models are EMPTY.
+
+                // The left array count matches the comparison criterion.
+                copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+                break;
+
+            } else {
+
+                // The left array count fails the comparison criterion.
+
+                break;
+            }
         }
-    }
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        compare_offset((void*) &r1, p1, p2, p6, p5, (void*) &j);
 
-        compare_integer_equal((void*) &r, p5, (void*) GREATER_CHECK_LOGIC_CYBOI_FORMAT);
+        if (r1 != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            // An element that matches the comparison criterion has been found.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-            check_element(p0, p1, p2, p3, p4, p6, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT, (void*) LESS_COMPARE_LOGIC_CYBOI_FORMAT, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT);
+            break;
         }
-    }
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        compare_offset((void*) &r2, p1, p2, p7, p5, (void*) &j);
 
-        compare_integer_equal((void*) &r, p5, (void*) GREATER_OR_EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+        if (r2 != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            // An element that fails the comparison criterion has been found.
 
-            check_element(p0, p1, p2, p3, p4, p6, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT, (void*) LESS_COMPARE_LOGIC_CYBOI_FORMAT, (void*) GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+            break;
         }
-    }
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) LESS_CHECK_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            check_element(p0, p1, p2, p3, p4, p6, (void*) LESS_COMPARE_LOGIC_CYBOI_FORMAT, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT, (void*) LESS_COMPARE_LOGIC_CYBOI_FORMAT);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) LESS_OR_EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            check_element(p0, p1, p2, p3, p4, p6, (void*) LESS_COMPARE_LOGIC_CYBOI_FORMAT, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT, (void*) LESS_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) UNEQUAL_CHECK_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            check_element(p0, p1, p2, p3, p4, p6, (void*) UNEQUAL_COMPARE_LOGIC_CYBOI_FORMAT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) UNEQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check array. The operation type is unknown.");
+        j++;
     }
 }
 

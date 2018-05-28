@@ -48,8 +48,11 @@
  * @param p3 the operation type
  * @param p4 the left operand type
  * @param p5 the right operand type
+ * @param p6 the count
+ * @param p7 the left index
+ * @param p8 the right index
  */
-void apply_check_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void apply_check_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply check type.");
 
@@ -60,14 +63,14 @@ void apply_check_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // The result- and operand type are identical.
+        // The left- and right type are identical.
 
-        check_part(p0, p1, p2, p3, p4);
+        check_part(p0, p1, p2, p3, p4/*??, p6, p7, p8*/);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply check type. The left operand type and right operand type are different.");
-        fwprintf(stdout, L"ERROR: Could not apply check type. The left operand type and right operand type are different.\n");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply check type. The left- and right operand type are different.");
+        fwprintf(stdout, L"ERROR: Could not apply check type. The left- and right operand type are different.\n");
         fwprintf(stdout, L"ERROR: Left operand type: %i. Right operand type: %i.\n", *((int*) p4), *((int*) p5));
     }
 }

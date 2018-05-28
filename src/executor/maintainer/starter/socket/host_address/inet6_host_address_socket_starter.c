@@ -46,7 +46,7 @@
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../constant/model/cybol/socket/address_socket_cybol_model.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../executor/checker/array_checker.c"
+#include "../../../../../executor/checker/operation_checker.c"
 #include "../../../../../executor/converter/encoder/utf/utf_8_encoder.c"
 #include "../../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../../executor/memoriser/deallocator/item_deallocator.c"
@@ -92,7 +92,7 @@ void startup_socket_host_address_inet6(void* p0, void* p1, void* p2) {
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            check_array((void*) &r, p1, (void*) LOOPBACK_ADDRESS_SOCKET_CYBOL_MODEL, p2, (void*) LOOPBACK_ADDRESS_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            check_operation((void*) &r, p1, (void*) LOOPBACK_ADDRESS_SOCKET_CYBOL_MODEL, p2, (void*) LOOPBACK_ADDRESS_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -119,7 +119,7 @@ void startup_socket_host_address_inet6(void* p0, void* p1, void* p2) {
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            check_array((void*) &r, p1, (void*) ANY_ADDRESS_SOCKET_CYBOL_MODEL, p2, (void*) ANY_ADDRESS_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            check_operation((void*) &r, p1, (void*) ANY_ADDRESS_SOCKET_CYBOL_MODEL, p2, (void*) ANY_ADDRESS_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

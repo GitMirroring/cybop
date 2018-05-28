@@ -14,13 +14,15 @@
 Comparison
 __________
 
-        * Delegate function calls of checker to comparator for primitive types
-            - this is necessary due to differing operation types
+        * Hand over count, left_index, right_index in function call of "compare_array" in file "operand_checker.c"
         * Simplify or eliminate file "compare_bubble_sorter.c" due to new checker functions
             - CAUTION! The operation arguments p5 and p6 differ (checker for string and comparator for other types),
                 but this is NOT necessary anymore, since checker function calls are delegated (see above),
                 therefore, only use CHECK operation type and NOT COMPARE anymore
             - figure out how to handle that BEFORE deleting file "compare_bubble_sorter.c" as mentioned above
+        * Recreate file "checking_logic_cybol_name.c" with redundant content to comparison constants
+
+        * Test result vector count in function "apply_compare" or later, in order to avoid crossing array boundaries
 
         * Use "checker" instead of "compare" for string comparison in file "equal_part_comparator.c"
         * Debug part comparator:

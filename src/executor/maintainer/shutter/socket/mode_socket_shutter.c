@@ -31,7 +31,7 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cybol/socket/mode_socket_cybol_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/checker/array_checker.c"
+#include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/maintainer/shutter/socket/client/client_socket_shutter.c"
 #include "../../../../executor/maintainer/shutter/socket/server/server_socket_shutter.c"
 #include "../../../../logger/logger.c"
@@ -58,7 +58,7 @@ void shutdown_socket_mode(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p5, (void*) CLIENT_MODE_SOCKET_CYBOL_MODEL, p6, (void*) CLIENT_MODE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p5, (void*) CLIENT_MODE_SOCKET_CYBOL_MODEL, p6, (void*) CLIENT_MODE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -70,7 +70,7 @@ void shutdown_socket_mode(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_array((void*) &r, p5, (void*) SERVER_MODE_SOCKET_CYBOL_MODEL, p6, (void*) SERVER_MODE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p5, (void*) SERVER_MODE_SOCKET_CYBOL_MODEL, p6, (void*) SERVER_MODE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
