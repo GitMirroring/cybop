@@ -49,8 +49,9 @@
  * @param p5 the count
  * @param p6 the left index
  * @param p7 the right index
+ * @param p8 the lexicographical flag
  */
-void compare_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void compare_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare item.");
 
@@ -84,7 +85,13 @@ void compare_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //?? TODO: Hand over p8!
+
+        //?? If NOT lexicographical then compare_array
+        //?? else check_operand
+
         compare_array(p0, ld, rd, p3, p4, p5, p6, p7);
+//??        check_operand(p0, ld, rd, lc, rc, p3, p4);
 
     } else {
 

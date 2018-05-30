@@ -32,7 +32,6 @@
 #include "../../applicator/access/indicate.c"
 #include "../../applicator/calculate/calculate.c"
 #include "../../applicator/cast/cast.c"
-#include "../../applicator/check/check.c"
 #include "../../applicator/command/archive_file.c"
 #include "../../applicator/command/change_directory.c"
 #include "../../applicator/command/change_permission.c"
@@ -103,6 +102,8 @@
 #include "../../applicator/time/time.c"
 #include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../logger/logger.c"
 
 /**
@@ -352,6 +353,11 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     //
     // check
     //
+    // CAUTION! The COMPARE_LOGIC_CYBOI_FORMAT (and NOT CHECK_LOGIC_CYBOI_FORMAT)
+    // constants are handed over as argument to function "apply_compare".
+    //
+    // The last argument is a flag indicating that lexicographic comparison is to be used.
+    //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -359,7 +365,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_check(p0, p1, p3, p4, p2, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+            apply_compare(p0, p1, p3, p4, p2, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -369,7 +375,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_check(p0, p1, p3, p4, p2, (void*) GREATER_CHECK_LOGIC_CYBOI_FORMAT);
+            apply_compare(p0, p1, p3, p4, p2, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -379,7 +385,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_check(p0, p1, p3, p4, p2, (void*) GREATER_OR_EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+            apply_compare(p0, p1, p3, p4, p2, (void*) GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -389,7 +395,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_check(p0, p1, p3, p4, p2, (void*) LESS_CHECK_LOGIC_CYBOI_FORMAT);
+            apply_compare(p0, p1, p3, p4, p2, (void*) LESS_COMPARE_LOGIC_CYBOI_FORMAT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -399,7 +405,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_check(p0, p1, p3, p4, p2, (void*) LESS_OR_EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+            apply_compare(p0, p1, p3, p4, p2, (void*) LESS_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -409,7 +415,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_check(p0, p1, p3, p4, p2, (void*) UNEQUAL_CHECK_LOGIC_CYBOI_FORMAT);
+            apply_compare(p0, p1, p3, p4, p2, (void*) UNEQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -886,6 +892,8 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     //
     // compare
     //
+    // CAUTION! The last argument is a flag indicating that lexicographic comparison is NOT used.
+    //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -893,7 +901,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_compare(p0, p1, p3, p4, p2, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+            apply_compare(p0, p1, p3, p4, p2, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -903,7 +911,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_compare(p0, p1, p3, p4, p2, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT);
+            apply_compare(p0, p1, p3, p4, p2, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -913,7 +921,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_compare(p0, p1, p3, p4, p2, (void*) GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+            apply_compare(p0, p1, p3, p4, p2, (void*) GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -923,7 +931,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_compare(p0, p1, p3, p4, p2, (void*) LESS_COMPARE_LOGIC_CYBOI_FORMAT);
+            apply_compare(p0, p1, p3, p4, p2, (void*) LESS_COMPARE_LOGIC_CYBOI_FORMAT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -933,7 +941,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_compare(p0, p1, p3, p4, p2, (void*) LESS_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+            apply_compare(p0, p1, p3, p4, p2, (void*) LESS_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -943,7 +951,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_compare(p0, p1, p3, p4, p2, (void*) UNEQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+            apply_compare(p0, p1, p3, p4, p2, (void*) UNEQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 

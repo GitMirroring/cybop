@@ -45,7 +45,7 @@
 // Forward declarations.
 //
 
-void compare_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
+void compare_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
 
 /**
  * Compares the left- with the right part for equality.
@@ -110,7 +110,7 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
     fwprintf(stdout, L"TEST compare part equal START tr: %i\n", tr);
 
             // Compare left- with right part type item.
-            compare_item((void*) &tr, lt, rt, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            compare_item((void*) &tr, lt, rt, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     fwprintf(stdout, L"TEST compare part equal 0 tr: %i\n", tr);
     fwprintf(stdout, L"TEST compare part equal 0 *ltd: %i\n", *((int*) ltd));
@@ -125,7 +125,7 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
                 //
 
                 // Compare left- with right part name, model, properties item.
-                compare_item((void*) &nr, ln, rn, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, lnc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+                compare_item((void*) &nr, ln, rn, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, lnc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     void* lnd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* rnd = *NULL_POINTER_STATE_CYBOI_MODEL;
     copy_array_forward((void*) &lnd, ln, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -136,9 +136,13 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
                 // Recursively call comparison function, which in turn
                 // may call this comparison function and so forth.
                 // This is processing knowledge tree hierarchies.
-                compare_item((void*) &mr, lm, rm, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, ltd, lmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+                //?? TODO: Forward (delegate) last argument (lexicographical comparison flag),
+                //?? as soon as handed over to here as parametre! (replace constant FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+                compare_item((void*) &mr, lm, rm, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, ltd, lmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST compare part equal 2 mr: %i\n", mr);
-                compare_item((void*) &pr, lp, rp, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, lpc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+                //?? TODO: Forward (delegate) last argument (lexicographical comparison flag),
+                //?? as soon as handed over to here as parametre! (replace constant FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+                compare_item((void*) &pr, lp, rp, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, lpc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST compare part equal 3 pr: %i\n", pr);
 
                 if ((nr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) || (tr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) || (mr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) || (pr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {

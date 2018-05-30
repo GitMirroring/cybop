@@ -47,31 +47,50 @@
  * - left index (optional): the left index from where to start the comparison from
  * - right index (optional): the right index from where to start the comparison from
  *
- * 1 Single element:
+ * 1 Standard comparison
  *
- * For single elements, the boolean result is returned as single value.
+ * Left and right operand as well as the boolean result are treated as vector,
+ * i.e. ONE boolean result value is returned PER EACH operand vector element.
  *
- * Example:
+ * When comparing single elements, the vectors contain just one single value.
  *
- * operation: equal
- * left operand: 33
- * right operand: 3
- * result value: 0 (which corresponds to "false")
+ * Most operand types may be used. For instance, numbers may be given as vectors,
+ * e.g. the integer sequence "1,2,3". If using text operands, e.g. "Hello, World!",
+ * then the single characters are compared, one by one.
  *
- * 2 Vector:
- *
- * Numbers may be given as vectors, e.g. the integer sequence "1,2,3".
- * When comparing vectors, then ONE boolean result is returned for EACH vector element.
- *
- * Example:
+ * Example with many elements:
  *
  * operation: equal
  * left operand: 10,2,3
  * right operand: 1,2,3
  * result vector: 0,1,1 (which corresponds to "false,true,true")
  *
- * For lexicographical comparison of text, i.e. strings of type
- * "wide_character" or "character", see cybol operation "check"!
+ * Example with one single element:
+ *
+ * operation: equal
+ * left operand: 33
+ * right operand: 3
+ * result value: 0 (which corresponds to "false")
+ *
+ * 2 Lexicographical comparison
+ *
+ * Left and right operand may be a vector, but there is ALWAYS
+ * just ONE boolean result value ALTOGETHER.
+ *
+ * Usually, lexicographical comparison applies for text,
+ * i.e. strings of type "wide_character" or "character".
+ *
+ * But also compound parts of type "element/part" may use
+ * and set the lexicographical flag to TRUE, so that their
+ * contained text nodes are compared lexicographically
+ * with deep comparison.
+ *
+ * Example with text:
+ *
+ * operation: equal
+ * left operand: "Hello"
+ * right operand: "World"
+ * result value: 0 (which corresponds to "false")
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -79,8 +98,9 @@
  * @param p3 the stack memory item
  * @param p4 the internal memory data
  * @param p5 the operation type
+ * @param p6 the lexicographical flag
  */
-void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply compare.");
 
@@ -183,7 +203,7 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     copy_integer((void*) &right_index, rimd);
 
     // Compare left- and right operand type.
-    apply_compare_type(rmd, lo, ro, p5, (void*) &type, rotd, (void*) &count, (void*) &left_index, (void*) &right_index);
+    apply_compare_type(rmd, lo, ro, p5, (void*) &type, (void*) &count, (void*) &left_index, (void*) &right_index, p6, rotd);
 }
 
 /* COMPARE_SOURCE */
