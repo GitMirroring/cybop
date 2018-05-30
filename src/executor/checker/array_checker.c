@@ -34,7 +34,7 @@
 #include "../../executor/checker/count_checker.c"
 #include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../executor/comparator/integer/less_integer_comparator.c"
-#include "../../executor/comparator/comparator.c"
+#include "../../executor/comparator/offset_comparator.c"
 #include "../../executor/copier/integer_copier.c"
 #include "../../logger/logger.c"
 

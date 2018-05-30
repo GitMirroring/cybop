@@ -38,7 +38,6 @@
 #include "../../executor/comparator/integer_comparator.c"
 #include "../../executor/comparator/pointer_comparator.c"
 #include "../../executor/comparator/wide_character_comparator.c"
-#include "../../executor/memoriser/offset_adder.c"
 #include "../../logger/logger.c"
 
 //
@@ -202,64 +201,6 @@ void compare(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare. The operand type is unknown.");
     }
-}
-
-/**
- * Uses the given index to calculate an offset for left- and right operand.
- *
- * The result is treated as single integer value (not vector).
- *
- * @param p0 the result (number 1 if true; unchanged otherwise)
- * @param p1 the left operand
- * @param p2 the right operand
- * @param p3 the operation type
- * @param p4 the operand type
- * @param p5 the index
- */
-void compare_offset(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
-
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare offset.");
-
-    // The left operand, right operand.
-    // CAUTION! They HAVE TO BE initialised with p1 and p2,
-    // since an offset is added below.
-    void* lo = p1;
-    void* ro = p2;
-
-    // Add offset to left operand, right operand.
-    add_offset((void*) &lo, p4, p5);
-    add_offset((void*) &ro, p4, p5);
-
-    // Compare left operand with right operand.
-    compare(p0, lo, ro, p3, p4);
-}
-
-/**
- * Uses the given index to calculate an offset ONLY for the result.
- *
- * The result is treated as array (vector).
- *
- * @param p0 the result (number 1 if true; unchanged otherwise)
- * @param p1 the left operand
- * @param p2 the right operand
- * @param p3 the operation type
- * @param p4 the operand type
- * @param p5 the index
- */
-void compare_vector(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
-
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare vector.");
-
-    // The result.
-    // CAUTION! It HAS TO BE initialised with p0,
-    // since an offset is added below.
-    void* r = p0;
-
-    // Add offset to result.
-    add_offset((void*) &r, p4, p5);
-
-    // Add offset to left- and right operand.
-    compare_offset(r, p1, p2, p3, p4, p5);
 }
 
 /* COMPARATOR_SOURCE */
