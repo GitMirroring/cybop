@@ -23,7 +23,8 @@
         * Delegate "check" operations to "compare" in file "operation_handler.c" and set lexicographical flag
         * Delete directory "applicator/check/", since "applicator/compare/" is used for standard as well as lexicographical comparison now
         * Delete files "part_checker.c", "item_checker.c"
-        * Split file "elements_array_comparator.c" from file "array_comparator.c"
+        * Split file "elements_array_comparator.c" from file "array_comparator.c", the latter handling left and right index offset
+        * Delete file "operand_checker.c", which got replaced by new file "lexicographical_comparator.c"
 
 2018-05-28  Christian Heller  <christian.heller@tuxtax.de>
 

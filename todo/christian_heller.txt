@@ -14,8 +14,7 @@
 Comparison
 __________
 
-        * CONTINUE: in file "item_comparator.c"
-        * Hand over count, left_index, right_index in function call of "compare_array" in file "operand_checker.c"
+        * CONTINUE: finish up comparator and verify functionality of checker
 
         * Simplify or eliminate file "compare_bubble_sorter.c" due to new checker functions
             - CAUTION! The operation arguments p5 and p6 differ (checker for string and comparator for other types),

@@ -28,22 +28,26 @@
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../executor/comparator/elements_array_comparator.c"
+#include "../../executor/comparator/lexicographical_comparator.c"
+#include "../../executor/memoriser/offset_adder.c"
 #include "../../logger/logger.c"
 
 /**
  * Compares left and right array, starting from the given offset.
  *
  * @param p0 the result (number 1 if true; unchanged otherwise)
- * @param p1 the left array
- * @param p2 the right array
- * @param p3 the operation type
- * @param p4 the operand type
- * @param p5 the count
- * @param p6 the left index
- * @param p7 the right index
+ * @param p1 the left data
+ * @param p2 the right data
+ * @param p3 the left count
+ * @param p4 the right count
+ * @param p5 the operation type
+ * @param p6 the operand type
+ * @param p7 the count
+ * @param p8 the left index
+ * @param p9 the right index
+ * @param p10 the lexicographical flag
  */
-void compare_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void compare_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     // CAUTION! These null pointer comparisons are IMPORTANT, in order to
     // avoid a system crash if one or both of the two arrays are null!
@@ -63,10 +67,10 @@ void compare_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
             void* r = p2;
 
             // Add offset.
-            add_offset((void*) &l, p4, p6);
-            add_offset((void*) &r, p4, p7);
+            add_offset((void*) &l, p6, p8);
+            add_offset((void*) &r, p6, p9);
 
-            compare_array_elements(p0, l, r, p3, p4, p5);
+            compare_lexicographical(p0, p1, p2, p3, p4, p5, p6, p7, p10);
 
         } else {
 
