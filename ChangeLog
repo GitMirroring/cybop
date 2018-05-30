@@ -28,6 +28,7 @@
         * Rename file "array_comparator.c" into "offset_array_comparator.c"
         * Rename file "elements_array_comparator.c" into "array_comparator.c"
         * Split off files "vector_comparator.c" and "offset_comparator.c" from "comparator.c"
+        * Use "compare" instead of "check" logic cyboi format in file "operation_checker.c"
 
 2018-05-28  Christian Heller  <christian.heller@tuxtax.de>
 

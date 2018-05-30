@@ -128,7 +128,16 @@ void sort_bubble_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        sort_bubble_compare(p0, lmd, rmd, lmc, rmc, p3, p4, ltd);
+        //?? TEST
+        int TEST_COUNT = 0;
+        if (*((int*) lmc) < *((int*) rmc)) {
+            copy_integer((void*) &TEST_COUNT, lmc);
+        } else {
+            copy_integer((void*) &TEST_COUNT, rmc);
+        }
+
+        compare_lexicographical(p0, lmd, rmd, lmc, rmc, p3, ltd, (void*) &TEST_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+//??        sort_bubble_compare(p0, lmd, rmd, lmc, rmc, p3, p4, ltd);
 
     } else {
 
