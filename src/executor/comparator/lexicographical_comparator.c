@@ -30,7 +30,7 @@
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../executor/checker/operation_checker.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/comparator/elements_array_comparator.c"
+#include "../../executor/comparator/array_comparator.c"
 #include "../../logger/logger.c"
 
 /**
@@ -63,7 +63,7 @@ void compare_lexicographical(void* p0, void* p1, void* p2, void* p3, void* p4, v
         //
 
         //?? TODO: Use DEEP compare flag here if implemented one day in the future.
-        compare_array_elements(p0, p1, p2, p5, p6, p7);
+        compare_array(p0, p1, p2, p5, p6, p7);
 
     } else {
 

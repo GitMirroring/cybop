@@ -25,6 +25,8 @@
         * Delete files "part_checker.c", "item_checker.c"
         * Split file "elements_array_comparator.c" from file "array_comparator.c", the latter handling left and right index offset
         * Delete file "operand_checker.c", which got replaced by new file "lexicographical_comparator.c"
+        * Rename file "array_comparator.c" into "offset_array_comparator.c"
+        * Rename file "elements_array_comparator.c" into "array_comparator.c"
 
 2018-05-28  Christian Heller  <christian.heller@tuxtax.de>
 

@@ -32,7 +32,7 @@
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../executor/calculator/integer/subtract_integer_calculator.c"
-#include "../../../executor/comparator/integer/array_comparator.c"
+#include "../../../executor/comparator/integer/offset_array_comparator.c"
 #include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"
@@ -86,7 +86,7 @@ void find_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // CAUTION! Hand over SEARCHED (right) array count as count,
         // since it is shorter or equal to that of the left array.
         // CAUTION! Use loop variable as INVESTIGATED (left) array index.
-        compare_array((void*) &b, p1, p2, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, p3, p5, (void*) &j, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_array_offset((void*) &b, p1, p2, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, p3, p5, (void*) &j, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

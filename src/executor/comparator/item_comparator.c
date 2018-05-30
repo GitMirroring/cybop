@@ -33,7 +33,7 @@
 #include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/comparator/array_comparator.c"
+#include "../../executor/comparator/offset_array_comparator.c"
 #include "../../executor/copier/array_copier.c"
 #include "../../executor/verifier/index_count_verifier.c"
 #include "../../logger/logger.c"
@@ -85,7 +85,7 @@ void compare_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_array(p0, ld, rd, lc, rc, p3, p4, p5, p6, p7, p8);
+        compare_array_offset(p0, ld, rd, lc, rc, p3, p4, p5, p6, p7, p8);
 
     } else {
 

@@ -27,59 +27,62 @@
 #define ARRAY_COMPARATOR_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../executor/comparator/lexicographical_comparator.c"
-#include "../../executor/memoriser/offset_adder.c"
+#include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
+#include "../../executor/comparator/comparator.c"
+#include "../../executor/copier/integer_copier.c"
 #include "../../logger/logger.c"
 
 /**
- * Compares left and right array, starting from the given offset.
+ * Compares count elements of the left- and right array.
  *
- * @param p0 the result (number 1 if true; unchanged otherwise)
- * @param p1 the left data
- * @param p2 the right data
- * @param p3 the left count
- * @param p4 the right count
- * @param p5 the operation type
- * @param p6 the operand type
- * @param p7 the count
- * @param p8 the left index
- * @param p9 the right index
- * @param p10 the lexicographical flag
+ * @param p0 the result array (number 1 if true; unchanged otherwise)
+ * @param p1 the left array
+ * @param p2 the right array
+ * @param p3 the operation type
+ * @param p4 the operand type
+ * @param p5 the count
  */
-void compare_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void compare_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    // CAUTION! These null pointer comparisons are IMPORTANT, in order to
-    // avoid a system crash if one or both of the two arrays are null!
-    // All other copying functions are based on this copier function,
-    // so that checking for null pointer right here suffices.
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare array.");
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // The loop variable.
+    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p5 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare array.");
+        // CAUTION! If the loop count handed over as parametre is NULL,
+        // then the break flag will NEVER be set to true, because the loop
+        // variable comparison does (correctly) not consider null values.
+        // Therefore, in this case, the break flag is set to true already here.
+        // Initialising the break flag with true will NOT work either, since it:
+        // a) will be left untouched if a comparison operand is null;
+        // b) would have to be reset to true in each loop cycle.
+        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    }
 
-            // The left array, right array.
-            // CAUTION! They HAVE TO BE initialised with p1 and p2,
-            // since an offset is added below.
-            void* l = p1;
-            void* r = p2;
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Add offset.
-            add_offset((void*) &l, p6, p8);
-            add_offset((void*) &r, p6, p9);
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p5);
 
-            compare_lexicographical(p0, p1, p2, p3, p4, p5, p6, p7, p10);
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare array. The left array is null.");
+            break;
         }
 
-    } else {
+    fwprintf(stdout, L"TEST compare array j: %i\n", j);
+    fwprintf(stdout, L"TEST compare array *p4: %i\n", *((int*) p4));
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare array. The right array is null.");
+        // CAUTION! This function does not change the result flag, if the comparison result is false.
+        // Therefore, the result flag ALWAYS has to be initialised with FALSE before!
+        compare_vector(p0, p1, p2, p3, p4, (void*) &j);
+
+        j++;
     }
 }
 
