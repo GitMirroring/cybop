@@ -92,7 +92,7 @@ void startup_socket_family(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p2, (void*) APPLETALK_NAMESPACE_SOCKET_CYBOL_MODEL, p3, (void*) APPLETALK_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p2, (void*) APPLETALK_NAMESPACE_SOCKET_CYBOL_MODEL, p3, (void*) APPLETALK_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -103,7 +103,7 @@ void startup_socket_family(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p2, (void*) BLUETOOTH_NAMESPACE_SOCKET_CYBOL_MODEL, p3, (void*) BLUETOOTH_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p2, (void*) BLUETOOTH_NAMESPACE_SOCKET_CYBOL_MODEL, p3, (void*) BLUETOOTH_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -114,7 +114,7 @@ void startup_socket_family(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p2, (void*) INET_NAMESPACE_SOCKET_CYBOL_MODEL, p3, (void*) INET_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p2, (void*) INET_NAMESPACE_SOCKET_CYBOL_MODEL, p3, (void*) INET_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -125,7 +125,7 @@ void startup_socket_family(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p2, (void*) INET6_NAMESPACE_SOCKET_CYBOL_MODEL, p3, (void*) INET6_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p2, (void*) INET6_NAMESPACE_SOCKET_CYBOL_MODEL, p3, (void*) INET6_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -136,7 +136,7 @@ void startup_socket_family(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p2, (void*) IPX_NAMESPACE_SOCKET_CYBOL_MODEL, p3, (void*) IPX_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p2, (void*) IPX_NAMESPACE_SOCKET_CYBOL_MODEL, p3, (void*) IPX_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -147,7 +147,7 @@ void startup_socket_family(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p2, (void*) IRDA_NAMESPACE_SOCKET_CYBOL_MODEL, p3, (void*) IRDA_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p2, (void*) IRDA_NAMESPACE_SOCKET_CYBOL_MODEL, p3, (void*) IRDA_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -158,7 +158,7 @@ void startup_socket_family(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p2, (void*) LOCAL_NAMESPACE_SOCKET_CYBOL_MODEL, p3, (void*) LOCAL_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p2, (void*) LOCAL_NAMESPACE_SOCKET_CYBOL_MODEL, p3, (void*) LOCAL_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -170,7 +170,7 @@ void startup_socket_family(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p2, (void*) NETBIOS_NAMESPACE_SOCKET_CYBOL_MODEL, p3, (void*) NETBIOS_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p2, (void*) NETBIOS_NAMESPACE_SOCKET_CYBOL_MODEL, p3, (void*) NETBIOS_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

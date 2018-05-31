@@ -65,7 +65,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) COMMUNICATION_HEADER_RECORD_XDT_NAME, p2, (void*) COMMUNICATION_HEADER_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) COMMUNICATION_HEADER_RECORD_XDT_NAME, p2, (void*) COMMUNICATION_HEADER_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -75,7 +75,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) COMMUNICATION_FOOTER_RECORD_XDT_NAME, p2, (void*) COMMUNICATION_FOOTER_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) COMMUNICATION_FOOTER_RECORD_XDT_NAME, p2, (void*) COMMUNICATION_FOOTER_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -89,7 +89,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) FILE_HEADER_RECORD_XDT_NAME, p2, (void*) FILE_HEADER_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) FILE_HEADER_RECORD_XDT_NAME, p2, (void*) FILE_HEADER_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -99,7 +99,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) FILE_FOOTER_RECORD_XDT_NAME, p2, (void*) FILE_FOOTER_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) FILE_FOOTER_RECORD_XDT_NAME, p2, (void*) FILE_FOOTER_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -113,7 +113,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) REFERENCED_SPECIFICATION_RECORD_XDT_NAME, p2, (void*) REFERENCED_SPECIFICATION_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) REFERENCED_SPECIFICATION_RECORD_XDT_NAME, p2, (void*) REFERENCED_SPECIFICATION_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -123,7 +123,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) INTERNAL_IDENTIFIER_RECORD_XDT_NAME, p2, (void*) INTERNAL_IDENTIFIER_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) INTERNAL_IDENTIFIER_RECORD_XDT_NAME, p2, (void*) INTERNAL_IDENTIFIER_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -137,7 +137,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) MEDICAL_PRACTICE_RECORD_XDT_NAME, p2, (void*) MEDICAL_PRACTICE_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) MEDICAL_PRACTICE_RECORD_XDT_NAME, p2, (void*) MEDICAL_PRACTICE_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -148,7 +148,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) ADDRESSES_RECORD_XDT_NAME, p2, (void*) ADDRESSES_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) ADDRESSES_RECORD_XDT_NAME, p2, (void*) ADDRESSES_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -158,7 +158,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) APPOINTMENTS_RECORD_XDT_NAME, p2, (void*) APPOINTMENTS_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) APPOINTMENTS_RECORD_XDT_NAME, p2, (void*) APPOINTMENTS_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -168,7 +168,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) DIAGNOSIS_ABBREVIATIONS_RECORD_XDT_NAME, p2, (void*) DIAGNOSIS_ABBREVIATIONS_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) DIAGNOSIS_ABBREVIATIONS_RECORD_XDT_NAME, p2, (void*) DIAGNOSIS_ABBREVIATIONS_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -178,7 +178,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) SERVICE_NUMBERS_RECORD_XDT_NAME, p2, (void*) SERVICE_NUMBERS_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) SERVICE_NUMBERS_RECORD_XDT_NAME, p2, (void*) SERVICE_NUMBERS_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -188,7 +188,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) PRESCRIPTION_ABBREVIATIONS_RECORD_XDT_NAME, p2, (void*) PRESCRIPTION_ABBREVIATIONS_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) PRESCRIPTION_ABBREVIATIONS_RECORD_XDT_NAME, p2, (void*) PRESCRIPTION_ABBREVIATIONS_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -198,7 +198,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) TREATMENT_BLOCKS_RECORD_XDT_NAME, p2, (void*) TREATMENT_BLOCKS_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) TREATMENT_BLOCKS_RECORD_XDT_NAME, p2, (void*) TREATMENT_BLOCKS_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -208,7 +208,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) TEXT_BLOCKS_RECORD_XDT_NAME, p2, (void*) TEXT_BLOCKS_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) TEXT_BLOCKS_RECORD_XDT_NAME, p2, (void*) TEXT_BLOCKS_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -222,7 +222,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) PATIENT_RECORD_XDT_NAME, p2, (void*) PATIENT_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) PATIENT_RECORD_XDT_NAME, p2, (void*) PATIENT_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -232,7 +232,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) MEDICAL_TREATMENT_RECORD_XDT_NAME, p2, (void*) MEDICAL_TREATMENT_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) MEDICAL_TREATMENT_RECORD_XDT_NAME, p2, (void*) MEDICAL_TREATMENT_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -248,7 +248,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) KVDT_MEDICAL_TREATMENT_RECORD_XDT_NAME, p2, (void*) KVDT_MEDICAL_TREATMENT_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) KVDT_MEDICAL_TREATMENT_RECORD_XDT_NAME, p2, (void*) KVDT_MEDICAL_TREATMENT_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -258,7 +258,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) KVDT_REFERRAL_CASE_RECORD_XDT_NAME, p2, (void*) KVDT_REFERRAL_CASE_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) KVDT_REFERRAL_CASE_RECORD_XDT_NAME, p2, (void*) KVDT_REFERRAL_CASE_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -268,7 +268,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) KVDT_MEDICAL_TREATMENT_WITH_COTTAGE_HOSPITAL_AFFILIATION_RECORD_XDT_NAME, p2, (void*) KVDT_MEDICAL_TREATMENT_WITH_COTTAGE_HOSPITAL_AFFILIATION_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) KVDT_MEDICAL_TREATMENT_WITH_COTTAGE_HOSPITAL_AFFILIATION_RECORD_XDT_NAME, p2, (void*) KVDT_MEDICAL_TREATMENT_WITH_COTTAGE_HOSPITAL_AFFILIATION_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -278,7 +278,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) KVDT_MEDICAL_EMERGENCY_SERVICE_RECORD_XDT_NAME, p2, (void*) KVDT_MEDICAL_EMERGENCY_SERVICE_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) KVDT_MEDICAL_EMERGENCY_SERVICE_RECORD_XDT_NAME, p2, (void*) KVDT_MEDICAL_EMERGENCY_SERVICE_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -288,7 +288,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) KVDT_SADT_MEDICAL_TREATMENT_RECORD_XDT_NAME, p2, (void*) KVDT_SADT_MEDICAL_TREATMENT_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) KVDT_SADT_MEDICAL_TREATMENT_RECORD_XDT_NAME, p2, (void*) KVDT_SADT_MEDICAL_TREATMENT_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -298,7 +298,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) KVDT_SADT_REFERRAL_CASE_RECORD_XDT_NAME, p2, (void*) KVDT_SADT_REFERRAL_CASE_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) KVDT_SADT_REFERRAL_CASE_RECORD_XDT_NAME, p2, (void*) KVDT_SADT_REFERRAL_CASE_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -308,7 +308,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) KVDT_SADT_MEDICAL_TREATMENT_WITH_COTTAGE_HOSPITAL_AFFILIATION_RECORD_XDT_NAME, p2, (void*) KVDT_SADT_MEDICAL_TREATMENT_WITH_COTTAGE_HOSPITAL_AFFILIATION_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) KVDT_SADT_MEDICAL_TREATMENT_WITH_COTTAGE_HOSPITAL_AFFILIATION_RECORD_XDT_NAME, p2, (void*) KVDT_SADT_MEDICAL_TREATMENT_WITH_COTTAGE_HOSPITAL_AFFILIATION_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -318,7 +318,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) KVDT_CURE_MEDICAL_TREATMENT_RECORD_XDT_NAME, p2, (void*) KVDT_CURE_MEDICAL_TREATMENT_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) KVDT_CURE_MEDICAL_TREATMENT_RECORD_XDT_NAME, p2, (void*) KVDT_CURE_MEDICAL_TREATMENT_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -328,7 +328,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) KVDT_GEVK_RECORD_XDT_NAME, p2, (void*) KVDT_GEVK_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) KVDT_GEVK_RECORD_XDT_NAME, p2, (void*) KVDT_GEVK_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -338,7 +338,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) KVDT_HAEVG_RECORD_XDT_NAME, p2, (void*) KVDT_HAEVG_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) KVDT_HAEVG_RECORD_XDT_NAME, p2, (void*) KVDT_HAEVG_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -348,7 +348,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) KVDT_MEDI_RECORD_XDT_NAME, p2, (void*) KVDT_MEDI_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) KVDT_MEDI_RECORD_XDT_NAME, p2, (void*) KVDT_MEDI_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -358,7 +358,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) KVDT_KV_RECORD_XDT_NAME, p2, (void*) KVDT_KV_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) KVDT_KV_RECORD_XDT_NAME, p2, (void*) KVDT_KV_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -374,7 +374,7 @@ void select_xdt_bdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) PRIVATE_BILLING_RECORD_XDT_NAME, p2, (void*) PRIVATE_BILLING_RECORD_XDT_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) PRIVATE_BILLING_RECORD_XDT_NAME, p2, (void*) PRIVATE_BILLING_RECORD_XDT_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -60,7 +60,7 @@ void serialise_gui_shape(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p9, (void*) ARC_SHAPE_CYBOL_MODEL, p10, (void*) ARC_SHAPE_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p9, (void*) ARC_SHAPE_CYBOL_MODEL, p10, (void*) ARC_SHAPE_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -72,7 +72,7 @@ void serialise_gui_shape(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p9, (void*) BUTTON_SHAPE_CYBOL_MODEL, p10, (void*) BUTTON_SHAPE_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p9, (void*) BUTTON_SHAPE_CYBOL_MODEL, p10, (void*) BUTTON_SHAPE_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -82,7 +82,7 @@ void serialise_gui_shape(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p9, (void*) FILLED_ARC_SHAPE_CYBOL_MODEL, p10, (void*) FILLED_ARC_SHAPE_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p9, (void*) FILLED_ARC_SHAPE_CYBOL_MODEL, p10, (void*) FILLED_ARC_SHAPE_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -93,7 +93,7 @@ void serialise_gui_shape(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p9, (void*) FILLED_POLYGON_SHAPE_CYBOL_MODEL, p10, (void*) FILLED_POLYGON_SHAPE_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p9, (void*) FILLED_POLYGON_SHAPE_CYBOL_MODEL, p10, (void*) FILLED_POLYGON_SHAPE_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -104,7 +104,7 @@ void serialise_gui_shape(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p9, (void*) FILLED_RECTANGLE_SHAPE_CYBOL_MODEL, p10, (void*) FILLED_RECTANGLE_SHAPE_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p9, (void*) FILLED_RECTANGLE_SHAPE_CYBOL_MODEL, p10, (void*) FILLED_RECTANGLE_SHAPE_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -115,7 +115,7 @@ void serialise_gui_shape(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p9, (void*) LABEL_SHAPE_CYBOL_MODEL, p10, (void*) LABEL_SHAPE_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p9, (void*) LABEL_SHAPE_CYBOL_MODEL, p10, (void*) LABEL_SHAPE_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -125,7 +125,7 @@ void serialise_gui_shape(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p9, (void*) POINT_SHAPE_CYBOL_MODEL, p10, (void*) POINT_SHAPE_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p9, (void*) POINT_SHAPE_CYBOL_MODEL, p10, (void*) POINT_SHAPE_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -136,7 +136,7 @@ void serialise_gui_shape(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p9, (void*) POLYGON_SHAPE_CYBOL_MODEL, p10, (void*) POLYGON_SHAPE_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p9, (void*) POLYGON_SHAPE_CYBOL_MODEL, p10, (void*) POLYGON_SHAPE_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -147,7 +147,7 @@ void serialise_gui_shape(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p9, (void*) RECTANGLE_SHAPE_CYBOL_MODEL, p10, (void*) RECTANGLE_SHAPE_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p9, (void*) RECTANGLE_SHAPE_CYBOL_MODEL, p10, (void*) RECTANGLE_SHAPE_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -157,7 +157,7 @@ void serialise_gui_shape(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p9, (void*) SEGMENT_SHAPE_CYBOL_MODEL, p10, (void*) SEGMENT_SHAPE_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p9, (void*) SEGMENT_SHAPE_CYBOL_MODEL, p10, (void*) SEGMENT_SHAPE_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -68,7 +68,7 @@ fwprintf(stdout, L"TEST serialise layout: %ls\n", (wchar_t*) p11);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p11, (void*) ABSOLUTE_LAYOUT_CYBOL_MODEL, p12, (void*) ABSOLUTE_LAYOUT_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p11, (void*) ABSOLUTE_LAYOUT_CYBOL_MODEL, p12, (void*) ABSOLUTE_LAYOUT_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -78,7 +78,7 @@ fwprintf(stdout, L"TEST serialise layout: %ls\n", (wchar_t*) p11);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p11, (void*) BORDER_LAYOUT_CYBOL_MODEL, p12, (void*) BORDER_LAYOUT_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p11, (void*) BORDER_LAYOUT_CYBOL_MODEL, p12, (void*) BORDER_LAYOUT_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -88,7 +88,7 @@ fwprintf(stdout, L"TEST serialise layout: %ls\n", (wchar_t*) p11);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p11, (void*) BOX_LAYOUT_CYBOL_MODEL, p12, (void*) BOX_LAYOUT_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p11, (void*) BOX_LAYOUT_CYBOL_MODEL, p12, (void*) BOX_LAYOUT_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -101,7 +101,7 @@ fwprintf(stdout, L"TEST serialise layout: %ls\n", (wchar_t*) p11);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p11, (void*) FLOW_LAYOUT_CYBOL_MODEL, p12, (void*) FLOW_LAYOUT_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p11, (void*) FLOW_LAYOUT_CYBOL_MODEL, p12, (void*) FLOW_LAYOUT_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -111,7 +111,7 @@ fwprintf(stdout, L"TEST serialise layout: %ls\n", (wchar_t*) p11);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p11, (void*) GRID_LAYOUT_CYBOL_MODEL, p12, (void*) GRID_LAYOUT_CYBOL_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p11, (void*) GRID_LAYOUT_CYBOL_MODEL, p12, (void*) GRID_LAYOUT_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

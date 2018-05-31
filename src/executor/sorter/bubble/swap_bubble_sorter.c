@@ -66,7 +66,7 @@ void sort_bubble_swap(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     copy_array_forward(p4, p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
 
     // Determine type of current and successor value and compare them.
-    sort_bubble_type((void*) &r, p3, p4, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT, (void*) GREATER_CHECK_LOGIC_CYBOI_FORMAT, p1, p7, p8, p9, p10, p11, p12);
+    sort_bubble_type((void*) &r, p3, p4, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT, p1, p7, p8, p9, p10, p11, p12);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

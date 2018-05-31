@@ -73,7 +73,7 @@ void select_uri(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p4, (void*) FTP_SCHEME_URI_MODEL, p5, (void*) FTP_SCHEME_URI_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p4, (void*) FTP_SCHEME_URI_MODEL, p5, (void*) FTP_SCHEME_URI_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -83,7 +83,7 @@ void select_uri(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p4, (void*) HTTP_SCHEME_URI_MODEL, p5, (void*) HTTP_SCHEME_URI_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p4, (void*) HTTP_SCHEME_URI_MODEL, p5, (void*) HTTP_SCHEME_URI_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -93,7 +93,7 @@ void select_uri(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p4, (void*) LDAP_SCHEME_URI_MODEL, p5, (void*) LDAP_SCHEME_URI_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p4, (void*) LDAP_SCHEME_URI_MODEL, p5, (void*) LDAP_SCHEME_URI_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -103,7 +103,7 @@ void select_uri(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p4, (void*) MAILTO_SCHEME_URI_MODEL, p5, (void*) MAILTO_SCHEME_URI_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p4, (void*) MAILTO_SCHEME_URI_MODEL, p5, (void*) MAILTO_SCHEME_URI_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -113,7 +113,7 @@ void select_uri(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p4, (void*) NEWS_SCHEME_URI_MODEL, p5, (void*) NEWS_SCHEME_URI_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p4, (void*) NEWS_SCHEME_URI_MODEL, p5, (void*) NEWS_SCHEME_URI_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -123,7 +123,7 @@ void select_uri(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p4, (void*) TEL_SCHEME_URI_MODEL, p5, (void*) TEL_SCHEME_URI_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p4, (void*) TEL_SCHEME_URI_MODEL, p5, (void*) TEL_SCHEME_URI_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -133,7 +133,7 @@ void select_uri(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p4, (void*) TELNET_SCHEME_URI_MODEL, p5, (void*) TELNET_SCHEME_URI_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p4, (void*) TELNET_SCHEME_URI_MODEL, p5, (void*) TELNET_SCHEME_URI_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -143,7 +143,7 @@ void select_uri(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p4, (void*) URN_SCHEME_URI_MODEL, p5, (void*) URN_SCHEME_URI_MODEL_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p4, (void*) URN_SCHEME_URI_MODEL, p5, (void*) URN_SCHEME_URI_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

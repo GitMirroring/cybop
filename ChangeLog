@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2018-05-31  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Replace constant CHECK_LOGIC_CYBOI_FORMAT with COMPARE_LOGIC_CYBOI_FORMAT in ALL source code, except file "operation_handler.c"
+
 2018-05-30  Christian Heller  <christian.heller@tuxtax.de>
 
         * Delegate "check" operations to "compare" in file "operation_handler.c" and set lexicographical flag

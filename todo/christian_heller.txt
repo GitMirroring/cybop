@@ -14,8 +14,6 @@
 Comparison
 __________
 
-        * CONTINUE: Replace constant CHECK_LOGIC_CYBOI_FORMAT with COMPARE_LOGIC_CYBOI_FORMAT in ALL source code (exception: file "operation_handler.c")
-            - cybol apps currently not working, since string comparison (checker) does not work due to wrong constants
         * Edit file "part_bubble_sorter.c" and eliminate TODO sections
         * Verify functionality of checker
         * Simplify or eliminate file "compare_bubble_sorter.c" due to new checker functions

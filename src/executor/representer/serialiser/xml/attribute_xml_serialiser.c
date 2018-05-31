@@ -79,8 +79,8 @@ void serialise_xml_attribute(void* p0, void* p1, void* p2) {
     // CAUTION! Many comparisons may be done in a sequence.
     // If a comparison's result is not true, then the return value
     // is NOT altered, so that the following comparisons are not affected.
-    check_operation((void*) &r, nd, (void*) TAG_WUI_STATE_CYBOL_NAME, nc, (void*) TAG_WUI_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    check_operation((void*) &r, nd, (void*) PREFORMATTED_WUI_STATE_CYBOL_NAME, nc, (void*) PREFORMATTED_WUI_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    check_operation((void*) &r, nd, (void*) TAG_WUI_STATE_CYBOL_NAME, nc, (void*) TAG_WUI_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    check_operation((void*) &r, nd, (void*) PREFORMATTED_WUI_STATE_CYBOL_NAME, nc, (void*) PREFORMATTED_WUI_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
