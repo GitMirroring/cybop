@@ -20,7 +20,9 @@
 
 2018-05-31  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Replace constant CHECK_LOGIC_CYBOI_FORMAT with COMPARE_LOGIC_CYBOI_FORMAT in ALL source code, except file "operation_handler.c"
+        * Replace constants "*_CHECK_LOGIC_CYBOI_FORMAT" with "*_COMPARE_LOGIC_CYBOI_FORMAT" in all source code, except file "operation_handler.c"
+        * Delete file "compare_bubble_sorter.c", since function "compare_lexicographical" is called from "part_bubble_sorter.c" now
+        * Remove string operation type argument, which contained "check" instead of "compare" constant, in sorter files
 
 2018-05-30  Christian Heller  <christian.heller@tuxtax.de>
 

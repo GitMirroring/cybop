@@ -36,7 +36,7 @@
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/sorter/bubble/compare_bubble_sorter.c"
+#include "../../../executor/comparator/lexicographical_comparator.c"
 #include "../../../executor/sorter/bubble/criterion_bubble_sorter.c"
 #include "../../../logger/logger.c"
 
@@ -50,15 +50,14 @@
  * @param p1 the left part (pointer reference)
  * @param p2 the right part (pointer reference)
  * @param p3 the operation type
- * @param p4 the string operation type
- * @param p5 the criterion data (pointer reference)
- * @param p6 the criterion count
- * @param p7 the criterion type
- * @param p8 the knowledge memory part (pointer reference)
- * @param p9 the stack memory item
- * @param p10 the internal memory data
+ * @param p4 the criterion data (pointer reference)
+ * @param p5 the criterion count
+ * @param p6 the criterion type
+ * @param p7 the knowledge memory part (pointer reference)
+ * @param p8 the stack memory item
+ * @param p9 the internal memory data
  */
-void sort_bubble_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void sort_bubble_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort bubble part.");
 
@@ -71,14 +70,14 @@ void sort_bubble_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // CAUTION! Use as pointer reference, since this is a compound part.
     void* rp = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // A comparison criterion EXISTS.
         // Therefore, determine left- and right part
         // as child elements of the given parts,
         // using the criterion as path.
 
-        sort_bubble_criterion((void*) &lp, (void*) &rp, p1, p2, p5, p6, p7, p8, p9, p10);
+        sort_bubble_criterion((void*) &lp, (void*) &rp, p1, p2, p4, p5, p6, p7, p8, p9);
 
     } else {
 
@@ -137,7 +136,6 @@ void sort_bubble_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         }
 
         compare_lexicographical(p0, lmd, rmd, lmc, rmc, p3, ltd, (void*) &TEST_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-//??        sort_bubble_compare(p0, lmd, rmd, lmc, rmc, p3, p4, ltd);
 
     } else {
 

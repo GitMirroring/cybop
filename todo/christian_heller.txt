@@ -15,21 +15,20 @@ Comparison
 __________
 
         * Edit file "part_bubble_sorter.c" and eliminate TODO sections
-        * Verify functionality of checker
-        * Simplify or eliminate file "compare_bubble_sorter.c" due to new checker functions
-            - CAUTION! The operation arguments p5 and p6 differ (checker for string and comparator for other types),
-                but this is NOT necessary anymore, since checker function calls are delegated (see above),
-                therefore, only use CHECK operation type and NOT COMPARE anymore
-            - figure out how to handle that BEFORE deleting file "compare_bubble_sorter.c" as mentioned above
+        * Verify functionality of checker with parts for which deep comparison is necessary
 
-        * Test result vector count == min(left, right) in function "apply_compare" or later, in order to avoid crossing array boundaries
-        * Test result count == 1 if lexicographical flag is set, otherwise show a warning
+        * CLEARIFY: Can lexicographical flag be set ALWAYS if only ONE result value is expected, i.e. not only for strings but also integer numbers etc.??
+            Test this! If possible, then set lexicographical flag to true for most function calls with only one result value,
+            e.g. in "equal_part_comparator.c" etc.
 
         * Use "checker" instead of "compare" for string comparison in file "equal_part_comparator.c"
         * Debug part comparator:
             - use different default value for "count" in function "apply_compare" ??
             - use simple instead of double reference in file "equal_part_comparator.c" ??
         * Test using cybol example applications "checker" and "comparator"
+
+        * Test result vector count == min(left, right) in function "apply_compare" or later, in order to avoid crossing array boundaries
+        * Test result count == 1 if lexicographical flag is set, otherwise show a warning
 
         * Implement deserialisation of boolean vectors in cyboi (not just one, but many values)
         * Test boolean vectors using cybol example application "comparator" (sse file "app.cybol" with two boolean vectors)
