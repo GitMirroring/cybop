@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2018-06-01  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt lexicographical flag in file "equal_part_comparator.c"
+        * Delete cybol example application "checker", since "comparator" covers string comparison via checker as well
+        * Add new file "lexicographical_part_comparator.c"
+
 2018-05-31  Christian Heller  <christian.heller@tuxtax.de>
 
         * Replace constants "*_CHECK_LOGIC_CYBOI_FORMAT" with "*_COMPARE_LOGIC_CYBOI_FORMAT" in all source code, except file "operation_handler.c"

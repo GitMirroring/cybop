@@ -37,6 +37,7 @@
 // since it would lead to circular references.
 // Instead, "compare_item" is mentioned as forward declaration below.
 // #include "../../../executor/comparator/item_comparator.c"
+#include "../../../executor/comparator/part/lexicographical_part_comparator.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"
@@ -110,6 +111,8 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
     fwprintf(stdout, L"TEST compare part equal START tr: %i\n", tr);
 
             // Compare left- with right part type item.
+            // CAUTION! The last argument (lexicographical flag) is FALSE,
+            // since the values to be compared are of primitive type "INTEGER".
             compare_item((void*) &tr, lt, rt, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     fwprintf(stdout, L"TEST compare part equal 0 tr: %i\n", tr);
@@ -125,7 +128,11 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
                 //
 
                 // Compare left- with right part name, model, properties item.
+                // CAUTION! The last argument (lexicographical flag) is TRUE,
+                // since the values to be compared are of type "WIDE CHARACTER".
                 compare_item((void*) &nr, ln, rn, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, lnc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    //?? TEST ONLY
     void* lnd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* rnd = *NULL_POINTER_STATE_CYBOI_MODEL;
     copy_array_forward((void*) &lnd, ln, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -133,15 +140,20 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
     fwprintf(stdout, L"TEST compare part equal 1 lnd: %ls\n", (wchar_t*) lnd);
     fwprintf(stdout, L"TEST compare part equal 1 rnd: %ls\n", (wchar_t*) rnd);
     fwprintf(stdout, L"TEST compare part equal 1 nr: %i\n", nr);
-                // Recursively call comparison function, which in turn
-                // may call this comparison function and so forth.
-                // This is processing knowledge tree hierarchies.
-                //?? TODO: Forward (delegate) last argument (lexicographical comparison flag),
-                //?? as soon as handed over to here as parametre! (replace constant FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-                compare_item((void*) &mr, lm, rm, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, ltd, lmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+                compare_part_lexicographical((void*) &mr, lm, rm, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, ltd, lmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    //?? TEST ONLY
+    void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* rmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &rmd, rm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    fwprintf(stdout, L"TEST compare part equal 1 lmd: %ls\n", (wchar_t*) lmd);
+    fwprintf(stdout, L"TEST compare part equal 1 rmd: %ls\n", (wchar_t*) rmd);
     fwprintf(stdout, L"TEST compare part equal 2 mr: %i\n", mr);
-                //?? TODO: Forward (delegate) last argument (lexicographical comparison flag),
-                //?? as soon as handed over to here as parametre! (replace constant FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+
+                // CAUTION! The last argument (lexicographical flag) is FALSE,
+                // since the type of values to be compared gets inspected inside.
                 compare_item((void*) &pr, lp, rp, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, lpc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST compare part equal 3 pr: %i\n", pr);
 
@@ -157,6 +169,7 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
                 }
             }
 
+    fwprintf(stdout, L"TEST compare part equal 4 p0: %i\n", p0);
     fwprintf(stdout, L"TEST compare part equal 4 *p0: %i\n", *((int*) p0));
 
         } else {

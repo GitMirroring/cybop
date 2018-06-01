@@ -30,13 +30,13 @@
 
     <!-- text -->
 
-    <node name="compare_ascii" channel="inline" format="compare/equal" model="">
+    <node name="compare_ascii" channel="inline" format="check/equal" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result_ascii"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".ascii_left"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".ascii_right"/>
     </node>
 
-    <node name="compare_wide" channel="inline" format="compare/equal" model="">
+    <node name="compare_wide" channel="inline" format="check/equal" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result_wide"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".wide_left"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".wide_right"/>
@@ -44,7 +44,6 @@
 
     <!-- part -->
 
-    <!-- TEST -->
     <node name="TEST" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -54,13 +53,17 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-<!--
     <node name="compare_ab" channel="inline" format="compare/equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model=".result_ab"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".result_person_ab"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".person_a"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".person_b"/>
     </node>
--->
+
+    <node name="compare_bc" channel="inline" format="compare/equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".result_person_bc"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".person_b"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".person_c"/>
+    </node>
 
     <node name="TEST" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -70,13 +73,5 @@
         <node name="message" channel="inline" format="text/plain" model="compare post"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-
-<!--
-    <node name="compare_bc" channel="inline" format="compare/equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model=".result_bc"/>
-        <node name="left" channel="inline" format="text/cybol-path" model=".person_b"/>
-        <node name="right" channel="inline" format="text/cybol-path" model=".person_c"/>
-    </node>
--->
 
 </node>

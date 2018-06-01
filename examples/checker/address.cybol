@@ -1,7 +1,0 @@
-<node>
-
-    <node name="street" channel="inline" format="text/plain" model="Lindenallee 1"/>
-    <node name="city" channel="inline" format="text/plain" model="Berlin"/>
-    <node name="postcode" channel="inline" format="number/integer" model="10000"/>
-
-</node>
