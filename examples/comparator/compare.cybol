@@ -59,11 +59,13 @@
         <node name="right" channel="inline" format="text/cybol-path" model=".person_b"/>
     </node>
 
+<!--
     <node name="compare_bc" channel="inline" format="compare/equal" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result_person_bc"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".person_b"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".person_c"/>
     </node>
+-->
 
     <node name="TEST" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>

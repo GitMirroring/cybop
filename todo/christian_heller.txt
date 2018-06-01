@@ -14,9 +14,10 @@
 Comparison
 __________
 
-        * Debug part comparator:
-            - use different default value for "count" in function "apply_compare" ??
-            - use simple instead of double reference in file "equal_part_comparator.c" ??
+        * Clear up how to handle recursion for data of type element/part in file "lexicographical_comparator.c"
+        * Uncomment comparison of second part in file "compare.cybol"
+        * Use simple instead of double reference in file "equal_part_comparator.c" ??
+        * Use different default value for "count" in function "apply_compare", to be used in part comparator ??
         * Test using cybol example applications "checker" and "comparator"
 
         * Edit file "part_bubble_sorter.c" and eliminate TODO sections

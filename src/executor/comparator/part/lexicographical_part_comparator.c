@@ -28,6 +28,8 @@
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/comparator/integer/equal_integer_comparator.c"
 // CAUTION! Do NOT include the "item_comparator.c" module here,
 // since it would lead to circular references.
 // Instead, "compare_item" is mentioned as forward declaration below.
@@ -55,16 +57,34 @@ void compare_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
  * @param p3 the operation type
  * @param p4 the operand type
  * @param p5 the count
- * @param p6 the left index
- * @param p7 the right index
- * @param p8 the lexicographical flag
  */
-void compare_part_lexicographical(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void compare_part_lexicographical(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare part lexicographical.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    //
+    // element
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //?? TODO: Call comparison function recursively (WHICH ??)
+            //?? OR: Is this already done inside the function "compare_item" as used below?
+
+//??            compare_part_element(p0, p1, p2, p3);
+        }
+    }
+
+    //
+    // text
+    //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -74,7 +94,7 @@ void compare_part_lexicographical(void* p0, void* p1, void* p2, void* p3, void* 
 
             // Set last argument (lexicographical flag) to TRUE,
             // since the values to be compared are of type "character".
-            compare_item(p0, p1, p2, p3, p4, p5, p6, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            compare_item(p0, p1, p2, p3, p4, p5, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -86,7 +106,7 @@ void compare_part_lexicographical(void* p0, void* p1, void* p2, void* p3, void* 
 
             // Set last argument (lexicographical flag) to TRUE,
             // since the values to be compared are of type "wide_character".
-            compare_item(p0, p1, p2, p3, p4, p5, p6, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            compare_item(p0, p1, p2, p3, p4, p5, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -94,7 +114,7 @@ void compare_part_lexicographical(void* p0, void* p1, void* p2, void* p3, void* 
 
         // Set last argument (lexicographical flag) to FALSE
         // for values of all other types.
-        compare_item(p0, p1, p2, p3, p4, p5, p6, p7, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        compare_item(p0, p1, p2, p3, p4, p5, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 
