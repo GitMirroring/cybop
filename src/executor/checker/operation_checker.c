@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CHECKER_SOURCE
-#define CHECKER_SOURCE
+#ifndef OPERATION_CHECKER_SOURCE
+#define OPERATION_CHECKER_SOURCE
 
 #include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -48,9 +48,9 @@
  * @param p5 the operation type
  * @param p6 the operand type
  */
-void check(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void check_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check operation.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -117,9 +117,9 @@ void check(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6)
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check. The operation type is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check operation. The operation type is unknown.");
     }
 }
 
-/* CHECKER_SOURCE */
+/* OPERATION_CHECKER_SOURCE */
 #endif

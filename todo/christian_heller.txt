@@ -21,6 +21,10 @@ __________
             Test this! If possible, then set lexicographical flag to true for most function calls with only one result value,
             e.g. in "equal_part_comparator.c" etc.
 
+        * Rename file "operation_checker.c" into "??" (NOT "checker.c", since already used in "controller/")
+        * Rename all "checker" into "??" (e.g. )
+        * Rename function call of "check_operation" into "??" in all code and adapt include
+
         * Use "checker" instead of "compare" for string comparison in file "equal_part_comparator.c"
         * Debug part comparator:
             - use different default value for "count" in function "apply_compare" ??
