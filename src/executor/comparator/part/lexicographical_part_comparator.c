@@ -69,6 +69,7 @@ void compare_part_lexicographical(void* p0, void* p1, void* p2, void* p3, void* 
     // element
     //
 
+/*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
@@ -81,6 +82,7 @@ void compare_part_lexicographical(void* p0, void* p1, void* p2, void* p3, void* 
 //??            compare_part_element(p0, p1, p2, p3);
         }
     }
+*/
 
     //
     // text

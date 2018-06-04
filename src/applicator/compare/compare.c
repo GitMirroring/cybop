@@ -119,8 +119,9 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     // The result part model item.
     void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The left operand part type item.
+    // The left operand part type, model item.
     void* lot = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* lom = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The right operand part type item.
     void* rot = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The count part model item.
@@ -132,8 +133,9 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     // The result part model item data.
     void* rmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The left operand part type item data.
+    // The left operand part type, model item data, count.
     void* lotd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* lomc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The right operand part type item data.
     void* rotd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The count part model item data.
@@ -158,8 +160,9 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     // Get result part model item.
     copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get left operand part type item.
+    // Get left operand part type, model item.
     copy_array_forward((void*) &lot, lo, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &lom, lo, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get right operand part type item.
     copy_array_forward((void*) &rot, ro, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     // Get count part model item.
@@ -171,8 +174,9 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     // Get result part model item data.
     copy_array_forward((void*) &rmd, rm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get left operand part type item data.
+    // Get left operand part type, model item data, count.
     copy_array_forward((void*) &lotd, lot, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &lomc, lom, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get right operand part type item data.
     copy_array_forward((void*) &rotd, rot, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get count part model item data.
@@ -184,7 +188,7 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     // The default values.
     int type = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    int count = *PRIMITIVE_STATE_CYBOI_MODEL_COUNT;
+    int count = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int left_index = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int right_index = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
@@ -195,7 +199,9 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     // Use the left operand part type data by default.
     copy_integer((void*) &type, lotd);
-    // Use the given count.
+    // Use the left operand part model count by default.
+    copy_integer((void*) &count, lomc);
+    // Use the explicit count that was given as parametre.
     copy_integer((void*) &count, cmd);
     // Use the given left index.
     copy_integer((void*) &left_index, limd);

@@ -81,7 +81,18 @@ void compare_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // and hence does NOT have to be compared here.
     //
 
+    fwprintf(stdout, L"TEST compare item pre: %i\n", r);
+
+    fwprintf(stdout, L"TEST compare item lc: %i\n", lc);
+    fwprintf(stdout, L"TEST compare item *lc: %i\n", *((int*) lc));
+    fwprintf(stdout, L"TEST compare item *rc: %i\n", *((int*) rc));
+    fwprintf(stdout, L"TEST compare item *p6 left index: %i\n", *((int*) p6));
+    fwprintf(stdout, L"TEST compare item *p7 right index: %i\n", *((int*) p7));
+    fwprintf(stdout, L"TEST compare item *p5 count: %i\n", *((int*) p5));
+
     verify_index_count((void*) &r, p5, p6, p7, lc, rc);
+
+    fwprintf(stdout, L"TEST compare item post: %i\n", r);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

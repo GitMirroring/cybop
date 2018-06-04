@@ -62,7 +62,6 @@ void compare_lexicographical(void* p0, void* p1, void* p2, void* p3, void* p4, v
         // Apply standard comparison with MANY return values in a vector.
         //
 
-        //?? TODO: Use DEEP compare flag here if implemented one day in the future.
         compare_array(p0, p1, p2, p5, p6, p7);
 
     } else {
@@ -72,6 +71,7 @@ void compare_lexicographical(void* p0, void* p1, void* p2, void* p3, void* p4, v
         // Apply lexicographical comparison with only ONE return value.
         //
 
+    fwprintf(stdout, L"TEST compare lexicographical - call check operation: %i\n", *((int*) p6));
         check_operation(p0, p1, p2, p3, p4, p5, p6);
     }
 }

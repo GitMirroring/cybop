@@ -49,10 +49,15 @@ void compare_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare array.");
 
-    // The loop variable.
-    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    fwprintf(stdout, L"TEST compare array *p4 type: %i\n", *((int*) p4));
+    fwprintf(stdout, L"TEST compare array *p5 count: %i\n", *((int*) p5));
+
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The loop variable.
+    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     if (p5 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -64,6 +69,22 @@ void compare_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    } else {
+
+        compare_integer_equal((void*) &r, p5, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // CAUTION! Set result to TRUE for empty arrays.
+            //
+            // This is important for comparison of a part's properties.
+            // Most parts have no (empty) properties, but are otherwise equal.
+            //
+
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
     }
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -76,7 +97,6 @@ void compare_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
         }
 
     fwprintf(stdout, L"TEST compare array j: %i\n", j);
-    fwprintf(stdout, L"TEST compare array *p4: %i\n", *((int*) p4));
 
         // CAUTION! This function does not change the result flag, if the comparison result is false.
         // Therefore, the result flag ALWAYS has to be initialised with FALSE before!

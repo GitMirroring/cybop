@@ -14,21 +14,39 @@
 Comparison
 __________
 
+        * Continue in file "equal_part_comparator.c" and "item_comparator.c":
+            //?? TODO: Why does the error "segmentation fault" happen here?
+            //?? The variable lpc is exactly the same pointer as in "item_comparator.c".
+
+        * How to handle the "count"?
+            Take min or max? Do left and right count have to be compared?
+            Or just compare number of elements given by "count"?
+            If "count" argument is greater than min(left_count, right_count), then assign FALSE value to comparison result?
+
+        * Provide cybol operation "get??/minimum"
+        * Determine minimum count of left- and right operand for comparison operation in file "compare.c"
+        * Do the same for files "item_comparator", "item_calculator.c", "item_caster.c", "item_manipulator.c", "item_modifier.c"
+
+        * ERROR: count is 1 instead of 4 for "person" part; probably, count was set to initial 1 in "apply_compare"; check this out and rather use real/actual part model count
+        * Use different default value for "count" in function "apply_compare", to be used in part comparator ??
+        * Test result vector count == min(left, right) in function "apply_compare" or later, in order to avoid crossing array boundaries
+        * Test result count == 1 if lexicographical flag is set, otherwise show a warning
+        * Use "overwrite" instead of "copy_integer" for setting the result in operations like "calculate", "compare" etc. ??
+            the reason is that the result value might have a count of zero (and not one as expected), if it hadn't been initialised within the corresponding cybol application
+            alternatively, test if result count is greater zero / or equal to one before assigning the result value using "copy_integer"
+
         * Clear up how to handle recursion for data of type element/part in file "lexicographical_comparator.c"
         * Uncomment comparison of second part in file "compare.cybol"
         * Use simple instead of double reference in file "equal_part_comparator.c" ??
-        * Use different default value for "count" in function "apply_compare", to be used in part comparator ??
         * Test using cybol example applications "checker" and "comparator"
 
         * Edit file "part_bubble_sorter.c" and eliminate TODO sections
         * Verify functionality of checker with parts for which deep comparison is necessary
 
-        * Test result vector count == min(left, right) in function "apply_compare" or later, in order to avoid crossing array boundaries
-        * Test result count == 1 if lexicographical flag is set, otherwise show a warning
 
-        * Rename file "operation_checker.c" into "??" (NOT "checker.c", since already used in "controller/")
-        * Rename all "checker" into "??" (e.g. )
-        * Rename function call of "check_operation" into "??" in all code and adapt include
+        * Rename file "operation_checker.c" into "lexer.c" (NOT "checker.c", since already used in "controller/")
+        * Rename all "checker" into "lexer"
+        * Rename function call of "check_operation" into "lex" in all code and adapt include
 
         * Implement deserialisation of boolean vectors in cyboi (not just one, but many values)
         * Test boolean vectors using cybol example application "comparator" (sse file "app.cybol" with two boolean vectors)
@@ -46,13 +64,6 @@ _________
 
         * Adapt function "count_array_element" of file "executor/accessor/counter/array_counter.c" using new searcher / finder for filter string and selection
         * Adapt corresponding cybol example application "get_count"
-
-General
-_______
-
-        * Use "overwrite" instead of "copy_integer" for setting the result in operations like "calculate", "compare" etc. ??
-            the reason is that the result value might have a count of zero (and not one as expected), if it hadn't been initialised within the corresponding cybol application
-            alternatively, test if result count is greater zero / or equal to one before assigning the result value using "copy_integer"
 
 Sorting
 _______

@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2018-06-04  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt file "array_comparator.c", so that empty arrays are considered equal now, which is important for parts with empty properties
+        * Adapt file "compare.c", so that left operand part model count is used as default count value
+        * Search bug causing segmentation fault at variable "lpc" (left properties count) in files "equal_part_comparator.c" and "item_comparator.c"
+
 2018-06-01  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt lexicographical flag in file "equal_part_comparator.c"
