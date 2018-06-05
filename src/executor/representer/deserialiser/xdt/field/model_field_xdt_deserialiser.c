@@ -33,14 +33,14 @@
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../../executor/modifier/item_modifier.c"
+#include "../../../../../executor/representer/deserialiser/cybol/fraction/decimal/decimal_fraction_cybol_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/cybol/integer/integer_cybol_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/xdt/datetime/ddmmyyyy/ddmmyyyy_datetime_xdt_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/xdt/datetime/mmyy/mmyy_datetime_xdt_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/xdt/datetime/qyyyy/qyyyy_datetime_xdt_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/xdt/duration/ddmmyyyyddmmyyyy/ddmmyyyyddmmyyyy_duration_xdt_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/xdt/duration/hhmmhhmm/hhmmhhmm_duration_xdt_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/xdt/duration/yyyy/yyyy_duration_xdt_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/cybol/integer/integer_cybol_deserialiser.c"
-#include "../../../../../executor/representer/deserialiser/cybol/fraction_cybol_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**

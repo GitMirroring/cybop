@@ -27,7 +27,6 @@
 #ifndef DECIMAL_FRACTION_CYBOL_SELECTOR_SOURCE
 #define DECIMAL_FRACTION_CYBOL_SELECTOR_SOURCE
 
- 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/state/separator_number_state_cybol_name.c"

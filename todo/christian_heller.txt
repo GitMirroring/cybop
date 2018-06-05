@@ -15,6 +15,7 @@ Comparison
 __________
 
         * CONTINUE: How to handle "result count" in files "equal_part_comparator.c", "lexicographical_part_comparator.c" etc. ??
+            especially for compound parts ??
 
         * ERROR: most probably caused by the fact that the result value has a size of ONE,
             while vector comparison returns as many result values as the vector has elements,
@@ -43,10 +44,6 @@ __________
         * Rename file "operation_checker.c" into "lexer.c" (NOT "checker.c", since already used in "controller/")
         * Rename all "checker" into "lexer"
         * Rename function call of "check_operation" into "lex" in all code and adapt include
-
-        * Implement deserialisation of boolean vectors in cyboi (not just one, but many values)
-        * Test boolean vectors using cybol example application "comparator" (sse file "app.cybol" with two boolean vectors)
-        * Adapt cybol example application "comparator" to using result *boolean vectors* and NOT just one value --> the "checker" may be used if only ONE result value is expected
 
 Searching
 _________

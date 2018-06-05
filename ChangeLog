@@ -21,6 +21,9 @@
 2018-06-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add files "result_compare.c", "scalar_count_comparator.c", "vector_count_comparator.c" for testing result part before using it
+        * Remove unused file "executor/representer/deserialiser/cybol/fraction_cybol_deserialiser.c"
+        * Implement boolean vector deserialiser, i.e. not just for one but for many values
+        * Adapt cybol example application "comparator" to using boolean result vectors and not just scalar result values
 
 2018-06-04  Christian Heller  <christian.heller@tuxtax.de>
 

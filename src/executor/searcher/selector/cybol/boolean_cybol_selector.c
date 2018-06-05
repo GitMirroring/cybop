@@ -23,13 +23,18 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef INTEGER_CYBOL_SELECTOR_SOURCE
-#define INTEGER_CYBOL_SELECTOR_SOURCE
+#ifndef BOOLEAN_CYBOL_SELECTOR_SOURCE
+#define BOOLEAN_CYBOL_SELECTOR_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/state/separator_number_state_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/copier/integer_copier.c"
+// CAUTION! Do NOT include the following file, in order to avoid circular references.
+// It is forward-declared instead, further below.
+// #include "../../../../executor/representer/deserialiser/cybol/boolean/vector_boolean_cybol_deserialiser.c"
 #include "../../../../executor/searcher/detector/array_detector.c"
 #include "../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../logger/logger.c"
@@ -38,19 +43,19 @@
 // Forward declarations.
 //
 
-void deserialise_cybol_integer_vector(void* p0, void* p1, void* p2);
+void deserialise_cybol_boolean_vector(void* p0, void* p1, void* p2);
 
 /**
- * Selects the cybol integer.
+ * Selects the cybol boolean.
  *
  * @param p0 the destination item
  * @param p1 the break flag
  * @param p2 the source data position (pointer reference)
  * @param p3 the source count remaining
  */
-void select_cybol_integer(void* p0, void* p1, void* p2, void* p3) {
+void select_cybol_boolean(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select cybol integer.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select cybol boolean.");
 
     //
     // CAUTION! The order of the comparisons is IMPORTANT! Do NOT change it easily!
@@ -65,7 +70,7 @@ void select_cybol_integer(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_cybol_integer_vector(p0, p2, p3);
+            deserialise_cybol_boolean_vector(p0, p2, p3);
 
             // Set break flag.
             copy_integer(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -78,5 +83,5 @@ void select_cybol_integer(void* p0, void* p1, void* p2, void* p3) {
     }
 }
 
-/* INTEGER_CYBOL_SELECTOR_SOURCE */
+/* BOOLEAN_CYBOL_SELECTOR_SOURCE */
 #endif
