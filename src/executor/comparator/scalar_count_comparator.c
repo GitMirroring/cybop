@@ -23,60 +23,58 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef LEXICOGRAPHICAL_COMPARATOR_SOURCE
-#define LEXICOGRAPHICAL_COMPARATOR_SOURCE
+#ifndef SCALAR_COUNT_COMPARATOR_SOURCE
+#define SCALAR_COUNT_COMPARATOR_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../executor/checker/operation_checker.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/comparator/scalar_count_comparator.c"
-#include "../../executor/comparator/vector_count_comparator.c"
 #include "../../logger/logger.c"
 
 /**
- * Tests if the lexicographical flag is set and calls the corresponding function.
+ * Tests if the result count has the numeric value of exactly "one".
+ *
+ * If this was not done here, then assigning a result value
+ * might cause segmentation fault errors, since even if
+ * the result pointer exists and is not null,
+ * its size might be zero so that assigning a value
+ * would cross array boundaries.
+ *
+ * A result count greater than one does not make sense
+ * and is therefore excluded here.
  *
  * @param p0 the result (number 1 if true; unchanged otherwise)
- * @param p1 the left data (array)
- * @param p2 the right data (array)
+ * @param p1 the left data
+ * @param p2 the right data
  * @param p3 the left count
  * @param p4 the right count
  * @param p5 the operation type
  * @param p6 the operand type
- * @param p7 the count
- * @param p8 the result count
- * @param p9 the lexicographical flag
+ * @param p7 the result count
  */
-void compare_lexicographical(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void compare_count_scalar(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare lexicographical.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare count scalar.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, p9, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_equal((void*) &r, p7, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        //
-        // The lexicographical flag is FALSE.
-        // Apply standard comparison with MANY return values in a vector.
-        //
-
-        compare_count_vector(p0, p1, p2, p5, p6, p7, p8);
+        check_operation(p0, p1, p2, p3, p4, p5, p6);
 
     } else {
 
-        //
-        // The lexicographical flag is TRUE.
-        // Apply lexicographical comparison with only ONE scalar return value.
-        //
-
-    fwprintf(stdout, L"TEST compare lexicographical - call check operation: %i\n", *((int*) p6));
-
-        compare_count_scalar(p0, p1, p2, p3, p4, p5, p6, p8);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare count scalar. The result count is not one.");
+        fwprintf(stdout, L"ERROR: Could not compare count scalar. The result count is not one.\n");
+        fwprintf(stdout, L"ERROR: Result count p7: %i\n", p7);
+        fwprintf(stdout, L"ERROR: Result count *p7: %i\n", *((int*) p7));
     }
 }
 
-/* LEXICOGRAPHICAL_COMPARATOR_SOURCE */
+/* SCALAR_COUNT_COMPARATOR_SOURCE */
 #endif

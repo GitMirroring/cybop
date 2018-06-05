@@ -43,11 +43,12 @@
  * @param p5 the operation type
  * @param p6 the operand type
  * @param p7 the count
- * @param p8 the left index
- * @param p9 the right index
- * @param p10 the lexicographical flag
+ * @param p8 the result count
+ * @param p9 the left index
+ * @param p10 the right index
+ * @param p11 the lexicographical flag
  */
-void compare_array_offset(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void compare_array_offset(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     // CAUTION! These null pointer comparisons are IMPORTANT, in order to
     // avoid a system crash if one or both of the two arrays are null!
@@ -67,10 +68,10 @@ void compare_array_offset(void* p0, void* p1, void* p2, void* p3, void* p4, void
             void* r = p2;
 
             // Add offset.
-            add_offset((void*) &l, p6, p8);
-            add_offset((void*) &r, p6, p9);
+            add_offset((void*) &l, p6, p9);
+            add_offset((void*) &r, p6, p10);
 
-            compare_lexicographical(p0, p1, p2, p3, p4, p5, p6, p7, p10);
+            compare_lexicographical(p0, p1, p2, p3, p4, p5, p6, p7, p8, p11);
 
         } else {
 

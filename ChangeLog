@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2018-06-05  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add files "result_compare.c", "scalar_count_comparator.c", "vector_count_comparator.c" for testing result part before using it
+
 2018-06-04  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt file "array_comparator.c", so that empty arrays are considered equal now, which is important for parts with empty properties

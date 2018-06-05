@@ -47,11 +47,12 @@
  * @param p3 the operation type
  * @param p4 the operand type
  * @param p5 the count
- * @param p6 the left index
- * @param p7 the right index
- * @param p8 the lexicographical flag
+ * @param p6 the result count
+ * @param p7 the left index
+ * @param p8 the right index
+ * @param p9 the lexicographical flag
  */
-void compare_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void compare_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare item.");
 
@@ -86,17 +87,17 @@ void compare_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     fwprintf(stdout, L"TEST compare item lc: %i\n", lc);
     fwprintf(stdout, L"TEST compare item *lc: %i\n", *((int*) lc));
     fwprintf(stdout, L"TEST compare item *rc: %i\n", *((int*) rc));
-    fwprintf(stdout, L"TEST compare item *p6 left index: %i\n", *((int*) p6));
-    fwprintf(stdout, L"TEST compare item *p7 right index: %i\n", *((int*) p7));
+    fwprintf(stdout, L"TEST compare item *p7 left index: %i\n", *((int*) p7));
+    fwprintf(stdout, L"TEST compare item *p8 right index: %i\n", *((int*) p8));
     fwprintf(stdout, L"TEST compare item *p5 count: %i\n", *((int*) p5));
 
-    verify_index_count((void*) &r, p5, p6, p7, lc, rc);
+    verify_index_count((void*) &r, p5, p7, p8, lc, rc);
 
     fwprintf(stdout, L"TEST compare item post: %i\n", r);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_array_offset(p0, ld, rd, lc, rc, p3, p4, p5, p6, p7, p8);
+        compare_array_offset(p0, ld, rd, lc, rc, p3, p4, p5, p6, p7, p8, p9);
 
     } else {
 

@@ -26,7 +26,7 @@
 #ifndef COMPARE_SOURCE
 #define COMPARE_SOURCE
 
-#include "../../applicator/compare/type_compare.c"
+#include "../../applicator/compare/result_compare.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -117,7 +117,8 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     // The right index part.
     void* ri = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The result part model item.
+    // The result part type, model item.
+    void* rt = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The left operand part type, model item.
     void* lot = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -131,8 +132,10 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     // The right index part model item.
     void* rim = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The result part model item data.
+    // The result part type, model item data, count.
+    void* rtd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* rmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* rmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The left operand part type, model item data, count.
     void* lotd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* lomc = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -158,7 +161,8 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     // Get right index part.
     get_part_name((void*) &ri, p0, (void*) RIGHT_INDEX_COMPARISON_LOGIC_CYBOL_NAME, (void*) RIGHT_INDEX_COMPARISON_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
-    // Get result part model item.
+    // Get result part type, model item.
+    copy_array_forward((void*) &rt, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get left operand part type, model item.
     copy_array_forward((void*) &lot, lo, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
@@ -172,8 +176,10 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     // Get right index part model item.
     copy_array_forward((void*) &rim, ri, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Get result part model item data.
+    // Get result part type, model item data, count.
+    copy_array_forward((void*) &rtd, rt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &rmd, rm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &rmc, rm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get left operand part type, model item data, count.
     copy_array_forward((void*) &lotd, lot, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &lomc, lom, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
@@ -209,7 +215,7 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     copy_integer((void*) &right_index, rimd);
 
     // Compare left- and right operand type.
-    apply_compare_type(rmd, lo, ro, p5, (void*) &type, (void*) &count, (void*) &left_index, (void*) &right_index, p6, rotd);
+    apply_compare_result(rmd, lo, ro, p5, (void*) &type, (void*) &count, rmc, (void*) &left_index, (void*) &right_index, p6, rotd, rtd);
 }
 
 /* COMPARE_SOURCE */

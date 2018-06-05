@@ -23,9 +23,10 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef TYPE_COMPARE_SOURCE
-#define TYPE_COMPARE_SOURCE
+#ifndef RESULT_COMPARE_SOURCE
+#define RESULT_COMPARE_SOURCE
 
+#include "../../applicator/compare/type_compare.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
@@ -33,14 +34,10 @@
 #include "../../logger/logger.c"
 
 /**
- * Compares the type of left- and right operand.
+ * Tests if the result type is "boolean".
  *
- * If a wrong knowledge path is given, e.g. with non-existing node-names,
- * then a cybol operation might write data into a wrong destination,
- * e.g. source data of format "text/plain" (type wide character)
- * into a destination of format "element/part" (type pointer).
- *
- * Therefore, the types have to be IDENTICAL.
+ * If this was not done here, then assigning a result value
+ * might cause segmentation fault errors.
  *
  * @param p0 the result
  * @param p1 the left operand part
@@ -48,34 +45,34 @@
  * @param p3 the operation type
  * @param p4 the left operand type
  * @param p5 the count
- * @param px the result count
- * @param p6 the left index
- * @param p7 the right index
- * @param p8 the lexicographical flag
- * @param p9 the right operand type
+ * @param p6 the result count
+ * @param p7 the left index
+ * @param p8 the right index
+ * @param p9 the lexicographical flag
+ * @param p10 the right operand type
+ * @param p11 the result type
  */
-void apply_compare_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void apply_compare_result(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply compare type.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply compare result.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, p4, p9);
+    compare_integer_equal((void*) &r, p11, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // The left- and right type are identical.
-
-        compare_part(p0, p1, p2, p3, p4, p5, p6, p7, p8);
+        apply_compare_type(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply compare type. The left- and right operand type are different.");
-        fwprintf(stdout, L"ERROR: Could not apply compare type. The left- and right operand type are different.\n");
-        fwprintf(stdout, L"ERROR: Left operand type: %i. Right operand type: %i.\n", *((int*) p4), *((int*) p5));
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply compare result. The result type is not boolean.");
+        fwprintf(stdout, L"ERROR: Could not apply compare result. The result type is not boolean.\n");
+        fwprintf(stdout, L"ERROR: Result type p11: %i\n", p11);
+        fwprintf(stdout, L"ERROR: Result type *p11: %i\n", *((int*) p11));
     }
 }
 
-/* TYPE_COMPARE_SOURCE */
+/* RESULT_COMPARE_SOURCE */
 #endif

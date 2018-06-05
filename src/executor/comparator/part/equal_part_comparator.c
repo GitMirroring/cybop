@@ -106,14 +106,14 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
             copy_array_forward((void*) &lnc, ln, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
             copy_array_forward((void*) &ltd, lt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
             copy_array_forward((void*) &lmc, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &lpc, lp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+//??            copy_array_forward((void*) &lpc, lp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     fwprintf(stdout, L"TEST compare part equal START tr: %i\n", tr);
 
             // Compare left- with right part type item.
             // CAUTION! The last argument (lexicographical flag) is FALSE,
             // since the values to be compared are of primitive type "INTEGER".
-            compare_item((void*) &tr, lt, rt, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            compare_item((void*) &tr, lt, rt, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     fwprintf(stdout, L"TEST compare part equal 0 tr: %i\n", tr);
     fwprintf(stdout, L"TEST compare part equal 0 *ltd: %i\n", *((int*) ltd));
@@ -122,15 +122,15 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
 
                 //
                 // The left and right type are identical.
-                // This is a prerequisite to compare the part models below.
-                // When using wrong type for either left or right part model,
+                // This is a prerequisite to comparing the part models below.
+                // If using a wrong type for either left or right part model,
                 // then severe memory access errors might occur.
                 //
 
                 // Compare left- with right part name, model, properties item.
                 // CAUTION! The last argument (lexicographical flag) is TRUE,
                 // since the values to be compared are of type "WIDE CHARACTER".
-                compare_item((void*) &nr, ln, rn, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, lnc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                compare_item((void*) &nr, ln, rn, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, lnc, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     //?? TEST ONLY
     void* lnd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -141,19 +141,25 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
     fwprintf(stdout, L"TEST compare part equal 1 rnd: %ls\n", (wchar_t*) rnd);
     fwprintf(stdout, L"TEST compare part equal 1 nr: %i\n", nr);
 
-                compare_part_lexicographical((void*) &mr, lm, rm, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, ltd, lmc);
+                compare_part_lexicographical((void*) &mr, lm, rm, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, ltd, lmc, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+    //?? TEST - DELETE LATER
+    // - lpc is wrong (segmentation fault), if this is called BEFORE function "compare_part_lexicographical"
+    // - lpc is correct, if this is called AFTER function "compare_part_lexicographical"
+    // Probably, there are some unwanted changes or reallocations changing pointers inside the model.
+    copy_array_forward((void*) &lpc, lp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     //?? TEST ONLY
     void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* rmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &rmd, rm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    fwprintf(stdout, L"TEST compare part equal 1 lmd: %ls\n", (wchar_t*) lmd);
-    fwprintf(stdout, L"TEST compare part equal 1 rmd: %ls\n", (wchar_t*) rmd);
+    fwprintf(stdout, L"TEST compare part equal 2 lmd: %ls\n", (wchar_t*) lmd);
+    fwprintf(stdout, L"TEST compare part equal 2 rmd: %ls\n", (wchar_t*) rmd);
     fwprintf(stdout, L"TEST compare part equal 2 mr: %i\n", mr);
 
     fwprintf(stdout, L"TEST compare part equal lpc: %i\n", lpc);
-//??    fwprintf(stdout, L"TEST compare part equal *lpc: %i\n", *((int*) lpc));
+    fwprintf(stdout, L"TEST compare part equal *lpc: %i\n", *((int*) lpc));
 
     //?? TODO: Why does the error "segmentation fault" happen here?
     //?? The variable lpc is exactly the same pointer as in "item_comparator.c".
@@ -168,7 +174,7 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
                 // CAUTION! The last argument (lexicographical flag) is FALSE,
                 // since the type of values to be compared gets inspected inside.
                 //
-                compare_item((void*) &pr, lp, rp, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, lpc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+                compare_item((void*) &pr, lp, rp, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, lpc, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"TEST compare part equal 3 pr: %i\n", pr);
 
                 if ((nr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) || (tr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) || (mr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) || (pr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {

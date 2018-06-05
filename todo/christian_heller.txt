@@ -14,6 +14,11 @@
 Comparison
 __________
 
+        * CONTINUE: How to handle "result count" in files "equal_part_comparator.c", "lexicographical_part_comparator.c" etc. ??
+
+        * ERROR: most probably caused by the fact that the result value has a size of ONE,
+            while vector comparison returns as many result values as the vector has elements,
+            see e.g. in cybol example "comparator", file "app.cybol" with many integer values as vector
         * Continue in file "equal_part_comparator.c" and "item_comparator.c":
             //?? TODO: Why does the error "segmentation fault" happen here?
             //?? The variable lpc is exactly the same pointer as in "item_comparator.c".
@@ -26,23 +31,14 @@ __________
         * Provide cybol operation "get??/minimum"
         * Determine minimum count of left- and right operand for comparison operation in file "compare.c"
         * Do the same for files "item_comparator", "item_calculator.c", "item_caster.c", "item_manipulator.c", "item_modifier.c"
-
-        * ERROR: count is 1 instead of 4 for "person" part; probably, count was set to initial 1 in "apply_compare"; check this out and rather use real/actual part model count
-        * Use different default value for "count" in function "apply_compare", to be used in part comparator ??
         * Test result vector count == min(left, right) in function "apply_compare" or later, in order to avoid crossing array boundaries
         * Test result count == 1 if lexicographical flag is set, otherwise show a warning
-        * Use "overwrite" instead of "copy_integer" for setting the result in operations like "calculate", "compare" etc. ??
-            the reason is that the result value might have a count of zero (and not one as expected), if it hadn't been initialised within the corresponding cybol application
-            alternatively, test if result count is greater zero / or equal to one before assigning the result value using "copy_integer"
 
-        * Clear up how to handle recursion for data of type element/part in file "lexicographical_comparator.c"
         * Uncomment comparison of second part in file "compare.cybol"
-        * Use simple instead of double reference in file "equal_part_comparator.c" ??
-        * Test using cybol example applications "checker" and "comparator"
+        * Test using cybol example application "comparator"
 
         * Edit file "part_bubble_sorter.c" and eliminate TODO sections
         * Verify functionality of checker with parts for which deep comparison is necessary
-
 
         * Rename file "operation_checker.c" into "lexer.c" (NOT "checker.c", since already used in "controller/")
         * Rename all "checker" into "lexer"
@@ -607,6 +603,10 @@ _____________
             - syntax does not matter, therefore less xml source code on slides (too verbose), use table with columns for xml attributes instead
 
         * Rename memories into: system (internal), heap (knowledge), stack??
+
+        * Use "overwrite" instead of "copy_integer" for setting the result in operations like "calculate" etc.
+            the reason is that the result value might have a count of zero (and not one as expected), if it hadn't been initialised within the corresponding cybol application
+            already done for "apply_compare"; see there
 
 Hello, World!
 _____________

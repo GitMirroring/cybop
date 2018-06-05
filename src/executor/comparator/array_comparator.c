@@ -98,8 +98,10 @@ void compare_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     fwprintf(stdout, L"TEST compare array j: %i\n", j);
 
-        // CAUTION! This function does not change the result flag, if the comparison result is false.
-        // Therefore, the result flag ALWAYS has to be initialised with FALSE before!
+        // CAUTION! This function does not change the result flag,
+        // if the comparison result is false.
+        // Therefore, the result flag ALWAYS has to be
+        // initialised with FALSE before!
         compare_vector(p0, p1, p2, p3, p4, (void*) &j);
 
         j++;
