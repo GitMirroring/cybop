@@ -37,7 +37,7 @@ __________
         * Uncomment comparison of second part in file "compare.cybol"
         * Test using cybol example application "comparator"
 
-        * Edit file "part_bubble_sorter.c" and eliminate TODO sections
+        * Edit file "part_bubble_sorter.c" and eliminate TODO and TEST sections
         * Verify functionality of checker with parts for which deep comparison is necessary
 
         * Rename file "operation_checker.c" into "lexer.c" (NOT "checker.c", since already used in "controller/")

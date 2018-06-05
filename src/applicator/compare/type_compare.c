@@ -48,26 +48,26 @@
  * @param p3 the operation type
  * @param p4 the left operand type
  * @param p5 the count
- * @param px the result count
- * @param p6 the left index
- * @param p7 the right index
- * @param p8 the lexicographical flag
- * @param p9 the right operand type
+ * @param p6 the result count
+ * @param p7 the left index
+ * @param p8 the right index
+ * @param p9 the lexicographical flag
+ * @param p10 the right operand type
  */
-void apply_compare_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void apply_compare_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply compare type.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, p4, p9);
+    compare_integer_equal((void*) &r, p4, p10);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // The left- and right type are identical.
 
-        compare_part(p0, p1, p2, p3, p4, p5, p6, p7, p8);
+        compare_part(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
 
     } else {
 

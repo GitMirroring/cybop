@@ -135,7 +135,8 @@ void sort_bubble_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             copy_integer((void*) &TEST_COUNT, rmc);
         }
 
-        compare_lexicographical(p0, lmd, rmd, lmc, rmc, p3, ltd, (void*) &TEST_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        //?? TODO: Replace NUMBER_1_INTEGER_STATE_CYBOI_MODEL with actual "result count".
+        compare_lexicographical(p0, lmd, rmd, lmc, rmc, p3, ltd, (void*) &TEST_COUNT, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     } else {
 
