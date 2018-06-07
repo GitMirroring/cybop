@@ -1,6 +1,7 @@
 <node>
 
     <!-- result -->
+
     <!-- CAUTION! The number of result vector elements has to be IDENTICAL to the number of compared elements. -->
     <node name="result_boolean" channel="inline" format="logicvalue/boolean" model="false,false,false,false"/>
     <node name="result_complex" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -13,7 +14,7 @@
 
     <!-- boolean -->
 
-    <!-- third one differs -->
+    <!-- The third one differs -->
     <node name="boolean_left" channel="inline" format="logicvalue/boolean" model="true,false,true,true"/>
     <node name="boolean_right" channel="inline" format="logicvalue/boolean" model="true,false,false,true"/>
 
@@ -25,26 +26,28 @@
     <node name="fraction_left" channel="inline" format="number/fraction-vulgar" model="3,4"/>
     <node name="fraction_right" channel="inline" format="number/fraction-vulgar" model="3,4"/>
 
-    <!-- the one before the last one differs -->
+    <!-- The one before the last one differs -->
     <node name="integer_left" channel="inline" format="number/integer" model="56,7,1971,-8,74,-716,9,32,44,24"/>
     <node name="integer_right" channel="inline" format="number/integer" model="56,7,1971,-8,74,-716,9,32,34,24"/>
 
     <!-- text -->
 
-    <!-- last one differs -->
+    <!-- The last one differs -->
     <node name="ascii_left" channel="inline" format="text/ascii" model="a4v,e9-/3+*)#'127"/>
     <node name="ascii_right" channel="inline" format="text/ascii" model="a4v,e9-/3+*)#'123"/>
 
-    <!-- first one differs -->
+    <!-- The first one differs -->
     <node name="wide_left" channel="inline" format="text/plain" model="w1i2d3e4%?⭝|฿Hઊ"/>
     <node name="wide_right" channel="inline" format="text/plain" model="z1i2d3e4%?⭝|฿Hઊ"/>
 
     <!-- part -->
+
     <node name="person_a" channel="file" format="element/part" model="comparator/person.cybol"/>
     <node name="person_b" channel="file" format="element/part" model="comparator/person.cybol"/>
     <node name="person_c" channel="file" format="element/part" model="comparator/person.cybol"/>
 
     <!-- logic -->
+
     <node name="manipulate" channel="file" format="element/part" model="comparator/manipulate.cybol"/>
     <node name="compare" channel="file" format="element/part" model="comparator/compare.cybol"/>
     <node name="print" channel="file" format="element/part" model="comparator/print.cybol"/>

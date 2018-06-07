@@ -14,18 +14,10 @@
 Comparison
 __________
 
-        * CONTINUE: How to handle "result count" in files "equal_part_comparator.c", "lexicographical_part_comparator.c" etc. ??
-            especially for compound parts ??
-
-        * ERROR: most probably caused by the fact that the result value has a size of ONE,
-            while vector comparison returns as many result values as the vector has elements,
-            see e.g. in cybol example "comparator", file "app.cybol" with many integer values as vector
-        * Continue in file "equal_part_comparator.c" and "item_comparator.c":
-            //?? TODO: Why does the error "segmentation fault" happen here?
-            //?? The variable lpc is exactly the same pointer as in "item_comparator.c".
+        * CONTINUE: How to handle "result count" in files "equal_part_comparator.c", "lexicographical_part_comparator.c" etc. especially for compound parts ??
 
         * How to handle the "count"?
-            Take min or max? Do left and right count have to be compared?
+            Take min or max as default value? Do left and right count have to be compared?
             Or just compare number of elements given by "count"?
             If "count" argument is greater than min(left_count, right_count), then assign FALSE value to comparison result?
 
@@ -34,9 +26,6 @@ __________
         * Do the same for files "item_comparator", "item_calculator.c", "item_caster.c", "item_manipulator.c", "item_modifier.c"
         * Test result vector count == min(left, right) in function "apply_compare" or later, in order to avoid crossing array boundaries
         * Test result count == 1 if lexicographical flag is set, otherwise show a warning
-
-        * Uncomment comparison of second part in file "compare.cybol"
-        * Test using cybol example application "comparator"
 
         * Edit file "part_bubble_sorter.c" and eliminate TODO and TEST sections
         * Verify functionality of checker with parts for which deep comparison is necessary
