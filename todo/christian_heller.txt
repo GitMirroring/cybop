@@ -14,7 +14,21 @@
 Comparison
 __________
 
-        * CONTINUE: How to handle "result count" in files "equal_part_comparator.c", "lexicographical_part_comparator.c" etc. especially for compound parts ??
+        * CONTINUE: Why does the following error occur in file "element_part_comparator.c":
+            ERROR: Could not compare part element. The operation type is unknown. Only equal and unequal make sense.
+            HINT: Operation type p3: 0
+        * Reactivate filtering for PART_ELEMENT_STATE_CYBOI_TYPE in file "lexicographical_part_comparator.c" or not ??
+            Possibly remove redundant filtering in file "compound_comparator.c" or whole file at all
+        * Forward lexicographical flag to ALL functions; start in file "lexicographical_comparator.c" where it gets not forwarded yet right now ??
+        * Problem: How to handle "result count" in files "equal_part_comparator.c"
+        * CAUTION! In file "lexicographical_part_comparator.c", the lexicographical flag may NOT be set always for compound parts since then,
+            it is valid for primitive types as well, even if they should not be compared lexicographically
+            - possibly this is NOT a problem, since when comparing compound parts, there may be only ONE scalar result, just like with lexicographical comparison
+                --> therefore, the lexicographical flag may possibly be set by default
+            - otherwise possible thought for a solution: hand over TWO flags: lexicographical flag (left untouched) AND compound flag for compound parts to be read in depth
+            - NO, not a good idea: the type handed over already indicates whether or not a part is a compound
+            - better: logical OR relation of (1) type compound part and (2) lexicographical flag in file "lexicographical_comparator.c"
+                if compound, then call "compare_count_scalar"
 
         * How to handle the "count"?
             Take min or max as default value? Do left and right count have to be compared?

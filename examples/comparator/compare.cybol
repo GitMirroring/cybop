@@ -53,13 +53,13 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    <node name="compare_ab" channel="inline" format="compare/equal" model="">
+    <node name="compare_ab" channel="inline" format="check/equal" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result_person_ab"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".person_a"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".person_b"/>
     </node>
 
-    <node name="compare_bc" channel="inline" format="compare/equal" model="">
+    <node name="compare_bc" channel="inline" format="check/equal" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result_person_bc"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".person_b"/>
         <node name="right" channel="inline" format="text/cybol-path" model=".person_c"/>

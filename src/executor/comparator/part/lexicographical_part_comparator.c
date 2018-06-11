@@ -65,6 +65,20 @@ void compare_part_lexicographical(void* p0, void* p1, void* p2, void* p3, void* 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+/*??
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Set last argument (lexicographical flag) to TRUE,
+            // since the values to be compared are of type "character".
+            compare_item(p0, p1, p2, p3, p4, p5, p6, p7, p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
+    }
+*/
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);

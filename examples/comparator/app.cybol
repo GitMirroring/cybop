@@ -42,6 +42,7 @@
 
     <!-- part -->
 
+    <!-- a and b are equal. c gets manipulated and differs to a and b. -->
     <node name="person_a" channel="file" format="element/part" model="comparator/person.cybol"/>
     <node name="person_b" channel="file" format="element/part" model="comparator/person.cybol"/>
     <node name="person_c" channel="file" format="element/part" model="comparator/person.cybol"/>

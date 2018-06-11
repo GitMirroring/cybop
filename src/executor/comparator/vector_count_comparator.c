@@ -66,8 +66,8 @@ void compare_count_vector(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare count vector. The result count and count are not equal.");
         fwprintf(stdout, L"ERROR: Could not compare count vector. The result count and count are not equal.\n");
-        fwprintf(stdout, L"ERROR: Result count p6: %i. Count p5: %i.\n", p6, p5);
-        fwprintf(stdout, L"ERROR: Result count *p6: %i. Count *p5: %i.\n", *((int*) p6), *((int*) p5));
+        fwprintf(stdout, L"HINT: Result count p6: %i. Count p5: %i.\n", p6, p5);
+        fwprintf(stdout, L"HINT: Result count *p6: %i. Count *p5: %i.\n", *((int*) p6), *((int*) p5));
     }
 }
 

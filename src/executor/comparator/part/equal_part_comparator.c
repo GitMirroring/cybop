@@ -155,12 +155,9 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
     fwprintf(stdout, L"TEST compare part equal lpc: %i\n", lpc);
     fwprintf(stdout, L"TEST compare part equal *lpc: %i\n", *((int*) lpc));
 
-    //?? TODO: Why does the error "segmentation fault" happen here?
-    //?? The variable lpc is exactly the same pointer as in "item_comparator.c".
-
                 //
                 // CAUTION! The operation EQUAL_COMPARE_LOGIC_CYBOI_FORMAT is always used to compare properties.
-                // The operation type given as argument above is ONLY used to compare models.
+                // The operation type ltd given as argument above is ONLY used to compare models.
                 //
                 // CAUTION! The properties are given as part of a compound "part".
                 // Therefore, the operand type is always PART_ELEMENT_STATE_CYBOI_TYPE.

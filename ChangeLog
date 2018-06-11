@@ -18,9 +18,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2018-06-11  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Try to figure out how to handle compound parts and add new file "compound_comparator.c"
+
 2018-06-05  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Add file "result_compare.c" for testing result part type
+        * Add file "applicator/compare/result_compare.c" for testing result part type
         * Add files "scalar_count_comparator.c" and "vector_count_comparator.c" for testing result part count
         * Remove unused file "executor/representer/deserialiser/cybol/fraction_cybol_deserialiser.c"
         * Implement boolean vector cybol deserialiser, i.e. not just for one but for many values

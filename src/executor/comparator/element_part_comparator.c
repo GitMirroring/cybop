@@ -72,7 +72,11 @@ void compare_part_element(void* p0, void* p1, void* p2, void* p3) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare part element. The operation type is unknown. Only equal and unequal make sense.");
-        fwprintf(stdout, L"ERROR: Could not compare part element. The operation type is unknown. Only equal and unequal make sense.");
+        fwprintf(stdout, L"ERROR: Could not compare part element. The operation type is unknown. Only equal and unequal make sense.\n");
+        fwprintf(stdout, L"HINT: Operation type p3: %i\n", p3);
+        // The following line is commented out, since p3 is mostly NULL,
+        // so that the program would crash here.
+        // fwprintf(stdout, L"HINT: Operation type *p3: %i\n", *((int*) p3));
     }
 }
 
