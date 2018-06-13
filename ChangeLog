@@ -24,6 +24,8 @@
         * Remove file "compound_comparator.c" again, since file "lexicographical_comparator.c" suffices
         * Remove file "lexicographical_part_comparator.c", since for compound parts there is always just one scalar return value, so that lexicographical comparison is used
         * Optimise file "equal_part_comparator.c" by stopping comparison as soon as one of type, name, model, properties does not match
+        * Add new files "minimum_integer_calculator.c" and "maximum_integer_calculator.c"
+        * Determine minimum model count of left and right operand before calling comparison function
 
 2018-06-11  Christian Heller  <christian.heller@tuxtax.de>
 

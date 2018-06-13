@@ -48,9 +48,9 @@
  * @param p3 the operation type
  * @param p4 the left operand type
  * @param p5 the count
- * @param p6 the result count
- * @param p7 the left index
- * @param p8 the right index
+ * @param p6 the left index
+ * @param p7 the right index
+ * @param p8 the result count
  * @param p9 the lexicographical flag
  * @param p10 the right operand type
  */

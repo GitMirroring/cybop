@@ -33,6 +33,7 @@
 #include "../../constant/name/cybol/logic/comparison/comparison_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
+#include "../../executor/calculator/integer/minimum_integer_calculator.c"
 #include "../../executor/copier/array_copier.c"
 #include "../../logger/logger.c"
 
@@ -43,9 +44,9 @@
  * - result (required): the knowledge model, in which the result is stored (of type boolean)
  * - left (required): the left operand
  * - right (required): the right operand
- * - count (optional): the number of elements to be compared
- * - left index (optional): the left index from where to start the comparison from
- * - right index (optional): the right index from where to start the comparison from
+ * - count (optional): the number of elements to be compared (NOT relevant for lexicographical comparison, where left and right count are used and are allowed to differ)
+ * - left index (optional): the left index from where to start the comparison from (NOT relevant for lexicographical comparison)
+ * - right index (optional): the right index from where to start the comparison from (NOT relevant for lexicographical comparison)
  *
  * Lexicographical flag:
  *
@@ -128,8 +129,9 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     // The left operand part type, model item.
     void* lot = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* lom = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The right operand part type item.
+    // The right operand part type, model item.
     void* rot = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* rom = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The count part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The left index part model item.
@@ -144,8 +146,9 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     // The left operand part type, model item data, count.
     void* lotd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* lomc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The right operand part type item data.
+    // The right operand part type, model item data, count.
     void* rotd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* romc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The count part model item data.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The left index part model item data.
@@ -172,8 +175,9 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     // Get left operand part type, model item.
     copy_array_forward((void*) &lot, lo, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &lom, lo, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get right operand part type item.
+    // Get right operand part type, model item.
     copy_array_forward((void*) &rot, ro, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &rom, ro, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get count part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get left index part model item.
@@ -188,8 +192,9 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     // Get left operand part type, model item data, count.
     copy_array_forward((void*) &lotd, lot, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &lomc, lom, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get right operand part type item data.
+    // Get right operand part type, model item data, count.
     copy_array_forward((void*) &rotd, rot, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &romc, rom, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get count part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get left index part model item data.
@@ -212,6 +217,8 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     copy_integer((void*) &type, lotd);
     // Use the left operand part model count by default.
     copy_integer((void*) &count, lomc);
+    // Determine minimum of left and right operand.
+    calculate_integer_minimum((void*) &count, romc);
     // Use the explicit count that was given as parametre.
     copy_integer((void*) &count, cmd);
     // Use the given left index.
@@ -220,7 +227,7 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     copy_integer((void*) &right_index, rimd);
 
     // Compare left- and right operand type.
-    apply_compare_result(rmd, lo, ro, p5, (void*) &type, (void*) &count, rmc, (void*) &left_index, (void*) &right_index, p6, rotd, rtd);
+    apply_compare_result(rmd, lo, ro, p5, (void*) &type, (void*) &count, (void*) &left_index, (void*) &right_index, rmc, p6, rotd, rtd);
 }
 
 /* COMPARE_SOURCE */

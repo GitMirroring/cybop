@@ -33,9 +33,8 @@
 #include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/comparator/offset_array_comparator.c"
+#include "../../executor/comparator/lexicographical_comparator.c"
 #include "../../executor/copier/array_copier.c"
-#include "../../executor/verifier/index_count_verifier.c"
 #include "../../logger/logger.c"
 
 /**
@@ -47,9 +46,9 @@
  * @param p3 the operation type
  * @param p4 the operand type
  * @param p5 the count
- * @param p6 the result count
- * @param p7 the left index
- * @param p8 the right index
+ * @param p6 the left index
+ * @param p7 the right index
+ * @param p8 the result count
  * @param p9 the lexicographical flag
  */
 void compare_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
@@ -62,8 +61,6 @@ void compare_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // The right data, count.
     void* rd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* rc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Get left data.
     copy_array_forward((void*) &ld, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -72,26 +69,7 @@ void compare_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     copy_array_forward((void*) &rd, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &rc, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    //
-    // CAUTION! An extra comparison of left- and right count is NOT necessary,
-    // since the function "verify_index_count" called below tests if
-    // left- and right index plus count are smaller than the left- and right count.
-    //
-    // If so, then this also means that the given count p5 which determines the
-    // number of elements to be compared is used EQUALLY for the left- AND right side
-    // and hence does NOT have to be compared here.
-    //
-
-    verify_index_count((void*) &r, p5, p7, p8, lc, rc);
-
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_array_offset(p0, ld, rd, lc, rc, p3, p4, p5, p6, p7, p8, p9);
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare item. The sum of the given index and count is outside the data array count.");
-    }
+    compare_lexicographical(p0, ld, rd, p3, p4, p5, p6, p7, lc, rc, p8, p9);
 }
 
 /* ITEM_COMPARATOR_SOURCE */

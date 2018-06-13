@@ -14,16 +14,8 @@
 Comparison
 __________
 
-        * How to handle the "count"?
-            Take min or max as default value? Do left and right count have to be compared?
-            Or just compare number of elements given by "count"?
-            If "count" argument is greater than min(left_count, right_count), then assign FALSE value to comparison result?
-
-        * Provide cybol operation "get??/minimum"
-        * Determine minimum count of left- and right operand for comparison operation in file "compare.c"
-        * Do the same for files "item_comparator", "item_calculator.c", "item_caster.c", "item_manipulator.c", "item_modifier.c"
-        * Test result vector count == min(left, right) in function "apply_compare" or later, in order to avoid crossing array boundaries
-        * Test result count == 1 if lexicographical flag is set, otherwise show a warning
+        * Determine minimum model count of operands before calling functions "compare", "calculate", "cast", "manipulate", "modify"
+        * Provide cybol operation "calculate/minimum" (edit constants, (de-)serialise format, operation_handler etc.)
 
         * Edit file "part_bubble_sorter.c" and eliminate TODO and TEST sections
         * Verify functionality of checker with parts for which deep comparison is necessary

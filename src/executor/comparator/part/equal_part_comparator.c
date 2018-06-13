@@ -33,6 +33,7 @@
 #include "../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/calculator/integer/minimum_integer_calculator.c"
 // CAUTION! Do NOT include the "item_comparator.c" module here,
 // since it would lead to circular references.
 // Instead, "compare_item" is mentioned as forward declaration below.
@@ -85,6 +86,8 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
             void* ltd = *NULL_POINTER_STATE_CYBOI_MODEL;
             void* lmc = *NULL_POINTER_STATE_CYBOI_MODEL;
             void* lpc = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The right part model item count.
+            void* rmc = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The name, type, model, properties comparison results.
             int nr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
             int tr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -106,6 +109,8 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
             copy_array_forward((void*) &ltd, lt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
             copy_array_forward((void*) &lmc, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
             copy_array_forward((void*) &lpc, lp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+            // Get right part model item count.
+            copy_array_forward((void*) &rmc, rm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
             //
             // CAUTION! The following comparisons of type, name, model, properties
@@ -123,7 +128,7 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
             // CAUTION! The last argument (lexicographical flag) is FALSE,
             // since the values to be compared are of primitive type "INTEGER".
             //
-            compare_item((void*) &tr, lt, rt, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            compare_item((void*) &tr, lt, rt, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     fwprintf(stdout, L"TEST compare part equal 0 tr: %i\n", tr);
     fwprintf(stdout, L"TEST compare part equal 0 *ltd: %i\n", *((int*) ltd));
@@ -143,7 +148,7 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
                 // CAUTION! The last argument (lexicographical flag) is TRUE,
                 // since the values to be compared are of type "WIDE CHARACTER".
                 //
-                compare_item((void*) &nr, ln, rn, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, lnc, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                compare_item((void*) &nr, ln, rn, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, lnc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     //?? TEST ONLY
     void* lnd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -156,6 +161,19 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
 
                 if (nr != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+                    // The default values.
+                    int count = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+                    // CAUTION! The following values are ONLY copied,
+                    // if the source value is NOT NULL.
+                    // This is tested inside the "copy_integer" function.
+                    // Otherwise, the destination value remains as is.
+
+                    // Use the left operand part model count by default.
+                    copy_integer((void*) &count, lmc);
+                    // Determine minimum of left and right operand.
+                    calculate_integer_minimum((void*) &count, rmc);
+
                     //
                     // Compare left- with right part model item.
                     //
@@ -166,7 +184,7 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
                     // But this is only the case with lexicographical comparison
                     // and NOT with standard comparison which may return a vector.
                     //
-                    compare_item((void*) &mr, lm, rm, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, ltd, lmc, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                    compare_item((void*) &mr, lm, rm, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, ltd, (void*) &count, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         //?? TEST ONLY
         void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -198,7 +216,7 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
                         // But this is only the case with lexicographical comparison
                         // and NOT with standard comparison which may return a vector.
                         //
-                        compare_item((void*) &pr, lp, rp, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, lpc, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                        compare_item((void*) &pr, lp, rp, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, lpc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
             fwprintf(stdout, L"TEST compare part equal 3 pr: %i\n", pr);
 
                         if (pr != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
