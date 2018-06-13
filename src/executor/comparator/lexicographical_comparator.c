@@ -72,8 +72,6 @@ void compare_lexicographical(void* p0, void* p1, void* p2, void* p3, void* p4, v
         // Apply lexicographical comparison with only ONE scalar return value.
         //
 
-    fwprintf(stdout, L"TEST compare lexicographical - call check operation: %i\n", *((int*) p6));
-
         compare_count_scalar(p0, p1, p2, p3, p4, p5, p6, p8);
     }
 }

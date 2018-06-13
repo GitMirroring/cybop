@@ -1,8 +1,13 @@
 <node>
 
     <node name="first_name" channel="inline" format="text/plain" model="Max"/>
-    <node name="last_name" channel="inline" format="text/plain" model="Mustermann"/>
+
+    <node name="last_name" channel="inline" format="text/plain" model="Mustermann">
+        <node name="title" channel="inline" format="text/plain" model="Prof."/>
+    </node>
+
     <node name="age" channel="inline" format="number/integer" model="20"/>
+
     <node name="address" channel="file" format="element/part" model="comparator/address.cybol"/>
 
 </node>

@@ -28,7 +28,7 @@
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../executor/comparator/compound_comparator.c"
+#include "../../executor/comparator/lexicographical_comparator.c"
 #include "../../executor/memoriser/offset_adder.c"
 #include "../../logger/logger.c"
 
@@ -71,7 +71,7 @@ void compare_array_offset(void* p0, void* p1, void* p2, void* p3, void* p4, void
             add_offset((void*) &l, p6, p9);
             add_offset((void*) &r, p6, p10);
 
-            compare_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p11);
+            compare_lexicographical(p0, p1, p2, p3, p4, p5, p6, p7, p8, p11);
 
         } else {
 

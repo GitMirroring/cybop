@@ -6,6 +6,12 @@
 
     <!-- Person c -->
 
+    <node name="modify_c_last_name_title" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".person_c.last_name:title"/>
+        <node name="source" channel="inline" format="text/plain" model="Dr."/>
+    </node>
+
+<!--
     <node name="modify_c_first_name" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".person_c.first_name"/>
         <node name="source" channel="inline" format="text/plain" model="Hans"/>
@@ -22,5 +28,6 @@
         <node name="destination" channel="inline" format="text/cybol-path" model=".person_c.address.postcode"/>
         <node name="source" channel="inline" format="number/integer" model="04000"/>
     </node>
+-->
 
 </node>

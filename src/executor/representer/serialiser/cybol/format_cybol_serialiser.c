@@ -844,7 +844,7 @@ void serialise_cybol_format(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p1, (void*) EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -854,7 +854,7 @@ void serialise_cybol_format(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) GREATER_COMPARE_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p1, (void*) GREATER_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -864,7 +864,7 @@ void serialise_cybol_format(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p1, (void*) GREATER_OR_EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -874,7 +874,7 @@ void serialise_cybol_format(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) LESS_COMPARE_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p1, (void*) LESS_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -884,7 +884,7 @@ void serialise_cybol_format(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) LESS_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p1, (void*) LESS_OR_EQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -894,7 +894,7 @@ void serialise_cybol_format(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) UNEQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p1, (void*) UNEQUAL_CHECK_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

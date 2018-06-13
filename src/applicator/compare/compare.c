@@ -47,10 +47,16 @@
  * - left index (optional): the left index from where to start the comparison from
  * - right index (optional): the right index from where to start the comparison from
  *
- * 1 Standard comparison
+ * Lexicographical flag:
+ *
+ * It gets set in file "operation_handler.c", depending on the given operation, to:
+ * - 0 for "compare" operations, resulting in standard comparison (see below)
+ * - 1 for "check" operations, resulting in lexicographical comparison (see below)
+ *
+ * Case 1: Standard comparison (lexicographical flag is 0 == FALSE)
  *
  * Left and right operand as well as the boolean result are treated as vector,
- * i.e. ONE boolean result value is returned PER EACH operand vector element.
+ * i.e. ONE boolean result value is returned PER EACH operand vector ELEMENT.
  *
  * When comparing single elements, the vectors contain just one single value.
  *
@@ -72,7 +78,7 @@
  * right operand: 3
  * result value: 0 (which corresponds to "false")
  *
- * 2 Lexicographical comparison
+ * Case 2: Lexicographical comparison (lexicographical flag is 1 == TRUE)
  *
  * Left and right operand may be a vector, but there is ALWAYS
  * just ONE boolean result value ALTOGETHER.
@@ -80,10 +86,9 @@
  * Usually, lexicographical comparison applies for text,
  * i.e. strings of type "wide_character" or "character".
  *
- * But also compound parts of type "element/part" may use
- * and set the lexicographical flag to TRUE, so that their
- * contained text nodes are compared lexicographically
- * with deep comparison.
+ * But also compound parts of type "element/part" do set
+ * the lexicographical flag to TRUE, so that only one
+ * return value gets returned, also for deep comparison.
  *
  * Example with text:
  *

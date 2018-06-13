@@ -7,8 +7,10 @@
     <node name="result_complex" channel="inline" format="logicvalue/boolean" model="false"/>
     <node name="result_fraction" channel="inline" format="logicvalue/boolean" model="false"/>
     <node name="result_integer" channel="inline" format="logicvalue/boolean" model="false,false,false,false,false,false,false,false,false,false"/>
-    <node name="result_ascii" channel="inline" format="logicvalue/boolean" model="false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false"/>
-    <node name="result_wide" channel="inline" format="logicvalue/boolean" model="false,false,false,false,false,false,false,false,false,false,false,false,false,false,false"/>
+    <node name="result_ascii_vector" channel="inline" format="logicvalue/boolean" model="false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false"/>
+    <node name="result_wide_vector" channel="inline" format="logicvalue/boolean" model="false,false,false,false,false,false,false,false,false,false,false,false,false,false,false"/>
+    <node name="result_ascii_scalar" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="result_wide_scalar" channel="inline" format="logicvalue/boolean" model="false"/>
     <node name="result_person_ab" channel="inline" format="logicvalue/boolean" model="false"/>
     <node name="result_person_bc" channel="inline" format="logicvalue/boolean" model="false"/>
 
@@ -30,15 +32,25 @@
     <node name="integer_left" channel="inline" format="number/integer" model="56,7,1971,-8,74,-716,9,32,44,24"/>
     <node name="integer_right" channel="inline" format="number/integer" model="56,7,1971,-8,74,-716,9,32,34,24"/>
 
-    <!-- text -->
+    <!-- text vector (standard comparison) -->
 
     <!-- The last one differs -->
-    <node name="ascii_left" channel="inline" format="text/ascii" model="a4v,e9-/3+*)#'127"/>
-    <node name="ascii_right" channel="inline" format="text/ascii" model="a4v,e9-/3+*)#'123"/>
+    <node name="ascii_left_vector" channel="inline" format="text/ascii" model="a4v,e9-/3+*)#'127"/>
+    <node name="ascii_right_vector" channel="inline" format="text/ascii" model="a4v,e9-/3+*)#'123"/>
 
     <!-- The first one differs -->
-    <node name="wide_left" channel="inline" format="text/plain" model="w1i2d3e4%?⭝|฿Hઊ"/>
-    <node name="wide_right" channel="inline" format="text/plain" model="z1i2d3e4%?⭝|฿Hઊ"/>
+    <node name="wide_left_vector" channel="inline" format="text/plain" model="w1i2d3e4%?⭝|฿Hઊ"/>
+    <node name="wide_right_vector" channel="inline" format="text/plain" model="z1i2d3e4%?⭝|฿Hઊ"/>
+
+    <!-- text scalar (lexicographical comparison) -->
+
+    <!-- The last one differs -->
+    <node name="ascii_left_scalar" channel="inline" format="text/ascii" model="Hello ASCII"/>
+    <node name="ascii_right_scalar" channel="inline" format="text/ascii" model="Hello ASCII"/>
+
+    <!-- The first one differs -->
+    <node name="wide_left_scalar" channel="inline" format="text/plain" model="Hello WIDE"/>
+    <node name="wide_right_scalar" channel="inline" format="text/plain" model="Hello WIDE"/>
 
     <!-- part -->
 

@@ -18,6 +18,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2018-06-13  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix bug that check operation formats got deserialised into compare operations and thus the lexicographical flag not set in operation handler
+        * Remove file "compound_comparator.c" again, since file "lexicographical_comparator.c" suffices
+        * Remove file "lexicographical_part_comparator.c", since for compound parts there is always just one scalar return value, so that lexicographical comparison is used
+        * Optimise file "equal_part_comparator.c" by stopping comparison as soon as one of type, name, model, properties does not match
+
 2018-06-11  Christian Heller  <christian.heller@tuxtax.de>
 
         * Try to figure out how to handle compound parts and add new file "compound_comparator.c"

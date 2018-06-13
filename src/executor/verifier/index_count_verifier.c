@@ -82,13 +82,15 @@ void verify_index_count(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not verify index count. The sum of the given index and count is greater than the first count.");
-            fwprintf(stdout, L"ERROR: Could not verify index count. The sum of the given index and count is greater than the first count.");
+            fwprintf(stdout, L"ERROR: Could not verify index count. The sum of the given index and count is greater than the first count.\n");
+            fwprintf(stdout, L"HINT: Sum c1: %i. First count *p4: %i.\n", c1, *((int*) p4));
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not verify index count. The sum of the given index and count is greater than the second count.");
-        fwprintf(stdout, L"ERROR: Could not verify index count. The sum of the given index and count is greater than the second count.");
+        fwprintf(stdout, L"ERROR: Could not verify index count. The sum of the given index and count is greater than the second count.\n");
+        fwprintf(stdout, L"HINT: Sum c2: %i. First count *p5: %i.\n", c2, *((int*) p5));
     }
 }
 

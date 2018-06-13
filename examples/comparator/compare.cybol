@@ -28,18 +28,32 @@
         <node name="right" channel="inline" format="text/cybol-path" model=".integer_right"/>
     </node>
 
-    <!-- text -->
+    <!-- text vector (standard comparison) -->
+
+    <node name="compare_ascii" channel="inline" format="compare/equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".result_ascii_vector"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".ascii_left_vector"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".ascii_right_vector"/>
+    </node>
+
+    <node name="compare_wide" channel="inline" format="compare/equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".result_wide_vector"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".wide_left_vector"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".wide_right_vector"/>
+    </node>
+
+    <!-- text scalar (lexicographical comparison) -->
 
     <node name="compare_ascii" channel="inline" format="check/equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model=".result_ascii"/>
-        <node name="left" channel="inline" format="text/cybol-path" model=".ascii_left"/>
-        <node name="right" channel="inline" format="text/cybol-path" model=".ascii_right"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".result_ascii_scalar"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".ascii_left_scalar"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".ascii_right_scalar"/>
     </node>
 
     <node name="compare_wide" channel="inline" format="check/equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model=".result_wide"/>
-        <node name="left" channel="inline" format="text/cybol-path" model=".wide_left"/>
-        <node name="right" channel="inline" format="text/cybol-path" model=".wide_right"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".result_wide_scalar"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".wide_left_scalar"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".wide_right_scalar"/>
     </node>
 
     <!-- part -->

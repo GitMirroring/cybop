@@ -49,9 +49,6 @@ void compare_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare array.");
 
-    fwprintf(stdout, L"TEST compare array *p4 type: %i\n", *((int*) p4));
-    fwprintf(stdout, L"TEST compare array *p5 count: %i\n", *((int*) p5));
-
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The comparison result.
