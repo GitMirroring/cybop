@@ -26,7 +26,6 @@
 #ifndef BOOLEAN_CYBOL_SERIALISER_SOURCE
 #define BOOLEAN_CYBOL_SERIALISER_SOURCE
 
- 
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"

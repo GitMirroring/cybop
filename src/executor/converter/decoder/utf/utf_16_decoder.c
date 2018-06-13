@@ -26,7 +26,6 @@
 #ifndef UTF_16_DECODER_SOURCE
 #define UTF_16_DECODER_SOURCE
 
- 
 #include "../../../../logger/logger.c"
 
 //

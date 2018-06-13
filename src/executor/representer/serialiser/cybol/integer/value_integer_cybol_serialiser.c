@@ -30,7 +30,6 @@
 #include <string.h>
 #include <wchar.h>
 
- 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/representer/serialiser/cybol/integer/base_integer_cybol_serialiser.c"

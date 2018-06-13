@@ -26,7 +26,6 @@
 #ifndef AUTHORITY_DESERIALISER_SOURCE
 #define AUTHORITY_DESERIALISER_SOURCE
 
- 
 #include "../../../../executor/representer/deserialiser/authority/userinfo_authority_deserialiser.c"
 #include "../../../../logger/logger.c"
 

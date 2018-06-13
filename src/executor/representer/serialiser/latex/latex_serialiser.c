@@ -26,7 +26,6 @@
 #ifndef LATEX_SERIALISER_SOURCE
 #define LATEX_SERIALISER_SOURCE
 
- 
 #include "../../../../logger/logger.c"
 
 /**

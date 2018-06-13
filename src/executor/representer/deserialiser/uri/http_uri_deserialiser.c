@@ -26,7 +26,6 @@
 #ifndef HTTP_URI_DESERIALISER_SOURCE
 #define HTTP_URI_DESERIALISER_SOURCE
 
- 
 #include "../../../../executor/representer/deserialiser/uri/http/authority_http_uri_deserialiser.c"
 #include "../../../../logger/logger.c"
 

@@ -26,7 +26,6 @@
 #ifndef HTTP_REQUEST_SERIALISER_SOURCE
 #define HTTP_REQUEST_SERIALISER_SOURCE
 
- 
 #include "../../../../logger/logger.c"
 
 //

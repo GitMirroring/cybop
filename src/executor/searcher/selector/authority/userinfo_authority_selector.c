@@ -26,7 +26,6 @@
 #ifndef USERINFO_AUTHORITY_SELECTOR_SOURCE
 #define USERINFO_AUTHORITY_SELECTOR_SOURCE
 
- 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/authority/separator_authority_name.c"

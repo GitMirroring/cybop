@@ -26,7 +26,6 @@
 #ifndef HTTP_RESPONSE_DESERIALISER_SOURCE
 #define HTTP_RESPONSE_DESERIALISER_SOURCE
 
- 
 #include "../../../../logger/logger.c"
 
 //

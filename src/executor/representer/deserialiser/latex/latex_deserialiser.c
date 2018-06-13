@@ -26,7 +26,6 @@
 #ifndef LATEX_DESERIALISER_SOURCE
 #define LATEX_DESERIALISER_SOURCE
 
- 
 #include "../../../../logger/logger.c"
 
 /**

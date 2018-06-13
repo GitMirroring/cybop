@@ -26,7 +26,6 @@
 #ifndef STATUS_CODE_HTTP_RESPONSE_SERIALISER_SOURCE
 #define STATUS_CODE_HTTP_RESPONSE_SERIALISER_SOURCE
 
- 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/http/status_code_http_model.c"
