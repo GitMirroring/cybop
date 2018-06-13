@@ -1,9 +1,13 @@
 <node>
 
-    <node name="appinfo" channel="file" format="element/part" model="calculator/appinfo.cybol"/>
-    <node name="logic" channel="file" format="element/part" model="calculator/logic.cybol"/>
-    <node name="settings" channel="file" format="element/part" model="calculator/settings.cybol"/>
-    <node name="tmp" channel="file" format="element/part" model="calculator/tmp.cybol"/>
-    <node name="tui" channel="file" format="element/part" model="calculator/tui.cybol"/>
+    <!-- result -->
+
+    <node name="result_add" channel="inline" format="number/integer" model="10"/>
+    <node name="result_minimum" channel="inline" format="number/integer" model="10"/>
+
+    <!-- logic -->
+
+    <node name="calculate" channel="file" format="element/part" model="calculator/calculate.cybol"/>
+    <node name="print" channel="file" format="element/part" model="calculator/print.cybol"/>
 
 </node>

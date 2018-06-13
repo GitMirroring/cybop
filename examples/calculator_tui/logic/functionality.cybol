@@ -1,0 +1,18 @@
+<node>
+
+    <node name="reset" channel="file" format="element/part" model="calculator_tui/logic/functionality/reset.cybol"/>
+
+    <node name="equals" channel="file" format="element/part" model="calculator_tui/logic/functionality/equals.cybol"/>
+    <node name="add" channel="file" format="element/part" model="calculator_tui/logic/functionality/add.cybol"/>
+    <node name="divide" channel="file" format="element/part" model="calculator_tui/logic/functionality/divide.cybol"/>
+    <node name="subtract" channel="file" format="element/part" model="calculator_tui/logic/functionality/subtract.cybol"/>
+    <node name="multiply" channel="file" format="element/part" model="calculator_tui/logic/functionality/multiply.cybol"/>
+    <node name="modulo" channel="file" format="element/part" model="calculator_tui/logic/functionality/modulo.cybol"/>
+    <node name="negate" channel="file" format="element/part" model="calculator_tui/logic/functionality/negate.cybol"/>
+<!--
+    TODO: square, squareroot
+-->
+
+    <node name="calculate" channel="file" format="element/part" model="calculator_tui/logic/functionality/calculate.cybol"/>
+
+</node>

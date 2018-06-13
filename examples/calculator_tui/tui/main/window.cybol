@@ -1,6 +1,6 @@
 <node>
 
-    <node name="menu" channel="file" format="element/part" model="calculator/tui/main/menu.cybol">
+    <node name="menu" channel="file" format="element/part" model="calculator_tui/tui/main/menu.cybol">
         <node name="super" channel="inline" format="text/cybol-path" model=".app.settings.menu"/>
         <node name="position" channel="inline" format="number/integer" model="1,1"/>
 <!--

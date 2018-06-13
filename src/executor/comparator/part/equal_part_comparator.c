@@ -120,8 +120,6 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
             // As soon as one comparison fails, the others are not processed anymore.
             //
 
-    fwprintf(stdout, L"TEST compare part equal START tr: %i\n", tr);
-
             //
             // Compare left- with right part type item.
             //
@@ -130,8 +128,8 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
             //
             compare_item((void*) &tr, lt, rt, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    fwprintf(stdout, L"TEST compare part equal 0 tr: %i\n", tr);
-    fwprintf(stdout, L"TEST compare part equal 0 *ltd: %i\n", *((int*) ltd));
+//??    fwprintf(stdout, L"TEST compare part equal 0 tr: %i\n", tr);
+//??    fwprintf(stdout, L"TEST compare part equal 0 *ltd: %i\n", *((int*) ltd));
 
             if (tr != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -150,6 +148,7 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
                 //
                 compare_item((void*) &nr, ln, rn, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, lnc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
+/*??
     //?? TEST ONLY
     void* lnd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* rnd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -158,6 +157,7 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
     fwprintf(stdout, L"TEST compare part equal 1 lnd: %ls\n", (wchar_t*) lnd);
     fwprintf(stdout, L"TEST compare part equal 1 rnd: %ls\n", (wchar_t*) rnd);
     fwprintf(stdout, L"TEST compare part equal 1 nr: %i\n", nr);
+*/
 
                 if (nr != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -186,6 +186,7 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
                     //
                     compare_item((void*) &mr, lm, rm, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, ltd, (void*) &count, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
+/*??
         //?? TEST ONLY
         void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* rmd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -197,6 +198,7 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
 
         fwprintf(stdout, L"TEST compare part equal lpc: %i\n", lpc);
         fwprintf(stdout, L"TEST compare part equal *lpc: %i\n", *((int*) lpc));
+*/
 
                     if (mr != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -217,7 +219,8 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
                         // and NOT with standard comparison which may return a vector.
                         //
                         compare_item((void*) &pr, lp, rp, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, lpc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-            fwprintf(stdout, L"TEST compare part equal 3 pr: %i\n", pr);
+
+//??    fwprintf(stdout, L"TEST compare part equal 3 pr: %i\n", pr);
 
                         if (pr != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -229,8 +232,8 @@ void compare_part_equal(void* p0, void* p1, void* p2) {
                 }
             }
 
-    fwprintf(stdout, L"TEST compare part equal 4 p0: %i\n", p0);
-    fwprintf(stdout, L"TEST compare part equal 4 *p0: %i\n", *((int*) p0));
+//??    fwprintf(stdout, L"TEST compare part equal 4 p0: %i\n", p0);
+//??    fwprintf(stdout, L"TEST compare part equal 4 *p0: %i\n", *((int*) p0));
 
         } else {
 

@@ -1,0 +1,9 @@
+<node>
+
+    <node name="appinfo" channel="file" format="element/part" model="calculator_tui/appinfo.cybol"/>
+    <node name="logic" channel="file" format="element/part" model="calculator_tui/logic.cybol"/>
+    <node name="settings" channel="file" format="element/part" model="calculator_tui/settings.cybol"/>
+    <node name="tmp" channel="file" format="element/part" model="calculator_tui/tmp.cybol"/>
+    <node name="tui" channel="file" format="element/part" model="calculator_tui/tui.cybol"/>
+
+</node>

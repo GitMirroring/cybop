@@ -1,5 +1,0 @@
-<node>
-
-    <node name="translate_appinfo_to_about" channel="file" format="element/part" model="calculator/logic/translation/translate_appinfo_to_about.cybol"/>
-
-</node>

@@ -91,6 +91,30 @@ static wchar_t* DIVIDE_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/divide";
 static int* DIVIDE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The calculate/minimum logic cybol format.
+ *
+ * Determine the lesser of two values.
+ *
+ * minimum = (x < y) ? x : y
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* MINIMUM_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/minimum";
+static int* MINIMUM_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The calculate/maximum logic cybol format.
+ *
+ * Determine the lesser of two values.
+ *
+ * maximum = (x > y) ? x : y
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* MAXIMUM_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/maximum";
+static int* MAXIMUM_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The calculate/modulo logic cybol format.
  *
  * Calculate the remainder of an integer division.

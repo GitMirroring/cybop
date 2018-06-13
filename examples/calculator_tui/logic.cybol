@@ -1,0 +1,9 @@
+<node>
+
+    <node name="functionality" channel="file" format="element/part" model="calculator_tui/logic/functionality.cybol"/>
+    <node name="handler" channel="file" format="element/part" model="calculator_tui/logic/handler.cybol"/>
+    <node name="lifecycle" channel="file" format="element/part" model="calculator_tui/logic/lifecycle.cybol"/>
+    <node name="translation" channel="file" format="element/part" model="calculator_tui/logic/translation.cybol"/>
+    <node name="user_interface" channel="file" format="element/part" model="calculator_tui/logic/user_interface.cybol"/>
+
+</node>

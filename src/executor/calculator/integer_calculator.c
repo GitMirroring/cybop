@@ -33,6 +33,8 @@
 #include "../../executor/calculator/integer/absolute_integer_calculator.c"
 #include "../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../executor/calculator/integer/divide_integer_calculator.c"
+#include "../../executor/calculator/integer/maximum_integer_calculator.c"
+#include "../../executor/calculator/integer/minimum_integer_calculator.c"
 #include "../../executor/calculator/integer/modulo_integer_calculator.c"
 #include "../../executor/calculator/integer/multiply_integer_calculator.c"
 #include "../../executor/calculator/integer/negate_integer_calculator.c"
@@ -80,6 +82,26 @@ void calculate_integer(void* p0, void* p1, void* p2) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             calculate_integer_divide(p0, p1);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p2, (void*) MAXIMUM_CALCULATE_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            calculate_integer_maximum(p0, p1);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p2, (void*) MINIMUM_CALCULATE_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            calculate_integer_minimum(p0, p1);
         }
     }
 

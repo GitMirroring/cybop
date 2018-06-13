@@ -14,8 +14,6 @@
 Comparison
 __________
 
-        * Provide cybol operation "calculate/minimum" (edit constants, (de-)serialise format, operation_handler etc.)
-
         * Edit file "part_bubble_sorter.c" and eliminate TODO and TEST sections
         * Verify functionality of checker with parts for which deep comparison is necessary
 

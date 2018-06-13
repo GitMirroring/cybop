@@ -1,7 +1,7 @@
 <node>
 
 
-    <node name="display" channel="file" format="element/part" model="calculator/tui/main/menu/display.cybol">
+    <node name="display" channel="file" format="element/part" model="calculator_tui/tui/main/menu/display.cybol">
         <node name="position" channel="inline" format="number/integer" model="3,1"/>
         <node name="size" channel="inline" format="number/integer" model="25,4"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -9,7 +9,7 @@
         <node name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
-    <node name="seven" channel="file" format="element/part" model="calculator/tui/main/menu/seven.cybol">
+    <node name="seven" channel="file" format="element/part" model="calculator_tui/tui/main/menu/seven.cybol">
         <node name="position" channel="inline" format="number/integer" model="3,6"/>
         <node name="size" channel="inline" format="number/integer" model="3,3"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -25,7 +25,7 @@
 -->
         <node name="action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </node>
-    <node name="eight" channel="file" format="element/part" model="calculator/tui/main/menu/eight.cybol">
+    <node name="eight" channel="file" format="element/part" model="calculator_tui/tui/main/menu/eight.cybol">
         <node name="position" channel="inline" format="number/integer" model="7,6"/>
         <node name="size" channel="inline" format="number/integer" model="3,3"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -38,7 +38,7 @@
         <node name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.nine"/>
         <node name="action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </node>
-    <node name="nine" channel="file" format="element/part" model="calculator/tui/main/menu/nine.cybol">
+    <node name="nine" channel="file" format="element/part" model="calculator_tui/tui/main/menu/nine.cybol">
         <node name="position" channel="inline" format="number/integer" model="11,6"/>
         <node name="size" channel="inline" format="number/integer" model="3,3"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -51,7 +51,7 @@
         <node name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.addition"/>
         <node name="action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </node>
-    <node name="four" channel="file" format="element/part" model="calculator/tui/main/menu/four.cybol">
+    <node name="four" channel="file" format="element/part" model="calculator_tui/tui/main/menu/four.cybol">
         <node name="position" channel="inline" format="number/integer" model="3,10"/>
         <node name="size" channel="inline" format="number/integer" model="3,3"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -64,7 +64,7 @@
         <node name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.five"/>
         <node name="action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </node>
-    <node name="five" channel="file" format="element/part" model="calculator/tui/main/menu/five.cybol">
+    <node name="five" channel="file" format="element/part" model="calculator_tui/tui/main/menu/five.cybol">
         <node name="position" channel="inline" format="number/integer" model="7,10"/>
         <node name="size" channel="inline" format="number/integer" model="3,3"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -77,7 +77,7 @@
         <node name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.six"/>
         <node name="action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </node>
-    <node name="six" channel="file" format="element/part" model="calculator/tui/main/menu/six.cybol">
+    <node name="six" channel="file" format="element/part" model="calculator_tui/tui/main/menu/six.cybol">
         <node name="position" channel="inline" format="number/integer" model="11,10"/>
         <node name="size" channel="inline" format="number/integer" model="3,3"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -90,7 +90,7 @@
         <node name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.multiplication"/>
         <node name="action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </node>
-    <node name="one" channel="file" format="element/part" model="calculator/tui/main/menu/one.cybol">
+    <node name="one" channel="file" format="element/part" model="calculator_tui/tui/main/menu/one.cybol">
         <node name="position" channel="inline" format="number/integer" model="3,14"/>
         <node name="size" channel="inline" format="number/integer" model="3,3"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -103,7 +103,7 @@
         <node name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.two"/>
         <node name="action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </node>
-    <node name="two" channel="file" format="element/part" model="calculator/tui/main/menu/two.cybol">
+    <node name="two" channel="file" format="element/part" model="calculator_tui/tui/main/menu/two.cybol">
         <node name="position" channel="inline" format="number/integer" model="7,14"/>
         <node name="size" channel="inline" format="number/integer" model="3,3"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -116,7 +116,7 @@
         <node name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.three"/>
         <node name="action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </node>
-    <node name="three" channel="file" format="element/part" model="calculator/tui/main/menu/three.cybol">
+    <node name="three" channel="file" format="element/part" model="calculator_tui/tui/main/menu/three.cybol">
         <node name="position" channel="inline" format="number/integer" model="11,14"/>
         <node name="size" channel="inline" format="number/integer" model="3,3"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -129,7 +129,7 @@
         <node name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.modulo"/>
         <node name="action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </node>
-    <node name="zero" channel="file" format="element/part" model="calculator/tui/main/menu/zero.cybol">
+    <node name="zero" channel="file" format="element/part" model="calculator_tui/tui/main/menu/zero.cybol">
         <node name="position" channel="inline" format="number/integer" model="3,18"/>
         <node name="size" channel="inline" format="number/integer" model="11,3"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -143,7 +143,7 @@
         <node name="action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </node>
 
-    <node name="addition" channel="file" format="element/part" model="calculator/tui/main/menu/addition.cybol">
+    <node name="addition" channel="file" format="element/part" model="calculator_tui/tui/main/menu/addition.cybol">
         <node name="position" channel="inline" format="number/integer" model="17,6"/>
         <node name="size" channel="inline" format="number/integer" model="3,3"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -156,7 +156,7 @@
         <node name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.subtraction"/>
         <node name="action" channel="inline" format="text/plain" model=".app.logic.functionality.add"/>
     </node>
-    <node name="subtraction" channel="file" format="element/part" model="calculator/tui/main/menu/subtraction.cybol">
+    <node name="subtraction" channel="file" format="element/part" model="calculator_tui/tui/main/menu/subtraction.cybol">
         <node name="position" channel="inline" format="number/integer" model="21,6"/>
         <node name="size" channel="inline" format="number/integer" model="3,3"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -169,7 +169,7 @@
         <node name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.squareroot"/>
         <node name="action" channel="inline" format="text/plain" model=".app.logic.functionality.subtract"/>
     </node>
-    <node name="squareroot" channel="file" format="element/part" model="calculator/tui/main/menu/squareroot.cybol">
+    <node name="squareroot" channel="file" format="element/part" model="calculator_tui/tui/main/menu/squareroot.cybol">
         <node name="position" channel="inline" format="number/integer" model="25,6"/>
         <node name="size" channel="inline" format="number/integer" model="3,3"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -182,7 +182,7 @@
         <node name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.seven"/>
         <node name="action" channel="inline" format="text/plain" model=".app.logic.functionality.whatever"/>
     </node>
-    <node name="multiplication" channel="file" format="element/part" model="calculator/tui/main/menu/multiplication.cybol">
+    <node name="multiplication" channel="file" format="element/part" model="calculator_tui/tui/main/menu/multiplication.cybol">
         <node name="position" channel="inline" format="number/integer" model="17,10"/>
         <node name="size" channel="inline" format="number/integer" model="3,3"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -195,7 +195,7 @@
         <node name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.division"/>
         <node name="action" channel="inline" format="text/plain" model=".app.logic.functionality.multiply"/>
     </node>
-    <node name="division" channel="file" format="element/part" model="calculator/tui/main/menu/division.cybol">
+    <node name="division" channel="file" format="element/part" model="calculator_tui/tui/main/menu/division.cybol">
         <node name="position" channel="inline" format="number/integer" model="21,10"/>
         <node name="size" channel="inline" format="number/integer" model="3,3"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -208,7 +208,7 @@
         <node name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.square"/>
         <node name="action" channel="inline" format="text/plain" model=".app.logic.functionality.divide"/>
     </node>
-    <node name="square" channel="file" format="element/part" model="calculator/tui/main/menu/square.cybol">
+    <node name="square" channel="file" format="element/part" model="calculator_tui/tui/main/menu/square.cybol">
         <node name="position" channel="inline" format="number/integer" model="25,10"/>
         <node name="size" channel="inline" format="number/integer" model="3,3"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -221,7 +221,7 @@
         <node name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.four"/>
         <node name="action" channel="inline" format="text/plain" model=".app.logic.functionality.whatever"/>
     </node>
-    <node name="equals" channel="file" format="element/part" model="calculator/tui/main/menu/equals.cybol">
+    <node name="equals" channel="file" format="element/part" model="calculator_tui/tui/main/menu/equals.cybol">
         <node name="position" channel="inline" format="number/integer" model="17,18"/>
         <node name="size" channel="inline" format="number/integer" model="11,3"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -234,7 +234,7 @@
         <node name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
         <node name="action" channel="inline" format="text/plain" model=".app.logic.functionality.equals"/>
     </node>
-    <node name="modulo" channel="file" format="element/part" model="calculator/tui/main/menu/modulo.cybol">
+    <node name="modulo" channel="file" format="element/part" model="calculator_tui/tui/main/menu/modulo.cybol">
         <node name="position" channel="inline" format="number/integer" model="17,14"/>
         <node name="size" channel="inline" format="number/integer" model="3,3"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -247,7 +247,7 @@
         <node name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.negate"/>
         <node name="action" channel="inline" format="text/plain" model=".app.logic.functionality.modulo"/>
     </node>
-    <node name="negate" channel="file" format="element/part" model="calculator/tui/main/menu/negate.cybol">
+    <node name="negate" channel="file" format="element/part" model="calculator_tui/tui/main/menu/negate.cybol">
         <node name="position" channel="inline" format="number/integer" model="21,14"/>
         <node name="size" channel="inline" format="number/integer" model="7,3"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -261,7 +261,7 @@
         <node name="action" channel="inline" format="text/plain" model=".app.logic.functionality.negate"/>
     </node>
 
-    <node name="help" channel="file" format="element/part" model="calculator/tui/main/menu/help.cybol">
+    <node name="help" channel="file" format="element/part" model="calculator_tui/tui/main/menu/help.cybol">
         <node name="position" channel="inline" format="number/integer" model="35,1"/>
         <node name="size" channel="inline" format="number/integer" model="40,20"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
