@@ -34,7 +34,7 @@
 #include "../../../../executor/memoriser/allocator/part_allocator.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/modifier/part_modifier.c"
-#include "../../../../executor/searcher/selector/authority/port_authority_selector.c"
+#include "../../../../executor/selector/authority/port_authority_selector.c"
 #include "../../../../logger/logger.c"
 
 /**

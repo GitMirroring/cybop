@@ -42,7 +42,7 @@
 #include "../../../../executor/representer/deserialiser/http_request/decode_http_request_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/percent_encoding/percent_encoding_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/uri/uri_deserialiser.c"
-#include "../../../../executor/searcher/selector/http_request/uri_http_request_selector.c"
+#include "../../../../executor/selector/http_request/uri_http_request_selector.c"
 #include "../../../../logger/logger.c"
 
 /**

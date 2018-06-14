@@ -33,7 +33,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/xml_cybol_name.c"
 #include "../../../../executor/modifier/part_modifier.c"
-#include "../../../../executor/searcher/selector/xml/attribute_begin_or_tag_end_xml_selector.c"
+#include "../../../../executor/selector/xml/attribute_begin_or_tag_end_xml_selector.c"
 #include "../../../../logger/logger.c"
 
 /**

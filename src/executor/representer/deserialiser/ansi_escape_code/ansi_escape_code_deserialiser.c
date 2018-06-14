@@ -30,7 +30,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/searcher/selector/ansi_escape_code/ansi_escape_code_selector.c"
+#include "../../../../executor/selector/ansi_escape_code/ansi_escape_code_selector.c"
 #include "../../../../logger/logger.c"
 
 /**

@@ -34,7 +34,7 @@
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
 #include "../../../../executor/representer/deserialiser/http_request/content_uri_http_request_deserialiser.c"
-#include "../../../../executor/searcher/selector/http_request/uri_http_request_selector.c"
+#include "../../../../executor/selector/http_request/uri_http_request_selector.c"
 #include "../../../../logger/logger.c"
 
 /**

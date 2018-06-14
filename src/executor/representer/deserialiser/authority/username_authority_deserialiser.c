@@ -32,7 +32,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/authority/authority_cyboi_name.c"
 #include "../../../../executor/modifier/part_modifier.c"
-#include "../../../../executor/searcher/selector/authority/username_authority_selector.c"
+#include "../../../../executor/selector/authority/username_authority_selector.c"
 #include "../../../../logger/logger.c"
 
 /**

@@ -34,7 +34,7 @@
 #include "../../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../executor/copier/pointer_copier.c"
-#include "../../../../../executor/searcher/selector/xdt/field/end_field_xdt_selector.c"
+#include "../../../../../executor/selector/xdt/field/end_field_xdt_selector.c"
 #include "../../../../../logger/logger.c"
 
 /**

@@ -33,8 +33,8 @@
 #include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
-#include "../../../../executor/searcher/selector/knowledge/identification_knowledge_selector.c"
-#include "../../../../executor/searcher/selector/knowledge/move_knowledge_selector.c"
+#include "../../../../executor/selector/knowledge/identification_knowledge_selector.c"
+#include "../../../../executor/selector/knowledge/move_knowledge_selector.c"
 #include "../../../../logger/logger.c"
 
 /**

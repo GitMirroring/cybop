@@ -31,7 +31,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/representer/deserialiser/authority/hostname_authority_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/authority/username_authority_deserialiser.c"
-#include "../../../../executor/searcher/selector/authority/userinfo_authority_selector.c"
+#include "../../../../executor/selector/authority/userinfo_authority_selector.c"
 #include "../../../../logger/logger.c"
 
 /**

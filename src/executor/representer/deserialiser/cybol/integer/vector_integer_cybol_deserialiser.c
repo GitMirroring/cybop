@@ -38,7 +38,7 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../executor/representer/deserialiser/cybol/integer/value_integer_cybol_deserialiser.c"
-#include "../../../../../executor/searcher/selector/cybol/integer_cybol_selector.c"
+#include "../../../../../executor/selector/cybol/integer_cybol_selector.c"
 #include "../../../../../logger/logger.c"
 
 /**

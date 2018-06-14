@@ -30,7 +30,7 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/searcher/selector/xml/end_tag_xml_selector.c"
+#include "../../../../executor/selector/xml/end_tag_xml_selector.c"
 #include "../../../../logger/logger.c"
 
 /**

@@ -35,7 +35,7 @@
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../executor/copier/pointer_copier.c"
 #include "../../../../../executor/representer/deserialiser/cybol/boolean/value_boolean_cybol_deserialiser.c"
-#include "../../../../../executor/searcher/selector/cybol/boolean_cybol_selector.c"
+#include "../../../../../executor/selector/cybol/boolean_cybol_selector.c"
 #include "../../../../../logger/logger.c"
 
 /**

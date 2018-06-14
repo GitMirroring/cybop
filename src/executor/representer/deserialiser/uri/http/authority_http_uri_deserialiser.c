@@ -34,7 +34,7 @@
 #include "../../../../../constant/name/cyboi/uri/uri_cyboi_name.c"
 #include "../../../../../executor/modifier/part_modifier.c"
 #include "../../../../../executor/representer/deserialiser/http_request/append_http_request_deserialiser.c"
-#include "../../../../../executor/searcher/selector/uri/http/authority_http_uri_selector.c"
+#include "../../../../../executor/selector/uri/http/authority_http_uri_selector.c"
 #include "../../../../../logger/logger.c"
 
 /**

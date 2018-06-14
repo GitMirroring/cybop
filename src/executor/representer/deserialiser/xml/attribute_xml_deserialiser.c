@@ -33,7 +33,7 @@
 #include "../../../../executor/modifier/part_modifier.c"
 #include "../../../../executor/representer/deserialiser/xml/attribute_name_xml_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xml/attribute_value_xml_deserialiser.c"
-#include "../../../../executor/searcher/selector/xml/attribute_begin_or_tag_end_xml_selector.c"
+#include "../../../../executor/selector/xml/attribute_begin_or_tag_end_xml_selector.c"
 #include "../../../../logger/logger.c"
 
 /**

@@ -35,8 +35,8 @@
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/copier/array_copier.c"
 #include "../../../../../executor/representer/deserialiser/cybol/integer/primitive_value_integer_cybol_deserialiser.c"
-#include "../../../../../executor/searcher/selector/xdt/bdt/end_compound_field_bdt_xdt_selector.c"
-#include "../../../../../executor/searcher/selector/xdt/bdt/field_bdt_xdt_selector.c"
+#include "../../../../../executor/selector/xdt/bdt/end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/selector/xdt/bdt/field_bdt_xdt_selector.c"
 #include "../../../../../logger/logger.c"
 
 /**

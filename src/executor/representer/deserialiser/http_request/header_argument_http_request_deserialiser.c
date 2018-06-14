@@ -33,7 +33,7 @@
 #include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
-#include "../../../../executor/searcher/selector/http_request/header_argument_http_request_selector.c"
+#include "../../../../executor/selector/http_request/header_argument_http_request_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
