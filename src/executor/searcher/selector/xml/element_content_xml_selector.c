@@ -36,7 +36,7 @@
 #include "../../../../executor/representer/deserialiser/xml/comment_xml_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xml/end_tag_xml_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xml/element_xml_deserialiser.c"
-#include "../../../../executor/searcher/detector/array_detector.c"
+#include "../../../../executor/detector/detector.c"
 #include "../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../logger/logger.c"
 
@@ -88,7 +88,7 @@ void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) END_TAG_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) END_TAG_BEGIN_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p3, p4, (void*) END_TAG_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) END_TAG_BEGIN_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -102,7 +102,7 @@ void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) DECLARATION_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DECLARATION_BEGIN_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p3, p4, (void*) DECLARATION_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DECLARATION_BEGIN_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -113,7 +113,7 @@ void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) COMMENT_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) COMMENT_BEGIN_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p3, p4, (void*) COMMENT_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) COMMENT_BEGIN_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -124,7 +124,7 @@ void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) DEFINITION_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DEFINITION_BEGIN_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p3, p4, (void*) DEFINITION_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DEFINITION_BEGIN_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -135,7 +135,7 @@ void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) START_TAG_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) START_TAG_BEGIN_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p3, p4, (void*) START_TAG_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) START_TAG_BEGIN_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

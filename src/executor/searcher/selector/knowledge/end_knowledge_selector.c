@@ -32,7 +32,7 @@
 #include "../../../../constant/name/cyboi/knowledge/separator_knowledge_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/searcher/detector/array_detector.c"
+#include "../../../../executor/detector/detector.c"
 #include "../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../logger/logger.c"
 
@@ -79,7 +79,7 @@ void select_knowledge_end(void* p0, void* p1, void* p2, void* p3) {
         // CAUTION! Do NOT move the position, i.e. hand over FALSE as last parametre here.
         // The reason is that a potential new sub part's name or model or property, indicated by
         // a "." or ":" character, respectively, have to be detected once again in another function.
-        detect_array((void*) &r, p1, p2, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p1, p2, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -93,7 +93,7 @@ void select_knowledge_end(void* p0, void* p1, void* p2, void* p3) {
         // CAUTION! Do NOT move the position, i.e. hand over FALSE as last parametre here.
         // The reason is that a potential new sub part's name or model or property, indicated by
         // a "." or ":" character, respectively, have to be detected once again in another function.
-        detect_array((void*) &r, p1, p2, (void*) PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p1, p2, (void*) PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -104,7 +104,7 @@ void select_knowledge_end(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p1, p2, (void*) END_NAME_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) END_NAME_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, p3);
+        detect((void*) &r, p1, p2, (void*) END_NAME_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) END_NAME_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, p3);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -115,7 +115,7 @@ void select_knowledge_end(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p1, p2, (void*) END_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) END_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, p3);
+        detect((void*) &r, p1, p2, (void*) END_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) END_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, p3);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

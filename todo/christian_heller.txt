@@ -24,7 +24,6 @@ _________
 Sorting
 _______
 
-        CONTINUE:
         * Add sort operation property "descending" and use "ascending" as default
         * Figure out how to sort capital/small letters, German Umlauts etc.
         * Implement missing cybol operations "sort/insertion", "sort/quick", "sort/selection" in cyboi

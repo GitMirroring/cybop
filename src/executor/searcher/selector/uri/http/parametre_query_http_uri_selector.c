@@ -33,7 +33,7 @@
 #include "../../../../../constant/name/uri/separator_uri_name.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/representer/deserialiser/uri/http/fragment_http_uri_deserialiser.c"
-#include "../../../../../executor/searcher/detector/array_detector.c"
+#include "../../../../../executor/detector/detector.c"
 #include "../../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../../logger/logger.c"
 
@@ -65,7 +65,7 @@ void select_http_uri_query_parametre(void* p0, void* p1, void* p2, void* p3, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) QUERY_PARAMETRE_BEGIN_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) QUERY_PARAMETRE_BEGIN_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p3, p4, (void*) QUERY_PARAMETRE_BEGIN_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) QUERY_PARAMETRE_BEGIN_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

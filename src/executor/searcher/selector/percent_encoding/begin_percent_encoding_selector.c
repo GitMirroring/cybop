@@ -32,7 +32,7 @@
 #include "../../../../constant/name/percent_encoding/percent_encoding_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/representer/deserialiser/percent_encoding/character_percent_encoding_deserialiser.c"
-#include "../../../../executor/searcher/detector/array_detector.c"
+#include "../../../../executor/detector/detector.c"
 #include "../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../logger/logger.c"
 
@@ -72,7 +72,7 @@ void select_percent_encoding_begin(void* p0, void* p1, void* p2) {
             // moved forward and only the actual character code remains.
             //
             // CAUTION! The data are available as multibyte (NOT wide) character sequence.
-            detect_array((void*) &r, p1, p2, (void*) BEGIN_PERCENT_ENCODING_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_PERCENT_ENCODING_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            detect((void*) &r, p1, p2, (void*) BEGIN_PERCENT_ENCODING_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_PERCENT_ENCODING_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

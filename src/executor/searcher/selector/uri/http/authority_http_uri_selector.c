@@ -34,7 +34,7 @@
 #include "../../../../../executor/representer/deserialiser/uri/http/fragment_http_uri_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/uri/http/path_http_uri_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/uri/http/query_http_uri_deserialiser.c"
-#include "../../../../../executor/searcher/detector/array_detector.c"
+#include "../../../../../executor/detector/detector.c"
 #include "../../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../../logger/logger.c"
 #include "../../../../../variable/type_size/integral_type_size.c"
@@ -61,7 +61,7 @@ void select_http_uri_authority(void* p0, void* p1, void* p2, void* p3, void* p4)
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) PATH_BEGIN_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PATH_BEGIN_SEPARATOR_URI_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p3, p4, (void*) PATH_BEGIN_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PATH_BEGIN_SEPARATOR_URI_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -74,7 +74,7 @@ void select_http_uri_authority(void* p0, void* p1, void* p2, void* p3, void* p4)
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) QUERY_BEGIN_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) QUERY_BEGIN_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p3, p4, (void*) QUERY_BEGIN_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) QUERY_BEGIN_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -87,7 +87,7 @@ void select_http_uri_authority(void* p0, void* p1, void* p2, void* p3, void* p4)
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect_array((void*) &r, p3, p4, (void*) FRAGMENT_BEGIN_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FRAGMENT_BEGIN_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p3, p4, (void*) FRAGMENT_BEGIN_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FRAGMENT_BEGIN_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

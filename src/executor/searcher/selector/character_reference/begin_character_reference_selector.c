@@ -34,7 +34,7 @@
 #include "../../../../executor/representer/deserialiser/character_reference/decimal_numeric_character_reference_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/character_reference/entity_character_reference_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/character_reference/hexadecimal_numeric_character_reference_deserialiser.c"
-#include "../../../../executor/searcher/detector/array_detector.c"
+#include "../../../../executor/detector/detector.c"
 #include "../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../logger/logger.c"
 
@@ -74,7 +74,7 @@ void select_character_reference_begin(void* p0, void* p1, void* p2) {
 
         // CAUTION! Set last flag to "true", so that the pointer is
         // moved forward and only the actual character reference remains.
-        detect_array((void*) &r, p1, p2, (void*) BEGIN_HEXADECIMAL_NUMERIC_CHARACTER_REFERENCE_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_HEXADECIMAL_NUMERIC_CHARACTER_REFERENCE_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p1, p2, (void*) BEGIN_HEXADECIMAL_NUMERIC_CHARACTER_REFERENCE_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_HEXADECIMAL_NUMERIC_CHARACTER_REFERENCE_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -86,7 +86,7 @@ void select_character_reference_begin(void* p0, void* p1, void* p2) {
 
         // CAUTION! Set last flag to "true", so that the pointer is
         // moved forward and only the actual character reference remains.
-        detect_array((void*) &r, p1, p2, (void*) BEGIN_DECIMAL_NUMERIC_CHARACTER_REFERENCE_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_DECIMAL_NUMERIC_CHARACTER_REFERENCE_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p1, p2, (void*) BEGIN_DECIMAL_NUMERIC_CHARACTER_REFERENCE_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_DECIMAL_NUMERIC_CHARACTER_REFERENCE_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -98,7 +98,7 @@ void select_character_reference_begin(void* p0, void* p1, void* p2) {
 
         // CAUTION! Set last flag to "true", so that the pointer is
         // moved forward and only the actual character reference remains.
-        detect_array((void*) &r, p1, p2, (void*) BEGIN_ENTITY_CHARACTER_REFERENCE_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_ENTITY_CHARACTER_REFERENCE_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p1, p2, (void*) BEGIN_ENTITY_CHARACTER_REFERENCE_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_ENTITY_CHARACTER_REFERENCE_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
