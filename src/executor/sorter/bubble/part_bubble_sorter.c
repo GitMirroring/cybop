@@ -34,9 +34,9 @@
 #include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/checker/operation_checker.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/comparator/lexicographical_comparator.c"
+#include "../../../executor/copier/array_copier.c"
 #include "../../../executor/sorter/bubble/criterion_bubble_sorter.c"
 #include "../../../logger/logger.c"
 
@@ -62,12 +62,8 @@ void sort_bubble_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort bubble part.");
 
     // The left part.
-    // CAUTION! Initialise with given left operand.
-    // CAUTION! Use as pointer reference, since this is a compound part.
     void* lp = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The right part.
-    // CAUTION! Initialise with given right operand.
-    // CAUTION! Use as pointer reference, since this is a compound part.
     void* rp = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
@@ -127,16 +123,7 @@ void sort_bubble_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        //?? TEST
-        int TEST_COUNT = 0;
-        if (*((int*) lmc) < *((int*) rmc)) {
-            copy_integer((void*) &TEST_COUNT, lmc);
-        } else {
-            copy_integer((void*) &TEST_COUNT, rmc);
-        }
-
-        //?? TODO: Replace NUMBER_1_INTEGER_STATE_CYBOI_MODEL with actual "result count".
-        compare_lexicographical(p0, lmd, rmd, p3, ltd, (void*) &TEST_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, lmc, rmc, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        check_operation(p0, lmd, rmd, lmc, rmc, p3, ltd);
 
     } else {
 

@@ -11,16 +11,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-Comparison
-__________
-
-        * Edit file "part_bubble_sorter.c" and eliminate TODO and TEST sections
-        * Verify functionality of checker with parts for which deep comparison is necessary
-
-        * Rename file "operation_checker.c" into "lexer.c" (NOT "checker.c", since already used in "controller/")
-        * Rename all "checker" into "lexer"
-        * Rename function call of "check_operation" into "lex" in all code and adapt include
-
 Searching
 _________
 
@@ -45,11 +35,6 @@ _______
         * Look for new sorting ideas (linear, binär, sortieren) in:
             tmp/datetime/plate_-_programmieren_in_c_datumsberechnung.html (8 Ausgewählte Algorithmen (Teil 1) | 8.5 Suchen und Sortieren)
         * Implement cybol operations for calculating statistical things
-
-Arbitrary-precision arithmetic (Langzahlarithmetik)
-___________________________________________________
-
-        * See file "design_decisions.txt" and search for "Arbitrary-precision arithmetic (Langzahlarithmetik)"
 
 Repertoire
 __________
@@ -508,6 +493,8 @@ ___
 Mathematics
 ___________
 
+        * See file "design_decisions.txt" and search for "Arbitrary-precision arithmetic (Langzahlarithmetik)"
+
         * Implement cybol operations for calculating mathematical things:
             tmp/datetime/plate_-_programmieren_in_c_datumsberechnung.html (8 Ausgewählte Algorithmen (Teil 1) | 8.3 Numerik)
             - Primzahlen, Auflösen arithmetischer Ausdrücke, Nullstellenberechnung, Numerische Integration, Gausselimination (lin. Gleichungen)
@@ -580,6 +567,10 @@ _____________
         * Use "overwrite" instead of "copy_integer" for setting the result in operations like "calculate" etc.
             the reason is that the result value might have a count of zero (and not one as expected), if it hadn't been initialised within the corresponding cybol application
             already done for "apply_compare"; see there
+
+        * Rename file "operation_checker.c" into "lexer.c" (NOT "checker.c", since already used in "controller/")
+        * Rename all "checker" into "lexer"
+        * Rename function call of "check_operation" into "lex" in all code and adapt include
 
 Hello, World!
 _____________
