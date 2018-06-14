@@ -14,11 +14,10 @@
 Searching
 _________
 
-        * Move cybol operations for "prefix", "suffix", "subsequence", "all" from "executor/comparator/" to "executor/searcher/"
+        * Rename directory "executor/searcher/name_finder/" into just "executor/searcher/finder/"
+
         * Merge almost empty directory "executor/container/" with "executor/searcher/"
-        * Use new comparator functions in "executor/searcher/name_finder/"
-        * Merge "executor/searcher/finder/" with "executor/searcher/name_finder/"
-        * Check if it is necessary to adapt function "find_array_elements" to using "check_array" instead of "compare_array", in file "array_finder.c"
+        * Implement cybol search operation offering "prefix", "suffix", "subsequence"
         * Move or remove file "selection_compare_logic_cybol_model.c"
 
         * Adapt function "count_array_element" of file "executor/accessor/counter/array_counter.c" using new searcher / finder for filter string and selection
@@ -30,7 +29,7 @@ _______
         CONTINUE:
         * Add sort operation property "descending" and use "ascending" as default
         * Figure out how to sort capital/small letters, German Umlauts etc.
-        * Implement missing cybol operations "insertion", "quick", "selection" in cyboi
+        * Implement missing cybol operations "sort/insertion", "sort/quick", "sort/selection" in cyboi
 
         * Look for new sorting ideas (linear, binär, sortieren) in:
             tmp/datetime/plate_-_programmieren_in_c_datumsberechnung.html (8 Ausgewählte Algorithmen (Teil 1) | 8.5 Suchen und Sortieren)
@@ -106,6 +105,8 @@ ___
 
 CYBOL Application
 _________________
+
+        * Reorganise cybol example application directory using sub categories
 
         * Rewrite cybol example application "clean_result_directory"
             - make PIPES work in cyboi (e.g. as named pipes in the background), before continuing, needed for: n=$(ls -a $1 | wc -l);
