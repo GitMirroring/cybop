@@ -33,7 +33,7 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/detector/detector.c"
-#include "../../../../executor/searcher/mover/position_mover.c"
+#include "../../../../executor/mover/mover.c"
 #include "../../../../logger/logger.c"
 
 //
@@ -127,7 +127,7 @@ void select_knowledge_end(void* p0, void* p1, void* p2, void* p3) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Move position by one if nothing was found.
-        move_position(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        move(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 

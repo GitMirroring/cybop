@@ -36,7 +36,7 @@
 #include "../../../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/representer/deserialiser/xdt/part_record_xdt_deserialiser.c"
-#include "../../../../executor/searcher/mover/position_mover.c"
+#include "../../../../executor/mover/mover.c"
 #include "../../../../logger/logger.c"
 
 //
@@ -154,7 +154,7 @@ fwprintf(stdout, L"TEST select xdt field hierarchy dependency hierarchy: %i\n", 
             // Only this way, the end of the current record can be detected.
             // This is not very convenient and efficient, but the only way
             // in which this is possible when processing xdt data.
-            move_position(p3, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p9, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            move(p3, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p9, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 

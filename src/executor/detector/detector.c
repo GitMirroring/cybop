@@ -32,7 +32,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/checker/operation_checker.c"
-#include "../../executor/searcher/mover/position_mover.c"
+#include "../../executor/mover/mover.c"
 #include "../../logger/logger.c"
 
 /**
@@ -91,7 +91,7 @@ void detect(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
                         if (*m != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                            move_position(p1, p2, p4, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+                            move(p1, p2, p4, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
                         }
                     }
 

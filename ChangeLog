@@ -24,6 +24,7 @@
         * Delete directory "executor/searcher/finder/", since it is not used anywhere
         * Rename directory "executor/searcher/name_finder/" into "executor/searcher/finder/"
         * Move and rename file "executor/searcher/detector/array_detector.c" to "executor/detector/detector.c"
+        * Move and rename file "executor/searcher/mover/position_mover.c" to "executor/mover/mover.c"
 
 2018-06-13  Christian Heller  <christian.heller@tuxtax.de>
 

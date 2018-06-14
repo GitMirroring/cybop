@@ -33,7 +33,7 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/representer/deserialiser/percent_encoding/character_percent_encoding_deserialiser.c"
 #include "../../../../executor/detector/detector.c"
-#include "../../../../executor/searcher/mover/position_mover.c"
+#include "../../../../executor/mover/mover.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -88,7 +88,7 @@ void select_percent_encoding_begin(void* p0, void* p1, void* p2) {
             modify_item(p0, *d, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
             // CAUTION! The data are available as multibyte (NOT wide) character sequence.
-            move_position(p1, p2, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            move(p1, p2, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
         }
 
     } else {

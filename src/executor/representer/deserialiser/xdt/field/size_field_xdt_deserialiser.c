@@ -33,7 +33,7 @@
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../../executor/representer/deserialiser/cybol/integer/primitive_value_integer_cybol_deserialiser.c"
-#include "../../../../../executor/searcher/mover/position_mover.c"
+#include "../../../../../executor/mover/mover.c"
 #include "../../../../../logger/logger.c"
 
 /**
@@ -63,7 +63,7 @@ void deserialise_xdt_field_size(void* p0, void* p1, void* p2, void* p3) {
             deserialise_cybol_integer_value_primitive(p0, *sd, p3, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
             // Move position.
-            move_position(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            move(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
         }
 
     } else {

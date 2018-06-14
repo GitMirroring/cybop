@@ -31,7 +31,7 @@
 #include "../../../../constant/name/xml/xml_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/detector/detector.c"
-#include "../../../../executor/searcher/mover/position_mover.c"
+#include "../../../../executor/mover/mover.c"
 #include "../../../../logger/logger.c"
 #include "../../../../variable/type_size/integral_type_size.c"
 
@@ -71,7 +71,7 @@ void select_xml_attribute_value(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        move_position(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        move(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 

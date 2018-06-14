@@ -31,7 +31,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/http_request_uri/http_request_uri_name.c"
 #include "../../../../executor/representer/deserialiser/uri/http_uri_deserialiser.c"
-#include "../../../../executor/searcher/mover/position_mover.c"
+#include "../../../../executor/mover/mover.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -67,7 +67,7 @@ void select_absolute_path_http_request_uri(void* p0, void* p1, void* p2, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        move_position(p3, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        move(p3, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 

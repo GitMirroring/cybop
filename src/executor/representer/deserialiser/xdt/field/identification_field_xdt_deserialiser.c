@@ -32,7 +32,7 @@
 #include "../../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../../executor/copier/pointer_copier.c"
-#include "../../../../../executor/searcher/mover/position_mover.c"
+#include "../../../../../executor/mover/mover.c"
 #include "../../../../../logger/logger.c"
 
 /**
@@ -63,7 +63,7 @@ void deserialise_xdt_field_identification(void* p0, void* p1, void* p2, void* p3
         calculate_integer_add(p1, p4);
     }
 
-    move_position(p2, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    move(p2, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 }
 
 /* IDENTIFICATION_FIELD_XDT_DESERIALISER_SOURCE */

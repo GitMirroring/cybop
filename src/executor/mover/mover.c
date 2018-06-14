@@ -26,15 +26,15 @@
 #ifndef POSITION_MOVER_SOURCE
 #define POSITION_MOVER_SOURCE
 
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/calculator/pointer/add_pointer_calculator.c"
-#include "../../../executor/calculator/integer/multiply_integer_calculator.c"
-#include "../../../executor/calculator/integer/subtract_integer_calculator.c"
-#include "../../../logger/logger.c"
-#include "../../../variable/type_size/integral_type_size.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../executor/calculator/pointer/add_pointer_calculator.c"
+#include "../../executor/calculator/integer/multiply_integer_calculator.c"
+#include "../../executor/calculator/integer/subtract_integer_calculator.c"
+#include "../../logger/logger.c"
+#include "../../variable/type_size/integral_type_size.c"
 
 /**
  * Moves the current parsing position by element count
@@ -46,7 +46,7 @@
  * @param p3 the count
  * @param p4 the backward flag
  */
-void move_position(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void move(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Move position.");
 

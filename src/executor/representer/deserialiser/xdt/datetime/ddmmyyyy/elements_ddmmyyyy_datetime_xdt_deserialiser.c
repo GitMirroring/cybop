@@ -32,7 +32,7 @@
 #include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../../executor/calculator/pointer/add_pointer_calculator.c"
 #include "../../../../../../executor/representer/deserialiser/cybol/integer/primitive_value_integer_cybol_deserialiser.c"
-#include "../../../../../../executor/searcher/mover/position_mover.c"
+#include "../../../../../../executor/mover/mover.c"
 #include "../../../../../../logger/logger.c"
 
 /**
@@ -68,9 +68,9 @@ void deserialise_xdt_datetime_ddmmyyyy_elements(void* p0, void* p1) {
     // CAUTION! Process numbers in this order: d/m/y.
     // It should also work the other way around, but to
     // be sure, the source is read from left to right.
-    move_position((void*) &ds, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-    move_position((void*) &ms, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-    move_position((void*) &ys, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    move((void*) &ds, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    move((void*) &ms, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    move((void*) &ys, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     // Deserialise year/month/day source.
     // CAUTION! Process numbers in this order: d/m/y.
