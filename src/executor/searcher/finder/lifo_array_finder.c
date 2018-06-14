@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef LIFO_ARRAY_NAME_FINDER_SOURCE
-#define LIFO_ARRAY_NAME_FINDER_SOURCE
+#ifndef LIFO_ARRAY_FINDER_SOURCE
+#define LIFO_ARRAY_FINDER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -47,9 +47,9 @@
  * @param p3 the searched name count
  * @param p4 the investigated count
  */
-void find_name_array_lifo(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void find_array_lifo(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find name array lifo.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find array lifo.");
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -116,5 +116,5 @@ void find_name_array_lifo(void* p0, void* p1, void* p2, void* p3, void* p4) {
     }
 }
 
-/* LIFO_ARRAY_NAME_FINDER_SOURCE */
+/* LIFO_ARRAY_FINDER_SOURCE */
 #endif

@@ -23,14 +23,14 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ARRAY_NAME_FINDER_SOURCE
-#define ARRAY_NAME_FINDER_SOURCE
+#ifndef ARRAY_FINDER_SOURCE
+#define ARRAY_FINDER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/unequal_integer_comparator.c"
-#include "../../../executor/searcher/name_finder/fifo_array_name_finder.c"
-#include "../../../executor/searcher/name_finder/lifo_array_name_finder.c"
+#include "../../../executor/searcher/finder/fifo_array_finder.c"
+#include "../../../executor/searcher/finder/lifo_array_finder.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -43,9 +43,9 @@
  * @param p4 the investigated count
  * @param p5 the lifo flag (use last-in-first-out instead of first-in-first-out)
  */
-void find_name_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void find_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find name array.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find array.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -56,15 +56,15 @@ void find_name_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
         // The lifo flag IS set.
 
-        find_name_array_lifo(p0, p1, p2, p3, p4);
+        find_array_lifo(p0, p1, p2, p3, p4);
 
     } else {
 
         // The lifo flag is NOT set.
 
-        find_name_array_fifo(p0, p1, p2, p3, p4);
+        find_array_fifo(p0, p1, p2, p3, p4);
     }
 }
 
-/* ARRAY_NAME_FINDER_SOURCE */
+/* ARRAY_FINDER_SOURCE */
 #endif

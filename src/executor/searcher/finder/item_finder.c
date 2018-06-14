@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ITEM_NAME_FINDER_SOURCE
-#define ITEM_NAME_FINDER_SOURCE
+#ifndef ITEM_FINDER_SOURCE
+#define ITEM_FINDER_SOURCE
 
 #include <stdlib.h>
 #include <string.h>
@@ -42,9 +42,9 @@
  * @param p2 the searched name data
  * @param p3 the searched name count
  */
-void find_name_item_element(void* p0, void* p1, void* p2, void* p3) {
+void find_item_element(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find name item element.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find item element.");
 
     // The investigated item data, count.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -55,7 +55,7 @@ void find_name_item_element(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Find the searched name array in the investigated item data array.
-    find_name_array(p0, d, p2, c, p3);
+    find_array(p0, d, p2, c, p3);
 }
 
 /**
@@ -65,9 +65,9 @@ void find_name_item_element(void* p0, void* p1, void* p2, void* p3) {
  * @param p1 the investigated item (each element pointing to a part)
  * @param p2 the searched name item
  */
-void find_name_item(void* p0, void* p1, void* p2) {
+void find_item(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find name item.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find item.");
 
     // The investigated item data, count.
     void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -84,8 +84,8 @@ void find_name_item(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &sc, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Find the searched name item data array in the investigated item data array.
-    find_name_array(p0, id, sd, ic, sc);
+    find_array(p0, id, sd, ic, sc);
 }
 
-/* ITEM_NAME_FINDER_SOURCE */
+/* ITEM_FINDER_SOURCE */
 #endif

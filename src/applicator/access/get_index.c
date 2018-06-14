@@ -27,11 +27,10 @@
 #define GET_INDEX_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/access/get_index_access_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/searcher/name_finder/array_name_finder.c"
+#include "../../executor/searcher/finder/array_finder.c"
 #include "../../logger/logger.c"
 
 /**
@@ -99,7 +98,7 @@ void apply_get_index(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &wmc, wm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Determine index of searched part within whole.
-    find_name_array(imd, wmd, pmd, pmc, wmc, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    find_array(imd, wmd, pmd, pmc, wmc, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 }
 
 /* GET_INDEX_SOURCE */

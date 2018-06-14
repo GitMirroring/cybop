@@ -22,6 +22,7 @@
 
         * Clean up file "part_bubble_sorter.c"
         * Delete directory "executor/searcher/finder/", since it is not used anywhere
+        * Rename directory "executor/searcher/name_finder/" into "executor/searcher/finder/"
 
 2018-06-13  Christian Heller  <christian.heller@tuxtax.de>
 

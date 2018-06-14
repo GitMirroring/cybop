@@ -14,8 +14,6 @@
 Searching
 _________
 
-        * Rename directory "executor/searcher/name_finder/" into just "executor/searcher/finder/"
-
         * Merge almost empty directory "executor/container/" with "executor/searcher/"
         * Implement cybol search operation offering "prefix", "suffix", "subsequence"
         * Move or remove file "selection_compare_logic_cybol_model.c"

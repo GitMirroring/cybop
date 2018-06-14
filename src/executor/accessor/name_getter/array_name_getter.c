@@ -30,7 +30,7 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/searcher/name_finder/array_name_finder.c"
+#include "../../../executor/searcher/finder/array_finder.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -51,7 +51,7 @@ void get_name_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Determine index of searched part.
-    find_name_array((void*) &i, p1, p2, p3, p4, p5);
+    find_array((void*) &i, p1, p2, p3, p4, p5);
 
     if (i > *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 

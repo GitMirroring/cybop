@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PART_NAME_FINDER_SOURCE
-#define PART_NAME_FINDER_SOURCE
+#ifndef PART_FINDER_SOURCE
+#define PART_FINDER_SOURCE
 
 #include "../../../constant/format/cybol/number_cybol_type.c"
 #include "../../../constant/format/cybol/path_cybol_type.c"
@@ -46,9 +46,9 @@
  * @param p3 the searched name count
  * @param p4 the investigated index
  */
-void find_name_part_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void find_part_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find name part element.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find part element.");
 
     // The investigated part.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -57,7 +57,7 @@ void find_name_part_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &i, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p4);
 
     // Find the searched item in the investigated item.
-    find_name_item_element(p0, i, p2, p3);
+    find_item_element(p0, i, p2, p3);
 }
 
 /**
@@ -67,9 +67,9 @@ void find_name_part_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
  * @param p1 the investigated part (each element pointing to a part)
  * @param p2 the searched name part
  */
-void find_name_part(void* p0, void* p1, void* p2) {
+void find_part(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find name part.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find part.");
 
     // The investigated part.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -82,8 +82,8 @@ void find_name_part(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &s, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
 
     // Find the searched name item in the investigated item.
-    find_name_item(p0, i, s);
+    find_item(p0, i, s);
 }
 
-/* PART_NAME_FINDER_SOURCE */
+/* PART_FINDER_SOURCE */
 #endif
