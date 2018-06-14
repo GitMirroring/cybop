@@ -11,36 +11,23 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-Searching
-_________
+CONTINUE AND FINISH
+___________________
 
-        * Merge almost empty directory "executor/container/" with "executor/searcher/"
-        * Implement cybol search operation offering "prefix", "suffix", "subsequence"
-        * Move or remove file "selection_compare_logic_cybol_model.c"
-
-        * Adapt function "count_array_element" of file "executor/accessor/counter/array_counter.c" using new searcher / finder for filter string and selection
-        * Adapt corresponding cybol example application "get_count"
-
-Sorting
-_______
-
-        * Add sort operation property "descending" and use "ascending" as default
-        * Figure out how to sort capital/small letters, German Umlauts etc.
-        * Implement missing cybol operations "sort/insertion", "sort/quick", "sort/selection" in cyboi
-
-        * Look for new sorting ideas (linear, binär, sortieren) in:
-            tmp/datetime/plate_-_programmieren_in_c_datumsberechnung.html (8 Ausgewählte Algorithmen (Teil 1) | 8.5 Suchen und Sortieren)
-        * Implement cybol operations for calculating statistical things
+        * Extend cybol operation "sort/bubble" with boolean property "descending" and use "ascending" as default
+        * Remove fix-compiled operation in file "swap_bubble_sorter.c"
+        * Test with cybol example application "repertoire"
 
 Repertoire
 __________
 
+        * Consider already existing directory "executor/packer/"
         * Reflect on reading a cybol app as zip file (e.g. with suffix "cyboz" or "cyboa")
         * Use the same code for reading zip and directory, since both consist of files
         * Use new cybol channel "directory" for reading in files of directory "repertoire/db/song/" in cybol example application "repertoire"
             SEE file "repertoire/db.cybol"
 
-        * Implement cybol operation "search" or "find" in cyboi
+        * Implement cybol operation "find" in cyboi
         * Adjust removal of added items from "remain" node in directory "repertoire/logic/translate/round/"
         * Add "remain" nodes to last section of wui "round"
             How to reuse file "round.cybol" for last iteration of "remain" songs?
@@ -126,6 +113,28 @@ _________________
         * Delete operation "create" at beginning of "run.cybol" and initialise to knowledge memory root "." instead
         * Replace all code where knowledge path was assembled manually a la "[index]" --> search for "["
             --> many operations only adding path elements or an index like "[", "index", "]" may get deleted in the future
+
+Searching
+_________
+
+        * Add cybol operation "search/??" offering properties:
+            - criterion (filter): as actual value to be found
+            - filter (or selection): the latter with possible values "prefix", "suffix", "subsequence"
+        * Add matching parts to result (destination) part tree node that was handed over
+        * Move or remove file "selection_compare_logic_cybol_model.c"
+
+        * Adapt function "count_array_element" of file "executor/accessor/counter/array_counter.c" using new finder for "filter" string and "selection"
+        * Adapt corresponding cybol example application "get_count"
+
+Sorting
+_______
+
+        * Figure out how to sort capital/small letters, German Umlauts etc. (currently, Unicode number is taken for comparison)
+        * Implement missing cybol operations "sort/insertion", "sort/quick", "sort/selection" in cyboi
+
+        * Look for new sorting ideas (linear, binär, sortieren) in:
+            tmp/datetime/plate_-_programmieren_in_c_datumsberechnung.html (8 Ausgewählte Algorithmen (Teil 1) | 8.5 Suchen und Sortieren)
+        * Implement cybol operations for calculating statistical things
 
 String
 ______
@@ -570,6 +579,11 @@ _____________
         * Rename all "checker" into "lexer"
         * Rename function call of "check_operation" into "lex" in all code and adapt include
 
+        * Update directory "executor/container/"
+
+        * Rename "internal memory" into "system memory"
+        * Rename looping files to either (1) plural + singular, e.g. shutdown_services + shutdown service or (2) container + element, e.g. shutdown_list + shutdown_element
+
 Hello, World!
 _____________
 
@@ -693,8 +707,8 @@ _________
         * Provide new container functions returning a collection as extract, following some filter/search criteria
         * Do container search depending on given cybol knowledge path similar to jQuery or XPath?
 
-Executor
-________
+De-/Serialiser
+______________
 
         * Implement part serialiser called from file "cybol_serialiser.c"
         * Move de-/serialisers for primitive types out of directory "cybol/" up one level, since they are used not only in cybol, but in many de-/serialisers
@@ -800,12 +814,6 @@ ____________
         * Move long-lasting operations into an own thread, using a cybol operation
         * Keep a "future" as handle to that operation/thread/its results
         * Call long-lasting operation early in cybol, so that other operations may be processed meanwhile
-
-Cosmetics
-_________
-
-        * Rename "internal memory" into "system memory"
-        * Rename looping files to either (1) plural + singular, e.g. shutdown_services + shutdown service or (2) container + element, e.g. shutdown_list + shutdown_element
 
 Super
 _____
