@@ -48,8 +48,9 @@
  * @param p6 the knowledge memory part (pointer reference)
  * @param p7 the stack memory item
  * @param p8 the internal memory data
+ * @param p9 the descending flag
  */
-void sort_bubble(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void sort_bubble(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort bubble.");
 
@@ -132,7 +133,7 @@ void sort_bubble(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         calculate_integer_subtract((void*) &c, (void*) &j);
 
         // Bubble up the greater value.
-        sort_bubble_bubble(p0, p1, (void*) &s, l, r, (void*) &c, p3, p4, p5, p6, p7, p8);
+        sort_bubble_bubble(p0, p1, (void*) &s, l, r, (void*) &c, p3, p4, p5, p6, p7, p8, p9);
 
         // CAUTION! This is an optimisation.
         // Break loop if nothing is left to be sorted.

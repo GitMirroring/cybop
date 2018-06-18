@@ -31,6 +31,9 @@
 
     <node name="sort_part" channel="inline" format="sort/bubble" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".part"/>
+        <!-- optional flag
+        <node name="descending" channel="inline" format="logicvalue/boolean" model="true"/>
+        -->
     </node>
 
     <!-- addressbook part -->
@@ -47,6 +50,9 @@
             <node name="criterion" channel="inline" format="text/plain" model=".profession"/>
         -->
         <node name="criterion" channel="inline" format="text/plain" model=".last_name"/>
+        <!-- optional flag
+        <node name="descending" channel="inline" format="logicvalue/boolean" model="true"/>
+        -->
     </node>
 
 </node>

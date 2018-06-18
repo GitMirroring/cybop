@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2018-06-18  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Extend cybol operation "sort/bubble" with boolean property "descending" and use "ascending" as default
+        * Add file "executor/sorter/bubble/operation_bubble_sorter.c"
+
 2018-06-14  Christian Heller  <christian.heller@tuxtax.de>
 
         * Clean up file "part_bubble_sorter.c"

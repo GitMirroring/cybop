@@ -33,6 +33,7 @@
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
+#include "../../../executor/sorter/bubble/operation_bubble_sorter.c"
 #include "../../../executor/sorter/bubble/type_bubble_sorter.c"
 #include "../../../logger/logger.c"
 
@@ -52,8 +53,9 @@
  * @param p10 the knowledge memory part (pointer reference)
  * @param p11 the stack memory item
  * @param p12 the internal memory data
+ * @param p13 the descending flag
  */
-void sort_bubble_swap(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void sort_bubble_swap(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort bubble swap.");
 
@@ -63,8 +65,8 @@ void sort_bubble_swap(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    //?? TODO
-//??    sort_bubble_operation((void*) &o, ascending-flag-parametre);
+    // Determine sort operation type.
+    sort_bubble_operation((void*) &o, p13);
 
     // Get current value.
     copy_array_forward(p3, p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p5);

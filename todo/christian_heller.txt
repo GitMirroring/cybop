@@ -11,28 +11,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-CONTINUE AND FINISH
-___________________
-
-        * Extend cybol operation "sort/bubble" with boolean property "descending" and use "ascending" as default
-        * Remove fix-compiled operation in file "swap_bubble_sorter.c"
-        * Test with cybol example application "repertoire"
-
-Repertoire
-__________
-
-        * Consider already existing directory "executor/packer/"
-        * Reflect on reading a cybol app as zip file (e.g. with suffix "cyboz" or "cyboa")
-        * Use the same code for reading zip and directory, since both consist of files
-        * Use new cybol channel "directory" for reading in files of directory "repertoire/db/song/" in cybol example application "repertoire"
-            SEE file "repertoire/db.cybol"
-
-        * Implement cybol operation "find" in cyboi
-        * Adjust removal of added items from "remain" node in directory "repertoire/logic/translate/round/"
-        * Add "remain" nodes to last section of wui "round"
-            How to reuse file "round.cybol" for last iteration of "remain" songs?
-            Problem: the "#remain_index" is reset in file "song.cybol", which is not wanted when processing ".db.remain"
-
 GUI
 ___
 
@@ -113,6 +91,21 @@ _________________
         * Delete operation "create" at beginning of "run.cybol" and initialise to knowledge memory root "." instead
         * Replace all code where knowledge path was assembled manually a la "[index]" --> search for "["
             --> many operations only adding path elements or an index like "[", "index", "]" may get deleted in the future
+
+Repertoire
+__________
+
+        * Consider already existing directory "executor/packer/"
+        * Reflect on reading a cybol app as zip file (e.g. with suffix "cyboz" or "cyboa")
+        * Use the same code for reading zip and directory, since both consist of files
+        * Use new cybol channel "directory" for reading in files of directory "repertoire/db/song/" in cybol example application "repertoire"
+            SEE file "repertoire/db.cybol"
+
+        * Implement cybol operation "find" in cyboi
+        * Adjust removal of added items from "remain" node in directory "repertoire/logic/translate/round/"
+        * Add "remain" nodes to last section of wui "round"
+            How to reuse file "round.cybol" for last iteration of "remain" songs?
+            Problem: the "#remain_index" is reset in file "song.cybol", which is not wanted when processing ".db.remain"
 
 Searching
 _________

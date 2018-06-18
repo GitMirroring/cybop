@@ -55,6 +55,26 @@
 //
 
 /**
+ * The sort/bubble logic cybol format.
+ *
+ * Sort numbers via bubblesort-algorithm.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* BUBBLE_SORT_LOGIC_CYBOL_FORMAT = L"sort/bubble";
+static int* BUBBLE_SORT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The sort/insertion logic cybol format.
+ *
+ * Sort numbers via insertionsort-algorithm.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* INSERTION_SORT_LOGIC_CYBOL_FORMAT = L"sort/insertion";
+static int* INSERTION_SORT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The sort/quick logic cybol format.
  *
  * Sort numbers via quicksort-algorithm.
@@ -65,14 +85,14 @@ static wchar_t* QUICK_SORT_LOGIC_CYBOL_FORMAT = L"sort/quick";
 static int* QUICK_SORT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The sort/bubble logic cybol format.
+ * The sort/selection logic cybol format.
  *
- * Sort numbers via bubble-algorithm.
+ * Sort numbers via selectionsort-algorithm.
  *
  * This is a CYBOL extension.
  */
-static wchar_t* BUBBLE_SORT_LOGIC_CYBOL_FORMAT = L"sort/bubble";
-static int* BUBBLE_SORT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* SELECTION_SORT_LOGIC_CYBOL_FORMAT = L"sort/selection";
+static int* SELECTION_SORT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* SORT_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif
