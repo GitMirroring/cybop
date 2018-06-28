@@ -27,7 +27,6 @@
 #define THREADS_IO_CHECKER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../executor/logifier/boolean/and_boolean_logifier.c"
 #include "../../../executor/logifier/boolean/or_boolean_logifier.c"
