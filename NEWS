@@ -13,6 +13,294 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2018-06-18  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Extend cybol operation "sort/bubble" with boolean property "descending" and use "ascending" as default
+        * Add file "executor/sorter/bubble/operation_bubble_sorter.c" determining the sort direction
+
+2018-06-14  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Clean up file "part_bubble_sorter.c"
+        * Delete directory "executor/searcher/finder/", since it is not used anywhere
+        * Rename directory "executor/searcher/name_finder/" into "executor/searcher/finder/"
+        * Move and rename file "executor/searcher/detector/array_detector.c" to "executor/detector/detector.c"
+        * Move and rename file "executor/searcher/mover/position_mover.c" to "executor/mover/mover.c"
+        * Move directory "executor/searcher/selector/" to "executor/selector/"
+        * Move directory "executor/searcher/finder/" to "executor/finder/"
+        * Delete directory "executor/searcher/"
+
+2018-06-13  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix bug that check operation formats got deserialised into compare operations and thus the lexicographical flag not set in operation handler
+        * Remove file "compound_comparator.c" again, since file "lexicographical_comparator.c" suffices
+        * Remove file "lexicographical_part_comparator.c", since for compound parts there is always just one scalar return value, so that lexicographical comparison is used
+        * Optimise file "equal_part_comparator.c" by stopping comparison as soon as one of type, name, model, properties does not match
+        * Add new files "minimum_integer_calculator.c" and "maximum_integer_calculator.c"
+        * Determine minimum model count of operands before calling functions "compare", "calculate", "cast" (not applicable to "manipulate" and "modify")
+        * Rename existing cybol example application "calculator" into "calculator_tui"
+        * Use cybol example application "calculator" for testing arithmetic operations
+        * Provide new cybol operations "calculate/minimum" and "calculate/maximum"
+
+2018-06-11  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Try to figure out how to handle compound parts and add new file "compound_comparator.c"
+
+2018-06-05  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add file "applicator/compare/result_compare.c" for testing result part type
+        * Add files "scalar_count_comparator.c" and "vector_count_comparator.c" for testing result part count
+        * Remove unused file "executor/representer/deserialiser/cybol/fraction_cybol_deserialiser.c"
+        * Implement boolean vector cybol deserialiser, i.e. not just for one but for many values
+        * Adapt cybol example application "comparator" to using boolean result vectors and not just scalar result values
+
+2018-06-04  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt file "array_comparator.c", so that empty arrays are considered equal now, which is important for parts with empty properties
+        * Adapt file "compare.c", so that left operand part model count is used as default count value
+        * Search bug causing segmentation fault at variable "lpc" (left properties count) in files "equal_part_comparator.c" and "item_comparator.c"
+
+2018-06-01  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt lexicographical flag in file "equal_part_comparator.c"
+        * Delete cybol example application "checker", since "comparator" covers string comparison via checker as well
+        * Add new file "lexicographical_part_comparator.c"
+
+2018-05-31  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Replace constants "*_CHECK_LOGIC_CYBOI_FORMAT" with "*_COMPARE_LOGIC_CYBOI_FORMAT" in all source code, except file "operation_handler.c"
+        * Delete file "compare_bubble_sorter.c", since function "compare_lexicographical" is called from "part_bubble_sorter.c" now
+        * Remove string operation type argument, which contained "check" instead of "compare" constant, in sorter files
+
+2018-05-30  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Delegate "check" operations to "compare" in file "operation_handler.c" and set lexicographical flag
+        * Delete directory "applicator/check/", since "applicator/compare/" is used for standard as well as lexicographical comparison now
+        * Delete files "part_checker.c", "item_checker.c"
+        * Split file "elements_array_comparator.c" from file "array_comparator.c", the latter handling left and right index offset
+        * Delete file "operand_checker.c", which got replaced by new file "lexicographical_comparator.c"
+        * Rename file "array_comparator.c" into "offset_array_comparator.c"
+        * Rename file "elements_array_comparator.c" into "array_comparator.c"
+        * Split off files "vector_comparator.c" and "offset_comparator.c" from "comparator.c"
+        * Use "compare" instead of "check" logic cyboi format in file "operation_checker.c"
+
+2018-05-28  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Delete file "checking_logic_cybol_name.c" and use comparison constants instead
+        * Rename function call of "check_array" to "check_operation" in all code
+        * Implement new function call order of files: part_checker -> item_checker -> operand_checker (new) -> operation_checker (formerly array_checker) -> array_checker (formerly element_checker)
+        * Delegate function calls of checker to comparator, for primitive types, in file "operand_checker.c" (taken from file "compare_bubble_sorter.c")
+
+2018-05-23  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add operand type as argument to all calls of function "check_array"
+        * Simplify checker by deleting files "ascii_array_checker.c" and "internal_array_checker.c"
+        * Extend cybol example application "comparator" with primitive values
+        * Add new cybol example application "checker"
+        * Delete file "applicator/check/character_check.c" filtering strings, since checker is now usable for all types
+
+2018-05-14  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add new files "element_part_comparator.c", "unequal_part_comparator.c"
+        * Rollback to old state of file "part_comparator.c"
+        * Complete file "equal_part_comparator.c"
+        * Add new cybol example application "comparator"
+
+2018-05-08  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add new file "equal_part_comparator.c"
+
+2018-05-07  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add new directory "executor/verifier/" for basic verification functions such as those checking if index and count are outside a data array's boundaries
+        * Use verifier function in files "item_comparator", "item_calculator.c", "item_caster.c", "item_manipulator.c", "item_modifier.c"
+
+2018-04-30  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix sorting of db list "title" in cybol example application file "repertoire/logic/translate/song/sort.cybol", by using stack variable ".(#list)"
+        * Add properties "count", "left_index", "right_index" to cybol operation "compare"
+        * Fix comparison using sum of index and count (index forgotten up to now) in file "item_comparator"
+
+2018-04-27  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix segmentation fault error by adjusting pointer references in files of bubble sorter
+        * Test successfully with cybol example applications "sorter" and "repertoire"
+
+2018-04-25  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Investigate segmentation fault memory access errors in bubble sorter
+        * Add sequence diagram in "src/" showing function calls for sorting algorithm
+
+2018-04-23  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Split file "part_bubble_sorter.c" into several, for more overview
+        * Handle comparison criterion in files "part_bubble_sorter.c" and "criterion_bubble_sorter.c"
+        * Add comparison criterion as argument to all sort functions
+
+2018-04-22  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Continue file "part_bubble_sorter.c"
+        * Extend cybol example application "sort"
+
+2018-04-20  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Remove empty include line in all affected files
+
+2018-04-19  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Debug file "part_bubble_sorter.c" using pointer reference
+        * Make string comparison work there
+
+2018-04-17  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add file "part_bubble_sorter.c"
+
+2018-04-16  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add file "swap_bubble_sorter.c"
+
+2018-03-22  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Introduce new function "compare_vector" to file "comparator.c", adding an offset to the result and expecting it to be an array (vector)
+        * Adapt files "array_comparator.c" and "element_checker.c" correspondingly, which call functions "compare_vector" and "compare_offset", respectively
+
+2018-03-21  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Experiment with array (vector) as return value for comparison results in files "array_comparator.c", "element_checker.c", "comparator.c"
+
+2017-11-15  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Test dereferenced pointers for null in all files of pointer calculator, so that function "add_offset" does not produce wild pointers
+        * Replace function call of "compare_element" with new checker in function "count_array_element" of file "executor/accessor/counter/array_counter.c"
+        * Adapt corresponding cybol example application "get_count"
+
+2017-11-14  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Replace function call of "compare_all_part_element" with new checker in functions "find_name_array_fifo" and "find_name_array_lifo" of directory "executor/searcher/name_finder/"
+        * Eliminate bug causing cybol example applications to not run at all, thereby
+
+2017-11-11  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add file "controller/tester.c" for writing a part's model and properties to a file
+
+2017-10-18  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Replace function call of "compare_all_array" with "check_array"
+        * Provide function "check_array_ascii" for type "character", to be used in file "header_field_http_request_selector.c"
+        * Remove property "selection" with value "all" for cybol operations "compare/", in all cybol example applications
+        * Search bug causing cybol example applications to not run at all
+
+2017-10-12  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Optimise lexicographical comparison functions in checker, by deleting redundant functions and using parametres instead
+        * Replace cybol example application "string_comparison" with "lexicographical_comparison"
+        * Remove "all" comparator in directory "executor/comparator/"
+        * Rename "value_comparator.c" into "comparator.c"
+
+2017-10-11  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Replace cybol operation "compare/equal" with "check/equal" and remove property "selection" with value "all", in all cybol examples, for "text/plain"
+        * Optimise checker, since it applies only to type "wide_character", because others may be compared internally and serialised afterwards
+        * Add remaining lexicographical comparison functions to directory "executor/checker/"
+
+2017-10-09  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Rethink usage of "count" in checker for lexicographical comparison
+        * Add "check" operation constants, cybol de-/serialiser entry, operation handler section, directory "applicator/check/"
+        * Test cybol application "string_comparison" successfully with new cybol operation "check/equal"
+
+2017-09-27  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Replace direct comparison with function "compare_integer_equal" in several files of directory "executor/comparator/"
+        * Continue checker for lexicographical comparison
+
+2017-09-26  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add directory "executor/checker/" for lexicographical comparison
+
+2017-09-13  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Replace direct comparison with function "compare_integer_equal" in file "value_comparator.c"
+        * Optimise comparator and restructure directory "executor/comparator/" with focus on part | item | array
+        * Remove prefix-, suffix-, subsequence comparator
+        * Rename cybol operation "smaller" and "smaller-or-equal" into "less" and "less-or-equal"
+
+2017-06-05  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Complete bubble sorter
+        * Decide that a "swapper" is not needed, since values are copied inside the sorter already
+        * Adapt cybol example application "sorter"
+
+2017-06-03  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Implement bubble sorter
+
+2017-06-02  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Prepare new sort operations
+
+2017-05-15  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add error codes to file stream reader/writer
+        * Add directory stream reader/writer
+
+2017-05-02  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add cybol example application "repertoire"
+
+2017-04-29  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt html serialiser to allow flexible document type
+
+2017-04-26  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Optimise caster and restructure directory "executor/caster/" with focus on part | item | array
+
+2017-04-25  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Rename "value_logifier.c" into "logifier.c"
+
+2017-04-24  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Optimise calculator and restructure directory "executor/calculator/" with focus on part | item | array
+
+2017-04-20  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt applicators for operations "cast" | "compare" | "logify" | "manipulate" to use the type of one operand instead of explicitly given property
+        * Delete superfluous property "type" for casting operations like "cast/integer" or "cast/double" in all cybol example applications
+        * Delete superfluous property "type" for comparison operations like "compare/equal" or "compare/greater-or-equal" in all cybol example applications
+        * Delete superfluous property "type" for boolean logic operations like "logify/and" or "logify/or" in all cybol example applications
+        * Delete superfluous property "type" for bit manipulation operations like "manipulate/shift-left" or "manipulate/rotate-right" in all cybol example applications
+
+2017-04-18  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt applicator for operation "calculate" to use the type of one operand instead of explicitly given property
+        * Delete superfluous property "type" for arithmetic operations like "calculate/add" or "calculate/subtract" in all cybol example applications
+
+2017-04-13  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Use io entry structure in files "x_window_system_starter.c" and "x_window_system_shutter.c"
+        * Remove old display internal memory state cyboi name constants
+
+2017-04-12  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Prepare reactivation of x window system with new io entry structure for storage in internal memory
+
+2017-04-11  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix potential memory leak on reallocation error in file "array_reallocator.c"
+        * Move create functionality of directory "executor/memoriser/creator/" to "applicator/memorise/"
+        * Rename property "element" into "whole_properties" for cybol operation "memorise/create"
+        * Rename property "model" into "part" for cybol operation "memorise/destroy"
+        * Adapt all cybol example applications
+
+--
+
+CYBOP 0.20.0, 2018-06-30, Christian Heller  <christian.heller@tuxtax.de>
+
+        * CYBOI:
+        * CYBOL:
+        * Project:
+
 CYBOP 0.19.0, 2017-04-09, Christian Heller  <christian.heller@tuxtax.de>
 
         * CYBOI:

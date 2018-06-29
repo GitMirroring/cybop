@@ -7,7 +7,7 @@
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
 # @version CYBOP 0.19.0 2017-04-10
-# @author Christian Heller <christian.heller@tuxtax.de>
+# @author Christian Heller <christian.heller@cybop.org>
 #
 
 Source Code

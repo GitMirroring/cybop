@@ -8,13 +8,13 @@ SET(CMAKE_C_FLAGS "--coverage")
 # --- define tests as executables --- #
 # TODO: would be great to add an executable for all the c files we found in the test
 # so we don't need to adjust this config if we add new test files
-add_executable(character_manipulator_test ../test/executor/manipulator/character_manipulator_tester.c)
+#add_executable(character_manipulator_test ../test/executor/manipulator/character_manipulator_tester.c)
 add_executable(constant_test ../test/constant/constant_tester.c)
-add_executable(compare_double_test ../test/executor/comparator/compare_double_tester.c)
-add_executable(compare_pointer_test ../test/executor/comparator/compare_pointer_tester.c)
+#add_executable(compare_double_test ../test/executor/comparator/compare_double_tester.c)
+#add_executable(compare_pointer_test ../test/executor/comparator/compare_pointer_tester.c)
 # add_executable(double_caster_test ../test/executor/caster/double_caster_tester.c)
-add_executable(integer_calculator_test ../test/executor/calculator/integer_calculator_tester.c)
-add_executable(sleeper_test ../test/executor/runner/sleeper_tester.c)
+#add_executable(integer_calculator_test ../test/executor/calculator/integer_calculator_tester.c)
+#add_executable(sleeper_test ../test/executor/runner/sleeper_tester.c)
 add_executable(variable_test ../test/variable/variable_tester.c)
 
 add_test(character_manipulator_test ../test/character_manipulator_test)

@@ -2,7 +2,7 @@
 # The project-specific variables.
 #
 set(CPACK_PACKAGE_NAME "cybop")
-set(CPACK_PACKAGE_CONTACT "christian.heller@tuxtax.de")
+set(CPACK_PACKAGE_CONTACT "christian.heller@cybop.org")
 set(CPACK_PACKAGE_DESCRIPTION_FILE "${ROOT_DIR}/README")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>")
 set(CPACK_RESOURCE_FILE_LICENSE "${ROOT_DIR}/COPYING")
