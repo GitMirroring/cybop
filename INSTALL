@@ -395,17 +395,18 @@ ___________
 
     cd /home/cybop/build
 
-- Run the cpack command (automatically calls adjust copyright script):
+- Run the cpack command (file gets created in current working directory):
 
     cpack
 
-- Create GPG binary signature for tarball file, e.g.:
+- Create GPG binary signature for tarball file (file gets created in current working directory), e.g.:
 
     gpg -b --use-agent cybop-0.19.0.tar.gz
 
-- Give read permissions to files:
+- Give read permissions to files, e.g.:
 
-    chmod 644 *
+    chmod 644 cybop-0.19.0.tar.gz
+    chmod 644 cybop-0.19.0.tar.gz.sig
 
 - Upload files:
 
