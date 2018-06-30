@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2017. Christian Heller.
+ * Copyright (C) 1999-2018. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -19,8 +19,8 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.19.0 2017-04-10
- * @author Christian Heller <christian.heller@tuxtax.de>
+ * @version CYBOP 0.20.0 2018-06-30
+ * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef HELP_CYBOI_MODEL_CONSTANT_SOURCE
@@ -52,7 +52,7 @@ static wchar_t* EXAMPLES_HELP_CYBOI_MODEL = L"Examples:\n"
 static int* EXAMPLES_HELP_CYBOI_MODEL_COUNT = NUMBER_160_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The bugs help cyboi model. */
-static wchar_t* BUGS_HELP_CYBOI_MODEL = L"Report bugs to <cybop-developers@nongnu.org> or <christian.heller@tuxtax.de>.";
+static wchar_t* BUGS_HELP_CYBOI_MODEL = L"Report bugs to <cybop-developers@nongnu.org> or <christian.heller@cybop.org>.";
 static int* BUGS_HELP_CYBOI_MODEL_COUNT = NUMBER_77_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* HELP_CYBOI_MODEL_CONSTANT_SOURCE */

@@ -1,5 +1,5 @@
 <!--
-    Copyright (C) 1999-2017. Christian Heller.
+    Copyright (C) 1999-2018. Christian Heller.
 
     This knowledge model uses the Cybernetics Oriented Language (CYBOL).
 
@@ -19,7 +19,7 @@
     Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
     CYBOP Developers <cybop-developers@nongnu.org>
 
-    @version CYBOP 0.19.0 2017-04-10
+    @version CYBOP 0.20.0 2018-06-30
     @slogan Tic Tac Toe
     @author Sandra Rum, Stephan Griese
     @helpers Christian Heller

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2017. Christian Heller.
+ * Copyright (C) 1999-2018. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -17,10 +17,10 @@
  * along with CYBOI.  If not, see <http://www.gnu.org/licenses/>.
  *
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org>
- * Christian Heller <christian.heller@tuxtax.de>
+ * Christian Heller <christian.heller@cybop.org>
  *
  * @version $RCSfile: cyboi_system_sending_communicator.c,v $ $Revision: 1.6 $ $Date: 2009-01-31 16:06:29 $ $Author: christian $
- * @author Christian Heller <christian.heller@tuxtax.de>
+ * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef SIGNAL_READER_SOURCE

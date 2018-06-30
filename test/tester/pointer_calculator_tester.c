@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2017. Christian Heller.
+ * Copyright (C) 1999-2018. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -15,7 +15,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with CYBO/*
- * Copyright (C) 1999-2017. Christian Heller.
+ * Copyright (C) 1999-2018. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -35,8 +35,8 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.19.0 2017-04-10
- * @author Christian Heller <christian.heller@tuxtax.de>l
+ * @version CYBOP 0.20.0 2018-06-30
+ * @author Christian Heller <christian.heller@cybop.org>l
  */
 
 #ifndef CALCULATOR_TESTER

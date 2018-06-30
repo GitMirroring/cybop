@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2017. Christian Heller.
+ * Copyright (C) 1999-2018. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -17,10 +17,10 @@
  * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
  *
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
- * Christian Heller <christian.heller@tuxtax.de>
+ * Christian Heller <christian.heller@cybop.org>
  *
- * @version CYBOP 0.19.0 2017-04-10
- * @author Christian Heller <christian.heller@tuxtax.de>
+ * @version CYBOP 0.20.0 2018-06-30
+ * @author Christian Heller <christian.heller@cybop.org>
  */
 
 #ifndef OPERATION_BUBBLE_SORTER_SOURCE
