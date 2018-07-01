@@ -13,7 +13,7 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-CYBOP 0.20.0, 2018-06-30, Christian Heller  <christian.heller@tuxtax.de>
+CYBOP 0.20.0, 2018-06-30, Christian Heller  <christian.heller@cybop.org>
 
         * CYBOI:
             - Use new io entry structure for x window system with for storage in internal memory and remove old display constants

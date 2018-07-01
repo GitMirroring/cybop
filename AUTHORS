@@ -15,10 +15,10 @@
 In chronological order ... oldest entry on top, newest on bottom ...
 
 Cybernetics Oriented Programming (CYBOP)
-        * Christian Heller <christian.heller@tuxtax.de> (software development theory)
+        * Christian Heller <christian.heller@cybop.org> (software development theory)
 
 Cybernetics Oriented Language (CYBOL)
-        * Christian Heller <christian.heller@tuxtax.de> (language definition)
+        * Christian Heller <christian.heller@cybop.org> (language definition)
         * Rolf Holzmueller <rolf.holzmueller@gmx.de> (help in creating xsd and ebnf files in 2005)
         * Patrick Sperl (time output example)
         * Jens Rudek (time output example)
@@ -50,7 +50,7 @@ Cybernetics Oriented Language (CYBOL)
         * Ronny Zingler <ronny.zingler@cs14-1.ba-leipzig.de> (bullsandcows mastermind game example)
 
 Cybernetics Oriented Interpreter (CYBOI)
-        * Christian Heller <christian.heller@tuxtax.de> (overall design and implementation of cyboi, first in java, later in c)
+        * Christian Heller <christian.heller@cybop.org> (overall design and implementation of cyboi, first in java, later in c)
         * Torsten Kunze <info@torstenkunze.de> (persistence using xml in old java version of cyboi)
         * Jens Bohl <info@jens-bohl.de> (health record with topological documentation in old java version of cyboi)
         * Dirk Behrendt <behrendt.dirk@web.de> (backup module in old java version of cyboi)
@@ -89,7 +89,7 @@ Cybernetics Oriented Interpreter (CYBOI)
         * Edson Silva <edsonlead@gmail.com> (string constant replacement)
 
 CYBOP Project
-        * Christian Heller <christian.heller@tuxtax.de> (administration, website, releases)
+        * Christian Heller <christian.heller@cybop.org> (administration, website, releases)
         * Martin Fache <martin.fache@myrbel.de> (x window system tutorial)
         * Marcel Kiesling <makie2001@web.de> (socket tutorial)
         * Michael Simon <michael.simon@gmx.net> (early makefile)
