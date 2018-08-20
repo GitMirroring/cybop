@@ -10,6 +10,7 @@
     <node name="his" channel="file" format="element/part" model="project_overview/list/extensible/his.cybol"/>
     <node name="maedn" channel="file" format="element/part" model="project_overview/list/extensible/maedn.cybol"/>
     <node name="netdoc" channel="file" format="element/part" model="project_overview/list/extensible/netdoc.cybol"/>
+    <node name="schwingungsanalyse" channel="file" format="element/part" model="project_overview/list/extensible/schwingungsanalyse.cybol"/>
     <node name="socobo" channel="file" format="element/part" model="project_overview/list/extensible/socobo.cybol"/>
     <node name="tank-commander" channel="file" format="element/part" model="project_overview/list/extensible/tank-commander.cybol"/>
     <node name="wmtipp" channel="file" format="element/part" model="project_overview/list/extensible/wmtipp.cybol"/>

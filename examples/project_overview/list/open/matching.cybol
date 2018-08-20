@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="matching"/>
+    <node name="description" channel="inline" format="text/plain" model="Automatisiertes Zueinanderbringen von Studienbewerbern und Unternehmen"/>
+    <node name="technology" channel="inline" format="text/plain" model="beliebig, idealerweise Web-Technologien, da überall nutzbar"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPL"/>
+    <node name="portal" channel="inline" format="text/plain" model="https://www.ba-sachsen.de/"/>
+    <node name="contact" channel="inline" format="text/plain" model="Prof. Dr. habil. Kerry-U. Brauer <kerry-u.brauer@ba-leipzig.de>"/>
+    <node name="remark" channel="inline" format="text/plain" model="Unternehmen suchen Studenten und umgekehrt. Manchmal hat ein Unternehmen auch fünf Bewerber, wählt aber nur einen aus, und die anderen vier gehen uns für ein Studium an der BA verloren. Daher der Wunsch nach einem automatischen Abgleichen von Stellenangeboten der Praxispartner und Anfragen von Studieninteressenten. Die BA Dresden hatte bereits eine proprietäre Lösung im Einsatz, war aber nicht ganz zufrieden damit. Diese kann dennoch evtl. als Anregung verwendet werden."/>
+
+</node>

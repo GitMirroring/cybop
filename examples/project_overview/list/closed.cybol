@@ -21,6 +21,7 @@
     <node name="scalomator" channel="file" format="element/part" model="project_overview/list/closed/scalomator.cybol"/>
     <node name="secrets-of-calyss" channel="file" format="element/part" model="project_overview/list/closed/secrets-of-calyss.cybol"/>
     <node name="sensor-project" channel="file" format="element/part" model="project_overview/list/closed/sensor-project.cybol"/>
+    <node name="stiftungen" channel="file" format="element/part" model="project_overview/list/closed/stiftungen.cybol"/>
     <node name="stpapp" channel="file" format="element/part" model="project_overview/list/closed/stpapp.cybol"/>
     <node name="studterm" channel="file" format="element/part" model="project_overview/list/closed/studterm.cybol"/>
     <node name="sudo-foo" channel="file" format="element/part" model="project_overview/list/closed/sudo-foo.cybol"/>
