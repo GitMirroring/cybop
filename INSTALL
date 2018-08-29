@@ -67,7 +67,7 @@ CYBOL application execution:
 CYBOI compilation:
     cmake (version >= 3.0.2)
     xorg-dev
-    libxcb1-dev (libx11-dev "xlibs" not used anymore)
+    libxcb1-dev (automatically installed with xorg-dev; libx11-dev "xlibs" not used anymore)
     freeglut3-dev
 
 CYBOP development (helpful, but not essential):
