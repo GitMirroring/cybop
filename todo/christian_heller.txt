@@ -11,10 +11,64 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+        * Verify that NON-BLOCKING mode is used for sockets at startup
+        * See comment in file "element_io_checker.c"
+
+TUI
+___
+
+        * CONTINUE:
+            - in file "io_checker.c", at section "terminal"
+            - problem to solve: How does the function "check_io_all" know which channel (socket, terminal etc.) to check
+                (a special function for peaking ahead needs to be called inside)?
+            - this has to be known or decided in file "element_client_checker.c"
+
+        * Create io entry array structure for terminal i/o at startup and destroy at shutdown
+
+        * Test new service checker functions in files "wait_checker.c" etc.
+        * Start with terminal, comment out terminal sensing thread, test
+        * Eliminate old solution using terminal sensing thread
+            - as soon as it got replaced with the io entry structure
+            - ONLY realisable if peaking ahead (or writing back bytes, as is done for terminal) is possible
+        * Clean up "internal_memory_manager" by deleting old i/o parametres that were necessary for the thread-based solution
+        * Clean up file "internal_memory_state_cyboi_name.c" after having replaced constants with those defined in file "input_output_state_cyboi_name.c"
+        * Repeat for other io channels (display, serial)
+
+        * Provide more keyboard input keys like "tabulator", "backspace" etc. in file "keyboard_state_cybol_name.c"
+
+        * Check if having to use &= or |= instead of just = everywhere flags are set,
+            e.g. in file "set_attributes_unix_terminal_starter.c",
+            in order to not reset already existing values in termios by accident
+
+        * Think about where to implement properties like clear, newline, indentation -- as constraint of "language" or elsewhere
+
+        * CAUTION! Win32 console input might not work due to disabled signal interrupts (with pre-processor if-def) in file "system_signal_handler_manager.c"
+        * Deserialise win32 console input (also arrow keys etc.) into command, see:
+            http://msdn.microsoft.com/en-us/library/windows/desktop/ms646268(v=vs.85).aspx#displaying_input
+            http://cboard.cprogramming.com/windows-programming/93468-not-getting-window_buffer_size_event.html
+        * Windows Data Types:
+            http://msdn.microsoft.com/en-us/library/windows/desktop/aa383751%28v=vs.85%29.aspx
+        * Inspect starter, shutter, sensor, receiver, sender for channel "terminal",
+            to find out why file descriptor-to-stream conversion does not work
+            (see commented code lines and replace "stdin" and "stdout" with value read from internal memory)
+            --> probably, the reason is that descriptor-to-stream conversion uses different attributes than "stdin" and "stdout"
+
+Serial Port
+___________
+
+        * Create io entry array structure for serial port i/o at startup and destroy at shutdown
+
+        * Check if having to use &= or |= instead of just = everywhere flags are set,
+            e.g. in file "set_attributes_serial_port_starter.c",
+            in order to not reset already existing values in termios by accident
+
+        * serial_port: offer "crlf_termination" flag in cybol; see "adc" example application
+        * serial_port: offer sync in "stream_serial_port_sender" as flag property in cybol
+
 GUI
 ___
 
-        * Switch x window system to new io entry structure for writing values into internal memory
+        * Switch x window system to new io entry array structure for writing values into internal memory
         * Check all affected files, also reader/writer, de-/serialiser, sensor, interrupter etc.
         * START FROM: io_checker.c
         * SEE: empty_checker.c, irq_checker.c, io_entry_getter.c
@@ -60,98 +114,6 @@ ___
             http://msdn.microsoft.com/en-us/library/windows/desktop/aa383751%28v=vs.85%29.aspx
 
         * Remove directory "src/windows/"
-
-CYBOL Application
-_________________
-
-        * Reorganise cybol example application directory using sub categories
-
-        * Rewrite cybol example application "clean_result_directory"
-            - make PIPES work in cyboi (e.g. as named pipes in the background), before continuing, needed for: n=$(ls -a $1 | wc -l);
-            - continue file "remove_superfluous_element.cybol", see original script, count contained elements first, delete if > 2
-            - change "verbal" into "verbose", also in cyboi interpreter
-            - change "tape_archiver" into a verb, also in cyboi interpreter
-        * Optimise cybol example application "presence"
-            - make datetime work in cyboi, before continuing
-            - use stack properties instead of duplicate loop indices etc.
-        * Optimise resmedicinae application "xdt2html"
-            - make deep copy work in cyboi, before continuing
-            - use stack properties instead of duplicate loop indices etc.
-            - consider file "tmp/cybop_stack.pdf"
-        * Create new web application for administrator Martin (Ausleihe Geräte auf Arbeit)
-
-        Hints for migrating cybol application to new knowledge path syntax:
-        * Rename "path/knowledge" and "path/reference" with "text/cybol-path"
-        * Replace OLD property prefix "#" with ":" (CAUTION! for webpage generation the html anchor sign has to REMAIN a #)
-        * Adapt stack variables by adding knowledge path prefix "#"
-        * Delete operation "create" at beginning of "run.cybol" and initialise to knowledge memory root "." instead
-        * Replace all code where knowledge path was assembled manually a la "[index]" --> search for "["
-            --> many operations only adding path elements or an index like "[", "index", "]" may get deleted in the future
-
-Repertoire
-__________
-
-        * Consider already existing directory "executor/packer/"
-        * Reflect on reading a cybol app as zip file (e.g. with suffix "cyboz" or "cyboa")
-        * Use the same code for reading zip and directory, since both consist of files
-        * Use new cybol channel "directory" for reading in files of directory "repertoire/db/song/" in cybol example application "repertoire"
-            SEE file "repertoire/db.cybol"
-
-        * Chaining languages like "cybol | xml | zip" might be necessary for this
-        * Also, if using JSON instead of XML, e.g. "cybol | json | zip"
-
-        * Implement cybol operation "find" in cyboi
-        * Adjust removal of added items from "remain" node in directory "repertoire/logic/translate/round/"
-        * Add "remain" nodes to last section of wui "round"
-            How to reuse file "round.cybol" for last iteration of "remain" songs?
-            Problem: the "#remain_index" is reset in file "song.cybol", which is not wanted when processing ".db.remain"
-
-Searching
-_________
-
-        * Add cybol operation "search/??" offering properties:
-            - criterion (filter): as actual value to be found
-            - filter (or selection): the latter with possible values "prefix", "suffix", "subsequence"
-        * Add matching parts to result (destination) part tree node that was handed over
-        * Move or remove file "selection_compare_logic_cybol_model.c"
-
-        * Adapt function "count_array_element" of file "executor/accessor/counter/array_counter.c" using new finder for "filter" string and "selection"
-        * Adapt corresponding cybol example application "get_count"
-
-Sorting
-_______
-
-        * Figure out how to sort capital/small letters, German Umlauts etc. (currently, Unicode number is taken for comparison)
-        * Implement missing cybol operations "sort/insertion", "sort/quick", "sort/selection" in cyboi
-
-        * Look for new sorting ideas (linear, binär, sortieren) in:
-            tmp/datetime/plate_-_programmieren_in_c_datumsberechnung.html (8 Ausgewählte Algorithmen (Teil 1) | 8.5 Suchen und Sortieren)
-        * Implement cybol operations for calculating statistical things
-
-String
-______
-
-        * Provide newline and other escape characters for cybol operation "modify/append/"
-        * Possibilities:
-            - flag for send/overwrite/append and similar operations
-            - new cybol data type "text/regular-expression" which gets converted to "text/plain" internally
-            - only use datatype "text/regular-expression" as property/argument for operations such as "overwrite",
-                so that regular expression gets evaluated internally before copying the resulting string
-        * Eliminate file "newline.txt" in cybol example application "webstat"
-
-        * See ideas for further functions in http://www.w3schools.com/xml/xsl_functions.asp
-
-Logger
-______
-
-        * Debug memory error when logging with "debug" log level
-            the following works fine with log levels: off, error, warning, information, but NOT with log level "debug":
-                ../src/controller/cyboi --knowledge=counter/run.cybol --loglevel=debug --logfile=log.log
-            valgrind did not help
-        * See variable "LOG_OUTPUT" in file "variable/log_setting.c"
-        * Check if error is caused by decrementing rubbish (garbage) collection references
-            (the calls of function "deallocate_array" were already verified and "null" handed over as second "count" argument)
-        * Test by only using an "exit" as initial (and only) part/signal (has to be changed temporarily in cyboi code file "initialiser.c")
 
 Sensing Threads
 _______________
@@ -340,6 +302,98 @@ _______________
             Der Aufruf select() macht ein blockierendes Warten, bis die Zeitscheibe abgelaufen ist, also analog sleep().
             Kann man natürlich auch für usec anpassen ;-)
             http://www.c-plusplus.de/forum/144938-full
+
+CYBOL Application
+_________________
+
+        * Reorganise cybol example application directory using sub categories
+
+        * Rewrite cybol example application "clean_result_directory"
+            - make PIPES work in cyboi (e.g. as named pipes in the background), before continuing, needed for: n=$(ls -a $1 | wc -l);
+            - continue file "remove_superfluous_element.cybol", see original script, count contained elements first, delete if > 2
+            - change "verbal" into "verbose", also in cyboi interpreter
+            - change "tape_archiver" into a verb, also in cyboi interpreter
+        * Optimise cybol example application "presence"
+            - make datetime work in cyboi, before continuing
+            - use stack properties instead of duplicate loop indices etc.
+        * Optimise resmedicinae application "xdt2html"
+            - make deep copy work in cyboi, before continuing
+            - use stack properties instead of duplicate loop indices etc.
+            - consider file "tmp/cybop_stack.pdf"
+        * Create new web application for administrator Martin (Ausleihe Geräte auf Arbeit)
+
+        Hints for migrating cybol application to new knowledge path syntax:
+        * Rename "path/knowledge" and "path/reference" with "text/cybol-path"
+        * Replace OLD property prefix "#" with ":" (CAUTION! for webpage generation the html anchor sign has to REMAIN a #)
+        * Adapt stack variables by adding knowledge path prefix "#"
+        * Delete operation "create" at beginning of "run.cybol" and initialise to knowledge memory root "." instead
+        * Replace all code where knowledge path was assembled manually a la "[index]" --> search for "["
+            --> many operations only adding path elements or an index like "[", "index", "]" may get deleted in the future
+
+Repertoire
+__________
+
+        * Consider already existing directory "executor/packer/"
+        * Reflect on reading a cybol app as zip file (e.g. with suffix "cyboz" or "cyboa")
+        * Use the same code for reading zip and directory, since both consist of files
+        * Use new cybol channel "directory" for reading in files of directory "repertoire/db/song/" in cybol example application "repertoire"
+            SEE file "repertoire/db.cybol"
+
+        * Chaining languages like "cybol | xml | zip" might be necessary for this
+        * Also, if using JSON instead of XML, e.g. "cybol | json | zip"
+
+        * Implement cybol operation "find" in cyboi
+        * Adjust removal of added items from "remain" node in directory "repertoire/logic/translate/round/"
+        * Add "remain" nodes to last section of wui "round"
+            How to reuse file "round.cybol" for last iteration of "remain" songs?
+            Problem: the "#remain_index" is reset in file "song.cybol", which is not wanted when processing ".db.remain"
+
+Searching
+_________
+
+        * Add cybol operation "search/??" offering properties:
+            - criterion (filter): as actual value to be found
+            - filter (or selection): the latter with possible values "prefix", "suffix", "subsequence"
+        * Add matching parts to result (destination) part tree node that was handed over
+        * Move or remove file "selection_compare_logic_cybol_model.c"
+
+        * Adapt function "count_array_element" of file "executor/accessor/counter/array_counter.c" using new finder for "filter" string and "selection"
+        * Adapt corresponding cybol example application "get_count"
+
+Sorting
+_______
+
+        * Figure out how to sort capital/small letters, German Umlauts etc. (currently, Unicode number is taken for comparison)
+        * Implement missing cybol operations "sort/insertion", "sort/quick", "sort/selection" in cyboi
+
+        * Look for new sorting ideas (linear, binär, sortieren) in:
+            tmp/datetime/plate_-_programmieren_in_c_datumsberechnung.html (8 Ausgewählte Algorithmen (Teil 1) | 8.5 Suchen und Sortieren)
+        * Implement cybol operations for calculating statistical things
+
+String
+______
+
+        * Provide newline and other escape characters for cybol operation "modify/append/"
+        * Possibilities:
+            - flag for send/overwrite/append and similar operations
+            - new cybol data type "text/regular-expression" which gets converted to "text/plain" internally
+            - only use datatype "text/regular-expression" as property/argument for operations such as "overwrite",
+                so that regular expression gets evaluated internally before copying the resulting string
+        * Eliminate file "newline.txt" in cybol example application "webstat"
+
+        * See ideas for further functions in http://www.w3schools.com/xml/xsl_functions.asp
+
+Logger
+______
+
+        * Debug memory error when logging with "debug" log level
+            the following works fine with log levels: off, error, warning, information, but NOT with log level "debug":
+                ../src/controller/cyboi --knowledge=counter/run.cybol --loglevel=debug --logfile=log.log
+            valgrind did not help
+        * See variable "LOG_OUTPUT" in file "variable/log_setting.c"
+        * Check if error is caused by decrementing rubbish (garbage) collection references
+            (the calls of function "deallocate_array" were already verified and "null" handed over as second "count" argument)
+        * Test by only using an "exit" as initial (and only) part/signal (has to be changed temporarily in cyboi code file "initialiser.c")
 
 Datetime
 ________
@@ -636,49 +690,6 @@ ___
         * Move xDT de-/serialisation into a library, since it is very large (4 MiB) and compilation takes much too long
             uncomment include in line 54 and serialise call in line 270 of file "serialiser.c"
             compilation takes > 30 min and reports an error "variable tracking size limit exceeded with -fvar-tracking-assignments", but binary gets created successfully anyway
-
-TUI
-___
-
-        * Create io entry array structure for terminal i/o at startup and destroy at shutdown
-
-        * Test new service checker functions in files "wait_checker.c" etc.
-        * Start with terminal, comment out terminal sensing thread, test
-        * Eliminate terminal sensing thread ?? ONLY possible if peaking ahead is possible (or writing back bytes, as is done for terminal)
-        * Clean up "internal_memory_manager" by deleting i/o parametres
-        * Clean up file "internal_memory_state_cyboi_name.c" after having replaced constants with those defined in file "input_output_state_cyboi_name.c"
-        * Repeat for other io channels (display, serial)
-
-        * Provide more keyboard input keys like "tabulator", "backspace" etc. in file "keyboard_state_cybol_name.c"
-
-        * Check if having to use &= or |= instead of just = everywhere flags are set,
-            e.g. in file "set_attributes_unix_terminal_starter.c",
-            in order to not reset already existing values in termios by accident
-
-        * Think about where to implement properties like clear, newline, indentation -- as constraint of "language" or elsewhere
-
-        * CAUTION! Win32 console input might not work due to disabled signal interrupts (with pre-processor if-def) in file "system_signal_handler_manager.c"
-        * Deserialise win32 console input (also arrow keys etc.) into command, see:
-            http://msdn.microsoft.com/en-us/library/windows/desktop/ms646268(v=vs.85).aspx#displaying_input
-            http://cboard.cprogramming.com/windows-programming/93468-not-getting-window_buffer_size_event.html
-        * Windows Data Types:
-            http://msdn.microsoft.com/en-us/library/windows/desktop/aa383751%28v=vs.85%29.aspx
-        * Inspect starter, shutter, sensor, receiver, sender for channel "terminal",
-            to find out why file descriptor-to-stream conversion does not work
-            (see commented code lines and replace "stdin" and "stdout" with value read from internal memory)
-            --> probably, the reason is that descriptor-to-stream conversion uses different attributes than "stdin" and "stdout"
-
-Serial Port
-___________
-
-        * Create io entry array structure for serial port i/o at startup and destroy at shutdown
-
-        * Check if having to use &= or |= instead of just = everywhere flags are set,
-            e.g. in file "set_attributes_serial_port_starter.c",
-            in order to not reset already existing values in termios by accident
-
-        * serial_port: offer "crlf_termination" flag in cybol; see "adc" example application
-        * serial_port: offer sync in "stream_serial_port_sender" as flag property in cybol
 
 OpenGL
 ______

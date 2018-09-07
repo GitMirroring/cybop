@@ -55,26 +55,37 @@ void check_io(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //?? This is the OLD function call, to be deleted later.
         sense_display((void*) &r, p1);
+        // Check display for input or output.
 //??        check_io_all((void*) &r, p1, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //?? This is the OLD function call, to be deleted later.
 //??        sense_serial((void*) &r, p1);
+        // Check serial port for input or output.
+//??        check_io_all((void*) &r, p1, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // Check socket for input or output.
         check_io_all((void*) &r, p1, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_65536_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //?? This is the OLD function call, to be deleted later.
         sense_terminal((void*) &r, *NULL_POINTER_STATE_CYBOI_MODEL, p1);
+        // Check terminal for input or output.
+//??        check_io_all((void*) &r, p1, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // The comparison result is TRUE.
 
         // Set interrupt request.
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

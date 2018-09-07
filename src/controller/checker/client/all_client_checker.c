@@ -77,7 +77,7 @@ void check_client_all(void* p0, void* p1, void* p2) {
             break;
         }
 
-        // Test for data available on client socket.
+        // Test for data available on client.
         // CAUTION! This function only PEEKS into data,
         // but does NOT remove them, so that they can be read later.
         check_client_element((void*) &c, p1, (void*) &j);

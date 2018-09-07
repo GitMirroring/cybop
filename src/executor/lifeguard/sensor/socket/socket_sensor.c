@@ -27,7 +27,6 @@
 #define SOCKET_SENSOR_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../executor/streamer/reader/socket/buffer_socket_reader.c"
 #include "../../../../logger/logger.c"
 
