@@ -58,7 +58,7 @@ void check_io(void* p0, void* p1) {
         //?? This is the OLD function call, to be deleted later.
         sense_display((void*) &r, p1);
         // Check display for input or output.
-//??        check_io_all((void*) &r, p1, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+//??        check_io_all((void*) &r, p1, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DISPLAY_CYBOI_CHANNEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -66,13 +66,13 @@ void check_io(void* p0, void* p1) {
         //?? This is the OLD function call, to be deleted later.
 //??        sense_serial((void*) &r, p1);
         // Check serial port for input or output.
-//??        check_io_all((void*) &r, p1, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+//??        check_io_all((void*) &r, p1, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) SERIAL_CYBOI_CHANNEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Check socket for input or output.
-        check_io_all((void*) &r, p1, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_65536_INTEGER_STATE_CYBOI_MODEL);
+        check_io_all((void*) &r, p1, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_65536_INTEGER_STATE_CYBOI_MODEL, (void*) SOCKET_CYBOI_CHANNEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -83,7 +83,7 @@ void check_io(void* p0, void* p1) {
         // Only needed for win32.
 //??        sense_terminal((void*) &r, *NULL_POINTER_STATE_CYBOI_MODEL, p1);
         // Check terminal for input or output.
-//??        check_io_all((void*) &r, p1, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+//??        check_io_all((void*) &r, p1, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) TERMINAL_CYBOI_CHANNEL);
     }
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

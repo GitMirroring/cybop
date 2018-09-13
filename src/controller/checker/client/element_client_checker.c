@@ -37,11 +37,12 @@
 /**
  * Checks open client for available data.
  *
- * @param p0 the destination sender client
+ * @param p0 the destination client
  * @param p1 the source client list data
  * @param p2 the source client list index
+ * @param p3 the channel
  */
-void check_client_element(void* p0, void* p1, void* p2) {
+void check_client_element(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check client element.");
 
@@ -59,6 +60,7 @@ void check_client_element(void* p0, void* p1, void* p2) {
     // CAUTION! It suffices to detect at least one byte,
     // which is why number 1 is forwarded as buffer size argument.
     sense_socket((void*) &f, (void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+//??    sense_NEW((void*) &f, (void*) &c, p3);
 
     if (f > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

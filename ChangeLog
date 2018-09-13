@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2018-09-13  Christian Heller  <christian.heller@cybop.org>
+
+        * Add channel to all input/output functions of directory "controller/checker/"
+
 2018-06-30  Christian Heller  <christian.heller@cybop.org>
 
         * Release CYBOP 0.20.0

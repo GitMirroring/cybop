@@ -43,8 +43,9 @@
  * @param p0 the io flag
  * @param p1 the io entry (pointer reference)
  * @param p2 the client list item
+ * @param p3 the channel
  */
-void check_io_receive(void* p0, void* p1, void* p2) {
+void check_io_receive(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io receive.");
 
@@ -52,7 +53,7 @@ void check_io_receive(void* p0, void* p1, void* p2) {
     int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Sense data on already open clients.
-    check_client_list((void*) &c, p2);
+    check_client_list((void*) &c, p2, p3);
 
     if (c > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

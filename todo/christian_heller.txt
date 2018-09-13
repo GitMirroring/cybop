@@ -11,18 +11,25 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-        * Verify that NON-BLOCKING mode is used for sockets at startup
-        * See comment in file "element_io_checker.c"
-
 TUI
 ___
 
         * CONTINUE:
-            - in file "io_checker.c", at section "terminal"
+            - implement single functions called from file "sensor_NEW.c"
+            - as test, implement terminal first
+            - adapt file "io_checker.c"
             - problem to solve: How does the function "check_io_all" know which channel (socket, terminal etc.) to check
                 (a special function for peaking ahead needs to be called inside)
             - generalise file "check_io_element" to work not only with socket
             - this has to be known or decided in file "element_client_checker.c"
+
+        * Verify that NON-BLOCKING mode is used for sockets and terminal at startup
+        * See comment in file "element_io_checker.c"
+        * Set flag "O_NONBLOCK", e.g. in file "open_unix_terminal_starter.c"
+        * See:
+            https://www.gnu.org/software/libc/manual/html_mono/libc.html#Open_002dtime-Flags
+            https://www.geeksforgeeks.org/non-blocking-io-with-pipes-in-c/
+            https://gamedev.stackexchange.com/questions/146256/how-do-i-get-getchar-to-not-block-the-input
 
         * Replace old files with new ones: sensor_NEW.c
         * Move sensor files from directory "executor/lifeguard/sensor/" to just "executor/sensor/"

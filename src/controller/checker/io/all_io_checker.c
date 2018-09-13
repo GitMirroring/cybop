@@ -43,8 +43,9 @@
  * @param p1 the internal memory data
  * @param p2 the input output base
  * @param p3 the loop count
+ * @param p4 the channel
  */
-void check_io_all(void* p0, void* p1, void* p2, void* p3) {
+void check_io_all(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io all.");
 
@@ -79,7 +80,7 @@ void check_io_all(void* p0, void* p1, void* p2, void* p3) {
             break;
         }
 
-        check_io_element(p0, p1, (void*) &i, (void*) &j);
+        check_io_element(p0, p1, (void*) &i, (void*) &j, p4);
 
         // Increment loop variable.
         j++;

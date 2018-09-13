@@ -42,8 +42,9 @@
  * @param p0 the destination sender client
  * @param p1 the source client list data
  * @param p2 the source client list count
+ * @param p3 the channel
  */
-void check_client_all(void* p0, void* p1, void* p2) {
+void check_client_all(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check client all.");
 
@@ -80,7 +81,7 @@ void check_client_all(void* p0, void* p1, void* p2) {
         // Test for data available on client.
         // CAUTION! This function only PEEKS into data,
         // but does NOT remove them, so that they can be read later.
-        check_client_element((void*) &c, p1, (void*) &j);
+        check_client_element((void*) &c, p1, (void*) &j, p3);
 
         //
         // CAUTION! This second comparison IS NECESSARY for two reasons:

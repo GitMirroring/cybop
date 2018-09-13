@@ -49,8 +49,9 @@
  * @param p1 the internal memory data
  * @param p2 the internal memory index (already initialised with input output base)
  * @param p3 the io entry index
+ * @param p4 the channel
  */
-void check_io_element(void* p0, void* p1, void* p2, void* p3) {
+void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // CAUTION! Do NOT log messages here, since checking runs in an endless loop.
     // Otherwise, the log file would be filled up with useless entries.
@@ -99,7 +100,7 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3) {
 //?? fwprintf(stdout, L"TEST: check io element l: %i \n", l);
 
             //?? TODO: Better use channel (instead of input-output-base) for comparison??
-            compare_integer_equal((void*) &r, p2, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            compare_integer_equal((void*) &r, p4, (void*) SOCKET_CYBOI_CHANNEL);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -123,7 +124,7 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3) {
             }
 
             // Check for available input/output.
-            check_io_receive(p0, (void*) &io, l);
+            check_io_receive(p0, (void*) &io, l, p4);
         }
     }
 }
