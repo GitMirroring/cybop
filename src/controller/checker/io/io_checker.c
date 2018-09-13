@@ -77,8 +77,11 @@ void check_io(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        //?? This is the OLD function call, to be deleted later.
-        sense_terminal((void*) &r, *NULL_POINTER_STATE_CYBOI_MODEL, p1);
+        //?? TODO: Delete this call later!
+        // This is the OLD function call.
+        // It was not needed for unix terminal running in a thread anyway.
+        // Only needed for win32.
+//??        sense_terminal((void*) &r, *NULL_POINTER_STATE_CYBOI_MODEL, p1);
         // Check terminal for input or output.
 //??        check_io_all((void*) &r, p1, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }

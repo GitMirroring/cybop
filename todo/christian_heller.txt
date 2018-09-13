@@ -20,8 +20,14 @@ ___
         * CONTINUE:
             - in file "io_checker.c", at section "terminal"
             - problem to solve: How does the function "check_io_all" know which channel (socket, terminal etc.) to check
-                (a special function for peaking ahead needs to be called inside)?
+                (a special function for peaking ahead needs to be called inside)
+            - generalise file "check_io_element" to work not only with socket
             - this has to be known or decided in file "element_client_checker.c"
+
+        * Replace old files with new ones: sensor_NEW.c
+        * Move sensor files from directory "executor/lifeguard/sensor/" to just "executor/sensor/"
+        * Delete directory "executor/interrupter/" as soon as sensing threads are not used anymore
+        * Delete empty and superfluous directory "executor/lifeguard/"
 
         * Create io entry array structure for terminal i/o at startup and destroy at shutdown
 
@@ -67,6 +73,8 @@ ___________
 
 GUI
 ___
+
+        * Free event structures which got allocated internally and returned in "xcb_sensor.c" and "win32_display_sensor.c"
 
         * Switch x window system to new io entry array structure for writing values into internal memory
         * Check all affected files, also reader/writer, de-/serialiser, sensor, interrupter etc.
@@ -139,6 +147,8 @@ _______________
         * Remember that for channel "file/filesystem" only blocking mode exists
 
         * Optimise signal (event) handling
+            --> read thread: http://lists.freedesktop.org/archives/xcb/2013-April/008219.html
+
             You don't need to get a character to block on a terminal or serial port.
             You should just select() or poll() or epoll() or similar on the file
             descriptor.  Likewise with sockets, and in fact you can watch many file

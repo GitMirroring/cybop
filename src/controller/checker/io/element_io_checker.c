@@ -98,6 +98,7 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3) {
 
 //?? fwprintf(stdout, L"TEST: check io element l: %i \n", l);
 
+            //?? TODO: Better use channel (instead of input-output-base) for comparison??
             compare_integer_equal((void*) &r, p2, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -106,7 +107,7 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3) {
                 // CAUTION! Other services do NOT have to accept clients.
 
                 //
-                // When using a blocking socket, the programme will wait here.
+                // When using a blocking socket, the programme would wait here.
                 //
                 // CAUTION! Changing the order of "accept" and "receive" can NOT avoid this.
                 // Even comparing with the returned io flag, in order to

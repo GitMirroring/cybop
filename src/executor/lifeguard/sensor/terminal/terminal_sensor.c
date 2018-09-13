@@ -53,11 +53,10 @@
 /**
  * Senses terminal messages.
  *
- * @param p0 the interrupt request
- * @param p1 the break flag
- * @param p2 the internal memory data
+ * @param p0 the data available flag
+ * @param p1 the client
  */
-void sense_terminal(void* p0, void* p1, void* p2) {
+void sense_terminal(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense terminal.");
 
@@ -73,7 +72,7 @@ void sense_terminal(void* p0, void* p1, void* p2) {
     // sense_unix_terminal(p0, p1, p2);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    sense_win32_console(p0, p1, p2);
+    sense_win32_console(p0, p1);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif

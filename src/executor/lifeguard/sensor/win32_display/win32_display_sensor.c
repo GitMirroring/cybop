@@ -53,6 +53,8 @@ void sense_win32_display(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense win32 display.");
 
+    //?? TODO: Where is this allocated value "msg" freed again? Check this out!
+
     // The event message.
     //
     // It just serves as placeholder here, since

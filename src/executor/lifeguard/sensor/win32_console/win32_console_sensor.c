@@ -42,29 +42,22 @@
 /**
  * Senses win32 console messages.
  *
- * @param p0 the interrupt request
- * @param p1 the break flag
- * @param p2 the internal memory data
+ * @param p0 the data available flag
+ * @param p1 the client (input console)
  */
-void sense_win32_console(void* p0, void* p1, void* p2) {
+void sense_win32_console(void* p0, void* p1) {
 
-    // The input console.
-    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // Get input console.
-    copy_array_forward((void*) &c, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+        int* c = (int*) p1;
 
-    if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        int* ci = (int*) c;
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense win32 console.");
 
         // Cast DEREFERENCED value to handle.
         // CAUTION! The input data is stored as int value,
         // but actually references a win32 console handle.
         // This is just to be sure that the correct type is used.
-        HANDLE h = (HANDLE) *ci;
-
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense win32 console.");
+        HANDLE h = (HANDLE) *c;
 
         // The input buffer size.
         // CAUTION! The size HAS TO HAVE a value of one.
@@ -110,13 +103,10 @@ void sense_win32_console(void* p0, void* p1, void* p2) {
 
             if (ic > ((DWORD) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL)) {
 
-                // Set console interrupt request to indicate
-                // that a message has been received via console,
+                // Set data available flag to indicate that
+                // a message has been received via console,
                 // which may now be processed in the main thread of this system.
                 copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-                // Set break flag.
-                copy_integer(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
             }
 
         } else {
