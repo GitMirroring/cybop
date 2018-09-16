@@ -22,6 +22,7 @@
  * @version CYBOP 0.20.0 2018-06-30
  * @author Christian Heller <christian.heller@cybop.org>
  */
+
 #include <assert.h>
 
 #include "../../../src/constant/format/cyboi/logic_cyboi_format.c"
@@ -167,4 +168,5 @@ int main() {
     return 0;
 }
 
+/* INTEGER_CALCULATOR_TESTER_SOURCE */
 #endif

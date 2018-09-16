@@ -31,6 +31,8 @@
 #include "../../constant/name/cyboi/state/duration_state_cyboi_name.c"
 #include "../../executor/accessor/getter/duration_getter.c"
 #include "../../executor/accessor/setter/duration_setter.c"
+#include "../../executor/memoriser/allocator/array_allocator.c"
+#include "../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../logger/logger.c"
 
 /**

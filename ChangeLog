@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2018-09-16  Christian Heller  <christian.heller@cybop.org>
+
+        * Move sensor files to new directory "executor/sensor/"
+        * Clean up some CMake tests
+
 2018-09-13  Christian Heller  <christian.heller@cybop.org>
 
         * Add channel to all input/output functions of directory "controller/checker/"

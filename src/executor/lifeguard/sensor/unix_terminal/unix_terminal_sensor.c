@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef UNIX_TERMINAL_SENSOR_SOURCE
-#define UNIX_TERMINAL_SENSOR_SOURCE
+#ifndef UNIX_TERMINAL_SENSOR_OLD_SOURCE
+#define UNIX_TERMINAL_SENSOR_OLD_SOURCE
 
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -86,5 +86,5 @@ void sense_unix_terminal(void* p0) {
     // only be left using an external signal (see comment at "break" condition above).
 }
 
-/* UNIX_TERMINAL_SENSOR_SOURCE */
+/* UNIX_TERMINAL_SENSOR_OLD_SOURCE */
 #endif

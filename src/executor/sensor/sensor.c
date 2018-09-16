@@ -23,32 +23,27 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SENSOR_NEW_SOURCE
-#define SENSOR_NEW_SOURCE
+#ifndef SENSOR_SOURCE
+#define SENSOR_SOURCE
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
+//?? #include "../../executor/sensor/display/display_sensor.c"
+//?? #include "../../executor/sensor/serial_port/serial_port_sensor.c"
+//?? #include "../../executor/sensor/socket/socket_sensor.c"
+#include "../../executor/sensor/terminal/terminal_sensor.c"
 #include "../../logger/logger.c"
-
-/*??
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-
-#include "../../executor/lifeguard/sensor/serial_port/serial_port_sensor.c"
-#include "../../executor/lifeguard/sensor/unix_terminal/unix_terminal_sensor.c"
-*/
 
 /**
  * Senses a message on the given channel.
  *
  * @param p0 the data available flag
- * @param p1 the client
+ * @param p1 the client (display connection, file descriptor, client socket)
  * @param p2 the channel
  */
-void sense_NEW(void* p0, void* p1, void* p2) {
+void sense(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense.");
 
@@ -63,7 +58,7 @@ void sense_NEW(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            sense_display(p0, p1);
+//??            sense_display(p0, p1);
         }
     }
 
@@ -73,7 +68,7 @@ void sense_NEW(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            sense_serial(p0, p1);
+//??            sense_serial(p0, p1);
         }
     }
 
@@ -84,7 +79,7 @@ void sense_NEW(void* p0, void* p1, void* p2) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 //??            sense_channel(p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) &p, p2, p3);
-            sense_socket(p0, p1);
+//??            sense_socket(p0, p1);
         }
     }
 
@@ -104,5 +99,5 @@ void sense_NEW(void* p0, void* p1, void* p2) {
     }
 }
 
-/* SENSOR_NEW_SOURCE */
+/* SENSOR_SOURCE */
 #endif

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SENSOR_SOURCE
-#define SENSOR_SOURCE
+#ifndef SENSOR_OLD_SOURCE
+#define SENSOR_OLD_SOURCE
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -196,5 +196,5 @@ void sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6)
     }
 }
 
-/* SENSOR_SOURCE */
+/* SENSOR_OLD_SOURCE */
 #endif
