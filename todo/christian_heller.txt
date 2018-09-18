@@ -19,6 +19,7 @@ ___
 
         * Make cybol example application "tui_control" work with new input/output structure and sensor
 
+        * Reactivate directory "executor/lifeguard/" with "enabler" and "disabler" (or "resumer" and "interrupter")
         * Move remaining sensor files from directory "executor/lifeguard/sensor/" to just "executor/sensor/"
         * Adapt functions called from new file "executor/sensor/message_sensor.c"
 
