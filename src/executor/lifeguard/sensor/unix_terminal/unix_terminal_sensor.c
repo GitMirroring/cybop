@@ -39,7 +39,7 @@
  *
  * @param p0 the internal memory data
  */
-void sense_unix_terminal(void* p0) {
+void sense_unix_terminal_old(void* p0) {
 
     // CAUTION! DO NOT log this function call!
     // This function is executed within a thread, but the

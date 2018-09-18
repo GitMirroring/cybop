@@ -325,9 +325,17 @@ ___________
 
     cd /home/cybop/build
 
-- Run the tests:
+- Run the tests by invoking either:
+
+    make test
+
+    or:
 
     ctest
+
+    or for verbose output on stdout:
+
+    ctest --verbose
 
 - optional run the codecoverage: needs gcov, genhtml:
 

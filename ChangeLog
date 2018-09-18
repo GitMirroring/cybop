@@ -18,6 +18,13 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2018-09-18  Christian Heller  <christian.heller@cybop.org>
+
+        * Extend CMake test "test/terminal_sensor_test" and make it work (verified that non-blocking terminal may be used to detect input data)
+        * Distinguish between files "sensor.c" for enabling input detection and "message_sensor.c" for actually detecting input
+        * Adapt file "element_client_checker.c" to call sensor
+        * Mark outdated thread-based sensor files and functions with suffix "OLD"
+
 2018-09-16  Christian Heller  <christian.heller@cybop.org>
 
         * Move sensor files to new directory "executor/sensor/"

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MESSAGE_SENSOR_SOURCE
-#define MESSAGE_SENSOR_SOURCE
+#ifndef MESSAGE_SENSOR_OLD_SOURCE
+#define MESSAGE_SENSOR_OLD_SOURCE
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -42,7 +42,7 @@
  * @param p1 the service thread
  * @param p2 the thread procedure
  */
-void sense_message(void* p0, void* p1, void* p2) {
+void sense_message_old(void* p0, void* p1, void* p2) {
 
     // It is IMPORTANT that the thread is NOT NULL,
     // since it is handed over as parametre to the
@@ -53,7 +53,7 @@ void sense_message(void* p0, void* p1, void* p2) {
 
         pthread_t* t = (pthread_t*) p1;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense message.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense message OLD.");
 
         // Compare thread identifications.
         //
@@ -75,7 +75,7 @@ void sense_message(void* p0, void* p1, void* p2) {
             // Therefore, the thread has NOT been created
             // before and CAN be created below now.
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense message. Create thread.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense message OLD. Create thread.");
 
             // Create thread.
             //
@@ -102,9 +102,9 @@ void sense_message(void* p0, void* p1, void* p2) {
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense message. The thread is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense message OLD. The thread is null.");
     }
 }
 
-/* MESSAGE_SENSOR_SOURCE */
+/* MESSAGE_SENSOR_OLD_SOURCE */
 #endif

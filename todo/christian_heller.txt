@@ -17,18 +17,17 @@ ___
     // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
     // Otherwise, it would produce huge log files filled up with useless entries.
 
-        https://stackoverflow.com/questions/1516766/how-to-get-a-file-stream-from-a-file-descriptor
+        * Make cybol example application "tui_control" work with new input/output structure and sensor
 
-        * CONTINUE:
-            - TEST if new "executor/sensor/" works by commenting out OLD thread-based solution for terminal sensor
-            - implement single functions called from new file "executor/sensor/sensor.c"
-            - as test, implement terminal first
-            - adapt file "io_checker.c"
-            - problem to solve: How does the function "check_io_all" know which channel (socket, terminal etc.) to check
-                (a special function for peaking ahead needs to be called inside)
-            - generalise file "check_io_element" to work not only with socket
-            - this has to be known or decided in file "element_client_checker.c"
+        * Move remaining sensor files from directory "executor/lifeguard/sensor/" to just "executor/sensor/"
+        * Adapt functions called from new file "executor/sensor/message_sensor.c"
 
+        * Clear up problem: How does the function "check_io_all" know which channel (socket, terminal etc.) to check
+            --> probably by the "enable" flag which is set in the io_structure
+            (a special function for peaking ahead needs to be called inside)
+        * Create io entry array structure for terminal i/o at startup and destroy at shutdown
+
+        * Reactivate socket (already prepared for new input/output structure)
         * Verify that NON-BLOCKING mode is used for sockets and terminal at startup
         * See comment in file "element_io_checker.c"
         * Set flag "O_NONBLOCK", e.g. in file "open_unix_terminal_starter.c"
@@ -37,12 +36,9 @@ ___
             https://www.geeksforgeeks.org/non-blocking-io-with-pipes-in-c/
             https://gamedev.stackexchange.com/questions/146256/how-do-i-get-getchar-to-not-block-the-input
 
-        * Replace old files with new ones: sensor_NEW.c
-        * Move sensor files from directory "executor/lifeguard/sensor/" to just "executor/sensor/"
+        * Remove outdated thread-based sensor files and functions with suffix "OLD"
         * Delete directory "executor/interrupter/" as soon as sensing threads are not used anymore
         * Delete empty and superfluous directory "executor/lifeguard/"
-
-        * Create io entry array structure for terminal i/o at startup and destroy at shutdown
 
         * Test new service checker functions in files "wait_checker.c" etc.
         * Start with terminal, comment out terminal sensing thread, test

@@ -56,9 +56,9 @@
  * @param p0 the data available flag
  * @param p1 the client
  */
-void sense_terminal(void* p0, void* p1) {
+void sense_terminal_old(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense terminal.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense terminal OLD.");
 
 #if defined(__linux__) || defined(__unix__)
     // CAUTION! Calling a sensing function for unix terminal is NOT necessary,

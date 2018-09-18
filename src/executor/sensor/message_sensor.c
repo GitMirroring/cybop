@@ -23,82 +23,82 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SENSOR_SOURCE
-#define SENSOR_SOURCE
+#ifndef MESSAGE_SENSOR_SOURCE
+#define MESSAGE_SENSOR_SOURCE
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/sensor/channel_sensor.c"
+//?? #include "../../executor/sensor/display/display_sensor.c"
+//?? #include "../../executor/sensor/serial/serial_sensor.c"
+//?? #include "../../executor/sensor/socket/socket_sensor.c"
+#include "../../executor/sensor/terminal/terminal_sensor.c"
 #include "../../logger/logger.c"
 
 /**
- * Enables the given channel for message sensing.
+ * Senses a message on the given channel.
  *
- * @param p0 the internal memory data
- * @param p1 the service identification (e.g. socket port)
- * @param p2 the handler part (pointer reference)
- * @param p3 the sender client data (pointer reference, e.g. display connection, file descriptor, client socket)
- * @param p4 the channel
+ * @param p0 the data available flag
+ * @param p1 the sender client (e.g. display connection, file descriptor, client socket)
+ * @param p2 the channel
  */
-void sense(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void sense_message(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense message.");
 
-    fwprintf(stdout, L"TEST sense, channel p4: %i\n", *((int*) p4));
+    fwprintf(stdout, L"TEST sense message, channel p2: %i\n", *((int*) p2));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            sense_channel(p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2, p3);
+//??            sense_display(p0, p1);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) SERIAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            sense_channel(p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2, p3);
+//??            sense_serial(p0, p1);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            sense_channel(p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2, p3);
+//??            sense_socket(p0, p1);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            sense_channel(p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2, p3);
+            sense_terminal(p0, p1);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense. The channel is unknown.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense message. The channel is unknown.");
 
-        fwprintf(stdout, L"Error: Could not sense. The channel is unknown. The channel p4: %i\n", *((int*) p4));
+        fwprintf(stdout, L"Error: Could not sense message. The channel is unknown. The channel p2: %i\n", *((int*) p2));
     }
 }
 
-/* SENSOR_SOURCE */
+/* MESSAGE_SENSOR_SOURCE */
 #endif

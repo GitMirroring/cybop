@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHANNEL_SENSOR_OLD_SOURCE
-#define CHANNEL_SENSOR_OLD_SOURCE
+#ifndef CHANNEL_SENSOR_SOURCE
+#define CHANNEL_SENSOR_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -40,46 +40,48 @@
  *
  * @param p0 the internal memory data
  * @param p1 the input output base
- * @param p2 the service id (e.g. socket port)
+ * @param p2 the service identification (e.g. socket port)
  * @param p3 the handler part (pointer reference)
- * @param p4 the sender data (pointer reference)
+ * @param p4 the sender client data (pointer reference)
  */
-void sense_channel_old(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void sense_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense channel OLD.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense channel.");
 
     // The internal memory index.
     int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The io entry.
+    // The input/output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Calculate internal memory index.
     // - add input output base
-    // - add service identification (io entry index)
+    // - add service identification (input/output entry index)
     calculate_integer_add((void*) &i, p1);
     calculate_integer_add((void*) &i, p2);
 
-    // Get io entry.
+    // Get input/output entry.
     copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // An io entry exists for the service at the calculated internal memory index.
+        // An input/output entry exists for the service at the calculated internal memory index.
 
-        // Set handler into io entry.
+        // Set handler into input/output entry.
         set_io_entry_element((void*) &io, p3, (void*) HANDLER_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Set sender into io entry.
+        // Set sender client into input/output entry.
         set_io_entry_element((void*) &io, p4, (void*) SENDER_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Set enable flag into io entry.
+        // Set enable flag into input/output entry.
         set_io_entry_element((void*) &io, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-//?? fwprintf(stdout, L"TEST sense channel handler *p3: %i\n", *((void**) p3));
+        fwprintf(stdout, L"TEST: Sense channel. handler part *p3: %i\n", *((void**) p3));
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense channel OLD. There exists no io entry at the given service identification.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense channel. There exists no input/output entry at the given service identification.");
+
+        fwprintf(stdout, L"Error: Could not sense channel. There exists no input/output entry at the given service identification. io: %i\n", io);
     }
 }
 
-/* CHANNEL_SENSOR_OLD_SOURCE */
+/* CHANNEL_SENSOR_SOURCE */
 #endif
