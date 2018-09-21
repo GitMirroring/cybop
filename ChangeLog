@@ -22,7 +22,7 @@
 
         * Add new cybol operations "activate/enable" and "activate/disable"
         * Add new directory "executor/activator/" with files "enabler.c" and "disabler.c"
-        * Adapt cybol example application "tui_control" to new input/output structure by using operation "activate/enable" instead of old "live/sense"
+        * Adapt cybol example applications "tui" and "tui_control" to new input/output structure by using operation "activate/enable" instead of old "live/sense"
 
 2018-09-18  Christian Heller  <christian.heller@cybop.org>
 
