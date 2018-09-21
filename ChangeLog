@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2018-09-23  Christian Heller  <christian.heller@cybop.org>
+
+        * Add new cybol operations "activate/enable" and "activate/disable"
+        * Add new directory "executor/activator/" with files "enabler.c" and "disabler.c"
+        * Adapt cybol example application "tui_control" to new input/output structure by using operation "activate/enable" instead of old "live/sense"
+
 2018-09-18  Christian Heller  <christian.heller@cybop.org>
 
         * Extend CMake test "test/terminal_sensor_test" and make it work (verified that non-blocking terminal may be used to detect input data)

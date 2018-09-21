@@ -30,6 +30,8 @@
 #include "../../applicator/access/get.c"
 #include "../../applicator/access/get_index.c"
 #include "../../applicator/access/indicate.c"
+#include "../../applicator/activate/disable.c"
+#include "../../applicator/activate/enable.c"
 #include "../../applicator/calculate/calculate.c"
 #include "../../applicator/cast/cast.c"
 #include "../../applicator/command/archive_file.c"
@@ -229,6 +231,30 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             apply_get(p0, p1, p3, p4, p2, (void*) TYPE_GET_ACCESS_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    //
+    // activate
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) DISABLE_ACTIVATE_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_disable(p0, p1, p3, p4, p2);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) ENABLE_ACTIVATE_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_enable(p0, p1, p3, p4, p2);
         }
     }
 

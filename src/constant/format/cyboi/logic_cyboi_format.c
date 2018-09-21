@@ -78,6 +78,16 @@ static int* NAME_GET_ACCESS_LOGIC_CYBOI_FORMAT = NUMBER_1008_INTEGER_STATE_CYBOI
 static int* TYPE_GET_ACCESS_LOGIC_CYBOI_FORMAT = NUMBER_1009_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
+// activate
+//
+
+/** The disable activate logic cyboi format. */
+static int* DISABLE_ACTIVATE_LOGIC_CYBOI_FORMAT = NUMBER_1020_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The enable activate logic cyboi format. */
+static int* ENABLE_ACTIVATE_LOGIC_CYBOI_FORMAT = NUMBER_1021_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
 // calculate
 //
 
