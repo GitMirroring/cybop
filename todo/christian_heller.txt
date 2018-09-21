@@ -20,7 +20,9 @@ ___
         * Test cybol example application "tui" with new operation "activate/enable" instead of old "live/sense"
         * Test cybol example application "tui_control" with new operation "activate/enable" instead of old "live/sense"
 
-        * Adapt "executor/maintainer/" to startup and shutdown new input/output structure for terminal
+        * Adapt (possibly) file "executor/accessor/getter/io_entry_getter.c"
+        * Adapt (possibly) file "executor/accessor/setter/io_entry_setter.c"
+        * Adapt (possibly) "executor/maintainer/" to startup and shutdown new input/output structure for terminal
 
         * Delete superfluous "sense" cybol operation, since it is used only internally furthermore and got replaced by "activator"
         * Delete outdated thread-based directory "executor/lifeguard/"
