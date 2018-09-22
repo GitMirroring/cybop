@@ -17,12 +17,22 @@ ___
     // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
     // Otherwise, it would produce huge log files filled up with useless entries.
 
+        * Think through usage of stdin and stdout as separate terminal io_entries
+        * Comparison:
+            input (as service): events in xcb, listening server socket, stdin
+            output: draw on window / graphic / device context in xcb, reply to client socket id, stdout
+            ==> Store stdin and stdout as SEPARATE terminal entries
+        * Continue io_entry for terminal in file "server_terminal_starter.c"
+        * Allow different terminal attributes for stdin and stdout
+
+        * See files:
+            input_output_state_cyboi_name.c
+            internal_memory_state_cyboi_name.c
+        * Adapt (possibly) "executor/maintainer/" to startup and shutdown new input/output structure for terminal
+        * Adapt (possibly) files "executor/accessor/getter/io_entry_getter.c" and "executor/accessor/setter/io_entry_setter.c"
+
         * Test cybol example application "tui" with new operation "activate/enable" instead of old "live/sense"
         * Test cybol example application "tui_control" with new operation "activate/enable" instead of old "live/sense"
-
-        * Adapt (possibly) file "executor/accessor/getter/io_entry_getter.c"
-        * Adapt (possibly) file "executor/accessor/setter/io_entry_setter.c"
-        * Adapt (possibly) "executor/maintainer/" to startup and shutdown new input/output structure for terminal
 
         * Delete superfluous "sense" cybol operation, since it is used only internally furthermore and got replaced by "activator"
         * Delete outdated thread-based directory "executor/lifeguard/"

@@ -168,8 +168,13 @@ void startup_unix_terminal_attributes_set(void* p0, void* p1) {
 
         if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
+            //
             // Close terminal on error.
-            close(*d);
+            //
+            // CAUTION! Do NOT do this as long as stdin and stdout are used
+            // since otherwise, no more communication with the process is possible.
+            //
+//??            close(*d);
 
             if (errno == EBADF) {
 

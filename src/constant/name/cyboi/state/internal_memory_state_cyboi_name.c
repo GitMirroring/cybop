@@ -54,12 +54,11 @@ static int* SLEEP_TIME_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_1
 /**
  * The serial port.
  *
- * The total number of possible socket services (ports) is: 1
+ * The total number of possible serial port services (ports) is: 1
  */
 static int* SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_100_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-//?? TODO: The following constants are OUTDATED and may be deleted in the future.
-/** The serial port. */
+//?? TODO: The following constants are OUTDATED and may be deleted in the future. They have been replaced by a new io_entry structure.
 static int* ENABLE_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_110_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 static int* INTERRUPT_REQUEST_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_111_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 static int* HANDLER_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_112_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -71,12 +70,11 @@ static int* ORIGINAL_ATTRIBUTES_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER
 /**
  * The terminal.
  *
- * The total number of possible socket services (ports) is: 1
+ * The total number of possible terminal services (ports) is: 1
  */
 static int* TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_200_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-//?? TODO: The following constants are OUTDATED and may be deleted in the future.
-/** The terminal. */
+//?? TODO: The following constants are OUTDATED and may be deleted in the future. They have been replaced by a new io_entry structure.
 static int* ENABLE_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_210_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 static int* INTERRUPT_REQUEST_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_211_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 static int* HANDLER_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_212_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -91,7 +89,7 @@ static int* OUTPUT_MODE_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_219_I
 /**
  * The display.
  *
- * The total number of possible socket services (ports) is: 1
+ * The total number of possible display services (ports) is: 1
  */
 static int* DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_300_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

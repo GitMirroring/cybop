@@ -81,8 +81,13 @@ void startup_unix_terminal_attributes_get(void* p0, void* p1) {
 
             } else {
 
-                // Close unix terminal on error.
-                close(*d);
+                //
+                // Close terminal on error.
+                //
+                // CAUTION! Do NOT do this as long as stdin and stdout are used
+                // since otherwise, no more communication with the process is possible.
+                //
+//??                close(*d);
 
                 if (errno == EBADF) {
 
