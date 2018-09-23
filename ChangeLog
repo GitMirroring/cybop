@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2018-09-23  Christian Heller  <christian.heller@cybop.org>
+
+        * Add documentation file "src/communication_properties.ods" listing and comparing cybol send/receive for various channels, in order to handle them in a unified way within cyboi
+
 2018-09-21  Christian Heller  <christian.heller@cybop.org>
 
         * Add new cybol operations "activate/enable" and "activate/disable"
