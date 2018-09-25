@@ -58,8 +58,8 @@ void startup_terminal_server(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The internal memory index.
     int i = *TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME;
 
-//?? fwprintf(stdout, L"TEST: startup terminal server io index: %i \n", i);
-//?? fwprintf(stdout, L"TEST: startup terminal server port p3: %i \n", *((int*) p3));
+    fwprintf(stdout, L"TEST: startup terminal server io index: %i \n", i);
+    fwprintf(stdout, L"TEST: startup terminal server port p3: %i \n", *((int*) p3));
 
     // Calculate internal memory index using given port.
     calculate_integer_add((void*) &i, p3);
@@ -71,17 +71,15 @@ void startup_terminal_server(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // The terminal io entry.
         void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-//?? fwprintf(stdout, L"TEST: startup terminal server io index with port: %i \n", i);
+        fwprintf(stdout, L"TEST: startup terminal server io index with port: %i \n", i);
 
-        // Get terminal io entry.
+        // Get terminal io entry from internal memory.
         copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
         if (io == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            // The terminal input.
-            int ti = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            // The terminal output.
-            int to = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            // The terminal.
+            int t = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
             //
             // CAUTION! A client list is NOT needed here
@@ -104,10 +102,9 @@ void startup_terminal_server(void* p0, void* p1, void* p2, void* p3, void* p4) {
             //
             allocate_array((void*) &io, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
             // Open terminal.
-            startup_terminal_open((void*) &ti, (void*) &to, p1, p2);
+            startup_terminal_open((void*) &t, p1, p2);
 
-//?? fwprintf(stdout, L"TEST: startup terminal server input ti: %i\n", ti);
-//?? fwprintf(stdout, L"TEST: startup terminal server output to: %i\n", to);
+            fwprintf(stdout, L"TEST: startup terminal server t: %i\n", t);
 
             //
             // Store terminal in io entry.
@@ -119,7 +116,7 @@ void startup_terminal_server(void* p0, void* p1, void* p2, void* p3, void* p4) {
             set_io_entry_element((void*) &io, (void*) &t, (void*) TERMINAL_NUMBER_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             //
-            // Store io entry in internal memory.
+            // Store terminal io entry in internal memory.
             //
             // CAUTION! Do NOT use "overwrite_array" function here,
             // since it adapts the array count and size.

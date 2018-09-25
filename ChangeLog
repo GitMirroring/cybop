@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2018-09-25  Christian Heller  <christian.heller@cybop.org>
+
+        * Add file "edit_attributes_unix_terminal_starter.c"
+        * Adapt unix terminal starter files
+
 2018-09-24  Christian Heller  <christian.heller@cybop.org>
 
         * Update documentation file "src/communication_properties.ods"
