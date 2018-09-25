@@ -45,7 +45,7 @@ void startup_unix_terminal_attributes_set(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        struct termios* o = (struct termios*) p1;
+        struct termios* a = (struct termios*) p1;
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -77,7 +77,7 @@ void startup_unix_terminal_attributes_set(void* p0, void* p1) {
             //            It is a BSD extension; it is only supported on BSD systems and the GNU system.
             //            Using TCSASOFT is exactly the same as setting the CIGNORE bit in the c_cflag member of the structure termios-p points to.
             //
-            int e = tcsetattr(*f, TCSANOW, &a);
+            int e = tcsetattr(*f, TCSANOW, a);
 
             if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

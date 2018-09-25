@@ -68,12 +68,12 @@ void startup_terminal_server(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         // The given port is valid.
 
-        // The terminal io entry.
+        // The terminal input/output entry.
         void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         fwprintf(stdout, L"TEST: startup terminal server io index with port: %i \n", i);
 
-        // Get terminal io entry from internal memory.
+        // Get terminal input/output entry from internal memory.
         copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
         if (io == *NULL_POINTER_STATE_CYBOI_MODEL) {
@@ -95,19 +95,19 @@ void startup_terminal_server(void* p0, void* p1, void* p2, void* p3, void* p4) {
             //
 
             //
-            // Allocate io entry.
+            // Allocate input/output entry.
             //
             // CAUTION! Due to memory allocation handling, the size MUST NOT
             // be negative or zero, but have at least a value of ONE.
             //
             allocate_array((void*) &io, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
             // Open terminal.
-            startup_terminal_open((void*) &t, p1, p2);
+            startup_terminal_open((void*) &t, io);
 
             fwprintf(stdout, L"TEST: startup terminal server t: %i\n", t);
 
             //
-            // Store terminal in io entry.
+            // Store terminal in input/output entry.
             //
             // CAUTION! Do NOT use "overwrite_array" function here,
             // since it adapts the array count and size.
@@ -116,7 +116,7 @@ void startup_terminal_server(void* p0, void* p1, void* p2, void* p3, void* p4) {
             set_io_entry_element((void*) &io, (void*) &t, (void*) TERMINAL_NUMBER_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             //
-            // Store terminal io entry in internal memory.
+            // Store terminal input/output entry in internal memory.
             //
             // CAUTION! Do NOT use "overwrite_array" function here,
             // since it adapts the array count and size.

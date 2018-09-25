@@ -54,60 +54,18 @@
  */
 void startup_terminal_open(void* p0) {
 
-    // The input- and output data.
-    void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* op = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Get input- and output data.
-    copy_array_forward((void*) &ip, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &op, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-
-    // Only create new terminal resources if both,
-    // input- AND output are null.
-    if ((ip == *NULL_POINTER_STATE_CYBOI_MODEL) && (op == *NULL_POINTER_STATE_CYBOI_MODEL)) {
-
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal open.");
-
-        // Allocate input- and output data.
-        //
-        // A unix file descriptor AS WELL AS a win32
-        // console handle is just an int value.
-        // Therefore, the INTEGER_NUMBER_STATE_CYBOI_TYPE
-        // constant may be used here for both.
-        //
-        // CAUTION! Due to memory allocation handling, the size MUST NOT
-        // be negative or zero, but have at least a value of ONE.
-        //
-        allocate_array((void*) &ip, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        allocate_array((void*) &op, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-
-        // Set input- and output data.
-        //
-        // CAUTION! Add it as soon as it was allocated above
-        // ALWAYS and not only if opened successfully below.
-        // Otherwise, in case of an error, the shutdown function
-        // freeing it may not find it leading to a memory leak.
-        //
-        // CAUTION! Do NOT use "overwrite_array" function here,
-        // since it adapts the array count and size.
-        // But the internal array's count and size are CONSTANT.
-        copy_array_forward(p0, (void*) &ip, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        copy_array_forward(p0, (void*) &op, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) OUTPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal open.");
 
 #if defined(__linux__) || defined(__unix__)
-        startup_unix_terminal_open(ip, op, p0);
+//??    startup_unix_terminal_open(ip, op, p0);
 #elif defined(__APPLE__) && defined(__MACH__)
-        startup_unix_terminal_open(ip, op, p0);
+//??    startup_unix_terminal_open(ip, op, p0);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-        startup_win32_console_open(ip, op, p0);
+//??    startup_win32_console_open(ip, op, p0);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
-    } else {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal open. The input- or output data or both already exist.");
-    }
 }
 
 /* OPEN_TERMINAL_STARTER_SOURCE */

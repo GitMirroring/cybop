@@ -46,7 +46,7 @@
  * Opens the unix terminal.
  *
  * @param p0 the file descriptor
- * @param p1 the input/output memory
+ * @param p1 the input/output entry
  */
 void startup_unix_terminal_open(void* p0, void* p1) {
 
