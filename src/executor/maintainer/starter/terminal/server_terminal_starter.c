@@ -48,7 +48,7 @@
  * @param p0 the internal memory data
  * @param p1 the filename data
  * @param p2 the filename count
- * @param p3 the port
+ * @param p3 the service identification (port)
  * @param p4 the connexions (number of possible pending client requests)
  */
 void startup_terminal_server(void* p0, void* p1, void* p2, void* p3, void* p4) {

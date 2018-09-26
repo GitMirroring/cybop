@@ -1,5 +1,6 @@
 <node>
 
+    <node name="adr-le" channel="file" format="element/part" model="project_overview/list/open/adr-le.cybol"/>
     <node name="apraxos" channel="file" format="element/part" model="project_overview/list/open/apraxos.cybol"/>
     <node name="cryptocurrency-basicincome" channel="file" format="element/part" model="project_overview/list/open/cryptocurrency-basicincome.cybol"/>
     <node name="cryptocurrency-core" channel="file" format="element/part" model="project_overview/list/open/cryptocurrency-core.cybol"/>

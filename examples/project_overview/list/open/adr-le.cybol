@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="adr-le"/>
+    <node name="description" channel="inline" format="text/plain" model="Auslesen Hausnummern zu Straßennamen der Stadt Leipzig"/>
+    <node name="technology" channel="inline" format="text/plain" model="beliebige Programmiersprache, evtl. Visual Basic, HTML, HTTP, CSV, Tabellenkalkulation (LibreOffice Calc oder MS Office Excel)"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPL"/>
+    <node name="portal" channel="inline" format="text/plain" model="(beliebig)"/>
+    <node name="contact" channel="inline" format="text/plain" model="Prof. Dr. Ralf Guckel <ralf.guckel@ba-leipzig.de>"/>
+    <node name="remark" channel="inline" format="text/plain" model="https://adressen.leipzig.de/"/>
+
+</node>
