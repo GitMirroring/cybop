@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2018-09-26  Christian Heller  <christian.heller@cybop.org>
+
+        * Clean up terminal starter and related files
+
 2018-09-25  Christian Heller  <christian.heller@cybop.org>
 
         * Add file "edit_attributes_unix_terminal_starter.c"

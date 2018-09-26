@@ -1,4 +1,5 @@
 <node>
+
     <!-- The command HAS TO BE EMPTIED since otherwise, the new is appended to the old command in the receive operation below. -->
     <node name="reset_command" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".temporary.command"/>
@@ -10,6 +11,7 @@
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".temporary.command"/>
     </node>
+
     <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->
     <node name="append_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".temporary.path"/>
@@ -19,6 +21,7 @@
         <node name="destination" channel="inline" format="text/cybol-path" model=".temporary.path"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".temporary.command"/>
     </node>
+
     <!--
         CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.
         Otherwise, another signal might be executed before, so that this signal could possibly
@@ -32,6 +35,7 @@
     <node name="sleep_for_some_time_so_that_the_output_can_be_read_by_the_user" channel="inline" format="run/run" model="">
         <node name="programme" channel="inline" format="text/plain" model="sleep 0.8"/>
     </node>
+
     <node name="send_tui" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -47,29 +51,5 @@
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".tui.cursor"/>
     </node>
+
 </node>
-
-<!--
-    Copyright (C) 1999-2018. Christian Heller.
-
-    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
-
-    CYBOL is free software: you can redistribute it and/or modify it
-    under the terms of the GNU General Public License as published
-    by the Free Software Foundation, either version 3 of the License,
-    or (at your option) any later version.
-
-    CYBOL is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty
-    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    See the GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
-
-    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
-    CYBOP Developers <cybop-developers@nongnu.org>
-
-    @version CYBOP 0.20.0 2018-06-30
-    @author Christian Heller <christian.heller@cybop.org>
--->

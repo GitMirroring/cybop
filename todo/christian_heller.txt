@@ -17,6 +17,11 @@ ___
     // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
     // Otherwise, it would produce huge log files filled up with useless entries.
 
+        CONTINUE:
+        * Check why function "sense" of NEW "sensor.c" is not called
+        * Check if correct function call of "get_io_entry_element" is used INSTEAD OF copying or overwriting an array,
+            in "checker" to retrieve current signal
+
         * Use terminal "id" as "receiver"/"sender" for i/o via channel "terminal"
             see documentation file "src/communication_properties.ods"
             think through usage of stdin and stdout as separate terminal io_entries

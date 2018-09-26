@@ -50,8 +50,8 @@
  *
  * Expected parametres:
  * - channel (required): the channel via which to receive the message (terminal, www, x-window-system etc.)
- * - handler (optional): the handler (usually a receive operation) that parses an input and filters out a command that the system is to react to
- * - id (optional): the service identification if having multiple terminals/displays/sockets etc., e.g. socket port 80; either port or service may be specified; port has higher priority; if missing, zero will be used (first io entry)
+ * - handler (required): the handler (usually a receive operation) that parses an input and filters out a command that the system is to react to
+ * - id (required): the service identification of a terminal/display/socket etc., e.g. socket port 80; either port or service may be specified; port has higher priority; if missing, zero will be used (first io entry)
  * - service (optional): the network service, e.g. http; either port or service may be specified; port has higher priority; useful only if channel is "socket"
  * - sender (required): the source where to sense data, e.g. a socket
  *

@@ -59,7 +59,7 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
     calculate_integer_add((void*) &i, p1);
     calculate_integer_add((void*) &i, p2);
 
-    // Get input/output entry.
+    // Get input/output entry from internal memory.
     copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {

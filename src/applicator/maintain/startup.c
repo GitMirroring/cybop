@@ -27,7 +27,6 @@
 #define STARTUP_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/maintenance/startup_maintenance_logic_cybol_name.c"
@@ -41,7 +40,7 @@
  *
  * Expected parametres:
  * - channel (required): the channel on which to startup a service (serial, terminal, display, socket ...)
- * - id (optional): the service identification if having multiple terminals/displays/sockets etc., e.g. socket port 80; either port or service may be specified; port has higher priority; if missing, zero will be used (first io entry)
+ * - id (required): the service identification of a terminal/display/socket etc., e.g. socket port 80; either port or service may be specified; port has higher priority; if missing, zero will be used (first io entry)
  * Expected parametres only for channel "serial":
  * - filename (required): the filename
  * - baudrate (optional): the filename
@@ -56,8 +55,6 @@
  * - blocking (required): the socket status, i.e. whether or not a socket is blocking
  * - socket (optional): the client socket which is an integer number defined in cybol (needed only if mode is "client")
  * - connexions (optional): the number of possible pending client requests (needed only if mode is "server")
- *
- * Constraints:
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

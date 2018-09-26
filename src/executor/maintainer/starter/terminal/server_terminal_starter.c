@@ -26,32 +26,31 @@
 #ifndef SERVER_TERMINAL_STARTER_SOURCE
 #define SERVER_TERMINAL_STARTER_SOURCE
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../logger/logger.c"
+#include <stdio.h>
 
-/*??
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
-#include "../../../../../executor/accessor/setter/io_entry_setter.c"
-#include "../../../../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../../../../executor/maintainer/starter/socket/server/lifecycle_server_socket_starter.c"
-#include "../../../../../executor/memoriser/allocator/array_allocator.c"
-#include "../../../../../executor/memoriser/allocator/item_allocator.c"
-#include "../../../../../executor/copier/array_copier.c"
-#include "../../../../../executor/copier/integer_copier.c"
-*/
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/accessor/setter/io_entry_setter.c"
+#include "../../../../executor/calculator/integer/add_integer_calculator.c"
+#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/maintainer/starter/terminal/open_terminal_starter.c"
+#include "../../../../executor/memoriser/allocator/array_allocator.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Starts up server terminal.
  *
  * @param p0 the internal memory data
- * @param p1 the filename data
- * @param p2 the filename count
- * @param p3 the service identification (port)
- * @param p4 the connexions (number of possible pending client requests)
+ * @param p1 the service identification (comparable to a socket port)
  */
-void startup_terminal_server(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void startup_terminal_server(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal server.");
 
@@ -59,12 +58,13 @@ void startup_terminal_server(void* p0, void* p1, void* p2, void* p3, void* p4) {
     int i = *TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME;
 
     fwprintf(stdout, L"TEST: startup terminal server io index: %i \n", i);
-    fwprintf(stdout, L"TEST: startup terminal server port p3: %i \n", *((int*) p3));
+    fwprintf(stdout, L"TEST: startup terminal server port p1: %i \n", p1);
+    fwprintf(stdout, L"TEST: startup terminal server port *p1: %i \n", *((int*) p1));
 
     // Calculate internal memory index using given port.
-    calculate_integer_add((void*) &i, p3);
+    calculate_integer_add((void*) &i, p1);
 
-    if (i > *TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME) {
+    if (i >= *TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME) {
 
         // The given port is valid.
 
@@ -78,8 +78,11 @@ void startup_terminal_server(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (io == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            // The terminal.
-            int t = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            //?? TODO: Temporary solution using stdin / stdout.
+            // The terminal file stream.
+            FILE* s = stdin; //?? TODO: OPTIONAL: stdout
+            // Get terminal file descriptor as integer from file stream.
+            int f = fileno(s);
 
             //
             // CAUTION! A client list is NOT needed here
@@ -102,9 +105,9 @@ void startup_terminal_server(void* p0, void* p1, void* p2, void* p3, void* p4) {
             //
             allocate_array((void*) &io, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
             // Open terminal.
-            startup_terminal_open((void*) &t, io);
+            startup_terminal_open((void*) &f, io);
 
-            fwprintf(stdout, L"TEST: startup terminal server t: %i\n", t);
+            fwprintf(stdout, L"TEST: startup terminal server file descriptor f: %i\n", f);
 
             //
             // Store terminal in input/output entry.
@@ -113,7 +116,7 @@ void startup_terminal_server(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // since it adapts the array count and size.
             // But the array's count and size are CONSTANT.
             //
-            set_io_entry_element((void*) &io, (void*) &t, (void*) TERMINAL_NUMBER_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            set_io_entry_element((void*) &io, (void*) &f, (void*) FILE_DESCRIPTOR_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             //
             // Store terminal input/output entry in internal memory.

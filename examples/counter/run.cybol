@@ -21,6 +21,7 @@
 
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="id" channel="inline" format="number/integer" model="0"/>
     </node>
 
     <!-- The break condition has to be GREATER-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->

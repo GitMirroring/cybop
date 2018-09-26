@@ -27,15 +27,16 @@
 #define TERMINAL_STARTER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../executor/maintainer/starter/terminal/open_terminal_starter.c"
+#include "../../../../executor/maintainer/starter/terminal/server_terminal_starter.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Starts up the terminal.
  *
  * @param p0 the internal memory data
+ * @param p1 the service identification (comparable to a socket port)
  */
-void startup_terminal(void* p0) {
+void startup_terminal(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal.");
 
@@ -49,7 +50,7 @@ void startup_terminal(void* p0) {
     // See "serial_port_starter.c"!
     //
 
-    startup_terminal_open(p0);
+    startup_terminal_server(p0, p1);
 }
 
 /* TERMINAL_STARTER_SOURCE */

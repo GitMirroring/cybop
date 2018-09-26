@@ -26,7 +26,7 @@
 #ifndef OPEN_UNIX_TERMINAL_STARTER_SOURCE
 #define OPEN_UNIX_TERMINAL_STARTER_SOURCE
 
-//?? #include <stdio.h>
+#include <stdlib.h>
 #include <termios.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -55,11 +55,6 @@ void startup_unix_terminal_open(void* p0, void* p1) {
         int* f = (int*) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix terminal open.");
-
-        // The input- and output file stream.
-//??        FILE* s = stdin; //?? TODO: OPTIONAL: stdout
-        // Get file descriptor as integer from file stream.
-//??        *f = fileno(s);
 
         //
         // Allocate original attributes.
@@ -123,9 +118,16 @@ void startup_unix_terminal_open(void* p0, void* p1) {
         // Read original terminal attributes.
         startup_unix_terminal_attributes_get(p0, a);
 
-        // Store original terminal attributes in input/output memory.
-        // CAUTION! Hand over pointer as REFERENCE here.
-        copy_array_forward(p1, (void*) &a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ORIGINAL_ATTRIBUTES_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        //
+        // Store original terminal attributes in input/output entry.
+        //
+        // CAUTION! Hand over attributes pointer as REFERENCE here.
+        //
+        // CAUTION! Do NOT use "overwrite_array" function here,
+        // since it adapts the array count and size.
+        // But the array's count and size are CONSTANT.
+        //
+        set_io_entry_element(p1, (void*) &a, (void*) ORIGINAL_ATTRIBUTES_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         // Copy original to new terminal attributes.
         struct termios* o = (struct termios*) a;

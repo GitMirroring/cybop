@@ -28,18 +28,13 @@
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/maintainer/starter/display/display_starter.c"
-#include "../../executor/maintainer/starter/opengl/opengl_starter.c"
 #include "../../executor/maintainer/starter/serial_port/serial_port_starter.c"
 #include "../../executor/maintainer/starter/socket/socket_starter.c"
 #include "../../executor/maintainer/starter/terminal/terminal_starter.c"
 #include "../../logger/logger.c"
-#include "../../variable/thread_identification.c"
 
 /**
  * Starts up the given service.
@@ -55,7 +50,7 @@
  * The value of unneeded parametres may just be set to NULL.
  *
  * @param p0 the internal memory data
- * @param p1 the service id, e.g. socket port
+ * @param p1 the service identification (comparable to a socket port)
  * @param p2 the serial filename data
  * @param p3 the serial filename count
  * @param p4 the serial baudrate
@@ -121,7 +116,7 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_terminal(p0);
+            startup_terminal(p0, p1);
         }
     }
 

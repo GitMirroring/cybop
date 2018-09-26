@@ -26,14 +26,7 @@
 #ifndef OPEN_TERMINAL_STARTER_SOURCE
 #define OPEN_TERMINAL_STARTER_SOURCE
 
-#include <stdio.h>
-
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
@@ -50,19 +43,20 @@
 /**
  * Opens the terminal.
  *
- * @param p0 the internal memory data
+ * @param p0 the file descriptor
+ * @param p1 the input/output entry
  */
-void startup_terminal_open(void* p0) {
+void startup_terminal_open(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal open.");
 
 #if defined(__linux__) || defined(__unix__)
-//??    startup_unix_terminal_open(ip, op, p0);
+    startup_unix_terminal_open(p0, p1);
 #elif defined(__APPLE__) && defined(__MACH__)
-//??    startup_unix_terminal_open(ip, op, p0);
+    startup_unix_terminal_open(p0, p1);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-//??    startup_win32_console_open(ip, op, p0);
+    startup_win32_console_open(p0, p1);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
