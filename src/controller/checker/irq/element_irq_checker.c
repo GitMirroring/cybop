@@ -65,12 +65,16 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     calculate_integer_add((void*) &idx, p4);
     calculate_integer_add((void*) &idx, p5);
 
+    fwprintf(stdout, L"TEST check irq element idx: %i\n", idx);
+
     // Get io entry.
     copy_array_forward((void*) &io, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &idx);
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // An io entry exists for the service at the calculated internal memory index.
+
+    fwprintf(stdout, L"TEST check irq element io: %i\n", io);
 
         // The enable flag.
         int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -82,6 +86,8 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
             // The enable flag is set.
 
+    fwprintf(stdout, L"TEST check irq element e: %i\n", e);
+
             // The interrupt request.
             int irq = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -91,6 +97,8 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             if (irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 // The interrupt request is set.
+
+    fwprintf(stdout, L"TEST check irq element irq: %i\n", irq);
 
                 // Reset interrupt request in io entry.
                 set_io_entry_element((void*) &io, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);

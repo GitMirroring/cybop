@@ -135,7 +135,7 @@ void apply_sense(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //?? The OLD thread-based function call.
     //?? sense(p4, imd, (void*) &h, (void*) &smd, semd, semc, cmd);
 
-    sense(p4, imd, (void*) &h, (void*) &smd, cmd);
+//??    sense(p4, imd, (void*) &h, (void*) &smd, cmd);
 }
 
 /* SENSE_SOURCE */

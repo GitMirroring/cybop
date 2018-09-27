@@ -29,7 +29,7 @@
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../executor/sensor/message_sensor.c"
+#include "../../../executor/sensor/sensor.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"
@@ -57,9 +57,11 @@ void check_client_element(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &c, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
     // Sense data available on already open client.
-    sense_message((void*) &f, (void*) &c, p3);
+    sense((void*) &f, (void*) &c, p3);
 
     if (f > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+        fwprintf(stdout, L"TEST: check client element f: %i \n", f);
 
         // There are data available on the client.
 

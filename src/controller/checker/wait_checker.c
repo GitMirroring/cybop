@@ -136,7 +136,8 @@ void check_wait(void* p0, void* p1) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check wait.");
 
-//?? fwprintf(stdout, L"TEST wait *sl: %i\n", *((int*) p1));
+    fwprintf(stdout, L"TEST wait sl: %i\n", p1);
+    fwprintf(stdout, L"TEST wait *sl: %i\n", *((int*) p1));
 
     // The break flag.
     // CAUTION! Using this single break flag is easier than

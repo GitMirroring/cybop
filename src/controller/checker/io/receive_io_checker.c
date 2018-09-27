@@ -60,7 +60,7 @@ void check_io_receive(void* p0, void* p1, void* p2, void* p3) {
         // There ARE data available on one of the clients.
         // The corresponding client number got returned.
 
-//?? fwprintf(stdout, L"TEST: check io receive c: %i \n", c);
+        fwprintf(stdout, L"TEST: check io receive. client c: %i \n", c);
 
         // The io sender.
         void* s = *NULL_POINTER_STATE_CYBOI_MODEL;

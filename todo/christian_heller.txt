@@ -18,9 +18,10 @@ ___
     // Otherwise, it would produce huge log files filled up with useless entries.
 
         CONTINUE:
-        * Check why function "sense" of NEW "sensor.c" is not called
-        * Check if correct function call of "get_io_entry_element" is used INSTEAD OF copying or overwriting an array,
-            in "checker" to retrieve current signal
+        * client list is missing for terminal (it is "null" in function "check_io_element")
+            see file "server_socket_starter.c"
+            How to use the client list with terminal?
+        * Therefore, function "sense" of NEW "sensor.c" is not called from within function "check_client_element"
 
         * Use terminal "id" as "receiver"/"sender" for i/o via channel "terminal"
             see documentation file "src/communication_properties.ods"

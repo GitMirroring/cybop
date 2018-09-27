@@ -110,7 +110,7 @@ void startup_terminal_server(void* p0, void* p1) {
             fwprintf(stdout, L"TEST: startup terminal server file descriptor f: %i\n", f);
 
             //
-            // Store terminal in input/output entry.
+            // Store terminal file descriptor in input/output entry.
             //
             // CAUTION! Do NOT use "overwrite_array" function here,
             // since it adapts the array count and size.

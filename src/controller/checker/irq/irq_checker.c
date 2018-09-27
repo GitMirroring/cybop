@@ -58,7 +58,8 @@ void check_irq(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check irq.");
 
-//?? fwprintf(stdout, L"TEST check irq *p0: %i\n", *((int*) p0));
+    fwprintf(stdout, L"TEST check irq p0: %i\n", p0);
+    fwprintf(stdout, L"TEST check irq *p0: %i\n", *((int*) p0));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -75,12 +76,12 @@ void check_irq(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_irq_all((void*) &r, p0, p1, p2, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_65536_INTEGER_STATE_CYBOI_MODEL);
+//??        check_irq_all((void*) &r, p0, p1, p2, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_65536_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??        check_irq_all((void*) &r, p0, p1, p2, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        check_irq_all((void*) &r, p0, p1, p2, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 
     //?? TODO: The following comparisons are OLD and to be deleted in the future.

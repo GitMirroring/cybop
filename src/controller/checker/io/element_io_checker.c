@@ -48,58 +48,57 @@
  * @param p0 the io flag
  * @param p1 the internal memory data
  * @param p2 the internal memory index (already initialised with input output base)
- * @param p3 the io entry index
+ * @param p3 the input/output entry index
  * @param p4 the channel
  */
 void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    // CAUTION! Do NOT log messages here, since checking runs in an endless loop.
-    // Otherwise, the log file would be filled up with useless entries.
+    // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
+    // Otherwise, it would produce huge log files filled up with useless entries.
     // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io element.");
 
     // The internal memory index.
     int idx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The io entry.
+    // The input/output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Calculate internal memory index.
     calculate_integer_add((void*) &idx, p2);
     calculate_integer_add((void*) &idx, p3);
 
-    // Get io entry.
+    fwprintf(stdout, L"TEST: check io element idx: %i \n", idx);
+
+    // Get input/output entry.
     copy_array_forward((void*) &io, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &idx);
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // An io entry exists for the service at the calculated internal memory index.
+        // An input/output entry exists for the service at the calculated internal memory index.
+
+        fwprintf(stdout, L"TEST: check io element io: %i \n", io);
 
         // The enable flag.
         int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        // Get enable flag from io entry.
+        // Get enable flag from input/output entry.
         get_io_entry_element((void*) &e, (void*) &io, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         if (e != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The enable flag is set.
 
-/*??
-    fwprintf(stdout, L"TEST: check io element io index p2: %i \n", *((int*) p2));
-    fwprintf(stdout, L"TEST: check io element port p3: %i \n", *((int*) p3));
-    fwprintf(stdout, L"TEST: check io element io index with port: %i \n", idx);
-*/
+            fwprintf(stdout, L"TEST: check io element e: %i \n", e);
 
             // The client list item.
             void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The comparison result.
             int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-            // Get client list item from io entry.
+            // Get client list item from input/output entry.
             get_io_entry_element((void*) &l, (void*) &io, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-//?? fwprintf(stdout, L"TEST: check io element l: %i \n", l);
+            fwprintf(stdout, L"TEST: check io element l: %i \n", l);
 
-            //?? TODO: Better use channel (instead of input-output-base) for comparison??
             compare_integer_equal((void*) &r, p4, (void*) SOCKET_CYBOI_CHANNEL);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
