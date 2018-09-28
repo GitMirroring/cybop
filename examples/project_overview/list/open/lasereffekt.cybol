@@ -5,7 +5,7 @@
     <node name="technology" channel="inline" format="text/plain" model="3D-Modellierung mittels z. B. Laserworld Showeditor | openlase | lfiplayer3d | MusicBeam | Pangolin | Phoenix"/>
     <node name="licence" channel="inline" format="text/plain" model="Modelle unter GNU GPL"/>
     <node name="portal" channel="inline" format="text/plain" model="https://www.laserworld.com/de/showlaser-faq/lasershow-glossar-definitionen/79-i/1317-ilda-de.html"/>
-    <node name="contact" channel="inline" format="text/plain" model="Uwe Griebenow <uwe.griebenow@ba-riesa.de>"/>
+    <node name="contact" channel="inline" format="text/plain" model="Prof. Dr. Uwe Griebenow <uwe.griebenow@ba-riesa.de>"/>
     <node name="remark" channel="inline" format="text/plain" model="Modell optional drehbar gestalten. Geeignet z. B. für Tag der offenen Tür im Hause. Modellierung evtl. kombinieren mit 3D-Druck im hauseigenen 3D-Labor. Zur Entwicklung kann das Laser-Gerät von der BA Riesa hierher bestellt werden. Bedienungsanleitung ist vorhanden."/>
 
 </node>

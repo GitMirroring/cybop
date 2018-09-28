@@ -6,6 +6,6 @@
     <node name="licence" channel="inline" format="text/plain" model="GNU GPL"/>
     <node name="portal" channel="inline" format="text/plain" model="(beliebig)"/>
     <node name="contact" channel="inline" format="text/plain" model="Prof. Dr. Ralf Guckel <ralf.guckel@ba-leipzig.de>"/>
-    <node name="remark" channel="inline" format="text/plain" model="https://adressen.leipzig.de/"/>
+    <node name="remark" channel="inline" format="text/plain" model="Es liegt eine vollständige Liste der (derzeit 3428) offiziellen Straßennamen der Stadt Leipzig im Format Excel vor. Die Stadt Leipzig stellt unter https://adressen.leipzig.de/ einen Dienst zur Verfügung, mit dessen Hilfe sich zu jedem Straßennamen eine vollständige Liste der zugehörigen Hausnummern generieren lässt. Es wird ein möglichst komfortables, schnelles und sicheres Tool benötigt, mit dem die Abfrage der Hausnummern für alle Straßennamen automatisiert durchgeführt werden kann. Im Idealfall wäre der Aufruf des Tools als Excel-(Matrix-)Funktion möglich. Alternativ ist aber auch eine externe Lösung möglich, bei der die Liste der Straßennamen eingelesen und eine CSV-Liste der Straßennamen zzgl. Hausnummern ausgegeben wird."/>
 
 </node>

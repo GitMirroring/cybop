@@ -1,20 +1,7 @@
 <node>
 
     <node name="adr-le" channel="file" format="element/part" model="project_overview/list/open/adr-le.cybol"/>
-    <node name="apraxos" channel="file" format="element/part" model="project_overview/list/open/apraxos.cybol"/>
-    <node name="cryptocurrency-basicincome" channel="file" format="element/part" model="project_overview/list/open/cryptocurrency-basicincome.cybol"/>
-    <node name="cryptocurrency-core" channel="file" format="element/part" model="project_overview/list/open/cryptocurrency-core.cybol"/>
-    <node name="cryptocurrency-frontend" channel="file" format="element/part" model="project_overview/list/open/cryptocurrency-frontend.cybol"/>
-    <node name="democracy" channel="file" format="element/part" model="project_overview/list/open/democracy.cybol"/>
-    <node name="fahrtenbuch" channel="file" format="element/part" model="project_overview/list/open/fahrtenbuch.cybol"/>
-    <node name="gnumed" channel="file" format="element/part" model="project_overview/list/open/gnumed.cybol"/>
-    <node name="humanconnection" channel="file" format="element/part" model="project_overview/list/open/humanconnection.cybol"/>
     <node name="lasereffekt" channel="file" format="element/part" model="project_overview/list/open/lasereffekt.cybol"/>
-    <node name="lindentaler" channel="file" format="element/part" model="project_overview/list/open/lindentaler.cybol"/>
     <node name="matching" channel="file" format="element/part" model="project_overview/list/open/matching.cybol"/>
-    <node name="openstreetmap" channel="file" format="element/part" model="project_overview/list/open/openstreetmap.cybol"/>
-    <node name="troposphaerenforschung" channel="file" format="element/part" model="project_overview/list/open/troposphaerenforschung.cybol"/>
-    <node name="umbrello" channel="file" format="element/part" model="project_overview/list/open/umbrello.cybol"/>
-    <node name="watchdog" channel="file" format="element/part" model="project_overview/list/open/watchdog.cybol"/>
 
 </node>
