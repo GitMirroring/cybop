@@ -61,17 +61,18 @@ void startup_terminal_server(void* p0, void* p1) {
     fwprintf(stdout, L"TEST: startup terminal server port p1: %i \n", p1);
     fwprintf(stdout, L"TEST: startup terminal server port *p1: %i \n", *((int*) p1));
 
-    // Calculate internal memory index using given port.
+    // Calculate internal memory index using given service identification.
     calculate_integer_add((void*) &i, p1);
 
+    // CAUTION! Use greater-or-equal operator >=, since the first terminal has the identification zero.
     if (i >= *TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME) {
 
-        // The given port is valid.
+        // The given service identification is valid.
 
         // The terminal input/output entry.
         void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        fwprintf(stdout, L"TEST: startup terminal server io index with port: %i \n", i);
+        fwprintf(stdout, L"TEST: startup terminal server io index with service identification: %i \n", i);
 
         // Get terminal input/output entry from internal memory.
         copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
@@ -83,19 +84,16 @@ void startup_terminal_server(void* p0, void* p1) {
             FILE* s = stdin; //?? TODO: OPTIONAL: stdout
             // Get terminal file descriptor as integer from file stream.
             int f = fileno(s);
-
             //
-            // CAUTION! A client list is NOT needed here
-            // (other than e.g. for a server socket),
-            // since only ONE user (client) may be logged
-            // into a terminal at a given time,
+            // The client list item.
+            //
+            // CAUTION! A client list IS needed here,
+            // since the data sensing mechanism relies on it.
+            // This is so even though only ONE user (client)
+            // may be logged into a terminal at a given time,
             // which is also called a "user session".
             //
-            // However, more than just one server terminal may be created,
-            // by using the "port" argument to this function.
-            // It is done e.g. in GNU/Linux, with the six standard terminals.
-            // But each of them allows for just ONE user session.
-            //
+            void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             //
             // Allocate input/output entry.
@@ -106,8 +104,16 @@ void startup_terminal_server(void* p0, void* p1) {
             allocate_array((void*) &io, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
             // Open terminal.
             startup_terminal_open((void*) &f, io);
+            //
+            // Allocate client list item.
+            //
+            // CAUTION! Due to memory allocation handling, the size MUST NOT
+            // be negative or zero, but have at least a value of ONE.
+            //
+            allocate_item((void*) &cl, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
             fwprintf(stdout, L"TEST: startup terminal server file descriptor f: %i\n", f);
+            fwprintf(stdout, L"TEST: startup terminal server client list cl: %i\n", cl);
 
             //
             // Store terminal file descriptor in input/output entry.
@@ -117,9 +123,17 @@ void startup_terminal_server(void* p0, void* p1) {
             // But the array's count and size are CONSTANT.
             //
             set_io_entry_element((void*) &io, (void*) &f, (void*) FILE_DESCRIPTOR_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            //
+            // Store client list item in input/output entry.
+            //
+            // CAUTION! Do NOT use "overwrite_array" function here,
+            // since it adapts the array count and size.
+            // But the array's count and size are CONSTANT.
+            //
+            set_io_entry_element((void*) &io, (void*) &cl, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             //
-            // Store terminal input/output entry in internal memory.
+            // Store input/output entry in internal memory.
             //
             // CAUTION! Do NOT use "overwrite_array" function here,
             // since it adapts the array count and size.
