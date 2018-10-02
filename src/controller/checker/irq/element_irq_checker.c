@@ -40,13 +40,13 @@
 #include "../../../logger/logger.c"
 
 /**
- * Checks input output entry data.
+ * Checks input/output entry data.
  *
- * @param p0 the result
+ * @param p0 the comparison result
  * @param p1 the interrupt request
  * @param p2 the handler (pointer reference)
  * @param p3 the internal memory data
- * @param p4 the internal memory index (already initialised with input output base)
+ * @param p4 the internal memory index (already initialised with input/output base)
  * @param p5 the io entry index
  * @param p6 the break flag
  */
@@ -65,7 +65,7 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     calculate_integer_add((void*) &idx, p4);
     calculate_integer_add((void*) &idx, p5);
 
-    fwprintf(stdout, L"TEST check irq element idx: %i\n", idx);
+    fwprintf(stdout, L"TEST Check irq element. idx: %i\n", idx);
 
     // Get io entry.
     copy_array_forward((void*) &io, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &idx);
@@ -74,7 +74,7 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
         // An io entry exists for the service at the calculated internal memory index.
 
-    fwprintf(stdout, L"TEST check irq element io: %i\n", io);
+    fwprintf(stdout, L"TEST Check irq element. io: %i\n", io);
 
         // The enable flag.
         int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -86,7 +86,7 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
             // The enable flag is set.
 
-    fwprintf(stdout, L"TEST check irq element e: %i\n", e);
+    fwprintf(stdout, L"TEST Check irq element. e: %i\n", e);
 
             // The interrupt request.
             int irq = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -98,7 +98,7 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
                 // The interrupt request is set.
 
-    fwprintf(stdout, L"TEST check irq element irq: %i\n", irq);
+    fwprintf(stdout, L"TEST Check irq element. irq: %i\n", irq);
 
                 // Reset interrupt request in io entry.
                 set_io_entry_element((void*) &io, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);
@@ -106,8 +106,7 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
                 // Get handler from io entry.
                 get_io_entry_element(p2, (void*) &io, (void*) HANDLER_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-//?? fwprintf(stdout, L"TEST check irq element idx: %i\n", idx);
-//?? fwprintf(stdout, L"TEST check irq element handler *p2: %i\n", *((void**) p2));
+    fwprintf(stdout, L"TEST check irq element. Handler *p2: %i\n", *((void**) p2));
 
                 // Set result.
                 copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

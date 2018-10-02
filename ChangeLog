@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2018-10-02  Christian Heller  <christian.heller@cybop.org>
+
+        * Add new directory "executor/acceptor/" for sensing client requests on all of the different channels, using the new input/output structure
+        * Adapt function "apply_modify", so that the destination type is used as source type by default, for cybol operations like "modify/empty" that do not have a source part
+
 2018-09-26  Christian Heller  <christian.heller@cybop.org>
 
         * Clean up terminal starter and related files

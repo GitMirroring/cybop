@@ -56,6 +56,8 @@ void check_client_element(void* p0, void* p1, void* p2, void* p3) {
     // Get client at the given index.
     copy_array_forward((void*) &c, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
+    fwprintf(stdout, L"TEST: check client element. client c: %i \n", c);
+
     // Sense data available on already open client.
     sense((void*) &f, (void*) &c, p3);
 

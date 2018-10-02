@@ -23,82 +23,89 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SENSOR_SOURCE
-#define SENSOR_SOURCE
+#ifndef ACCEPTOR_SOURCE
+#define ACCEPTOR_SOURCE
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+//?? #include "../../executor/acceptor/display/display_acceptor.c"
+//?? #include "../../executor/acceptor/serial/serial_acceptor.c"
+#include "../../executor/acceptor/socket/server_socket_acceptor.c"
+#include "../../executor/acceptor/terminal/terminal_acceptor.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
-//?? #include "../../executor/sensor/display/display_sensor.c"
-//?? #include "../../executor/sensor/serial/serial_sensor.c"
-//?? #include "../../executor/sensor/socket/socket_sensor.c"
-#include "../../executor/sensor/terminal/terminal_sensor.c"
 #include "../../logger/logger.c"
 
 /**
- * Senses data on the given channel.
+ * Accepts a client request on the given channel.
  *
- * @param p0 the data available flag
- * @param p1 the sender client (e.g. display connection, file descriptor, client socket)
- * @param p2 the channel
+ * CAUTION! Do NOT rename this function to "accept",
+ * as that name is already used by low-level functionality:
+ *
+ * /usr/include/x86_64-linux-gnu/sys/socket.h:243:12: note: previous declaration of ‘accept’ was here
+ * extern int accept (int __fd, __SOCKADDR_ARG __addr,
+ *
+ * @param p0 the sender client (e.g. display connection, file descriptor, client socket)
+ * @param p1 the io entry (pointer reference)
+ * @param p2 the client list item
+ * @param p3 the channel
  */
-void sense(void* p0, void* p1, void* p2) {
+void accept_client(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Accept.");
 
-    fwprintf(stdout, L"TEST sense. channel p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"TEST accept. channel *p3: %i\n", *((int*) p3));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p3, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            sense_display(p0, p1);
+//??            accept_display(p0, p1);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) SERIAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p3, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            sense_serial(p0, p1);
+//??            accept_serial(p0, p1);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p3, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            sense_socket(p0, p1);
+            accept_socket_server(p0, p1);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p3, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            sense_terminal(p0, p1);
+            accept_terminal(p0, p2);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense message. The channel is unknown.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not accept message. The channel is unknown.");
 
-        fwprintf(stdout, L"Error: Could not sense message. The channel is unknown. The channel p2: %i\n", *((int*) p2));
+        fwprintf(stdout, L"Error: Could not accept message. The channel is unknown. The channel p3: %i\n", *((int*) p3));
     }
 }
 
-/* SENSOR_SOURCE */
+/* ACCEPTOR_SOURCE */
 #endif

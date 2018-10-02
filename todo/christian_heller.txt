@@ -17,42 +17,39 @@ ___
     // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
     // Otherwise, it would produce huge log files filled up with useless entries.
 
-        * client list was missing for terminal (it was "null" in function "check_io_element")
-            therefore, function "sense" of NEW "sensor.c" was not called from within function "check_client_element"
-            client list IS now allocated in file "server_terminal_starter.c", similar to file "server_socket_starter.c"
         CONTINUE:
-        * Create a client number in client list for terminal in "accept" function, if current client list is EMPTY
-            --> do this for ALL channels similar to socket "accept", only that just ONE client gets allocated
-        * afterwards, sensing should work
+        * Think through and verify gaps in file "internal_memory_state_cyboi_name.c" again
+            Are they sufficient to store io_entries of various clients?
+            Do they have to be extended dynamically (using pointers/arrays)?
+        * Think through usage of stdin and stdout as separate terminal io_entries
+        * Store stdin and stdout as SEPARATE terminal entries??
+
+        * Test cybol example application "tui" with new operation "activate/enable" instead of old "live/sense"
+            already verified: file "handler.cybol" gets called and executed
+        * Reset terminal properties properly for cybol example application "counter"
+            (after exit the terminal properties are messed up)
+        * Test cybol example application "tui_control" with new operation "activate/enable" instead of old "live/sense"
 
         * Use terminal "id" as "receiver"/"sender" for i/o via channel "terminal"
             see documentation file "src/communication_properties.ods"
-            think through usage of stdin and stdout as separate terminal io_entries
         * Comparison:
             input (as service): events in xcb, listening server socket, stdin
             output: draw on window / graphic / device context in xcb, reply to client socket id, stdout
-            ==> Store stdin and stdout as SEPARATE terminal entries
-        * Continue io_entry for terminal in file "server_terminal_starter.c"
-        * Allow different terminal attributes for stdin and stdout
 
-        * See files:
-            input_output_state_cyboi_name.c
-            internal_memory_state_cyboi_name.c
-        * Adapt (possibly) "executor/maintainer/" to startup and shutdown new input/output structure for terminal
+        * Delete extra second in "wait_checker.c"
+
+        * Shutdown allocated input/output values properly for all channels in "executor/maintainer/"
         * Adapt (possibly) files "executor/accessor/getter/io_entry_getter.c" and "executor/accessor/setter/io_entry_setter.c"
 
-        * Test cybol example application "tui" with new operation "activate/enable" instead of old "live/sense"
-        * Test cybol example application "tui_control" with new operation "activate/enable" instead of old "live/sense"
-
-        * Delete superfluous "sense" cybol operation, since it is used only internally furthermore and got replaced by "activator"
-        * Delete outdated thread-based directory "executor/lifeguard/"
+        * Delete superfluous "sense" cybol operation in all cybol example applications, since it is used only internally furthermore and got replaced by "activator"
         * Move remaining sensor files from directory "executor/lifeguard/sensor/" to just "executor/sensor/"
+        * Remove outdated thread-based sensor files and functions with suffix "OLD"
         * Adapt functions called from new file "executor/sensor/message_sensor.c"
-
-        * Clear up problem: How does the function "check_io_all" know which channel (socket, terminal etc.) to check
-            --> probably by the "enable" flag which is set in the io_structure
-            (a special function for peaking ahead needs to be called inside)
-        * Create io entry array structure for terminal i/o at startup and destroy at shutdown
+        * Delete anything having to do with threads, e.g. mutex variables and lock/unlock function calls etc.
+        * Delete directory "executor/interrupter/" as soon as sensing threads are not used anymore
+        * Delete outdated thread-based directory "executor/lifeguard/"
+        * Clean up "internal_memory_manager" by deleting old i/o parametres that were necessary for the thread-based solution
+        * Clean up file "internal_memory_state_cyboi_name.c" after having replaced constants with those defined in file "input_output_state_cyboi_name.c"
 
         * Reactivate socket (already prepared for new input/output structure)
         * Verify that NON-BLOCKING mode is used for sockets and terminal at startup
@@ -63,26 +60,11 @@ ___
             https://www.geeksforgeeks.org/non-blocking-io-with-pipes-in-c/
             https://gamedev.stackexchange.com/questions/146256/how-do-i-get-getchar-to-not-block-the-input
 
-        * Remove outdated thread-based sensor files and functions with suffix "OLD"
-        * Delete directory "executor/interrupter/" as soon as sensing threads are not used anymore
-        * Delete empty and superfluous directory "executor/lifeguard/"
-
-        * Test new service checker functions in files "wait_checker.c" etc.
-        * Start with terminal, comment out terminal sensing thread, test
-        * Eliminate old solution using terminal sensing thread
-            - as soon as it got replaced with the io entry structure
-            - ONLY realisable if peaking ahead (or writing back bytes, as is done for terminal) is possible
-        * Clean up "internal_memory_manager" by deleting old i/o parametres that were necessary for the thread-based solution
-        * Clean up file "internal_memory_state_cyboi_name.c" after having replaced constants with those defined in file "input_output_state_cyboi_name.c"
-        * Repeat for other io channels (display, serial)
-
         * Provide more keyboard input keys like "tabulator", "backspace" etc. in file "keyboard_state_cybol_name.c"
 
         * Check if having to use &= or |= instead of just = everywhere flags are set,
             e.g. in file "set_attributes_unix_terminal_starter.c",
             in order to not reset already existing values in termios by accident
-
-        * Think about where to implement properties like clear, newline, indentation -- as constraint of "language" or elsewhere
 
         * CAUTION! Win32 console input might not work due to disabled signal interrupts (with pre-processor if-def) in file "system_signal_handler_manager.c"
         * Deserialise win32 console input (also arrow keys etc.) into command, see:
@@ -90,6 +72,7 @@ ___
             http://cboard.cprogramming.com/windows-programming/93468-not-getting-window_buffer_size_event.html
         * Windows Data Types:
             http://msdn.microsoft.com/en-us/library/windows/desktop/aa383751%28v=vs.85%29.aspx
+
         * Inspect starter, shutter, sensor, receiver, sender for channel "terminal",
             to find out why file descriptor-to-stream conversion does not work
             (see commented code lines and replace "stdin" and "stdout" with value read from internal memory)

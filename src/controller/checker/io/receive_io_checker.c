@@ -29,11 +29,13 @@
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../../controller/checker/client/list_client_checker.c"
 #include "../../../executor/accessor/getter/io_entry_getter.c"
 #include "../../../executor/accessor/setter/io_entry_setter.c"
+#include "../../../executor/comparator/integer/greater_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"
 
@@ -49,13 +51,19 @@ void check_io_receive(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io receive.");
 
+    fwprintf(stdout, L"TEST: check io receive. channel *p3: %i \n", *((int*) p3));
+
     // The client.
-    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Sense data on already open clients.
     check_client_list((void*) &c, p2, p3);
 
-    if (c > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    compare_integer_greater((void*) &r, (void*) &c, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // There ARE data available on one of the clients.
         // The corresponding client number got returned.

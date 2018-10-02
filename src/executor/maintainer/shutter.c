@@ -44,8 +44,8 @@
  * Shuts down the given service.
  *
  * CAUTION! Do NOT rename this function to "shutdown",
- * as that name is already used by low-level socket functionality
- * (/usr/include/i386-linux-gnu/sys/socket.h:232:12).
+ * as that name is already used by low-level socket functionality:
+ * /usr/include/i386-linux-gnu/sys/socket.h:232:12
  *
  * @param p0 the internal memory data
  * @param p1 the service id, e.g. socket port

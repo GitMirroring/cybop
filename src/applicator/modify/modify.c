@@ -212,9 +212,10 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // The default values.
     void* source_array_data = smd;
     void* source_array_count = smc;
-    int type = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    int destination_type = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     int count = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int destination_index = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int source_type = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     int source_index = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // CAUTION! Set adjust count flag to "true" by default,
     // to avoid memory errors.
@@ -230,11 +231,19 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // Otherwise, the destination value remains as is.
 
     // Use the destination part type data by default.
-    copy_integer((void*) &type, dtd);
+    copy_integer((void*) &destination_type, dtd);
     // Use the source part model count by default.
     copy_integer((void*) &count, smc);
     // Use the explicit count that was given as parametre.
     copy_integer((void*) &count, cmd);
+    // Assign destination type to source type.
+    // Otherwise, an error would occur when comparing types in file "type_modify.c",
+    // since some operations like "modify/empty" do only have
+    // a destination part (and type), but not a source part (and type).
+    copy_integer((void*) &source_type, (void*) &destination_type);
+    // Use the source part type data, if existent.
+    // Nothing is copied and source_type left untouched, if std is null.
+    copy_integer((void*) &source_type, std);
     // Use the explicit destination index that was given as parametre.
     copy_integer((void*) &destination_index, dimd);
     // Use the explicit source index that was given as parametre.
@@ -249,7 +258,7 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     apply_modify_array((void*) &source_array_data, (void*) &source_array_count, (void*) &spd, (void*) &spc, sprmd);
 
     // Compare destination- and source type.
-    apply_modify_type(d, source_array_data, (void*) &type, mmd, (void*) &count, (void*) &destination_index, (void*) &source_index, (void*) &adjust, p5, (void*) &destination_part_item_index, (void*) &source_part_item_index, s, std);
+    apply_modify_type(d, source_array_data, (void*) &destination_type, mmd, (void*) &count, (void*) &destination_index, (void*) &source_index, (void*) &adjust, p5, (void*) &destination_part_item_index, (void*) &source_part_item_index, s, (void*) &source_type);
 }
 
 /* MODIFY_SOURCE */

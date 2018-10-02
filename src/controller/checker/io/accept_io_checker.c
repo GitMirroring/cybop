@@ -26,13 +26,16 @@
 #ifndef ACCEPT_IO_CHECKER_SOURCE
 #define ACCEPT_IO_CHECKER_SOURCE
 
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../controller/checker/io/element_io_checker.c"
-#include "../../../executor/accessor/getter/io_entry_getter.c"
-#include "../../../executor/lifeguard/sensor/socket/accept_socket_sensor.c"
+#include "../../../executor/acceptor/acceptor.c"
+#include "../../../executor/comparator/integer/greater_integer_comparator.c"
 #include "../../../executor/modifier/item_modifier.c"
 #include "../../../logger/logger.c"
 
@@ -41,32 +44,41 @@
  *
  * @param p0 the client list item
  * @param p1 the io entry (pointer reference)
+ * @param p2 the channel
  */
-void check_io_accept(void* p0, void* p1) {
+void check_io_accept(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io accept.");
 
-    // The receiver server.
-    int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The sender client.
-    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Get receiver server from io entry.
-    get_io_entry_element((void*) &s, p1, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Accept new client requests.
+    accept_client((void*) &c, p1, p0, p2);
 
-//?? fwprintf(stdout, L"TEST: check io accept s: %i \n", s);
+    compare_integer_greater((void*) &r, (void*) &c, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
 
-    // Sense new client requests (accept) on server socket.
-    sense_socket_accept((void*) &c, (void*) &s);
-
-    if (c > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // A client request has been detected on the server.
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io accept success.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io accept. A client request was detected.");
 
-        // Add client to list item.
+        fwprintf(stdout, L"Debug: Check io accept. A client request was detected. c: %i\n", c);
+
+        // Add client to client list item.
         modify_item(p0, (void*) &c, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    } else {
+
+        // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
+        // Otherwise, it would produce huge log files filled up with useless entries.
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check io accept. There is no client request.");
+
+        fwprintf(stdout, L"Warning: Could not check io accept. There is no client request. c: %i\n", c);
     }
 }
 

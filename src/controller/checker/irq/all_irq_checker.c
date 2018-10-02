@@ -31,19 +31,18 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../controller/checker/irq/element_irq_checker.c"
-#include "../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"
 
 /**
- * Checks input output for data.
+ * Checks input/output for data.
  *
  * @param p0 the comparison result
  * @param p1 the interrupt request
  * @param p2 the handler (pointer reference)
  * @param p3 the internal memory data
- * @param p4 the input output base
+ * @param p4 the input/output base
  * @param p5 the loop count
  */
 void check_irq_all(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
@@ -57,11 +56,6 @@ void check_irq_all(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The internal memory index.
-    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    // Calculate internal memory index using given input output base.
-    calculate_integer_add((void*) &i, p4);
 
     if (p5 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -84,7 +78,7 @@ void check_irq_all(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
             break;
         }
 
-        check_irq_element(p0, p1, p2, p3, (void*) &i, (void*) &j, (void*) &b);
+        check_irq_element(p0, p1, p2, p3, p4, (void*) &j, (void*) &b);
 
         // Increment loop variable.
         j++;

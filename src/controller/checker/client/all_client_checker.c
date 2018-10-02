@@ -29,6 +29,7 @@
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../controller/checker/client/element_client_checker.c"
 #include "../../../executor/comparator/integer/greater_integer_comparator.c"
@@ -53,7 +54,7 @@ void check_client_all(void* p0, void* p1, void* p2, void* p3) {
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The client.
-    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -67,8 +68,8 @@ void check_client_all(void* p0, void* p1, void* p2, void* p3) {
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
-    fwprintf(stdout, L"TEST check client all p2: %i\n", p2);
-    fwprintf(stdout, L"TEST check client all *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"TEST check client all. count p2: %i\n", p2);
+    fwprintf(stdout, L"TEST check client all. count *p2: %i\n", *((int*) p2));
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -98,7 +99,7 @@ void check_client_all(void* p0, void* p1, void* p2, void* p3) {
         // Once data are available on one of the clients, the other
         // clients in the list do NOT have to be checked anymore.
         //
-        compare_integer_greater((void*) &b, (void*) &c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_greater((void*) &b, (void*) &c, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -42,8 +42,8 @@
  * CAUTION! Do NOT rename this function to "startup",
  * since it should be consistent with "shutdown_service",
  * which cannot be renamed to "shutdown",
- * as that name is already used by low-level socket functionality
- * (/usr/include/i386-linux-gnu/sys/socket.h:232:12).
+ * as that name is already used by low-level socket functionality:
+ * /usr/include/i386-linux-gnu/sys/socket.h:232:12
  *
  * There may be DOZENS of parametres handed over to this function.
  * This is due to the variety of communication channel settings.

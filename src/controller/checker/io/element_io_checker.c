@@ -30,7 +30,9 @@
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../controller/checker/io/accept_io_checker.c"
 #include "../../../controller/checker/io/receive_io_checker.c"
@@ -91,36 +93,30 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             // The client list item.
             void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The comparison result.
-            int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
             // Get client list item from input/output entry.
             get_io_entry_element((void*) &l, (void*) &io, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             fwprintf(stdout, L"TEST: check io element l: %i \n", l);
 
-            compare_integer_equal((void*) &r, p4, (void*) SOCKET_CYBOI_CHANNEL);
-
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // This is a socket.
-                // CAUTION! Other services do NOT have to accept clients.
-
-                //
-                // When using a blocking socket, the programme would wait here.
-                //
-                // CAUTION! Changing the order of "accept" and "receive" can NOT avoid this.
-                // Even comparing with the returned io flag, in order to
-                // call "accept" only if no input/output data are available
-                // does NOT help, since already in the next loop cycle
-                // "accept" will block anyway.
-                // In other words, when running cyboi as socket server,
-                // it makes sense only together with NON-blocking mode.
-                //
-
-                // Check for new client requests.
-                check_io_accept(l, (void*) &io);
-            }
+            //
+            // Check for new client requests.
+            //
+            // CAUTION! Actually, only server sockets use the "accept" function,
+            // for sensing new client requests.
+            // However, in order to apply a unified handling, the function
+            // is called here in general, for ALL channels.
+            //
+            // CAUTION! When using a blocking socket, the programme would wait here.
+            // Changing the order of "accept" and "receive" can NOT avoid this.
+            // Even comparing with the returned io flag, in order to
+            // call "accept" only if no input/output data are available
+            // does NOT help, since already in the next loop cycle
+            // "accept" will block anyway.
+            // In other words, when running cyboi as socket server,
+            // it makes sense only together with NON-BLOCKING mode.
+            //
+            check_io_accept(l, (void*) &io, p4);
 
             // Check for available input/output.
             check_io_receive(p0, (void*) &io, l, p4);

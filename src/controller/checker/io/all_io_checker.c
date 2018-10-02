@@ -82,6 +82,11 @@ void check_io_all(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         check_io_element(p0, p1, (void*) &i, (void*) &j, p4);
 
+        // Set break flag if io flag was set inside.
+        // It is not useful to check any other channels
+        // if data have been detected on one already.
+        compare_integer_unequal((void*) &b, p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
         // Increment loop variable.
         j++;
     }
