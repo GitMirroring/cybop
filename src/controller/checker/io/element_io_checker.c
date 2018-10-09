@@ -68,7 +68,7 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
     calculate_integer_add((void*) &idx, p2);
     calculate_integer_add((void*) &idx, p3);
 
-    fwprintf(stdout, L"TEST: check io element idx: %i \n", idx);
+//??    fwprintf(stdout, L"TEST: check io element idx: %i \n", idx);
 
     // Get input/output entry.
     copy_array_forward((void*) &io, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &idx);
@@ -77,7 +77,7 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         // An input/output entry exists for the service at the calculated internal memory index.
 
-        fwprintf(stdout, L"TEST: check io element io: %i \n", io);
+//??        fwprintf(stdout, L"TEST: check io element io: %i \n", io);
 
         // The enable flag.
         int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -89,7 +89,7 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             // The enable flag is set.
 
-            fwprintf(stdout, L"TEST: check io element e: %i \n", e);
+//??            fwprintf(stdout, L"TEST: check io element e: %i \n", e);
 
             // The client list item.
             void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -97,7 +97,7 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Get client list item from input/output entry.
             get_io_entry_element((void*) &l, (void*) &io, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-            fwprintf(stdout, L"TEST: check io element l: %i \n", l);
+//??            fwprintf(stdout, L"TEST: check io element l: %i \n", l);
 
             //
             // Check for new client requests.

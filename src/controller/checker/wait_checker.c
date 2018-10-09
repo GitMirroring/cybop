@@ -136,8 +136,8 @@ void check_wait(void* p0, void* p1) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check wait.");
 
-    fwprintf(stdout, L"TEST Check wait sl: %i\n", p1);
-    fwprintf(stdout, L"TEST Check wait *sl: %i\n", *((int*) p1));
+//??     fwprintf(stdout, L"TEST Check wait sl: %i\n", p1);
+//??     fwprintf(stdout, L"TEST Check wait *sl: %i\n", *((int*) p1));
 
     // The break flag.
     // CAUTION! Using this single break flag is easier than
@@ -155,7 +155,7 @@ void check_wait(void* p0, void* p1) {
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            fwprintf(stdout, L"TEST Check wait. break b: %i\n", b);
+//??             fwprintf(stdout, L"TEST Check wait. break b: %i\n", b);
 
             break;
 
@@ -163,9 +163,6 @@ void check_wait(void* p0, void* p1) {
 
             // Sleep for some time.
             sleep_nano(p1);
-
-            //?? TEMPORARY TEST: Delete later!
-            sleep_second((void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 

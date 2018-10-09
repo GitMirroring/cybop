@@ -57,9 +57,9 @@ void startup_terminal_server(void* p0, void* p1) {
     // The internal memory index.
     int i = *TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME;
 
-    fwprintf(stdout, L"TEST: startup terminal server io index: %i \n", i);
-    fwprintf(stdout, L"TEST: startup terminal server port p1: %i \n", p1);
-    fwprintf(stdout, L"TEST: startup terminal server port *p1: %i \n", *((int*) p1));
+//??    fwprintf(stdout, L"TEST: startup terminal server io index: %i \n", i);
+//??    fwprintf(stdout, L"TEST: startup terminal server port p1: %i \n", p1);
+//??    fwprintf(stdout, L"TEST: startup terminal server port *p1: %i \n", *((int*) p1));
 
     // Calculate internal memory index using given service identification.
     calculate_integer_add((void*) &i, p1);
@@ -72,7 +72,7 @@ void startup_terminal_server(void* p0, void* p1) {
         // The terminal input/output entry.
         void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        fwprintf(stdout, L"TEST: startup terminal server io index with service identification: %i \n", i);
+//??        fwprintf(stdout, L"TEST: startup terminal server io index with service identification: %i \n", i);
 
         // Get terminal input/output entry from internal memory.
         copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
@@ -81,9 +81,11 @@ void startup_terminal_server(void* p0, void* p1) {
 
             //?? TODO: Temporary solution using stdin / stdout.
             // The terminal file stream.
-            FILE* s = stdin; //?? TODO: OPTIONAL: stdout
+            FILE* s = stdin;
+            FILE* s2 = stdout;
             // Get terminal file descriptor as integer from file stream.
             int f = fileno(s);
+            int f2 = fileno(s2);
             //
             // The client list item.
             //
@@ -103,7 +105,7 @@ void startup_terminal_server(void* p0, void* p1) {
             //
             allocate_array((void*) &io, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
             // Open terminal.
-            startup_terminal_open((void*) &f, io);
+            startup_terminal_open((void*) &f2, io);
             //
             // Allocate client list item.
             //
@@ -112,8 +114,9 @@ void startup_terminal_server(void* p0, void* p1) {
             //
             allocate_item((void*) &cl, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
-            fwprintf(stdout, L"TEST: startup terminal server file descriptor f: %i\n", f);
-            fwprintf(stdout, L"TEST: startup terminal server client list cl: %i\n", cl);
+//??            fwprintf(stdout, L"TEST: startup terminal server file descriptor f: %i\n", f);
+//??            fwprintf(stdout, L"TEST: startup terminal server file descriptor f2: %i\n", f2);
+//??            fwprintf(stdout, L"TEST: startup terminal server client list cl: %i\n", cl);
 
             //
             // Store terminal file descriptor in input/output entry.
@@ -123,6 +126,7 @@ void startup_terminal_server(void* p0, void* p1) {
             // But the array's count and size are CONSTANT.
             //
             set_io_entry_element((void*) &io, (void*) &f, (void*) FILE_DESCRIPTOR_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            set_io_entry_element((void*) &io, (void*) &f2, (void*) OUTPUT_FILE_DESCRIPTOR_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
             //
             // Store client list item in input/output entry.
             //

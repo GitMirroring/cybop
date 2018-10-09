@@ -6,7 +6,7 @@
         cannot happen due to different dimension of the two operand arrays.
     -->
     <node name="reset_operand" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.tmp.operand"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.tmp.operand"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 

@@ -1,11 +1,12 @@
 <node>
+
     <!--
         Reset voltage buffer.
         CAUTION! This is necessary because the microcontroller does sometimes
         not return values, so that old values from former loop cycles would be used.
     -->
     <node name="reset_buffer" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
     <node name="reset_count" channel="inline" format="modify/overwrite" model="">
@@ -28,4 +29,5 @@
         <node name="destination" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer_checksum"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer_checksum_default"/>
     </node>
+
 </node>

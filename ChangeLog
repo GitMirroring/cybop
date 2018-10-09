@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2018-10-09  Christian Heller  <christian.heller@cybop.org>
+
+        * Hold two separate terminal file descriptors for input- and output
+        * Replace outdated property name "part" with "destination" in all cybol example applications using cybol operation "modify/empty"
+        * Test cybol example applications "counter", "tui", "tui_control" using new cybol operation "activate/enable" instead of old "live/sense"
+
 2018-10-02  Christian Heller  <christian.heller@cybop.org>
 
         * Add new directory "executor/acceptor/" for sensing client requests on all of the different channels, using the new input/output structure

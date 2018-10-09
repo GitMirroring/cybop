@@ -239,10 +239,11 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // Assign destination type to source type.
     // Otherwise, an error would occur when comparing types in file "type_modify.c",
     // since some operations like "modify/empty" do only have
-    // a destination part (and type), but not a source part (and type).
+    // a destination part (and type), but NOT a source part (and type).
     copy_integer((void*) &source_type, (void*) &destination_type);
-    // Use the source part type data, if existent.
-    // Nothing is copied and source_type left untouched, if std is null.
+    // Use the actual source part type data, if existent
+    // by overwriting the standard value copied above.
+    // If std is null, then nothing is copied and source_type left untouched.
     copy_integer((void*) &source_type, std);
     // Use the explicit destination index that was given as parametre.
     copy_integer((void*) &destination_index, dimd);

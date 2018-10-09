@@ -2,6 +2,7 @@
 
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="id" channel="inline" format="number/integer" model="0"/>
     </node>
 
     <node name="focus_current_menu_item" channel="inline" format="text/cybol-path" model=".logic.user_interface.focus"/>
@@ -18,6 +19,7 @@
 
     <node name="sense_terminal" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="id" channel="inline" format="number/integer" model="0"/>
         <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handler.handle_main"/>
     </node>
 

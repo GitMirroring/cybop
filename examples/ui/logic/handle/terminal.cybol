@@ -1,7 +1,7 @@
 <node>
     <!-- The command HAS TO BE EMPTIED since otherwise, the new is appended to the old command in the receive operation below. -->
     <node name="reset_command" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.tui.command"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.tui.command"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
     <node name="receive_command" channel="inline" format="communicate/receive" model="">
@@ -30,28 +30,3 @@
         <node name="model" channel="inline" format="text/cybol-path" model=".app.tui.path"/>
     </node>
 </node>
-
-<!--
-    Copyright (C) 1999-2018. Christian Heller.
-
-    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
-
-    CYBOL is free software: you can redistribute it and/or modify it
-    under the terms of the GNU General Public License as published
-    by the Free Software Foundation, either version 3 of the License,
-    or (at your option) any later version.
-
-    CYBOL is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty
-    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    See the GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
-
-    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
-    CYBOP Developers <cybop-developers@nongnu.org>
-
-    @version CYBOP 0.20.0 2018-06-30
-    @author Christian Heller <christian.heller@cybop.org>
--->

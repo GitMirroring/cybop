@@ -51,7 +51,7 @@ void sense_unix_terminal(void* p0, void* p1) {
         // Otherwise, it would produce huge log files filled up with useless entries.
         // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense unix terminal.");
 
-        fwprintf(stdout, L"TEST sense unix terminal, file descriptor p1: %i\n", *((int*) p1));
+//??         fwprintf(stdout, L"TEST sense unix terminal, file descriptor p1: %i\n", *((int*) p1));
 
         //
         // The file stream associated with the given file descriptor.
@@ -82,7 +82,8 @@ void sense_unix_terminal(void* p0, void* p1) {
         // which are discussed in this section:
         // https://www.gnu.org/software/libc/manual/html_mono/libc.html#Low_002dLevel-Terminal-Interface
         //
-        void* fs = (void*) fdopen(*f, "r+");
+//??        void* fs = (void*) fdopen(*f, "r+");
+        void* fs = stdin;
 
         if (fs != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -122,6 +123,7 @@ void sense_unix_terminal(void* p0, void* p1) {
 
             } else {
 
+                //
                 // Unread character, that is push it back on the stream to
                 // make it available to be input again from the stream, by the
                 // next call to fgetc or another input function on that stream.
@@ -155,6 +157,9 @@ void sense_unix_terminal(void* p0, void* p1) {
                 // makes the character of input available.
                 // After you read that character, trying to read again will
                 // encounter end of file.
+                //
+//??                 fwprintf(stdout, L"TEST: sense unix terminal. c: %i\n", c);
+
                 ungetwc(c, (FILE*) fs);
 
 /*??

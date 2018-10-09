@@ -3,7 +3,7 @@
     <!-- CAUTION! If the webpage was not reset here, new text would be added instead of replacing the existing one. -->
     <!-- CAUTION! Do NOT reset properties since otherwise, they would be lost, e.g. the "encoding" for the http body. -->
     <node name="reset_webpage" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.webpage"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.webpage"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
     <node name="serialise_webpage" channel="inline" format="represent/serialise" model="">

@@ -2,7 +2,7 @@
 
     <!-- CAUTION! If the action was not reset here, then the last valid previous action would be executed again and again, neverendingly. -->
     <node name="reset_action" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".gui.action"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".gui.action"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 

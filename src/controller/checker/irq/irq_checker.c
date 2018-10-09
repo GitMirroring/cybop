@@ -58,8 +58,8 @@ void check_irq(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check irq.");
 
-    fwprintf(stdout, L"TEST check irq p0: %i\n", p0);
-    fwprintf(stdout, L"TEST check irq *p0: %i\n", *((int*) p0));
+//??     fwprintf(stdout, L"TEST check irq p0: %i\n", p0);
+//??     fwprintf(stdout, L"TEST check irq *p0: %i\n", *((int*) p0));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

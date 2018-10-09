@@ -60,6 +60,8 @@ void apply_modify_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply modify type.");
 
+//??    fwprintf(stdout, L"TEST: Apply modify type. Destination type: %i. Source type: %i.\n", *((int*) p2), *((int*) p12));
+
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 

@@ -2,9 +2,10 @@
 
     <!-- The command HAS TO BE EMPTIED since otherwise, the new is appended to the old command in the receive operation below. -->
     <node name="reset_command" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".temporary.command"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".temporary.command"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
+
     <node name="receive_command" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <!-- CAUTION! Do NOT use an encoding here, since terminal input is already in wide characters. -->
@@ -17,6 +18,7 @@
         <node name="destination" channel="inline" format="text/cybol-path" model=".temporary.path"/>
         <node name="source" channel="inline" format="text/plain" model=".actions."/>
     </node>
+
     <node name="append_command" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".temporary.path"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".temporary.command"/>

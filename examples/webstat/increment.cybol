@@ -30,12 +30,12 @@
     <!-- lese Zugriffe für heute -->
 
     <node name="reset_path_today_model" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.file_path_today"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file_path_today"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     <node name="reset_path_today_properties" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.file_path_today"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file_path_today"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
@@ -55,7 +55,7 @@
     </node>
 
     <node name="reset_visits_today" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.visits_today"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.visits_today"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
@@ -72,7 +72,7 @@
     <!-- lese Zugriffe für gestern -->
 
     <node name="reset_path_yesterday" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.file_path_yesterday"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file_path_yesterday"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
@@ -92,7 +92,7 @@
     </node>
 
         <node name="reset_visits_yesterday" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.visits_yesterday"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.visits_yesterday"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
@@ -108,7 +108,7 @@
 
     <!-- lese Gesamtzugriffe ein -->
     <node name="reset_visits_total" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.visits_total"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.visits_total"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
@@ -199,7 +199,7 @@
 
     <!-- setze Aufrufe heute -->
     <node name="reset_row_content_today" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.webstat.counter.body.table.row_0.column_1"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.webstat.counter.body.table.row_0.column_1"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
@@ -212,7 +212,7 @@
 
     <!-- setze Aufrufe gestern -->
     <node name="reset_row_content_yesterday" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.webstat.counter.body.table.row_1.column_1"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.webstat.counter.body.table.row_1.column_1"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
@@ -225,7 +225,7 @@
 
     <!-- setze Aufrufe total -->
     <node name="reset_row_content_total" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.webstat.counter.body.table.row_2.column_1"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.webstat.counter.body.table.row_2.column_1"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 

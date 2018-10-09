@@ -49,7 +49,7 @@ void accept_terminal(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Accept terminal.");
 
-    fwprintf(stdout, L"TEST: Accept terminal. sender client user *p0: %i \n", *((int*) p0));
+//??     fwprintf(stdout, L"TEST: Accept terminal. sender client user *p0: %i \n", *((int*) p0));
 
     // The client list item count.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -73,9 +73,14 @@ void accept_terminal(void* p0, void* p1) {
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not accept terminal. A sender client user already exists in the client list.");
+        // A sender client user already exists in the client list.
 
-        fwprintf(stdout, L"Warning: Could not accept terminal. A sender client user already exists in the client list. client list item count *c: %i \n", *((int*) c));
+        //
+        // CAUTION! Do NOT log messages here, since this is normal behaviour.
+        // Otherwise, it would produce huge log files filled up with useless entries.
+        // Since cyboi is non-blocking using busy waiting, frequent calls to this function are done.
+        // But only the first one actually creates a new sender client.
+        //
     }
 }
 

@@ -64,6 +64,7 @@ void modify_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // Append source to destination.
             //
             // CAUTION! Hand over the destination array count TWICE,
@@ -72,6 +73,7 @@ void modify_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
             //
             // CAUTION! Set adjust count flag to TRUE,
             // since destination gets extended by append.
+            //
             modify_overwrite(p0, p1, p2, p3, p4, p7, p6, p7, p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -82,11 +84,13 @@ void modify_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // Remove all elements from array.
             //
             // CAUTION! Hand over the destination array count TWICE,
             // as count of elements to be removed (third parametre, INSTEAD of p4)
             // AND as destination array count (fifth parametre).
+            //
             modify_remove(p0, p2, p7, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p7, p8, p9);
         }
     }

@@ -43,7 +43,7 @@
 #include "../../../src/executor/copier/pointer_copier.c"
 #include "../../../src/executor/modifier/part_modifier.c"
 #include "../../../src/executor/runner/second_sleeper.c"
-#include "../../../src/executor/sensor/message_sensor.c"
+#include "../../../src/executor/sensor/sensor.c"
 
 #ifndef TERMINAL_SENSOR_TESTER_SOURCE
 #define TERMINAL_SENSOR_TESTER_SOURCE
@@ -113,7 +113,7 @@ void test_sense_terminal() {
             // It should get interrupted, as soon as a key is typed on keyboard.
             while (1) {
 
-                sense_message((void*) &r, (void*) &f, (void*) TERMINAL_CYBOI_CHANNEL);
+                sense((void*) &r, (void*) &f, (void*) TERMINAL_CYBOI_CHANNEL);
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -90,13 +90,16 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
 
                 int* esc = (int*) p5;
 
-                if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+//??                if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+//??                    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                         int* f = (int*) p1;
 
                         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read unix terminal character.");
+
+//??                        fwprintf(stdout, L"TEST read unix terminal character f: %i\n", f);
+//??                        fwprintf(stdout, L"TEST read unix terminal character *f: %i\n", *((int*) f));
 
                         // The file stream created from the given file descriptor.
                         // CAUTION! The opentype string "r+" means an existing file
@@ -118,7 +121,7 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
                             // CAUTION! This IS NECESSARY to avoid conflicts with the terminal sensing thread,
                             // which in parallel is trying to detect that some character is available,
                             // what is also called "peeking ahead" at the input.
-                            pthread_mutex_lock(p2);
+//??                            pthread_mutex_lock(p2);
 
                             // Get character from source input stream of terminal.
                             //
@@ -133,9 +136,9 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
                             *c = fgetwc((FILE*) fs);
 
                             // Unlock terminal mutex.
-                            pthread_mutex_unlock(p2);
+//??                            pthread_mutex_unlock(p2);
 
-//?? fwprintf(stdout, L"TEST read unix terminal character c: %i\n", *c);
+//??                            fwprintf(stdout, L"TEST read unix terminal character c: %i\n", *c);
 
                             // Check for end-of-file condition or read error,
                             // in which case WEOF (the integer -1) is returned.
@@ -189,14 +192,14 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
                                         // has been detected.
 
                                         // Lock terminal mutex.
-                                        pthread_mutex_lock(p2);
+//??                                        pthread_mutex_lock(p2);
 
                                         // Unget this character so that it may be
                                         // processed once more later on.
                                         ungetwc(*c, (FILE*) fs);
 
                                         // Unlock terminal mutex.
-                                        pthread_mutex_unlock(p2);
+//??                                        pthread_mutex_unlock(p2);
 
                                         // Set loop break flag.
                                         copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -230,7 +233,9 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
 
                             } else {
 
-                                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read unix terminal character. The character reading failed.");
+                                // CAUTION! Do NOT log message here, since this is NOT an error.
+                                // The last return value in a sequence of characters is always invalid.
+                                // This is the only way to recognise the end. So, this is normal behaviour.
 
                                 // Set loop break flag.
                                 copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -238,11 +243,12 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
 
                         } else {
 
-fwprintf(stdout, L"ERROR: Could not read unix terminal character. The source file stream is null. fs: %i\n", fs);
-
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read unix terminal character. The source file stream is null.");
+
+                            fwprintf(stdout, L"Error: Could not read unix terminal character. The source file stream is null.\n");
                         }
 
+/*??
                     } else {
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read unix terminal character. The source file descriptor data is null.");
@@ -252,6 +258,7 @@ fwprintf(stdout, L"ERROR: Could not read unix terminal character. The source fil
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read unix terminal character. The source mutex is null.");
                 }
+*/
 
             } else {
 

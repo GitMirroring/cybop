@@ -66,19 +66,23 @@ void check_io_accept(void* p0, void* p1, void* p2) {
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io accept. A client request was detected.");
 
-        fwprintf(stdout, L"Debug: Check io accept. A client request was detected. c: %i\n", c);
+//??        fwprintf(stdout, L"Debug: Check io accept. A client request was detected. c: %i\n", c);
 
         // Add client to client list item.
         modify_item(p0, (void*) &c, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
     } else {
 
+        // There is NO client request.
+
+        //
         // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
         // Otherwise, it would produce huge log files filled up with useless entries.
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check io accept. There is no client request.");
-
-        fwprintf(stdout, L"Warning: Could not check io accept. There is no client request. c: %i\n", c);
+        //
+        // This is normal behaviour.
+        // Since cyboi is non-blocking using busy waiting,
+        // most of the time, no request is found.
+        //
     }
 }
 

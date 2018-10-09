@@ -1,38 +1,38 @@
 <node>
 
     <node name="reset_request" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.guess_array.choice1"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.guess_array.choice1"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
     <node name="reset_request" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.guess_array.choice1"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.guess_array.choice1"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="reset_request" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.guess_array.choice2"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.guess_array.choice2"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
     <node name="reset_request" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.guess_array.choice2"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.guess_array.choice2"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="reset_request" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.guess_array.choice3"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.guess_array.choice3"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
     <node name="reset_request" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.guess_array.choice3"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.guess_array.choice3"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="reset_request" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.guess_array.choice4"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.guess_array.choice4"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
     <node name="reset_request" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.guess_array.choice4"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.guess_array.choice4"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 

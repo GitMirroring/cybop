@@ -1,22 +1,22 @@
 <node>
 
     <node name="reset" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.choice1_s"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.choice1_s"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     <node name="reset_command" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.choice2_s"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.choice2_s"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     <node name="reset_command" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.choice3_s"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.choice3_s"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     <node name="reset_command" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.choice4_s"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.choice4_s"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 

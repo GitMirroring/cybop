@@ -51,7 +51,7 @@ void check_io_receive(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io receive.");
 
-    fwprintf(stdout, L"TEST: check io receive. channel *p3: %i \n", *((int*) p3));
+//??     fwprintf(stdout, L"TEST: check io receive. channel *p3: %i \n", *((int*) p3));
 
     // The client.
     int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
@@ -68,7 +68,7 @@ void check_io_receive(void* p0, void* p1, void* p2, void* p3) {
         // There ARE data available on one of the clients.
         // The corresponding client number got returned.
 
-        fwprintf(stdout, L"TEST: check io receive. client c: %i \n", c);
+//??         fwprintf(stdout, L"TEST: check io receive. client c: %i \n", c);
 
         // The io sender.
         void* s = *NULL_POINTER_STATE_CYBOI_MODEL;

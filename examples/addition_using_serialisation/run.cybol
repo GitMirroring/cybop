@@ -75,7 +75,7 @@
         This can be achieved using the "modify/empty" or "modify/remove" cybol operation.
     -->
     <node name="remove" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".summand"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".summand"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
     <node name="exit_application" channel="inline" format="live/exit" model=""/>

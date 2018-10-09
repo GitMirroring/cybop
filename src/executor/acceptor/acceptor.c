@@ -54,7 +54,7 @@ void accept_client(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Accept.");
 
-    fwprintf(stdout, L"TEST accept. channel *p3: %i\n", *((int*) p3));
+//??    fwprintf(stdout, L"TEST accept. channel *p3: %i\n", *((int*) p3));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -103,7 +103,7 @@ void accept_client(void* p0, void* p1, void* p2, void* p3) {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not accept message. The channel is unknown.");
 
-        fwprintf(stdout, L"Error: Could not accept message. The channel is unknown. The channel p3: %i\n", *((int*) p3));
+        fwprintf(stdout, L"Error: Could not accept message. The channel is unknown. Channel p3: %i\n", *((int*) p3));
     }
 }
 

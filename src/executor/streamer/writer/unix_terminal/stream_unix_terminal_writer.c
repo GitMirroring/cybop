@@ -43,7 +43,7 @@
  */
 void write_unix_terminal_stream(void* p0, void* p1, void* p2) {
 
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+//??    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* f = (int*) p0;
 
@@ -128,10 +128,10 @@ void write_unix_terminal_stream(void* p0, void* p1, void* p2) {
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write unix terminal stream. The file stream is null.");
         }
 
-    } else {
+//??    } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write unix terminal stream. The output data is null.");
-    }
+//??        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write unix terminal stream. The output data is null.");
+//??    }
 }
 
 /* STREAM_UNIX_TERMINAL_WRITER_SOURCE */

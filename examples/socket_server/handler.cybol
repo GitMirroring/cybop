@@ -19,11 +19,11 @@
 
     <!-- CAUTION! If the request was not reset here, then the last valid previous request would be used again and again, neverendingly. -->
     <node name="reset_request_model" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.request"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.request"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
     <node name="reset_request_properties" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.request"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.request"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 

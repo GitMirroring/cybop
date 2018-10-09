@@ -18,17 +18,26 @@ ___
     // Otherwise, it would produce huge log files filled up with useless entries.
 
         CONTINUE:
+        * Shutdown allocated input/output values properly for all channels in "executor/maintainer/"
+        * Reset terminal properties properly at service shutdown
+            (currently, after exit the terminal properties are messed up)
+        * Change usage of outdated internal memory-based OUTPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME
+            and replace it with new input/output-based structure in file "file_terminal_writer.c" etc.
         * Think through and verify gaps in file "internal_memory_state_cyboi_name.c" again
             Are they sufficient to store io_entries of various clients?
             Do they have to be extended dynamically (using pointers/arrays)?
+        * Adapt (possibly) files "executor/accessor/getter/io_entry_getter.c" and "executor/accessor/setter/io_entry_setter.c"
+        * Figure out once more whether or not to create separate input/output structures for the various communication channels
+            this would be more flexible than changing the "io_entry_getter.c" and "io_entry_setter.c" all the time one value changes
+            problem: general entries like enable, interrupt, handler etc. would be redundant
+
+        * Evaluate creation of pseudo-terminal (master-slave) again
+            use it in general and offer stdin/stdout as option?
+            --> write result of thinking into design document "src/design_decisions.txt"
+        * See: gnu_-_c_library.html#Pseudo_002dTerminals
+        * Adapt file "server_terminal_starter.c"
         * Think through usage of stdin and stdout as separate terminal io_entries
         * Store stdin and stdout as SEPARATE terminal entries??
-
-        * Test cybol example application "tui" with new operation "activate/enable" instead of old "live/sense"
-            already verified: file "handler.cybol" gets called and executed
-        * Reset terminal properties properly for cybol example application "counter"
-            (after exit the terminal properties are messed up)
-        * Test cybol example application "tui_control" with new operation "activate/enable" instead of old "live/sense"
 
         * Use terminal "id" as "receiver"/"sender" for i/o via channel "terminal"
             see documentation file "src/communication_properties.ods"
@@ -36,17 +45,12 @@ ___
             input (as service): events in xcb, listening server socket, stdin
             output: draw on window / graphic / device context in xcb, reply to client socket id, stdout
 
-        * Delete extra second in "wait_checker.c"
-
-        * Shutdown allocated input/output values properly for all channels in "executor/maintainer/"
-        * Adapt (possibly) files "executor/accessor/getter/io_entry_getter.c" and "executor/accessor/setter/io_entry_setter.c"
-
         * Delete superfluous "sense" cybol operation in all cybol example applications, since it is used only internally furthermore and got replaced by "activator"
         * Move remaining sensor files from directory "executor/lifeguard/sensor/" to just "executor/sensor/"
         * Remove outdated thread-based sensor files and functions with suffix "OLD"
         * Adapt functions called from new file "executor/sensor/message_sensor.c"
         * Delete anything having to do with threads, e.g. mutex variables and lock/unlock function calls etc.
-        * Delete directory "executor/interrupter/" as soon as sensing threads are not used anymore
+        * Delete directory "executor/interrupter/" as soon as sensing threads are not used anymore --> OR: use them to "disable" a service??
         * Delete outdated thread-based directory "executor/lifeguard/"
         * Clean up "internal_memory_manager" by deleting old i/o parametres that were necessary for the thread-based solution
         * Clean up file "internal_memory_state_cyboi_name.c" after having replaced constants with those defined in file "input_output_state_cyboi_name.c"

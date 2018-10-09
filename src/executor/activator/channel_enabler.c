@@ -73,7 +73,7 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // Set enable flag into input/output entry.
         set_io_entry_element((void*) &io, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-        fwprintf(stdout, L"TEST: Enable channel. handler part *p3: %i\n", *((void**) p3));
+//??        fwprintf(stdout, L"TEST: Enable channel. handler part *p3: %i\n", *((void**) p3));
 
     } else {
 
