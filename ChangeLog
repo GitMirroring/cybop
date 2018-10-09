@@ -22,7 +22,6 @@
 
         * Hold two separate terminal file descriptors for input- and output
         * Replace outdated property name "part" with "destination" in all cybol example applications using cybol operation "modify/empty"
-        * Test cybol example applications "counter", "tui", "tui_control" using new cybol operation "activate/enable" instead of old "live/sense"
 
 2018-10-02  Christian Heller  <christian.heller@cybop.org>
 
