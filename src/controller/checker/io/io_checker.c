@@ -26,19 +26,17 @@
 #ifndef IO_CHECKER_SOURCE
 #define IO_CHECKER_SOURCE
 
+#include "../../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/comparator/integer/unequal_integer_comparator.c"
-#include "../../../executor/lifeguard/sensor/display/display_sensor.c"
-#include "../../../executor/lifeguard/sensor/terminal/terminal_sensor.c"
-#include "../../../executor/logifier/boolean/or_boolean_logifier.c"
-#include "../../../executor/copier/integer_copier.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../controller/checker/io/all_io_checker.c"
+#include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"
 
 /**
- * Senses interrupt request at the given channels.
+ * Senses data on the given channels.
  *
  * This is the NEW solution avoiding threads,
  * in order to be more platform-independent.
@@ -55,37 +53,21 @@ void check_io(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        //?? This is the OLD function call, to be deleted later.
-        sense_display((void*) &r, p1);
-
-        // Check display for input or output.
 //??        check_io_all((void*) &r, p1, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DISPLAY_CYBOI_CHANNEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        //?? This is the OLD function call, to be deleted later.
-//??        sense_serial((void*) &r, p1);
-
-        // Check serial port for input or output.
 //??        check_io_all((void*) &r, p1, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) SERIAL_CYBOI_CHANNEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Check socket for input or output.
 //??        check_io_all((void*) &r, p1, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_65536_INTEGER_STATE_CYBOI_MODEL, (void*) SOCKET_CYBOI_CHANNEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        //?? TODO: Delete this call later!
-        // This is the OLD function call.
-        // It was not needed for unix terminal running in a thread anyway.
-        // Only needed for win32.
-//??        sense_terminal((void*) &r, *NULL_POINTER_STATE_CYBOI_MODEL, p1);
-
-        // Check terminal for input or output.
         check_io_all((void*) &r, p1, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) TERMINAL_CYBOI_CHANNEL);
     }
 

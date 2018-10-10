@@ -26,16 +26,16 @@
 #ifndef EMPTY_CHECKER_SOURCE
 #define EMPTY_CHECKER_SOURCE
 
-#include <pthread.h>
-#include <signal.h>
-
+#include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../controller/checker/irq/irq_checker.c"
 #include "../../controller/checker/wait_checker.c"
+#include "../../executor/modifier/item_modifier.c"
 #include "../../logger/logger.c"
 
 /**
@@ -51,18 +51,9 @@ void check_empty(void* p0, void* p1, void* p2) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check empty.");
 
     // The interrupt.
-    // CAUTION! The type sig_atomic_t is always an integer data type.
-    volatile sig_atomic_t irq = (volatile sig_atomic_t) *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    int irq = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The signal part representing the interrupt request handler.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    //?? TODO: Delete the following OLD solution.
-    // CAUTION! It CANNOT be handed over as parametre, since it
-    // is not always only the signal memory interrupt request.
-    // Other input channels' interrupts may be assigned as well below.
-    volatile sig_atomic_t* irqOLD = (volatile sig_atomic_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
-    //?? TODO: Delete the following OLD solution.
-    // CAUTION! It CANNOT be handed over as parametre (like the interrupt).
-    pthread_mutex_t* mtOLD = (pthread_mutex_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //?? fwprintf(stdout, L"TEST check empty irq: %i\n", irq);
 
@@ -76,18 +67,10 @@ void check_empty(void* p0, void* p1, void* p2) {
     // so that the new signal may be recognised here
     // and does not get forgotten.
 
-    // Check interrupt requests and get the appropriate:
-    // - interrupt request (to be reset below)
-    // - mutex (to be blocked while resetting the interrupt request below)
-    // - handler (the signal to be forwarded to the "handle" function below)
-    check_irq((void*) &irq, (void*) &s, p0, (void*) &irqOLD, (void*) &mtOLD);
+    // Check channels for interrupt requests.
+    check_irq((void*) &irq, (void*) &s, p0);
 
-    if ((irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-
-        //?? TODO: The following comparison is OLD and will be deleted in the future.
-        // CAUTION! These conditions HAVE TO BE connected by a boolean AND operator,
-        // because otherwise, the "else" branch below would not always be reached.
-        || ((irqOLD != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) irqOLD) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
+    if (irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //?? fwprintf(stdout, L"TEST check empty found irq: %i\n", irq);
         //?? fwprintf(stdout, L"TEST check empty found s: %p\n", s);
@@ -112,72 +95,6 @@ void check_empty(void* p0, void* p1, void* p2) {
         // and should be left to the knowledge memory.
         modify_item(p1, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
-        //?? TODO: The following may be deleted later.
-        //
-        // CAUTION! This additional "if" IS NECESSARY since otherwise,
-        // "Segmentation fault" errors will occur below when accessing
-        // OLD variables that have not been set above.
-        if ((irqOLD != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) irqOLD) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
-
-            // Lock mutex.
-            pthread_mutex_lock(mtOLD);
-
-            // Reset interrupt.
-            //
-            // CAUTION! Do FIRST handle the signal and
-            // ONLY AFTERWARDS reset the interrupt!
-            //
-            // There is NO reason to hurry to sense data on
-            // the same channel the interrupt belongs to.
-            // The interrupt's purpose of waking up the
-            // signal checker has been fulfilled and signals are
-            // being read from the signal memory (queue) right now.
-            //
-            // If resetting the interrupt too early, the old
-            // (already sensed) data are still available on the channel
-            // and the interrupt would be set right again.
-            // But this double or triple etc. detection of data
-            // might lead to cases in which cyboi tries to
-            // receive data it MEANWHILE already received.
-            // This would lead to empty data which complicates
-            // CYBOL programming, because cybol developers then would
-            // have to consider empty input using a flag, if-else etc.
-            // But if data were sensed (detected), it should be
-            // possible for cybol developers to rely on their availability.
-            //
-            // This effect is caused by the main thread
-            // and sensing threads running in parallel.
-            // It is comparable to something like a "race".
-            //
-            // Following an example of what would happen
-            // when (falsely) resetting the interrupt first
-            // and only then handle and process the signal:
-            // - sensing thread detects data input on terminal, sets irq
-            // - main thread wakes up, resets irq
-            // - main thread receives data from terminal
-            // - sensing thread MEANWHILE (IN PARALLEL) detects the same data again on terminal, sets irq
-            // - main thread tries to receive data (because irq is set), but finds nothing
-            // - main thread provides empty data (null data pointer and zero count) to next cybol operation
-            //
-            // CAUTION! Do NOT try to reset the irq in the corresponding
-            // "receive" functions of the several channels.
-            // Spreading the reset code over many functions is bad
-            // and leads to redundant logic.
-            // Further, it is not always clear where to reset
-            // the irq, e.g. after having read all characters
-            // or just one? But ansi escape sequences consist
-            // of many characters that may or may not belong together ...
-            // Therefore, LEAVE the code for resetting irq HERE.
-            //
-            // CAUTION! Avoid using the "copy_integer" function,
-            // since the irq is atomic and casting it to int
-            // might possibly falsify its behaviour.
-            *irqOLD = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-            // Unlock mutex.
-            pthread_mutex_unlock(mtOLD);
-        }
-
         // CAUTION! An interrupt request was detected and the corresponding data received.
         // It is therefore VERY likely that new signals have been generated while handling the data.
         // The cyboi system is therefore NOT sent to sleep, so that possibly existing
@@ -185,8 +102,7 @@ void check_empty(void* p0, void* p1, void* p2) {
 
     } else {
 
-        // No interrupt request was detected, so that the cyboi system
-        // can be sent to sleep now, in order to save cpu time.
+        // No interrupt request was detected.
 
         check_wait(p0, p2);
     }

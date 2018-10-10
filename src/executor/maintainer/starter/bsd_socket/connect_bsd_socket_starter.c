@@ -72,7 +72,7 @@ void startup_bsd_socket_connect(void* p0, void* p1, void* p2) {
                 // this socket non-blocking, because it has some overhead
                 // in that other sockets need to be considered and
                 // their file descriptors handed over as argument.
-                // If nonblocking mode is necessary, then using a thread
+                // If nonblocking mode is necessary, then using a worker thread
                 // is considered to be a more simple and clean solution here.
 
 //?? fwprintf(stdout, L"TEST: startup bsd socket connect *as: %i \n", *as);

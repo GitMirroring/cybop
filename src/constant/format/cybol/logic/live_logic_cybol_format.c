@@ -64,25 +64,5 @@
 static wchar_t* EXIT_LIVE_LOGIC_CYBOL_FORMAT = L"live/exit";
 static int* EXIT_LIVE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/**
- * The live/interrupt logic cybol format.
- *
- * Interrupt a sensing operation.
- *
- * This is a CYBOL extension.
- */
-static wchar_t* INTERRUPT_LIVE_LOGIC_CYBOL_FORMAT = L"live/interrupt";
-static int* INTERRUPT_LIVE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The live/sense logic cybol format.
- *
- * Wait for and sense input signals.
- *
- * This is a CYBOL extension.
- */
-static wchar_t* SENSE_LIVE_LOGIC_CYBOL_FORMAT = L"live/sense";
-static int* SENSE_LIVE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /* LIVE_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

@@ -31,7 +31,7 @@
     <node name="focus_current_menu_item" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.user_interface.focus"/>
     </node>
-    <node name="sense_commands" channel="inline" format="live/sense" model="">
+    <node name="sense_commands" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="handler" channel="inline" format="text/cybol-path" model=".app.logic.handler.handle_main"/>
     </node>

@@ -373,12 +373,6 @@ static int* SEQUENCE_FLOW_LOGIC_CYBOI_FORMAT = NUMBER_1702_INTEGER_STATE_CYBOI_M
 /** The exit live logic cyboi format. */
 static int* EXIT_LIVE_LOGIC_CYBOI_FORMAT = NUMBER_1800_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The interrupt live logic cyboi format. */
-static int* INTERRUPT_LIVE_LOGIC_CYBOI_FORMAT = NUMBER_1801_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The sense live logic cyboi format. */
-static int* SENSE_LIVE_LOGIC_CYBOI_FORMAT = NUMBER_1802_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 //
 // logify
 //

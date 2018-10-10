@@ -46,7 +46,6 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/lifeguard/interrupter/thread_interrupter.c"
 #include "../../../../executor/maintainer/shutter/serial_port/attributes_serial_port_shutter.c"
 #include "../../../../executor/maintainer/shutter/serial_port/close_serial_port_shutter.c"
 #include "../../../../logger/logger.c"
@@ -57,10 +56,8 @@
  * This is done in the reverse order the service was started up.
  *
  * @param p0 the internal memory data
- * @param p1 the service thread
- * @param p2 the service thread interrupt
  */
-void shutdown_serial_port(void* p0, void* p1, void* p2) {
+void shutdown_serial_port(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown serial port.");
 
@@ -70,13 +67,10 @@ void shutdown_serial_port(void* p0, void* p1, void* p2) {
     void* spd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get serial port file descriptor item.
-    copy_array_forward((void*) &sp, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FILE_DESCRIPTOR_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+//??    copy_array_forward((void*) &sp, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FILE_DESCRIPTOR_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     // Only deallocate serial port resources if existent.
     if (sp != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        // Interrupt serial port service thread.
-        interrupt_thread(p1, p2);
 
         // Get serial port file descriptor item data.
         // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -129,7 +123,7 @@ void shutdown_serial_port(void* p0, void* p1, void* p2) {
         // CAUTION! Assign NULL to the internal memory.
         // It is ESSENTIAL, since cyboi tests for null pointers.
         // Otherwise, wild pointers would lead to memory corruption.
-        copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FILE_DESCRIPTOR_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+//??        copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FILE_DESCRIPTOR_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     } else {
 

@@ -24,7 +24,6 @@
 */
 
 #include <BaseTsd.h>
-#include <pthread.h>
 #include <stdio.h>
 #include <time.h>
 #include <windows.h>

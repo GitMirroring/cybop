@@ -11,7 +11,7 @@
         <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    <node name="sense" channel="inline" format="live/sense" model="">
+    <node name="sense" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="handler" channel="inline" format="text/cybol-path" model=".app.logic.handler.handle_about"/>
     </node>

@@ -27,7 +27,6 @@
 #define SHUTDOWN_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/maintenance/shutdown_maintenance_logic_cybol_name.c"
@@ -35,8 +34,6 @@
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/maintainer/shutter.c"
 #include "../../logger/logger.c"
-#include "../../variable/service_interrupt.c"
-#include "../../variable/thread_identification.c"
 
 /**
  * Shuts down the service running on the given channel.
@@ -47,8 +44,6 @@
  * - service (optional): the network service, e.g. http; either port or service may be specified; port has higher priority; useful only if channel is "socket"
  * - mode (optional): the communication mode (needed only if channel is "socket")
  * - socket (optional): the client socket (needed only if mode is "client")
- *
- * Constraints:
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

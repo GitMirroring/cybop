@@ -38,17 +38,15 @@
  * This is done in the reverse order that the opengl system was started up.
  *
  * @param p0 the internal memory data
- * @param p1 the service thread
- * @param p2 the service thread interrupt
  */
-void shutdown_opengl(void* p0, void* p1, void* p2) {
+void shutdown_opengl(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown opengl.");
 #if defined(__linux__) || defined(__unix__)
     // Shutdown display AT LAST.
     // The opengl environment needed a window
     // to have something to paint on.
-    shutdown_display(p0, p1, p2);
+    shutdown_display(p0);
 #elif defined(__APPLE__) && defined(__MACH__)
     //?? Check OpenGL Support for Apple
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.

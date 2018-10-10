@@ -39,16 +39,14 @@
  * CAUTION! This is done in the reverse order the service was started up.
  *
  * @param p0 the internal memory data (pointer reference)
- * @param p1 the service thread
- * @param p2 the service thread interrupt
- * @param p3 the port
- * @param p4 the client socket
- * @param p5 the mode data
- * @param p6 the mode count
- * @param p7 the network service data
- * @param p8 the network service count
+ * @param p1 the port
+ * @param p2 the client socket
+ * @param p3 the mode data
+ * @param p4 the mode count
+ * @param p5 the network service data
+ * @param p6 the network service count
  */
-void shutdown_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void shutdown_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown socket.");
 
@@ -57,7 +55,7 @@ void shutdown_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     // Copy port.
     // CAUTION! It will NOT be copied, if its value is a NULL pointer.
-    copy_integer((void*) &p, p3);
+    copy_integer((void*) &p, p1);
 
 //?? fwprintf(stdout, L"TEST: shutdown socket p: %i \n", p);
 
@@ -67,10 +65,10 @@ void shutdown_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
         // Therefore, determine port from service name.
 
         // Deserialise port from network service name.
-        deserialise_network_service((void*) &p, p7, p8);
+        deserialise_network_service((void*) &p, p5, p6);
     }
 
-    shutdown_socket_mode(p0, p1, p2, (void*) &p, p4, p5, p6);
+    shutdown_socket_mode(p0, (void*) &p, p2, p3, p4);
 }
 
 /* SOCKET_SHUTTER_SOURCE */

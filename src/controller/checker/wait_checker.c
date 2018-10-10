@@ -28,26 +28,13 @@
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../controller/checker/io/io_checker.c"
-#include "../../controller/checker/io/threads_io_checker.c"
-#include "../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../executor/copier/array_copier.c"
-#include "../../executor/copier/integer_copier.c"
 #include "../../executor/runner/sleeper.c"
 #include "../../logger/logger.c"
 
 //
 // If no signals are waiting in the signal memory (queue)
-// and no hardware requests have been received from either the:
-// - display
-// - serial port
-// - socket
-// - terminal
+// and no hardware requests have been received on any communication channel,
 // then cpu processing time may be saved by sending the system to sleep.
 //
 // Several possibilities have been considered to achieve this:
@@ -130,32 +117,18 @@
  */
 void check_wait(void* p0, void* p1) {
 
-    // The internal memory index.
-    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check wait.");
 
-//??     fwprintf(stdout, L"TEST Check wait sl: %i\n", p1);
-//??     fwprintf(stdout, L"TEST Check wait *sl: %i\n", *((int*) p1));
-
     // The break flag.
-    // CAUTION! Using this single break flag is easier than
-    // querying all possible interrupt request flags below.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Check if flags have been set within a sensing thread,
-        // running in parallel to this main thread.
-        check_io_threads((void*) &b, p0);
-
-        // Senses interrupt request at the given channels.
+        // Senses data on the given channels.
         check_io((void*) &b, p0);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-//??             fwprintf(stdout, L"TEST Check wait. break b: %i\n", b);
 
             break;
 
@@ -165,20 +138,6 @@ void check_wait(void* p0, void* p1) {
             sleep_nano(p1);
         }
     }
-
-/*??
-    fwprintf(stdout, L"TEST wait *display_irq: %i\n", *((int*) di));
-    fwprintf(stdout, L"TEST wait *serial_irq: %i\n", *((int*) si));
-    fwprintf(stdout, L"TEST wait *socket_irq: %i\n", *((int*) soi));
-    fwprintf(stdout, L"TEST wait *terminal_irq: %i\n", *((int*) ti));
-*/
-
-    // The sleep loop above is left as soon as at least one of the
-    // interrupt variables is set to a value other than false (zero).
-    // This may happen if some user action is noted in one of the
-    // receive threads, e.g. terminal, display, socket.
-    // In this case, probably a signal was placed in the signal memory and
-    // the corresponding interrupt variable set to "true".
 }
 
 /* WAIT_CHECKER_SOURCE */

@@ -33,10 +33,8 @@
 #include "../../controller/globaliser/type_size/pointer_type_size_globaliser.c"
 #include "../../controller/globaliser/type_size/process_type_size_globaliser.c"
 #include "../../controller/globaliser/type_size/real_type_size_globaliser.c"
-#include "../../controller/globaliser/type_size/signal_type_size_globaliser.c"
 #include "../../controller/globaliser/type_size/socket_type_size_globaliser.c"
 #include "../../controller/globaliser/type_size/terminal_type_size_globaliser.c"
-#include "../../controller/globaliser/type_size/thread_type_size_globaliser.c"
 
 /**
  * Initialises symbolic name (pre-processor-defined) global variables.
@@ -53,7 +51,6 @@ void globalise_type_size() {
     globalise_type_size_pointer();
     globalise_type_size_process();
     globalise_type_size_real();
-    globalise_type_size_signal();
     //
     // CAUTION! The integral type sizes have to be determined
     // BEFORE those of the socket, since the former are used
@@ -61,7 +58,6 @@ void globalise_type_size() {
     //
     globalise_type_size_socket();
     globalise_type_size_terminal();
-    globalise_type_size_thread();
 
     //
     // CAUTION! The order of above function calls is arbitrary,

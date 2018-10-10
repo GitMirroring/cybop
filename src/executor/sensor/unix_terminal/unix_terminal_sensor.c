@@ -117,11 +117,7 @@ void sense_unix_terminal(void* p0, void* p1) {
             // if (c < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
             // The reason is that wint_t and int comparison might deliver
             // wrong results, so that an input is mistakenly assumed below.
-            if (c == WEOF) {
-
-                // No valid character was returned.
-
-            } else {
+            if (c != WEOF) {
 
                 //
                 // Unread character, that is push it back on the stream to

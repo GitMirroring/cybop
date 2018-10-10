@@ -64,7 +64,7 @@
         <node name="message" channel="inline" format="text/plain" model="Waiting for client requests ..."/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-    <node name="sense_requests" channel="inline" format="live/sense" model="">
+    <node name="sense_requests" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <!-- Specify either service name OR id (port) number, NOT both. If both are given, then the port has higher priority. -->
         <node name="id" channel="inline" format="number/integer" model="1971"/>

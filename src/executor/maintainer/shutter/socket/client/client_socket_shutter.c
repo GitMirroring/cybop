@@ -34,8 +34,8 @@
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/accessor/getter/io_entry_getter.c"
 #include "../../../../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../../../../executor/maintainer/shutter/socket/client/list_client_socket_shutter.c"
 #include "../../../../../executor/copier/array_copier.c"
+#include "../../../../../executor/maintainer/shutter/socket/client/list_client_socket_shutter.c"
 #include "../../../../../logger/logger.c"
 
 /**

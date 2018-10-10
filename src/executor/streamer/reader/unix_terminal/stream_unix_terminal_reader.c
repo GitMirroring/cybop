@@ -36,16 +36,15 @@
  *
  * @param p0 the destination item
  * @param p1 the source file descriptor
- * @param p2 the source mutex
- * @param p3 the blocking flag
+ * @param p2 the blocking flag
  */
-void read_unix_terminal_stream(void* p0, void* p1, void* p2, void* p3) {
+void read_unix_terminal_stream(void* p0, void* p1, void* p2) {
 
-    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* bl = (int*) p3;
+        int* bl = (int*) p2;
 
-//??        fwprintf(stdout, L"TEST: read unix terminal stream *p3 %i\n", *((int*) p3));
+//??        fwprintf(stdout, L"TEST: read unix terminal stream *p2 %i\n", *((int*) p2));
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read unix terminal stream.");
 
@@ -87,7 +86,7 @@ void read_unix_terminal_stream(void* p0, void* p1, void* p2, void* p3) {
                 }
             }
 
-            read_unix_terminal_character(p0, p1, p2, p3, (void*) &b, (void*) &esc, (void*) &aec, (void*) &c);
+            read_unix_terminal_character(p0, p1, p2, (void*) &b, (void*) &esc, (void*) &aec, (void*) &c);
         }
 
     } else {

@@ -48,12 +48,12 @@
         #error Visual Studio 2013 or higher is required for successful build of this application
     #endif
 
-    #define PTW32_STATIC_LIB //use pthread.lib built with static linking see http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html
+//??    #define PTW32_STATIC_LIB //use pthread.lib built with static linking see http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html
     //#define WIN32_LEAN_AND_MEAN // avoids compiler errors in VS related to duplicate definitions from includes in windows.h and winsock2.h, see http://www.gamedev.net/topic/127476-define-win32_lean_and_mean/
     //#define _TM_DEFINED // avoids redeclaration of time_t in glibc time.h
     //#define _TIMESPEC_DEFINED; // avoids redeclaration of timespec in pthread.h
-    #define _CRT_NONSTDC_NO_DEPRECATE //avoids errors related to deprecated CRT functions see http://msdn.microsoft.com/de-de/library/ms235384(v=vs.90).aspx
-    #define _CRT_SECURE_NO_WARNINGS //allows use of unsecure functions see http://msdn.microsoft.com/de-de/library/8ef0s5kh.aspx
+    #define _CRT_NONSTDC_NO_DEPRECATE // avoids errors related to deprecated CRT functions see http://msdn.microsoft.com/de-de/library/ms235384(v=vs.90).aspx
+    #define _CRT_SECURE_NO_WARNINGS // allows use of unsecure functions see http://msdn.microsoft.com/de-de/library/8ef0s5kh.aspx
     #define _USE_MATH_DEFINES
 #endif
 
@@ -77,12 +77,14 @@
  */
 int main(int p0, char** p1) {
 
+/*??
 #ifdef _MSC_VER
     #ifdef PTW32_STATIC_LIB
         pthread_win32_process_attach_np(); // see README.NONPORTABLE in pthread source directory
         pthread_win32_thread_attach_np(); // Currently a no-op
     #endif
 #endif
+*/
 
     //
     // One note about dynamic memory allocation:
@@ -95,8 +97,6 @@ int main(int p0, char** p1) {
     // it will not harm the operating system, as the memory occupied by
     // the application will be freed automatically on process shutdown.
     //
-    // Presumably, forgotten threads are killed automatically, too.
-    //
 
     // Return 1 to indicate an error, by default.
     int r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
@@ -106,7 +106,9 @@ int main(int p0, char** p1) {
     // counts the name of the programme being run.
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // log_write(stdout, L"Information: Execute cyboi.\n");
+        //
+        // CAUTION! Do NOT log message here, since the logger gets initialised only further below.
+        //
 
         // Startup global variables.
         globalise();
@@ -167,9 +169,9 @@ int main(int p0, char** p1) {
         orient((void*) stderr, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
 /*??
-fwprintf(stdout, L"TEST ARRAY_REFERENCE_COUNTER BEGIN: %i\n", *ARRAY_REFERENCE_COUNTER);
-fwprintf(stdout, L"TEST ITEM_REFERENCE_COUNTER BEGIN: %i\n", *ITEM_REFERENCE_COUNTER);
-fwprintf(stdout, L"TEST PART_REFERENCE_COUNTER BEGIN: %i\n", *PART_REFERENCE_COUNTER);
+        fwprintf(stdout, L"TEST ARRAY_REFERENCE_COUNTER BEGIN: %i\n", *ARRAY_REFERENCE_COUNTER);
+        fwprintf(stdout, L"TEST ITEM_REFERENCE_COUNTER BEGIN: %i\n", *ITEM_REFERENCE_COUNTER);
+        fwprintf(stdout, L"TEST PART_REFERENCE_COUNTER BEGIN: %i\n", *PART_REFERENCE_COUNTER);
 */
 
         // The operation mode.
@@ -232,9 +234,9 @@ fwprintf(stdout, L"TEST PART_REFERENCE_COUNTER BEGIN: %i\n", *PART_REFERENCE_COU
         deallocate_item((void*) &k, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
 /*??
-fwprintf(stdout, L"TEST ARRAY_REFERENCE_COUNTER END: %i\n", *ARRAY_REFERENCE_COUNTER);
-fwprintf(stdout, L"TEST ITEM_REFERENCE_COUNTER END: %i\n", *ITEM_REFERENCE_COUNTER);
-fwprintf(stdout, L"TEST PART_REFERENCE_COUNTER END: %i\n", *PART_REFERENCE_COUNTER);
+        fwprintf(stdout, L"TEST ARRAY_REFERENCE_COUNTER END: %i\n", *ARRAY_REFERENCE_COUNTER);
+        fwprintf(stdout, L"TEST ITEM_REFERENCE_COUNTER END: %i\n", *ITEM_REFERENCE_COUNTER);
+        fwprintf(stdout, L"TEST PART_REFERENCE_COUNTER END: %i\n", *PART_REFERENCE_COUNTER);
 */
 
         // Shutdown global variables.
@@ -250,16 +252,20 @@ fwprintf(stdout, L"TEST PART_REFERENCE_COUNTER END: %i\n", *PART_REFERENCE_COUNT
         log_write(stdout, L"Error: Could not execute cyboi. The command line argument vector is null.\n");
     }
 
+/*??
 #ifdef _MSC_VER
     #ifdef PTW32_STATIC_LIB
         pthread_win32_process_detach_np();
         pthread_win32_thread_detach_np();
     #endif
 #endif
+*/
 
+/*??
 #ifdef _DEBUG
     getchar();
 #endif
+*/
 
     return r;
 }

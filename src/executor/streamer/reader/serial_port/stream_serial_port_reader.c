@@ -37,11 +37,10 @@
  *
  * @param p0 the destination item
  * @param p1 the source file descriptor data
- * @param p2 the source mutex
- * @param p3 the minimum number of bytes to be received in one call of the read function
- * @param p4 the maximum number of bytes to be received in one call of the read function
+ * @param p2 the minimum number of bytes to be received in one call of the read function
+ * @param p3 the maximum number of bytes to be received in one call of the read function
  */
-void read_serial_port_stream(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void read_serial_port_stream(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read serial port.");
 
@@ -57,7 +56,7 @@ void read_serial_port_stream(void* p0, void* p1, void* p2, void* p3, void* p4) {
             break;
         }
 
-        read_serial_port_read(p0, p1, p2, p3, p4, (void*) &c, (void*) &b);
+        read_serial_port_read(p0, p1, p2, p3, (void*) &c, (void*) &b);
     }
 }
 

@@ -31,7 +31,7 @@
         <node name="model" channel="inline" format="text/cybol-path" model=".logic.refresh_display"/>
     </node>
 
-    <node name="sense_display" channel="inline" format="live/sense" model="">
+    <node name="sense_display" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
         <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handler"/>
         <node name="root" channel="inline" format="text/cybol-path" model=".gui.window"/>

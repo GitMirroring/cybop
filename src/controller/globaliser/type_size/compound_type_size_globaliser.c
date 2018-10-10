@@ -64,11 +64,6 @@ void globalise_type_size_compound() {
         + *POINTER_TYPE_SIZE // sender
         + *POINTER_TYPE_SIZE // client list
 
-        //?? TODO: Only needed as long as sensing threads are used. Otherwise, these may be DELETED in the future.
-        + *MUTEX_THREAD_TYPE_SIZE // mutex
-        //?? TODO: Only needed as long as sensing threads are used. Otherwise, these may be DELETED in the future.
-        + *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE // sleep time
-
         //
         // Serial port.
         //
@@ -80,11 +75,9 @@ void globalise_type_size_compound() {
         // Terminal.
         //
 
-        + *POINTER_TYPE_SIZE // input terminal
-        + *POINTER_TYPE_SIZE // output terminal
+        + *POINTER_TYPE_SIZE // file descriptor
+        + *POINTER_TYPE_SIZE // output file descriptor
         + *POINTER_TYPE_SIZE // original attributes
-        + *POINTER_TYPE_SIZE // input mode
-        + *POINTER_TYPE_SIZE // output mode
 
         //
         // Display.

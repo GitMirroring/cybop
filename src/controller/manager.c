@@ -26,9 +26,6 @@
 #ifndef MANAGER_SOURCE
 #define MANAGER_SOURCE
 
-#include <pthread.h>
-#include <signal.h>
-
 #include "../constant/format/cyboi/logic_cyboi_format.c"
 #include "../constant/format/cyboi/state_cyboi_format.c"
 #include "../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -40,7 +37,6 @@
 #include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../controller/manager/internal_memory_manager.c"
 #include "../controller/manager/shutdown_manager.c"
-#include "../controller/manager/system_signal_handler_manager.c"
 #include "../controller/initialiser.c"
 #include "../executor/maintainer/shutter/display/display_shutter.c"
 #include "../executor/maintainer/shutter/opengl/opengl_shutter.c"
@@ -51,8 +47,6 @@
 #include "../logger/logger.c"
 #include "../variable/type_size/integral_type_size.c"
 #include "../variable/type_size/real_type_size.c"
-#include "../variable/type_size/signal_type_size.c"
-#include "../variable/type_size/thread_type_size.c"
 
 /**
  * Manages the system.
@@ -100,125 +94,6 @@ void manage(void* p0) {
     // The signal memory sleep time.
     int signal_memory_sleep_time_array[1];
     int* signal_memory_sleep_time = signal_memory_sleep_time_array;
-
-    // The display enable flag.
-    int display_enable_array[1];
-    int* display_enable = display_enable_array;
-    // The serial enable flag.
-    int serial_enable_array[1];
-    int* serial_enable = serial_enable_array;
-    // The socket enable flag.
-    int socket_enable_array[1];
-    int* socket_enable = socket_enable_array;
-    // The terminal enable flag.
-    int terminal_enable_array[1];
-    int* terminal_enable = terminal_enable_array;
-
-    //
-    // Explanation concerning interrupt request flags:
-    //
-    // Unix system signal handlers that return normally must modify some global
-    // variable in order to have any effect. Typically, the variable is one that
-    // is examined periodically by the program during normal operation.
-    //
-    // Whether the data in an application concerns atoms, or mere text, one has to
-    // be careful about the fact that access to a single datum is not necessarily
-    // atomic. This means that it can take more than one instruction to read or
-    // write a single object. In such cases, a signal handler might be invoked in
-    // the middle of reading or writing the object.
-    // The usage of data types that are always accessed atomically is one way to
-    // cope with this problem. Therefore, this flag is of type sig_atomic_t.
-    //
-    // Reading and writing this data type is guaranteed to happen in a single
-    // instruction, so there's no way for a handler to run in the middle of an access.
-    // The type sig_atomic_t is always an integer data type, but which one it is,
-    // and how many bits it contains, may vary from machine to machine.
-    // In practice, one can assume that int and other integer types no longer than
-    // int are atomic, that is objects of this type are always accessed atomically.
-    // One can also assume that pointer types are atomic; that is very convenient.
-    // Both of these assumptions are true on all of the machines that the GNU C
-    // library supports and on all known POSIX systems.
-    //
-    // Why is the keyword "volatile" used here?
-    //
-    // In the following example, the code sets the value stored in "foo" to 0.
-    // It then starts to poll that value repeatedly until it changes to 255:
-    //
-    // static int foo;
-    // void bar(void) {
-    //     foo = 0;
-    //     while (foo != 255);
-    // }
-    //
-    // An optimizing compiler will notice that no other code can possibly
-    // change the value stored in "foo", and will assume that it will
-    // remain equal to "0" at all times. The compiler will therefore
-    // replace the function body with an infinite loop similar to this:
-    //
-    // void bar_optimized(void) {
-    //     foo = 0;
-    //     while (true);
-    // }
-    //
-    // However, foo might represent a location that can be changed
-    // by other elements of the computer system at any time,
-    // such as a hardware register of a device connected to the CPU.
-    // The above code would never detect such a change;
-    // without the "volatile" keyword, the compiler assumes that
-    // the current program is the only part of the system that could
-    // change the value (which is by far the most common situation).
-    //
-    // To prevent the compiler from optimising code as above,
-    // the "volatile" keyword is used:
-    //
-    // static volatile int foo;
-    // void bar (void) {
-    //     foo = 0;
-    //     while (foo != 255);
-    // }
-    //
-    // With this modification, the loop condition will not be optimised
-    // away, and the system will detect the change when it occurs.
-    //
-
-    // The display interrupt request flag.
-    volatile sig_atomic_t display_irq_array[1];
-    volatile sig_atomic_t* display_irq = display_irq_array;
-    // The serial interrupt request flag.
-    volatile sig_atomic_t serial_irq_array[1];
-    volatile sig_atomic_t* serial_irq = serial_irq_array;
-    // The socket interrupt request flag.
-    volatile sig_atomic_t socket_irq_array[1];
-    volatile sig_atomic_t* socket_irq = socket_irq_array;
-    // The terminal interrupt request flag.
-    volatile sig_atomic_t terminal_irq_array[1];
-    volatile sig_atomic_t* terminal_irq = terminal_irq_array;
-
-    // The display mutex.
-    pthread_mutex_t display_mutex_array[1];
-    pthread_mutex_t* display_mutex = display_mutex_array;
-    // The serial mutex.
-    pthread_mutex_t serial_mutex_array[1];
-    pthread_mutex_t* serial_mutex = serial_mutex_array;
-    // The socket mutex.
-    pthread_mutex_t socket_mutex_array[1];
-    pthread_mutex_t* socket_mutex = socket_mutex_array;
-    // The terminal mutex.
-    pthread_mutex_t terminal_mutex_array[1];
-    pthread_mutex_t* terminal_mutex = terminal_mutex_array;
-
-    // The display sleep time.
-    int display_sleep_time_array[1];
-    int* display_sleep_time = display_sleep_time_array;
-    // The serial sleep time.
-    int serial_sleep_time_array[1];
-    int* serial_sleep_time = serial_sleep_time_array;
-    // The socket sleep time.
-    int socket_sleep_time_array[1];
-    int* socket_sleep_time = socket_sleep_time_array;
-    // The terminal sleep time.
-    int terminal_sleep_time_array[1];
-    int* terminal_sleep_time = terminal_sleep_time_array;
 
     //
     // Variable allocation.
@@ -296,48 +171,6 @@ void manage(void* p0) {
     // Initialise signal memory sleep time.
     copy_integer((void*) signal_memory_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
 
-    // Initialise display enable flag.
-    copy_integer((void*) display_enable, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Initialise serial enable flag.
-    copy_integer((void*) serial_enable, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Initialise socket enable flag.
-    copy_integer((void*) socket_enable, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Initialise terminal enable flag.
-    copy_integer((void*) terminal_enable, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-    // Initialise display interrupt request flag.
-    copy_integer((void*) display_irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Initialise serial interrupt request flag.
-    copy_integer((void*) serial_irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Initialise socket interrupt request flag.
-    copy_integer((void*) socket_irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Initialise terminal interrupt request flag.
-    copy_integer((void*) terminal_irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-    //
-    // In the following mutex initialisation functions, the second parametre
-    // specifies attributes that are to be used to initialise the mutex.
-    // If the parametre is null, the mutex is initialised with default attributes.
-    //
-
-    // Initialise display mutex.
-    pthread_mutex_init(display_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
-    // Initialise serial mutex.
-    pthread_mutex_init(serial_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
-    // Initialise socket mutex.
-    pthread_mutex_init(socket_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
-    // Initialise terminal mutex.
-    pthread_mutex_init(terminal_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
-
-    // Initialise display sleep time.
-    copy_integer((void*) display_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
-    // Initialise serial sleep time.
-    copy_integer((void*) serial_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
-    // Initialise socket sleep time.
-    copy_integer((void*) socket_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
-    // Initialise terminal sleep time.
-    copy_integer((void*) terminal_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
-
     //
     // System startup.
     //
@@ -358,14 +191,7 @@ void manage(void* p0) {
     // CAUTION! ONLY ONE parametre can be handed over to threads!
     // Therefore, the knowledge memory and signal memory NEED TO BE ADDED
     // to the internal memory, in order to be forwardable to threads.
-    startup_internal_memory(i, (void*) &k, (void*) &st, (void*) &s, (void*) &signal_memory_sleep_time,
-        (void*) &display_enable, (void*) &display_irq, (void*) &display_mutex, (void*) &display_sleep_time,
-        (void*) &serial_enable, (void*) &serial_irq, (void*) &serial_mutex, (void*) &serial_sleep_time,
-        (void*) &terminal_enable, (void*) &terminal_irq, (void*) &terminal_mutex, (void*) &terminal_sleep_time,
-        (void*) &socket_enable, (void*) &socket_irq, (void*) &socket_mutex, (void*) &socket_sleep_time);
-
-    // Start up system signal handler.
-    startup_system_signal_handler();
+    startup_internal_memory(i, (void*) &k, (void*) &st, (void*) &s, (void*) &signal_memory_sleep_time);
 
     //
     // System initialisation.
@@ -394,15 +220,6 @@ void manage(void* p0) {
     // Removing them would shift all entries by one position and
     // thus make ALL entries invalid, since they could not be found
     // at their original index anymore.
-
-    // Destroy display mutex.
-    pthread_mutex_destroy(display_mutex);
-    // Destroy serial mutex.
-    pthread_mutex_destroy(serial_mutex);
-    // Destroy socket mutex.
-    pthread_mutex_destroy(socket_mutex);
-    // Destroy terminal mutex.
-    pthread_mutex_destroy(terminal_mutex);
 
     //
     // Variable deallocation.

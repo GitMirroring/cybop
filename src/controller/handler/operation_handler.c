@@ -85,8 +85,6 @@
 #include "../../applicator/flow/branch.c"
 #include "../../applicator/flow/loop.c"
 #include "../../applicator/flow/sequence.c"
-#include "../../applicator/live/interrupt.c"
-#include "../../applicator/live/sense.c"
 #include "../../applicator/logify/logify.c"
 #include "../../applicator/maintain/shutdown.c"
 #include "../../applicator/maintain/startup.c"
@@ -1117,26 +1115,6 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
             log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Set exit flag.");
             copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p7, (void*) INTERRUPT_LIVE_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            apply_interrupt(p0, p1, p3, p4, p2);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p7, (void*) SENSE_LIVE_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            apply_sense(p0, p1, p3, p4, p2);
         }
     }
 

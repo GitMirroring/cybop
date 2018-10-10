@@ -62,28 +62,8 @@
  * @param p2 the stack memory item (pointer reference)
  * @param p3 the signal memory item (pointer reference)
  * @param p4 the signal memory sleep time (pointer reference)
- * @param p5 the display enable flag (pointer reference)
- * @param p6 the display interrupt request flag (pointer reference)
- * @param p7 the display mutex (pointer reference)
- * @param p8 the display sleep time (pointer reference)
- * @param p9 the serial enable flag (pointer reference)
- * @param p10 the serial interrupt request flag (pointer reference)
- * @param p11 the serial mutex (pointer reference)
- * @param p12 the serial sleep time (pointer reference)
- * @param p13 the terminal enable flag (pointer reference)
- * @param p14 the terminal interrupt request flag (pointer reference)
- * @param p15 the terminal mutex (pointer reference)
- * @param p16 the terminal sleep time (pointer reference)
- * @param p17 the socket service enable flag (pointer reference)
- * @param p18 the socket service interrupt request flag (pointer reference)
- * @param p19 the socket service mutex (pointer reference)
- * @param p20 the socket service sleep time (pointer reference)
  */
-void startup_internal_memory(void* p0, void* p1, void* p2, void* p3, void* p4,
-    void* p5, void* p6, void* p7, void* p8,
-    void* p9, void* p10, void* p11, void* p12,
-    void* p13, void* p14, void* p15, void* p16,
-    void* p17, void* p18, void* p19, void* p20) {
+void startup_internal_memory(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup internal memory.");
@@ -148,37 +128,6 @@ void startup_internal_memory(void* p0, void* p1, void* p2, void* p3, void* p4,
     copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set signal memory sleep time.
     copy_array_forward(p0, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SLEEP_TIME_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-    //
-    //?? TODO: DELETE the following initialisations later,
-    // as soon as the new i/o memory is used.
-    //
-
-    // Set serial enable flag.
-    copy_array_forward(p0, p9, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ENABLE_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set serial interrupt request flag.
-    copy_array_forward(p0, p10, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_REQUEST_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set serial mutex.
-    copy_array_forward(p0, p11, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set serial sleep time.
-    copy_array_forward(p0, p12, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SLEEP_TIME_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-    // Set terminal enable flag.
-    copy_array_forward(p0, p13, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ENABLE_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set terminal interrupt request flag.
-    copy_array_forward(p0, p14, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_REQUEST_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set terminal mutex.
-    copy_array_forward(p0, p15, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set terminal sleep time.
-    copy_array_forward(p0, p16, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SLEEP_TIME_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-    //?? The socket is NOT implemented here,
-    //?? since an unpredictable number of sockets may exist.
-
-    //
-    //?? TODO: DELETE the initialisations above later,
-    // as soon as the new i/o memory is used.
-    //
 }
 
 /* INTERNAL_MEMORY_MANAGER_SOURCE */

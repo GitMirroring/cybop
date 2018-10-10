@@ -26,10 +26,6 @@
 #ifndef HELPER_SOURCE
 #define HELPER_SOURCE
 
-//?? TEST
-#include "../constant/model/cyboi/identification/identification_cyboi_model.c"
-
-
 #include "../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../constant/model/cyboi/help/help_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"

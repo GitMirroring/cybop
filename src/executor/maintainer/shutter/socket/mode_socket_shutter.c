@@ -40,14 +40,12 @@
  * Shuts down socket in either client or server mode.
  *
  * @param p0 the internal memory data (pointer reference)
- * @param p1 the service thread
- * @param p2 the service thread interrupt
- * @param p3 the port
- * @param p4 the client socket
- * @param p5 the mode data
- * @param p6 the mode count
+ * @param p1 the port
+ * @param p2 the client socket
+ * @param p3 the mode data
+ * @param p4 the mode count
  */
-void shutdown_socket_mode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void shutdown_socket_mode(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown socket mode.");
 
@@ -58,23 +56,23 @@ void shutdown_socket_mode(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p5, (void*) CLIENT_MODE_SOCKET_CYBOL_MODEL, p6, (void*) CLIENT_MODE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p3, (void*) CLIENT_MODE_SOCKET_CYBOL_MODEL, p4, (void*) CLIENT_MODE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Hand over client socket.
             // CAUTION! It does NOT have to be determined from internal memory.
-            shutdown_socket_client(p0, p3, p4);
+            shutdown_socket_client(p0, p1, p2);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p5, (void*) SERVER_MODE_SOCKET_CYBOL_MODEL, p6, (void*) SERVER_MODE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p3, (void*) SERVER_MODE_SOCKET_CYBOL_MODEL, p4, (void*) SERVER_MODE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            shutdown_socket_server(p0, p1, p2, p3);
+            shutdown_socket_server(p0, p1);
         }
     }
 

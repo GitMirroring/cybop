@@ -17,10 +17,11 @@ ___
     // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
     // Otherwise, it would produce huge log files filled up with useless entries.
 
-        CONTINUE:
-        * Shutdown allocated input/output values properly for all channels in "executor/maintainer/"
+        * Add step-by-step instructions for how to add a new communication channel (similar to "doc/development/add_new_cybol_operation.txt")
+
         * Reset terminal properties properly at service shutdown
             (currently, after exit the terminal properties are messed up)
+        * Shutdown allocated input/output values properly for all channels in "executor/maintainer/"
         * Change usage of outdated internal memory-based OUTPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME
             and replace it with new input/output-based structure in file "file_terminal_writer.c" etc.
         * Think through and verify gaps in file "internal_memory_state_cyboi_name.c" again
@@ -39,21 +40,12 @@ ___
         * Think through usage of stdin and stdout as separate terminal io_entries
         * Store stdin and stdout as SEPARATE terminal entries??
 
+        Clear up:
         * Use terminal "id" as "receiver"/"sender" for i/o via channel "terminal"
             see documentation file "src/communication_properties.ods"
         * Comparison:
             input (as service): events in xcb, listening server socket, stdin
             output: draw on window / graphic / device context in xcb, reply to client socket id, stdout
-
-        * Delete superfluous "sense" cybol operation in all cybol example applications, since it is used only internally furthermore and got replaced by "activator"
-        * Move remaining sensor files from directory "executor/lifeguard/sensor/" to just "executor/sensor/"
-        * Remove outdated thread-based sensor files and functions with suffix "OLD"
-        * Adapt functions called from new file "executor/sensor/message_sensor.c"
-        * Delete anything having to do with threads, e.g. mutex variables and lock/unlock function calls etc.
-        * Delete directory "executor/interrupter/" as soon as sensing threads are not used anymore --> OR: use them to "disable" a service??
-        * Delete outdated thread-based directory "executor/lifeguard/"
-        * Clean up "internal_memory_manager" by deleting old i/o parametres that were necessary for the thread-based solution
-        * Clean up file "internal_memory_state_cyboi_name.c" after having replaced constants with those defined in file "input_output_state_cyboi_name.c"
 
         * Reactivate socket (already prepared for new input/output structure)
         * Verify that NON-BLOCKING mode is used for sockets and terminal at startup
@@ -146,8 +138,8 @@ ___
 
         * Remove directory "src/windows/"
 
-Sensing Threads
-_______________
+Input / Output
+______________
 
         * Add further channel constants, e.g.:
             anonymous_pipe
@@ -157,116 +149,30 @@ _______________
             mom / jms (message queue | publish-subscribe-channel)
             jrmp (RMI)
 
-        * Allow usage of multiple channels like terminal, x window system etc.
-        * Hand over an id in addition to channel in maintain/startup, e.g. 0, 1, 2 etc. for each terminal created
-        * Keep one array for each channel in cyboi, in which the id is the index
-        * Let id numbers be of type integer and begin at zero
-        * Read id as string from cybol files where it may be given as property, e.g. the id of a specific terminal
-
-        * Think through blocking input for other channels
-        * See channel "terminal" as example (already implemented there)
-        * Provide endless loop e.g. in file "bsd_socket_reader.c", as done in file "stream_unix_terminal_reader.c"
         * Remember that modal windows in gui are blocking other windows but not the input, since events are catched there anyway
         * Remember that for channel "file/filesystem" only blocking mode exists
 
-        * Optimise signal (event) handling
-            --> read thread: http://lists.freedesktop.org/archives/xcb/2013-April/008219.html
+Worker Threads
+______________
 
-            You don't need to get a character to block on a terminal or serial port.
-            You should just select() or poll() or epoll() or similar on the file
-            descriptor.  Likewise with sockets, and in fact you can watch many file
-            descriptors with a single select/poll/epoll/etc.  That'll eliminate the
-            unget.
-            Ideally, you should use one of those calls on your main thread rather
-            than flag variables.  If you have to wait on something for which you
-            don't have a file descriptor, you could always spin off a thread and
-            have it write a byte to a pipe when ready, then add the read end of the
-            pipe as another file descriptor to block on.
-            You might also look at timerfd, signalfd, and similar calls; those make
-            it possible to include even more things in your select/poll/epoll.
-            Depending on your target platforms, you may also find the portable libevent
-            or libev wrappers useful, rather than calling epoll or similar directly.
+        * Use worker threads for long-lasting operations
+        * Provide cybol operation for this
 
-            ==> use callback functions in the style of "Node.js" now, see:
-                http://stackoverflow.com/questions/14795145/how-the-single-threaded-non-blocking-io-model-works-in-node-js
-            ==> the cyboi main process checks for signals/irq from kernel
-            ==> there is ONLY ONE BLOCKING CALL to the OS once in each event-loop-cycle;
-                that point is reached, when everything non-blocking is done
-                so all "busy waiting" ("sleep" function calls) may get eliminated
-            ==> check out libuv to find out about how this only one blocking call to the OS is done:
-                https://github.com/libuv/libuv
-                libuv seems to use C++ threads which do the asynchronous I/O (disk or network)
-                so it might be necessary to use them in cyboi as before, but just for setting a flag instead of calling a callback function
-            ==> threads might be used anyway, but only as "worker" threads for long-lasting operations
-                and they should SET A FLAG to signal when the worker has finished/is ready,
-                just like is done for the input/output in cyboi,
-                and the main event loop then checks for interrupt flags
-            ==> possibly also check out Tcl interpreter which claims to handle all i/o channels uniquely
+        * Set a flag to signal when the worker has finished / is ready
+        * See old implementation in "executor/lifeguard/interrupter/" in svn, for how to use a system signal to inform the main thread
 
-            Google-Suche nach "node.js c++ event-driven" lieferte z. B.:
-            http://stackoverflow.com/questions/36491385/how-is-asynchronous-javascript-interpreted-and-executed-in-node-js
-            (hier z. B. auch eine schöne Grafik enthalten)
-            http://stackoverflow.com/questions/14795145/how-the-single-threaded-non-blocking-io-model-works-in-node-js
-            http://berb.github.io/diploma-thesis/original/055_events.html
-            http://garywoodfine.com/event-driven-architecture-node-js/
+        Possible alternative:
+        * Use something like "Futures" known from Scala functional programming language and Play framework
+        * Keep a "future" as handle to that operation/thread/its results
 
-        ALL other comments below concerning THREADS might get deleted in case the asynchronous solution
-        using callback of the operating system, as mentioned above and done in libuv of the Node.js project, works fine!
+        * Check out Tcl interpreter which claims to handle all i/o channels uniquely
 
-        * Optimise sleeping in sensing threads:
+Sleep
+_____
 
-            (0) usleep
-            usleep(msec * 1000); // Mikrosekunden warten (1ms = 1000Âµs)
-            http://www.die.net/doc/linux/man/man3/usleep.3.html
-
-            (1) select
-            Relativ portabel ist select(2), das man für diese Zwecke mißbrauchen kann:
-            struct timeval tv;
-            tv.sec = number_of_seconds;
-            tv.usec = number_of_mikro_seconds;
-            select(0, 0, 0, 0, &tv);
-            Allerdings ist nicht gewährleistet, daß die Wartezeit exakt eingehalten
-            wird; unter IRIX-5.3 war die kürzeste Wartezeit immer 10 ms.
-
-            (2) clock
-            Die C++-Standardbibliothek weiÃ nicht allzuviel von Zeit. Das genaueste
-            dÃ¼rfte die Funktion 'clock()' sein. Daraus kannst du dir mittels
-            busy-waiting eine VerzÃ¶gerung bauen, die, wenn dein System eine so
-            genaue Uhr hat, genauer als eine Sekunde auflÃ¶st. Also sowas:
-            double start = clock() * (1.0 / CLOCKS_PER_SEC);
-            double elapsed;
-            do
-                elapsed = (clock() * (1.0 / CLOCKS_PER_SEC)) - start;
-            while (elapsed < 0.01);
-            FÃ¼r alles Bessere (kein busy-waiting, bessere Genauigkeit usw.) musst du
-            auf systemspezifische Funktionen zurÃ¼ckgreifen (usleep? setitimer?).
-
-            (3) POSIX Thread
-            Such mal in der posix Thread API.
-
-            (4) Vielleicht findet man auch was bei boost.
-
-            (5) Windows
-            Is there a way to suspend the active thread for 1.6 msec?
-            I mean I cannot use sleep, instead I would like to use something like the linux's usleep.
-            ==> There is no way you can suspend anything in Windows with that accuracy.
-            Even if you just release the thread and immediately put it in the active queue
-            again by means of Sleep(0), it may easily take 50 mS or more before the thread
-            gets the control back because there may be more threads waiting in the queue.
-            Thread switching is usually done every 10 mS in a single core system and every 15 mS
-            in case of a multicore CPU so forget everything about an accuracy better than 50-100 mS.
-
-            -- other opinion, still for Windows:
-            Maybe you could try a select() call on an unused port.
-            select is a blocking function that takes in a delay with us precision.
-            There isn't going to be any activity on this port since it is unused,
-            and it waits for the desired amount of time.
-            This should work despite the issues pointed above, if you are using only one thread.
-
-            --
-            usleep() works with microseconds.
-            In windows for getting microsecond precesion you should use QueryPerformanceCounter() winapi function.
-            Here you can find how get that precesion using it.
+        * usleep() works with microseconds.
+        * In windows for getting microsecond precesion you should use QueryPerformanceCounter() winapi function.
+        * Here you can find how get that precesion using it.
 
             #include <windows.h>
             void uSleep(int waitTime) {
@@ -848,17 +754,6 @@ _____
         * See desktop links of any OS as example
         * Alternatively, use relative paths from current file as is done in html files
 
-Architecture
-____________
-
-        * Qt signals & slots help avoid multiple inheritance and loosely couple objects
-        * Provide arguments on how this can be achieved using cybol knowledge paths
-
-        * Use something like "Futures" known from Scala functional programming language and Play framework
-        * Move long-lasting operations into an own thread, using a cybol operation
-        * Keep a "future" as handle to that operation/thread/its results
-        * Call long-lasting operation early in cybol, so that other operations may be processed meanwhile
-
 Super
 _____
 
@@ -969,11 +864,6 @@ _____
                 this is a kind of "prototype programming"-like approach
             ==> for now, as temporary solution, the properties are stored redundantly (twice) in the template
                 that needs them (for example "menu_item" entries in the resmedicinae-revue menu) and in its super template
-
-Tester
-______
-
-        * Clean up directory "tester/" and related constants and functionality
 
 Database
 ________

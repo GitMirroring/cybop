@@ -35,7 +35,6 @@
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/getter/io_entry_getter.c"
-#include "../../../../executor/lifeguard/interrupter/thread_interrupter.c"
 #include "../../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../../logger/logger.c"
 
@@ -45,10 +44,8 @@
  * This is done in the reverse order the service was started up.
  *
  * @param p0 the internal memory data
- * @param p1 the service thread
- * @param p2 the service thread interrupt
  */
-void shutdown_x_window_system(void* p0, void* p1, void* p2) {
+void shutdown_x_window_system(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown x window system.");
 
@@ -75,9 +72,6 @@ void shutdown_x_window_system(void* p0, void* p1, void* p2) {
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // Only deallocate display resources if EXISTENT.
-
-        // Interrupt display service thread.
-        interrupt_thread(p1, p2);
 
         // Get connexion from io entry.
         get_io_entry_element((void*) &c, (void*) &io, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);

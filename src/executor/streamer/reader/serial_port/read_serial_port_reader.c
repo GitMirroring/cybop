@@ -30,7 +30,6 @@
 #include <limits.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -54,13 +53,12 @@
  *
  * @param p0 the destination item
  * @param p1 the source file descriptor data
- * @param p2 the source mutex
- * @param p3 the minimum number of bytes to be received in one call of the read function
- * @param p4 the maximum number of bytes to be received in one call of the read function
- * @param p5 the character count
- * @param p6 the loop break flag
+ * @param p2 the minimum number of bytes to be received in one call of the read function
+ * @param p3 the maximum number of bytes to be received in one call of the read function
+ * @param p4 the character count
+ * @param p5 the loop break flag
  */
-void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     // The minimum number of bytes to be received in one call of the read function.
     // CAUTION! Set default value. At least one byte has to be received.
@@ -75,14 +73,14 @@ void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // The minimum maximum comparison result.
     int rminmax = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        max = *((int*) p4);
-    }
-
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        min = *((int*) p3);
+        max = *((int*) p3);
+    }
+
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        min = *((int*) p2);
     }
 
     // CAUTION! The following source code should NOT depend
@@ -95,8 +93,6 @@ void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     compare_integer_less_or_equal((void*) &rminmax, (void*) &min, (void*) &max);
 
     if (rminmax != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -143,13 +139,6 @@ void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                     // the function that might cause an error.
                     errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                    // Lock serial port mutex.
-                    //
-                    // CAUTION! This IS NECESSARY to avoid conflicts with the serial port sensing thread,
-                    // which in parallel is trying to detect that some character is available,
-                    // what is also called "peeking ahead" at the input.
-                    pthread_mutex_lock(p2);
-
                     // Get character from source input stream of serial port.
                     // ssize_t e = read(*f, (void*) c, ts);
 #if defined(__linux__) || defined(__unix__)
@@ -162,9 +151,6 @@ void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
-
-                    // Unlock serial port mutex.
-                    pthread_mutex_unlock(p2);
 
                     // The byte number as temporary "int" variable.
                     //
@@ -196,7 +182,7 @@ void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                         // The maximum comparison result.
                         int rmax = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                        compare_integer_less((void*) &rmax, p5, (void*) &max);
+                        compare_integer_less((void*) &rmax, p4, (void*) &max);
 
                         if (rmax != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -207,7 +193,7 @@ void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                             // The minimum comparison result.
                             int rmin = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                            compare_integer_less((void*) &rmin, p5, (void*) &min);
+                            compare_integer_less((void*) &rmin, p4, (void*) &min);
 
                             if (rmin != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -222,7 +208,7 @@ void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                                 modify_item(p0, (void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
                                 // Increment character count.
-                                calculate_integer_add(p5, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+                                calculate_integer_add(p4, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
                             } else {
 
@@ -240,7 +226,7 @@ void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                                     modify_item(p0, (void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
                                     // Increment character count.
-                                    calculate_integer_add(p5, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+                                    calculate_integer_add(p4, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
                                 } else {
 
@@ -252,7 +238,7 @@ void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                                     // Set loop break flag.
                                     // CAUTION! If this was not done here,
                                     // the loop would run endlessly.
-                                    copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                                    copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                                 }
                             }
 
@@ -264,7 +250,7 @@ void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                             // Set loop break flag.
                             // CAUTION! If this was not done here,
                             // the loop would run endlessly.
-                            copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                            copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                         }
 
                     } else if (e == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
@@ -274,7 +260,7 @@ void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                         // Set loop break flag.
                         // CAUTION! If this was not done here,
                         // the loop would run endlessly.
-                        copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                        copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                     } else if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -302,7 +288,7 @@ void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                         // Set loop break flag.
                         // CAUTION! If this was not done here,
                         // the loop would run endlessly.
-                        copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                        copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                     }
 
                 } else {
@@ -312,7 +298,7 @@ void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                     // Set loop break flag.
                     // CAUTION! If this was not done here,
                     // the loop would run endlessly.
-                    copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                    copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                 }
 
             } else {
@@ -322,18 +308,8 @@ void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                 // Set loop break flag.
                 // CAUTION! If this was not done here,
                 // the loop would run endlessly.
-                copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
             }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read serial port read. The source serial port mutex is null.");
-
-            // Set loop break flag.
-            // CAUTION! If this was not done here,
-            // the loop would run endlessly.
-            copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
 
     } else {
 
@@ -342,7 +318,7 @@ void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         // Set loop break flag.
         // CAUTION! If this was not done here,
         // the loop would run endlessly.
-        copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 

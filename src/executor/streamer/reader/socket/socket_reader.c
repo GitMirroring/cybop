@@ -30,11 +30,12 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/streamer/reader/socket/buffer_socket_reader.c"
-#include "../../../../executor/lifeguard/sensor/socket/socket_sensor.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/sensor/socket/socket_sensor.c"
+#include "../../../../executor/streamer/reader/socket/buffer_socket_reader.c"
 #include "../../../../logger/logger.c"
 
 //

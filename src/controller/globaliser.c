@@ -29,9 +29,7 @@
 #include "../controller/globaliser/log_globaliser.c"
 #include "../controller/globaliser/reallocation_factor_globaliser.c"
 #include "../controller/globaliser/reference_counter_globaliser.c"
-#include "../controller/globaliser/service_exit_globaliser.c"
 #include "../controller/globaliser/symbolic_name_globaliser.c"
-#include "../controller/globaliser/thread_identification_globaliser.c"
 #include "../controller/globaliser/type_size_globaliser.c"
 
 /**
@@ -64,8 +62,6 @@ void globalise() {
     globalise_log();
     globalise_reallocation_factor();
     globalise_reference_counter();
-    globalise_service_exit();
-    globalise_thread_identification();
 }
 
 /* GLOBALISER_SOURCE */

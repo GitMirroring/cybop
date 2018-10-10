@@ -35,11 +35,7 @@
 #include "../controller/unglobaliser/process_unglobaliser.c"
 #include "../controller/unglobaliser/real_unglobaliser.c"
 #include "../controller/unglobaliser/reallocation_factor_unglobaliser.c"
-#include "../controller/unglobaliser/service_exit_unglobaliser.c"
-#include "../controller/unglobaliser/signal_unglobaliser.c"
 #include "../controller/unglobaliser/socket_unglobaliser.c"
-#include "../controller/unglobaliser/thread_unglobaliser.c"
-#include "../controller/unglobaliser/thread_identification_unglobaliser.c"
 
 /**
  * Deallocates global variables.
@@ -62,11 +58,7 @@ void unglobalise() {
     unglobalise_process();
     unglobalise_real();
     unglobalise_reallocation_factor();
-    unglobalise_service_exit();
-    unglobalise_signal();
     unglobalise_socket();
-    unglobalise_thread();
-    unglobalise_thread_identification();
 }
 
 /* UNGLOBALISER_SOURCE */

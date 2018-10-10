@@ -18,10 +18,37 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2018-10-10  Christian Heller  <christian.heller@cybop.org>
+
+        * Move all remaining sensor files from directory "executor/lifeguard/sensor/" to just "executor/sensor/"
+        * Delete the following outdated directories and files, since sensing threads are not used anymore:
+            "applicator/live/" (replaced by "applicator/activate/")
+            "constant/name/cybol/logic/life/"
+            "controller/checker/io/threads_io_checker.c"
+            "controller/globaliser/type_size/signal_type_size_globaliser.c"
+            "controller/globaliser/type_size/thread_type_size_globaliser.c"
+            "controller/globaliser/service_exit_globaliser.c"
+            "controller/globaliser/thread_identification_globaliser.c"
+            "controller/manager/system_signal_handler_manager.c"
+            "controller/unglobaliser/service_exit_unglobaliser.c"
+            "controller/unglobaliser/signal_unglobaliser.c"
+            "controller/unglobaliser/thread_identification_unglobaliser.c"
+            "controller/unglobaliser/thread_unglobaliser.c"
+            "executor/lifeguard/" (including "interrupter/")
+            "variable/thread_identification.c"
+            "variable/type_size/thread_type_size.c"
+            "variable/service_interrupt.c"
+        * Preserve these old thread-handling files for potential future worker threads by adding them to new directory "todo_thread"
+        * Clean up file "controller/manager/internal_memory_manager.c" by deleting old thread-related variables
+        * Clean up file "constant/name/cyboi/state/internal_memory_state_cyboi_name.c" by deleting old thread-related constants which got replaced with those defined in file "input_output_state_cyboi_name.c"
+        * Delete anything having to do with "thread" or "mutex"
+        * Delete outdated cybol operations "live/sense" and "live/interrupt", but leave "live/exit" untouched
+
 2018-10-09  Christian Heller  <christian.heller@cybop.org>
 
         * Hold two separate terminal file descriptors for input- and output
         * Replace outdated property name "part" with "destination" in all cybol example applications using cybol operation "modify/empty"
+        * Adapt all cybol example applications using operation "activate/enable" instead of old "live/sense"
 
 2018-10-02  Christian Heller  <christian.heller@cybop.org>
 
@@ -61,6 +88,7 @@
 
 2018-09-16  Christian Heller  <christian.heller@cybop.org>
 
+        * Check out libuv of Node.js and decide not to use its ideas, since it is based on threads again
         * Move sensor files to new directory "executor/sensor/"
         * Clean up some CMake tests
 

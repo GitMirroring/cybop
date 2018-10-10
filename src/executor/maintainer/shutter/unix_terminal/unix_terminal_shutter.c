@@ -31,7 +31,6 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/lifeguard/interrupter/thread_interrupter.c"
 #include "../../../../executor/maintainer/shutter/unix_terminal/attributes_unix_terminal_shutter.c"
 #include "../../../../executor/maintainer/shutter/unix_terminal/close_unix_terminal_shutter.c"
 #include "../../../../logger/logger.c"

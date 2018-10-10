@@ -41,6 +41,10 @@
 /**
  * Gets the source io entry's element at the given index.
  *
+ * CAUTION! When editing this file, then also adapt files:
+ * "constant/name/cyboi/state/input_output_state_cyboi_name.c".
+ * "controller/globaliser/type_size/compound_type_size_globaliser.c"
+ *
  * @param p0 the destination element (pointer reference only if pointer is retrieved)
  * @param p1 the source io entry (pointer reference)
  * @param p2 the source index
@@ -323,11 +327,6 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
                 calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
                 calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // sender
                 calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // client list
-
-                //?? TODO: Only needed as long as sensing threads are used. Otherwise, these may be DELETED in the future.
-//??                calculate_pointer_add((void*) &e, (void*) MUTEX_THREAD_TYPE_SIZE); // mutex
-                //?? TODO: Only needed as long as sensing threads are used. Otherwise, these may be DELETED in the future.
-//??                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // sleep time
 
                 //
                 // Serial port.

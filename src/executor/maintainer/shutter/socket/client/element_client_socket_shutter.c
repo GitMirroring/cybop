@@ -33,8 +33,8 @@
 #include "../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../../../executor/maintainer/shutter/socket/close_socket_shutter.c"
 #include "../../../../../executor/copier/array_copier.c"
+#include "../../../../../executor/maintainer/shutter/socket/close_socket_shutter.c"
 #include "../../../../../executor/modifier/remove_modifier.c"
 #include "../../../../../logger/logger.c"
 

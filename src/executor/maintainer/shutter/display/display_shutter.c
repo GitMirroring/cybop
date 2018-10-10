@@ -45,15 +45,13 @@
  * Shuts down the display.
  *
  * @param p0 the internal memory data
- * @param p1 the service thread
- * @param p2 the service thread interrupt
  */
-void shutdown_display(void* p0, void* p1, void* p2) {
+void shutdown_display(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown display.");
 
 #if defined(__linux__) || defined(__unix__)
-    shutdown_x_window_system(p0, p1, p2);
+    shutdown_x_window_system(p0);
 #elif defined(__APPLE__) && defined(__MACH__)
     //shutdown_darwin_display(p0);
     //?? Add cocoa support for Apple

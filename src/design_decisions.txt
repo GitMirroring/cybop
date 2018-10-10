@@ -124,25 +124,15 @@ This is NOT necessary.
   which serves as input to another operation
 - similar to pipelining in UNIX
 
-Sensing Thread Interruption
+Multi Channel Communication
 ___________________________
 
-Question:
-Stop sensing thread while data detection irq is set?
-- seems better than "busy waiting" (sleep loop)
-- might relax the cpu
-- sensing might continue if irq has been processed and reset
-- how to continue a thread?
+- the libuv multi-channel communication library of Node.js was checked out
+- it was decided not to use its ideas, since it is based on threads again
+- the "select" function is NOT used either, since it works only with file descriptors, but not xcb etc.
 
-Example:
-- see function "sense_terminal"
-
-Answer:
-NO for now.
-- interrupting and creating threads eats performance
-- a new sensing thread would have to be created every some miliseconds
-- is whole process context (memory?) copied for each new thread?
-- probably causes more effort than busy waiting
+- in cyboi, sensing threads are NOT used any longer
+- instead, the main thread frequently queries all channels for available data (busy waiting)
 
 Date Time
 _________
@@ -716,4 +706,10 @@ ___________________________________________________
 - vor dem Vergleich müssen also die Längen der beiden Operanden durch Auffüllen mit führenden Nullen angeglichen werden
 - danach werden (beim numerischen wie beim lexikographischen Vergleich) gleiche Ränge in beiden Operanden miteinander verglichen
 - Verarbeitungsrichtung: bei Division von hochrangig zu niedrigrangig; bei Addition, Subtraktion und Multiplikation jedoch umgekehrt
+
+Coupling of Objects
+___________________
+
+- Qt signals & slots help avoid multiple inheritance and loosely couple objects
+- the same can be achieved using cybol knowledge paths, based on tree / hierarchy
 

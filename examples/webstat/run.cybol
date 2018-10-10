@@ -42,7 +42,7 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     
-    <node name="sense_requests" channel="inline" format="live/sense" model="">
+    <node name="sense_requests" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="id" channel="inline" format="text/cybol-path" model=".app.var.port"/>
         <node name="handler" channel="inline" format="text/cybol-path" model=".app.handler"/>

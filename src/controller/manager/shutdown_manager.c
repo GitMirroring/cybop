@@ -30,11 +30,7 @@
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../controller/manager/services_shutdown_manager.c"
-#include "../../executor/maintainer/shutter/display/display_shutter.c"
-#include "../../executor/maintainer/shutter/serial_port/serial_port_shutter.c"
-#include "../../executor/maintainer/shutter/terminal/terminal_shutter.c"
 #include "../../logger/logger.c"
-#include "../../variable/thread_identification.c"
 
 /**
  * Shuts down all services.
@@ -48,18 +44,17 @@ void manage_shutdown(void* p0) {
     // The following calls of "shutdown" procedures are just to be sure,
     // in case a cybol application developer has forgotten to call the
     // corresponding service shutdown operation in cybol logic templates.
-    // The "interrupt" procedures are called within the "shutdown" procedures.
 
     // Shutdown display.
-    shutdown_display(p0, (void*) DISPLAY_THREAD, (void*) DISPLAY_EXIT); //?? TODO: This is the OLD version, soon to be replaced with "manage_shutdown_all"
+    manage_shutdown_services(p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DISPLAY_CYBOI_CHANNEL);
     // Shutdown serial port.
-    shutdown_serial_port(p0, (void*) SERIAL_THREAD, (void*) SERIAL_EXIT); //?? TODO: This is the OLD version, soon to be replaced with "manage_shutdown_all"
+    manage_shutdown_services(p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) SERIAL_CYBOI_CHANNEL);
     // Shutdown socket.
     // CAUTION! The delay is caused by the large number of potential services (65536).
     // However, speed is more important at system startup than at shutdown.
     manage_shutdown_services(p0, (void*) NUMBER_65536_INTEGER_STATE_CYBOI_MODEL, (void*) SOCKET_CYBOI_CHANNEL);
     // Shutdown terminal.
-    shutdown_terminal(p0, (void*) TERMINAL_THREAD, (void*) TERMINAL_EXIT); //?? TODO: This is the OLD version, soon to be replaced with "manage_shutdown_all"
+    manage_shutdown_services(p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) TERMINAL_CYBOI_CHANNEL);
 }
 
 /* SHUTDOWN_MANAGER_SOURCE */

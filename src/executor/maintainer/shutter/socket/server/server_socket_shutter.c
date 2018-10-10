@@ -35,7 +35,6 @@
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/accessor/getter/io_entry_getter.c"
 #include "../../../../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../../../../executor/lifeguard/interrupter/thread_interrupter.c"
 #include "../../../../../executor/maintainer/shutter/socket/server/list_server_socket_shutter.c"
 #include "../../../../../executor/maintainer/shutter/socket/close_socket_shutter.c"
 #include "../../../../../executor/memoriser/deallocator/array_deallocator.c"
@@ -47,11 +46,9 @@
  * Shuts down the server socket.
  *
  * @param p0 the internal memory data (pointer reference)
- * @param p1 the service thread
- * @param p2 the service thread interrupt
- * @param p3 the port
+ * @param p1 the port
  */
-void shutdown_socket_server(void* p0, void* p1, void* p2, void* p3) {
+void shutdown_socket_server(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown socket server.");
 
@@ -59,7 +56,7 @@ void shutdown_socket_server(void* p0, void* p1, void* p2, void* p3) {
     int i = *SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
 
     // Calculate internal memory index using given port.
-    calculate_integer_add((void*) &i, p3);
+    calculate_integer_add((void*) &i, p1);
 
     if (i > *SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME) {
 
@@ -76,9 +73,6 @@ void shutdown_socket_server(void* p0, void* p1, void* p2, void* p3) {
 //?? fwprintf(stdout, L"TEST shutdown socket server io: %i\n", io);
 
             // Only deallocate socket resources if a socket exists.
-
-            // Interrupt socket service thread.
-            interrupt_thread(p1, p2);
 
             // The client list item.
             void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;

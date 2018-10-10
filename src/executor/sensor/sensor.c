@@ -31,7 +31,7 @@
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 //?? #include "../../executor/sensor/display/display_sensor.c"
-//?? #include "../../executor/sensor/serial/serial_sensor.c"
+//?? #include "../../executor/sensor/serial_port/serial_port_sensor.c"
 //?? #include "../../executor/sensor/socket/socket_sensor.c"
 #include "../../executor/sensor/terminal/terminal_sensor.c"
 #include "../../logger/logger.c"
@@ -94,9 +94,9 @@ void sense(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense message. The channel is unknown.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense. The channel is unknown.");
 
-        fwprintf(stdout, L"Error: Could not sense message. The channel is unknown. The channel p2: %i\n", *((int*) p2));
+        fwprintf(stdout, L"Error: Could not sense. The channel is unknown. The channel p2: %i\n", *((int*) p2));
     }
 }
 

@@ -26,7 +26,9 @@
 #ifndef SIGNAL_CHECKER_SOURCE
 #define SIGNAL_CHECKER_SOURCE
 
+#include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/state_cyboi_model.c"
@@ -63,8 +65,6 @@
  * In this case, the client requests in form of socket interrupts would be
  * processed on and on and only if no more client requests could be found,
  * the actual signals in the signal memory would be processed.
- *
- * Further alternatives are welcome!
  *
  * The current solution implemented here is number 1.
  *
