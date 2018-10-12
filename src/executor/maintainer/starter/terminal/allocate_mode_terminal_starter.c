@@ -23,44 +23,44 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef OPEN_TERMINAL_STARTER_SOURCE
-#define OPEN_TERMINAL_STARTER_SOURCE
+#ifndef ALLOCATE_MODE_TERMINAL_STARTER_SOURCE
+#define ALLOCATE_MODE_TERMINAL_STARTER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/maintainer/starter/unix_terminal/open_unix_terminal_starter.c"
+    #include "../../../../executor/maintainer/starter/unix_terminal/allocate_mode_unix_terminal_starter.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../executor/maintainer/starter/unix_terminal/open_unix_terminal_starter.c"
+    #include "../../../../executor/maintainer/starter/unix_terminal/allocate_mode_unix_terminal_starter.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../../executor/maintainer/starter/win32_console/open_win32_console_starter.c"
+    #include "../../../../executor/maintainer/starter/win32_console/allocate_mode_win32_console_starter.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
- * Opens the terminal.
+ * Allocates the original as well as new terminal mode.
  *
- * @param p0 the output file descriptor
- * @param p1 the input file descriptor
+ * @param p0 the original terminal mode (pointer reference)
+ * @param p1 the new terminal mode (pointer reference)
  */
-void startup_terminal_open(void* p0, void* p1) {
+void startup_terminal_mode_allocate(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal open.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal mode allocate.");
 
 #if defined(__linux__) || defined(__unix__)
-    startup_unix_terminal_open(p0, p1);
+    startup_unix_terminal_mode_allocate(p0, p1);
 #elif defined(__APPLE__) && defined(__MACH__)
-    startup_unix_terminal_open(p0, p1);
+    startup_unix_terminal_mode_allocate(p0, p1);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    startup_win32_console_open(p0, p1);
+    startup_win32_console_mode_allocate(p0, p1);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 
-/* OPEN_TERMINAL_STARTER_SOURCE */
+/* ALLOCATE_MODE_TERMINAL_STARTER_SOURCE */
 #endif

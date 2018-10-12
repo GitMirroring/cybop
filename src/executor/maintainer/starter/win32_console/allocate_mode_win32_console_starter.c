@@ -23,37 +23,32 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef OPEN_UNIX_TERMINAL_STARTER_SOURCE
-#define OPEN_UNIX_TERMINAL_STARTER_SOURCE
-
-#include <stdio.h>
+#ifndef ALLOCATE_MODE_WIN32_CONSOLE_STARTER_SOURCE
+#define ALLOCATE_MODE_WIN32_CONSOLE_STARTER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../executor/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Opens the unix terminal.
+ * Allocates the original as well as new terminal mode.
  *
- * @param p0 the destination output file descriptor
- * @param p1 the destination input file descriptor
+ * @param p0 the original terminal mode (pointer reference)
+ * @param p1 the new terminal mode (pointer reference)
  */
-void startup_unix_terminal_open(void* p0, void* p1) {
+void startup_win32_console_mode_allocate(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix terminal open.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup win32 console mode allocate.");
 
-    // The terminal output- and input file streams.
-    FILE* os = stdout;
-    FILE* is = stdin;
+    //
+    // Allocate original as well as new terminal mode.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
 
-    // Get terminal file descriptors from file streams.
-    int o = fileno(os);
-    int i = fileno(is);
-
-    // Copy file descriptors to destination.
-    copy_integer(p0, (void*) &o);
-    copy_integer(p1, (void*) &i);
+    allocate_array(p0, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    allocate_array(p1, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 }
 
-/* OPEN_UNIX_TERMINAL_STARTER_SOURCE */
+/* ALLOCATE_MODE_WIN32_CONSOLE_STARTER_SOURCE */
 #endif

@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2018-10-12  Christian Heller  <christian.heller@cybop.org>
+
+        * Move common functionality from unix_terminal and win32_console to directory "executor/maintainer/starter/terminal/"
+        * Store two different original mode settings for input and output in input/output entry, since win32 distinguishes between them using one set of flag constants for each
+
 2018-10-10  Christian Heller  <christian.heller@cybop.org>
 
         * Move all remaining sensor files from directory "executor/lifeguard/sensor/" to just "executor/sensor/"

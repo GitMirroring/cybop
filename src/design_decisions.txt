@@ -15,6 +15,31 @@
 Design Decisions
 ================
 
+Contents
+________
+
+Terminology
+Language
+Arithmetic Operands
+HTML Formatting
+Accessing Array Elements
+Multiple Formats
+Multi Channel Communication
+Date Time
+Socket
+Allocation
+Serialisation/Encoding/Compression/Sending
+Encoding
+Language and Format
+Sensing Threads
+Stack Memory
+Knowledge Path
+Container Operations
+Comparison
+Search
+Arbitrary-precision arithmetic (Langzahlarithmetik)
+Coupling of Objects
+
 Terminology
 ___________
 
@@ -712,4 +737,23 @@ ___________________
 
 - Qt signals & slots help avoid multiple inheritance and loosely couple objects
 - the same can be achieved using cybol knowledge paths, based on tree / hierarchy
+
+Pseudo Terminal
+_______________
+
+- Evaluate creation of pseudo-terminal (master-slave) again
+- Use it in general and offer stdin/stdout as option?
+- See: gnu_-_c_library.html#Pseudo_002dTerminals
+
+Decision:
+
+It is NOT useful to create pseudo terminals for now.
+
+What might be useful in the future, is to have not just one
+but possibly many terminal/console windows,
+belonging to only one application, open at the same time.
+
+However, opening these pseudo terminal windows works differently
+not only in the single operating systems, but possibly also
+on various desktops (KDE, GNOME, Xfce etc.)
 

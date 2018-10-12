@@ -23,37 +23,36 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef OPEN_UNIX_TERMINAL_STARTER_SOURCE
-#define OPEN_UNIX_TERMINAL_STARTER_SOURCE
-
-#include <stdio.h>
+#ifndef EDIT_MODE_WIN32_CONSOLE_STARTER_SOURCE
+#define EDIT_MODE_WIN32_CONSOLE_STARTER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../executor/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Opens the unix terminal.
+ * Edits the win32 console mode.
  *
- * @param p0 the destination output file descriptor
- * @param p1 the destination input file descriptor
+ * @param p0 the terminal mode
+ * @param p1 the flag indicating input (true) or output (false)
  */
-void startup_unix_terminal_open(void* p0, void* p1) {
+void startup_win32_console_mode_edit(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix terminal open.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup win32 console mode edit.");
 
-    // The terminal output- and input file streams.
-    FILE* os = stdout;
-    FILE* is = stdin;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Get terminal file descriptors from file streams.
-    int o = fileno(os);
-    int i = fileno(is);
+    compare_integer_equal((void*) &r, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    // Copy file descriptors to destination.
-    copy_integer(p0, (void*) &o);
-    copy_integer(p1, (void*) &i);
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        startup_win32_console_mode_edit_output(p0);
+
+    } else {
+
+        startup_win32_console_mode_edit_input(p0);
+    }
 }
 
-/* OPEN_UNIX_TERMINAL_STARTER_SOURCE */
+/* EDIT_MODE_WIN32_CONSOLE_STARTER_SOURCE */
 #endif

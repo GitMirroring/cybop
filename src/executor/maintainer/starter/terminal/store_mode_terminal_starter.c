@@ -23,44 +23,45 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef OPEN_TERMINAL_STARTER_SOURCE
-#define OPEN_TERMINAL_STARTER_SOURCE
+#ifndef STORE_MODE_TERMINAL_STARTER_SOURCE
+#define STORE_MODE_TERMINAL_STARTER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/maintainer/starter/unix_terminal/open_unix_terminal_starter.c"
+    #include "../../../../executor/maintainer/starter/unix_terminal/store_mode_unix_terminal_starter.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../executor/maintainer/starter/unix_terminal/open_unix_terminal_starter.c"
+    #include "../../../../executor/maintainer/starter/unix_terminal/store_mode_unix_terminal_starter.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../../executor/maintainer/starter/win32_console/open_win32_console_starter.c"
+    #include "../../../../executor/maintainer/starter/win32_console/store_mode_win32_console_starter.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
- * Opens the terminal.
+ * Stores the terminal mode.
  *
- * @param p0 the output file descriptor
- * @param p1 the input file descriptor
+ * @param p0 the input/output entry
+ * @param p1 the terminal mode (pointer reference)
+ * @param p2 the flag indicating input (true) or output (false)
  */
-void startup_terminal_open(void* p0, void* p1) {
+void startup_terminal_mode_store(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal open.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal mode store.");
 
 #if defined(__linux__) || defined(__unix__)
-    startup_unix_terminal_open(p0, p1);
+    startup_unix_terminal_mode_store(p0, p1, p2);
 #elif defined(__APPLE__) && defined(__MACH__)
-    startup_unix_terminal_open(p0, p1);
+    startup_unix_terminal_mode_store(p0, p1, p2);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    startup_win32_console_open(p0, p1);
+    startup_win32_console_mode_store(p0, p1, p2);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 
-/* OPEN_TERMINAL_STARTER_SOURCE */
+/* STORE_MODE_TERMINAL_STARTER_SOURCE */
 #endif

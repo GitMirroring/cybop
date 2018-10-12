@@ -23,37 +23,42 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef OPEN_UNIX_TERMINAL_STARTER_SOURCE
-#define OPEN_UNIX_TERMINAL_STARTER_SOURCE
-
-#include <stdio.h>
+#ifndef COPY_MODE_WIN32_CONSOLE_STARTER_SOURCE
+#define COPY_MODE_WIN32_CONSOLE_STARTER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../executor/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Opens the unix terminal.
+ * Copies the terminal mode.
  *
- * @param p0 the destination output file descriptor
- * @param p1 the destination input file descriptor
+ * @param p0 the new terminal mode
+ * @param p1 the original terminal mode
  */
-void startup_unix_terminal_open(void* p0, void* p1) {
+void startup_win32_console_mode_copy(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix terminal open.");
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // The terminal output- and input file streams.
-    FILE* os = stdout;
-    FILE* is = stdin;
+        DWORD* o = (DWORD*) p1;
 
-    // Get terminal file descriptors from file streams.
-    int o = fileno(os);
-    int i = fileno(is);
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // Copy file descriptors to destination.
-    copy_integer(p0, (void*) &o);
-    copy_integer(p1, (void*) &i);
+            DWORD* n = (DWORD*) p0;
+
+            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup win32 console mode copy.");
+
+            *n = *o;
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console mode copy. The new terminal mode is null.");
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console mode copy. The original terminal mode is null.");
+    }
 }
 
-/* OPEN_UNIX_TERMINAL_STARTER_SOURCE */
+/* COPY_MODE_WIN32_CONSOLE_STARTER_SOURCE */
 #endif

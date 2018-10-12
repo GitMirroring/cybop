@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SET_ATTRIBUTES_UNIX_TERMINAL_STARTER_SOURCE
-#define SET_ATTRIBUTES_UNIX_TERMINAL_STARTER_SOURCE
+#ifndef SET_MODE_UNIX_TERMINAL_STARTER_SOURCE
+#define SET_MODE_UNIX_TERMINAL_STARTER_SOURCE
 
 #include <errno.h>
 #include <termios.h>
@@ -36,22 +36,22 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Sets the unix terminal attributes.
+ * Sets the unix terminal mode (attributes).
  *
  * @param p0 the file descriptor
- * @param p1 the original terminal attributes
+ * @param p1 the terminal mode
  */
-void startup_unix_terminal_attributes_set(void* p0, void* p1) {
+void startup_unix_terminal_mode_set(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        struct termios* a = (struct termios*) p1;
+        struct termios* m = (struct termios*) p1;
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             int* f = (int*) p0;
 
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix terminal attributes set.");
+            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix terminal mode set.");
 
             //
             // Initialise error number.
@@ -64,7 +64,7 @@ void startup_unix_terminal_attributes_set(void* p0, void* p1) {
             copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
             //
-            // Set terminal attributes.
+            // Set terminal mode (attributes).
             //
             // The second argument specifies how to deal with
             // input and output already queued.
@@ -77,40 +77,40 @@ void startup_unix_terminal_attributes_set(void* p0, void* p1) {
             //            It is a BSD extension; it is only supported on BSD systems and the GNU system.
             //            Using TCSASOFT is exactly the same as setting the CIGNORE bit in the c_cflag member of the structure termios-p points to.
             //
-            int e = tcsetattr(*f, TCSANOW, a);
+            int e = tcsetattr(*f, TCSANOW, m);
 
             if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                fwprintf(stdout, L"Could not startup unix terminal attributes set. An error occured within tcsetattr.\n");
+                fwprintf(stdout, L"Could not startup unix terminal mode set. An error occured within tcsetattr.\n");
 
                 if (errno == EBADF) {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal attributes set. The filedes argument is not a valid file descriptor.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal mode set. The filedes argument is not a valid file descriptor.");
 
                 } else if (errno == ENOTTY) {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal attributes set. The filedes is not associated with a unix terminal.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal mode set. The filedes is not associated with a unix terminal.");
 
                 } else if (errno == EINVAL) {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal attributes set. Either the value of the second argument is not valid, or there is something wrong with the data in the third argument.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal mode set. Either the value of the second argument is not valid, or there is something wrong with the data in the third argument.");
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal attributes set. An unknown error occured.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal mode set. An unknown error occured.");
                 }
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal attributes set. The file descriptor is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal mode set. The file descriptor is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal attributes set. The original terminal attributes is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal mode set. The original terminal mode is null.");
     }
 }
 
-/* SET_ATTRIBUTES_UNIX_TERMINAL_STARTER_SOURCE */
+/* SET_MODE_UNIX_TERMINAL_STARTER_SOURCE */
 #endif

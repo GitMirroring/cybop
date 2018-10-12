@@ -29,125 +29,87 @@
 #include <windows.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/maintainer/starter/win32_console/get_mode_win32_console_starter.c"
+#include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
+#include "../../../../executor/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Opens the win32 console.
  *
- * @param p0 the input handle item data
- * @param p1 the output handle item data
- * @param p2 the internal memory data
+ * @param p0 the destination output file descriptor
+ * @param p1 the destination input file descriptor
  */
-void startup_win32_console_open(void* p0, void* p1, void* p2) {
+void startup_win32_console_open(void* p0, void* p1) {
 
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup win32 console open.");
 
-        int* o = (int*) p1;
+    // The terminal output- and input identification.
+    DWORD oi = STD_OUTPUT_HANDLE;
+    DWORD ii = STD_INPUT_HANDLE;
 
-        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    //
+    // Retrieve handle to specified standard device.
+    //
+    // CAUTION! A win32 console handle is just an int value.
+    // If the function fails, the return value is INVALID_HANDLE_VALUE.
+    // To get extended error information, call GetLastError.
+    // If an application does not have associated standard handles,
+    // such as a service running on an interactive desktop,
+    // and has not redirected them, the return value is NULL.
+    //
+    HANDLE oh = GetStdHandle(oi);
+    HANDLE ih = GetStdHandle(ii);
 
-            int* i = (int*) p0;
+    // Get terminal file descriptors from file streams.
+    int o = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup win32 console open.");
+    if (oh != NULL) {
 
-            // Retrieve handle to specified standard device.
-            //
-            // CAUTION! A win32 console handle is just an int value.
-            // If the function fails, the return value is INVALID_HANDLE_VALUE.
-            // To get extended error information, call GetLastError.
-            // If an application does not have associated standard handles,
-            // such as a service running on an interactive desktop,
-            // and has not redirected them, the return value is NULL.
-            HANDLE hi = GetStdHandle(STD_INPUT_HANDLE);
-            HANDLE ho = GetStdHandle(STD_OUTPUT_HANDLE);
+        if (oh != INVALID_HANDLE_VALUE) {
 
-            if (hi != NULL) {
+            // Cast file descriptor.
+            o = (int) oh;
 
-                if (hi != INVALID_HANDLE_VALUE) {
-
-                    *i = (int) hi;
-
-                    // Configure input events.
-                    //
-                    // The mode can be one or more of the following values:
-                    // ENABLE_ECHO_INPUT
-                    // ENABLE_EXTENDED_FLAGS
-                    // ENABLE_INSERT_MODE
-                    // ENABLE_LINE_INPUT
-                    // ENABLE_MOUSE_INPUT
-                    // ENABLE_PROCESSED_INPUT
-                    // ENABLE_QUICK_EDIT_MODE
-                    // ENABLE_WINDOW_INPUT
-                    //
-                    // CAUTION! When a console is created, all input modes
-                    // EXCEPT ENABLE_WINDOW_INPUT are enabled by default.
-                    //
-                    DWORD mi = ENABLE_ECHO_INPUT | ENABLE_EXTENDED_FLAGS | ENABLE_INSERT_MODE | ENABLE_LINE_INPUT | ENABLE_MOUSE_INPUT | ENABLE_PROCESSED_INPUT | ENABLE_QUICK_EDIT_MODE | ENABLE_WINDOW_INPUT;
-
-                    // Store original and set new input mode.
-                    startup_win32_console_mode_get((void*) &hi, p2, (void*) INPUT_MODE_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) &mi);
-
-                } else {
-
-                    // Get the calling thread's last-error code.
-                    DWORD e = GetLastError();
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console open. The input handle is invalid.");
-                    log_windows_system_error((void*) &e);
-                }
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console open. The input handle is null.");
-            }
-
-            if (ho != NULL) {
-
-                if (ho != INVALID_HANDLE_VALUE) {
-
-                    *o = (int) ho;
-
-                    // Configure output events.
-                    //
-                    // The mode can be one or more of the following values:
-                    // ENABLE_PROCESSED_OUTPUT
-                    // ENABLE_WRAP_AT_EOL_OUTPUT
-                    //
-                    // CAUTION! When a screen buffer is created,
-                    // BOTH output modes are enabled by default.
-                    //
-                    DWORD mo = ENABLE_PROCESSED_OUTPUT | ENABLE_WRAP_AT_EOL_OUTPUT;
-
-                    // Store original and set new output mode.
-                    startup_win32_console_mode_get((void*) &ho, p2, (void*) OUTPUT_MODE_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) &mo);
-
-                } else {
-
-                    // Get the calling thread's last-error code.
-                    DWORD e = GetLastError();
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console open. The output handle is invalid.");
-                    log_windows_system_error((void*) &e);
-                }
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console open. The output handle is null.");
-            }
+            // Copy file descriptor to destination.
+            copy_integer(p0, (void*) &o);
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console open. The input item data is null.");
+            // Get the calling thread's last-error code.
+            DWORD e = GetLastError();
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console open. The output handle is invalid.");
+            log_windows_system_error((void*) &e);
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console open. The output item data is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console open. The output handle is null.");
+    }
+
+    if (ih != NULL) {
+
+        if (ih != INVALID_HANDLE_VALUE) {
+
+            // Cast file descriptor.
+            i = (int) ih;
+
+            // Copy file descriptor to destination.
+            copy_integer(p1, (void*) &i);
+
+        } else {
+
+            // Get the calling thread's last-error code.
+            DWORD e = GetLastError();
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console open. The input handle is invalid.");
+            log_windows_system_error((void*) &e);
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console open. The input handle is null.");
     }
 }
 

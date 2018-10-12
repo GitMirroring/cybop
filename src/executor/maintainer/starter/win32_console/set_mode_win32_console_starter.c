@@ -29,16 +29,17 @@
 #include <windows.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../logger/logger.c"
+--
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../logger/logger.c"
 
 /**
  * Sets the win32 console mode.
  *
- * @param p0 the input or output handle data
- * @param p1 the new input or output mode
+ * @param p0 the file descriptor
+ * @param p1 the terminal mode
  */
 void startup_win32_console_mode_set(void* p0, void* p1) {
 
@@ -48,31 +49,37 @@ void startup_win32_console_mode_set(void* p0, void* p1) {
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+            // The file descriptor is an integer and may be casted to a windows handle.
             HANDLE* h = (HANDLE*) p0;
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup win32 console mode set.");
 
-            // Set mode of input or output events.
+            // Set console mode.
             BOOL b = SetConsoleMode(*h, *m);
 
             // If the return value is zero, then an error occured.
             if (b == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
+                //
+                // CAUTION! Do NOT close win32 console on error,
+                // since stdin and stdout were used and have to remain open.
+                //
+
                 // Get the calling thread's last-error code.
                 DWORD e = GetLastError();
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console mode set. The set console mode failed.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console mode set. The SetConsoleMode function failed.");
                 log_windows_system_error((void*) &e);
             }
 
         } else {
 
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console mode set. The input or output handle data is null.");
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console mode set. The file descriptor is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console mode set. The new input or output mode is null.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console mode set. The terminal mode is null.");
     }
 }
 

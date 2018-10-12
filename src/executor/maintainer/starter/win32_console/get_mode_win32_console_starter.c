@@ -29,72 +29,58 @@
 #include <windows.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../logger/logger.c"
+--
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/maintainer/starter/win32_console/set_mode_win32_console_starter.c"
-#include "../../../../logger/logger.c"
 
 /**
  * Gets the win32 console mode.
  *
- * @param p0 the input or output handle data
- * @param p1 the internal memory data
- * @param p2 the internal memory index
- * @param p3 the new input or output mode
+ * @param p0 the terminal mode
+ * @param p1 the file descriptor
  */
 void startup_win32_console_mode_get(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        HANDLE* h = (HANDLE*) p0;
+        // The file descriptor is an integer and may be casted to a windows handle.
+        HANDLE* h = (HANDLE*) p1;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup win32 console mode get.");
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // The mode.
-        void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+            DWORD* m = (DWORD*) p0;
 
-        // Allocate mode.
-        //
-        // CAUTION! Due to memory allocation handling, the size MUST NOT
-        // be negative or zero, but have at least a value of ONE.
-        allocate_array((void*) &m, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup win32 console mode get.");
 
-        if (m != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            // Get current mode.
-            BOOL b = GetConsoleMode(*h, (DWORD*) m);
+            // Get current console mode.
+            BOOL b = GetConsoleMode(*h, m);
 
             // If the return value is zero, then an error occured.
-            if (b != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+            if (b == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                // Store original mode in internal memory,
-                // in order to be restored on exit.
-                copy_array_forward(p1, (void*) &m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-                // Set new mode.
-                startup_win32_console_mode_set(p0, p3);
-
-            } else {
-
-                //?? Close win32 console on error.
+                //
+                // CAUTION! Do NOT close win32 console on error,
+                // since stdin and stdout were used and have to remain open.
+                //
 
                 // Get the calling thread's last-error code.
                 DWORD e = GetLastError();
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console mode get. The get console mode failed.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console mode get. The GetConsoleMode function failed.");
                 log_windows_system_error((void*) &e);
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console mode get. The mode is null.");
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console mode get. The terminal mode is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console mode get. The input or output handle data is null.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console mode get. The file descriptor is null.");
     }
 }
 

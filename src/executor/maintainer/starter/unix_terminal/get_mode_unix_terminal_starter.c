@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef GET_ATTRIBUTES_UNIX_TERMINAL_STARTER_SOURCE
-#define GET_ATTRIBUTES_UNIX_TERMINAL_STARTER_SOURCE
+#ifndef GET_MODE_UNIX_TERMINAL_STARTER_SOURCE
+#define GET_MODE_UNIX_TERMINAL_STARTER_SOURCE
 
 #include <errno.h>
 #include <termios.h>
@@ -36,22 +36,22 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Gets the unix terminal attributes.
+ * Gets the unix terminal mode.
  *
- * @param p0 the file descriptor
- * @param p1 the terminal attributes
+ * @param p0 the terminal mode
+ * @param p1 the file descriptor
  */
-void startup_unix_terminal_attributes_get(void* p0, void* p1) {
+void startup_unix_terminal_mode_get(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        struct termios* a = (struct termios*) p1;
+        int* f = (int*) p1;
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* f = (int*) p0;
+            struct termios* m = (struct termios*) p0;
 
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix terminal attributes get.");
+            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix terminal mode get.");
 
             //
             // Initialise error number.
@@ -64,38 +64,38 @@ void startup_unix_terminal_attributes_get(void* p0, void* p1) {
             copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
             //
-            // Get terminal attributes.
+            // Get terminal mode (attributes).
             //
-            int e = tcgetattr(*f, a);
+            int e = tcgetattr(*f, m);
 
             if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                fwprintf(stdout, L"Could not startup unix terminal attributes get. An error occured within tcgetattr.\n");
+                fwprintf(stdout, L"Could not startup unix terminal mode get. An error occured within tcgetattr.\n");
 
                 if (errno == EBADF) {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal attributes get. The filedes argument is not a valid file descriptor.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal mode get. The filedes argument is not a valid file descriptor.");
 
                 } else if (errno == ENOTTY) {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal attributes get. The filedes is not associated with a serial port.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal mode get. The filedes is not associated with a serial port.");
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal attributes get. An unknown error occured.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal mode get. An unknown error occured.");
                 }
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal attributes get. The file descriptor is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal mode get. The file descriptor is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal attributes get. The terminal attributes is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal mode get. The terminal mode is null.");
     }
 }
 
-/* GET_ATTRIBUTES_UNIX_TERMINAL_STARTER_SOURCE */
+/* GET_MODE_UNIX_TERMINAL_STARTER_SOURCE */
 #endif

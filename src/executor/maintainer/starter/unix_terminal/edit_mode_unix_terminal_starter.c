@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef EDIT_ATTRIBUTES_UNIX_TERMINAL_STARTER_SOURCE
-#define EDIT_ATTRIBUTES_UNIX_TERMINAL_STARTER_SOURCE
+#ifndef EDIT_MODE_UNIX_TERMINAL_STARTER_SOURCE
+#define EDIT_MODE_UNIX_TERMINAL_STARTER_SOURCE
 
 #include <termios.h>
 
@@ -34,20 +34,20 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Edits the unix terminal attributes.
+ * Edits the unix terminal mode.
  *
- * @param p0 the terminal attributes
+ * @param p0 the terminal mode
  */
-void startup_unix_terminal_attributes_edit(void* p0) {
+void startup_unix_terminal_mode_edit(void* p0) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        struct termios* a = (struct termios*) p0;
+        struct termios* m = (struct termios*) p0;
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix terminal attributes edit.");
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix terminal mode edit.");
 
         //
-        // Manipulate termios attributes.
+        // Manipulate termios mode (attributes).
         //
         // A good documentation of possible flags may be found at:
         // http://www.unixguide.net/unix/programming/3.6.2.shtml
@@ -74,7 +74,7 @@ void startup_unix_terminal_attributes_edit(void* p0) {
         // Turn off stripping of valid input bytes to seven bits,
         // so that all eight bits are available for programmes to read.
         //
-        (*a).c_iflag &= ~ISTRIP;
+        (*m).c_iflag &= ~ISTRIP;
 
         //
         // Turn off canonical input processing mode.
@@ -102,12 +102,12 @@ void startup_unix_terminal_attributes_edit(void* p0) {
         // The usual reason to use noncanonical mode is when the program accepts
         // single-character commands or provides its own editing facilities.
         //
-        (*a).c_lflag &= ~ICANON;
+        (*m).c_lflag &= ~ICANON;
 
         //
         // Turn off echo.
         //
-        (*a).c_lflag &= ~ECHO;
+        (*m).c_lflag &= ~ECHO;
 
         //
         // Set number of input characters to be available, before read() will return.
@@ -117,18 +117,18 @@ void startup_unix_terminal_attributes_edit(void* p0) {
         // right away (e.g. to exit an application),
         // without waiting for yet another character input.
         //
-        (*a).c_cc[VMIN] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        (*m).c_cc[VMIN] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         //
         // Set time to wait before read() will return.
         //
-        (*a).c_cc[VTIME] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        (*m).c_cc[VTIME] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal attributes set. The original terminal attributes is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal mode set. The original terminal mode is null.");
     }
 }
 
-/* EDIT_ATTRIBUTES_UNIX_TERMINAL_STARTER_SOURCE */
+/* EDIT_MODE_UNIX_TERMINAL_STARTER_SOURCE */
 #endif
