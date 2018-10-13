@@ -51,7 +51,7 @@ void startup_unix_terminal_mode_set(void* p0, void* p1) {
 
             int* f = (int*) p0;
 
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix terminal mode set.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix terminal mode set.");
 
             //
             // Initialise error number.

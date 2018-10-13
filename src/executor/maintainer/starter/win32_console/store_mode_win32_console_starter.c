@@ -26,6 +26,8 @@
 #ifndef STORE_MODE_WIN32_CONSOLE_STARTER_SOURCE
 #define STORE_MODE_WIN32_CONSOLE_STARTER_SOURCE
 
+#include <windows.h>
+
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"

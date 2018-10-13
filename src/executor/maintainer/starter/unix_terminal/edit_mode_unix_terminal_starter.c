@@ -44,7 +44,7 @@ void startup_unix_terminal_mode_edit(void* p0) {
 
         struct termios* m = (struct termios*) p0;
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix terminal mode edit.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix terminal mode edit.");
 
         //
         // Manipulate termios mode (attributes).

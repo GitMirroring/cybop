@@ -26,7 +26,10 @@
 #ifndef COPY_MODE_UNIX_TERMINAL_STARTER_SOURCE
 #define COPY_MODE_UNIX_TERMINAL_STARTER_SOURCE
 
+#include <termios.h> // struct termios
+
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -45,7 +48,7 @@ void startup_unix_terminal_mode_copy(void* p0, void* p1) {
 
             struct termios* n = (struct termios*) p0;
 
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix terminal mode copy.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix terminal mode copy.");
 
             *n = *o;
 

@@ -17,10 +17,8 @@ ___
     // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
     // Otherwise, it would produce huge log files filled up with useless entries.
 
-        CONTINUE:
-        * Adapt includes for startup files:
-            DONE: terminal/
-            TODO: unix_terminal/, win32_console/
+        DONE: compilation works
+        CONTINUE: debug memory access error when starting counter and other apps using console or tui
 
         * Adapt shudown files
         * Reset terminal properties properly at service shutdown

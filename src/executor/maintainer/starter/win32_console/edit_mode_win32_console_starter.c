@@ -26,7 +26,13 @@
 #ifndef EDIT_MODE_WIN32_CONSOLE_STARTER_SOURCE
 #define EDIT_MODE_WIN32_CONSOLE_STARTER_SOURCE
 
+#include <windows.h>
+
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../../executor/maintainer/starter/win32_console/input_edit_mode_win32_console_starter.c"
+#include "../../../../executor/maintainer/starter/win32_console/output_edit_mode_win32_console_starter.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -37,7 +43,7 @@
  */
 void startup_win32_console_mode_edit(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup win32 console mode edit.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup win32 console mode edit.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

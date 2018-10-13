@@ -26,7 +26,11 @@
 #ifndef ALLOCATE_MODE_UNIX_TERMINAL_STARTER_SOURCE
 #define ALLOCATE_MODE_UNIX_TERMINAL_STARTER_SOURCE
 
+#include <stdlib.h> // malloc
+
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../variable/type_size/terminal_type_size.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -45,7 +49,7 @@ void startup_unix_terminal_mode_allocate(void* p0, void* p1) {
 
             void** o = (void**) p0;
 
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix terminal mode allocate.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix terminal mode allocate.");
 
             //
             // Allocate original as well as new terminal mode.

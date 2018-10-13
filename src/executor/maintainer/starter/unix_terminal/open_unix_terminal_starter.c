@@ -26,7 +26,7 @@
 #ifndef OPEN_UNIX_TERMINAL_STARTER_SOURCE
 #define OPEN_UNIX_TERMINAL_STARTER_SOURCE
 
-#include <stdio.h>
+#include <stdio.h> // FILE, stdout, stdin
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../executor/copier/integer_copier.c"

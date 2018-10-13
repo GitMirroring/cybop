@@ -26,7 +26,10 @@
 #ifndef COPY_MODE_WIN32_CONSOLE_STARTER_SOURCE
 #define COPY_MODE_WIN32_CONSOLE_STARTER_SOURCE
 
+#include <windows.h>
+
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -45,7 +48,7 @@ void startup_win32_console_mode_copy(void* p0, void* p1) {
 
             DWORD* n = (DWORD*) p0;
 
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup win32 console mode copy.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup win32 console mode copy.");
 
             *n = *o;
 

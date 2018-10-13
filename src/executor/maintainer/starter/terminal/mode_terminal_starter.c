@@ -33,6 +33,7 @@
 #include "../../../../executor/maintainer/starter/terminal/edit_mode_terminal_starter.c"
 #include "../../../../executor/maintainer/starter/terminal/get_mode_terminal_starter.c"
 #include "../../../../executor/maintainer/starter/terminal/set_mode_terminal_starter.c"
+#include "../../../../executor/maintainer/starter/terminal/store_mode_terminal_starter.c"
 #include "../../../../logger/logger.c"
 
 /**

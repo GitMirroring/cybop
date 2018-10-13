@@ -51,7 +51,7 @@ void startup_unix_terminal_mode_get(void* p0, void* p1) {
 
             struct termios* m = (struct termios*) p0;
 
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix terminal mode get.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix terminal mode get.");
 
             //
             // Initialise error number.
