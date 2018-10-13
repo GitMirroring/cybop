@@ -76,6 +76,7 @@ void startup_terminal(void* p0, void* p1) {
             // The terminal output- and input file descriptors.
             int outf = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
             int inf = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+
             //
             // The client list item.
             //
@@ -181,6 +182,7 @@ void startup_terminal(void* p0, void* p1) {
             //
             set_io_entry_element((void*) &io, (void*) &outf, (void*) OUTPUT_FILE_DESCRIPTOR_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
             set_io_entry_element((void*) &io, (void*) &inf, (void*) INPUT_FILE_DESCRIPTOR_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
             //
             // Store client list item in input/output entry.
             //
