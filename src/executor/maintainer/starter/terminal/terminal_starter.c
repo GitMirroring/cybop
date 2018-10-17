@@ -76,7 +76,6 @@ void startup_terminal(void* p0, void* p1) {
             // The terminal output- and input file descriptors.
             int outf = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
             int inf = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-
             //
             // The client list item.
             //
@@ -95,7 +94,6 @@ void startup_terminal(void* p0, void* p1) {
             // be negative or zero, but have at least a value of ONE.
             //
             allocate_array((void*) &io, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
-
             //
             // Allocate client list item.
             //
@@ -104,7 +102,7 @@ void startup_terminal(void* p0, void* p1) {
             //
             allocate_item((void*) &cl, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
-            // Get terminal output- and input file descriptors.
+            // Open terminal output- and input file descriptors.
             startup_terminal_open((void*) &outf, (void*) &inf);
 
             //
@@ -180,9 +178,10 @@ void startup_terminal(void* p0, void* p1) {
             // since it adapts the array count and size.
             // But the array's count and size are CONSTANT.
             //
-            set_io_entry_element((void*) &io, (void*) &outf, (void*) OUTPUT_FILE_DESCRIPTOR_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-            set_io_entry_element((void*) &io, (void*) &inf, (void*) INPUT_FILE_DESCRIPTOR_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
+            // CAUTION! Do NOT hand over input/output entry as pointer reference.
+            //
+            set_io_entry_element(io, (void*) &outf, (void*) OUTPUT_FILE_DESCRIPTOR_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            set_io_entry_element(io, (void*) &inf, (void*) INPUT_FILE_DESCRIPTOR_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
             //
             // Store client list item in input/output entry.
             //
@@ -190,7 +189,9 @@ void startup_terminal(void* p0, void* p1) {
             // since it adapts the array count and size.
             // But the array's count and size are CONSTANT.
             //
-            set_io_entry_element((void*) &io, (void*) &cl, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            // CAUTION! Do NOT hand over input/output entry as pointer reference.
+            //
+            set_io_entry_element(io, (void*) &cl, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             //
             // Store input/output entry in internal memory.
@@ -198,6 +199,8 @@ void startup_terminal(void* p0, void* p1) {
             // CAUTION! Do NOT use "overwrite_array" function here,
             // since it adapts the array count and size.
             // But the internal array's count and size are CONSTANT.
+            //
+            // CAUTION! Hand over input/output entry as pointer REFERENCE.
             //
             copy_array_forward(p0, (void*) &io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 

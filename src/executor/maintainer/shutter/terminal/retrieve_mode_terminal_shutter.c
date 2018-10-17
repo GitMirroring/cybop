@@ -23,28 +23,26 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STORE_MODE_WIN32_CONSOLE_STARTER_SOURCE
-#define STORE_MODE_WIN32_CONSOLE_STARTER_SOURCE
-
-#include <windows.h>
+#ifndef RETRIEVE_MODE_TERMINAL_SHUTTER_SOURCE
+#define RETRIEVE_MODE_TERMINAL_SHUTTER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
-#include "../../../../executor/accessor/setter/io_entry_setter.c"
+#include "../../../../executor/accessor/getter/io_entry_getter.c"
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Stores the win32 console mode.
+ * Retrieves the terminal mode.
  *
- * @param p0 the input/output entry
- * @param p1 the terminal mode (pointer reference)
+ * @param p0 the terminal mode (pointer reference)
+ * @param p1 the input/output entry
  * @param p2 the flag indicating input (true) or output (false)
  */
-void startup_win32_console_mode_store(void* p0, void* p1, void* p2) {
+void shutdown_terminal_mode_retrieve(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup win32 console mode store.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown terminal mode retrieve.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -53,13 +51,13 @@ void startup_win32_console_mode_store(void* p0, void* p1, void* p2) {
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        set_io_entry_element(p0, p1, (void*) OUTPUT_ORIGINAL_MODE_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        get_io_entry_element(p0, p1, (void*) OUTPUT_ORIGINAL_MODE_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     } else {
 
-        set_io_entry_element(p0, p1, (void*) INPUT_ORIGINAL_MODE_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        get_io_entry_element(p0, p1, (void*) INPUT_ORIGINAL_MODE_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
     }
 }
 
-/* STORE_MODE_WIN32_CONSOLE_STARTER_SOURCE */
+/* RETRIEVE_MODE_TERMINAL_SHUTTER_SOURCE */
 #endif

@@ -23,33 +23,35 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ALLOCATE_MODE_WIN32_CONSOLE_STARTER_SOURCE
-#define ALLOCATE_MODE_WIN32_CONSOLE_STARTER_SOURCE
+#ifndef DEALLOCATE_MODE_UNIX_TERMINAL_STARTER_SOURCE
+#define DEALLOCATE_MODE_UNIX_TERMINAL_STARTER_SOURCE
+
+#include <stdlib.h> // free
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/memoriser/allocator/array_allocator.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Allocates the terminal mode.
+ * Deallocates the terminal mode.
  *
- * @param p0 the original terminal mode (pointer reference)
+ * @param p0 the terminal mode (pointer reference)
  */
-void startup_win32_console_mode_allocate(void* p0) {
+void startup_unix_terminal_mode_deallocate(void* p0) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup win32 console mode allocate.");
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    //
-    // Allocate terminal mode.
-    //
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    //
+        void** m = (void**) p0;
 
-    allocate_array(p0, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix terminal mode deallocate.");
+
+        free(*m);
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal mode deallocate. The terminal mode is null.");
+    }
 }
 
-/* ALLOCATE_MODE_WIN32_CONSOLE_STARTER_SOURCE */
+/* DEALLOCATE_MODE_UNIX_TERMINAL_STARTER_SOURCE */
 #endif

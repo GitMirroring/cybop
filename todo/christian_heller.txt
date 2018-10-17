@@ -11,42 +11,17 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-TUI
-___
-
     // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
     // Otherwise, it would produce huge log files filled up with useless entries.
 
-        * Adapt shudown files
-        * Reset terminal properties properly at service shutdown
-            (currently, after exit the terminal properties are messed up)
-        * Shutdown allocated input/output values properly for all channels in "executor/maintainer/"
-        * Change usage of outdated internal memory-based OUTPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME
-            and replace it with new input/output-based structure in file "file_terminal_writer.c" etc.
+TUI
+___
+
         * Think through and verify gaps in file "internal_memory_state_cyboi_name.c" again
             Are they sufficient to store io_entries of various clients?
             Do they have to be extended dynamically (using pointers/arrays)?
-        * Adapt (possibly) files "executor/accessor/getter/io_entry_getter.c" and "executor/accessor/setter/io_entry_setter.c"
-        * Figure out once more whether or not to create separate input/output structures for the various communication channels
-            this would be more flexible than changing the "io_entry_getter.c" and "io_entry_setter.c" all the time one value changes
-            problem: general entries like enable, interrupt, handler etc. would be redundant
-
-        The following is OLD and probably NOT a problem anymore, so that this task may be deleted:
-        * Inspect starter, shutter, sensor, receiver, sender for channel "terminal",
-            to find out why file descriptor-to-stream conversion does not work
-            (see commented code lines and replace "stdin" and "stdout" with value read from internal memory)
-            --> probably, the reason is that descriptor-to-stream conversion uses different attributes than "stdin" and "stdout"
 
         * Add step-by-step instructions for how to add a new communication channel (similar to "doc/development/add_new_cybol_operation.txt")
-
-        * Reactivate socket (already prepared for new input/output structure)
-        * Verify that NON-BLOCKING mode is used for sockets and terminal at startup
-        * See comment in file "element_io_checker.c"
-        * Set flag "O_NONBLOCK", e.g. in file "open_unix_terminal_starter.c"
-        * See:
-            https://www.gnu.org/software/libc/manual/html_mono/libc.html#Open_002dtime-Flags
-            https://www.geeksforgeeks.org/non-blocking-io-with-pipes-in-c/
-            https://gamedev.stackexchange.com/questions/146256/how-do-i-get-getchar-to-not-block-the-input
 
         * Provide more keyboard input keys like "tabulator", "backspace" etc. in file "keyboard_state_cybol_name.c"
 
@@ -406,6 +381,15 @@ __________
 
 WUI
 ___
+
+        * Reactivate socket (already prepared for new input/output structure)
+        * Verify that NON-BLOCKING mode is used for sockets and terminal at startup
+        * See comment in file "element_io_checker.c"
+        * Set flag "O_NONBLOCK", e.g. in file "open_unix_terminal_starter.c"
+        * See:
+            https://www.gnu.org/software/libc/manual/html_mono/libc.html#Open_002dtime-Flags
+            https://www.geeksforgeeks.org/non-blocking-io-with-pipes-in-c/
+            https://gamedev.stackexchange.com/questions/146256/how-do-i-get-getchar-to-not-block-the-input
 
         * Debug runtime errors; see file "todo/memcheck.log" (created on 64 Bit machine)
 

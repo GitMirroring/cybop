@@ -28,12 +28,9 @@
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/maintainer/shutter/display/display_shutter.c"
-#include "../../executor/maintainer/shutter/opengl/opengl_shutter.c"
 #include "../../executor/maintainer/shutter/serial_port/serial_port_shutter.c"
 #include "../../executor/maintainer/shutter/socket/socket_shutter.c"
 #include "../../executor/maintainer/shutter/terminal/terminal_shutter.c"
@@ -47,12 +44,12 @@
  * /usr/include/i386-linux-gnu/sys/socket.h:232:12
  *
  * @param p0 the internal memory data
- * @param p1 the service id, e.g. socket port
- * @param p2 the client socket
- * @param p3 the mode data
- * @param p4 the mode count
- * @param p5 the network service data
- * @param p6 the network service count
+ * @param p1 the service identification (comparable to a socket port)
+ * @param p2 the socket client socket
+ * @param p3 the socket mode data
+ * @param p4 the socket mode count
+ * @param p5 the socket network service data
+ * @param p6 the socket network service count
  * @param p7 the channel
  */
 void shutdown_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
@@ -98,7 +95,7 @@ void shutdown_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            shutdown_terminal(p0);
+            shutdown_terminal(p0, p1);
         }
     }
 

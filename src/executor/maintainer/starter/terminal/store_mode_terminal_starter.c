@@ -27,18 +27,11 @@
 #define STORE_MODE_TERMINAL_STARTER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../../executor/accessor/setter/io_entry_setter.c"
+#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../logger/logger.c"
-
-#if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/maintainer/starter/unix_terminal/store_mode_unix_terminal_starter.c"
-#elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../executor/maintainer/starter/unix_terminal/store_mode_unix_terminal_starter.c"
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../../executor/maintainer/starter/win32_console/store_mode_win32_console_starter.c"
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
 
 /**
  * Stores the terminal mode.
@@ -51,16 +44,19 @@ void startup_terminal_mode_store(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal mode store.");
 
-#if defined(__linux__) || defined(__unix__)
-    startup_unix_terminal_mode_store(p0, p1, p2);
-#elif defined(__APPLE__) && defined(__MACH__)
-    startup_unix_terminal_mode_store(p0, p1, p2);
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-    startup_win32_console_mode_store(p0, p1, p2);
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    compare_integer_equal((void*) &r, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        set_io_entry_element(p0, p1, (void*) OUTPUT_ORIGINAL_MODE_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+    } else {
+
+        set_io_entry_element(p0, p1, (void*) INPUT_ORIGINAL_MODE_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    }
 }
 
 /* STORE_MODE_TERMINAL_STARTER_SOURCE */
