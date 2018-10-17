@@ -64,6 +64,8 @@ void startup_terminal_mode(void* p0, void* p1, void* p2) {
         // CAUTION! Hand over pointer REFERENCE.
         startup_terminal_mode_allocate((void*) &n);
 
+        fwprintf(stdout, L"TEST: startup terminal mode o: %i \n", o);
+
         // Read original terminal mode.
         // CAUTION! Do NOT hand over pointer reference.
         startup_terminal_mode_get(o, p0);

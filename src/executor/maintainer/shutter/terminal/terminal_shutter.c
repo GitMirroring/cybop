@@ -74,7 +74,7 @@ void shutdown_terminal(void* p0, void* p1) {
 
         if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            fwprintf(stdout, L"TEST: shutdown terminal 0 io: %i \n", io);
+            fwprintf(stdout, L"TEST: shutdown terminal io: %i \n", io);
 
             //
             // Reset input/output entry in internal memory to null.
@@ -103,8 +103,6 @@ void shutdown_terminal(void* p0, void* p1) {
             //
             void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-            fwprintf(stdout, L"TEST: shutdown terminal 1 cl: %i \n", cl);
-
             //
             // Retrieve terminal file descriptors from input/output entry.
             //
@@ -127,22 +125,22 @@ void shutdown_terminal(void* p0, void* p1) {
             //
             get_io_entry_element((void*) &cl, io, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-            fwprintf(stdout, L"TEST: shutdown terminal 2 cl: %i \n", cl);
+            fwprintf(stdout, L"TEST: shutdown terminal outf: %i \n", outf);
+            fwprintf(stdout, L"TEST: shutdown terminal inf: %i \n", inf);
+
+            fwprintf(stdout, L"TEST: shutdown terminal cl: %i \n", cl);
 
             // Restore original terminal mode.
             shutdown_terminal_mode((void*) &outf, io, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+//??            shutdown_terminal_mode((void*) &inf, io, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-            fwprintf(stdout, L"TEST: shutdown terminal 3 cl: %i \n", cl);
-
-            shutdown_terminal_mode((void*) &inf, io, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-            fwprintf(stdout, L"TEST: shutdown terminal 4 cl: %i \n", cl);
+            fwprintf(stdout, L"TEST: shutdown terminal RESTORED outf: %i \n", outf);
 
             //
             // CAUTION! A "close" function is NOT called here,
             // since standard terminal output- and input file descriptors
             // were used at startup and MUST NOT be closed.
-            // This is the case for the linux AND win32 operating system.
+            // This is the case on all operating systems.
             //
 
             // Deallocate input/output entry.
@@ -150,16 +148,14 @@ void shutdown_terminal(void* p0, void* p1) {
             // since it is only needed for looping elements of type PART,
             // in order to decrement the rubbish (garbage) collection counter.
             deallocate_array((void*) &io, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
-
-            fwprintf(stdout, L"TEST: shutdown terminal 5 cl: %i \n", cl);
-
             // Deallocate client list item.
             // CAUTION! The second argument "count" is NULL,
             // since it is only needed for looping elements of type PART,
             // in order to decrement the rubbish (garbage) collection counter.
             deallocate_item((void*) &cl, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
-            fwprintf(stdout, L"TEST: shutdown terminal 6 cl: %i \n", cl);
+            fwprintf(stdout, L"TEST: shutdown terminal DEALLOCATED io: %i \n", io);
+            fwprintf(stdout, L"TEST: shutdown terminal DEALLOCATED cl: %i \n", cl);
 
         } else {
 
