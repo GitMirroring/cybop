@@ -17,10 +17,6 @@
 TUI
 ___
 
-        * Think through and verify gaps in file "internal_memory_state_cyboi_name.c" again
-            Are they sufficient to store io_entries of various clients?
-            Do they have to be extended dynamically (using pointers/arrays)?
-
         * Add step-by-step instructions for how to add a new communication channel (similar to "doc/development/add_new_cybol_operation.txt")
 
         * Provide more keyboard input keys like "tabulator", "backspace" etc. in file "keyboard_state_cybol_name.c"

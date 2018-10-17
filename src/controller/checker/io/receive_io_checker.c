@@ -43,7 +43,7 @@
  * Checks input output for data.
  *
  * @param p0 the io flag
- * @param p1 the io entry (pointer reference)
+ * @param p1 the io entry
  * @param p2 the client list item
  * @param p3 the channel
  */

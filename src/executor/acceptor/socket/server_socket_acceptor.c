@@ -37,7 +37,7 @@
  * Accepts a new client request waiting on the server socket.
  *
  * @param p0 the sender client socket
- * @param p1 the io entry (pointer reference)
+ * @param p1 the io entry
  */
 void accept_socket_server(void* p0, void* p1) {
 

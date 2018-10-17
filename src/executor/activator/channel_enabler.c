@@ -67,11 +67,11 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // An input/output entry exists for the service at the calculated internal memory index.
 
         // Set handler into input/output entry.
-        set_io_entry_element((void*) &io, p3, (void*) HANDLER_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        set_io_entry_element(io, p3, (void*) HANDLER_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Set sender client into input/output entry.
-        set_io_entry_element((void*) &io, p4, (void*) SENDER_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        set_io_entry_element(io, p4, (void*) SENDER_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Set enable flag into input/output entry.
-        set_io_entry_element((void*) &io, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        set_io_entry_element(io, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
 //??        fwprintf(stdout, L"TEST: Enable channel. handler part *p3: %i\n", *((void**) p3));
 

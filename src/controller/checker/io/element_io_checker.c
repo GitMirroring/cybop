@@ -83,7 +83,7 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
         int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         // Get enable flag from input/output entry.
-        get_io_entry_element((void*) &e, (void*) &io, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        get_io_entry_element((void*) &e, io, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         if (e != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -95,7 +95,7 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
             void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Get client list item from input/output entry.
-            get_io_entry_element((void*) &l, (void*) &io, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            get_io_entry_element((void*) &l, io, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
 //??            fwprintf(stdout, L"TEST: check io element l: %i \n", l);
 
@@ -116,10 +116,10 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // In other words, when running cyboi as socket server,
             // it makes sense only together with NON-BLOCKING mode.
             //
-            check_io_accept(l, (void*) &io, p4);
+            check_io_accept(l, io, p4);
 
             // Check for available input/output.
-            check_io_receive(p0, (void*) &io, l, p4);
+            check_io_receive(p0, io, l, p4);
         }
     }
 }

@@ -46,7 +46,7 @@
  * extern int accept (int __fd, __SOCKADDR_ARG __addr,
  *
  * @param p0 the sender client (e.g. display connection, file descriptor, client socket)
- * @param p1 the io entry (pointer reference)
+ * @param p1 the io entry
  * @param p2 the client list item
  * @param p3 the channel
  */

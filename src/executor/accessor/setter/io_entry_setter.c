@@ -45,7 +45,7 @@
  * "constant/name/cyboi/state/input_output_state_cyboi_name.c".
  * "controller/globaliser/type_size/compound_type_size_globaliser.c"
  *
- * @param p0 the destination io entry (pointer reference)
+ * @param p0 the destination io entry
  * @param p1 the source element (pointer reference only if pointer is retrieved)
  * @param p2 the source index
  */
@@ -54,12 +54,10 @@ void set_io_entry_element(void* p0, void* p1, void* p2) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Set io entry element.");
 
     // The element pointer.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // CAUTION! Initialise with destination io entry.
+    void* e = p0;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    // Initialise element pointer.
-    copy_pointer((void*) &e, p0);
 
     if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -85,7 +83,7 @@ void set_io_entry_element(void* p0, void* p1, void* p2) {
 
                 calculate_pointer_add((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-                // Copy element to destination.
+                // Copy source element to destination io entry.
                 copy_integer(e, p1);
             }
         }
@@ -102,7 +100,7 @@ void set_io_entry_element(void* p0, void* p1, void* p2) {
 
                 calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
 
-                // Copy element to destination.
+                // Copy source element to destination io entry.
                 copy_integer(e, p1);
             }
         }
@@ -120,7 +118,7 @@ void set_io_entry_element(void* p0, void* p1, void* p2) {
                 calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
                 calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
 
-                // Copy element to destination.
+                // Copy source element to destination io entry.
                 //
                 // CAUTION! Hand over element as POINTER REFERENCE,
                 // since a pointer is copied here.
@@ -142,7 +140,7 @@ void set_io_entry_element(void* p0, void* p1, void* p2) {
                 calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
                 calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
 
-                // Copy element to destination.
+                // Copy source element to destination io entry.
                 copy_pointer(e, p1);
             }
         }
@@ -162,7 +160,7 @@ void set_io_entry_element(void* p0, void* p1, void* p2) {
                 calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
                 calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // sender
 
-                // Copy element to destination.
+                // Copy source element to destination io entry.
                 copy_pointer(e, p1);
             }
         }
@@ -183,8 +181,8 @@ void set_io_entry_element(void* p0, void* p1, void* p2) {
                 calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // sender
                 calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // client list
 
-                // Copy element to destination.
-                copy_pointer(e, p1);
+                // Copy source element to destination io entry.
+                copy_integer(e, p1);
             }
         }
 
@@ -210,7 +208,7 @@ void set_io_entry_element(void* p0, void* p1, void* p2) {
 
                 calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // file descriptor
 
-                // Copy element to destination.
+                // Copy source element to destination io entry.
                 copy_pointer(e, p1);
             }
         }
@@ -238,8 +236,8 @@ void set_io_entry_element(void* p0, void* p1, void* p2) {
                 calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // file descriptor
                 calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // original mode
 
-                // Copy element to destination.
-                copy_pointer(e, p1);
+                // Copy source element to destination io entry.
+                copy_integer(e, p1);
             }
         }
 
@@ -272,8 +270,8 @@ void set_io_entry_element(void* p0, void* p1, void* p2) {
 
                 calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // output file descriptor
 
-                // Copy element to destination.
-                copy_pointer(e, p1);
+                // Copy source element to destination io entry.
+                copy_integer(e, p1);
             }
         }
 
@@ -307,7 +305,7 @@ void set_io_entry_element(void* p0, void* p1, void* p2) {
                 calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // output file descriptor
                 calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // input file descriptor
 
-                // Copy element to destination.
+                // Copy source element to destination io entry.
                 copy_pointer(e, p1);
             }
         }
@@ -343,7 +341,7 @@ void set_io_entry_element(void* p0, void* p1, void* p2) {
                 calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // input file descriptor
                 calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output original mode
 
-                // Copy element to destination.
+                // Copy source element to destination io entry.
                 copy_pointer(e, p1);
             }
         }
@@ -399,7 +397,7 @@ void set_io_entry_element(void* p0, void* p1, void* p2) {
 
                 calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // device context win32
 
-                // Copy element to destination.
+                // Copy source element to destination io entry.
                 copy_integer(e, p1);
             }
         }

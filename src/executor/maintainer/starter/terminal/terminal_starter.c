@@ -102,14 +102,8 @@ void startup_terminal(void* p0, void* p1) {
             //
             allocate_item((void*) &cl, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
-            fwprintf(stdout, L"TEST: startup terminal io: %i \n", io);
-            fwprintf(stdout, L"TEST: startup terminal cl: %i \n", cl);
-
             // Open terminal output- and input file descriptors.
             startup_terminal_open((void*) &outf, (void*) &inf);
-
-            fwprintf(stdout, L"TEST: startup terminal outf: %i \n", outf);
-            fwprintf(stdout, L"TEST: startup terminal outf: %i \n", inf);
 
             //
             // Configure terminal mode.

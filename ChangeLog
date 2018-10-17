@@ -24,6 +24,10 @@
         * Merge function "store" for unix- and win32 terminal in file "executor/maintainer/starter/terminal/store_mode_terminal_starter.c"
         * Simplify terminal mode allocation
         * Deallocate new terminal mode right after startup, since it is used as temporary variable only, in file "mode_terminal_starter.c"
+        * Correct calculation of IO_ENTRY_COMPOUND_TYPE_SIZE in file "compound_type_size_globaliser.c"
+        * Correct wrong function calls of "copy_integer" and "copy_pointer" in functions "set_io_entry_element" and "get_io_entry_element"
+        * Hand over io entry as normal pointer (not reference) to functions "set_io_entry_element" and "get_io_entry_element" in all source code
+        * Restore terminal mode for input first and for output only afterwards in file "executor/maintainer/shutter/terminal/terminal_shutter.c" since otherwise, line breaks do not work anymore in terminal
 
 2018-10-12  Christian Heller  <christian.heller@cybop.org>
 

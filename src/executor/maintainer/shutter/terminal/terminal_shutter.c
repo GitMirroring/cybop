@@ -74,8 +74,6 @@ void shutdown_terminal(void* p0, void* p1) {
 
         if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            fwprintf(stdout, L"TEST: shutdown terminal io: %i \n", io);
-
             //
             // Reset input/output entry in internal memory to null.
             //
@@ -125,16 +123,18 @@ void shutdown_terminal(void* p0, void* p1) {
             //
             get_io_entry_element((void*) &cl, io, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-            fwprintf(stdout, L"TEST: shutdown terminal outf: %i \n", outf);
-            fwprintf(stdout, L"TEST: shutdown terminal inf: %i \n", inf);
-
-            fwprintf(stdout, L"TEST: shutdown terminal cl: %i \n", cl);
-
+            //
             // Restore original terminal mode.
+            //
+            // CAUTION! The order of function calls IS IMPORTANT (first input, then output).
+            // For some unknown reason, the terminal mode is not restored properly
+            // (enter | return key does not break the line but adds prompt to the end of a line),
+            // when restoring the output first and the input only afterwards.
+            // However, restoring the output only (not the input) is NOT a viable solution,
+            // since the win32 console expects different modes for input and output.
+            //
+            shutdown_terminal_mode((void*) &inf, io, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
             shutdown_terminal_mode((void*) &outf, io, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-//??            shutdown_terminal_mode((void*) &inf, io, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-            fwprintf(stdout, L"TEST: shutdown terminal RESTORED outf: %i \n", outf);
 
             //
             // CAUTION! A "close" function is NOT called here,
@@ -153,9 +153,6 @@ void shutdown_terminal(void* p0, void* p1) {
             // since it is only needed for looping elements of type PART,
             // in order to decrement the rubbish (garbage) collection counter.
             deallocate_item((void*) &cl, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-
-            fwprintf(stdout, L"TEST: shutdown terminal DEALLOCATED io: %i \n", io);
-            fwprintf(stdout, L"TEST: shutdown terminal DEALLOCATED cl: %i \n", cl);
 
         } else {
 

@@ -31,7 +31,9 @@
 //
 // These constants are NOT sorted alphabetically, but as follows:
 // - knowledge memory
+// - stack memory
 // - signal memory
+// - sleep time
 // - serial port
 // - terminal
 // - display
