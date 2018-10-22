@@ -308,6 +308,20 @@
         </tr>
         <tr>
             <td>
+                DJ &#xD6;tzi &#x26; Nik P.
+            </td>
+            <td>
+                Ein Stern (Der Deinen Namen Tr&#xE4;gt)
+            </td>
+            <td>
+                Schlager
+            </td>
+            <td>
+                2007
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Depeche Mode
             </td>
             <td>
@@ -1387,6 +1401,20 @@
                 Volksmusik &#x26; Stimmungsmusik
             </td>
             <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Wolfgang Petry
+            </td>
+            <td>
+                Wahnsinn
+            </td>
+            <td>
+                Schlager
+            </td>
+            <td>
+                1983
             </td>
         </tr>
         <tr>

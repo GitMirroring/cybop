@@ -29,6 +29,7 @@
     <node name="depeche_mode_-_enjoy_the_silence" channel="file" format="element/part" model="repertoire/db/song/depeche_mode_-_enjoy_the_silence.cybol"/>
     <node name="dire_straits_-_sultans_of_swing" channel="file" format="element/part" model="repertoire/db/song/dire_straits_-_sultans_of_swing.cybol"/>
     <node name="dj_oetzi_-_anton_aus_tirol" channel="file" format="element/part" model="repertoire/db/song/dj_oetzi_-_anton_aus_tirol.cybol"/>
+    <node name="dj_oetzi_&_nik_p_-_ein_stern_(der_deinen_namen_traegt)" channel="file" format="element/part" model="repertoire/db/song/dj_oetzi_&_nik_p_-_ein_stern_(der_deinen_namen_traegt).cybol"/>
     <node name="doris_day_-_whatever_will_be_will_be_(que_sera_sera)" channel="file" format="element/part" model="repertoire/db/song/doris_day_-_whatever_will_be_will_be_(que_sera_sera).cybol"/>
     <node name="dschinghis_khan_-_moskau" channel="file" format="element/part" model="repertoire/db/song/dschinghis_khan_-_moskau.cybol"/>
 
@@ -124,5 +125,7 @@
     <node name="volkslied_-_muss_i_denn_muss_i_denn_zum_staedtele_hinaus" channel="file" format="element/part" model="repertoire/db/song/volkslied_-_muss_i_denn_muss_i_denn_zum_staedtele_hinaus.cybol"/>
     <node name="volkslied_-_rosamunde" channel="file" format="element/part" model="repertoire/db/song/volkslied_-_rosamunde.cybol"/>
     <node name="volkslied_-_what_shall_we_do_with_the_drunken_sailor" channel="file" format="element/part" model="repertoire/db/song/volkslied_-_what_shall_we_do_with_the_drunken_sailor.cybol"/>
+
+    <node name="wolfgang_petry_-_wahnsinn" channel="file" format="element/part" model="repertoire/db/song/wolfgang_petry_-_wahnsinn.cybol"/>
 
 </node>

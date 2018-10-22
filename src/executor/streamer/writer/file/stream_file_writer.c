@@ -138,6 +138,8 @@ void write_file_stream(void* p0, void* p1, void* p2, void* p3) {
 
             // An error occured.
 
+            fwprintf(stdout, L"Could not write file stream: %s\n", td);
+
             if (e == EOF) {
 
                 fwprintf(stdout, L"Could not write file stream. The error EOF was detected on closing the file. e: %i\n", e);
@@ -153,6 +155,8 @@ void write_file_stream(void* p0, void* p1, void* p2, void* p3) {
     } else {
 
         // An error occured.
+
+        fwprintf(stdout, L"Could not write file stream: %s\n", td);
 
         if (errno == EACCES) {
 

@@ -207,6 +207,8 @@ void read_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
                 // An error occured.
 
+                fwprintf(stdout, L"Could not read file: %s\n", td);
+
                 if (e == EOF) {
 
                     fwprintf(stdout, L"Could not read file. The error EOF was detected on closing the file. e: %i\n", e);
@@ -223,6 +225,8 @@ void read_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
             // An error occured.
 
+            fwprintf(stdout, L"Could not read file: %s\n", td);
+
             if (errno == EACCES) {
 
                 fwprintf(stdout, L"Could not read file. The file stream is null. The process does not have search permission for a directory component of the file name. error EACCES: %i\n", errno);
@@ -235,13 +239,13 @@ void read_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
             } else if (errno == ENOENT) {
 
-                fwprintf(stdout, L"Could not read file. The file stream is null. This error is reported when a file referenced as a directory component in the file name doesn’t exist, or when a component is a symbolic link whose target file does not exist. error ENOENT: %i\n", errno);
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read file. The file stream is null. This error is reported when a file referenced as a directory component in the file name doesn’t exist, or when a component is a symbolic link whose target file does not exist.");
+                fwprintf(stdout, L"Could not read file. The file stream is null. This error is reported when a file referenced as a directory component in the file name doesn't exist, or when a component is a symbolic link whose target file does not exist. error ENOENT: %i\n", errno);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read file. The file stream is null. This error is reported when a file referenced as a directory component in the file name doesn't exist, or when a component is a symbolic link whose target file does not exist.");
 
             } else if (errno == ENOTDIR) {
 
-                fwprintf(stdout, L"Could not read file. The file stream is null. A file that is referenced as a directory component in the file name exists, but it isn’t a directory. error ENOTDIR: %i\n", errno);
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read file. The file stream is null. A file that is referenced as a directory component in the file name exists, but it isn’t a directory.");
+                fwprintf(stdout, L"Could not read file. The file stream is null. A file that is referenced as a directory component in the file name exists, but it isn't a directory. error ENOTDIR: %i\n", errno);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read file. The file stream is null. A file that is referenced as a directory component in the file name exists, but it isn't a directory.");
 
             } else if (errno == ELOOP) {
 

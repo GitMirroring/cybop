@@ -633,6 +633,30 @@
         </tr>
         <tr>
             <td>
+                DJ &#xD6;tzi &#x26; Nik P.
+            </td>
+            <td>
+                Ein Stern (Der Deinen Namen Tr&#xE4;gt)
+            </td>
+            <td>
+                Schlager
+            </td>
+            <td>
+                2007
+            </td>
+            <td>
+                0:00
+            </td>
+            <td>
+            </td>
+            <td>
+                K&#xF6;gi
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Doris Day
             </td>
             <td>
@@ -2478,6 +2502,30 @@
                 Volksmusik &#x26; Stimmungsmusik
             </td>
             <td>
+            </td>
+            <td>
+                0:00
+            </td>
+            <td>
+            </td>
+            <td>
+                Chris
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Wolfgang Petry
+            </td>
+            <td>
+                Wahnsinn
+            </td>
+            <td>
+                Schlager
+            </td>
+            <td>
+                1983
             </td>
             <td>
                 0:00

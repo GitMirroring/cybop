@@ -332,6 +332,20 @@
         </tr>
         <tr>
             <td>
+                Ein Stern (Der Deinen Namen Tr&#xE4;gt)
+            </td>
+            <td>
+                DJ &#xD6;tzi &#x26; Nik P.
+            </td>
+            <td>
+                Schlager
+            </td>
+            <td>
+                2007
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Eiszeit
             </td>
             <td>
@@ -1242,6 +1256,20 @@
                 Deutschrock
             </td>
             <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Wahnsinn
+            </td>
+            <td>
+                Wolfgang Petry
+            </td>
+            <td>
+                Schlager
+            </td>
+            <td>
+                1983
             </td>
         </tr>
         <tr>

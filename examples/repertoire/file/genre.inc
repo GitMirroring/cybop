@@ -354,6 +354,9 @@
                 Costa Cordalis - Anita
             </li>
             <li>
+                DJ &#xD6;tzi &#x26; Nik P. - Ein Stern (Der Deinen Namen Tr&#xE4;gt)
+            </li>
+            <li>
                 Dschinghis Khan - Moskau
             </li>
             <li>
@@ -382,6 +385,9 @@
             </li>
             <li>
                 Udo J&#xFC;rgens - Wilde Kirschen
+            </li>
+            <li>
+                Wolfgang Petry - Wahnsinn
             </li>
         </ol>
     </div>
