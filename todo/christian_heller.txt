@@ -18,8 +18,10 @@ TUI
 ___
 
         CHECK OUT:
-        * Delete or leave if-block comparing with STANDARD_INPUT_STREAM_TERMINAL_MODEL in file "executor/streamer/reader/file/file_reader.c"
-        * Search and replace non-ascii apostrophes in all source code (CAUTION! Do NOT replace them in constants of character sets etc.)
+        * Make cybol tui examples work again (endless loop --> input is not processed correctly since changes in terminal reader)
+        * Delete NULL_POINTER_STATE_CYBOI_MODEL in file "terminal_reader.c"
+        * Use file descriptor from terminal input/output entry instead of stdin/stdout in terminal reader and -writer
+        * Delete or leave if-block comparing with STANDARD_INPUT_STREAM_TERMINAL_MODEL in file reader and -writer (file "executor/streamer/reader/file/file_reader.c")
 
         * Add step-by-step instructions for how to add a new communication channel (similar to "doc/development/add_new_cybol_operation.txt")
 

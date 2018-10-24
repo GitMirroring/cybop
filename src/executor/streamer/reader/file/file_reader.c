@@ -42,10 +42,10 @@
 #include "../../../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/converter/encoder/utf/utf_8_encoder.c"
+#include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/streamer/reader/file/content_file_reader.c"
 #include "../../../../logger/logger.c"
 

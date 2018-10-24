@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2018-10-24  Christian Heller  <christian.heller@cybop.org>
+
+        * Use default value for service identification in files "applicator/maintain/startup.c" and "applicator/maintain/shutdown.c"
+        * Prepare usage of file descriptor from terminal input/output entry instead of stdin/stdout in terminal reader and -writer
+
 2018-10-17  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt terminal shudown files in order to restore original terminal modes properly

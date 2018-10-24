@@ -125,7 +125,28 @@ void apply_shutdown(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get client socket part model item data, count.
     copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    shutdown_service(p4, idmd, smd, mmd, mmc, nsmd, nsmc, cmd);
+    //
+    // The default values.
+    //
+    // CAUTION! When working with e.g. the standard terminal,
+    // then an identification of zero is assumed.
+    // Other identifications are ONLY needed when working with
+    // MULTIPLE server sockets or terminal services or other channels.
+    //
+    int identification = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    //
+    // CAUTION! The following values are ONLY copied,
+    // if the source value is NOT NULL.
+    // This is tested inside the "copy_integer" function.
+    // Otherwise, the destination value remains as is.
+    //
+
+    // Use the service id part model item data by default.
+    copy_integer((void*) &identification, idmd);
+
+    // Shutdown service.
+    shutdown_service(p4, (void*) &identification, smd, mmd, mmc, nsmd, nsmc, cmd);
 }
 
 /* SHUTDOWN_SOURCE */

@@ -27,10 +27,16 @@
 #define UNIX_TERMINAL_READER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/accessor/getter/io_entry_getter.c"
+#include "../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/streamer/reader/unix_terminal/stream_unix_terminal_reader.c"
 #include "../../../../logger/logger.c"
@@ -39,20 +45,54 @@
  * Reads the destination from unix terminal.
  *
  * @param p0 the destination item
- * @param p1 the internal memory data
- * @param p2 the blocking flag
+ * @param p1 the service identification (comparable to a socket port)
+ * @param p2 the internal memory data
+ * @param p3 the blocking flag
  */
-void read_unix_terminal(void* p0, void* p1, void* p2) {
+void read_unix_terminal(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read unix terminal.");
 
-    // The file descriptor.
-    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The internal memory index.
+    int i = *TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME;
 
-    // Get file descriptor.
-//??    copy_array_forward((void*) &f, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Calculate internal memory index using given service identification.
+    calculate_integer_add((void*) &i, p1);
 
-    read_unix_terminal_stream(p0, f, p2);
+    // CAUTION! Use greater-or-equal operator >=, since the first terminal has the identification zero.
+    if (i >= *TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME) {
+
+        // The given service identification is valid.
+
+        // The terminal input/output entry.
+        void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+        // Get terminal input/output entry from internal memory.
+        copy_array_forward((void*) &io, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+
+        if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            // The terminal input file descriptor.
+            int f = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+
+            //
+            // Retrieve terminal file descriptor from input/output entry.
+            //
+            // CAUTION! Do NOT hand over input/output entry as pointer reference.
+            //
+            get_io_entry_element((void*) &f, io, (void*) INPUT_FILE_DESCRIPTOR_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+            read_unix_terminal_stream(p0, (void*) &f, p3);
+
+        } else {
+
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read unix terminal. There is no input/output terminal entry in the internal memory.");
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read unix terminal. The service identification is invalid.");
+    }
 }
 
 /* UNIX_TERMINAL_READER_SOURCE */
