@@ -82,6 +82,8 @@ void read_unix_terminal(void* p0, void* p1, void* p2, void* p3) {
             //
             get_io_entry_element((void*) &f, io, (void*) INPUT_FILE_DESCRIPTOR_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
+            fwprintf(stdout, L"TEST read unix terminal f: %i\n", f);
+
             read_unix_terminal_stream(p0, (void*) &f, p3);
 
         } else {

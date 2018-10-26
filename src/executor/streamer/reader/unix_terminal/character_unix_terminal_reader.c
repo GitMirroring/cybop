@@ -96,28 +96,53 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
 
                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read unix terminal character.");
 
-//??                    fwprintf(stdout, L"TEST read unix terminal character f: %i\n", f);
-//??                    fwprintf(stdout, L"TEST read unix terminal character *f: %i\n", *((int*) f));
+                    fwprintf(stdout, L"TEST read unix terminal character f: %i\n", f);
+                    fwprintf(stdout, L"TEST read unix terminal character *f: %i\n", *((int*) f));
 
                     //
-                    // The file stream created from the given file descriptor.
+                    // Associate a stream with the given open file descriptor.
                     //
-                    // CAUTION! The opentype string "r+" means an existing file
-                    // is opened for both reading and writing.
+                    // CAUTION! A stream is a pointer to a FILE structure that
+                    // contains information about a file.
+                    //
+                    // CAUTION! The opentype argument HAS TO MATCH the actual mode
+                    // of the open file descriptor.
+                    //
+                    // CAUTION! The opentype option "r" means an existing file
+                    // is opened for reading only.
                     // The initial contents of the file are unchanged and
                     // the initial file position is at the beginning of the file.
                     //
-                    void* s = (void*) fdopen(*f, "r+");
+                    // CAUTION! The 'b' option is not permitted in the
+                    // opentype string of the "fdopen" function.
+                    //
+                    // CAUTION! The file position indicator of the new stream
+                    // is THE SAME file offset associated with the file descriptor.
+                    // The error indicator and end of file (EOF) indicator
+                    // for the stream are CLEARED.
+                    //
+                    void* s = (void*) fdopen(*f, "r");
 
-                    //?? TODO: For some reason, the file descriptor-to-stream conversion above does not work.
-                    //?? It causes the terminal not to be able to "fgetwc" characters.
-                    //?? (In sensor, "fgetwc" works fine, but not in receiver.)
-                    //?? Therefore, "stdin" is used for now.
+                    //
+                    //?? TODO: Fix the following!
+                    //
+                    // For some reason, the file descriptor-to-stream conversion above does not work.
+                    // It causes the terminal not to be able to "fgetwc" characters (returnes -1).
+                    // (In sensor, "fgetwc" works fine, but not in receiver.)
+                    // Probably, the stream is ok, but possibly the file position pointer
+                    // is not reset back to the beginning? But is this necessary for stdin?
+                    //
+                    // Therefore, use "stdin" as TEMPORARY workaround.
+                    //
 //??                    void* fs = (void*) stdin;
+
+                    fwprintf(stdout, L"TEST read unix terminal character s: %i\n", s);
 
                     if (s != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                         FILE* fs = (FILE*) s;
+
+                        fwprintf(stdout, L"TEST read unix terminal character fs: %i\n", fs);
 
                         //
                         // Get character from source input stream of terminal.
@@ -133,7 +158,7 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
                         //
                         *c = fgetwc(fs);
 
-//??                            fwprintf(stdout, L"TEST read unix terminal character c: %i\n", *c);
+                        fwprintf(stdout, L"TEST read unix terminal character c: %i\n", *c);
 
                         // Check for end-of-file condition or read error,
                         // in which case WEOF (the integer -1) is returned.
