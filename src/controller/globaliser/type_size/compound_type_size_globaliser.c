@@ -68,15 +68,15 @@ void globalise_type_size_compound() {
         // Serial port.
         //
 
-        + *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE // file descriptor
+        + *POINTER_TYPE_SIZE // file stream
         + *POINTER_TYPE_SIZE // original mode
 
         //
         // Terminal.
         //
 
-        + *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE // output file descriptor
-        + *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE // input file descriptor
+        + *POINTER_TYPE_SIZE // output file stream
+        + *POINTER_TYPE_SIZE // input file stream
         + *POINTER_TYPE_SIZE // output original mode
         + *POINTER_TYPE_SIZE // input original mode
 

@@ -1,0 +1,43 @@
+
+Add new Communication Channel
+=============================
+
+CYBOL
+_____
+
+* Write cybol example application using channel, in order to identify necessary properties
+
+Constant
+________
+
+* Add channel to file "constant/channel/cybol/cybol_channel.c"
+* Add channel to file "constant/channel/cyboi/cyboi_channel.c"
+
+* Add properties, if necessary, to file "constant/name/cybol/logic/communication/receive_communication_logic_cybol_name.c"
+* Add properties, if necessary, to file "constant/name/cybol/logic/communication/send_communication_logic_cybol_name.c"
+
+* Adapt file "constant/name/cyboi/state/input_output_state_cyboi_name.c"
+
+Controller
+__________
+
+* Adapt file "controller/globaliser/type_size/compound_type_size_globaliser.c"
+
+Executor
+________
+
+* Adapt file "executor/accessor/getter/io_entry_getter.c"
+* Adapt file "executor/accessor/getter/io_entry_setter.c"
+
+* Add files for channel to directory "executor/maintainer/starter/"
+* Add files for channel to directory "executor/maintainer/shutter/"
+
+* Add files for channel to directory "executor/streamer/reader/"
+* Add files for channel to directory "executor/streamer/writer/"
+
+Applicator
+__________
+
+* Process new properties, if necessary, in file "applicator/communicate/receive.c"
+* Process new properties, if necessary, in file "applicator/communicate/send.c"
+

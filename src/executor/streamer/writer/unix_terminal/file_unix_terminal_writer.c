@@ -23,11 +23,10 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STREAM_UNIX_TERMINAL_WRITER_SOURCE
-#define STREAM_UNIX_TERMINAL_WRITER_SOURCE
+#ifndef FILE_UNIX_TERMINAL_WRITER_SOURCE
+#define FILE_UNIX_TERMINAL_WRITER_SOURCE
 
-#include <errno.h>
-#include <stdio.h>
+#include <stdio.h> // FILE, fwprintf, fflush
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -37,43 +36,22 @@
 /**
  * Writes the source to the unix terminal output.
  *
- * @param p0 the destination output file descriptor
+ * @param p0 the destination output file stream
  * @param p1 the source data (null-terminated)
- * @param p2 the source count
  */
-void write_unix_terminal_stream(void* p0, void* p1, void* p2) {
+void write_unix_terminal_file(void* p0, void* p1) {
 
-//??    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* f = (int*) p0;
+        char* d = (char*) p1;
 
-        // The file stream created from the given file descriptor.
-        // CAUTION! The opentype string "r+" means an existing file
-        // is opened for both reading and writing.
-        // The initial contents of the file are unchanged and
-        // the initial file position is at the beginning of the file.
-//??        void* fs = (void*) fdopen(*f, "r+");
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        //?? TODO: For some reason, the file descriptor-to-stream conversion above does not work.
-        //?? It causes the terminal not to be able to "fgetwc" characters.
-        //?? (In sensor, "fgetwc" works fine, but not in receiver.)
-        //?? Therefore, "stdout" is used for now.
-        void* fs = (void*) stdout;
+            FILE* f = (FILE*) p0;
 
-        if (fs != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write unix terminal stream.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write unix terminal file.");
 
             //
-            // The following remark is OLD from times when sensing threads were used:
-            //
-            // CAUTION! Locking does NOT seem to be necessary here.
-            // It is assumed that input- and output stream represent
-            // independent channels that may be accessed in parallel
-            // without having to fear conflicts.
-            // The glibc manual at least said nothing about this.
-            //
-
             // Write to terminal.
             //
             // CAUTION! The character data are printed out at once,
@@ -92,8 +70,9 @@ void write_unix_terminal_stream(void* p0, void* p1, void* p2) {
             //
             // CAUTION! The data ought to be null-terminated.
             //
-            int e = fwprintf((FILE*) fs, L"%s", (char*) p1);
+            int e = fwprintf(f, L"%s", d);
 
+            //
             // Test error value.
             //
             // CAUTION! The macro WEOF is an integer value that is
@@ -109,9 +88,10 @@ void write_unix_terminal_stream(void* p0, void* p1, void* p2) {
             //
             if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write unix terminal stream. A write error occured.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write unix terminal file. A write error occured.");
             }
 
+            //
             // Flush any buffered output on the stream to the file.
             //
             // If this was not done here, the buffered output on the
@@ -121,18 +101,19 @@ void write_unix_terminal_stream(void* p0, void* p1, void* p2) {
             // - the program terminated by calling exit
             // - a newline was written with the stream being line buffered
             // - an input operation on any stream actually read data from its file
-            fflush((FILE*) fs);
+            //
+            fflush(f);
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write unix terminal stream. The file stream is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write unix terminal file. The destination output file stream is null.");
         }
 
-//??    } else {
+    } else {
 
-//??        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write unix terminal stream. The output data is null.");
-//??    }
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write unix terminal file. The source data is null.");
+    }
 }
 
-/* STREAM_UNIX_TERMINAL_WRITER_SOURCE */
+/* FILE_UNIX_TERMINAL_WRITER_SOURCE */
 #endif

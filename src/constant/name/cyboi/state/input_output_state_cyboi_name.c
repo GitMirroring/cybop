@@ -29,8 +29,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
-// CAUTION! There are currently not more than ?? entries.
-// If extending the number of indices to greater than that,
+// CAUTION! If extending the number of entries here,
 // the INTERNAL MEMORY base segment size HAS TO BE adapted as well.
 //
 
@@ -47,16 +46,36 @@ static int* CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_4_INTEGER_STATE_C
 //
 // Serial port.
 //
+// CAUTION! Store file STREAM instead of file descriptor, since:
+// - stream is a more complex structure containing the descriptor
+// - the c standard defines only file streams of type FILE*
+//
+// Special types used by various platforms are NOT stored here,
+// since they may be retrieved from the FILE structure, e.g.:
+// - POSIX: "file descriptor" (int) used in direct file access functions, retrieved via "int fileno(FILE* stream)"
+// - Win32: "file handle" (DWORD) used in alternative input/output functions, retrieved via "int _fileno(FILE* stream)"
+//          the returned int may be casted to file handle: (HANDLE) _fileno(_file)
+//
 
-static int* FILE_DESCRIPTOR_SERIAL_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* FILE_STREAM_SERIAL_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 static int* ORIGINAL_MODE_SERIAL_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // Terminal.
 //
+// CAUTION! Store file STREAM instead of file descriptor, since:
+// - stream is a more complex structure containing the descriptor
+// - the c standard defines only file streams of type FILE*
+//
+// Special types used by various platforms are NOT stored here,
+// since they may be retrieved from the FILE structure, e.g.:
+// - POSIX: "file descriptor" (int) used in direct file access functions, retrieved via "int fileno(FILE* stream)"
+// - Win32: "file handle" (DWORD) used in alternative input/output functions, retrieved via "int _fileno(FILE* stream)"
+//          the returned int may be casted to file handle: (HANDLE) _fileno(_file)
+//
 
-static int* OUTPUT_FILE_DESCRIPTOR_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-static int* INPUT_FILE_DESCRIPTOR_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 static int* OUTPUT_ORIGINAL_MODE_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 static int* INPUT_ORIGINAL_MODE_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

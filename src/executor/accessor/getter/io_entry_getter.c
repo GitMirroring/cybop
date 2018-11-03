@@ -167,7 +167,7 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p2, (void*) FILE_DESCRIPTOR_SERIAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            compare_integer_equal((void*) &r, p2, (void*) FILE_STREAM_SERIAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -182,7 +182,7 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
                 calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // client list
 
                 // Copy source io entry to destination element.
-                copy_integer(p0, e);
+                copy_pointer(p0, e);
             }
         }
 
@@ -206,7 +206,7 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
                 // Serial port.
                 //
 
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // file descriptor
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // file stream
 
                 // Copy source io entry to destination element.
                 copy_pointer(p0, e);
@@ -215,7 +215,7 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p2, (void*) OUTPUT_FILE_DESCRIPTOR_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            compare_integer_equal((void*) &r, p2, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -233,17 +233,17 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
                 // Serial port.
                 //
 
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // file descriptor
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // file stream
                 calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // original mode
 
                 // Copy source io entry to destination element.
-                copy_integer(p0, e);
+                copy_pointer(p0, e);
             }
         }
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p2, (void*) INPUT_FILE_DESCRIPTOR_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            compare_integer_equal((void*) &r, p2, (void*) INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -261,17 +261,17 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
                 // Serial port.
                 //
 
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // file descriptor
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // file stream
                 calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // original mode
 
                 //
                 // Terminal.
                 //
 
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // output file descriptor
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output file stream
 
                 // Copy source io entry to destination element.
-                copy_integer(p0, e);
+                copy_pointer(p0, e);
             }
         }
 
@@ -295,15 +295,15 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
                 // Serial port.
                 //
 
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // file descriptor
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // file stream
                 calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // original mode
 
                 //
                 // Terminal.
                 //
 
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // output file descriptor
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // input file descriptor
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output file stream
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input file stream
 
                 // Copy source io entry to destination element.
                 copy_pointer(p0, e);
@@ -330,15 +330,15 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
                 // Serial port.
                 //
 
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // file descriptor
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // file stream
                 calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // original mode
 
                 //
                 // Terminal.
                 //
 
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // output file descriptor
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // input file descriptor
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output file stream
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input file stream
                 calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output original mode
 
                 // Copy source io entry to destination element.
@@ -370,15 +370,15 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
                 // Serial port.
                 //
 
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // file descriptor
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // file stream
                 calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // original mode
 
                 //
                 // Terminal.
                 //
 
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // output file descriptor
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // input file descriptor
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output file stream
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input file stream
                 calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output original mode
                 calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input original mode
 

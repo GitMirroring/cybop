@@ -38,8 +38,8 @@
 #include "../../../../executor/accessor/setter/io_entry_setter.c"
 #include "../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/maintainer/starter/terminal/get_file_number_terminal_starter.c"
 #include "../../../../executor/maintainer/starter/terminal/mode_terminal_starter.c"
-#include "../../../../executor/maintainer/starter/terminal/open_terminal_starter.c"
 #include "../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../logger/logger.c"
@@ -73,9 +73,14 @@ void startup_terminal(void* p0, void* p1) {
 
         if (io == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+            // The terminal output- and input file streams.
+            // CAUTION! The standard input/output streams "stdin"
+            // and "stdout" exist on posix as well as on win32.
+            void* os = (void*) stdout;
+            void* is = (void*) stdin;
             // The terminal output- and input file descriptors.
-            int outf = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-            int inf = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+            int od = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+            int id = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
             //
             // The client list item.
             //
@@ -86,6 +91,10 @@ void startup_terminal(void* p0, void* p1) {
             // which is also called a "user session".
             //
             void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+            // Get terminal output- and input file descriptors from file streams.
+            startup_terminal_file_number_get((void*) &od, os);
+            startup_terminal_file_number_get((void*) &id, is);
 
             //
             // Allocate input/output entry.
@@ -101,9 +110,6 @@ void startup_terminal(void* p0, void* p1) {
             // be negative or zero, but have at least a value of ONE.
             //
             allocate_item((void*) &cl, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-
-            // Open terminal output- and input file descriptors.
-            startup_terminal_open((void*) &outf, (void*) &inf);
 
             //
             // Configure terminal mode.
@@ -168,11 +174,11 @@ void startup_terminal(void* p0, void* p1) {
             // whether input or output mode is meant,
             // so that the correct flags may be used internally.
             //
-            startup_terminal_mode((void*) &outf, io, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-            startup_terminal_mode((void*) &inf, io, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            startup_terminal_mode((void*) &od, io, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            startup_terminal_mode((void*) &id, io, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             //
-            // Store terminal file descriptors in input/output entry.
+            // Store terminal file streams in input/output entry.
             //
             // CAUTION! Do NOT use "overwrite_array" function here,
             // since it adapts the array count and size.
@@ -180,8 +186,10 @@ void startup_terminal(void* p0, void* p1) {
             //
             // CAUTION! Do NOT hand over input/output entry as pointer reference.
             //
-            set_io_entry_element(io, (void*) &outf, (void*) OUTPUT_FILE_DESCRIPTOR_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-            set_io_entry_element(io, (void*) &inf, (void*) INPUT_FILE_DESCRIPTOR_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            // CAUTION! Hand over output file stream and input file stream as pointer REFERENCE.
+            //
+            set_io_entry_element(io, (void*) &os, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            set_io_entry_element(io, (void*) &is, (void*) INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
             //
             // Store client list item in input/output entry.
             //

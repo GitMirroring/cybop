@@ -40,7 +40,7 @@
  *
  * Expected parametres:
  * - channel (required): the channel on which to startup a service (serial, terminal, display, socket ...)
- * - id (required): the service identification of a terminal/display/socket etc., e.g. socket port 80; either port or service may be specified; port has higher priority; if missing, zero will be used (first io entry)
+ * - id (optional): the service identification of a terminal/display/socket etc., e.g. socket port 80; either port or service may be specified; port has higher priority; if missing, zero will be used (first io entry)
  * Expected parametres only for channel "serial":
  * - filename (required): the filename
  * - baudrate (optional): the filename

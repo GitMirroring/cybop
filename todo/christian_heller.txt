@@ -17,19 +17,19 @@
 TUI
 ___
 
-        CHECK OUT:
-        * Move file descriptor-to-stream conversion from file "character_unix_terminal_reader.c" into an own file
-        * Call this functionality from within file "unix_terminal_reader.c", in order to avoid doing it repeatedly in the loop
-        * Try out if file position indicator of the new stream may be and has to be reset or not
-        * Store stdin/stdout streams in internal memory, if nothing else works
+        HINT:
+        * Keep communication client as variable in cybol, as is done with client socket, see:
+            examples/socket_server/handler.cybol: operation "communicate/receive", property: "sender"
+            examples/socket_server/logic.cybol: operation "communicate/send", property: "receiver"
+
+        CONTINUE:
+        * Adapt streamer/reader + ADJUST includes + then DONE (starter/shutter etc. already completed)
         * Make cybol tui examples work again (endless loop --> input is not processed correctly since changes in terminal reader)
         * Delete NULL_POINTER_STATE_CYBOI_MODEL in file "terminal_reader.c"
 
         * Use file descriptor from terminal input/output entry (instead of testwise stdin/stdout directly) in terminal stream reader
         * Use file descriptor from terminal input/output entry (instead of testwise stdin/stdout directly) in terminal stream writer
         * Delete or leave if-block comparing with STANDARD_INPUT_STREAM_TERMINAL_MODEL in file reader and -writer (file "executor/streamer/reader/file/file_reader.c")
-
-        * Add step-by-step instructions for how to add a new communication channel (similar to "doc/development/add_new_cybol_operation.txt")
 
         * Provide more keyboard input keys like "tabulator", "backspace" etc. in file "keyboard_state_cybol_name.c"
 

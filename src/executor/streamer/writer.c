@@ -46,7 +46,7 @@
  * CAUTION! Do NOT rename this function to "write",
  * as that name is already used for glibc library's output.
  *
- * @param p0 the destination item
+ * @param p0 the destination item, e.g. file name, service identification, socket port
  * @param p1 the source data (pointer reference)
  * @param p2 the source count
  * @param p3 the internal memory data
@@ -146,7 +146,7 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                write_terminal(*d, p2, p3);
+                write_terminal(p0, *d, p2, p3);
             }
         }
 

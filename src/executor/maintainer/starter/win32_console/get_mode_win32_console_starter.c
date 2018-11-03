@@ -39,7 +39,7 @@
  * @param p0 the terminal mode
  * @param p1 the file descriptor
  */
-void startup_win32_console_mode_get(void* p0, void* p1, void* p2, void* p3) {
+void startup_win32_console_mode_get(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

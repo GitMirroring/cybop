@@ -18,6 +18,23 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2018-11-04  Christian Heller  <christian.heller@cybop.org>
+
+        * Adapt streamer/writer
+
+2018-10-31  Christian Heller  <christian.heller@cybop.org>
+
+        * Store stdin/stdout file stream instead of file descriptor in input/output memory, since stream is a more complex structure containing the descriptor
+
+2018-10-28  Christian Heller  <christian.heller@cybop.org>
+
+        * Delete files "open_terminal_starter.c", "open_unix_terminal_starter.c", "open_win32_console_starter.c", since code was moved into file "terminal_starter.c"
+        * Add files "get_file_number_terminal_starter.c", "get_file_number_unix_terminal_starter.c", "get_file_number_win32_console_starter.c"
+
+2018-10-27  Christian Heller  <christian.heller@cybop.org>
+
+        * Add step-by-step instructions for how to add a new communication channel, in file "doc/development/add_new_communication_channel.txt"
+
 2018-10-24  Christian Heller  <christian.heller@cybop.org>
 
         * Use default value for service identification in files "applicator/maintain/startup.c" and "applicator/maintain/shutdown.c"
@@ -5422,3 +5439,4 @@
         * Run dynamic loop catching signals from internal signal memory (queue)
         * Create GUI using Java Swing (as temporary workaround)
         * Create CYBOI by renaming and altering the ResMedLib base library of the Res Medicinae project
+

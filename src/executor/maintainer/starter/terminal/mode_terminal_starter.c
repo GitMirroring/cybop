@@ -46,58 +46,49 @@
  */
 void startup_terminal_mode(void* p0, void* p1, void* p2) {
 
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal mode.");
 
-        int* f = (int*) p0;
+    // The original terminal mode (attributes).
+    void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The new terminal mode (attributes).
+    void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal mode.");
+    // Allocate original terminal mode.
+    // CAUTION! Hand over pointer REFERENCE.
+    startup_terminal_mode_allocate((void*) &o);
+    // Allocate new terminal mode.
+    // CAUTION! Hand over pointer REFERENCE.
+    startup_terminal_mode_allocate((void*) &n);
 
-        // The original terminal mode (attributes).
-        void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The new terminal mode (attributes).
-        void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
+    fwprintf(stdout, L"TEST: startup terminal mode o: %i \n", o);
 
-        // Allocate original terminal mode.
-        // CAUTION! Hand over pointer REFERENCE.
-        startup_terminal_mode_allocate((void*) &o);
-        // Allocate new terminal mode.
-        // CAUTION! Hand over pointer REFERENCE.
-        startup_terminal_mode_allocate((void*) &n);
+    // Read original terminal mode.
+    // CAUTION! Do NOT hand over pointer reference.
+    startup_terminal_mode_get(o, p0);
 
-        fwprintf(stdout, L"TEST: startup terminal mode o: %i \n", o);
+    // Store original terminal mode.
+    // CAUTION! Hand over pointer REFERENCE.
+    startup_terminal_mode_store(p1, (void*) &o, p2);
 
-        // Read original terminal mode.
-        // CAUTION! Do NOT hand over pointer reference.
-        startup_terminal_mode_get(o, p0);
+    // Copy original to new terminal mode.
+    // CAUTION! Do NOT hand over pointer references,
+    // since only the CONTENT, but not pointer is to be copied.
+    startup_terminal_mode_copy(n, o);
 
-        // Store original terminal mode.
-        // CAUTION! Hand over pointer REFERENCE.
-        startup_terminal_mode_store(p1, (void*) &o, p2);
+    // Edit new terminal mode.
+    // CAUTION! Do NOT hand over pointer reference,
+    // since only the CONTENT, but not pointer is to be edited.
+    startup_terminal_mode_edit(n, p2);
 
-        // Copy original to new terminal mode.
-        // CAUTION! Do NOT hand over pointer references,
-        // since only the CONTENT, but not pointer is to be copied.
-        startup_terminal_mode_copy(n, o);
+    // Write new terminal mode.
+    // CAUTION! Do NOT hand over pointer reference.
+    startup_terminal_mode_set(p0, n);
 
-        // Edit new terminal mode.
-        // CAUTION! Do NOT hand over pointer reference,
-        // since only the CONTENT, but not pointer is to be edited.
-        startup_terminal_mode_edit(n, p2);
-
-        // Write new terminal mode.
-        // CAUTION! Do NOT hand over pointer reference.
-        startup_terminal_mode_set(p0, n);
-
-        // Deallocate new terminal mode.
-        // CAUTION! It is not stored in input/output memory and
-        // used as TEMPORARY variable only.
-        // CAUTION! Hand over pointer REFERENCE.
-        startup_terminal_mode_deallocate((void*) &n);
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal mode. The file descriptor is null.");
-    }
+    // Deallocate new terminal mode.
+    // CAUTION! It is not stored in input/output memory and
+    // used as TEMPORARY variable only.
+    // CAUTION! Hand over pointer REFERENCE.
+    startup_terminal_mode_deallocate((void*) &n);
 }
 
 /* MODE_TERMINAL_STARTER_SOURCE */

@@ -39,6 +39,7 @@
 #include "../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/maintainer/shutter/terminal/mode_terminal_shutter.c"
+#include "../../../../executor/maintainer/starter/terminal/get_file_number_terminal_starter.c"
 #include "../../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../logger/logger.c"
@@ -87,9 +88,14 @@ void shutdown_terminal(void* p0, void* p1) {
             //
             copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
+            // The terminal output- and input file streams.
+            // CAUTION! The standard input/output streams "stdin"
+            // and "stdout" exist on posix as well as on win32.
+            void* os = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* is = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The terminal output- and input file descriptors.
-            int outf = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-            int inf = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+            int od = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+            int id = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
             //
             // The client list item.
             //
@@ -102,16 +108,18 @@ void shutdown_terminal(void* p0, void* p1) {
             void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             //
-            // Retrieve terminal file descriptors from input/output entry.
+            // Retrieve terminal file streams from input/output entry.
             //
             // CAUTION! Do NOT use "overwrite_array" function here,
             // since it adapts the array count and size.
             // But the array's count and size are CONSTANT.
             //
+            // CAUTION! Hand over output file stream and input file stream as pointer REFERENCE.
+            //
             // CAUTION! Do NOT hand over input/output entry as pointer reference.
             //
-            get_io_entry_element((void*) &outf, io, (void*) OUTPUT_FILE_DESCRIPTOR_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-            get_io_entry_element((void*) &inf, io, (void*) INPUT_FILE_DESCRIPTOR_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            get_io_entry_element((void*) &os, io, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            get_io_entry_element((void*) &is, io, (void*) INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
             //
             // Retrieve client list item from input/output entry.
             //
@@ -123,6 +131,10 @@ void shutdown_terminal(void* p0, void* p1) {
             //
             get_io_entry_element((void*) &cl, io, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
+            // Get terminal output- and input file descriptors from file streams.
+            startup_terminal_file_number_get((void*) &od, os);
+            startup_terminal_file_number_get((void*) &id, is);
+
             //
             // Restore original terminal mode.
             //
@@ -133,8 +145,8 @@ void shutdown_terminal(void* p0, void* p1) {
             // However, restoring the output only (not the input) is NOT a viable solution,
             // since the win32 console expects different modes for input and output.
             //
-            shutdown_terminal_mode((void*) &inf, io, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-            shutdown_terminal_mode((void*) &outf, io, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            shutdown_terminal_mode((void*) &id, io, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            shutdown_terminal_mode((void*) &od, io, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
             //
             // CAUTION! A "close" function is NOT called here,

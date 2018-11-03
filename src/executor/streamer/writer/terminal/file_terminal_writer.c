@@ -27,33 +27,41 @@
 #define FILE_TERMINAL_WRITER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/copier/array_copier.c"
-#include "../../../../executor/streamer/writer/unix_terminal/stream_unix_terminal_writer.c"
 #include "../../../../logger/logger.c"
 
+#if defined(__linux__) || defined(__unix__)
+    #include "../../../../executor/streamer/writer/unix_terminal/file_unix_terminal_writer.c"
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../../../executor/streamer/writer/unix_terminal/file_unix_terminal_writer.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    // Serialise tui DIRECTLY using win32 console function calls.
+    // Therefore, encode and write are superfluous.
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
+
 /**
- * Writes the source to the terminal file.
+ * Writes the data to the terminal output file stream.
  *
- * @param p0 the source data (null-terminated)
- * @param p1 the source count
- * @param p2 the internal memory
+ * @param p0 the destination output file stream
+ * @param p1 the source data (null-terminated)
  */
-void write_terminal_file(void* p0, void* p1, void* p2) {
+void write_terminal_file(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write terminal file.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write terminal file.");
 
-    // The output file descriptor.
-    void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Get output file descriptor.
-//??    copy_array_forward((void*) &o, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-
-    write_unix_terminal_stream(o, p0, p1);
+#if defined(__linux__) || defined(__unix__)
+    write_unix_terminal_file(p0, p1);
+#elif defined(__APPLE__) && defined(__MACH__)
+    write_unix_terminal_file(p0, p1);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    // Serialise tui DIRECTLY using win32 console function calls.
+    // Therefore, encode and write are superfluous.
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
 }
 
 /* FILE_TERMINAL_WRITER_SOURCE */
