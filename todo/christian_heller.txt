@@ -17,18 +17,9 @@
 TUI
 ___
 
-        HINT:
-        * Keep communication client as variable in cybol, as is done with client socket, see:
-            examples/socket_server/handler.cybol: operation "communicate/receive", property: "sender"
-            examples/socket_server/logic.cybol: operation "communicate/send", property: "receiver"
-
-        CONTINUE:
         * Adapt streamer/reader + ADJUST includes + then DONE (starter/shutter etc. already completed)
         * Make cybol tui examples work again (endless loop --> input is not processed correctly since changes in terminal reader)
         * Delete NULL_POINTER_STATE_CYBOI_MODEL in file "terminal_reader.c"
-
-        * Use file descriptor from terminal input/output entry (instead of testwise stdin/stdout directly) in terminal stream reader
-        * Use file descriptor from terminal input/output entry (instead of testwise stdin/stdout directly) in terminal stream writer
         * Delete or leave if-block comparing with STANDARD_INPUT_STREAM_TERMINAL_MODEL in file reader and -writer (file "executor/streamer/reader/file/file_reader.c")
 
         * Provide more keyboard input keys like "tabulator", "backspace" etc. in file "keyboard_state_cybol_name.c"

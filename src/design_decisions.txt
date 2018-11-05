@@ -159,6 +159,19 @@ ___________________________
 - in cyboi, sensing threads are NOT used any longer
 - instead, the main thread frequently queries all channels for available data (busy waiting)
 
+Storing server and client service identification:
+
+The communication client service identification is kept as variable in the
+corresponding cybol application, as is done with the client socket, see:
+examples/socket_server/handler.cybol: operation "communicate/receive", property: "sender"
+examples/socket_server/logic.cybol: operation "communicate/send", property: "receiver"
+
+The communication client service identification MAY be given (but does NOT have to)
+as property for a "send" or "receive" cybol operation.
+If it is NOT given as property, then a standard value of zero (0) is expected inside cyboi.
+This applies e.g. for terminal communication where it would be tedious to always
+have to specify a client terminal service identification.
+
 Date Time
 _________
 

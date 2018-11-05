@@ -45,7 +45,7 @@
  * Reads the destination from unix terminal.
  *
  * @param p0 the destination item
- * @param p1 the service identification (comparable to a socket port)
+ * @param p1 the source service identification
  * @param p2 the internal memory data
  * @param p3 the blocking flag
  */
@@ -53,48 +53,6 @@ void read_unix_terminal(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read unix terminal.");
 
-    // The internal memory index.
-    int i = *TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-
-    // Calculate internal memory index using given service identification.
-    calculate_integer_add((void*) &i, p1);
-
-    // CAUTION! Use greater-or-equal operator >=, since the first terminal has the identification zero.
-    if (i >= *TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME) {
-
-        // The given service identification is valid.
-
-        // The terminal input/output entry.
-        void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-        // Get terminal input/output entry from internal memory.
-        copy_array_forward((void*) &io, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
-
-        if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            // The terminal input file descriptor.
-            int f = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-
-            //
-            // Retrieve terminal file descriptor from input/output entry.
-            //
-            // CAUTION! Do NOT hand over input/output entry as pointer reference.
-            //
-            get_io_entry_element((void*) &f, io, (void*) INPUT_FILE_DESCRIPTOR_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-            fwprintf(stdout, L"TEST read unix terminal f: %i\n", f);
-
-            read_unix_terminal_stream(p0, (void*) &f, p3);
-
-        } else {
-
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read unix terminal. There is no input/output terminal entry in the internal memory.");
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read unix terminal. The service identification is invalid.");
-    }
 }
 
 /* UNIX_TERMINAL_READER_SOURCE */

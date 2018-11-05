@@ -20,7 +20,7 @@
 
 2018-11-04  Christian Heller  <christian.heller@cybop.org>
 
-        * Adapt streamer/writer
+        * Use file stream from terminal input/output entry (instead of testwise stdin/stdout directly) in terminal stream writer and reader
 
 2018-10-31  Christian Heller  <christian.heller@cybop.org>
 

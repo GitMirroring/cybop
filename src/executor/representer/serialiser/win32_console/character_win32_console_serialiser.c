@@ -38,8 +38,8 @@
 
 //
 // Win32 console applications are often mistaken for MS-DOS applications,
-// especially on Windows 9x and Windows Me. However, a Win32 console
-// application is, virtually, just a special form of a native Win32 application.
+// especially on Windows 9x and Windows ME. However, a Win32 console application is,
+// virtually, just a special form of a native Win32 application.
 // Indeed, 32-bit Windows can run MS-DOS programs in Win32 console
 // through the use of the NT Virtual DOS Machine (NTVDM).
 //

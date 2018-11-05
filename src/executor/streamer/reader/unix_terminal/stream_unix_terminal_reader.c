@@ -35,7 +35,7 @@
  * Reads data stream from unix terminal.
  *
  * @param p0 the destination item
- * @param p1 the source file descriptor
+ * @param p1 the source file stream
  * @param p2 the blocking flag
  */
 void read_unix_terminal_stream(void* p0, void* p1, void* p2) {

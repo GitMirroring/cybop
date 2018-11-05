@@ -27,8 +27,6 @@
 #define TERMINAL_READER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-//?? TODO: Delete the following line. Only TEMPORARY for testing.
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
@@ -46,17 +44,18 @@
  * Reads data via terminal.
  *
  * @param p0 the destination item
- * @param p1 the internal memory data
- * @param p2 the blocking flag
+ * @param p1 the source service identification
+ * @param p2 the internal memory data
+ * @param p3 the blocking flag
  */
-void read_terminal(void* p0, void* p1, void* p2) {
+void read_terminal(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read terminal.");
 
 #if defined(__linux__) || defined(__unix__)
-    read_unix_terminal(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2);
+    read_unix_terminal(p0, p1, p2, p3);
 #elif defined(__APPLE__) && defined(__MACH__)
-    read_unix_terminal(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2);
+    read_unix_terminal(p0, p1, p2, p3);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
     //?? CAUTION! Possibly move this functionality into "win32_console_deserialiser".

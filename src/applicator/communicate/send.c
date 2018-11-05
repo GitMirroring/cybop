@@ -43,7 +43,7 @@
  * as that name is already used for glibc library's output.
  *
  * Properties:
- * - receiver (optional): the destination receiving the message
+ * - receiver (optional): the destination receiving the message, e.g. filename, client socket number, service identification, gui window
  * - channel (required): the channel via which to send the message (e.g. http)
  * - encoding (optional): the encoding to be used, e.g. ascii; the default is utf-8
  * - language (required): the language into which to serialise the message before sending it (e.g. html, model-diagram etc.)

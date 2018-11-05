@@ -46,7 +46,7 @@
  * CAUTION! Do NOT rename this function to "write",
  * as that name is already used for glibc library's output.
  *
- * @param p0 the destination item, e.g. file name, service identification, socket port
+ * @param p0 the destination item (e.g. filename, client socket number, service identification, gui window)
  * @param p1 the source data (pointer reference)
  * @param p2 the source count
  * @param p3 the internal memory data
