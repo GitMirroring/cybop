@@ -34,13 +34,14 @@
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/copier/array_copier.c"
-#include "../../../../executor/streamer/writer/terminal/terminal_writer.c"
+#include "../../../../executor/streamer/writer/terminal/entry_terminal_writer.c"
+#include "../../../../executor/streamer/writer/terminal/termination_terminal_writer.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Writes the source to the terminal.
  *
- * @param p0 the destination service identification
+ * @param p0 the destination service identification item
  * @param p1 the source data
  * @param p2 the source count
  * @param p3 the internal memory data
@@ -51,12 +52,17 @@ void write_terminal(void* p0, void* p1, void* p2, void* p3) {
 
     // The destination service identification data.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The terminal output file stream.
+    void* os = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination service identification data.
     copy_array_forward((void*) &d, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Determine terminal input/output entry.
-    write_terminal_entry(d, p1, p2, p3);
+    write_terminal_entry((void*) &os, p3, d);
+
+    // Add null-termination to source data string.
+    write_terminal_termination(os, p1, p2);
 }
 
 /* TERMINAL_WRITER_SOURCE */

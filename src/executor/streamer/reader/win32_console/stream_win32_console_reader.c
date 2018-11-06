@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WIN32_CONSOLE_READER_SOURCE
-#define WIN32_CONSOLE_READER_SOURCE
+#ifndef STREAM_WIN32_CONSOLE_READER_SOURCE
+#define STREAM_WIN32_CONSOLE_READER_SOURCE
 
 #include <windows.h>
 
@@ -38,7 +38,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Reads data via win32 console.
+ * Reads data stream via win32 console.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
@@ -49,9 +49,9 @@
  * @param p6 the format
  * @param p7 the language
  */
-void read_win32_console(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void read_win32_console_stream(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read win32 console.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read win32 console stream.");
 
     // The input record data.
     // CAUTION! It can be an array of INPUT_RECORD
@@ -90,5 +90,5 @@ void read_win32_console(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 //    deserialise_tui(p0, (void*) &bk, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 }
 
-/* WIN32_CONSOLE_READER_SOURCE */
+/* STREAM_WIN32_CONSOLE_READER_SOURCE */
 #endif

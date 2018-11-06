@@ -27,24 +27,16 @@
 #define TERMINAL_READER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/streamer/reader/terminal/entry_terminal_reader.c"
+#include "../../../../executor/streamer/reader/terminal/stream_terminal_reader.c"
 #include "../../../../logger/logger.c"
-
-#if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/streamer/reader/unix_terminal/unix_terminal_reader.c"
-#elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../executor/streamer/reader/unix_terminal/unix_terminal_reader.c"
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../../executor/streamer/reader/win32_console/win32_console_reader.c"
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
 
 /**
  * Reads data via terminal.
  *
  * @param p0 the destination item
- * @param p1 the source service identification
+ * @param p1 the source service identification data
  * @param p2 the internal memory data
  * @param p3 the blocking flag
  */
@@ -52,18 +44,13 @@ void read_terminal(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read terminal.");
 
-#if defined(__linux__) || defined(__unix__)
-    read_unix_terminal(p0, p1, p2, p3);
-#elif defined(__APPLE__) && defined(__MACH__)
-    read_unix_terminal(p0, p1, p2, p3);
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-    //?? CAUTION! Possibly move this functionality into "win32_console_deserialiser".
-    //?? See "write_terminal"!
-//??    read_win32_console(p0, p1);
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
+    // The terminal input file stream.
+    void* is = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    read_terminal_entry((void*) &is, p2, p1);
+
+    // Read data from stream.
+    read_terminal_stream(p0, is, p3);
 }
 
 /* TERMINAL_READER_SOURCE */

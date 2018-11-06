@@ -37,18 +37,16 @@
 #include "../../../../executor/accessor/getter/io_entry_getter.c"
 #include "../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../executor/copier/array_copier.c"
-#include "../../../../executor/streamer/writer/unix_terminal/stream_unix_terminal_writer.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Determines the terminal input/output entry.
  *
- * @param p0 the destination service identification
- * @param p1 the source data
- * @param p2 the source count
- * @param p3 the internal memory data
+ * @param p0 the terminal output file stream (pointer reference)
+ * @param p1 the internal memory data
+ * @param p2 the service identification
  */
-void write_terminal_entry(void* p0, void* p1, void* p2, void* p3) {
+void write_terminal_entry(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write terminal entry.");
 
@@ -63,7 +61,7 @@ void write_terminal_entry(void* p0, void* p1, void* p2, void* p3) {
     // In this case, the base internal memory index defined above
     // remains as is which is the same as a service identification of zero.
     //
-    calculate_integer_add((void*) &i, p0);
+    calculate_integer_add((void*) &i, p2);
 
     // CAUTION! Use greater-or-equal operator >=, since the first terminal has the identification zero.
     if (i >= *TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME) {
@@ -74,12 +72,9 @@ void write_terminal_entry(void* p0, void* p1, void* p2, void* p3) {
         void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get terminal input/output entry from internal memory.
-        copy_array_forward((void*) &io, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+        copy_array_forward((void*) &io, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
         if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            // The terminal output file stream.
-            void* os = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             //
             // Retrieve terminal output file stream from input/output entry.
@@ -92,10 +87,7 @@ void write_terminal_entry(void* p0, void* p1, void* p2, void* p3) {
             //
             // CAUTION! Do NOT hand over input/output entry as pointer reference.
             //
-            get_io_entry_element((void*) &os, io, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-            // Add null-termination to source data string.
-            write_terminal_termination(os, p1, p2);
+            get_io_entry_element(p0, io, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         } else {
 

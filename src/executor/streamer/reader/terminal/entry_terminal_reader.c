@@ -38,18 +38,16 @@
 #include "../../../../executor/accessor/getter/io_entry_getter.c"
 #include "../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../executor/copier/array_copier.c"
-#include "../../../../executor/streamer/reader/unix_terminal/stream_unix_terminal_reader.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Determines the terminal input/output entry.
  *
- * @param p0 the destination item
- * @param p1 the source service identification
- * @param p2 the internal memory data
- * @param p3 the blocking flag
+ * @param p0 the terminal input file stream (pointer reference)
+ * @param p1 the internal memory data
+ * @param p2 the service identification
  */
-void read_unix_terminal(void* p0, void* p1, void* p2, void* p3) {
+void read_terminal_entry(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read terminal entry.");
 
@@ -64,7 +62,7 @@ void read_unix_terminal(void* p0, void* p1, void* p2, void* p3) {
     // In this case, the base internal memory index defined above
     // remains as is which is the same as a service identification of zero.
     //
-    calculate_integer_add((void*) &i, p1);
+    calculate_integer_add((void*) &i, p2);
 
     // CAUTION! Use greater-or-equal operator >=, since the first terminal has the identification zero.
     if (i >= *TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME) {
@@ -75,12 +73,9 @@ void read_unix_terminal(void* p0, void* p1, void* p2, void* p3) {
         void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get terminal input/output entry from internal memory.
-        copy_array_forward((void*) &io, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+        copy_array_forward((void*) &io, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
         if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            // The terminal input file stream.
-            void* is = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             //
             // Retrieve terminal output file stream from input/output entry.
@@ -89,14 +84,11 @@ void read_unix_terminal(void* p0, void* p1, void* p2, void* p3) {
             // since it adapts the array count and size.
             // But the array's count and size are CONSTANT.
             //
-            // CAUTION! Hand over output file stream as pointer REFERENCE.
+            // CAUTION! Hand over file stream as pointer REFERENCE.
             //
             // CAUTION! Do NOT hand over input/output entry as pointer reference.
             //
-            get_io_entry_element((void*) &is, io, (void*) INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-            // Read data from stream.
-            read_terminal_stream(p0, is, p3);
+            get_io_entry_element(p0, io, (void*) INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         } else {
 
