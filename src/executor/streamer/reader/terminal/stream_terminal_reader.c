@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TERMINAL_READER_SOURCE
-#define TERMINAL_READER_SOURCE
+#ifndef STREAM_TERMINAL_READER_SOURCE
+#define STREAM_TERMINAL_READER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
@@ -47,9 +47,9 @@
  * @param p1 the source file stream
  * @param p2 the blocking flag
  */
-void read_terminal(void* p0, void* p1, void* p2) {
+void read_terminal_stream(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read terminal.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read terminal stream.");
 
 #if defined(__linux__) || defined(__unix__)
     read_unix_terminal_stream(p0, p1, p2);
@@ -65,5 +65,5 @@ void read_terminal(void* p0, void* p1, void* p2) {
 #endif
 }
 
-/* TERMINAL_READER_SOURCE */
+/* STREAM_TERMINAL_READER_SOURCE */
 #endif

@@ -42,7 +42,7 @@
  */
 void read_terminal(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read terminal.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read terminal.");
 
     // The terminal input file stream.
     void* is = *NULL_POINTER_STATE_CYBOI_MODEL;
