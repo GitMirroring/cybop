@@ -27,6 +27,7 @@
     <node name="costa_cordalis_-_anita" channel="file" format="element/part" model="repertoire/db/song/costa_cordalis_-_anita.cybol"/>
 
     <node name="depeche_mode_-_enjoy_the_silence" channel="file" format="element/part" model="repertoire/db/song/depeche_mode_-_enjoy_the_silence.cybol"/>
+    <node name="dieter-thomas_kuhn_-_ueber_den_wolken" channel="file" format="element/part" model="repertoire/db/song/dieter-thomas_kuhn_-_ueber_den_wolken.cybol"/>
     <node name="dire_straits_-_sultans_of_swing" channel="file" format="element/part" model="repertoire/db/song/dire_straits_-_sultans_of_swing.cybol"/>
     <node name="dj_oetzi_-_anton_aus_tirol" channel="file" format="element/part" model="repertoire/db/song/dj_oetzi_-_anton_aus_tirol.cybol"/>
     <node name="dj_oetzi_&_nik_p_-_ein_stern_(der_deinen_namen_traegt)" channel="file" format="element/part" model="repertoire/db/song/dj_oetzi_&_nik_p_-_ein_stern_(der_deinen_namen_traegt).cybol"/>

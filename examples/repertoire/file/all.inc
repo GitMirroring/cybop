@@ -586,6 +586,30 @@
         </tr>
         <tr>
             <td>
+                Dieter-Thomas Kuhn
+            </td>
+            <td>
+                &#xDC;ber Den Wolken
+            </td>
+            <td>
+                Schlager
+            </td>
+            <td>
+                1997
+            </td>
+            <td>
+                0:00
+            </td>
+            <td>
+            </td>
+            <td>
+                Chris
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Dire Straits
             </td>
             <td>

@@ -1443,5 +1443,19 @@
                 1964
             </td>
         </tr>
+        <tr>
+            <td>
+                &#xDC;ber Den Wolken
+            </td>
+            <td>
+                Dieter-Thomas Kuhn
+            </td>
+            <td>
+                Schlager
+            </td>
+            <td>
+                1997
+            </td>
+        </tr>
     </tbody>
 </table>

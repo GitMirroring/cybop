@@ -354,6 +354,9 @@
                 Costa Cordalis - Anita
             </li>
             <li>
+                Dieter-Thomas Kuhn - &#xDC;ber Den Wolken
+            </li>
+            <li>
                 DJ &#xD6;tzi &#x26; Nik P. - Ein Stern (Der Deinen Namen Tr&#xE4;gt)
             </li>
             <li>
