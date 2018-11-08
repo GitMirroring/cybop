@@ -17,15 +17,19 @@
 TUI
 ___
 
-        * Delete or leave if-block comparing with STANDARD_INPUT_STREAM_TERMINAL_MODEL in file reader and -writer (file "executor/streamer/reader/file/file_reader.c")
-
-        * Provide more keyboard input keys like "tabulator", "backspace" etc. in file "keyboard_state_cybol_name.c"
-
         * Deserialise win32 console input (also arrow keys etc.) into command, see:
             http://msdn.microsoft.com/en-us/library/windows/desktop/ms646268(v=vs.85).aspx#displaying_input
             http://cboard.cprogramming.com/windows-programming/93468-not-getting-window_buffer_size_event.html
         * Windows Data Types:
             http://msdn.microsoft.com/en-us/library/windows/desktop/aa383751%28v=vs.85%29.aspx
+
+        * Provide more keyboard input keys like "tabulator", "backspace" etc. in file "keyboard_state_cybol_name.c"
+        * Check out file "constant/model/terminal/key_code_terminal_model.c":
+            http:www.comptechdoc.org/os/linux/howlinuxworks/linux_hlkeycodes.html
+            or google:
+            gnu linux keyboard terminal keycodes mapping table
+            GNU/Linux kernel source:
+            http:www.topology.org/linux/charpath.html
 
 Serial Port
 ___________

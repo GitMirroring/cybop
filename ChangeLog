@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2018-11-08  Christian Heller  <christian.heller@cybop.org>
+
+        * Delete file "constant/model/terminal/stream_terminal_model.c"
+        * Delete if-block comparing with STANDARD_INPUT_STREAM_TERMINAL_MODEL in file "executor/streamer/reader/file/file_reader.c"
+
 2018-11-04  Christian Heller  <christian.heller@cybop.org>
 
         * Use file stream from terminal input/output entry (instead of testwise stdin/stdout directly) in terminal stream writer and reader

@@ -28,9 +28,18 @@
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-//?? Check out http://www.comptechdoc.org/os/linux/howlinuxworks/linux_hlkeycodes.html
-//?? or google: gnu linux keyboard terminal keycodes mapping table
-//?? GNU/Linux kernel source: http://www.topology.org/linux/charpath.html
+//
+//?? TODO:
+//
+// Check out:
+// http://www.comptechdoc.org/os/linux/howlinuxworks/linux_hlkeycodes.html
+//
+// or google:
+// gnu linux keyboard terminal keycodes mapping table
+//
+// GNU/Linux kernel source:
+// http://www.topology.org/linux/charpath.html
+//
 
 /** The escape key code terminal model. */
 static int ESCAPE_KEY_CODE_TERMINAL_MODEL_ARRAY[] = {1};
