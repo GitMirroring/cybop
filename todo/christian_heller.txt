@@ -17,6 +17,7 @@
 TUI
 ___
 
+        * Structure files and handle windows tui events similar to gui
         * Deserialise win32 console input (also arrow keys etc.) into command, see:
             http://msdn.microsoft.com/en-us/library/windows/desktop/ms646268(v=vs.85).aspx#displaying_input
             http://cboard.cprogramming.com/windows-programming/93468-not-getting-window_buffer_size_event.html
@@ -30,18 +31,6 @@ ___
             gnu linux keyboard terminal keycodes mapping table
             GNU/Linux kernel source:
             http:www.topology.org/linux/charpath.html
-
-Serial Port
-___________
-
-        * Create io entry array structure for serial port i/o at startup and destroy at shutdown
-
-        * Check if having to use &= or |= instead of just = everywhere flags are set,
-            e.g. in file "set_attributes_serial_port_starter.c",
-            in order to not reset already existing values in termios by accident
-
-        * serial_port: offer "crlf_termination" flag in cybol; see "adc" example application
-        * serial_port: offer sync in "stream_serial_port_sender" as flag property in cybol
 
 GUI
 ___
@@ -94,6 +83,18 @@ ___
             http://msdn.microsoft.com/en-us/library/windows/desktop/aa383751%28v=vs.85%29.aspx
 
         * Remove directory "src/windows/"
+
+Serial Port
+___________
+
+        * Create io entry array structure for serial port i/o at startup and destroy at shutdown
+
+        * Check if having to use &= or |= instead of just = everywhere flags are set,
+            e.g. in file "set_attributes_serial_port_starter.c",
+            in order to not reset already existing values in termios by accident
+
+        * serial_port: offer "crlf_termination" flag as cybol property; see "adc" example application
+        * serial_port: offer "sync" flag as cybol property in "stream_serial_port_sender"
 
 Input / Output
 ______________
@@ -534,14 +535,15 @@ _____________
             the reason is that the result value might have a count of zero (and not one as expected), if it hadn't been initialised within the corresponding cybol application
             already done for "apply_compare"; see there
 
-        * Rename file "operation_checker.c" into "lexer.c" (NOT "checker.c", since already used in "controller/")
+        Comparing two arrays (strings) lexicographically:
+        * Rename file "executor/checker/operation_checker.c" into "lexer.c" (NOT "checker.c", since already used in "controller/") ??
         * Rename all "checker" into "lexer"
         * Rename function call of "check_operation" into "lex" in all code and adapt include
 
         * Update directory "executor/container/"
 
         * Rename "internal memory" into "system memory"
-        * Rename looping files to either (1) plural + singular, e.g. shutdown_services + shutdown service or (2) container + element, e.g. shutdown_list + shutdown_element
+        * Rename looping files to either (1) plural + singular, e.g. shutdown_services (loop) + shutdown service or (2) container + element, e.g. shutdown_list (loop) + shutdown_element
 
 Hello, World!
 _____________
@@ -626,8 +628,30 @@ _________
 De-/Serialiser
 ______________
 
-        * Implement part serialiser called from file "cybol_serialiser.c"
         * Move de-/serialisers for primitive types out of directory "cybol/" up one level, since they are used not only in cybol, but in many de-/serialisers
+
+        * Implement part serialiser called from file "cybol_serialiser.c"
+
+        * Implement JSON de-/serialiser, in order to make application trees easier serialisable
+        * See directory "doc/books/cybol/syntax"
+        * Encode binary data (e.g. x-ray images in the electronic health record of a patient) into text using Base64
+        * Add the following comment into cyboi source code:
+
+        //
+        // Translation to plain text.
+        //
+        // CAUTION! This is necessary to store or send binary data through
+        // certain systems that are designed to deal with textual data only:
+        // https://en.wikipedia.org/wiki/Binary_file
+        //
+        // The Base64 binary-to-text (ASCII format) encoding schemes are used here:
+        // https://en.wikipedia.org/wiki/Base64
+        //
+        // The encoding characters used by Base64 are: A–Z, a–z, 0–9, +, /, =
+        // They also appear in Extended Binary Coded Decimals Interchange Code (EBCDIC)
+        // and may therefore be used for data exchange with non-ASCII platforms as well:
+        // https://de.wikipedia.org/wiki/Base64
+        //
 
 Logifier
 ________
@@ -693,27 +717,6 @@ _______
 
 CYBOL
 _____
-
-        * Implement JSON de-/serialiser, in order to make application trees easier serialisable
-        * See directory "doc/books/cybol/syntax"
-        * Encode binary data (e.g. x-ray images in the electronic health record of a patient) into text using Base64
-        * Add the following comment into cyboi source code:
-
-        //
-        // Translation to plain text.
-        //
-        // CAUTION! This is necessary to store or send binary data through
-        // certain systems that are designed to deal with textual data only:
-        // https://en.wikipedia.org/wiki/Binary_file
-        //
-        // The Base64 binary-to-text (ASCII format) encoding schemes are used here:
-        // https://en.wikipedia.org/wiki/Base64
-        //
-        // The encoding characters used by Base64 are: A–Z, a–z, 0–9, +, /, =
-        // They also appear in Extended Binary Coded Decimals Interchange Code (EBCDIC)
-        // and may therefore be used for data exchange with non-ASCII platforms as well:
-        // https://de.wikipedia.org/wiki/Base64
-        //
 
         * Simplify relative paths in cybol applications not expecting "examples/"
             as parent directory but using that of the application as working directory
