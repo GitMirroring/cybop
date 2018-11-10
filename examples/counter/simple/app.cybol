@@ -3,6 +3,6 @@
     <node name="count" channel="inline" format="number/integer" model="10"/>
     <node name="index" channel="inline" format="number/integer" model="1"/>
     <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
-    <node name="model" channel="file" format="element/part" model="counter/model.cybol"/>
+    <node name="model" channel="file" format="element/part" model="counter/simple/model.cybol"/>
 
 </node>

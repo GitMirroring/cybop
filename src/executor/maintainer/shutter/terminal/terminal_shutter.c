@@ -59,7 +59,14 @@ void shutdown_terminal(void* p0, void* p1) {
     // The internal memory index.
     int i = *TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME;
 
+    //
     // Calculate internal memory index using given service identification.
+    //
+    // CAUTION! If the service identification is null,
+    // then NOTHING GETS COPIED here.
+    // In this case, the base internal memory index defined above
+    // remains as is which is the same as a service identification of zero.
+    //
     calculate_integer_add((void*) &i, p1);
 
     // CAUTION! Use greater-or-equal operator >=, since the first terminal has the identification zero.

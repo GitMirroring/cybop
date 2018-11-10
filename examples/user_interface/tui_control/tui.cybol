@@ -1,19 +1,19 @@
 <node>
 
-    <node name="main" channel="file" format="element/part" model="tui_control/tui/main/window.cybol">
+    <node name="main" channel="file" format="element/part" model="user_interface/tui_control/tui/main/window.cybol">
         <node name="super" channel="inline" format="text/cybol-path" model=".settings.window"/>
         <node name="position" channel="inline" format="number/integer" model="0,0"/>
         <node name="size" channel="inline" format="number/integer" model="80,24"/>
     </node>
 
-    <node name="about" channel="file" format="element/part" model="tui_control/tui/about/window.cybol">
+    <node name="about" channel="file" format="element/part" model="user_interface/tui_control/tui/about/window.cybol">
         <node name="super" channel="inline" format="text/cybol-path" model=".settings.window"/>
         <node name="position" channel="inline" format="number/integer" model="0,0"/>
         <node name="size" channel="inline" format="number/integer" model="80,24"/>
     </node>
 
-    <node name="main_actions" channel="file" format="element/part" model="tui_control/tui/main/actions.cybol"/>
+    <node name="main_actions" channel="file" format="element/part" model="user_interface/tui_control/tui/main/actions.cybol"/>
 
-    <node name="about_actions" channel="file" format="element/part" model="tui_control/tui/about/actions.cybol"/>
+    <node name="about_actions" channel="file" format="element/part" model="user_interface/tui_control/tui/about/actions.cybol"/>
 
 </node>

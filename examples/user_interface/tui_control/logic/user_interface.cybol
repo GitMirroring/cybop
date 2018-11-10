@@ -1,16 +1,16 @@
 <node>
 
-    <node name="update" channel="file" format="element/part" model="tui_control/logic/user_interface/update.cybol"/>
+    <node name="update" channel="file" format="element/part" model="user_interface/tui_control/logic/user_interface/update.cybol"/>
 
-    <node name="focus" channel="file" format="element/part" model="tui_control/logic/user_interface/focus.cybol"/>
-    <node name="unfocus" channel="file" format="element/part" model="tui_control/logic/user_interface/unfocus.cybol"/>
+    <node name="focus" channel="file" format="element/part" model="user_interface/tui_control/logic/user_interface/focus.cybol"/>
+    <node name="unfocus" channel="file" format="element/part" model="user_interface/tui_control/logic/user_interface/unfocus.cybol"/>
 
-    <node name="select_previous" channel="file" format="element/part" model="tui_control/logic/user_interface/select_previous.cybol"/>
-    <node name="select_next" channel="file" format="element/part" model="tui_control/logic/user_interface/select_next.cybol"/>
+    <node name="select_previous" channel="file" format="element/part" model="user_interface/tui_control/logic/user_interface/select_previous.cybol"/>
+    <node name="select_next" channel="file" format="element/part" model="user_interface/tui_control/logic/user_interface/select_next.cybol"/>
 
-    <node name="enter" channel="file" format="element/part" model="tui_control/logic/user_interface/enter.cybol"/>
+    <node name="enter" channel="file" format="element/part" model="user_interface/tui_control/logic/user_interface/enter.cybol"/>
 
-    <node name="show_about" channel="file" format="element/part" model="tui_control/logic/user_interface/show_about.cybol"/>
-    <node name="hide_about" channel="file" format="element/part" model="tui_control/logic/user_interface/hide_about.cybol"/>
+    <node name="show_about" channel="file" format="element/part" model="user_interface/tui_control/logic/user_interface/show_about.cybol"/>
+    <node name="hide_about" channel="file" format="element/part" model="user_interface/tui_control/logic/user_interface/hide_about.cybol"/>
 
 </node>
