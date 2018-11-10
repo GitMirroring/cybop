@@ -11,8 +11,8 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-    // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
-    // Otherwise, it would produce huge log files filled up with useless entries.
+        CONTINUE:
+        * Reorganise cybol example application directory using sub categories
 
 TUI
 ___
@@ -203,18 +203,16 @@ _____
 CYBOL Application
 _________________
 
-        * Reorganise cybol example application directory using sub categories
-
         * Rewrite cybol example application "clean_result_directory"
             - make PIPES work in cyboi (e.g. as named pipes in the background), before continuing, needed for: n=$(ls -a $1 | wc -l);
             - continue file "remove_superfluous_element.cybol", see original script, count contained elements first, delete if > 2
             - change "verbal" into "verbose", also in cyboi interpreter
             - change "tape_archiver" into a verb, also in cyboi interpreter
         * Optimise cybol example application "presence"
-            - make datetime work in cyboi, before continuing
+            - make DATETIME and SOCKET work in cyboi, before continuing
             - use stack properties instead of duplicate loop indices etc.
         * Optimise resmedicinae application "xdt2html"
-            - make deep copy work in cyboi, before continuing
+            - ALREADY DONE: make DEEP COPY and SOCKET work in cyboi, before continuing
             - use stack properties instead of duplicate loop indices etc.
             - consider file "tmp/cybop_stack.pdf"
         * Create new web application for administrator Martin (Ausleihe Geräte auf Arbeit)

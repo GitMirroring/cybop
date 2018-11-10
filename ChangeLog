@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2018-11-10  Christian Heller  <christian.heller@cybop.org>
+
+        * Reorganise cybol example application directory using sub categories
+
 2018-11-08  Christian Heller  <christian.heller@cybop.org>
 
         * Delete file "constant/model/terminal/stream_terminal_model.c"
