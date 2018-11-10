@@ -1,0 +1,26 @@
+<node>
+
+    <node name="genres" channel="file" format="element/part" model="application/repertoire/logic/translate/genre/genres.cybol">
+        <node name="destination" channel="inline" format="text/plain" model=""/>
+        <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="count" channel="inline" format="number/integer" model="0"/>
+        <node name="index" channel="inline" format="number/integer" model="0"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.genre.genre"/>
+        <node name="name" channel="inline" format="text/plain" model="EMPTY"/>
+    </node>
+
+    <node name="genre" channel="file" format="element/part" model="application/repertoire/logic/translate/genre/genre.cybol"/>
+
+    <node name="songs" channel="file" format="element/part" model="application/repertoire/logic/translate/genre/songs.cybol">
+        <node name="destination" channel="inline" format="text/plain" model=""/>
+        <node name="source" channel="inline" format="text/plain" model=""/>
+        <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="count" channel="inline" format="number/integer" model="0"/>
+        <node name="index" channel="inline" format="number/integer" model="0"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.genre.song"/>
+        <node name="name" channel="inline" format="text/plain" model="EMPTY"/>
+    </node>
+
+    <node name="song" channel="file" format="element/part" model="application/repertoire/logic/translate/genre/song.cybol"/>
+
+</node>

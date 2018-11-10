@@ -1,6 +1,0 @@
-<node>
-
-    <node name="wui_content_project" channel="file" format="element/part" model="project_overview/logic/create/wui_content_project.cybol"/>
-    <node name="wui_toc_project" channel="file" format="element/part" model="project_overview/logic/create/wui_toc_project.cybol"/>
-
-</node>

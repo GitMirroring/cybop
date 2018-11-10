@@ -1,0 +1,65 @@
+<node>
+
+    <!-- The logic working universally for the term specified here. -->
+    <node name="reset" channel="inline" format="text/plain" model=""/>
+    <node name="identify_prefix" channel="inline" format="text/plain" model=""/>
+    <node name="identify_source" channel="inline" format="text/plain" model=""/>
+    <node name="identify" channel="inline" format="text/plain" model=""/>
+
+    <!-- The creation. -->
+    <node name="lecturers" channel="file" format="element/part" model="application/presence/var/stack.cybol"/>
+    <node name="choices" channel="file" format="element/part" model="application/presence/var/stack.cybol"/>
+
+    <!-- The translation. -->
+    <node name="db_to_wui_lecturer" channel="file" format="element/part" model="application/presence/var/stack.cybol"/>
+    <node name="db_to_wui_column" channel="file" format="element/part" model="application/presence/var/stack.cybol"/>
+    <node name="db_to_wui_reset" channel="file" format="element/part" model="application/presence/var/stack.cybol"/>
+    <node name="uri_to_db" channel="file" format="element/part" model="application/presence/var/stack.cybol"/>
+
+    <!-- The db model. -->
+    <node name="directory" channel="inline" format="text/plain" model=""/>
+    <node name="file" channel="inline" format="text/plain" model=""/>
+    <node name="dbday" channel="inline" format="text/plain" model=""/>
+    <node name="unref" channel="inline" format="text/plain" model=""/>
+    <node name="db" channel="inline" format="element/part" model=""/>
+    <node name="empty" channel="inline" format="logicvalue/boolean" model="false"/>
+
+    <!-- The calendar. -->
+    <node name="year" channel="inline" format="number/integer" model="2015"/>
+    <!--
+        TODO: The year does NOT get serialised yet and therefore HAS TO BE assigned directly here.
+        This might change in the future, when date and time are determined at runtime.
+        In this case, the value assigned here may be left empty then.
+    -->
+    <node name="year_string" channel="inline" format="text/plain" model="2015"/>
+    <node name="week" channel="inline" format="number/integer" model="23"/>
+    <node name="week_string" channel="inline" format="text/plain" model=""/>
+<!--
+    <node name="day" channel="inline" format="datetime/utc" model="2015-01-01T00:00:00"/>
+-->
+
+    <!-- Request-response-cycle. -->
+    <node name="request" channel="inline" format="element/part" model=""/>
+    <!--
+        CAUTION! The path format is "text/cybol-path" and NOT "text/plain".
+        A knowledge path is treated like a character array anyway.
+        So, text fragments may be added to it in the "handler.cybol" file.
+    -->
+    <node name="path" channel="inline" format="text/cybol-path" model=""/>
+    <node name="client_socket" channel="inline" format="number/integer" model="0"/>
+
+    <!-- The serialised webpage. -->
+    <node name="webpage" channel="inline" format="text/plain" model="">
+        <!--
+            CAUTION! The following nodes are added here DIRECTLY,
+            since it does NOT work adding them to the operation "send".
+            The reason is that the format "text/cybol-path" is used there,
+            which points to this part here, whose properties are used.
+        -->
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="server" channel="inline" format="text/cybol-path" model=".app.domain.server"/>
+        <node name="connection" channel="inline" format="text/plain" model="close"/>
+        <node name="content-type" channel="inline" format="text/plain" model="text/html"/>
+    </node>
+
+</node>

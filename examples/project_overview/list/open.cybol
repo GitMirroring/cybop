@@ -1,7 +1,0 @@
-<node>
-
-    <node name="adr-le" channel="file" format="element/part" model="project_overview/list/open/adr-le.cybol"/>
-    <node name="lasereffekt" channel="file" format="element/part" model="project_overview/list/open/lasereffekt.cybol"/>
-    <node name="matching" channel="file" format="element/part" model="project_overview/list/open/matching.cybol"/>
-
-</node>

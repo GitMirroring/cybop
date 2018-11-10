@@ -1,0 +1,45 @@
+<node>
+    <!--
+        A valid value was returned via serial port from the microcontroller.
+        Therefore, set "voltage_break" to "true", independent from checksum comparison below.
+        The loop is to be left in any case.
+    -->
+    <node name="set_break_flag" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".settings.voltage_break"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_checksum" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="file" format="element/part" model="application/indoor_climate/reset_checksum.cybol"/>
+    </node>
+    <node name="calculate_checksum" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="file" format="element/part" model="application/indoor_climate/calculate_checksum.cybol"/>
+    </node>
+<!--
+    <node name="TEST_CHECKSUM_CALCULATED" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="TEST checksum calculated:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="TEST_CHECKSUM_CALCULATED_VALUE" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/byte"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".settings.checksum"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+-->
+    <node name="compare_checksum" channel="inline" format="compare/equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".settings.checksum_criterion"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".settings.checksum"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer_checksum"/>
+    </node>
+    <node name="test_checksum" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".settings.checksum_criterion"/>
+        <node name="true" channel="file" format="element/part" model="application/indoor_climate/calculate_voltage.cybol"/>
+        <node name="false" channel="file" format="element/part" model="application/indoor_climate/report_checksum_failure.cybol"/>
+    </node>
+</node>

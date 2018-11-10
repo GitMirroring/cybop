@@ -1,8 +1,0 @@
-<node>
-
-    <node name="header_image" channel="file" format="element/part" model="presence/logic/translate/dom_to_page/header_image.cybol"/>
-    <node name="heraldic_symbol" channel="file" format="element/part" model="presence/logic/translate/dom_to_page/heraldic_symbol.cybol"/>
-    <node name="css" channel="file" format="element/part" model="presence/logic/translate/dom_to_page/css.cybol"/>
-    <node name="icon" channel="file" format="element/part" model="presence/logic/translate/dom_to_page/icon.cybol"/>
-
-</node>

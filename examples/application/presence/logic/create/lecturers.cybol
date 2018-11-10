@@ -1,0 +1,6 @@
+<node>
+
+    <node name="row" channel="file" format="element/part" model="application/presence/logic/create/lecturers/row.cybol"/>
+    <node name="rows" channel="file" format="element/part" model="application/presence/logic/create/lecturers/rows.cybol"/>
+
+</node>

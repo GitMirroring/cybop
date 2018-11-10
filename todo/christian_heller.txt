@@ -11,9 +11,6 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-        CONTINUE:
-        * Reorganise cybol example application directory using sub categories
-
 TUI
 ___
 

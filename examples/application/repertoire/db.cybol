@@ -1,0 +1,23 @@
+<node>
+
+    <!-- Database with all details -->
+<!--
+    <node name="song" channel="file" format="element/part" model="application/repertoire/db/song.cybol"/>
+    <node name="song" channel="directory" format="element/part" model="application/repertoire/db/song/"/>
+-->
+    <node name="song" channel="file" format="element/part" model="application/repertoire/db/song.cybol"/>
+    <node name="idea" channel="file" format="element/part" model="application/repertoire/db/idea.cybol"/>
+
+    <!-- Extracts from database in form of a table -->
+    <node name="all" channel="inline" format="element/part" model=""/>
+    <node name="artist" channel="inline" format="element/part" model=""/>
+    <node name="title" channel="inline" format="element/part" model=""/>
+
+    <!-- Document with sections of genres -->
+    <node name="genre" channel="file" format="element/part" model="application/repertoire/db/genre.cybol"/>
+
+    <!-- Document with dance rounds -->
+    <node name="round" channel="file" format="element/part" model="application/repertoire/db/round.cybol"/>
+    <node name="remain" channel="inline" format="element/part" model=""/>
+
+</node>

@@ -1,0 +1,11 @@
+<node>
+    <node name="heading" channel="inline" format="string" model="Basics">
+        <node name="type" channel="inline" format="knowledge" model="document_generator.styles.chapter_heading"/>
+    </node>
+    <node name="first_section" channel="file" format="cybol" model="application/document_generator/document/basics/hardware.cybol">
+        <node name="type" channel="inline" format="knowledge" model="document_generator.styles.section"/>
+    </node>
+    <node name="second_section" channel="file" format="cybol" model="application/document_generator/document/basics/software.cybol">
+        <node name="type" channel="inline" format="knowledge" model="document_generator.styles.section"/>
+    </node>
+</node>

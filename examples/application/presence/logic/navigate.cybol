@@ -1,0 +1,8 @@
+<node>
+
+    <node name="week" channel="file" format="element/part" model="application/presence/logic/navigate/week.cybol"/>
+
+    <node name="backward" channel="file" format="element/part" model="application/presence/logic/navigate/backward.cybol"/>
+    <node name="forward" channel="file" format="element/part" model="application/presence/logic/navigate/forward.cybol"/>
+
+</node>

@@ -1,0 +1,14 @@
+<node>
+
+    <node name="calendar" channel="file" format="element/part" model="application/presence/domain/calendar.cybol"/>
+    <node name="weekdays" channel="file" format="element/part" model="application/presence/domain/weekdays.cybol"/>
+
+    <node name="lecturers" channel="file" format="element/part" model="application/presence/domain/lecturers.cybol"/>
+    <node name="choices" channel="file" format="element/part" model="application/presence/domain/choices.cybol"/>
+
+    <node name="path" channel="file" format="element/part" model="application/presence/domain/path.cybol"/>
+    <node name="uri" channel="file" format="element/part" model="application/presence/domain/uri.cybol"/>
+
+    <node name="server" channel="inline" format="text/plain" model="Presence/1.0 (CYBOI/0.17.0)"/>
+
+</node>

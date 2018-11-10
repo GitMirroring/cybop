@@ -1,0 +1,132 @@
+<node>
+
+    <node name="a-ha_-_foot_of_the_mountain" channel="file" format="element/part" model="application/repertoire/db/song/a-ha_-_foot_of_the_mountain.cybol"/>
+    <node name="a-teens_-_mama_mia" channel="file" format="element/part" model="application/repertoire/db/song/a-teens_-_mama_mia.cybol"/>
+    <node name="achim_reichel_-_aloha_heja_he" channel="file" format="element/part" model="application/repertoire/db/song/achim_reichel_-_aloha_heja_he.cybol"/>
+    <node name="aerzte_-_westerland" channel="file" format="element/part" model="application/repertoire/db/song/aerzte_-_westerland.cybol"/>
+    <node name="al_corley_-_square_rooms" channel="file" format="element/part" model="application/repertoire/db/song/al_corley_-_square_rooms.cybol"/>
+    <node name="alan_parsons_project_-_eye_in_the_sky" channel="file" format="element/part" model="application/repertoire/db/song/alan_parsons_project_-_eye_in_the_sky.cybol"/>
+    <node name="alcazar_-_crying_at_the_discotheque" channel="file" format="element/part" model="application/repertoire/db/song/alcazar_-_crying_at_the_discotheque.cybol"/>
+    <node name="andreas_bourani_-_alles_nur_in_meinem_kopf" channel="file" format="element/part" model="application/repertoire/db/song/andreas_bourani_-_alles_nur_in_meinem_kopf.cybol"/>
+
+    <node name="bap_-_verdamp_lang_her" channel="file" format="element/part" model="application/repertoire/db/song/bap_-_verdamp_lang_her.cybol"/>
+    <node name="barry_manilow_-_copacabana" channel="file" format="element/part" model="application/repertoire/db/song/barry_manilow_-_copacabana.cybol"/>
+    <node name="beatles_-_ob-la-di_ob-la-da" channel="file" format="element/part" model="application/repertoire/db/song/beatles_-_ob-la-di_ob-la-da.cybol"/>
+    <node name="black_-_everything's_coming_up_roses" channel="file" format="element/part" model="application/repertoire/db/song/black_-_everything's_coming_up_roses.cybol"/>
+    <node name="bob_dylan_-_knockin'_on_heaven's_door" channel="file" format="element/part" model="application/repertoire/db/song/bob_dylan_-_knockin'_on_heaven's_door.cybol"/>
+    <node name="bronski_beat_-_smalltown_boy" channel="file" format="element/part" model="application/repertoire/db/song/bronski_beat_-_smalltown_boy.cybol"/>
+    <node name="bruce_springsteen_-_i'm_on_fire" channel="file" format="element/part" model="application/repertoire/db/song/bruce_springsteen_-_i'm_on_fire.cybol"/>
+    <node name="bryan_adams_-_run_to_you" channel="file" format="element/part" model="application/repertoire/db/song/bryan_adams_-_run_to_you.cybol"/>
+
+    <node name="calvin_harris_-_feel_so_close" channel="file" format="element/part" model="application/repertoire/db/song/calvin_harris_-_feel_so_close.cybol"/>
+    <node name="calvin_harris_-_my_way" channel="file" format="element/part" model="application/repertoire/db/song/calvin_harris_-_my_way.cybol"/>
+    <node name="ccr_-_bad_moon_rising" channel="file" format="element/part" model="application/repertoire/db/song/ccr_-_bad_moon_rising.cybol"/>
+    <node name="ccr_-_hey_tonight" channel="file" format="element/part" model="application/repertoire/db/song/ccr_-_hey_tonight.cybol"/>
+    <node name="cliff_richard_-_dreamin'" channel="file" format="element/part" model="application/repertoire/db/song/cliff_richard_-_dreamin'.cybol"/>
+    <node name="cliff_richard_-_rote_lippen_soll_man_kuessen" channel="file" format="element/part" model="application/repertoire/db/song/cliff_richard_-_rote_lippen_soll_man_kuessen.cybol"/>
+    <node name="costa_cordalis_-_anita" channel="file" format="element/part" model="application/repertoire/db/song/costa_cordalis_-_anita.cybol"/>
+
+    <node name="depeche_mode_-_enjoy_the_silence" channel="file" format="element/part" model="application/repertoire/db/song/depeche_mode_-_enjoy_the_silence.cybol"/>
+    <node name="dieter-thomas_kuhn_-_ueber_den_wolken" channel="file" format="element/part" model="application/repertoire/db/song/dieter-thomas_kuhn_-_ueber_den_wolken.cybol"/>
+    <node name="dire_straits_-_sultans_of_swing" channel="file" format="element/part" model="application/repertoire/db/song/dire_straits_-_sultans_of_swing.cybol"/>
+    <node name="dj_oetzi_-_anton_aus_tirol" channel="file" format="element/part" model="application/repertoire/db/song/dj_oetzi_-_anton_aus_tirol.cybol"/>
+    <node name="dj_oetzi_&_nik_p_-_ein_stern_(der_deinen_namen_traegt)" channel="file" format="element/part" model="application/repertoire/db/song/dj_oetzi_&_nik_p_-_ein_stern_(der_deinen_namen_traegt).cybol"/>
+    <node name="doris_day_-_whatever_will_be_will_be_(que_sera_sera)" channel="file" format="element/part" model="application/repertoire/db/song/doris_day_-_whatever_will_be_will_be_(que_sera_sera).cybol"/>
+    <node name="dschinghis_khan_-_moskau" channel="file" format="element/part" model="application/repertoire/db/song/dschinghis_khan_-_moskau.cybol"/>
+
+    <node name="eagles_-_take_it_easy" channel="file" format="element/part" model="application/repertoire/db/song/eagles_-_take_it_easy.cybol"/>
+    <node name="elton_john_-_sacrifice" channel="file" format="element/part" model="application/repertoire/db/song/elton_john_-_sacrifice.cybol"/>
+    <node name="elvis_presley_-_always_on_my_mind" channel="file" format="element/part" model="application/repertoire/db/song/elvis_presley_-_always_on_my_mind.cybol"/>
+    <node name="elvis_presley_-_are_you_lonesome_tonight" channel="file" format="element/part" model="application/repertoire/db/song/elvis_presley_-_are_you_lonesome_tonight.cybol"/>
+    <node name="erasure_-_ship_of_fools" channel="file" format="element/part" model="application/repertoire/db/song/erasure_-_ship_of_fools.cybol"/>
+    <node name="eric_clapton_-_lay_down_sally" channel="file" format="element/part" model="application/repertoire/db/song/eric_clapton_-_lay_down_sally.cybol"/>
+    <node name="eric_clapton_-_promises" channel="file" format="element/part" model="application/repertoire/db/song/eric_clapton_-_promises.cybol"/>
+    <node name="eric_clapton_-_wonderful_tonight" channel="file" format="element/part" model="application/repertoire/db/song/eric_clapton_-_wonderful_tonight.cybol"/>
+
+    <node name="fiction_factory_-_feels_like_heaven" channel="file" format="element/part" model="application/repertoire/db/song/fiction_factory_-_feels_like_heaven.cybol"/>
+    <node name="frank_sinatra_-_strangers_in_the_night" channel="file" format="element/part" model="application/repertoire/db/song/frank_sinatra_-_strangers_in_the_night.cybol"/>
+    <node name="fugees_-_killing_me_softly" channel="file" format="element/part" model="application/repertoire/db/song/fugees_-_killing_me_softly.cybol"/>
+
+    <node name="gibson_brothers_-_que_sera_mi_vida" channel="file" format="element/part" model="application/repertoire/db/song/gibson_brothers_-_que_sera_mi_vida.cybol"/>
+    <node name="gottlieb_wendehals_-_polonaese_blankenese" channel="file" format="element/part" model="application/repertoire/db/song/gottlieb_wendehals_-_polonaese_blankenese.cybol"/>
+
+    <node name="hans_albers_-_auf_der_reeperbahn_nachts_um_halb_eins" channel="file" format="element/part" model="application/repertoire/db/song/hans_albers_-_auf_der_reeperbahn_nachts_um_halb_eins.cybol"/>
+    <node name="heinz-rudolf_kunze_-_dein_ist_mein_ganzes_herz" channel="file" format="element/part" model="application/repertoire/db/song/heinz-rudolf_kunze_-_dein_ist_mein_ganzes_herz.cybol"/>
+    <node name="heroes_del_silencio_-_entre_dos_tierras" channel="file" format="element/part" model="application/repertoire/db/song/heroes_del_silencio_-_entre_dos_tierras.cybol"/>
+    <node name="howard_carpendale_-_hello_again" channel="file" format="element/part" model="application/repertoire/db/song/howard_carpendale_-_hello_again.cybol"/>
+
+    <node name="joachim_witt_-_goldener_reiter" channel="file" format="element/part" model="application/repertoire/db/song/joachim_witt_-_goldener_reiter.cybol"/>
+    <node name="john_denver_-_country_roads" channel="file" format="element/part" model="application/repertoire/db/song/john_denver_-_country_roads.cybol"/>
+    <node name="john_paul_young_-_love_is_in_the_air" channel="file" format="element/part" model="application/repertoire/db/song/john_paul_young_-_love_is_in_the_air.cybol"/>
+
+    <node name="katrina_&_the_waves_-_walking_on_sunshine" channel="file" format="element/part" model="application/repertoire/db/song/katrina_&_the_waves_-_walking_on_sunshine.cybol"/>
+    <node name="keimzeit_-_kling_klang" channel="file" format="element/part" model="application/repertoire/db/song/keimzeit_-_kling_klang.cybol"/>
+    <node name="kiss_-_i_was_made_for_loving_you" channel="file" format="element/part" model="application/repertoire/db/song/kiss_-_i_was_made_for_loving_you.cybol"/>
+    <node name="klaus_lage_band_-_1000_und_1_nacht_(zoom!)" channel="file" format="element/part" model="application/repertoire/db/song/klaus_lage_band_-_1000_und_1_nacht_(zoom!).cybol"/>
+    <node name="klaus-renft-combo_-_apfeltraum" channel="file" format="element/part" model="application/repertoire/db/song/klaus-renft-combo_-_apfeltraum.cybol"/>
+
+    <node name="la's_-_there_she_goes" channel="file" format="element/part" model="application/repertoire/db/song/la's_-_there_she_goes.cybol"/>
+    <node name="londonbeat_-_i've_been_thinking_about_you" channel="file" format="element/part" model="application/repertoire/db/song/londonbeat_-_i've_been_thinking_about_you.cybol"/>
+    <node name="lost_frequencies_feat_janieck_devy_-_reality" channel="file" format="element/part" model="application/repertoire/db/song/lost_frequencies_feat_janieck_devy_-_reality.cybol"/>
+    <node name="louis_armstrong_-_moonriver" channel="file" format="element/part" model="application/repertoire/db/song/louis_armstrong_-_moonriver.cybol"/>
+    <node name="louis_armstrong_-_what_a_wonderful_world" channel="file" format="element/part" model="application/repertoire/db/song/louis_armstrong_-_what_a_wonderful_world.cybol"/>
+
+    <node name="marius_mueller-westernhagen_-_willenlos" channel="file" format="element/part" model="application/repertoire/db/song/marius_mueller-westernhagen_-_willenlos.cybol"/>
+    <node name="mavericks_-_foolish_heart" channel="file" format="element/part" model="application/repertoire/db/song/mavericks_-_foolish_heart.cybol"/>
+    <node name="men_at_work_-_who_can_it_be_now" channel="file" format="element/part" model="application/repertoire/db/song/men_at_work_-_who_can_it_be_now.cybol"/>
+    <node name="mikis_theodorakis_-_zorba's_dance" channel="file" format="element/part" model="application/repertoire/db/song/mikis_theodorakis_-_zorba's_dance.cybol"/>
+    <node name="moby_-_lift_me_up" channel="file" format="element/part" model="application/repertoire/db/song/moby_-_lift_me_up.cybol"/>
+    <node name="muenchener_freiheit_-_herzschlag_ist_der_takt" channel="file" format="element/part" model="application/repertoire/db/song/muenchener_freiheit_-_herzschlag_ist_der_takt.cybol"/>
+    <node name="muenchener_freiheit_-_tausendmal_du" channel="file" format="element/part" model="application/repertoire/db/song/muenchener_freiheit_-_tausendmal_du.cybol"/>
+
+    <node name="nek_-_laura_non_c'e" channel="file" format="element/part" model="application/repertoire/db/song/nek_-_laura_non_c'e.cybol"/>
+    <node name="nick_kamen_-_i_promised_myself" channel="file" format="element/part" model="application/repertoire/db/song/nick_kamen_-_i_promised_myself.cybol"/>
+    <node name="nick_straker_band_-_a_walk_in_the_park" channel="file" format="element/part" model="application/repertoire/db/song/nick_straker_band_-_a_walk_in_the_park.cybol"/>
+
+    <node name="paul_kuhn_-_es_gibt_kein_bier_auf_hawaii" channel="file" format="element/part" model="application/repertoire/db/song/paul_kuhn_-_es_gibt_kein_bier_auf_hawaii.cybol"/>
+    <node name="peter_maffay_-_eiszeit" channel="file" format="element/part" model="application/repertoire/db/song/peter_maffay_-_eiszeit.cybol"/>
+    <node name="peter_kraus_-_hello_mary_lou" channel="file" format="element/part" model="application/repertoire/db/song/peter_kraus_-_hello_mary_lou.cybol"/>
+    <node name="phil_collins_-_you'll_be_in_my_heart" channel="file" format="element/part" model="application/repertoire/db/song/phil_collins_-_you'll_be_in_my_heart.cybol"/>
+    <node name="philipp_dittberner_&_marv_-_wolke_4" channel="file" format="element/part" model="application/repertoire/db/song/philipp_dittberner_&_marv_-_wolke_4.cybol"/>
+    <node name="police_-_every_breath_you_take" channel="file" format="element/part" model="application/repertoire/db/song/police_-_every_breath_you_take.cybol"/>
+    <node name="purple_schulz_-_du_hast_mir_gerade_noch_gefehlt" channel="file" format="element/part" model="application/repertoire/db/song/purple_schulz_-_du_hast_mir_gerade_noch_gefehlt.cybol"/>
+    <node name="purple_schulz_-_kleine_seen" channel="file" format="element/part" model="application/repertoire/db/song/purple_schulz_-_kleine_seen.cybol"/>
+
+    <node name="rainhard_fendrich_-_macho_macho" channel="file" format="element/part" model="application/repertoire/db/song/rainhard_fendrich_-_macho_macho.cybol"/>
+    <node name="ricky_nelson_-_hello_mary_lou" channel="file" format="element/part" model="application/repertoire/db/song/ricky_nelson_-_hello_mary_lou.cybol"/>
+    <node name="robbie_williams_-_angels" channel="file" format="element/part" model="application/repertoire/db/song/robbie_williams_-_angels.cybol"/>
+    <node name="roy_orbison_-_i_drove_all_night" channel="file" format="element/part" model="application/repertoire/db/song/roy_orbison_-_i_drove_all_night.cybol"/>
+    <node name="rudi_schuricke_-_capri_fischer" channel="file" format="element/part" model="application/repertoire/db/song/rudi_schuricke_-_capri_fischer.cybol"/>
+
+    <node name="scott_mc_kenzie_-_san_francisco" channel="file" format="element/part" model="application/repertoire/db/song/scott_mc_kenzie_-_san_francisco.cybol"/>
+    <node name="sheppard_-_geronimo" channel="file" format="element/part" model="application/repertoire/db/song/sheppard_-_geronimo.cybol"/>
+    <node name="simply_red_-_something_got_me_started" channel="file" format="element/part" model="application/repertoire/db/song/simply_red_-_something_got_me_started.cybol"/>
+    <node name="soulsister_-_the_way_to_your_heart" channel="file" format="element/part" model="application/repertoire/db/song/soulsister_-_the_way_to_your_heart.cybol"/>
+    <node name="sportfreunde_stiller_-_ein_kompliment" channel="file" format="element/part" model="application/repertoire/db/song/sportfreunde_stiller_-_ein_kompliment.cybol"/>
+    <node name="steinwolke_-_katharine_katharine" channel="file" format="element/part" model="application/repertoire/db/song/steinwolke_-_katharine_katharine.cybol"/>
+    <node name="sunrise_avenue_-_hollywood_hills_forever" channel="file" format="element/part" model="application/repertoire/db/song/sunrise_avenue_-_hollywood_hills_forever.cybol"/>
+
+    <node name="tom_petty_-_i_won't_back_down" channel="file" format="element/part" model="application/repertoire/db/song/tom_petty_-_i_won't_back_down.cybol"/>
+    <node name="tom_petty_-_learning_to_fly" channel="file" format="element/part" model="application/repertoire/db/song/tom_petty_-_learning_to_fly.cybol"/>
+    <node name="toto_-_africa" channel="file" format="element/part" model="application/repertoire/db/song/toto_-_africa.cybol"/>
+    <node name="toto_-_child's_anthem" channel="file" format="element/part" model="application/repertoire/db/song/toto_-_child's_anthem.cybol"/>
+    <node name="twins_-_not_the_loving_kind" channel="file" format="element/part" model="application/repertoire/db/song/twins_-_not_the_loving_kind.cybol"/>
+
+    <node name="udo_juergens_-_aber_bitte_mit_sahne" channel="file" format="element/part" model="application/repertoire/db/song/udo_juergens_-_aber_bitte_mit_sahne.cybol"/>
+    <node name="udo_juergens_-_griechischer_wein" channel="file" format="element/part" model="application/repertoire/db/song/udo_juergens_-_griechischer_wein.cybol"/>
+    <node name="udo_juergens_-_ich_war_noch_niemals_in_new_york" channel="file" format="element/part" model="application/repertoire/db/song/udo_juergens_-_ich_war_noch_niemals_in_new_york.cybol"/>
+    <node name="udo_juergens_-_mit_66_jahren" channel="file" format="element/part" model="application/repertoire/db/song/udo_juergens_-_mit_66_jahren.cybol"/>
+    <node name="udo_juergens_-_wilde_kirschen" channel="file" format="element/part" model="application/repertoire/db/song/udo_juergens_-_wilde_kirschen.cybol"/>
+    <node name="udo_lindenberg_-_mein_ding" channel="file" format="element/part" model="application/repertoire/db/song/udo_lindenberg_-_mein_ding.cybol"/>
+    <node name="ultravox_-_dancing_with_tears_in_my_eyes" channel="file" format="element/part" model="application/repertoire/db/song/ultravox_-_dancing_with_tears_in_my_eyes.cybol"/>
+
+    <node name="village_people_-_y_m_c_a" channel="file" format="element/part" model="application/repertoire/db/song/village_people_-_y_m_c_a.cybol"/>
+    <node name="volkslied_-_hoch_auf_dem_gelben_wagen" channel="file" format="element/part" model="application/repertoire/db/song/volkslied_-_hoch_auf_dem_gelben_wagen.cybol"/>
+    <node name="volkslied_-_kufsteiner_lied" channel="file" format="element/part" model="application/repertoire/db/song/volkslied_-_kufsteiner_lied.cybol"/>
+    <node name="volkslied_-_muss_i_denn_muss_i_denn_zum_staedtele_hinaus" channel="file" format="element/part" model="application/repertoire/db/song/volkslied_-_muss_i_denn_muss_i_denn_zum_staedtele_hinaus.cybol"/>
+    <node name="volkslied_-_rosamunde" channel="file" format="element/part" model="application/repertoire/db/song/volkslied_-_rosamunde.cybol"/>
+    <node name="volkslied_-_what_shall_we_do_with_the_drunken_sailor" channel="file" format="element/part" model="application/repertoire/db/song/volkslied_-_what_shall_we_do_with_the_drunken_sailor.cybol"/>
+
+    <node name="wolfgang_petry_-_wahnsinn" channel="file" format="element/part" model="application/repertoire/db/song/wolfgang_petry_-_wahnsinn.cybol"/>
+
+</node>

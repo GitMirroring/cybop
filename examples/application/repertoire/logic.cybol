@@ -1,0 +1,12 @@
+<node>
+
+    <node name="translate" channel="file" format="element/part" model="application/repertoire/logic/translate.cybol"/>
+
+    <node name="generate" channel="file" format="element/part" model="application/repertoire/logic/generate.cybol">
+        <node name="knowledge" channel="inline" format="text/cybol-path" model=""/>
+        <node name="filename" channel="inline" format="text/plain" model=""/>
+    </node>
+
+    <node name="execute" channel="file" format="element/part" model="application/repertoire/logic/execute.cybol"/>
+
+</node>

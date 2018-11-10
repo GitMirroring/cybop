@@ -1,0 +1,12 @@
+<node>
+
+    <node name="toc" channel="file" format="element/part" model="application/project_overview/wui/page/toc.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="div"/>
+        <node name="id" channel="inline" format="text/plain" model="toc"/>
+    </node>
+    <node name="content" channel="file" format="element/part" model="application/project_overview/wui/page/content.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="div"/>
+        <node name="id" channel="inline" format="text/plain" model="content"/>
+    </node>
+
+</node>

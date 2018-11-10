@@ -1,0 +1,7 @@
+<node>
+
+    <node name="var" channel="file" format="element/part" model="application/clean_result_directory/var.cybol"/>
+    <node name="list" channel="file" format="element/part" model="application/clean_result_directory/list.cybol"/>
+    <node name="logic" channel="file" format="element/part" model="application/clean_result_directory/logic.cybol"/>
+
+</node>

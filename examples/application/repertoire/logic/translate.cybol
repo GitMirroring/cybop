@@ -1,0 +1,7 @@
+<node>
+
+    <node name="song" channel="file" format="element/part" model="application/repertoire/logic/translate/song.cybol"/>
+    <node name="genre" channel="file" format="element/part" model="application/repertoire/logic/translate/genre.cybol"/>
+    <node name="round" channel="file" format="element/part" model="application/repertoire/logic/translate/round.cybol"/>
+
+</node>

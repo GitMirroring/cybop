@@ -1,0 +1,78 @@
+<node>
+
+    <!-- Duplicate song list. -->
+
+    <!--
+        CAUTION! Cloning it here in memory is much faster
+        than receiving it a second time from some file.
+    -->
+    <node name="duplicate_songs" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".db.(#list)"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".db.song"/>
+    </node>
+
+    <!-- Sort duplicated song list -->
+
+    <node name="sort_list" channel="inline" format="text/cybol-path" model=".logic.translate.song.sort"/>
+
+    <!-- Create wui table head and body -->
+
+    <node name="create_wui_head" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="head"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="whole" channel="inline" format="text/cybol-path" model=".wui.(#list)"/>
+    </node>
+    <node name="create_wui_body" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="body"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="whole" channel="inline" format="text/cybol-path" model=".wui.(#list)"/>
+    </node>
+
+    <!-- Initialise wui table head and body -->
+
+    <node name="initialise_wui_head_model" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model="#head"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.(#list).head"/>
+    </node>
+    <node name="initialise_wui_head_properties" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/property"/>
+        <node name="sender" channel="inline" format="text/plain" model="application/repertoire/wui/song/head_properties.cybol"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.(#list).head"/>
+    </node>
+    <!-- CAUTION! The wui table body model remains initially empty -->
+    <node name="initialise_wui_body_properties" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/property"/>
+        <node name="sender" channel="inline" format="text/plain" model="application/repertoire/wui/song/body_properties.cybol"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.(#list).body"/>
+    </node>
+
+    <!-- Iterate through database -->
+
+    <node name="count_nodes" channel="inline" format="access/count" model="">
+        <node name="count" channel="inline" format="text/cybol-path" model="#count"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".db.(#list)"/>
+    </node>
+
+    <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
+    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="#index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model="#count"/>
+    </node>
+
+    <node name="loop_nodes" channel="inline" format="flow/loop" model="">
+        <node name="break" channel="inline" format="text/cybol-path" model="#break"/>
+        <node name="model" channel="inline" format="text/cybol-path" model="#model"/>
+    </node>
+
+</node>

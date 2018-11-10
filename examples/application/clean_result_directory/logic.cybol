@@ -1,0 +1,23 @@
+<node>
+
+    <node name="determine_klaus_path" channel="file" format="element/part" model="application/clean_result_directory/logic/determine_klaus_path.cybol"/>
+    <node name="check_empty_home_directory" channel="file" format="element/part" model="application/clean_result_directory/logic/check_empty_home_directory.cybol"/>
+
+    <node name="remove_superfluous" channel="file" format="element/part" model="application/clean_result_directory/logic/remove_superfluous.cybol">
+        <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="count" channel="inline" format="number/integer" model="0"/>
+        <node name="index" channel="inline" format="number/integer" model="0"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".logic.remove_superfluous_element"/>
+    </node>
+    <node name="remove_superfluous_element" channel="file" format="element/part" model="application/clean_result_directory/logic/remove_superfluous_element.cybol"/>
+
+    <node name="remove_empty" channel="file" format="element/part" model="application/clean_result_directory/logic/remove_empty.cybol">
+        <!-- The loop parametres. There are 50 sub directories for users klaus1 to klaus50. -->
+        <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="count" channel="inline" format="number/integer" model="50"/>
+        <node name="index" channel="inline" format="number/integer" model="1"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".logic.remove_empty_element"/>
+    </node>
+    <node name="remove_empty_element" channel="file" format="element/part" model="application/clean_result_directory/logic/remove_empty_element.cybol"/>
+
+</node>

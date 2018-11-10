@@ -1,6 +1,0 @@
-<node>
-
-    <node name="loop" channel="file" format="element/part" model="presence/var/loop.cybol"/>
-    <node name="element" channel="file" format="element/part" model="presence/var/element.cybol"/>
-
-</node>

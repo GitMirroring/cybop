@@ -1,0 +1,7 @@
+<node>
+
+    <node name="open" channel="file" format="element/part" model="application/project_overview/list/open.cybol"/>
+    <node name="extensible" channel="file" format="element/part" model="application/project_overview/list/extensible.cybol"/>
+    <node name="closed" channel="file" format="element/part" model="application/project_overview/list/closed.cybol"/>
+
+</node>

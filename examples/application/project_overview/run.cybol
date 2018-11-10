@@ -1,0 +1,48 @@
+<node>
+
+    <node name="initialise_application" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="sender" channel="inline" format="text/plain" model="application/project_overview/app.cybol"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
+    </node>
+
+<!--
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
+        <node name="receiver" channel="inline" format="text/plain" model="test_project_overview.txt"/>
+    </node>
+-->
+
+    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </node>
+
+    <node name="translate_list_to_wui" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.list"/>
+    </node>
+
+<!--
+-->
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
+        <node name="receiver" channel="inline" format="text/plain" model="test_project_overview_with_wui.txt"/>
+    </node>
+
+    <node name="generate_html" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="text/cybol-path" model=".logic.generate.wui"/>
+    </node>
+
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
+</node>

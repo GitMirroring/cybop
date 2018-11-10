@@ -1,0 +1,67 @@
+<node>
+
+    <node name="var" channel="file" format="element/part" model="application/password_generator/var.cybol"/>
+
+    <node name="startpw" channel="file" format="element/part" model="application/password_generator/startpw.cybol"/>
+    <node name="inputnewpw" channel="file" format="element/part" model="application/password_generator/inputnewpw.cybol"/>
+    <node name="checknewpw" channel="file" format="element/part" model="application/password_generator/checknewpw.cybol"/>
+    <node name="initialising" channel="file" format="element/part" model="application/password_generator/initialising.cybol"/>
+    <node name="auswahl" channel="file" format="element/part" model="application/password_generator/auswahl.cybol"/>
+    <node name="print_auswahl" channel="file" format="element/part" model="application/password_generator/print_auswahl.cybol"/>
+
+    <node name="10_laenge" channel="file" format="element/part" model="application/password_generator/10_laenge.cybol"/>
+    <node name="10_laenge_check" channel="file" format="element/part" model="application/password_generator/10_laenge_check.cybol"/>
+
+    <node name="11_klein" channel="file" format="element/part" model="application/password_generator/11_klein.cybol"/>
+    <node name="11_klein_check" channel="file" format="element/part" model="application/password_generator/11_klein_check.cybol"/>
+
+    <node name="12_gross" channel="file" format="element/part" model="application/password_generator/12_gross.cybol"/>
+    <node name="12_gross_check" channel="file" format="element/part" model="application/password_generator/12_gross_check.cybol"/>
+
+    <node name="13_zahlen" channel="file" format="element/part" model="application/password_generator/13_zahlen.cybol"/>
+    <node name="13_zahlen_check" channel="file" format="element/part" model="application/password_generator/13_zahlen_check.cybol"/>
+
+    <node name="14_sonder" channel="file" format="element/part" model="application/password_generator/14_sonder.cybol"/>
+    <node name="14_sonder_check" channel="file" format="element/part" model="application/password_generator/14_sonder_check.cybol"/>
+
+    <node name="15_zufall" channel="file" format="element/part" model="application/password_generator/15_zufall.cybol"/>
+    <node name="15_zufall_klein" channel="file" format="element/part" model="application/password_generator/15_zufall_klein.cybol"/>
+    <node name="15_zufall_gross" channel="file" format="element/part" model="application/password_generator/15_zufall_gross.cybol"/>
+    <node name="15_zufall_zahlen" channel="file" format="element/part" model="application/password_generator/15_zufall_zahlen.cybol"/>
+    <node name="15_zufall_sonder" channel="file" format="element/part" model="application/password_generator/15_zufall_sonder.cybol"/>
+
+    //loop1
+    <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="count" channel="inline" format="number/integer" model="1"/>
+    <node name="maximum" channel="inline" format="number/integer" model="2"/>
+    <node name="model" channel="file" format="element/part" model="application/password_generator/model.cybol"/>
+
+    <node name="exit" channel="file" format="element/part" model="application/password_generator/exit.cybol"/>
+
+<!--
+   !<node name="var" channel="file" format="element/part" model="application/password_generator/var.cybol"/>
+
+    <node name="checkdraw" channel="file" format="element/part" model="tictactoe/checkdraw.cybol"/>
+    <node name="computerinput" channel="file" format="element/part" model="tictactoe/computerinput.cybol"/>
+    <node name="checkcomputerinput" channel="file" format="element/part" model="tictactoe/checkcomputerinput.cybol"/>
+    <node name="setrandom" channel="file" format="element/part" model="tictactoe/setrandom.cybol"/>
+    <node name="checkloose" channel="file" format="element/part" model="tictactoe/checkloose.cybol"/>
+    <node name="playerloose" channel="file" format="element/part" model="tictactoe/playerloose.cybol"/>
+    <node name="playerwin" channel="file" format="element/part" model="tictactoe/playerwin.cybol"/>
+    <node name="checkplayerinput" channel="file" format="element/part" model="tictactoe/checkplayerinput.cybol"/>
+    <node name="playerinput" channel="file" format="element/part" model="tictactoe/playerinput.cybol"/>
+    <node name="setfields" channel="file" format="element/part" model="tictactoe/setfields.cybol"/>
+    <node name="checkwin" channel="file" format="element/part" model="tictactoe/checkwin.cybol"/>
+    <node name="draw" channel="file" format="element/part" model="tictactoe/draw.cybol"/>
+    <node name="computerturn" channel="file" format="element/part" model="tictactoe/computerturn.cybol"/>
+    <node name="playerturn" channel="file" format="element/part" model="tictactoe/playerturn.cybol"/>
+   !<node name="startgame" channel="file" format="element/part" model="tictactoe/startgame.cybol"/>
+    <node name="printfield" channel="file" format="element/part" model="tictactoe/printfield.cybol"/>
+   !<node name="checknewgame" channel="file" format="element/part" model="tictactoe/checknewgame.cybol"/>
+   !<node name="inputnewgame" channel="file" format="element/part" model="tictactoe/inputnewgame.cybol"/>
+   !<node name="initialising" channel="file" format="element/part" model="tictactoe/initialising.cybol"/>
+
+   !<node name="exit" channel="file" format="element/part" model="tictactoe/exit.cybol"/>
+-->
+
+</node>

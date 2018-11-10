@@ -1,0 +1,30 @@
+<node>
+    <node name="create_settings" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="settings"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+         
+    </node>
+    <node name="initialise_settings" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="sender" channel="inline" format="text/plain" model="application/adc/settings.cybol"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".settings"/>
+    </node>
+    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </node>
+    <node name="startup_serial_port" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="text/cybol-path" model=".settings.device"/>
+        <node name="filename" channel="inline" format="text/cybol-path" model=".settings.device_filename"/>
+        <node name="baudrate" channel="inline" format="text/cybol-path" model=".settings.device_baudrate"/>
+    </node>
+    <node name="read_adc" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="file" format="element/part" model="application/adc/read_adc.cybol"/>
+    </node>
+    <node name="shutdown_serial_port" channel="inline" format="maintain/shutdown" model="">
+        <node name="channel" channel="inline" format="text/cybol-path" model=".settings.device"/>
+    </node>
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
+</node>

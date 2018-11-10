@@ -1,8 +1,0 @@
-<node>
-    <node name="document" channel="file" format="cybol" model="document_generator/document.cybol">
-        <node name="font_size" channel="file" format="cybol" model="document_generator/document/meta/font_size.cybol"/>
-        <node name="paper_size" channel="inline" format="string" model="dina4"/>
-        <node name="page_style" channel="inline" format="string" model="twoside"/>
-        <node name="type" channel="inline" format="string" model="book"/>
-    </node>
-</node>

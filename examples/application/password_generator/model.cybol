@@ -1,0 +1,223 @@
+<node>
+
+//sleep
+    <node name="execute_shell_script" channel="inline" format="run/run" model="">
+        <node name="programme" channel="file" format="text/plain" model="application/password_generator/sleep_timer.sh"/>
+    </node>
+
+
+    <node name="create_seed" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="seed"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+
+    </node>
+    <node name="create_number" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="number"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+
+    </node>
+
+    <node name="initialise_seed" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".seed"/>
+        <node name="source" channel="inline" format="number/integer" model="0"/>
+    </node>
+    <node name="initialise_number" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".number"/>
+        <node name="source" channel="inline" format="number/integer" model="0"/>
+    </node>
+
+    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </node>
+
+    <!--
+        Operation calls using the same seed deliver identical pseudo random numbers.
+        Ideally, the seed should change with every call, in C syntax e.g.: srand(time(0)).
+        Therefore, the current time is determined as seed here.
+    -->
+    <node name="get_time" channel="inline" format="time/current" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".seed"/>
+    </node>
+    <!--
+        By default, the current time is used as seed below:
+        <node name="seed" channel="inline" format="text/cybol-path" model=".seed"/>
+        Alternatively, a fixed integer number may be used as seed, e.g.:
+        <node name="seed" channel="inline" format="number/integer" model="5"/>
+    -->
+    <node name="set_seed" channel="inline" format="randomise/sow" model="">
+        <node name="seed" channel="inline" format="text/cybol-path" model=".seed"/>
+    </node>
+
+    <node name="get_random_number_1" channel="inline" format="randomise/retrieve" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".number"/>
+        <node name="minimum" channel="inline" format="number/integer" model="1"/>
+        <node name="maximum" channel="inline" format="number/integer" model="4"/>
+    </node>
+
+
+
+
+//klein
+    <node name="create_klein" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="klein"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+
+    </node>
+
+    <node name="initialise_klein" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".klein"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+//Abfrage 1
+    <node name="comparison1" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="text/cybol-path" model=".number"/>
+        <node name="right" channel="inline" format="number/integer" model="1"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".klein"/>
+    </node>
+
+
+//If-Abfrage 1
+    <node name="if-then-else1" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.flag_klein_y"/>
+        <node name="true" channel="inline" format="text/cybol-path" model="if-then-else2"/>
+        <node name="false" channel="inline" format="text/cybol-path" model="if-then-else3"/>
+    </node>
+
+    <node name="if-then-else2" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".klein"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.15_zufall_klein"/>
+        <node name="false" channel="inline" format="text/cybol-path" model=""/>
+    </node>
+
+
+
+
+
+
+
+//goss
+    <node name="create_gross" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="gross"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+
+    </node>
+
+    <node name="initialise_gross" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".gross"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+//Abfrage 2
+    <node name="comparison2" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="text/cybol-path" model=".number"/>
+        <node name="right" channel="inline" format="number/integer" model="2"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".gross"/>
+    </node>
+
+
+//If-Abfrage 2
+    <node name="if-then-else3" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.flag_gross_y"/>
+        <node name="true" channel="inline" format="text/cybol-path" model="if-then-else4"/>
+        <node name="false" channel="inline" format="text/cybol-path" model=""/>
+    </node>
+
+    <node name="if-then-else4" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".gross"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.15_zufall_gross"/>
+        <node name="false" channel="inline" format="text/cybol-path" model=""/>
+    </node>
+
+
+
+
+
+
+//zahlen
+    <node name="create_zahlen" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="zahlen"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+
+    </node>
+
+    <node name="initialise_zahlen" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".zahlen"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+//Abfrage 3
+    <node name="comparison3" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="text/cybol-path" model=".number"/>
+        <node name="right" channel="inline" format="number/integer" model="3"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".zahlen"/>
+    </node>
+
+
+//If-Abfrage 3
+    <node name="if-then-else5" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.flag_zahlen_y"/>
+        <node name="true" channel="inline" format="text/cybol-path" model="if-then-else6"/>
+        <node name="false" channel="inline" format="text/cybol-path" model=""/>
+    </node>
+
+    <node name="if-then-else6" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".zahlen"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.15_zufall_zahlen"/>
+        <node name="false" channel="inline" format="text/cybol-path" model=""/>
+    </node>
+
+
+
+
+
+//sonder
+    <node name="create_sonder" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="sonder"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+
+    </node>
+
+    <node name="initialise_sonder" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".sonder"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+//Abfrage 4
+    <node name="comparison4" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="text/cybol-path" model=".number"/>
+        <node name="right" channel="inline" format="number/integer" model="4"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".sonder"/>
+    </node>
+
+
+//If-Abfrage 4
+    <node name="if-then-else7" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.flag_sonder_y"/>
+        <node name="true" channel="inline" format="text/cybol-path" model="if-then-else8"/>
+        <node name="false" channel="inline" format="text/cybol-path" model=""/>
+    </node>
+
+    <node name="if-then-else8" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".sonder"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.15_zufall_sonder"/>
+        <node name="false" channel="inline" format="text/cybol-path" model=""/>
+    </node>
+
+
+
+
+//increment
+    <node name="increment_loop_count" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.count"/>
+        <node name="operand" channel="inline" format="number/integer" model="1"/>
+    </node>
+
+
+    <!-- CAUTION! The break condition has to be GREATER-tested AFTER having incremented the loop count, since this is a post-test loop. -->
+    <node name="compare_loop_count" channel="inline" format="compare/greater" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.count"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
+    </node>
+</node>

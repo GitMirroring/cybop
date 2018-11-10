@@ -1,0 +1,18 @@
+<node>
+    <node name="title_page" channel="file" format="cybol" model="application/document_generator/document/title_page.cybol">
+        <node name="type" channel="inline" format="string" model="title_page"/>
+        <node name="position" channel="inline" format="integer" model="1"/>
+    </node>
+    <node name="introduction" channel="file" format="cybol" model="application/document_generator/document/introduction.cybol">
+        <node name="type" channel="inline" format="string" model="chapter"/>
+        <node name="position" channel="inline" format="integer" model="2"/>
+    </node>
+    <node name="basics" channel="file" format="cybol" model="application/document_generator/document/basics.cybol">
+        <node name="type" channel="inline" format="string" model="chapter"/>
+        <node name="position" channel="inline" format="integer" model="3"/>
+    </node>
+    <node name="appendices" channel="file" format="cybol" model="application/document_generator/document/appendices.cybol">
+        <node name="type" channel="inline" format="string" model="chapter"/>
+        <node name="position" channel="inline" format="integer" model="4"/>
+    </node>
+</node>
