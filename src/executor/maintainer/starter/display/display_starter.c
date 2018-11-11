@@ -33,7 +33,7 @@
     #include "../../../../executor/maintainer/starter/x_window_system/x_window_system_starter.c"
 #elif defined(__APPLE__) && defined(__MACH__)
 //??    #include "../../../../executor/maintainer/starter/darwin_display/darwin_display_starter.c"
-    // Add cocoa support for apple
+    //?? TODO: Add cocoa support for apple.
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../../../executor/maintainer/starter/win32_display/win32_display_starter.c"

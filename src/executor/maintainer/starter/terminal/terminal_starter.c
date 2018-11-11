@@ -80,6 +80,8 @@ void startup_terminal(void* p0, void* p1) {
 
         if (io == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+            // A terminal does NOT yet exist in internal memory.
+
             // The terminal output- and input file streams.
             // CAUTION! The standard input/output streams "stdin"
             // and "stdout" exist on posix as well as on win32.

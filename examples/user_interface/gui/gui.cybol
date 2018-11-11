@@ -1,12 +1,12 @@
 <node>
 
-    <node name="window" channel="file" format="element/part" model="gui/window.cybol">
+    <node name="window" channel="file" format="element/part" model="user_interface/gui/window.cybol">
         <!-- This flag indicates that this is a window to which the properties are to be applied. -->
         <node name="window" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="title" channel="inline" format="text/plain" model="GUI Example"/>
         <node name="icon_title" channel="inline" format="text/plain" model="Iconised GUI Example"/>
 <!--
-        <node name="icon" channel="file" format="png" model="gui/icon.png"/>
+        <node name="icon" channel="file" format="png" model="user_interface/gui/icon.png"/>
 -->
         <node name="position" channel="inline" format="number/integer" model="30,30"/>
         <node name="size" channel="inline" format="number/integer" model="600,400"/>

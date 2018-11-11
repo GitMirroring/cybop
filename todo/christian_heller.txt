@@ -32,6 +32,12 @@ ___
 GUI
 ___
 
+        CONTINUE:
+        * Adapt x window system display shutdown in directory "executor/maintainer/shutter/" to new input/output entry structure
+        * Adapt x window system display stream writer to new input/output entry structure
+        * Adapt x window system display stream event reader to new input/output entry structure
+        * Make simple gui example work again "user_interface/gui/"
+
         * Free event structures which got allocated internally and returned in "xcb_sensor.c" and "win32_display_sensor.c"
 
         * Switch x window system to new io entry array structure for writing values into internal memory
