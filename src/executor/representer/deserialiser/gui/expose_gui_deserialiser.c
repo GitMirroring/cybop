@@ -68,8 +68,8 @@ void deserialise_gui_expose(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     // Get action part.
     get_part_name((void*) &a, p4, p9, p10, p5, p6, p7, p8);
 
-fwprintf(stdout, L"TEST deserialise gui expose p5: %i\n", *((int*) p5));
-fwprintf(stdout, L"TEST deserialise gui expose a: %i\n", a);
+    fwprintf(stdout, L"TEST deserialise gui expose p5: %i\n", *((int*) p5));
+    fwprintf(stdout, L"TEST deserialise gui expose a: %i\n", a);
 
     // Get action part model item.
     copy_array_forward((void*) &am, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

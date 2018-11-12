@@ -33,17 +33,16 @@ GUI
 ___
 
         CONTINUE:
+        * Inspect checker (see diagram "checker_and_sensor.png")
+            * START FROM: io_checker.c
+            * SEE: empty_checker.c, irq_checker.c, io_entry_getter.c
+        * Follow call of cybol operation "communicate/receive" in file "handler.cybol"
         * Adapt x window system display stream event reader to new input/output entry structure
+        * Adapt gui deserialiser to new input/output entry structure
+            * Handle platform-specific event message that gets handed over as argument to gui/xcb/win32_display deserialiser
         * Make simple gui example work again "user_interface/gui/"
 
         * Free event structures which got allocated internally and returned in "xcb_sensor.c" and "win32_display_sensor.c"
-
-        * Switch x window system to new io entry array structure for writing values into internal memory
-        * Check all affected files, also reader/writer, de-/serialiser, sensor, interrupter etc.
-        * START FROM: io_checker.c
-        * SEE: empty_checker.c, irq_checker.c, io_entry_getter.c
-        * Create io entry array structure for display i/o at startup and destroy at shutdown
-        * Handle platform-specific event message that gets handed over as argument to gui/xcb/win32_display deserialiser
 
         * Think through design of gui using cybol (css box model, layout manager, look'n'feel)
         * Use css box model as in JavaFX with relative positioning also for tui, gui etc.?

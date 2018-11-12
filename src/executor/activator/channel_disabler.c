@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHANNEL_ENABLER_SOURCE
-#define CHANNEL_ENABLER_SOURCE
+#ifndef CHANNEL_DISABLER_SOURCE
+#define CHANNEL_DISABLER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -36,17 +36,17 @@
 #include "../../logger/logger.c"
 
 /**
- * Enables the channel with the given input/output base for message sensing.
+ * Disables the channel with the given input/output base for message sensing.
  *
  * @param p0 the internal memory data
  * @param p1 the input/output base
  * @param p2 the service identification (e.g. socket port)
- * @param p3 the handler part (pointer reference)
- * @param p4 the sender client data (pointer reference)
  */
-void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void disable_channel(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable channel.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Disable channel.");
+
+    fwprintf(stdout, L"TEST: Disable channel. Service id *p2: %i\n", *((void**) p2));
 
     // The internal memory index.
     int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -80,22 +80,23 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // CAUTION! Hand over values as pointer REFERENCE.
         //
 
-        // Set handler into input/output entry.
-        set_io_entry_element(io, p3, (void*) HANDLER_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Set sender client into input/output entry.
-        set_io_entry_element(io, p4, (void*) SENDER_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Set enable flag into input/output entry.
-        set_io_entry_element(io, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        // CAUTION! Do NOT reset handler to null,
+        // since the service may get reenabled later again.
 
-        fwprintf(stdout, L"TEST: Enable channel. Handler part *p3: %i\n", *((void**) p3));
+        // CAUTION! Do NOT reset sender client to null,
+        // since the service may get reenabled later again.
+
+        // Reset enable flag into input/output entry,
+        // so that the service gets temporarily interrupted.
+        set_io_entry_element(io, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable channel. There exists no input/output entry at the given service identification.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not disable channel. There exists no input/output entry at the given service identification.");
 
-        fwprintf(stdout, L"Error: Could not enable channel. There exists no input/output entry at the given service identification. io: %i\n", io);
+        fwprintf(stdout, L"Error: Could not disable channel. There exists no input/output entry at the given service identification. io: %i\n", io);
     }
 }
 
-/* CHANNEL_ENABLER_SOURCE */
+/* CHANNEL_DISABLER_SOURCE */
 #endif

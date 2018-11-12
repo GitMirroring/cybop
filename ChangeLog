@@ -20,8 +20,10 @@
 
 2018-11-12  Christian Heller  <christian.heller@cybop.org>
 
-        * Adapt x window system display shutdown in directory "executor/maintainer/shutter/" to new input/output entry structure
+        * Adapt x window system display shutdown to new input/output entry structure
         * Adapt x window system display stream writer to new input/output entry structure
+        * Adapt gui serialiser to new input/output entry structure
+        * Add new file "executor/activator/channel_disabler.c"
 
 2018-11-11  Christian Heller  <christian.heller@cybop.org>
 
