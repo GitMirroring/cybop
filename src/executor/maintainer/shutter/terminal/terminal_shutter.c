@@ -82,6 +82,8 @@ void shutdown_terminal(void* p0, void* p1) {
 
         if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+            // A terminal DOES exist in internal memory.
+
             //
             // Reset input/output entry in internal memory to null.
             //
@@ -89,9 +91,10 @@ void shutdown_terminal(void* p0, void* p1) {
             // since cyboi tests for null pointers and otherwise,
             // wild pointers would lead to memory corruption.
             //
-            // CAUTION! Do NOT use "overwrite_array" function here,
+            // CAUTION! Do NOT use the "modify_array" (overwrite) function,
             // since it adapts the array count and size.
-            // But the internal array's count and size are CONSTANT.
+            // But the internal memory array's count and size are CONSTANT.
+            // Therefore, a simple "copy" function is used here.
             //
             copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
@@ -162,15 +165,21 @@ void shutdown_terminal(void* p0, void* p1) {
             // This is the case on all operating systems.
             //
 
+            //
             // Deallocate input/output entry.
+            //
             // CAUTION! The second argument "count" is NULL,
             // since it is only needed for looping elements of type PART,
             // in order to decrement the rubbish (garbage) collection counter.
+            //
             deallocate_array((void*) &io, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
+            //
             // Deallocate client list item.
+            //
             // CAUTION! The second argument "count" is NULL,
             // since it is only needed for looping elements of type PART,
             // in order to decrement the rubbish (garbage) collection counter.
+            //
             deallocate_item((void*) &cl, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         } else {

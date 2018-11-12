@@ -32,7 +32,7 @@
 #if defined(__linux__) || defined(__unix__)
     #include "../../../../executor/streamer/writer/xcb/xcb_writer.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    //?? Add cocoa support for Apple
+    //?? TODO: Add cocoa support for Apple
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../../../executor/streamer/writer/win32_display/win32_display_writer.c"
@@ -52,7 +52,7 @@ void write_display(void* p0) {
 #if defined(__linux__) || defined(__unix__)
     write_xcb(p0);
 #elif defined(__APPLE__) && defined(__MACH__)
-    //?? Add cocoa support for Apple
+    //?? TODO: Add cocoa support for Apple
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
     write_win32_display(p0);

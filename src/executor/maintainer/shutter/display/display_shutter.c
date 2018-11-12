@@ -33,7 +33,7 @@
     #include "../../../../executor/maintainer/shutter/x_window_system/x_window_system_shutter.c"
 #elif defined(__APPLE__) && defined(__MACH__)
     //#include "../../../../executor/maintainer/shutter/darwin_display/darwin_display_shutter.c"
-    //?? Add cocoa support for Apple
+    //?? TODO: Add cocoa support for Apple
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../../../executor/maintainer/shutter/win32_display/win32_display_shutter.c"
@@ -54,7 +54,7 @@ void shutdown_display(void* p0) {
     shutdown_x_window_system(p0);
 #elif defined(__APPLE__) && defined(__MACH__)
     //shutdown_darwin_display(p0);
-    //?? Add cocoa support for Apple
+    //?? TODO: Add cocoa support for Apple
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
     shutdown_win32_display(p0);

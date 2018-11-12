@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2018-11-12  Christian Heller  <christian.heller@cybop.org>
+
+        * Adapt x window system display shutdown in directory "executor/maintainer/shutter/" to new input/output entry structure
+        * Adapt x window system display stream writer to new input/output entry structure
+
 2018-11-11  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt x window system display startup in directory "executor/maintainer/starter/" to new input/output entry structure
