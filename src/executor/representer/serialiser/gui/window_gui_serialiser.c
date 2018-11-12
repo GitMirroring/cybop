@@ -41,7 +41,7 @@
 #if defined(__linux__) || defined(__unix__)
     #include "../../../../executor/representer/serialiser/x_window_system/window_x_window_system_serialiser.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    //?? Add support for Cocooa
+    //?? TODO: Add support for Cocoa
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../../../executor/representer/serialiser/win32_display/window_win32_display_serialiser.c"
@@ -69,7 +69,7 @@ void serialise_gui_window(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui window.");
 
-fwprintf(stdout, L"TEST serialise gui window: %i\n", p0);
+fwprintf(stdout, L"TEST Serialise gui window. Connexion p0: %i\n", p0);
 
     // The super part.
     void* super = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -254,7 +254,7 @@ fwprintf(stdout, L"TEST serialise gui window: %i\n", p0);
 #if defined(__linux__) || defined(__unix__)
     serialise_x_window_system_window(p0, p1, p3, p4, p5, p6, tmd, tmc, itmd, itmc);
 #elif defined(__APPLE__) && defined(__MACH__)
-    //?? Add support for Cocoa
+    //?? TODO: Add support for Cocoa
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
     serialise_win32_display_window(p2, p3, p4, p5, p6);

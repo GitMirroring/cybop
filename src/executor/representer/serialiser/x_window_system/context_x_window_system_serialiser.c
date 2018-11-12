@@ -52,11 +52,11 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
 
     if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        xcb_font_t* f = (xcb_font_t*) p4;
+        int* f = (int*) p4;
 
         if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            xcb_gcontext_t* gc = (xcb_gcontext_t*) p3;
+            int* gc = (int*) p3;
 
             if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -68,9 +68,12 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
 
                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise x window system context.");
 
+                    //
                     // The graphic context value mask.
+                    //
                     // CAUTION! It is possible to set several attributes
                     // at the same time by OR'ing these values in valuemask.
+                    //
                     uint32_t m = XCB_GC_FOREGROUND
                         | XCB_GC_BACKGROUND
                         | XCB_GC_LINE_WIDTH
@@ -80,9 +83,12 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
                         | XCB_GC_FILL_STYLE
                         | XCB_GC_FILL_RULE
                         | XCB_GC_FONT;
+                    //
                     // The graphic context values.
+                    //
                     // CAUTION! They have to be IN THE SAME ORDER
                     // as given in the value mask above.
+                    //
                     uint32_t v[9];
                     // Get screen's default colour map.
                     xcb_colormap_t cm = (*s).default_colormap;
@@ -119,9 +125,12 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
                     void* fnd = *NULL_POINTER_STATE_CYBOI_MODEL;
                     void* fnc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+                    //
                     // Allocate font name item.
+                    //
                     // CAUTION! Due to memory allocation handling, the size MUST NOT
                     // be negative or zero, but have at least a value of ONE.
+                    //
                     allocate_item((void*) &fn, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
                     // Get properties.
@@ -166,10 +175,13 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
                     // The background colour.
                     bg = (*bgcr).pixel;
 
+                    //
                     // Get font name item data, count.
+                    //
                     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
                     // Inside the structure, arrays may have been reallocated,
                     // with elements pointing to different memory areas now.
+                    //
                     copy_array_forward((void*) &fnd, fn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
                     copy_array_forward((void*) &fnc, fn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
@@ -229,8 +241,10 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
                     v[7] = fr;
                     v[8] = *f;
 
+                    // The xcb graphic context type value.
+                    xcb_gcontext_t gct = (xcb_gcontext_t) *gc;
                     // Change graphic context.
-                    xcb_change_gc(c, *gc, m, v);
+                    xcb_change_gc(c, gct, m, v);
 
                 } else {
 

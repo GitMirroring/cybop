@@ -63,7 +63,7 @@ void serialise_gui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui properties.");
 
-fwprintf(stdout, L"TEST serialise gui properties: %i\n", p0);
+    fwprintf(stdout, L"TEST Serialise gui properties. Connexion p0: %i\n", p0);
 
     // The super part.
     void* super = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -171,9 +171,12 @@ fwprintf(stdout, L"TEST serialise gui properties: %i\n", p0);
     copy_array_forward((void*) &smdw, smd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_0_VECTOR_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smdh, smd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_1_VECTOR_STATE_CYBOI_NAME);
 
+    //
     // Serialise layout.
+    //
     // CAUTION! A layout is useful for both,
     // element AND window below.
+    //
     serialise_layout(p6, p7, (void*) &pmdx, (void*) &pmdy, (void*) &smdw, (void*) &smdh, lpd, lpc, p10, p11, p12, lmd, lmc);
 
     // The comparison result.
@@ -182,10 +185,12 @@ fwprintf(stdout, L"TEST serialise gui properties: %i\n", p0);
     // Find out if this is the root window.
     compare_integer_equal((void*) &r, wmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
+    //
     // CAUTION! The comparison of wmd for null IS NECESSARY,
     // since the "window" cybol property flag is OPTIONAL.
     // If this check for null were removed, then the
     // "else" branch below would ALWAYS be executed.
+    //
     if ((wmd == *NULL_POINTER_STATE_CYBOI_MODEL) || (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
 
         // This is a gui child element and NOT the root window.

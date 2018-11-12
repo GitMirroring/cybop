@@ -73,7 +73,7 @@ void serialise_x_window_system_window(void* p0, void* p1, void* p2, void* p3, vo
 
                     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                        xcb_drawable_t* d = (xcb_drawable_t*) p1;
+                        int* d = (int*) p1;
 
                         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -140,6 +140,9 @@ void serialise_x_window_system_window(void* p0, void* p1, void* p2, void* p3, vo
                             // with elements pointing to different memory areas now.
                             copy_array_forward((void*) &itmdtd, itmdt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+                            // The xcb drawable window type value.
+                            xcb_drawable_t dt = *d;
+
                             // Set title.
                             // CAUTION! The sixth parametre specifies
                             // the format of the property (8, 16, 32).
@@ -147,14 +150,14 @@ void serialise_x_window_system_window(void* p0, void* p1, void* p2, void* p3, vo
                             // specifying "wchar_t" data did NOT work.
                             // Therefore, "char" data with string
                             // termination character are used now.
-                            xcb_change_property(c, XCB_PROP_MODE_REPLACE, *d, XCB_ATOM_WM_NAME, XCB_ATOM_STRING, *NUMBER_8_INTEGER_STATE_CYBOI_MODEL, strlen(tmdtd), tmdtd);
+                            xcb_change_property(c, XCB_PROP_MODE_REPLACE, dt, XCB_ATOM_WM_NAME, XCB_ATOM_STRING, *NUMBER_8_INTEGER_STATE_CYBOI_MODEL, strlen(tmdtd), tmdtd);
                             // Set icon title.
-                            xcb_change_property(c, XCB_PROP_MODE_REPLACE, *d, XCB_ATOM_WM_ICON_NAME, XCB_ATOM_STRING, *NUMBER_8_INTEGER_STATE_CYBOI_MODEL, strlen(itmdtd), itmdtd);
+                            xcb_change_property(c, XCB_PROP_MODE_REPLACE, dt, XCB_ATOM_WM_ICON_NAME, XCB_ATOM_STRING, *NUMBER_8_INTEGER_STATE_CYBOI_MODEL, strlen(itmdtd), itmdtd);
                             // Set icon
                             //?? TODO
-                            //?? xcb_change_property(c, XCB_PROP_MODE_REPLACE, *d, XCB_ATOM_WM_ICON, XCB_ATOM_CARDINAL, *NUMBER_32_INTEGER_STATE_CYBOI_MODEL, *imci, imd);
+                            //?? xcb_change_property(c, XCB_PROP_MODE_REPLACE, dt, XCB_ATOM_WM_ICON, XCB_ATOM_CARDINAL, *NUMBER_32_INTEGER_STATE_CYBOI_MODEL, *imci, imd);
                             // Configure window position and size.
-                            xcb_configure_window(c, *d, mask, values);
+                            xcb_configure_window(c, dt, mask, values);
 
                             // Deallocate title model data terminated item.
                             deallocate_item((void*) &tmdt, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);

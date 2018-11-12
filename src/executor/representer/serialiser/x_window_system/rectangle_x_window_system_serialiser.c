@@ -65,11 +65,11 @@ void serialise_x_window_system_rectangle(void* p0, void* p1, void* p2, void* p3,
 
                     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                        xcb_gcontext_t* gc = (xcb_gcontext_t*) p3;
+                        int* gc = (int*) p3;
 
                         if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                            xcb_drawable_t* d = (xcb_drawable_t*) p2;
+                            int* d = (int*) p2;
 
                             if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -77,12 +77,19 @@ void serialise_x_window_system_rectangle(void* p0, void* p1, void* p2, void* p3,
 
                                 log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise x window system rectangle.");
 
+                                // The xcb graphic context type value.
+                                xcb_gcontext_t gct = *gc;
+                                // The xcb drawable window type value.
+                                xcb_drawable_t dt = *d;
+
+                                //
                                 // The rectangle count (number of given rectangles).
                                 //
                                 // CAUTION! Only ONE rectangle may be processed in cyboi,
                                 // since it was decided that rectangles have to be
                                 // specified by one cybol part, one for each rectangle.
                                 // Therefore, the rectangle count is set to 1.
+                                //
                                 int rc = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                                 // The rectangle data.
                                 xcb_rectangle_t rd;
@@ -101,7 +108,7 @@ fwprintf(stdout, L"TEST serialise x window system rectangle h: %i\n", *h);
                                 rd.height = *h;
 
                                 // Draw rectangle.
-                                xcb_poly_rectangle(c, *d, *gc, rc, &rd);
+                                xcb_poly_rectangle(c, dt, gct, rc, &rd);
 
                             } else {
 

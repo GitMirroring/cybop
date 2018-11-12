@@ -104,14 +104,14 @@ void startup_x_window_system(void* p0) {
         //
         c = (void*) xcb_connect(NULL, NULL);
 
-        fwprintf(stdout, L"TEST startup x window system c: %i\n", c);
+//??        fwprintf(stdout, L"TEST startup x window system c: %i\n", c);
 
         if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             // Get setup.
             const xcb_setup_t* setup = xcb_get_setup((xcb_connection_t*) c);
 
-            fwprintf(stdout, L"TEST startup x window system setup: %i\n", setup);
+//??            fwprintf(stdout, L"TEST startup x window system setup: %i\n", setup);
 
             if (setup != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -126,7 +126,7 @@ void startup_x_window_system(void* p0) {
                 //
                 s = (void*) iter.data;
 
-                fwprintf(stdout, L"TEST startup x window system s: %i\n", s);
+//??                fwprintf(stdout, L"TEST startup x window system s: %i\n", s);
 
                 if (s != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -265,7 +265,7 @@ void startup_x_window_system(void* p0) {
 /*??
                     gcv[0] = (*st).white_pixel;
                     gcv[1] = (*st).black_pixel;
-//??                        gcv[2] = font;
+//??                    gcv[2] = font;
 */
 
                     // Allocate xid for window, graphic context, font.

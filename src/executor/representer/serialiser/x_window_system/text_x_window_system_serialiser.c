@@ -67,11 +67,11 @@ void serialise_x_window_system_text(void* p0, void* p1, void* p2, void* p3, void
 
                     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                        xcb_gcontext_t* gc = (xcb_gcontext_t*) p3;
+                        int* gc = (int*) p3;
 
                         if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                            xcb_drawable_t* d = (xcb_drawable_t*) p2;
+                            int* d = (int*) p2;
 
                             if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -102,6 +102,10 @@ void serialise_x_window_system_text(void* p0, void* p1, void* p2, void* p3, void
 
                                     // The text item count as integer.
                                     int* tci = (int*) tc;
+                                    // The xcb graphic context type value.
+                                    xcb_gcontext_t gct = *gc;
+                                    // The xcb drawable window type value.
+                                    xcb_drawable_t dt = *d;
                                     // The centred x, y.
                                     // TODO: This is only a rough estimation of the centre.
                                     // In the future, the text width and font height
@@ -110,7 +114,7 @@ void serialise_x_window_system_text(void* p0, void* p1, void* p2, void* p3, void
                                     int cy = *y + (*h / 2);
 
                                     // Draw text.
-                                    xcb_image_text_8(c, *tci, *d, *gc, cx, cy, td);
+                                    xcb_image_text_8(c, *tci, dt, gct, cx, cy, td);
 
                                 } else {
 

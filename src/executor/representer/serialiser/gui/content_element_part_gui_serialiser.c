@@ -76,12 +76,16 @@ fwprintf(stdout, L"TEST serialise gui part element content properties count: %i\
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // This IS a part.
+        //
         // Therefore, draw properties first and
         // only afterwards, dive into the hierarchy.
+        //
         // Otherwise, inner elements would be drawn first
         // and outer elements, drawn later,
         // would overpaint them again.
+        //
 
         // Serialise properties.
         serialise_gui_properties(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
@@ -91,18 +95,23 @@ fwprintf(stdout, L"TEST serialise gui part element content properties count: %i\
 
     } else {
 
+        //
         // This is NOT a part, but a PRIMITIVE VALUE.
+        //
         // Therefore, serialise value first and
         // only afterwards, draw its properties.
+        //
         // The reason is that the serialised value
         // has to be handed over AS TEXT to the properties,
         // in order to be drawn correctly inside.
+        //
 
+        //
         // The text item.
         //
-        // CAUTION! This local variable is used as buffer to
-        // store primitive values, which get handed over to
-        // function "serialise_gui_properties" below.
+        // CAUTION! This local variable is used as
+        // buffer to store primitive values.
+        //
         void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Allocate text item.

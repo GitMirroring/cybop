@@ -46,7 +46,7 @@ void serialise_x_window_system_context_cleanup(void* p0, void* p1, void* p2, voi
 
     if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        xcb_font_t* f = (xcb_font_t*) p4;
+        int* f = (int*) p4;
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -54,8 +54,11 @@ void serialise_x_window_system_context_cleanup(void* p0, void* p1, void* p2, voi
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise x window system context cleanup.");
 
+            // The xcb font type value.
+            xcb_font_t ft = *f;
+
             // Close font.
-            xcb_close_font(c, *f);
+            xcb_close_font(c, ft);
 
         } else {
 
