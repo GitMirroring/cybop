@@ -23,7 +23,8 @@
         * Activate channel "display" and all others in file "controller/checker/irq/irq_checker.c"
         * Activate channel "display" and all others in file "controller/checker/io/io_checker.c"
         * Rename file "terminal_acceptor.c" into "empty_acceptor.c" and use it as default for channels: display, serial, terminal in file "acceptor.c"
-        * Activate channel "display" and all others in in file "executor/acceptor/acceptor.c"
+        * Activate channel "display" and all others in file "executor/acceptor/acceptor.c"
+        * Activate channel "display" and all others in file "executor/sensor/sensor.c"
 
 2018-11-12  Christian Heller  <christian.heller@cybop.org>
 

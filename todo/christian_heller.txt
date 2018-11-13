@@ -32,9 +32,8 @@ ___
 GUI
 ___
 
-        DONE: Inspect all checker files
         CONTINUE:
-        * Activate channel "display" and all others in in file "executor/sensor/sensor.c"
+        * Adapt file "executor/sensor/xcb/xcb_sensor.c"
         * Follow call of cybol operation "communicate/receive" in file "handler.cybol"
         * Adapt x window system display stream event reader to new input/output entry structure
         * Adapt gui deserialiser to new input/output entry structure

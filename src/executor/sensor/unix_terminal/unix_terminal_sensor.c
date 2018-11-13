@@ -47,9 +47,11 @@ void sense_unix_terminal(void* p0, void* p1) {
 
         int* f = (int*) p1;
 
+        //
         // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
         // Otherwise, it would produce huge log files filled up with useless entries.
         // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense unix terminal.");
+        //
 
 //??         fwprintf(stdout, L"TEST sense unix terminal, file descriptor p1: %i\n", *((int*) p1));
 

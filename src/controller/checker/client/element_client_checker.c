@@ -40,9 +40,10 @@
  * @param p0 the destination client
  * @param p1 the source client list data
  * @param p2 the source client list index
- * @param p3 the channel
+ * @param p3 the input/output entry
+ * @param p4 the channel
  */
-void check_client_element(void* p0, void* p1, void* p2, void* p3) {
+void check_client_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check client element.");
 
@@ -62,7 +63,7 @@ void check_client_element(void* p0, void* p1, void* p2, void* p3) {
 //??     fwprintf(stdout, L"TEST: check client element. client c: %i \n", c);
 
     // Sense data available on already open client.
-    sense((void*) &f, (void*) &c, p3);
+    sense((void*) &f, (void*) &c, p3, p4);
 
     if (f > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

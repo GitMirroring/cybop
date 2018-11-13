@@ -121,7 +121,7 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
             check_io_accept(l, io, p4);
 
             // Check for available input/output.
-            check_io_receive(p0, io, l, p4);
+            check_io_receive(p0, l, io, p4);
         }
     }
 }

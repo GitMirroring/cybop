@@ -47,6 +47,7 @@ void sense_serial_port(void* p0) {
     // logging is not guaranteed to be thread-safe and might
     // cause unpredictable programme behaviour.
 
+/*??
     // The file descriptor item.
     void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The file descriptor item data.
@@ -55,14 +56,18 @@ void sense_serial_port(void* p0) {
     // Get file descriptor item.
 //??    copy_array_forward((void*) &f, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FILE_DESCRIPTOR_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
+    //
     // Get file descriptor item data.
+    //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
+    //
     copy_array_forward((void*) &fd, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // A break condition does not exist here because the loop
         // is running neverendingly while sensing messages.
         //
@@ -71,16 +76,11 @@ void sense_serial_port(void* p0) {
         // (situated in the applicator/interrupt/ directory)
         // and processed in the system signal handler procedure
         // (situated in the controller/checker.c module).
+        //
 
         sense_serial_port_message(fd);
     }
-
-    // An implicit call to pthread_exit() is made when this thread
-    // (other than the thread in which main() was first invoked)
-    // returns from the function that was used to create it (this function).
-    // The pthread_exit() function does therefore not have to be called here.
-    // However, since this function runs an endless loop waiting for input, it may
-    // only be left using an external signal (see comment at "break" condition above).
+*/
 }
 
 /* SERIAL_PORT_SENSOR_SOURCE */

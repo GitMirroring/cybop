@@ -34,33 +34,33 @@
 /**
  * Senses win32 display messages.
  *
- * @param p0 the interrupt request
- * @param p1 the internal memory data
+ * Remark concerning thread usage:
+ *
+ * CAUTION! Moving the following code to an own thread in files
+ * "win32_display_sensor.c" and "message_win32_display_sensor.c"
+ * does NOT work, since the "PeekMessage" function
+ * checks the message queue of the CALLING thread ONLY.
+ *
+ * If it was called within an external "sensing" thread,
+ * then messages of the cyboi main thread
+ * (to which all windows belong) would never get recognised.
+ * Therefore, this MAIN THREAD has to check for messages.
+ *
+ * @param p0 the data available flag
+ * @param p1 the input/output entry (containing e.g. event)
  */
 void sense_win32_display(void* p0, void* p1) {
 
-    //
-    // CAUTION! Moving the following code to an own thread in files
-    // "win32_display_sensor.c" and "message_win32_display_sensor.c"
-    // does NOT work, since the "PeekMessage" function
-    // checks the message queue of the CALLING thread ONLY.
-    //
-    // If it was called within an external "sensing" thread,
-    // then messages of the cyboi main thread
-    // (to which all windows belong) would never get recognised.
-    // Therefore, this main thread has to check for messages.
-    //
-
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense win32 display.");
 
-    //?? TODO: Where is this allocated value "msg" freed again? Check this out!
-
+    //
     // The event message.
     //
     // It just serves as placeholder here, since
-    // the message is read and removed only later,
-    // in the main thread.
+    // the message is received and removed only later.
+    //
     void* msg = malloc(sizeof (MSG));
+    //
     // The window.
     //
     // CAUTION! It is initialised with null,
@@ -72,24 +72,11 @@ void sense_win32_display(void* p0, void* p1) {
     // CYBOI will then have to find out internally,
     // to which window a message belongs.
     // It thus has to keep a list of existing windows.
+    //
     HWND wnd = (HWND) *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // Get message from application's message queue.
-    //
-    // For the last argument, one can choose between:
-    // - PM_NOREMOVE: just peek ahead and leave message in queue;
-    // - PM_REMOVE: finally remove message from queue.
-    //
-    // CAUTION! Since xcb for the x window system under linux does NOT
-    // offer peeking ahead, the message gets removed there and
-    // therefore has to be stored in internal memory.
-    // The win32 functions DO ALLOW peeking ahead.
-    // However, in order to have a UNIFORM HANDLING,
-    // it was decided to REMOVE the message here as well,
-    // just as is done in file "xcb_sensor.c".
-    // The event stored in the internal memory gets processed
-    // later, within the deserialiser.
     //
     // Meaning of the return value:
     // - NONZERO (TRUE): a message IS available;
@@ -100,20 +87,28 @@ void sense_win32_display(void* p0, void* p1) {
     // where the actual processing happens.
     // This call here is just made to detect available messages.
     //
+    // For the last argument, one can choose between:
+    // - PM_NOREMOVE: just peek ahead and leave message in queue;
+    // - PM_REMOVE: finally remove message from queue.
+    //
+    // CAUTION! Since xcb for the x window system under linux does NOT
+    // offer peeking ahead, the message gets removed there and
+    // therefore has to be stored in input/output entry of internal memory.
+    // The win32 functions DO ALLOW peeking ahead.
+    // However, in order to have a UNIFORM HANDLING,
+    // it was decided to REMOVE the message here as well,
+    // just as is done in file "xcb_sensor.c".
+    // The event stored in the input/output entry of internal memory
+    // gets processed later, within the deserialiser.
+    //
     BOOL b = PeekMessage((MSG*) msg, wnd, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, PM_REMOVE);
 
     if (b != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        // Store event message in internal memory.
-        copy_array_forward(p1, (void*) &msg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EVENT_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        // Store event message in input/output entry.
+        get_io_entry_element(p1, (void*) &msg, (void*) EVENT_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-        // CAUTION! Setting a mutex is NOT necessary here,
-        // since this is the main thread and no other threads
-        // are writing to the interrupt request variable.
-
-        // Set display interrupt request to indicate
-        // that a message has been received via display,
-        // which may now be processed in the main thread of this system.
+        // Set data available flag.
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }

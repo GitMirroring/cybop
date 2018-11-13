@@ -34,16 +34,8 @@
 #include "../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    // CAUTION! Calling a sensing function for unix terminal is NOT necessary,
-    // since its input gets sensed in the corresponding sensing thread.
-    // Therefore, the following include is disabled.
-    // #include "../../../executor/sensor/unix_terminal/unix_terminal_sensor.c"
     #include "../../../executor/sensor/unix_terminal/unix_terminal_sensor.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    // CAUTION! Calling a sensing function for unix terminal is NOT necessary,
-    // since its input gets sensed in the corresponding sensing thread.
-    // Therefore, the following include is disabled.
-    // #include "../../../executor/sensor/unix_terminal/unix_terminal_sensor.c"
     #include "../../../executor/sensor/unix_terminal/unix_terminal_sensor.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
@@ -56,23 +48,15 @@
  * Senses terminal messages.
  *
  * @param p0 the data available flag
- * @param p1 the client
+ * @param p1 the sender client
  */
 void sense_terminal(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense terminal.");
 
 #if defined(__linux__) || defined(__unix__)
-    // CAUTION! Calling a sensing function for unix terminal is NOT necessary,
-    // since its input gets sensed in the corresponding sensing thread.
-    // Therefore, the following function call is disabled.
-    // sense_unix_terminal(p0, p1, p2);
     sense_unix_terminal(p0, p1);
 #elif defined(__APPLE__) && defined(__MACH__)
-    // CAUTION! Calling a sensing function for unix terminal is NOT necessary,
-    // since its input gets sensed in the corresponding sensing thread.
-    // Therefore, the following function call is disabled.
-    // sense_unix_terminal(p0, p1, p2);
     sense_unix_terminal(p0, p1);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)

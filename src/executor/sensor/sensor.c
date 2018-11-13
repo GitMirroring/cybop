@@ -30,61 +30,70 @@
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
-//?? #include "../../executor/sensor/display/display_sensor.c"
-//?? #include "../../executor/sensor/serial_port/serial_port_sensor.c"
-//?? #include "../../executor/sensor/socket/socket_sensor.c"
+#include "../../executor/sensor/display/display_sensor.c"
+#include "../../executor/sensor/serial_port/serial_port_sensor.c"
+#include "../../executor/sensor/socket/socket_sensor.c"
 #include "../../executor/sensor/terminal/terminal_sensor.c"
 #include "../../logger/logger.c"
 
 /**
  * Senses data on the given channel.
  *
- * @param p0 the data available flag
- * @param p1 the sender client (e.g. display connection, file descriptor, client socket)
- * @param p2 the channel
+ * CAUTION! Unfortunately, not all clients are integer values.
+ * The display connexion for the x window system (via xcb api)
+ * for instance is a pointer- and not integer value.
+ *
+ * Therefore, the input/output entry gets handed over
+ * as additional parametre, so that special client values
+ * such as the display connexion may be retrieved from it inside.
+ *
+ * @param p0 the data available flaginput/output entry
+ * @param p1 the sender client (e.g. file descriptor, client socket)
+ * @param p2 the input/output entry (containing e.g. display connexion, event)
+ * @param p3 the channel
  */
-void sense(void* p0, void* p1, void* p2) {
+void sense(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense.");
 
-//??     fwprintf(stdout, L"TEST sense. channel p2: %i\n", *((int*) p2));
+//??     fwprintf(stdout, L"TEST Sense. channel p3: %i\n", *((int*) p3));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p3, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            sense_display(p0, p1);
+            sense_display(p0, p2);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) SERIAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p3, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            sense_serial(p0, p1);
+            sense_serial(p0, p1);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p3, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            sense_socket(p0, p1);
+            sense_socket(p0, p1);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p3, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -96,7 +105,7 @@ void sense(void* p0, void* p1, void* p2) {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense. The channel is unknown.");
 
-        fwprintf(stdout, L"Error: Could not sense. The channel is unknown. The channel p2: %i\n", *((int*) p2));
+        fwprintf(stdout, L"Error: Could not sense. The channel is unknown. The channel p3: %i\n", *((int*) p3));
     }
 }
 

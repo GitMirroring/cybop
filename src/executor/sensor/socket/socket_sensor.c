@@ -39,10 +39,12 @@
  */
 void sense_socket(void* p0, void* p1, void* p2) {
 
+    //
     // CAUTION! DO NOT log this function call!
     // The function runs in an endless loop
     // that would produce huge log files.
     // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket.");
+    //
 
 //?? fwprintf(stdout, L"TEST: sense socket *p1: %i \n", *((int*) p1));
 
@@ -70,6 +72,7 @@ void sense_socket(void* p0, void* p1, void* p2) {
 
 //?? fwprintf(stdout, L"TEST sense, socket port: %i\n", p);
 
+/*??
     // The buffer data, count, size.
     // CAUTION! Its size has to be GREATER than zero.
     // Otherwise, there will be no place for the data to be received.
@@ -111,6 +114,7 @@ void sense_socket(void* p0, void* p1, void* p2) {
     // since it is only needed for looping elements of type PART,
     // in order to decrement the rubbish (garbage) collection counter.
     deallocate_array((void*) &bd, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &bs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+*/
 }
 
 /* SOCKET_SENSOR_SOURCE */

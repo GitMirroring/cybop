@@ -37,13 +37,14 @@
  *
  * @param p0 the destination sender client
  * @param p1 the source client list item
- * @param p2 the channel
+ * @param p2 the input/output entry
+ * @param p3 the channel
  */
-void check_client_list(void* p0, void* p1, void* p2) {
+void check_client_list(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check client list.");
 
-//??     fwprintf(stdout, L"TEST: check client list. channel *p2: %i \n", *((int*) p2));
+//??     fwprintf(stdout, L"TEST: check client list. channel *p3: %i \n", *((int*) p3));
 
     // The client list item data, count.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -57,7 +58,7 @@ void check_client_list(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Test clients for available data.
-    check_client_all(p0, d, c, p2);
+    check_client_all(p0, d, c, p2, p3);
 }
 
 /* LIST_CLIENT_CHECKER_SOURCE */
