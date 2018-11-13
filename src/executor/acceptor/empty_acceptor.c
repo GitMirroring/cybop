@@ -23,33 +23,39 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TERMINAL_ACCEPTOR_SOURCE
-#define TERMINAL_ACCEPTOR_SOURCE
+#ifndef EMPTY_ACCEPTOR_SOURCE
+#define EMPTY_ACCEPTOR_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
-#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
-#include "../../../executor/copier/array_copier.c"
-#include "../../../executor/copier/integer_copier.c"
-#include "../../../logger/logger.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/comparator/integer/less_or_equal_integer_comparator.c"
+#include "../../executor/copier/array_copier.c"
+#include "../../executor/copier/integer_copier.c"
+#include "../../logger/logger.c"
 
 /**
- * Accepts a new client request on terminal.
+ * Adds a default client identification if the client list is empty.
  *
- * @param p0 the sender client user
+ * This may happen for channels: display, serial, terminal.
+ *
+ * If no client was assigned, then ZERO is copied as DEFAULT IDENTIFICATION here.
+ * Otherwise, the checking mechanism in cyboi directory "controller/checker/"
+ * would not work, since the corresponding loop expects at least one client.
+ *
+ * @param p0 the sender client (e.g. display connection, file descriptor, client socket)
  * @param p1 the client list item
  */
-void accept_terminal(void* p0, void* p1) {
+void accept_empty(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Accept terminal.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Accept empty.");
 
-//??     fwprintf(stdout, L"TEST: Accept terminal. sender client user *p0: %i \n", *((int*) p0));
+//??     fwprintf(stdout, L"TEST: Accept empty. sender client user *p0: %i \n", *((int*) p0));
 
     // The client list item count.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -69,14 +75,7 @@ void accept_terminal(void* p0, void* p1) {
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        //
         // The client list is empty.
-        //
-        // CAUTION! This may happen for channels: display, serial, terminal.
-        // If no client was assigned, then ZERO is copied as DEFAULT IDENTIFICATION here.
-        // Otherwise, the checking mechanism in cyboi directory "controller/checker/"
-        // would not work, since the corresponding loop expects at least one client.
-        //
 
         // Copy sender client user identification to destination.
         copy_integer(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
@@ -94,5 +93,5 @@ void accept_terminal(void* p0, void* p1) {
     }
 }
 
-/* TERMINAL_ACCEPTOR_SOURCE */
+/* EMPTY_ACCEPTOR_SOURCE */
 #endif

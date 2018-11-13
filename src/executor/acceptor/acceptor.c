@@ -32,7 +32,7 @@
 //?? #include "../../executor/acceptor/display/display_acceptor.c"
 //?? #include "../../executor/acceptor/serial/serial_acceptor.c"
 #include "../../executor/acceptor/socket/server_socket_acceptor.c"
-#include "../../executor/acceptor/terminal/terminal_acceptor.c"
+#include "../../executor/acceptor/empty_acceptor.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../logger/logger.c"
 
@@ -65,7 +65,7 @@ void accept_client(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            accept_display(p0, p2);
+            accept_empty(p0, p2);
         }
     }
 
@@ -75,7 +75,7 @@ void accept_client(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            accept_serial(p0, p2);
+            accept_empty(p0, p2);
         }
     }
 
@@ -95,7 +95,7 @@ void accept_client(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            accept_terminal(p0, p2);
+            accept_empty(p0, p2);
         }
     }
 
