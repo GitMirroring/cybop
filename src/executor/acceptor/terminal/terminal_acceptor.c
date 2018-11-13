@@ -56,17 +56,27 @@ void accept_terminal(void* p0, void* p1) {
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    //
     // Get client list item count.
+    //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
+    //
     copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     compare_integer_less_or_equal((void*) &r, c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // The client list is empty.
+        //
+        // CAUTION! This may happen for channels: display, serial, terminal.
+        // If no client was assigned, then ZERO is copied as DEFAULT IDENTIFICATION here.
+        // Otherwise, the checking mechanism in cyboi directory "controller/checker/"
+        // would not work, since the corresponding loop expects at least one client.
+        //
 
         // Copy sender client user identification to destination.
         copy_integer(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);

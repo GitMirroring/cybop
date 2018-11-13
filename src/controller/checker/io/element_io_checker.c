@@ -55,23 +55,25 @@
  */
 void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
+    //
     // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
     // Otherwise, it would produce huge log files filled up with useless entries.
     // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io element.");
+    //
 
     // The internal memory index.
-    int idx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The input/output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Calculate internal memory index.
-    calculate_integer_add((void*) &idx, p2);
-    calculate_integer_add((void*) &idx, p3);
+    calculate_integer_add((void*) &i, p2);
+    calculate_integer_add((void*) &i, p3);
 
-//??    fwprintf(stdout, L"TEST: check io element idx: %i \n", idx);
+//??    fwprintf(stdout, L"TEST: check io element i: %i \n", i);
 
     // Get input/output entry.
-    copy_array_forward((void*) &io, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &idx);
+    copy_array_forward((void*) &io, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

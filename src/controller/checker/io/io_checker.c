@@ -53,17 +53,17 @@ void check_io(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??        check_io_all((void*) &r, p1, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DISPLAY_CYBOI_CHANNEL);
+        check_io_all((void*) &r, p1, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DISPLAY_CYBOI_CHANNEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??        check_io_all((void*) &r, p1, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) SERIAL_CYBOI_CHANNEL);
+        check_io_all((void*) &r, p1, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) SERIAL_CYBOI_CHANNEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??        check_io_all((void*) &r, p1, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_65536_INTEGER_STATE_CYBOI_MODEL, (void*) SOCKET_CYBOI_CHANNEL);
+        check_io_all((void*) &r, p1, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_65536_INTEGER_STATE_CYBOI_MODEL, (void*) SOCKET_CYBOI_CHANNEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

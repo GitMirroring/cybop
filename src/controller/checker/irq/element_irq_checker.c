@@ -47,39 +47,53 @@
  * @param p2 the handler (pointer reference)
  * @param p3 the internal memory data
  * @param p4 the internal memory index (already initialised with input/output base)
- * @param p5 the io entry index
+ * @param p5 the input/output entry index
  * @param p6 the break flag
  */
 void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
+    //
     // CAUTION! Do NOT log messages here, since checking runs in an endless loop.
     // Otherwise, the log file would be filled up with useless entries.
     // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check irq element.");
+    //
 
     // The internal memory index.
-    int idx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The io entry.
+    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The input/output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Calculate internal memory index.
-    calculate_integer_add((void*) &idx, p4);
-    calculate_integer_add((void*) &idx, p5);
+    calculate_integer_add((void*) &i, p4);
+    calculate_integer_add((void*) &i, p5);
 
-//??    fwprintf(stdout, L"TEST Check irq element. idx: %i\n", idx);
+//??    fwprintf(stdout, L"TEST Check irq element. i: %i\n", i);
 
-    // Get io entry.
-    copy_array_forward((void*) &io, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &idx);
+    // Get input/output entry.
+    copy_array_forward((void*) &io, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // An io entry exists for the service at the calculated internal memory index.
+        // An input/output entry exists for the service at the calculated internal memory index.
 
-//??    fwprintf(stdout, L"TEST Check irq element. io: %i\n", io);
+//??        fwprintf(stdout, L"TEST Check irq element. io: %i\n", io);
+
+        //
+        // Retrieve various values from input/output entry.
+        //
+        // CAUTION! Do NOT use "overwrite_array" function here,
+        // since it adapts the array count and size.
+        // But the array's count and size are CONSTANT.
+        //
+        // CAUTION! Hand over values as pointer REFERENCE.
+        //
+        // CAUTION! Do NOT hand over input/output entry as pointer reference.
+        //
 
         // The enable flag.
         int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        // Get enable flag from io entry.
+        // Get enable flag from input/output entry.
         get_io_entry_element((void*) &e, io, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         if (e != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -91,7 +105,7 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             // The interrupt request.
             int irq = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-            // Get interrupt request from io entry.
+            // Get interrupt request from input/output entry.
             get_io_entry_element((void*) &irq, io, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             if (irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -100,10 +114,10 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
 //??    fwprintf(stdout, L"TEST Check irq element. irq: %i\n", irq);
 
-                // Reset interrupt request in io entry.
+                // Reset interrupt request in input/output entry.
                 set_io_entry_element(io, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-                // Get handler from io entry.
+                // Get handler from input/output entry.
                 get_io_entry_element(p2, io, (void*) HANDLER_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
 //??    fwprintf(stdout, L"TEST check irq element. Handler *p2: %i\n", *((void**) p2));

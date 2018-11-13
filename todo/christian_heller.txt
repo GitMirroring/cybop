@@ -32,10 +32,11 @@ ___
 GUI
 ___
 
+        DONE: Inspect all checker files
         CONTINUE:
-        * Inspect checker (see diagram "checker_and_sensor.png")
-            * START FROM: io_checker.c
-            * SEE: empty_checker.c, irq_checker.c, io_entry_getter.c
+        * Rename file "terminal_acceptor.c" into "empty_acceptor.c" and use it as default for channels: display, serial, terminal in file "acceptor.c"
+        * Activate channel "display" and all others in in file "executor/acceptor/acceptor.c"
+        * Activate channel "display" and all others in in file "executor/sensor/sensor.c"
         * Follow call of cybol operation "communicate/receive" in file "handler.cybol"
         * Adapt x window system display stream event reader to new input/output entry structure
         * Adapt gui deserialiser to new input/output entry structure

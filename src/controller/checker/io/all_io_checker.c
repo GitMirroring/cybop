@@ -53,14 +53,10 @@ void check_io_all(void* p0, void* p1, void* p2, void* p3, void* p4) {
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The internal memory index.
-    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    // Calculate internal memory index using given input output base.
-    calculate_integer_add((void*) &i, p2);
 
     if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
@@ -68,6 +64,7 @@ void check_io_all(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
+        //
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
@@ -80,11 +77,14 @@ void check_io_all(void* p0, void* p1, void* p2, void* p3, void* p4) {
             break;
         }
 
-        check_io_element(p0, p1, (void*) &i, (void*) &j, p4);
+        check_io_element(p0, p1, p2, (void*) &j, p4);
 
+        //
         // Set break flag if io flag was set inside.
-        // It is not useful to check any other channels
+        //
+        // CAUTION! It is NOT useful to check any other channels,
         // if data have been detected on one already.
+        //
         compare_integer_unequal((void*) &b, p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         // Increment loop variable.

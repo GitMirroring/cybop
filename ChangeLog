@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2018-11-13  Christian Heller  <christian.heller@cybop.org>
+
+        * Activate channel "display" and all others in file "controller/checker/irq/irq_checker.c"
+        * Activate channel "display" and all others in file "controller/checker/io/io_checker.c"
+
 2018-11-12  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt x window system display shutdown to new input/output entry structure

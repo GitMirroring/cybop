@@ -65,7 +65,7 @@ void accept_client(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            accept_display(p0, p1);
+//??            accept_display(p0, p2);
         }
     }
 
@@ -75,7 +75,7 @@ void accept_client(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            accept_serial(p0, p1);
+//??            accept_serial(p0, p2);
         }
     }
 

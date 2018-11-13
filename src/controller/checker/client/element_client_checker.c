@@ -46,9 +46,12 @@ void check_client_element(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check client element.");
 
+    //
     // The data available flag.
+    //
     // CAUTION! It is actually the data count being returned.
     // Any value greater than zero means that data are available.
+    //
     int f = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The client.
     int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
