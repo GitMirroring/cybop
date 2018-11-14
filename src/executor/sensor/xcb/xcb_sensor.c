@@ -50,6 +50,8 @@ void sense_xcb(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense xcb.");
 
+    fwprintf(stdout, L"TEST Sense xcb. p0: %i\n", p0);
+
     //
     // Retrieve various values from input/output entry.
     //
@@ -126,6 +128,8 @@ void sense_xcb(void* p0, void* p1) {
         // http://xcb.freedesktop.org/
         //
         void* e = (void*) xcb_poll_for_event((xcb_connection_t*) c);
+
+        fwprintf(stdout, L"TEST Sense xcb. event e: %i\n", e);
 
         if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

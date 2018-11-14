@@ -29,11 +29,15 @@
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/maintainer/shutter/display/display_shutter.c"
 #include "../../executor/maintainer/shutter/serial_port/serial_port_shutter.c"
 #include "../../executor/maintainer/shutter/socket/socket_shutter.c"
 #include "../../executor/maintainer/shutter/terminal/terminal_shutter.c"
+#include "../../executor/maintainer/starter/deallocate_io_maintainer.c"
+#include "../../executor/maintainer/starter/get_io_maintainer.c"
+#include "../../executor/maintainer/starter/set_io_maintainer.c"
 #include "../../logger/logger.c"
 
 /**
@@ -44,7 +48,7 @@
  * /usr/include/i386-linux-gnu/sys/socket.h:232:12
  *
  * @param p0 the internal memory data
- * @param p1 the service identification (comparable to a socket port)
+ * @param p1 the service identification (e.g. socket port)
  * @param p2 the socket client socket
  * @param p3 the socket mode data
  * @param p4 the socket mode count
@@ -58,6 +62,8 @@ void shutdown_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The input/output entry.
+    void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -65,7 +71,21 @@ void shutdown_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            shutdown_display(p0);
+            //
+            // Reset input/output entry in internal memory to null.
+            //
+            // CAUTION! It is ESSENTIAL to assign NULL here,
+            // since cyboi tests for null pointers and otherwise,
+            // wild pointers would lead to memory corruption.
+            //
+            // CAUTION! Do NOT use the "modify_array" (overwrite) function,
+            // since it adapts the array count and size.
+            // But the internal memory array's count and size are CONSTANT.
+            // Therefore, a simple "copy" function is used here.
+            //
+
+            shutdown_display(io);
+            shutdown_io((void*) &io, p0, DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
         }
     }
 
@@ -75,7 +95,21 @@ void shutdown_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
+            // Reset input/output entry in internal memory to null.
+            //
+            // CAUTION! It is ESSENTIAL to assign NULL here,
+            // since cyboi tests for null pointers and otherwise,
+            // wild pointers would lead to memory corruption.
+            //
+            // CAUTION! Do NOT use the "modify_array" (overwrite) function,
+            // since it adapts the array count and size.
+            // But the internal memory array's count and size are CONSTANT.
+            // Therefore, a simple "copy" function is used here.
+            //
+
             shutdown_serial_port(p0);
+            shutdown_io((void*) &io, p0, SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
         }
     }
 
@@ -85,7 +119,21 @@ void shutdown_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
+            // Reset input/output entry in internal memory to null.
+            //
+            // CAUTION! It is ESSENTIAL to assign NULL here,
+            // since cyboi tests for null pointers and otherwise,
+            // wild pointers would lead to memory corruption.
+            //
+            // CAUTION! Do NOT use the "modify_array" (overwrite) function,
+            // since it adapts the array count and size.
+            // But the internal memory array's count and size are CONSTANT.
+            // Therefore, a simple "copy" function is used here.
+            //
+
             shutdown_socket(p0, p1, p2, p3, p4, p5, p6);
+            shutdown_io((void*) &io, p0, SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
         }
     }
 
@@ -95,7 +143,27 @@ void shutdown_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            shutdown_terminal(p0, p1);
+            maintain_io_get((void*) &io, p0, TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
+
+            if (*io != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                // The input/output entry, i.e. service, DOES exist in internal memory.
+
+                //
+                // Reset input/output entry in internal memory to null.
+                //
+                // CAUTION! It is ESSENTIAL to assign NULL here,
+                // since cyboi tests for null pointers and otherwise,
+                // wild pointers would lead to memory corruption.
+                //
+                // CAUTION! Do NOT use the "modify_array" (overwrite) function,
+                // since it adapts the array count and size.
+                // But the internal memory array's count and size are CONSTANT.
+                //
+                maintain_io_set(p0, NULL_POINTER_STATE_CYBOI_MODEL, TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
+                shutdown_terminal(io);
+                maintain_io_deallocate((void*) &io, p0, TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
+            }
         }
     }
 

@@ -33,12 +33,15 @@ GUI
 ___
 
         CONTINUE:
-        * Adapt file "executor/sensor/xcb/xcb_sensor.c"
+        * Finish up handling of input/output entry for shutter similar to starter in directory "executor/maintainer/"
+
+        * Check if events arrive, starting from file "executor/sensor/xcb/xcb_sensor.c"
+
         * Follow call of cybol operation "communicate/receive" in file "handler.cybol"
         * Adapt x window system display stream event reader to new input/output entry structure
         * Adapt gui deserialiser to new input/output entry structure
             * Handle platform-specific event message that gets handed over as argument to gui/xcb/win32_display deserialiser
-        * Make simple gui example work again "user_interface/gui/"
+        * Make simple gui cybol example "user_interface/gui/" work again
 
         * Free event structures which got allocated internally and returned in "xcb_sensor.c" and "win32_display_sensor.c"
 

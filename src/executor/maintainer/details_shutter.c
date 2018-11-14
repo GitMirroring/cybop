@@ -23,91 +23,87 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SENSOR_SOURCE
-#define SENSOR_SOURCE
+#ifndef DETAILS_SHUTTER_SOURCE
+#define DETAILS_SHUTTER_SOURCE
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/sensor/display/display_sensor.c"
-#include "../../executor/sensor/serial_port/serial_port_sensor.c"
-#include "../../executor/sensor/socket/socket_sensor.c"
-#include "../../executor/sensor/terminal/terminal_sensor.c"
+#include "../../executor/maintainer/shutter/display/display_shutter.c"
+#include "../../executor/maintainer/shutter/serial_port/serial_port_shutter.c"
+#include "../../executor/maintainer/shutter/socket/socket_shutter.c"
+#include "../../executor/maintainer/shutter/terminal/terminal_shutter.c"
 #include "../../logger/logger.c"
 
 /**
- * Senses data on the given channel.
+ * Shuts down the given service.
  *
- * CAUTION! Unfortunately, not all clients are integer values.
- * The display connexion for the x window system (via xcb api)
- * for instance is a pointer- and not integer value.
+ * CAUTION! Do NOT rename this function to "shutdown",
+ * as that name is already used by low-level socket functionality:
+ * /usr/include/i386-linux-gnu/sys/socket.h:232:12
  *
- * Therefore, the input/output entry gets handed over
- * as additional parametre, so that special client values
- * such as the display connexion may be retrieved from it inside.
- *
- * @param p0 the data available flaginput/output entry
- * @param p1 the sender client (e.g. file descriptor, client socket)
- * @param p2 the input/output entry (containing e.g. display connexion, event)
- * @param p3 the channel
+ * @param p0 the internal memory data
+ * @param p1 the service identification (e.g. socket port)
+ * @param p2 the socket client socket
+ * @param p3 the socket mode data
+ * @param p4 the socket mode count
+ * @param p5 the socket network service data
+ * @param p6 the socket network service count
+ * @param p7 the channel
  */
-void sense(void* p0, void* p1, void* p2, void* p3) {
+void shutdown_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense.");
-
-    fwprintf(stdout, L"TEST Sense. channel p3: %i\n", *((int*) p3));
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p7, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            sense_display(p0, p2);
+            shutdown_display(io);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) SERIAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p7, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            sense_serial_port(p0);
+            shutdown_serial_port(p0);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p7, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            sense_socket(p0, p1, *NULL_POINTER_STATE_CYBOI_MODEL);
+            shutdown_socket(p0, p1, p2, p3, p4, p5, p6);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p7, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            sense_terminal(p0, p1);
+            shutdown_terminal(io);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense. The channel is unknown.");
-
-        fwprintf(stdout, L"Error: Could not sense. The channel is unknown. The channel p3: %i\n", *((int*) p3));
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown. The channel is unknown.");
     }
 }
 
-/* SENSOR_SOURCE */
+/* DETAILS_SHUTTER_SOURCE */
 #endif

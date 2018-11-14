@@ -44,7 +44,7 @@
 /**
  * Starts up the display.
  *
- * @param p0 the internal memory data
+ * @param p0 the input/output entry
  */
 void startup_display(void* p0) {
 

@@ -23,29 +23,21 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STARTER_SOURCE
-#define STARTER_SOURCE
+#ifndef DETAILS_STARTER_SOURCE
+#define DETAILS_STARTER_SOURCE
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/maintainer/starter/io_starter.c"
+#include "../../executor/maintainer/starter/display/display_starter.c"
+#include "../../executor/maintainer/starter/serial_port/serial_port_starter.c"
+#include "../../executor/maintainer/starter/socket/socket_starter.c"
+#include "../../executor/maintainer/starter/terminal/terminal_starter.c"
 #include "../../logger/logger.c"
 
 /**
- * Starts up the given service.
- *
- * CAUTION! Do NOT rename this function to "startup",
- * since it should be consistent with "shutdown_service",
- * which cannot be renamed to "shutdown",
- * as that name is already used by low-level socket functionality:
- * /usr/include/i386-linux-gnu/sys/socket.h:232:12
- *
- * There may be DOZENS of parametres handed over to this function.
- * This is due to the variety of communication channel settings.
- * The value of unneeded parametres may just be set to NULL.
+ * Starts up the service details.
  *
  * @param p0 the internal memory data
  * @param p1 the service identification (e.g. socket port)
@@ -70,10 +62,11 @@
  * @param p20 the socket network service data
  * @param p21 the socket network service count
  * @param p22 the channel
+ * @param p23 the input/output entry
  */
-void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22) {
+void startup_details(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22, void* p23) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup details.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -84,7 +77,7 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_io(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            startup_display(p23);
         }
     }
 
@@ -94,7 +87,7 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_io(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            startup_serial_port(p0, p2, p3, p4);
         }
     }
 
@@ -104,7 +97,7 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_io(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            startup_socket(p0, p1, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21);
         }
     }
 
@@ -114,7 +107,7 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_io(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            startup_terminal(p23);
         }
     }
 
@@ -124,5 +117,5 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
     }
 }
 
-/* STARTER_SOURCE */
+/* DETAILS_STARTER_SOURCE */
 #endif

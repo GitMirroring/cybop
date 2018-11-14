@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2018-11-14  Christian Heller  <christian.heller@cybop.org>
+
+        * Restructure and unify handling of input/output entry in directory "executor/maintainer/"
+
 2018-11-13  Christian Heller  <christian.heller@cybop.org>
 
         * Activate channel "display" and all others in file "controller/checker/irq/irq_checker.c"
