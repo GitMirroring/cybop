@@ -64,7 +64,7 @@
  */
 void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22, void* p23) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup io.");
 
     // The input/output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -74,7 +74,7 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 
     if (*io == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // The input/output entry, i.e. service, does NOT yet exist in internal memory.
+        // The input/output entry (service) does NOT yet exist in internal memory.
 
         // Allocate input/output entry.
         maintain_io_allocate((void*) &io);
@@ -84,6 +84,10 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 
         // Set input/output entry.
         maintain_io_set(p0, (void*) &io, p23, p1);
+
+    } else {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup io. The input/output entry (service) is not null, i.e. it does already exist in internal memory.");
     }
 }
 

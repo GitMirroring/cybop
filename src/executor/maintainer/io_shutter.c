@@ -26,18 +26,12 @@
 #ifndef IO_SHUTTER_SOURCE
 #define IO_SHUTTER_SOURCE
 
-#include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/maintainer/shutter/display/display_shutter.c"
-#include "../../executor/maintainer/shutter/serial_port/serial_port_shutter.c"
-#include "../../executor/maintainer/shutter/socket/socket_shutter.c"
-#include "../../executor/maintainer/shutter/terminal/terminal_shutter.c"
-#include "../../executor/maintainer/starter/deallocate_io_maintainer.c"
-#include "../../executor/maintainer/starter/get_io_maintainer.c"
-#include "../../executor/maintainer/starter/set_io_maintainer.c"
+#include "../../executor/maintainer/deallocate_io_maintainer.c"
+#include "../../executor/maintainer/details_shutter.c"
+#include "../../executor/maintainer/get_io_maintainer.c"
+#include "../../executor/maintainer/set_io_maintainer.c"
 #include "../../logger/logger.c"
 
 /**
@@ -51,11 +45,48 @@
  * @param p5 the socket network service data
  * @param p6 the socket network service count
  * @param p7 the channel
+ * @param p8 the input/output base
  */
-void shutdown_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void shutdown_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown io.");
 
+    // The input/output entry.
+    void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Get input/output entry.
+    maintain_io_get((void*) &io, p0, p8, p1);
+
+    if (*io != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        // The input/output entry (service) DOES exist in internal memory.
+
+        //
+        // Reset input/output entry.
+        //
+        // CAUTION! It is ESSENTIAL to assign NULL here,
+        // since cyboi tests for null pointers and otherwise,
+        // wild pointers would lead to memory corruption.
+        //
+        // CAUTION! Do NOT use the "modify_array" (overwrite) function,
+        // since it adapts the array count and size.
+        // But the internal memory array's count and size are CONSTANT.
+        //
+        // CAUTION! Hand over null as pointer reference NULL_POINTER_STATE_CYBOI_MODEL
+        // and NOT as dereferenced pointer *NULL_POINTER_STATE_CYBOI_MODEL.
+        //
+        maintain_io_set(p0, NULL_POINTER_STATE_CYBOI_MODEL, p8, p1);
+
+        // Shutdown service details.
+        shutdown_details(p0, p1, p2, p3, p4, p5, p6, p7, io);
+
+        // Deallocate input/output entry.
+        maintain_io_deallocate((void*) &io);
+
+    } else {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown io. The input/output entry (service) is null, i.e. it does not exist in internal memory.");
+    }
 }
 
 /* IO_SHUTTER_SOURCE */

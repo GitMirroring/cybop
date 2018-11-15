@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2018-11-15  Christian Heller  <christian.heller@cybop.org>
+
+        * Finish up handling of input/output entry for shutter similar to starter in directory "executor/maintainer/"
+
 2018-11-14  Christian Heller  <christian.heller@cybop.org>
 
         * Restructure and unify handling of input/output entry in directory "executor/maintainer/"

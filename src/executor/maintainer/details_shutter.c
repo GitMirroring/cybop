@@ -37,11 +37,7 @@
 #include "../../logger/logger.c"
 
 /**
- * Shuts down the given service.
- *
- * CAUTION! Do NOT rename this function to "shutdown",
- * as that name is already used by low-level socket functionality:
- * /usr/include/i386-linux-gnu/sys/socket.h:232:12
+ * Shuts down the service details.
  *
  * @param p0 the internal memory data
  * @param p1 the service identification (e.g. socket port)
@@ -51,10 +47,11 @@
  * @param p5 the socket network service data
  * @param p6 the socket network service count
  * @param p7 the channel
+ * @param p8 the input/output entry
  */
-void shutdown_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void shutdown_details(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown details.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -65,7 +62,7 @@ void shutdown_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            shutdown_display(io);
+            shutdown_display(p8);
         }
     }
 
@@ -95,13 +92,13 @@ void shutdown_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            shutdown_terminal(io);
+            shutdown_terminal(p8);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown. The channel is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown details. The channel is unknown.");
     }
 }
 

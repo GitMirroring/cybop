@@ -40,11 +40,8 @@
  * Deallocates the input/output entry and client list.
  *
  * @param p0 the input/output entry (pointer reference)
- * @param p1 the internal memory data
- * @param p2 the input/output base
- * @param p3 the service identification (e.g. socket port)
  */
-void maintain_io_deallocate(void* p0, void* p1, void* p2, void* p3) {
+void maintain_io_deallocate(void* p0) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
