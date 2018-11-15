@@ -32,6 +32,7 @@
 // ALL of them are important, some due to indirect dependencies.
 //
 
+/*??
 #include "../../../src/constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../src/constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../src/controller/globaliser.c"
@@ -44,12 +45,14 @@
 #include "../../../src/executor/modifier/part_modifier.c"
 #include "../../../src/executor/runner/second_sleeper.c"
 #include "../../../src/executor/sensor/sensor.c"
+*/
 
 #ifndef TERMINAL_SENSOR_TESTER_SOURCE
 #define TERMINAL_SENSOR_TESTER_SOURCE
 
 void test_sense_terminal() {
 
+/*??
     // Startup global variables.
     globalise();
 
@@ -113,7 +116,8 @@ void test_sense_terminal() {
             // It should get interrupted, as soon as a key is typed on keyboard.
             while (1) {
 
-                sense((void*) &r, (void*) &f, (void*) TERMINAL_CYBOI_CHANNEL);
+                //?? TODO: Add input/output entry as third argument.
+//??                sense((void*) &r, (void*) &f, (void*) TERMINAL_CYBOI_CHANNEL);
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -155,6 +159,7 @@ void test_sense_terminal() {
 
     // Shutdown global variables.
     unglobalise();
+*/
 }
 
 int main() {

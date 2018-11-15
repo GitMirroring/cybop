@@ -26,16 +26,16 @@
 #ifndef SET_IO_MAINTAINER_SOURCE
 #define SET_IO_MAINTAINER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
-#include "../../../../executor/copier/array_copier.c"
-#include "../../../../logger/logger.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/calculator/integer/add_integer_calculator.c"
+#include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
+#include "../../executor/copier/array_copier.c"
+#include "../../logger/logger.c"
 
 /**
  * Stores the input/output entry in internal memory.

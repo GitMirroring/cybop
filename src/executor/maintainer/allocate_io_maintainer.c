@@ -26,15 +26,15 @@
 #ifndef ALLOCATE_IO_MAINTAINER_SOURCE
 #define ALLOCATE_IO_MAINTAINER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/accessor/setter/io_entry_setter.c"
-#include "../../../../executor/memoriser/allocator/array_allocator.c"
-#include "../../../../executor/memoriser/allocator/item_allocator.c"
-#include "../../../../logger/logger.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/accessor/setter/io_entry_setter.c"
+#include "../../executor/memoriser/allocator/array_allocator.c"
+#include "../../executor/memoriser/allocator/item_allocator.c"
+#include "../../logger/logger.c"
 
 /**
  * Allocates the input/output entry and client list.

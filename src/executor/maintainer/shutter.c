@@ -31,7 +31,7 @@
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/maintainer/shutter/io_shutter.c"
+#include "../../executor/maintainer/io_shutter.c"
 #include "../../logger/logger.c"
 
 /**

@@ -72,7 +72,7 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     // Get input/output entry.
     maintain_io_get((void*) &io, p0, p23, p1);
 
-    if (*io == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (io == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // The input/output entry (service) does NOT yet exist in internal memory.
 
