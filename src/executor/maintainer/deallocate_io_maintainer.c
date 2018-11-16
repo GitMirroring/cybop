@@ -70,6 +70,8 @@ void maintain_io_deallocate(void* p0) {
         // since it adapts the array count and size.
         // But the array's count and size are CONSTANT.
         //
+        // CAUTION! Hand over value as pointer REFERENCE.
+        //
         // CAUTION! Do NOT hand over input/output entry as pointer reference.
         //
         get_io_entry_element((void*) &cl, *io, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);

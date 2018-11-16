@@ -47,7 +47,7 @@
  * the model AND properties are received TOGETHER, in just one operation.
  *
  * Properties:
- * - sender (required): the source from where to receive data, e.g. filename, client socket number, service identification, gui window
+ * - sender (required): the source from where to receive data, e.g. signal memory item, filename, client socket number, service identification, gui window
  * - channel (required): the channel via which to receive the message (terminal, display, www etc.)
  * - encoding (required): the encoding (utf-8, utf-32 for inline channel etc.)
  * - language (required): the language of the data received (cybol, http_request, xdt etc.)

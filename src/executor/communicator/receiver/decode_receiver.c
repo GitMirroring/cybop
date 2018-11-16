@@ -27,7 +27,7 @@
 #define DECODE_RECEIVER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
+
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
@@ -69,7 +69,7 @@ void receive_decode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
 
     } else {
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive decode. The encoding is null.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive decode. The encoding is null.");
     }
 }
 

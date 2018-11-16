@@ -66,7 +66,7 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source model data (e.g. the signal memory item, filename or socket number)
+ * @param p2 the source model data (e.g. signal memory item, filename, client socket number, service identification, gui window)
  * @param p3 the source model count
  * @param p4 the source properties data (e.g. the signal memory index)
  * @param p5 the source properties count

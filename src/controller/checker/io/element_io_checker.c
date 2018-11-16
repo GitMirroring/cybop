@@ -28,20 +28,12 @@
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
-#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../controller/checker/io/accept_io_checker.c"
 #include "../../../controller/checker/io/receive_io_checker.c"
 #include "../../../executor/accessor/getter/io_entry_getter.c"
-#include "../../../executor/accessor/setter/io_entry_setter.c"
-#include "../../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/copier/array_copier.c"
-#include "../../../executor/copier/integer_copier.c"
+#include "../../../executor/maintainer/get_io_maintainer.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -49,8 +41,8 @@
  *
  * @param p0 the io flag
  * @param p1 the internal memory data
- * @param p2 the internal memory index (already initialised with input output base)
- * @param p3 the input/output entry index
+ * @param p2 the input/output base
+ * @param p3 the service identification
  * @param p4 the channel
  */
 void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
@@ -61,23 +53,15 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io element.");
     //
 
-    // The internal memory index.
-    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The input/output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Calculate internal memory index.
-    calculate_integer_add((void*) &i, p2);
-    calculate_integer_add((void*) &i, p3);
-
-//??    fwprintf(stdout, L"TEST: check io element i: %i \n", i);
-
     // Get input/output entry.
-    copy_array_forward((void*) &io, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+    maintain_io_get((void*) &io, p1, p2, p3);
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // An input/output entry exists for the service at the calculated internal memory index.
+        // The input/output entry (service) DOES exist in internal memory.
 
 //??        fwprintf(stdout, L"TEST: check io element io: %i \n", io);
 

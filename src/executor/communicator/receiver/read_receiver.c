@@ -41,7 +41,7 @@
  * @param p0 the destination item data (pointer reference)
  * @param p1 the destination item count (pointer reference)
  * @param p2 the buffer item
- * @param p3 the source model data (e.g. a filename or socket number)
+ * @param p3 the source model data (e.g. signal memory item, filename, client socket number, service identification, gui window)
  * @param p4 the source model count
  * @param p5 the source properties data
  * @param p6 the source properties count

@@ -34,9 +34,9 @@
  * Searches an action in the root window handed over.
  *
  * Also searches through the window's child elements.
- * An action found in a child element has higher priority
- * and overwrites a previously set action found in the
- * surrounding container element.
+ * A previously set action found in the surrounding container element
+ * gets overwritten by the action found in a child element.
+ * That is, the child element's action has HIGHER PRIORITY.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
@@ -50,11 +50,13 @@
  * @param p9 the button mask
  * @param p10 the mouse x coordinate
  * @param p11 the mouse y coordinate
- * @param p12 the format data
+ * @param p12 the format
  */
 void deserialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui.");
+
+    fwprintf(stdout, L"TEST: Deserialise gui. p7: %i \n", p7);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

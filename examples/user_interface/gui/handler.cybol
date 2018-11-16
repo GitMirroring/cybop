@@ -7,7 +7,9 @@
     </node>
 
     <node name="receive_action" channel="inline" format="communicate/receive" model="">
+<!-- CAUTION! Do NOT specify window as sender here, since it is taken as service identification inside and would lead to memory errors.
         <node name="sender" channel="inline" format="text/cybol-path" model=".gui.window"/>
+-->
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
         <node name="language" channel="inline" format="meta/language" model="message/gui"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>

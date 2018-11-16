@@ -47,7 +47,7 @@
  * as that name is already used for glibc library's input.
  *
  * @param p0 the destination item
- * @param p1 the source model data (e.g. filename, client socket number, service identification, gui window)
+ * @param p1 the source model data (e.g. signal memory item, filename, client socket number, service identification, gui window)
  * @param p2 the source model count
  * @param p3 the source properties data (e.g. signal memory index)
  * @param p4 the source properties count
@@ -82,7 +82,7 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            read_display(p0, p7);
+            read_display(p0, p7, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
         }
     }
 

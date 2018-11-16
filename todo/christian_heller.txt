@@ -32,13 +32,20 @@ ___
 GUI
 ___
 
+        DONE: events arrive in sensor; they are read from the display as event
         CONTINUE:
-        * Check if events arrive, starting from file "executor/sensor/xcb/xcb_sensor.c"
-        * Follow call of cybol operation "communicate/receive" in file "handler.cybol"
-        * Adapt x window system display stream event reader to new input/output entry structure
+        * Solve problem that service id is handed over as sender to cybol operation "communicate/receive" in file "handler.cybol", instead of window;
+            but window is needed for determining action in gui deserialiser
+            check out if it is all right, that in file "receiver.c" NULL is handed over as argument to function "receive_deserialise"
+            possible solution: use service id always as sender specifying a client service socket id; specify other resources "file name, window etc." as additional cybol property
+                using the cybol property "sender" for filename or window etc. is NOT possible, due to the unified handling of service id together with io entry (in maintainer and checker)
         * Adapt gui deserialiser to new input/output entry structure
             * Handle platform-specific event message that gets handed over as argument to gui/xcb/win32_display deserialiser
+
+        * Follow call of cybol operation "communicate/receive" in file "handler.cybol"
         * Make simple gui cybol example "user_interface/gui/" work again
+
+        * Optimise "xcb_writer.c" and similar files using function "get_io_entry_element"
 
         * Free event structures which got allocated internally and returned in "xcb_sensor.c" and "win32_display_sensor.c"
 

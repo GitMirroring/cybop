@@ -51,6 +51,7 @@ void read_signal(void* p0, void* p1, void* p2) {
     // The signal part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
     // Get signal part from position index zero.
     //
     // CAUTION! The signal memory item's count is checked inside
@@ -62,6 +63,7 @@ void read_signal(void* p0, void* p1, void* p2) {
 
 //?? fwprintf(stdout, L"TEST read signal s: %i\n\n", s);
 
+    //
     // Add signal part to destination item.
     //
     // CAUTION! Use simple POINTER_STATE_CYBOI_TYPE and NOT PART_ELEMENT_STATE_CYBOI_TYPE here.
