@@ -56,7 +56,10 @@ void deserialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui.");
 
-    fwprintf(stdout, L"TEST: Deserialise gui. p7: %i \n", p7);
+    fwprintf(stdout, L"TEST: Deserialise gui. source gui count p3: %i \n", p3);
+    fwprintf(stdout, L"TEST: Deserialise gui. source gui count *p3: %i \n", *((int*) p3));
+    fwprintf(stdout, L"TEST: Deserialise gui. source gui count p8: %i \n", p8);
+    fwprintf(stdout, L"TEST: Deserialise gui. source gui count *p8: %i \n", *((int*) p8));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

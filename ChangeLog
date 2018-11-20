@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2018-11-18  Christian Heller  <christian.heller@cybop.org>
+
+        * Hand over property "window" to cybol operation "communicate/receive", since it is needed for determining the action in gui deserialiser
+
 2018-11-16  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt display stream reader to new input/output entry structure
