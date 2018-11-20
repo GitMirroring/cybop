@@ -41,22 +41,24 @@
  * @param p4 the knowledge memory part (pointer reference)
  * @param p5 the stack memory item
  * @param p6 the internal memory data
- * @param p7 the event type data
- * @param p8 the event type count
- * @param p9 the button mask
- * @param p10 the mouse x coordinate
- * @param p11 the mouse y coordinate
- * @param p12 the format
- * @param p13 the language
+ * @param p7 the window data
+ * @param p8 the window count
+ * @param p9 the event type data
+ * @param p10 the event type count
+ * @param p11 the button mask
+ * @param p12 the mouse x coordinate
+ * @param p13 the mouse y coordinate
+ * @param p14 the format
+ * @param p15 the language
  */
-void receive_deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
+void receive_deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
 
-    if (p13 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p15 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive deserialise.");
 
         // Deserialise message.
-        deserialise(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
+        deserialise(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15);
 
     } else {
 
