@@ -11,35 +11,30 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-TUI
-___
-
-        * Structure files and handle windows tui events similar to gui
-        * Deserialise win32 console input (also arrow keys etc.) into command, see:
-            http://msdn.microsoft.com/en-us/library/windows/desktop/ms646268(v=vs.85).aspx#displaying_input
-            http://cboard.cprogramming.com/windows-programming/93468-not-getting-window_buffer_size_event.html
-        * Windows Data Types:
-            http://msdn.microsoft.com/en-us/library/windows/desktop/aa383751%28v=vs.85%29.aspx
-
-        * Provide more keyboard input keys like "tabulator", "backspace" etc. in file "keyboard_state_cybol_name.c"
-        * Check out file "constant/model/terminal/key_code_terminal_model.c":
-            http:www.comptechdoc.org/os/linux/howlinuxworks/linux_hlkeycodes.html
-            or google:
-            gnu linux keyboard terminal keycodes mapping table
-            GNU/Linux kernel source:
-            http:www.topology.org/linux/charpath.html
-
 GUI
 ___
 
-        DONE: events arrive in sensor; they are read from the display as event
+        DONE:
+            events arrive in sensor
+            they are read from the display as event
+            an irq is set, so that the event may be stored as signal in the signal_memory
+            direct reading of events is NOT intended, it works only and always via sensor and irq
+            the event is stored temporarily by sensor in an input/output entry structure
+
         CONTINUE:
-        * Think through standard case of handling reading of arriving events and only afterwards, care about special case that first event is stored temporarily by sensor in io entry structure
+        * Rethink handling of gui event in general
+
         * Make simple gui cybol example "user_interface/gui/" work again
         * Follow call of cybol operation "communicate/receive" in file "handler.cybol"
-        * Check out if it is all right, that in file "receiver.c" NULL is handed over as argument to function "receive_deserialise"
+        * Check out if it is all right, that in file "receiver.c" NULL is handed over as argument "event type (data + count)" to function "receive_deserialise"
         * Adapt gui deserialiser to new input/output entry structure
             * Handle platform-specific event message that gets handed over as argument to gui / xcb / win32_display deserialiser
+        * Use input/output access functions of maintainer in file "element_irq_checker.c" and elsewhere (search)
+
+        * Think through programme flow in file "checker_and_sensor.png"
+            possibly, the "irq" branch is NOT necessary and can be eliminated,
+                if the "check_io" branch adds a received signal directly to signal_memory,
+                instead of just setting a flag
 
         * Optimise "xcb_writer.c" and similar files using function "get_io_entry_element"
 
@@ -84,6 +79,24 @@ ___
             http://msdn.microsoft.com/en-us/library/windows/desktop/aa383751%28v=vs.85%29.aspx
 
         * Remove directory "src/windows/"
+
+TUI
+___
+
+        * Structure files and handle windows tui events similar to gui
+        * Deserialise win32 console input (also arrow keys etc.) into command, see:
+            http://msdn.microsoft.com/en-us/library/windows/desktop/ms646268(v=vs.85).aspx#displaying_input
+            http://cboard.cprogramming.com/windows-programming/93468-not-getting-window_buffer_size_event.html
+        * Windows Data Types:
+            http://msdn.microsoft.com/en-us/library/windows/desktop/aa383751%28v=vs.85%29.aspx
+
+        * Provide more keyboard input keys like "tabulator", "backspace" etc. in file "keyboard_state_cybol_name.c"
+        * Check out file "constant/model/terminal/key_code_terminal_model.c":
+            http:www.comptechdoc.org/os/linux/howlinuxworks/linux_hlkeycodes.html
+            or google:
+            gnu linux keyboard terminal keycodes mapping table
+            GNU/Linux kernel source:
+            http:www.topology.org/linux/charpath.html
 
 Serial Port
 ___________
