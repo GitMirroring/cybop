@@ -52,8 +52,8 @@ void read_display(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read display.");
 
-//??    fwprintf(stdout, L"TEST: Read display. p2: %i \n", p2);
-//??    fwprintf(stdout, L"TEST: Read display. *p2: %i \n", *((int*) p2));
+//??    fwprintf(stdout, L"TEST: Read display. input/output base p2: %i \n", p2);
+//??    fwprintf(stdout, L"TEST: Read display. input/output base *p2: %i \n", *((int*) p2));
 
     // The input/output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;

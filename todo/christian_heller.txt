@@ -22,14 +22,20 @@ ___
             the event is stored temporarily by sensor in an input/output entry structure
 
         CONTINUE:
-        * Rethink handling of gui event in general
+        * Uncomment function call of "deserialise_gui_event" in file "deserialiser.c"
+        * Split display event reception into (1) receive event and (2) deserialise action with gui as language and window as source
+        * Receive additional event parametres as cybol (meta) properties of property "message" in cybol operation "communicate/receive"
 
-        * Make simple gui cybol example "user_interface/gui/" work again
-        * Follow call of cybol operation "communicate/receive" in file "handler.cybol"
+        * Study file "xcb_deserialiser.c" (it calls "process_xcb_deserialiser.c" first and only afterwards "gui_deserialiser.c")
+        * Reactivate file "TODO_gui_deserialiser.c" calling "xcb_deserialiser.c"
+
         * Check out if it is all right, that in file "receiver.c" NULL is handed over as argument "event type (data + count)" to function "receive_deserialise"
         * Adapt gui deserialiser to new input/output entry structure
             * Handle platform-specific event message that gets handed over as argument to gui / xcb / win32_display deserialiser
         * Use input/output access functions of maintainer in file "element_irq_checker.c" and elsewhere (search)
+
+        * Make simple gui cybol example "user_interface/gui/" work again
+        * Follow call of cybol operation "communicate/receive" in file "handler.cybol"
 
         * Think through programme flow in file "checker_and_sensor.png"
             possibly, the "irq" branch is NOT necessary and can be eliminated,

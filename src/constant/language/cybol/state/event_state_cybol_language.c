@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NUMBER_STATE_CYBOL_LANGUAGE_CONSTANT_SOURCE
-#define NUMBER_STATE_CYBOL_LANGUAGE_CONSTANT_SOURCE
+#ifndef EVENT_STATE_CYBOL_LANGUAGE_CONSTANT_SOURCE
+#define EVENT_STATE_CYBOL_LANGUAGE_CONSTANT_SOURCE
 
 #include <stddef.h>
 
@@ -47,22 +47,21 @@
 //
 
 //
-// Number.
+// Event (gui, tui, some framework)
 //
 // IANA media type: not defined
-// Self-defined media type: number
+// Self-defined media type: event
 // This media type is a CYBOL extension.
 //
 
 /**
- * The number/terminal-mode state cybol language.
+ * The event/gui state cybol language.
  *
- * CYBOL (XML) format.
- * Defined in CYBOL specification:
- * http://www.nongnu.org/cybop/books/cybol/cybol.pdf
+ * A graphical user interface event.
+ * This is a CYBOL extension.
  */
-static wchar_t* TERMINAL_MODE_NUMBER_STATE_CYBOL_LANGUAGE = L"number/terminal-mode";
-static int* TERMINAL_MODE_NUMBER_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* GUI_EVENT_STATE_CYBOL_LANGUAGE = L"event/gui";
+static int* GUI_EVENT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* NUMBER_STATE_CYBOL_LANGUAGE_CONSTANT_SOURCE */
+/* EVENT_STATE_CYBOL_LANGUAGE_CONSTANT_SOURCE */
 #endif

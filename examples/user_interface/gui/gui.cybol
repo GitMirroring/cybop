@@ -16,7 +16,8 @@
         <node name="expose" channel="inline" format="text/plain" model=".logic.refresh_display"/>
     </node>
 
-    <!-- CAUTION! The action is used in file "handler.cybol". -->
+    <!-- CAUTION! These variables are used in file "handler.cybol". -->
+    <node name="event" channel="inline" format="text/plain" model=""/>
     <node name="action" channel="inline" format="text/plain" model=""/>
 
 </node>
