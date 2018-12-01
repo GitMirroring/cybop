@@ -311,7 +311,7 @@
                 DJ &#xD6;tzi &#x26; Nik P.
             </td>
             <td>
-                Ein Stern (Der Deinen Namen Tr&#xE4;gt)
+                Ein Stern (Der Deinen Namen tr&#xE4;gt)
             </td>
             <td>
                 Schlager
@@ -933,6 +933,20 @@
         </tr>
         <tr>
             <td>
+                Peter Alexander
+            </td>
+            <td>
+                Die Kleine Kneipe
+            </td>
+            <td>
+                Schlager
+            </td>
+            <td>
+                1976
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Peter Kraus
             </td>
             <td>
@@ -1251,19 +1265,6 @@
                 Udo J&#xFC;rgens
             </td>
             <td>
-                Aber Bitte Mit Sahne
-            </td>
-            <td>
-                Schlager
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Udo J&#xFC;rgens
-            </td>
-            <td>
                 Griechischer Wein
             </td>
             <td>
@@ -1415,6 +1416,20 @@
                 Volksmusik &#x26; Stimmungsmusik
             </td>
             <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Wolfgang Petry
+            </td>
+            <td>
+                Verlieben Verloren Vergessen Verzeih&#x27;n
+            </td>
+            <td>
+                Schlager
+            </td>
+            <td>
+                1992
             </td>
         </tr>
         <tr>

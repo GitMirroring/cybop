@@ -44,19 +44,6 @@
         </tr>
         <tr>
             <td>
-                Aber Bitte Mit Sahne
-            </td>
-            <td>
-                Udo J&#xFC;rgens
-            </td>
-            <td>
-                Schlager
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
                 Africa
             </td>
             <td>
@@ -293,6 +280,20 @@
         </tr>
         <tr>
             <td>
+                Die Kleine Kneipe
+            </td>
+            <td>
+                Peter Alexander
+            </td>
+            <td>
+                Schlager
+            </td>
+            <td>
+                1976
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Dreamin&#x27;
             </td>
             <td>
@@ -332,7 +333,7 @@
         </tr>
         <tr>
             <td>
-                Ein Stern (Der Deinen Namen Tr&#xE4;gt)
+                Ein Stern (Der Deinen Namen tr&#xE4;gt)
             </td>
             <td>
                 DJ &#xD6;tzi &#x26; Nik P.
@@ -1256,6 +1257,20 @@
                 Deutschrock
             </td>
             <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Verlieben Verloren Vergessen Verzeih&#x27;n
+            </td>
+            <td>
+                Wolfgang Petry
+            </td>
+            <td>
+                Schlager
+            </td>
+            <td>
+                1992
             </td>
         </tr>
         <tr>

@@ -357,7 +357,7 @@
                 Dieter-Thomas Kuhn - &#xDC;ber Den Wolken
             </li>
             <li>
-                DJ &#xD6;tzi &#x26; Nik P. - Ein Stern (Der Deinen Namen Tr&#xE4;gt)
+                DJ &#xD6;tzi &#x26; Nik P. - Ein Stern (Der Deinen Namen tr&#xE4;gt)
             </li>
             <li>
                 Dschinghis Khan - Moskau
@@ -369,13 +369,13 @@
                 Howard Carpendale - Hello Again
             </li>
             <li>
+                Peter Alexander - Die Kleine Kneipe
+            </li>
+            <li>
                 Peter Kraus - Hello Mary Lou
             </li>
             <li>
                 Rudi Schuricke - Capri Fischer
-            </li>
-            <li>
-                Udo J&#xFC;rgens - Aber Bitte Mit Sahne
             </li>
             <li>
                 Udo J&#xFC;rgens - Griechischer Wein
@@ -388,6 +388,9 @@
             </li>
             <li>
                 Udo J&#xFC;rgens - Wilde Kirschen
+            </li>
+            <li>
+                Wolfgang Petry - Verlieben Verloren Vergessen Verzeih&#x27;n
             </li>
             <li>
                 Wolfgang Petry - Wahnsinn

@@ -1,0 +1,13 @@
+<node>
+
+    <node name="artist" channel="inline" format="text/plain" model="Peter Alexander"/>
+    <node name="title" channel="inline" format="text/plain" model="Die Kleine Kneipe"/>
+    <node name="genre" channel="inline" format="text/plain" model="schlager"/>
+    <node name="year" channel="inline" format="text/plain" model="1976"/>
+
+    <node name="time" channel="inline" format="text/plain" model="0:00"/>
+    <node name="key" channel="inline" format="text/plain" model=""/>
+    <node name="vocals" channel="inline" format="text/plain" model="Chris"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

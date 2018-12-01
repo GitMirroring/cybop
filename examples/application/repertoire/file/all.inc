@@ -660,7 +660,7 @@
                 DJ &#xD6;tzi &#x26; Nik P.
             </td>
             <td>
-                Ein Stern (Der Deinen Namen Tr&#xE4;gt)
+                Ein Stern (Der Deinen Namen tr&#xE4;gt)
             </td>
             <td>
                 Schlager
@@ -674,7 +674,7 @@
             <td>
             </td>
             <td>
-                K&#xF6;gi
+                Chris
             </td>
             <td>
             </td>
@@ -1683,6 +1683,30 @@
         </tr>
         <tr>
             <td>
+                Peter Alexander
+            </td>
+            <td>
+                Die Kleine Kneipe
+            </td>
+            <td>
+                Schlager
+            </td>
+            <td>
+                1976
+            </td>
+            <td>
+                0:00
+            </td>
+            <td>
+            </td>
+            <td>
+                Chris
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Peter Maffay
             </td>
             <td>
@@ -2242,29 +2266,6 @@
                 Udo J&#xFC;rgens
             </td>
             <td>
-                Aber Bitte Mit Sahne
-            </td>
-            <td>
-                Schlager
-            </td>
-            <td>
-            </td>
-            <td>
-                0:00
-            </td>
-            <td>
-            </td>
-            <td>
-                Chris
-            </td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Udo J&#xFC;rgens
-            </td>
-            <td>
                 Griechischer Wein
             </td>
             <td>
@@ -2526,6 +2527,30 @@
                 Volksmusik &#x26; Stimmungsmusik
             </td>
             <td>
+            </td>
+            <td>
+                0:00
+            </td>
+            <td>
+            </td>
+            <td>
+                Chris
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Wolfgang Petry
+            </td>
+            <td>
+                Verlieben Verloren Vergessen Verzeih&#x27;n
+            </td>
+            <td>
+                Schlager
+            </td>
+            <td>
+                1992
             </td>
             <td>
                 0:00

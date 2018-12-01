@@ -84,6 +84,7 @@
     <node name="nick_straker_band_-_a_walk_in_the_park" channel="file" format="element/part" model="application/repertoire/db/song/nick_straker_band_-_a_walk_in_the_park.cybol"/>
 
     <node name="paul_kuhn_-_es_gibt_kein_bier_auf_hawaii" channel="file" format="element/part" model="application/repertoire/db/song/paul_kuhn_-_es_gibt_kein_bier_auf_hawaii.cybol"/>
+    <node name="peter_alexander_-_die_kleine_kneipe" channel="file" format="element/part" model="application/repertoire/db/song/peter_alexander_-_die_kleine_kneipe.cybol"/>
     <node name="peter_maffay_-_eiszeit" channel="file" format="element/part" model="application/repertoire/db/song/peter_maffay_-_eiszeit.cybol"/>
     <node name="peter_kraus_-_hello_mary_lou" channel="file" format="element/part" model="application/repertoire/db/song/peter_kraus_-_hello_mary_lou.cybol"/>
     <node name="phil_collins_-_you'll_be_in_my_heart" channel="file" format="element/part" model="application/repertoire/db/song/phil_collins_-_you'll_be_in_my_heart.cybol"/>
@@ -112,7 +113,6 @@
     <node name="toto_-_child's_anthem" channel="file" format="element/part" model="application/repertoire/db/song/toto_-_child's_anthem.cybol"/>
     <node name="twins_-_not_the_loving_kind" channel="file" format="element/part" model="application/repertoire/db/song/twins_-_not_the_loving_kind.cybol"/>
 
-    <node name="udo_juergens_-_aber_bitte_mit_sahne" channel="file" format="element/part" model="application/repertoire/db/song/udo_juergens_-_aber_bitte_mit_sahne.cybol"/>
     <node name="udo_juergens_-_griechischer_wein" channel="file" format="element/part" model="application/repertoire/db/song/udo_juergens_-_griechischer_wein.cybol"/>
     <node name="udo_juergens_-_ich_war_noch_niemals_in_new_york" channel="file" format="element/part" model="application/repertoire/db/song/udo_juergens_-_ich_war_noch_niemals_in_new_york.cybol"/>
     <node name="udo_juergens_-_mit_66_jahren" channel="file" format="element/part" model="application/repertoire/db/song/udo_juergens_-_mit_66_jahren.cybol"/>
@@ -127,6 +127,7 @@
     <node name="volkslied_-_rosamunde" channel="file" format="element/part" model="application/repertoire/db/song/volkslied_-_rosamunde.cybol"/>
     <node name="volkslied_-_what_shall_we_do_with_the_drunken_sailor" channel="file" format="element/part" model="application/repertoire/db/song/volkslied_-_what_shall_we_do_with_the_drunken_sailor.cybol"/>
 
+    <node name="wolfgang_petry_-_verlieben_verloren_vergessen_verzeih'n" channel="file" format="element/part" model="application/repertoire/db/song/wolfgang_petry_-_verlieben_verloren_vergessen_verzeih'n.cybol"/>
     <node name="wolfgang_petry_-_wahnsinn" channel="file" format="element/part" model="application/repertoire/db/song/wolfgang_petry_-_wahnsinn.cybol"/>
 
 </node>

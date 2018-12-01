@@ -133,6 +133,7 @@
     <node name="u2_-_i_still_haven't_found_what_i'm_looking_for" channel="file" format="element/part" model="application/repertoire/db/idea/u2_-_i_still_haven't_found_what_i'm_looking_for.cybol"/>
     <node name="u2_-_pride_(in_the_name_of_love)" channel="file" format="element/part" model="application/repertoire/db/idea/u2_-_pride_(in_the_name_of_love).cybol"/>
     <node name="u2_-_sunday_bloody_sunday" channel="file" format="element/part" model="application/repertoire/db/idea/u2_-_sunday_bloody_sunday.cybol"/>
+    <node name="udo_juergens_-_aber_bitte_mit_sahne" channel="file" format="element/part" model="application/repertoire/db/idea/udo_juergens_-_aber_bitte_mit_sahne.cybol"/>
     <node name="ultravox_-_hymn" channel="file" format="element/part" model="application/repertoire/db/idea/ultravox_-_hymn.cybol"/>
     <node name="ute_freudenberg_-_jugendliebe" channel="file" format="element/part" model="application/repertoire/db/idea/ute_freudenberg_-_jugendliebe.cybol"/>
 
