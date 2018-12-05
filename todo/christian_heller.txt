@@ -133,6 +133,12 @@ ______________
 Worker Threads
 ______________
 
+        * See: web search for "node.js c++ event-driven" delivered the following, including very useful diagrams:
+            http://stackoverflow.com/questions/36491385/how-is-asynchronous-javascript-interpreted-and-executed-in-node-js
+            http://stackoverflow.com/questions/14795145/how-the-single-threaded-non-blocking-io-model-works-in-node-js
+            http://berb.github.io/diploma-thesis/original/055_events.html
+            http://garywoodfine.com/event-driven-architecture-node-js/
+
         * Use worker threads for long-lasting operations
         * Provide cybol operation for this
 
