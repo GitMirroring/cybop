@@ -14,42 +14,30 @@
 GUI
 ___
 
-        CONTINUE:
-        * See cybol example "user_interface/gui/", files "gui.cybol" (definition of "action" with properties) and "handler.cybol"
-        * Hint: the display reader (of stream) is NOT used, since the gui event is already stored in the io structure by the sensor
-        * (therefore) Continue in files: deserialiser, gui_event_deserialiser, properties_gui_event_deserialiser, values_gui_event_deserialiser, xcb_deserialiser
-            ... all are not compilable yet
+        EXAMPLE:
+        * Make cybol example "user_interface/gui/" work again
+        * See file "gui.cybol" for definition of "action" with event | message properties
+        * Follow call of cybol operation "communicate/receive" in file "handler.cybol"
 
-        HINT:
+        CONTINUE:
+        * Complete files (all are not compilable yet): deserialiser, gui_event_deserialiser, properties_gui_event_deserialiser, values_gui_event_deserialiser, xcb_deserialiser | win32_display_deserialiser
+
+        TODO:
         * There are currently two cybol properties to hand over a window as argument to the "receive" operation: sender or window
             problem: replace parameter "window data" in function "receive_data" with "sender" ??
             possibly, "window" can be DELETED in the future, as soon as it is clear to be useless and replacable by "sender"
-        * Clear up directory "executor/representer/deserialiser/gui_event/"
-        * Delete format constant "event/gui" and all related usages in de-/serialiser again, if not needed anymore and use "message/gui" instead
+        * Delete (possibly) format constant "event/gui" and all related usages in de-/serialiser again, if not needed anymore and use "message/gui" instead
         * Activate call of function "deserialise_gui" in function "deserialise" (section "GUI_EVENT_STATE_CYBOI_LANGUAGE")
+        * Check out if it is all right, that in file "receiver.c" NULL is handed over as argument "event type (data + count)" to function "receive_deserialise"
+        * Use input/output access functions of maintainer in file "element_irq_checker.c" and elsewhere (search)
 
         DONE:
             events arrive in sensor
-            they are read from the display as event
+            they are read from the display as xcb event / win32 message
+            they are stored in the input/output structure by the sensor (a directory stream/reader/display/ is therefore NOT necessary)
             an irq is set, so that the event may be stored as signal in the signal_memory
             direct reading of events is NOT intended, it works only and always via sensor and irq
             the event is stored temporarily by sensor in an input/output entry structure
-
-        CONTINUE:
-        * Uncomment function call of "deserialise_gui_event" in file "deserialiser.c"
-        * Split display event reception ?? into (1) receive event and (2) deserialise action with gui as language and window as source
-        * Receive additional event parametres as cybol (meta) properties of property "message" in cybol operation "communicate/receive"
-
-        * Study file "xcb_deserialiser.c" (it calls "process_xcb_deserialiser.c" first and only afterwards "gui_deserialiser.c")
-        * Reactivate file "TODO_gui_deserialiser.c" calling "xcb_deserialiser.c"
-
-        * Check out if it is all right, that in file "receiver.c" NULL is handed over as argument "event type (data + count)" to function "receive_deserialise"
-        * Adapt gui deserialiser to new input/output entry structure
-            * Handle platform-specific event message that gets handed over as argument to gui / xcb / win32_display deserialiser
-        * Use input/output access functions of maintainer in file "element_irq_checker.c" and elsewhere (search)
-
-        * Make simple gui cybol example "user_interface/gui/" work again
-        * Follow call of cybol operation "communicate/receive" in file "handler.cybol"
 
         * Think through programme flow in file "checker_and_sensor.png"
             possibly, the "irq" branch is NOT necessary and can be eliminated,
@@ -57,9 +45,6 @@ ___
                 instead of just setting a flag
 
         * Optimise "xcb_writer.c" and similar files using function "get_io_entry_element"
-
-        * Free event structures which got allocated internally and returned in "xcb_sensor.c" and "win32_display_sensor.c"
-            this is currently done in file "gui_event_deserialiser" (see comment there), but possibly has to be done in a platform-specific way
 
         * Think through design of gui using cybol (css box model, layout manager, look'n'feel)
         * Use css box model as in JavaFX with relative positioning also for tui, gui etc.?
@@ -78,6 +63,8 @@ ___
             The xcb tutorial "libxcb-1.10/doc/tutorial/index.html#alloccolor" writes:
             "As xcb_alloc_color_reply() allocates memory, you have to free it."
 
+        * Process further message types in file "win32_display_deserialiser.c"
+            https://docs.microsoft.com/en-us/windows/desktop/inputdev/wm-activate
         * Reactivate call of function "read_display" in function "read_data", if win32 permits peeking ahead so that the actual event has to be read again in "read_display"
             Delete directory "executor/streamer/reader/display/" otherwise (if not needed, since events are actually read in sensor then, which is not just peeking ahead, but stores the next event in the io structure of the internal memory)
         * Extend gui serialiser for win32 display

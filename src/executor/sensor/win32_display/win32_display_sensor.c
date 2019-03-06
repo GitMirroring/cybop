@@ -56,8 +56,11 @@ void sense_win32_display(void* p0, void* p1) {
     //
     // The event message.
     //
-    // It just serves as placeholder here, since
-    // the message is received and removed only later.
+    // CAUTION! It gets stored in input/output entry below,
+    // in order to forward and use it in further functions.
+    //
+    // It is cyboi's responsibility to FREE this
+    // event message again later on.
     //
     void* msg = malloc(sizeof (MSG));
     //
@@ -65,7 +68,7 @@ void sense_win32_display(void* p0, void* p1) {
     //
     // CAUTION! It is initialised with null,
     // so that not only the main window's messages,
-    // but all messages of the thread are received.
+    // but ALL messages of the thread are received.
     //
     // This is important if using a dialogue window
     // besides the main window, for example.
@@ -81,6 +84,10 @@ void sense_win32_display(void* p0, void* p1) {
     // Meaning of the return value:
     // - NONZERO (TRUE): a message IS available;
     // - ZERO (FALSE): there is NO message available.
+    //
+    // The third and fourth argument may be used for message filtering.
+    // They are BOTH set to zero in order to deactivate filtering
+    // and to return ALL available messages.
     //
     // CAUTION! The message MUST NOT be removed here,
     // since it has to be read again in a "receive" function,
@@ -105,8 +112,18 @@ void sense_win32_display(void* p0, void* p1) {
 
     if (b != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        // Store event message in input/output entry.
-        get_io_entry_element(p1, (void*) &msg, (void*) EVENT_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        //
+        // Set event into input/output entry.
+        //
+        // CAUTION! Do NOT use "overwrite_array" function here,
+        // since it adapts the array count and size.
+        // But the array's count and size are CONSTANT.
+        //
+        // CAUTION! Do NOT hand over input/output entry as pointer reference.
+        //
+        // CAUTION! Hand over value as pointer REFERENCE.
+        //
+        set_io_entry_element(p1, (void*) &msg, (void*) EVENT_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         // Set data available flag.
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

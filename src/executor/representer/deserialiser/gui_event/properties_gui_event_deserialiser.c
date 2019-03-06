@@ -56,6 +56,35 @@ void deserialise_gui_event_properties(void* p0, void* p1, void* p2, void* p3, vo
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui event properties.");
 
+/*?? TODO: read the following as cybol properties
+    // The event type string data, count.
+    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* tc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The mouse button or keycode of the physical key on the keyboard.
+    // Possible types are: xcb_button_t, uint8_t, xcb_keycode_t
+    int bk = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The identification of the window where event occured.
+    // This is needed if the application uses more
+    // than just one window, e.g. dialogue windows.
+    // In this case, the application registers
+    // for events on all of these several windows.
+    // The actual type is: xcb_window_t
+    int win = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The mouse position (x, y).
+    int px = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int py = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The button- or key mask.
+    int m = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The mouse button identification.
+    int b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The origo (x, y) of the area that needs to be redrawn.
+    int x = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The size (width, height) of the area that needs to be redrawn.
+    int w = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int h = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+*/
+
     // The sender part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 

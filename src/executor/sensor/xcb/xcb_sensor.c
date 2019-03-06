@@ -52,22 +52,20 @@ void sense_xcb(void* p0, void* p1) {
 
     fwprintf(stdout, L"TEST Sense xcb. p0: %i\n", p0);
 
+    // The connexion.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+
     //
-    // Retrieve various values from input/output entry.
+    // Retrieve connexion from input/output entry.
     //
     // CAUTION! Do NOT use "overwrite_array" function here,
     // since it adapts the array count and size.
     // But the array's count and size are CONSTANT.
     //
-    // CAUTION! Hand over values as pointer REFERENCE.
+    // CAUTION! Hand over value as pointer REFERENCE.
     //
     // CAUTION! Do NOT hand over input/output entry as pointer reference.
     //
-
-    // The connexion.
-    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Retrieve connexion from input/output entry.
     get_io_entry_element((void*) &c, p1, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
@@ -133,7 +131,17 @@ void sense_xcb(void* p0, void* p1) {
 
         if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+            //
             // Set event into input/output entry.
+            //
+            // CAUTION! Do NOT use "overwrite_array" function here,
+            // since it adapts the array count and size.
+            // But the array's count and size are CONSTANT.
+            //
+            // CAUTION! Do NOT hand over input/output entry as pointer reference.
+            //
+            // CAUTION! Hand over value as pointer REFERENCE.
+            //
             set_io_entry_element(p1, (void*) &e, (void*) EVENT_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             // Set data available flag.

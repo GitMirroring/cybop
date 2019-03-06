@@ -20,9 +20,10 @@
 
 2019-03-06  Christian Heller  <christian.heller@cybop.org>
 
-        * Continue gui event handling
+        * Adapt gui event deserialiser to new input/output entry structure
         * Delete file "executor/communicator/deallocate_receiver.c", since gui event gets deallocated in gui event deserialiser
         * Delete directory "streamer/reader/display/" which is not necessary, since the gui event is already stored in the io structure by the sensor
+        * Free xcb event / win32 message structures that got allocated internally by the sensor in gui event deserialiser
 
 2018-11-25  Christian Heller  <christian.heller@cybop.org>
 

@@ -58,8 +58,11 @@
  */
 void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
+    //
     // The following code sections are NOT indented,
-    // in order to better keep overview.
+    // in order to better keep overview,
+    // since more may have to be added in future.
+    //
 
     if (p12 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

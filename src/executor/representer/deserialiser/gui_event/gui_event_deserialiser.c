@@ -109,16 +109,14 @@ void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         set_io_entry_element(io, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) EVENT_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         //
-        //?? Is this platform specific?
-        //?? How to handle this for win32?
-        //?? Possibly move this call of "free" to a platform-specific file!
-        //
-
-        //
         // Deallocate event.
         //
-        // CAUTION! An event gets created by the xcb library,
-        // but HAS TO BE destroyed manually here.
+        // CAUTION! It HAS TO BE destroyed manually here, since for:
+        // - linux: it gets created automatically inside the xcb library
+        // - win32: it gets created manually as message using the type MSG
+        //
+        // However, in BOTH CASES they are just pointers and hence
+        // NOT platform-specific and therefore may get freed here.
         //
         free(e);
 
