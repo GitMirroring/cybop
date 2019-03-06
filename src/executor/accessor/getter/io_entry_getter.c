@@ -81,7 +81,7 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
                 // Nothing.
                 //
 
-                calculate_pointer_add((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+                // calculate_pointer_add((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
                 // Copy source input/output entry to destination element.
                 copy_integer(p0, e);

@@ -46,7 +46,7 @@
  * "controller/globaliser/type_size/compound_type_size_globaliser.c"
  *
  * @param p0 the destination input/output entry
- * @param p1 the source element (pointer reference only if pointer is retrieved)
+ * @param p1 the source element (pointer reference only if pointer is assigned)
  * @param p2 the source index
  */
 void set_io_entry_element(void* p0, void* p1, void* p2) {
@@ -81,7 +81,7 @@ void set_io_entry_element(void* p0, void* p1, void* p2) {
                 // Nothing.
                 //
 
-                calculate_pointer_add((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+                // calculate_pointer_add((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
                 // Copy source element to destination input/output entry.
                 copy_integer(e, p1);

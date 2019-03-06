@@ -172,16 +172,22 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // Deallocate display event.
     receive_deallocate(b, p17);
 
+fwprintf(stdout, L"TEST receive data 0: %b\n", b);
     // Deallocate pointer message item.
-    deallocate_item((void*) &p, (void*) POINTER_STATE_CYBOI_TYPE);
+//??    deallocate_item((void*) &p, (void*) POINTER_STATE_CYBOI_TYPE);
+fwprintf(stdout, L"TEST receive data 1: %b\n", b);
     // Deallocate integer message item.
     deallocate_item((void*) &i, (void*) LONG_LONG_INTEGER_NUMBER_STATE_CYBOI_TYPE);
+fwprintf(stdout, L"TEST receive data 2: %b\n", b);
     // Deallocate compressed message item.
     deallocate_item((void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+fwprintf(stdout, L"TEST receive data 3: %b\n", b);
     // Deallocate encoded message item.
     deallocate_item((void*) &e, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+fwprintf(stdout, L"TEST receive data 4: %b\n", b);
     // Deallocate serialised message item.
     deallocate_item((void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+fwprintf(stdout, L"TEST receive data 5: %b\n", b);
 }
 
 /* RECEIVER_SOURCE */
