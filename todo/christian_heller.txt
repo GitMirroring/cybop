@@ -14,9 +14,19 @@
 GUI
 ___
 
-        DEBUG:
-            Uncomment the following line again in file "executor/communicator/receiver.c":
-                //??    deallocate_item((void*) &p, (void*) POINTER_STATE_CYBOI_TYPE);
+        CONTINUE:
+        * See cybol example "user_interface/gui/", files "gui.cybol" (definition of "action" with properties) and "handler.cybol"
+        * Hint: the display reader (of stream) is NOT used, since the gui event is already stored in the io structure by the sensor
+        * (therefore) Continue in files: deserialiser, gui_event_deserialiser, properties_gui_event_deserialiser, values_gui_event_deserialiser, xcb_deserialiser
+            ... all are not compilable yet
+
+        HINT:
+        * There are currently two cybol properties to hand over a window as argument to the "receive" operation: sender or window
+            problem: replace parameter "window data" in function "receive_data" with "sender" ??
+            possibly, "window" can be DELETED in the future, as soon as it is clear to be useless and replacable by "sender"
+        * Clear up directory "executor/representer/deserialiser/gui_event/"
+        * Delete format constant "event/gui" and all related usages in de-/serialiser again, if not needed anymore and use "message/gui" instead
+        * Activate call of function "deserialise_gui" in function "deserialise" (section "GUI_EVENT_STATE_CYBOI_LANGUAGE")
 
         DONE:
             events arrive in sensor
@@ -27,7 +37,7 @@ ___
 
         CONTINUE:
         * Uncomment function call of "deserialise_gui_event" in file "deserialiser.c"
-        * Split display event reception into (1) receive event and (2) deserialise action with gui as language and window as source
+        * Split display event reception ?? into (1) receive event and (2) deserialise action with gui as language and window as source
         * Receive additional event parametres as cybol (meta) properties of property "message" in cybol operation "communicate/receive"
 
         * Study file "xcb_deserialiser.c" (it calls "process_xcb_deserialiser.c" first and only afterwards "gui_deserialiser.c")
@@ -49,6 +59,7 @@ ___
         * Optimise "xcb_writer.c" and similar files using function "get_io_entry_element"
 
         * Free event structures which got allocated internally and returned in "xcb_sensor.c" and "win32_display_sensor.c"
+            this is currently done in file "gui_event_deserialiser" (see comment there), but possibly has to be done in a platform-specific way
 
         * Think through design of gui using cybol (css box model, layout manager, look'n'feel)
         * Use css box model as in JavaFX with relative positioning also for tui, gui etc.?
@@ -67,6 +78,8 @@ ___
             The xcb tutorial "libxcb-1.10/doc/tutorial/index.html#alloccolor" writes:
             "As xcb_alloc_color_reply() allocates memory, you have to free it."
 
+        * Reactivate call of function "read_display" in function "read_data", if win32 permits peeking ahead so that the actual event has to be read again in "read_display"
+            Delete directory "executor/streamer/reader/display/" otherwise (if not needed, since events are actually read in sensor then, which is not just peeking ahead, but stores the next event in the io structure of the internal memory)
         * Extend gui serialiser for win32 display
             HDC hdc;
             PAINTSTRUCT PaintStruct;

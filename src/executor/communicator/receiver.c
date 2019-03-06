@@ -30,7 +30,6 @@
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/communicator/receiver/deallocate_receiver.c"
 #include "../../executor/communicator/receiver/decode_receiver.c"
 #include "../../executor/communicator/receiver/deserialise_receiver.c"
 //?? #include "../../executor/communicator/receiver/extract_receiver.c"
@@ -103,11 +102,11 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // CAUTION! This is just a helper variable,
     // to be used for forwarding the correct argument.
     void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The argument data, count.
+    // The buffer data, count.
     // CAUTION! This is just helper variables,
     // to be used for forwarding the correct argument.
-    void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ac = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // CAUTION! These items have to get allocated HERE
@@ -144,37 +143,35 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // Select buffer.
     receive_select((void*) &b, (void*) &p0, (void*) &p, (void*) &i, (void*) &s, p17);
     // Read message.
-    receive_read((void*) &ad, (void*) &ac, b, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p17);
+    receive_read((void*) &bd, (void*) &bc, b, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p17);
     if ((p15 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p15) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
-//?? fwprintf(stdout, L"TEST receive data read *ac: %i\n", *((int*) ac));
-//?? fwprintf(stdout, L"TEST receive data read ad: %s\n", (char*) ad);
+//?? fwprintf(stdout, L"TEST receive data read *bc: %i\n", *((int*) bc));
+//?? fwprintf(stdout, L"TEST receive data read bd: %s\n", (char*) bd);
 //?? fwprintf(stdout, L"TEST receive data read *p16: %i\n", *((int*) p16));
     }
     // Extract message.
-//??    receive_extract((void*) &ad, (void*) &ac, e, ad, ac, p??);
+//??    receive_extract((void*) &bd, (void*) &bc, e, bd, bc, p??);
     // Decode message.
-    receive_decode((void*) &ad, (void*) &ac, s, ad, ac, p16);
+    receive_decode((void*) &bd, (void*) &bc, s, bd, bc, p16);
     if ((p15 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p15) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
-//?? fwprintf(stdout, L"TEST receive data decode *ac: %i\n", *((int*) ac));
-//?? fwprintf(stdout, L"TEST receive data decode ad: %s\n", (char*) ad);
+//?? fwprintf(stdout, L"TEST receive data decode *bc: %i\n", *((int*) bc));
+//?? fwprintf(stdout, L"TEST receive data decode bd: %s\n", (char*) bd);
     }
     // Deserialise message.
     // CAUTION! The buffer argument may be of e.g.
     // type "char" or type "wchar_t" or type "void*", which is IRRELEVANT.
     // This function knows how to handle it, depending on the given language.
-//?? fwprintf(stdout, L"TEST receive data deserialise pre *ac: %i\n", *((int*) ac));
-//?? fwprintf(stdout, L"TEST receive data deserialise pre ad: %ls\n", (wchar_t*) ad);
-    receive_deserialise(p0, p1, ad, ac, p6, p7, p8, p12, p13, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p14, p15);
+//?? fwprintf(stdout, L"TEST receive data deserialise pre *bc: %i\n", *((int*) bc));
+//?? fwprintf(stdout, L"TEST receive data deserialise pre bd: %ls\n", (wchar_t*) bd);
+    receive_deserialise(p0, p1, bd, bc, p6, p7, p8, p12, p13, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p14, p15);
     if ((p15 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p15) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
-//?? fwprintf(stdout, L"TEST receive data deserialise post *ac: %i\n", *((int*) ac));
-//?? fwprintf(stdout, L"TEST receive data deserialise post ad: %s\n", (char*) ad);
+//?? fwprintf(stdout, L"TEST receive data deserialise post *bc: %i\n", *((int*) bc));
+//?? fwprintf(stdout, L"TEST receive data deserialise post bd: %s\n", (char*) bd);
     }
-    // Deallocate display event.
-    receive_deallocate(b, p17);
 
 fwprintf(stdout, L"TEST receive data 0: %b\n", b);
     // Deallocate pointer message item.
-//??    deallocate_item((void*) &p, (void*) POINTER_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &p, (void*) POINTER_STATE_CYBOI_TYPE);
 fwprintf(stdout, L"TEST receive data 1: %b\n", b);
     // Deallocate integer message item.
     deallocate_item((void*) &i, (void*) LONG_LONG_INTEGER_NUMBER_STATE_CYBOI_TYPE);

@@ -82,7 +82,16 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            read_display(p0, p7, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
+            //
+            // There is NOTHING to do here, since the gui event
+            // is already stored in the io structure by the sensor.
+            //
+            // However, this is valid when using xcb.
+            // It is yet unclear how win32 handles this:
+            // Peeking ahead of storing the event right away?
+            //
+            // read_display(p0, p7, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL);
+            //
         }
     }
 

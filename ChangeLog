@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2019-03-06  Christian Heller  <christian.heller@cybop.org>
+
+        * Continue gui event handling
+        * Delete file "executor/communicator/deallocate_receiver.c", since gui event gets deallocated in gui event deserialiser
+        * Delete directory "streamer/reader/display/" which is not necessary, since the gui event is already stored in the io structure by the sensor
+
 2018-11-25  Christian Heller  <christian.heller@cybop.org>
 
         * Add gui_event language constant
@@ -1129,7 +1135,7 @@
 2015-01-29  Christian Heller  <christian.heller@tuxtax.de>
 
         * Distinguish between sensor for accepting new client (file "sense_socket_accept.c") and that testing for data (file "sense_socket.c")
-        * Hand over socket option flags as additional argument to receive function, since it is used both for normal receive and for peaking ahead (MSG_PEEK) for available data
+        * Hand over socket option flags as additional argument to receive function, since it is used both for normal receive and for peeking ahead (MSG_PEEK) for available data
 
 2015-01-27  Christian Heller  <christian.heller@tuxtax.de>
 

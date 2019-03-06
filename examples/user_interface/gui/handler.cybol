@@ -15,27 +15,29 @@
     </node>
 
     <node name="receive_event" channel="inline" format="communicate/receive" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="display"/>
-        <node name="language" channel="inline" format="meta/language" model="event/gui"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".gui.window"/>
 <!--
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
 -->
-        <node name="message" channel="inline" format="text/cybol-path" model=".gui.event">
-            <node name="x" channel="inline" format="text/cybol-path" model=".gui.TODO"/>
-            <node name="y" channel="inline" format="text/cybol-path" model=".gui.TODO"/>
-            <node name="width" channel="inline" format="text/cybol-path" model=".gui.TODO"/>
-            <node name="height" channel="inline" format="text/cybol-path" model=".gui.TODO"/>
-            <node name="mouse_button_or_key_code" channel="inline" format="text/cybol-path" model=".gui.TODO"/>
-            <node name="window_identification" channel="inline" format="text/cybol-path" model=".gui.TODO"/>
-        </node>
+        <node name="language" channel="inline" format="meta/language" model="event/gui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".gui.action"/>
     </node>
 
+<!--
+    <node name="receive_event" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
+        <node name="language" channel="inline" format="meta/language" model="event/gui"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".gui.event"/>
+    </node>
     <node name="deserialise_action" channel="inline" format="represent/deserialise" model="">
-        <node name="source" channel="inline" format="text/cybol-path" model=".gui.window"/>
         <node name="language" channel="inline" format="meta/language" model="message/gui"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="destination" channel="inline" format="text/cybol-path" model=".gui.action"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".gui.window"/>
     </node>
+-->
 
     <!--
         CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.

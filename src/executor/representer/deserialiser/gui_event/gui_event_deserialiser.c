@@ -27,23 +27,16 @@
 #define GUI_EVENT_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../../../executor/accessor/getter/io_entry_getter.c"
+#include "../../../../executor/accessor/setter/io_entry_setter.c"
+#include "../../../../executor/maintainer/get_io_maintainer.c"
 #include "../../../../logger/logger.c"
 
-/*??
-#if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/streamer/reader/xcb/xcb_reader.c"
-#elif defined(__APPLE__) && defined(__MACH__)
-    //?? TODO: Add Cocoa support
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../../executor/streamer/reader/win32_display/win32_display_reader.c"
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
-*/
-
 /**
- * Reads user input to the display.
+ * Deserialises the gui event with all its properties.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
@@ -56,20 +49,85 @@
  */
 void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui event.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui event.");
 
-/*??
-#if defined(__linux__) || defined(__unix__)
-    read_xcb(p0, p1, p2, p3, p4, p5, p6, p7);
-#elif defined(__APPLE__) && defined(__MACH__)
-    //?? TODO: Add Cocoa support
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-    read_win32_display(p0, p1, p2, p3, p4, p5, p6, p7);
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
-*/
+    // The input/output entry.
+    void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Get input/output entry.
+    //
+    // CAUTION! The last argument is the service identification.
+    // If it is null, then zero is assumed and the input/output base is used inside.
+    //
+    maintain_io_get((void*) &io, p1, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL);
+
+    if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        // The input/output entry (service) DOES exist in internal memory.
+
+        // The event.
+        void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+        //
+        // Retrieve event from input/output entry.
+        //
+        // CAUTION! The file "wait_checker.c" polls for events in the main thread
+        // and stores a found event in the input/output entry of the internal memory,
+        // before it can be processed here.
+        //
+        // CAUTION! Do NOT use the "modify_array" (overwrite) function,
+        // since it adapts the array count and size.
+        // But the io array's count and size are CONSTANT.
+        //
+        // CAUTION! Hand over value as pointer REFERENCE.
+        //
+        // CAUTION! Do NOT hand over input/output entry as pointer reference.
+        //
+        get_io_entry_element((void*) &e, io, (void*) EVENT_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+        fwprintf(stdout, L"TEST: Deserialise gui event. event e: %i \n", e);
+
+        // Process event.
+        deserialise_gui_event_properties(e);
+
+        //
+        // Reset event in input/output entry.
+        //
+        // CAUTION! This IS NECESSARY since otherwise,
+        // the same old event would be processed again and again.
+        //
+        // CAUTION! Do NOT use the "modify_array" (overwrite) function,
+        // since it adapts the array count and size.
+        // But the io array's count and size are CONSTANT.
+        //
+        // CAUTION! Do NOT hand over input/output entry as pointer reference.
+        //
+        // CAUTION! Hand over null as pointer reference NULL_POINTER_STATE_CYBOI_MODEL
+        // and NOT as dereferenced pointer *NULL_POINTER_STATE_CYBOI_MODEL.
+        //
+        set_io_entry_element(io, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) EVENT_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+        //
+        //?? Is this platform specific?
+        //?? How to handle this for win32?
+        //?? Possibly move this call of "free" to a platform-specific file!
+        //
+
+        //
+        // Deallocate event.
+        //
+        // CAUTION! An event gets created by the xcb library,
+        // but HAS TO BE destroyed manually here.
+        //
+        free(e);
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui event. The input/output entry (service) is null, i.e. it does not exist in internal memory.");
+
+        fwprintf(stdout, L"Error: Could not deserialise gui event. The input/output entry (service) is null, i.e. it does not exist in internal memory. io: %i \n", io);
+    }
 }
 
 /* GUI_EVENT_DESERIALISER_SOURCE */

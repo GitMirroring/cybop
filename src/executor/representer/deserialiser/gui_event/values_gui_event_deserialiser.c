@@ -23,25 +23,25 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DISPLAY_READER_SOURCE
-#define DISPLAY_READER_SOURCE
+#ifndef VALUES_GUI_EVENT_DESERIALISER_SOURCE
+#define VALUES_GUI_EVENT_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/streamer/reader/xcb/xcb_reader.c"
+    #include "../../../../executor/representer/deserialiser/xcb/xcb_deserialiser.c"
 #elif defined(__APPLE__) && defined(__MACH__)
     //?? TODO: Add Cocoa support
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../../executor/streamer/reader/win32_display/win32_display_reader.c"
+    #include "../../../../executor/representer/deserialiser/win32_display/win32_display_deserialiser.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
- * Reads user input to the display.
+ * Deserialises the gui event values.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
@@ -52,21 +52,21 @@
  * @param p6 the format
  * @param p7 the language
  */
-void read_display(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void deserialise_gui_event_values(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read display.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui event values.");
 
 #if defined(__linux__) || defined(__unix__)
-    read_xcb(p0, p1, p2, p3, p4, p5, p6, p7);
+    deserialise_xcb(p0, p1, p2, p3, p4, p5, p6, p7);
 #elif defined(__APPLE__) && defined(__MACH__)
     //?? TODO: Add Cocoa support
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    read_win32_display(p0, p1, p2, p3, p4, p5, p6, p7);
+    deserialise_win32_display(p0, p1, p2, p3, p4, p5, p6, p7);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 
-/* DISPLAY_READER_SOURCE */
+/* VALUES_GUI_EVENT_DESERIALISER_SOURCE */
 #endif

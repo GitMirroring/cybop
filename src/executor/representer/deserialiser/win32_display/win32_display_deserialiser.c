@@ -90,20 +90,8 @@ void read_win32_display(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         int w = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         int h = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        //
-        // CAUTION! A loop is NOT used here, since the
-        // main thread's signal/event/message loop
-        // repeatedly calls this function when necessary.
-        //
-
         // Process message.
         read_win32_display_process((void*) &td, (void*) &tc, (void*) &bk, (void*) &win, (void*) &px, (void*) &py, (void*) &m, (void*) &b, (void*) &x, (void*) &y, (void*) &w, (void*) &h, (void*) &msg);
-
-        // Deserialise event into a meaningful command.
-        //?? TODO: Comment in or delete later.
-        //?? However, "gui" is probably ALWAYS used as language in conjunction with the xcb.
-        deserialise(p0, p1, p2, p3, p4, p5, td, tc, (void*) &m, (void*) &px, (void*) &py, p6, p7);
-    //??    deserialise_gui(p0, p1, p2, p3, p4, p5, td, tc, (void*) &m, (void*) &px, (void*) &py, p6, p7);
 
     } else {
 

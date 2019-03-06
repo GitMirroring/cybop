@@ -73,7 +73,7 @@ void sense_xcb(void* p0, void* p1) {
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
-        // Get next event available from the server.
+        // Get next event available from the x window system server.
         // If none is available, NULL gets returned.
         //
         // There are two ways to read events:
