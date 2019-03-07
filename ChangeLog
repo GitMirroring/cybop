@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2019-03-07  Christian Heller  <christian.heller@cybop.org>
+
+        * Complete file "xcb_deserialiser.c"
+
 2019-03-06  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt gui event deserialiser to new input/output entry structure

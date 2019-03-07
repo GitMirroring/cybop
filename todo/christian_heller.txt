@@ -14,13 +14,17 @@
 GUI
 ___
 
+        READ: wayland (next generation x.org??)
+
         EXAMPLE:
         * Make cybol example "user_interface/gui/" work again
         * See file "gui.cybol" for definition of "action" with event | message properties
         * Follow call of cybol operation "communicate/receive" in file "handler.cybol"
 
+        DONE:
+        * xcb_deserialiser
         CONTINUE:
-        * Complete files (all are not compilable yet): deserialiser, gui_event_deserialiser, properties_gui_event_deserialiser, values_gui_event_deserialiser, xcb_deserialiser | win32_display_deserialiser
+        * Complete files (all are not compilable yet): deserialiser, gui_event_deserialiser, properties_gui_event_deserialiser, values_gui_event_deserialiser, xcb_deserialiser
 
         TODO:
         * There are currently two cybol properties to hand over a window as argument to the "receive" operation: sender or window
@@ -65,6 +69,7 @@ ___
 
         * Process further message types in file "win32_display_deserialiser.c"
             https://docs.microsoft.com/en-us/windows/desktop/inputdev/wm-activate
+            see as example: "xcb_deserialiser.c"
         * Reactivate call of function "read_display" in function "read_data", if win32 permits peeking ahead so that the actual event has to be read again in "read_display"
             Delete directory "executor/streamer/reader/display/" otherwise (if not needed, since events are actually read in sensor then, which is not just peeking ahead, but stores the next event in the io structure of the internal memory)
         * Extend gui serialiser for win32 display

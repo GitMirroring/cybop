@@ -5,10 +5,6 @@
         then the last valid previous action would be executed
         again and again, neverendingly.
     -->
-    <node name="reset_event" channel="inline" format="modify/empty" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".gui.event"/>
-        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
-    </node>
     <node name="reset_action" channel="inline" format="modify/empty" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".gui.action"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -23,21 +19,6 @@
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".gui.action"/>
     </node>
-
-<!--
-    <node name="receive_event" channel="inline" format="communicate/receive" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="display"/>
-        <node name="language" channel="inline" format="meta/language" model="event/gui"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".gui.event"/>
-    </node>
-    <node name="deserialise_action" channel="inline" format="represent/deserialise" model="">
-        <node name="language" channel="inline" format="meta/language" model="message/gui"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="destination" channel="inline" format="text/cybol-path" model=".gui.action"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".gui.window"/>
-    </node>
--->
 
     <!--
         CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.
