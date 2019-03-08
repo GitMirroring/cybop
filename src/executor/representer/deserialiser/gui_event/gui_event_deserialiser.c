@@ -26,28 +26,33 @@
 #ifndef GUI_EVENT_DESERIALISER_SOURCE
 #define GUI_EVENT_DESERIALISER_SOURCE
 
+#include <stdlib.h> // free
+
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/getter/io_entry_getter.c"
 #include "../../../../executor/accessor/setter/io_entry_setter.c"
+#include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/maintainer/get_io_maintainer.c"
+#include "../../../../executor/representer/deserialiser/gui_event/properties_gui_event_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the gui event with all its properties.
+ * Deserialises the gui event.
  *
- * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the source root window data
- * @param p3 the source root window count
- * @param p4 the knowledge memory part (pointer reference)
- * @param p5 the internal memory data
- * @param p6 the format
- * @param p7 the language
+ * @param p0 the destination properties item
+ * @param p1 the knowledge memory part (pointer reference)
+ * @param p2 the stack memory item
+ * @param p3 the internal memory data
  */
-void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui event.");
 
@@ -55,7 +60,7 @@ void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
-    // Get input/output entry.
+    // Get input/output entry from internal memory.
     //
     // CAUTION! The last argument is the service identification.
     // If it is null, then zero is assumed and the input/output base is used inside.
@@ -88,37 +93,56 @@ void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
         fwprintf(stdout, L"TEST: Deserialise gui event. event e: %i \n", e);
 
-        // Process event.
-        deserialise_gui_event_properties(e);
+        if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        //
-        // Reset event in input/output entry.
-        //
-        // CAUTION! This IS NECESSARY since otherwise,
-        // the same old event would be processed again and again.
-        //
-        // CAUTION! Do NOT use the "modify_array" (overwrite) function,
-        // since it adapts the array count and size.
-        // But the io array's count and size are CONSTANT.
-        //
-        // CAUTION! Do NOT hand over input/output entry as pointer reference.
-        //
-        // CAUTION! Hand over null as pointer reference NULL_POINTER_STATE_CYBOI_MODEL
-        // and NOT as dereferenced pointer *NULL_POINTER_STATE_CYBOI_MODEL.
-        //
-        set_io_entry_element(io, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) EVENT_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            // The destination properties item data, count.
+            void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        //
-        // Deallocate event.
-        //
-        // CAUTION! It HAS TO BE destroyed manually here, since for:
-        // - linux: it gets created automatically inside the xcb library
-        // - win32: it gets created manually as message using the type MSG
-        //
-        // However, in BOTH CASES they are just pointers and hence
-        // NOT platform-specific and therefore may get freed here.
-        //
-        free(e);
+            // Get destination properties item data, count.
+            copy_array_forward((void*) &d, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+            // Process event.
+            deserialise_gui_event_properties(d, c, p1, p2, p3, e);
+
+            //
+            // Reset event in input/output entry.
+            //
+            // CAUTION! This IS NECESSARY since otherwise,
+            // the same old event would be processed again and again.
+            //
+            // CAUTION! Do NOT use the "modify_array" (overwrite) function,
+            // since it adapts the array count and size.
+            // But the io array's count and size are CONSTANT.
+            //
+            // CAUTION! Do NOT hand over input/output entry as pointer reference.
+            //
+            // CAUTION! Hand over null as pointer reference NULL_POINTER_STATE_CYBOI_MODEL
+            // and NOT as dereferenced pointer *NULL_POINTER_STATE_CYBOI_MODEL.
+            //
+            set_io_entry_element(io, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) EVENT_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+            //
+            // Deallocate event.
+            //
+            // CAUTION! Free memory only if event is NOT null.
+            //
+            // CAUTION! It HAS TO BE destroyed manually here, since for:
+            // - linux: it gets created automatically inside the xcb library
+            // - win32: it gets created manually as message using the type MSG
+            //
+            // However, in BOTH CASES they are just pointers and hence
+            // NOT platform-specific and therefore may get freed here.
+            //
+            free(e);
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui event. The event is null.");
+
+            fwprintf(stdout, L"Error: Could not deserialise gui event. The event is null. e: %i \n", e);
+        }
 
     } else {
 

@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2019-03-08  Christian Heller  <christian.heller@cybop.org>
+
+        * Complete files: deserialiser, gui_event_deserialiser, properties_gui_event_deserialiser, values_gui_event_deserialiser, xcb_deserialiser
+        * Add event constants files "constant/model/cybol/xcb/event_xcb_cybol_model.c" and "constant/name/cybol/state/gui/action_gui_state_cybol_name.c"
+        * Delete unused event constants in directories "gui/" and "keyboard/" and "mouse/" of directory "constant/name/cybol/state/"
+
 2019-03-07  Christian Heller  <christian.heller@cybop.org>
 
         * Complete file "xcb_deserialiser.c"

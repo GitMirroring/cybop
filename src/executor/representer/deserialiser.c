@@ -81,7 +81,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_event(p0, p1, p2, p3);
+            deserialise_gui_event(p1, p4, p5, p6);
 //??            deserialise_gui(p0, p1, p7, p8, p4, p5, p6, p9, p10, p11, p12, p13, p14);
         }
     }

@@ -225,10 +225,12 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // since the destination- and source container might differ.
     int source_part_item_index = *MODEL_PART_STATE_CYBOI_NAME;
 
+    //
     // CAUTION! The following values are ONLY copied,
     // if the source value is NOT NULL.
     // This is tested inside the "copy_integer" function.
     // Otherwise, the destination value remains as is.
+    //
 
     // Use the destination part type data by default.
     copy_integer((void*) &destination_type, dtd);

@@ -29,9 +29,6 @@
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/name/cybol/state/gui/event_gui_state_cybol_name.c"
-#include "../../../../constant/name/cybol/state/keyboard/keyboard_state_cybol_name.c"
-#include "../../../../constant/name/cybol/state/mouse/mouse_state_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/representer/deserialiser/gui/button_press_mouse_gui_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/gui/button_release_mouse_gui_deserialiser.c"
@@ -70,6 +67,7 @@ void deserialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+/*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         check_operation((void*) &r, p9, (void*) EXPOSE_EVENT_GUI_STATE_CYBOL_NAME, p10, (void*) EXPOSE_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
@@ -149,6 +147,7 @@ void deserialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3
             deserialise_gui_keyboard_key_release(p0, p1, p2, p3, p4, p5, p6, p9, p10, p11, p12, p13, p14, p15);
         }
     }
+*/
 }
 
 /* CONTENT_ELEMENT_PART_GUI_DESERIALISER_SOURCE */

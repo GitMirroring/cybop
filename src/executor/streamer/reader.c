@@ -31,7 +31,6 @@
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/streamer/reader/directory/directory_reader.c"
-#include "../../executor/streamer/reader/display/display_reader.c"
 #include "../../executor/streamer/reader/file/file_reader.c"
 #include "../../executor/streamer/reader/inline/inline_reader.c"
 #include "../../executor/streamer/reader/serial_port/serial_port_reader.c"

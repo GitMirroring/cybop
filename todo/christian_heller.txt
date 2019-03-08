@@ -14,26 +14,10 @@
 GUI
 ___
 
-        READ: wayland (next generation x.org??)
-
         EXAMPLE:
         * Make cybol example "user_interface/gui/" work again
         * See file "gui.cybol" for definition of "action" with event | message properties
         * Follow call of cybol operation "communicate/receive" in file "handler.cybol"
-
-        DONE:
-        * xcb_deserialiser
-        CONTINUE:
-        * Complete files (all are not compilable yet): deserialiser, gui_event_deserialiser, properties_gui_event_deserialiser, values_gui_event_deserialiser, xcb_deserialiser
-
-        TODO:
-        * There are currently two cybol properties to hand over a window as argument to the "receive" operation: sender or window
-            problem: replace parameter "window data" in function "receive_data" with "sender" ??
-            possibly, "window" can be DELETED in the future, as soon as it is clear to be useless and replacable by "sender"
-        * Delete (possibly) format constant "event/gui" and all related usages in de-/serialiser again, if not needed anymore and use "message/gui" instead
-        * Activate call of function "deserialise_gui" in function "deserialise" (section "GUI_EVENT_STATE_CYBOI_LANGUAGE")
-        * Check out if it is all right, that in file "receiver.c" NULL is handed over as argument "event type (data + count)" to function "receive_deserialise"
-        * Use input/output access functions of maintainer in file "element_irq_checker.c" and elsewhere (search)
 
         DONE:
             events arrive in sensor
@@ -43,6 +27,18 @@ ___
             direct reading of events is NOT intended, it works only and always via sensor and irq
             the event is stored temporarily by sensor in an input/output entry structure
 
+        CONTINUE:
+        * Check why input/output entry is null in gui event deserialiser
+        * Identify action within clicked gui element in gui deserialiser
+
+        THINK:
+        * There are currently two cybol properties to hand over a window as argument to the "receive" operation: sender or window
+            problem: replace parameter "window data" in function "receive_data" with "sender" ??
+            possibly, "window" can be DELETED in the future, as soon as it is clear to be useless and replacable by "sender"
+        * Delete (possibly) format constant "event/gui" and all related usages in de-/serialiser again, if not needed anymore and use "message/gui" instead
+        * Activate call of function "deserialise_gui" in function "deserialise" (section "GUI_EVENT_STATE_CYBOI_LANGUAGE")
+        * Check out if it is all right, that in file "receiver.c" NULL is handed over as argument "event type (data + count)" to function "receive_deserialise"
+        * Use input/output access functions of maintainer in file "element_irq_checker.c" and elsewhere (search)
         * Think through programme flow in file "checker_and_sensor.png"
             possibly, the "irq" branch is NOT necessary and can be eliminated,
                 if the "check_io" branch adds a received signal directly to signal_memory,
