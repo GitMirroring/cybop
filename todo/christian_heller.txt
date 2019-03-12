@@ -28,8 +28,8 @@ ___
             the event is stored temporarily by sensor in an input/output entry structure
 
         CONTINUE:
-        * Check why input/output entry is null in gui event deserialiser
-        * Identify action within clicked gui element in gui deserialiser
+        * Uncomment gui deserialiser in file "deserialiser.c"
+        * Identify action within clicked gui element of window, in gui deserialiser
 
         THINK:
         * There are currently two cybol properties to hand over a window as argument to the "receive" operation: sender or window

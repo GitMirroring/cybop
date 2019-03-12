@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2019-03-12  Christian Heller  <christian.heller@cybop.org>
+
+        * Fix error that input/output entry was null in gui event deserialiser, due to wrong pointer to internal memory
+
 2019-03-08  Christian Heller  <christian.heller@cybop.org>
 
         * Complete files: deserialiser, gui_event_deserialiser, properties_gui_event_deserialiser, values_gui_event_deserialiser, xcb_deserialiser

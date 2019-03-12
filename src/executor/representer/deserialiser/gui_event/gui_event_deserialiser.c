@@ -65,7 +65,7 @@ void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3) {
     // CAUTION! The last argument is the service identification.
     // If it is null, then zero is assumed and the input/output base is used inside.
     //
-    maintain_io_get((void*) &io, p1, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL);
+    maintain_io_get((void*) &io, p3, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
