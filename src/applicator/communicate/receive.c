@@ -231,6 +231,9 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Use the explicit blocking value that was given as argument.
     copy_integer((void*) &blocking, bmd);
 
+//??    fwprintf(stdout, L"TEST apply receive smc: %i\n", smc);
+//??    fwprintf(stdout, L"TEST apply receive smd: %i\n", smd);
+
     receive_data(mm, mp, smd, smc, spd, spc, p2, p3, p4, (void*) &blocking, mimd, mamd, wmd, wmc, fmd, lmd, emd, cmd);
 }
 

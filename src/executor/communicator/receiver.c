@@ -143,7 +143,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // Select buffer.
     receive_select((void*) &b, (void*) &p0, (void*) &p, (void*) &i, (void*) &s, p17);
     // Read message.
-    receive_read((void*) &bd, (void*) &bc, b, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p17);
+    receive_read((void*) &bd, (void*) &bc, b, p2, p3, p4, p5, (void*) &p2, p6, p7, p8, p9, p10, p11, p17);
     if ((p15 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p15) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
 //?? fwprintf(stdout, L"TEST receive data read *bc: %i\n", *((int*) bc));
 //?? fwprintf(stdout, L"TEST receive data read bd: %s\n", (char*) bd);
@@ -169,22 +169,16 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 //?? fwprintf(stdout, L"TEST receive data deserialise post bd: %s\n", (char*) bd);
     }
 
-fwprintf(stdout, L"TEST receive data 0: %b\n", b);
     // Deallocate pointer message item.
     deallocate_item((void*) &p, (void*) POINTER_STATE_CYBOI_TYPE);
-fwprintf(stdout, L"TEST receive data 1: %b\n", b);
     // Deallocate integer message item.
     deallocate_item((void*) &i, (void*) LONG_LONG_INTEGER_NUMBER_STATE_CYBOI_TYPE);
-fwprintf(stdout, L"TEST receive data 2: %b\n", b);
     // Deallocate compressed message item.
     deallocate_item((void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-fwprintf(stdout, L"TEST receive data 3: %b\n", b);
     // Deallocate encoded message item.
     deallocate_item((void*) &e, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-fwprintf(stdout, L"TEST receive data 4: %b\n", b);
     // Deallocate serialised message item.
     deallocate_item((void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-fwprintf(stdout, L"TEST receive data 5: %b\n", b);
 }
 
 /* RECEIVER_SOURCE */

@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2019-03-14  Christian Heller  <christian.heller@cybop.org>
+
+        * Copy source model pointer for DISPLAY_CYBOI_CHANNEL in file "reader.c"
+        * Fix segmentation fault errors due to wrong pointers of source model
+        * Continue gui deserialiser
+
 2019-03-12  Christian Heller  <christian.heller@cybop.org>
 
         * Fix error that input/output entry was null in gui event deserialiser, due to wrong pointer to internal memory

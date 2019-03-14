@@ -17,6 +17,7 @@ ___
         EXAMPLE:
         * Make cybol example "user_interface/gui/" work again
         * See file "gui.cybol" for definition of "action" with event | message properties
+        * See file "window.cybol" for property named after the corresponding event, e.g. "expose"
         * Follow call of cybol operation "communicate/receive" in file "handler.cybol"
 
         DONE:
@@ -26,10 +27,12 @@ ___
             an irq is set, so that the event may be stored as signal in the signal_memory
             direct reading of events is NOT intended, it works only and always via sensor and irq
             the event is stored temporarily by sensor in an input/output entry structure
+            the gui_event_deserialiser writes the event's details into the message properties
 
         CONTINUE:
-        * Uncomment gui deserialiser in file "deserialiser.c"
-        * Identify action within clicked gui element of window, in gui deserialiser
+        * Read out destination message PROPERTIES with event details, at least "event" and "x", "y" property in new file "action_gui_deserialiser.c"
+        * Identify extracted event name within clicked gui element of window
+        * Write resulting action into destination message MODEL
 
         THINK:
         * There are currently two cybol properties to hand over a window as argument to the "receive" operation: sender or window
