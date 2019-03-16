@@ -30,13 +30,21 @@
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
+/** The button action gui state cybol name. */
+static wchar_t* BUTTON_ACTION_GUI_STATE_CYBOL_NAME = L"button";
+static int* BUTTON_ACTION_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The event action gui state cybol name. */
 static wchar_t* EVENT_ACTION_GUI_STATE_CYBOL_NAME = L"event";
 static int* EVENT_ACTION_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The window action gui state cybol name. */
-static wchar_t* WINDOW_ACTION_GUI_STATE_CYBOL_NAME = L"window";
-static int* WINDOW_ACTION_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The exposed_height action gui state cybol name. */
+static wchar_t* EXPOSED_HEIGHT_ACTION_GUI_STATE_CYBOL_NAME = L"exposed_height";
+static int* EXPOSED_HEIGHT_ACTION_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The exposed_width action gui state cybol name. */
+static wchar_t* EXPOSED_WIDTH_ACTION_GUI_STATE_CYBOL_NAME = L"exposed_width";
+static int* EXPOSED_WIDTH_ACTION_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The exposed_x action gui state cybol name. */
 static wchar_t* EXPOSED_X_ACTION_GUI_STATE_CYBOL_NAME = L"exposed_x";
@@ -45,26 +53,6 @@ static int* EXPOSED_X_ACTION_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE
 /** The exposed_y action gui state cybol name. */
 static wchar_t* EXPOSED_Y_ACTION_GUI_STATE_CYBOL_NAME = L"exposed_y";
 static int* EXPOSED_Y_ACTION_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The exposed_width action gui state cybol name. */
-static wchar_t* EXPOSED_WIDTH_ACTION_GUI_STATE_CYBOL_NAME = L"exposed_width";
-static int* EXPOSED_WIDTH_ACTION_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The exposed_height action gui state cybol name. */
-static wchar_t* EXPOSED_HEIGHT_ACTION_GUI_STATE_CYBOL_NAME = L"exposed_height";
-static int* EXPOSED_HEIGHT_ACTION_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The x action gui state cybol name. */
-static wchar_t* X_ACTION_GUI_STATE_CYBOL_NAME = L"x";
-static int* X_ACTION_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The y action gui state cybol name. */
-static wchar_t* Y_ACTION_GUI_STATE_CYBOL_NAME = L"y";
-static int* Y_ACTION_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The button action gui state cybol name. */
-static wchar_t* BUTTON_ACTION_GUI_STATE_CYBOL_NAME = L"button";
-static int* BUTTON_ACTION_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The keycode action gui state cybol name. */
 static wchar_t* KEYCODE_ACTION_GUI_STATE_CYBOL_NAME = L"keycode";
@@ -77,6 +65,18 @@ static int* MASK_ACTION_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBO
 /** The mode action gui state cybol name. */
 static wchar_t* MODE_ACTION_GUI_STATE_CYBOL_NAME = L"mode";
 static int* MODE_ACTION_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The window action gui state cybol name. */
+static wchar_t* WINDOW_ACTION_GUI_STATE_CYBOL_NAME = L"window";
+static int* WINDOW_ACTION_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x action gui state cybol name. */
+static wchar_t* X_ACTION_GUI_STATE_CYBOL_NAME = L"x";
+static int* X_ACTION_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The y action gui state cybol name. */
+static wchar_t* Y_ACTION_GUI_STATE_CYBOL_NAME = L"y";
+static int* Y_ACTION_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* ACTION_GUI_STATE_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

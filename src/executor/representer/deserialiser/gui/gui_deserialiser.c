@@ -27,7 +27,7 @@
 #define GUI_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../executor/representer/deserialiser/gui/part_gui_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/gui/whole_gui_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -40,17 +40,17 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source gui element data
- * @param p3 the source gui element count
- * @param p4 the knowledge memory part (pointer reference)
- * @param p5 the stack memory item
- * @param p6 the internal memory data
- * @param p7 the event type data
- * @param p8 the event type count
- * @param p9 the button mask
+ * @param p2 the source model data
+ * @param p3 the source model count
+ * @param p4 the source format
+ * @param p5 the knowledge memory part (pointer reference)
+ * @param p6 the stack memory item
+ * @param p7 the internal memory data
+ * @param p8 the event name data
+ * @param p9 the event name count
  * @param p10 the mouse x coordinate
  * @param p11 the mouse y coordinate
- * @param p12 the format
+ * @param p12 the message format
  */
 void deserialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
@@ -68,11 +68,11 @@ void deserialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p12, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p4, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_part(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
+            deserialise_gui_whole(p0, p1, p2, p3, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
 }

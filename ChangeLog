@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2019-03-15  Christian Heller  <christian.heller@cybop.org>
+
+        * Read out destination message properties with event details (event_name, x, y) in new file "action_gui_deserialiser.c"
+        * Identify extracted event name within clicked gui element of window and write resulting action into destination message model
+        * Sort out function call order in gui deserialiser
+
 2019-03-14  Christian Heller  <christian.heller@cybop.org>
 
         * Copy source model pointer for DISPLAY_CYBOI_CHANNEL in file "reader.c"

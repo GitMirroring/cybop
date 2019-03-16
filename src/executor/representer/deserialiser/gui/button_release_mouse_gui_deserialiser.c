@@ -31,8 +31,17 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/part_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/vector_state_cyboi_name.c"
 #include "../../../../constant/name/cybol/state/gui/gui_state_cybol_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/accessor/getter/part/name_part_getter.c"
+#include "../../../../executor/accessor/getter/part_getter.c"
+#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 
@@ -51,15 +60,15 @@ void deserialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
  * @param p3 the source model count
  * @param p4 the source properties data
  * @param p5 the source properties count
- * @param p6 the knowledge memory part (pointer reference)
- * @param p7 the stack memory item
- * @param p8 the internal memory data
- * @param p9 the event type data
- * @param p10 the event type count
- * @param p11 the button mask
+ * @param p6 the source format
+ * @param p7 the knowledge memory part (pointer reference)
+ * @param p8 the stack memory item
+ * @param p9 the internal memory data
+ * @param p10 the event name data
+ * @param p11 the event name count
  * @param p12 the mouse x coordinate
  * @param p13 the mouse y coordinate
- * @param p14 the format data
+ * @param p14 the message format
  * @param p15 the loop break flag
  */
 void deserialise_gui_mouse_button_release(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
@@ -85,6 +94,7 @@ void deserialise_gui_mouse_button_release(void* p0, void* p1, void* p2, void* p3
             // The action part model item data, count.
             void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
             void* amc = *NULL_POINTER_STATE_CYBOI_MODEL;
+
             // The x, y coordinate.
             int x = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             int y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -92,21 +102,30 @@ void deserialise_gui_mouse_button_release(void* p0, void* p1, void* p2, void* p3
             int w = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             int h = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-            // Get position part.
-            get_part_name((void*) &p, p4, (void*) POSITION_GUI_STATE_CYBOL_NAME, (void*) POSITION_GUI_STATE_CYBOL_NAME_COUNT, p5, p6, p7, p8);
-            // Get size part.
-            get_part_name((void*) &s, p4, (void*) SIZE_GUI_STATE_CYBOL_NAME, (void*) SIZE_GUI_STATE_CYBOL_NAME_COUNT, p5, p6, p7, p8);
-            // Get action part.
-            get_part_name((void*) &a, p4, p9, p10, p5, p6, p7, p8);
+            // The comparison result.
+            int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+            // Get position part.
+            get_part_name((void*) &p, p4, (void*) POSITION_GUI_STATE_CYBOL_NAME, (void*) POSITION_GUI_STATE_CYBOL_NAME_COUNT, p5, p7, p8, p9);
+            // Get size part.
+            get_part_name((void*) &s, p4, (void*) SIZE_GUI_STATE_CYBOL_NAME, (void*) SIZE_GUI_STATE_CYBOL_NAME_COUNT, p5, p7, p8, p9);
+            // Get action part.
+            get_part_name((void*) &a, p4, p10, p11, p5, p7, p8, p9);
+
+            //
             // Get x, y coordinate from position part.
+            //
             // CAUTION! Do NOT use the "copy_array_forward" function here,
             // since it is low-level and does not check array boundaries!
+            //
             get_part_metadata((void*) &x, p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_0_VECTOR_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
             get_part_metadata((void*) &y, p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_1_VECTOR_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+            //
             // Get width, height extension from size part.
+            //
             // CAUTION! Do NOT use the "copy_array_forward" function here,
             // since it is low-level and does not check array boundaries!
+            //
             get_part_metadata((void*) &w, s, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_0_VECTOR_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
             get_part_metadata((void*) &h, s, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_1_VECTOR_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
@@ -132,22 +151,39 @@ fwprintf(stdout, L"TEST deserialise gui mouse button release amc: %i\n", amc);
 //?? fwprintf(stdout, L"TEST deserialise gui mouse button release *amc: %i\n", *((int*) amc));
 fwprintf(stdout, L"TEST deserialise gui mouse button release amd: %ls\n", (wchar_t*) amd);
 
+                //
                 // Set break flag, so that the loop can be left in the next cycle.
                 // The gui element on which the mouse event occured
                 // has been detected, so that further elements on the
                 // same level do not have to be checked in the loop anymore.
+                //
                 copy_integer(p15, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-                // Overwrite previous action of parent element
-                // with that of the contained child element.
-                // CAUTION! Do NOT assign action if it is null.
-                // However, this check is already implemented
-                // inside the called function.
-                modify_item(p0, amd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, amc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+                compare_integer_equal((void*) &r, p14, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
 
-                // Process embedded parts recursively.
-                // CAUTION! Call this function ONLY for elements
-                // which lie within the gui element's area.
+                if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                    //
+                    // Overwrite previous action of parent element
+                    // with that of the contained child element.
+                    //
+                    // CAUTION! The action is NOT assigned if it is null,
+                    // which is checked inside the called function.
+                    //
+                    modify_item(p0, amd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, amc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+                } else {
+
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui mouse button release. The message format is not text/plain.");
+                }
+
+                //
+                // Process embedded model parts recursively.
+                //
+                // CAUTION! This function is called ONLY for elements
+                // that lie within the gui element's area,
+                // which was already checked above.
+                //
                 deserialise_gui(p0, p1, p2, p3, p6, p7, p8, p9, p10, p11, p12, p13, p14);
             }
 

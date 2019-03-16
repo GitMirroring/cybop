@@ -28,11 +28,11 @@ ___
             direct reading of events is NOT intended, it works only and always via sensor and irq
             the event is stored temporarily by sensor in an input/output entry structure
             the gui_event_deserialiser writes the event's details into the message properties
+            the order of function calls in the gui deserialiser is complete
 
         CONTINUE:
-        * Read out destination message PROPERTIES with event details, at least "event" and "x", "y" property in new file "action_gui_deserialiser.c"
-        * Identify extracted event name within clicked gui element of window
-        * Write resulting action into destination message MODEL
+        * Adapt parametres to function "deserialise" (section GUI_EVENT_STATE_CYBOI_LANGUAGE) and related functions
+        * Complete gui deserialiser (consider "#include" order)
 
         THINK:
         * There are currently two cybol properties to hand over a window as argument to the "receive" operation: sender or window

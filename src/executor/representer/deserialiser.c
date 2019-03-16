@@ -34,7 +34,7 @@
 #include "../../executor/representer/deserialiser/authority/authority_deserialiser.c"
 #include "../../executor/representer/deserialiser/cybol/cybol_deserialiser.c"
 #include "../../executor/representer/deserialiser/gui_event/gui_event_deserialiser.c"
-#include "../../executor/representer/deserialiser/gui/gui_deserialiser.c"
+#include "../../executor/representer/deserialiser/gui/action_gui_deserialiser.c"
 #include "../../executor/representer/deserialiser/html/html_deserialiser.c"
 #include "../../executor/representer/deserialiser/http_request/http_request_deserialiser.c"
 #include "../../executor/representer/deserialiser/http_response/http_response_deserialiser.c"
@@ -49,8 +49,8 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source data
- * @param p3 the source count
+ * @param p2 the source model data
+ * @param p3 the source model count
  * @param p4 the knowledge memory part (pointer reference)
  * @param p5 the stack memory item
  * @param p6 the internal memory data
@@ -77,13 +77,12 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??        compare_integer_equal((void*) &r, p15, (void*) GUI_MESSAGE_STATE_CYBOI_LANGUAGE);
         compare_integer_equal((void*) &r, p15, (void*) GUI_EVENT_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             deserialise_gui_event(p1, p4, p5, p6);
-            deserialise_gui(p0, p1, p2, p3, p4, p5, p6, p9, p10, p11, p12, p13, p14);
+            deserialise_gui_action(p0, p1, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p5, p6, p14);
         }
     }
 

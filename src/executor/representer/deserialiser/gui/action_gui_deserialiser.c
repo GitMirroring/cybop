@@ -28,239 +28,106 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../../constant/name/cybol/logic/communication/receive_communication_logic_cybol_name.c"
-#include "../../../../constant/name/cybol/state/gui/action_gui_state_cybol_name.c"
 #include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/name/cybol/state/gui/action_gui_state_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../../../executor/copier/array_copier.c"
-#include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/representer/deserialiser/gui_event/values_gui_event_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/gui/content_gui_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Deserialises the gui action properties.
  *
- * @param p0 the destination properties data
- * @param p1 the destination properties count
- * @param p2 the knowledge memory part (pointer reference)
- * @param p3 the stack memory item
- * @param p4 the internal memory data
- * @param p5 the event
+ * @param p0 the destination model item
+ * @param p1 the destination properties item
+ * @param p2 the source model data
+ * @param p3 the source model count
+ * @param p4 the source properties data
+ * @param p5 the source properties count
+ * @param p6 the source format
+ * @param p7 the knowledge memory part (pointer reference)
+ * @param p8 the stack memory item
+ * @param p9 the internal memory data
+ * @param p10 the message format
  */
-void deserialise_gui_action(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_gui_action(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui action.");
 
+    //
+    // The destination properties item data, count.
+    //
+    // CAUTION! Although they are called DESTINATION properties,
+    // they contain the event details which were determined before
+    // in the gui event deserialiser.
+    //
+    void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
+
     // The event name part.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-/*??
-    // The window identification part.
-    void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The exposed x part.
-    void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The exposed y part.
-    void* ey = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The exposed width part.
-    void* ew = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The exposed height part.
-    void* eh = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The mouse x part.
     void* x = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The mouse y part.
     void* y = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The button part.
-    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The keycode part.
-    void* k = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The mask part.
-    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The mode part.
-    void* mo = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-/*??
     // The event name part model item.
     void* em = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The window identification part model item.
-    void* wm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The exposed x part model item.
-    void* exm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The exposed y part model item.
-    void* eym = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The exposed width part model item.
-    void* ewm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The exposed height part model item.
-    void* ehm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The mouse x part model item.
     void* xm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The mouse y part model item.
     void* ym = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The button part model item.
-    void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The keycode part model item.
-    void* km = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The mask part model item.
-    void* mm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The mode part model item.
-    void* mom = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-/*??
-    // The window identification part model item data.
-    void* wmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The exposed x part model item data.
-    void* exmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The exposed y part model item data.
-    void* eymd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The exposed width part model item data.
-    void* ewmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The exposed height part model item data.
-    void* ehmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The event name part model item data, count.
+    void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* emc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The mouse x part model item data.
     void* xmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The mouse y part model item data.
     void* ymd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The button part model item data.
-    void* bmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The keycode part model item data.
-    void* kmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The mask part model item data.
-    void* mmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The mode part model item data.
-    void* momd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    // Get destination properties item data, count.
+    copy_array_forward((void*) &dd, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &dc, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Get event name part.
-    get_part_name((void*) &e, p0, (void*) EVENT_ACTION_GUI_STATE_CYBOL_NAME, (void*) EVENT_ACTION_GUI_STATE_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-/*??
-    // Get window identification part.
-    get_part_name((void*) &w, p0, (void*) WINDOW_ACTION_GUI_STATE_CYBOL_NAME, (void*) WINDOW_ACTION_GUI_STATE_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get exposed x part.
-    get_part_name((void*) &ex, p0, (void*) EXPOSED_X_ACTION_GUI_STATE_CYBOL_NAME, (void*) EXPOSED_X_ACTION_GUI_STATE_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get exposed y part.
-    get_part_name((void*) &ey, p0, (void*) EXPOSED_Y_ACTION_GUI_STATE_CYBOL_NAME, (void*) EXPOSED_Y_ACTION_GUI_STATE_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get exposed width part.
-    get_part_name((void*) &ew, p0, (void*) EXPOSED_WIDTH_ACTION_GUI_STATE_CYBOL_NAME, (void*) EXPOSED_WIDTH_ACTION_GUI_STATE_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get exposed height part.
-    get_part_name((void*) &eh, p0, (void*) EXPOSED_HEIGHT_ACTION_GUI_STATE_CYBOL_NAME, (void*) EXPOSED_HEIGHT_ACTION_GUI_STATE_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &e, dd, (void*) EVENT_ACTION_GUI_STATE_CYBOL_NAME, (void*) EVENT_ACTION_GUI_STATE_CYBOL_NAME_COUNT, dc, p6, p7, p8);
     // Get mouse x part.
-    get_part_name((void*) &x, p0, (void*) X_ACTION_GUI_STATE_CYBOL_NAME, (void*) X_ACTION_GUI_STATE_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &x, dd, (void*) X_ACTION_GUI_STATE_CYBOL_NAME, (void*) X_ACTION_GUI_STATE_CYBOL_NAME_COUNT, dc, p6, p7, p8);
     // Get mouse y part.
-    get_part_name((void*) &y, p0, (void*) Y_ACTION_GUI_STATE_CYBOL_NAME, (void*) Y_ACTION_GUI_STATE_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get button part.
-    get_part_name((void*) &b, p0, (void*) BUTTON_ACTION_GUI_STATE_CYBOL_NAME, (void*) BUTTON_ACTION_GUI_STATE_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get keycode part.
-    get_part_name((void*) &k, p0, (void*) KEYCODE_ACTION_GUI_STATE_CYBOL_NAME, (void*) KEYCODE_ACTION_GUI_STATE_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get mask part.
-    get_part_name((void*) &m, p0, (void*) MASK_ACTION_GUI_STATE_CYBOL_NAME, (void*) MASK_ACTION_GUI_STATE_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get mode part.
-    get_part_name((void*) &mo, p0, (void*) MODE_ACTION_GUI_STATE_CYBOL_NAME, (void*) MODE_ACTION_GUI_STATE_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &y, dd, (void*) Y_ACTION_GUI_STATE_CYBOL_NAME, (void*) Y_ACTION_GUI_STATE_CYBOL_NAME_COUNT, dc, p6, p7, p8);
 
-/*??
     // Get event name part model item.
     copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get window identification part model item.
-    copy_array_forward((void*) &wm, w, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get exposed x part model item.
-    copy_array_forward((void*) &exm, ex, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get exposed y part model item.
-    copy_array_forward((void*) &eym, ey, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get exposed width part model item.
-    copy_array_forward((void*) &ewm, ew, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get exposed height part model item.
-    copy_array_forward((void*) &ehm, eh, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get mouse x part model item.
     copy_array_forward((void*) &xm, x, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get mouse y part model item.
     copy_array_forward((void*) &ym, y, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get button part model item.
-    copy_array_forward((void*) &bm, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get keycode part model item.
-    copy_array_forward((void*) &km, k, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get mask part model item.
-    copy_array_forward((void*) &mm, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get mode part model item.
-    copy_array_forward((void*) &mom, mo, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-/*??
-    // Get window identification part model item data.
-    copy_array_forward((void*) &wmd, wm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get exposed x part model item data.
-    copy_array_forward((void*) &exmd, exm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get exposed y part model item data.
-    copy_array_forward((void*) &eymd, eym, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get exposed width part model item data.
-    copy_array_forward((void*) &ewmd, ewm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get exposed height part model item data.
-    copy_array_forward((void*) &ehmd, ehm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get event name part model item data, count.
+    copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &emc, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get mouse x part model item data.
     copy_array_forward((void*) &xmd, xm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get mouse y part model item data.
     copy_array_forward((void*) &ymd, ym, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get button part model item data.
-    copy_array_forward((void*) &bmd, bm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get keycode part model item data.
-    copy_array_forward((void*) &kmd, km, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get mask part model item data.
-    copy_array_forward((void*) &mmd, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get mode part model item data.
-    copy_array_forward((void*) &momd, mom, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     //
-    // The default values.
+    // Deserialise gui content.
     //
-    // CAUTION! If a cybol property is not given, then its value is NULL.
-    // In this case, it would cause errors inside the function
-    // "deserialise_gui_event_values", which is called below.
-    // Therefore, valid DEFAULT values are assigned here.
+    // CAUTION! A break flag is NOT needed here,
+    // since this is not a loop.
+    // Therefore, the last argument is NULL.
     //
-
-    // The window identification.
-    int window = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The exposed x.
-    int exposed_x = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The exposed y.
-    int exposed_y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The exposed width.
-    int exposed_width = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The exposed height.
-    int exposed_height = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The mouse x.
-    int mouse_x = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The mouse y.
-    int mouse_y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The button.
-    int button = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The keycode.
-    int keycode = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The mask.
-    int mask = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The mode.
-    int mode = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    //
-    // CAUTION! The following values are ONLY copied,
-    // if the source value is NOT NULL.
-    // This is tested inside the "copy_integer" function.
-    // Otherwise, the destination value remains as is.
-    //
-
-    copy_integer((void*) &window, w);
-    copy_integer((void*) &exposed_x, ex);
-    copy_integer((void*) &exposed_y, ey);
-    copy_integer((void*) &exposed_width, ew);
-    copy_integer((void*) &exposed_height, eh);
-    copy_integer((void*) &mouse_x, x);
-    copy_integer((void*) &mouse_y, y);
-    copy_integer((void*) &button, b);
-    copy_integer((void*) &keycode, k);
-    copy_integer((void*) &mask, m);
-    copy_integer((void*) &mode, mo);
-
-    deserialise_gui_event_values(em, wmd, exmd, eymd, ewmd, ehmd, xmd, ymd, bmd, kmd, mmd, momd, p5);
+    deserialise_gui_content(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, emd, emc, xmd, ymd, p10, *NULL_POINTER_STATE_CYBOI_MODEL);
 }
 
 /* ACTION_GUI_DESERIALISER_SOURCE */
