@@ -95,7 +95,7 @@ void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_enter_notify(p0, p1, p2, p3, p4, p5, p6, p9, p10, p11, p12, p13, p14, p15);
+            deserialise_gui_enter_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15);
         }
     }
 
@@ -115,7 +115,7 @@ void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_keyboard_key_press(p0, p1, p2, p3, p4, p5, p6, p9, p10, p11, p12, p13, p14, p15);
+            deserialise_gui_keyboard_key_press(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15);
         }
     }
 
@@ -125,7 +125,7 @@ void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_keyboard_key_release(p0, p1, p2, p3, p4, p5, p6, p9, p10, p11, p12, p13, p14, p15);
+            deserialise_gui_keyboard_key_release(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15);
         }
     }
 
@@ -135,7 +135,7 @@ void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_leave_notify(p0, p1, p2, p3, p4, p5, p6, p9, p10, p11, p12, p13, p14, p15);
+            deserialise_gui_leave_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15);
         }
     }
 
@@ -145,7 +145,7 @@ void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_mouse_motion_notify(p0, p1, p2, p3, p4, p5, p6, p9, p10, p11, p12, p13, p14, p15);
+            deserialise_gui_mouse_motion_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15);
         }
     }
 }

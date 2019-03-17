@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2019-03-17  Christian Heller  <christian.heller@cybop.org>
+
+        * Verify include order and forward declarations of gui deserialiser
+
 2019-03-15  Christian Heller  <christian.heller@cybop.org>
 
         * Read out destination message properties with event details (event_name, x, y) in new file "action_gui_deserialiser.c"

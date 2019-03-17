@@ -28,9 +28,11 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/representer/deserialiser/gui/part_gui_deserialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -49,8 +51,9 @@
  * @param p9 the mouse x coordinate
  * @param p10 the mouse y coordinate
  * @param p11 the message format
+ * @param p12 the loop break flag
  */
-void deserialise_gui_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void deserialise_gui_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui element.");
 
@@ -61,7 +64,7 @@ void deserialise_gui_element(void* p0, void* p1, void* p2, void* p3, void* p4, v
     copy_array_forward((void*) &p, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p3);
 
     // Deserialise gui part.
-    deserialise_gui_part(p0, p1, p, p4, p5, p6, p7, p8, p9, p10, p11, (void*) &b);
+    deserialise_gui_part(p0, p1, p, p4, p5, p6, p7, p8, p9, p10, p11, p12);
 }
 
 /* ELEMENT_GUI_DESERIALISER_SOURCE */

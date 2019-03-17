@@ -31,6 +31,8 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
+#include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/representer/deserialiser/gui/element_gui_deserialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -80,7 +82,7 @@ void deserialise_gui_whole(void* p0, void* p1, void* p2, void* p3, void* p4, voi
             break;
         }
 
-        deserialise_gui_element(p0, p1, p2, (void*) &j, p7, p8, p9, p10, p11, p12, p13, p14, (void*) &b);
+        deserialise_gui_element(p0, p1, p2, (void*) &j, p4, p5, p6, p7, p8, p9, p10, p11, (void*) &b);
 
         // Increment loop variable.
         j++;

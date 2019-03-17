@@ -32,7 +32,6 @@ ___
 
         CONTINUE:
         * Adapt parametres to function "deserialise" (section GUI_EVENT_STATE_CYBOI_LANGUAGE) and related functions
-        * Complete gui deserialiser (consider "#include" order)
 
         THINK:
         * There are currently two cybol properties to hand over a window as argument to the "receive" operation: sender or window
