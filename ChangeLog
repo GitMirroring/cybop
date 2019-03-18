@@ -21,6 +21,7 @@
 2019-03-17  Christian Heller  <christian.heller@cybop.org>
 
         * Verify include order and forward declarations of gui deserialiser
+        * Clean up superfluous and adapt remaining parametres of all related functions
 
 2019-03-15  Christian Heller  <christian.heller@cybop.org>
 
