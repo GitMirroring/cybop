@@ -153,9 +153,9 @@ fwprintf(stdout, L"TEST deserialise gui mouse button release amd: %ls\n", (wchar
 
                 //
                 // Set break flag, so that the loop can be left in the next cycle.
-                // The gui element on which the mouse event occured
-                // has been detected, so that further elements on the
-                // same level do not have to be checked in the loop anymore.
+                // The gui element on which the event occured has been
+                // detected, so that further elements on the same level
+                // do not have to be checked in the loop anymore.
                 //
                 copy_integer(p15, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 

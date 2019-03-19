@@ -21,7 +21,6 @@ ___
         * Follow call of cybol operation "communicate/receive" in file "handler.cybol"
 
         CONTINUE:
-        * Handle window event "expose" in gui deserialiser, in order to draw rectangles
         * Debug button release event handling in gui deserialiser for CHILD nodes (currently crashes with error)
 
         THINK:

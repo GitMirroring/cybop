@@ -21,6 +21,7 @@
 2019-03-19  Christian Heller  <christian.heller@cybop.org>
 
         * Make cybol example "user_interface/gui/" work again with printed message on mouse release event
+        * Make cybol example "user_interface/gui/" print coloured rectangles on window expose event
 
 2019-03-17  Christian Heller  <christian.heller@cybop.org>
 

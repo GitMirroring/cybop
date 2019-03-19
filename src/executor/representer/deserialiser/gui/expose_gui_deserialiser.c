@@ -30,7 +30,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises a gui expose event.
+ * Deserialises a gui window expose event.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
@@ -53,7 +53,6 @@ void deserialise_gui_expose(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui expose.");
 
-/*??
     // The action part.
     void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The action part model item.
@@ -62,32 +61,46 @@ void deserialise_gui_expose(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* amc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
     // Get action part.
-    get_part_name((void*) &a, p4, p9, p10, p5, p6, p7, p8);
-
-    fwprintf(stdout, L"TEST deserialise gui expose p5: %i\n", *((int*) p5));
-    fwprintf(stdout, L"TEST deserialise gui expose a: %i\n", a);
-
+    get_part_name((void*) &a, p4, p10, p11, p5, p7, p8, p9);
     // Get action part model item.
     copy_array_forward((void*) &am, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-
     // Get action part model item data, count.
     copy_array_forward((void*) &amd, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &amc, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+fwprintf(stdout, L"TEST deserialise gui expose amc: %i\n", amc);
+fwprintf(stdout, L"TEST deserialise gui expose *amc: %i\n", *((int*) amc));
+fwprintf(stdout, L"TEST deserialise gui expose amd: %ls\n", (wchar_t*) amd);
+
+    //
     // Set break flag, so that the loop can be left in the next cycle.
-    // The gui element on which the mouse event occured
-    // has been detected, so that further elements on the
-    // same level do not have to be checked in the loop anymore.
+    // The gui element on which the event occured has been
+    // detected, so that further elements on the same level
+    // do not have to be checked in the loop anymore.
+    //
     copy_integer(p15, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    // Overwrite previous action of parent element
-    // with that of the contained child element.
-    // CAUTION! Do NOT assign action if it is null.
-    // However, this check is already implemented
-    // inside the called function.
-    modify_item(p0, amd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, amc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-*/
+    compare_integer_equal((void*) &r, p14, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        //
+        // Overwrite previous action of parent element
+        // with that of the contained child element.
+        //
+        // CAUTION! The action is NOT assigned if it is null,
+        // which is checked inside the called function.
+        //
+        modify_item(p0, amd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, amc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    } else {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui mouse button release. The message format is not text/plain.");
+    }
 }
 
 /* EXPOSE_GUI_DESERIALISER_SOURCE */
