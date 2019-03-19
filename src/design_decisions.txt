@@ -39,6 +39,8 @@ Comparison
 Search
 Arbitrary-precision arithmetic (Langzahlarithmetik)
 Coupling of Objects
+Pseudo Terminal
+GUI Event Processing
 
 Terminology
 ___________
@@ -769,4 +771,16 @@ belonging to only one application, open at the same time.
 However, opening these pseudo terminal windows works differently
 not only in the single operating systems, but possibly also
 on various desktops (KDE, GNOME, Xfce etc.)
+
+GUI Event Processing
+____________________
+
+- events arrive in sensor
+- they are read from the display as xcb event / win32 message
+- they are stored in the input/output structure by the sensor (a directory stream/reader/display/ is therefore NOT necessary)
+- an irq is set, so that the event may be stored as signal in the signal_memory
+- direct reading of events is NOT intended, it works only and always via sensor and irq
+- the event is stored temporarily by sensor in an input/output entry structure
+- the gui_event_deserialiser writes the event's details into the message properties
+- the order of function calls in the gui deserialiser is complete
 

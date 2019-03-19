@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2019-03-19  Christian Heller  <christian.heller@cybop.org>
+
+        * Make cybol example "user_interface/gui/" work again with printed message on mouse release event
+
 2019-03-17  Christian Heller  <christian.heller@cybop.org>
 
         * Verify include order and forward declarations of gui deserialiser

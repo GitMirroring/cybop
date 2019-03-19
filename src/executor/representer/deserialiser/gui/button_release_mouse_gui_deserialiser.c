@@ -148,7 +148,7 @@ fwprintf(stdout, L"TEST deserialise gui mouse button release *mx: %i\n", *mx);
 fwprintf(stdout, L"TEST deserialise gui mouse button release *my: %i\n", *my);
 
 fwprintf(stdout, L"TEST deserialise gui mouse button release amc: %i\n", amc);
-//?? fwprintf(stdout, L"TEST deserialise gui mouse button release *amc: %i\n", *((int*) amc));
+fwprintf(stdout, L"TEST deserialise gui mouse button release *amc: %i\n", *((int*) amc));
 fwprintf(stdout, L"TEST deserialise gui mouse button release amd: %ls\n", (wchar_t*) amd);
 
                 //
