@@ -15,8 +15,8 @@
             CAUTION! The following line may possibly be deleted, since the refresh is done by .gui already.
             However, deletion was leading to nothing to be drawn anymore.
             Check this out later!
-        -->
         <node name="expose" channel="inline" format="text/plain" model=".logic.refresh_display"/>
+        -->
     </node>
 
     <node name="rectangle_1" channel="inline" format="text/plain" model="CYBOP Demo">
@@ -44,8 +44,8 @@
             CAUTION! The following line may possibly be deleted, since the refresh is done by .gui already.
             However, deletion was leading to nothing to be drawn anymore.
             Check this out later!
-        -->
         <node name="expose" channel="inline" format="text/plain" model=".logic.refresh_display"/>
+        -->
     </node>
 
 </node>

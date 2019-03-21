@@ -148,7 +148,7 @@ fwprintf(stdout, L"TEST deserialise gui mouse button release *mx: %i\n", *mx);
 fwprintf(stdout, L"TEST deserialise gui mouse button release *my: %i\n", *my);
 
 fwprintf(stdout, L"TEST deserialise gui mouse button release amc: %i\n", amc);
-fwprintf(stdout, L"TEST deserialise gui mouse button release *amc: %i\n", *((int*) amc));
+//?? fwprintf(stdout, L"TEST deserialise gui mouse button release *amc: %i\n", *((int*) amc));
 fwprintf(stdout, L"TEST deserialise gui mouse button release amd: %ls\n", (wchar_t*) amd);
 
                 //
@@ -163,14 +163,25 @@ fwprintf(stdout, L"TEST deserialise gui mouse button release amd: %ls\n", (wchar
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                    //
-                    // Overwrite previous action of parent element
-                    // with that of the contained child element.
-                    //
-                    // CAUTION! The action is NOT assigned if it is null,
-                    // which is checked inside the called function.
-                    //
-                    modify_item(p0, amd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, amc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+                    if ((amd != *NULL_POINTER_STATE_CYBOI_MODEL) && (amc != *NULL_POINTER_STATE_CYBOI_MODEL)) {
+
+                        //
+                        // CAUTION! The action is NOT assigned if it is null,
+                        // which is checked inside the function called below.
+                        // However, in order to avoid unnecessary warnings and
+                        // to speed up processing, a null pointer check is done here.
+                        //
+
+                        //
+                        // Overwrite previous action of parent element
+                        // with that of the contained child element.
+                        //
+                        modify_item(p0, amd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, amc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+                    } else {
+
+                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui mouse button release. The action part model data is null.");
+                    }
 
                 } else {
 

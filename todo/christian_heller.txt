@@ -14,14 +14,10 @@
 GUI
 ___
 
-        EXAMPLE:
-        * Make cybol example "user_interface/gui/" work again
-        * See file "gui.cybol" for definition of "action" with event | message properties
-        * See file "window.cybol" for property named after the corresponding event, e.g. "expose" or "button-release"
-        * Follow call of cybol operation "communicate/receive" in file "handler.cybol"
-
         CONTINUE:
-        * Debug button release event handling in gui deserialiser for CHILD nodes (currently crashes with error)
+        * Debug button release event handling in gui deserialiser for CHILD nodes
+        * It currently crashes with a memory error in file "part_gui_deserialiser.c", since integers instead of pointers are copied
+            --> WHY are there integers? Where do they come from? The part and its format / model /properties should be a pointer!
 
         THINK:
         * Delete (possibly) format constant "event/gui" and all related usages in de-/serialiser again, if not needed anymore and use "message/gui" instead
@@ -42,8 +38,6 @@ ___
             do NOT assign "north" etc. to elements;
             if "stretch" is "horizontal", then use order: north, south, west, east, centre;
             if "stretch" is "vertical", then use order: west, east, north, south, centre
-
-        * Inspect and learn from GTK+ C library
 
         * Where and how to free colours?
             see file "context_x_window_system_serialiser.c"

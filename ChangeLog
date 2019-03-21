@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2019-03-21  Christian Heller  <christian.heller@cybop.org>
+
+        * Debug handling of button release event in gui deserialiser
+
 2019-03-19  Christian Heller  <christian.heller@cybop.org>
 
         * Make cybol example "user_interface/gui/" work again with printed message on mouse release event
