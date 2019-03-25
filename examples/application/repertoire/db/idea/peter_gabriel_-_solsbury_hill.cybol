@@ -1,9 +1,9 @@
 <node>
 
-    <node name="artist" channel="inline" format="text/plain" model="Pink Floyd"/>
-    <node name="title" channel="inline" format="text/plain" model="Wish You Were Here"/>
+    <node name="artist" channel="inline" format="text/plain" model="Peter Gabriel"/>
+    <node name="title" channel="inline" format="text/plain" model="Solsbury Hill"/>
     <node name="genre" channel="inline" format="text/plain" model="1970"/>
-    <node name="year" channel="inline" format="text/plain" model=""/>
+    <node name="year" channel="inline" format="text/plain" model="1977"/>
 
     <node name="time" channel="inline" format="text/plain" model="0:00"/>
     <node name="key" channel="inline" format="text/plain" model=""/>

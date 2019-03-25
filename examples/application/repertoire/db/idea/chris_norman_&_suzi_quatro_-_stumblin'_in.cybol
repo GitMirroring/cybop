@@ -2,7 +2,7 @@
 
     <node name="artist" channel="inline" format="text/plain" model="Chris Norman & Suzi Quatro"/>
     <node name="title" channel="inline" format="text/plain" model="Stumblin' In"/>
-    <node name="genre" channel="inline" format="text/plain" model="duett"/>
+    <node name="genre" channel="inline" format="text/plain" model="duet"/>
     <node name="year" channel="inline" format="text/plain" model="1978"/>
 
     <node name="time" channel="inline" format="text/plain" model="0:00"/>

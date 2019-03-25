@@ -13,7 +13,7 @@
     <node name="country" channel="inline" format="text/plain" model="Country Music"/>
     <node name="de" channel="inline" format="text/plain" model="Deutschrock"/>
 <!--
-    <node name="duett" channel="inline" format="text/plain" model="Duett"/>
+    <node name="duet" channel="inline" format="text/plain" model="Duett"/>
 -->
     <node name="en" channel="inline" format="text/plain" model="Englischer Schlager"/>
 <!--

@@ -1,9 +1,9 @@
 <node>
 
     <node name="artist" channel="inline" format="text/plain" model="Volkslied"/>
-    <node name="title" channel="inline" format="text/plain" model="Muss I Denn Muss I Denn Zum Staedtele Hinaus"/>
+    <node name="title" channel="inline" format="text/plain" model="Im Frühtau Zu Berge"/>
     <node name="genre" channel="inline" format="text/plain" model="volksmusik"/>
-    <node name="year" channel="inline" format="text/plain" model=""/>
+    <node name="year" channel="inline" format="text/plain" model="1908"/>
 
     <node name="time" channel="inline" format="text/plain" model="0:00"/>
     <node name="key" channel="inline" format="text/plain" model=""/>

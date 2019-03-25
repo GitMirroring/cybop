@@ -2,7 +2,7 @@
 
     <node name="artist" channel="inline" format="text/plain" model="Elton John & Kiki Dee"/>
     <node name="title" channel="inline" format="text/plain" model="Don't Go Breaking My Heart"/>
-    <node name="genre" channel="inline" format="text/plain" model="duett"/>
+    <node name="genre" channel="inline" format="text/plain" model="duet"/>
     <node name="year" channel="inline" format="text/plain" model="1976"/>
 
     <node name="time" channel="inline" format="text/plain" model="0:00"/>

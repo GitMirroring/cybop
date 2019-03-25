@@ -46,7 +46,7 @@
                 Lobo - I&#x27;d Love You To Want Me
             </li>
             <li>
-                Pink Floyd - Wish You Were Here
+                Peter Gabriel - Solsbury Hill
             </li>
             <li>
                 Smokie - I&#x27;ll Meet You At Midnight
@@ -77,9 +77,6 @@
                 Bad Boys Blue - A World Without You
             </li>
             <li>
-                Bangles - Be With You
-            </li>
-            <li>
                 Barclay James Harvest - Life Is For Living
             </li>
             <li>
@@ -98,22 +95,16 @@
                 E.L.O. - Calling America
             </li>
             <li>
-                Europe - Carrie
-            </li>
-            <li>
                 Europe - The Final Countdown
             </li>
             <li>
                 Fancy - Flames Of Love
             </li>
             <li>
-                Glass Tiger - Someday
+                Johnny Nash - Rock Me Baby
             </li>
             <li>
                 Jon &#x26; Vangelis - I&#x27;ll Find My Way Home
-            </li>
-            <li>
-                Level 42 - Lessons In Love
             </li>
             <li>
                 Limahl - Neverending Story
@@ -128,9 +119,6 @@
                 Pet Shop Boys - It&#x27;s A Sin
             </li>
             <li>
-                Poison - Every Rose Has Its Thorn
-            </li>
-            <li>
                 Police - Message In A Bottle
             </li>
             <li>
@@ -141,9 +129,6 @@
             </li>
             <li>
                 Scorpions - White Dove
-            </li>
-            <li>
-                Simple Minds - Don&#x27;t You (Forget About Me)
             </li>
             <li>
                 Status Quo - Rockin&#x27; All Over The World
@@ -166,6 +151,9 @@
             <li>
                 Ultravox - Hymn
             </li>
+            <li>
+                Yes - Owner Of A Lonely Heart
+            </li>
         </ol>
     </div>
     <div>
@@ -175,12 +163,6 @@
         <ol>
             <li>
                 Chyp Notic - I Can&#x27;t Get Enough
-            </li>
-            <li>
-                Connells - &#x27;74-&#x27;75
-            </li>
-            <li>
-                Cranberries - Dreams
             </li>
             <li>
                 Cure - Friday I&#x27;m In Love
@@ -201,9 +183,6 @@
                 R.E.M. - The One I Love
             </li>
             <li>
-                Scorpions - Wind Of Chance
-            </li>
-            <li>
                 Sparks - When Do I Get To Sing My Way
             </li>
             <li>
@@ -217,19 +196,22 @@
         </h2>
         <ol>
             <li>
-                Amy MacDonald - This Is The Life
+                Coldplay - Clocks
             </li>
             <li>
                 Coldplay - Speed Of Sound
             </li>
             <li>
+                Coldplay - Talk
+            </li>
+            <li>
                 Coldplay - The Hardest Part
             </li>
             <li>
-                Killers - Human
+                Coldplay - Viva La Vida
             </li>
             <li>
-                Lara Fabian - I Will Love Again
+                Killers - Human
             </li>
             <li>
                 Puhdys - Hey Wir Wollen Die Eisb&#xE4;ren Seh&#x27;n
@@ -251,7 +233,7 @@
                 Daft Punk - Get Lucky
             </li>
             <li>
-                Wincent Weiss - Feuerwerk
+                Ed Sheeran - Perfect
             </li>
         </ol>
     </div>
@@ -270,15 +252,6 @@
             Deutschrock
         </h2>
         <ol>
-            <li>
-                BAP - Do Kanns Zaubere
-            </li>
-            <li>
-                Echt - Du Tr&#xE4;gst Keine Liebe In Dir
-            </li>
-            <li>
-                Peter Maffay - Tiefer
-            </li>
         </ol>
     </div>
     <div>
@@ -303,9 +276,6 @@
             </li>
             <li>
                 Secret Service - Ten o&#x27;clock Postman
-            </li>
-            <li>
-                Simon &#x26; Garfunkel - Sound Of Silence
             </li>
         </ol>
     </div>
@@ -347,13 +317,7 @@
                 City - Am Fenster
             </li>
             <li>
-                Karat - Der Blaue Planet
-            </li>
-            <li>
                 Karat - Gewitterregen
-            </li>
-            <li>
-                Karat - Jede Stunde
             </li>
             <li>
                 Puhdys - Alt Wie Ein Baum
@@ -374,6 +338,9 @@
             Schlager
         </h2>
         <ol>
+            <li>
+                Andrea Berg - Du Hast Mich Tausendmal Belogen
+            </li>
             <li>
                 Flippers - Lotosblume
             </li>
@@ -406,9 +373,6 @@
             </li>
             <li>
                 Wildecker Herzbuben - Hallo Frau Nachbarin
-            </li>
-            <li>
-                Wolfgang Petry - Sieben Tage Sieben N&#xE4;chte
             </li>
         </ol>
     </div>
@@ -443,9 +407,6 @@
                 J&#xFC;rgen Hart - Sing Mei Sachse Sing
             </li>
             <li>
-                Roland Steinel - Liechtensteiner Polka
-            </li>
-            <li>
                 Volkslied - Das Lieben Bringt Gro&#xDF; Freud
             </li>
             <li>
@@ -461,13 +422,16 @@
                 Volkslied - Heute Wollen Wir Das R&#xE4;nzlein Schn&#xFC;ren
             </li>
             <li>
-                Volkslied - Muss I Denn Muss I Denn Zum Staedtele Hinaus
+                Volkslied - Im Fr&#xFC;htau Zu Berge
+            </li>
+            <li>
+                Roland Steinel - Liechtensteiner Polka
+            </li>
+            <li>
+                Volkslied - Mein Vater War Ein Wandersmann (Der fr&#xF6;hliche Wanderer)
             </li>
             <li>
                 Volkslied - Schneewalzer (Herbert Roth)
-            </li>
-            <li>
-                Volkslied - Wahre Freundschaft Soll Nicht Wanken
             </li>
             <li>
                 Volkslied - Wem Gott Will Rechte Gunst Erweisen
@@ -480,8 +444,6 @@
             </li>
         </ol>
     </div>
-    <ERROR_MISSING_TAG_NAME>
-    </ERROR_MISSING_TAG_NAME>
     <ERROR_MISSING_TAG_NAME>
     </ERROR_MISSING_TAG_NAME>
     <ERROR_MISSING_TAG_NAME>

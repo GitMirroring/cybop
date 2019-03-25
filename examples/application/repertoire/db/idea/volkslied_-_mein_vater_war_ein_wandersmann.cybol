@@ -1,9 +1,9 @@
 <node>
 
     <node name="artist" channel="inline" format="text/plain" model="Volkslied"/>
-    <node name="title" channel="inline" format="text/plain" model="Wahre Freundschaft Soll Nicht Wanken"/>
+    <node name="title" channel="inline" format="text/plain" model="Mein Vater War Ein Wandersmann (Der fröhliche Wanderer)"/>
     <node name="genre" channel="inline" format="text/plain" model="volksmusik"/>
-    <node name="year" channel="inline" format="text/plain" model=""/>
+    <node name="year" channel="inline" format="text/plain" model="1876"/>
 
     <node name="time" channel="inline" format="text/plain" model="0:00"/>
     <node name="key" channel="inline" format="text/plain" model=""/>

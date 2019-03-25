@@ -1,9 +1,9 @@
 <node>
 
-    <node name="artist" channel="inline" format="text/plain" model="Bad Boys Blue"/>
-    <node name="title" channel="inline" format="text/plain" model="Kisses And Tears"/>
+    <node name="artist" channel="inline" format="text/plain" model="Johnny Nash"/>
+    <node name="title" channel="inline" format="text/plain" model="Rock Me Baby"/>
     <node name="genre" channel="inline" format="text/plain" model="1980"/>
-    <node name="year" channel="inline" format="text/plain" model=""/>
+    <node name="year" channel="inline" format="text/plain" model="1985"/>
 
     <node name="time" channel="inline" format="text/plain" model="0:00"/>
     <node name="key" channel="inline" format="text/plain" model=""/>
