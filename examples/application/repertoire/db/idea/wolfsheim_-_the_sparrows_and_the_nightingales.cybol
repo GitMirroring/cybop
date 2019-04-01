@@ -1,0 +1,13 @@
+<node>
+
+    <node name="artist" channel="inline" format="text/plain" model="Wolfsheim"/>
+    <node name="title" channel="inline" format="text/plain" model="The Sparrows and the Nightingales"/>
+    <node name="genre" channel="inline" format="text/plain" model="1990"/>
+    <node name="year" channel="inline" format="text/plain" model="1991"/>
+
+    <node name="time" channel="inline" format="text/plain" model="0:00"/>
+    <node name="key" channel="inline" format="text/plain" model=""/>
+    <node name="vocals" channel="inline" format="text/plain" model="Chris"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

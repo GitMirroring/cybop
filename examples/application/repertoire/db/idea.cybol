@@ -58,6 +58,7 @@
     <node name="john_travolta_&_olivia_newton-john_-_you're_the_one_that_i_want" channel="file" format="element/part" model="application/repertoire/db/idea/john_travolta_&_olivia_newton-john_-_you're_the_one_that_i_want.cybol"/>
     <node name="johnny_nash_-_rock_me_baby" channel="file" format="element/part" model="application/repertoire/db/idea/johnny_nash_-_rock_me_baby.cybol"/>
     <node name="jon_&_vangelis_-_i'll_find_my_way_home" channel="file" format="element/part" model="application/repertoire/db/idea/jon_&_vangelis_-_i'll_find_my_way_home.cybol"/>
+    <node name="joy_-_touch_by_touch" channel="file" format="element/part" model="application/repertoire/db/idea/joy_-_touch_by_touch.cybol"/>
     <node name="juergen_hart_-_sing_mei_sachse_sing" channel="file" format="element/part" model="application/repertoire/db/idea/juergen_hart_-_sing_mei_sachse_sing.cybol"/>
 
     <node name="karat_-_gewitterregen" channel="file" format="element/part" model="application/repertoire/db/idea/karat_-_gewitterregen.cybol"/>
@@ -141,6 +142,7 @@
     <node name="wilki_-_bohema" channel="file" format="element/part" model="application/repertoire/db/idea/wilki_-_bohema.cybol"/>
     <node name="wilki_-_urke" channel="file" format="element/part" model="application/repertoire/db/idea/wilki_-_urke.cybol"/>
     <node name="wolfgang_ziegler_-_verdammt" channel="file" format="element/part" model="application/repertoire/db/idea/wolfgang_ziegler_-_verdammt.cybol"/>
+    <node name="wolfsheim_-_the_sparrows_and_the_nightingales" channel="file" format="element/part" model="application/repertoire/db/idea/wolfsheim_-_the_sparrows_and_the_nightingales.cybol"/>
 
     <node name="yes_-_owner_of_a_lonely_heart" channel="file" format="element/part" model="application/repertoire/db/idea/yes_-_owner_of_a_lonely_heart.cybol"/>
 
