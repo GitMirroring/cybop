@@ -204,55 +204,24 @@ void deserialise_gui_event_properties(void* p0, void* p1, void* p2, void* p3, vo
     copy_array_forward((void*) &momd, mom, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     //
-    // The default values.
+    // CAUTION! Do NOT use local default values here.
     //
-    // CAUTION! If a cybol property is not given, then its value is NULL.
-    // In this case, it would cause errors inside the function
-    // "deserialise_gui_event_values", which is called below.
-    // Therefore, valid DEFAULT values are assigned here.
+    // It is important that the values are copied from the
+    // event model into the referenced PROPERTY variables below,
+    // so that they can be used further outside this function,
+    // in the gui deserialiser.
+    // Otherwise, when using local variables, they would be lost.
     //
-
-    // The window identification.
-    int window = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The exposed x.
-    int exposed_x = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The exposed y.
-    int exposed_y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The exposed width.
-    int exposed_width = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The exposed height.
-    int exposed_height = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The mouse x.
-    int mouse_x = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The mouse y.
-    int mouse_y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The button.
-    int button = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The keycode.
-    int keycode = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The mask.
-    int mask = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The mode.
-    int mode = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
+    // CAUTION! However, this requires ALL properties to be given ALWAYS.
     //
-    // CAUTION! The following values are ONLY copied,
-    // if the source value is NOT NULL.
-    // This is tested inside the "copy_integer" function.
-    // Otherwise, the destination value remains as is.
+    // Otherwise, when some property is missing, accessing it
+    // inside the called functions will cause errors.
     //
 
-    copy_integer((void*) &window, w);
-    copy_integer((void*) &exposed_x, ex);
-    copy_integer((void*) &exposed_y, ey);
-    copy_integer((void*) &exposed_width, ew);
-    copy_integer((void*) &exposed_height, eh);
-    copy_integer((void*) &mouse_x, x);
-    copy_integer((void*) &mouse_y, y);
-    copy_integer((void*) &button, b);
-    copy_integer((void*) &keycode, k);
-    copy_integer((void*) &mask, m);
-    copy_integer((void*) &mode, mo);
+/*??
+    fwprintf(stdout, L"TEST: Deserialise gui event properties. xmd: %i \n", xmd);
+    fwprintf(stdout, L"TEST: Deserialise gui event properties. *xmd: %i \n", *((int*) xmd));
+*/
 
     deserialise_gui_event_values(em, wmd, exmd, eymd, ewmd, ehmd, xmd, ymd, bmd, kmd, mmd, momd, p5);
 }

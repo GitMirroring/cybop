@@ -10,12 +10,32 @@
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
+    <!-- Write knowledge tree into file. -->
+    <node name="TEST_pre" channel="inline" format="communicate/send" model="">
+        <node name="receiver" channel="inline" format="text/plain" model="test_gui_pre.txt"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+    </node>
+
     <node name="receive_event" channel="inline" format="communicate/receive" model="">
         <node name="sender" channel="inline" format="text/cybol-path" model=".gui.window"/>
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
         <node name="language" channel="inline" format="meta/language" model="event/gui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".gui.action"/>
+    </node>
+
+    <!-- Write knowledge tree into file. -->
+    <node name="TEST_post" channel="inline" format="communicate/send" model="">
+        <node name="receiver" channel="inline" format="text/plain" model="test_gui_post.txt"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
     </node>
 
     <!--

@@ -122,7 +122,7 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
         //
         int t = (int) e->response_type;
 
-fwprintf(stdout, L"TEST deserialise xcb t: %i\n", t);
+        fwprintf(stdout, L"TEST deserialise xcb t: %i\n", t);
 
         //
         // Convert type using bit operation AND.
@@ -134,7 +134,7 @@ fwprintf(stdout, L"TEST deserialise xcb t: %i\n", t);
         //
         t = t & (~0x80);
 
-fwprintf(stdout, L"TEST deserialise xcb converted t: %i\n", t);
+        fwprintf(stdout, L"TEST deserialise xcb converted t: %i\n", t);
 
         if (t == XCB_EXPOSE) {
 
@@ -144,7 +144,7 @@ fwprintf(stdout, L"TEST deserialise xcb converted t: %i\n", t);
             // having been covered by another window before.
             //
 
-fwprintf(stdout, L"TEST deserialise xcb XCB_EXPOSE t: %i\n", t);
+            fwprintf(stdout, L"TEST deserialise xcb XCB_EXPOSE t: %i\n", t);
 
             modify_item(p0, (void*) EXPOSE_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) EXPOSE_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
@@ -158,7 +158,7 @@ fwprintf(stdout, L"TEST deserialise xcb XCB_EXPOSE t: %i\n", t);
             // if (ev->xexpose.count == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 //??                        if (ev->count == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST deserialise xcb XCB_EXPOSE ev->count: %i\n", ev->count);
+            fwprintf(stdout, L"TEST deserialise xcb XCB_EXPOSE ev->count: %i\n", ev->count);
 
             // Get window identification.
             *w = (int) ev->window;
@@ -172,7 +172,7 @@ fwprintf(stdout, L"TEST deserialise xcb XCB_EXPOSE ev->count: %i\n", ev->count);
 
         } else if (t == XCB_BUTTON_PRESS) {
 
-fwprintf(stdout, L"TEST deserialise xcb XCB_BUTTON_PRESS t: %i\n", t);
+            fwprintf(stdout, L"TEST deserialise xcb XCB_BUTTON_PRESS t: %i\n", t);
 
             modify_item(p0, (void*) BUTTON_PRESS_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) BUTTON_PRESS_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
@@ -190,7 +190,7 @@ fwprintf(stdout, L"TEST deserialise xcb XCB_BUTTON_PRESS t: %i\n", t);
 
         } else if (t == XCB_BUTTON_RELEASE) {
 
-fwprintf(stdout, L"TEST deserialise xcb XCB_BUTTON_RELEASE t: %i\n", t);
+            fwprintf(stdout, L"TEST deserialise xcb XCB_BUTTON_RELEASE t: %i\n", t);
 
             modify_item(p0, (void*) BUTTON_RELEASE_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) BUTTON_RELEASE_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
@@ -206,9 +206,11 @@ fwprintf(stdout, L"TEST deserialise xcb XCB_BUTTON_RELEASE t: %i\n", t);
             // Get button mask.
             *mask = (int) ev->state;
 
+            fwprintf(stdout, L"TEST deserialise xcb XCB_BUTTON_RELEASE *x: %i\n", *x);
+
         } else if (t == XCB_MOTION_NOTIFY) {
 
-fwprintf(stdout, L"TEST deserialise xcb XCB_MOTION_NOTIFY t: %i\n", t);
+            fwprintf(stdout, L"TEST deserialise xcb XCB_MOTION_NOTIFY t: %i\n", t);
 
             modify_item(p0, (void*) MOTION_NOTIFY_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MOTION_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
@@ -252,7 +254,7 @@ fwprintf(stdout, L"TEST deserialise xcb XCB_MOTION_NOTIFY t: %i\n", t);
 
         } else if (t == XCB_ENTER_NOTIFY) {
 
-fwprintf(stdout, L"TEST deserialise xcb XCB_ENTER_NOTIFY t: %i\n", t);
+            fwprintf(stdout, L"TEST deserialise xcb XCB_ENTER_NOTIFY t: %i\n", t);
 
             modify_item(p0, (void*) ENTER_NOTIFY_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ENTER_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
@@ -274,7 +276,7 @@ fwprintf(stdout, L"TEST deserialise xcb XCB_ENTER_NOTIFY t: %i\n", t);
 
         } else if (XCB_LEAVE_NOTIFY) {
 
-fwprintf(stdout, L"TEST deserialise xcb XCB_LEAVE_NOTIFY t: %i\n", t);
+            fwprintf(stdout, L"TEST deserialise xcb XCB_LEAVE_NOTIFY t: %i\n", t);
 
             modify_item(p0, (void*) LEAVE_NOTIFY_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) LEAVE_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
@@ -294,7 +296,7 @@ fwprintf(stdout, L"TEST deserialise xcb XCB_LEAVE_NOTIFY t: %i\n", t);
 
         } else if (t == XCB_KEY_PRESS) {
 
-fwprintf(stdout, L"TEST deserialise xcb XCB_KEY_PRESS t: %i\n", t);
+            fwprintf(stdout, L"TEST deserialise xcb XCB_KEY_PRESS t: %i\n", t);
 
             modify_item(p0, (void*) KEY_PRESS_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) KEY_PRESS_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
@@ -404,7 +406,7 @@ fwprintf(stdout, L"TEST deserialise xcb XCB_KEY_PRESS t: %i\n", t);
 
         } else if (t == XCB_KEY_RELEASE) {
 
-fwprintf(stdout, L"TEST deserialise xcb XCB_KEY_RELEASE t: %i\n", t);
+            fwprintf(stdout, L"TEST deserialise xcb XCB_KEY_RELEASE t: %i\n", t);
 
             modify_item(p0, (void*) KEY_RELEASE_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) KEY_RELEASE_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
@@ -424,61 +426,73 @@ fwprintf(stdout, L"TEST deserialise xcb XCB_KEY_RELEASE t: %i\n", t);
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xcb. The window identification is null.");
+        fwprintf(stdout, L"Error: Could not deserialise xcb. The window identification is null.\n");
     }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xcb. The exposed rectangle coordinate x is null.");
+        fwprintf(stdout, L"Error: Could not deserialise xcb. The exposed rectangle coordinate x is null.\n");
     }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xcb. The exposed rectangle coordinate y is null.");
+        fwprintf(stdout, L"Error: Could not deserialise xcb. The exposed rectangle coordinate y is null.\n");
     }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xcb. The exposed rectangle width is null.");
+        fwprintf(stdout, L"Error: Could not deserialise xcb. The exposed rectangle width is null.\n");
     }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xcb. The exposed rectangle height is null.");
+        fwprintf(stdout, L"Error: Could not deserialise xcb. The exposed rectangle height is null.\n");
     }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xcb. The mouse coordinate x is null.");
+        fwprintf(stdout, L"Error: Could not deserialise xcb. The mouse coordinate x is null.\n");
     }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xcb. The mouse coordinate y is null.");
+        fwprintf(stdout, L"Error: Could not deserialise xcb. The mouse coordinate y is null.\n");
     }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xcb. The button is null.");
+        fwprintf(stdout, L"Error: Could not deserialise xcb. The button is null.\n");
     }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xcb. The keycode is null.");
+        fwprintf(stdout, L"Error: Could not deserialise xcb. The keycode is null.\n");
     }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xcb. The mask is null.");
+        fwprintf(stdout, L"Error: Could not deserialise xcb. The mask is null.\n");
     }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xcb. The mouse button identification (mode) is null.");
+        fwprintf(stdout, L"Error: Could not deserialise xcb. The mouse button identification (mode) is null.\n");
     }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xcb. The event is null.");
+        fwprintf(stdout, L"Error: Could not deserialise xcb. The event is null.\n");
     }
 }
 

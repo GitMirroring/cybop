@@ -69,6 +69,8 @@ void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+//??    fwprintf(stdout, L"TEST: Deserialise gui content. p10: %ls \n", (wchar_t*) p10);
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         check_operation((void*) &r, p10, (void*) BUTTON_PRESS_EVENT_XCB_CYBOL_MODEL, p11, (void*) BUTTON_PRESS_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

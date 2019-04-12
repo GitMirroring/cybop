@@ -136,20 +136,23 @@ void deserialise_gui_mouse_button_release(void* p0, void* p1, void* p2, void* p3
             copy_array_forward((void*) &amd, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
             copy_array_forward((void*) &amc, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+            fwprintf(stdout, L"TEST deserialise gui mouse button release x: %i\n", x);
+            fwprintf(stdout, L"TEST deserialise gui mouse button release y: %i\n", y);
+            fwprintf(stdout, L"TEST deserialise gui mouse button release w: %i\n", w);
+            fwprintf(stdout, L"TEST deserialise gui mouse button release h: %i\n", h);
+            fwprintf(stdout, L"TEST deserialise gui mouse button release *mx: %i\n", *mx);
+            fwprintf(stdout, L"TEST deserialise gui mouse button release *my: %i\n", *my);
+
+            fwprintf(stdout, L"TEST deserialise gui mouse button release amc: %i\n", amc);
+            //?? fwprintf(stdout, L"TEST deserialise gui mouse button release *amc: %i\n", *((int*) amc));
+            fwprintf(stdout, L"TEST deserialise gui mouse button release amd: %i\n", amd);
+            //?? fwprintf(stdout, L"TEST deserialise gui mouse button release (wchar_t*) amd: %ls\n", (wchar_t*) amd);
+
             // Check whether or not the mouse x- and y coordinate
             // are within the gui element's area.
             if ((*mx >= x) && (*my >= y) && (*mx < (x + w)) && (*my < (y + h))) {
 
-fwprintf(stdout, L"TEST deserialise gui mouse button release x: %i\n", x);
-fwprintf(stdout, L"TEST deserialise gui mouse button release y: %i\n", y);
-fwprintf(stdout, L"TEST deserialise gui mouse button release w: %i\n", w);
-fwprintf(stdout, L"TEST deserialise gui mouse button release h: %i\n", h);
-fwprintf(stdout, L"TEST deserialise gui mouse button release *mx: %i\n", *mx);
-fwprintf(stdout, L"TEST deserialise gui mouse button release *my: %i\n", *my);
-
-fwprintf(stdout, L"TEST deserialise gui mouse button release amc: %i\n", amc);
-//?? fwprintf(stdout, L"TEST deserialise gui mouse button release *amc: %i\n", *((int*) amc));
-fwprintf(stdout, L"TEST deserialise gui mouse button release amd: %ls\n", (wchar_t*) amd);
+                fwprintf(stdout, L"TEST: The mouse x- and y coordinate are within the gui element's area.\n");
 
                 //
                 // Set break flag, so that the loop can be left in the next cycle.
@@ -164,6 +167,8 @@ fwprintf(stdout, L"TEST deserialise gui mouse button release amd: %ls\n", (wchar
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                     if ((amd != *NULL_POINTER_STATE_CYBOI_MODEL) && (amc != *NULL_POINTER_STATE_CYBOI_MODEL)) {
+
+                        fwprintf(stdout, L"TEST deserialise gui mouse button release. Modify overwrite action.\n");
 
                         //
                         // CAUTION! The action is NOT assigned if it is null,
@@ -201,11 +206,13 @@ fwprintf(stdout, L"TEST deserialise gui mouse button release amd: %ls\n", (wchar
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui mouse button release. The event x coordinate is null.");
+            fwprintf(stdout, L"Error: Could not deserialise gui mouse button release. The event x coordinate is null.\n");
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui mouse button release. The event y coordinate is null.");
+        fwprintf(stdout, L"Error: Could not deserialise gui mouse button release. The event y coordinate is null.\n");
     }
 }
 

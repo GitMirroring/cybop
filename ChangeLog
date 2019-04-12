@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2019-04-12  Christian Heller  <christian.heller@cybop.org>
+
+        * Eliminate default value variables in file "properties_gui_event_deserialiser.c", since values have to be set inside properties and not just locally
+
 2019-03-21  Christian Heller  <christian.heller@cybop.org>
 
         * Debug handling of button release event in gui deserialiser
