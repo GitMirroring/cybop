@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2019-04-14  Christian Heller  <christian.heller@cybop.org>
+
+        * Replace direct assignment of integer value with call of function "modify_item" in file "xcb_deserialiser.c", so that the destination array gets resized correctly, in case no value was given in cybol
+
 2019-04-12  Christian Heller  <christian.heller@cybop.org>
 
         * Eliminate default value variables in file "properties_gui_event_deserialiser.c", since values have to be set inside properties and not just locally

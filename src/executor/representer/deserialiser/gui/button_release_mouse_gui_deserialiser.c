@@ -105,6 +105,11 @@ void deserialise_gui_mouse_button_release(void* p0, void* p1, void* p2, void* p3
             // The comparison result.
             int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+            fwprintf(stdout, L"TEST Deserialise gui mouse button release. event name data p11: %i\n", p11);
+            fwprintf(stdout, L"TEST Deserialise gui mouse button release. event name data *p11: %i\n", *((int*) p11));
+            fwprintf(stdout, L"TEST Deserialise gui mouse button release. event name data p10: %i\n", p10);
+            fwprintf(stdout, L"TEST Deserialise gui mouse button release. event name data p10 as string: %ls\n", (wchar_t*) p10);
+
             // Get position part.
             get_part_name((void*) &p, p4, (void*) POSITION_GUI_STATE_CYBOL_NAME, (void*) POSITION_GUI_STATE_CYBOL_NAME_COUNT, p5, p7, p8, p9);
             // Get size part.
@@ -186,11 +191,15 @@ void deserialise_gui_mouse_button_release(void* p0, void* p1, void* p2, void* p3
                     } else {
 
                         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui mouse button release. The action part model data is null.");
+
+                        fwprintf(stdout, L"Error: Could not deserialise gui mouse button release. The action part model data is null.\n");
                     }
 
                 } else {
 
                     log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui mouse button release. The message format is not text/plain.");
+
+                    fwprintf(stdout, L"Error: Could not deserialise gui mouse button release. The message format is not text/plain.\n");
                 }
 
                 //
