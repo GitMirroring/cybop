@@ -14,7 +14,9 @@
 GUI
 ___
 
-        CONTINUE:
+        DONE:
+        * Verify correctness of all source code files of gui deserialiser (parametres etc.)
+        TODO - CONTINUE:
         * Debug memory access error with cybol example application "gui"
         * Find out why f, m, p are integer values instead of parts in file "part_gui_deserialiser.c"
 

@@ -81,14 +81,15 @@ void deserialise_gui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void
     fwprintf(stdout, L"TEST: Deserialise gui part. p: %i \n", p);
 
     // Get part format, model, properties item data, count.
+    fwprintf(stdout, L"TEST: Deserialise gui part. 1: %i \n", p2);
     copy_array_forward((void*) &fd, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    fwprintf(stdout, L"TEST: Deserialise gui part. 3: %i \n", p2);
+    fwprintf(stdout, L"TEST: Deserialise gui part. 2: %i \n", p2);
     copy_array_forward((void*) &md, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    fwprintf(stdout, L"TEST: Deserialise gui part. 4: %i \n", p2);
+    fwprintf(stdout, L"TEST: Deserialise gui part. 3: %i \n", p2);
     copy_array_forward((void*) &mc, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    fwprintf(stdout, L"TEST: Deserialise gui part. 5: %i \n", p2);
+    fwprintf(stdout, L"TEST: Deserialise gui part. 4: %i \n", p2);
     copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    fwprintf(stdout, L"TEST: Deserialise gui part. 6: %i \n", p2);
+    fwprintf(stdout, L"TEST: Deserialise gui part. 5: %i \n", p2);
     copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     fwprintf(stdout, L"TEST: Deserialise gui part. fd: %i \n", fd);

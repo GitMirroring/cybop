@@ -149,9 +149,9 @@ void deserialise_gui_mouse_button_release(void* p0, void* p1, void* p2, void* p3
             fwprintf(stdout, L"TEST deserialise gui mouse button release *my: %i\n", *my);
 
             fwprintf(stdout, L"TEST deserialise gui mouse button release amc: %i\n", amc);
-            //?? fwprintf(stdout, L"TEST deserialise gui mouse button release *amc: %i\n", *((int*) amc));
+            fwprintf(stdout, L"TEST deserialise gui mouse button release *amc: %i\n", *((int*) amc));
             fwprintf(stdout, L"TEST deserialise gui mouse button release amd: %i\n", amd);
-            //?? fwprintf(stdout, L"TEST deserialise gui mouse button release (wchar_t*) amd: %ls\n", (wchar_t*) amd);
+            fwprintf(stdout, L"TEST deserialise gui mouse button release (wchar_t*) amd: %ls\n", (wchar_t*) amd);
 
             // Check whether or not the mouse x- and y coordinate
             // are within the gui element's area.

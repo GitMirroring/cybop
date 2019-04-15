@@ -99,7 +99,7 @@ fwprintf(stdout, L"TEST deserialise gui expose amd: %ls\n", (wchar_t*) amd);
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui mouse button release. The message format is not text/plain.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui expose. The message format is not text/plain.");
     }
 }
 

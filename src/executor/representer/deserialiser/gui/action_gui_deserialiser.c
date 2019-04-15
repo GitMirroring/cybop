@@ -99,11 +99,11 @@ void deserialise_gui_action(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     copy_array_forward((void*) &dc, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Get event name part.
-    get_part_name((void*) &e, dd, (void*) EVENT_ACTION_GUI_STATE_CYBOL_NAME, (void*) EVENT_ACTION_GUI_STATE_CYBOL_NAME_COUNT, dc, p6, p7, p8);
+    get_part_name((void*) &e, dd, (void*) EVENT_ACTION_GUI_STATE_CYBOL_NAME, (void*) EVENT_ACTION_GUI_STATE_CYBOL_NAME_COUNT, dc, p7, p8, p9);
     // Get mouse x part.
-    get_part_name((void*) &x, dd, (void*) X_ACTION_GUI_STATE_CYBOL_NAME, (void*) X_ACTION_GUI_STATE_CYBOL_NAME_COUNT, dc, p6, p7, p8);
+    get_part_name((void*) &x, dd, (void*) X_ACTION_GUI_STATE_CYBOL_NAME, (void*) X_ACTION_GUI_STATE_CYBOL_NAME_COUNT, dc, p7, p8, p9);
     // Get mouse y part.
-    get_part_name((void*) &y, dd, (void*) Y_ACTION_GUI_STATE_CYBOL_NAME, (void*) Y_ACTION_GUI_STATE_CYBOL_NAME_COUNT, dc, p6, p7, p8);
+    get_part_name((void*) &y, dd, (void*) Y_ACTION_GUI_STATE_CYBOL_NAME, (void*) Y_ACTION_GUI_STATE_CYBOL_NAME_COUNT, dc, p7, p8, p9);
 
     // Get event name part model item.
     copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
