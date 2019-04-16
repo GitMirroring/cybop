@@ -1,5 +1,6 @@
 <node>
 
+    <node name="adr-le" channel="file" format="element/part" model="application/project_overview/list/closed/adr-le.cybol"/>
     <node name="bashell" channel="file" format="element/part" model="application/project_overview/list/closed/bashell.cybol"/>
     <node name="beeld" channel="file" format="element/part" model="application/project_overview/list/closed/beeld.cybol"/>
     <node name="bicor" channel="file" format="element/part" model="application/project_overview/list/closed/bicor.cybol"/>
@@ -12,6 +13,7 @@
     <node name="kwrwb" channel="file" format="element/part" model="application/project_overview/list/closed/kwrwb.cybol"/>
     <node name="lascs" channel="file" format="element/part" model="application/project_overview/list/closed/lascs.cybol"/>
     <node name="mastermind" channel="file" format="element/part" model="application/project_overview/list/closed/mastermind.cybol"/>
+    <node name="matching" channel="file" format="element/part" model="application/project_overview/list/closed/matching.cybol"/>
     <node name="mediadb-viewer" channel="file" format="element/part" model="application/project_overview/list/closed/mediadb-viewer.cybol"/>
     <node name="merchplan" channel="file" format="element/part" model="application/project_overview/list/closed/merchplan.cybol"/>
     <node name="pytimer" channel="file" format="element/part" model="application/project_overview/list/closed/pytimer.cybol"/>
