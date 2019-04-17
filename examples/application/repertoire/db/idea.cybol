@@ -40,7 +40,6 @@
     <node name="eric_clapton_-_tears_in_heaven" channel="file" format="element/part" model="application/repertoire/db/idea/eric_clapton_-_tears_in_heaven.cybol"/>
     <node name="europe_-_the_final_countdown" channel="file" format="element/part" model="application/repertoire/db/idea/europe_-_the_final_countdown.cybol"/>
 
-    <node name="fancy_-_flames_of_love" channel="file" format="element/part" model="application/repertoire/db/idea/fancy_-_flames_of_love.cybol"/>
     <node name="flippers_-_lotosblume" channel="file" format="element/part" model="application/repertoire/db/idea/flippers_-_lotosblume.cybol"/>
     <node name="frank_zander_-_ententanz_(ja_wenn_wir_alle_englein_waeren)" channel="file" format="element/part" model="application/repertoire/db/idea/frank_zander_-_ententanz_(ja_wenn_wir_alle_englein_waeren).cybol"/>
     <node name="franz_lang_-_appenzeller_jodler" channel="file" format="element/part" model="application/repertoire/db/idea/franz_lang_-_appenzeller_jodler.cybol"/>
@@ -83,7 +82,6 @@
 
     <node name="pet_shop_boys_-_it's_a_sin" channel="file" format="element/part" model="application/repertoire/db/idea/pet_shop_boys_-_it's_a_sin.cybol"/>
     <node name="peter_cornelius_-_du_entschuldige_i_kenn'_di" channel="file" format="element/part" model="application/repertoire/db/idea/peter_cornelius_-_du_entschuldige_i_kenn'_di.cybol"/>
-    <node name="peter_gabriel_-_solsbury_hill" channel="file" format="element/part" model="application/repertoire/db/idea/peter_gabriel_-_solsbury_hill.cybol"/>
     <node name="peter_kent_-_it's_a_real_good_feeling" channel="file" format="element/part" model="application/repertoire/db/idea/peter_kent_-_it's_a_real_good_feeling.cybol"/>
     <node name="peter_schilling_-_major_tom" channel="file" format="element/part" model="application/repertoire/db/idea/peter_schilling_-_major_tom.cybol"/>
     <node name="police_-_message_in_a_bottle" channel="file" format="element/part" model="application/repertoire/db/idea/police_-_message_in_a_bottle.cybol"/>
@@ -104,6 +102,7 @@
     <node name="saragossa_band_-_agadou" channel="file" format="element/part" model="application/repertoire/db/idea/saragossa_band_-_agadou.cybol"/>
     <node name="scorpions_-_white_dove" channel="file" format="element/part" model="application/repertoire/db/idea/scorpions_-_white_dove.cybol"/>
     <node name="secret_service_-_ten_o'clock_postman" channel="file" format="element/part" model="application/repertoire/db/idea/secret_service_-_ten_o'clock_postman.cybol"/>
+    <node name="shakin'_stevens_-_you_drive_me_crazy" channel="file" format="element/part" model="application/repertoire/db/idea/shakin'_stevens_-_you_drive_me_crazy.cybol"/>
     <node name="shorts_-_comment_ca_va" channel="file" format="element/part" model="application/repertoire/db/idea/shorts_-_comment_ca_va.cybol"/>
     <node name="silent_circle_-_touch_in_the_night" channel="file" format="element/part" model="application/repertoire/db/idea/silent_circle_-_touch_in_the_night.cybol"/>
     <node name="smokie_-_i'll_meet_you_at_midnight" channel="file" format="element/part" model="application/repertoire/db/idea/smokie_-_i'll_meet_you_at_midnight.cybol"/>
@@ -143,7 +142,5 @@
     <node name="wilki_-_urke" channel="file" format="element/part" model="application/repertoire/db/idea/wilki_-_urke.cybol"/>
     <node name="wolfgang_ziegler_-_verdammt" channel="file" format="element/part" model="application/repertoire/db/idea/wolfgang_ziegler_-_verdammt.cybol"/>
     <node name="wolfsheim_-_the_sparrows_and_the_nightingales" channel="file" format="element/part" model="application/repertoire/db/idea/wolfsheim_-_the_sparrows_and_the_nightingales.cybol"/>
-
-    <node name="yes_-_owner_of_a_lonely_heart" channel="file" format="element/part" model="application/repertoire/db/idea/yes_-_owner_of_a_lonely_heart.cybol"/>
 
 </node>

@@ -497,6 +497,19 @@
         </tr>
         <tr>
             <td>
+                Fancy
+            </td>
+            <td>
+                Flames Of Love
+            </td>
+            <td>
+                1980er Rock-Pop &#x26; Synthie Pop
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Fiction Factory
             </td>
             <td>
@@ -652,6 +665,20 @@
                 Englischer Schlager
             </td>
             <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Karat
+            </td>
+            <td>
+                Jede Stunde
+            </td>
+            <td>
+                Ostrock (DDR)
+            </td>
+            <td>
+                1982
             </td>
         </tr>
         <tr>
@@ -943,6 +970,20 @@
             </td>
             <td>
                 1976
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Peter Gabriel
+            </td>
+            <td>
+                Solsbury Hill
+            </td>
+            <td>
+                1970er Rock &#x26; Pop
+            </td>
+            <td>
+                1977
             </td>
         </tr>
         <tr>
@@ -1441,6 +1482,20 @@
             </td>
             <td>
                 Schlager
+            </td>
+            <td>
+                1983
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Yes
+            </td>
+            <td>
+                Owner Of A Lonely Heart
+            </td>
+            <td>
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
                 1983

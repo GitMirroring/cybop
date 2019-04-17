@@ -467,6 +467,19 @@
         </tr>
         <tr>
             <td>
+                Flames Of Love
+            </td>
+            <td>
+                Fancy
+            </td>
+            <td>
+                1980er Rock-Pop &#x26; Synthie Pop
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Foolish Heart
             </td>
             <td>
@@ -713,6 +726,20 @@
                 Schlager
             </td>
             <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Jede Stunde
+            </td>
+            <td>
+                Karat
+            </td>
+            <td>
+                Ostrock (DDR)
+            </td>
+            <td>
+                1982
             </td>
         </tr>
         <tr>
@@ -996,6 +1023,20 @@
         </tr>
         <tr>
             <td>
+                Owner Of A Lonely Heart
+            </td>
+            <td>
+                Yes
+            </td>
+            <td>
+                1980er Rock-Pop &#x26; Synthie Pop
+            </td>
+            <td>
+                1983
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Polon&#xE4;se Blankenese
             </td>
             <td>
@@ -1137,6 +1178,20 @@
                 1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Solsbury Hill
+            </td>
+            <td>
+                Peter Gabriel
+            </td>
+            <td>
+                1970er Rock &#x26; Pop
+            </td>
+            <td>
+                1977
             </td>
         </tr>
         <tr>

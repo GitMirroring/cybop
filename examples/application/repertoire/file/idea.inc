@@ -46,9 +46,6 @@
                 Lobo - I&#x27;d Love You To Want Me
             </li>
             <li>
-                Peter Gabriel - Solsbury Hill
-            </li>
-            <li>
                 Smokie - I&#x27;ll Meet You At Midnight
             </li>
             <li>
@@ -98,13 +95,13 @@
                 Europe - The Final Countdown
             </li>
             <li>
-                Fancy - Flames Of Love
-            </li>
-            <li>
                 Johnny Nash - Rock Me Baby
             </li>
             <li>
                 Jon &#x26; Vangelis - I&#x27;ll Find My Way Home
+            </li>
+            <li>
+                Joy - Touch By Touch
             </li>
             <li>
                 Limahl - Neverending Story
@@ -131,6 +128,9 @@
                 Scorpions - White Dove
             </li>
             <li>
+                Shakin&#x27; Stevens - You Drive Me Crazy
+            </li>
+            <li>
                 Status Quo - Rockin&#x27; All Over The World
             </li>
             <li>
@@ -150,9 +150,6 @@
             </li>
             <li>
                 Ultravox - Hymn
-            </li>
-            <li>
-                Yes - Owner Of A Lonely Heart
             </li>
         </ol>
     </div>
@@ -187,6 +184,9 @@
             </li>
             <li>
                 Tom Petty - Into The Great Wide Open
+            </li>
+            <li>
+                Wolfsheim - The Sparrows and the Nightingales
             </li>
         </ol>
     </div>

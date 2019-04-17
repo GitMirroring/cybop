@@ -916,6 +916,29 @@
         </tr>
         <tr>
             <td>
+                Fancy
+            </td>
+            <td>
+                Flames Of Love
+            </td>
+            <td>
+                1980er Rock-Pop &#x26; Synthie Pop
+            </td>
+            <td>
+            </td>
+            <td>
+                0:00
+            </td>
+            <td>
+            </td>
+            <td>
+                Chris
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Fiction Factory
             </td>
             <td>
@@ -1182,6 +1205,30 @@
                 Englischer Schlager
             </td>
             <td>
+            </td>
+            <td>
+                0:00
+            </td>
+            <td>
+            </td>
+            <td>
+                Chris
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Karat
+            </td>
+            <td>
+                Jede Stunde
+            </td>
+            <td>
+                Ostrock (DDR)
+            </td>
+            <td>
+                1982
             </td>
             <td>
                 0:00
@@ -1693,6 +1740,30 @@
             </td>
             <td>
                 1976
+            </td>
+            <td>
+                0:00
+            </td>
+            <td>
+            </td>
+            <td>
+                Chris
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Peter Gabriel
+            </td>
+            <td>
+                Solsbury Hill
+            </td>
+            <td>
+                1970er Rock &#x26; Pop
+            </td>
+            <td>
+                1977
             </td>
             <td>
                 0:00
@@ -2572,6 +2643,30 @@
             </td>
             <td>
                 Schlager
+            </td>
+            <td>
+                1983
+            </td>
+            <td>
+                0:00
+            </td>
+            <td>
+            </td>
+            <td>
+                Chris
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Yes
+            </td>
+            <td>
+                Owner Of A Lonely Heart
+            </td>
+            <td>
+                1980er Rock-Pop &#x26; Synthie Pop
             </td>
             <td>
                 1983

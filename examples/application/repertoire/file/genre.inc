@@ -55,6 +55,9 @@
                 Eric Clapton - Promises
             </li>
             <li>
+                Peter Gabriel - Solsbury Hill
+            </li>
+            <li>
                 Village People - Y.M.C.A.
             </li>
         </ol>
@@ -95,6 +98,9 @@
                 Erasure - Ship Of Fools
             </li>
             <li>
+                Fancy - Flames Of Love
+            </li>
+            <li>
                 Fiction Factory - Feels Like Heaven
             </li>
             <li>
@@ -132,6 +138,9 @@
             </li>
             <li>
                 Ultravox - Dancing With Tears In My Eyes
+            </li>
+            <li>
+                Yes - Owner Of A Lonely Heart
             </li>
         </ol>
     </div>
@@ -334,6 +343,9 @@
             Ostrock (DDR)
         </h2>
         <ol>
+            <li>
+                Karat - Jede Stunde
+            </li>
             <li>
                 Keimzeit - Kling Klang
             </li>

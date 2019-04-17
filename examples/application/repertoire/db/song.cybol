@@ -43,6 +43,7 @@
     <node name="eric_clapton_-_promises" channel="file" format="element/part" model="application/repertoire/db/song/eric_clapton_-_promises.cybol"/>
     <node name="eric_clapton_-_wonderful_tonight" channel="file" format="element/part" model="application/repertoire/db/song/eric_clapton_-_wonderful_tonight.cybol"/>
 
+    <node name="fancy_-_flames_of_love" channel="file" format="element/part" model="application/repertoire/db/song/fancy_-_flames_of_love.cybol"/>
     <node name="fiction_factory_-_feels_like_heaven" channel="file" format="element/part" model="application/repertoire/db/song/fiction_factory_-_feels_like_heaven.cybol"/>
     <node name="frank_sinatra_-_strangers_in_the_night" channel="file" format="element/part" model="application/repertoire/db/song/frank_sinatra_-_strangers_in_the_night.cybol"/>
     <node name="fugees_-_killing_me_softly" channel="file" format="element/part" model="application/repertoire/db/song/fugees_-_killing_me_softly.cybol"/>
@@ -59,6 +60,7 @@
     <node name="john_denver_-_country_roads" channel="file" format="element/part" model="application/repertoire/db/song/john_denver_-_country_roads.cybol"/>
     <node name="john_paul_young_-_love_is_in_the_air" channel="file" format="element/part" model="application/repertoire/db/song/john_paul_young_-_love_is_in_the_air.cybol"/>
 
+    <node name="karat_-_jede_stunde" channel="file" format="element/part" model="application/repertoire/db/song/karat_-_jede_stunde.cybol"/>
     <node name="katrina_&_the_waves_-_walking_on_sunshine" channel="file" format="element/part" model="application/repertoire/db/song/katrina_&_the_waves_-_walking_on_sunshine.cybol"/>
     <node name="keimzeit_-_kling_klang" channel="file" format="element/part" model="application/repertoire/db/song/keimzeit_-_kling_klang.cybol"/>
     <node name="kiss_-_i_was_made_for_loving_you" channel="file" format="element/part" model="application/repertoire/db/song/kiss_-_i_was_made_for_loving_you.cybol"/>
@@ -85,6 +87,7 @@
 
     <node name="paul_kuhn_-_es_gibt_kein_bier_auf_hawaii" channel="file" format="element/part" model="application/repertoire/db/song/paul_kuhn_-_es_gibt_kein_bier_auf_hawaii.cybol"/>
     <node name="peter_alexander_-_die_kleine_kneipe" channel="file" format="element/part" model="application/repertoire/db/song/peter_alexander_-_die_kleine_kneipe.cybol"/>
+    <node name="peter_gabriel_-_solsbury_hill" channel="file" format="element/part" model="application/repertoire/db/song/peter_gabriel_-_solsbury_hill.cybol"/>
     <node name="peter_maffay_-_eiszeit" channel="file" format="element/part" model="application/repertoire/db/song/peter_maffay_-_eiszeit.cybol"/>
     <node name="peter_kraus_-_hello_mary_lou" channel="file" format="element/part" model="application/repertoire/db/song/peter_kraus_-_hello_mary_lou.cybol"/>
     <node name="phil_collins_-_you'll_be_in_my_heart" channel="file" format="element/part" model="application/repertoire/db/song/phil_collins_-_you'll_be_in_my_heart.cybol"/>
@@ -129,5 +132,7 @@
 
     <node name="wolfgang_petry_-_verlieben_verloren_vergessen_verzeih'n" channel="file" format="element/part" model="application/repertoire/db/song/wolfgang_petry_-_verlieben_verloren_vergessen_verzeih'n.cybol"/>
     <node name="wolfgang_petry_-_wahnsinn" channel="file" format="element/part" model="application/repertoire/db/song/wolfgang_petry_-_wahnsinn.cybol"/>
+
+    <node name="yes_-_owner_of_a_lonely_heart" channel="file" format="element/part" model="application/repertoire/db/song/yes_-_owner_of_a_lonely_heart.cybol"/>
 
 </node>
