@@ -142,7 +142,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // Select buffer.
     receive_select((void*) &b, (void*) &p0, (void*) &p, (void*) &i, (void*) &s, p16);
     // Read message.
-    receive_read((void*) &bd, (void*) &bc, b, p2, p3, p4, p5, (void*) &p2, p7, p8, p9, p10, p11, p12, p16);
+    receive_read((void*) &bd, (void*) &bc, b, p2, p3, p4, p5, p7, p8, p9, p10, p11, p12, p16);
     if ((p14 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p14) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
 //?? fwprintf(stdout, L"TEST receive data read *bc: %i\n", *((int*) bc));
 //?? fwprintf(stdout, L"TEST receive data read bd: %s\n", (char*) bd);

@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2019-04-25  Christian Heller  <christian.heller@cybop.org>
+
+        * Fix memory access error with cybol example application "gui" where .gui.action (message of type text/plain) was used instead of .gui.window (sender of type part/element)
+        * Adapt files "receiver.c" and "reader.c" (section DISPLAY_CYBOI_CHANNEL) where pointer reference was used mistakenly instead of normal pointer to copy sender source model into destination message
+
 2019-04-14  Christian Heller  <christian.heller@cybop.org>
 
         * Replace direct assignment of integer value with call of function "modify_item" in file "xcb_deserialiser.c", so that the destination array gets resized correctly, in case no value was given in cybol

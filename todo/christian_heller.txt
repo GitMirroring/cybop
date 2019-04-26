@@ -14,11 +14,8 @@
 GUI
 ___
 
-        DONE:
-        * Verify correctness of all source code files of gui deserialiser (parametres etc.)
-        TODO - CONTINUE:
-        * Debug memory access error with cybol example application "gui"
-        * Find out why f, m, p are integer values instead of parts in file "part_gui_deserialiser.c"
+        CONTINUE:
+        * Check why rectangles are painted several times walking to the right-bottom of the window
 
         THINK:
         * Delete (possibly) format constant "event/gui" and all related usages in de-/serialiser again, if not needed anymore and use "message/gui" instead

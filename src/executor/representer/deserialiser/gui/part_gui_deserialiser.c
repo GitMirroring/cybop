@@ -69,33 +69,32 @@ void deserialise_gui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void
     void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    fwprintf(stdout, L"TEST: Deserialise gui part. p2: %i \n", p2);
+//??    fwprintf(stdout, L"TEST: Deserialise gui part. p2: %i \n", p2);
 
     // Get part format, model, properties item.
     copy_array_forward((void*) &f, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FORMAT_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &m, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &p, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
+/*??
     fwprintf(stdout, L"TEST: Deserialise gui part. f: %i \n", f);
     fwprintf(stdout, L"TEST: Deserialise gui part. m: %i \n", m);
     fwprintf(stdout, L"TEST: Deserialise gui part. p: %i \n", p);
+*/
 
     // Get part format, model, properties item data, count.
-    fwprintf(stdout, L"TEST: Deserialise gui part. 1: %i \n", p2);
     copy_array_forward((void*) &fd, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    fwprintf(stdout, L"TEST: Deserialise gui part. 2: %i \n", p2);
     copy_array_forward((void*) &md, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    fwprintf(stdout, L"TEST: Deserialise gui part. 3: %i \n", p2);
     copy_array_forward((void*) &mc, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    fwprintf(stdout, L"TEST: Deserialise gui part. 4: %i \n", p2);
     copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    fwprintf(stdout, L"TEST: Deserialise gui part. 5: %i \n", p2);
     copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+/*??
     fwprintf(stdout, L"TEST: Deserialise gui part. fd: %i \n", fd);
     fwprintf(stdout, L"TEST: Deserialise gui part. *fd: %i \n", *((int*) fd));
     fwprintf(stdout, L"TEST: Deserialise gui part. *mc: %i \n", *((int*) mc));
     fwprintf(stdout, L"TEST: Deserialise gui part. *pc: %i \n", *((int*) pc));
+*/
 
     //
     // Deserialise content.

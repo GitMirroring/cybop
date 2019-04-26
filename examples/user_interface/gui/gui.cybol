@@ -14,8 +14,6 @@
         <node name="foreground" channel="inline" format="colour/rgb" model="255,0,0"/>
         <node name="layout" channel="inline" format="text/plain" model="absolute"/>
         <node name="expose" channel="inline" format="text/plain" model=".logic.refresh_display"/>
-        <!-- TEMPORARY FOR TESTING. DELETE the following later! -->
-        <node name="button-release" channel="inline" format="text/plain" model=".logic.print_message"/>
     </node>
 
     <!-- The following variable is used in file "handler.cybol". -->
