@@ -171,6 +171,11 @@ void serialise_gui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
     copy_array_forward((void*) &smdw, smd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_0_VECTOR_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smdh, smd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_1_VECTOR_STATE_CYBOI_NAME);
 
+fwprintf(stdout, L"TEST: Serialise gui properties pmdx: %i\n", pmdx);
+fwprintf(stdout, L"TEST: Serialise gui properties pmdy: %i\n", pmdy);
+fwprintf(stdout, L"TEST: Serialise gui properties smdw: %i\n", smdw);
+fwprintf(stdout, L"TEST: Serialise gui properties smdh: %i\n", smdh);
+
     //
     // Serialise layout.
     //
@@ -179,6 +184,11 @@ void serialise_gui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
     //
     serialise_layout(p6, p7, (void*) &pmdx, (void*) &pmdy, (void*) &smdw, (void*) &smdh, lpd, lpc, p10, p11, p12, lmd, lmc);
 
+fwprintf(stdout, L"TEST: Serialise gui properties post pmdx: %i\n", pmdx);
+fwprintf(stdout, L"TEST: Serialise gui properties post pmdy: %i\n", pmdy);
+fwprintf(stdout, L"TEST: Serialise gui properties post smdw: %i\n", smdw);
+fwprintf(stdout, L"TEST: Serialise gui properties post smdh: %i\n", smdh);
+
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -186,7 +196,7 @@ void serialise_gui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
     compare_integer_equal((void*) &r, wmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     //
-    // CAUTION! The comparison of wmd for null IS NECESSARY,
+    // CAUTION! The comparison of wmd for NULL IS NECESSARY,
     // since the "window" cybol property flag is OPTIONAL.
     // If this check for null were removed, then the
     // "else" branch below would ALWAYS be executed.
