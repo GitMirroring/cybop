@@ -3,7 +3,7 @@
         <h2>
             Tanzrunde 1
         </h2>
-        <table class="table table-striped table-bordered table-hover table-condensed">
+        <table class="table table-striped table-bordered table-hover table-sm table-responsive">
             <tr>
                 <td>
                     1
@@ -172,7 +172,7 @@
         <h2>
             Tanzrunde 2
         </h2>
-        <table class="table table-striped table-bordered table-hover table-condensed">
+        <table class="table table-striped table-bordered table-hover table-sm table-responsive">
             <tr>
                 <td>
                     1
@@ -522,7 +522,7 @@
         <h2>
             Tanzrunde 3
         </h2>
-        <table class="table table-striped table-bordered table-hover table-condensed">
+        <table class="table table-striped table-bordered table-hover table-sm table-responsive">
             <tr>
                 <td>
                     1
@@ -763,7 +763,7 @@
         <h2>
             Tanzrunde 4
         </h2>
-        <table class="table table-striped table-bordered table-hover table-condensed">
+        <table class="table table-striped table-bordered table-hover table-sm table-responsive">
             <tr>
                 <td>
                     1
@@ -1040,7 +1040,7 @@
         <h2>
             Tanzrunde 5
         </h2>
-        <table class="table table-striped table-bordered table-hover table-condensed">
+        <table class="table table-striped table-bordered table-hover table-sm table-responsive">
             <tr>
                 <td>
                     1
@@ -1298,7 +1298,7 @@
         <h2>
             Tanzrunde 6
         </h2>
-        <table class="table table-striped table-bordered table-hover table-condensed">
+        <table class="table table-striped table-bordered table-hover table-sm table-responsive">
             <tr>
                 <td>
                     1
@@ -1521,7 +1521,7 @@
         <h2>
             Tanzrunde 7
         </h2>
-        <table class="table table-striped table-bordered table-hover table-condensed">
+        <table class="table table-striped table-bordered table-hover table-sm table-responsive">
             <tr>
                 <td>
                     1
@@ -1691,7 +1691,7 @@
         <h2>
             Tanzrunde 8
         </h2>
-        <table class="table table-striped table-bordered table-hover table-condensed">
+        <table class="table table-striped table-bordered table-hover table-sm table-responsive">
             <tr>
                 <td>
                     1
@@ -1788,7 +1788,7 @@
         <h2>
             Tanzrunde Rest
         </h2>
-        <table class="table table-striped table-bordered table-hover table-condensed">
+        <table class="table table-striped table-bordered table-hover table-sm table-responsive">
         </table>
     </div>
 </main>
