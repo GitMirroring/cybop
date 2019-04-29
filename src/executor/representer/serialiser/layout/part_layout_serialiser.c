@@ -43,13 +43,14 @@
  * @param p3 the source element (child) height
  * @param p4 the position x
  * @param p5 the position y
- * @param p6 the knowledge memory part (pointer reference)
- * @param p7 the stack memory item
- * @param p8 the internal memory data
- * @param p9 the layout data
- * @param p10 the layout count
+ * @param p6 the window flag
+ * @param p7 the knowledge memory part (pointer reference)
+ * @param p8 the stack memory item
+ * @param p9 the internal memory data
+ * @param p10 the layout data
+ * @param p11 the layout count
  */
-void serialise_layout_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void serialise_layout_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout part.");
 
@@ -80,7 +81,7 @@ void serialise_layout_part(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         }
 
         // Serialise layout part element.
-        serialise_layout_part_element(p0, (void*) &j, p2, p3, p4, p5, p6, p7, p8, p9, p10);
+        serialise_layout_part_element(p0, (void*) &j, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
 
         // Increment loop variable.
         j++;

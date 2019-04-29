@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2019-04-29  Christian Heller  <christian.heller@cybop.org>
+
+        * Fix bug that rectangles got painted several times with offset, caused by the layout serialiser, where the position coordinates should be added only for standard gui elements but not for a window
+
 2019-04-25  Christian Heller  <christian.heller@cybop.org>
 
         * Fix memory access error with cybol example application "gui" where .gui.action (message of type text/plain) was used instead of .gui.window (sender of type part/element)

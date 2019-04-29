@@ -169,7 +169,7 @@ void serialise_layout_grid_size(void* p0, void* p1, void* p2, void* p3, void* p4
     // CAUTION! A layout-dependent formula has to be applied inside,
     // for calculating the position (x, y) of child elements.
     // The formula gets selected depending on the last parametre.
-    serialise_layout_part(p0, p1, (void*) &w, (void*) &h, p2, p3, p8, p9, p10, p11, p12);
+    serialise_layout_part(p0, p1, (void*) &w, (void*) &h, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, p8, p9, p10, p11, p12);
 }
 
 /* SIZE_GRID_LAYOUT_SERIALISER_SOURCE */

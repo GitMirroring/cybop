@@ -94,10 +94,10 @@ void serialise_x_window_system_rectangle(void* p0, void* p1, void* p2, void* p3,
                                 // The rectangle data.
                                 xcb_rectangle_t rd;
 
-fwprintf(stdout, L"TEST serialise x window system rectangle x: %i\n", *x);
-fwprintf(stdout, L"TEST serialise x window system rectangle y: %i\n", *y);
-fwprintf(stdout, L"TEST serialise x window system rectangle w: %i\n", *w);
-fwprintf(stdout, L"TEST serialise x window system rectangle h: %i\n", *h);
+                                fwprintf(stdout, L"TEST: Serialise x window system rectangle. *x: %i\n", *x);
+                                fwprintf(stdout, L"TEST: Serialise x window system rectangle. *y: %i\n", *y);
+                                fwprintf(stdout, L"TEST: Serialise x window system rectangle. *w: %i\n", *w);
+                                fwprintf(stdout, L"TEST: Serialise x window system rectangle. *h: %i\n", *h);
 
                                 // Initialise rectangle.
                                 //?? TODO: Is a reference possible? Example:

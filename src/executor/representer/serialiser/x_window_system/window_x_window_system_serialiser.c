@@ -115,6 +115,11 @@ void serialise_x_window_system_window(void* p0, void* p1, void* p2, void* p3, vo
                             // Encode icon title model data terminated wide character- into multibyte character data.
                             encode_utf_8(itmdt, p8, p9);
 
+                            fwprintf(stdout, L"TEST: Serialise x window system window. *x: %i\n", *x);
+                            fwprintf(stdout, L"TEST: Serialise x window system window. *y: %i\n", *y);
+                            fwprintf(stdout, L"TEST: Serialise x window system window. *w: %i\n", *w);
+                            fwprintf(stdout, L"TEST: Serialise x window system window. *h: %i\n", *h);
+
                             // Initialise values.
                             // CAUTION! Initialise values BEFORE using them
                             // in function calls further below.

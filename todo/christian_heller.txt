@@ -14,11 +14,6 @@
 GUI
 ___
 
-        CONTINUE:
-        * Check why rectangles are painted several times walking to the right-bottom of the window
-        * See gui serialiser, check especially window
-            --> probably, the WINDOW position of 30,30 is added for each refresh / paint
-
         THINK:
         * Delete (possibly) format constant "event/gui" and all related usages in de-/serialiser again, if not needed anymore and use "message/gui" instead
         * Use input/output access functions of maintainer in file "element_irq_checker.c" and elsewhere (search)

@@ -179,10 +179,10 @@ fwprintf(stdout, L"TEST: Serialise gui properties smdh: %i\n", smdh);
     //
     // Serialise layout.
     //
-    // CAUTION! A layout is useful for both,
+    // CAUTION! A layout is useful for BOTH,
     // element AND window below.
     //
-    serialise_layout(p6, p7, (void*) &pmdx, (void*) &pmdy, (void*) &smdw, (void*) &smdh, lpd, lpc, p10, p11, p12, lmd, lmc);
+    serialise_layout(p6, p7, (void*) &pmdx, (void*) &pmdy, (void*) &smdw, (void*) &smdh, wmd, lpd, lpc, p10, p11, p12, lmd, lmc);
 
 fwprintf(stdout, L"TEST: Serialise gui properties post pmdx: %i\n", pmdx);
 fwprintf(stdout, L"TEST: Serialise gui properties post pmdy: %i\n", pmdy);
@@ -193,7 +193,7 @@ fwprintf(stdout, L"TEST: Serialise gui properties post smdh: %i\n", smdh);
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Find out if this is the root window.
-    compare_integer_equal((void*) &r, wmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, wmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     //
     // CAUTION! The comparison of wmd for NULL IS NECESSARY,
@@ -201,7 +201,7 @@ fwprintf(stdout, L"TEST: Serialise gui properties post smdh: %i\n", smdh);
     // If this check for null were removed, then the
     // "else" branch below would ALWAYS be executed.
     //
-    if ((wmd == *NULL_POINTER_STATE_CYBOI_MODEL) || (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
+    if ((wmd == *NULL_POINTER_STATE_CYBOI_MODEL) || (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
 
         // This is a gui child element and NOT the root window.
 
