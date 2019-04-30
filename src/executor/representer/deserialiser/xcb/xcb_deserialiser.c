@@ -122,7 +122,7 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
         //
         int t = (int) e->response_type;
 
-        fwprintf(stdout, L"TEST deserialise xcb t: %i\n", t);
+//??        fwprintf(stdout, L"TEST deserialise xcb t: %i\n", t);
 
         //
         // Convert type using bit operation AND.
@@ -134,7 +134,7 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
         //
         t = t & (~0x80);
 
-        fwprintf(stdout, L"TEST deserialise xcb converted t: %i\n", t);
+//??        fwprintf(stdout, L"TEST deserialise xcb converted t: %i\n", t);
 
         if (t == XCB_EXPOSE) {
 
@@ -144,7 +144,7 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             // having been covered by another window before.
             //
 
-            fwprintf(stdout, L"TEST deserialise xcb XCB_EXPOSE t: %i\n", t);
+//??            fwprintf(stdout, L"TEST deserialise xcb XCB_EXPOSE t: %i\n", t);
 
             modify_item(p0, (void*) EXPOSE_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) EXPOSE_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
@@ -158,7 +158,7 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             // if (ev->xexpose.count == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 //??                        if (ev->count == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            fwprintf(stdout, L"TEST deserialise xcb XCB_EXPOSE ev->count: %i\n", ev->count);
+//??            fwprintf(stdout, L"TEST deserialise xcb XCB_EXPOSE ev->count: %i\n", ev->count);
 
             // Get window identification.
             int w = (int) ev->window;
@@ -181,7 +181,7 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         } else if (t == XCB_BUTTON_PRESS) {
 
-            fwprintf(stdout, L"TEST deserialise xcb XCB_BUTTON_PRESS t: %i\n", t);
+//??            fwprintf(stdout, L"TEST deserialise xcb XCB_BUTTON_PRESS t: %i\n", t);
 
             modify_item(p0, (void*) BUTTON_PRESS_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) BUTTON_PRESS_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
@@ -209,7 +209,7 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         } else if (t == XCB_BUTTON_RELEASE) {
 
-            fwprintf(stdout, L"TEST deserialise xcb XCB_BUTTON_RELEASE t: %i\n", t);
+//??            fwprintf(stdout, L"TEST deserialise xcb XCB_BUTTON_RELEASE t: %i\n", t);
 
             modify_item(p0, (void*) BUTTON_RELEASE_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) BUTTON_RELEASE_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
@@ -235,11 +235,12 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             // Get button mask.
             modify_item(p10, (void*) &mask, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
-            fwprintf(stdout, L"TEST deserialise xcb XCB_BUTTON_RELEASE x: %i\n", x);
+//??            fwprintf(stdout, L"TEST deserialise xcb XCB_BUTTON_RELEASE x: %i\n", x);
+//??            fwprintf(stdout, L"TEST deserialise xcb XCB_BUTTON_RELEASE y: %i\n", y);
 
         } else if (t == XCB_MOTION_NOTIFY) {
 
-            fwprintf(stdout, L"TEST deserialise xcb XCB_MOTION_NOTIFY t: %i\n", t);
+//??            fwprintf(stdout, L"TEST deserialise xcb XCB_MOTION_NOTIFY t: %i\n", t);
 
             modify_item(p0, (void*) MOTION_NOTIFY_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MOTION_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
@@ -293,7 +294,7 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         } else if (t == XCB_ENTER_NOTIFY) {
 
-            fwprintf(stdout, L"TEST deserialise xcb XCB_ENTER_NOTIFY t: %i\n", t);
+//??            fwprintf(stdout, L"TEST deserialise xcb XCB_ENTER_NOTIFY t: %i\n", t);
 
             modify_item(p0, (void*) ENTER_NOTIFY_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ENTER_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
@@ -327,7 +328,7 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         } else if (XCB_LEAVE_NOTIFY) {
 
-            fwprintf(stdout, L"TEST deserialise xcb XCB_LEAVE_NOTIFY t: %i\n", t);
+//??            fwprintf(stdout, L"TEST deserialise xcb XCB_LEAVE_NOTIFY t: %i\n", t);
 
             modify_item(p0, (void*) LEAVE_NOTIFY_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) LEAVE_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
@@ -359,7 +360,7 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         } else if (t == XCB_KEY_PRESS) {
 
-            fwprintf(stdout, L"TEST deserialise xcb XCB_KEY_PRESS t: %i\n", t);
+//??            fwprintf(stdout, L"TEST deserialise xcb XCB_KEY_PRESS t: %i\n", t);
 
             modify_item(p0, (void*) KEY_PRESS_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) KEY_PRESS_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
@@ -479,7 +480,7 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         } else if (t == XCB_KEY_RELEASE) {
 
-            fwprintf(stdout, L"TEST deserialise xcb XCB_KEY_RELEASE t: %i\n", t);
+//??            fwprintf(stdout, L"TEST deserialise xcb XCB_KEY_RELEASE t: %i\n", t);
 
             modify_item(p0, (void*) KEY_RELEASE_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) KEY_RELEASE_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 

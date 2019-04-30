@@ -197,7 +197,7 @@ void deserialise_gui_mouse_button_release(void* p0, void* p1, void* p2, void* p3
                     } else {
 
                         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui mouse button release. The action part model data is null.");
-                        fwprintf(stdout, L"Error: Could not deserialise gui mouse button release. The action part model data is null.\n");
+                        //?? fwprintf(stdout, L"Error: Could not deserialise gui mouse button release. The action part model data is null.\n");
                     }
 
                 } else {

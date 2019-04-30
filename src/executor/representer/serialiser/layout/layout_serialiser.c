@@ -62,7 +62,7 @@ void serialise_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout.");
 
-fwprintf(stdout, L"TEST serialise layout: %ls\n", (wchar_t*) p12);
+//??    fwprintf(stdout, L"TEST serialise layout: %ls\n", (wchar_t*) p12);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

@@ -14,6 +14,8 @@
 GUI
 ___
 
+        * Make cybol example "user_interface/ui/" work
+
         THINK:
         * Delete (possibly) format constant "event/gui" and all related usages in de-/serialiser again, if not needed anymore and use "message/gui" instead
         * Use input/output access functions of maintainer in file "element_irq_checker.c" and elsewhere (search)

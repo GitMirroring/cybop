@@ -55,7 +55,7 @@ void write_xcb(void* p0) {
     // Get display input/output entry from internal memory.
     copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
-    fwprintf(stdout, L"TEST Write xcb io: %i\n", io);
+//??    fwprintf(stdout, L"TEST Write xcb io: %i\n", io);
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -89,7 +89,7 @@ void write_xcb(void* p0) {
             // CAUTION! This test is necessary to avoid a "Segmentation fault"!
             if (w != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
-                fwprintf(stdout, L"TEST Write xcb: %i\n", w);
+//??                fwprintf(stdout, L"TEST Write xcb: %i\n", w);
 
                 // Use xcb connexion type.
                 xcb_connection_t* connexion = (xcb_connection_t*) c;

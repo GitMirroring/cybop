@@ -63,7 +63,7 @@ void serialise_gui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui properties.");
 
-    fwprintf(stdout, L"TEST Serialise gui properties. Connexion p0: %i\n", p0);
+//??    fwprintf(stdout, L"TEST Serialise gui properties. Connexion p0: %i\n", p0);
 
     // The super part.
     void* super = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -171,10 +171,12 @@ void serialise_gui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
     copy_array_forward((void*) &smdw, smd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_0_VECTOR_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smdh, smd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_1_VECTOR_STATE_CYBOI_NAME);
 
+/*??
 fwprintf(stdout, L"TEST: Serialise gui properties pmdx: %i\n", pmdx);
 fwprintf(stdout, L"TEST: Serialise gui properties pmdy: %i\n", pmdy);
 fwprintf(stdout, L"TEST: Serialise gui properties smdw: %i\n", smdw);
 fwprintf(stdout, L"TEST: Serialise gui properties smdh: %i\n", smdh);
+*/
 
     //
     // Serialise layout.
@@ -184,10 +186,12 @@ fwprintf(stdout, L"TEST: Serialise gui properties smdh: %i\n", smdh);
     //
     serialise_layout(p6, p7, (void*) &pmdx, (void*) &pmdy, (void*) &smdw, (void*) &smdh, wmd, lpd, lpc, p10, p11, p12, lmd, lmc);
 
+/*??
 fwprintf(stdout, L"TEST: Serialise gui properties post pmdx: %i\n", pmdx);
 fwprintf(stdout, L"TEST: Serialise gui properties post pmdy: %i\n", pmdy);
 fwprintf(stdout, L"TEST: Serialise gui properties post smdw: %i\n", smdw);
 fwprintf(stdout, L"TEST: Serialise gui properties post smdh: %i\n", smdh);
+*/
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

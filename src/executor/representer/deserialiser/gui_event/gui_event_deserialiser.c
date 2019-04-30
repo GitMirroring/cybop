@@ -91,7 +91,7 @@ void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3) {
         //
         get_io_entry_element((void*) &e, io, (void*) EVENT_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-        fwprintf(stdout, L"TEST: Deserialise gui event. event e: %i \n", e);
+//??        fwprintf(stdout, L"TEST: Deserialise gui event. event e: %i \n", e);
 
         if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
