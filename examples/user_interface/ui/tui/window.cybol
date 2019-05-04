@@ -1,4 +1,5 @@
 <node>
+
     <node name="heading" channel="inline" format="text/plain" model="CYBOL User Interface (UI) Example">
         <node name="position" channel="inline" format="number/integer" model="5,1"/>
         <node name="size" channel="inline" format="number/integer" model="60,1"/>
@@ -9,6 +10,7 @@
         <!-- This property is evaluated by win32 console only. -->
         <node name="intense" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+
     <node name="box1" channel="inline" format="text/plain" model="empty">
         <node name="position" channel="inline" format="number/integer" model="10,3"/>
         <node name="size" channel="inline" format="number/integer" model="40,5"/>
@@ -28,7 +30,8 @@
         <!-- This property is evaluated by win32 console only. -->
         <node name="intense" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
-    <node name="control" channel="file" format="element/part" model="ui/tui/control.cybol">
+
+    <node name="control" channel="file" format="element/part" model="user_interface/ui/tui/control.cybol">
         <node name="position" channel="inline" format="number/integer" model="10,15"/>
         <node name="size" channel="inline" format="number/integer" model="60,3"/>
         <node name="background" channel="inline" format="colour/terminal" model="gray"/>
@@ -37,29 +40,5 @@
         <!-- This property is evaluated by win32 console only. -->
         <node name="intense" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+
 </node>
-
-<!--
-    Copyright (C) 1999-2018. Christian Heller.
-
-    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
-
-    CYBOL is free software: you can redistribute it and/or modify it
-    under the terms of the GNU General Public License as published
-    by the Free Software Foundation, either version 3 of the License,
-    or (at your option) any later version.
-
-    CYBOL is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty
-    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    See the GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
-
-    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
-    CYBOP Developers <cybop-developers@nongnu.org>
-
-    @version CYBOP 0.20.0 2018-06-30
-    @author Christian Heller <christian.heller@cybop.org>
--->

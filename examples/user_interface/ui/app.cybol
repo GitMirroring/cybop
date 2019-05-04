@@ -1,34 +1,13 @@
 <node>
-    <node name="domain" channel="file" format="element/part" model="ui/domain.cybol"/>
-    <node name="cli" channel="file" format="element/part" model="ui/cli.cybol"/>
-    <node name="tui" channel="file" format="element/part" model="ui/tui.cybol"/>
-    <node name="gui" channel="file" format="element/part" model="ui/gui.cybol"/>
-    <node name="scene" channel="file" format="element/part" model="ui/scene.cybol"/>
-    <node name="wui" channel="file" format="element/part" model="ui/wui.cybol"/>
-    <node name="logic" channel="file" format="element/part" model="ui/logic.cybol"/>
+
+    <node name="domain" channel="file" format="element/part" model="user_interface/ui/domain.cybol"/>
+
+    <node name="cli" channel="file" format="element/part" model="user_interface/ui/cli.cybol"/>
+    <node name="tui" channel="file" format="element/part" model="user_interface/ui/tui.cybol"/>
+    <node name="gui" channel="file" format="element/part" model="user_interface/ui/gui.cybol"/>
+    <node name="scene" channel="file" format="element/part" model="user_interface/ui/scene.cybol"/>
+    <node name="wui" channel="file" format="element/part" model="user_interface/ui/wui.cybol"/>
+
+    <node name="logic" channel="file" format="element/part" model="user_interface/ui/logic.cybol"/>
+
 </node>
-
-<!--
-    Copyright (C) 1999-2018. Christian Heller.
-
-    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
-
-    CYBOL is free software: you can redistribute it and/or modify it
-    under the terms of the GNU General Public License as published
-    by the Free Software Foundation, either version 3 of the License,
-    or (at your option) any later version.
-
-    CYBOL is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty
-    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    See the GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
-
-    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
-    CYBOP Developers <cybop-developers@nongnu.org>
-
-    @version CYBOP 0.20.0 2018-06-30
-    @author Christian Heller <christian.heller@cybop.org>
--->

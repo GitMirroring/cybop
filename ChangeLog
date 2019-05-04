@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2019-05-04  Christian Heller  <christian.heller@cybop.org>
+
+        * Make cybol example "user_interface/ui/" work with tui and gui -- an amazing step, really impressive -- Yippee! and Hooray!
+
 2019-04-29  Christian Heller  <christian.heller@cybop.org>
 
         * Fix bug that rectangles got painted several times with offset, caused by the layout serialiser, where the position coordinates should be added only for standard gui elements but not for a window

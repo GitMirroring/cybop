@@ -1,24 +1,32 @@
 <node>
-    <!-- The command HAS TO BE EMPTIED since otherwise, the new is appended to the old command in the receive operation below. -->
-    <node name="reset_command" channel="inline" format="modify/empty" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.tui.command"/>
+
+    <!--
+        CAUTION! If these variables were not reset here,
+        then the last valid previous action would be executed
+        again and again, neverendingly.
+    -->
+    <node name="reset_action" channel="inline" format="modify/empty" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".tui.command"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
+
     <node name="receive_command" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <!-- CAUTION! Do NOT use an encoding here, since terminal input is already in wide characters. -->
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".app.tui.command"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".tui.command"/>
     </node>
+
     <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->
     <node name="overwrite_path" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.tui.path"/>
-        <node name="source" channel="inline" format="text/plain" model=".app.tui.actions."/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".tui.path"/>
+        <node name="source" channel="inline" format="text/plain" model=".tui.actions."/>
     </node>
     <node name="append_command" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.tui.path"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".app.tui.command"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".tui.path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".tui.command"/>
     </node>
+
     <!--
         CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.
         Otherwise, another signal might be executed before, so that this signal could possibly
@@ -27,6 +35,7 @@
     -->
     <node name="process_command" channel="inline" format="flow/sequence" model="">
         <!-- CAUTION! The path is NOT a reference. -->
-        <node name="model" channel="inline" format="text/cybol-path" model=".app.tui.path"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".tui.path"/>
     </node>
+
 </node>

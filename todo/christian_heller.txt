@@ -14,7 +14,7 @@
 GUI
 ___
 
-        * Make cybol example "user_interface/ui/" work
+        * Improve cybol example "user_interface/ui/" with buttons for handling input in gui
 
         THINK:
         * Delete (possibly) format constant "event/gui" and all related usages in de-/serialiser again, if not needed anymore and use "message/gui" instead

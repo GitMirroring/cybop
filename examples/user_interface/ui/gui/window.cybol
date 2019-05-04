@@ -1,35 +1,28 @@
 <node>
-    <node name="rectangle" channel="inline" format="text/plain" model="Rectangle Label">
-        <node name="position" channel="inline" format="number/integer" model="50,50"/>
-        <node name="size" channel="inline" format="number/integer" model="300,200"/>
-        <node name="background" channel="inline" format="colour/rgb" model="0,0,255"/>
+
+    <!-- CAUTION! Colour values for the x window system have to be given as 16 bit values ranging from 0 to 255. -->
+    <node name="box1" channel="inline" format="text/plain" model="Label">
+        <node name="position" channel="inline" format="number/integer" model="20,50"/>
+        <node name="size" channel="inline" format="number/integer" model="200,50"/>
+        <!-- yellow -->
+        <node name="background" channel="inline" format="colour/rgb" model="255,255,0"/>
+        <!-- black -->
         <node name="foreground" channel="inline" format="colour/rgb" model="0,0,0"/>
-        <node name="button-release" channel="inline" format="text/plain" model=".app.logic.print_message"/>
-        <node name="expose" channel="inline" format="text/plain" model=".app.logic.send.gui"/>
+        <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
+        <node name="font" channel="inline" format="text/plain" model="7x13"/>
+        <node name="button-release" channel="inline" format="text/plain" model=".logic.greet_cybop"/>
     </node>
+    <!-- CAUTION! Colour values for the x window system have to be given as 16 bit values ranging from 0 to 255. -->
+    <node name="box2" channel="inline" format="text/plain" model="Label">
+        <node name="position" channel="inline" format="number/integer" model="200,150"/>
+        <node name="size" channel="inline" format="number/integer" model="200,50"/>
+        <!-- blue -->
+        <node name="background" channel="inline" format="colour/rgb" model="0,0,255"/>
+        <!-- white -->
+        <node name="foreground" channel="inline" format="colour/rgb" model="255,255,255"/>
+        <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
+        <node name="font" channel="inline" format="text/plain" model="7x13"/>
+        <node name="button-release" channel="inline" format="text/plain" model=".logic.greet_cybop"/>
+    </node>
+
 </node>
-
-<!--
-    Copyright (C) 1999-2018. Christian Heller.
-
-    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
-
-    CYBOL is free software: you can redistribute it and/or modify it
-    under the terms of the GNU General Public License as published
-    by the Free Software Foundation, either version 3 of the License,
-    or (at your option) any later version.
-
-    CYBOL is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty
-    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    See the GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
-
-    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
-    CYBOP Developers <cybop-developers@nongnu.org>
-
-    @version CYBOP 0.20.0 2018-06-30
-    @author Christian Heller <christian.heller@cybop.org>
--->

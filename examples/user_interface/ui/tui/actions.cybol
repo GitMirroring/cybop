@@ -1,36 +1,13 @@
 <node>
-    <node name="arrow-left" channel="inline" format="text/cybol-path" model=".app.logic.greet_world"/>
-    <node name="arrow-right" channel="inline" format="text/cybol-path" model=".app.logic.greet_cybop"/>
-    <node name="arrow-up" channel="inline" format="text/cybol-path" model=".app.logic.greet_world"/>
-    <node name="arrow-down" channel="inline" format="text/cybol-path" model=".app.logic.greet_cybop"/>
-    <node name="enter" channel="inline" format="text/cybol-path" model=".app.logic.greet_world"/>
-    <node name="escape" channel="inline" format="text/cybol-path" model=".app.logic.exit"/>
-    <node name="w" channel="inline" format="text/cybol-path" model=".app.logic.greet_world"/>
-    <node name="c" channel="inline" format="text/cybol-path" model=".app.logic.greet_cybop"/>
-    <node name="e" channel="inline" format="text/cybol-path" model=".app.logic.exit"/>
+
+    <node name="arrow-left" channel="inline" format="text/cybol-path" model=".logic.greet_world"/>
+    <node name="arrow-right" channel="inline" format="text/cybol-path" model=".logic.greet_cybop"/>
+    <node name="arrow-up" channel="inline" format="text/cybol-path" model=".logic.greet_world"/>
+    <node name="arrow-down" channel="inline" format="text/cybol-path" model=".logic.greet_cybop"/>
+    <node name="enter" channel="inline" format="text/cybol-path" model=".logic.greet_world"/>
+    <node name="escape" channel="inline" format="text/cybol-path" model=".logic.exit"/>
+    <node name="w" channel="inline" format="text/cybol-path" model=".logic.greet_world"/>
+    <node name="c" channel="inline" format="text/cybol-path" model=".logic.greet_cybop"/>
+    <node name="e" channel="inline" format="text/cybol-path" model=".logic.exit"/>
+
 </node>
-
-<!--
-    Copyright (C) 1999-2018. Christian Heller.
-
-    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
-
-    CYBOL is free software: you can redistribute it and/or modify it
-    under the terms of the GNU General Public License as published
-    by the Free Software Foundation, either version 3 of the License,
-    or (at your option) any later version.
-
-    CYBOL is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty
-    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    See the GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
-
-    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
-    CYBOP Developers <cybop-developers@nongnu.org>
-
-    @version CYBOP 0.20.0 2018-06-30
-    @author Christian Heller <christian.heller@cybop.org>
--->
