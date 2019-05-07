@@ -32,26 +32,19 @@
         <node name="message" channel="inline" format="text/cybol-path" model=".scene"/>
     </node>
 -->
-    <node name="wui" channel="inline" format="represent/serialise" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".var.webpage"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".wui.index"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+    <node name="wui_file" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <!-- A beautification with indentation and newline is actually NOT useful for pure data transfer. -->
         <node name="language" channel="inline" format="meta/language" model="text/html">
             <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
         </node>
-    </node>
-    <!-- Write html into file. -->
-    <node name="test_html" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".var.webpage"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.index"/>
         <node name="receiver" channel="inline" format="text/plain" model="test_ui_wui.html"/>
     </node>
 <!--
-    <node name="send" channel="inline" format="communicate/send" model="">
+    <node name="wui_socket" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>

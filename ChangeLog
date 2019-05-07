@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2019-05-07  Christian Heller  <christian.heller@cybop.org>
+
+        * Make cybol example "user_interface/ui/" work with wui as file
+
 2019-05-04  Christian Heller  <christian.heller@cybop.org>
 
         * Make cybol example "user_interface/ui/" work with tui and gui -- an amazing step, really impressive -- Yippee! and Hooray!
