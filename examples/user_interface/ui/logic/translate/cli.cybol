@@ -1,12 +1,8 @@
 <node>
 
 <!--
-    <node name="copy_to_box1" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".cli.box1"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".domain.greeting"/>
-    </node>
-    <node name="copy_to_box2" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".cli.box2"/>
+    <node name="copy_to_box" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".cli.box"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".domain.greeting"/>
     </node>
 -->

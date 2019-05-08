@@ -1,20 +1,20 @@
 <node>
 
-    <node name="world" channel="inline" format="text/plain" model="Greet World">
+    <node name="world_button" channel="file" format="element/part" model="user_interface/ui/tui/world_button.cybol">
         <node name="position" channel="inline" format="number/integer" model="2,0"/>
         <node name="size" channel="inline" format="number/integer" model="20,3"/>
-        <node name="background" channel="inline" format="colour/terminal" model="black"/>
-        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <node name="background" channel="inline" format="colour/terminal" model="yellow"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="black"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
         <!-- This property is evaluated by win32 console only. -->
         <node name="intense" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="border" channel="inline" format="text/plain" model="ascii"/>
     </node>
-    <node name="cybop" channel="inline" format="text/plain" model="Greet CYBOP">
+    <node name="cybop_button" channel="file" format="element/part" model="user_interface/ui/tui/cybop_button.cybol">
         <node name="position" channel="inline" format="number/integer" model="25,0"/>
         <node name="size" channel="inline" format="number/integer" model="20,3"/>
-        <node name="background" channel="inline" format="colour/terminal" model="black"/>
-        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <node name="background" channel="inline" format="colour/terminal" model="yellow"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="black"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
         <!-- This property is evaluated by win32 console only. -->
         <node name="intense" channel="inline" format="logicvalue/boolean" model="true"/>

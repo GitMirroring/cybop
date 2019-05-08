@@ -1,0 +1,16 @@
+<node>
+
+    <!--
+        CAUTION! Colour values for the x window system
+        have to be given as 16 bit values ranging from 0 to 255.
+    -->
+
+    <node name="label" channel="inline" format="text/plain" model="Box">
+        <node name="position" channel="inline" format="number/integer" model="20,20"/>
+        <!-- white -->
+        <node name="foreground" channel="inline" format="colour/rgb" model="255,255,255"/>
+        <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
+        <node name="font" channel="inline" format="text/plain" model="7x13"/>
+    </node>
+
+</node>

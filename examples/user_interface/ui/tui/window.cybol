@@ -11,34 +11,19 @@
         <node name="intense" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    <node name="box1" channel="inline" format="text/plain" model="empty">
+    <node name="box" channel="file" format="element/part" model="user_interface/ui/tui/box.cybol">
         <node name="position" channel="inline" format="number/integer" model="10,3"/>
-        <node name="size" channel="inline" format="number/integer" model="40,5"/>
-        <node name="background" channel="inline" format="colour/terminal" model="yellow"/>
-        <node name="foreground" channel="inline" format="colour/terminal" model="black"/>
-        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
-        <!-- This property is evaluated by win32 console only. -->
-        <node name="intense" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="border" channel="inline" format="text/plain" model="ascii"/>
-    </node>
-    <node name="box2" channel="inline" format="text/plain" model="empty">
-        <node name="position" channel="inline" format="number/integer" model="20,9"/>
-        <node name="size" channel="inline" format="number/integer" model="40,5"/>
+        <node name="size" channel="inline" format="number/integer" model="40,10"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
-        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
         <!-- This property is evaluated by win32 console only. -->
-        <node name="intense" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="intense" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="border" channel="inline" format="text/plain" model="ascii"/>
     </node>
 
     <node name="control" channel="file" format="element/part" model="user_interface/ui/tui/control.cybol">
         <node name="position" channel="inline" format="number/integer" model="10,15"/>
-        <node name="size" channel="inline" format="number/integer" model="60,3"/>
-        <node name="background" channel="inline" format="colour/terminal" model="gray"/>
-        <node name="foreground" channel="inline" format="colour/terminal" model="black"/>
-        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
-        <!-- This property is evaluated by win32 console only. -->
-        <node name="intense" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
 </node>
