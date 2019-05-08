@@ -2,7 +2,7 @@
 
     <node name="heading" channel="inline" format="text/plain" model="CYBOL User Interface (UI) Example">
         <node name="position" channel="inline" format="number/integer" model="5,1"/>
-        <node name="size" channel="inline" format="number/integer" model="60,1"/>
+        <node name="size" channel="inline" format="number/integer" model="40,1"/>
         <node name="background" channel="inline" format="colour/terminal" model="green"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -12,7 +12,7 @@
     </node>
 
     <node name="box" channel="file" format="element/part" model="user_interface/ui/tui/box.cybol">
-        <node name="position" channel="inline" format="number/integer" model="10,3"/>
+        <node name="position" channel="inline" format="number/integer" model="5,3"/>
         <node name="size" channel="inline" format="number/integer" model="40,10"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -23,7 +23,8 @@
     </node>
 
     <node name="control" channel="file" format="element/part" model="user_interface/ui/tui/control.cybol">
-        <node name="position" channel="inline" format="number/integer" model="10,15"/>
+        <node name="position" channel="inline" format="number/integer" model="5,15"/>
+        <node name="size" channel="inline" format="number/integer" model="40,5"/>
     </node>
 
 </node>

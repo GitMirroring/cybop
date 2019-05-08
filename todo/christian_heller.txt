@@ -14,6 +14,13 @@
 GUI
 ___
 
+        * Forward current cumulated position throughout all tui elements
+            currently, positioning works only for one level below whole, but not for deeper elements
+            the reason is that the position of the whole one level above is used, but further wholes on higher levels are not considered / added
+            see wrong position of control button labels in cybol example "user_interface/ui/"
+            comment out test log messages again in file "properties_tui_serialiser.c"
+
+        * Fix gui serialiser using cumulated position, testing with cybol example "user_interface/ui/"
         * Improve cybol example "user_interface/ui/" with buttons for handling input in gui (see wui)
 
         THINK:

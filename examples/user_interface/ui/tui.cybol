@@ -2,9 +2,10 @@
 
     <node name="window" channel="file" format="element/part" model="user_interface/ui/tui/window.cybol"/>
 
-    <node name="actions" channel="file" format="element/part" model="user_interface/ui/tui/actions.cybol">
+    <node name="actions" channel="file" format="element/part" model="user_interface/ui/tui/actions.cybol"/>
 
     <node name="command" channel="inline" format="text/plain" model=""/>
+
     <!--
         CAUTION! The path format is "text/cybol-path" and NOT "text/plain".
         A knowledge path is treated like a character array anyway.

@@ -2,6 +2,7 @@
 
     <node name="label" channel="inline" format="text/plain" model="Greet CYBOP">
         <node name="position" channel="inline" format="number/integer" model="10,10"/>
+        <node name="size" channel="inline" format="number/integer" model="80,20"/>
     </node>
 
 </node>
