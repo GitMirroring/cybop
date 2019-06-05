@@ -44,7 +44,7 @@
     <node name="eric_clapton_-_wonderful_tonight" channel="file" format="element/part" model="application/repertoire/db/song/eric_clapton_-_wonderful_tonight.cybol"/>
 
     <node name="fancy_-_flames_of_love" channel="file" format="element/part" model="application/repertoire/db/song/fancy_-_flames_of_love.cybol"/>
-    <node name="fiction_factory_-_feels_like_heaven" channel="file" format="element/part" model="application/repertoire/db/song/fiction_factory_-_feels_like_heaven.cybol"/>
+    <node name="fiction_factory_-_(feels_like)_heaven" channel="file" format="element/part" model="application/repertoire/db/song/fiction_factory_-_(feels_like)_heaven.cybol"/>
     <node name="frank_sinatra_-_strangers_in_the_night" channel="file" format="element/part" model="application/repertoire/db/song/frank_sinatra_-_strangers_in_the_night.cybol"/>
     <node name="fugees_-_killing_me_softly" channel="file" format="element/part" model="application/repertoire/db/song/fugees_-_killing_me_softly.cybol"/>
 
