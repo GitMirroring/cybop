@@ -8,36 +8,36 @@
     <node name="heading" channel="inline" format="text/plain" model="CYBOL User Interface (UI) Example">
         <node name="position" channel="inline" format="number/integer" model="50,50"/>
         <node name="size" channel="inline" format="number/integer" model="400,40"/>
-        <!-- green -->
+        <node name="background" channel="inline" format="colour/rgb" model="255,255,255"/>
         <node name="foreground" channel="inline" format="colour/rgb" model="0,255,0"/>
         <node name="font" channel="inline" format="text/plain" model="7x13"/>
     </node>
 
-    <node name="box" channel="file" format="element/part" model="user_interface/ui/gui/box.cybol">
+<!--
+    <node name="boxTODO" channel="inline" format="text/plain" model="TEST">
+    <node name="boxTODO" channel="file" format="element/part" model="">
+    <node name="boxTODO" channel="file" format="element/part" model="user_interface/ui/gui/box.cybol">
+    <node name="control" channel="file" format="element/part" model="user_interface/ui/gui/control.cybol">
+
+        <node name="layout" channel="inline" format="text/plain" model="absolute"/>
+-->
+
+    <node name="boxTODO" channel="inline" format="text/plain" model="TEST">
         <node name="position" channel="inline" format="number/integer" model="50,100"/>
         <node name="size" channel="inline" format="number/integer" model="400,150"/>
-        <!-- blue -->
         <node name="background" channel="inline" format="colour/rgb" model="0,0,255"/>
-        <!-- yellow (for border) -->
-        <node name="foreground" channel="inline" format="colour/rgb" model="0,255,255"/>
+        <node name="foreground" channel="inline" format="colour/rgb" model="255,255,0"/>
         <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
-        <!-- unit: pixel -->
-        <node name="line-width" channel="inline" format="number/integer" model="5"/>
-        <!-- butt, not-last, projecting, round -->
-        <node name="cap-style" channel="inline" format="text/plain" model="round"/>
-        <!-- opaque-stippled, solid, stippled, tiled -->
-        <node name="fill-style" channel="inline" format="text/plain" model="solid"/>
-        <!-- even-odd, winding -->
-        <node name="fill-rule" channel="inline" format="text/plain" model="even-odd"/>
-        <!-- bevel, miter, round -->
-        <node name="join-style" channel="inline" format="text/plain" model="round"/>
-        <!-- double-dash, on-off-dash, solid -->
-        <node name="line-style" channel="inline" format="text/plain" model="double-dash"/>
+        <node name="font" channel="inline" format="text/plain" model="7x13"/>
     </node>
 
-    <node name="control" channel="file" format="element/part" model="user_interface/ui/gui/control.cybol">
+    <node name="boxTODO" channel="inline" format="text/plain" model="TEST">
         <node name="position" channel="inline" format="number/integer" model="50,300"/>
         <node name="size" channel="inline" format="number/integer" model="400,50"/>
+        <node name="background" channel="inline" format="colour/rgb" model="128,128,128"/>
+        <node name="foreground" channel="inline" format="colour/rgb" model="0,0,0"/>
+        <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
+        <node name="font" channel="inline" format="text/plain" model="7x13"/>
     </node>
 
 </node>

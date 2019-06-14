@@ -96,6 +96,8 @@ void serialise_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             //?? Layout in a row or column WITHOUT breaking them.
             //?? If a row break is desired, then use flow layout.
 
+            fwprintf(stdout, L"TEST: Serialise layout BOX.");
+
 //??            serialise_layout_box_size(p0, p2, p3);
         }
     }

@@ -8,22 +8,20 @@
     <node name="world_button" channel="file" format="element/part" model="user_interface/ui/gui/world_button.cybol">
         <node name="position" channel="inline" format="number/integer" model="20,0"/>
         <node name="size" channel="inline" format="number/integer" model="100,40"/>
-        <!-- yellow -->
-        <node name="background" channel="inline" format="colour/rgb" model="0,255,255"/>
-        <!-- black -->
-        <node name="foreground" channel="inline" format="colour/rgb" model="0,0,0"/>
+        <node name="background" channel="inline" format="colour/rgb" model="255,255,0"/>
+        <node name="foreground" channel="inline" format="colour/rgb" model="255,0,0"/>
         <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
+        <node name="layout" channel="inline" format="text/plain" model="absolute"/>
         <node name="button-release" channel="inline" format="text/plain" model=".logic.greet_world"/>
     </node>
 
     <node name="cybop_button" channel="file" format="element/part" model="user_interface/ui/gui/cybop_button.cybol">
         <node name="position" channel="inline" format="number/integer" model="280,0"/>
         <node name="size" channel="inline" format="number/integer" model="100,40"/>
-        <!-- yellow -->
-        <node name="background" channel="inline" format="colour/rgb" model="0,255,255"/>
-        <!-- black -->
+        <node name="background" channel="inline" format="colour/rgb" model="255,255,0"/>
         <node name="foreground" channel="inline" format="colour/rgb" model="0,0,0"/>
         <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
+        <node name="layout" channel="inline" format="text/plain" model="absolute"/>
         <node name="button-release" channel="inline" format="text/plain" model=".logic.greet_cybop"/>
     </node>
 

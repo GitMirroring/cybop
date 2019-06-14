@@ -110,7 +110,8 @@ void serialise_x_window_system_rectangle(void* p0, void* p1, void* p2, void* p3,
                                 rd.height = *h;
 
                                 // Draw rectangle.
-                                xcb_poly_rectangle(c, dt, gct, rc, &rd);
+                                xcb_poly_fill_rectangle(c, dt, gct, rc, &rd);
+                                //?? xcb_poly_rectangle(c, dt, gct, rc, &rd);
 
                             } else {
 

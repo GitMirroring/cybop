@@ -14,6 +14,14 @@
 GUI
 ___
 
+        * Debug appearance of cybol example "user_interface/ui/"
+        * Check why a cybol node with the name "box" causes problems in file "ui/gui/window.cybol"
+        * Check why background and foreground colour are only painted if element has format "text/plain" but not if element has format "element/part"
+        * Do not forget adding a layout, e.g.:
+            <node name="layout" channel="inline" format="text/plain" model="absolute"/>
+        * Decide how to handle drawing of rectangles in file "rectangle_x_window_system_serialiser.c",
+            since the foreground colour is used for filling by default --> read in web or xcb documentation
+
         * Forward current cumulated position throughout all tui elements
             currently, positioning works only for one level below whole, but not for deeper elements
             the reason is that the position of the whole one level above is used, but further wholes on higher levels are not considered / added
