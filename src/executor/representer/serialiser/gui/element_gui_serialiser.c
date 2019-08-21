@@ -107,9 +107,9 @@ void serialise_gui_element(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     copy_array_forward((void*) &shmd, shm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &shmc, shm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // Serialise context.
+    // Serialise context (colours etc.).
     serialise_gui_context(p0, p1, p2, p3, p4, p5, p12, p13, p14, p15, p16);
-    // Serialise shape.
+    // Serialise shape (e.g. rectangle).
     serialise_gui_shape(p0, p1, p2, p3, p5, p8, p9, p10, p11, shmd, shmc);
     // Serialise text.
     // CAUTION! This has to be done for ALL shapes.

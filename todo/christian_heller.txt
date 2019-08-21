@@ -14,6 +14,9 @@
 GUI
 ___
 
+        DONE:
+        * Check and verify: properties_gui_serialiser --> element_gui_serialiser --> context_gui_serialiser --> context_x_window_system_serialiser (the colours are set here in gc)
+
         * Debug appearance of cybol example "user_interface/ui/"
         * Check why a cybol node with the name "box" causes problems in file "ui/gui/window.cybol"
         * Check why background and foreground colour are only painted if element has format "text/plain" but not if element has format "element/part"
@@ -86,6 +89,10 @@ ___
 
 WUI
 ___
+
+        * Find out if threads have to be reactivated when waiting for client requests via socket
+            see backup directory "todo_thread" and read its file "readme-hint.txt"
+            see "libuv" of "Node.js" project
 
         * Make cybol example "user_interface/ui/" wui work via socket
         * Implement web socket
