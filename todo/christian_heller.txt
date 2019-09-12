@@ -17,6 +17,7 @@ ___
         DONE:
         * Check and verify: properties_gui_serialiser --> element_gui_serialiser --> context_gui_serialiser --> context_x_window_system_serialiser (the colours are set here in gc)
 
+        CONTINUE:
         * Debug appearance of cybol example "user_interface/ui/"
         * Check why a cybol node with the name "box" causes problems in file "ui/gui/window.cybol"
         * Check why background and foreground colour are only painted if element has format "text/plain" but not if element has format "element/part"
