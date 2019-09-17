@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2019-09-17  Christian Heller  <christian.heller@cybop.org>
+
+        * Forward parent coordinates throughout gui serialiser so that proper screen coordinates may be calculated
+
 2019-06-14  Christian Heller  <christian.heller@cybop.org>
 
         * Debug appearance of cybol example "user_interface/ui/"

@@ -15,25 +15,39 @@ GUI
 ___
 
         DONE:
-        * Check and verify: properties_gui_serialiser --> element_gui_serialiser --> context_gui_serialiser --> context_x_window_system_serialiser (the colours are set here in gc)
+        * Check and verify proper setting of colours
+            --> initial_gui_serialiser
+            --> content_element_part_gui_serialiser
+            --> properties_gui_serialiser
+            --> element_gui_serialiser
+            --> context_gui_serialiser
+            --> context_x_window_system_serialiser (the colours are set here in gc)
+
+        HINT:
+        * The reason for the large text indentation is that currently, all text is CENTERED in file "text_x_window_system_serialiser.c" (to be changed in the future)
 
         CONTINUE:
-        * Debug appearance of cybol example "user_interface/ui/"
+        * Adapt layout managing so that all child elements of a parent element are set (x, y, width, height)
+            check file "properties_gui_serialiser.c" calling function "serialise_layout"
+            CAUTION! in file "element_part_layout_serialiser.c", the size setting is commented out at the end
+
+        DONE: in function "serialise_gui_element", context, shape and text are NOT to be manipulated,
+            ONLY the position and size values handed over as argument are to be changed beforehand
+        * Test cascaded adding of a nested gui element's coordinates to its parent coordinates (cumulated position)
+            currently, positioning works only for one level below whole, but not for deeper elements
+            the reason is that the position of the whole one level above is used, but further wholes on higher levels are not considered / added
+            see wrong position of control button labels in cybol example "user_interface/ui/"
+            comment out test log messages again in file "properties_tui_serialiser.c"
+
+        * Test appearance of cybol example "user_interface/ui/"
+        * Improve cybol example "user_interface/ui/" with buttons for handling input in gui (see wui)
+
         * Check why a cybol node with the name "box" causes problems in file "ui/gui/window.cybol"
         * Check why background and foreground colour are only painted if element has format "text/plain" but not if element has format "element/part"
         * Do not forget adding a layout, e.g.:
             <node name="layout" channel="inline" format="text/plain" model="absolute"/>
         * Decide how to handle drawing of rectangles in file "rectangle_x_window_system_serialiser.c",
             since the foreground colour is used for filling by default --> read in web or xcb documentation
-
-        * Forward current cumulated position throughout all tui elements
-            currently, positioning works only for one level below whole, but not for deeper elements
-            the reason is that the position of the whole one level above is used, but further wholes on higher levels are not considered / added
-            see wrong position of control button labels in cybol example "user_interface/ui/"
-            comment out test log messages again in file "properties_tui_serialiser.c"
-
-        * Fix gui serialiser using cumulated position, testing with cybol example "user_interface/ui/"
-        * Improve cybol example "user_interface/ui/" with buttons for handling input in gui (see wui)
 
         THINK:
         * Delete (possibly) format constant "event/gui" and all related usages in de-/serialiser again, if not needed anymore and use "message/gui" instead

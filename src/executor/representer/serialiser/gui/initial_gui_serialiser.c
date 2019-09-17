@@ -106,7 +106,7 @@ void serialise_gui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         // Retrieve win32 device context from input/output entry.
         get_io_entry_element((void*) &dc, io, (void*) DEVICE_CONTEXT_WIN32_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-        serialise_gui_part_element_content(c, s, (void*) &w, (void*) &gc, (void*) &f, (void*) &dc, p0, p1, p2, p3, p4, p5, p6, p7);
+        serialise_gui_part_element_content(c, s, (void*) &w, (void*) &gc, (void*) &f, (void*) &dc, p0, p1, p2, p3, p4, p5, p6, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p7);
 
     } else {
 

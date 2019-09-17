@@ -48,8 +48,10 @@
  * @param p10 the knowledge memory part (pointer reference)
  * @param p11 the stack memory item
  * @param p12 the internal memory data
+ * @param p13 the parent coordinates origo x
+ * @param p14 the parent coordinates origo y
  */
-void serialise_gui_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void serialise_gui_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui part element.");
 
@@ -86,7 +88,7 @@ void serialise_gui_part_element(void* p0, void* p1, void* p2, void* p3, void* p4
 
     // Serialise part element content.
     // CAUTION! Do not forget to hand over whole properties.
-    serialise_gui_part_element_content(p0, p1, p2, p3, p4, p5, md, mc, pd, pc, p10, p11, p12, fd);
+    serialise_gui_part_element_content(p0, p1, p2, p3, p4, p5, md, mc, pd, pc, p10, p11, p12, p13, p14, fd);
 }
 
 /* ELEMENT_PART_GUI_SERIALISER_SOURCE */

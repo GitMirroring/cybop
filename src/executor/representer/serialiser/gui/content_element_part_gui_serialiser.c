@@ -32,6 +32,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
@@ -42,7 +43,7 @@
 // Forward declarations.
 //
 
-void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14);
+void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16);
 
 /**
  * Serialises the part element content into gui.
@@ -60,9 +61,11 @@ void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
  * @param p10 the knowledge memory part (pointer reference)
  * @param p11 the stack memory item
  * @param p12 the internal memory data
- * @param p13 the format
+ * @param p13 the parent coordinates origo x
+ * @param p14 the parent coordinates origo y
+ * @param p15 the format
  */
-void serialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
+void serialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui part element content.");
 
@@ -71,10 +74,23 @@ void serialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     fwprintf(stdout, L"TEST: Serialise gui part element content. properties count: %i\n", *((int*) p9));
 */
 
+    // The new parent coordinates (origo x and y).
+    int x = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, p13, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+    //
+    // Calculate the new parent coordinates (origo x and y).
+    //
+    // CAUTION! The CURRENT parent coordinates are added here as basis.
+    // The element's own coordinates are added below,
+    // in function "serialise_gui_properties".
+    //
+    calculate_integer_add((void*) &x, p13);
+    calculate_integer_add((void*) &y, p14);
+
+    compare_integer_equal((void*) &r, p15, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -89,11 +105,16 @@ void serialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
         // would overpaint them again.
         //
 
+        //
         // Serialise properties.
-        serialise_gui_properties(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+        //
+        // CAUTION! The new parent coordinates (origo x and y) are calculated inside
+        // by adding the properties' coordinates to the current parent's coordinates.
+        //
+        serialise_gui_properties(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, (void*) &x, (void*) &y);
 
         // Serialise embedded model.
-        serialise_gui(p0, p1, p2, p3, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL, p6, p7, p8, p9, p10, p11, p12, p13);
+        serialise_gui(p0, p1, p2, p3, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL, p6, p7, p8, p9, p10, p11, p12, (void*) &x, (void*) &y, p15);
 
     } else {
 
@@ -122,10 +143,10 @@ void serialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
         allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         // Serialise embedded model into text item.
-        serialise_gui(p0, p1, p2, p3, p4, p5, t, p6, p7, p8, p9, p10, p11, p12, p13);
+        serialise_gui(p0, p1, p2, p3, p4, p5, t, p6, p7, p8, p9, p10, p11, p12, (void*) &x, (void*) &y, p15);
 
         // Draw text using properties.
-        serialise_gui_properties(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+        serialise_gui_properties(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, (void*) &x, (void*) &y);
 
         // Deallocate text item.
         deallocate_item((void*) &t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);

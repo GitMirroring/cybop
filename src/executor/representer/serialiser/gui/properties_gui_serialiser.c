@@ -35,6 +35,7 @@
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/getter/part/name_part_getter.c"
+#include "../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/representer/serialiser/gui/element_gui_serialiser.c"
@@ -58,8 +59,10 @@
  * @param p10 the knowledge memory part (pointer reference)
  * @param p11 the stack memory item
  * @param p12 the internal memory data
+ * @param p13 the new parent coordinates origo x
+ * @param p14 the new parent coordinates origo y
  */
-void serialise_gui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void serialise_gui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui properties.");
 
@@ -177,6 +180,10 @@ fwprintf(stdout, L"TEST: Serialise gui properties pmdy: %i\n", pmdy);
 fwprintf(stdout, L"TEST: Serialise gui properties smdw: %i\n", smdw);
 fwprintf(stdout, L"TEST: Serialise gui properties smdh: %i\n", smdh);
 */
+
+    // Calculate the new parent coordinates (origo x and y).
+    calculate_integer_add(p13, (void*) &pmdx);
+    calculate_integer_add(p14, (void*) &pmdy);
 
     //
     // Serialise layout.
