@@ -1,6 +1,7 @@
 <node>
 
     <!-- CAUTION! Colour values for the x window system have to be given as 16 bit values ranging from 0 to 255. -->
+
     <node name="rectangle_0" channel="inline" format="text/plain" model="Hello, World!">
         <node name="position" channel="inline" format="number/integer" model="20,50"/>
         <node name="size" channel="inline" format="number/integer" model="200,50"/>
@@ -34,6 +35,16 @@
         <!-- double-dash, on-off-dash, solid -->
         <node name="line-style" channel="inline" format="text/plain" model="double-dash"/>
         <node name="font" channel="inline" format="text/plain" model="7x13"/>
+    </node>
+
+    <node name="rectangle_box" channel="file" format="element/part" model="user_interface/gui/box_1.cybol">
+        <node name="position" channel="inline" format="number/integer" model="20,200"/>
+        <node name="size" channel="inline" format="number/integer" model="400,200"/>
+        <!-- green -->
+        <node name="background" channel="inline" format="colour/rgb" model="0,255,0"/>
+        <!-- black -->
+        <node name="foreground" channel="inline" format="colour/rgb" model="0,255,0"/>
+        <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
     </node>
 
 </node>

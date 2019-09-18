@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2019-09-18  Christian Heller  <christian.heller@cybop.org>
+
+        * Debug calculation of screen coordinates in files "content_element_part_gui_serialiser.c" and "properties_gui_serialiser.c"
+
 2019-09-17  Christian Heller  <christian.heller@cybop.org>
 
         * Forward parent coordinates throughout gui serialiser so that proper screen coordinates may be calculated

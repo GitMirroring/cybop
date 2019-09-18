@@ -106,12 +106,21 @@ void serialise_x_window_system_text(void* p0, void* p1, void* p2, void* p3, void
                                     xcb_gcontext_t gct = *gc;
                                     // The xcb drawable window type value.
                                     xcb_drawable_t dt = *d;
+                                    //
                                     // The centred x, y.
+                                    //
                                     // TODO: This is only a rough estimation of the centre.
                                     // In the future, the text width and font height
                                     // will have to be considered as well.
-                                    int cx = *x + (*w / 2);
-                                    int cy = *y + (*h / 2);
+                                    //
+                                    // int cx = *x + (*w / 2);
+                                    int cx = *x;
+                                    // int cy = *y + (*h / 2);
+                                    int cy = *y;
+                                    fwprintf(stdout, L"TEST: Serialise x window system text. *x: %i\n", *x);
+                                    fwprintf(stdout, L"TEST: Serialise x window system text. *y: %i\n", *y);
+                                    fwprintf(stdout, L"TEST: Serialise x window system text. *w: %i\n", *w);
+                                    fwprintf(stdout, L"TEST: Serialise x window system text. *h: %i\n", *h);
 
                                     // Draw text.
                                     xcb_image_text_8(c, *tci, dt, gct, cx, cy, td);
