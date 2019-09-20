@@ -6,9 +6,11 @@
         <node name="position" channel="inline" format="number/integer" model="20,50"/>
         <node name="size" channel="inline" format="number/integer" model="200,50"/>
         <!-- yellow -->
+<!--
         <node name="background" channel="inline" format="colour/rgb" model="255,255,0"/>
-        <!-- black -->
-        <node name="foreground" channel="inline" format="colour/rgb" model="0,0,0"/>
+-->
+        <!-- yellow -->
+        <node name="foreground" channel="inline" format="colour/rgb" model="255,255,0"/>
         <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
         <node name="font" channel="inline" format="text/plain" model="7x13"/>
         <node name="button-release" channel="inline" format="text/plain" model=".logic.print_message"/>
@@ -18,9 +20,11 @@
         <node name="position" channel="inline" format="number/integer" model="150,150"/>
         <node name="size" channel="inline" format="number/integer" model="200,100"/>
         <!-- blue -->
+<!--
         <node name="background" channel="inline" format="colour/rgb" model="0,0,255"/>
-        <!-- white -->
-        <node name="foreground" channel="inline" format="colour/rgb" model="255,255,255"/>
+-->
+        <!-- blue -->
+        <node name="foreground" channel="inline" format="colour/rgb" model="0,0,255"/>
         <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
         <!-- unit: pixel -->
         <node name="line-width" channel="inline" format="number/integer" model="5"/>
@@ -37,12 +41,14 @@
         <node name="font" channel="inline" format="text/plain" model="7x13"/>
     </node>
 
-    <node name="rectangle_box" channel="file" format="element/part" model="user_interface/gui/box_1.cybol">
-        <node name="position" channel="inline" format="number/integer" model="20,200"/>
-        <node name="size" channel="inline" format="number/integer" model="400,200"/>
+    <node name="box_1" channel="file" format="element/part" model="user_interface/gui/box_1.cybol">
+        <node name="position" channel="inline" format="number/integer" model="20,300"/>
+        <node name="size" channel="inline" format="number/integer" model="400,50"/>
         <!-- green -->
+<!--
         <node name="background" channel="inline" format="colour/rgb" model="0,255,0"/>
-        <!-- black -->
+-->
+        <!-- green -->
         <node name="foreground" channel="inline" format="colour/rgb" model="0,255,0"/>
         <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
     </node>

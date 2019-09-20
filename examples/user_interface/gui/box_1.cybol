@@ -2,11 +2,12 @@
 
     <node name="box_2" channel="file" format="element/part" model="user_interface/gui/box_2.cybol">
         <node name="position" channel="inline" format="number/integer" model="5,5"/>
-        <node name="size" channel="inline" format="number/integer" model="300,150"/>
+        <node name="size" channel="inline" format="number/integer" model="300,100"/>
         <!-- blue -->
-        <node name="background" channel="inline" format="colour/rgb" model="0,0,255"/>
-        <!-- black -->
-        <node name="foreground" channel="inline" format="colour/rgb" model="0,0,0"/>
+<!--
+        <node name="background" channel="inline" format="colour/rgb" model="255,0,0"/>
+-->
+        <node name="foreground" channel="inline" format="colour/rgb" model="255,0,0"/>
         <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
     </node>
 

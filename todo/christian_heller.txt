@@ -15,8 +15,12 @@ GUI
 ___
 
         TODO:
-            - adjust x + y coordinates of nested elements
             - foreground or background colour for filling rectangle
+                --> green does not work yet -- probably caused by blue colour in nested elements -- try to comment out -- when is colour actually painted? in between for each rectangle or at the end of the hierarchy (leaf)?
+                --> use css property names?
+                --> split of background and foreground is only needed with text (foreground)
+                --> why is the third box in gui example window painted blue instead of green?
+            - adjust x + y coordinates of nested elements
             - eliminate centering of text
 
         DONE:

@@ -10,7 +10,9 @@
 -->
         <node name="position" channel="inline" format="number/integer" model="30,30"/>
         <node name="size" channel="inline" format="number/integer" model="600,400"/>
+<!--
         <node name="background" channel="inline" format="colour/rgb" model="255,255,255"/>
+-->
         <node name="foreground" channel="inline" format="colour/rgb" model="255,0,0"/>
         <node name="layout" channel="inline" format="text/plain" model="absolute"/>
         <node name="expose" channel="inline" format="text/plain" model=".logic.refresh_display"/>
