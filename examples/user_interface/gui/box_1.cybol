@@ -1,14 +1,21 @@
 <node>
 
-    <node name="box_2" channel="file" format="element/part" model="user_interface/gui/box_2.cybol">
+    <node name="box_1" channel="file" format="element/part" model="user_interface/gui/box_2.cybol">
         <node name="position" channel="inline" format="number/integer" model="5,5"/>
-        <node name="size" channel="inline" format="number/integer" model="300,100"/>
-        <!-- blue -->
-<!--
-        <node name="background" channel="inline" format="colour/rgb" model="255,0,0"/>
--->
+        <node name="size" channel="inline" format="number/integer" model="200,100"/>
+        <!-- red -->
         <node name="foreground" channel="inline" format="colour/rgb" model="255,0,0"/>
         <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
+        <node name="font" channel="inline" format="text/plain" model="7x13"/>
+    </node>
+
+    <node name="box_2" channel="inline" format="text/plain" model="Hello, World!">
+        <node name="position" channel="inline" format="number/integer" model="250,5"/>
+        <node name="size" channel="inline" format="number/integer" model="100,100"/>
+        <!-- blue -->
+        <node name="foreground" channel="inline" format="colour/rgb" model="0,0,255"/>
+        <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
+        <node name="font" channel="inline" format="text/plain" model="7x13"/>
     </node>
 
 </node>

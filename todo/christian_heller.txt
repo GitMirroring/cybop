@@ -15,50 +15,50 @@ GUI
 ___
 
         TODO:
-            - foreground or background colour for filling rectangle
-                --> green does not work yet -- probably caused by blue colour in nested elements -- try to comment out -- when is colour actually painted? in between for each rectangle or at the end of the hierarchy (leaf)?
-                --> use css property names?
-                --> split of background and foreground is only needed with text (foreground)
-                --> why is the third box in gui example window painted blue instead of green?
-            - adjust x + y coordinates of nested elements
-            - eliminate centering of text
+        * Check why event is not handled for inner box
+            is the tree of nested elements searched through properly for event actions?
+        * Why does the green box have a text? (due to the given font? check in cyboi)
+        * Why does setting of colours work only if a font is given?
+            - initial_gui_serialiser
+            - content_element_part_gui_serialiser
+            - properties_gui_serialiser
+            - element_gui_serialiser
+            - context_gui_serialiser
+            - context_x_window_system_serialiser (the colours are set here in gc)
 
-        DONE:
-        * Check and verify proper setting of colours
-            --> initial_gui_serialiser
-            --> content_element_part_gui_serialiser
-            --> properties_gui_serialiser
-            --> element_gui_serialiser
-            --> context_gui_serialiser
-            --> context_x_window_system_serialiser (the colours are set here in gc)
+        CSS:
+        * Use css property names instead of foreground or background colour
+            (split of background and foreground is only needed with text)
+        * Think through design of gui using cybol (css box model, layout manager, look'n'feel)
+        * Use css box model as in JavaFX with relative positioning also for tui, gui etc.?
+        * Decide how to handle drawing of rectangles in file "rectangle_x_window_system_serialiser.c",
+            since the foreground colour is used for filling by default
 
-        HINT:
-        * The reason for the large text indentation is that currently, all text is CENTERED in file "text_x_window_system_serialiser.c" (to be changed in the future)
+        Text:
+        * Eliminate centering of text
+        * The reason for the large text indentation is that currently, all text is CENTERED in file "text_x_window_system_serialiser.c"
 
-        CONTINUE:
+        Layout:
         * Adapt layout managing so that all child elements of a parent element are set (x, y, width, height)
             check file "properties_gui_serialiser.c" calling function "serialise_layout"
             CAUTION! in file "element_part_layout_serialiser.c", the size setting is commented out at the end
-
-        DONE: in function "serialise_gui_element", context, shape and text are NOT to be manipulated,
+        * DONE: in function "serialise_gui_element", context, shape and text are NOT to be manipulated,
             ONLY the position and size values handed over as argument are to be changed beforehand
-        * Test cascaded adding of a nested gui element's coordinates to its parent coordinates (cumulated position)
-            currently, positioning works only for one level below whole, but not for deeper elements
-            the reason is that the position of the whole one level above is used, but further wholes on higher levels are not considered / added
-            see wrong position of control button labels in cybol example "user_interface/ui/"
-            comment out test log messages again in file "properties_tui_serialiser.c"
+        * Move the following hints on layout usage into source code:
+            "stretch" property for border layout with possible values "horizontal" and "vertical",
+            to determine if north-south or west-east element are maximised;
+            do NOT assign "north" etc. to elements;
+            if "stretch" is "horizontal", then use order: north, south, west, east, centre;
+            if "stretch" is "vertical", then use order: west, east, north, south, centre
 
+        Example:
         * Test appearance of cybol example "user_interface/ui/"
         * Improve cybol example "user_interface/ui/" with buttons for handling input in gui (see wui)
-
         * Check why a cybol node with the name "box" causes problems in file "ui/gui/window.cybol"
-        * Check why background and foreground colour are only painted if element has format "text/plain" but not if element has format "element/part"
         * Do not forget adding a layout, e.g.:
             <node name="layout" channel="inline" format="text/plain" model="absolute"/>
-        * Decide how to handle drawing of rectangles in file "rectangle_x_window_system_serialiser.c",
-            since the foreground colour is used for filling by default --> read in web or xcb documentation
 
-        THINK:
+        Event:
         * Delete (possibly) format constant "event/gui" and all related usages in de-/serialiser again, if not needed anymore and use "message/gui" instead
         * Use input/output access functions of maintainer in file "element_irq_checker.c" and elsewhere (search)
         * Think through programme flow in file "checker_and_sensor.png"
@@ -67,16 +67,6 @@ ___
                 instead of just setting a flag
 
         * Optimise "xcb_writer.c" and similar files using function "get_io_entry_element"
-
-        * Think through design of gui using cybol (css box model, layout manager, look'n'feel)
-        * Use css box model as in JavaFX with relative positioning also for tui, gui etc.?
-
-        * Move the following hints on layout usage into source code:
-            "stretch" property for border layout with possible values "horizontal" and "vertical",
-            to determine if north-south or west-east element are maximised;
-            do NOT assign "north" etc. to elements;
-            if "stretch" is "horizontal", then use order: north, south, west, east, centre;
-            if "stretch" is "vertical", then use order: west, east, north, south, centre
 
         * Where and how to free colours?
             see file "context_x_window_system_serialiser.c"

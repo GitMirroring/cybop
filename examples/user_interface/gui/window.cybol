@@ -2,30 +2,23 @@
 
     <!-- CAUTION! Colour values for the x window system have to be given as 16 bit values ranging from 0 to 255. -->
 
-    <node name="rectangle_0" channel="inline" format="text/plain" model="Hello, World!">
+    <node name="hello" channel="inline" format="text/plain" model="Hello, World!">
         <node name="position" channel="inline" format="number/integer" model="20,50"/>
         <node name="size" channel="inline" format="number/integer" model="200,50"/>
-        <!-- yellow -->
-<!--
+        <!-- blue on yellow -->
         <node name="background" channel="inline" format="colour/rgb" model="255,255,0"/>
--->
-        <!-- yellow -->
-        <node name="foreground" channel="inline" format="colour/rgb" model="255,255,0"/>
-        <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
-        <node name="font" channel="inline" format="text/plain" model="7x13"/>
-        <node name="button-release" channel="inline" format="text/plain" model=".logic.print_message"/>
-    </node>
-
-    <node name="rectangle_1" channel="inline" format="text/plain" model="CYBOP Demo">
-        <node name="position" channel="inline" format="number/integer" model="150,150"/>
-        <node name="size" channel="inline" format="number/integer" model="200,100"/>
-        <!-- blue -->
-<!--
-        <node name="background" channel="inline" format="colour/rgb" model="0,0,255"/>
--->
-        <!-- blue -->
         <node name="foreground" channel="inline" format="colour/rgb" model="0,0,255"/>
         <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
+        <node name="font" channel="inline" format="text/plain" model="7x13"/>
+    </node>
+
+    <node name="box" channel="file" format="element/part" model="user_interface/gui/box_1.cybol">
+        <node name="position" channel="inline" format="number/integer" model="100,150"/>
+        <node name="size" channel="inline" format="number/integer" model="400,150"/>
+        <!-- green -->
+        <node name="foreground" channel="inline" format="colour/rgb" model="0,255,0"/>
+        <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
+        <node name="font" channel="inline" format="text/plain" model="7x13"/>
         <!-- unit: pixel -->
         <node name="line-width" channel="inline" format="number/integer" model="5"/>
         <!-- butt, not-last, projecting, round -->
@@ -38,19 +31,6 @@
         <node name="join-style" channel="inline" format="text/plain" model="round"/>
         <!-- double-dash, on-off-dash, solid -->
         <node name="line-style" channel="inline" format="text/plain" model="double-dash"/>
-        <node name="font" channel="inline" format="text/plain" model="7x13"/>
-    </node>
-
-    <node name="box_1" channel="file" format="element/part" model="user_interface/gui/box_1.cybol">
-        <node name="position" channel="inline" format="number/integer" model="20,300"/>
-        <node name="size" channel="inline" format="number/integer" model="400,50"/>
-        <!-- green -->
-<!--
-        <node name="background" channel="inline" format="colour/rgb" model="0,255,0"/>
--->
-        <!-- green -->
-        <node name="foreground" channel="inline" format="colour/rgb" model="0,255,0"/>
-        <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
     </node>
 
 </node>
