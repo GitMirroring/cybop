@@ -267,6 +267,7 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The font is null.");
+        fwprintf(stdout, L"Error: Could not serialise x window system context. The font is null.\n");
     }
 }
 

@@ -15,9 +15,6 @@ GUI
 ___
 
         TODO:
-        * Check why event is not handled for inner box
-            is the tree of nested elements searched through properly for event actions?
-        * Why does the green box have a text? (due to the given font? check in cyboi)
         * Why does setting of colours work only if a font is given?
             - initial_gui_serialiser
             - content_element_part_gui_serialiser
@@ -25,6 +22,9 @@ ___
             - element_gui_serialiser
             - context_gui_serialiser
             - context_x_window_system_serialiser (the colours are set here in gc)
+        * Why does the green box have a text? (due to the given font? check in cyboi)
+        * Check why event is not handled for inner box
+            is the tree of nested elements searched through properly for event actions?
 
         CSS:
         * Use css property names instead of foreground or background colour
