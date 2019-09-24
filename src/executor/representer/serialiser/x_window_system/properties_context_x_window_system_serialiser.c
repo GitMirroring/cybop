@@ -250,8 +250,27 @@ void serialise_x_window_system_context_properties(void* p0, void* p1, void* p2, 
     serialise_x_window_system_join_style(p9, jsmd, jsmc);
     serialise_x_window_system_fill_style(p10, fsmd, fsmc);
     serialise_x_window_system_fill_rule(p11, frmd, frmc);
-    // Encode font name wide character data into multibyte character item.
-    encode_utf_8(p12, fmd, fmc);
+
+    if (fmd != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        // A valid font was given.
+
+        // Encode font name wide character data into multibyte character item.
+        encode_utf_8(p12, fmd, fmc);
+
+    } else {
+
+        // No valid font was given.
+
+        //
+        // Encode font name wide character data into multibyte character item.
+        //
+        // CAUTION! Use "7x13" as default font of the x window system platform.
+        // This IS NECESSARY, since the graphic context expects a valid value,
+        // EVEN IF no text is to be printed on screen, e.g. just an empty rectangle.
+        //
+        encode_utf_8(p12, (void*) L"7x13", (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL);
+    }
 }
 
 /* PROPERTIES_CONTEXT_X_WINDOW_SYSTEM_SERIALISER_SOURCE */

@@ -117,10 +117,13 @@ void serialise_x_window_system_text(void* p0, void* p1, void* p2, void* p3, void
                                     int cx = *x;
                                     // int cy = *y + (*h / 2);
                                     int cy = *y + 10;
+
+/*??
                                     fwprintf(stdout, L"TEST: Serialise x window system text. *x: %i\n", *x);
                                     fwprintf(stdout, L"TEST: Serialise x window system text. *y: %i\n", *y);
                                     fwprintf(stdout, L"TEST: Serialise x window system text. *w: %i\n", *w);
                                     fwprintf(stdout, L"TEST: Serialise x window system text. *h: %i\n", *h);
+*/
 
                                     // Draw text.
                                     xcb_image_text_8(c, *tci, dt, gct, cx, cy, td);

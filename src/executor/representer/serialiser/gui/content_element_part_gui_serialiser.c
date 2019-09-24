@@ -82,7 +82,7 @@ void serialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
-        // This IS a part.
+        // This IS a PART.
         //
         // Therefore, draw properties first and
         // only afterwards, dive into the hierarchy.

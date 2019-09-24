@@ -15,14 +15,7 @@ GUI
 ___
 
         TODO:
-        * Why does setting of colours work only if a font is given?
-            - initial_gui_serialiser
-            - content_element_part_gui_serialiser
-            - properties_gui_serialiser
-            - element_gui_serialiser
-            - context_gui_serialiser
-            - context_x_window_system_serialiser (the colours are set here in gc)
-        * Why does the green box have a text? (due to the given font? check in cyboi)
+        * Why does the green box have a random text (hieroglyphs)?
         * Check why event is not handled for inner box
             is the tree of nested elements searched through properly for event actions?
 

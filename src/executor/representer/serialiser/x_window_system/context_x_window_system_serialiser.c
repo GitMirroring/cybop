@@ -190,20 +190,30 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
                         // The font name item count as integer value.
                         int* fnci = (int*) fnc;
 
-                        // Open font.
-                        //
-                        // CAUTION! Use command "xlsfonts" in terminal
-                        // to know which are the fonts available.
-                        //
-                        // Examples:
-                        // "7x13"
-                        // "*-helvetica-*-12-*"
-                        xcb_open_font(c, *f, *fnci, (char*) fnd);
+                        if (*fnci > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                            //
+                            // Open font.
+                            //
+                            // CAUTION! Use command "xlsfonts" in terminal
+                            // to know which are the fonts available.
+                            //
+                            // Examples:
+                            // "7x13"
+                            // "*-helvetica-*-12-*"
+                            //
+                            xcb_open_font(c, *f, *fnci, (char*) fnd);
+
+                        } else {
+
+                            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The font name count is zero.");
+                            fwprintf(stdout, L"Warning: Could not serialise x window system context. The font name count is zero.\n");
+                        }
 
                     } else {
 
                         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The font name count is null.");
-                        fwprintf(stdout, L"Error: Could not serialise x window system context. The font name count is null.\n");
+                        fwprintf(stdout, L"Warning: Could not serialise x window system context. The font name count is null.\n");
                     }
 
                     // Deallocate font name item.
@@ -242,7 +252,16 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
                     v[5] = js;
                     v[6] = fs;
                     v[7] = fr;
-                    v[8] = *f;
+
+                    if (*f > *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
+
+                        v[8] = *f;
+
+                    } else {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The font is negative.");
+                        fwprintf(stdout, L"Error: Could not serialise x window system context. The font is minus one.\n");
+                    }
 
                     // The xcb graphic context type value.
                     xcb_gcontext_t gct = (xcb_gcontext_t) *gc;
