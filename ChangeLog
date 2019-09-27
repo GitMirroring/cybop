@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2019-09-27  Christian Heller  <christian.heller@cybop.org>
+
+        * Fix bug that painting empty rectangles lead to hieroglyphic text, since pointers to child parts got serialised
+        * Forward model format and filter out parts in file "element_gui_serialiser.c"
+
 2019-09-24  Christian Heller  <christian.heller@cybop.org>
 
         * Fix bug that setting of gui colours works only if a font is given, since the graphic context expects one

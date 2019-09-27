@@ -14,10 +14,9 @@
 GUI
 ___
 
-        TODO:
-        * Why does the green box have a random text (hieroglyphs)?
         * Check why event is not handled for inner box
-            is the tree of nested elements searched through properly for event actions?
+            - is the tree of nested elements searched through properly for event actions?
+            - probably, the new parent window coordinates yet have to be considered (added)
 
         CSS:
         * Use css property names instead of foreground or background colour

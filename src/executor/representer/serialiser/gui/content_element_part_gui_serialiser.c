@@ -100,7 +100,7 @@ void serialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
         int y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // Serialise properties.
-        serialise_gui_properties(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, (void*) &x, (void*) &y);
+        serialise_gui_properties(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, (void*) &x, (void*) &y);
 
         // Add parent- to new parent coordinate x, y.
         calculate_integer_add((void*) &px, p13);
@@ -149,7 +149,7 @@ void serialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
         serialise_gui(p0, p1, p2, p3, p4, p5, t, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15);
 
         // Draw text using properties.
-        serialise_gui_properties(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+        serialise_gui_properties(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
         // Deallocate text item.
         deallocate_item((void*) &t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);

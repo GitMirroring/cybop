@@ -61,10 +61,11 @@
  * @param p12 the internal memory data
  * @param p13 the window parent coordinates origo x
  * @param p14 the window parent coordinates origo y
- * @param p15 the child element coordinates origo x
- * @param p16 the child element coordinates origo y
+ * @param p15 the format
+ * @param p16 the child element coordinates origo x
+ * @param p17 the child element coordinates origo y
  */
-void serialise_gui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16) {
+void serialise_gui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui properties.");
 
@@ -207,8 +208,8 @@ fwprintf(stdout, L"TEST: Serialise gui properties post smdh: %i\n", smdh);
     // CAUTION! Do this only AFTER having calculated the
     // new coordinates above, depending on the given layout.
     //
-    copy_integer(p15, (void*) &pmdx);
-    copy_integer(p16, (void*) &pmdy);
+    copy_integer(p16, (void*) &pmdx);
+    copy_integer(p17, (void*) &pmdy);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -237,7 +238,7 @@ fwprintf(stdout, L"TEST: Serialise gui properties post smdh: %i\n", smdh);
         calculate_integer_add((void*) &sx, (void*) &pmdx);
         calculate_integer_add((void*) &sy, (void*) &pmdy);
 
-        serialise_gui_element(p0, p1, p2, p3, p4, p5, p6, p7, (void*) &sx, (void*) &sy, (void*) &smdw, (void*) &smdh, p8, p9, p10, p11, p12);
+        serialise_gui_element(p0, p1, p2, p3, p4, p5, p6, p7, (void*) &sx, (void*) &sy, (void*) &smdw, (void*) &smdh, p8, p9, p10, p11, p12, p15);
 
     } else {
 

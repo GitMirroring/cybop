@@ -59,8 +59,9 @@
  * @param p14 the knowledge memory part (pointer reference)
  * @param p15 the stack memory item
  * @param p16 the internal memory data
+ * @param p17 the format
  */
-void serialise_gui_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16) {
+void serialise_gui_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui element.");
 
@@ -80,6 +81,8 @@ void serialise_gui_element(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // The shape part model item data, count.
     void* shmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* shmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Get parts.
     get_part_name((void*) &super, p12, (void*) SUPER_CYBOL_NAME, (void*) SUPER_CYBOL_NAME_COUNT, p13, p14, p15, p16);
@@ -111,11 +114,29 @@ void serialise_gui_element(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     serialise_gui_context(p0, p1, p2, p3, p4, p5, p12, p13, p14, p15, p16);
     // Serialise shape (e.g. rectangle).
     serialise_gui_shape(p0, p1, p2, p3, p5, p8, p9, p10, p11, shmd, shmc);
-    // Serialise text.
-    // CAUTION! This has to be done for ALL shapes.
-    // A text is NOT treated as shape itself,
-    // but may instead be drawn into the shape.
-    serialise_gui_text(p0, p1, p2, p3, p5, p6, p7, p8, p9, p10, p11);
+
+    compare_integer_equal((void*) &r, p17, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        //
+        // This is NOT a part.
+        //
+
+        //
+        // Serialise text.
+        //
+        // CAUTION! Part elements MUST NOT be serialised since
+        // this would lead to hieroglyphic output on screen.
+        // The reason is that part values are just pointers to child parts.
+        //
+        // CAUTION! This has to be done for ALL shapes.
+        // A text is NOT treated as shape itself,
+        // but may instead be drawn into the shape.
+        //
+        serialise_gui_text(p0, p1, p2, p3, p5, p6, p7, p8, p9, p10, p11);
+    }
+
     // Cleanup context.
     serialise_gui_context_cleanup(p0, p1, p2, p3, p4, p5);
 }
