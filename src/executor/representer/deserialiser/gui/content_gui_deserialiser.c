@@ -60,9 +60,11 @@
  * @param p12 the mouse x coordinate
  * @param p13 the mouse y coordinate
  * @param p14 the message format
- * @param p15 the loop break flag
+ * @param p15 the window parent coordinates origo x
+ * @param p16 the window parent coordinates origo y
+ * @param p17 the loop break flag
  */
-void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
+void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui content.");
 
@@ -77,7 +79,7 @@ void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_mouse_button_press(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15);
+            deserialise_gui_mouse_button_press(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
         }
     }
 
@@ -87,7 +89,7 @@ void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_mouse_button_release(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15);
+            deserialise_gui_mouse_button_release(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17);
         }
     }
 
@@ -97,7 +99,7 @@ void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_enter_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15);
+            deserialise_gui_enter_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
         }
     }
 
@@ -107,7 +109,7 @@ void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_expose(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15);
+            deserialise_gui_expose(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
         }
     }
 
@@ -117,7 +119,7 @@ void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_keyboard_key_press(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15);
+            deserialise_gui_keyboard_key_press(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
         }
     }
 
@@ -127,7 +129,7 @@ void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_keyboard_key_release(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15);
+            deserialise_gui_keyboard_key_release(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
         }
     }
 
@@ -137,7 +139,7 @@ void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_leave_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15);
+            deserialise_gui_leave_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
         }
     }
 
@@ -147,7 +149,7 @@ void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_mouse_motion_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15);
+            deserialise_gui_mouse_motion_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
         }
     }
 }

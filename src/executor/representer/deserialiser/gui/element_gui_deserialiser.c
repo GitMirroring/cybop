@@ -51,9 +51,11 @@
  * @param p9 the mouse x coordinate
  * @param p10 the mouse y coordinate
  * @param p11 the message format
- * @param p12 the loop break flag
+ * @param p12 the window parent coordinates origo x
+ * @param p13 the window parent coordinates origo y
+ * @param p14 the loop break flag
  */
-void deserialise_gui_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void deserialise_gui_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui element.");
 
@@ -72,7 +74,7 @@ void deserialise_gui_element(void* p0, void* p1, void* p2, void* p3, void* p4, v
 //??    fwprintf(stdout, L"TEST: Deserialise gui element. p: %i \n", p);
 
     // Deserialise gui part.
-    deserialise_gui_part(p0, p1, p, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+    deserialise_gui_part(p0, p1, p, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14);
 }
 
 /* ELEMENT_GUI_DESERIALISER_SOURCE */

@@ -51,8 +51,10 @@
  * @param p9 the mouse x coordinate
  * @param p10 the mouse y coordinate
  * @param p11 the message format
+ * @param p12 the window parent coordinates origo x
+ * @param p13 the window parent coordinates origo y
  */
-void deserialise_gui_whole(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void deserialise_gui_whole(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui whole.");
 
@@ -82,7 +84,7 @@ void deserialise_gui_whole(void* p0, void* p1, void* p2, void* p3, void* p4, voi
             break;
         }
 
-        deserialise_gui_element(p0, p1, p2, (void*) &j, p4, p5, p6, p7, p8, p9, p10, p11, (void*) &b);
+        deserialise_gui_element(p0, p1, p2, (void*) &j, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, (void*) &b);
 
         // Increment loop variable.
         j++;

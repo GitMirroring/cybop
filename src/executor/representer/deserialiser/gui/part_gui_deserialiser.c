@@ -52,9 +52,11 @@
  * @param p8 the mouse x coordinate
  * @param p9 the mouse y coordinate
  * @param p10 the message format
- * @param p11 the loop break flag
+ * @param p11 the window parent coordinates origo x
+ * @param p12 the window parent coordinates origo y
+ * @param p13 the loop break flag
  */
-void deserialise_gui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void deserialise_gui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui part.");
 
@@ -102,7 +104,7 @@ void deserialise_gui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void
     // CAUTION! The source format fd should NOT be
     // mixed up with the message format p10.
     //
-    deserialise_gui_content(p0, p1, md, mc, pd, pc, fd, p3, p4, p5, p6, p7, p8, p9, p10, p11);
+    deserialise_gui_content(p0, p1, md, mc, pd, pc, fd, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
 }
 
 /* PART_GUI_DESERIALISER_SOURCE */
