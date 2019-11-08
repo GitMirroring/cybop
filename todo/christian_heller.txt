@@ -353,7 +353,6 @@ _________________
             - ALREADY DONE: make DEEP COPY and SOCKET work in cyboi, before continuing
             - use stack properties instead of duplicate loop indices etc.
             - consider file "tmp/cybop_stack.pdf"
-        * Create new web application for administrator Martin (Ausleihe Geräte auf Arbeit)
 
         Hints for migrating cybol application to new knowledge path syntax:
         * Rename "path/knowledge" and "path/reference" with "text/cybol-path"
