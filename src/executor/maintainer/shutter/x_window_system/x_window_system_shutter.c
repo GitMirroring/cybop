@@ -35,6 +35,7 @@
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/getter/io_entry_getter.c"
+#include "../../../../executor/accessor/setter/io_entry_setter.c"
 #include "../../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../../logger/logger.c"
 
@@ -43,80 +44,58 @@
  *
  * This is done in the reverse order the service was started up.
  *
- * @param p0 the internal memory data
+ * @param p0 the input/output entry
  */
 void shutdown_x_window_system(void* p0) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown x window system.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown x window system.");
 
-    // The internal memory index.
-    int i = *DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-    // The display input/output entry.
-    void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //
+    // CAUTION! The following variables are declared RIGHT HERE
+    // and not only further down since otherwise,
+    // they would not be known to the compiler when
+    // being stored in input/output entry at the end.
+    //
 
-    // Get display input/output entry from internal memory.
-    copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+    // The connexion.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The screen.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The window.
+    int w = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The graphic context.
+    int gc = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The font.
+    int f = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
-    fwprintf(stdout, L"TEST shutdown x window system io: %i\n", io);
+    //
+    // Retrieve various values from input/output entry.
+    //
+    // CAUTION! Do NOT use "overwrite_array" function here,
+    // since it adapts the array count and size.
+    // But the array's count and size are CONSTANT.
+    //
+    // CAUTION! Hand over values as pointer REFERENCE.
+    //
+    // CAUTION! Do NOT hand over input/output entry as pointer reference.
+    //
 
-    if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // Retrieve connexion from input/output entry.
+    get_io_entry_element((void*) &c, p0, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Retrieve screen in input/output entry.
+    get_io_entry_element((void*) &s, p0, (void*) SCREEN_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Retrieve window in input/output entry.
+    get_io_entry_element((void*) &w, p0, (void*) WINDOW_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Retrieve graphic context in input/output entry.
+    get_io_entry_element((void*) &gc, p0, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Retrieve font in input/output entry.
+    get_io_entry_element((void*) &f, p0, (void*) FONT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-        // A display DOES exist in internal memory.
+    fwprintf(stdout, L"TEST shutdown x window system c: %i\n", c);
 
-        //
-        // Reset input/output entry in internal memory to null.
-        //
-        // CAUTION! It is ESSENTIAL to assign NULL here,
-        // since cyboi tests for null pointers and otherwise,
-        // wild pointers would lead to memory corruption.
-        //
-        // CAUTION! Do NOT use the "modify_array" (overwrite) function,
-        // since it adapts the array count and size.
-        // But the internal memory array's count and size are CONSTANT.
-        // Therefore, a simple "copy" function is used here.
-        //
-        copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        //
-        // CAUTION! The following variables are declared RIGHT HERE
-        // and not only further down since otherwise,
-        // they would not be known to the compiler when
-        // being stored in input/output entry at the end.
-        //
-
-        // The connexion.
-        void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The screen.
-        void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The window.
-        int w = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-        // The graphic context.
-        int gc = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-        // The font.
-        int f = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-
-        //
-        // Retrieve various values from input/output entry.
-        //
-        // CAUTION! Do NOT use "overwrite_array" function here,
-        // since it adapts the array count and size.
-        // But the array's count and size are CONSTANT.
-        //
-        // CAUTION! Hand over values as pointer REFERENCE.
-        //
-        // CAUTION! Do NOT hand over input/output entry as pointer reference.
-        //
-
-        // Retrieve connexion from input/output entry.
-        get_io_entry_element((void*) &c, io, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Retrieve screen from input/output entry.
-        get_io_entry_element((void*) &s, io, (void*) SCREEN_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Retrieve window from input/output entry.
-        get_io_entry_element((void*) &w, io, (void*) WINDOW_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Retrieve graphic context from input/output entry.
-        get_io_entry_element((void*) &gc, io, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Retrieve font from input/output entry.
-        get_io_entry_element((void*) &f, io, (void*) FONT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        // A display DOES exist in input/output entry.
 
         //
         // CAUTION! Use descending order as compared to startup,
@@ -134,11 +113,9 @@ void shutdown_x_window_system(void* p0) {
 
         if (gc != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
-/*??
             // Use xcb type.
             xcb_gcontext_t gct = (xcb_gcontext_t) gc;
-            xcb_destroy_??((xcb_connection_t*) c, gct);
-*/
+            xcb_free_gc((xcb_connection_t*) c, gct);
 
         } else {
 
@@ -173,17 +150,31 @@ void shutdown_x_window_system(void* p0) {
         xcb_disconnect((xcb_connection_t*) c);
 
         //
-        // Deallocate input/output entry.
+        // Reset various values in input/output entry.
         //
-        // CAUTION! The second argument "count" is NULL,
-        // since it is only needed for looping elements of type PART,
-        // in order to decrement the rubbish (garbage) collection counter.
+        // CAUTION! Do NOT use "overwrite_array" function here,
+        // since it adapts the array count and size.
+        // But the array's count and size are CONSTANT.
         //
-        deallocate_array((void*) &io, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
+        // CAUTION! Do NOT hand over input/output entry as pointer reference.
+        //
+        // CAUTION! Hand over values as pointer REFERENCE.
+        //
+
+        // Reset connexion in input/output entry.
+        set_io_entry_element(p0, NULL_POINTER_STATE_CYBOI_MODEL, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        // Reset screen in input/output entry.
+        set_io_entry_element(p0, NULL_POINTER_STATE_CYBOI_MODEL, (void*) SCREEN_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        // Reset window in input/output entry.
+        set_io_entry_element(p0, NULL_POINTER_STATE_CYBOI_MODEL, (void*) WINDOW_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        // Reset graphic context in input/output entry.
+        set_io_entry_element(p0, NULL_POINTER_STATE_CYBOI_MODEL, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        // Reset font in input/output entry.
+        set_io_entry_element(p0, NULL_POINTER_STATE_CYBOI_MODEL, (void*) FONT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown x window system. There is no input/output x window system entry in the internal memory.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown x window system. The display is null.");
     }
 }
 

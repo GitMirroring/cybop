@@ -63,7 +63,7 @@ void shutdown_terminal(void* p0) {
     // since it adapts the array count and size.
     // But the array's count and size are CONSTANT.
     //
-    // CAUTION! Hand over output file stream and input file stream as pointer REFERENCE.
+    // CAUTION! Hand over values as pointer REFERENCE.
     //
     // CAUTION! Do NOT hand over input/output entry as pointer reference.
     //

@@ -72,6 +72,7 @@ void shutdown_details(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //?? TODO: Change from p0 into p8 as soon as shutter gets adapted to new io entry.
             shutdown_serial_port(p0);
         }
     }

@@ -14,9 +14,6 @@
 GUI
 ___
 
-        Lifecycle:
-        * Eliminate memory error at x window system shutdown
-
         Event:
         * Avoid repainting the window whenever it gets resized since otherwise, the processor load is too high
 

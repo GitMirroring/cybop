@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2019-11-15  Christian Heller  <christian.heller@cybop.org>
+
+        * Adapt x window system shutter to new io entry, in order to eliminate memory error
+
 2019-11-08  Christian Heller  <christian.heller@cybop.org>
 
         * Fix coordinates in file "button_release_mouse_gui_deserialiser.c" by adding parent element's origo, so that mouse clicks are detected properly
