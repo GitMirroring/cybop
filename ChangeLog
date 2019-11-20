@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2019-11-20  Christian Heller  <christian.heller@cybop.org>
+
+        * Improve cybol example "user_interface/ui/" with buttons for handling input in gui
+
 2019-11-15  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt x window system shutter to new io entry, in order to eliminate memory error

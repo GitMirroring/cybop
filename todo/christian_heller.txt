@@ -11,111 +11,8 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-GUI
-___
-
-        Event:
-        * Avoid repainting the window whenever it gets resized since otherwise, the processor load is too high
-
-        Example:
-        * Improve cybol example "user_interface/ui/" with buttons for handling input in gui (see wui)
-        * Do not forget adding a layout, e.g.:
-            <node name="layout" channel="inline" format="text/plain" model="absolute"/>
-
-        CSS:
-        * Use css property names instead of foreground or background colour
-            (split of background and foreground is only needed with text)
-        * Think through design of gui using cybol (css box model, layout manager, look'n'feel)
-        * Use css box model as in JavaFX with relative positioning also for tui, gui etc.?
-        * Decide how to handle drawing of rectangles in file "rectangle_x_window_system_serialiser.c",
-            since the foreground colour is used for filling by default
-
-        Text:
-        * Eliminate centering of text
-        * The reason for the large text indentation is that currently, all text is CENTERED in file "text_x_window_system_serialiser.c"
-
-        Layout:
-        * Adapt layout managing so that all child elements of a parent element are set (x, y, width, height)
-            check file "properties_gui_serialiser.c" calling function "serialise_layout"
-            CAUTION! in file "element_part_layout_serialiser.c", the size setting is commented out at the end
-        * DONE: in function "serialise_gui_element", context, shape and text are NOT to be manipulated,
-            ONLY the position and size values handed over as argument are to be changed beforehand
-        * Move the following hints on layout usage into source code:
-            "stretch" property for border layout with possible values "horizontal" and "vertical",
-            to determine if north-south or west-east element are maximised;
-            do NOT assign "north" etc. to elements;
-            if "stretch" is "horizontal", then use order: north, south, west, east, centre;
-            if "stretch" is "vertical", then use order: west, east, north, south, centre
-
-        Event:
-        * Delete (possibly) format constant "event/gui" and all related usages in de-/serialiser again, if not needed anymore and use "message/gui" instead
-        * Use input/output access functions of maintainer in file "element_irq_checker.c" and elsewhere (search)
-        * Think through programme flow in file "checker_and_sensor.png"
-            possibly, the "irq" branch is NOT necessary and can be eliminated,
-            if the "check_io" branch adds a received signal directly to signal_memory, instead of just setting a flag
-
-        * Optimise "xcb_writer.c" and similar files using function "get_io_entry_element"
-
-        * Where and how to free colours?
-            see file "context_x_window_system_serialiser.c"
-            The xcb tutorial "libxcb-1.10/doc/tutorial/index.html#alloccolor" writes:
-            "As xcb_alloc_color_reply() allocates memory, you have to free it."
-
-        Win32:
-        * Process further message types in file "win32_display_deserialiser.c"
-            https://docs.microsoft.com/en-us/windows/desktop/inputdev/wm-activate
-            see as example: "xcb_deserialiser.c"
-        * Reactivate call of function "read_display" in function "read_data", if win32 permits peeking ahead so that the actual event has to be read again in "read_display"
-            Delete directory "executor/streamer/reader/display/" otherwise (if not needed, since events are actually read in sensor then, which is not just peeking ahead, but stores the next event in the io structure of the internal memory)
-        * Extend gui serialiser for win32 display
-            HDC hdc;
-            PAINTSTRUCT PaintStruct;
-            hdc = BeginPaint(hWnd, &PaintStruct);
-            TextOut(hdc,0,0,str, strlen(str));
-            EndPaint(hWnd, &PaintStruct);
-        * http://xcb.freedesktop.org/manual/group__XCB____API.html
-        * Set icon of window defined in "gui.cybol" in file "properties_gui_serialiser.c" (documented nowhere in xcb)
-
-        Win32 display API:
-        * Complete example using rectangle:
-            http://msdn.microsoft.com/en-us/library/windows/desktop/dd145175%28v=vs.85%29.aspx
-        * Line and Curve Functions:
-            http://msdn.microsoft.com/en-us/library/windows/desktop/dd145031%28v=vs.85%29.aspx
-        * Filled Shape Functions:
-            http://msdn.microsoft.com/en-us/library/windows/desktop/dd162715%28v=vs.85%29.aspx
-        * DrawTextEx function:
-            http://msdn.microsoft.com/en-us/library/windows/desktop/dd162499%28v=vs.85%29.aspx
-        * Windows Data Types:
-            http://msdn.microsoft.com/en-us/library/windows/desktop/aa383751%28v=vs.85%29.aspx
-
-        * Remove directory "src/windows/"
-
 WUI
 ___
-
-        * Find out if threads have to be reactivated when waiting for client requests via socket
-            see backup directory "todo_thread" and read its file "readme-hint.txt"
-            see "libuv" of "Node.js" project
-
-        * Check out libuv:
-            https://stackoverflow.com/questions/10680601/nodejs-event-loop
-            1 Libev: is the event loop which actually runs internally in node.js to perform simple event loop operations
-                http://software.schmorp.de/pkg/libev.html
-            2 LibEio is a library to perform input output asynchronously. It handles file descriptors, data handlers, sockets etc.
-                http://software.schmorp.de/pkg/libeio.html
-            3 LibUv: is an abstraction layer on the top of libeio , libev, c-ares ( for DNS ) and iocp (for windows asynchronous-io).
-                LibUv performs, maintains and manages all the io and events in the event pool. ( in case of libeio threadpool ).
-                https://github.com/libuv/libuv
-            Ryan Dahl's tutorial on libUv:
-                https://vimeo.com/24713213
-            Misconception 2: Everything that’s asynchronous is handled by a thread pool
-                https://medium.com/the-node-js-collection/what-you-should-know-to-really-understand-the-node-js-event-loop-and-its-metrics-c4907b19da4c
-                Reality: Libuv by default creates a thread pool with four threads to offload asynchronous work to.
-                Today’s operating systems already provide asynchronous interfaces for many I/O tasks (e.g. AIO on Linux).
-                Whenever possible, libuv will use those asynchronous interfaces, avoiding usage of the thread pool.
-                The same applies to third party subsystems like databases.
-                Here the authors of the driver will rather use the asynchronous interface than utilizing a thread pool.
-                In short: Only if there is no other way, the thread pool will be used for asynchronous I/O.
 
         * Make cybol example "user_interface/ui/" wui work via socket
         * Implement web socket
@@ -129,6 +26,30 @@ ___
             https://www.gnu.org/software/libc/manual/html_mono/libc.html#Open_002dtime-Flags
             https://www.geeksforgeeks.org/non-blocking-io-with-pipes-in-c/
             https://gamedev.stackexchange.com/questions/146256/how-do-i-get-getchar-to-not-block-the-input
+
+        * Find out if threads have to be reactivated when waiting for client requests via socket
+            see backup directory "todo_thread" and read its file "readme-hint.txt"
+            see "libuv" of "Node.js" project
+
+        * Investigate libuv:
+            https://stackoverflow.com/questions/10680601/nodejs-event-loop
+            1 Libev: is the event loop which actually runs internally in node.js to perform simple event loop operations
+                http://software.schmorp.de/pkg/libev.html
+            2 LibEio is a library to perform input output asynchronously. It handles file descriptors, data handlers, sockets etc.
+                http://software.schmorp.de/pkg/libeio.html
+            3 LibUv: is an abstraction layer on the top of libeio , libev, c-ares ( for DNS ) and iocp (for windows asynchronous-io).
+                LibUv performs, maintains and manages all the io and events in the event pool. ( in case of libeio threadpool ).
+                https://github.com/libuv/libuv
+            Ryan Dahl's tutorial on libUv:
+                https://vimeo.com/24713213
+            Misconception 2: Everything that's asynchronous is handled by a thread pool
+                https://medium.com/the-node-js-collection/what-you-should-know-to-really-understand-the-node-js-event-loop-and-its-metrics-c4907b19da4c
+                Reality: Libuv by default creates a thread pool with four threads to offload asynchronous work to.
+                Today's operating systems already provide asynchronous interfaces for many I/O tasks (e.g. AIO on Linux).
+                Whenever possible, libuv will use those asynchronous interfaces, avoiding usage of the thread pool.
+                The same applies to third party subsystems like databases.
+                Here the authors of the driver will rather use the asynchronous interface than utilizing a thread pool.
+                In short: Only if there is no other way, the thread pool will be used for asynchronous I/O.
 
         * Debug runtime errors; see file "todo/memcheck.log" (created on 64 Bit machine)
 
@@ -194,6 +115,84 @@ ___
             https://de.wikipedia.org/wiki/Internet_Media_Type
             Find a list of mime types at:
             https://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types
+
+GUI
+___
+
+        CONTINUE:
+        * Ignore parent coordinates of root window when calculating coordinates of inner elements since otherwise, these are wrongly indented
+        * Change position x of window to 800 in file "gui.cybol"
+
+        CSS:
+        * Use css property names instead of foreground or background colour
+            (split of background and foreground is only needed with text)
+        * Think through design of gui using cybol (css box model, layout manager, look'n'feel)
+        * Use css box model as in JavaFX with relative positioning also for tui, gui etc.?
+        * Decide how to handle drawing of rectangles in file "rectangle_x_window_system_serialiser.c",
+            since the foreground colour is used for filling by default
+
+        Event:
+        * Avoid repainting the window whenever it gets resized since otherwise, the processor load is too high
+
+        Text:
+        * Eliminate centering of text
+        * The reason for the large text indentation is that currently, all text is CENTERED in file "text_x_window_system_serialiser.c"
+
+        Layout:
+        * Adapt layout managing so that all child elements of a parent element are set (x, y, width, height)
+            check file "properties_gui_serialiser.c" calling function "serialise_layout"
+            CAUTION! in file "element_part_layout_serialiser.c", the size setting is commented out at the end
+        * DONE: in function "serialise_gui_element", context, shape and text are NOT to be manipulated,
+            ONLY the position and size values handed over as argument are to be changed beforehand
+        * Move the following hints on layout usage into source code:
+            "stretch" property for border layout with possible values "horizontal" and "vertical",
+            to determine if north-south or west-east element are maximised;
+            do NOT assign "north" etc. to elements;
+            if "stretch" is "horizontal", then use order: north, south, west, east, centre;
+            if "stretch" is "vertical", then use order: west, east, north, south, centre
+
+        Event:
+        * Delete (possibly) format constant "event/gui" and all related usages in de-/serialiser again, if not needed anymore and use "message/gui" instead
+        * Use input/output access functions of maintainer in file "element_irq_checker.c" and elsewhere (search)
+        * Think through programme flow in file "checker_and_sensor.png"
+            possibly, the "irq" branch is NOT necessary and can be eliminated,
+            if the "check_io" branch adds a received signal directly to signal_memory, instead of just setting a flag
+
+        * Optimise "xcb_writer.c" and similar files using function "get_io_entry_element"
+
+        * Where and how to free colours?
+            see file "context_x_window_system_serialiser.c"
+            The xcb tutorial "libxcb-1.10/doc/tutorial/index.html#alloccolor" writes:
+            "As xcb_alloc_color_reply() allocates memory, you have to free it."
+
+        Win32:
+        * Process further message types in file "win32_display_deserialiser.c"
+            https://docs.microsoft.com/en-us/windows/desktop/inputdev/wm-activate
+            see as example: "xcb_deserialiser.c"
+        * Reactivate call of function "read_display" in function "read_data", if win32 permits peeking ahead so that the actual event has to be read again in "read_display"
+            Delete directory "executor/streamer/reader/display/" otherwise (if not needed, since events are actually read in sensor then, which is not just peeking ahead, but stores the next event in the io structure of the internal memory)
+        * Extend gui serialiser for win32 display
+            HDC hdc;
+            PAINTSTRUCT PaintStruct;
+            hdc = BeginPaint(hWnd, &PaintStruct);
+            TextOut(hdc,0,0,str, strlen(str));
+            EndPaint(hWnd, &PaintStruct);
+        * http://xcb.freedesktop.org/manual/group__XCB____API.html
+        * Set icon of window defined in "gui.cybol" in file "properties_gui_serialiser.c" (documented nowhere in xcb)
+
+        Win32 display API:
+        * Complete example using rectangle:
+            http://msdn.microsoft.com/en-us/library/windows/desktop/dd145175%28v=vs.85%29.aspx
+        * Line and Curve Functions:
+            http://msdn.microsoft.com/en-us/library/windows/desktop/dd145031%28v=vs.85%29.aspx
+        * Filled Shape Functions:
+            http://msdn.microsoft.com/en-us/library/windows/desktop/dd162715%28v=vs.85%29.aspx
+        * DrawTextEx function:
+            http://msdn.microsoft.com/en-us/library/windows/desktop/dd162499%28v=vs.85%29.aspx
+        * Windows Data Types:
+            http://msdn.microsoft.com/en-us/library/windows/desktop/aa383751%28v=vs.85%29.aspx
+
+        * Remove directory "src/windows/"
 
 TUI
 ___
