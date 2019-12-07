@@ -11,6 +11,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+CYBOL
+_____
+
+        * Provide functionality to print standard dialogues in "examples/cybol/"
+            see e.g. Java Swing JOptionPane
+
 WUI
 ___
 

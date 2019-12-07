@@ -1,0 +1,20 @@
+<node>
+
+    <node name="print" channel="file" format="element/part" model="cybol/print-tui.cybol">
+        <node name="tui" channel="inline" format="text/plain" model="Hello World!">
+            <node name="position" channel="inline" format="number/integer" model="0,0"/>
+            <node name="size" channel="inline" format="number/integer" model="20,1"/>
+            <node name="foreground" channel="inline" format="colour/terminal" model="blue"/>
+            <node name="background" channel="inline" format="colour/terminal" model="green"/>
+        </node>
+    </node>
+
+    <node name="exit" channel="file" format="element/part" model="cybol/exit.cybol"/>
+
+</node>
+
+<!--
+    This example prints the famous greeting "Hello World!" on console
+    and then exits the application.
+    It uses text user interface (tui) capabilities.
+-->

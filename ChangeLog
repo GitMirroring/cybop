@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2019-12-07  Christian Heller  <christian.heller@cybop.org>
+
+        * Provide standard functionality such as "print-newline" or "exit" in directory "examples/cybol/", to become the cybol base library
+        * Merge all "Hello World!" cybol example applications into "examples/hello_world/"
+
 2019-11-20  Christian Heller  <christian.heller@cybop.org>
 
         * Improve cybol example "user_interface/ui/" with buttons for handling input in gui

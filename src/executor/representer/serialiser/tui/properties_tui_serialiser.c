@@ -321,6 +321,7 @@ void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
     // Serialise rectangle border and area.
     serialise_tui_rectangle(p0, p1, (void*) &pmdx, (void*) &smdx, (void*) &pmdy, (void*) &smdy, bomd, bomc);
 
+/*??
     fwprintf(stdout, L"TEST: Serialise tui properties. pmdx: %i\n", pmdx);
     fwprintf(stdout, L"TEST: Serialise tui properties. pmdy: %i\n", pmdy);
     fwprintf(stdout, L"TEST: Serialise tui properties. smdx: %i\n", smdx);
@@ -328,6 +329,7 @@ void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
     fwprintf(stdout, L"TEST: Serialise tui properties. wpmdx: %i\n", wpmdx);
     fwprintf(stdout, L"TEST: Serialise tui properties. wpmdy: %i\n", wpmdy);
     fwprintf(stdout, L"\n");
+*/
 
     //
     // This function call is important for two reasons:

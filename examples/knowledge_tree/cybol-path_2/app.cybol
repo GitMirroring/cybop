@@ -2,7 +2,7 @@
 
     <node name="a" channel="inline" format="text/plain" model="a"/>
 
-    <node name="b" channel="file" format="element/part" model="cybol-path_2/b.cybol">
+    <node name="b" channel="file" format="element/part" model="knowledge_tree/cybol-path_2/b.cybol">
         <node name="a" channel="inline" format="text/plain" model="a"/>
     </node>
 
