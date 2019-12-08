@@ -14,6 +14,13 @@
 CYBOL
 _____
 
+        CONTINUE WITH:
+        * Test section marked "TEST??" in file "properties_gui_serialiser.c";
+            it is used to draw the initial root panel of the window, but does not work yet
+            --> use "TEST" printouts of runtime values on console to follow processing
+        * Complete cybol example application "hello_world/gui/"
+        NOT WORKING: * Specify FULL window including hierarchy for button in "run.cybol" does not work, since xml attribute value syntax does not allow this hierarchy, only JSON would
+
         * Provide functionality to print standard dialogues in "examples/cybol/"
             see e.g. Java Swing JOptionPane
 

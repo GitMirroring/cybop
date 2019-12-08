@@ -1,0 +1,38 @@
+<node>
+
+    <!--
+        CAUTION! If these variables were not reset here,
+        then the last valid previous action would be executed
+        again and again, neverendingly.
+    -->
+    <node name="reset_action" channel="inline" format="modify/empty" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#action"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+    <node name="receive_event" channel="inline" format="communicate/receive" model="">
+        <node name="sender" channel="inline" format="text/cybol-path" model="#gui"/>
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
+        <node name="language" channel="inline" format="meta/language" model="event/gui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#action"/>
+    </node>
+
+    <node name="TEST_print_message" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#action"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <!--
+        CAUTION! Use path REFERENCE here, since the action is just
+        a string pointing to the actual model to be executed.
+    -->
+    <node name="execute_action" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="text/cybol-path" model="*#action"/>
+    </node>
+
+</node>

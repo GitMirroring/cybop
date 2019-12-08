@@ -238,13 +238,39 @@ fwprintf(stdout, L"TEST: Serialise gui properties post smdh: %i\n", smdh);
         calculate_integer_add((void*) &sx, (void*) &pmdx);
         calculate_integer_add((void*) &sy, (void*) &pmdy);
 
+        // Draw shape, colours, text.
         serialise_gui_element(p0, p1, p2, p3, p4, p5, p6, p7, (void*) &sx, (void*) &sy, (void*) &smdw, (void*) &smdh, p8, p9, p10, p11, p12, p15);
 
     } else {
 
         // This is the root window.
 
+        // Draw window using the operating system's window managing capabilities.
         serialise_gui_window(p0, p2, p5, (void*) &pmdx, (void*) &pmdy, (void*) &smdw, (void*) &smdh, p8, p9, p10, p11, p12);
+
+        //?? TEST BEGIN: Delete later!
+        // The screen coordinate x, y.
+        int sx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        int sy = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+        // Add parent- to screen coordinate x, y.
+        calculate_integer_add((void*) &sx, p13);
+        calculate_integer_add((void*) &sy, p14);
+        // Add child- to screen coordinate x, y.
+        calculate_integer_add((void*) &sx, (void*) &pmdx);
+        calculate_integer_add((void*) &sy, (void*) &pmdy);
+
+        //
+        // Draw shape, colours, text.
+        //
+        // CAUTION! This is the root panel of the window.
+        // The window itself is controlled by the window manager.
+        // However, its initial colour, content etc.
+        // do have to be painted using separate functions,
+        // which is why a second function call is necessary here.
+        //
+        serialise_gui_element(p0, p1, p2, p3, p4, p5, p6, p7, (void*) &sx, (void*) &sy, (void*) &smdw, (void*) &smdh, p8, p9, p10, p11, p12, p15);
+        //?? TEST END: Delete later!
     }
 }
 

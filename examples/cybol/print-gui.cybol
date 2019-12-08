@@ -1,0 +1,31 @@
+<node>
+
+    <node name="TEST" channel="file" format="element/part" model="cybol/print-newline.cybol">
+        <node name="text" channel="inline" format="text/plain" model="test 1.0"/>
+    </node>
+    <node name="TEST" channel="file" format="element/part" model="cybol/print-newline.cybol">
+        <node name="text" channel="inline" format="text/cybol-path" model="#action"/>
+    </node>
+    <node name="TEST" channel="file" format="element/part" model="cybol/print-newline.cybol">
+        <node name="text" channel="inline" format="text/cybol-path" model="#gui"/>
+    </node>
+
+    <node name="startup_display" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
+    </node>
+
+    <node name="TEST" channel="file" format="element/part" model="cybol/print-newline.cybol">
+        <node name="text" channel="inline" format="text/plain" model="test 1.1"/>
+    </node>
+
+    <node name="sense_display" channel="inline" format="activate/enable" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
+        <node name="handler" channel="file" format="element/part" model="cybol/handle-event.cybol"/>
+        <node name="root" channel="inline" format="text/cybol-path" model="#gui"/>
+    </node>
+
+    <node name="TEST" channel="file" format="element/part" model="cybol/print-newline.cybol">
+        <node name="text" channel="inline" format="text/plain" model="test 1.2"/>
+    </node>
+
+</node>

@@ -1,0 +1,10 @@
+<node>
+
+    <node name="send_gui" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
+        <node name="language" channel="inline" format="meta/language" model="message/gui"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#gui"/>
+    </node>
+
+</node>
