@@ -41,6 +41,7 @@ Arbitrary-precision arithmetic (Langzahlarithmetik)
 Coupling of Objects
 Pseudo Terminal
 GUI Event Processing
+Dynamic Typing
 
 Terminology
 ___________
@@ -783,4 +784,13 @@ ____________________
 - the event is stored temporarily by sensor in an input/output entry structure
 - the gui_event_deserialiser writes the event's details into the message properties
 - the order of function calls in the gui deserialiser is complete
+
+Dynamic Typing
+______________
+
+- it would be possible to store all cybol application values (read from cybol-xml) as string inside cyboi (RAM)
+- the casting to a special type would then happen in the moment the value gets used by an operation
+- advantage: no more types ("format" xml attribute, given as mime type in cybol) would have to be given in cybol-xml, i.e. one attribute less
+- disadvantages: slower reaction at runtime due to necessary type casts; binary values such as images would have to be stored as BASE64 inside cyboi and cause longer conversion time
+- conclusion: no dynamic typing in cyboi; types have to be given in cybol; strings (read from cybol-xml) get converted into the special values (in RAM) at application startup
 
