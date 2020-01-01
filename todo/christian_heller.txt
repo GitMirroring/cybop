@@ -700,6 +700,9 @@ ______________
         * Implement part serialiser called from file "cybol_serialiser.c"
 
         * Implement JSON de-/serialiser, in order to make application trees easier serialisable
+            - cybol parsing happens in two steps: xml, cybol
+            - is the cybol parser REusable when parsing json in the first step?
+                (the tree structure resulting from xml has a root node; the json tree not necessarily)
         * See directory "doc/books/cybol/syntax"
         * Encode binary data (e.g. x-ray images in the electronic health record of a patient) into text using Base64
         * Add the following comment into cyboi source code:
