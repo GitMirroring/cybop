@@ -15,11 +15,18 @@ CYBOL
 _____
 
         CONTINUE WITH:
-        * Test section marked "TEST??" in file "properties_gui_serialiser.c";
-            it is used to draw the initial root panel of the window, but does not work yet
-            --> use "TEST" printouts of runtime values on console to follow processing
-        * Complete cybol example application "hello_world/gui/"
-        NOT WORKING: * Specify FULL window including hierarchy for button in "run.cybol" does not work, since xml attribute value syntax does not allow this hierarchy, only JSON would
+        * Implement background colour for cybol example application "hello_world/gui/", as done in example "user_interface/gui/"
+        * Check why stack memory contains hieroglyphs
+            this may be the reason for the plethora of "compare index" errors on console,
+                since the "text" property = stack variable is used many times,
+                is it stored properly in stack memory with many equally named instances, one above the other?
+            see file "examples/test_cybol_print-gui_stack.txt", printed in file "print-gui.cybol"
+        * Continue in file "cybol/refresh-display.cybol"
+
+        TODO:
+        * NOT WORKING now, but in the future using json:
+        * Specifying FULL window including hierarchy for button in "run.cybol" does not work,
+            since xml attribute value syntax does not allow this hierarchy, only JSON would
 
         * Provide functionality to print standard dialogues in "examples/cybol/"
             see e.g. Java Swing JOptionPane

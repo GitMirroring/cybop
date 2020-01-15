@@ -9,18 +9,6 @@
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
     </node>
 
-    <!-- Write knowledge tree into file. -->
-<!--
-    <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="receiver" channel="inline" format="text/plain" model="test_gui.txt"/>
-        <node name="message" channel="inline" format="text/cybol-path" model="."/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-    </node>
--->
-
     <!-- TEST only. Necessary for displaying test messages on console. Delete later. -->
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -42,5 +30,7 @@
 </node>
 
 <!--
-    This example prints geometrical figures on screen.
+    This example prints geometrical figures in a graphical window.
+    It also contains buttons, one to print text on console
+    and the other to exit the application.
 -->

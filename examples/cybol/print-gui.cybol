@@ -1,13 +1,33 @@
 <node>
 
     <node name="TEST" channel="file" format="element/part" model="cybol/print-newline.cybol">
-        <node name="text" channel="inline" format="text/plain" model="test 1.0"/>
+        <node name="text" channel="inline" format="text/plain" model="test 0"/>
     </node>
-    <node name="TEST" channel="file" format="element/part" model="cybol/print-newline.cybol">
-        <node name="text" channel="inline" format="text/cybol-path" model="#action"/>
+
+    <!-- Write knowledge tree into file. -->
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#gui"/>
+        <node name="receiver" channel="inline" format="text/plain" model="test_cybol_print-gui_gui.txt"/>
     </node>
-    <node name="TEST" channel="file" format="element/part" model="cybol/print-newline.cybol">
-        <node name="text" channel="inline" format="text/cybol-path" model="#gui"/>
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#action"/>
+        <node name="receiver" channel="inline" format="text/plain" model="test_cybol_print-gui_action.txt"/>
+    </node>
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#"/>
+        <node name="receiver" channel="inline" format="text/plain" model="test_cybol_print-gui_stack.txt"/>
     </node>
 
     <node name="startup_display" channel="inline" format="maintain/startup" model="">
@@ -15,17 +35,27 @@
     </node>
 
     <node name="TEST" channel="file" format="element/part" model="cybol/print-newline.cybol">
-        <node name="text" channel="inline" format="text/plain" model="test 1.1"/>
+        <node name="text" channel="inline" format="text/plain" model="test 1"/>
     </node>
 
+    <node name="send_display" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="file" format="element/part" model="cybol/refresh-display.cybol"/>
+    </node>
+
+    <node name="TEST" channel="file" format="element/part" model="cybol/print-newline.cybol">
+        <node name="text" channel="inline" format="text/plain" model="test 2"/>
+    </node>
+
+<!--
     <node name="sense_display" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
         <node name="handler" channel="file" format="element/part" model="cybol/handle-event.cybol"/>
         <node name="root" channel="inline" format="text/cybol-path" model="#gui"/>
     </node>
+-->
 
     <node name="TEST" channel="file" format="element/part" model="cybol/print-newline.cybol">
-        <node name="text" channel="inline" format="text/plain" model="test 1.2"/>
+        <node name="text" channel="inline" format="text/plain" model="test 3"/>
     </node>
 
 </node>

@@ -1,20 +1,20 @@
 <node>
 
-    <node name="TEST" channel="inline" format="maintain/startup" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    </node>
     <node name="TEST" channel="file" format="element/part" model="cybol/print-newline.cybol">
-        <node name="text" channel="inline" format="text/plain" model="test 0.0"/>
+        <node name="text" channel="inline" format="text/plain" model="test START"/>
     </node>
 
     <node name="print" channel="file" format="element/part" model="cybol/print-gui.cybol">
         <node name="gui" channel="inline" format="text/plain" model="Hello World!">
             <node name="window" channel="inline" format="logicvalue/boolean" model="true"/>
-            <node name="position" channel="inline" format="number/integer" model="20,20"/>
-            <node name="size" channel="inline" format="number/integer" model="50,50"/>
-            <node name="foreground" channel="inline" format="colour/rgb" model="0,255,0"/>
+            <node name="position" channel="inline" format="number/integer" model="100,50"/>
+            <node name="size" channel="inline" format="number/integer" model="640,480"/>
+            <node name="foreground" channel="inline" format="colour/rgb" model="255,255,128"/>
             <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
+<!--
+            <node name="layout" channel="inline" format="text/plain" model="absolute"/>
             <node name="font" channel="inline" format="text/plain" model="7x13"/>
+-->
             <node name="expose" channel="file" format="element/part" model="cybol/refresh-display.cybol"/>
             <node name="button-release" channel="file" format="element/part" model="cybol/exit.cybol"/>
         </node>
@@ -35,13 +35,13 @@
     </node>
 
     <node name="TEST" channel="file" format="element/part" model="cybol/print-newline.cybol">
-        <node name="text" channel="inline" format="text/plain" model="test 0.1"/>
+        <node name="text" channel="inline" format="text/plain" model="test END"/>
     </node>
 
 </node>
 
 <!--
-    This example prints the famous greeting "Hello World!" on console
-    and then exits the application.
+    This example prints the famous greeting "Hello World!"
+    in a graphical window and then exits the application.
     It uses graphical user interface (gui) capabilities.
 -->
