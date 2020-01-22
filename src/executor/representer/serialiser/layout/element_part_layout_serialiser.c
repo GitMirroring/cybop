@@ -92,9 +92,6 @@ void serialise_layout_part_element(void* p0, void* p1, void* p2, void* p3, void*
     int h = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 */
 
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
     // Get parts.
     get_part_name((void*) &p, propd, (void*) POSITION_GUI_STATE_CYBOL_NAME, (void*) POSITION_GUI_STATE_CYBOL_NAME_COUNT, propc, p7, p8, p9);
     get_part_name((void*) &s, propd, (void*) SIZE_GUI_STATE_CYBOL_NAME, (void*) SIZE_GUI_STATE_CYBOL_NAME_COUNT, propc, p7, p8, p9);
@@ -114,6 +111,11 @@ void serialise_layout_part_element(void* p0, void* p1, void* p2, void* p3, void*
     copy_array_forward((void*) &h, smd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_1_VECTOR_STATE_CYBOI_NAME);
 */
 
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    fwprintf(stdout, L"TEST Serialise layout part element. r: %i\n", r);
+
     // Find out if this is the root window.
     compare_integer_unequal((void*) &r, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
@@ -124,6 +126,8 @@ void serialise_layout_part_element(void* p0, void* p1, void* p2, void* p3, void*
     // "else" branch below would ALWAYS be executed.
     //
     if ((p6 == *NULL_POINTER_STATE_CYBOI_MODEL) || (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
+
+    fwprintf(stdout, L"TEST Serialise layout part element. in position block: %i\n", r);
 
         //
         // This is a gui child element and NOT the root window.

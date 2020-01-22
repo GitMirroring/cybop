@@ -10,6 +10,15 @@
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#"/>
+        <node name="receiver" channel="inline" format="text/plain" model="test_cybol_print-gui_stack-handle-event.txt"/>
+    </node>
+
     <node name="receive_event" channel="inline" format="communicate/receive" model="">
         <node name="sender" channel="inline" format="text/cybol-path" model="#gui"/>
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
@@ -31,8 +40,10 @@
         CAUTION! Use path REFERENCE here, since the action is just
         a string pointing to the actual model to be executed.
     -->
+<!--
     <node name="execute_action" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="text/cybol-path" model="*#action"/>
     </node>
+-->
 
 </node>

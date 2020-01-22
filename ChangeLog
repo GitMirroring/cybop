@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-01-22  Christian Heller  <christian.heller@cybop.org>
+
+        * Make cybol example application "hello_world/gui/" work
+        * Extend cybol base library in "examples/cybol/"
+
 2020-01-15  Christian Heller  <christian.heller@cybop.org>
 
         * Paint background colour of window (somewhat comparable to a root panel) in file "properties_gui_serialiser.c"

@@ -184,13 +184,28 @@ fwprintf(stdout, L"TEST: Serialise gui properties pre smdw: %i\n", smdw);
 fwprintf(stdout, L"TEST: Serialise gui properties pre smdh: %i\n", smdh);
 */
 
-    //
-    // Serialise layout.
-    //
-    // CAUTION! A layout is useful for BOTH,
-    // element AND window below.
-    //
-    serialise_layout(p6, p7, (void*) &pmdx, (void*) &pmdy, (void*) &smdw, (void*) &smdh, wmd, lpd, lpc, p10, p11, p12, lmd, lmc);
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    compare_integer_equal((void*) &r, p15, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        //
+        // This IS a PART.
+        //
+        // CAUTION! Do NOT calculate the layout coordinates if
+        // this is not a part, since only parts have child nodes.
+        //
+
+        //
+        // Serialise layout.
+        //
+        // CAUTION! A layout is useful for BOTH,
+        // element AND window below.
+        //
+        serialise_layout(p6, p7, (void*) &pmdx, (void*) &pmdy, (void*) &smdw, (void*) &smdh, wmd, lpd, lpc, p10, p11, p12, lmd, lmc);
+    }
 
 /*??
 fwprintf(stdout, L"TEST: Serialise gui properties post pmdx: %i\n", pmdx);
@@ -211,8 +226,8 @@ fwprintf(stdout, L"TEST: Serialise gui properties post smdh: %i\n", smdh);
     copy_integer(p16, (void*) &pmdx);
     copy_integer(p17, (void*) &pmdy);
 
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // Reset comparison result.
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Find out if this is the root window.
     compare_integer_unequal((void*) &r, wmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -248,7 +263,7 @@ fwprintf(stdout, L"TEST: Serialise gui properties post smdh: %i\n", smdh);
         // Draw window using the operating system's window managing capabilities.
         serialise_gui_window(p0, p2, p5, (void*) &pmdx, (void*) &pmdy, (void*) &smdw, (void*) &smdh, p8, p9, p10, p11, p12);
 
-// ---
+/*??
         // The screen coordinate x, y.
         int sx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         int sy = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -268,7 +283,7 @@ fwprintf(stdout, L"TEST: Serialise gui properties post smdh: %i\n", smdh);
         fwprintf(stdout, L"TEST: Serialise gui properties sy: %i\n", sy);
         fwprintf(stdout, L"TEST: Serialise gui properties smdw: %i\n", smdw);
         fwprintf(stdout, L"TEST: Serialise gui properties smdh: %i\n", smdh);
-// ---
+*/
 
         //
         // Draw shape, colours, text.

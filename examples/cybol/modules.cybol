@@ -1,0 +1,6 @@
+<node>
+
+    <node name="gui" channel="file" format="element/part" model="cybol/gui.cybol"/>
+    <node name="logic" channel="file" format="element/part" model="cybol/logic.cybol"/>
+
+</node>
