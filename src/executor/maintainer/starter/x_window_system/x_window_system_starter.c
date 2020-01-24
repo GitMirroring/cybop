@@ -122,7 +122,7 @@ void startup_x_window_system(void* p0) {
                 xcb_screen_t* st = (xcb_screen_t*) s;
 
                 //
-                // The window value mask.
+                // The client window value mask.
                 //
                 // CAUTION! It is possible to set several attributes
                 // at the same time by OR'ing these values in valuemask.
@@ -217,30 +217,87 @@ void startup_x_window_system(void* p0) {
                 // CAUTION! The index has to be in the
                 // SAME ORDER as given in the mask above.
                 //
+                // The event value mask.
+                //
+                // CAUTION! It is possible to set several attributes
+                // at the same time by OR'ing these values in valuemask.
+                //
+                // The values that a mask could take are given
+                // by the "xcb_event_mask_t" enumeration:
+                //
+                // enum xcb_event_mask_t {
+                //     XCB_EVENT_MASK_NO_EVENT = 0,
+                //     XCB_EVENT_MASK_KEY_PRESS = 1,
+                //     XCB_EVENT_MASK_KEY_RELEASE = 2,
+                //     XCB_EVENT_MASK_BUTTON_PRESS = 4,
+                //     XCB_EVENT_MASK_BUTTON_RELEASE = 8,
+                //     XCB_EVENT_MASK_ENTER_WINDOW = 16,
+                //     XCB_EVENT_MASK_LEAVE_WINDOW = 32,
+                //     XCB_EVENT_MASK_POINTER_MOTION = 64,
+                //     XCB_EVENT_MASK_POINTER_MOTION_HINT = 128,
+                //     XCB_EVENT_MASK_BUTTON_1_MOTION = 256,
+                //     XCB_EVENT_MASK_BUTTON_2_MOTION = 512,
+                //     XCB_EVENT_MASK_BUTTON_3_MOTION = 1024,
+                //     XCB_EVENT_MASK_BUTTON_4_MOTION = 2048,
+                //     XCB_EVENT_MASK_BUTTON_5_MOTION = 4096,
+                //     XCB_EVENT_MASK_BUTTON_MOTION = 8192,
+                //     XCB_EVENT_MASK_KEYMAP_STATE = 16384,
+                //     XCB_EVENT_MASK_EXPOSURE = 32768,
+                //     XCB_EVENT_MASK_VISIBILITY_CHANGE = 65536,
+                //     XCB_EVENT_MASK_STRUCTURE_NOTIFY = 131072,
+                //     XCB_EVENT_MASK_RESIZE_REDIRECT = 262144,
+                //     XCB_EVENT_MASK_SUBSTRUCTURE_NOTIFY = 524288,
+                //     XCB_EVENT_MASK_SUBSTRUCTURE_REDIRECT = 1048576,
+                //     XCB_EVENT_MASK_FOCUS_CHANGE = 2097152,
+                //     XCB_EVENT_MASK_PROPERTY_CHANGE = 4194304,
+                //     XCB_EVENT_MASK_COLOR_MAP_CHANGE = 8388608,
+                //     XCB_EVENT_MASK_OWNER_GRAB_BUTTON = 16777216
+                // }
+                //
+                // CAUTION! Be careful when setting the values,
+                // as they HAVE TO FOLLOW the order of the enumeration.
+                //
                 wv[1] =
-                    // Expose.
-                    // - a window that covered part of the current window has moved away, exposing part (or all) of the current window
-                    // - the current window was raised above other windows
-                    // - the current window was mapped for the first time
-                    // - the current window was de-iconified (to 'iconify' a window is to minimize it or send it to the tray such that it is not shown at all)
-                    XCB_EVENT_MASK_EXPOSURE
+                    // Nothing.
+                    // It actually makes no sense to activate this constant.
+                    // However, it does no harm either and is added here to be complete.
+                    XCB_EVENT_MASK_NO_EVENT
+                    // Keyboard press and release (while focus is on window).
+                    | XCB_EVENT_MASK_KEY_PRESS
+                    | XCB_EVENT_MASK_KEY_RELEASE
                     // Mouse button press and release.
                     | XCB_EVENT_MASK_BUTTON_PRESS
                     | XCB_EVENT_MASK_BUTTON_RELEASE
+                    // Mouse pointer enter and leave.
+                    | XCB_EVENT_MASK_ENTER_WINDOW
+                    | XCB_EVENT_MASK_LEAVE_WINDOW
                     // Mouse movement.
                     | XCB_EVENT_MASK_POINTER_MOTION // motion with no mouse button held
-                    | XCB_EVENT_MASK_BUTTON_MOTION // motion with one or more of the mouse buttons held
+                    | XCB_EVENT_MASK_POINTER_MOTION_HINT
                     | XCB_EVENT_MASK_BUTTON_1_MOTION // motion while only 1st mouse button is held
                     | XCB_EVENT_MASK_BUTTON_2_MOTION // and so on ...
                     | XCB_EVENT_MASK_BUTTON_3_MOTION
                     | XCB_EVENT_MASK_BUTTON_4_MOTION
                     | XCB_EVENT_MASK_BUTTON_5_MOTION
-                    // Mouse pointer enter and leave.
-                    | XCB_EVENT_MASK_ENTER_WINDOW
-                    | XCB_EVENT_MASK_LEAVE_WINDOW
-                    // Keyboard press and release (while focus is on window).
-                    | XCB_EVENT_MASK_KEY_PRESS
-                    | XCB_EVENT_MASK_KEY_RELEASE;
+                    | XCB_EVENT_MASK_BUTTON_MOTION // motion with one or more of the mouse buttons held
+                    // Keymap.
+                    | XCB_EVENT_MASK_KEYMAP_STATE
+                    // Expose.
+                    // - a window that covered part of the current window has moved away, exposing part (or all) of the current window
+                    // - the current window was raised above other windows
+                    // - the current window was mapped for the first time
+                    // - the current window was de-iconified (to 'iconify' a window is to minimize it or send it to the tray such that it is not shown at all)
+                    | XCB_EVENT_MASK_EXPOSURE
+                    // Window.
+                    | XCB_EVENT_MASK_VISIBILITY_CHANGE
+                    | XCB_EVENT_MASK_STRUCTURE_NOTIFY
+                    | XCB_EVENT_MASK_RESIZE_REDIRECT
+                    | XCB_EVENT_MASK_SUBSTRUCTURE_NOTIFY
+                    | XCB_EVENT_MASK_SUBSTRUCTURE_REDIRECT
+                    | XCB_EVENT_MASK_FOCUS_CHANGE
+                    | XCB_EVENT_MASK_PROPERTY_CHANGE
+                    | XCB_EVENT_MASK_COLOR_MAP_CHANGE
+                    | XCB_EVENT_MASK_OWNER_GRAB_BUTTON;
 
                 //
                 // Initialise graphic context values.

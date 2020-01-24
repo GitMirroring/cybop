@@ -114,8 +114,6 @@ void serialise_layout_part_element(void* p0, void* p1, void* p2, void* p3, void*
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    fwprintf(stdout, L"TEST Serialise layout part element. r: %i\n", r);
-
     // Find out if this is the root window.
     compare_integer_unequal((void*) &r, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
@@ -126,8 +124,6 @@ void serialise_layout_part_element(void* p0, void* p1, void* p2, void* p3, void*
     // "else" branch below would ALWAYS be executed.
     //
     if ((p6 == *NULL_POINTER_STATE_CYBOI_MODEL) || (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
-
-    fwprintf(stdout, L"TEST Serialise layout part element. in position block: %i\n", r);
 
         //
         // This is a gui child element and NOT the root window.
