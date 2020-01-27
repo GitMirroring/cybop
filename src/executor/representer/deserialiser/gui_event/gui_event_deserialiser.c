@@ -104,7 +104,7 @@ void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3) {
             copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
             // Process event.
-            deserialise_gui_event_properties(d, c, p1, p2, p3, e);
+            deserialise_gui_event_properties(d, c, p1, p2, p3, io, e);
 
             //
             // Reset event in input/output entry.

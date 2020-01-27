@@ -30,15 +30,51 @@
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The button_press event xcb cybol model. */
+/** The button-press event xcb cybol model. */
 static wchar_t* BUTTON_PRESS_EVENT_XCB_CYBOL_MODEL = L"button-press";
 static int* BUTTON_PRESS_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The button_release event xcb cybol model. */
+/** The button-release event xcb cybol model. */
 static wchar_t* BUTTON_RELEASE_EVENT_XCB_CYBOL_MODEL = L"button-release";
 static int* BUTTON_RELEASE_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The enter_notify event xcb cybol model. */
+/** The circulate-notify event xcb cybol model. */
+static wchar_t* CIRCULATE_NOTIFY_EVENT_XCB_CYBOL_MODEL = L"circulate-notify";
+static int* CIRCULATE_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The circulate-request event xcb cybol model. */
+static wchar_t* CIRCULATE_REQUEST_EVENT_XCB_CYBOL_MODEL = L"circulate-request";
+static int* CIRCULATE_REQUEST_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The client-message event xcb cybol model. */
+//?? static wchar_t* CLIENT_MESSAGE_EVENT_XCB_CYBOL_MODEL = L"client-message";
+//?? static int* CLIENT_MESSAGE_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The close window client-message event xcb cybol model. */
+static wchar_t* CLOSE_WINDOW_CLIENT_MESSAGE_EVENT_XCB_CYBOL_MODEL = L"close-window";
+static int* CLOSE_WINDOW_CLIENT_MESSAGE_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The colormap-notify event xcb cybol model. */
+static wchar_t* COLORMAP_NOTIFY_EVENT_XCB_CYBOL_MODEL = L"colormap-notify";
+static int* COLORMAP_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The configure-notify event xcb cybol model. */
+static wchar_t* CONFIGURE_NOTIFY_EVENT_XCB_CYBOL_MODEL = L"configure-notify";
+static int* CONFIGURE_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The configure-request event xcb cybol model. */
+static wchar_t* CONFIGURE_REQUEST_EVENT_XCB_CYBOL_MODEL = L"configure-request";
+static int* CONFIGURE_REQUEST_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The create-notify event xcb cybol model. */
+static wchar_t* CREATE_NOTIFY_EVENT_XCB_CYBOL_MODEL = L"create-notify";
+static int* CREATE_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The destroy-notify event xcb cybol model. */
+static wchar_t* DESTROY_NOTIFY_EVENT_XCB_CYBOL_MODEL = L"destroy-notify";
+static int* DESTROY_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The enter-notify event xcb cybol model. */
 static wchar_t* ENTER_NOTIFY_EVENT_XCB_CYBOL_MODEL = L"enter-notify";
 static int* ENTER_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
@@ -46,21 +82,93 @@ static int* ENTER_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_12_INTEGER_STATE_C
 static wchar_t* EXPOSE_EVENT_XCB_CYBOL_MODEL = L"expose";
 static int* EXPOSE_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The key_press event xcb cybol model. */
+/** The focus-in event xcb cybol model. */
+static wchar_t* FOCUS_IN_EVENT_XCB_CYBOL_MODEL = L"focus-in";
+static int* FOCUS_IN_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The focus-out event xcb cybol model. */
+static wchar_t* FOCUS_OUT_EVENT_XCB_CYBOL_MODEL = L"focus-out";
+static int* FOCUS_OUT_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The ge-generic event xcb cybol model. */
+static wchar_t* GE_GENERIC_EVENT_XCB_CYBOL_MODEL = L"ge-generic";
+static int* GE_GENERIC_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The graphics-exposure event xcb cybol model. */
+static wchar_t* GRAPHICS_EXPOSURE_EVENT_XCB_CYBOL_MODEL = L"graphics-exposure";
+static int* GRAPHICS_EXPOSURE_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The gravity-notify event xcb cybol model. */
+static wchar_t* GRAVITY_NOTIFY_EVENT_XCB_CYBOL_MODEL = L"gravity-notify";
+static int* GRAVITY_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The key-press event xcb cybol model. */
 static wchar_t* KEY_PRESS_EVENT_XCB_CYBOL_MODEL = L"key-press";
 static int* KEY_PRESS_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The key_release event xcb cybol model. */
+/** The key-release event xcb cybol model. */
 static wchar_t* KEY_RELEASE_EVENT_XCB_CYBOL_MODEL = L"key-release";
 static int* KEY_RELEASE_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The leave_notify event xcb cybol model. */
+/** The keymap-notify event xcb cybol model. */
+static wchar_t* KEYMAP_NOTIFY_EVENT_XCB_CYBOL_MODEL = L"keymap-notify";
+static int* KEYMAP_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The leave-notify event xcb cybol model. */
 static wchar_t* LEAVE_NOTIFY_EVENT_XCB_CYBOL_MODEL = L"leave-notify";
 static int* LEAVE_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The motion_notify event xcb cybol model. */
+/** The map-notify event xcb cybol model. */
+static wchar_t* MAP_NOTIFY_EVENT_XCB_CYBOL_MODEL = L"map-notify";
+static int* MAP_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The map-request event xcb cybol model. */
+static wchar_t* MAP_REQUEST_EVENT_XCB_CYBOL_MODEL = L"map-request";
+static int* MAP_REQUEST_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The mapping-notify event xcb cybol model. */
+static wchar_t* MAPPING_NOTIFY_EVENT_XCB_CYBOL_MODEL = L"mapping-notify";
+static int* MAPPING_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The motion-notify event xcb cybol model. */
 static wchar_t* MOTION_NOTIFY_EVENT_XCB_CYBOL_MODEL = L"motion-notify";
 static int* MOTION_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The no-exposure event xcb cybol model. */
+static wchar_t* NO_EXPOSURE_EVENT_XCB_CYBOL_MODEL = L"no-exposure";
+static int* NO_EXPOSURE_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The property-notify event xcb cybol model. */
+static wchar_t* PROPERTY_NOTIFY_EVENT_XCB_CYBOL_MODEL = L"property-notify";
+static int* PROPERTY_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The reparent-notify event xcb cybol model. */
+static wchar_t* REPARENT_NOTIFY_EVENT_XCB_CYBOL_MODEL = L"reparent-notify";
+static int* REPARENT_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The resize-request event xcb cybol model. */
+static wchar_t* RESIZE_REQUEST_EVENT_XCB_CYBOL_MODEL = L"resize-request";
+static int* RESIZE_REQUEST_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The selection-clear event xcb cybol model. */
+static wchar_t* SELECTION_CLEAR_EVENT_XCB_CYBOL_MODEL = L"selection-clear";
+static int* SELECTION_CLEAR_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The selection-notify event xcb cybol model. */
+static wchar_t* SELECTION_NOTIFY_EVENT_XCB_CYBOL_MODEL = L"selection-notify";
+static int* SELECTION_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The selection-request event xcb cybol model. */
+static wchar_t* SELECTION_REQUEST_EVENT_XCB_CYBOL_MODEL = L"selection-request";
+static int* SELECTION_REQUEST_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The unmap-notify event xcb cybol model. */
+static wchar_t* UNMAP_NOTIFY_EVENT_XCB_CYBOL_MODEL = L"unmap-notify";
+static int* UNMAP_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The visibility-notify event xcb cybol model. */
+static wchar_t* VISIBILITY_NOTIFY_EVENT_XCB_CYBOL_MODEL = L"visibility-notify";
+static int* VISIBILITY_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* EVENT_XCB_CYBOL_MODEL_CONSTANT_SOURCE */
 #endif

@@ -17,6 +17,7 @@
         <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
         <node name="layout" channel="inline" format="text/plain" model="absolute"/>
         <node name="expose" channel="inline" format="text/plain" model=".logic.refresh_display"/>
+        <node name="close-window" channel="inline" format="text/plain" model=".logic.exit_programme"/>
     </node>
 
     <!-- The following variable is used in file "handler.cybol". -->

@@ -82,6 +82,8 @@ void startup_x_window_system(void* p0) {
     int gc = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The font.
     int f = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The delete window cookie.
+    void* dwc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // Allocate and open connexion.
@@ -131,21 +133,21 @@ void startup_x_window_system(void* p0) {
                 // by the "xcb_cw_t" enumeration:
                 //
                 // typedef enum {
-                //     XCB_CW_BACK_PIXMAP       = 1L<<0,
-                //     XCB_CW_BACK_PIXEL        = 1L<<1,
-                //     XCB_CW_BORDER_PIXMAP     = 1L<<2,
-                //     XCB_CW_BORDER_PIXEL      = 1L<<3,
-                //     XCB_CW_BIT_GRAVITY       = 1L<<4,
-                //     XCB_CW_WIN_GRAVITY       = 1L<<5,
-                //     XCB_CW_BACKING_STORE     = 1L<<6,
-                //     XCB_CW_BACKING_PLANES    = 1L<<7,
-                //     XCB_CW_BACKING_PIXEL     = 1L<<8,
-                //     XCB_CW_OVERRIDE_REDIRECT = 1L<<9,
-                //     XCB_CW_SAVE_UNDER        = 1L<<10,
-                //     XCB_CW_EVENT_MASK        = 1L<<11,
-                //     XCB_CW_DONT_PROPAGATE    = 1L<<12,
-                //     XCB_CW_COLORMAP          = 1L<<13,
-                //     XCB_CW_CURSOR            = 1L<<14
+                //     XCB_CW_BACK_PIXMAP       = 1L << 0, // 0
+                //     XCB_CW_BACK_PIXEL        = 1L << 1, // 1
+                //     XCB_CW_BORDER_PIXMAP     = 1L << 2, // 2
+                //     XCB_CW_BORDER_PIXEL      = 1L << 3, // 4
+                //     XCB_CW_BIT_GRAVITY       = 1L << 4, // 8
+                //     XCB_CW_WIN_GRAVITY       = 1L << 5, // 16
+                //     XCB_CW_BACKING_STORE     = 1L << 6, // 32
+                //     XCB_CW_BACKING_PLANES    = 1L << 7, // 64
+                //     XCB_CW_BACKING_PIXEL     = 1L << 8, // 128
+                //     XCB_CW_OVERRIDE_REDIRECT = 1L << 9, // 256
+                //     XCB_CW_SAVE_UNDER        = 1L << 10, // 512
+                //     XCB_CW_EVENT_MASK        = 1L << 11, // 1024
+                //     XCB_CW_DONT_PROPAGATE    = 1L << 12, // 2048
+                //     XCB_CW_COLORMAP          = 1L << 13, // 4096
+                //     XCB_CW_CURSOR            = 1L << 14 // 8192
                 // } xcb_cw_t;
                 //
                 // CAUTION! Be careful when setting the values,
@@ -254,6 +256,7 @@ void startup_x_window_system(void* p0) {
                 //     XCB_EVENT_MASK_OWNER_GRAB_BUTTON = 16777216
                 // }
                 //
+                // ??TODO: Is the following claim REALLY needed?
                 // CAUTION! Be careful when setting the values,
                 // as they HAVE TO FOLLOW the order of the enumeration.
                 //
@@ -347,6 +350,29 @@ void startup_x_window_system(void* p0) {
                 //
                 xcb_create_gc((xcb_connection_t*) c, (xcb_gcontext_t) gc, (xcb_drawable_t) w, gcm, gcv);
 
+                //
+                // Create delete window cookie.
+                //
+
+                // Prepare notification for window destruction.
+                //??TODO: Possibly use xcb_intern_atom_unchecked instead of xcb_intern_atom
+                xcb_intern_atom_cookie_t protocols_cookie = xcb_intern_atom((xcb_connection_t*) c, 1, 12, "WM_PROTOCOLS");
+                xcb_intern_atom_reply_t* protocols_reply = xcb_intern_atom_reply((xcb_connection_t*) c, protocols_cookie, 0);
+                xcb_intern_atom_cookie_t delete_cookie = xcb_intern_atom((xcb_connection_t*) c, 0, 16, "WM_DELETE_WINDOW");
+                xcb_intern_atom_reply_t* dwc = xcb_intern_atom_reply((xcb_connection_t*) c, delete_cookie, 0);
+
+                // Assign delete window cookie.
+                xcb_change_property((xcb_connection_t*) c, XCB_PROP_MODE_REPLACE, (xcb_window_t) w, (*protocols_reply).atom, 4, 32, 1, &((*dwc).atom));
+
+                // Free internal protocols cookie structure.
+                free(protocols_reply);
+
+                //
+                // CAUTION! Do NOT free the delete cookie structure here.
+                // It is still needed for processing window close events.
+                // It gets freed at system shutdown.
+                //
+
             } else {
 
                 log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup x window system. The screen is null.");
@@ -384,6 +410,8 @@ void startup_x_window_system(void* p0) {
     set_io_entry_element(p0, (void*) &gc, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Store font in input/output entry.
     set_io_entry_element(p0, (void*) &f, (void*) FONT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Store delete window cookie in input/output entry.
+    set_io_entry_element(p0, (void*) &dwc, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 }
 
 /* X_WINDOW_SYSTEM_STARTER_SOURCE */

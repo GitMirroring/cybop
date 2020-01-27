@@ -53,9 +53,10 @@
  * @param p9 the keycode [detail] (xcb_keycode_t) of the physical key on the keyboard item for keyboard events
  * @param p10 the mask [state] (uint16_t) of the pointer buttons and modifier keys item for mouse and keyboard events
  * @param p11 the mouse button identification [mode] item (uint8_t) for mouse events
- * @param p12 the event
+ * @param p12 the input/output entry
+ * @param p13 the event
  */
-void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
     //
     // The following code sections are NOT indented,
@@ -63,9 +64,9 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
     // since more may have to be added in future.
     //
 
-    if (p12 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p13 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        xcb_generic_event_t* e = (xcb_generic_event_t*) p12;
+        xcb_generic_event_t* e = (xcb_generic_event_t*) p13;
 
     if (p11 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -113,20 +114,13 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xcb.");
 
-        //
         // Get response type.
-        //
-        // CAUTION! The type of the returned value is "uint8_t".
-        // Since it is just one byte in size, it may be assigned
-        // to an "int" variable of four byte without loss.
-        //
-        int t = (int) e->response_type;
+        uint8_t t = e->response_type;
 
         fwprintf(stdout, L"TEST deserialise xcb t: %i\n", t);
-        fwprintf(stdout, L"TEST deserialise xcb test XCB_EXPOSE: %i\n", XCB_EXPOSE);
 
         //
-        // Disable pointer motion hint event.
+        // Disable event "pointer motion hint".
         //
         // The hexadecimal value 0x80 is decimal 128.
         // It corresponds to the xcb constant:
@@ -138,159 +132,11 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
         //?? TODO: Is this really needed? What for?
         //?? It was copied from an example in the xcb tutorial.
         //
-        //?? t = t & (~0x80);
+        t = t & (~0x80);
 
 //??        fwprintf(stdout, L"TEST deserialise xcb converted t: %i\n", t);
 
-        if (t == XCB_KEY_PRESS) {
-
-//??            fwprintf(stdout, L"TEST deserialise xcb XCB_KEY_PRESS t: %i\n", t);
-
-            modify_item(p0, (void*) KEY_PRESS_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) KEY_PRESS_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-
-            // Key press events relate to keyboard keys.
-            xcb_key_press_event_t* ev = (xcb_key_press_event_t*) e;
-
-            // Get window identification.
-            int w = (int) ev->event;
-            // Get mouse coordinates.
-            int x = (int) ev->event_x;
-            int y = (int) ev->event_y;
-            // Get keycode.
-            int k = (int) ev->detail;
-            // Get button mask.
-            int mask = (int) ev->state;
-
-            // Get window identification.
-            modify_item(p1, (void*) &w, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            // Get mouse coordinates.
-            modify_item(p6, (void*) &x, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            modify_item(p7, (void*) &y, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            // Get keycode.
-            modify_item(p9, (void*) &k, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            // Get button mask.
-            modify_item(p10, (void*) &mask, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-
-    /*??
-            Example:
-            // Translate the key code to a key symbol.
-            KeySym key_symbol = XKeycodeToKeysym(display, an_event.xkey.keycode, 0);
-            switch (key_symbol) {
-                case XK_1:
-                case XK_KP_1:
-                    // '1' key was pressed, either the normal '1',
-                    // or the '1' on the keypad. draw the current pixel.
-                    XDrawPoint(display, the_win, gc_draw, x, y);
-                    break;
-                case XK_Delete:
-                    // DEL key was pressed, erase the current pixel.
-                    XDrawPoint(display, the_win, gc_erase, x, y);
-                    break;
-                default:
-                    // Anything else - check if it is a letter key
-                    if (key_symbol >= XK_A && key_symbol <= XK_Z) {
-                        int ascii_key = key_symbol - XK_A + 'A';
-                        printf("Key pressed - '%c'\n", ascii_key);
-                    }
-                    if (key_symbol >= XK_a && key_symbol <= XK_z) {
-                        int ascii_key = key_symbol - XK_a + 'a';
-                        printf("Key pressed - '%c'\n", ascii_key);
-                    }
-                    break;
-            }
-    */
-
-    /*??
-            KeySym k;
-            char text[10];
-            char str_test[1000];
-            char str_zugriff[1000];
-            char str_menubar[100];
-            //?? long long int or double menu_foreground;
-            // The temporary variables.
-        //??    int k;
-            int menu_eintrage_ende;
-            int window;
-            int i = 0, count_menu, count_item, indent_x, indent_y, indent_menu_item_x;
-    */
-
-    /*??
-            i = XLookupString(&e, text, 10, &k, 0);
-
-            //// Das gehoert hier eigentlich nicht her, nur zu Demonstartionszwecken
-            //// Bei Tastendruck 'a' wird erstes Menue gezeichenet, bei b das Zweite, bei c das Dritte
-
-            if (i == 1 && text[0] == 'a') {
-
-                XClearArea (d, w, 0, 0, 0, 0, True);
-                Anwendung.menu_bar1.menus[0].angeklickt = 1;
-                Anwendung.menu_bar1.menus[1].angeklickt = 0;
-                Anwendung.menu_bar1.menus[2].angeklickt = 0;
-
-            } else if (i == 1 && text[0] == 'b') {
-
-                XClearArea (d, w, 0, 0, 0, 0, True);
-                Anwendung.menu_bar1.menus[0].angeklickt = 0;
-                Anwendung.menu_bar1.menus[1].angeklickt = 1;
-                Anwendung.menu_bar1.menus[2].angeklickt = 0;
-
-            } else if (i == 1 && text[0] == 'c') {
-
-                XClearArea (d, w, 0, 0, 0, 0, True);
-                Anwendung.menu_bar1.menus[0].angeklickt = 0;
-                Anwendung.menu_bar1.menus[1].angeklickt = 0;
-                Anwendung.menu_bar1.menus[2].angeklickt = 1;
-            }
-
-            if (i == 1 && text[0] == 'x') {
-
-                XClearArea (d, w, 0, 0, 0, 0, True);
-
-                Anwendung.menu_bar1.menus[0].angeklickt = 0;
-                Anwendung.menu_bar1.menus[1].angeklickt = 0;
-                Anwendung.menu_bar1.menus[2].angeklickt = 0;
-
-            } else if (i == 1 && text[0] == 'q') {
-
-                f = 1;
-            }
-    */
-
-            //?? To erase graphical areas (such as an open menu), use:
-            //?? XClearArea (d, w, 0, 0, 0, 0, True);
-
-            //?? What is this useful for?
-            //?? XDrawImageString(e.xexpose.display, e.xexpose.window, gc_menu_font, 100, 100, event.xbutton.x, wcslen(event.xbutton.x));
-
-        } else if (t == XCB_KEY_RELEASE) {
-
-//??            fwprintf(stdout, L"TEST deserialise xcb XCB_KEY_RELEASE t: %i\n", t);
-
-            modify_item(p0, (void*) KEY_RELEASE_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) KEY_RELEASE_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-
-            xcb_key_release_event_t* ev = (xcb_key_release_event_t*) e;
-
-            // Get window identification.
-            int w = (int) ev->event;
-            // Get mouse coordinates.
-            int x = (int) ev->event_x;
-            int y = (int) ev->event_y;
-            // Get keycode.
-            int k = (int) ev->detail;
-            // Get button mask.
-            int mask = (int) ev->state;
-
-            // Get window identification.
-            modify_item(p1, (void*) &w, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            // Get mouse coordinates.
-            modify_item(p6, (void*) &x, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            modify_item(p7, (void*) &y, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            // Get keycode.
-            modify_item(p9, (void*) &k, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            // Get button mask.
-            modify_item(p10, (void*) &mask, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-
-        } else if (t == XCB_BUTTON_PRESS) {
+        if (t == XCB_BUTTON_PRESS) {
 
 //??            fwprintf(stdout, L"TEST deserialise xcb XCB_BUTTON_PRESS t: %i\n", t);
 
@@ -308,14 +154,14 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             // Get button mask.
             int mask = (int) ev->state;
 
-            // Get window identification.
+            // Set window identification.
             modify_item(p1, (void*) &w, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            // Get mouse coordinates.
+            // Set mouse coordinates.
             modify_item(p6, (void*) &x, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
             modify_item(p7, (void*) &y, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            // Get mouse button or keycode.
+            // Set mouse button or keycode.
             modify_item(p8, (void*) &b, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            // Get button mask.
+            // Set button mask.
             modify_item(p10, (void*) &mask, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
         } else if (t == XCB_BUTTON_RELEASE) {
@@ -336,18 +182,95 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             // Get button mask.
             int mask = (int) ev->state;
 
-            // Get window identification.
+            // Set window identification.
             modify_item(p1, (void*) &w, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            // Get mouse coordinates.
+            // Set mouse coordinates.
             modify_item(p6, (void*) &x, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
             modify_item(p7, (void*) &y, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            // Get mouse button or keycode.
+            // Set mouse button or keycode.
             modify_item(p8, (void*) &b, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            // Get button mask.
+            // Set button mask.
             modify_item(p10, (void*) &mask, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
 //??            fwprintf(stdout, L"TEST deserialise xcb XCB_BUTTON_RELEASE x: %i\n", x);
 //??            fwprintf(stdout, L"TEST deserialise xcb XCB_BUTTON_RELEASE y: %i\n", y);
+
+        } else if (t == XCB_CIRCULATE_NOTIFY) {
+
+        } else if (t == XCB_CIRCULATE_REQUEST) {
+
+        } else if (t == XCB_CLIENT_MESSAGE) {
+
+//??            fwprintf(stdout, L"TEST deserialise xcb XCB_CLIENT_MESSAGE t: %i\n", t);
+
+            xcb_client_message_event_t* ev = (xcb_client_message_event_t*) e;
+
+            // Get window.
+            uint32_t w = (uint32_t) (*ev).window;
+            // Get type.
+            uint32_t ty = (uint32_t) ev->type;
+            // Get data.
+            xcb_client_message_data_t d = ev->data;
+
+            // Set window.
+            modify_item(p1, (void*) &w, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+            // The delete window cookie.
+            void* dwc = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+            // Retrieve delete window cookie from input/output entry.
+            get_io_entry_element((void*) &dwc, p12, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+            // The delete window cookie structure.
+            xcb_intern_atom_reply_t* dwcs = (xcb_intern_atom_reply_t*) dwc;
+
+            // Find out if window is to be closed.
+            if (d.data32[0] == (*dwcs).atom) {
+
+                // Assign close window event.
+                modify_item(p0, (void*) CLOSE_WINDOW_CLIENT_MESSAGE_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) CLOSE_WINDOW_CLIENT_MESSAGE_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+            }
+
+        } else if (t == XCB_COLORMAP_NOTIFY) {
+
+        } else if (t == XCB_CONFIGURE_NOTIFY) {
+
+//??            fwprintf(stdout, L"TEST deserialise xcb XCB_CONFIGURE_NOTIFY t: %i\n", t);
+
+            modify_item(p0, (void*) CONFIGURE_NOTIFY_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) CONFIGURE_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+            xcb_configure_notify_event_t* ev = (xcb_configure_notify_event_t*) e;
+
+/*??
+            //
+            // Get original window size.
+            //
+            // CAUTION! The keyword "static" is IMPORTANT!
+            // Using it, the variables are declared and initialised only the FIRST TIME
+            // this code is executed, in order to store the original window size.
+            // Later, original and new window size may be compared.
+            //
+            static uint16_t ow = ev->width;
+            static uint16_t oh = ev->height;
+
+            // Get current window size.
+            uint16_t ew = ev->width;
+            uint16_t eh = ev->height;
+
+            // Resize window.
+            if (((ew > 0) && (ow != ew)) || ((eh > 0) && (oh != eh)) ) {
+
+                // Assign new width and height.
+                ow = ew;
+                oh = eh;
+            }
+*/
+
+        } else if (t == XCB_CONFIGURE_REQUEST) {
+
+        } else if (t == XCB_CREATE_NOTIFY) {
+
+        } else if (t == XCB_DESTROY_NOTIFY) {
 
         } else if (t == XCB_ENTER_NOTIFY) {
 
@@ -371,22 +294,131 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             // Get mouse button identification.
             int mode = (int) ev->mode;
 
-            // Get window identification.
+            // Set window identification.
             modify_item(p1, (void*) &w, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            // Get mouse coordinates.
+            // Set mouse coordinates.
             modify_item(p6, (void*) &x, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
             modify_item(p7, (void*) &y, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            // Get mouse button or keycode.
+            // Set mouse button or keycode.
             modify_item(p8, (void*) &b, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            // Get button mask.
+            // Set button mask.
             modify_item(p10, (void*) &mask, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            // Get mouse button identification.
+            // Set mouse button identification.
             modify_item(p11, (void*) &mode, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
-        } else if (XCB_LEAVE_NOTIFY) {
+        } else if (t == XCB_EXPOSE) {
 
-            fwprintf(stdout, L"TEST deserialise xcb XCB_LEAVE_NOTIFY t: %i\n", t);
-            fwprintf(stdout, L"TEST deserialise xcb test XCB_LEAVE_NOTIFY: %i\n", XCB_LEAVE_NOTIFY);
+            //
+            // Expose events are sensed when a window needs
+            // to be repainted, e.g. when being displayed after
+            // having been covered by another window before.
+            //
+
+//??            fwprintf(stdout, L"TEST deserialise xcb XCB_EXPOSE t: %i\n", t);
+
+            modify_item(p0, (void*) EXPOSE_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) EXPOSE_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+            xcb_expose_event_t* ev = (xcb_expose_event_t*) e;
+
+//??            fwprintf(stdout, L"TEST deserialise xcb XCB_EXPOSE ev->count: %i\n", ev->count);
+
+            //
+            // Consider only the last in a row of multiple expose events,
+            // in order to avoid flickering of the display.
+            //
+            if (ev->count == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                // Get window identification.
+                int w = (int) ev->window;
+                // Get expose area position.
+                int ex = (int) ev->x;
+                int ey = (int) ev->y;
+                // Get expose area size.
+                int ew = (int) ev->width;
+                int eh = (int) ev->height;
+
+                // Set window identification.
+                modify_item(p1, (void*) &w, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+                // Set expose area position.
+                modify_item(p2, (void*) &ex, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+                modify_item(p3, (void*) &ey, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+                // Set expose area size.
+                modify_item(p4, (void*) &ew, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+                modify_item(p5, (void*) &eh, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+            }
+
+        } else if (t == XCB_FOCUS_IN) {
+
+        } else if (t == XCB_FOCUS_OUT) {
+
+        } else if (t == XCB_GE_GENERIC) {
+
+        } else if (t == XCB_GRAPHICS_EXPOSURE) {
+
+        } else if (t == XCB_GRAVITY_NOTIFY) {
+
+        } else if (t == XCB_KEY_PRESS) {
+
+//??            fwprintf(stdout, L"TEST deserialise xcb XCB_KEY_PRESS t: %i\n", t);
+
+            modify_item(p0, (void*) KEY_PRESS_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) KEY_PRESS_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+            // Key press events relate to keyboard keys.
+            xcb_key_press_event_t* ev = (xcb_key_press_event_t*) e;
+
+            // Get window identification.
+            int w = (int) ev->event;
+            // Get mouse coordinates.
+            int x = (int) ev->event_x;
+            int y = (int) ev->event_y;
+            // Get keycode.
+            int k = (int) ev->detail;
+            // Get button mask.
+            int mask = (int) ev->state;
+
+            // Set window identification.
+            modify_item(p1, (void*) &w, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+            // Set mouse coordinates.
+            modify_item(p6, (void*) &x, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+            modify_item(p7, (void*) &y, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+            // Set keycode.
+            modify_item(p9, (void*) &k, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+            // Set button mask.
+            modify_item(p10, (void*) &mask, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+        } else if (t == XCB_KEY_RELEASE) {
+
+//??            fwprintf(stdout, L"TEST deserialise xcb XCB_KEY_RELEASE t: %i\n", t);
+
+            modify_item(p0, (void*) KEY_RELEASE_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) KEY_RELEASE_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+            xcb_key_release_event_t* ev = (xcb_key_release_event_t*) e;
+
+            // Get window identification.
+            int w = (int) ev->event;
+            // Get mouse coordinates.
+            int x = (int) ev->event_x;
+            int y = (int) ev->event_y;
+            // Get keycode.
+            int k = (int) ev->detail;
+            // Get button mask.
+            int mask = (int) ev->state;
+
+            // Set window identification.
+            modify_item(p1, (void*) &w, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+            // Set mouse coordinates.
+            modify_item(p6, (void*) &x, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+            modify_item(p7, (void*) &y, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+            // Set keycode.
+            modify_item(p9, (void*) &k, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+            // Set button mask.
+            modify_item(p10, (void*) &mask, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+        } else if (t == XCB_KEYMAP_NOTIFY) {
+
+        } else if (t == XCB_LEAVE_NOTIFY) {
+
+//??            fwprintf(stdout, L"TEST deserialise xcb XCB_LEAVE_NOTIFY t: %i\n", t);
 
             modify_item(p0, (void*) LEAVE_NOTIFY_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) LEAVE_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
@@ -404,17 +436,23 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             // Get mouse button identification.
             int mode = (int) ev->mode;
 
-            // Get window identification.
+            // Set window identification.
             modify_item(p1, (void*) &w, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            // Get mouse coordinates.
+            // Set mouse coordinates.
             modify_item(p6, (void*) &x, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
             modify_item(p7, (void*) &y, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            // Get mouse button or keycode.
+            // Set mouse button or keycode.
             modify_item(p8, (void*) &b, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            // Get button mask.
+            // Set button mask.
             modify_item(p10, (void*) &mask, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            // Get mouse button identification.
+            // Set mouse button identification.
             modify_item(p11, (void*) &mode, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+        } else if (t == XCB_MAP_NOTIFY) {
+
+        } else if (t == XCB_MAP_REQUEST) {
+
+        } else if (t == XCB_MAPPING_NOTIFY) {
 
         } else if (t == XCB_MOTION_NOTIFY) {
 
@@ -434,110 +472,34 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             // Get button mask.
             int mask = (int) ev->state;
 
-            // Get window identification.
+            // Set window identification.
             modify_item(p1, (void*) &w, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            // Get mouse coordinates.
+            // Set mouse coordinates.
             modify_item(p6, (void*) &x, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
             modify_item(p7, (void*) &y, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            // Get mouse button or keycode.
+            // Set mouse button or keycode.
             modify_item(p8, (void*) &b, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            // Get button mask.
+            // Set button mask.
             modify_item(p10, (void*) &mask, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
-/*??
-            //?? The an_event.xmotion.state variable (unsigned int state) contains
-            //?? a mask of the buttons (or keys) held down during this event - if any.
-            //?? This field is a bitwise OR of any of the following:
-            Button1Mask
-            Button2Mask
-            Button3Mask
-            Button4Mask
-            Button5Mask
-            ShiftMask
-            LockMask
-            ControlMask
-            Mod1Mask
-            Mod2Mask
-            Mod3Mask
-            Mod4Mask
-            Mod5Mask
+        } else if (t == XCB_NO_EXPOSURE) {
 
-            //?? Example:
-            //?? If the 1st mouse button was held during this event,
-            //?? draw a pixel at the mouse pointer location.
-            if (an_event.xmotion.state & Button1Mask) {
-                XDrawPoint(display, the_win, gc_draw, x, y);
-            }
-    */
+        } else if (t == XCB_PROPERTY_NOTIFY) {
 
-//??        } else if (t == XCB_TODO_POINTER_MOTION_HINT) {
+        } else if (t == XCB_REPARENT_NOTIFY) {
 
-//??        } else if (t == XCB_TODO_BUTTON_1_MOTION) {
+        } else if (t == XCB_RESIZE_REQUEST) {
 
-//??        } else if (t == XCB_TODO_BUTTON_2_MOTION) {
+        } else if (t == XCB_SELECTION_CLEAR) {
 
-//??        } else if (t == XCB_TODO_BUTTON_3_MOTION) {
+        } else if (t == XCB_SELECTION_NOTIFY) {
 
-//??        } else if (t == XCB_TODO_BUTTON_4_MOTION) {
+        } else if (t == XCB_SELECTION_REQUEST) {
 
-//??        } else if (t == XCB_TODO_BUTTON_5_MOTION) {
+        } else if (t == XCB_UNMAP_NOTIFY) {
 
-//??        } else if (t == XCB_TODO_BUTTON_MOTION) {
+        } else if (t == XCB_VISIBILITY_NOTIFY) {
 
-//??        } else if (t == XCB_TODO_KEYMAP_STATE) {
-
-//??        } else if (t == XCB_EXPOSE) {
-        } {
-
-            //
-            // Expose events are sensed when a window needs
-            // to be repainted, e.g. when being displayed after
-            // having been covered by another window before.
-            //
-
-            fwprintf(stdout, L"TEST deserialise xcb process XCB_EXPOSE t: %i\n", t);
-
-            modify_item(p0, (void*) EXPOSE_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) EXPOSE_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-
-            xcb_expose_event_t* ev = (xcb_expose_event_t*) e;
-
-            //
-            // Consider only the last in a row of multiple expose
-            // events, in order to avoid flickering of the display.
-            //
-            //?? TODO: ... did work in xlib, but not with xcb anymore
-            // if (ev->xexpose.count == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-//??                        if (ev->count == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-//??            fwprintf(stdout, L"TEST deserialise xcb XCB_EXPOSE ev->count: %i\n", ev->count);
-
-            // Get window identification.
-            int w = (int) ev->window;
-            // Get expose area position.
-            int ex = (int) ev->x;
-            int ey = (int) ev->y;
-            // Get expose area size.
-            int ew = (int) ev->width;
-            int eh = (int) ev->height;
-
-            // Get window identification.
-            modify_item(p1, (void*) &w, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            // Get expose area position.
-            modify_item(p2, (void*) &ex, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            modify_item(p3, (void*) &ey, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            // Get expose area size.
-            modify_item(p4, (void*) &ew, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            modify_item(p5, (void*) &eh, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-
-//??        } else if (t == XCB_TODO_VISIBILITY_CHANGE) {
-//??        } else if (t == XCB_TODO_STRUCTURE_NOTIFY) {
-//??        } else if (t == XCB_TODO_RESIZE_REDIRECT) {
-//??        } else if (t == XCB_TODO_SUBSTRUCTURE_NOTIFY) {
-//??        } else if (t == XCB_TODO_SUBSTRUCTURE_REDIRECT) {
-//??        } else if (t == XCB_TODO_FOCUS_CHANGE) {
-//??        } else if (t == XCB_TODO_PROPERTY_CHANGE) {
-//??        } else if (t == XCB_TODO_COLOR_MAP_CHANGE) {
-//??        } else if (t == XCB_TODO_OWNER_GRAB_BUTTON) {
         }
 
     } else {

@@ -67,6 +67,8 @@ void shutdown_x_window_system(void* p0) {
     int gc = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The font.
     int f = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The delete window cookie.
+    void* dwc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // Retrieve various values from input/output entry.
@@ -82,14 +84,16 @@ void shutdown_x_window_system(void* p0) {
 
     // Retrieve connexion from input/output entry.
     get_io_entry_element((void*) &c, p0, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Retrieve screen in input/output entry.
+    // Retrieve screen from input/output entry.
     get_io_entry_element((void*) &s, p0, (void*) SCREEN_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Retrieve window in input/output entry.
+    // Retrieve window from input/output entry.
     get_io_entry_element((void*) &w, p0, (void*) WINDOW_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Retrieve graphic context in input/output entry.
+    // Retrieve graphic context from input/output entry.
     get_io_entry_element((void*) &gc, p0, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Retrieve font in input/output entry.
+    // Retrieve font from input/output entry.
     get_io_entry_element((void*) &f, p0, (void*) FONT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Retrieve delete window cookie from input/output entry.
+    get_io_entry_element((void*) &dwc, p0, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     fwprintf(stdout, L"TEST shutdown x window system c: %i\n", c);
 
@@ -101,6 +105,16 @@ void shutdown_x_window_system(void* p0) {
         // CAUTION! Use descending order as compared to startup,
         // for the following deallocations.
         //
+
+        if (dwc != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            // Free atom reply that was created at startup.
+            free(dwc);
+
+        } else {
+
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown x window system. The delete window cookie is null.");
+        }
 
         if (f != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -171,6 +185,8 @@ void shutdown_x_window_system(void* p0) {
         set_io_entry_element(p0, NULL_POINTER_STATE_CYBOI_MODEL, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Reset font in input/output entry.
         set_io_entry_element(p0, NULL_POINTER_STATE_CYBOI_MODEL, (void*) FONT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        // Store delete window cookie in input/output entry.
+        set_io_entry_element(p0, NULL_POINTER_STATE_CYBOI_MODEL, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     } else {
 

@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-01-27  Christian Heller  <christian.heller@cybop.org>
+
+        * Consider only the last in a row of multiple expose events in file "xcb_deserialiser.c", in order to avoid flickering of the display
+        * Prepare handling of window close event (arriving as XCB_CLIENT_MESSAGE) in file "xcb_deserialiser.c"
+        * Prepare handling of window resize event in file "xcb_deserialiser.c"
+
 2020-01-24  Christian Heller  <christian.heller@cybop.org>
 
         * Add all possible event types to files "x_window_system_starter.c" and "xcb_deserialiser.c"

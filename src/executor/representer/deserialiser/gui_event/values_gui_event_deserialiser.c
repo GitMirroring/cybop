@@ -55,19 +55,20 @@
  * @param p9 the keycode [detail] (xcb_keycode_t) of the physical key on the keyboard for event keyboard press | keyboard release
  * @param p10 the mask [state] (uint16_t) of the pointer buttons and modifier keys for event mouse button press | mouse button release | movement | mouse pointer enter | mouse pointer leave | keyboard press | keyboard release
  * @param p11 the mouse button identification [mode] (uint8_t) for event mouse pointer enter | mouse pointer leave
- * @param p12 the event
+ * @param p12 the input/output entry
+ * @param p13 the event
  */
-void deserialise_gui_event_values(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void deserialise_gui_event_values(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui event values.");
 
 #if defined(__linux__) || defined(__unix__)
-    deserialise_xcb(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+    deserialise_xcb(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
 #elif defined(__APPLE__) && defined(__MACH__)
     //?? TODO: Add Cocoa support
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    deserialise_win32_display(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+    deserialise_win32_display(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p13);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif

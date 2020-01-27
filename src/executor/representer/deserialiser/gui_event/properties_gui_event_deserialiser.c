@@ -51,9 +51,10 @@
  * @param p2 the knowledge memory part (pointer reference)
  * @param p3 the stack memory item
  * @param p4 the internal memory data
- * @param p5 the event
+ * @param p5 the input/output entry
+ * @param p6 the event
  */
-void deserialise_gui_event_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_gui_event_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui event properties.");
 
@@ -177,7 +178,7 @@ void deserialise_gui_event_properties(void* p0, void* p1, void* p2, void* p3, vo
     fwprintf(stdout, L"TEST: Deserialise gui event properties. *xmd: %i \n", *((int*) xmd));
 */
 
-    deserialise_gui_event_values(em, wm, exm, eym, ewm, ehm, xm, ym, bm, km, mm, mom, p5);
+    deserialise_gui_event_values(em, wm, exm, eym, ewm, ehm, xm, ym, bm, km, mm, mom, p5, p6);
 }
 
 /* PROPERTIES_GUI_EVENT_DESERIALISER_SOURCE */
