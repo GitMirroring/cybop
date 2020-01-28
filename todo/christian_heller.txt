@@ -15,7 +15,8 @@ XCB
 ___
 
         TEST:
-        * Fix bug with close-window event in cybol application file "user_interface/gui/gui.cybol"
+        * Create new files for translating event into action in directory "src/executor/representer/deserialiser/gui/"
+        * Test close-window event in cybol application file "user_interface/gui/gui.cybol"
         * Handle window close event (arriving as XCB_CLIENT_MESSAGE) in file "xcb_deserialiser.c"
             //??TODO: Possibly use xcb_intern_atom_unchecked instead of xcb_intern_atom in file "x_window_system-starter.c"
             see example for win32 api:
@@ -26,7 +27,7 @@ ___
             https://marc.info/?l=freedesktop-xcb&m=129381953404497&q=p5
 
         REACTIVATE:
-        * Handle window resize event in file "xcb_deserialiser.c"
+        * Test window resize event in file "xcb_deserialiser.c"
             possibly replace variables ow and oh in file "xcb_deserialiser.c" with cybol property values read from cybol application
 
         * Investigate meaning of and implement uint8_t t = e->response_type & (~0x80); in file "xcb_deserialiser.c"

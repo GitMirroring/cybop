@@ -19,16 +19,14 @@
     </node>
 
     <!-- Write knowledge tree into file. -->
-<!--
     <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="receiver" channel="inline" format="text/plain" model="TEST_gui_received.txt"/>
+        <node name="receiver" channel="inline" format="text/plain" model="test_gui_received.txt"/>
         <node name="message" channel="inline" format="text/cybol-path" model="."/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
     </node>
--->
 
     <!--
         CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.
