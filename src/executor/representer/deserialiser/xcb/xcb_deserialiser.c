@@ -238,7 +238,7 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 //??            if (d.data32[0] == (*dwcs).atom) {
 
                 // Assign close window event.
-                modify_item(p0, (void*) CLOSE_WINDOW_CLIENT_MESSAGE_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) CLOSE_WINDOW_CLIENT_MESSAGE_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+                modify_item(p0, (void*) CLOSE_WINDOW_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) CLOSE_WINDOW_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
             fwprintf(stdout, L"TEST deserialise xcb XCB_CLIENT_MESSAGE 9 p0: %i\n", p0);
 //??            }
             fwprintf(stdout, L"TEST deserialise xcb XCB_CLIENT_MESSAGE 10 t: %i\n", t);

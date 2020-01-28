@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-01-28  Christian Heller  <christian.heller@cybop.org>
+
+        * Move gui action handling files from directory "executor/representer/deserialiser/gui/" to "executor/representer/deserialiser/gui_action/"
+        * Create new file "executor/representer/deserialiser/gui_action/close_window_gui_action_deserialiser.c"
+        * Test close-window event in cybol application file "user_interface/gui/gui.cybol"
+
 2020-01-27  Christian Heller  <christian.heller@cybop.org>
 
         * Consider only the last in a row of multiple expose events in file "xcb_deserialiser.c", in order to avoid flickering of the display
@@ -30,17 +36,17 @@
 
 2020-01-22  Christian Heller  <christian.heller@cybop.org>
 
-        * Make cybol example application "hello_world/gui/" work
+        * Make cybol application "hello_world/gui/" work
         * Extend cybol base library in "examples/cybol/"
 
 2020-01-15  Christian Heller  <christian.heller@cybop.org>
 
         * Paint background colour of window (somewhat comparable to a root panel) in file "properties_gui_serialiser.c"
-        * Adapt cybol example application "user_interface/gui/"
+        * Adapt cybol application "user_interface/gui/"
 
 2019-12-08  Christian Heller  <christian.heller@cybop.org>
 
-        * Add and prepare cybol example application "examples/hello_world/gui/"
+        * Add and prepare cybol application "examples/hello_world/gui/"
 
 2019-12-07  Christian Heller  <christian.heller@cybop.org>
 
@@ -100,7 +106,7 @@
 
 2019-04-25  Christian Heller  <christian.heller@cybop.org>
 
-        * Fix memory access error with cybol example application "gui" where .gui.action (message of type text/plain) was used instead of .gui.window (sender of type part/element)
+        * Fix memory access error with cybol application "gui" where .gui.action (message of type text/plain) was used instead of .gui.window (sender of type part/element)
         * Adapt files "receiver.c" and "reader.c" (section DISPLAY_CYBOI_CHANNEL) where pointer reference was used mistakenly instead of normal pointer to copy sender source model into destination message
 
 2019-04-14  Christian Heller  <christian.heller@cybop.org>
@@ -199,7 +205,7 @@
 
 2018-11-10  Christian Heller  <christian.heller@cybop.org>
 
-        * Reorganise cybol example application directory using sub categories
+        * Reorganise cybol application directory using sub categories
 
 2018-11-08  Christian Heller  <christian.heller@cybop.org>
 
@@ -350,8 +356,8 @@
         * Optimise file "equal_part_comparator.c" by stopping comparison as soon as one of type, name, model, properties does not match
         * Add new files "minimum_integer_calculator.c" and "maximum_integer_calculator.c"
         * Determine minimum model count of operands before calling functions "compare", "calculate", "cast" (not applicable to "manipulate" and "modify")
-        * Rename existing cybol example application "calculator" into "calculator_tui"
-        * Use cybol example application "calculator" for testing arithmetic operations
+        * Rename existing cybol application "calculator" into "calculator_tui"
+        * Use cybol application "calculator" for testing arithmetic operations
         * Provide new cybol operations "calculate/minimum" and "calculate/maximum"
 
 2018-06-11  Christian Heller  <christian.heller@tuxtax.de>
@@ -364,7 +370,7 @@
         * Add files "scalar_count_comparator.c" and "vector_count_comparator.c" for testing result part count
         * Remove unused file "executor/representer/deserialiser/cybol/fraction_cybol_deserialiser.c"
         * Implement boolean vector cybol deserialiser, i.e. not just for one but for many values
-        * Adapt cybol example application "comparator" to using boolean result vectors and not just scalar result values
+        * Adapt cybol application "comparator" to using boolean result vectors and not just scalar result values
 
 2018-06-04  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -375,7 +381,7 @@
 2018-06-01  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt lexicographical flag in file "equal_part_comparator.c"
-        * Delete cybol example application "checker", since "comparator" covers string comparison via checker as well
+        * Delete cybol application "checker", since "comparator" covers string comparison via checker as well
         * Add new file "lexicographical_part_comparator.c"
 
 2018-05-31  Christian Heller  <christian.heller@tuxtax.de>
@@ -407,8 +413,8 @@
 
         * Add operand type as argument to all calls of function "check_array"
         * Simplify checker by deleting files "ascii_array_checker.c" and "internal_array_checker.c"
-        * Extend cybol example application "comparator" with primitive values
-        * Add new cybol example application "checker"
+        * Extend cybol application "comparator" with primitive values
+        * Add new cybol application "checker"
         * Delete file "applicator/check/character_check.c" filtering strings, since checker is now usable for all types
 
 2018-05-14  Christian Heller  <christian.heller@tuxtax.de>
@@ -416,7 +422,7 @@
         * Add new files "element_part_comparator.c", "unequal_part_comparator.c"
         * Rollback to old state of file "part_comparator.c"
         * Complete file "equal_part_comparator.c"
-        * Add new cybol example application "comparator"
+        * Add new cybol application "comparator"
 
 2018-05-08  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -429,7 +435,7 @@
 
 2018-04-30  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Fix sorting of db list "title" in cybol example application file "repertoire/logic/translate/song/sort.cybol", by using stack variable ".(#list)"
+        * Fix sorting of db list "title" in cybol application file "repertoire/logic/translate/song/sort.cybol", by using stack variable ".(#list)"
         * Add properties "count", "left_index", "right_index" to cybol operation "compare"
         * Fix comparison using sum of index and count (index forgotten up to now) in file "item_comparator"
 
@@ -452,7 +458,7 @@
 2018-04-22  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue file "part_bubble_sorter.c"
-        * Extend cybol example application "sort"
+        * Extend cybol application "sort"
 
 2018-04-20  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -484,7 +490,7 @@
 
         * Test dereferenced pointers for null in all files of pointer calculator, so that function "add_offset" does not produce wild pointers
         * Replace function call of "compare_element" with new checker in function "count_array_element" of file "executor/accessor/counter/array_counter.c"
-        * Adapt corresponding cybol example application "get_count"
+        * Adapt corresponding cybol application "get_count"
 
 2017-11-14  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -505,7 +511,7 @@
 2017-10-12  Christian Heller  <christian.heller@tuxtax.de>
 
         * Optimise lexicographical comparison functions in checker, by deleting redundant functions and using parametres instead
-        * Replace cybol example application "string_comparison" with "lexicographical_comparison"
+        * Replace cybol application "string_comparison" with "lexicographical_comparison"
         * Remove "all" comparator in directory "executor/comparator/"
         * Rename "value_comparator.c" into "comparator.c"
 
@@ -541,7 +547,7 @@
 
         * Complete bubble sorter
         * Decide that a "swapper" is not needed, since values are copied inside the sorter already
-        * Adapt cybol example application "sorter"
+        * Adapt cybol application "sorter"
 
 2017-06-03  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -558,7 +564,7 @@
 
 2017-05-02  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Add cybol example application "repertoire"
+        * Add cybol application "repertoire"
 
 2017-04-29  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -621,7 +627,7 @@
 2017-04-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Delete superfluous property "type" for container operations like "modify/overwrite" or "modify/append" in all cybol example applications and api documentation
-        * Verify correct execution of cybol example application "copier" for testing shallow- and deep (cloning) copying
+        * Verify correct execution of cybol application "copier" for testing shallow- and deep (cloning) copying
 
         * Replace function call "handle_properties" with "modify_item" (append) in file "controller/handler/part_handler.c", for stack memory
         * Remove then superfluous files "controller/handler/properties_handler.c" and "controller/handler/element_properties_handler.c"
@@ -731,16 +737,16 @@
 
 2017-03-06  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Optimise cybol example application "counter_stack_deep"
+        * Optimise cybol application "counter_stack_deep"
 
 2017-03-03  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Continue cybol example application "clean_result_directory"
+        * Continue cybol application "clean_result_directory"
 
 2017-02-28  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Optimise cybol example application "tui_control" using stack variable
-        * Rewrite cybol example application "clean_result_directory"
+        * Optimise cybol application "tui_control" using stack variable
+        * Rewrite cybol application "clean_result_directory"
 
 2017-02-26  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -750,14 +756,14 @@
 
         * Fix bug in file "executor/streamer/writer/signal/signal_writer.c" where signal memory part was used instead of signal memory part model item
         * Make cybol example applications using channel "signal" work again thereby
-        * Fix strange behaviour with red bars in menu of cybol example application "tui_control"
+        * Fix strange behaviour with red bars in menu of cybol application "tui_control"
 
 2017-02-23  Christian Heller  <christian.heller@tuxtax.de>
 
         * Find bug that stack variables were allocated repeatedly for each element of a part
         * Move stack handling from file "element_part_handler.c" to "part_handler.c"
         * Migrate cybol api documentation application to new knowledge path syntax with mime type "text/cybol-path"
-        * Migrate cybol example application "project_overview" to new knowledge path syntax with mime type "text/cybol-path"
+        * Migrate cybol application "project_overview" to new knowledge path syntax with mime type "text/cybol-path"
 
 2017-02-06  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -766,7 +772,7 @@
 
 2017-02-04  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Migrate cybol example application "project_overview" to new knowledge path syntax
+        * Migrate cybol application "project_overview" to new knowledge path syntax
         * Migrate cybol api documentation application to new knowledge path syntax
 
 2017-02-03  Christian Heller  <christian.heller@tuxtax.de>
@@ -778,8 +784,8 @@
 
         * Move memory prefix constants into file "memory_separator_knowledge_cyboi_name.c"
         * Fix processing of multiple knowledge path references by using a path copy in file "reference_knowledge_deserialiser.c"
-        * Rename cybol example application "index_usage" into "cybol-path_1"
-        * Rename cybol example application "cybol-path" into "cybol-path_2"
+        * Rename cybol application "index_usage" into "cybol-path_1"
+        * Rename cybol application "cybol-path" into "cybol-path_2"
         * Merge files "name_part_knowledge_deserialiser.c" and "index_part_knowledge_deserialiser.c" into new file "identification_knowledge_deserialiser.c"
         * Prepare knowledge path deserialiser for usage of integer literal as index
 
@@ -788,7 +794,7 @@
         * Debug knowledge memory deserialiser pointer error caused by wrong knowledge memory pointer forwarded in file "checker.c"
         * Debug knowledge memory deserialiser empty return value error caused by forgotten copy function in file "part_knowledge_deserialiser.c"
         * Replace number sign with colon in model diagram serialiser
-        * Write cybol example application "cybol-path" for testing knowledge path variants
+        * Write cybol application "cybol-path" for testing knowledge path variants
 
 2017-01-27  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -807,7 +813,7 @@
 2017-01-17  Christian Heller  <christian.heller@tuxtax.de>
 
         * Redesign knowledge deserialiser and knowledge selector in order to enable nested paths
-        * Add cybol example application "project_overview"
+        * Add cybol application "project_overview"
 
 2017-01-13  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -831,19 +837,19 @@
         * Remove cybol operations of mime category "inspect/", since all kinds of memory may now be accessed via knowledge path
         * Adapt file "name_part_knowledge_deserialiser.c" to also consider stack memory, so that file "stack_knowledge_deserialiser.c" may get deleted
         * Replace format "path/stack" with "path/knowledge" in all cybol example applications
-        * Replace format "path/reference" with "path/knowledge" in cybol example application "tui_control" and add "*" as prefix in affected knowledge paths
+        * Replace format "path/reference" with "path/knowledge" in cybol application "tui_control" and add "*" as prefix in affected knowledge paths
 
 2017-01-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Make stack memory and signal memory a part instead of just an item in file "manager.c" and related controller files
-        * Adapt cybol example application "counter" using new paths "/knowledge", "/stack", "/signal" for writing memory content into file using "communicate/send" operation
+        * Adapt cybol application "counter" using new paths "/knowledge", "/stack", "/signal" for writing memory content into file using "communicate/send" operation
 
 2017-01-04  Christian Heller  <christian.heller@tuxtax.de>
 
         * Provide new knowledge path separator name constant "/", followed by one of "knowledge", "signal", "stack", for memory access
         * Extend knowledge path deserialiser to retrieve all kinds of memory (knowledge, signal, stack)
         * Forward internal system memory to most functions to be able to get pointer reference to memory entries
-        * Adapt cybol example application "counter" to use new path "/knowledge" for receiving file "app.cybol" directly into knowledge tree root
+        * Adapt cybol application "counter" to use new path "/knowledge" for receiving file "app.cybol" directly into knowledge tree root
 
 2017-01-02  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -856,7 +862,7 @@
 
 2016-12-23  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Rename temporary "x" into cybol example application "password_generator"
+        * Rename temporary "x" into cybol application "password_generator"
         * Extend path handling with file "stack_knowledge_deserialiser.c", so that stack variables can be resolved, e.g. in ".app.(stack_variable_name).xyz"
 
 2016-12-21  Christian Heller  <christian.heller@tuxtax.de>
@@ -867,8 +873,8 @@
 
         * Add sort algorithms (quick, bubble) as cyboi operations of Alexander Heimann, Julius Krenkel, Paul Müller
         * Add cyboi shell commands of Leonard Franke, Jörg Broy, Richard Lüdtke
-        * Add cybol example application "password_generator" of Florian Aurich, Andre Noldin
-        * Add cybol example application game "bullsandcows" (mastermind) of Ronny Zingler
+        * Add cybol application "password_generator" of Florian Aurich, Andre Noldin
+        * Add cybol application game "bullsandcows" (mastermind) of Ronny Zingler
         * Add ide "Code::Blocks" project file and user manual of Kevin Klein, Tobias Donix
         * Prepare release CYBOP 0.18.0
         * Move tutorial for adding cybol operations to "doc/development/add_new_cybol_operation.txt"
@@ -879,7 +885,7 @@
         * Verify file "copier_tester.c"
         * Conclude not to provide a property (option) "deep" with format "logicvalue/boolean" to cybol operations "overwrite" and "append" etc.,
             and instead to take deep copying as default inside, since shallow copying might mix up the knowledge tree, e.g. with circular references
-        * Add cybol example application "copier" for testing shallow- and deep copying
+        * Add cybol application "copier" for testing shallow- and deep copying
         * Use function "copy_part" for cloning (deep copying) local stack variables in file "controller/handler/element_properties_handler.c"
 
 2016-12-08  Christian Heller  <christian.heller@tuxtax.de>
@@ -890,41 +896,41 @@
 2016-12-07  Christian Heller  <christian.heller@tuxtax.de>
 
         * Optimise file "knowledge_part_getter.c" using a recursive function call
-        * Replace format "text/plain" with "path/knowledge" for some parts of cybol example application "tui_control"
+        * Replace format "text/plain" with "path/knowledge" for some parts of cybol application "tui_control"
         * Conclude that deep copying is necessary for stack memory, but also shallow knowledge/reference paths may be copied
         * Make all data types work with stack memory, excluding "element/part" which needs cloning
 
 2016-12-01  Christian Heller  <christian.heller@tuxtax.de>
 
         * Provide blocking input on channel "terminal" for "communicate/receive" operation
-        * Make cybol example application "addition_user_input" work
+        * Make cybol application "addition_user_input" work
 
 2016-11-29  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Eliminate "segmentation fault" error caused by "sort" functions in "executor/sorter/" and cybol example application "sort"
-        * Investigate wrong values in sorted array delivered by "executor/sorter/" and cybol example application "sort"
+        * Eliminate "segmentation fault" error caused by "sort" functions in "executor/sorter/" and cybol application "sort"
+        * Investigate wrong values in sorted array delivered by "executor/sorter/" and cybol application "sort"
 
 2016-11-28  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Add cybol example application "addition_user_input" testing blocking terminal input
+        * Add cybol application "addition_user_input" testing blocking terminal input
         * Prepare release CYBOP 0.18.0
 
 2016-11-24  Christian Heller  <christian.heller@tuxtax.de>
 
         * Fix bug "bus error" caused by wrong loop index in file "lifo_array_name_finder.c",
-            appearing on some machines when executing cybol example application "counter_stack_deep"
+            appearing on some machines when executing cybol application "counter_stack_deep"
         * Replace some constant values like {L'm', L'v'} with string like L"mv" in directory "model"
 
 2016-11-20  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Create cybol example application "counter_stack_deep" to test LIFO-principle with equally named stack variables within three nested loops
+        * Create cybol application "counter_stack_deep" to test LIFO-principle with equally named stack variables within three nested loops
         * Adapt cyboi functions to offer part search by FIFO or LIFO principle
         * Deliver stack element that was added last in file "knowledge_part_getter.c"
 
 2016-11-15  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete stack memory handling (works only for integer values, until copy/clone is ready in the future)
-        * Use cybol example application "counter_stack" to test stack variables
+        * Use cybol application "counter_stack" to test stack variables
 
 2016-11-14  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -984,9 +990,9 @@
 2016-03-07  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add cyboi shell commands and cyboi operations of Christopher Stoneking, Christian Szech
-        * Add cybol example application game "minesweeper" [Minenräumer] of Matthias Thurow
-        * Add cybol example application game "blackjack" [Siebzehn und Vier] of Dmitry Brodskiy, Sven Haueisen, Jan Wellner
-        * Add cybol example application "webstat" of Markus Then, Stanley Sellig, Nico Schallehn
+        * Add cybol application game "minesweeper" [Minenräumer] of Matthias Thurow
+        * Add cybol application game "blackjack" [Siebzehn und Vier] of Dmitry Brodskiy, Sven Haueisen, Jan Wellner
+        * Add cybol application "webstat" of Markus Then, Stanley Sellig, Nico Schallehn
         * Add cybol api update of Christian Schulz, Lena Braun
         * Add german cybop manual update of Sebastian Wolff, Tobias Thurow
         * Add benchmark tool comparing cybol with c++, java, python of Sebastian Kloppe, Patrick Hebner
@@ -1035,17 +1041,17 @@
 
 2015-05-15  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Add "exit_application" action to cybol example application "presence"
+        * Add "exit_application" action to cybol application "presence"
         * Run valgrind test
 
 2015-04-29  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Create page links (for retrieval of images and css file) dynamically in cybol example application "presence", so that hostname (ip address) is correct
+        * Create page links (for retrieval of images and css file) dynamically in cybol application "presence", so that hostname (ip address) is correct
 
 2015-04-28  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug file "element_client_socket_shutter.c" where socket was retrieved as pointer instead of as int so that data were read from a phantasy socket
-        * Adapt cybol example application "presence" to properly close client socket after each request
+        * Adapt cybol application "presence" to properly close client socket after each request
 
 2015-04-20  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -1054,7 +1060,7 @@
 2015-04-17  Christian Heller  <christian.heller@tuxtax.de>
 
         * Correct usage of types "char" and "wchar_t" as well as comparison function in http serialiser
-        * Specify http headers in ".app.var" and ".app.wui" instead of in "send" operations in cybol example application "presence"
+        * Specify http headers in ".app.var" and ".app.wui" instead of in "send" operations in cybol application "presence"
         * Add directory "executor/accessor/getter/part/" ("name_part_getter.c" and "index_part_getter.c" calling "knowledge_part_getter.c")
         * Adapt file "header_entry_http_response_serialiser.c" to use new file "index_part_getter.c"
 
@@ -1064,26 +1070,26 @@
 
 2015-04-14  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Add shell script in directory "bin" for starting cybol example application "presence"
-        * Add http header properties in file "send.cybol" for sent messages in cybol example application "presence"
+        * Add shell script in directory "bin" for starting cybol application "presence"
+        * Add http header properties in file "send.cybol" for sent messages in cybol application "presence"
         * Investigate favicon handling by testing formats ico and png
-        * Close client socket after each request in file "handle.cybol" in cybol example application "presence", solving problem with socket endless loop reading data
-        * Accept more than just one client request in cybol example application "presence"
+        * Close client socket after each request in file "handle.cybol" in cybol application "presence", solving problem with socket endless loop reading data
+        * Accept more than just one client request in cybol application "presence"
 
 2015-04-12  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Add cybol example application "indicate" for testing cybol operations "access/indicate-empty" and "access/indicate-exists"
-        * Set default values in wui cell for non-existing database in cybol example application "presence"
-        * Implement "cal_to_wui" translation in cybol example application "presence"
-        * Improve formatting and add still missing data in cybol example application "presence"
+        * Add cybol application "indicate" for testing cybol operations "access/indicate-empty" and "access/indicate-exists"
+        * Set default values in wui cell for non-existing database in cybol application "presence"
+        * Implement "cal_to_wui" translation in cybol application "presence"
+        * Improve formatting and add still missing data in cybol application "presence"
 
 2015-04-10  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Create non-existing directories before writing persistent data to file in cybol example application "presence"
+        * Create non-existing directories before writing persistent data to file in cybol application "presence"
 
 2015-04-09  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Implement cybol example application "presence" "forward" and "backward" logic, counting calendar week up and down
+        * Implement cybol application "presence" "forward" and "backward" logic, counting calendar week up and down
 
 2015-04-08  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -1098,8 +1104,8 @@
 2015-03-27  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete cybol element/part serialiser by initialising destination nodes properly
-        * Complete cybol example application "presence" uri-to-db translation
-        * Rename all cybol example application "presence" xml tags (model, part, property, constraint) uniformly to just "node"
+        * Complete cybol application "presence" uri-to-db translation
+        * Rename all cybol application "presence" xml tags (model, part, property, constraint) uniformly to just "node"
 
 2015-03-24  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -1116,9 +1122,9 @@
 
 2015-03-16  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Implement cybol example application "presence" uri-to-wui translation
-        * Implement cybol example application "presence" uri-to-db translation
-        * Restructure cybol example application "presence" source files using new directory "domain"
+        * Implement cybol application "presence" uri-to-wui translation
+        * Implement cybol application "presence" uri-to-db translation
+        * Restructure cybol application "presence" source files using new directory "domain"
 
 2015-03-15  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -1126,62 +1132,62 @@
 
 2015-03-14  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Implement cybol example application "presence" db-to-wui uri href translation
+        * Implement cybol application "presence" db-to-wui uri href translation
 
 2015-03-12  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Optimise and reset cybol example application "presence" loop variables
-        * Implement cybol example application "presence" db-to-wui translation
+        * Optimise and reset cybol application "presence" loop variables
+        * Implement cybol application "presence" db-to-wui translation
 
 2015-03-11  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Generate cybol example application "presence" wui tables "choices" and "lecturers" dynamically
+        * Generate cybol application "presence" wui tables "choices" and "lecturers" dynamically
 
 2015-03-10  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Design cybol example application "presence" architecture
+        * Design cybol application "presence" architecture
 
 2015-03-09  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Fix bug that images were not transferred in cybol example application "presence", since encoding got assigned in file "content_element_part_cybol_deserialiser.c" but is later tested for null
-        * Implement cybol example application "presence" wui overview, lecturers, choice
+        * Fix bug that images were not transferred in cybol application "presence", since encoding got assigned in file "content_element_part_cybol_deserialiser.c" but is later tested for null
+        * Implement cybol application "presence" wui overview, lecturers, choice
 
 2015-03-07  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Implement cybol example application "presence" wui navigation
+        * Implement cybol application "presence" wui navigation
         * Adapt default values in file "content_element_part_cybol_deserialiser.c"
 
 2015-03-05  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Implement cybol example application "presence" web user interface (wui)
+        * Implement cybol application "presence" web user interface (wui)
 
 2015-03-04  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Complete cybol example application "presence" prototype
+        * Complete cybol application "presence" prototype
 
 2015-03-03  Christian Heller  <christian.heller@tuxtax.de>
 
         * Fix bug that http response body was not serialised without encoding
-        * Add favicon to cybol example application "www_server_static"
+        * Add favicon to cybol application "www_server_static"
 
 2015-03-02  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Rename cybol example application "www_server" into "www_server_dynamic"
-        * Add new cybol example application "www_server_static" delivering static files to clients
+        * Rename cybol application "www_server" into "www_server_dynamic"
+        * Add new cybol application "www_server_static" delivering static files to clients
         * Add new language "message/binary" for arbitrary data
         * Delete file "http_request_selector.c", since http/webdav method should get evaluated in cybol application
-        * Continue cybol example application "presence" prototype
+        * Continue cybol application "presence" prototype
 
 2015-03-01  Christian Heller  <christian.heller@tuxtax.de>
 
         * Move property "language indentation" retrieval from function "apply_send" to serialiser
-        * Debug cybol example application "www_server" adding "encoding" for webpage
-        * Extend cybol example application "www_server" web user interface
-        * Implement dynamic transfer of file "formatting.css" in cybol example application "www_server"
+        * Debug cybol application "www_server" adding "encoding" for webpage
+        * Extend cybol application "www_server" web user interface
+        * Implement dynamic transfer of file "formatting.css" in cybol application "www_server"
 
 2015-02-26  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Generate webpage in cybol example application "www_server" before sending it via http
+        * Generate webpage in cybol application "www_server" before sending it via http
 
 2015-02-25  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -1242,8 +1248,8 @@
 2015-02-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Search function calls "deallocate_array" and hand over NULL as "count" argument
-        * Rename cybol example application "TicTacToe" into "tictactoe"
-        * Rename cybol example application "wui_socket" into "www_server"
+        * Rename cybol application "TicTacToe" into "tictactoe"
+        * Rename cybol application "wui_socket" into "www_server"
 
 2015-02-04  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -1256,7 +1262,7 @@
 
         * Add socket "blocking" property to cybol and cyboi
         * Fix endless loop bug in file "message_socket_receiver.c"
-        * Complete "socket" cybol example application using non-blocking server and blocking client
+        * Complete "socket" cybol application using non-blocking server and blocking client
 
 2015-01-30  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -1402,7 +1408,7 @@
 2014-12-02  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add cyboi shell commands (ping, grep, traceroute, diff, sort) and cyboi operations (square, squareroot) of Maximilian Brenner
-        * Add cybol example application "calculator" of Sibylle Hebenstreit, Marc Jäkel, Andreas Burkhardt
+        * Add cybol application "calculator" of Sibylle Hebenstreit, Marc Jäkel, Andreas Burkhardt
         * Add cybol example game "TicTacToe" [Drei gewinnt] (single user mode, with tui) of Sandra Rum, Stephan Griese, Thomas Schulze
         * Add cybol api update of Max Müller-Domhardt, Sebastian König
         * Add gui designer "cybol_generator" based on C++/Qt/QtCreator/QtDesigner with cybol/xml generator of Pit Braunsdorf, Sophia Kledzinski
@@ -1421,12 +1427,12 @@
 
 2014-11-29  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Optimise cybol example application "TicTacToe"
+        * Optimise cybol application "TicTacToe"
 
 2014-11-28  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug API generator so that properties are now generated correctly
-        * Add new cybol example application "arithmetics"
+        * Add new cybol application "arithmetics"
         * Debug modulo operator handling
 
 2014-11-27  Christian Heller  <christian.heller@tuxtax.de>
@@ -1439,9 +1445,9 @@
 2014-11-25  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug formula considering minimum and maximum in directory "executor/randomiser/"
-        * Remove outdated cybol example application "calculator_old"
-        * Extend cybol example application "calculator" by action handling
-        * Extend cybol example application "wui_socket" by "socket" property
+        * Remove outdated cybol application "calculator_old"
+        * Extend cybol application "calculator" by action handling
+        * Extend cybol application "wui_socket" by "socket" property
 
 2014-11-24  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -1449,7 +1455,7 @@
         * Change datatype from "int" to "long long int" at some places
         * Add modulo operator calculation as temporary solution to file "executor/randomiser/retriever.c"
         * Add address families "AF_IRDA" and "AF_BLUETOOTH" to socket files
-        * Update cybol example application "wui_socket"
+        * Update cybol application "wui_socket"
         * Move network protocols like http and ftp from channel constants to new file "constant/model/cybol/socket/service_socket_cybol_model.c"
         * Replace channels "cyboi" and "www" with "socket"
         * Provide cybol socket properties "service" and "port" as constants
@@ -1508,15 +1514,15 @@
 
 2014-10-24  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Add cybol example application "string_comparison"
+        * Add cybol application "string_comparison"
 
 2014-10-19  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Prepare cybol example application "wui_socket" for Max Brenner
+        * Prepare cybol application "wui_socket" for Max Brenner
 
 2014-10-14  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Update and rename cybol example application "http_communication" into "wui_socket"
+        * Update and rename cybol application "http_communication" into "wui_socket"
 
 2014-06-17  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -1626,8 +1632,8 @@
 
 2014-01-31  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Extend "ui" cybol example application with wui and tui
-        * Rename "ui_control" cybol example application into "tui_control"
+        * Extend "ui" cybol application with wui and tui
+        * Rename "ui_control" cybol application into "tui_control"
 
 2014-01-29  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -1805,7 +1811,7 @@
 
         * Add further entries in file "format_field_xdt_deserialiser.c", following deprecated BDT standards 2.7 and 1994-2
         * Use PLAIN_TEXT_STATE_CYBOI_FORMAT for unknown field identifications and show warning in generated output, by default
-        * Add "datetime" cybol example application for testing various date formats
+        * Add "datetime" cybol application for testing various date formats
 
 2013-09-25  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -2124,7 +2130,7 @@
 
 2013-04-09  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Enable x window system sense and receive with cybol example application "gui"
+        * Enable x window system sense and receive with cybol application "gui"
 
 2013-04-07  Tobias Köhler  <tk@snake-universe.tk>
 
@@ -2180,11 +2186,11 @@
 
 2013-03-22  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Debug and complete cybol example application "indoor_climate"
+        * Debug and complete cybol application "indoor_climate"
 
 2013-03-21  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Use format "number/byte" instead of "text/ascii" in cybol example application "indoor_climate"
+        * Use format "number/byte" instead of "text/ascii" in cybol application "indoor_climate"
 
 2013-03-20  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -2200,22 +2206,22 @@
 
 2013-03-18  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Change format of some variables from "number/integer" into "text/ascii" in cybol example application "indoor_climate"
+        * Change format of some variables from "number/integer" into "text/ascii" in cybol application "indoor_climate"
         * Adapt files "cybol_deserialiser.c" and "cybol_serialiser.c" to process format "text/ascii"
         * Add directory "executor/calculator/basic/character/" for arithmetics with type "unsigned char"
 
 2013-03-17  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Debug cybol example application "double"
+        * Debug cybol application "double"
         * Use "fabs" for "double" instead of "abs" for "int" for "calculate/absolute" cybol operation
         * Add directory "executor/caster/" for casting various types
 
 2013-03-15  Christian Heller  <christian.heller@tuxtax.de>
 
         * Correct "executor/accessor/counter/" to return item count for primitive data without filtering, since they do not have a name to compare with
-        * Add "reset" operations to cybol example application "indoor_climate"
+        * Add "reset" operations to cybol application "indoor_climate"
         * Add "minimum" and "maximum" number of characters to read to cybol operation "communicate/receive",
-            since the cybol example application "indoor_climate" also needs to be able to read zero values,
+            since the cybol application "indoor_climate" also needs to be able to read zero values,
             so that using zero as end-of-file character has to be combined with minimum and maximum
         * Adapt directory "executor/communicator/receiver/serial_port/" accordingly
 
@@ -2226,7 +2232,7 @@
 
 2013-03-11  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Implement temperature sensor query loop in cybol example application "indoor_climate"
+        * Implement temperature sensor query loop in cybol application "indoor_climate"
         * Provide "run/sleep" operation to cybol using "nanosleep" inside cyboi
         * Use cyboi-internal "sleep_duration" function for sensing thread interruption
 
@@ -2239,7 +2245,7 @@
 
 2013-03-08  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Test cybol example application "indoor_climate" on temperature sensor microcontroller device
+        * Test cybol application "indoor_climate" on temperature sensor microcontroller device
         * Implement "null_termination" boolean property of operation "communicate/send" in cyboi, needed to send string commands to microcontroller device
         * Use "modify/empty" instead of "modify/overwrite" for buffer reset
         * Add file "typecast_decoder.c" to cyboi for converting "unsigned char" to "int" within cybol application,
@@ -2255,17 +2261,17 @@
 
 2013-03-06  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Adapt cybol example application "indoor_climate" using "modify/overwrite" operation for accessing buffer elements
+        * Adapt cybol application "indoor_climate" using "modify/overwrite" operation for accessing buffer elements
 
 2013-03-05  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Adapt cybol example application "indoor_climate"
+        * Adapt cybol application "indoor_climate"
         * Add terminal mode line speed serialiser necessary for converting integer to POSIX.1 baudrate symbols
 
 2013-03-04  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt startup/shutdown files with open/close function and attributes for serial port communication
-        * Prepare cybol example application "indoor_climate"
+        * Prepare cybol application "indoor_climate"
 
 2013-03-03  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -2495,14 +2501,14 @@
 
         * Add decimal fraction de-/serialiser and calculator
         * Update "cybol_extension" tutorial and add presentation
-        * Add cybol example application "double" calculating double numbers
+        * Add cybol application "double" calculating double numbers
 
 2012-08-15  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete character reference serialiser
         * Call character reference serialiser for primitive parts in html serialiser, replacing special characters like < with masked characters
         * Replace space character in primitive parts with no-break space, so that indentations are correct and spaces respected by web browsers
-        * Extend cybol example application "wui" with external text file to test replacement with numeric character references
+        * Extend cybol application "wui" with external text file to test replacement with numeric character references
         * Adapt cybol specification files accordingly
         * Delete outdated directories "executor/representer/deserialiser/escape/" and "executor/representer/serialiser/escape/"
 
@@ -2535,7 +2541,7 @@
 
 2012-08-06  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Make cybol example application "ui_control" function fully again
+        * Make cybol application "ui_control" function fully again
         * Remove irq and mutex of signal memory, since signals are placed there in the main thread only;
             a signal memory wakeup cannot come from the sleeping main thread itself,
             but only from outside (terminal, socket etc.), so that irqs for these channels suffice;
@@ -2544,7 +2550,7 @@
 2012-08-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Clean up bug that "path/encapsulated" constant was not renamed into "path/reference" yet
-        * Add cybol example application "index_usage" for testing knowledge path names and -indices
+        * Add cybol application "index_usage" for testing knowledge path names and -indices
 
 2012-08-02  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -2561,13 +2567,13 @@
         * Fix bug in file "handler.c" that handed over the signal model as parametre, which got manipulated by the
             "deserialise_knowledge" function, so that following operation calls of type "path/knowledge" were empty
             (the same bug was already fixed in file "knowledge_part_getter.c")
-        * Complete cybol example application "tui"
-        * Debug cybol example application "ui_control"
+        * Complete cybol application "tui"
+        * Debug cybol application "ui_control"
 
 2012-07-31  Christian Heller  <christian.heller@tuxtax.de>
 
         * Rename cybol format "path/encapsulated" into "path/reference"
-        * Debug cybol example application "tui"
+        * Debug cybol application "tui"
 
 2012-07-30  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -2576,18 +2582,18 @@
 
 2012-07-27  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Continue cybol example application "tui" for demonstrating text user interface
+        * Continue cybol application "tui" for demonstrating text user interface
         * Fix bug that detected irq was reset before having handled a signal, leading to multi-detection of the same data
 
 2012-07-26  Christian Heller  <christian.heller@tuxtax.de>
 
         * Search bug in terminal input and "ui_control" cybol example application
-        * Add cybol example application "tui" for demonstrating text user interface
+        * Add cybol application "tui" for demonstrating text user interface
 
 2012-07-25  Christian Heller  <christian.heller@tuxtax.de>
 
         * Optimise html serialiser to produce correct line break, indentation and empty tags
-        * Add cybol example application "wui" for demonstrating html generation
+        * Add cybol application "wui" for demonstrating html generation
         * Remove obsolete constants (equal-part, equal-prefix, equal-suffix) in file "logic_cybol_format.c"
 
 2012-07-24  Christian Heller  <christian.heller@tuxtax.de>
@@ -2595,12 +2601,12 @@
         * Decide that extending the knowledge path syntax with ? is NOT useful for accessing a part's name,
             since a reference to the name gets returned, which may not be processed in cybol
         * Implement "access/get-name" cybol operation for retrieving a part's name
-        * Add cybol example application "knowledge_tree_access" for testing retrieval of a part's name
+        * Add cybol application "knowledge_tree_access" for testing retrieval of a part's name
 
 2012-07-23  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete "represent/serialise" and "represent/deserialise" cybol operations
-        * Add cybol example application "addition_using_serialisation" for testing de-/serialisation
+        * Add cybol application "addition_using_serialisation" for testing de-/serialisation
         * Remove useless operation "access/get" replaced by extended knowledge path syntax
         * Try to extend knowledge path syntax with ? accessing a part's name
 
@@ -2612,7 +2618,7 @@
 
         * Complete handling of index in knowledge path
         * Remove old files "branch_part_getter.c", "hierarchical_part_getter.c", "branch_knowledge_selector.c", "name_knowledge_selector.c"
-        * Add cybol example application "addition_using_indices" for testing knowledge paths containing an index
+        * Add cybol application "addition_using_indices" for testing knowledge paths containing an index
 
 2012-07-17  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -2690,7 +2696,7 @@
 
         * Move some ansi escape code serialiser files to directory "selector" and use detector instead of pure comparison
         * Add "emptier" functionality (calling "remover" internally) to applicator and executor
-        * Adapt cybol example application "ui_control" using new emptier functionality in file "handle_gnu_linux_console.cybol"
+        * Adapt cybol application "ui_control" using new emptier functionality in file "handle_gnu_linux_console.cybol"
 
 2012-06-08  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -2708,7 +2714,7 @@
         * Fix bug that old string-based cybol channel constants were used instead of new integer-based ones,
             so that not all service functions were invoked, no terminal file descriptor created,
             therefore (due to null pointer test) no wait function called, so that the cyboi process ran on 100 %
-        * Debug cybol example application "ui_control"
+        * Debug cybol application "ui_control"
         * Activate terminal receipt and ansi escape code deserialisation
 
 2012-06-03  Christian Heller  <christian.heller@tuxtax.de>
@@ -2748,7 +2754,7 @@
 
 2012-05-22  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Rename cybol example application directory "signal/" into "exit_signal/"
+        * Rename cybol application directory "signal/" into "exit_signal/"
         * Optimise usage of type constants (use format instead of type; delete redundant types)
         * Search memory allocation bug occuring on 64 Bit machines
 
@@ -2758,14 +2764,14 @@
 
 2012-05-20  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Fix missing selection bar in menu of cybol example application "ui_control"
+        * Fix missing selection bar in menu of cybol application "ui_control"
             (used wrong type "plain/text" instead of "text/plain" in cybol)
         * Enable operations "startup" and "shutdown"
         * Enable operations "sense" and "interrupt"
 
 2012-05-19  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Adapt cybol example application "ui_control" using text user interface based on ansi escape code
+        * Adapt cybol application "ui_control" using text user interface based on ansi escape code
         * Fix border display in example application "ui_control"
         * Prepare operations "startup" and "shutdown"
 
@@ -2773,7 +2779,7 @@
 
         * Continue ansi escape code serialiser (properties, rectangle, border characters)
         * Add boolean operations in directory "executor/logifier/"
-        * Adapt cybol example application "helloworld" using text user interface based on ansi escape code
+        * Adapt cybol application "helloworld" using text user interface based on ansi escape code
 
 2012-05-17  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -2790,7 +2796,7 @@
 
 2012-05-08  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Adapt cybol example application "shell_command_execution" using file operations
+        * Adapt cybol application "shell_command_execution" using file operations
 
 2012-05-07  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -2813,11 +2819,11 @@
         * Fix bug in file "knowledge_part_getter.c" where original pointers were forwarded
             as parametres and "count" accidentally decreased to zero, so that knowledge paths
             could be accessed correctly only once and not anymore afterwards
-        * Make cybol example application "counter_static_model" work
+        * Make cybol application "counter_static_model" work
 
 2012-05-03  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Search bug appearing with "counter" cybol example application and function "apply_loop"
+        * Search bug appearing with "counter" cybol application and function "apply_loop"
 
 2012-05-01  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -2861,7 +2867,7 @@
 
         * Correct usage of cybol "format" and "type" property in "apply_send" and "apply_receive"
         * Hand over both, format and type as parametre to "send" and "serialise" functions
-        * Make cybol example application "addition" work
+        * Make cybol application "addition" work
 
 2012-04-16  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -3450,7 +3456,7 @@
 2011-05-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete file "model_comparator.c"
-        * Add "if-else" cybol example application of Andy Röhr
+        * Add "if-else" cybol application of Andy Röhr
 
 2011-05-03  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -3618,7 +3624,7 @@
 2011-01-12  Christian Heller  <christian.heller@tuxtax.de>
 
         * Make http communication work fully
-        * Create new cybol example application "presence"
+        * Create new cybol application "presence"
 
 2011-01-11  Christian Heller  <christian.heller@tuxtax.de>
 

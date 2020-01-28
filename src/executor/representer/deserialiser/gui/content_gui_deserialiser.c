@@ -32,14 +32,15 @@
 #include "../../../../constant/model/cybol/xcb/event_xcb_cybol_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/checker/operation_checker.c"
-#include "../../../../executor/representer/deserialiser/gui/button_press_mouse_gui_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/gui/button_release_mouse_gui_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/gui/enter_notify_gui_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/gui/expose_gui_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/gui/key_press_keyboard_gui_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/gui/key_release_keyboard_gui_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/gui/leave_notify_gui_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/gui/motion_notify_mouse_gui_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/gui_action/button_press_gui_action_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/gui_action/button_release_gui_action_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/gui_action/close_window_gui_action_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/gui_action/enter_notify_gui_action_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/gui_action/expose_gui_action_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/gui_action/key_press_gui_action_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/gui_action/key_release_gui_action_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/gui_action/leave_notify_gui_action_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/gui_action/motion_notify_gui_action_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -79,7 +80,7 @@ void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_mouse_button_press(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+            deserialise_gui_action_button_press(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
         }
     }
 
@@ -89,7 +90,87 @@ void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_mouse_button_release(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17);
+            deserialise_gui_action_button_release(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) CIRCULATE_NOTIFY_EVENT_XCB_CYBOL_MODEL, p11, (void*) CIRCULATE_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui_action_circulate_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) CIRCULATE_REQUEST_EVENT_XCB_CYBOL_MODEL, p11, (void*) CIRCULATE_REQUEST_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui_action_circulate_request(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) CLOSE_WINDOW_EVENT_XCB_CYBOL_MODEL, p11, (void*) CLOSE_WINDOW_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_gui_action_close_window(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) COLORMAP_NOTIFY_EVENT_XCB_CYBOL_MODEL, p11, (void*) COLORMAP_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui_action_colormap_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) CONFIGURE_NOTIFY_EVENT_XCB_CYBOL_MODEL, p11, (void*) CONFIGURE_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui_action_configure_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) CONFIGURE_REQUEST_EVENT_XCB_CYBOL_MODEL, p11, (void*) CONFIGURE_REQUEST_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui_action_configure_request(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) CREATE_NOTIFY_EVENT_XCB_CYBOL_MODEL, p11, (void*) CREATE_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui_action_create_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) DESTROY_NOTIFY_EVENT_XCB_CYBOL_MODEL, p11, (void*) DESTROY_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui_action_destroy_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
         }
     }
 
@@ -99,7 +180,7 @@ void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_enter_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+            deserialise_gui_action_enter_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
         }
     }
 
@@ -109,7 +190,57 @@ void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_expose(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+            deserialise_gui_action_expose(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) FOCUS_IN_EVENT_XCB_CYBOL_MODEL, p11, (void*) FOCUS_IN_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui_action_focus_in(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) FOCUS_OUT_EVENT_XCB_CYBOL_MODEL, p11, (void*) FOCUS_OUT_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui_action_focus_out(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) GE_GENERIC_EVENT_XCB_CYBOL_MODEL, p11, (void*) GE_GENERIC_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui_action_ge_generic(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) GRAPHICS_EXPOSURE_EVENT_XCB_CYBOL_MODEL, p11, (void*) GRAPHICS_EXPOSURE_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui_action_graphics_exposure(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) GRAVITY_NOTIFY_EVENT_XCB_CYBOL_MODEL, p11, (void*) GRAVITY_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui_action_gravity_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
         }
     }
 
@@ -119,7 +250,7 @@ void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_keyboard_key_press(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+            deserialise_gui_action_key_press(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
         }
     }
 
@@ -129,7 +260,17 @@ void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_keyboard_key_release(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+            deserialise_gui_action_key_release(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) KEYMAP_NOTIFY_EVENT_XCB_CYBOL_MODEL, p11, (void*) KEYMAP_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui_action_keymap_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
         }
     }
 
@@ -139,7 +280,37 @@ void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_leave_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+            deserialise_gui_action_leave_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) MAP_NOTIFY_EVENT_XCB_CYBOL_MODEL, p11, (void*) MAP_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui_action_map_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) MAP_REQUEST_EVENT_XCB_CYBOL_MODEL, p11, (void*) MAP_REQUEST_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui_action_map_request(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) MAPPING_NOTIFY_EVENT_XCB_CYBOL_MODEL, p11, (void*) MAPPING_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui_action_mapping_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
         }
     }
 
@@ -149,7 +320,97 @@ void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_mouse_motion_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+            deserialise_gui_action_motion_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) NO_EXPOSURE_EVENT_XCB_CYBOL_MODEL, p11, (void*) NO_EXPOSURE_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui_action_no_exposure(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) PROPERTY_NOTIFY_EVENT_XCB_CYBOL_MODEL, p11, (void*) PROPERTY_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui_action_property_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) REPARENT_NOTIFY_EVENT_XCB_CYBOL_MODEL, p11, (void*) REPARENT_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui_action_reparent_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) RESIZE_REQUEST_EVENT_XCB_CYBOL_MODEL, p11, (void*) RESIZE_REQUEST_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui_action_resize_request(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) SELECTION_CLEAR_EVENT_XCB_CYBOL_MODEL, p11, (void*) SELECTION_CLEAR_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui_action_selection_clear(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) SELECTION_NOTIFY_EVENT_XCB_CYBOL_MODEL, p11, (void*) SELECTION_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui_action_selection_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) SELECTION_REQUEST_EVENT_XCB_CYBOL_MODEL, p11, (void*) SELECTION_REQUEST_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui_action_selection_request(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) UNMAP_NOTIFY_EVENT_XCB_CYBOL_MODEL, p11, (void*) UNMAP_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui_action_unmap_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p10, (void*) VISIBILITY_NOTIFY_EVENT_XCB_CYBOL_MODEL, p11, (void*) VISIBILITY_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            deserialise_gui_action_visibility_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
         }
     }
 }

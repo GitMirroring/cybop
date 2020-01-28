@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BUTTON_RELEASE_MOUSE_GUI_DESERIALISER_SOURCE
-#define BUTTON_RELEASE_MOUSE_GUI_DESERIALISER_SOURCE
+#ifndef BUTTON_RELEASE_GUI_ACTION_DESERIALISER_SOURCE
+#define BUTTON_RELEASE_GUI_ACTION_DESERIALISER_SOURCE
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -53,7 +53,7 @@
 void deserialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14);
 
 /**
- * Deserialises a gui mouse button release event.
+ * Deserialises a gui action button release event.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
@@ -74,7 +74,7 @@ void deserialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
  * @param p16 the window parent coordinates origo y
  * @param p17 the loop break flag
  */
-void deserialise_gui_mouse_button_release(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
+void deserialise_gui_action_button_release(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
 
     if (p13 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -84,7 +84,7 @@ void deserialise_gui_mouse_button_release(void* p0, void* p1, void* p2, void* p3
 
             int* mx = (int*) p12;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui mouse button release.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui action button release.");
 
             // The position part.
             void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -109,10 +109,10 @@ void deserialise_gui_mouse_button_release(void* p0, void* p1, void* p2, void* p3
             int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
 /*??
-            fwprintf(stdout, L"TEST: Deserialise gui mouse button release. event name count p11: %i\n", p11);
-            fwprintf(stdout, L"TEST: Deserialise gui mouse button release. event name count *p11: %i\n", *((int*) p11));
-            fwprintf(stdout, L"TEST: Deserialise gui mouse button release. event name data p10: %i\n", p10);
-            fwprintf(stdout, L"TEST: Deserialise gui mouse button release. event name data p10 as string: %ls\n", (wchar_t*) p10);
+            fwprintf(stdout, L"TEST: Deserialise gui action button release. event name count p11: %i\n", p11);
+            fwprintf(stdout, L"TEST: Deserialise gui action button release. event name count *p11: %i\n", *((int*) p11));
+            fwprintf(stdout, L"TEST: Deserialise gui action button release. event name data p10: %i\n", p10);
+            fwprintf(stdout, L"TEST: Deserialise gui action button release. event name data p10 as string: %ls\n", (wchar_t*) p10);
 */
 
             // Get position part.
@@ -146,19 +146,17 @@ void deserialise_gui_mouse_button_release(void* p0, void* p1, void* p2, void* p3
             copy_array_forward((void*) &amd, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
             copy_array_forward((void*) &amc, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-            //?? TODO
-
             // Add parent position coordinate to element position coordinate.
             calculate_integer_add((void*) &x, p15);
             calculate_integer_add((void*) &y, p16);
 
 /*??
-            fwprintf(stdout, L"TEST: Deserialise gui mouse button release. x: %i\n", x);
-            fwprintf(stdout, L"TEST: Deserialise gui mouse button release. y: %i\n", y);
-            fwprintf(stdout, L"TEST: Deserialise gui mouse button release. w: %i\n", w);
-            fwprintf(stdout, L"TEST: Deserialise gui mouse button release. h: %i\n", h);
-            fwprintf(stdout, L"TEST: Deserialise gui mouse button release. *mx: %i\n", *mx);
-            fwprintf(stdout, L"TEST: Deserialise gui mouse button release. *my: %i\n", *my);
+            fwprintf(stdout, L"TEST: Deserialise gui action button release. x: %i\n", x);
+            fwprintf(stdout, L"TEST: Deserialise gui action button release. y: %i\n", y);
+            fwprintf(stdout, L"TEST: Deserialise gui action button release. w: %i\n", w);
+            fwprintf(stdout, L"TEST: Deserialise gui action button release. h: %i\n", h);
+            fwprintf(stdout, L"TEST: Deserialise gui action button release. *mx: %i\n", *mx);
+            fwprintf(stdout, L"TEST: Deserialise gui action button release. *my: %i\n", *my);
 */
 
             //
@@ -171,7 +169,7 @@ void deserialise_gui_mouse_button_release(void* p0, void* p1, void* p2, void* p3
             //
             if ((*mx >= x) && (*my >= y) && (*mx < (x + w)) && (*my < (y + h))) {
 
-//??                fwprintf(stdout, L"TEST: Deserialise gui mouse button release. The mouse x- and y coordinate are within the gui element's area.\n");
+//??                fwprintf(stdout, L"TEST: Deserialise gui action button release. The mouse x- and y coordinate are within the gui element's area.\n");
 
                 //
                 // Set break flag, so that the loop can be left in the next cycle.
@@ -191,16 +189,17 @@ void deserialise_gui_mouse_button_release(void* p0, void* p1, void* p2, void* p3
                         // CAUTION! The action is NOT assigned if it is null,
                         // which is checked inside the function called below.
                         // However, in order to avoid unnecessary warnings and
-                        // to speed up processing, a null pointer check is done here.
+                        // to speed up processing, an additional null pointer check
+                        // is done here above.
                         //
 
 /*??
-                        fwprintf(stdout, L"TEST: Deserialise gui mouse button release. Modify overwrite action.\n");
+                        fwprintf(stdout, L"TEST: Deserialise gui action button release. Modify overwrite action.\n");
 
-                        fwprintf(stdout, L"TEST: Deserialise gui mouse button release. amc: %i\n", amc);
-                        fwprintf(stdout, L"TEST: Deserialise gui mouse button release. *amc: %i\n", *((int*) amc));
-                        fwprintf(stdout, L"TEST: Deserialise gui mouse button release. amd: %i\n", amd);
-                        fwprintf(stdout, L"TEST: Deserialise gui mouse button release. (wchar_t*) amd: %ls\n", (wchar_t*) amd);
+                        fwprintf(stdout, L"TEST: Deserialise gui action button release. amc: %i\n", amc);
+                        fwprintf(stdout, L"TEST: Deserialise gui action button release. *amc: %i\n", *((int*) amc));
+                        fwprintf(stdout, L"TEST: Deserialise gui action button release. amd: %i\n", amd);
+                        fwprintf(stdout, L"TEST: Deserialise gui action button release. (wchar_t*) amd: %ls\n", (wchar_t*) amd);
 */
 
                         //
@@ -211,14 +210,14 @@ void deserialise_gui_mouse_button_release(void* p0, void* p1, void* p2, void* p3
 
                     } else {
 
-                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui mouse button release. The action part model data is null.");
-                        //?? fwprintf(stdout, L"Error: Could not deserialise gui mouse button release. The action part model data is null.\n");
+                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui action button release. The action part model data is null.");
+                        //?? fwprintf(stdout, L"Error: Could not deserialise gui action button release. The action part model data is null.\n");
                     }
 
                 } else {
 
-                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui mouse button release. The message format is not text/plain.");
-                    fwprintf(stdout, L"Error: Could not deserialise gui mouse button release. The message format is not text/plain.\n");
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui action button release. The message format is not text/plain.");
+                    fwprintf(stdout, L"Error: Could not deserialise gui action button release. The message format is not text/plain.\n");
                 }
 
                 //
@@ -233,16 +232,16 @@ void deserialise_gui_mouse_button_release(void* p0, void* p1, void* p2, void* p3
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui mouse button release. The event x coordinate is null.");
-            fwprintf(stdout, L"Error: Could not deserialise gui mouse button release. The event x coordinate is null.\n");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui action button release. The event x coordinate is null.");
+            fwprintf(stdout, L"Error: Could not deserialise gui action button release. The event x coordinate is null.\n");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui mouse button release. The event y coordinate is null.");
-        fwprintf(stdout, L"Error: Could not deserialise gui mouse button release. The event y coordinate is null.\n");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui action button release. The event y coordinate is null.");
+        fwprintf(stdout, L"Error: Could not deserialise gui action button release. The event y coordinate is null.\n");
     }
 }
 
-/* BUTTON_RELEASE_MOUSE_GUI_DESERIALISER_SOURCE */
+/* BUTTON_RELEASE_GUI_ACTION_DESERIALISER_SOURCE */
 #endif

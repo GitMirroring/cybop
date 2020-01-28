@@ -23,14 +23,14 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BUTTON_PRESS_MOUSE_GUI_DESERIALISER_SOURCE
-#define BUTTON_PRESS_MOUSE_GUI_DESERIALISER_SOURCE
+#ifndef LEAVE_NOTIFY_GUI_ACTION_DESERIALISER_SOURCE
+#define LEAVE_NOTIFY_GUI_ACTION_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises a gui mouse button press event.
+ * Deserialises a gui action leave notify event.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
@@ -49,10 +49,10 @@
  * @param p14 the message format
  * @param p15 the loop break flag
  */
-void deserialise_gui_mouse_button_press(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
+void deserialise_gui_action_leave_notify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui mouse button press.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui action leave notify.");
 }
 
-/* BUTTON_PRESS_MOUSE_GUI_DESERIALISER_SOURCE */
+/* LEAVE_NOTIFY_GUI_ACTION_DESERIALISER_SOURCE */
 #endif

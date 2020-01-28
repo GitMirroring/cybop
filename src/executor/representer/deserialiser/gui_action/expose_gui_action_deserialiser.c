@@ -23,14 +23,14 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef EXPOSE_GUI_DESERIALISER_SOURCE
-#define EXPOSE_GUI_DESERIALISER_SOURCE
+#ifndef EXPOSE_GUI_ACTION_DESERIALISER_SOURCE
+#define EXPOSE_GUI_ACTION_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises a gui window expose event.
+ * Deserialises a gui action expose event.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
@@ -49,9 +49,9 @@
  * @param p14 the message format
  * @param p15 the loop break flag
  */
-void deserialise_gui_expose(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
+void deserialise_gui_action_expose(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui expose.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui action expose.");
 
     // The action part.
     void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -101,9 +101,9 @@ fwprintf(stdout, L"TEST deserialise gui expose amd: %ls\n", (wchar_t*) amd);
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui expose. The message format is not text/plain.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui action expose. The message format is not text/plain.");
     }
 }
 
-/* EXPOSE_GUI_DESERIALISER_SOURCE */
+/* EXPOSE_GUI_ACTION_DESERIALISER_SOURCE */
 #endif

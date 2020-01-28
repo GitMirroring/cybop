@@ -46,13 +46,9 @@ static int* CIRCULATE_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_16_INTEGER_STA
 static wchar_t* CIRCULATE_REQUEST_EVENT_XCB_CYBOL_MODEL = L"circulate-request";
 static int* CIRCULATE_REQUEST_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The client-message event xcb cybol model. */
-//?? static wchar_t* CLIENT_MESSAGE_EVENT_XCB_CYBOL_MODEL = L"client-message";
-//?? static int* CLIENT_MESSAGE_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The close window client-message event xcb cybol model. */
-static wchar_t* CLOSE_WINDOW_CLIENT_MESSAGE_EVENT_XCB_CYBOL_MODEL = L"close-window";
-static int* CLOSE_WINDOW_CLIENT_MESSAGE_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The close window event xcb cybol model. */
+static wchar_t* CLOSE_WINDOW_EVENT_XCB_CYBOL_MODEL = L"close-window";
+static int* CLOSE_WINDOW_EVENT_XCB_CYBOL_MODEL_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The colormap-notify event xcb cybol model. */
 static wchar_t* COLORMAP_NOTIFY_EVENT_XCB_CYBOL_MODEL = L"colormap-notify";
