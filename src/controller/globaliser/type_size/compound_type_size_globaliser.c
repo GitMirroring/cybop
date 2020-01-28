@@ -93,6 +93,8 @@ void globalise_type_size_compound() {
         + *POINTER_TYPE_SIZE // font xcb
         + *POINTER_TYPE_SIZE // colour map xcb
 
+        + *POINTER_TYPE_SIZE // delete window cookie xcb
+
         + *POINTER_TYPE_SIZE // device context win32
 
         //

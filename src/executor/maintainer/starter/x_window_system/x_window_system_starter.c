@@ -294,7 +294,16 @@ void startup_x_window_system(void* p0) {
                     // Window.
                     | XCB_EVENT_MASK_VISIBILITY_CHANGE
                     | XCB_EVENT_MASK_STRUCTURE_NOTIFY
-                    | XCB_EVENT_MASK_RESIZE_REDIRECT
+                    //?? TODO:
+                    //?? Activating the resize event causes
+                    //?? the window NOT to be displayed correctly
+                    //?? (only part of it is shown).
+                    //?? Therefore, it is commented out here.
+                    //?? Resizing may be done alternatively via
+                    //?? the mask XCB_EVENT_MASK_STRUCTURE_NOTIFY
+                    //?? and catching the event XCB_CLIENT_MESSAGE.
+                    //??
+                    //?? | XCB_EVENT_MASK_RESIZE_REDIRECT
                     | XCB_EVENT_MASK_SUBSTRUCTURE_NOTIFY
                     | XCB_EVENT_MASK_SUBSTRUCTURE_REDIRECT
                     | XCB_EVENT_MASK_FOCUS_CHANGE
@@ -359,13 +368,18 @@ void startup_x_window_system(void* p0) {
                 xcb_intern_atom_cookie_t protocols_cookie = xcb_intern_atom((xcb_connection_t*) c, 1, 12, "WM_PROTOCOLS");
                 xcb_intern_atom_reply_t* protocols_reply = xcb_intern_atom_reply((xcb_connection_t*) c, protocols_cookie, 0);
                 xcb_intern_atom_cookie_t delete_cookie = xcb_intern_atom((xcb_connection_t*) c, 0, 16, "WM_DELETE_WINDOW");
-                xcb_intern_atom_reply_t* dwc = xcb_intern_atom_reply((xcb_connection_t*) c, delete_cookie, 0);
+                xcb_intern_atom_reply_t* delete_reply = xcb_intern_atom_reply((xcb_connection_t*) c, delete_cookie, 0);
+
+                dwc = (void*) delete_reply;
 
                 // Assign delete window cookie.
-                xcb_change_property((xcb_connection_t*) c, XCB_PROP_MODE_REPLACE, (xcb_window_t) w, (*protocols_reply).atom, 4, 32, 1, &((*dwc).atom));
+                xcb_change_property((xcb_connection_t*) c, XCB_PROP_MODE_REPLACE, (xcb_window_t) w, (*protocols_reply).atom, 4, 32, 1, &((*delete_reply).atom));
 
                 // Free internal protocols cookie structure.
                 free(protocols_reply);
+
+                fwprintf(stdout, L"TEST startup x window system delete_reply: %i\n", delete_reply);
+                fwprintf(stdout, L"TEST startup x window system (*delete_reply).atom: %i\n", (*delete_reply).atom);
 
                 //
                 // CAUTION! Do NOT free the delete cookie structure here.
@@ -399,6 +413,11 @@ void startup_x_window_system(void* p0) {
     //
     // CAUTION! Hand over values as pointer REFERENCE.
     //
+
+    fwprintf(stdout, L"TEST startup x window system dwc: %i\n", dwc);
+    xcb_intern_atom_reply_t* test = (xcb_intern_atom_reply_t*) dwc;
+    fwprintf(stdout, L"TEST startup x window system test: %i\n", test);
+    fwprintf(stdout, L"TEST startup x window system (*test).atom: %i\n", (*test).atom);
 
     // Store connexion in input/output entry.
     set_io_entry_element(p0, (void*) &c, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);

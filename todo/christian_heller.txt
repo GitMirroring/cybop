@@ -14,6 +14,15 @@
 XCB
 ___
 
+        * Debug memory access error in close window event in file "xcb_deserialiser.c"
+            //??TODO: Possibly use xcb_intern_atom_unchecked instead of xcb_intern_atom in file "x_window_system-starter.c"
+            see example for win32 api:
+            https://github.com/GameTechDev/IntroductionToVulkan/blob/master/Project/Common/OperatingSystem.cpp
+            see examples:
+            https://stackoverflow.com/questions/47453159/xcb-poll-for-event-does-not-detect-xcb-client-message-event-for-closing-window
+            https://stackoverflow.com/questions/53027567/vksurfacekhr-does-not-to-update-when-resizing-xcb-window
+            https://marc.info/?l=freedesktop-xcb&m=129381953404497&q=p5
+
         REACTIVATE:
         * Test window resize event in file "xcb_deserialiser.c"
             possibly replace variables ow and oh in file "xcb_deserialiser.c" with cybol property values read from cybol application
@@ -165,13 +174,15 @@ ___
         * Ignore parent coordinates of root window when calculating coordinates of inner elements since otherwise, these are wrongly indented
         * Change position x of window to 800 in file "gui.cybol"
 
+        * Decide how to handle drawing of rectangles in file "rectangle_x_window_system_serialiser.c",
+            since the foreground colour is used for filling by default
+        * Change (possibly) graphics context mask to use not only foreground but rather both, foreground and background, in file "x_window_system_starter.c"
+
         CSS:
         * Use css property names instead of foreground or background colour
             (split of background and foreground is only needed with text)
         * Think through design of gui using cybol (css box model, layout manager, look'n'feel)
         * Use css box model as in JavaFX with relative positioning also for tui, gui etc.?
-        * Decide how to handle drawing of rectangles in file "rectangle_x_window_system_serialiser.c",
-            since the foreground colour is used for filling by default
 
         Event:
         * Avoid repainting the window whenever it gets resized since otherwise, the processor load is too high

@@ -108,8 +108,12 @@ void shutdown_x_window_system(void* p0) {
 
         if (dwc != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+            fwprintf(stdout, L"TEST shutdown x window system before dwc: %i\n", dwc);
+
             // Free atom reply that was created at startup.
             free(dwc);
+
+            fwprintf(stdout, L"TEST shutdown x window system after dwc: %i\n", dwc);
 
         } else {
 
@@ -129,6 +133,7 @@ void shutdown_x_window_system(void* p0) {
 
             // Use xcb type.
             xcb_gcontext_t gct = (xcb_gcontext_t) gc;
+            // Free graphic context.
             xcb_free_gc((xcb_connection_t*) c, gct);
 
         } else {
@@ -140,6 +145,7 @@ void shutdown_x_window_system(void* p0) {
 
             // Use xcb type.
             xcb_window_t wt = w;
+            // Destroy window.
             xcb_destroy_window((xcb_connection_t*) c, wt);
 
         } else {
@@ -185,7 +191,7 @@ void shutdown_x_window_system(void* p0) {
         set_io_entry_element(p0, NULL_POINTER_STATE_CYBOI_MODEL, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Reset font in input/output entry.
         set_io_entry_element(p0, NULL_POINTER_STATE_CYBOI_MODEL, (void*) FONT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Store delete window cookie in input/output entry.
+        // Reset delete window cookie in input/output entry.
         set_io_entry_element(p0, NULL_POINTER_STATE_CYBOI_MODEL, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     } else {

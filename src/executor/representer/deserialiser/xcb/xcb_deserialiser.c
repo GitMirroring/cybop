@@ -224,24 +224,26 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
             // Retrieve delete window cookie from input/output entry.
             fwprintf(stdout, L"TEST deserialise xcb XCB_CLIENT_MESSAGE 4 dwc: %i\n", dwc);
-            fwprintf(stdout, L"TEST deserialise xcb XCB_CLIENT_MESSAGE 4 p12: %i\n", p12);
+            fwprintf(stdout, L"TEST deserialise xcb XCB_CLIENT_MESSAGE 5 p12: %i\n", p12);
             get_io_entry_element((void*) &dwc, p12, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-            fwprintf(stdout, L"TEST deserialise xcb XCB_CLIENT_MESSAGE 5 dwc: %i\n", dwc);
+            fwprintf(stdout, L"TEST deserialise xcb XCB_CLIENT_MESSAGE 6 dwc: %i\n", dwc);
 
             // The delete window cookie structure.
             xcb_intern_atom_reply_t* dwcs = (xcb_intern_atom_reply_t*) dwc;
-            fwprintf(stdout, L"TEST deserialise xcb XCB_CLIENT_MESSAGE 6 dwcs: %i\n", dwcs);
+            fwprintf(stdout, L"TEST deserialise xcb XCB_CLIENT_MESSAGE 7 dwcs: %i\n", dwcs);
+            fwprintf(stdout, L"TEST deserialise xcb XCB_CLIENT_MESSAGE 8 *dwcs: %i\n", *dwcs);
+            fwprintf(stdout, L"TEST deserialise xcb XCB_CLIENT_MESSAGE 9 (*dwcs).atom: %i\n", (*dwcs).atom);
 
-            fwprintf(stdout, L"TEST deserialise xcb XCB_CLIENT_MESSAGE 7 d.data32[0]: %i\n", d.data32[0]);
-//??            fwprintf(stdout, L"TEST deserialise xcb XCB_CLIENT_MESSAGE 8 (*dwcs).atom: %i\n", (*dwcs).atom);
+            fwprintf(stdout, L"TEST deserialise xcb XCB_CLIENT_MESSAGE 10 d.data32[0]: %i\n", d.data32[0]);
+
             // Find out if window is to be closed.
-//??            if (d.data32[0] == (*dwcs).atom) {
+            if (d.data32[0] == (*dwcs).atom) {
 
                 // Assign close window event.
                 modify_item(p0, (void*) CLOSE_WINDOW_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) CLOSE_WINDOW_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-            fwprintf(stdout, L"TEST deserialise xcb XCB_CLIENT_MESSAGE 9 p0: %i\n", p0);
-//??            }
-            fwprintf(stdout, L"TEST deserialise xcb XCB_CLIENT_MESSAGE 10 t: %i\n", t);
+            fwprintf(stdout, L"TEST deserialise xcb XCB_CLIENT_MESSAGE 11 p0: %i\n", p0);
+            }
+            fwprintf(stdout, L"TEST deserialise xcb XCB_CLIENT_MESSAGE 12 t: %i\n", t);
 
         } else if (t == XCB_COLORMAP_NOTIFY) {
 

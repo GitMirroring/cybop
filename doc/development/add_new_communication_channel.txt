@@ -27,7 +27,7 @@ Executor
 ________
 
 * Adapt file "executor/accessor/getter/io_entry_getter.c"
-* Adapt file "executor/accessor/getter/io_entry_setter.c"
+* Adapt file "executor/accessor/setter/io_entry_setter.c"
 
 * Add files for channel to directory "executor/maintainer/starter/"
 * Add files for channel to directory "executor/maintainer/shutter/"
