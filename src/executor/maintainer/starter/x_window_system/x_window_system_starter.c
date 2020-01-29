@@ -363,23 +363,30 @@ void startup_x_window_system(void* p0) {
                 // Create delete window cookie.
                 //
 
-                // Prepare notification for window destruction.
-                //??TODO: Possibly use xcb_intern_atom_unchecked instead of xcb_intern_atom
-                xcb_intern_atom_cookie_t protocols_cookie = xcb_intern_atom((xcb_connection_t*) c, 1, 12, "WM_PROTOCOLS");
-                xcb_intern_atom_reply_t* protocols_reply = xcb_intern_atom_reply((xcb_connection_t*) c, protocols_cookie, 0);
-                xcb_intern_atom_cookie_t delete_cookie = xcb_intern_atom((xcb_connection_t*) c, 0, 16, "WM_DELETE_WINDOW");
-                xcb_intern_atom_reply_t* delete_reply = xcb_intern_atom_reply((xcb_connection_t*) c, delete_cookie, 0);
+                // Send notification when window is destroyed.
+                xcb_intern_atom_cookie_t protocols_cookie = xcb_intern_atom((xcb_connection_t*) c, (uint8_t) *NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (uint16_t) strlen("WM_PROTOCOLS"), "WM_PROTOCOLS");
+                // CAUTION! The last argument is a pointer reference of type void**
+                xcb_intern_atom_reply_t* protocols_reply = xcb_intern_atom_reply((xcb_connection_t*) c, protocols_cookie, (xcb_generic_error_t**) NULL_POINTER_STATE_CYBOI_MODEL);
+                xcb_intern_atom_cookie_t delete_cookie = xcb_intern_atom((xcb_connection_t*) c, (uint8_t) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (uint16_t) strlen("WM_DELETE_WINDOW"), "WM_DELETE_WINDOW");
+                // CAUTION! The last argument is a pointer reference of type void**
+                xcb_intern_atom_reply_t* delete_reply = xcb_intern_atom_reply((xcb_connection_t*) c, delete_cookie, (xcb_generic_error_t**) NULL_POINTER_STATE_CYBOI_MODEL);
 
                 dwc = (void*) delete_reply;
 
+                //
                 // Assign delete window cookie.
+                //
+                // CAUTION! Do NOT replace the fifth parametre (integer value 4)
+                // with either XCB_ATOM_INTEGER or (*protocols_reply).atom,
+                // since it will not function then.
+                //
                 xcb_change_property((xcb_connection_t*) c, XCB_PROP_MODE_REPLACE, (xcb_window_t) w, (*protocols_reply).atom, 4, 32, 1, &((*delete_reply).atom));
 
                 // Free internal protocols cookie structure.
                 free(protocols_reply);
 
-                fwprintf(stdout, L"TEST startup x window system delete_reply: %i\n", delete_reply);
-                fwprintf(stdout, L"TEST startup x window system (*delete_reply).atom: %i\n", (*delete_reply).atom);
+//??                fwprintf(stdout, L"TEST startup x window system delete_reply: %i\n", delete_reply);
+//??                fwprintf(stdout, L"TEST startup x window system (*delete_reply).atom: %i\n", (*delete_reply).atom);
 
                 //
                 // CAUTION! Do NOT free the delete cookie structure here.
@@ -414,10 +421,12 @@ void startup_x_window_system(void* p0) {
     // CAUTION! Hand over values as pointer REFERENCE.
     //
 
+/*??
     fwprintf(stdout, L"TEST startup x window system dwc: %i\n", dwc);
     xcb_intern_atom_reply_t* test = (xcb_intern_atom_reply_t*) dwc;
     fwprintf(stdout, L"TEST startup x window system test: %i\n", test);
     fwprintf(stdout, L"TEST startup x window system (*test).atom: %i\n", (*test).atom);
+*/
 
     // Store connexion in input/output entry.
     set_io_entry_element(p0, (void*) &c, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);

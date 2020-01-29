@@ -14,14 +14,12 @@
 XCB
 ___
 
-        * Debug memory access error in close window event in file "xcb_deserialiser.c"
-            //??TODO: Possibly use xcb_intern_atom_unchecked instead of xcb_intern_atom in file "x_window_system-starter.c"
-            see example for win32 api:
-            https://github.com/GameTechDev/IntroductionToVulkan/blob/master/Project/Common/OperatingSystem.cpp
-            see examples:
-            https://stackoverflow.com/questions/47453159/xcb-poll-for-event-does-not-detect-xcb-client-message-event-for-closing-window
-            https://stackoverflow.com/questions/53027567/vksurfacekhr-does-not-to-update-when-resizing-xcb-window
-            https://marc.info/?l=freedesktop-xcb&m=129381953404497&q=p5
+        * Adjust window, use colors, pixmap, change mouse cursor etc. in xcb see:
+            https://www.x.org/releases/X11R7.6/doc/libxcb/tutorial/index.html
+            https://xcb.freedesktop.org/tutorial/
+
+        * Implement error handling in xcb event loop:
+            https://www.linuxhowtos.org/manpages/3/xcb-requests.htm
 
         REACTIVATE:
         * Test window resize event in file "xcb_deserialiser.c"
@@ -32,6 +30,16 @@ ___
 
         * See how Qt handles xcb (mouse button mask etc.):
             https://code.woboq.org/qt5/qtbase/src/plugins/platforms/xcb/qxcbconnection.cpp.html#_ZN14QXcbConnection14handleXcbEventEP19xcb_generic_event_t
+
+        * Debug memory access error in close window event in file "xcb_deserialiser.c"
+            uncomment freeing of delete window cookie atom reply in file "x_window_system_shutter.c"
+            uncomment comparison (d.data32[0] == (*dwcs).atom) in file "xcb_deserialiser.c"
+            see example for xcb and win32 api:
+            https://github.com/GameTechDev/IntroductionToVulkan/blob/master/Project/Common/OperatingSystem.cpp
+            see examples:
+            https://stackoverflow.com/questions/47453159/xcb-poll-for-event-does-not-detect-xcb-client-message-event-for-closing-window
+            https://stackoverflow.com/questions/53027567/vksurfacekhr-does-not-to-update-when-resizing-xcb-window
+            https://marc.info/?l=freedesktop-xcb&m=129381953404497&q=p5
 
         MOVE the following to section "General CYBOI":
         * Change data types to modern version, e.g. "int" to "int32_t", in all source code

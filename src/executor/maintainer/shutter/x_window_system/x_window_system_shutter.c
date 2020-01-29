@@ -108,12 +108,12 @@ void shutdown_x_window_system(void* p0) {
 
         if (dwc != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+/*??
             fwprintf(stdout, L"TEST shutdown x window system before dwc: %i\n", dwc);
-
-            // Free atom reply that was created at startup.
+            // Free delete window cookie atom reply that was created at startup.
             free(dwc);
-
             fwprintf(stdout, L"TEST shutdown x window system after dwc: %i\n", dwc);
+*/
 
         } else {
 
