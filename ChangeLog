@@ -22,7 +22,7 @@
 
         * Move gui action handling files from directory "executor/representer/deserialiser/gui/" to "executor/representer/deserialiser/gui_action/"
         * Create new file "executor/representer/deserialiser/gui_action/close_window_gui_action_deserialiser.c"
-        * Test close-window event in cybol application file "user_interface/gui/gui.cybol"
+        * Test close-window event in cybol application "user_interface/gui/" and "hello_world/gui/"
 
 2020-01-27  Christian Heller  <christian.heller@cybop.org>
 

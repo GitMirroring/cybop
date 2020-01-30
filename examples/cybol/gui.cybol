@@ -15,8 +15,10 @@
 -->
         <node name="foreground" channel="inline" format="colour/rgb" model="255,255,128"/>
         <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
+        <node name="font" channel="inline" format="text/plain" model="10x20"/>
         <node name="layout" channel="inline" format="text/plain" model="absolute"/>
         <node name="expose" channel="inline" format="text/plain" model=".logic.refresh_display"/>
+        <node name="close-window" channel="inline" format="text/plain" model=".logic.exit"/>
     </node>
 
     <!-- The following variable is used in file "handler.cybol". -->

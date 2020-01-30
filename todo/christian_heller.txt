@@ -11,15 +11,17 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+CYBOL
+_____
+
+        * Think through and complete structure of cybol base library in directory "examples/cybol/"
+            CAUTION! Currently, there are a lot of files which are not used yet or to be renamed/deleted
+        * Provide functionality to print standard dialogues in "examples/cybol/"
+            see e.g. Java Swing JOptionPane
+        * Check what is the reason for the plethora of "compare index" errors on console
+
 XCB
 ___
-
-        * Adjust window, use colors, pixmap, change mouse cursor etc. in xcb see:
-            https://www.x.org/releases/X11R7.6/doc/libxcb/tutorial/index.html
-            https://xcb.freedesktop.org/tutorial/
-
-        * Implement error handling in xcb event loop:
-            https://www.linuxhowtos.org/manpages/3/xcb-requests.htm
 
         REACTIVATE:
         * Test window resize event in file "xcb_deserialiser.c"
@@ -40,23 +42,6 @@ ___
             https://stackoverflow.com/questions/47453159/xcb-poll-for-event-does-not-detect-xcb-client-message-event-for-closing-window
             https://stackoverflow.com/questions/53027567/vksurfacekhr-does-not-to-update-when-resizing-xcb-window
             https://marc.info/?l=freedesktop-xcb&m=129381953404497&q=p5
-
-        MOVE the following to section "General CYBOI":
-        * Change data types to modern version, e.g. "int" to "int32_t", in all source code
-        * Adapt all places where a void* gets casted to some type like for example int* and cast to the type with the largest value range, e.g. "long" for integer values
-            see https://de.wikipedia.org/wiki/Integer_(Datentyp)#Maximaler_Wertebereich_von_Integer
-        * Replace pointer access using pointer->field with (*variable).field in all source code
-            simply search for "->"
-
-CYBOL
-_____
-
-        * Think through and complete structure of cybol base library in directory "examples/cybol/"
-            CAUTION! Currently, there are a lot of files which are not used yet or to be renamed/deleted
-        * Catch window closing event in x window system, in order to exit cybol example application "hello_world/gui/" when window gets closed
-        * Provide functionality to print standard dialogues in "examples/cybol/"
-            see e.g. Java Swing JOptionPane
-        * Check what is the reason for the plethora of "compare index" errors on console
 
 Logger
 ______
@@ -186,6 +171,11 @@ ___
             since the foreground colour is used for filling by default
         * Change (possibly) graphics context mask to use not only foreground but rather both, foreground and background, in file "x_window_system_starter.c"
 
+        ONLY do this when the tutorials found there in the web are complete:
+        * Adjust window, use colors, pixmap, change mouse cursor etc. in xcb see:
+            https://www.x.org/releases/X11R7.6/doc/libxcb/tutorial/index.html
+            https://xcb.freedesktop.org/tutorial/
+
         CSS:
         * Use css property names instead of foreground or background colour
             (split of background and foreground is only needed with text)
@@ -225,6 +215,9 @@ ___
             see file "context_x_window_system_serialiser.c"
             The xcb tutorial "libxcb-1.10/doc/tutorial/index.html#alloccolor" writes:
             "As xcb_alloc_color_reply() allocates memory, you have to free it."
+
+        * Implement error handling in xcb event loop:
+            https://www.linuxhowtos.org/manpages/3/xcb-requests.htm
 
         Win32:
         * Process further message types in file "win32_display_deserialiser.c"
@@ -606,6 +599,12 @@ ___________
 
 General CYBOI
 _____________
+
+        * Change data types to modern version, e.g. "int" to "int32_t", in all source code
+        * Adapt all places where a void* gets casted to some type like for example int* and cast to the type with the largest value range, e.g. "long" for integer values
+            see https://de.wikipedia.org/wiki/Integer_(Datentyp)#Maximaler_Wertebereich_von_Integer
+        * Replace pointer access using pointer->field with (*variable).field in all source code
+            simply search for "->"
 
         * Delete superfluous parametres "count", "size", "type" in function "deallocate_array"
 
