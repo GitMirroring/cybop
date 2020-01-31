@@ -39,11 +39,11 @@ static wchar_t* VERSION_IDENTIFICATION_CYBOI_MODEL = L"0.21.0";
 static int* VERSION_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The slogan identification cyboi model. */
-static wchar_t* SLOGAN_IDENTIFICATION_CYBOI_MODEL = L"A universal system.";
-static int* SLOGAN_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* SLOGAN_IDENTIFICATION_CYBOI_MODEL = L"The universal knowledge processing system.";
+static int* SLOGAN_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_42_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The copyright identification cyboi model. */
-static wchar_t* COPYRIGHT_IDENTIFICATION_CYBOI_MODEL = L"Copyright (C) 1999-2018. Christian Heller.";
+static wchar_t* COPYRIGHT_IDENTIFICATION_CYBOI_MODEL = L"Copyright (C) 1999-2020. Christian Heller.";
 static int* COPYRIGHT_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_42_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The licence identification cyboi model. */

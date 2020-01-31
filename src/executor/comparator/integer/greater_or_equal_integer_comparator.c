@@ -48,7 +48,8 @@ void compare_integer_greater_or_equal(void* p0, void* p1, void* p2) {
             int* lv = (int*) p1;
 
             // CAUTION! Do NOT call the logger here.
-            // It might use functions that cause circular references.
+            // It uses functions causing circular references.
+            // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare integer greater or equal.");
 
             if (*lv >= *rv) {
 
@@ -58,13 +59,15 @@ void compare_integer_greater_or_equal(void* p0, void* p1, void* p2) {
         } else {
 
             // CAUTION! Do NOT call the logger here.
-            // It might use functions that cause circular references.
+            // It uses functions causing circular references.
+            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare integer greater or equal. The left value is null.");
         }
 
     } else {
 
         // CAUTION! Do NOT call the logger here.
-        // It might use functions that cause circular references.
+        // It uses functions causing circular references.
+        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare integer greater or equal. The right value is null.");
     }
 }
 

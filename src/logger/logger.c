@@ -32,11 +32,11 @@
 #include <wchar.h>
 
 #ifdef WIN32
-#include <windows.h>
+    #include <windows.h>
 #endif
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 #include "../constant/model/character_code/unicode/unicode_character_code_model.c"
@@ -131,9 +131,12 @@ void log_message(void* p0, void* p1, void* p2) {
         // The log level name.
         void* ln = *NULL_POINTER_STATE_CYBOI_MODEL;
         int lnc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        //
         // The destination index.
+        //
         // CAUTION! Use zero as first destination index,
         // in order to overwrite the destination from the beginning.
+        //
         int di = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // Initialise log level name.
@@ -143,9 +146,11 @@ void log_message(void* p0, void* p1, void* p2) {
         // Get name of the given log level.
         log_level_name((void*) &ln, (void*) &lnc, p0);
 
+        //
         // CAUTION! Do NOT use the "overwrite_array" function following,
         // since it resizes the destination array to make the message fit.
-        // However, the log message is an array of fixed size.
+        // However, the log message is an array of FIXED size.
+        //
 
         // Copy log level.
         copy_array_forward((void*) LOG_MESSAGE, ln, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &lnc, (void*) &di, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
@@ -180,10 +185,12 @@ void log_message(void* p0, void* p1, void* p2) {
 
     } else {
 
+        //
         // CAUTION! Do NOT write an error message here!
         // It is a wanted effect NOT to write a log message, NOR an error,
         // if the given log level is not within the log level tolerance
         // that was set as global variable at cyboi system startup.
+        //
     }
 }
 
@@ -202,6 +209,7 @@ void log_message_terminated(void* p0, void* p1) {
 
         if (c > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
+            //
             // Calculate overall count.
             //
             // Some characters are added by default [Byte]:
@@ -214,11 +222,15 @@ void log_message_terminated(void* p0, void* p1) {
             // __
             // 15
             // ==
+            //
             int o = c + *NUMBER_15_INTEGER_STATE_CYBOI_MODEL;
 
+            //
             // Test message count.
+            //
             // CAUTION! This is important, since the destination
             // log message count is fixed and limited in size.
+            //
             if (o > *LOG_MESSAGE_SIZE) {
 
                 // CAUTION! Do NOT call the logger here.

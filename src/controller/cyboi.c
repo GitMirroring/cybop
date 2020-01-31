@@ -101,9 +101,11 @@ int main(int p0, char** p1) {
     // Return 1 to indicate an error, by default.
     int r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
+    //
     // There is NO use to test the parametre p0, because it
     // always has at least the value 1, since it also
     // counts the name of the programme being run.
+    //
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
@@ -113,6 +115,7 @@ int main(int p0, char** p1) {
         // Startup global variables.
         globalise();
 
+        //
         // Orient streams.
         //
         // CAUTION! This is important for internationalisation!
@@ -164,6 +167,7 @@ int main(int p0, char** p1) {
         // because command line parametres will be expected to be multibyte characters,
         // read from the standard input stream in function "optionalise" further below.
         // They will also get converted into wide characters of type "wchar_t" there.
+        //
         orient((void*) stdin, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
         orient((void*) stdout, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
         orient((void*) stderr, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
@@ -174,11 +178,13 @@ int main(int p0, char** p1) {
         fwprintf(stdout, L"TEST PART_REFERENCE_COUNTER BEGIN: %i\n", *PART_REFERENCE_COUNTER);
 */
 
+        //
         // The operation mode.
         //
         // CAUTION! It is initialised with the help operation mode,
         // in order to display the help message by default,
         // if no command line argument is given by the user.
+        //
         int m = *HELP_OPERATION_MODE_CYBOI_MODEL;
         // The cybol knowledge file path item.
         void* k = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -193,10 +199,12 @@ int main(int p0, char** p1) {
         // Optionalise command line argument options.
         optionalise((void*) &m, k, (void*) LOG_LEVEL, (void*) &t, (void*) &LOG_OUTPUT, (void*) p1, (void*) &p0);
 
+        //
         // Orient log output file stream.
         //
         // CAUTION! This can only be done AFTER having read the command line options,
         // since one of the options determines the log output file name.
+        //
         orient(LOG_OUTPUT, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
@@ -222,12 +230,15 @@ int main(int p0, char** p1) {
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Unglobalise global variables yet.");
 
+        //
         // Deoptionalise command line argument options.
+        //
         // CAUTION! Hand over the LOG_OUTPUT variable AS REFERENCE!
         // This is necessary, because it is reset to NULL internally.
         // If this was not done, subsequent logger calls would cause segmentation faults,
         // because the null pointer test within the logger would be successful,
         // even though the LOG_OUTPUT pointer would be invalid.
+        //
         deoptionalise((void*) &LOG_OUTPUT);
 
         // Deallocate cybol knowledge file path.

@@ -49,7 +49,13 @@
  */
 void shutdown_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown io.");
+    //
+    // CAUTION! This log message has been commented out
+    // due to the large number of potential calls caused
+    // by the the number of socket services (65536).
+    // See file "shutdown_manager.c".
+    //
+    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown io.");
 
     // The input/output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -85,7 +91,13 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown io. The input/output entry (service) is null, i.e. it does not exist in internal memory.");
+        //
+        // CAUTION! This log message has been commented out
+        // due to the large number of potential calls caused
+        // by the the number of socket services (65536).
+        // See file "shutdown_manager.c".
+        //
+        // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown io. The input/output entry (service) is null, i.e. it does not exist in internal memory.");
     }
 }
 

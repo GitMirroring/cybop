@@ -56,23 +56,31 @@ void calculate_pointer_add(void* p0, void* p1) {
             //
             if (*sum != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate pointer add.");
+                // CAUTION! Do NOT call the logger here.
+                // It uses functions causing circular references.
+                // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate pointer add.");
 
                 *sum = (void*) ((size_t) *sum + *s);
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate pointer add. The dereferenced sum is null.");
+                // CAUTION! Do NOT call the logger here.
+                // It uses functions causing circular references.
+                // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate pointer add. The dereferenced sum is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate pointer add. The sum is null.");
+            // CAUTION! Do NOT call the logger here.
+            // It uses functions causing circular references.
+            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate pointer add. The sum is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate pointer add. The summand is null.");
+        // CAUTION! Do NOT call the logger here.
+        // It uses functions causing circular references.
+        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate pointer add. The summand is null.");
     }
 }
 

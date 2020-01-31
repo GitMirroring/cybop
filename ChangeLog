@@ -21,6 +21,7 @@
 2020-01-31  Christian Heller  <christian.heller@cybop.org>
 
         * Clean up files in library "examples/cybol/"
+        * Make logger work properly (in debug mode causing log files of a size > 100 MB for cybol application "user_interface/gui/")
 
 2020-01-28  Christian Heller  <christian.heller@cybop.org>
 

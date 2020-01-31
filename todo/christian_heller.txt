@@ -11,18 +11,6 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-Logger
-______
-
-        * Debug memory error when logging with "debug" log level
-            the following works fine with log levels: off, error, warning, information, but NOT with log level "debug":
-                ../src/controller/cyboi --knowledge=counter/run.cybol --loglevel=debug --logfile=log.log
-            valgrind did not help
-        * See variable "LOG_OUTPUT" in file "variable/log_setting.c"
-        * Check if error is caused by decrementing rubbish (garbage) collection references
-            (the calls of function "deallocate_array" were already verified and "null" handed over as second "count" argument)
-        * Test by only using an "exit" as initial (and only) part/signal (has to be changed temporarily in cyboi code file "initialiser.c")
-
 WUI
 ___
 
