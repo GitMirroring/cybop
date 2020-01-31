@@ -42,6 +42,7 @@ Coupling of Objects
 Pseudo Terminal
 GUI Event Processing
 Dynamic Typing
+Hello World!
 
 Terminology
 ___________
@@ -793,4 +794,26 @@ ______________
 - advantage: no more types ("format" xml attribute, given as mime type in cybol) would have to be given in cybol-xml, i.e. one attribute less
 - disadvantages: slower reaction at runtime due to necessary type casts; binary values such as images would have to be stored as BASE64 inside cyboi and cause longer conversion time
 - conclusion: no dynamic typing in cyboi; types have to be given in cybol; strings (read from cybol-xml) get converted into the special values (in RAM) at application startup
+
+Hello World!
+____________
+
+There are several variants of the "Hello, World!" cybol application
+to demonstrate the ease of cybol development and its slim code.
+However, it is important to emphasise that it is NOT the task
+of a programming language to provide the simplest possible solution
+for an output a la "Hello, World!".
+Any language following this path is actually a Domain Specific Language (DSL)
+for the domain of printing "Hello, World!".
+
+On the contrary, a programming language should be as flexible and
+uniform as possible, in other words a General Purpose Language (GPL).
+Of course, DSL may ease programming in certain application areas.
+But if the aim is to create a schema and language capable of
+representing knowledge in general, then a GPL should be the result.
+CYBOL is such a GPL and reaches its flexibility by following
+the principles of human thinking:
+- discrimination (discrete part models)
+- composition (parts are containers)
+- categorisation (inheritance of part properties)
 

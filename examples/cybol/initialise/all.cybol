@@ -1,6 +1,0 @@
-<node>
-
-    <node name="initialise_terminal" channel="file" format="element/part" model="cybol/initialise/terminal.cybol"/>
-    <node name="initialise_terminal" channel="file" format="element/part" model="cybol/initialise/display.cybol"/>
-
-</node>

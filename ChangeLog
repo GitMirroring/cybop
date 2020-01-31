@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-01-31  Christian Heller  <christian.heller@cybop.org>
+
+        * Clean up files in library "examples/cybol/"
+
 2020-01-28  Christian Heller  <christian.heller@cybop.org>
 
         * Move gui action handling files from directory "executor/representer/deserialiser/gui/" to "executor/representer/deserialiser/gui_action/"

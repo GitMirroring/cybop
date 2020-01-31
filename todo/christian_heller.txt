@@ -11,38 +11,6 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-CYBOL
-_____
-
-        * Think through and complete structure of cybol base library in directory "examples/cybol/"
-            CAUTION! Currently, there are a lot of files which are not used yet or to be renamed/deleted
-        * Provide functionality to print standard dialogues in "examples/cybol/"
-            see e.g. Java Swing JOptionPane
-        * Check what is the reason for the plethora of "compare index" errors on console
-
-XCB
-___
-
-        REACTIVATE:
-        * Test window resize event in file "xcb_deserialiser.c"
-            possibly replace variables ow and oh in file "xcb_deserialiser.c" with cybol property values read from cybol application
-
-        * Investigate meaning of and implement uint8_t t = e->response_type & (~0x80); in file "xcb_deserialiser.c"
-        * Add comment about it into source code
-
-        * See how Qt handles xcb (mouse button mask etc.):
-            https://code.woboq.org/qt5/qtbase/src/plugins/platforms/xcb/qxcbconnection.cpp.html#_ZN14QXcbConnection14handleXcbEventEP19xcb_generic_event_t
-
-        * Debug memory access error in close window event in file "xcb_deserialiser.c"
-            uncomment freeing of delete window cookie atom reply in file "x_window_system_shutter.c"
-            uncomment comparison (d.data32[0] == (*dwcs).atom) in file "xcb_deserialiser.c"
-            see example for xcb and win32 api:
-            https://github.com/GameTechDev/IntroductionToVulkan/blob/master/Project/Common/OperatingSystem.cpp
-            see examples:
-            https://stackoverflow.com/questions/47453159/xcb-poll-for-event-does-not-detect-xcb-client-message-event-for-closing-window
-            https://stackoverflow.com/questions/53027567/vksurfacekhr-does-not-to-update-when-resizing-xcb-window
-            https://marc.info/?l=freedesktop-xcb&m=129381953404497&q=p5
-
 Logger
 ______
 
@@ -159,6 +127,35 @@ ___
             https://de.wikipedia.org/wiki/Internet_Media_Type
             Find a list of mime types at:
             https://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types
+
+CYBOL Library
+_____________
+
+        * Provide functionality to print standard dialogues in "examples/cybol/"
+            see e.g. Java Swing JOptionPane
+
+XCB
+___
+
+        REACTIVATE:
+        * Test window resize event in file "xcb_deserialiser.c"
+            possibly replace variables ow and oh in file "xcb_deserialiser.c" with cybol property values read from cybol application
+
+        * Investigate meaning of and implement uint8_t t = e->response_type & (~0x80); in file "xcb_deserialiser.c"
+        * Add comment about it into source code
+
+        * See how Qt handles xcb (mouse button mask etc.):
+            https://code.woboq.org/qt5/qtbase/src/plugins/platforms/xcb/qxcbconnection.cpp.html#_ZN14QXcbConnection14handleXcbEventEP19xcb_generic_event_t
+
+        * Debug memory access error in close window event in file "xcb_deserialiser.c"
+            uncomment freeing of delete window cookie atom reply in file "x_window_system_shutter.c"
+            uncomment comparison (d.data32[0] == (*dwcs).atom) in file "xcb_deserialiser.c"
+            see example for xcb and win32 api:
+            https://github.com/GameTechDev/IntroductionToVulkan/blob/master/Project/Common/OperatingSystem.cpp
+            see examples:
+            https://stackoverflow.com/questions/47453159/xcb-poll-for-event-does-not-detect-xcb-client-message-event-for-closing-window
+            https://stackoverflow.com/questions/53027567/vksurfacekhr-does-not-to-update-when-resizing-xcb-window
+            https://marc.info/?l=freedesktop-xcb&m=129381953404497&q=p5
 
 GUI
 ___
@@ -391,12 +388,12 @@ _____
 CYBOL Application
 _________________
 
-        * Rewrite cybol example application "clean_result_directory"
+        * Rewrite cybol application "clean_result_directory"
             - make PIPES work in cyboi (e.g. as named pipes in the background), before continuing, needed for: n=$(ls -a $1 | wc -l);
             - continue file "remove_superfluous_element.cybol", see original script, count contained elements first, delete if > 2
             - change "verbal" into "verbose", also in cyboi interpreter
             - change "tape_archiver" into a verb, also in cyboi interpreter
-        * Optimise cybol example application "presence"
+        * Optimise cybol application "presence"
             - make DATETIME and SOCKET work in cyboi, before continuing
             - use stack properties instead of duplicate loop indices etc.
         * Optimise resmedicinae application "xdt2html"
@@ -418,7 +415,7 @@ __________
         * Consider already existing directory "executor/packer/"
         * Reflect on reading a cybol app as zip file (e.g. with suffix "cyboz" or "cyboa")
         * Use the same code for reading zip and directory, since both consist of files
-        * Use new cybol channel "directory" for reading in files of directory "repertoire/db/song/" in cybol example application "repertoire"
+        * Use new cybol channel "directory" for reading in files of directory "repertoire/db/song/" in cybol application "repertoire"
             SEE file "repertoire/db.cybol"
 
         * Chaining languages like "cybol | xml | zip" might be necessary for this
@@ -440,7 +437,7 @@ _________
         * Move or remove file "selection_compare_logic_cybol_model.c"
 
         * Adapt function "count_array_element" of file "executor/accessor/counter/array_counter.c" using new finder for "filter" string and "selection"
-        * Adapt corresponding cybol example application "get_count"
+        * Adapt corresponding cybol application "get_count"
 
 Sorting
 _______
@@ -461,7 +458,7 @@ ______
             - new cybol data type "text/regular-expression" which gets converted to "text/plain" internally
             - only use datatype "text/regular-expression" as property/argument for operations such as "overwrite",
                 so that regular expression gets evaluated internally before copying the resulting string
-        * Eliminate file "newline.txt" in cybol example application "webstat"
+        * Eliminate file "newline.txt" in cybol application "webstat"
 
         * See ideas for further functions in http://www.w3schools.com/xml/xsl_functions.asp
 
@@ -476,7 +473,7 @@ ________
             </node>
 
         * Move concrete de-/serialisers from directory cybol to new directory "chronology"
-        * Test new chronology language and datetime format conversion in cybol example application "presence"
+        * Test new chronology language and datetime format conversion in cybol application "presence"
         * Add items from file "todo/todo_datetime.pdf" to datetime formats
 
         * Konvertierung Kalender:
@@ -518,9 +515,9 @@ ________
 
         * Extend file "sender.c" with long long int buffer for datetime
         * Add files "clock_reader.c" (returning current unix time in s) and "clock_writer.c" (setting computer time, which needs administrator rights)
-        * Adapt cybol example applications using old versions of "time/current" with new receive via channel "clock"
-        * Configure date dynamically in cybol example application "presence"
-        * Implement "forward" and "backward" in cybol example application "presence", by just adding/subtracting 7 (days) from current day
+        * Adapt cybol applications using old versions of "time/current" with new receive via channel "clock"
+        * Configure date dynamically in cybol application "presence"
+        * Implement "forward" and "backward" in cybol application "presence", by just adding/subtracting 7 (days) from current day
             --> continue with run.cybol
 
         * Correct new algorithm for time scale gregorian calendar serialiser
@@ -551,7 +548,7 @@ __________
         * Add files "randomiser_reader.c" (returning a random number) and "randomiser_writer.c" (seeting the seed)
             communicate/receive
                 channel="randomiser"
-        * Adapt cybol example applications using old versions of "randomise/sow" and "randomise/retrieve" with new receive/send via channel "randomiser"
+        * Adapt cybol applications using old versions of "randomise/sow" and "randomise/retrieve" with new receive/send via channel "randomiser"
 
 Mathematics
 ___________
@@ -573,7 +570,7 @@ ___________
 LDAP
 ____
 
-        * Optimise cybol example application "presence" using login and password
+        * Optimise cybol application "presence" using login and password
         * Retrieve login and password and lecturers' email address from ldap server
         * Remind lecturers via email on editing their presence
 
@@ -646,19 +643,6 @@ _____________
 
         * Rename "internal memory" into "system memory"
         * Rename looping files to either (1) plural + singular, e.g. shutdown_services (loop) + shutdown service or (2) container + element, e.g. shutdown_list (loop) + shutdown_element
-
-Hello, World!
-_____________
-
-        * Create several variants of "Hello, World!" cybol example application to demonstrate ease and slim code
-
-        * Emphasise that:
-            It is NOT the task of a programming language to provide the simplest possible solution for an output a la "Hello, World!".
-            Any language following this path is actually a Domain Specific Language (DSL) for the domain of printing "Hello, World!".
-            On the contrary, a programming language should be as flexible and uniform as possible, in other words a General Purpose Language (GPL).
-            Of course, DSL may ease programming in certain application areas.
-            But if the aim is to create a schema and language capable of representing knowledge in general, then a GPL should be the result.
-            CYBOL is such a GPL and reaches its flexibility by following the principles of human thinking: discrimination (discrete part models), composition (parts are containers), categorisation (inheritance of part properties).
 
 Shell Commands
 ______________
@@ -790,7 +774,7 @@ _______
         * Use integer datatype "long long int" (64 Bit) wherever useful in cyboi;
             adapt file "executor/memoriser/size_determiner.c" to use "SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE" instead of "SIGNED_INTEGER_INTEGRAL_TYPE_SIZE" for "INTEGER_NUMBER_STATE_CYBOI_TYPE"
 
-        * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"
+        * Fix memory bugs reported by valgrind tool when starting cybol applications "tui" and "ui_control"
             (appears in function call "fwprintf" of file "stream_terminal_sender.c";
             but in some application this works just fine, e.g. in "helloworld" with terminal output)
             --> also happens when "sensing" is deactivated in "tui/run.cybol"
@@ -806,7 +790,7 @@ _______
         * Unify common code of files "handler.c" and "knowledge_part_getter.c"?
             --> possibly, state and logic models need to be handled differently (at least path/reference)
 
-        * Rename "number/double" into "number/float" in all cybol example applications
+        * Rename "number/double" into "number/float" in all cybol applications
 
         * Refactor loops into an own function using function pointers? See "language/loop.c"!
 

@@ -1,8 +1,0 @@
-<node>
-
-    <node name="evaluate_terminal_flag" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="text/cybol-path" model="#terminal"/>
-        <node name="true" channel="file" format="element/part" model="cybol/initialise/startup_terminal.cybol"/>
-    </node>
-
-</node>
