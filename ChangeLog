@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-02-07  Christian Heller  <christian.heller@cybop.org>
+
+        * Prepare reactivation of cybol example "internet/socket*/"
+
 2020-01-31  Christian Heller  <christian.heller@cybop.org>
 
         * Clean up files in library "examples/cybol/"

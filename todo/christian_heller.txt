@@ -14,18 +14,8 @@
 WUI
 ___
 
-        * Make cybol example "user_interface/ui/" wui work via socket
-        * Implement web socket
-        * Use server push to update wui in web client (browser)
-
-        * Reactivate socket (already prepared for new input/output structure)
-        * Verify that NON-BLOCKING mode is used for sockets and terminal at startup
-        * See comment in file "element_io_checker.c"
-        * Set flag "O_NONBLOCK", e.g. in file "open_unix_terminal_starter.c"
-        * See:
-            https://www.gnu.org/software/libc/manual/html_mono/libc.html#Open_002dtime-Flags
-            https://www.geeksforgeeks.org/non-blocking-io-with-pipes-in-c/
-            https://gamedev.stackexchange.com/questions/146256/how-do-i-get-getchar-to-not-block-the-input
+        CONTINUE:
+        * Make cybol applications "socket_server" and "socket_client" work
 
         * Find out if threads have to be reactivated when waiting for client requests via socket
             see backup directory "todo_thread" and read its file "readme-hint.txt"
@@ -51,6 +41,17 @@ ___
                 Here the authors of the driver will rather use the asynchronous interface than utilizing a thread pool.
                 In short: Only if there is no other way, the thread pool will be used for asynchronous I/O.
 
+        * Reactivate socket (already prepared for new input/output structure)
+        * Verify that NON-BLOCKING mode is used for sockets and terminal at startup
+        * See comment in file "element_io_checker.c"
+        * Set flag "O_NONBLOCK", e.g. in file "open_unix_terminal_starter.c"
+        * See:
+            https://www.gnu.org/software/libc/manual/html_mono/libc.html#Open_002dtime-Flags
+            https://www.geeksforgeeks.org/non-blocking-io-with-pipes-in-c/
+            https://gamedev.stackexchange.com/questions/146256/how-do-i-get-getchar-to-not-block-the-input
+        * Set non-blocking flag also for accepted client sockets, in order to be able to send/receive in non-blocking mode? See:
+            wolf_-_linux-unix-programmierung/Kap11-019.htm#RxxKap11019040003981F017100
+
         * Debug runtime errors; see file "todo/memcheck.log" (created on 64 Bit machine)
 
         * Check why only one of many files (css or js or image etc.) referenced from within html is delivered by server
@@ -62,17 +63,20 @@ ___
             --> Are these put in a wait queue so that they can be processed one-by-one serially
                 or do they have to be processed in more than one threads on the server?
 
+        * Make cybol example "user_interface/ui/" wui work via socket
+        * Implement web socket
+        * Use server push to update wui in web client (browser)
+
         * Check if sender should be pointer or integer (e.g. for client socket) in file "io_entry_getter.c" used in file "accept_io_checker.c"
         * Check if sender has to be reset in server socket io entry in file "receive_io_checker.c", when being closed
 
         * Check why action is sometimes empty by test-logging http requests
         * Branch cybol code sending a standard html error page if action is empty in file "handle.cybol"
 
-        * Append year and week to actions "send_index" and "navigate_forward/backward"
-
         * Study directory "executor/accessor/getter/part_getter.c" in order to find out redundancies with sub directory "part/"
 
-        * Increase limit of connecting clients or do only close connexion after a timeout has been reached (currently the web browser blocks after ten clicks, since each request opens a new socket connexion)
+        * Increase limit of connecting clients or do only close connexion after a timeout has been reached
+            (currently, the web browser blocks after ten clicks, since each request opens a new socket connexion)
 
         * Update other cybol applications (see INSTALL file for a list):
             properties message --> sender
@@ -105,9 +109,6 @@ ___
 
         * Activate ipv6 support for win32 in files "inet6_host_address_socket_starter.c" and "inet6_socket_address_socket_starter.c", as soon as the mingw compiler supports it
         * Activate function "inet_pton" for win32 in files "inet_host_address_socket_starter.c" and "inet6_host_address_socket_starter.c", as soon as the mingw compiler supports "Winsock2.h"
-
-        * Set non-blocking flag also for accepted client sockets, in order to be able to send/receive in non-blocking mode? See:
-            wolf_-_linux-unix-programmierung/Kap11-019.htm#RxxKap11019040003981F017100
 
         * Implement content negotiation for providing resources in different human languages:
             https://de.wikipedia.org/wiki/Content_Negotiation
@@ -384,6 +385,9 @@ _________________
         * Optimise cybol application "presence"
             - make DATETIME and SOCKET work in cyboi, before continuing
             - use stack properties instead of duplicate loop indices etc.
+            - use login and password retrieved from ldap server
+            - remind lecturers via email on editing their presence
+
         * Optimise resmedicinae application "xdt2html"
             - ALREADY DONE: make DEEP COPY and SOCKET work in cyboi, before continuing
             - use stack properties instead of duplicate loop indices etc.
@@ -505,6 +509,7 @@ ________
         * Add files "clock_reader.c" (returning current unix time in s) and "clock_writer.c" (setting computer time, which needs administrator rights)
         * Adapt cybol applications using old versions of "time/current" with new receive via channel "clock"
         * Configure date dynamically in cybol application "presence"
+        * Append year and week to actions "send_index" and "navigate_forward/backward"?
         * Implement "forward" and "backward" in cybol application "presence", by just adding/subtracting 7 (days) from current day
             --> continue with run.cybol
 
@@ -554,13 +559,6 @@ ___________
             - Mittelwert, Varianz, Standardabweichung, Standardfehler
             - Minimum, Maximum, Median, Modalwert
             - Lineare Regression
-
-LDAP
-____
-
-        * Optimise cybol application "presence" using login and password
-        * Retrieve login and password and lecturers' email address from ldap server
-        * Remind lecturers via email on editing their presence
 
 Compression
 ___________

@@ -1,5 +1,14 @@
 <node>
 
-    <node name="var" channel="file" format="element/part" model="socket_client/var.cybol"/>
+    <!--
+        The server response as received on the client.
+        CAUTION! Use "text/ascii" and NOT "text/plain" (wide_character) here.
+    -->
+    <node name="response" channel="inline" format="text/ascii" model=""/>
+<!--
+    <node name="response" channel="inline" format="text/plain" model=""/>
+-->
+
+    <node name="server_socket" channel="inline" format="number/integer" model="0"/>
 
 </node>
