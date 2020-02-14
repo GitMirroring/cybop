@@ -121,12 +121,15 @@ void startup_socket_server_lifecycle(void* p0, void* p1, void* p2, void* p3, voi
 
 //?? fwprintf(stdout, L"TEST: startup socket server lifecycle listen s: %i \n", *((int*) p0));
 
+        //
         // This is a stream socket.
         //
         // CAUTION! Datagram sockets do NOT have connexions,
         // which is why the "listen" function is ONLY called
         // for stream sockets here.
+        //
 
+        //
         // Listen for client requests.
         //
         // The second argument specifies the length
@@ -134,6 +137,7 @@ void startup_socket_server_lifecycle(void* p0, void* p1, void* p2, void* p3, voi
         // When the queue fills, new clients attempting to connect
         // fail with ECONNREFUSED until the server calls accept
         // to accept a connexion from the queue.
+        //
         startup_socket_server_listen(p0, p13);
     }
 }

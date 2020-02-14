@@ -76,8 +76,10 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         deserialise_network_service((void*) &p, p17, p18);
     }
 
+fwprintf(stdout, L"TEST: startup socket pre p: %i \n", p);
     // Startup socket in either client or server mode.
     startup_socket_mode(p0, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, (void*) &p, p13, p14, p15, p16);
+fwprintf(stdout, L"TEST: startup socket post p: %i \n", p);
 }
 
 /* SOCKET_STARTER_SOURCE */

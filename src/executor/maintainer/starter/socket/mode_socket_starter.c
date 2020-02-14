@@ -82,7 +82,9 @@ void startup_socket_mode(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+fwprintf(stdout, L"TEST: startup socket mode pre r: %i \n", r);
             startup_socket_server(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
+fwprintf(stdout, L"TEST: startup socket mode post r: %i \n", r);
         }
     }
 
