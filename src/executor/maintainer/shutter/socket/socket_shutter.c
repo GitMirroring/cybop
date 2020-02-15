@@ -38,7 +38,7 @@
  *
  * CAUTION! This is done in the reverse order the service was started up.
  *
- * @param p0 the internal memory data (pointer reference)
+ * @param p0 the input/output entry
  * @param p1 the port
  * @param p2 the client socket
  * @param p3 the mode data

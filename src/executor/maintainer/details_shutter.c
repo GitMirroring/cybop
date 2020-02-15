@@ -39,7 +39,7 @@
 /**
  * Shuts down the service details.
  *
- * @param p0 the internal memory data
+ * @param p0 the input/output entry
  * @param p1 the service identification (e.g. socket port)
  * @param p2 the socket client socket
  * @param p3 the socket mode data
@@ -47,9 +47,8 @@
  * @param p5 the socket network service data
  * @param p6 the socket network service count
  * @param p7 the channel
- * @param p8 the input/output entry
  */
-void shutdown_details(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void shutdown_details(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown details.");
 
@@ -62,7 +61,7 @@ void shutdown_details(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            shutdown_display(p8);
+            shutdown_display(p0);
         }
     }
 
@@ -72,8 +71,9 @@ void shutdown_details(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? TODO: Change from p0 into p8 as soon as shutter gets adapted to new io entry.
-            shutdown_serial_port(p0);
+            //?? TODO: Hand over p0 as input/output entry
+            //?? (was internal memory before, which is not needed anymore, see other channels)
+//??            shutdown_serial_port(p0);
         }
     }
 
@@ -93,7 +93,7 @@ void shutdown_details(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            shutdown_terminal(p8);
+            shutdown_terminal(p0);
         }
     }
 

@@ -15,13 +15,11 @@ WUI
 ___
 
         CONTINUE:
-        * Debug memory error in "maintain/startup" for socket channel testing with cybol application "socket_server"
-            strange, that programme breaks after leaving function in file "server_socket_starter.c"
-                and does not reach the calling function in file "mode_socket_starter.c"
-            log file stops in file "operation_checker.c" called from file "inet_host_address_socket_starter.c"
+        * Test and possibly clean up socket startup and shutdown with new input/output entry structure
+        * Make cybol applications "socket_server" and "socket_client" work
+
         * Check if freeing address in line 113 of file "lifecycle_server_socket_starter.c" is too early:
             free(ad);
-        * Make cybol applications "socket_server" and "socket_client" work
 
         * Find out if threads have to be reactivated when waiting for client requests via socket
             see backup directory "todo_thread" and read its file "readme-hint.txt"
@@ -151,6 +149,8 @@ ___
             https://stackoverflow.com/questions/47453159/xcb-poll-for-event-does-not-detect-xcb-client-message-event-for-closing-window
             https://stackoverflow.com/questions/53027567/vksurfacekhr-does-not-to-update-when-resizing-xcb-window
             https://marc.info/?l=freedesktop-xcb&m=129381953404497&q=p5
+
+        * Delete files "x_window_system_allocator.c" and "x_window_system_deallocator.c"
 
 GUI
 ___

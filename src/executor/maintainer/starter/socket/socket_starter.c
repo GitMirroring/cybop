@@ -36,7 +36,7 @@
 /**
  * Starts up the socket.
  *
- * @param p0 the internal memory data
+ * @param p0 the input/output entry
  * @param p1 the service id, e.g. socket port
  * @param p2 the family data (namespace)
  * @param p3 the family count

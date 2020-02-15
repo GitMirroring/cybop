@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-02-15  Christian Heller  <christian.heller@cybop.org>
+
+        * Adapt socket startup and shutdown to new input/output entry structure
+
 2020-02-07  Christian Heller  <christian.heller@cybop.org>
 
         * Prepare reactivation of cybol example "internet/socket*/"

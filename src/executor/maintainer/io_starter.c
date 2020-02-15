@@ -82,7 +82,7 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 fwprintf(stdout, L"TEST startup io 1. io: %i\n", io);
 
         // Startup service details.
-        startup_details(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, io);
+        startup_details(io, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22);
 
 fwprintf(stdout, L"TEST startup io 2. io: %i\n", io);
 

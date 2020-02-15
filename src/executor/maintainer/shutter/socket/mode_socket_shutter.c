@@ -39,7 +39,7 @@
 /**
  * Shuts down socket in either client or server mode.
  *
- * @param p0 the internal memory data (pointer reference)
+ * @param p0 the input/output entry
  * @param p1 the port
  * @param p2 the client socket
  * @param p3 the mode data

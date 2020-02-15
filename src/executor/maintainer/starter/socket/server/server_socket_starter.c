@@ -42,7 +42,7 @@
 /**
  * Starts up server socket.
  *
- * @param p0 the internal memory data
+ * @param p0 the input/output entry
  * @param p1 the family data (namespace)
  * @param p2 the family count
  * @param p3 the style data (communication type)
@@ -61,95 +61,21 @@ void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket server.");
 
-    // The internal memory index.
-    int i = *SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+    // The socket.
+    int s = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
-fwprintf(stdout, L"TEST: startup socket server io index: %i \n", i);
-fwprintf(stdout, L"TEST: startup socket server port p12: %i \n", p12);
-fwprintf(stdout, L"TEST: startup socket server port *p12: %i \n", *((int*) p12));
+fwprintf(stdout, L"TEST: startup socket server 0. input/output entry p0: %i \n", p0);
+fwprintf(stdout, L"TEST: startup socket server 1. s: %i \n", s);
 
-    // Calculate internal memory index using given service identification (port).
-    calculate_integer_add((void*) &i, p12);
+    // Startup server socket.
+    startup_socket_server_lifecycle((void*) &s, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
 
-    // CAUTION! Use greater operator >, since the identification (port) zero does not exist.
-    if (i > *SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME) {
+fwprintf(stdout, L"TEST: startup socket server 2. s: %i \n", s);
 
-        // The given service identification (port) is valid.
+    // Store socket in input/output entry.
+    set_io_entry_element(p0, (void*) &s, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-        // The socket input/output entry.
-        void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-fwprintf(stdout, L"TEST: startup socket server io index with service identification (port): %i \n", i);
-
-        // Get socket input/output entry from internal memory.
-        copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
-
-        if (io == *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            // The socket.
-            int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            // The client list item.
-            void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-            //
-            // Allocate input/output entry.
-            //
-            // CAUTION! Due to memory allocation handling, the size MUST NOT
-            // be negative or zero, but have at least a value of ONE.
-            //
-            allocate_array((void*) &io, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
-            // Startup server socket.
-            startup_socket_server_lifecycle((void*) &s, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
-            //
-            // Allocate client list item.
-            //
-            // CAUTION! Due to memory allocation handling, the size MUST NOT
-            // be negative or zero, but have at least a value of ONE.
-            //
-            allocate_item((void*) &cl, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-
-fwprintf(stdout, L"TEST: startup socket server socket s: %i \n", s);
-fwprintf(stdout, L"TEST: startup socket server client list cl: %i \n", cl);
-
-            //
-            // Store socket in input/output entry.
-            //
-            // CAUTION! Do NOT use "overwrite_array" function here,
-            // since it adapts the array count and size.
-            // But the array's count and size are CONSTANT.
-            //
-            set_io_entry_element((void*) &io, (void*) &s, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
-fwprintf(stdout, L"TEST: startup socket server post set s: %i \n", s);
-            //
-            // Store client list item in input/output entry.
-            //
-            // CAUTION! Do NOT use "overwrite_array" function here,
-            // since it adapts the array count and size.
-            // But the array's count and size are CONSTANT.
-            //
-            set_io_entry_element((void*) &io, (void*) &cl, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
-fwprintf(stdout, L"TEST: startup socket server post set cl: %i \n", cl);
-
-            //
-            // Store input/output entry in internal memory.
-            //
-            // CAUTION! Do NOT use "overwrite_array" function here,
-            // since it adapts the array count and size.
-            // But the internal array's count and size are CONSTANT.
-            //
-            copy_array_forward(p0, (void*) &io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-fwprintf(stdout, L"TEST: startup socket server post copy io: %i \n", io);
-
-        } else {
-
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket server. The socket already exists in internal memory.");
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket server. The internal memory base is wrong, due to an invalid port.");
-    }
-fwprintf(stdout, L"TEST: startup socket server END i: %i \n", i);
+fwprintf(stdout, L"TEST: startup socket server 3. s: %i \n", s);
 }
 
 /* SERVER_SOCKET_STARTER_SOURCE */
