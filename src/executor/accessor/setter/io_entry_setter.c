@@ -706,7 +706,7 @@ void set_io_entry_element(void* p0, void* p1, void* p2) {
                 calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // colour map xcb
 
                 // Copy source element to destination input/output entry.
-                copy_integer(e, p1);
+                copy_pointer(e, p1);
             }
         }
 
@@ -755,7 +755,7 @@ void set_io_entry_element(void* p0, void* p1, void* p2) {
                 calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // font xcb
                 calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // colour map xcb
 
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // delete window cookie xcb
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // delete window cookie xcb
 
                 // Copy source element to destination input/output entry.
                 copy_integer(e, p1);
@@ -807,7 +807,7 @@ void set_io_entry_element(void* p0, void* p1, void* p2) {
                 calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // font xcb
                 calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // colour map xcb
 
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // delete window cookie xcb
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // delete window cookie xcb
 
                 calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // device context win32
 

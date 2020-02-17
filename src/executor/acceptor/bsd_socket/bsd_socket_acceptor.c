@@ -52,14 +52,16 @@ void accept_bsd_socket(void* p0, void* p1) {
         // Otherwise, it would produce huge log files filled up with useless entries.
         // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Accept bsd socket.");
 
-        fwprintf(stdout, L"TEST: Accept bsd socket *s: %i \n", *((int*) p1));
+//??        fwprintf(stdout, L"TEST: Accept bsd socket *s: %i \n", *s);
 
+        //
         // Initialise error number.
         // It is a global variable/ function and other operations
         // may have set some value that is not wanted here.
         //
         // CAUTION! Initialise the error number BEFORE calling
         // the procedure that might cause an error.
+        //
         errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         //
@@ -81,18 +83,20 @@ void accept_bsd_socket(void* p0, void* p1) {
         //
         // Therefore, the following source code is NOT necessary:
         //     struct sockaddr_in ad;
-        //     socklen_t as = sizeof (ad);
+        //     socklen_t as = sizeof(ad);
         //     *c = accept(*s, (struct sockaddr*) &ad, &as);
         //
         // CAUTION! The socket was made non-blocking at startup.
         //
         int c = accept(*s, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-        fwprintf(stdout, L"TEST: Accept bsd socket. client socket c: %i \n", c);
+//??        fwprintf(stdout, L"TEST: Accept bsd socket. client socket c: %i \n", c);
 
         if (c >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Accept bsd socket successful.");
+
+            fwprintf(stdout, L"TEST: Accept bsd socket successful. client socket c: %i \n", c);
 
             copy_integer(p0, (void*) &c);
 

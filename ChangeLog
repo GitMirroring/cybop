@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-02-17  Christian Heller  <christian.heller@cybop.org>
+
+        * Fix mixed pointer- and integer calculation in files "io_entry_setter.c" and "io_entry_getter.c", leading to unpredictable errors when working with channels such as gui, socket etc.
+        * Ensure cybol applications "socket_server" and "socket_client" can communicate
+
 2020-02-15  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt socket startup and shutdown to new input/output entry structure

@@ -43,7 +43,7 @@
  * Checks input output for new client requests.
  *
  * @param p0 the client list item
- * @param p1 the io entry
+ * @param p1 the input/output entry
  * @param p2 the channel
  */
 void check_io_accept(void* p0, void* p1, void* p2) {

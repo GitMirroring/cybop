@@ -37,14 +37,14 @@
  * Accepts a new client request waiting on the server socket.
  *
  * @param p0 the sender client socket
- * @param p1 the io entry
+ * @param p1 the input/output entry
  */
 void accept_socket_server(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Accept socket.");
 
     // The receiver server socket.
-    int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int s = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Get receiver server socket from io entry.
     get_io_entry_element((void*) &s, p1, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);

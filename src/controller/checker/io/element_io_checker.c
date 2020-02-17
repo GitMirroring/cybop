@@ -50,6 +50,7 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //
     // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
     // Otherwise, it would produce huge log files filled up with useless entries.
+    //
     // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io element.");
     //
 
@@ -63,7 +64,11 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         // The input/output entry (service) DOES exist in internal memory.
 
-//??        fwprintf(stdout, L"TEST: check io element io: %i \n", io);
+/*??
+        fwprintf(stdout, L"TEST: check io element. input/output base p2: %i \n", *((int*) p2));
+        fwprintf(stdout, L"TEST: check io element. service identification p3: %i \n", *((int*) p3));
+        fwprintf(stdout, L"TEST: check io element io: %i \n", io);
+*/
 
         // The enable flag.
         int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -107,6 +112,18 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Check for available input/output.
             check_io_receive(p0, l, io, p4);
         }
+
+    } else {
+
+        //
+        // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
+        // Otherwise, it would produce huge log files filled up with useless entries.
+        // The reason is that an input/output entry being null is the standard case,
+        // since all 65536 service identification ports are tested,
+        // of whom only one or a few are active.
+        //
+        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check io element. The input/output entry is null.");
+        //
     }
 }
 

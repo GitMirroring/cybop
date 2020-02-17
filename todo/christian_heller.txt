@@ -14,12 +14,7 @@
 WUI
 ___
 
-        CONTINUE:
-        * Test and possibly clean up socket startup and shutdown with new input/output entry structure
-        * Make cybol applications "socket_server" and "socket_client" work
-
-        * Check if freeing address in line 113 of file "lifecycle_server_socket_starter.c" is too early:
-            free(ad);
+        * Test and extend cybol applications "socket_server" and "socket_client"
 
         * Find out if threads have to be reactivated when waiting for client requests via socket
             see backup directory "todo_thread" and read its file "readme-hint.txt"
@@ -45,18 +40,18 @@ ___
                 Here the authors of the driver will rather use the asynchronous interface than utilizing a thread pool.
                 In short: Only if there is no other way, the thread pool will be used for asynchronous I/O.
 
-        * Reactivate socket (already prepared for new input/output structure)
-        * Verify that NON-BLOCKING mode is used for sockets and terminal at startup
+        * Check if freeing address in line 113 of file "lifecycle_server_socket_starter.c" is too early:
+            free(ad);
+
+        * Set non-blocking flag also for accepted client sockets, in order to be able to send/receive in non-blocking mode? See:
+            wolf_-_linux-unix-programmierung/Kap11-019.htm#RxxKap11019040003981F017100
+        * Verify that NON-BLOCKING mode is used for terminal at startup
         * See comment in file "element_io_checker.c"
         * Set flag "O_NONBLOCK", e.g. in file "open_unix_terminal_starter.c"
         * See:
             https://www.gnu.org/software/libc/manual/html_mono/libc.html#Open_002dtime-Flags
             https://www.geeksforgeeks.org/non-blocking-io-with-pipes-in-c/
             https://gamedev.stackexchange.com/questions/146256/how-do-i-get-getchar-to-not-block-the-input
-        * Set non-blocking flag also for accepted client sockets, in order to be able to send/receive in non-blocking mode? See:
-            wolf_-_linux-unix-programmierung/Kap11-019.htm#RxxKap11019040003981F017100
-
-        * Debug runtime errors; see file "todo/memcheck.log" (created on 64 Bit machine)
 
         * Check why only one of many files (css or js or image etc.) referenced from within html is delivered by server
             https://de.wikipedia.org/wiki/Keepalive
