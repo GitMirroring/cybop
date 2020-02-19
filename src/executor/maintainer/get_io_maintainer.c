@@ -47,7 +47,12 @@
  */
 void maintain_io_get(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Maintain io get.");
+    //
+    // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
+    // Otherwise, it would produce huge log files filled up with useless entries.
+    //
+    // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Maintain io get.");
+    //
 
     // The internal memory index.
     int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;

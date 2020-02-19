@@ -14,6 +14,8 @@
 WUI
 ___
 
+        CONTINUE:
+        * Adapt file "socket_sensor.c" called from files "socket_reader.c" and "element_client_checker.c"
         * Test and extend cybol applications "socket_server" and "socket_client"
 
         * Find out if threads have to be reactivated when waiting for client requests via socket

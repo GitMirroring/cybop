@@ -74,8 +74,6 @@ fwprintf(stdout, L"TEST: startup socket server 2. s: %i \n", s);
 
     // Store socket in input/output entry.
     set_io_entry_element(p0, (void*) &s, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-fwprintf(stdout, L"TEST: startup socket server 3. s: %i \n", s);
 }
 
 /* SERVER_SOCKET_STARTER_SOURCE */

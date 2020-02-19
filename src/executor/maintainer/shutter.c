@@ -52,7 +52,13 @@
  */
 void shutdown_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown service.");
+    //
+    // CAUTION! Do NOT log messages here, since this function is called 65,536 times
+    // for socket channels in a loop.
+    // Otherwise, it would produce huge log files filled up with useless entries.
+    //
+    // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown service.");
+    //
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

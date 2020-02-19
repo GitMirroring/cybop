@@ -62,6 +62,7 @@ void read_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
                     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read bsd socket.");
 
+                    //
                     // Cast int to size_t.
                     //
                     // CAUTION! It IS NECESSARY because on 64 Bit machines,
@@ -78,20 +79,24 @@ void read_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
                     // because values are casted to int* internally again.
                     size_t st = (size_t) *s;
 
+                    //
                     // Initialise error number.
+                    //
                     // It is a global variable/function and other operations
                     // may have set some value that is not wanted here.
                     //
                     // CAUTION! Initialise the error number BEFORE calling
                     // the procedure that might cause an error.
+                    //
                     errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-//?? fwprintf(stdout, L"TEST: read bsd socket buffer *ss: %i \n", *ss);
-//?? fwprintf(stdout, L"TEST: read bsd socket buffer st: %i \n", st);
-//?? fwprintf(stdout, L"TEST: read bsd socket buffer *s: %i \n", *s);
-//?? fwprintf(stdout, L"TEST: read bsd socket buffer p1: %i \n", *((int*) p1));
-//?? fwprintf(stdout, L"TEST: read bsd socket buffer p0: %i \n", p0);
+                    //?? fwprintf(stdout, L"TEST: read bsd socket buffer *ss: %i \n", *ss);
+                    //?? fwprintf(stdout, L"TEST: read bsd socket buffer st: %i \n", st);
+                    //?? fwprintf(stdout, L"TEST: read bsd socket buffer *s: %i \n", *s);
+                    //?? fwprintf(stdout, L"TEST: read bsd socket buffer p1: %i \n", *((int*) p1));
+                    //?? fwprintf(stdout, L"TEST: read bsd socket buffer p0: %i \n", p0);
 
+                    //
                     // Read message.
                     //
                     // Normally, "recv" blocks until there is input available to be read.
@@ -103,35 +108,44 @@ void read_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
                     // data are just to be detected, without removing them.
                     // In this case, the flags argument has the value MSG_PEEK.
                     // Otherwise, for normal reading, it may have a value of zero.
+                    //
                     int c = recv(*ss, p0, st, *o);
 
-//?? fwprintf(stdout, L"TEST read bsd socket c: %i\n", c);
+                    //?? fwprintf(stdout, L"TEST read bsd socket c: %i\n", c);
 
                     if (c > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-//?? fwprintf(stdout, L"TEST read bsd socket success c: %i\n", c);
+                        //?? fwprintf(stdout, L"TEST read bsd socket success c: %i\n", c);
 
                         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully read bsd socket.");
 
+                        //
                         // Copy destination count.
+                        //
                         // CAUTION! Copy value only if >= zero.
                         // Otherwise (with negative value), buffer deallocation will fail.
+                        //
                         copy_integer(p1, (void*) &c);
 
                     } else if (c == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-//?? fwprintf(stdout, L"TEST read bsd socket no data c: %i\n", c);
+                        //?? fwprintf(stdout, L"TEST read bsd socket no data c: %i\n", c);
 
+                        //
                         // CAUTION! Do NOT log this message, since it would
                         // produce dozens of log entries.
                         // The cyboi endless signal loop queries input/output
                         // channels frequently for new available data.
                         // If there are none, then this is just normal.
                         // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read bsd socket. No data could be sensed.");
+                        //
 
+                        //
                         // Copy destination count.
+                        //
                         // CAUTION! Copy value only if >= zero.
                         // Otherwise (with negative value), buffer deallocation will fail.
+                        //
                         copy_integer(p1, (void*) &c);
 
                     } else {
@@ -140,33 +154,33 @@ void read_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
                         if (errno == EBADF) {
 
-                            fwprintf(stdout, L"TEST read bsd socket error EBADF: %i\n", errno);
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read bsd socket. The socket argument is not a valid file descriptor.");
+                            fwprintf(stdout, L"TEST read bsd socket error EBADF: %i\n", errno);
 
                         } else if (errno == ENOTSOCK) {
 
-                            fwprintf(stdout, L"TEST read bsd socket error ENOTSOCK: %i\n", errno);
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read bsd socket. The descriptor socket is not a socket.");
+                            fwprintf(stdout, L"TEST read bsd socket error ENOTSOCK: %i\n", errno);
 
                         } else if (errno == EWOULDBLOCK) {
 
-                            fwprintf(stdout, L"TEST read bsd socket error EWOULDBLOCK: %i\n", errno);
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read bsd socket. The read operation would block even though nonblocking mode has been set on the socket.");
+                            fwprintf(stdout, L"TEST read bsd socket error EWOULDBLOCK: %i\n", errno);
 
                         } else if (errno == EINTR) {
 
-                            fwprintf(stdout, L"TEST read bsd socket error EINTR: %i\n", errno);
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read bsd socket. The operation was interrupted by a signal before any data was received.");
+                            fwprintf(stdout, L"TEST read bsd socket error EINTR: %i\n", errno);
 
                         } else if (errno == ENOTCONN) {
 
-                            fwprintf(stdout, L"TEST read bsd socket error ENOTCONN: %i\n", errno);
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read bsd socket. The socket was never connected.");
+                            fwprintf(stdout, L"TEST read bsd socket error ENOTCONN: %i\n", errno);
 
                         } else {
 
-                            fwprintf(stdout, L"TEST read bsd socket error UNKNOWN: %i\n", errno);
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read bsd socket. An unknown error occured.");
+                            fwprintf(stdout, L"TEST read bsd socket error UNKNOWN: %i\n", errno);
                         }
                     }
 

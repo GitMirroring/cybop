@@ -56,7 +56,7 @@ void sense(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense.");
 
-//??    fwprintf(stdout, L"TEST Sense. channel p3: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"TEST Sense. channel p3: %i\n", *((int*) p3));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

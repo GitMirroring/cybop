@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-02-19  Christian Heller  <christian.heller@cybop.org>
+
+        * Reactivate file "socket_sensor.c"
+
 2020-02-17  Christian Heller  <christian.heller@cybop.org>
 
         * Fix mixed pointer- and integer calculation in files "io_entry_setter.c" and "io_entry_getter.c", leading to unpredictable errors when working with channels such as gui, socket etc.

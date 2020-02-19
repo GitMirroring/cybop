@@ -83,6 +83,9 @@ void check_io_accept(void* p0, void* p1, void* p2) {
         // Since cyboi is non-blocking using busy waiting,
         // most of the time, no request is found.
         //
+        // This else branch will not harm performance,
+        // since the compiler does remove empty blocks.
+        //
     }
 }
 

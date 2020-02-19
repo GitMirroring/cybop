@@ -54,29 +54,39 @@ void read_socket(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read socket.");
 
+    //
     // The buffer data, count, size.
+    //
     // CAUTION! Its size has to be GREATER than zero.
     // Otherwise, there will be no place for the data to be read.
     // A peek into the apacha http server showed values like 512 or 2048.
     // So, the value of 1024 used here is probably acceptable.
+    //
     void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int bs = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
+    //
     // The extended count, size.
+    //
     // It is necessary for peeking ahead.
+    //
     int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int es = bs + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
+    //
     // Allocate buffer data.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_array((void*) &bd, (void*) &bs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Loop until all bytes have been read.
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//?? fwprintf(stdout, L"TEST: read socket loop ec: %i \n", ec);
+        //?? fwprintf(stdout, L"TEST: read socket loop ec: %i \n", ec);
 
+        //
         // Sense further data available on socket.
         //
         // CAUTION! This function call IS NECESSARY in order
@@ -116,49 +126,64 @@ void read_socket(void* p0, void* p1) {
         // Read data into buffer with given size.
         read_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-//?? fwprintf(stdout, L"TEST: read socket result bc: %i \n", bc);
+        fwprintf(stdout, L"TEST: Read socket. bc: %i \n", bc);
 
         if (bc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-//?? fwprintf(stdout, L"TEST: read socket bc > 0: %i \n", bc);
+            fwprintf(stdout, L"TEST: Read socket. bc > 0: %i \n", bc);
 
             // Append buffer to destination data.
             modify_item(p0, bd, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &bc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+        } else {
+
+            fwprintf(stdout, L"TEST: Read socket. break\n");
+
+            break;
         }
 
+/*??
         if (ec > bs) {
 
-//?? fwprintf(stdout, L"TEST: read socket ec > bs: %i \n", ec);
+            //?? fwprintf(stdout, L"TEST: read socket ec > bs: %i \n", ec);
 
             // There are further data available on the socket.
             // Therefore, another loop cycle will be entered.
 
             // Reset extended count.
             ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            //
             // Reset buffer count.
+            //
             // CAUTION! It is NOT necessary to reset the buffer data variable.
             // It points to the first element/begin of the data array
             // and elements will get overwritten starting from there.
+            //
             bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         } else {
 
-//?? fwprintf(stdout, L"TEST: read socket ec <= bs: %i \n", ec);
+            //?? fwprintf(stdout, L"TEST: read socket ec <= bs: %i \n", ec);
 
-            // The buffer completely or not, which is not relevant.
-            // However, its size was sufficient.
-            // No more data are available.
-            // The loop may be left.
+            //
+            // The buffer was filled partly or completely
+            // and its size was sufficient.
+            // However, NO MORE DATA are available.
+            // The loop may therefore be left.
+            //
 
-            // Exit loop, since no more data are to be read.
             break;
         }
+*/
     }
 
+    //
     // Deallocate buffer data.
+    //
     // CAUTION! The second argument "count" is NULL,
     // since it is only needed for looping elements of type PART,
     // in order to decrement the rubbish (garbage) collection counter.
+    //
     deallocate_array((void*) &bd, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &bs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 

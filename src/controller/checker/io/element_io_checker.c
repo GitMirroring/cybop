@@ -85,10 +85,12 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // The client list item.
             void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+            fwprintf(stdout, L"TEST: check io element pre l: %i \n", l);
+
             // Get client list item from input/output entry.
             get_io_entry_element((void*) &l, io, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-//??            fwprintf(stdout, L"TEST: check io element l: %i \n", l);
+            fwprintf(stdout, L"TEST: check io element post l: %i \n", l);
 
             //
             // Check for new client requests.
