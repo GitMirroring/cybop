@@ -15,7 +15,9 @@ WUI
 ___
 
         CONTINUE:
-        * Adapt file "socket_sensor.c" called from files "socket_reader.c" and "element_client_checker.c"
+        * Test if function "check_empty"
+        * Adapt file "socket_sensor.c" called from files "element_client_checker.c" and "socket_reader.c"
+        * Remove call of function "exit()" in file "element_client_checker.c" again
         * Test and extend cybol applications "socket_server" and "socket_client"
 
         * Find out if threads have to be reactivated when waiting for client requests via socket

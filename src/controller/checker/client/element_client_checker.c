@@ -73,6 +73,9 @@ void check_client_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         // Copy client.
         copy_integer(p0, (void*) &c);
+
+        //?? TODO:
+        exit(-5);
     }
 }
 
