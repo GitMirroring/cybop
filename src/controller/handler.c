@@ -59,6 +59,8 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle.");
 
+    //?? fwprintf(stdout, L"TEST handle: %i\n", p0);
+
     // The signal part format, model, properties.
     void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -101,7 +103,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//?? fwprintf(stdout, L"TEST handle - part element: %i\n", *((int*) fd));
+            //?? fwprintf(stdout, L"TEST handle - part element: %i\n", *((int*) fd));
 
             // Handle compound part signal.
             handle_part(md, mc, pd, pc, p1, p2, p3, p4, p5, p6);
@@ -114,7 +116,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//?? fwprintf(stdout, L"TEST handle - cybol path: %i\n", *((int*) fd));
+            //?? fwprintf(stdout, L"TEST handle - cybol path: %i\n", *((int*) fd));
 
             // Copy source path data position.
             copy_pointer((void*) &pathd, (void*) &md);
@@ -143,7 +145,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
         // "handle_operation" function as well.
         if (fd != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-//?? fwprintf(stdout, L"TEST handle - operation: %i\n", *((int*) fd));
+            //?? fwprintf(stdout, L"TEST handle - operation: %i\n", *((int*) fd));
 
             // Handle primitive operation signal.
             handle_operation(pd, pc, p1, p2, p3, p4, p6, fd);

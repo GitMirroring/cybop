@@ -57,6 +57,7 @@ void check_empty(void* p0, void* p1, void* p2) {
 
     //?? fwprintf(stdout, L"TEST check empty irq: %i\n", irq);
 
+    //
     // The signal memory is empty, so that the cyboi system
     // may check for new interrupt requests now.
     //
@@ -66,6 +67,7 @@ void check_empty(void* p0, void* p1, void* p2) {
     // In such a case, the signal memory flag was set
     // so that the new signal may be recognised here
     // and does not get forgotten.
+    //
 
     // Check channels for interrupt requests.
     check_irq((void*) &irq, (void*) &s, p0);
@@ -73,8 +75,9 @@ void check_empty(void* p0, void* p1, void* p2) {
     if (irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //?? fwprintf(stdout, L"TEST check empty found irq: %i\n", irq);
-        //?? fwprintf(stdout, L"TEST check empty found s: %p\n", s);
+        //?? fwprintf(stdout, L"TEST check empty found s: %i\n", s);
 
+        //
         // Add part model (signal) to signal memory.
         //
         // CAUTION! Use simple POINTER_STATE_CYBOI_TYPE and NOT PART_ELEMENT_STATE_CYBOI_TYPE here.
@@ -93,16 +96,21 @@ void check_empty(void* p0, void* p1, void* p2) {
         // After destruction, the second signal just points to null, which is ignored.
         // Hence, rubbish (garbage) collection would only disturb here
         // and should be left to the knowledge memory.
+        //
         modify_item(p1, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
+        //
         // CAUTION! An interrupt request was detected and the corresponding data received.
         // It is therefore VERY likely that new signals have been generated while handling the data.
         // The cyboi system is therefore NOT sent to sleep, so that possibly existing
         // signals may be handled in the next iteration of the signal checker loop.
+        //
 
     } else {
 
+        //
         // No interrupt request was detected.
+        //
 
         check_wait(p0, p2);
     }

@@ -15,9 +15,11 @@ WUI
 ___
 
         CONTINUE:
-        * Test if function "check_empty"
+        * All handling corresponding to flow "checker_and_sensor.png" works fine
+            data get sensed on socket
+            continue in file "element_irq_checker.c" (probably followed by stream-read-socket)
+            remove call of function "exit()" in file "element_irq_checker.c" again
         * Adapt file "socket_sensor.c" called from files "element_client_checker.c" and "socket_reader.c"
-        * Remove call of function "exit()" in file "element_client_checker.c" again
         * Test and extend cybol applications "socket_server" and "socket_client"
 
         * Find out if threads have to be reactivated when waiting for client requests via socket
