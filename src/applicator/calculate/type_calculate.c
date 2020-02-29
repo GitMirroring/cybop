@@ -69,8 +69,8 @@ void apply_calculate_type(void* p0, void* p1, void* p2, void* p3, void* p4, void
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply calculate type. The result type and operand type are different.");
-        fwprintf(stdout, L"ERROR: Could not apply calculate type. The result type and operand type are different.\n");
-        fwprintf(stdout, L"ERROR: Result type: %i. Operand type: %i.\n", *((int*) p3), *((int*) p4));
+        fwprintf(stdout, L"Error: Could not apply calculate type. The result type and operand type are different.\n");
+        fwprintf(stdout, L"Error: Result type: %i. Operand type: %i.\n", *((int*) p3), *((int*) p4));
     }
 }
 

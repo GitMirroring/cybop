@@ -110,7 +110,7 @@ void sense_serial_port_message(void* p0) {
 
         } else {
 
-            fwprintf(stdout, L"ERROR: Could not sense serial port message. The file stream is null. fs: %i\n", fs);
+            fwprintf(stdout, L"Error: Could not sense serial port message. The file stream is null. fs: %i\n", fs);
 
             // CAUTION! DO NOT log this function call!
             // This function is executed within a thread, but the

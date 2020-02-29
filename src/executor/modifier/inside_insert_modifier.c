@@ -123,9 +123,9 @@ void modify_insert_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
                         // Make sure allocation size is at least one.
                         if (ns < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-                            fwprintf(stdout, L"ERROR: Could not modify insert inside. The new size is negative ns: %i\n", ns);
+                            fwprintf(stdout, L"Error: Could not modify insert inside. The new size is negative ns: %i\n", ns);
                         } else if (ns == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-                            fwprintf(stdout, L"ERROR: Could not modify insert inside. The new size is zero ns: %i\n", ns);
+                            fwprintf(stdout, L"Error: Could not modify insert inside. The new size is zero ns: %i\n", ns);
 //??                            ns = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                         }
 
@@ -171,19 +171,19 @@ void modify_insert_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void
                 } else {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify insert inside. The new size is negative.");
-                    fwprintf(stdout, L"ERROR: Could not modify insert inside. The new size is negative n: %i\n", nc);
+                    fwprintf(stdout, L"Error: Could not modify insert inside. The new size is negative n: %i\n", nc);
                 }
 
             } else {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify insert inside. The move count is negative.");
-                fwprintf(stdout, L"ERROR: Could not modify insert inside. The move count is negative c: %i\n", c);
+                fwprintf(stdout, L"Error: Could not modify insert inside. The move count is negative c: %i\n", c);
             }
 
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify insert inside. The move destination index is negative.");
-            fwprintf(stdout, L"ERROR: Could not modify insert inside. The move destination index is negative i: %i\n", i);
+            fwprintf(stdout, L"Error: Could not modify insert inside. The move destination index is negative i: %i\n", i);
         }
 
     } else {

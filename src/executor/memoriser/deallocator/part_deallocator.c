@@ -128,7 +128,7 @@ void deallocate_part(void* p0) {
             if (res != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deallocate part. It is still referenced by other parts.");
-                fwprintf(stdout, L"ERROR: Could not deallocate part. It is still referenced by other parts: %i\n", *part);
+                fwprintf(stdout, L"Error: Could not deallocate part. It is still referenced by other parts: %i\n", *part);
 
             } else {
 
@@ -137,7 +137,7 @@ void deallocate_part(void* p0) {
                 // then it is smaller than zero.
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deallocate part. Its references count is negative.");
-                fwprintf(stdout, L"ERROR: Could not deallocate part. Its references count is negative: %i\n", *part);
+                fwprintf(stdout, L"Error: Could not deallocate part. Its references count is negative: %i\n", *part);
             }
         }
 

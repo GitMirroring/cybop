@@ -195,19 +195,19 @@ void modify_remove_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void
                 } else {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify remove inside. The new size is negative.");
-                    fwprintf(stdout, L"ERROR: Could not modify remove inside. The new size is negative n: %i\n", nc);
+                    fwprintf(stdout, L"Error: Could not modify remove inside. The new size is negative n: %i\n", nc);
                 }
 
             } else {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify remove inside. The move source count is negative.");
-                fwprintf(stdout, L"ERROR: Could not modify remove inside. The move source count is negative c: %i\n", c);
+                fwprintf(stdout, L"Error: Could not modify remove inside. The move source count is negative c: %i\n", c);
             }
 
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify remove inside. The move source index is negative.");
-            fwprintf(stdout, L"ERROR: Could not modify remove inside. The move source index is negative i: %i\n", i);
+            fwprintf(stdout, L"Error: Could not modify remove inside. The move source index is negative i: %i\n", i);
         }
 
     } else {

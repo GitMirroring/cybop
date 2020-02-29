@@ -70,9 +70,9 @@ void compare_count_scalar(void* p0, void* p1, void* p2, void* p3, void* p4, void
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare count scalar. The result count is not one.");
-        fwprintf(stdout, L"ERROR: Could not compare count scalar. The result count is not one.\n");
-        fwprintf(stdout, L"HINT: Result count p7: %i\n", p7);
-        fwprintf(stdout, L"HINT: Result count *p7: %i\n", *((int*) p7));
+        fwprintf(stdout, L"Error: Could not compare count scalar. The result count is not one.\n");
+        fwprintf(stdout, L"Hint: Result count p7: %i\n", p7);
+        fwprintf(stdout, L"Hint: Result count *p7: %i\n", *((int*) p7));
     }
 }
 

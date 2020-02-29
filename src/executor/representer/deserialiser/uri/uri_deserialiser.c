@@ -313,9 +313,9 @@ void deserialise_uri(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"WARNING: Could not deserialise uri. The uri is invalid.\n");
-
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise uri. The uri is invalid.");
+
+        fwprintf(stdout, L"Warning: Could not deserialise uri. The uri is invalid.\n");
     }
 }
 

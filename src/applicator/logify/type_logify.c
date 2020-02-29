@@ -66,8 +66,8 @@ void apply_logify_type(void* p0, void* p1, void* p2, void* p3, void* p4) {
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply logify type. The output type and input type are different.");
-        fwprintf(stdout, L"ERROR: Could not apply logify type. The output type and input type are different.\n");
-        fwprintf(stdout, L"ERROR: Output type: %i. Input type: %i.\n", *((int*) p3), *((int*) p4));
+        fwprintf(stdout, L"Error: Could not apply logify type. The output type and input type are different.\n");
+        fwprintf(stdout, L"Error: Output type: %i. Input type: %i.\n", *((int*) p3), *((int*) p4));
     }
 }
 

@@ -72,8 +72,8 @@ void apply_compare_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply compare type. The left- and right operand type are different.");
-        fwprintf(stdout, L"ERROR: Could not apply compare type. The left- and right operand type are different.\n");
-        fwprintf(stdout, L"ERROR: Left operand type: %i. Right operand type: %i.\n", *((int*) p4), *((int*) p5));
+        fwprintf(stdout, L"Error: Could not apply compare type. The left- and right operand type are different.\n");
+        fwprintf(stdout, L"Error: Left operand type: %i. Right operand type: %i.\n", *((int*) p4), *((int*) p5));
     }
 }
 

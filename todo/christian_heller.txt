@@ -16,9 +16,8 @@ ___
 
         CONTINUE:
         * All handling corresponding to flow "checker_and_sensor.png" works fine
-            data get sensed on socket
-            continue in file "element_irq_checker.c" (probably followed by stream-read-socket)
-            remove call of function "exit()" in file "element_irq_checker.c" again
+            data get sensed on socket and cybol handler file is called
+            inspect "receive_request" called in file "handler.cybol"
         * Adapt file "socket_sensor.c" called from files "element_client_checker.c" and "socket_reader.c"
         * Test and extend cybol applications "socket_server" and "socket_client"
 

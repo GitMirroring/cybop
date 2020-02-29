@@ -176,7 +176,7 @@ ungetwc(test, (FILE*) fs);
 
         } else {
 
-            fwprintf(stdout, L"ERROR: Could not sense unix terminal. The file stream is null. fs: %i\n", fs);
+            fwprintf(stdout, L"Error: Could not sense unix terminal. The file stream is null. fs: %i\n", fs);
 
             // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
             // Otherwise, it would produce huge log files filled up with useless entries.
@@ -185,7 +185,7 @@ ungetwc(test, (FILE*) fs);
 
     } else {
 
-        fwprintf(stdout, L"ERROR: Could not sense unix terminal. The file descriptor is null.\n");
+        fwprintf(stdout, L"Error: Could not sense unix terminal. The file descriptor is null.\n");
 
         // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
         // Otherwise, it would produce huge log files filled up with useless entries.

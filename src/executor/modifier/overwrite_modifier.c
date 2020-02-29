@@ -164,11 +164,11 @@ void modify_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
                 // Make sure allocation size is at least one.
                 if (ns < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                    fwprintf(stdout, L"ERROR: Could not modify overwrite. The new size is negative ns: %i\n", ns);
+                    fwprintf(stdout, L"Error: Could not modify overwrite. The new size is negative ns: %i\n", ns);
 
                 } else if (ns == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                    fwprintf(stdout, L"ERROR: Could not modify overwrite. The new size is zero ns: %i\n", ns);
+                    fwprintf(stdout, L"Error: Could not modify overwrite. The new size is zero ns: %i\n", ns);
 //??                    ns = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                 }
 
@@ -279,7 +279,7 @@ void modify_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify overwrite. The new destination count is negative.");
-            fwprintf(stdout, L"ERROR: Could not modify overwrite. The new destination count is negative nc: %i\n", nc);
+            fwprintf(stdout, L"Error: Could not modify overwrite. The new destination count is negative nc: %i\n", nc);
         }
 
     } else {

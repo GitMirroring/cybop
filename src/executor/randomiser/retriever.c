@@ -85,7 +85,7 @@ void retrieve(void* p0, void* p1, void* p2) {
     } else {
 
         //?? TODO: Delete this test message later!
-        fwprintf(stdout, L"ERROR: Could not retrieve. The minimum is greater or equal to the maximum. r: %i\n", r);
+        fwprintf(stdout, L"Error: Could not retrieve. The minimum is greater or equal to the maximum. r: %i\n", r);
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not retrieve. The minimum is greater or equal to the maximum.");
     }
 }

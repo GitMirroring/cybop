@@ -72,17 +72,17 @@ void compare_index(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare index. The indices plus count are outside the array boundaries.");
-        fwprintf(stdout, L"ERROR: Could not compare index. The indices plus count are outside the array boundaries.\n");
-        fwprintf(stdout, L"HINT: Count p5: %i\n", p5);
-        fwprintf(stdout, L"HINT: Count *p5: %i\n", *((int*) p5));
-        fwprintf(stdout, L"HINT: Left index p6: %i\n", p6);
-        fwprintf(stdout, L"HINT: Left index *p6: %i\n", *((int*) p6));
-        fwprintf(stdout, L"HINT: Right index p7: %i\n", p7);
-        fwprintf(stdout, L"HINT: Right index *p7: %i\n", *((int*) p7));
-        fwprintf(stdout, L"HINT: Left count p8: %i\n", p8);
-        fwprintf(stdout, L"HINT: Left count *p8: %i\n", *((int*) p8));
-        fwprintf(stdout, L"HINT: Right count p9: %i\n", p9);
-        fwprintf(stdout, L"HINT: Right count *p9: %i\n", *((int*) p9));
+        fwprintf(stdout, L"Error: Could not compare index. The indices plus count are outside the array boundaries.\n");
+        fwprintf(stdout, L"Hint: Count p5: %i\n", p5);
+        fwprintf(stdout, L"Hint: Count *p5: %i\n", *((int*) p5));
+        fwprintf(stdout, L"Hint: Left index p6: %i\n", p6);
+        fwprintf(stdout, L"Hint: Left index *p6: %i\n", *((int*) p6));
+        fwprintf(stdout, L"Hint: Right index p7: %i\n", p7);
+        fwprintf(stdout, L"Hint: Right index *p7: %i\n", *((int*) p7));
+        fwprintf(stdout, L"Hint: Left count p8: %i\n", p8);
+        fwprintf(stdout, L"Hint: Left count *p8: %i\n", *((int*) p8));
+        fwprintf(stdout, L"Hint: Right count p9: %i\n", p9);
+        fwprintf(stdout, L"Hint: Right count *p9: %i\n", *((int*) p9));
     }
 }
 
