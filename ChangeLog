@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-02-29  Christian Heller  <christian.heller@cybop.org>
+
+        * Make transfer of "exit" signal work in cybol applications "socket_server" and "socket_client"
+
 2020-02-19  Christian Heller  <christian.heller@cybop.org>
 
         * Reactivate file "socket_sensor.c"

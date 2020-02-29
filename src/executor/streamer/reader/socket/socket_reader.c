@@ -126,11 +126,12 @@ void read_socket(void* p0, void* p1) {
         // Read data into buffer with given size.
         read_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-        fwprintf(stdout, L"TEST: Read socket. bc: %i \n", bc);
+        fwprintf(stdout, L"TEST: Read socket. bc: %i\n", bc);
 
         if (bc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            fwprintf(stdout, L"TEST: Read socket. bc > 0: %i \n", bc);
+            fwprintf(stdout, L"TEST: Read socket. bc > 0. bc: %i\n", bc);
+            fwprintf(stdout, L"TEST: Read socket. bc > 0. bd: %s\n", (char*) bd);
 
             // Append buffer to destination data.
             modify_item(p0, bd, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &bc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);

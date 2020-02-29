@@ -15,11 +15,9 @@ WUI
 ___
 
         CONTINUE:
-        * All handling corresponding to flow "checker_and_sensor.png" works fine
-            data get sensed on socket and cybol handler file is called
-            inspect "receive_request" called in file "handler.cybol"
-        * Adapt file "socket_sensor.c" called from files "element_client_checker.c" and "socket_reader.c"
-        * Test and extend cybol applications "socket_server" and "socket_client"
+        * Test transfer of multiple signals besides "exit" in cybol applications "socket_server" and "socket_client"
+        * Verify if plain- and ascii text are converted correctly inside cyboi (plain is currently given in cybol, but ascii read by socket)
+        * See files in "executor/communication/" and "socket_reader.c"
 
         * Find out if threads have to be reactivated when waiting for client requests via socket
             see backup directory "todo_thread" and read its file "readme-hint.txt"

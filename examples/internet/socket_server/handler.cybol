@@ -32,6 +32,10 @@
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+<!--
+        <node name="format" channel="inline" format="meta/format" model="text/ascii"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+-->
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".request"/>
