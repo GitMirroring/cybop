@@ -66,7 +66,8 @@ void startup_bsd_socket_status_set(void* p0, void* p1, void* p2) {
 
                 // Set BLOCKING status by clearing non-blocking flag (bit).
                 (*f) &= ~O_NONBLOCK;
-//?? fwprintf(stdout, L"TEST startup bsd socket status set blocking *f: %i\n", *f);
+
+                //?? fwprintf(stdout, L"TEST startup bsd socket status set blocking *f: %i\n", *f);
 
             } else {
 
@@ -77,7 +78,8 @@ void startup_bsd_socket_status_set(void* p0, void* p1, void* p2) {
                 // immediately with a failure status, instead of blocking,
                 // in case no data are immediately available.
                 (*f) |= O_NONBLOCK;
-//?? fwprintf(stdout, L"TEST startup bsd socket status set non-blocking *f: %i\n", *f);
+
+                //?? fwprintf(stdout, L"TEST startup bsd socket status set non-blocking *f: %i\n", *f);
             }
 
             // Initialise error number.
@@ -113,7 +115,7 @@ void startup_bsd_socket_status_set(void* p0, void* p1, void* p2) {
             // unspecified value OTHER THAN -1, which indicates an error.
             if (e != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
-//?? fwprintf(stdout, L"TEST: startup bsd socket status set success *f: %i \n", *f);
+                //?? fwprintf(stdout, L"TEST: startup bsd socket status set success *f: %i \n", *f);
 
                 log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket status set success.");
 
@@ -123,15 +125,15 @@ void startup_bsd_socket_status_set(void* p0, void* p1, void* p2) {
 
                 if (errno == EBADF) {
 
-    fwprintf(stdout, L"TEST: startup bsd socket status set error EBADF: %i \n", errno);
-
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket status set. The filedes argument is invalid. ");
+
+                    fwprintf(stdout, L"TEST: startup bsd socket status set error EBADF: %i \n", errno);
 
                 } else {
 
-    fwprintf(stdout, L"TEST: startup bsd socket status set error UNKNOWN: %i \n", errno);
-
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket status set. An unknown error occured.");
+
+                    fwprintf(stdout, L"TEST: startup bsd socket status set error UNKNOWN: %i \n", errno);
                 }
             }
 

@@ -14,10 +14,17 @@
 WUI
 ___
 
+        DONE:
+        * Transfer of one message "exit" or "sayhello" works fine in cybol applications "socket_server" and "socket_client"
+
         CONTINUE:
-        * Test transfer of multiple signals besides "exit" in cybol applications "socket_server" and "socket_client"
+        * Check why receiving a server reply in cybol socket client does not work
+            adapt file "run.cybol" in cybol application "socket_client"
         * Verify if plain- and ascii text are converted correctly inside cyboi (plain is currently given in cybol, but ascii read by socket)
-        * See files in "executor/communication/" and "socket_reader.c"
+            see files in "executor/communication/" and "socket_reader.c"
+        * Investigate error in cybol application "socket_client":
+            "Could not startup unix terminal mode set. An error occured within tcsetattr."
+            Is the blocking flag the reason?
 
         * Find out if threads have to be reactivated when waiting for client requests via socket
             see backup directory "todo_thread" and read its file "readme-hint.txt"
