@@ -82,7 +82,7 @@ void read_socket(void* p0, void* p1) {
     allocate_array((void*) &bd, (void*) &bs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Loop until all bytes have been read.
-    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+    //?? while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //?? fwprintf(stdout, L"TEST: read socket loop ec: %i \n", ec);
 
@@ -121,7 +121,7 @@ void read_socket(void* p0, void* p1) {
         // The efficiency disadvantage is that all data are read TWICE,
         // once within "sense" and another time within "read".
         //
-        sense_socket((void*) &ec, p1, (void*) &es);
+        //?? sense_socket((void*) &ec, p1, (void*) &es);
 
         // Read data into buffer with given size.
         read_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
@@ -140,7 +140,7 @@ void read_socket(void* p0, void* p1) {
 
             fwprintf(stdout, L"TEST: Read socket. break\n");
 
-            break;
+            //?? break;
         }
 
 /*??
@@ -176,7 +176,7 @@ void read_socket(void* p0, void* p1) {
             break;
         }
 */
-    }
+    //?? }
 
     //
     // Deallocate buffer data.

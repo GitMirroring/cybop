@@ -36,7 +36,7 @@
         <node name="service" channel="inline" format="text/plain" model="http"/>
         <node name="id" channel="inline" format="number/integer" model="1971"/>
         <node name="mode" channel="inline" format="text/plain" model="client"/>
-        <!-- Making the client non-blocking ("false") results in NOT receiving any data. -->
+        <!-- Making the client non-blocking ("false") results in error EWOULDBLOCK when reading/writing. -->
         <node name="blocking" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="socket" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
@@ -58,7 +58,6 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
 
-<!--
     <node name="receive_response" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -75,7 +74,6 @@
         <node name="message" channel="inline" format="text/cybol-path" model=".response"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
--->
 
     <!--
         This second message is only processed by the SERVER, if that was made NON-BLOCKING.
@@ -83,7 +81,6 @@
         But since our client already was accepted and only wants to send/receive,
         the server would never leave its blocking "accept" function.
     -->
-<!--
     <node name="print_request_exit" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -100,7 +97,6 @@
         <node name="message" channel="inline" format="text/plain" model="exit"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
--->
 
     <node name="exit_programme" channel="inline" format="live/exit" model=""/>
 

@@ -76,6 +76,8 @@ void sense_socket(void* p0, void* p1, void* p2) {
     // Read data until buffer is filled.
     read_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) &o);
 
+    fwprintf(stdout, L"TEST sense socket bc: %i\n", bs);
+
     if (bc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         fwprintf(stdout, L"TEST: sense socket success bc: %i \n", bc);

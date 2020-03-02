@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-03-02  Christian Heller  <christian.heller@cybop.org>
+
+        * Make cybol applications "socket_server" and "socket_client" work fully with sending and receiving on both sides
+
 2020-02-29  Christian Heller  <christian.heller@cybop.org>
 
         * Make transfer of "exit" signal work in cybol applications "socket_server" and "socket_client"
