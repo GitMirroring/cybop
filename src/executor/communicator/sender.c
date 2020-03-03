@@ -82,13 +82,19 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The compressed character item.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //
     // The buffer.
+    //
     // CAUTION! This is just a helper variable,
     // to be used for forwarding the correct argument.
+    //
     void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //
     // The argument data, count.
+    //
     // CAUTION! This is just helper variables,
     // to be used for forwarding the correct argument.
+    //
     void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* ac = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -98,49 +104,67 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // Otherwise, they would be deallocated before being used.
     //
 
+    //
     // Allocate serialised wide character item.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    //
     // Allocate encoded character item.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_item((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    //
     // Allocate compressed character item.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_item((void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
+    //
     // Initialise buffer.
+    //
     // CAUTION! The "wchar_t" buffer is used by default.
     // It applies to languages like e.g. "text/cybol", "text/html" etc.
     // Also, text given via "inline" channel is processed as wide characters.
     // Therefore, setting the buffer to "wchar_t" by default IS IMPORTANT.
+    //
     b = s;
 
     // Select buffer.
     send_select((void*) &b, (void*) &e, p5);
+    //
     // Serialise message.
+    //
     // CAUTION! The buffer argument may be of either
     // type "char" or type "wchar_t", which is IRRELEVANT.
     // This function knows how to handle it, depending on the given language.
+    //
     send_serialise((void*) &ad, (void*) &ac, b, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p15, p16, p18, p19, p20);
-//?? fwprintf(stdout, L"TEST send data serialise *ac: %i\n", *((int*) ac));
-//?? fwprintf(stdout, L"TEST send data serialise ad: %s\n", (char*) ad);
+    //?? fwprintf(stdout, L"TEST send data serialise *ac: %i\n", *((int*) ac));
+    //?? fwprintf(stdout, L"TEST send data serialise ad: %s\n", (char*) ad);
     //?? TODO: The newline flag causes a newline to be added at the end of each part.
     //?? The lineending, on the other hand, gets added just once at the end of the whole message.
     //?? It might be needed for serial port communication.
     // Add lineending character.
-//??    modify_item(b, (void*) WINDOWS_NEWLINE_TEXT_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) WINDOWS_NEWLINE_TEXT_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    //?? modify_item(b, (void*) WINDOWS_NEWLINE_TEXT_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) WINDOWS_NEWLINE_TEXT_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
     // Encode message.
     send_encode((void*) &ad, (void*) &ac, e, ad, ac, p4);
     // Append termination.
     send_termination((void*) &ad, (void*) &ac, e, p17, p3);
     // Compress message.
 //??    send_compress((void*) &ad, (void*) &ac, c, ad, ac, p??);
+    //
     // Write message.
+    //
     // CAUTION! Hand over message as POINTER REFERENCE, not just pointer.
     // The pointer is used inside to count sent data due to socket buffer limit.
+    //
     send_write(p0, (void*) &ad, ac, p20, p14, p3);
 
     // Deallocate serialised wide character item.

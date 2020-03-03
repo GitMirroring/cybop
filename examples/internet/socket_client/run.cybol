@@ -10,6 +10,7 @@
     </node>
 
     <!-- Write knowledge tree into file. -->
+<!--
     <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -18,6 +19,7 @@
         <node name="message" channel="inline" format="text/cybol-path" model="."/>
         <node name="receiver" channel="inline" format="text/plain" model="test_socket_client.txt"/>
     </node>
+-->
 
     <!-- TEST only. Necessary for displaying test messages on console. Delete later. -->
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
