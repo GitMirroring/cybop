@@ -1,0 +1,5 @@
+<node>
+
+    <node name="image" channel="inline" format="text/ascii" model=""/>
+
+</node>

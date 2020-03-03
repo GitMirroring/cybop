@@ -378,6 +378,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // CAUTION! The data are available as wide character strings.
             // They ALL are deserialised uniformly into various formats.
             //
@@ -391,6 +392,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
             // data with format "text/ascii", e.g. in file "file_reader.c".
             // But in order to be able to uniformly process all data,
             // this loss in efficiency is taken.
+            //
 
             encode(p0, p2, p3, (void*) UTF_8_CYBOI_ENCODING);
         }
