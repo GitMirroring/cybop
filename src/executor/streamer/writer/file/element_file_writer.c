@@ -60,37 +60,44 @@ void write_file_element(void* p0, void* p1, void* p2, void* p3) {
         // Read character from source array.
         copy_array_forward((void*) &c, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
-        if (c != *NULL_ASCII_CHARACTER_CODE_MODEL) {
+        //
+        // CAUTION! Do NOT filter out NULL CHARACTERS
+        // since otherwise, binary data which frequently
+        // contain null characters will get destroyed
+        // and the resulting file corrupted.
+        //
+        // Therefore, the following code is commented out:
+        //
+        //     if (c != *NULL_ASCII_CHARACTER_CODE_MODEL) {
+        //
 
-            // Write character to character file stream.
-            int e = fputc(c, (FILE*) p0);
+        // Write character to character file stream.
+        int e = fputc(c, (FILE*) p0);
 
-            // Test error value.
-            //
-            // CAUTION! The macro EOF is an integer value that is
-            // returned by fputc to indicate an end-of-file
-            // condition, or some other error situation.
-            //
-            // With the GNU library, EOF is -1. In other libraries,
-            // its value may be some other negative number.
-            //
-            // Therefore, this test checks for negative values in general.
-            // The EOF symbol which is declared in stdio.h then does
-            // not have to be considered explicitly here anymore.
-            if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        //
+        // Test error value.
+        //
+        // CAUTION! The macro EOF is an integer value that is
+        // returned by fputc to indicate an end-of-file
+        // condition, or some other error situation.
+        //
+        // With the GNU library, EOF is -1. In other libraries,
+        // its value may be some other negative number.
+        //
+        // Therefore, this test checks for negative values in general.
+        // The EOF symbol which is declared in stdio.h then does
+        // not have to be considered explicitly here anymore.
+        //
+        if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                // Set break flag, so that the loop can be left in the next cycle.
-                copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write file element. The character is null.");
+            // Set break flag, so that the loop can be left in the next cycle.
+            copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write file element. The file stream is null.");
+        fwprintf(stdout, L"Error: Could not write file element. The file stream is null. p0: %i\n", p0);
     }
 }
 

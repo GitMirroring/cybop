@@ -5,7 +5,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/plain" model="TEST/app.cybol"/>
+        <node name="sender" channel="inline" format="text/plain" model="file/copy/app.cybol"/>
         <node name="message" channel="inline" format="text/cybol-path" model="."/>
     </node>
 
@@ -25,9 +25,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="language" channel="inline" format="meta/language" model="message/binary"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".image"/>
-        <node name="sender" channel="inline" format="text/plain" model="TEST/logo.png">
-            <node name="binary" channel="inline" format="logicvalue/boolean" model="true"/>
-        </node>
+        <node name="sender" channel="inline" format="text/plain" model="file/copy/image.png"/>
     </node>
 
     <node name="print_write_image" channel="inline" format="communicate/send" model="">
@@ -42,9 +40,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="language" channel="inline" format="meta/language" model="message/binary"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".image"/>
-        <node name="receiver" channel="inline" format="text/plain" model="TEST/copied_image.png">
-            <node name="binary" channel="inline" format="logicvalue/boolean" model="true"/>
-        </node>
+        <node name="receiver" channel="inline" format="text/plain" model="file/copy/copied_image.png"/>
     </node>
 
     <node name="print_success" channel="inline" format="communicate/send" model="">

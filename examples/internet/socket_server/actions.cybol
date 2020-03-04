@@ -1,6 +1,7 @@
 <node>
 
-    <node name="sayhello" channel="inline" format="text/cybol-path" model=".logic.send_response"/>
-    <node name="exit" channel="inline" format="text/cybol-path" model=".logic.exit_programme"/>
+    <node name="say-hello" channel="inline" format="text/cybol-path" model=".logic.send-hello"/>
+    <node name="show-image" channel="inline" format="text/cybol-path" model=".logic.send-image"/>
+    <node name="exit" channel="inline" format="text/cybol-path" model=".logic.exit-programme"/>
 
 </node>

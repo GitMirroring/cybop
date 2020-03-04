@@ -3,23 +3,16 @@
     <node name="logic" channel="file" format="element/part" model="internet/socket_server/logic.cybol"/>
     <node name="actions" channel="file" format="element/part" model="internet/socket_server/actions.cybol"/>
 
-    <!--
-        The client request as received on the server.
-        CAUTION! Use "text/ascii" and NOT "text/plain" (wide_character) here.
-    -->
-<!--
-    <node name="request" channel="inline" format="text/ascii" model=""/>
     <node name="request" channel="inline" format="text/plain" model=""/>
--->
-    <node name="request" channel="inline" format="text/plain" model=""/>
-
     <node name="client_socket" channel="inline" format="number/integer" model="0"/>
 
-    <!--
-        CAUTION! The path format is "text/cybol-path" and NOT "text/plain".
-        A knowledge path is treated like a character array anyway.
-        So, text fragments may be added to it in the "handler.cybol" file.
-    -->
     <node name="path" channel="inline" format="text/plain" model=""/>
+
+    <!--
+        CAUTION! The format is "text/ascii" and NOT "text/plain",
+        since an image contains binary data.
+        These get loaded at application startup in file "run.cybol".
+    -->
+    <node name="image" channel="inline" format="text/ascii" model=""/>
 
 </node>

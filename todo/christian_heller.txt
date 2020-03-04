@@ -17,11 +17,10 @@ ___
         DONE:
         * Copying integer number instead of "Hello World!" text via socket works fine
 
-        TODO:
-        * Test copying an arbitrary binary file (e.g. a png image) using cybol application "examples/TEST/"
-            mind the "binary" property for "receiver" file in send- and receive operation
-            which format to use for binary data? is "text/ascii" in file "app.cybol" all right? which else? new one?
+        CONTINUE:
+        * Test transfer of image via socket (does not work yet)
 
+        TODO:
         * Verify if plain- and ascii text are converted correctly inside cyboi (plain is currently given in cybol, but ascii read by socket)
             see files in "executor/communication/" and "socket_reader.c"
         * Investigate error in cybol application "socket_client":

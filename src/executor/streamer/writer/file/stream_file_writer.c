@@ -45,14 +45,19 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Writes source to file with given name.
+ * Writes source to file with the given name.
  *
  * @param p0 the destination file name data
  * @param p1 the destination file name count
- * @param p2 the source data
- * @param p3 the source count
+ * @param p2 the source model data
+ * @param p3 the source model count
+ * @param p4 the source properties data (binary mode etc.)
+ * @param p5 the source properties count
+ * @param p6 the knowledge memory part (pointer reference)
+ * @param p7 the stack memory item
+ * @param p8 the internal memory data
  */
-void write_file_stream(void* p0, void* p1, void* p2, void* p3) {
+void write_file_stream(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write file stream.");
 
@@ -67,14 +72,21 @@ void write_file_stream(void* p0, void* p1, void* p2, void* p3) {
     // The mode item data.
     void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
     // Allocate terminated file name item.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    //
     // Allocate mode item.
+    //
     // CAUTION! Do NOT use wide characters here.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_item((void*) &m, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Encode wide character file name into multibyte character data.
@@ -84,28 +96,48 @@ void write_file_stream(void* p0, void* p1, void* p2, void* p3) {
     modify_item(t, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
     // Add write character by default.
     modify_item(m, (void*) LATIN_SMALL_LETTER_W_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    //
+    // Add binary mode character.
+    //
+    // CAUTION! Always use BINARY MODE to open files,
+    // no matter if for reading or writing. Otherwise,
+    // when opening files in text mode, the following might happen:
+    // - line endings such as <lf> get changed into <lf>+<cr>,
+    //   especially on windows operating system
+    // - binary data files such as images get corrupted
+    //
+    modify_item(m, (void*) LATIN_SMALL_LETTER_B_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
     // Add null termination character by default.
     modify_item(m, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
+    //
     // Get terminated file name item data.
+    //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
+    //
     copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    //
     // Get mode item data.
+    //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
+    //
     copy_array_forward((void*) &md, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    //
     // Initialise error number.
     // It is a global variable/function and other operations
     // may have set some value that is not wanted here.
     //
     // CAUTION! Initialise the error number BEFORE calling
     // the procedure that might cause an error.
+    //
     errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+    //
     // Open file.
     //
     // CAUTION! The file name cannot be handed over as is.
@@ -119,6 +151,7 @@ void write_file_stream(void* p0, void* p1, void* p2, void* p3) {
 
         write_file_content((void*) f, p2, p3);
 
+        //
         // Flush any buffered output on the stream to the file.
         //
         // If this was not done here, the buffered output on the
@@ -128,65 +161,73 @@ void write_file_stream(void* p0, void* p1, void* p2, void* p3) {
         // - the program terminated by calling exit
         // - a newline was written with the stream being line buffered
         // - an input operation on any stream actually read data from its file
+        //
         fflush(f);
 
+        //
         // Close file.
+        //
         // CAUTION! Check file for null pointer to avoid a segmentation fault!
+        //
         int e = fclose(f);
 
         if (e != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
+            //
             // An error occured.
+            //
 
             fwprintf(stdout, L"Could not write file stream: %s\n", td);
 
             if (e == EOF) {
 
-                fwprintf(stdout, L"Could not write file stream. The error EOF was detected on closing the file. e: %i\n", e);
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write file stream. The error EOF was detected on closing the file.");
+                fwprintf(stdout, L"Could not write file stream. The error EOF was detected on closing the file. e: %i\n", e);
 
             } else {
 
-                fwprintf(stdout, L"Could not write file stream. An unknown error was detected on closing the file. e: %i\n", e);
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write file stream. An unknown error was detected on closing the file.");
+                fwprintf(stdout, L"Could not write file stream. An unknown error was detected on closing the file. e: %i\n", e);
             }
         }
 
     } else {
 
+        //
         // An error occured.
+        //
 
         fwprintf(stdout, L"Could not write file stream: %s\n", td);
 
         if (errno == EACCES) {
 
-            fwprintf(stdout, L"Could not write file stream. The file stream is null. The process does not have search permission for a directory component of the file name. error EACCES: %i\n", errno);
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write file stream. The file stream is null. The process does not have search permission for a directory component of the file name.");
+            fwprintf(stdout, L"Could not write file stream. The file stream is null. The process does not have search permission for a directory component of the file name. error EACCES: %i\n", errno);
 
         } else if (errno == ENAMETOOLONG) {
 
-            fwprintf(stdout, L"Could not write file stream. The file stream is null. This error is used when either the total length of a file name is greater than PATH_MAX, or when an individual file name component has a length greater than NAME_MAX. error ENAMETOOLONG: %i\n", errno);
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write file stream. The file stream is null. This error is used when either the total length of a file name is greater than PATH_MAX, or when an individual file name component has a length greater than NAME_MAX.");
+            fwprintf(stdout, L"Could not write file stream. The file stream is null. This error is used when either the total length of a file name is greater than PATH_MAX, or when an individual file name component has a length greater than NAME_MAX. error ENAMETOOLONG: %i\n", errno);
 
         } else if (errno == ENOENT) {
 
-            fwprintf(stdout, L"Could not write file stream. The file stream is null. This error is reported when a file referenced as a directory component in the file name doesn’t exist, or when a component is a symbolic link whose target file does not exist. error ENOENT: %i\n", errno);
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write file stream. The file stream is null. This error is reported when a file referenced as a directory component in the file name doesn’t exist, or when a component is a symbolic link whose target file does not exist.");
+            fwprintf(stdout, L"Could not write file stream. The file stream is null. This error is reported when a file referenced as a directory component in the file name doesn’t exist, or when a component is a symbolic link whose target file does not exist. error ENOENT: %i\n", errno);
 
         } else if (errno == ENOTDIR) {
 
-            fwprintf(stdout, L"Could not write file stream. The file stream is null. A file that is referenced as a directory component in the file name exists, but it isn’t a directory. error ENOTDIR: %i\n", errno);
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write file stream. The file stream is null. A file that is referenced as a directory component in the file name exists, but it isn’t a directory.");
+            fwprintf(stdout, L"Could not write file stream. The file stream is null. A file that is referenced as a directory component in the file name exists, but it isn’t a directory. error ENOTDIR: %i\n", errno);
 
         } else if (errno == ELOOP) {
 
-            fwprintf(stdout, L"Could not write file stream. The file stream is null. Too many symbolic links were resolved while trying to look up the file name. The system has an arbitrary limit on the number of symbolic links that may be resolved in looking up a single file name, as a primitive way to detect loops. error ELOOP: %i\n", errno);
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write file stream. The file stream is null. Too many symbolic links were resolved while trying to look up the file name. The system has an arbitrary limit on the number of symbolic links that may be resolved in looking up a single file name, as a primitive way to detect loops.");
+            fwprintf(stdout, L"Could not write file stream. The file stream is null. Too many symbolic links were resolved while trying to look up the file name. The system has an arbitrary limit on the number of symbolic links that may be resolved in looking up a single file name, as a primitive way to detect loops. error ELOOP: %i\n", errno);
 
         } else {
 
-            fwprintf(stdout, L"Could not write file stream. The file stream is null. An unknown error occured. errno: %i file: %s\n", errno, (char*) td);
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write file stream. The file stream is null. An unknown error occured.");
+            fwprintf(stdout, L"Could not write file stream. The file stream is null. An unknown error occured. errno: %i file: %s\n", errno, (char*) td);
         }
     }
 

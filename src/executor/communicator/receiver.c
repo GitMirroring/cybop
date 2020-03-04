@@ -113,30 +113,48 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // Otherwise, they would be deallocated before being used.
     //
 
+    //
     // Allocate pointer message item.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_item((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
+    //
     // Allocate integer message item.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) LONG_LONG_INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    //
     // Allocate compressed message item.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_item((void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    //
     // Allocate encoded message item.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_item((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    //
     // Allocate serialised message item.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
+    //
     // Initialise buffer.
+    //
     // CAUTION! The "char" buffer is used by default.
     // It applies to most channels.
+    //
     b = c;
 
     // Select buffer.
@@ -144,39 +162,36 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     // Read message.
     receive_read((void*) &bd, (void*) &bc, b, p2, p3, p4, p5, p7, p8, p9, p10, p11, p12, p16);
-/*??
     if ((p14 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p14) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
-        //?? fwprintf(stdout, L"TEST receive data read *bc: %i\n", *((int*) bc));
+        fwprintf(stdout, L"TEST receive data read *bc: %i\n", *((int*) bc));
         //?? fwprintf(stdout, L"TEST receive data read bd: %s\n", (char*) bd);
         //?? fwprintf(stdout, L"TEST receive data read *p15: %i\n", *((int*) p15));
     }
-*/
 
     // Extract message.
     //?? receive_extract((void*) &bd, (void*) &bc, e, bd, bc, p??);
 
     // Decode message.
     receive_decode((void*) &bd, (void*) &bc, s, bd, bc, p15);
-/*??
     if ((p14 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p14) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
-        //?? fwprintf(stdout, L"TEST receive data decode *bc: %i\n", *((int*) bc));
+        fwprintf(stdout, L"TEST receive data decode *bc: %i\n", *((int*) bc));
         //?? fwprintf(stdout, L"TEST receive data decode bd: %s\n", (char*) bd);
     }
-*/
 
+    //
     // Deserialise message.
+    //
     // CAUTION! The buffer argument may be of e.g.
     // type "char" or type "wchar_t" or type "void*", which is IRRELEVANT.
     // This function knows how to handle it, depending on the given language.
+    //
     //?? fwprintf(stdout, L"TEST receive data deserialise pre *bc: %i\n", *((int*) bc));
     //?? fwprintf(stdout, L"TEST receive data deserialise pre bd: %ls\n", (wchar_t*) bd);
     receive_deserialise(p0, p1, bd, bc, p4, p5, p6, p7, p8, p9, p13, p14);
-/*??
     if ((p14 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p14) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
-        //?? fwprintf(stdout, L"TEST receive data deserialise post *bc: %i\n", *((int*) bc));
+        fwprintf(stdout, L"TEST receive data deserialise post *bc: %i\n", *((int*) bc));
         //?? fwprintf(stdout, L"TEST receive data deserialise post bd: %s\n", (char*) bd);
     }
-*/
 
     // Deallocate pointer message item.
     deallocate_item((void*) &p, (void*) POINTER_STATE_CYBOI_TYPE);

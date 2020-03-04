@@ -74,19 +74,6 @@ void read_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The mode item data.
     void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The binary mode flag part.
-    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The binary mode flag part model item.
-    void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The binary mode flag part model item data.
-    void* bmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Get binary mode flag part.
-    get_part_name((void*) &b, p3, (void*) BINARY_MODE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) BINARY_MODE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p4, p5, p6, p7);
-    // Get binary mode flag part model item.
-    copy_array_forward((void*) &bm, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get binary mode flag part model item data.
-    copy_array_forward((void*) &bmd, bm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     //
     // Allocate terminated file name item.
@@ -112,26 +99,17 @@ void read_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     modify_item(t, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
     // Add read only character by default.
     modify_item(m, (void*) LATIN_SMALL_LETTER_R_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-
-    if (bmd != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        int* bmdi = (int*) bmd;
-
-        if (*bmdi != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Add binary mode character.
-            modify_item(m, (void*) LATIN_SMALL_LETTER_B_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-        }
-
-    } else {
-
-        //
-        // The "binary" property was not given in the cybol source,
-        // so that the file will be opened in text mode.
-        // This is the default.
-        //
-    }
-
+    //
+    // Add binary mode character.
+    //
+    // CAUTION! Always use BINARY MODE to open files,
+    // no matter if for reading or writing. Otherwise,
+    // when opening files in text mode, the following might happen:
+    // - line endings such as <lf> get changed into <lf>+<cr>,
+    //   especially on windows operating system
+    // - binary data files such as images get corrupted
+    //
+    modify_item(m, (void*) LATIN_SMALL_LETTER_B_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
     // Add null termination character by default.
     modify_item(m, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 

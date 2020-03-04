@@ -2,19 +2,7 @@
 
     <node name="handler" channel="file" format="element/part" model="internet/socket_server/handler.cybol"/>
 
-    <!-- TEST. Delete later! -->
-<!--
-    <node name="send_response" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Hello World!"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
--->
-
-    <node name="send_response" channel="inline" format="communicate/send" model="">
+    <node name="send-hello" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
@@ -23,6 +11,13 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
     </node>
 
-    <node name="exit_programme" channel="inline" format="live/exit" model=""/>
+    <node name="send-image" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/binary"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".image"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
+    </node>
+
+    <node name="exit-programme" channel="inline" format="live/exit" model=""/>
 
 </node>

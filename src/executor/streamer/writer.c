@@ -47,13 +47,17 @@
  * as that name is already used for glibc library's output.
  *
  * @param p0 the destination item (e.g. filename, client socket number, service identification, gui window)
- * @param p1 the source data (pointer reference)
- * @param p2 the source count
- * @param p3 the internal memory data
- * @param p4 the source part (pointer reference), e.g. a signal
- * @param p5 the channel
+ * @param p1 the source model data (pointer reference)
+ * @param p2 the source model count
+ * @param p3 the source properties data (e.g. signal memory index)
+ * @param p4 the source properties count
+ * @param p5 the knowledge memory part (pointer reference)
+ * @param p6 the stack memory item
+ * @param p7 the internal memory data
+ * @param p8 the source part (pointer reference), e.g. a signal
+ * @param p9 the channel
  */
-void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -66,7 +70,7 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p5, (void*) DIRECTORY_CYBOI_CHANNEL);
+            compare_integer_equal((void*) &r, p9, (void*) DIRECTORY_CYBOI_CHANNEL);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -76,27 +80,27 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p5, (void*) DISPLAY_CYBOI_CHANNEL);
+            compare_integer_equal((void*) &r, p9, (void*) DISPLAY_CYBOI_CHANNEL);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                write_display(p3);
+                write_display(p7);
             }
         }
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p5, (void*) FILE_CYBOI_CHANNEL);
+            compare_integer_equal((void*) &r, p9, (void*) FILE_CYBOI_CHANNEL);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                write_file(p0, *d, p2);
+                write_file(p0, *d, p2, p3, p4, p5, p6, p7);
             }
         }
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p5, (void*) INLINE_CYBOI_CHANNEL);
+            compare_integer_equal((void*) &r, p9, (void*) INLINE_CYBOI_CHANNEL);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -106,27 +110,27 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p5, (void*) SERIAL_CYBOI_CHANNEL);
+            compare_integer_equal((void*) &r, p9, (void*) SERIAL_CYBOI_CHANNEL);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                write_serial_port(*d, p2, p3);
+                write_serial_port(*d, p2, p7);
             }
         }
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p5, (void*) SIGNAL_CYBOI_CHANNEL);
+            compare_integer_equal((void*) &r, p9, (void*) SIGNAL_CYBOI_CHANNEL);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                write_signal(p3, p4);
+                write_signal(p7, p8);
             }
         }
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p5, (void*) SOCKET_CYBOI_CHANNEL);
+            compare_integer_equal((void*) &r, p9, (void*) SOCKET_CYBOI_CHANNEL);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -142,11 +146,11 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p5, (void*) TERMINAL_CYBOI_CHANNEL);
+            compare_integer_equal((void*) &r, p9, (void*) TERMINAL_CYBOI_CHANNEL);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                write_terminal(p0, *d, p2, p3);
+                write_terminal(p0, *d, p2, p7);
             }
         }
 

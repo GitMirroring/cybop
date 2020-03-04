@@ -18,6 +18,13 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-03-04  Christian Heller  <christian.heller@cybop.org>
+
+        * Use binary mode always for opening files, no matter if reading or writing, in files "file_reader.c" and "stream_file_writer.c"
+        * Delete binary mode cybol property
+        * Delete if clause filtering out NULL CHARACTERS in file "element_file_writer.c", since binary data frequently contain null characters that must not be removed
+        * Add cybol application "file/copy/"
+
 2020-03-02  Christian Heller  <christian.heller@cybop.org>
 
         * Make cybol applications "socket_server" and "socket_client" work fully with sending and receiving on both sides

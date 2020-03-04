@@ -39,10 +39,15 @@
  * Writes source to file with given name.
  *
  * @param p0 the destination file name item
- * @param p1 the source data
- * @param p2 the source count
+ * @param p1 the source model data
+ * @param p2 the source model count
+ * @param p3 the source properties data (binary mode etc.)
+ * @param p4 the source properties count
+ * @param p5 the knowledge memory part (pointer reference)
+ * @param p6 the stack memory item
+ * @param p7 the internal memory data
  */
-void write_file(void* p0, void* p1, void* p2) {
+void write_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write file.");
 
@@ -50,14 +55,17 @@ void write_file(void* p0, void* p1, void* p2) {
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
     // Get file name item data, count.
+    //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
+    //
     copy_array_forward((void*) &d, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    write_file_stream(d, c, p1, p2);
+    write_file_stream(d, c, p1, p2, p3, p4, p5, p6, p7);
 }
 
 /* FILE_WRITER_SOURCE */

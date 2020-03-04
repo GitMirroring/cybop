@@ -138,6 +138,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     // Select buffer.
     send_select((void*) &b, (void*) &e, p5);
+
     //
     // Serialise message.
     //
@@ -146,26 +147,42 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // This function knows how to handle it, depending on the given language.
     //
     send_serialise((void*) &ad, (void*) &ac, b, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p15, p16, p18, p19, p20);
-    //?? fwprintf(stdout, L"TEST send data serialise *ac: %i\n", *((int*) ac));
+
+    fwprintf(stdout, L"TEST send data serialise *ac: %i\n", *((int*) ac));
     //?? fwprintf(stdout, L"TEST send data serialise ad: %s\n", (char*) ad);
+
     //?? TODO: The newline flag causes a newline to be added at the end of each part.
     //?? The lineending, on the other hand, gets added just once at the end of the whole message.
     //?? It might be needed for serial port communication.
+
     // Add lineending character.
     //?? modify_item(b, (void*) WINDOWS_NEWLINE_TEXT_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) WINDOWS_NEWLINE_TEXT_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
     // Encode message.
     send_encode((void*) &ad, (void*) &ac, e, ad, ac, p4);
+
+    fwprintf(stdout, L"TEST send data encode *ac: %i\n", *((int*) ac));
+    //?? fwprintf(stdout, L"TEST send data encode ad: %s\n", (char*) ad);
+
     // Append termination.
     send_termination((void*) &ad, (void*) &ac, e, p17, p3);
+
+    fwprintf(stdout, L"TEST send data termination *ac: %i\n", *((int*) ac));
+    //?? fwprintf(stdout, L"TEST send data termination ad: %s\n", (char*) ad);
+
     // Compress message.
 //??    send_compress((void*) &ad, (void*) &ac, c, ad, ac, p??);
+
+    fwprintf(stdout, L"TEST send data compress *ac: %i\n", *((int*) ac));
+    //?? fwprintf(stdout, L"TEST send data compress ad: %s\n", (char*) ad);
+
     //
     // Write message.
     //
     // CAUTION! Hand over message as POINTER REFERENCE, not just pointer.
     // The pointer is used inside to count sent data due to socket buffer limit.
     //
-    send_write(p0, (void*) &ad, ac, p20, p14, p3);
+    send_write(p0, (void*) &ad, ac, p12, p13, p18, p19, p20, p14, p3);
 
     // Deallocate serialised wide character item.
     deallocate_item((void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

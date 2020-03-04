@@ -70,9 +70,12 @@ void read_directory(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     // The terminated file name item data.
     void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
     // Allocate terminated file name item.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Encode wide character name into multibyte character array.
@@ -81,20 +84,26 @@ void read_directory(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     // Add null termination character.
     modify_item(t, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
+    //
     // Get terminated file name item data.
+    //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
+    //
     copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    //
     // Initialise error number.
     // It is a global variable/function and other operations
     // may have set some value that is not wanted here.
     //
     // CAUTION! Initialise the error number BEFORE calling
     // the procedure that might cause an error.
+    //
     errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+    //
     // Open directory stream.
     //
     // CAUTION! The file name CANNOT be handed over as is.
@@ -114,57 +123,59 @@ void read_directory(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     } else {
 
+        //
         // An error occured.
+        //
 
         if (errno == EACCES) {
 
-            fwprintf(stdout, L"Could not read directory. The directory stream is null. The process does not have search permission for a directory component of the file name. error EACCES: %i\n", errno);
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read directory. The directory stream is null. The process does not have search permission for a directory component of the file name.");
+            fwprintf(stdout, L"Could not read directory. The directory stream is null. The process does not have search permission for a directory component of the file name. error EACCES: %i\n", errno);
 
         } else if (errno == ENAMETOOLONG) {
 
-            fwprintf(stdout, L"Could not read directory. The directory stream is null. This error is used when either the total length of a file name is greater than PATH_MAX, or when an individual file name component has a length greater than NAME_MAX. error ENAMETOOLONG: %i\n", errno);
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read directory. The directory stream is null. This error is used when either the total length of a file name is greater than PATH_MAX, or when an individual file name component has a length greater than NAME_MAX.");
+            fwprintf(stdout, L"Could not read directory. The directory stream is null. This error is used when either the total length of a file name is greater than PATH_MAX, or when an individual file name component has a length greater than NAME_MAX. error ENAMETOOLONG: %i\n", errno);
 
         } else if (errno == ENOENT) {
 
-            fwprintf(stdout, L"Could not read directory. The directory stream is null. This error is reported when a file referenced as a directory component in the file name doesn’t exist, or when a component is a symbolic link whose target file does not exist. error ENOENT: %i\n", errno);
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read directory. The directory stream is null. This error is reported when a file referenced as a directory component in the file name doesn’t exist, or when a component is a symbolic link whose target file does not exist.");
+            fwprintf(stdout, L"Could not read directory. The directory stream is null. This error is reported when a file referenced as a directory component in the file name doesn’t exist, or when a component is a symbolic link whose target file does not exist. error ENOENT: %i\n", errno);
 
         } else if (errno == ENOTDIR) {
 
-            fwprintf(stdout, L"Could not read directory. The directory stream is null. A file that is referenced as a directory component in the file name exists, but it isn’t a directory. error ENOTDIR: %i\n", errno);
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read directory. The directory stream is null. A file that is referenced as a directory component in the file name exists, but it isn’t a directory.");
+            fwprintf(stdout, L"Could not read directory. The directory stream is null. A file that is referenced as a directory component in the file name exists, but it isn’t a directory. error ENOTDIR: %i\n", errno);
 
         } else if (errno == ELOOP) {
 
-            fwprintf(stdout, L"Could not read directory. The directory stream is null. Too many symbolic links were resolved while trying to look up the file name. The system has an arbitrary limit on the number of symbolic links that may be resolved in looking up a single file name, as a primitive way to detect loops. error ELOOP: %i\n", errno);
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read directory. The directory stream is null. Too many symbolic links were resolved while trying to look up the file name. The system has an arbitrary limit on the number of symbolic links that may be resolved in looking up a single file name, as a primitive way to detect loops.");
+            fwprintf(stdout, L"Could not read directory. The directory stream is null. Too many symbolic links were resolved while trying to look up the file name. The system has an arbitrary limit on the number of symbolic links that may be resolved in looking up a single file name, as a primitive way to detect loops. error ELOOP: %i\n", errno);
 
         } else if (errno == EACCES) {
 
-            fwprintf(stdout, L"Could not read directory. The directory stream is null. Read permission is denied for the directory named by dirname. error EACCES: %i\n", errno);
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read directory. The directory stream is null. Read permission is denied for the directory named by dirname.");
+            fwprintf(stdout, L"Could not read directory. The directory stream is null. Read permission is denied for the directory named by dirname. error EACCES: %i\n", errno);
 
         } else if (errno == EMFILE) {
 
-            fwprintf(stdout, L"Could not read directory. The directory stream is null. The process has too many files open. error EMFILE: %i\n", errno);
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read directory. The directory stream is null. The process has too many files open.");
+            fwprintf(stdout, L"Could not read directory. The directory stream is null. The process has too many files open. error EMFILE: %i\n", errno);
 
         } else if (errno == ENFILE) {
 
-            fwprintf(stdout, L"Could not read directory. The directory stream is null. The entire system, or perhaps the file system which contains the directory, cannot support any additional open files at the moment. error ENFILE: %i\n", errno);
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read directory. The directory stream is null. The entire system, or perhaps the file system which contains the directory, cannot support any additional open files at the moment.");
+            fwprintf(stdout, L"Could not read directory. The directory stream is null. The entire system, or perhaps the file system which contains the directory, cannot support any additional open files at the moment. error ENFILE: %i\n", errno);
 
         } else if (errno == ENOMEM) {
 
-            fwprintf(stdout, L"Could not read directory. The directory stream is null. Not enough memory available. error ENOMEM: %i\n", errno);
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read directory. The directory stream is null. Not enough memory available.");
+            fwprintf(stdout, L"Could not read directory. The directory stream is null. Not enough memory available. error ENOMEM: %i\n", errno);
 
         } else {
 
-            fwprintf(stdout, L"Could not read directory. The directory stream is null. An unknown error occured. errno: %i directory: %s\n", errno, (char*) td);
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read directory. The directory stream is null. An unknown error occured.");
+            fwprintf(stdout, L"Could not read directory. The directory stream is null. An unknown error occured. errno: %i directory: %s\n", errno, (char*) td);
         }
     }
 
