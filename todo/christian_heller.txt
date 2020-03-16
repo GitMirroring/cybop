@@ -17,6 +17,11 @@ ___
         DONE:
         * Copying "Hello World!" text and integer number via socket works fine
 
+        CONTINUE:
+        * in file "socket_reader.c"
+        TODO:
+        * Eliminate the loop from file "socket_reader.c", since it might block when no data are available (returned buffer count value zero)
+        * Replace that loop with a fixed-size message header
         TOREAD:
         https://stackoverflow.com/questions/59269755/missing-one-pixel-row-while-transfering-image-with-tcp-socket/59271376#59271376
         https://unix.stackexchange.com/questions/38043/size-of-data-that-can-be-written-to-read-from-sockets

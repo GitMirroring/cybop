@@ -83,6 +83,20 @@ void read_socket(void* p0, void* p1) {
     //
     allocate_array((void*) &bd, (void*) &bs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
+    //
+    // TCP is a stream protocol with no message boundaries.
+    // This means that multiple sends can be received in one recv call,
+    // or one send can be received in multiple recv calls.
+    // Therefore, one needs to DELIMIT messages in the stream.
+    //
+    // There are two common ways of delimiting messages in a stream:
+    //
+    // 1 Begin messages with a (fixed-size) header prefix
+    // 2 End messages with a suffix
+    //
+    // https://stackoverflow.com/questions/59269755/missing-one-pixel-row-while-transfering-image-with-tcp-socket/59271376
+    //
+
     //?? TEST only. Delete later.
     int test_count = 0;
 
