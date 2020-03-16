@@ -38,7 +38,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Sending hello message ..."/>
+        <node name="message" channel="inline" format="text/plain" model="Sending hello request ..."/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="send_request" channel="inline" format="communicate/send" model="">
@@ -74,7 +74,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Sending hello message ..."/>
+        <node name="message" channel="inline" format="text/plain" model="Sending image request ..."/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="send_request" channel="inline" format="communicate/send" model="">
@@ -86,7 +86,7 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
 
-    <!-- Receive image reply -->
+    <!-- Receive image response -->
     <node name="receive_response" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/binary"/>
@@ -106,7 +106,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Sending exit message ..."/>
+        <node name="message" channel="inline" format="text/plain" model="Sending exit request ..."/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="send_request_exit" channel="inline" format="communicate/send" model="">

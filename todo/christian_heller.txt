@@ -15,19 +15,20 @@ WUI
 ___
 
         DONE:
-        * Copying integer number instead of "Hello World!" text via socket works fine
+        * Copying "Hello World!" text and integer number via socket works fine
 
-        CONTINUE:
-        * Test transfer of image via socket (does not work yet)
+        TOREAD:
+        https://stackoverflow.com/questions/59269755/missing-one-pixel-row-while-transfering-image-with-tcp-socket/59271376#59271376
+        https://unix.stackexchange.com/questions/38043/size-of-data-that-can-be-written-to-read-from-sockets
+        https://stackoverflow.com/questions/143123/how-to-create-a-buffer-for-reading-socket-data-in-c
 
-        TODO:
-        * Verify if plain- and ascii text are converted correctly inside cyboi (plain is currently given in cybol, but ascii read by socket)
-            see files in "executor/communication/" and "socket_reader.c"
+        * Test transfer of messages with EXACTLY a multiple of the buffer size of 1024 Byte in file "socket_reader.c"
+            --> does it cause blocking of the whole programme?
+            https://stackoverflow.com/questions/59894594/what-is-the-best-way-to-determine-packet-size-with-recv
+
         * Investigate error in cybol application "socket_client":
             "Could not startup unix terminal mode set. An error occured within tcsetattr."
             Is the blocking flag the reason?
-        * Test transfer of long messages > 1024 Byte (used as buffer size in reader)
-        * Reactivate while loop and sensing in file "socket_reader.c"? (loop and sensing caused server send and client receive not to work)
 
         * Find out if threads have to be reactivated when waiting for client requests via socket
             see backup directory "todo_thread" and read its file "readme-hint.txt"

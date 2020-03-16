@@ -65,6 +65,7 @@ void read_socket(void* p0, void* p1) {
     void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int bs = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
+/*??
     //
     // The extended count, size.
     //
@@ -72,6 +73,7 @@ void read_socket(void* p0, void* p1) {
     //
     int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int es = bs + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+*/
 
     //
     // Allocate buffer data.
@@ -81,10 +83,14 @@ void read_socket(void* p0, void* p1) {
     //
     allocate_array((void*) &bd, (void*) &bs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // Loop until all bytes have been read.
-    //?? while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+    //?? TEST only. Delete later.
+    int test_count = 0;
 
-        //?? fwprintf(stdout, L"TEST: read socket loop ec: %i \n", ec);
+    // Loop until all bytes have been read.
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        //?? fwprintf(stdout, L"TEST: Read socket loop ec: %i \n", ec);
+        fwprintf(stdout, L"TEST: Read socket. loop test_count: %i \n", test_count);
 
         //
         // Sense further data available on socket.
@@ -136,17 +142,48 @@ void read_socket(void* p0, void* p1) {
             // Append buffer to destination data.
             modify_item(p0, bd, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &bc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
+            if (bc == bs) {
+
+                //
+                // Reset buffer count.
+                //
+                // CAUTION! The buffer is filled completely to its limit.
+                // Its count has to be reset, so that the buffer can be
+                // filled with new data in the next loop cycle.
+                //
+                // CAUTION! It is NOT necessary to reset the buffer data variable.
+                // It points to the first element/begin of the data array
+                // and elements will get overwritten starting from there.
+                //
+                bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+            } else {
+
+                //
+                // Data have been received, but the buffer is not filled up completely,
+                // which means that NO MORE DATA are available.
+                //
+
+                fwprintf(stdout, L"TEST: Read socket. break with bc > 0.\n");
+
+                break;
+            }
+
         } else {
 
-            fwprintf(stdout, L"TEST: Read socket. break\n");
+            //
+            // NO DATA have been received and NO MORE DATA are available.
+            //
 
-            //?? break;
+            fwprintf(stdout, L"TEST: Read socket. break with bc <= 0.\n");
+
+            break;
         }
 
 /*??
         if (ec > bs) {
 
-            //?? fwprintf(stdout, L"TEST: read socket ec > bs: %i \n", ec);
+            //?? fwprintf(stdout, L"TEST: Read socket ec > bs: %i \n", ec);
 
             // There are further data available on the socket.
             // Therefore, another loop cycle will be entered.
@@ -164,7 +201,7 @@ void read_socket(void* p0, void* p1) {
 
         } else {
 
-            //?? fwprintf(stdout, L"TEST: read socket ec <= bs: %i \n", ec);
+            //?? fwprintf(stdout, L"TEST: Read socket ec <= bs: %i \n", ec);
 
             //
             // The buffer was filled partly or completely
@@ -176,7 +213,7 @@ void read_socket(void* p0, void* p1) {
             break;
         }
 */
-    //?? }
+    }
 
     //
     // Deallocate buffer data.
