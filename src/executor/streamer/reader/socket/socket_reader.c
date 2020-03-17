@@ -39,6 +39,41 @@
 #include "../../../../logger/logger.c"
 
 //
+// Message Boundaries:
+//
+// TCP is a stream protocol with no message boundaries.
+// This means that multiple sends can be received in one recv call,
+// or one send can be received in multiple recv calls.
+// Therefore, one needs to DELIMIT messages in the stream.
+//
+// Two common ways of delimiting messages in a stream:
+//
+// 1 Begin messages with a (fixed-size) header prefix
+// 2 End messages with a suffix
+//
+// https://stackoverflow.com/questions/59269755/missing-one-pixel-row-while-transfering-image-with-tcp-socket/59271376
+//
+// Maximum Size of Transferable Data:
+//
+// 1 Stream sockets:
+//
+// One can send (by definition) an unlimited amount of data.
+// If it cannot all be buffered or sent at once or if the
+// receiver cannot receive it all at once, the send will:
+//
+// - for blocking sockets: block or return a partial count of bytes written
+// - for nonblocking sockets: return the EAGAIN error
+//
+// 2 Datagram sockets:
+//
+// - UDPv4: supports only 65536 bytes per datagram
+// - UDPv6: supports much more
+// - UNIX domain sockets: probably support still more
+//
+// https://unix.stackexchange.com/questions/38043/size-of-data-that-can-be-written-to-read-from-sockets
+//
+
+//
 // CAUTION! Considering byte order conversion from/to network byte order
 // is NOT necessary here, since the message data already have been
 // serialised properly into single characters before.
@@ -82,20 +117,6 @@ void read_socket(void* p0, void* p1) {
     // be negative or zero, but have at least a value of ONE.
     //
     allocate_array((void*) &bd, (void*) &bs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-    //
-    // TCP is a stream protocol with no message boundaries.
-    // This means that multiple sends can be received in one recv call,
-    // or one send can be received in multiple recv calls.
-    // Therefore, one needs to DELIMIT messages in the stream.
-    //
-    // There are two common ways of delimiting messages in a stream:
-    //
-    // 1 Begin messages with a (fixed-size) header prefix
-    // 2 End messages with a suffix
-    //
-    // https://stackoverflow.com/questions/59269755/missing-one-pixel-row-while-transfering-image-with-tcp-socket/59271376
-    //
 
     //?? TEST only. Delete later.
     int test_count = 0;

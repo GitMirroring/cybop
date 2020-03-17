@@ -23,8 +23,6 @@ ___
         * Eliminate the loop from file "socket_reader.c", since it might block when no data are available (returned buffer count value zero)
         * Replace that loop with a fixed-size message header
         TOREAD:
-        https://stackoverflow.com/questions/59269755/missing-one-pixel-row-while-transfering-image-with-tcp-socket/59271376#59271376
-        https://unix.stackexchange.com/questions/38043/size-of-data-that-can-be-written-to-read-from-sockets
         https://stackoverflow.com/questions/143123/how-to-create-a-buffer-for-reading-socket-data-in-c
 
         * Test transfer of messages with EXACTLY a multiple of the buffer size of 1024 Byte in file "socket_reader.c"
