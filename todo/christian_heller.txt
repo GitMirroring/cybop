@@ -24,6 +24,9 @@ ___
         * Replace that loop with a fixed-size message header
         TOREAD:
         https://stackoverflow.com/questions/143123/how-to-create-a-buffer-for-reading-socket-data-in-c
+        "I meant: you have to do your reads in a loop. Each time through the loop,
+        you process what's in the buffer (even if only to append its content to a string).
+        The loop FINISHES when read() RETURNS 0"
 
         * Test transfer of messages with EXACTLY a multiple of the buffer size of 1024 Byte in file "socket_reader.c"
             --> does it cause blocking of the whole programme?
