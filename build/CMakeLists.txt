@@ -1,6 +1,6 @@
 # --- CMake configuration --- #
 # set minimum required cmake version
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.13.4)
 
 # set project name
 project(cybop C)
@@ -32,3 +32,4 @@ include(cmake/codecoverage.cmake)
 
 # --- CPack Configuration --- #
 include(cmake/packaging.cmake)
+

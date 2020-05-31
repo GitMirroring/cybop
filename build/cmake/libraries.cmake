@@ -3,7 +3,19 @@ SET (CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${PROJECT_SOURCE_DIR}/cmake")
 
 # --- link necessary libraries --- #
 
-find_package (OpenGL REQUIRED)
+#
+# Add support for OpenGL.
+#
+# Legacy: GL
+# New: GLVND (GL vendor-neutral)
+#
+# Old solution:
+# find_package (OpenGL REQUIRED)
+#
+# New solution:
+# find_package(OpenGL REQUIRED COMPONENTS OpenGL)
+#
+find_package(OpenGL REQUIRED COMPONENTS OpenGL)
 IF ( OPENGL_FOUND )
     include_directories(${OpenGL_INCLUDE_DIRS})
     target_link_libraries(${BINARY_NAME} ${OPENGL_LIBRARIES})
