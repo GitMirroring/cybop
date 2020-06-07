@@ -100,15 +100,6 @@ void read_socket(void* p0, void* p1) {
     void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int bs = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
-/*??
-    //
-    // The extended count, size.
-    //
-    // It is necessary for peeking ahead.
-    //
-    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int es = bs + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-*/
 
     //
     // Allocate buffer data.
@@ -118,14 +109,8 @@ void read_socket(void* p0, void* p1) {
     //
     allocate_array((void*) &bd, (void*) &bs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    //?? TEST only. Delete later.
-    int test_count = 0;
-
     // Loop until all bytes have been read.
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        //?? fwprintf(stdout, L"TEST: Read socket loop ec: %i \n", ec);
-        fwprintf(stdout, L"TEST: Read socket. loop test_count: %i \n", test_count);
 
         //
         // Sense further data available on socket.
@@ -153,16 +138,6 @@ void read_socket(void* p0, void* p1) {
         // If the function "read_socket_buffer" was called again,
         // it WOULD BLOCK processing, since no more data are available.
         //
-        // Therefore, the function "sense_socket" is called for PEEKING AHEAD for new data,
-        // without actually reading or removing them from the input queue.
-        // However, also this function WOULD BLOCK if there were no further data available.
-        // This can be avoided if reading at least ONE BYTE MORE than
-        // used later in the function "read_socket_buffer".
-        //
-        // The efficiency disadvantage is that all data are read TWICE,
-        // once within "sense" and another time within "read".
-        //
-        //?? sense_socket((void*) &ec, p1, (void*) &es);
 
         // Read data into buffer with given size.
         read_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
@@ -214,40 +189,6 @@ void read_socket(void* p0, void* p1) {
 
             break;
         }
-
-/*??
-        if (ec > bs) {
-
-            //?? fwprintf(stdout, L"TEST: Read socket ec > bs: %i \n", ec);
-
-            // There are further data available on the socket.
-            // Therefore, another loop cycle will be entered.
-
-            // Reset extended count.
-            ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            //
-            // Reset buffer count.
-            //
-            // CAUTION! It is NOT necessary to reset the buffer data variable.
-            // It points to the first element/begin of the data array
-            // and elements will get overwritten starting from there.
-            //
-            bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-        } else {
-
-            //?? fwprintf(stdout, L"TEST: Read socket ec <= bs: %i \n", ec);
-
-            //
-            // The buffer was filled partly or completely
-            // and its size was sufficient.
-            // However, NO MORE DATA are available.
-            // The loop may therefore be left.
-            //
-
-            break;
-        }
-*/
     }
 
     //

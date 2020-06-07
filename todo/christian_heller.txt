@@ -17,11 +17,17 @@ ___
         DONE:
         * Copying "Hello World!" text and integer number via socket works fine
 
+        EXPERIMENT:
+        * Make socket blocking or non-blocking in file "socket_client/run.cybol" ??
+            non-blocking: receives all commands at once and hence does NOT process them
+                --> use message prefix-as-header or suffix ??
+            blocking: does not always (but sometimes) finish communication due to endless loop with blocking call
+        * How to implement a timeout (special thread or wait or counter ...)
         CONTINUE:
         * in file "socket_reader.c"
         TODO:
-        * Eliminate the loop from file "socket_reader.c", since it might block when no data are available (returned buffer count value zero)
-        * Replace that loop with a fixed-size message header
+        * Think about how to handle the loop in file "socket_reader.c", since it might block when no data are available (returned buffer count value zero)
+        * Add to that loop a fixed-size message header ??
         TOREAD:
         https://stackoverflow.com/questions/143123/how-to-create-a-buffer-for-reading-socket-data-in-c
         "I meant: you have to do your reads in a loop. Each time through the loop,
@@ -31,6 +37,19 @@ ___
         * Test transfer of messages with EXACTLY a multiple of the buffer size of 1024 Byte in file "socket_reader.c"
             --> does it cause blocking of the whole programme?
             https://stackoverflow.com/questions/59894594/what-is-the-best-way-to-determine-packet-size-with-recv
+
+        //?? Delete or reactivate this OLD comment, taken from file "socket_reader.c":
+        //
+        // Therefore, the function "sense_socket" is called for PEEKING AHEAD for new data,
+        // without actually reading or removing them from the input queue.
+        // However, also this function WOULD BLOCK if there were no further data available.
+        // This can be avoided if reading at least ONE BYTE MORE than
+        // used later in the function "read_socket_buffer".
+        //
+        // The efficiency disadvantage is that all data are read TWICE,
+        // once within "sense" and another time within "read".
+        //
+        //?? sense_socket((void*) &ec, p1, (void*) &es);
 
         * Investigate error in cybol application "socket_client":
             "Could not startup unix terminal mode set. An error occured within tcsetattr."
