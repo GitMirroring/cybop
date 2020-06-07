@@ -18,6 +18,9 @@ ___
         * Copying "Hello World!" text and integer number via socket works fine
 
         EXPERIMENT:
+        * Create table/matrix comparing possibilities: server + client and non-blocking + blocking
+            --> think through these options
+            --> reflect about threads in this context
         * Make socket blocking or non-blocking in file "socket_client/run.cybol" ??
             non-blocking: receives all commands at once and hence does NOT process them
                 --> use message prefix-as-header or suffix ??
