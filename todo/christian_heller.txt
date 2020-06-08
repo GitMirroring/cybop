@@ -11,6 +11,30 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+--
+
+https://stackoverflow.com/questions/6699488/bsd-sockets-how-to-use-non-blocking-sockets
+
+General approach for a TCP server where you want to handle many connections at the same time:
+
+    make listening socket non-blocking
+    add it to select(2) or poll(2) read event set
+    enter select(2)/poll(2) loop
+    on wakeup check if it's the listening socket, then
+        accept(2)
+        check for failure (the client might've dropped the connection attempt by now)
+        make newly created client socket non-blocking, add it to the polling event set
+    else, if it's one of the client sockets
+        consume input, process it
+        watch out for EAGAIN error code - it's not really an error, but indication that there's no input now
+        if read zero bytes - client closed connection, close(2) client socket, remove it from event set
+    re-init event set (omitting this is a common error with select(2))
+    repeat the loop
+
+Client side is a little simpler since you only have one socket. Advanced applications like web browsers that handle many connections often do non-blocking connect(2) though.
+
+--
+
 WUI
 ___
 
