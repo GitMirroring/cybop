@@ -11,29 +11,64 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
---
+Socket Optimisation
+___________________
 
-https://stackoverflow.com/questions/6699488/bsd-sockets-how-to-use-non-blocking-sockets
+        * Make socket c/s example "Hello World!" work by correcting handling of client socket inside cyboi
+            store an accepted client in the client list
+            check the client socket list regularly using recv()
+            call accept() regularly if no data are available on the clients in the list
 
-General approach for a TCP server where you want to handle many connections at the same time:
+        * Decide whether to use non-blocking socket OR self-made threads with blocking socket
+            cyboi has to serve other channels as well (terminal, xcb-gui) and thus MUST NOT use poll() or select(),
+            since both are blocking and work only with file descriptors, which for xcb-gui do not exist, for example
 
-    make listening socket non-blocking
-    add it to select(2) or poll(2) read event set
-    enter select(2)/poll(2) loop
-    on wakeup check if it's the listening socket, then
-        accept(2)
-        check for failure (the client might've dropped the connection attempt by now)
-        make newly created client socket non-blocking, add it to the polling event set
-    else, if it's one of the client sockets
-        consume input, process it
-        watch out for EAGAIN error code - it's not really an error, but indication that there's no input now
-        if read zero bytes - client closed connection, close(2) client socket, remove it from event set
-    re-init event set (omitting this is a common error with select(2))
-    repeat the loop
+        * Filter out BOTH errors (EAGAIN and EWOULDBLOCK), if using non-blocking socket
+            for historical reasons the specification is not clear which of both errors a system will return
+            Reference: hall_-_beej's_guide_to_network_socket_programming.html#blocking
 
-Client side is a little simpler since you only have one socket. Advanced applications like web browsers that handle many connections often do non-blocking connect(2) though.
+        * Reference: hall_-_beej's_guide_to_network_socket_programming.html#poll
+        * Avoid error using SO_REUSEADDR:
+            // Lose the pesky "address already in use" error message
+            setsockopt(listener, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int));
 
---
+        * Reference: hall_-_beej's_guide_to_network_socket_programming.html#socket
+        * Use the values from the results of the call to getaddrinfo(), instead of
+            hard-coded values, and feed them into socket() directly like this:
+        * Example:
+
+            int s;
+            struct addrinfo hints, *res;
+
+            // do the lookup
+            // [pretend we already filled out the "hints" struct]
+            getaddrinfo("www.example.com", "http", &hints, &res);
+
+            // again, you should do error-checking on getaddrinfo(), and walk
+            // the "res" linked list looking for valid entries instead of just
+            // assuming the first one is good (like many of these examples do).
+            // See the section on client/server for real examples.
+
+            s = socket(res->ai_family, res->ai_socktype, res->ai_protocol);
+
+        * Reference: https://stackoverflow.com/questions/6699488/bsd-sockets-how-to-use-non-blocking-sockets
+        * General approach for a TCP server where you want to handle many connections at the same time:
+            - make listening socket non-blocking
+            - add it to select(2) or poll(2) read event set
+            - enter select(2)/poll(2) loop
+            - on wakeup check if it's the listening socket, then
+            - accept(2)
+            - check for failure (the client might've dropped the connection attempt by now)
+            - make newly created client socket non-blocking, add it to the polling event set
+            - else, if it's one of the client sockets
+            - consume input, process it
+            - watch out for EAGAIN error code - it's not really an error, but indication that there's no input now
+            - if read zero bytes - client closed connection, close(2) client socket, remove it from event set
+            - re-init event set (omitting this is a common error with select(2))
+            - repeat the loop
+        * Client side is a little simpler since you only have one socket.
+        * Advanced applications like web browsers that handle many connections
+            often do non-blocking connect(2) though.
 
 WUI
 ___
