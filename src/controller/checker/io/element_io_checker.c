@@ -91,7 +91,7 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
             //
             // Check for new client requests.
             //
-            // CAUTION! Actually, only server sockets use the "accept" function,
+            // CAUTION! Actually, only (server) sockets use the "accept" function,
             // for sensing new client requests.
             // However, in order to apply a unified handling, the function
             // is called here in general, for ALL channels.

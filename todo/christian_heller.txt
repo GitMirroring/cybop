@@ -14,6 +14,20 @@
 Socket Optimisation
 ___________________
 
+        DONE:
+        * Server socket (non-blocking) and client socket (blocking) work fine for text data transfer
+
+        TODO:
+        * Investigate array-buffer-loop when transferring data bigger than the buffer size of 1024, since it might block
+        * "Hello, World!" with length 13 works with buffer size 1024, 14, 12, 4 BUT NOT for 13
+        * That is, if the buffer has the SAME size as the data to be transfered, it does not work in file "socket_reader.c"
+            due to the loop calling function "read_socket_buffer" which is blocking if no more data are available
+        * Trying to use non-blocking mode on client side does NOT work, since NO DATA are received, because the recv() function returns too fast (non-blocking)
+        --> How to avoid this problem? Sending an "end character" could work but would be too application-specific
+
+        TODO:
+        * Investigate why image transfer does not work
+
         * Make socket c/s example "Hello World!" work by correcting handling of client socket inside cyboi
             store an accepted client in the client list
             check the client socket list regularly using recv()

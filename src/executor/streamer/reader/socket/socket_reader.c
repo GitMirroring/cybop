@@ -99,7 +99,8 @@ void read_socket(void* p0, void* p1) {
     //
     void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int bs = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
+//??    int bs = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
+    int bs = *NUMBER_14_INTEGER_STATE_CYBOI_MODEL;
 
     //
     // Allocate buffer data.

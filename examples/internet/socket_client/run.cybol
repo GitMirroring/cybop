@@ -29,9 +29,6 @@
         <node name="mode" channel="inline" format="text/plain" model="client"/>
         <!-- Making the client non-blocking ("false") results in error EWOULDBLOCK when reading/writing. -->
         <node name="blocking" channel="inline" format="logicvalue/boolean" model="true"/>
-<!--
-        <node name="blocking" channel="inline" format="logicvalue/boolean" model="false"/>
--->
         <node name="socket" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
 

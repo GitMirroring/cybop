@@ -55,7 +55,7 @@
             and meanwhile block any other message processing in cyboi.
             You may try out either here: "true" for blocking; "false" for non-blocking.
         -->
-        <node name="blocking" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="blocking" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="connexions" channel="inline" format="number/integer" model="1"/>
     </node>
 
