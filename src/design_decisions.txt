@@ -27,6 +27,8 @@ Multiple Formats
 Multi Channel Communication
 Date Time
 Socket
+Receiving Data via Server Socket
+Receiving Data via Client Socket
 Allocation
 Serialisation/Encoding/Compression/Sending
 Encoding
@@ -379,6 +381,100 @@ Implement session on application level (e.g. in Res Medicinae)
 Only the server socket number gets stored in internal memory,
 in order to be able to use it for communication
 all other things (address, port etc.) are set inside the socket
+
+Receiving Data via Server Socket
+________________________________
+
+For detecting available data, a server socket may use various techniques.
+
+Solutions:
+
+1 non-blocking mode
+
+This IS the current solution in cyboi.
+Not very efficient due to the "busy wait" loop, but it works.
+
+2 poll(), select(), WSAAsyncSelect(), WSASelectEvent()
+
+These functions are blocking and work only with file descriptors.
+However, file descriptors do not exist for all kinds of communication
+channels. For the x window system, for example, they do not.
+But cyboi wants to serve other channels besides sockets as well
+(terminal/tui, x-window-system/xcb/gui).
+
+Therefore, this solution was NOT chosen.
+
+3 self-made thread with blocking mode
+
+This approach requires more overhead, an import of libpthread or
+similar libraries and the handling of a special thread.
+
+Since non-blocking mode is easier to implement, this solution was
+NOT chosen for now. However, it may be an option for the future.
+
+Receiving Data via Client Socket
+________________________________
+
+Data received via socket are stored in a buffer (array).
+This happens in an endless loop, since more data than
+the buffer can store might be available. Problem:
+When there are no further data available, the recv() call blocks.
+
+Solutions:
+
+1 Non-blocking socket mode:
+
+Used on the client side, it causes the recv() function to return
+too fast and early, WITHOUT having received the data yet.
+
+Therefore, blocking mode is necessary on the client side and
+this solution was NOT chosen.
+
+However, there are some exceptions: Advanced applications like
+web browsers handle many connections being the client,
+and often do non-blocking connect.
+
+2 Delimiter on application level:
+
+Stream sockets do not delimit messages. All data are an opaque byte stream.
+One could implement that on application level, for example:
+- a size field in the message header structure
+or:
+- using a delimiter such as '\n' for single-line text
+
+However, cyboi is to be free of application-level logic.
+Therefore, this solution was NOT chosen.
+
+Reference:
+https://stackoverflow.com/questions/3053757/read-from-socket
+
+3 Peeking ahead available data:
+
+Microsoft documentation states in several places that MSG_PEEK should
+be avoided altogether because it were inefficient and inaccurate.
+One is forced to call "recv()" twice.
+
+Therefore, this solution was NOT chosen.
+However, it could be a fallback solution if "ioctl" below does not work.
+
+Reference:
+https://stackoverflow.com/questions/11266783/recv-with-msg-peek-shows-full-message-but-returns-would-block-normally
+
+4 Using ioctl() to query FIONREAD
+
+This function call will return how many data are available.
+
+Example:
+
+int len = 0;
+ioctl(sock, FIONREAD, &len);
+if (len > 0) {
+    len = read(sock, buffer, len);
+}
+
+Reference:
+https://stackoverflow.com/questions/3053757/read-from-socket
+https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.3.0/com.ibm.zos.v2r3.bpxbd00/ioctl.htm#ioctl
 
 Allocation
 __________
