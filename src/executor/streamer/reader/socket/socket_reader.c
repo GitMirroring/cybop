@@ -26,15 +26,18 @@
 #ifndef SOCKET_READER_SOURCE
 #define SOCKET_READER_SOURCE
 
+#include <sys/ioctl.h> // FIONREAD
+
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../executor/sensor/socket/socket_sensor.c"
+#include "../../../../executor/streamer/reader/device/device_reader.c"
 #include "../../../../executor/streamer/reader/socket/buffer_socket_reader.c"
 #include "../../../../logger/logger.c"
 
@@ -99,8 +102,19 @@ void read_socket(void* p0, void* p1) {
     //
     void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-//??    int bs = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
-    int bs = *NUMBER_14_INTEGER_STATE_CYBOI_MODEL;
+    int bs = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
+//??    int bs = *NUMBER_14_INTEGER_STATE_CYBOI_MODEL;
+//??    int bs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The number of data available on socket.
+    int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The command (device-dependent request code).
+    int c = FIONREAD;
+
+    // Read the number of data available on socket.
+    read_device((void*) &n, p1, (void*) &c);
+
+    // Copy buffer size.
+//??    copy_integer((void*) &bs, (void*) &n);
 
     //
     // Allocate buffer data.
@@ -111,34 +125,7 @@ void read_socket(void* p0, void* p1) {
     allocate_array((void*) &bd, (void*) &bs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Loop until all bytes have been read.
-    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        //
-        // Sense further data available on socket.
-        //
-        // CAUTION! This function call IS NECESSARY in order
-        // to avoid an endless loop in some rare cases.
-        // There are two possible cases:
-        //
-        // 1 bc < bs
-        //
-        // The buffer was filled PARTLY and the loop may be left.
-        //
-        // 2 bc == bs (bc > bs is not possible)
-        //
-        // The buffer was filled COMPLETELY.
-        // However, it is UNCLEAR, whether or not further data are available.
-        //
-        // 2a Further data available
-        //
-        // The function "read_socket_buffer" would be
-        // called again in order to process the data.
-        //
-        // 2b No further data
-        //
-        // If the function "read_socket_buffer" was called again,
-        // it WOULD BLOCK processing, since no more data are available.
-        //
+//??    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Read data into buffer with given size.
         read_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
@@ -153,6 +140,7 @@ void read_socket(void* p0, void* p1) {
             // Append buffer to destination data.
             modify_item(p0, bd, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &bc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
+/*??
             if (bc == bs) {
 
                 //
@@ -179,6 +167,7 @@ void read_socket(void* p0, void* p1) {
 
                 break;
             }
+*/
 
         } else {
 
@@ -188,9 +177,9 @@ void read_socket(void* p0, void* p1) {
 
             fwprintf(stdout, L"TEST: Read socket. break with bc <= 0.\n");
 
-            break;
+//??            break;
         }
-    }
+//??    }
 
     //
     // Deallocate buffer data.

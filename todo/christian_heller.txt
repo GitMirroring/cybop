@@ -19,7 +19,19 @@ ______________
         * Copying "Hello World!" text and integer number via socket works fine
 
         TODO:
+        * Find out about error that all client socket requests are transferred at ONCE,
+            without the client waiting/blocking until having received the answer,
+            leading to multiple requests in one string like "say-hellosay-helloexit",
+            which is not understood by the server
+
+        TODO:
+        * Check if socket has to be closed after each request-response-cycle
+            since otherwise, the application runs into an endless loop with "TEST sense socket bc: 1"
+        * Alternative: Reset buffer count etc. in "sense socket"
+
+        TODO:
         * Implement solution using ioctl() to query FIONREAD
+        * Use different function call or Windows OS
         * See document "src/design_decisions.txt"
         * Investigate array-buffer-loop in file "socket_reader.c" when transferring data bigger than the buffer size of 1024, since it might block
         * "Hello, World!" with length 13 works with buffer size 1024, 14, 12, 4 BUT NOT for 13
@@ -94,6 +106,7 @@ ______________
 
         * Set non-blocking flag also for accepted client sockets, in order to be able to send/receive in non-blocking mode? See:
             wolf_-_linux-unix-programmierung/Kap11-019.htm#RxxKap11019040003981F017100
+            done in modern web browsers --> see document "src/design_decisions.txt"
         * Verify that NON-BLOCKING mode is used for terminal at startup
         * See comment in file "element_io_checker.c"
         * Set flag "O_NONBLOCK", e.g. in file "open_unix_terminal_starter.c"

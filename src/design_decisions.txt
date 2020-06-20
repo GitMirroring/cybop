@@ -464,6 +464,15 @@ https://stackoverflow.com/questions/11266783/recv-with-msg-peek-shows-full-messa
 
 This function call will return how many data are available.
 
+The "ioctl" system call is supported by most Unix and Unix-like systems,
+including Linux and macOS, though the available request codes
+differ from system to system. Microsoft Windows provides a
+similar function, named "DeviceIoControl", in its Win32 API.
+https://en.wikipedia.org/wiki/Ioctl
+
+#include <sys/ioctl.h>
+int ioctl(int fd, unsigned long request, ...);
+
 Example:
 
 int len = 0;
@@ -473,6 +482,8 @@ if (len > 0) {
 }
 
 Reference:
+https://www.gnu.org/software/libc/manual/html_node/IOCTLs.html
+https://man7.org/linux/man-pages/man2/ioctl.2.html
 https://stackoverflow.com/questions/3053757/read-from-socket
 https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.3.0/com.ibm.zos.v2r3.bpxbd00/ioctl.htm#ioctl
 
