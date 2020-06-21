@@ -50,6 +50,11 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
 
+    <!-- TEST only. Delete later! -->
+    <node name="sleep" channel="inline" format="run/sleep-second" model="">
+        <node name="duration" channel="inline" format="number/integer" model="3"/>
+    </node>
+
     <!-- Receive hello response -->
     <node name="receive_response" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
@@ -68,8 +73,12 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
+    <!-- TEST only. Delete later! -->
+    <node name="sleep" channel="inline" format="run/sleep-second" model="">
+        <node name="duration" channel="inline" format="number/integer" model="3"/>
+    </node>
+
     <!-- Send hello 2 request -->
-<!--
     <node name="print_request" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -86,10 +95,13 @@
         <node name="message" channel="inline" format="text/plain" model="say-hello"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
--->
+
+    <!-- TEST only. Delete later! -->
+    <node name="sleep" channel="inline" format="run/sleep-second" model="">
+        <node name="duration" channel="inline" format="number/integer" model="3"/>
+    </node>
 
     <!-- Receive hello 2 response -->
-<!--
     <node name="receive_response" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -106,7 +118,11 @@
         <node name="message" channel="inline" format="text/cybol-path" model=".text-response"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
--->
+
+    <!-- TEST only. Delete later! -->
+    <node name="sleep" channel="inline" format="run/sleep-second" model="">
+        <node name="duration" channel="inline" format="number/integer" model="3"/>
+    </node>
 
     <!-- Send image request -->
 <!--
@@ -145,7 +161,6 @@
 -->
 
     <!-- Send exit request -->
-<!--
     <node name="print_request_exit" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -162,7 +177,6 @@
         <node name="message" channel="inline" format="text/plain" model="exit"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
--->
 
     <!-- Exit programme -->
     <node name="exit_programme" channel="inline" format="live/exit" model=""/>

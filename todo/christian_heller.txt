@@ -19,10 +19,12 @@ ______________
         * Copying "Hello World!" text and integer number via socket works fine
 
         TODO:
+        * Works with "sleep" on client side, but NOT without, since all data are sent at ONCE
         * Find out about error that all client socket requests are transferred at ONCE,
             without the client waiting/blocking until having received the answer,
             leading to multiple requests in one string like "say-hellosay-helloexit",
             which is not understood by the server
+        * Is blocking mode on client side not working with ioctl() to query FIONREAD ??
 
         TODO:
         * Check if socket has to be closed after each request-response-cycle

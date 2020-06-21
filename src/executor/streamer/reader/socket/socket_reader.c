@@ -110,11 +110,17 @@ void read_socket(void* p0, void* p1) {
     // The command (device-dependent request code).
     int c = FIONREAD;
 
+    fwprintf(stdout, L"TEST: Read socket. bs init: %i\n", bs);
+
     // Read the number of data available on socket.
     read_device((void*) &n, p1, (void*) &c);
 
+    fwprintf(stdout, L"TEST: Read socket. n: %i\n", n);
+
     // Copy buffer size.
-//??    copy_integer((void*) &bs, (void*) &n);
+    copy_integer((void*) &bs, (void*) &n);
+
+    fwprintf(stdout, L"TEST: Read socket. bs: %i\n", bs);
 
     //
     // Allocate buffer data.
