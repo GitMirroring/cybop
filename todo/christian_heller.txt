@@ -38,6 +38,10 @@ ______________
         * That is, if the buffer has exactly the SAME size as the data to be transfered, it does not work due to
             the loop calling function "read_socket_buffer" which is blocking if no more data are available
 
+        * Chapter 7.12 of book at URL:
+            https://books.google.de/books?id=ptSC4LpwGA0C&pg=PA234&lpg=PA234&dq=ioctl+fionread+socket&source=bl&ots=Kt9zSkbjOs&sig=ACfU3U2wctV2ayp7kEgHbkQRBwxsGCKXlA&hl=de&sa=X&ved=2ahUKEwjlr5-N75LqAhXVVBUIHRQFDTwQ6AEwBHoECAoQAQ#v=onepage&q=ioctl%20fionread%20socket&f=false
+            "The 'SO_REUSEADDR' option should always be set for a tcp server before it calls 'bind'."
+
         TODO:
         * Investigate why image transfer does not work
 
