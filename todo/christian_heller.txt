@@ -19,6 +19,10 @@ ______________
         * Copying "Hello World!" text and integer number via socket works fine
 
         TODO:
+        * Fix error (described below) be using ioctl() with FIONREAD only for follow-up loop-cycles in read-loop,
+            since otherwise, it returns too fast with zero, so that data on a blocking socket are never received
+            --> adapt if-else blocks
+            i.e. the first socket-read-call has to be done WITHOUT checking ioctl before
         * Works with "sleep" on client side, but NOT without, since all data are sent at ONCE
         * Find out about error that all client socket requests are transferred at ONCE,
             without the client waiting/blocking until having received the answer,
