@@ -18,11 +18,16 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-06-23  Christian Heller  <christian.heller@cybop.org>
+
+        * Adapt loop in file "executor/streamer/reader/socket/socket_reader.c"
+        * Introduce flag to distinguish between initial and follow-up read
+        * Use function "read_device" (using function "ioctl" internally) to detect data available on socket
+
 2020-06-20  Christian Heller  <christian.heller@cybop.org>
 
         * Implement device access using function "ioctl" for device-dependent request code (command)
         * Add files "device_reader.c", "unix_device_reader.c", "win32_device_reader.c"
-        * Eliminate loop in file "executor/streamer/reader/socket/socket_reader.c"
 
 2020-03-16  Christian Heller  <christian.heller@cybop.org>
 

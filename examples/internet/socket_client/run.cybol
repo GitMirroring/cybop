@@ -50,11 +50,6 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
 
-    <!-- TEST only. Delete later! -->
-    <node name="sleep" channel="inline" format="run/sleep-second" model="">
-        <node name="duration" channel="inline" format="number/integer" model="3"/>
-    </node>
-
     <!-- Receive hello response -->
     <node name="receive_response" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
@@ -71,11 +66,6 @@
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".text-response"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-
-    <!-- TEST only. Delete later! -->
-    <node name="sleep" channel="inline" format="run/sleep-second" model="">
-        <node name="duration" channel="inline" format="number/integer" model="3"/>
     </node>
 
     <!-- Send hello 2 request -->
@@ -96,11 +86,6 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
 
-    <!-- TEST only. Delete later! -->
-    <node name="sleep" channel="inline" format="run/sleep-second" model="">
-        <node name="duration" channel="inline" format="number/integer" model="3"/>
-    </node>
-
     <!-- Receive hello 2 response -->
     <node name="receive_response" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
@@ -117,11 +102,6 @@
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".text-response"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-
-    <!-- TEST only. Delete later! -->
-    <node name="sleep" channel="inline" format="run/sleep-second" model="">
-        <node name="duration" channel="inline" format="number/integer" model="3"/>
     </node>
 
     <!-- Send image request -->

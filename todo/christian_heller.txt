@@ -15,41 +15,14 @@ WUI and Socket
 ______________
 
         DONE:
-        * Server socket (non-blocking) and client socket (blocking) work fine for text data transfer with buffer size of 1024
+        * Server socket (non-blocking) and client socket (blocking) work fine for text data transfer
         * Copying "Hello World!" text and integer number via socket works fine
 
-        TODO:
-        * Fix error (described below) be using ioctl() with FIONREAD only for follow-up loop-cycles in read-loop,
-            since otherwise, it returns too fast with zero, so that data on a blocking socket are never received
-            --> adapt if-else blocks
-            i.e. the first socket-read-call has to be done WITHOUT checking ioctl before
-        * Works with "sleep" on client side, but NOT without, since all data are sent at ONCE
-        * Find out about error that all client socket requests are transferred at ONCE,
-            without the client waiting/blocking until having received the answer,
-            leading to multiple requests in one string like "say-hellosay-helloexit",
-            which is not understood by the server
-        * Is blocking mode on client side not working with ioctl() to query FIONREAD ??
-
-        TODO:
-        * Check if socket has to be closed after each request-response-cycle
-            since otherwise, the application runs into an endless loop with "TEST sense socket bc: 1"
-        * Alternative: Reset buffer count etc. in "sense socket"
-
-        TODO:
-        * Implement solution using ioctl() to query FIONREAD
-        * Use different function call or Windows OS
-        * See document "src/design_decisions.txt"
-        * Investigate array-buffer-loop in file "socket_reader.c" when transferring data bigger than the buffer size of 1024, since it might block
-        * "Hello, World!" with length 13 works with buffer size 1024, 14, 12, 4 BUT NOT for 13
-        * That is, if the buffer has exactly the SAME size as the data to be transfered, it does not work due to
-            the loop calling function "read_socket_buffer" which is blocking if no more data are available
+        * Investigate why image transfer does not work
 
         * Chapter 7.12 of book at URL:
             https://books.google.de/books?id=ptSC4LpwGA0C&pg=PA234&lpg=PA234&dq=ioctl+fionread+socket&source=bl&ots=Kt9zSkbjOs&sig=ACfU3U2wctV2ayp7kEgHbkQRBwxsGCKXlA&hl=de&sa=X&ved=2ahUKEwjlr5-N75LqAhXVVBUIHRQFDTwQ6AEwBHoECAoQAQ#v=onepage&q=ioctl%20fionread%20socket&f=false
             "The 'SO_REUSEADDR' option should always be set for a tcp server before it calls 'bind'."
-
-        TODO:
-        * Investigate why image transfer does not work
 
         * Filter out BOTH errors (EAGAIN and EWOULDBLOCK), if using non-blocking socket
             for historical reasons the specification is not clear which of both errors a system will return
@@ -57,6 +30,8 @@ ______________
         * Close connection if read zero bytes (client closed connection) and remove it from client list
             in non-blocking mode, the "recv()" returns errors EAGAIN or EWOULDBLOCK if no more data are available
             --> catch them and close connection in this case
+
+        * Implement file "win32_device_reader.c" (see file "unix_device_reader.c" as template)
 
         * Reference: hall_-_beej's_guide_to_network_socket_programming.html#poll
         * Avoid error using SO_REUSEADDR:

@@ -103,24 +103,12 @@ void read_socket(void* p0, void* p1) {
     void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int bs = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
-//??    int bs = *NUMBER_14_INTEGER_STATE_CYBOI_MODEL;
-//??    int bs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The follow-up flag.
+    int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The number of data available on socket.
     int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The command (device-dependent request code).
     int c = FIONREAD;
-
-    fwprintf(stdout, L"TEST: Read socket. bs init: %i\n", bs);
-
-    // Read the number of data available on socket.
-    read_device((void*) &n, p1, (void*) &c);
-
-    fwprintf(stdout, L"TEST: Read socket. n: %i\n", n);
-
-    // Copy buffer size.
-    copy_integer((void*) &bs, (void*) &n);
-
-    fwprintf(stdout, L"TEST: Read socket. bs: %i\n", bs);
 
     //
     // Allocate buffer data.
@@ -131,12 +119,51 @@ void read_socket(void* p0, void* p1) {
     allocate_array((void*) &bd, (void*) &bs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Loop until all bytes have been read.
-//??    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Read data into buffer with given size.
-        read_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        if (f == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        fwprintf(stdout, L"TEST: Read socket. bc: %i\n", bc);
+            //
+            // This is the initial (NO follow-up) read.
+            //
+
+            // Read data into buffer with given size.
+            read_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+            fwprintf(stdout, L"TEST: Read socket. initial read bc: %i\n", bc);
+
+        } else {
+
+            //
+            // This is a follow-up read.
+            //
+
+            // Read the number of data available on socket.
+            read_device((void*) &n, p1, (void*) &c);
+
+            fwprintf(stdout, L"TEST: Read socket. follow-up read n: %i\n", n);
+
+            if (n > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                // Read data into buffer with given size.
+                read_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+                fwprintf(stdout, L"TEST: Read socket. follow-up read with n > 0 and bc: %i\n", bc);
+
+            } else {
+
+                //
+                // Data have been received, and the buffer was filled up completely.
+                // Therefore, new data were to be detected in this follow-up loop cycle.
+                // However, NO MORE DATA are available, so that the loop may be left.
+                //
+
+                fwprintf(stdout, L"TEST: Read socket. follow-up break with n <= 0.\n");
+
+                // Leave loop.
+                break;
+            }
+        }
 
         if (bc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -146,8 +173,9 @@ void read_socket(void* p0, void* p1) {
             // Append buffer to destination data.
             modify_item(p0, bd, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &bc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
-/*??
             if (bc == bs) {
+
+                fwprintf(stdout, L"TEST: Read socket. reset buffer count with bc == bs.\n");
 
                 //
                 // Reset buffer count.
@@ -162,18 +190,21 @@ void read_socket(void* p0, void* p1) {
                 //
                 bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+                // Set follow-up flag.
+                f = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
             } else {
 
                 //
-                // Data have been received, but the buffer is not filled up completely,
+                // Data HAVE been received, but the buffer is not filled up completely,
                 // which means that NO MORE DATA are available.
                 //
 
                 fwprintf(stdout, L"TEST: Read socket. break with bc > 0.\n");
 
+                // Leave loop.
                 break;
             }
-*/
 
         } else {
 
@@ -183,9 +214,10 @@ void read_socket(void* p0, void* p1) {
 
             fwprintf(stdout, L"TEST: Read socket. break with bc <= 0.\n");
 
-//??            break;
+            // Leave loop.
+            break;
         }
-//??    }
+    }
 
     //
     // Deallocate buffer data.
