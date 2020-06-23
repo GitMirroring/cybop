@@ -64,13 +64,8 @@ void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // The socket.
     int s = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
-fwprintf(stdout, L"TEST: startup socket server 0. input/output entry p0: %i \n", p0);
-fwprintf(stdout, L"TEST: startup socket server 1. s: %i \n", s);
-
     // Startup server socket.
     startup_socket_server_lifecycle((void*) &s, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
-
-fwprintf(stdout, L"TEST: startup socket server 2. s: %i \n", s);
 
     // Store socket in input/output entry.
     set_io_entry_element(p0, (void*) &s, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);

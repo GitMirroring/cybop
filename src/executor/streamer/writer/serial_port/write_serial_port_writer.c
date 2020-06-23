@@ -30,7 +30,6 @@
 #include <stdio.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/copier/integer_copier.c"
@@ -56,8 +55,10 @@ void write_serial_port_write(void* p0, void* p1, void* p2, void* p3) {
 
             if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+                //
                 // This test IS NECESSARY, because the parametre
                 // is handed over to a glibc function below.
+                //
 
                 if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -75,6 +76,7 @@ void write_serial_port_write(void* p0, void* p1, void* p2, void* p3) {
                     // without having to fear conflicts.
                     //
 
+                    //
                     // The temporary size_t variable.
                     //
                     // CAUTION! It IS NECESSARY because on 64 Bit machines,
@@ -89,16 +91,20 @@ void write_serial_port_write(void* p0, void* p1, void* p2, void* p3) {
                     //
                     // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
                     // because values are casted to int* internally again.
+                    //
                     size_t tsc = *sc;
 
+                    //
                     // Initialise error number.
                     // It is a global variable/function and other operations
                     // may have set some value that is not wanted here.
                     //
                     // CAUTION! Initialise the error number BEFORE calling
                     // the function that might cause an error.
+                    //
                     errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+                    //
                     // Write to serial port.
                     //
                     // CAUTION! The data is NOT necessarily a character string
@@ -109,6 +115,7 @@ void write_serial_port_write(void* p0, void* p1, void* p2, void* p3) {
                     // handed over, but can always be smaller.
                     // Therefore, this function "write_serial_port_stream_elements"
                     // is called in a loop, iterating until all the data is written.
+                    //
                     *n = write(*d, p1, tsc);
 
                     // Test error value.
@@ -128,10 +135,12 @@ void write_serial_port_write(void* p0, void* p1, void* p2, void* p3) {
 
                         } else if (errno == EINTR) {
 
+                            //
                             // Remark from the gnu glibc manual:
                             // Unless you have arranged to prevent EINTR failures,
                             // you should check errno after each failing call to write,
                             // and if the error was EINTR, you should simply repeat the call.
+                            //
 
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write serial port write. The write operation was interrupted by a signal while it was blocked waiting for completion.");
 

@@ -163,9 +163,9 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // Read message.
     receive_read((void*) &bd, (void*) &bc, b, p2, p3, p4, p5, p7, p8, p9, p10, p11, p12, p16);
     if ((p14 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p14) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
-        fwprintf(stdout, L"TEST receive data read *bc: %i\n", *((int*) bc));
-        //?? fwprintf(stdout, L"TEST receive data read bd: %s\n", (char*) bd);
-        //?? fwprintf(stdout, L"TEST receive data read *p15: %i\n", *((int*) p15));
+        //?? fwprintf(stdout, L"TEST: Receive data. read binary message *bc: %i\n", *((int*) bc));
+        //?? fwprintf(stdout, L"TEST: Receive data. read binary message bd: %s\n", (char*) bd);
+        //?? fwprintf(stdout, L"TEST: Receive data. read binary message *p15: %i\n", *((int*) p15));
     }
 
     // Extract message.
@@ -174,8 +174,8 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // Decode message.
     receive_decode((void*) &bd, (void*) &bc, s, bd, bc, p15);
     if ((p14 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p14) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
-        fwprintf(stdout, L"TEST receive data decode *bc: %i\n", *((int*) bc));
-        //?? fwprintf(stdout, L"TEST receive data decode bd: %s\n", (char*) bd);
+        //?? fwprintf(stdout, L"TEST: Receive data. decode binary message *bc: %i\n", *((int*) bc));
+        //?? fwprintf(stdout, L"TEST: Receive data. decode binary message bd: %s\n", (char*) bd);
     }
 
     //
@@ -185,12 +185,12 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // type "char" or type "wchar_t" or type "void*", which is IRRELEVANT.
     // This function knows how to handle it, depending on the given language.
     //
-    //?? fwprintf(stdout, L"TEST receive data deserialise pre *bc: %i\n", *((int*) bc));
-    //?? fwprintf(stdout, L"TEST receive data deserialise pre bd: %ls\n", (wchar_t*) bd);
+    //?? fwprintf(stdout, L"TEST: Receive data. deserialise binary message pre *bc: %i\n", *((int*) bc));
+    //?? fwprintf(stdout, L"TEST: Receive data. deserialise binary message pre bd: %ls\n", (wchar_t*) bd);
     receive_deserialise(p0, p1, bd, bc, p4, p5, p6, p7, p8, p9, p13, p14);
     if ((p14 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p14) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
-        fwprintf(stdout, L"TEST receive data deserialise post *bc: %i\n", *((int*) bc));
-        //?? fwprintf(stdout, L"TEST receive data deserialise post bd: %s\n", (char*) bd);
+        //?? fwprintf(stdout, L"TEST: Receive data. deserialise binary message post *bc: %i\n", *((int*) bc));
+        //?? fwprintf(stdout, L"TEST: Receive data. deserialise binary message post bd: %s\n", (char*) bd);
     }
 
     // Deallocate pointer message item.

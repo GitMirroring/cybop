@@ -96,7 +96,7 @@ void read_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
                     //?? fwprintf(stdout, L"TEST: read bsd socket buffer p1: %i \n", *((int*) p1));
                     //?? fwprintf(stdout, L"TEST: read bsd socket buffer p0: %i \n", p0);
 
-                    fwprintf(stdout, L"TEST read bsd socket pre recv errno: %i\n", errno);
+                    //?? fwprintf(stdout, L"TEST read bsd socket pre recv errno: %i\n", errno);
 
                     //
                     // Read message.
@@ -113,7 +113,7 @@ void read_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
                     //
                     int c = recv(*ss, p0, st, *o);
 
-                    fwprintf(stdout, L"TEST read bsd socket post recv c: %i\n", c);
+                    //?? fwprintf(stdout, L"TEST read bsd socket post recv c: %i\n", c);
 
                     if (c > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

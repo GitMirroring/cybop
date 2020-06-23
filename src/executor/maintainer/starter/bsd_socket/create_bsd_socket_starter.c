@@ -64,18 +64,21 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3, void* p4)
 
                     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket create.");
 
+                    //
                     // Initialise error number.
                     // It is a global variable/ function and other operations
                     // may have set some value that is not wanted here.
                     //
                     // CAUTION! Initialise the error number BEFORE calling the
                     // function that might cause an error.
+                    //
                     errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
 //?? fwprintf(stdout, L"TEST: startup bsd socket create *pf: %i \n", *pf);
 //?? fwprintf(stdout, L"TEST: startup bsd socket create *st: %i \n", *st);
 //?? fwprintf(stdout, L"TEST: startup bsd socket create *pr: %i \n", *pr);
 
+                    //
                     // Initialise server socket.
                     //
                     // param 0: protocol family (namespace)
@@ -85,18 +88,25 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3, void* p4)
                     // CAUTION! Use prefix "PF_" here and NOT "AF_"!
                     // The latter is to be used for address family assignment.
                     // See further below!
+                    //
                     *s = socket(*pf, *st, *pr);
 
                     // The socket options.
                     char od = (char) *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                     int os = sizeof(od);
 
+                    //
                     // Set socket reusable after execution.
+                    //
+                    // SO_REUSEADDR:
+                    // - avoid error message "address already in use"
+                    // - should always be set for a tcp server before it calls "bind"
+                    //
                     setsockopt(*s, SOL_SOCKET, SO_REUSEADDR, &od, os);
 
                     if (*s >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-//?? fwprintf(stdout, L"TEST: startup bsd socket create successful *s: %i \n", *s);
+                        //?? fwprintf(stdout, L"TEST: startup bsd socket create successful *s: %i \n", *s);
 
                         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket create success.");
 
@@ -105,44 +115,40 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3, void* p4)
 
                     } else {
 
+                        //
                         // An error occured.
+                        //
 
-    fwprintf(stdout, L"TEST: startup bsd socket create error errno: %i \n", errno);
+                        fwprintf(stdout, L"TEST: startup bsd socket create error errno: %i \n", errno);
 
                         if (errno == EPROTONOSUPPORT) {
 
-    fwprintf(stdout, L"TEST: startup bsd socket create error EPROTONOSUPPORT: %i \n", errno);
-
+                            fwprintf(stdout, L"TEST: startup bsd socket create error EPROTONOSUPPORT: %i \n", errno);
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket create. The protocol or style is not supported by the namespace specified.");
 
                         } else if (errno == EMFILE) {
 
-    fwprintf(stdout, L"TEST: startup bsd socket create error EMFILE: %i \n", errno);
-
+                            fwprintf(stdout, L"TEST: startup bsd socket create error EMFILE: %i \n", errno);
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket create. The process already has too many file descriptors open.");
 
                         } else if (errno == ENFILE) {
 
-    fwprintf(stdout, L"TEST: startup bsd socket create error ENFILE: %i \n", errno);
-
+                            fwprintf(stdout, L"TEST: startup bsd socket create error ENFILE: %i \n", errno);
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket create. The system already has too many file descriptors open.");
 
                         } else if (errno == EACCES) {
 
-    fwprintf(stdout, L"TEST: startup bsd socket create error EACCES: %i \n", errno);
-
+                            fwprintf(stdout, L"TEST: startup bsd socket create error EACCES: %i \n", errno);
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket create. The process does not have the privilege to create a socket of the specified style or protocol.");
 
                         } else if (errno == ENOBUFS) {
 
-    fwprintf(stdout, L"TEST: startup bsd socket create error ENOBUFS: %i \n", errno);
-
+                            fwprintf(stdout, L"TEST: startup bsd socket create error ENOBUFS: %i \n", errno);
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket create. The system ran out of internal buffer space.");
 
                         } else {
 
-    fwprintf(stdout, L"TEST: startup bsd socket create error UNKNOWN: %i \n", errno);
-
+                            fwprintf(stdout, L"TEST: startup bsd socket create error UNKNOWN: %i \n", errno);
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket create. An unknown error occured while initialising the socket.");
                         }
                     }

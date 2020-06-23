@@ -75,9 +75,9 @@ void read_unix_device(void* p0, void* p1, void* p2) {
                 //
                 errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                fwprintf(stdout, L"TEST: Read unix device. Command *c: %i \n", *c);
-                fwprintf(stdout, L"TEST: Read unix device. File descriptor *f: %i \n", *f);
-                fwprintf(stdout, L"TEST: Read unix device. errno: %i\n", errno);
+                //?? fwprintf(stdout, L"TEST: Read unix device. Command *c: %i \n", *c);
+                //?? fwprintf(stdout, L"TEST: Read unix device. File descriptor *f: %i \n", *f);
+                //?? fwprintf(stdout, L"TEST: Read unix device. errno: %i\n", errno);
 
                 //
                 // Perform a generic input/output operation on
@@ -100,13 +100,11 @@ void read_unix_device(void* p0, void* p1, void* p2) {
                 //
                 int r = ioctl(*f, *c, (void*) &d);
 
-                fwprintf(stdout, L"TEST: Read unix device. ioctl r: %i\n", r);
+                //?? fwprintf(stdout, L"TEST: Read unix device. ioctl r: %i\n", r);
 
                 if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                    fwprintf(stdout, L"TEST: Read unix device. success r: %i\n", r);
-
-                    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully read unix device.");
+                    //?? fwprintf(stdout, L"TEST: Read unix device. success r: %i\n", r);
 
                     // Copy destination data.
                     copy_integer(p0, (void*) &d);

@@ -48,8 +48,10 @@ void accept_bsd_socket(void* p0, void* p1) {
 
         int* s = (int*) p1;
 
+        //
         // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
         // Otherwise, it would produce huge log files filled up with useless entries.
+        //
         // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Accept bsd socket.");
 
 //??        fwprintf(stdout, L"TEST: Accept bsd socket *s: %i \n", *s);
@@ -102,7 +104,9 @@ void accept_bsd_socket(void* p0, void* p1) {
 
         } else {
 
+            //
             // An error occured.
+            //
 
             if (errno == EBADF) {
 
@@ -124,6 +128,7 @@ void accept_bsd_socket(void* p0, void* p1) {
 
             } else if (errno == EWOULDBLOCK) {
 
+                //
                 // CAUTION! Do NOT log the following error!
                 // The reason is that the socket is non-blocking,
                 // so that the "accept" procedure returns always,

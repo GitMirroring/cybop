@@ -88,7 +88,7 @@ void startup_details(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
             //?? TODO: Hand over p0 as input/output entry
             //?? (was internal memory before, which is not needed anymore, see other channels)
-//??            startup_serial_port(p0, p2, p3, p4);
+            //?? startup_serial_port(p0, p2, p3, p4);
         }
     }
 
@@ -98,9 +98,7 @@ void startup_details(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST: startup details pre r: %i \n", r);
             startup_socket(p0, p1, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21);
-fwprintf(stdout, L"TEST: startup details post r: %i \n", r);
         }
     }
 

@@ -148,7 +148,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     //
     send_serialise((void*) &ad, (void*) &ac, b, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p15, p16, p18, p19, p20);
 
-    fwprintf(stdout, L"TEST send data serialise *ac: %i\n", *((int*) ac));
+    //?? fwprintf(stdout, L"TEST send data serialise *ac: %i\n", *((int*) ac));
     //?? fwprintf(stdout, L"TEST send data serialise ad: %s\n", (char*) ad);
 
     //?? TODO: The newline flag causes a newline to be added at the end of each part.
@@ -161,19 +161,19 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // Encode message.
     send_encode((void*) &ad, (void*) &ac, e, ad, ac, p4);
 
-    fwprintf(stdout, L"TEST send data encode *ac: %i\n", *((int*) ac));
+    //?? fwprintf(stdout, L"TEST send data encode *ac: %i\n", *((int*) ac));
     //?? fwprintf(stdout, L"TEST send data encode ad: %s\n", (char*) ad);
 
     // Append termination.
     send_termination((void*) &ad, (void*) &ac, e, p17, p3);
 
-    fwprintf(stdout, L"TEST send data termination *ac: %i\n", *((int*) ac));
+    //?? fwprintf(stdout, L"TEST send data termination *ac: %i\n", *((int*) ac));
     //?? fwprintf(stdout, L"TEST send data termination ad: %s\n", (char*) ad);
 
     // Compress message.
 //??    send_compress((void*) &ad, (void*) &ac, c, ad, ac, p??);
 
-    fwprintf(stdout, L"TEST send data compress *ac: %i\n", *((int*) ac));
+    //?? fwprintf(stdout, L"TEST send data compress *ac: %i\n", *((int*) ac));
     //?? fwprintf(stdout, L"TEST send data compress ad: %s\n", (char*) ad);
 
     //

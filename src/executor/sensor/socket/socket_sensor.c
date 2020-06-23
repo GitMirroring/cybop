@@ -41,7 +41,7 @@ void sense_socket(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket.");
 
-    fwprintf(stdout, L"TEST: sense socket *p1: %i \n", *((int*) p1));
+    //?? fwprintf(stdout, L"TEST: sense socket *p1: %i \n", *((int*) p1));
 
     //
     // The buffer data, count, size.
@@ -52,15 +52,17 @@ void sense_socket(void* p0, void* p1, void* p2) {
     //
     void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-//??    int bs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int bs = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Initialise buffer size.
 //??    copy_integer((void*) &bs, p2);
 
+    //
     // Allocate buffer data.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_array((void*) &bd, (void*) &bs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     //
@@ -71,16 +73,16 @@ void sense_socket(void* p0, void* p1, void* p2) {
     //
     int o = MSG_PEEK;
 
-    fwprintf(stdout, L"TEST sense socket bs: %i\n", bs);
+    //?? fwprintf(stdout, L"TEST sense socket bs: %i\n", bs);
 
     // Read data until buffer is filled.
     read_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) &o);
 
-    fwprintf(stdout, L"TEST sense socket bc: %i\n", bs);
+    //?? fwprintf(stdout, L"TEST sense socket bc: %i\n", bs);
 
     if (bc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        fwprintf(stdout, L"TEST: sense socket success bc: %i \n", bc);
+        //?? fwprintf(stdout, L"TEST: sense socket success bc: %i \n", bc);
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket success.");
 

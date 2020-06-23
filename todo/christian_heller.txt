@@ -14,30 +14,14 @@
 WUI and Socket
 ______________
 
-        DONE:
-        * Server socket (non-blocking) and client socket (blocking) work fine for text data transfer
-        * Copying "Hello World!" text and integer number via socket works fine
-
-        * Reference: hall_-_beej's_guide_to_network_socket_programming.html#poll
-        * Avoid error using SO_REUSEADDR:
-            // Lose the pesky "address already in use" error message
-            setsockopt(listener, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int));
-        * Chapter 7.12 of book at URL:
-            https://books.google.de/books?id=ptSC4LpwGA0C&pg=PA234&lpg=PA234&dq=ioctl+fionread+socket&source=bl&ots=Kt9zSkbjOs&sig=ACfU3U2wctV2ayp7kEgHbkQRBwxsGCKXlA&hl=de&sa=X&ved=2ahUKEwjlr5-N75LqAhXVVBUIHRQFDTwQ6AEwBHoECAoQAQ#v=onepage&q=ioctl%20fionread%20socket&f=false
-            "The 'SO_REUSEADDR' option should always be set for a tcp server before it calls 'bind'."
-
-        * Filter out BOTH errors (EAGAIN and EWOULDBLOCK), if using non-blocking socket
-            for historical reasons the specification is not clear which of both errors a system will return
-            Reference: hall_-_beej's_guide_to_network_socket_programming.html#blocking
         * Close connection if read zero bytes (client closed connection) and remove it from client list
             in non-blocking mode, the "recv()" returns errors EAGAIN or EWOULDBLOCK if no more data are available
             --> catch them and close connection in this case
+            Reference: hall_-_beej's_guide_to_network_socket_programming.html#blocking
 
-        * Implement file "win32_device_reader.c" (see file "unix_device_reader.c" as template)
-
-        * Reference: hall_-_beej's_guide_to_network_socket_programming.html#socket
         * Use the values from the results of the call to getaddrinfo(), instead of
             hard-coded values, and feed them into socket() directly like this:
+        * Reference: hall_-_beej's_guide_to_network_socket_programming.html#socket
         * Example:
 
             int s;
@@ -55,10 +39,23 @@ ______________
             s = socket(res->ai_family, res->ai_socktype, res->ai_protocol);
 
         * How to implement a timeout (special thread or wait or counter ...)
+        * Attach timeout and other meta data as properties to a client socket number?
+            in this case, however, client sockets would have to be single parts and not just numbers in one int array;
+            is the client socket usable as unique id?
+        * Set timeout parametre on server socket startup or sense
+        * Close and remove socket from client list when timeout is reached
+        * Close and remove socket from client list on error, e.g. non-respoding client
+        * Increase limit of connecting clients or do only close connexion after a timeout has been reached
+            (currently, the web browser blocks after ten clicks, since each request opens a new socket connexion)
 
         * Investigate error in cybol application "socket_client":
             "Could not startup unix terminal mode set. An error occured within tcsetattr."
             Is the blocking flag the reason?
+
+        * Implement file "win32_device_reader.c"
+            see win32 function "DeviceIoControl" in:
+                https://docs.microsoft.com/de-de/windows/win32/api/ioapiset/nf-ioapiset-deviceiocontrol?redirectedfrom=MSDN
+            see also file "unix_device_reader.c" as template
 
         * Find out if threads have to be reactivated when waiting for client requests via socket
             see backup directory "todo_thread" and read its file "readme-hint.txt"
@@ -118,9 +115,6 @@ ______________
 
         * Study directory "executor/accessor/getter/part_getter.c" in order to find out redundancies with sub directory "part/"
 
-        * Increase limit of connecting clients or do only close connexion after a timeout has been reached
-            (currently, the web browser blocks after ten clicks, since each request opens a new socket connexion)
-
         * Update other cybol applications (see INSTALL file for a list):
             properties message --> sender
             model --> message
@@ -142,13 +136,6 @@ ______________
         * Call percent encoding serialiser for attributes of all parts in html serialiser, e.g. "href" attribute of an "a" tag
         * Ensure that non-encoded characters are copied as well in character reference deserialiser
         * Ensure that non-encoded characters are copied as well in percent encoding deserialiser
-
-        * Attach timeout and other meta data as properties to a client socket number?
-            in this case, however, client sockets would have to be single parts and not just numbers in one int array;
-            is the client socket usable as unique id?
-        * Set timeout parametre on server socket startup or sense
-        * Close and remove socket from client list when timeout is reached
-        * Close and remove socket from client list on error, e.g. non-respoding client
 
         * Activate ipv6 support for win32 in files "inet6_host_address_socket_starter.c" and "inet6_socket_address_socket_starter.c", as soon as the mingw compiler supports it
         * Activate function "inet_pton" for win32 in files "inet_host_address_socket_starter.c" and "inet6_host_address_socket_starter.c", as soon as the mingw compiler supports "Winsock2.h"
