@@ -23,6 +23,7 @@
         * Adapt loop in file "executor/streamer/reader/socket/socket_reader.c"
         * Introduce flag to distinguish between initial and follow-up read
         * Use function "read_device" (using function "ioctl" internally) to detect data available on socket
+        * Test image transfer successfully via socket in cybol applications "socket_server" and "socket_client"
 
 2020-06-20  Christian Heller  <christian.heller@cybop.org>
 
@@ -31,7 +32,7 @@
 
 2020-03-16  Christian Heller  <christian.heller@cybop.org>
 
-        * Implement transfer of long messages with a size greater than the buffer size of 1024 Byte in file "socket_reader.c", using a while loop
+        * Implement transfer of long messages with a size greater than the buffer size of 1024 Byte in file "socket_reader.c", using a "while" loop
         * Test image transfer via socket in cybol applications "socket_server" and "socket_client"
 
 2020-03-04  Christian Heller  <christian.heller@cybop.org>

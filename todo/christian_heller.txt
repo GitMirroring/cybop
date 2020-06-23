@@ -18,8 +18,10 @@ ______________
         * Server socket (non-blocking) and client socket (blocking) work fine for text data transfer
         * Copying "Hello World!" text and integer number via socket works fine
 
-        * Investigate why image transfer does not work
-
+        * Reference: hall_-_beej's_guide_to_network_socket_programming.html#poll
+        * Avoid error using SO_REUSEADDR:
+            // Lose the pesky "address already in use" error message
+            setsockopt(listener, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int));
         * Chapter 7.12 of book at URL:
             https://books.google.de/books?id=ptSC4LpwGA0C&pg=PA234&lpg=PA234&dq=ioctl+fionread+socket&source=bl&ots=Kt9zSkbjOs&sig=ACfU3U2wctV2ayp7kEgHbkQRBwxsGCKXlA&hl=de&sa=X&ved=2ahUKEwjlr5-N75LqAhXVVBUIHRQFDTwQ6AEwBHoECAoQAQ#v=onepage&q=ioctl%20fionread%20socket&f=false
             "The 'SO_REUSEADDR' option should always be set for a tcp server before it calls 'bind'."
@@ -32,11 +34,6 @@ ______________
             --> catch them and close connection in this case
 
         * Implement file "win32_device_reader.c" (see file "unix_device_reader.c" as template)
-
-        * Reference: hall_-_beej's_guide_to_network_socket_programming.html#poll
-        * Avoid error using SO_REUSEADDR:
-            // Lose the pesky "address already in use" error message
-            setsockopt(listener, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int));
 
         * Reference: hall_-_beej's_guide_to_network_socket_programming.html#socket
         * Use the values from the results of the call to getaddrinfo(), instead of
