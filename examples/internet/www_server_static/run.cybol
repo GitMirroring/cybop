@@ -24,8 +24,11 @@
 -->
         <node name="address" channel="inline" format="text/plain" model="127.0.0.1"/>
         <!-- Specify either service name OR id (port) number, NOT both. If both are given, then the port has higher priority. -->
+<!--
         <node name="service" channel="inline" format="text/plain" model="http"/>
         <node name="id" channel="inline" format="number/integer" model="80"/>
+-->
+        <node name="id" channel="inline" format="number/integer" model="1971"/>
         <node name="mode" channel="inline" format="text/plain" model="server"/>
         <node name="blocking" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="connexions" channel="inline" format="number/integer" model="1"/>
@@ -42,8 +45,11 @@
     <node name="sense_requests" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <!-- Specify either service name OR id (port) number, NOT both. If both are given, then the port has higher priority. -->
+<!--
         <node name="service" channel="inline" format="text/plain" model="http"/>
         <node name="id" channel="inline" format="number/integer" model="80"/>
+-->
+        <node name="id" channel="inline" format="number/integer" model="1971"/>
         <!-- The requesting client gets stored in this variable. -->
         <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/>
         <!-- This is the call-back function executed whenever a client sends a request. -->

@@ -12,7 +12,7 @@
 #
 
         * Continue cybol application "internet/www_server_static/"
-        * Inspect error "Error: Destination type: 71. Source type: 10."
+            error "Error: Destination type: 71. Source type: 10." is caused by accessing empty ".request:uri:path"
         * Study and verify deserialisation of "http_request" (it does not appear in a test-wise generated knowledge tree)
 
         * Release CYBOP 0.21.0

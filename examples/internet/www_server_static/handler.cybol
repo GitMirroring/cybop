@@ -36,7 +36,6 @@
     </node>
 
     <!-- Write knowledge tree into file. -->
-<!--
     <node name="test_request" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -45,16 +44,34 @@
         <node name="message" channel="inline" format="text/cybol-path" model="."/>
         <node name="receiver" channel="inline" format="text/plain" model="test_www_server_static_request.txt"/>
     </node>
--->
 
     <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->
     <node name="overwrite_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".path"/>
         <node name="source" channel="inline" format="text/plain" model="internet/www_server_static/files"/>
     </node>
+
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="TEST 1"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
     <node name="append_action" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".path"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".request:uri:path"/>
+    </node>
+
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="TEST 2"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="print_path_label" channel="inline" format="communicate/send" model="">
