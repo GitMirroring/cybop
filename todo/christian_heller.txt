@@ -11,6 +11,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+        * Continue cybol application "internet/www_server_static/"
+        * Inspect error "Error: Destination type: 71. Source type: 10."
+        * Study and verify deserialisation of "http_request" (it does not appear in a test-wise generated knowledge tree)
+
+        * Release CYBOP 0.21.0
+
 WUI and Socket
 ______________
 

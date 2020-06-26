@@ -1,43 +1,31 @@
 <node>
 
-    <node name="create_app" channel="inline" format="memorise/create" model="">
-        <node name="name" channel="inline" format="text/plain" model="app"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-         
-    </node>
-
     <node name="initialise_app" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/plain" model="www_server_static/app.cybol"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".app"/>
+        <node name="sender" channel="inline" format="text/plain" model="internet/www_server_static/app.cybol"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
     </node>
 
-    <!-- Write knowledge tree into file. -->
-    <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".app"/>
-        <node name="receiver" channel="inline" format="text/plain" model="test_www_server_static.txt"/>
-    </node>
-
-    <!-- This is needed for printing messages on terminal. -->
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
+
     <node name="startup_socket" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
         <node name="style" channel="inline" format="text/plain" model="stream"/>
         <node name="protocol" channel="inline" format="text/plain" model="tcp"/>
+<!--
         <node name="address" channel="inline" format="text/plain" model="any"/>
+        <node name="address" channel="inline" format="text/plain" model="localhost"/>
+-->
+        <node name="address" channel="inline" format="text/plain" model="127.0.0.1"/>
         <!-- Specify either service name OR id (port) number, NOT both. If both are given, then the port has higher priority. -->
-        <node name="id" channel="inline" format="number/integer" model="80"/>
         <node name="service" channel="inline" format="text/plain" model="http"/>
+        <node name="id" channel="inline" format="number/integer" model="80"/>
         <node name="mode" channel="inline" format="text/plain" model="server"/>
         <node name="blocking" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="connexions" channel="inline" format="number/integer" model="1"/>
@@ -48,55 +36,34 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Waiting for client requests ..."/>
+        <node name="message" channel="inline" format="text/plain" model="Wait for client requests."/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="sense_requests" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <!-- Specify either service name OR id (port) number, NOT both. If both are given, then the port has higher priority. -->
-        <node name="id" channel="inline" format="number/integer" model="80"/>
         <node name="service" channel="inline" format="text/plain" model="http"/>
-        <node name="handler" channel="inline" format="text/cybol-path" model=".app.handler"/>
-        <node name="sender" channel="inline" format="text/cybol-path" model=".app.var.client_socket"/>
+        <node name="id" channel="inline" format="number/integer" model="80"/>
+        <!-- The requesting client gets stored in this variable. -->
+        <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/>
+        <!-- This is the call-back function executed whenever a client sends a request. -->
+        <node name="handler" channel="inline" format="text/cybol-path" model=".handler"/>
     </node>
 
 </node>
 
 <!--
     This example demonstrates world wide web (www) server functionality.
-
-    The server just delivers static files to clients.
+    The server just delivers static files to clients. Use a URL like:
+    http://localhost:80/index.html
 
     CAUTION! The programme needs to be shut down using the key combination ctrl+c!
 
     CAUTION! The reserved service ports 0..1023 can sometimes only be
     used when running the cybol application as "root" user (Administrator).
+    In such cases, the cyboi interpreter might return an error message like:
+    "TEST: startup bsd socket bind error EACCES: 13"
 
     The "nmap" tool may be used to find out about active service ports, e.g.:
     nmap localhost
--->
-
-<!--
-    Copyright (C) 1999-2018. Christian Heller.
-
-    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
-
-    CYBOL is free software: you can redistribute it and/or modify it
-    under the terms of the GNU General Public License as published
-    by the Free Software Foundation, either version 3 of the License,
-    or (at your option) any later version.
-
-    CYBOL is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty
-    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    See the GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
-
-    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
-    CYBOP Developers <cybop-developers@nongnu.org>
-
-    @version CYBOP 0.20.0 2018-06-30
-    @author Christian Heller <christian.heller@cybop.org>
 -->

@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-06-25  Christian Heller  <christian.heller@cybop.org>
+
+        * Test handling of multiple clients successfully via socket in cybol applications "socket_server" and "socket_client"
+        * Refactor cybol application "internet/www_server_static/"
+
 2020-06-23  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt loop in file "executor/streamer/reader/socket/socket_reader.c"
