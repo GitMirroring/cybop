@@ -63,9 +63,12 @@ void receive_select(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // Use long long int buffer.
+            //
             // For instance, a time is returned by the system as long int,
             // so that it matches into a long long int variable.
+            //
             copy_pointer(p0, p3);
         }
     }
@@ -76,10 +79,13 @@ void receive_select(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // Use void* buffer.
+            //
             // An event is returned as message with special structure,
             // which is why a simple void* gets used as pointer to
             // that event message.
+            //
             copy_pointer(p0, p2);
         }
     }
@@ -90,9 +96,12 @@ void receive_select(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // Use wchar_t buffer.
+            //
             // All inline models are already available as wide character,
             // and do NOT have to get decoded below, so that wchar_t is used.
+            //
             copy_pointer(p0, p4);
         }
     }
@@ -103,9 +112,12 @@ void receive_select(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // Use long long int buffer.
+            //
             // Even if randomisation functions return a simple int,
             // that one matches into a long long int variable.
+            //
             copy_pointer(p0, p3);
         }
     }
@@ -116,10 +128,13 @@ void receive_select(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // Use model buffer.
+            //
             // A next signal part retrieved from signal memory,
             // does NOT have to be processed further here in any form,
             // i.e. the model can be used DIRECTLY.
+            //
             copy_pointer(p0, p1);
         }
     }
@@ -130,12 +145,14 @@ void receive_select(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // Use wchar_t buffer for most platforms,
             // since the multibyte character is converted to a
             // wide character internally in glibc function "fgetwc".
             //
             // Use void* buffer for win32, since it uses
             // a special INPUT_RECORD structure for storage.
+            //
 
 #if defined(__linux__) || defined(__unix__)
             copy_pointer(p0, p4);

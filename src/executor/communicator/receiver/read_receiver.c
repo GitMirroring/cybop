@@ -59,16 +59,19 @@ void receive_read(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive read.");
 
-//?? fwprintf(stdout, L"TEST: receive read p4: %i \n", p4);
-//?? fwprintf(stdout, L"TEST: receive read p3: %i \n", p3);
+        //?? fwprintf(stdout, L"TEST: receive read p4: %i \n", p4);
+        //?? fwprintf(stdout, L"TEST: receive read p3: %i \n", p3);
 
         // Read message from device.
         read_data(p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
 
+        //
         // Get item data, count.
+        //
         // CAUTION! Retrieve data ONLY AFTER having called desired functions!
         // Inside the structure, arrays may have been reallocated,
         // with elements pointing to different memory areas now.
+        //
         copy_array_forward(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         copy_array_forward(p1, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
