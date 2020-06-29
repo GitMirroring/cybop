@@ -75,8 +75,6 @@ void select_http_request_method(void* p0, void* p1, void* p2, void* p3, void* p4
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    fwprintf(stdout, L"TEST: Select http request method. r: %i\n", r);
-
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         detect((void*) &r, p3, p4, (void*) REQUEST_RESPONSE_LINE_ELEMENT_END_SEPARATOR_HTTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) REQUEST_RESPONSE_LINE_ELEMENT_END_SEPARATOR_HTTP_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

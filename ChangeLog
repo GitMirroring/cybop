@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-06-29  Christian Heller  <christian.heller@cybop.org>
+
+        * Fix bug in file "executor/detector/detector.c" where the type argument is now used instead of the hard-coded constant "WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE" for comparison function call "check_operation"
+        * Make sure error "Error: Destination type: 71. Source type: 10." caused by accessing empty ".request:uri:path" disappeared
+        * Test cybol application "internet/www_server_static/" successfully
+
 2020-06-25  Christian Heller  <christian.heller@cybop.org>
 
         * Test handling of multiple clients successfully via socket in cybol applications "socket_server" and "socket_client"

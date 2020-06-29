@@ -47,6 +47,8 @@ void deserialise_http_request_method(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise http request method.");
 
+    //?? fwprintf(stdout, L"TEST: Deserialise http request method. p3: %i\n", *((int*) p3));
+
     // The element.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
     int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -68,11 +70,7 @@ void deserialise_http_request_method(void* p0, void* p1, void* p2, void* p3) {
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
-    fwprintf(stdout, L"TEST: Deserialise http request method. p3: %i\n", *((int*) p3));
-
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        fwprintf(stdout, L"TEST: Deserialise http request decode. ec: %i\n", ec);
 
         compare_integer_less_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 

@@ -77,15 +77,19 @@ void detect(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
                 // The count flag.
                 int c = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+                //
                 // CAUTION! This comparison ensures that array boundaries are not crossed.
-                // The count is used for both, the array AND source data.
+                // The count p5 is used for both, the array AND source data.
+                //
                 compare_integer_greater_or_equal((void*) &c, p2, p5);
 
                 if (c != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+                    //
                     // CAUTION! The remaining count may NOT be handed over as position count,
                     // since it might be greater than the array count and would thus differ.
-                    check_operation(p0, *pos, p3, p5, p5, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+                    //
+                    check_operation(p0, *pos, p3, p5, p5, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, p4);
 
                     if (*r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
