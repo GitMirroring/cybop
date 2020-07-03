@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-07-03  Christian Heller  <christian.heller@cybop.org>
+
+        * Refactor cybol application "internet/www_server_dynamic/"
+
 2020-06-29  Christian Heller  <christian.heller@cybop.org>
 
         * Fix bug in file "executor/detector/detector.c" where the type argument is now used instead of the hard-coded constant "WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE" for comparison function call "check_operation"

@@ -1,9 +1,9 @@
 <node>
 
-    <node name="head" channel="file" format="element/part" model="www_server_dynamic/wui/head.cybol">
+    <node name="head" channel="file" format="element/part" model="internet/www_server_dynamic/wui/head.cybol">
         <node name="tag" channel="inline" format="text/plain" model="head"/>
     </node>
-    <node name="body" channel="file" format="element/part" model="www_server_dynamic/wui/body.cybol">
+    <node name="body" channel="file" format="element/part" model="internet/www_server_dynamic/wui/body.cybol">
         <node name="tag" channel="inline" format="text/plain" model="body"/>
     </node>
 

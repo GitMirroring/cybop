@@ -63,6 +63,9 @@
     The server just delivers static files to clients. Use a URL like:
     http://localhost:80/index.html
 
+    Or some other port number for testing, since it does not require root access:
+    http://localhost:1971/index.html
+
     CAUTION! The programme needs to be shut down using the key combination ctrl+c!
 
     CAUTION! The reserved service ports 0..1023 can sometimes only be

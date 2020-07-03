@@ -1,12 +1,12 @@
 <node>
 
     <node name="overwrite_content" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.wui.index.body.content"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.index.body.content"/>
         <node name="source" channel="inline" format="text/plain" model="Hello, CYBOP!"/>
     </node>
 
     <node name="send_index" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.send_index"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".logic.send_index"/>
     </node>
 
 </node>

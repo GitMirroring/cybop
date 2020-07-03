@@ -1,9 +1,11 @@
 <node>
 
-    <node name="send_index" channel="inline" format="text/cybol-path" model=".app.logic.send_index"/>
-    <node name="send_css" channel="inline" format="text/cybol-path" model=".app.logic.send_css"/>
-    <node name="greet_world" channel="inline" format="text/cybol-path" model=".app.logic.greet_world"/>
-    <node name="greet_cybop" channel="inline" format="text/cybol-path" model=".app.logic.greet_cybop"/>
-    <node name="exit_programme" channel="inline" format="text/cybol-path" model=".app.logic.exit_programme"/>
+    <node name="send_index" channel="inline" format="text/cybol-path" model=".logic.send_index"/>
+    <node name="send_css" channel="inline" format="text/cybol-path" model=".logic.send_css"/>
+
+    <node name="greet_world" channel="inline" format="text/cybol-path" model=".logic.greet_world"/>
+    <node name="greet_cybop" channel="inline" format="text/cybol-path" model=".logic.greet_cybop"/>
+
+    <node name="exit_programme" channel="inline" format="text/cybol-path" model=".logic.exit_programme"/>
 
 </node>

@@ -16,6 +16,8 @@
 WUI and Socket
 ______________
 
+        * Refactor cybol application "internet/www_server_dynamic/"
+
         * Close connection if read zero bytes (client closed connection) and remove it from client list
             in non-blocking mode, the "recv()" returns errors EAGAIN or EWOULDBLOCK if no more data are available
             --> catch them and close connection in this case
