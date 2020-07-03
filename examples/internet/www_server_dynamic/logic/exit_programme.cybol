@@ -5,9 +5,7 @@
         <node name="source" channel="inline" format="text/plain" model="The application was shut down successfully. Further requests will fail."/>
     </node>
 
-    <node name="send_index" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.send_index"/>
-    </node>
+    <node name="send_index" channel="inline" format="text/cybol-path" model=".logic.send_index"/>
 
     <node name="exit_programme" channel="inline" format="live/exit" model=""/>
 

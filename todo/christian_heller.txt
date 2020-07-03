@@ -17,6 +17,15 @@ WUI and Socket
 ______________
 
         * Refactor cybol application "internet/www_server_dynamic/"
+        DONE:
+        * Application is working
+        TODO:
+        * Debug file "handler.cybol", where flag "query_exists" is always true, even if query is not present or empty
+            this is necessary to filter out requests such as for "favicon.ico",
+            which would result in the non-existing action path: .logic.actions./favicon.ico
+        THINK:
+        * Already read source files in "executor/accessor/", where knowledge paths are processed to get parts
+        * Currently no idea where the error lies
 
         * Close connection if read zero bytes (client closed connection) and remove it from client list
             in non-blocking mode, the "recv()" returns errors EAGAIN or EWOULDBLOCK if no more data are available

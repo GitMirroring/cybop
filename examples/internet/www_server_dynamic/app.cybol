@@ -5,6 +5,7 @@
 
     <node name="request" channel="inline" format="element/part" model=""/>
     <node name="client_socket" channel="inline" format="number/integer" model="0"/>
+    <node name="query_exists" channel="inline" format="logicvalue/boolean" model="false"/>
 
     <!--
         CAUTION! Should the path format be "text/cybol-path" OR "text/plain"?
@@ -15,7 +16,7 @@
         <node name="path" channel="inline" format="text/cybol-path" model=""/>
         <node name="path" channel="inline" format="text/plain" model=""/>
     -->
-    <node name="path" channel="inline" format="text/plain" model=""/>
+    <node name="path" channel="inline" format="text/cybol-path" model=""/>
 
     <node name="webpage" channel="inline" format="text/plain" model="">
         <!--

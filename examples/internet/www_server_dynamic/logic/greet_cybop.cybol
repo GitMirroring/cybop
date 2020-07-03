@@ -5,8 +5,6 @@
         <node name="source" channel="inline" format="text/plain" model="Hello, CYBOP!"/>
     </node>
 
-    <node name="send_index" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.send_index"/>
-    </node>
+    <node name="send_index" channel="inline" format="text/cybol-path" model=".logic.send_index"/>
 
 </node>
