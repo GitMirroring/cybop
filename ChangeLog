@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-07-06  Christian Heller  <christian.heller@cybop.org>
+
+        * Refactor file "part_knowledge_deserialiser.c" to filter out non-existing parts and wrong path names mixing up a cybol application
+
 2020-07-03  Christian Heller  <christian.heller@cybop.org>
 
         * Refactor cybol application "internet/www_server_dynamic/"

@@ -337,7 +337,7 @@ ___________
 
     ctest --verbose
 
-- optional run the codecoverage: needs gcov, genhtml:
+- Optionally, run the codecoverage (needs gcov, genhtml):
 
     make codecoverage
     make generatehtml

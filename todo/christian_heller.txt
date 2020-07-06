@@ -16,24 +16,9 @@
 WUI and Socket
 ______________
 
-        * Refactor cybol application "internet/www_server_dynamic/"
-        DONE:
-        * Application is working
-        TODO:
-        * Debug file "handler.cybol", where flag "query_exists" is always true, even if query is not present or empty
-            this is necessary to filter out requests such as for "favicon.ico",
-            which would result in the non-existing action path: .logic.actions./favicon.ico
-        THINK:
-        ==> Auswerten remaining count VOR Holen von Element
-            wenn (rem-count > 0) && (element == NULL), dann RESET destination knowledge part p0 to NULL
-        * File "executor/accessor/name_getter/array_name_getter.c" works fine and returns destination part only if name was found
-        * File "executor/representer/deserialiser/knowledge/knowledge_deserialiser.c" and all related files work fine and return the destination part
-        * To think over: File "executor/representer/deserialiser/knowledge/part_knowledge_deserialiser.c"
-            the new whole part and element part are both retrieved
-            What if the name is wrong and the whole returned instead of the child element?
-            In this case, the knowledge tree gets mixed up and the cybol application might crash.
-            --> Therefore, possibly test if knowledge path count remaining is greater than zero before assigning parts?
-                Other idea?
+        * Test cybol application "internet/www_server_dynamic/"
+        * Fix error that resource gets interpreted as Stylesheet but transferred with MIME type text/plain
+        * Fix error in browser "Chromium" that no follow-up requests are possible (cyboi hangs in function "check_client_element" -> "sense"
 
         * Close connection if read zero bytes (client closed connection) and remove it from client list
             in non-blocking mode, the "recv()" returns errors EAGAIN or EWOULDBLOCK if no more data are available
