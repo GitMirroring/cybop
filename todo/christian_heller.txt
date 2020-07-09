@@ -17,8 +17,10 @@ WUI and Socket
 ______________
 
         * Test cybol application "internet/www_server_dynamic/"
+        * Fix error that a second client can connect, but gets only accepted by socket after the "sense" operation of the first client returns
+            is the socket really non-blocking? test if sense + read returns
+            only then, new client requests can get accepted in the event loop, see "checker_and_sensor.png"
         * Fix error that resource gets interpreted as Stylesheet but transferred with MIME type text/plain
-        * Fix error in browser "Chromium" that no follow-up requests are possible (cyboi hangs in function "check_client_element" -> "sense"
 
         * Close connection if read zero bytes (client closed connection) and remove it from client list
             in non-blocking mode, the "recv()" returns errors EAGAIN or EWOULDBLOCK if no more data are available

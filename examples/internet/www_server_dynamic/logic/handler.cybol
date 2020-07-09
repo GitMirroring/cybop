@@ -55,7 +55,6 @@
     </node>
 
     <!-- Write knowledge tree into file. -->
-<!--
     <node name="test_request" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -64,11 +63,16 @@
         <node name="message" channel="inline" format="text/cybol-path" model="."/>
         <node name="receiver" channel="inline" format="text/plain" model="test_www_server_dynamic_request.txt"/>
     </node>
--->
 
     <node name="evaluate_query" channel="inline" format="flow/branch" model="">
         <node name="criterion" channel="inline" format="text/cybol-path" model=".query_exists"/>
         <node name="true" channel="inline" format="text/cybol-path" model=".logic.evaluate_query"/>
+        <!--
+            CAUTION! Sending a response is important, even if the query was empty or not understood,
+            since some browsers request a "/favicon.ico" or other things and if no response was sent,
+            the browser would wait forever and block requests from other clients.
+        -->
+        <node name="false" channel="inline" format="text/cybol-path" model=".logic.send_empty_message"/>
     </node>
 
 </node>

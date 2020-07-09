@@ -4,6 +4,7 @@
     <node name="evaluate_query" channel="file" format="element/part" model="internet/www_server_dynamic/logic/evaluate_query.cybol"/>
     <node name="actions" channel="file" format="element/part" model="internet/www_server_dynamic/logic/actions.cybol"/>
 
+    <node name="send_empty_message" channel="file" format="element/part" model="internet/www_server_dynamic/logic/send_empty_message.cybol"/>
     <node name="send_index" channel="file" format="element/part" model="internet/www_server_dynamic/logic/send_index.cybol"/>
     <node name="send_css" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>

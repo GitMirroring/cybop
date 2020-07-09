@@ -32,7 +32,7 @@
         <node name="id" channel="inline" format="number/integer" model="1971"/>
         <node name="mode" channel="inline" format="text/plain" model="server"/>
         <node name="blocking" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="connexions" channel="inline" format="number/integer" model="1"/>
+        <node name="connexions" channel="inline" format="number/integer" model="10"/>
     </node>
 
     <node name="print_message" channel="inline" format="communicate/send" model="">

@@ -28,6 +28,7 @@
     </node>
 
     <!-- Write html into file. -->
+<!--
     <node name="test_html" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -36,6 +37,7 @@
         <node name="message" channel="inline" format="text/cybol-path" model=".webpage"/>
         <node name="receiver" channel="inline" format="text/plain" model="test_www_server_dynamic_wui.html"/>
     </node>
+-->
 
     <!-- Send html encapsulated as http-response. -->
     <node name="send" channel="inline" format="communicate/send" model="">

@@ -78,13 +78,12 @@ void sense_socket(void* p0, void* p1, void* p2) {
     // Read data until buffer is filled.
     read_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) &o);
 
-    //?? fwprintf(stdout, L"TEST sense socket bc: %i\n", bs);
+    //?? fwprintf(stdout, L"TEST sense socket bc: %i\n", bc);
 
     if (bc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        //?? fwprintf(stdout, L"TEST: sense socket success bc: %i \n", bc);
-
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket success.");
+        //?? fwprintf(stdout, L"TEST: sense socket success bc: %i \n", bc);
 
         // Copy destination buffer count.
         copy_integer(p0, (void*) &bc);
