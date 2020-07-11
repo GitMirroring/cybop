@@ -26,7 +26,7 @@
 #ifndef GET_STATUS_BSD_SOCKET_STARTER_SOURCE
 #define GET_STATUS_BSD_SOCKET_STARTER_SOURCE
 
-#include <errno.h>
+#include <errno.h> // errno
 #include <fcntl.h> // fcntl function
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -49,14 +49,18 @@ void startup_bsd_socket_status_get(void* p0, void* p1) {
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket status get.");
 
+        //
         // Initialise error number.
+        //
         // It is a global variable/ function and other operations
         // may have set some value that is not wanted here.
         //
         // CAUTION! Initialise the error number BEFORE calling
         // the function that might cause an error.
+        //
         errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+        //
         // Get status flags.
         //
         // CAUTION! The second argument is the command,
@@ -66,31 +70,31 @@ void startup_bsd_socket_status_get(void* p0, void* p1) {
         // as the bitwise OR of the individual flags.
         //
         // https://www.gnu.org/software/libc/manual/html_mono/libc.html#Getting-File-Status-Flags
+        //
         int f = fcntl(*s, F_GETFL, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (f >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-//?? fwprintf(stdout, L"TEST: startup bsd socket status get success f: %i \n", f);
-
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket status get success.");
+            //?? fwprintf(stdout, L"TEST: startup bsd socket status get success f: %i \n", f);
 
             startup_bsd_socket_status_set(p0, (void*) &f, p1);
 
         } else {
 
+            //
             // An error occured.
+            //
 
             if (errno == EBADF) {
 
-fwprintf(stdout, L"TEST: startup bsd socket status get error EBADF: %i \n", errno);
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket status get. The filedes argument is invalid. ");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket status get. The filedes argument is invalid.");
+                fwprintf(stdout, L"TEST: Could not startup bsd socket status get. The filedes argument is invalid. EBADF errno: %i \n", errno);
 
             } else {
 
-fwprintf(stdout, L"TEST: startup bsd socket status get error UNKNOWN: %i \n", errno);
-
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket status get. An unknown error occured.");
+                fwprintf(stdout, L"TEST: Could not startup bsd socket status get. An unknown error occured. UNKNOWN errno: %i \n", errno);
             }
         }
 

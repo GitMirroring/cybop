@@ -26,8 +26,6 @@
 #ifndef SOCKET_READER_SOURCE
 #define SOCKET_READER_SOURCE
 
-#include <sys/ioctl.h> // FIONREAD
-
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -105,10 +103,8 @@ void read_socket(void* p0, void* p1) {
     int bs = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
     // The follow-up flag.
     int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The number of data available on socket.
-    int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The command (device-dependent request code).
-    int c = FIONREAD;
+    // The data available flag.
+    int d = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
     // Allocate buffer data.
@@ -138,17 +134,16 @@ void read_socket(void* p0, void* p1) {
             // This is a follow-up read.
             //
 
-            // Read the number of data available on socket.
-            read_device((void*) &n, p1, (void*) &c);
+            sense_socket((void*) &d, p1);
 
-            //?? fwprintf(stdout, L"TEST: Read socket. follow-up read n: %i\n", n);
+            //?? fwprintf(stdout, L"TEST: Read socket. follow-up read d: %i\n", d);
 
-            if (n > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+            if (d != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 // Read data into buffer with given size.
                 read_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-                //?? fwprintf(stdout, L"TEST: Read socket. follow-up read with n > 0 and bc: %i\n", bc);
+                //?? fwprintf(stdout, L"TEST: Read socket. follow-up read bc: %i\n", bc);
 
             } else {
 
@@ -158,7 +153,7 @@ void read_socket(void* p0, void* p1) {
                 // However, NO MORE DATA are available, so that the loop may be left.
                 //
 
-                //?? fwprintf(stdout, L"TEST: Read socket. follow-up break with n <= 0.\n");
+                //?? fwprintf(stdout, L"TEST: Read socket. follow-up break d == FALSE\n");
 
                 // Leave loop.
                 break;

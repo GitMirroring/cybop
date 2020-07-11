@@ -26,7 +26,7 @@
 #ifndef EDIT_MODE_UNIX_TERMINAL_STARTER_SOURCE
 #define EDIT_MODE_UNIX_TERMINAL_STARTER_SOURCE
 
-#include <termios.h>
+#include <termios.h> // struct termios
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"

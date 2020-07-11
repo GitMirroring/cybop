@@ -26,7 +26,7 @@
 #ifndef SET_STATUS_BSD_SOCKET_STARTER_SOURCE
 #define SET_STATUS_BSD_SOCKET_STARTER_SOURCE
 
-#include <errno.h>
+#include <errno.h> // errno
 #include <fcntl.h> // fcntl function
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -62,6 +62,9 @@ void startup_bsd_socket_status_set(void* p0, void* p1, void* p2) {
 
             compare_integer_unequal((void*) &r, p2, FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
+            //?? fwprintf(stdout, L"TEST pre *f: %i\n", *f);
+            //?? fwprintf(stdout, L"TEST pre O_NONBLOCK: %i\n", O_NONBLOCK);
+
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 // Set BLOCKING status by clearing non-blocking flag (bit).
@@ -71,23 +74,28 @@ void startup_bsd_socket_status_set(void* p0, void* p1, void* p2) {
 
             } else {
 
+                //
                 // Set NON-BLOCKING status by setting non-blocking flag (bit).
                 //
                 // CAUTION! If the O_NONBLOCK flag (a bit) is set,
                 // read/write requests on the socket (file) can return
                 // immediately with a failure status, instead of blocking,
                 // in case no data are immediately available.
+                //
                 (*f) |= O_NONBLOCK;
 
                 //?? fwprintf(stdout, L"TEST startup bsd socket status set non-blocking *f: %i\n", *f);
             }
 
+            //
             // Initialise error number.
+            //
             // It is a global variable/ function and other operations
             // may have set some value that is not wanted here.
             //
             // CAUTION! Initialise the error number BEFORE calling
             // the function that might cause an error.
+            //
             errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
             //
@@ -111,29 +119,30 @@ void startup_bsd_socket_status_set(void* p0, void* p1, void* p2) {
             //
             int e = fcntl(*s, F_SETFL, *f);
 
+            //
             // The normal return value from fcntl with F_SETFL is an
-            // unspecified value OTHER THAN -1, which indicates an error.
+            // unspecified value OTHER THAN -1, the latter indicating an error.
+            //
             if (e != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
-                //?? fwprintf(stdout, L"TEST: startup bsd socket status set success *f: %i \n", *f);
-
                 log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket status set success.");
+                //?? fwprintf(stdout, L"TEST: Startup bsd socket status set success. *f: %i \n", *f);
 
             } else {
 
+                //
                 // An error occured.
+                //
 
                 if (errno == EBADF) {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket status set. The filedes argument is invalid. ");
-
-                    fwprintf(stdout, L"TEST: startup bsd socket status set error EBADF: %i \n", errno);
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket status set. The filedes argument is invalid.");
+                    fwprintf(stdout, L"TEST: Could not startup bsd socket status set. The filedes argument is invalid. EBADF errno: %i \n", errno);
 
                 } else {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket status set. An unknown error occured.");
-
-                    fwprintf(stdout, L"TEST: startup bsd socket status set error UNKNOWN: %i \n", errno);
+                    fwprintf(stdout, L"TEST: Could not startup bsd socket status set. An unknown error occured. UNKNOWN errno: %i \n", errno);
                 }
             }
 

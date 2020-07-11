@@ -62,7 +62,9 @@ void startup_unix_terminal_file_number_get(void* p0, void* p1) {
 
         } else {
 
+            //
             // The return value is negative, which means that an error occured.
+            //
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal file number get. The fileno function failed.");
             fwprintf(stdout, L"Error: Could not startup unix terminal file number get. The fileno function failed. n: %i\n", n);

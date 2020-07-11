@@ -26,8 +26,8 @@
 #ifndef GET_MODE_UNIX_TERMINAL_STARTER_SOURCE
 #define GET_MODE_UNIX_TERMINAL_STARTER_SOURCE
 
-#include <errno.h>
-#include <termios.h>
+#include <errno.h> // errno
+#include <termios.h> // struct termios
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -55,6 +55,7 @@ void startup_unix_terminal_mode_get(void* p0, void* p1) {
 
             //
             // Initialise error number.
+            //
             // It is a global variable / function and other operations
             // may have set some value that is not wanted here.
             //
@@ -75,14 +76,17 @@ void startup_unix_terminal_mode_get(void* p0, void* p1) {
                 if (errno == EBADF) {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal mode get. The filedes argument is not a valid file descriptor.");
+                    fwprintf(stdout, L"Could not startup unix terminal mode get. The filedes argument is not a valid file descriptor. EBADF errno: %i\n", errno);
 
                 } else if (errno == ENOTTY) {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal mode get. The filedes is not associated with a serial port.");
+                    fwprintf(stdout, L"Could not startup unix terminal mode get. The filedes is not associated with a serial port. ENOTTY errno: %i\n", errno);
 
                 } else {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal mode get. An unknown error occured.");
+                    fwprintf(stdout, L"Could not startup unix terminal mode get. An unknown error occured. UNKNOWN errno: %i\n", errno);
                 }
             }
 

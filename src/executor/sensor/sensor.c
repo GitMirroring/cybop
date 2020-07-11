@@ -87,7 +87,7 @@ void sense(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            sense_socket(p0, p1, *NULL_POINTER_STATE_CYBOI_MODEL);
+            sense_socket(p0, p1);
         }
     }
 

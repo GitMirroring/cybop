@@ -26,22 +26,42 @@
 #ifndef SOCKET_SENSOR_SOURCE
 #define SOCKET_SENSOR_SOURCE
 
+#include <sys/ioctl.h> // FIONREAD
+
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../executor/streamer/reader/socket/buffer_socket_reader.c"
+#include "../../../executor/streamer/reader/device/device_reader.c"
 #include "../../../logger/logger.c"
 
 /**
  * Senses data available on the given server socket.
  *
- * @param p0 the destination buffer count
+ * @param p0 the data available flag
  * @param p1 the source socket
- * @param p2 the source buffer size
  */
-void sense_socket(void* p0, void* p1, void* p2) {
+void sense_socket(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket.");
 
-    //?? fwprintf(stdout, L"TEST: sense socket *p1: %i \n", *((int*) p1));
+    //?? fwprintf(stdout, L"TEST: Sense socket. *p1: %i \n", *((int*) p1));
+
+    // The number of data available on socket.
+    int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The command (device-dependent request code).
+    int c = FIONREAD;
+
+    // Read the number of data available on socket.
+    read_device((void*) &n, p1, (void*) &c);
+
+    if (n > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket successful.");
+        //?? fwprintf(stdout, L"TEST: Sense socket successful. n: %i \n", n);
+
+        // Set data available flag.
+        copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    }
+
+/*?? DELETE later, since deprecated!
 
     //
     // The buffer data, count, size.
@@ -55,7 +75,7 @@ void sense_socket(void* p0, void* p1, void* p2) {
     int bs = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Initialise buffer size.
-//??    copy_integer((void*) &bs, p2);
+    //?? copy_integer((void*) &bs, p2);
 
     //
     // Allocate buffer data.
@@ -97,6 +117,7 @@ void sense_socket(void* p0, void* p1, void* p2) {
     // in order to decrement the rubbish (garbage) collection counter.
     //
     deallocate_array((void*) &bd, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &bs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+*/
 }
 
 /* SOCKET_SENSOR_SOURCE */
