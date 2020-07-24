@@ -11,7 +11,7 @@ set(CPACK_RESOURCE_FILE_LICENSE "${ROOT_DIR}/COPYING")
 # The version information.
 #
 SET(CPACK_PACKAGE_VERSION_MAJOR "0")
-SET(CPACK_PACKAGE_VERSION_MINOR "20")
+SET(CPACK_PACKAGE_VERSION_MINOR "21")
 SET(CPACK_PACKAGE_VERSION_PATCH "0")
 SET(CPACK_PACKAGE_VERSION "${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}.${CPACK_PACKAGE_VERSION_PATCH}")
 
@@ -68,7 +68,11 @@ endif()
 # Load global setting file.
 include(CPack)
 
-add_custom_target(
-        adjustcopyright
-        COMMAND ${ROOT_DIR}/build/cmake/adjustcopyright.py ${ROOT_DIR} ${CPACK_PACKAGE_VERSION}
-)
+#
+# CAUTION! This is commented out, since some files got mixed up somehow.
+#
+#add_custom_target(
+#        adjustcopyright
+#        COMMAND ${ROOT_DIR}/build/cmake/adjustcopyright.py ${ROOT_DIR} ${CPACK_PACKAGE_VERSION}
+#)
+

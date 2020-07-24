@@ -1,5 +1,5 @@
 #
-# Copyright (C) 1999-2018. Christian Heller.
+# Copyright (C) 1999-2020. Christian Heller.
 #
 # This file lists the names and email addresses of individuals who worked on cybop.
 # It also lists people who contributed to cybop through comments and suggestions,
@@ -8,7 +8,7 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.20.0 2018-06-30
+# @version CYBOP 0.21.0 2020-07-24
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
@@ -127,7 +127,7 @@ Tools
 Help and Support
         * Karl Berry <karl@freefriends.org> (feedback on improving project infrastructure and documentation)
         * Didier Link <didier@famille-link.fr> (autotools-automake-autoconf file creation)
-        * Allan "TheForkOfJustice" <theforkofjustice@gmail.com> of Linux for Clinics (ubuntu/ debian packaging)
+        * Allan "TheForkOfJustice" <theforkofjustice@gmail.com> of Linux for Clinics (ubuntu/debian packaging)
         * Daniel Fischer via StackOverflow developer portal (hint on memory bug caused by int-to-size_t cast found with valgrind)
         * Josh Triplett <josh@joshtriplett.org> (various hints on event handling architecture and new function "xcb_block_until_event")
 

@@ -43,3 +43,4 @@ for subdir, dirs, files in os.walk(rootdir):
     for file in files:
         if file.lower().endswith(fileExtensionFilter) or file in fileFilter:
             changeFileContent(subdir + os.sep + file)
+

@@ -1,5 +1,5 @@
 #
-# Copyright (C) 1999-2018. Christian Heller.
+# Copyright (C) 1999-2020. Christian Heller.
 #
 # This file describes the release procedure.
 #
@@ -17,12 +17,66 @@ Compile cyboi using "make cyboi"
 Test cybol applications, e.g. "../src/controller/cyboi counter/run.cybol"
 Analyse code using tools "valgrind" and "cppcheck"
 
+Adjust Version
+______________
+
+Replace:
+- copyright year
+- version
+
+Tool:
+- adjust manually
+- was actually to be called automatically by script "adjustcopyright" within "make", but currently does NOT work
+- the "KFileReplace" tool does not exist in KDE anymore
+- use text editor "Kate" menu entry "-> Edit -> Search in Files" (Hotkey: <ctrl> + <alt> + <f>)
+
+Search Data:
+- Search: "In Folder"
+- Option: case sensitive
+- Folder: /home/project/cybop
+- Filter: *.c,*.cybol,*.txt
+- Exclude: api*,backup*,bin*,build*,communication*,doc*,ide*,include*,mailinglist*,release*,tmp*,tools*,www*
+
+Hint: The following is NOT working, since subdirectories are not understood as pattern:
+- Filter: "dist/release.txt,examples/*.cybol,src/*.c,src/*.txt,test/*.c,todo/*.txt,AUTHORS,ChangeLog,COPYING,INSTALL,NEWS,README"
+
+--
+
+TESTING:
+- hints taken from URL:
+https://stackoverflow.com/questions/11392478/how-to-replace-a-string-in-multiple-files-in-linux-command-line/20721292
+- find only affects the immediate directory
+- grep can find files recursively
+- be careful doing this within Git repositories, since it changes files within .git and messes up the repository
+- white space needs to be escaped, e.g.:
+sed -i 's/The\ fox \jump/abc 321/g'
+
+find somedirectory/ -type f -exec sed -i 's/search/replace/g' {} \;
+grep -RIl 'search' somedirectory/ --include={*.php,*.html,*.js} | xargs sed -i 's/search/replace/g'
+
+find options:
+-type f - search for file, not directory
+
+grep options:
+-R - recursive search
+-I - skip binary files, so that only text files are considered
+-l - --print-with-matches, prints the name of each file that has a match, instead of printing matching lines, needed for the other commands to follow
+the slash / as delimiter may be changed to @ or +
+
+xargs:
+- transform the STDIN to arguments
+
+sed options:
+-i - alter the file directly "in place", without backup, remove this option for a kind of "dry run" mode without effect
+s - string type
+search - regular expression or search string
+replace - replacement string
+g - global, make the substitution for each match instead of only the first match
 
 Administrative Data
 ___________________
 
 Adapt directories, files, version in file "build/cmake/packaging.cmake"
-Adjust copyright year and version manually (should automatically be called by script "adjustcopyright" within "make" below, but currently does NOT work)
 Build project using "make clean" and "make"
 Update files in directory "todo/" and delete old ones
 Update ChangeLog
@@ -34,7 +88,6 @@ Create tarball using "cpack"
 Create GPG binary signature for tarball file
 Upload tarball file to Savannah
 
-
 Website
 _______
 
@@ -45,7 +98,6 @@ Update www/cybop/news.html
 Update www/cybop/index.html
 Update www/cybop/footer.inc
 Commit CVS (website gets updated automatically)
-
 
 Announcement
 ____________
