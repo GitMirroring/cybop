@@ -13,17 +13,13 @@
         <node name="message" channel="inline" format="text/plain" model="Initialise application"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-    <node name="create_app" channel="inline" format="memorise/create" model="">
-        <node name="name" channel="inline" format="text/plain" model="app"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-    </node>
     <node name="initialise_app" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="sender" channel="inline" format="text/plain" model="application/presence/app.cybol"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".app"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
     </node>
 
     <node name="log_create" channel="inline" format="communicate/send" model="">
@@ -127,14 +123,27 @@
 
     Start up this application:
     cd /home/cybop/examples
-    ../src/controller/cyboi presence/run.cybol
+    ../src/controller/cyboi application/presence/run.cybol
 
     Open up a web browser and type in the following uri:
     http://localhost/?action=send_index
+
+    Or some other port number for testing, since it does not require root access:
+    http://localhost:1971/?action=send_index
+
+    CAUTION! The programme needs to be shut down using the key combination ctrl+c!
+
+    CAUTION! The reserved service ports 0..1023 can sometimes only be
+    used when running the cybol application as "root" user (Administrator).
+    In such cases, the cyboi interpreter might return an error message like:
+    "TEST: startup bsd socket bind error EACCES: 13"
+
+    The "nmap" tool may be used to find out about active service ports, e.g.:
+    nmap localhost
 -->
 
 <!--
-    Software design:
+    Software design (logical architecture):
 
     1 Two-Layer Architecture
 
