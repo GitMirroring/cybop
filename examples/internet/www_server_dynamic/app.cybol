@@ -1,8 +1,12 @@
 <node>
 
+    <!-- The logical layers. -->
     <node name="wui" channel="file" format="element/part" model="internet/www_server_dynamic/wui.cybol"/>
+
+    <!-- The functionality. -->
     <node name="logic" channel="file" format="element/part" model="internet/www_server_dynamic/logic.cybol"/>
 
+    <!-- Request-response-cycle. -->
     <node name="request" channel="inline" format="element/part" model=""/>
     <node name="client_socket" channel="inline" format="number/integer" model="0"/>
     <node name="query_exists" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -18,6 +22,7 @@
     -->
     <node name="path" channel="inline" format="text/cybol-path" model=""/>
 
+    <!-- The serialised webpage. -->
     <node name="webpage" channel="inline" format="text/plain" model="">
         <!--
             CAUTION! The necessary "encoding" is added here DIRECTLY,
