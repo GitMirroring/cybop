@@ -14,7 +14,7 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.20.0 2018-06-30
+# @version CYBOP 0.21.0 2020-07-29
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
@@ -3174,7 +3174,7 @@
 
         * Change year to 2012 in comment block of all source code files, to prepare next release
         * Delete CVS "$" tags in source code since SVN is used now, which does not fill them
-        * Use new line "@version CYBOP 0.20.0 2018-06-30
+        * Use new line "@version CYBOP 0.21.0 2020-07-29
         * Delete outdated and redundant array handling files in directory "logger/"
         * Start fixing constant names in all source code
 

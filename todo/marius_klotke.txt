@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2014-2014. Marius Klotke.
+# Copyright (C) 1999-2020. Christian Heller.
 #
 # This file lists so-called "TODO" items, in other words open tasks
 # to be worked on in the future.
@@ -7,7 +7,7 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.20.0 2018-06-30
+# @version CYBOP 0.21.0 2020-07-29
 # @author Marius Klotke <marius.klotke@it2011.ba-leipzig.de>
 #
 
