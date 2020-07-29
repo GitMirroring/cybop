@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-07-29  Christian Heller  <christian.heller@cybop.org>
+
+        * Release CYBOP 0.21.0
+
 2020-07-11  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt file "socket_sensor.c" now using the function "read_device", since the old solution "read_socket_buffer" with option "MSG_PEEK" did not work and block, even though the socket was set non-blocking

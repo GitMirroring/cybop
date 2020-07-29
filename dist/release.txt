@@ -16,7 +16,7 @@ Adapt shell script "adjust_version.sh" manually
 Run shell script "adjust_version.sh" in order to replace copyright year as well as version and date
 Adapt directories, files, version in file "build/cmake/packaging.cmake"
 Build project using "make clean" and "make"
-Update files in directory "todo/" and delete old ones
+Update files in directory "todo/"
 Update ChangeLog
 Update AUTHORS reading ChangeLog entries
 Update NEWS subsumpting ChangeLog entries

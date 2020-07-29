@@ -13,10 +13,95 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+CYBOP 0.21.0, 2020-07-29, Christian Heller  <christian.heller@cybop.org>
+
+        * CYBOI:
+            - Make socket communication work in blocking and non-blocking mode
+            - Refactor file "part_knowledge_deserialiser.c" to filter out non-existing parts and wrong path names mixing up a cybol application
+            - Fix bug in file "executor/detector/detector.c" where the type argument is now used instead of the hard-coded constant "WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE" for comparison function call "check_operation"
+            - Make initial and follow-up reads work for long messages greater than buffer size, in loop of file "executor/streamer/reader/socket/socket_reader.c"
+            - Let file "socket_sensor.c" rely upon function "read_device" using "ioctl" internally, since MSG_PEEK with socket read did not work
+            - Implement device access using function "ioctl" for device-dependent request code (command)
+            - Use binary mode always for opening files, no matter if reading or writing, in files "file_reader.c" and "stream_file_writer.c"
+            - Fix mixed pointer- and integer calculation in files "io_entry_setter.c" and "io_entry_getter.c", leading to unpredictable errors when working with channels such as gui, socket etc.
+            - Adapt socket startup and shutdown to new input/output entry structure
+            - Make logger work properly (in debug mode causing log files of a size > 100 MB for cybol application "user_interface/gui/")
+            - Move gui action handling files from directory "executor/representer/deserialiser/gui/" to "executor/representer/deserialiser/gui_action/"
+            - Create new file "executor/representer/deserialiser/gui_action/close_window_gui_action_deserialiser.c"
+            - Consider only the last in a row of multiple expose events in file "xcb_deserialiser.c", in order to avoid flickering of the display
+            - Prepare handling of window close event (arriving as XCB_CLIENT_MESSAGE) in file "xcb_deserialiser.c"
+            - Prepare handling of window resize event in file "xcb_deserialiser.c"
+            - Add all possible event types to files "x_window_system_starter.c" and "xcb_deserialiser.c"
+            - Adapt x window system shutter to new io entry, in order to eliminate memory error
+            - Fix coordinates in file "button_release_mouse_gui_deserialiser.c" by adding parent element's origo, so that mouse clicks are detected properly
+            - Fix bug that painting empty rectangles lead to hieroglyphic text, since pointers to child parts got serialised
+            - Fix bug that setting of gui colours works only if a font is given, since the graphic context expects one
+            - Catch non-existing font and use default font in files "context_x_window_system_serialiser.c", "properties_context_x_window_system_serialiser.c"
+            - Assure proper nesting of gui elements
+            - Forward parent coordinates throughout gui serialiser so that proper screen coordinates may be calculated
+            - Fix bug that rectangles got painted several times with offset, caused by the layout serialiser, where the position coordinates should be added only for standard gui elements but not for a window
+            - Adapt files "receiver.c" and "reader.c" (section DISPLAY_CYBOI_CHANNEL) where pointer reference was used mistakenly instead of normal pointer to copy sender source model into destination message
+            - Replace direct assignment of integer value with call of function "modify_item" in file "xcb_deserialiser.c", so that the destination array gets resized correctly, in case no value was given in cybol
+            - Debug handling of button release event in gui deserialiser
+            - Read out destination message properties with event details (event_name, x, y) in new file "action_gui_deserialiser.c"
+            - Identify extracted event name within clicked gui element of window and write resulting action into destination message model
+            - Add event constants files "constant/model/cybol/xcb/event_xcb_cybol_model.c" and "constant/name/cybol/state/gui/action_gui_state_cybol_name.c"
+            - Delete unused event constants in directories "gui/" and "keyboard/" and "mouse/" of directory "constant/name/cybol/state/"
+            - Adapt gui event deserialiser to new input/output entry structure
+            - Delete file "executor/communicator/deallocate_receiver.c", since gui event gets deallocated in gui event deserialiser
+            - Delete directory "streamer/reader/display/" which is not necessary, since the gui event is already stored in the io structure by the sensor
+            - Free xcb event / win32 message structures that got allocated internally by the sensor in gui event deserialiser
+            - Add gui_event language constant
+            - Hand over property "window" to cybol operation "communicate/receive", since it is needed for determining the action in gui deserialiser
+            - Adapt display stream reader to new input/output entry structure
+            - Restructure and unify handling of input/output entry in directory "executor/maintainer/"
+            - Activate channel "display" in "irq_checker.c", "io_checker.c", "acceptor.c", "sensor.c"
+            - Adapt x window system display maintainer and stream to new input/output entry structure
+            - Adapt gui serialiser to new input/output entry structure
+            - Store stdin/stdout file stream instead of file descriptor in input/output memory, since stream is a more complex structure containing the descriptor
+            - Cleanup file "terminal_starter.c"
+            - Adapt terminal shudown files in order to restore original terminal modes properly
+            - Merge function "store" for unix- and win32 terminal in file "executor/maintainer/starter/terminal/store_mode_terminal_starter.c"
+            - Simplify terminal mode allocation
+            - Move common functionality from unix_terminal and win32_console to directory "executor/maintainer/starter/terminal/"
+            - Store two different original mode settings for input and output in input/output entry, since win32 distinguishes between them using one set of flag constants for each
+            - Move all remaining sensor files from directory "executor/lifeguard/sensor/" to just "executor/sensor/"
+            - Delete outdated directories and files related to sensing threads, which are not used anymore
+            - Hold two separate terminal file descriptors for input- and output
+            - Add new directory "executor/acceptor/" for sensing client requests on all of the different channels, using the new input/output structure
+            - Adapt function "apply_modify", so that the destination type is used as source type by default, for cybol operations like "modify/empty" that do not have a source part
+            - Clean up terminal starter and related files
+            - Add new cybol operations "activate/enable" and "activate/disable"
+            - Add new directory "executor/activator/" with files "enabler.c" and "disabler.c"
+            - Adapt cybol applications "tui" and "tui_control" to new input/output structure by using operation "activate/enable" instead of old "live/sense"
+            - Add channel to all input/output functions of directory "controller/checker/"
+        * CYBOL:
+            - Refactor cybol application "internet/www_server_dynamic/", now being able to handle requests from multiple clients
+            - Refactor cybol application "internet/www_server_static/" successfully
+            - Test handling of multiple clients successfully via socket in cybol applications "internet/socket_server" and "internet/socket_client"
+            - Test image transfer successfully via socket in cybol applications "internet/socket_server" and "internet/socket_client"
+            - Delete binary mode cybol property
+            - Add cybol application "file/copy/"
+            - Adapt cybol application "hello_world/gui/"
+            - Introduce new cybol base library in directory "examples/cybol/", to provide standard functionality such as "print-newline" or "exit"
+            - Merge all "Hello World!" cybol applications into "examples/hello_world/"
+            - Improve cybol example "user_interface/ui/" with buttons for handling input in gui
+            - Make cybol example "user_interface/ui/" work with tui, gui, wui
+            - Make cybol example "user_interface/gui/" work again with coloured rectangles on window expose event and printed message on mouse release event
+            - Reorganise cybol application directory using sub categories
+            - Replace outdated property name "part" with "destination" in all cybol applications using cybol operation "modify/empty"
+            - Adapt all cybol applications using operation "activate/enable" instead of old "live/sense"
+        * Project:
+            - Add step-by-step instructions for how to add a new communication channel, in file "doc/development/add_new_communication_channel.txt"
+            - Add documentation file "src/maintenance_properties.ods" listing and comparing cybol startup/shutdown for various channels, in order to handle them in a unified way within cyboi
+            - Add documentation file "src/communication_properties.ods" listing and comparing cybol send/receive for various channels, in order to handle them in a unified way within cyboi
+            - Extend CMake test "test/terminal_sensor_test" and make it work (verified that non-blocking terminal may be used to detect input data)
+            - Clean up some CMake tests
+
 CYBOP 0.20.0, 2018-06-30, Christian Heller  <christian.heller@cybop.org>
 
         * CYBOI:
-            - Use new io entry structure for x window system with for storage in internal memory and remove old display constants
+            - Use new io entry structure for x window system for storage in internal memory and remove old display constants
             - Move create functionality of directory "executor/memoriser/creator/" to "applicator/memorise/"
             - Adapt applicators for operations "calculate", "cast", "compare", "logify", "manipulate" to use the type of one operand instead of explicitly given property
             - Optimise and restructure directory with focus on part | item | array, for "calculator", "caster", "comparator"
@@ -37,16 +122,16 @@ CYBOP 0.20.0, 2018-06-30, Christian Heller  <christian.heller@cybop.org>
             - Delete superfluous property "type" in a number of cybol operations like "calculate", "cast", "compare", "logify", "manipulate"
             - Rename cybol operation "smaller" and "smaller-or-equal" into "less" and "less-or-equal"
             - Replace cybol operation "compare/equal" with "check/equal" for "text/plain" and remove property "selection" with value "all", in all cybol examples
-            - Add cybol example application "repertoire"
+            - Add cybol application "repertoire"
             - Add cybol operation "sort/bubble" with boolean property "descending" and use "ascending" as default
-            - Extend cybol example application "sorter"
+            - Extend cybol application "sorter"
             - Add comparison criterion as optional property for cybol sort operations used with compound parts
-            - Replace cybol example application "string_comparison" with "lexicographical_comparison"
+            - Replace cybol application "string_comparison" with "lexicographical_comparison"
             - Add properties "count", "left_index", "right_index" to cybol operation "compare"
-            - Add new cybol example application "comparator", covering string comparison via checker as well as boolean result vectors and scalar result values
+            - Add new cybol application "comparator", covering string comparison via checker as well as boolean result vectors and scalar result values
             - Provide new cybol operations "calculate/minimum" and "calculate/maximum"
-            - Rename existing cybol example application "calculator" into "calculator_tui"
-            - Use cybol example application "calculator" for testing arithmetic operations
+            - Rename existing cybol application "calculator" into "calculator_tui"
+            - Use cybol application "calculator" for testing arithmetic operations
 
 CYBOP 0.19.0, 2017-04-09, Christian Heller  <christian.heller@tuxtax.de>
 
@@ -70,16 +155,16 @@ CYBOP 0.19.0, 2017-04-09, Christian Heller  <christian.heller@tuxtax.de>
             - Replace knowledge path character number sign "#" with colon ":" as separator for property access
             - Provide memory root paths ".", "#", "|", for knowledge-, stack-, signal memory, respectively
             - Extend knowledge deserialiser to accept path references, e.g. *.app.node and unlimited nested references, e.g. **.app.node
-            - Migrate cybol example applications to new knowledge path syntax with mime type "text/cybol-path"
+            - Migrate cybol applications to new knowledge path syntax with mime type "text/cybol-path"
             - Remove old mime types "path/knowledge", "path/reference", "path/stack"
-            - Write cybol example application "cybol-path" for testing knowledge path variants
-            - Delete superfluous property "type" for "modify/" container operations in cybol example applications and api documentation
-            - Use "destination_properties" property for operation "modify/empty" in cybol example applications using it
-            - Verify correct execution of cybol example application "copier" for testing shallow- and deep copying (cloning)
-            - Optimise cybol example application "counter_stack_deep" using stack variables
-            - Optimise cybol example application "tui_control" using stack variables
-            - Add cybol example application "project_overview"
-            - Continue cybol example application "clean_result_directory"
+            - Write cybol application "cybol-path" for testing knowledge path variants
+            - Delete superfluous property "type" for "modify/" container operations in cybol applications and api documentation
+            - Use "destination_properties" property for operation "modify/empty" in cybol applications using it
+            - Verify correct execution of cybol application "copier" for testing shallow- and deep copying (cloning)
+            - Optimise cybol application "counter_stack_deep" using stack variables
+            - Optimise cybol application "tui_control" using stack variables
+            - Add cybol application "project_overview"
+            - Continue cybol application "clean_result_directory"
         * Project:
             - Add cmake build scripts to new directory "build/"
             - Include doxygen configuration to cmake
@@ -105,17 +190,17 @@ CYBOP 0.18.0, 2016-12-21, Christian Heller  <christian.heller@tuxtax.de>
         * CYBOL:
             - Update cybol schema files
             - Provide access to stack memory from within cybol via format "path/stack"
-            - Add cybol example application "counter_stack" for testing stack variables
-            - Add cybol example application "counter_stack_deep" for testing LIFO-principle with equally named stack variables within three nested loops
-            - Add cybol example application "copier" for testing shallow- and deep copying
-            - Add cybol example application "addition_user_input" for testing blocking terminal input
-            - Add cybol example application game "minesweeper" [Minenräumer] of Matthias Thurow
-            - Add cybol example application game "blackjack" [Siebzehn und Vier] of Dmitry Brodskiy, Sven Haueisen, Jan Wellner
-            - Add cybol example application game "bullsandcows" (mastermind) of Ronny Zingler
-            - Add cybol example application "password_generator" of Florian Aurich, Andre Noldin
-            - Add cybol example application "webstat" of Markus Then, Stanley Sellig, Nico Schallehn
-            - Create page links for retrieval of images and css file dynamically in cybol example application "presence", so that hostname (ip address) is correct
-            - Replace format "text/plain" with "path/knowledge" for some parts of cybol example application "tui_control"
+            - Add cybol application "counter_stack" for testing stack variables
+            - Add cybol application "counter_stack_deep" for testing LIFO-principle with equally named stack variables within three nested loops
+            - Add cybol application "copier" for testing shallow- and deep copying
+            - Add cybol application "addition_user_input" for testing blocking terminal input
+            - Add cybol application game "minesweeper" [Minenräumer] of Matthias Thurow
+            - Add cybol application game "blackjack" [Siebzehn und Vier] of Dmitry Brodskiy, Sven Haueisen, Jan Wellner
+            - Add cybol application game "bullsandcows" (mastermind) of Ronny Zingler
+            - Add cybol application "password_generator" of Florian Aurich, Andre Noldin
+            - Add cybol application "webstat" of Markus Then, Stanley Sellig, Nico Schallehn
+            - Create page links for retrieval of images and css file dynamically in cybol application "presence", so that hostname (ip address) is correct
+            - Replace format "text/plain" with "path/knowledge" for some parts of cybol application "tui_control"
         * Project:
             - Add german cybop manual update of Sebastian Wolff, Tobias Thurow
             - Add cybol api update of Christian Schulz, Lena Braun
@@ -144,14 +229,14 @@ CYBOP 0.17.0, 2015-04-20, Christian Heller  <christian.heller@tuxtax.de>
             - Update api generator
             - Provide example syntax files in XML, JSON, self-defined "short" notation in new directory "doc/books/cybol/syntax/"
             - Rename all xml tags (model, part, property, constraint) uniformly to just "node"
-            - Add "string_comparison" cybol example application
-            - Add "randomiser" cybol example application
-            - Add "arithmetics" cybol example application
-            - Rewrite "calculator" cybol example application (Sibylle Hebenstreit, Marc Jäkel, Andreas Burkhardt)
-            - Add "tictactoe" cybol example application (Sandra Rum, Stephan Griese, Thomas Schulze)
-            - Add "socket_server" and "socket_client" cybol example applications
-            - Add "www_server_static" and "www_server_dynamic" cybol example applications
-            - Continue "presence" cybol example application with css, calendar week navigation, favicon, uri generation
+            - Add "string_comparison" cybol application
+            - Add "randomiser" cybol application
+            - Add "arithmetics" cybol application
+            - Rewrite "calculator" cybol application (Sibylle Hebenstreit, Marc Jäkel, Andreas Burkhardt)
+            - Add "tictactoe" cybol application (Sandra Rum, Stephan Griese, Thomas Schulze)
+            - Add "socket_server" and "socket_client" cybol applications
+            - Add "www_server_static" and "www_server_dynamic" cybol applications
+            - Continue "presence" cybol application with css, calendar week navigation, favicon, uri generation
         * Project:
             - Update cybol api specification (Max Müller-Domhardt, Sebastian König)
             - Add "cybol_generator" gui designer based on C++/Qt (Pit Braunsdorf, Sophia Kledzinski)
@@ -178,8 +263,8 @@ CYBOP 0.16.0, 2014-03-31, Christian Heller  <christian.heller@tuxtax.de>
             - Add visual studio c adaptations (Mike Feustel, Benno Schilling)
             - Add compilation changes for Apple Mac OSX (Markus Hinkelmann)
         * CYBOL:
-            - Add "datetime" cybol example application for testing various date formats
-            - Add "ui" cybol example application with tui, gui, wui
+            - Add "datetime" cybol application for testing various date formats
+            - Add "ui" cybol application with tui, gui, wui
             - Add "calculator" application with tui (Cedric Thomas)
             - Create tool "tools/field_description_xdt_model_generator/"
             - Create tool "tools/xdt_field_description_serialiser_generator/"
@@ -212,7 +297,7 @@ CYBOP 0.14.0, 2013-05-31, Christian Heller  <christian.heller@tuxtax.de>
         * CYBOL:
             - Add unix- as well as windows shell commands in a platform independent manner (Falco Prescher)
             - Add language "message/cli" using command-line output, other than "message/tui" which uses whole screen terminal output
-            - Update gui cybol example application
+            - Update gui cybol application
         * Project:
             - Update cybol api specification (Johannes David)
             - Update beginner's manual and translate into English (Tim Illner)
@@ -229,9 +314,9 @@ CYBOP 0.13.0, 2013-03-29, Christian Heller  <christian.heller@tuxtax.de>
             - Add terminal mode line speed serialiser necessary for converting integer to POSIX.1 baudrate symbols
         * CYBOL:
             - Simplify cybol files by removing attributes like "encoding" and "language"
-            - Add new operations: run/sleep-second, run/sleep-nano, modify/fill, cast/character, cast/double, cast/integer
+            - Add new operations run/sleep-second, run/sleep-nano, modify/fill, cast/character, cast/double, cast/integer
             - Add format "number/byte" in addition to "text/ascii", both internally mapped to "unsigned char"
-            - Add example applications: indoor_climate
+            - Add application "indoor_climate"
         * Project:
             - Add cybol editor of Benjamin Teßmar and Sebastian Brückner
             - Add cybop-python comparison article of Max Brauer
@@ -249,8 +334,8 @@ CYBOP 0.12.0, 2012-08-22, Christian Heller  <christian.heller@tuxtax.de>
             - Prepare percent encoding de-/serialiser
             - Add decimal fraction de-/serialiser and calculator of Falk Müller
         * CYBOL:
-            - Make cybol example application "ui_control" work again
-            - Add example applications: get_count, addition_using_indices, index_usage, knowledge_tree_access, addition_using_serialisation, wui, tui, double
+            - Make cybol application "ui_control" work again
+            - Add applications get_count, addition_using_indices, index_usage, knowledge_tree_access, addition_using_serialisation, wui, tui, double
             - Generate cybol application programming interface (api) specification from cybol files using html format (largely contributed by Enrico Gallus)
             - Add new operations: represent/serialise, represent/deserialise, access/get-name
         * Project:
@@ -272,7 +357,7 @@ CYBOP 0.11.0, 2012-06-08, Christian Heller  <christian.heller@tuxtax.de>
             - Move test files into testing directory
             - Simplify creation of model diagram output using special test function calls
         * CYBOL:
-            - Add example applications: counter, addition, time_output, shell_output (for sequence, branch, loop)
+            - Add applications counter, addition, time_output, shell_output (for sequence, branch, loop)
             - Complete list of cybol meta attributes: name, channel, encoding, language, format, model
             - Decide that operations are distinguished by their format (type) and NOT model any longer
         * Project:
@@ -296,7 +381,7 @@ CYBOP 0.10.0, 2011-02-27, Christian Heller  <christian.heller@tuxtax.de>
             - Add html encoder
             - Add http response encoder
         * CYBOL:
-            - Add cybol example application http_communication
+            - Add cybol application http_communication
         * Project:
             - Convert source code repository from Concurrent Versions System (CVS) to Subversion (SVN)
 
@@ -327,7 +412,7 @@ CYBOP 0.8.0, 2007-05-28, Christian Heller  <christian.heller@tuxtax.de>
             - Add new test procedures
             - Internal improvements and bugfixes
         * CYBOL:
-            - Update cybol example applications
+            - Update cybol applications
         * Project:
             - Add opengl/ mesa libraries to makefile
 
@@ -449,7 +534,7 @@ CYBOP 0.4.0, 2005-03-01, Christian Heller  <christian.heller@tuxtax.de>
             - Correct A LOT OF bugs causing segmentation faults at runtime
             - Get Hello, World! application running
         * CYBOL:
-            - Create first example applications exit and helloworld
+            - Create first applications exit and helloworld
             - Prepare resadmin application with web frontend
 
 CYBOP 0.3.1.1, 2004-12-06, Christian Heller  <christian.heller@tuxtax.de>

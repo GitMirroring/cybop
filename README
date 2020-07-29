@@ -13,7 +13,7 @@
 
 The CYBOP project comprises three elements:
 
-1 Cybernetics Oriented Programming (CYBOP): a software development theory
+1 Cybernetics Oriented Programming (CYBOP): a software development theory using simple hierarchy
 2 Cybernetics Oriented Language (CYBOL): a knowledge modelling language based on XML
 3 Cybernetics Oriented Interpreter (CYBOI): an interpreter program written in ANSI C
 
@@ -25,3 +25,4 @@ http://savannah.nongnu.org/bugs/?func=additem&group=cybop
 
 You may find further information, relevant mailing lists etc. on the website:
 http://www.cybop.org/
+

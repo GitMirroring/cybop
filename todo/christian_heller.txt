@@ -11,10 +11,24 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-        * Release CYBOP 0.21.0
-
 WUI and Socket
 ______________
+
+        * Optimise cybol application "presence"
+            - make DATETIME and SOCKET work in cyboi, before continuing
+            - use stack properties instead of duplicate loop indices etc.
+            - use login and password retrieved from ldap server
+            - remind lecturers via email on editing their presence
+        * Test new chronology language and datetime format conversion in cybol application "presence"
+        * Extend file "sender.c" with long long int buffer for datetime
+        * Add files "clock_reader.c" (returning current unix time in s) and "clock_writer.c" (setting computer time, which needs administrator rights)
+        * Adapt cybol applications using old versions of "time/current" with new receive via channel "clock"
+        * Configure date dynamically in cybol application "presence"
+        * Append year and week to actions "send_index" and "navigate_forward/backward"?
+        * Implement "forward" and "backward" in cybol application "presence", by just adding/subtracting 7 (days) from current day
+            --> continue with run.cybol
+
+        * Test cybol application "internet/www_server_dynamic/", now being able to handle requests from multiple clients
 
         * Think through if all necessary options are used already:
             https://stackoverflow.com/questions/1525050/non-blocking-socket
@@ -423,11 +437,6 @@ _________________
             - continue file "remove_superfluous_element.cybol", see original script, count contained elements first, delete if > 2
             - change "verbal" into "verbose", also in cyboi interpreter
             - change "tape_archiver" into a verb, also in cyboi interpreter
-        * Optimise cybol application "presence"
-            - make DATETIME and SOCKET work in cyboi, before continuing
-            - use stack properties instead of duplicate loop indices etc.
-            - use login and password retrieved from ldap server
-            - remind lecturers via email on editing their presence
 
         * Optimise resmedicinae application "xdt2html"
             - ALREADY DONE: make DEEP COPY and SOCKET work in cyboi, before continuing
@@ -506,7 +515,6 @@ ________
             </node>
 
         * Move concrete de-/serialisers from directory cybol to new directory "chronology"
-        * Test new chronology language and datetime format conversion in cybol application "presence"
         * Add items from file "todo/todo_datetime.pdf" to datetime formats
 
         * Konvertierung Kalender:
@@ -545,14 +553,6 @@ ________
                 language: ??; format: datetime/week-day (index)
                 destination="into int number 0..6 representing weekday (sunday having index number 0)"
                 source="julian_date representing current_datetime"
-
-        * Extend file "sender.c" with long long int buffer for datetime
-        * Add files "clock_reader.c" (returning current unix time in s) and "clock_writer.c" (setting computer time, which needs administrator rights)
-        * Adapt cybol applications using old versions of "time/current" with new receive via channel "clock"
-        * Configure date dynamically in cybol application "presence"
-        * Append year and week to actions "send_index" and "navigate_forward/backward"?
-        * Implement "forward" and "backward" in cybol application "presence", by just adding/subtracting 7 (days) from current day
-            --> continue with run.cybol
 
         * Correct new algorithm for time scale gregorian calendar serialiser
             http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Julianischem_Kalender
