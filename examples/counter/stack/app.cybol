@@ -1,8 +1,8 @@
 <node>
 
-    <node name="model" channel="file" format="element/part" model="counter_stack/model.cybol"/>
+    <node name="model" channel="file" format="element/part" model="counter/stack/model.cybol"/>
 
-    <node name="logic" channel="file" format="element/part" model="counter_stack/logic.cybol">
+    <node name="logic" channel="file" format="element/part" model="counter/stack/logic.cybol">
         <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="index" channel="inline" format="number/integer" model="1"/>
         <node name="count" channel="inline" format="number/integer" model="10"/>

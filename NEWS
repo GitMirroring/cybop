@@ -16,86 +16,55 @@
 CYBOP 0.21.0, 2020-07-29, Christian Heller  <christian.heller@cybop.org>
 
         * CYBOI:
+            Socket:
             - Make socket communication work in blocking and non-blocking mode
-            - Refactor file "part_knowledge_deserialiser.c" to filter out non-existing parts and wrong path names mixing up a cybol application
-            - Fix bug in file "executor/detector/detector.c" where the type argument is now used instead of the hard-coded constant "WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE" for comparison function call "check_operation"
-            - Make initial and follow-up reads work for long messages greater than buffer size, in loop of file "executor/streamer/reader/socket/socket_reader.c"
+            - Make initial and follow-up reads work for long messages greater than buffer size in loop of "socket_reader.c"
             - Let file "socket_sensor.c" rely upon function "read_device" using "ioctl" internally, since MSG_PEEK with socket read did not work
             - Implement device access using function "ioctl" for device-dependent request code (command)
-            - Use binary mode always for opening files, no matter if reading or writing, in files "file_reader.c" and "stream_file_writer.c"
-            - Fix mixed pointer- and integer calculation in files "io_entry_setter.c" and "io_entry_getter.c", leading to unpredictable errors when working with channels such as gui, socket etc.
-            - Adapt socket startup and shutdown to new input/output entry structure
-            - Make logger work properly (in debug mode causing log files of a size > 100 MB for cybol application "user_interface/gui/")
-            - Move gui action handling files from directory "executor/representer/deserialiser/gui/" to "executor/representer/deserialiser/gui_action/"
-            - Create new file "executor/representer/deserialiser/gui_action/close_window_gui_action_deserialiser.c"
-            - Consider only the last in a row of multiple expose events in file "xcb_deserialiser.c", in order to avoid flickering of the display
-            - Prepare handling of window close event (arriving as XCB_CLIENT_MESSAGE) in file "xcb_deserialiser.c"
-            - Prepare handling of window resize event in file "xcb_deserialiser.c"
-            - Add all possible event types to files "x_window_system_starter.c" and "xcb_deserialiser.c"
-            - Adapt x window system shutter to new io entry, in order to eliminate memory error
-            - Fix coordinates in file "button_release_mouse_gui_deserialiser.c" by adding parent element's origo, so that mouse clicks are detected properly
-            - Fix bug that painting empty rectangles lead to hieroglyphic text, since pointers to child parts got serialised
-            - Fix bug that setting of gui colours works only if a font is given, since the graphic context expects one
-            - Catch non-existing font and use default font in files "context_x_window_system_serialiser.c", "properties_context_x_window_system_serialiser.c"
-            - Assure proper nesting of gui elements
-            - Forward parent coordinates throughout gui serialiser so that proper screen coordinates may be calculated
-            - Fix bug that rectangles got painted several times with offset, caused by the layout serialiser, where the position coordinates should be added only for standard gui elements but not for a window
-            - Adapt files "receiver.c" and "reader.c" (section DISPLAY_CYBOI_CHANNEL) where pointer reference was used mistakenly instead of normal pointer to copy sender source model into destination message
-            - Replace direct assignment of integer value with call of function "modify_item" in file "xcb_deserialiser.c", so that the destination array gets resized correctly, in case no value was given in cybol
-            - Debug handling of button release event in gui deserialiser
-            - Read out destination message properties with event details (event_name, x, y) in new file "action_gui_deserialiser.c"
-            - Identify extracted event name within clicked gui element of window and write resulting action into destination message model
-            - Add event constants files "constant/model/cybol/xcb/event_xcb_cybol_model.c" and "constant/name/cybol/state/gui/action_gui_state_cybol_name.c"
-            - Delete unused event constants in directories "gui/" and "keyboard/" and "mouse/" of directory "constant/name/cybol/state/"
-            - Adapt gui event deserialiser to new input/output entry structure
-            - Delete file "executor/communicator/deallocate_receiver.c", since gui event gets deallocated in gui event deserialiser
-            - Delete directory "streamer/reader/display/" which is not necessary, since the gui event is already stored in the io structure by the sensor
-            - Free xcb event / win32 message structures that got allocated internally by the sensor in gui event deserialiser
+            Display:
+            - Refactor gui action handling reading out event details (event_name, x, y)
+            - Handle window close and resize event
+            - Avoid flickering of display by considering only the last in a row of multiple expose events in "xcb_deserialiser.c"
+            - Add all possible event types to "x_window_system_starter.c" and "xcb_deserialiser.c"
             - Add gui_event language constant
-            - Hand over property "window" to cybol operation "communicate/receive", since it is needed for determining the action in gui deserialiser
-            - Adapt display stream reader to new input/output entry structure
-            - Restructure and unify handling of input/output entry in directory "executor/maintainer/"
-            - Activate channel "display" in "irq_checker.c", "io_checker.c", "acceptor.c", "sensor.c"
-            - Adapt x window system display maintainer and stream to new input/output entry structure
-            - Adapt gui serialiser to new input/output entry structure
+            - Detect mouse clicks properly by adding parent element's origo
+            - Assure proper nesting of gui elements
+            - Use default font if none is given
+            Terminal:
             - Store stdin/stdout file stream instead of file descriptor in input/output memory, since stream is a more complex structure containing the descriptor
-            - Cleanup file "terminal_starter.c"
             - Adapt terminal shudown files in order to restore original terminal modes properly
-            - Merge function "store" for unix- and win32 terminal in file "executor/maintainer/starter/terminal/store_mode_terminal_starter.c"
-            - Simplify terminal mode allocation
-            - Move common functionality from unix_terminal and win32_console to directory "executor/maintainer/starter/terminal/"
-            - Store two different original mode settings for input and output in input/output entry, since win32 distinguishes between them using one set of flag constants for each
-            - Move all remaining sensor files from directory "executor/lifeguard/sensor/" to just "executor/sensor/"
-            - Delete outdated directories and files related to sensing threads, which are not used anymore
+            - Merge common startup/shutdown functionality for unix terminal and win32 console
             - Hold two separate terminal file descriptors for input- and output
-            - Add new directory "executor/acceptor/" for sensing client requests on all of the different channels, using the new input/output structure
-            - Adapt function "apply_modify", so that the destination type is used as source type by default, for cybol operations like "modify/empty" that do not have a source part
-            - Clean up terminal starter and related files
+            IO Entry:
+            - Unify handling of channel startup and shutdown using new input/output entry structure
+            - Apply new input/output entry structure to terminal, display, socket
+            - Sense client requests on socket and other channels using new "executor/acceptor"
+            - Delete outdated directories and files related to sensing threads, which are not used anymore
             - Add new cybol operations "activate/enable" and "activate/disable"
-            - Add new directory "executor/activator/" with files "enabler.c" and "disabler.c"
-            - Adapt cybol applications "tui" and "tui_control" to new input/output structure by using operation "activate/enable" instead of old "live/sense"
-            - Add channel to all input/output functions of directory "controller/checker/"
+            Bugfix:
+            - Filter out non-existing parts in "part_knowledge_deserialiser.c"
+            - Use type argument instead of hard-coded wide character for comparison in "detector.c"
+            - Use binary mode always for opening files, no matter if reading or writing, in files "file_reader.c" and "stream_file_writer.c"
+            - Fix unpredictable errors caused by mixed pointer- and integer calculation in io entry setter and getter
+            - Make logger work properly (in debug mode causing log files of a size > 100 MB for cybol application "user_interface/gui/")
+            - Use destination type as source type by default in function "apply_modify", so that cybol operations like "modify/empty" lacking a source part work fine
         * CYBOL:
-            - Refactor cybol application "internet/www_server_dynamic/", now being able to handle requests from multiple clients
-            - Refactor cybol application "internet/www_server_static/" successfully
-            - Test handling of multiple clients successfully via socket in cybol applications "internet/socket_server" and "internet/socket_client"
-            - Test image transfer successfully via socket in cybol applications "internet/socket_server" and "internet/socket_client"
-            - Delete binary mode cybol property
+            - Refactor cybol applications "internet/www_server_static/" and "internet/www_server_dynamic/", now being able to handle requests from multiple clients
+            - Test image transfer and handling of multiple clients in cybol applications "internet/socket_server" and "internet/socket_client"
+            - Delete binary mode cybol property, since it is used by default now
             - Add cybol application "file/copy/"
-            - Adapt cybol application "hello_world/gui/"
-            - Introduce new cybol base library in directory "examples/cybol/", to provide standard functionality such as "print-newline" or "exit"
             - Merge all "Hello World!" cybol applications into "examples/hello_world/"
-            - Improve cybol example "user_interface/ui/" with buttons for handling input in gui
-            - Make cybol example "user_interface/ui/" work with tui, gui, wui
-            - Make cybol example "user_interface/gui/" work again with coloured rectangles on window expose event and printed message on mouse release event
+            - Introduce new cybol base library "examples/cybol/", in order to provide standard functionality such as "print-newline" or "exit"
+            - Improve cybol application "user_interface/ui/" with buttons for handling input in tui, gui, wui
+            - Make cybol application "user_interface/gui/" work again with coloured rectangles on window expose event and printed message on mouse release event
             - Reorganise cybol application directory using sub categories
             - Replace outdated property name "part" with "destination" in all cybol applications using cybol operation "modify/empty"
-            - Adapt all cybol applications using operation "activate/enable" instead of old "live/sense"
+            - Adapt all cybol applications to use operation "activate/enable" instead of old "live/sense"
         * Project:
-            - Add step-by-step instructions for how to add a new communication channel, in file "doc/development/add_new_communication_channel.txt"
-            - Add documentation file "src/maintenance_properties.ods" listing and comparing cybol startup/shutdown for various channels, in order to handle them in a unified way within cyboi
-            - Add documentation file "src/communication_properties.ods" listing and comparing cybol send/receive for various channels, in order to handle them in a unified way within cyboi
-            - Extend CMake test "test/terminal_sensor_test" and make it work (verified that non-blocking terminal may be used to detect input data)
+            - Add step-by-step development instructions for how to add a new communication channel
+            - Add documentation "src/maintenance_properties.ods" comparing cybol startup/shutdown for various channels
+            - Add documentation "src/communication_properties.ods" comparing cybol send/receive for various channels
+            - Extend CMake test "test/terminal_sensor_test" and make it work
             - Clean up some CMake tests
 
 CYBOP 0.20.0, 2018-06-30, Christian Heller  <christian.heller@cybop.org>
@@ -227,7 +196,7 @@ CYBOP 0.17.0, 2015-04-20, Christian Heller  <christian.heller@tuxtax.de>
             - Introduce new channel "randomiser" for sowing a seed and generating random numbers
         * CYBOL:
             - Update api generator
-            - Provide example syntax files in XML, JSON, self-defined "short" notation in new directory "doc/books/cybol/syntax/"
+            - Provide syntax files in XML, JSON, self-defined "short" notation in new directory "doc/books/cybol/syntax/"
             - Rename all xml tags (model, part, property, constraint) uniformly to just "node"
             - Add "string_comparison" cybol application
             - Add "randomiser" cybol application
@@ -558,7 +527,7 @@ CYBOP 0.3.0, 2004-09-13, Christian Heller  <christian.heller@tuxtax.de>
             - Continue XML parser, using libxml2 as temporary solution
         * CYBOL Core:
             - Rethink CYBOL structure
-            - Create simple CYBOL example file just exiting the application
+            - Create simple CYBOL file just exiting the application
 
 CYBOP 0.2.2, 2004-06-23, Christian Heller  <christian.heller@tuxtax.de>
         * CYBOI:

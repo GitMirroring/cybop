@@ -5,7 +5,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/plain" model="counter_stack/app.cybol"/>
+        <node name="sender" channel="inline" format="text/plain" model="counter/stack/app.cybol"/>
         <node name="message" channel="inline" format="text/cybol-path" model="."/>
     </node>
 
@@ -26,7 +26,7 @@
     <!-- Possibility 1: local variables specified directly as properties -->
 <!--
     <node name="execute_logic" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="file" format="element/part" model="counter_stack/logic.cybol">
+        <node name="model" channel="file" format="element/part" model="counter/stack/logic.cybol">
             <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
             <node name="index" channel="inline" format="number/integer" model="1"/>
             <node name="count" channel="inline" format="number/integer" model="10"/>

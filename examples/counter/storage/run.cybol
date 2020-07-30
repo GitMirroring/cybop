@@ -1,4 +1,5 @@
 <node>
+
     <node name="create_app" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="counter"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
@@ -8,13 +9,16 @@
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="whole" channel="inline" format="text/cybol-path" model=".counter"/>
     </node>
+
     <node name="initialise_count" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".counter.count"/>
-        <node name="source" channel="file" format="number/integer" model="counter_storage/count.txt"/>
+        <node name="source" channel="file" format="number/integer" model="counter/storage/count.txt"/>
     </node>
+
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
+
     <node name="print_count" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -33,10 +37,12 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".counter.count"/>
-        <node name="receiver" channel="inline" format="text/plain" model="counter_storage/count.txt"/>
+        <node name="receiver" channel="inline" format="text/plain" model="counter/storage/count.txt"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
 </node>
 
 <!--

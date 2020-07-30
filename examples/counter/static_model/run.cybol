@@ -1,17 +1,18 @@
 <node>
+
     <node name="create_application" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="domain"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-
     </node>
     <node name="initialise_model" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/plain" model="counter_static_model/domain.cybol"/>
+        <node name="sender" channel="inline" format="text/plain" model="counter/static_model/domain.cybol"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".domain"/>
     </node>
+
     <!-- Write knowledge tree into file. -->
     <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -21,9 +22,11 @@
         <node name="message" channel="inline" format="text/cybol-path" model=".domain"/>
         <node name="receiver" channel="inline" format="text/plain" model="test_counter_static_model.txt"/>
     </node>
+
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
+
     <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
     <node name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".domain.break"/>
@@ -34,7 +37,9 @@
         <node name="break" channel="inline" format="text/cybol-path" model=".domain.break"/>
         <node name="model" channel="inline" format="text/cybol-path" model=".domain.model"/>
     </node>
+
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
 </node>
 
 <!--
