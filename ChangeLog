@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-08-26  Christian Heller  <christian.heller@cybop.org>
+
+        * Adapt cybol application "presence" to stack memory variables
+
 2020-07-29  Christian Heller  <christian.heller@cybop.org>
 
         * Release CYBOP 0.21.0
