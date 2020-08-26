@@ -6,35 +6,35 @@
     -->
 
     <node name="overwrite_application" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.directory"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.path.application"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.directory"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.pathlication"/>
     </node>
 
     <node name="append_database_separator" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.directory"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.path.separator"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.directory"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.path.separator"/>
     </node>
     <node name="append_database" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.directory"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.path.db"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.directory"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.path.db"/>
     </node>
 
     <node name="append_year_separator" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.directory"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.path.separator"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.directory"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.path.separator"/>
     </node>
     <node name="append_year" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.directory"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.request:uri:query.year"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.directory"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".var.request:uri:query.year"/>
     </node>
 
     <node name="append_week_separator" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.directory"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.path.separator"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.directory"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.path.separator"/>
     </node>
     <node name="append_week" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.directory"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.request:uri:query.week"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.directory"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".var.request:uri:query.week"/>
     </node>
 
 </node>

@@ -61,7 +61,7 @@
             which points to another (this) part ".webpage" whose properties are used.
         -->
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="server" channel="inline" format="text/cybol-path" model=".app.domain.server"/>
+        <node name="server" channel="inline" format="text/cybol-path" model=".domain.server"/>
         <node name="connection" channel="inline" format="text/plain" model="close"/>
         <node name="content-type" channel="inline" format="text/plain" model="text/html"/>
     </node>

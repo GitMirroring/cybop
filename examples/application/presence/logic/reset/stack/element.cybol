@@ -11,47 +11,47 @@
     -->
 
     <node name="empty_number_model" channel="inline" format="modify/empty" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.(.app.var.reset).element.number"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.(.var.reset).element.number"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
     <node name="empty_number_properties" channel="inline" format="modify/empty" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.(.app.var.reset).element.number"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.(.var.reset).element.number"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="empty_root_model" channel="inline" format="modify/empty" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.(.app.var.reset).element.root"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.(.var.reset).element.root"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
     <node name="empty_root_properties" channel="inline" format="modify/empty" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.(.app.var.reset).element.root"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.(.var.reset).element.root"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="empty_name_model" channel="inline" format="modify/empty" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.(.app.var.reset).element.name"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.(.var.reset).element.name"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
     <node name="empty_name_properties" channel="inline" format="modify/empty" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.(.app.var.reset).element.name"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.(.var.reset).element.name"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="empty_day_model" channel="inline" format="modify/empty" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.(.app.var.reset).element.day"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.(.var.reset).element.day"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
     <node name="empty_day_properties" channel="inline" format="modify/empty" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.(.app.var.reset).element.day"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.(.var.reset).element.day"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="empty_href_model" channel="inline" format="modify/empty" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.(.app.var.reset).element.href"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.(.var.reset).element.href"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
     <node name="empty_href_properties" channel="inline" format="modify/empty" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.(.app.var.reset).element.href"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.(.var.reset).element.href"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 

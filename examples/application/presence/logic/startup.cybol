@@ -5,13 +5,20 @@
         <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
         <node name="style" channel="inline" format="text/plain" model="stream"/>
         <node name="protocol" channel="inline" format="text/plain" model="tcp"/>
+<!--
         <node name="address" channel="inline" format="text/plain" model="any"/>
+        <node name="address" channel="inline" format="text/plain" model="localhost"/>
+-->
+        <node name="address" channel="inline" format="text/plain" model="127.0.0.1"/>
         <!-- Specify either service name OR id (port) number, NOT both. If both are given, then the port has higher priority. -->
-        <node name="id" channel="inline" format="number/integer" model="80"/>
+<!--
         <node name="service" channel="inline" format="text/plain" model="http"/>
+        <node name="id" channel="inline" format="number/integer" model="80"/>
+-->
+        <node name="id" channel="inline" format="number/integer" model="1971"/>
         <node name="mode" channel="inline" format="text/plain" model="server"/>
         <node name="blocking" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="connexions" channel="inline" format="number/integer" model="1000"/>
+        <node name="connexions" channel="inline" format="number/integer" model="10"/>
     </node>
 
     <node name="print_message" channel="inline" format="communicate/send" model="">
@@ -19,17 +26,22 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Waiting for client requests ..."/>
+        <node name="message" channel="inline" format="text/plain" model="Wait for client requests."/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="sense_requests" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <!-- Specify either service name OR id (port) number, NOT both. If both are given, then the port has higher priority. -->
-        <node name="id" channel="inline" format="number/integer" model="80"/>
+<!--
         <node name="service" channel="inline" format="text/plain" model="http"/>
-        <node name="handler" channel="inline" format="text/cybol-path" model=".app.logic.handle"/>
-        <node name="sender" channel="inline" format="text/cybol-path" model=".app.var.client_socket"/>
+        <node name="id" channel="inline" format="number/integer" model="80"/>
+-->
+        <node name="id" channel="inline" format="number/integer" model="1971"/>
+        <!-- The requesting client gets stored in this variable. -->
+        <node name="sender" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
+        <!-- This is the call-back function executed whenever a client sends a request. -->
+        <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle"/>
     </node>
 
 </node>

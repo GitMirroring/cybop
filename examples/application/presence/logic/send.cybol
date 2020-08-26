@@ -7,35 +7,42 @@
         <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <!--
+            CAUTION! An "encoding" is NOT given when using the language "message/http-response",
+            since it would cause the WHOLE http message to get encoded.
+            But the http header should be ASCII (single-byte characters) only.
+            Likewise, binary attachments such as images should NOT get encoded.
+
             CAUTION! It does NOT work adding the constraint "encoding" right here.
             It does properly appear in the knowledge tree, but is NOT recognised in the operation "send".
-            The reason is that the format "text/cybol-path" points to another part ".app.var.webpage"
+            The reason is that the format "text/cybol-path" points to another part ".webpage"
             whose properties are used INSTEAD of those constraints that might be specified here.
-            Therefore, the necessary "encoding" is added to the corresponding part in ".app.var" DIRECTLY.
+            In order to verify this, one might use the format "text/plain" testwise,
+            with which the constraints are recognised properly.
+            Therefore, the necessary "encoding" is added at the part ".webpage" DIRECTLY.
         -->
-        <node name="message" channel="inline" format="text/cybol-path" model=".app.wui.css"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".app.var.client_socket"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.css"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
     </node>
 
     <node name="header_image" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".app.wui.header_image"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".app.var.client_socket"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.header_image"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
     </node>
 
     <node name="heraldic_symbol" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".app.wui.heraldic_symbol"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".app.var.client_socket"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.heraldic_symbol"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
     </node>
 
     <node name="icon" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".app.wui.icon"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".app.var.client_socket"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.icon"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
     </node>
 
 </node>

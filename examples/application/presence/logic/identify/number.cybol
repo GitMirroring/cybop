@@ -3,8 +3,8 @@
     <!-- CAUTION! The reset is done elsewhere. -->
 
     <node name="serialise_index" channel="inline" format="represent/serialise" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.(.app.var.identify).element.number"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.(.app.var.identify).loop.index"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.(.var.identify).element.number"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".var.(.var.identify).loop.index"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>

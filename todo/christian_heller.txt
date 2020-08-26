@@ -17,6 +17,12 @@ ______________
         Helpful:
         * Uncomment "TEST: check io receive." in file "receive_io_checker.c" to log client requests on terminal
 
+        * Change code to using stack memory variables:
+            DONE:
+                logic/create/choices/rows.cybol
+            TODO:
+                logic/create/choices/row.cybol
+
         * Optimise cybol application "presence"
             - make DATETIME and SOCKET work in cyboi, before continuing
             - use stack properties instead of duplicate loop indices etc.

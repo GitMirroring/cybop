@@ -1,12 +1,12 @@
 <node>
 
     <node name="increment_week" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.week"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".var.week"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
     </node>
 
     <node name="navigate_to_week" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.navigate.week"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".logic.navigate.week"/>
     </node>
 
     <!--
@@ -16,7 +16,7 @@
         Therefore, the page is sent only here, reacting to an action request.
     -->
     <node name="send_index" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.send.index"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".logic.send.index"/>
     </node>
 
 </node>

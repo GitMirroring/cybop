@@ -10,24 +10,24 @@
             CAUTION! The necessary "encoding" is added here DIRECTLY,
             since it does NOT work adding it as constraint at the operation "send".
             The reason is that the format "text/cybol-path" is used there,
-            which points to another (this) part ".app.var.webpage" whose properties are used.
+            which points to another (this) part ".var.webpage" whose properties are used.
         -->
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="server" channel="inline" format="text/cybol-path" model=".app.domain.server"/>
+        <node name="server" channel="inline" format="text/cybol-path" model=".domain.server"/>
         <node name="connection" channel="inline" format="text/plain" model="close"/>
         <node name="content-type" channel="inline" format="text/plain" model="text/css"/>
     </node>
 
     <!-- CAUTION! Do use xml attribute "language" and NOT "format", since these are binary data. -->
     <node name="header_image" channel="file" language="message/binary" model="application/presence/wui/header/ba-leipzig.png"/>
-        <node name="server" channel="inline" format="text/cybol-path" model=".app.domain.server"/>
+        <node name="server" channel="inline" format="text/cybol-path" model=".domain.server"/>
         <node name="connection" channel="inline" format="text/plain" model="close"/>
         <node name="content-type" channel="inline" format="text/plain" model="image/png"/>
     </node>
 
     <!-- CAUTION! Do use xml attribute "language" and NOT "format", since these are binary data. -->
     <node name="heraldic_symbol" channel="file" language="message/binary" model="application/presence/wui/footer/sachsen.png"/>
-        <node name="server" channel="inline" format="text/cybol-path" model=".app.domain.server"/>
+        <node name="server" channel="inline" format="text/cybol-path" model=".domain.server"/>
         <node name="connection" channel="inline" format="text/plain" model="close"/>
         <node name="content-type" channel="inline" format="text/plain" model="image/png"/>
     </node>
@@ -37,7 +37,7 @@
 <!--
     <node name="icon" channel="file" language="message/binary" model="application/presence/wui/page/favicon.ico"/>
 -->
-        <node name="server" channel="inline" format="text/cybol-path" model=".app.domain.server"/>
+        <node name="server" channel="inline" format="text/cybol-path" model=".domain.server"/>
         <node name="connection" channel="inline" format="text/plain" model="close"/>
         <node name="content-type" channel="inline" format="text/plain" model="image/png"/>
 <!--

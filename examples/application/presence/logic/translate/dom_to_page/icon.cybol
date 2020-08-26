@@ -7,50 +7,50 @@
 
     <!-- The standard parts. -->
     <node name="overwrite_scheme" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.wui.index.head.icon:href"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.scheme"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.index.head.icon:href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.uri.scheme"/>
     </node>
     <node name="append_scheme_suffix" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.wui.index.head.icon:href"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.scheme_suffix"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.index.head.icon:href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.uri.scheme_suffix"/>
     </node>
     <node name="append_hostname_prefix" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.wui.index.head.icon:href"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.hostname_prefix"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.index.head.icon:href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.uri.hostname_prefix"/>
     </node>
     <node name="append_hostname" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.wui.index.head.icon:href"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.hostname"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.index.head.icon:href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.uri.hostname"/>
     </node>
     <node name="append_port_prefix" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.wui.index.head.icon:href"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.port_prefix"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.index.head.icon:href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.uri.port_prefix"/>
     </node>
     <node name="append_port" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.wui.index.head.icon:href"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.port"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.index.head.icon:href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.uri.port"/>
     </node>
     <node name="append_directory" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.wui.index.head.icon:href"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.directory"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.index.head.icon:href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.uri.directory"/>
     </node>
     <node name="append_parametre_prefix" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.wui.index.head.icon:href"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.parametre_prefix"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.index.head.icon:href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.uri.parametre_prefix"/>
     </node>
 
     <!-- The action parametre. -->
     <node name="append_parametre_action_name" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.wui.index.head.icon:href"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.parametre_action"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.index.head.icon:href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.uri.parametre_action"/>
     </node>
     <node name="append_parametre_action_assignment" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.wui.index.head.icon:href"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.parametre_assignment"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.index.head.icon:href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.uri.parametre_assignment"/>
     </node>
     <node name="append_parametre_action_value" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.wui.index.head.icon:href"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.action_send_icon"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.index.head.icon:href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.uri.action_send_icon"/>
     </node>
 
 </node>

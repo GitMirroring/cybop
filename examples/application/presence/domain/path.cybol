@@ -1,7 +1,7 @@
 <node>
 
     <!-- The directory names. -->
-    <node name="application" channel="inline" format="text/plain" model="presence"/>
+    <node name="application" channel="inline" format="text/plain" model="application/presence"/>
     <node name="db" channel="inline" format="text/plain" model="db"/>
 
     <!-- The separators. -->

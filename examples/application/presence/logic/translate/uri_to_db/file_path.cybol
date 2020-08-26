@@ -6,26 +6,26 @@
     -->
 
     <node name="overwrite_directory" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.directory"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.file"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".var.directory"/>
     </node>
 
     <node name="append_lecturer_separator" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.path.separator"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.file"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.path.separator"/>
     </node>
     <node name="append_lecturer" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.request:uri:query.lecturer"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.file"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".var.request:uri:query.lecturer"/>
     </node>
 
     <node name="append_suffix_separator" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.path.suffix_separator"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.file"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.path.suffix_separator"/>
     </node>
     <node name="append_file_suffix" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.path.file_suffix"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.file"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.path.file_suffix"/>
     </node>
 
 </node>

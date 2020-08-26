@@ -1,28 +1,28 @@
 <node>
 
     <node name="initialise_reset" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.reset"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.reset"/>
         <node name="source" channel="inline" format="text/plain" model="db_to_wui_lecturer"/>
     </node>
     <node name="reset_loop" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.reset.stack.loop"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".logic.reset.stack.loop"/>
     </node>
 
     <node name="count_lecturers" channel="inline" format="access/count" model="">
-        <node name="count" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_lecturer.loop.count"/>
-        <node name="part" channel="inline" format="text/cybol-path" model=".app.domain.lecturers"/>
+        <node name="count" channel="inline" format="text/cybol-path" model=".var.db_to_wui_lecturer.loop.count"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".domain.lecturers"/>
     </node>
 
     <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
     <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_lecturer.loop.break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_lecturer.loop.index"/>
-        <node name="right" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_lecturer.loop.count"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".var.db_to_wui_lecturer.loop.break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".var.db_to_wui_lecturer.loop.index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".var.db_to_wui_lecturer.loop.count"/>
     </node>
 
     <node name="loop_lecturers" channel="inline" format="flow/loop" model="">
-        <node name="break" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_lecturer.loop.break"/>
-        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.translate.db_to_wui.lecturer"/>
+        <node name="break" channel="inline" format="text/cybol-path" model=".var.db_to_wui_lecturer.loop.break"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.db_to_wui.lecturer"/>
     </node>
 
 </node>
