@@ -14,9 +14,19 @@
         <node name="right" channel="inline" format="text/cybol-path" model="#count"/>
     </node>
 
+    <!-- Write stack into file. -->
+    <node name="test_stack" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#"/>
+        <node name="receiver" channel="inline" format="text/plain" model="test_presence_stack-stack.txt"/>
+    </node>
+
     <node name="loop_choices" channel="inline" format="flow/loop" model="">
         <node name="break" channel="inline" format="text/cybol-path" model="#break"/>
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.create.choices.row"/>
+        <node name="model" channel="inline" format="text/cybol-path" model="#model"/>
     </node>
 
 </node>

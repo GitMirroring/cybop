@@ -32,9 +32,8 @@
     </node>
     <node name="create_wui_choices" channel="inline" format="text/cybol-path" model=".logic.create.choices.rows"/>
 <!--
-    <node name="create_wui_lecturers" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.create.lecturers.rows"/>
-    </node>
+    <node name="create_wui_lecturers" channel="inline" format="text/cybol-path" model=".logic.create.lecturers.rows"/>
+-->
 
 <!--
     <node name="initialise_date" channel="inline" format="communicate/receive" model="">
@@ -60,24 +59,13 @@
         <node name="message" channel="inline" format="text/plain" model="Translate models"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-    <node name="translate_dom_to_page_header_image" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.dom_to_page.header_image"/>
-    </node>
-    <node name="translate_dom_to_page_heraldic_symbol" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.dom_to_page.heraldic_symbol"/>
-    </node>
-    <node name="translate_dom_to_page_css" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.dom_to_page.css"/>
-    </node>
-    <node name="translate_dom_to_page_icon" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.dom_to_page.icon"/>
-    </node>
-    <node name="translate_dom_to_nav_backward" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.dom_to_nav.backward"/>
-    </node>
-    <node name="translate_dom_to_nav_forward" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.dom_to_nav.forward"/>
-    </node>
+    <node name="translate_dom_to_page_header_image" channel="inline" format="text/cybol-path" model=".logic.translate.dom_to_page.header_image"/>
+    <node name="translate_dom_to_page_heraldic_symbol" channel="inline" format="text/cybol-path" model=".logic.translate.dom_to_page.heraldic_symbol"/>
+    <node name="translate_dom_to_page_css" channel="inline" format="text/cybol-path" model=".logic.translate.dom_to_page.css"/>
+    <node name="translate_dom_to_page_icon" channel="inline" format="text/cybol-path" model=".logic.translate.dom_to_page.icon"/>
+    <node name="translate_dom_to_nav_backward" channel="inline" format="text/cybol-path" model=".logic.translate.dom_to_nav.backward"/>
+    <node name="translate_dom_to_nav_forward" channel="inline" format="text/cybol-path" model=".logic.translate.dom_to_nav.forward"/>
+-->
 
 <!--
     <node name="log_navigate" channel="inline" format="communicate/send" model="">
@@ -88,9 +76,8 @@
         <node name="message" channel="inline" format="text/plain" model="Navigate week"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-    <node name="navigate_week" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.navigate.week"/>
-    </node>
+    <node name="navigate_week" channel="inline" format="text/cybol-path" model=".logic.navigate.week"/>
+-->
 
     <!-- Write knowledge tree into file. -->
     <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
@@ -111,9 +98,7 @@
         <node name="message" channel="inline" format="text/plain" model="Startup socket"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-    <node name="startup" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.startup"/>
-    </node>
+    <node name="startup" channel="inline" format="text/cybol-path" model=".logic.startup"/>
 -->
 
 </node>

@@ -4,7 +4,7 @@
         <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="index" channel="inline" format="number/integer" model="0"/>
         <node name="count" channel="inline" format="number/integer" model="0"/>
-        <node name="model" channel="inline" format="text/cybol-path" model=".model"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".logic.create.choices.row"/>
     </node>
 
     <node name="row" channel="file" format="element/part" model="application/presence/logic/create/choices/row.cybol"/>
