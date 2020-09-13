@@ -57,10 +57,12 @@ void apply_modify_deep(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    //
     // CAUTION! Do NOT easily change the compare logic here.
     // The "move" flag might be null, since it is optional.
     // Comparison ignores null values inside,
     // so that the comparison result remains unchanged.
+    //
     compare_integer_unequal((void*) &r, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -70,8 +72,10 @@ void apply_modify_deep(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         // Therefore, DEEP copying is used (if applicable to the operation).
         //
 
+        //
         // Modify part by applying operation.
         // CAUTION! Set deep copying flag to TRUE.
+        //
         modify_part(p0, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p4, p5, p6, p7, p8, p9);
 
     } else {
@@ -87,8 +91,10 @@ void apply_modify_deep(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         // pointers/references to the original child nodes.
         //
 
+        //
         // Modify part by applying operation.
         // CAUTION! Set deep copying flag to FALSE.
+        //
         modify_part(p0, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p4, p5, p6, p7, p8, p9);
 
         //

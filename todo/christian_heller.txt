@@ -14,14 +14,12 @@
 WUI and Socket
 ______________
 
-        Helpful:
-        * Uncomment "TEST: check io receive." in file "receive_io_checker.c" to log client requests on terminal
+        CONTINUE:
+        * Reactivate (uncomment) sections in file "logic/create/choices/row.cybol"
 
-        * Change code to using stack memory variables:
-            DONE:
-                logic/create/choices/rows.cybol
-            TODO:
-                logic/create/choices/row.cybol
+        * Change source code to using stack memory variables
+
+        * Uncomment helpful "TEST: check io receive." in file "receive_io_checker.c" to log client requests on terminal
 
         * Optimise cybol application "presence"
             - make DATETIME and SOCKET work in cyboi, before continuing
@@ -36,6 +34,16 @@ ______________
         * Append year and week to actions "send_index" and "navigate_forward/backward"?
         * Implement "forward" and "backward" in cybol application "presence", by just adding/subtracting 7 (days) from current day
             --> continue with run.cybol
+
+        * Reactivate uncommented functionality in file "index_count_verifier.c"
+            it was commented out to avoid wrong errors when calling "modify_item" with REMOVE_MODIFY_LOGIC_CYBOI_FORMAT,
+            since the destination count is initialised with the source count which is zero,
+            so that the comparison always fails
+            see: "handler.c" --> "loop.c" --> "part_handler.c" --> error in function call "modify_item" when removing stack variables??
+        * Provide backtrace function in logger, see:
+            https://stackoverflow.com/questions/105659/how-can-one-grab-a-stack-trace-in-c
+            https://see-programming.blogspot.com/2013/02/backtracesymbolsfd.html
+        * Call it by default in file "index_count_verifier.c"
 
         * Test cybol application "internet/www_server_dynamic/", now being able to handle requests from multiple clients
 

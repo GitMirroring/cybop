@@ -59,7 +59,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle.");
 
-    //?? fwprintf(stdout, L"TEST handle: %i\n", p0);
+    //?? fwprintf(stdout, L"TEST: Handle. signal p0: %i\n", p0);
 
     // The signal part format, model, properties.
     void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -95,15 +95,17 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! Do NOT remove this section with "PART_ELEMENT_STATE_CYBOI_FORMAT"!
         // It is needed for at least initial startup logic residing in CYBOL
         // files only, before any logic is created and contained as runtime
         // knowledge models in the knowledge memory.
+        //
         compare_integer_equal((void*) &r, fd, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? fwprintf(stdout, L"TEST handle - part element: %i\n", *((int*) fd));
+            //?? fwprintf(stdout, L"TEST: Handle. part element: %i\n", *((int*) fd));
 
             // Handle compound part signal.
             handle_part(md, mc, pd, pc, p1, p2, p3, p4, p5, p6);
@@ -116,20 +118,24 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? fwprintf(stdout, L"TEST handle - cybol path: %i\n", *((int*) fd));
+            //?? fwprintf(stdout, L"TEST: Handle. cybol path: %i\n", *((int*) fd));
 
             // Copy source path data position.
             copy_pointer((void*) &pathd, (void*) &md);
             // Copy source path count remaining.
             copy_integer((void*) &pathc, mc);
 
+            //
             // Get signal part referenced by a knowledge path.
+            //
             // CAUTION! Hand over name as reference!
+            //
             // CAUTION! A COPY of path data and count is forwarded here,
             // so that the original values do NOT get changed.
             // This is IMPORTANT since otherwise, the original data position
             // gets increased and the count remaining decreased to zero,
             // so that knowledge access works only once, but not anymore afterwards.
+            //
             deserialise_knowledge((void*) &part, p2, (void*) &pathd, (void*) &pathc, p2, p3, p1, *NULL_POINTER_STATE_CYBOI_MODEL);
 
             // Handle signal.
@@ -139,13 +145,15 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! This comparison is to improve performance.
         // It is actually NOT necessary here, since
         // a null value gets filtered out in the
         // "handle_operation" function as well.
+        //
         if (fd != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            //?? fwprintf(stdout, L"TEST handle - operation: %i\n", *((int*) fd));
+            //?? fwprintf(stdout, L"TEST: Handle. operation: %i\n", *((int*) fd));
 
             // Handle primitive operation signal.
             handle_operation(pd, pc, p1, p2, p3, p4, p6, fd);

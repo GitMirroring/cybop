@@ -66,17 +66,23 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    //
     // Copy signal properties count.
+    //
     // It is later to be used as count for variable value removal.
     // Within the "handle" function called below, it may happen
     // that the properties and their count get changed.
     // Therefore, the OLD value is saved here.
+    //
     copy_integer((void*) &pc_old, p3);
     // Determine stack memory item count.
     copy_array_forward((void*) &mc, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    //
     // Copy stack memory item count.
+    //
     // It is later to be used as index for variable value removal.
     // Therefore, the OLD value is saved here.
+    //
     copy_integer((void*) &mc_old, mc);
 
     // Store variable values on stack memory (push).
@@ -84,6 +90,7 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
     if (p1 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
@@ -91,6 +98,7 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
+        //
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
@@ -156,7 +164,9 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // the destination item will hold a wrong "count" number
     // leading to unpredictable errors in further processing.
     //
+    //?? fwprintf(stdout, L"TEST: Handle part. mc_old pre: %i\n", mc_old);
     modify_item(p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &pc_old, (void*) &mc_old, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
+    //?? fwprintf(stdout, L"TEST: Handle part. mc_old post: %i\n", mc_old);
 }
 
 /* PART_HANDLER_SOURCE */

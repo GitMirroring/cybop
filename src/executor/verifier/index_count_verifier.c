@@ -73,18 +73,23 @@ void verify_index_count(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     compare_integer_less_or_equal((void*) &r1, (void*) &c1, p4);
     compare_integer_less_or_equal((void*) &r2, (void*) &c2, p5);
 
+/*??
     fwprintf(stdout, L"Test: Verify index count p1: %i\n", p1);
     fwprintf(stdout, L"Test: Verify index count p2: %i\n", p2);
     fwprintf(stdout, L"Test: Verify index count p3: %i\n", p3);
     fwprintf(stdout, L"Test: Verify index count p4: %i\n", p4);
     fwprintf(stdout, L"Test: Verify index count p5: %i\n", p5);
+*/
 
+/*??
     if (r2 != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         if (r1 != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+*/
 
             copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
+/*??
         } else {
 
             log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not verify index count. The sum of the given index and count is greater than the first count.");
@@ -98,6 +103,7 @@ void verify_index_count(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         fwprintf(stdout, L"Warning: Could not verify index count. The sum of the given index and count is greater than the second count.\n");
         //?? fwprintf(stdout, L"Hint: Sum c2: %i. First count *p5: %i.\n", c2, *((int*) p5));
     }
+*/
 }
 
 /* INDEX_COUNT_VERIFIER_SOURCE */
