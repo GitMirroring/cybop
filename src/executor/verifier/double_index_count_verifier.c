@@ -23,15 +23,14 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INDEX_COUNT_VERIFIER_SOURCE
-#define INDEX_COUNT_VERIFIER_SOURCE
+#ifndef DOUBLE_INDEX_COUNT_VERIFIER_SOURCE
+#define DOUBLE_INDEX_COUNT_VERIFIER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../executor/copier/integer_copier.c"
+#include "../../executor/logifier/boolean/and_boolean_logifier.c"
+#include "../../executor/verifier/index_count_verifier.c"
 #include "../../logger/logger.c"
 
 /**
@@ -40,26 +39,31 @@
  * This is necessary to avoid segmentation fault errors caused by
  * pointers adressing memory that is outside the given data array.
  *
+ * The first and second data count do NOT have to be identical,
+ * as long as the sum of the given index and count is smaller than
+ * or equal to both of them.
+ *
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the element count
- * @param p2 the data index
- * @param p3 the data count
+ * @param p2 the first index
+ * @param p3 the second index
+ * @param p4 the first count
+ * @param p5 the second count
  */
-void verify_index_count(void* p0, void* p1, void* p2, void* p3) {
+void verify_double_index_count(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Verify index count.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Verify double index count.");
 
-    // The test count.
-    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The comparison result.
+    // The comparison results.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    int r1 = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    int r2 = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Calculate test count as sum of data index and element count.
-    calculate_integer_add((void*) &c, p2);
-    calculate_integer_add((void*) &c, p1);
+    verify_index_count((void*) &r1, p1, p2, p4);
+    verify_index_count((void*) &r2, p1, p3, p5);
 
-    // Compare test count with actual data count.
-    compare_integer_less_or_equal((void*) &r, (void*) &c, p3);
+    copy_integer((void*) &r, (void*) &r1);
+    logify_boolean_and((void*) &r, (void*) &r2);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -67,11 +71,10 @@ void verify_index_count(void* p0, void* p1, void* p2, void* p3) {
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not verify index count. The sum of the data index and count is greater than the data count.");
-        fwprintf(stdout, L"Warning: Could not verify index count. The sum of the data index and count is greater than the data count.\n");
-        fwprintf(stdout, L"Hint: Test count sum c: %i. Data count *p3: %i.\n", c, *((int*) p3));
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not verify double index count. The sum of one of the indices and element count is greater than the first or second data count.");
+        fwprintf(stdout, L"Warning: Could not verify double index count. The sum of one of the indices and element count is greater than the first or second data count.\n");
     }
 }
 
-/* INDEX_COUNT_VERIFIER_SOURCE */
+/* DOUBLE_INDEX_COUNT_VERIFIER_SOURCE */
 #endif

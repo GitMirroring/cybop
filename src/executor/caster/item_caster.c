@@ -36,7 +36,7 @@
 #include "../../executor/caster/array_caster.c"
 #include "../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../executor/copier/array_copier.c"
-#include "../../executor/verifier/index_count_verifier.c"
+#include "../../executor/verifier/double_index_count_verifier.c"
 #include "../../logger/logger.c"
 
 /**
@@ -52,6 +52,7 @@
  * @param p7 the destination count
  * @param p8 the source count
  */
+/*??
 void cast_item_count(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cast item count.");
@@ -90,6 +91,7 @@ void cast_item_count(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cast item count. The given count is greater than the source count.");
     }
 }
+*/
 
 /**
  * Casts elements of the source item to the destination item.
@@ -122,7 +124,7 @@ void cast_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     copy_array_forward((void*) &sd, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sc, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    verify_index_count((void*) &r, p4, p5, p6, dc, sc);
+    verify_double_index_count((void*) &r, p4, p5, p6, dc, sc);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

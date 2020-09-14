@@ -29,7 +29,7 @@
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../executor/comparator/offset_array_comparator.c"
-#include "../../executor/verifier/index_count_verifier.c"
+#include "../../executor/verifier/double_index_count_verifier.c"
 #include "../../logger/logger.c"
 
 /**
@@ -55,7 +55,7 @@ void compare_index(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     //
     // CAUTION! An extra comparison of left- and right count is NOT necessary,
-    // since the function "verify_index_count" called below tests if
+    // since the function "verify_double_index_count" called below tests if
     // left- and right index PLUS count are smaller than the left- and right count.
     //
     // If so, then this also means that the given count which determines the
@@ -63,7 +63,7 @@ void compare_index(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     // and hence does NOT have to be compared here.
     //
 
-    verify_index_count((void*) &r, p5, p6, p7, p8, p9);
+    verify_double_index_count((void*) &r, p5, p6, p7, p8, p9);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

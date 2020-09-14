@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-09-14  Christian Heller  <christian.heller@cybop.org>
+
+        * Add file "double_index_count_verifier.c" in order to optimise file "index_count_verifier.c"
+        * Add file "verify_modifier.c" in order to distinguish verification between one and two indices
+        * Eliminate error in "handler.c" --> "loop.c" --> "part_handler.c" when removing stack variables via function call "modify_item" with constant REMOVE_MODIFY_LOGIC_CYBOI_FORMAT
+
 2020-08-26  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt cybol application "presence" to stack memory variables

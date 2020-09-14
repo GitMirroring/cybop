@@ -30,7 +30,7 @@
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../executor/manipulator/array_manipulator.c"
-#include "../../executor/verifier/index_count_verifier.c"
+#include "../../executor/verifier/double_index_count_verifier.c"
 #include "../../logger/logger.c"
 
 /**
@@ -62,7 +62,7 @@ void manipulate_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
     // are just placeholders to enable the verification to return true,
     // since a second operand does NOT exist for the "manipulate" operation.
     //
-    verify_index_count((void*) &r, p4, p5, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, c, p4);
+    verify_double_index_count((void*) &r, p4, p5, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, c, p4);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
