@@ -20,7 +20,6 @@
 -->
 
     <!-- Identification. -->
-<!--
     <node name="overwrite_identify_prefix" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".var.identify_prefix"/>
         <node name="source" channel="inline" format="text/plain" model=".domain."/>
@@ -34,6 +33,7 @@
         <node name="source" channel="inline" format="text/plain" model="choices"/>
     </node>
     <node name="identify_choice_number" channel="inline" format="text/cybol-path" model=".logic.identify.number"/>
+<!--
     <node name="identify_choice_root" channel="inline" format="text/cybol-path" model=".logic.identify.root"/>
     <node name="get_choice_name" channel="inline" format="access/get-name" model="">
         <node name="element" channel="inline" format="text/cybol-path" model=".var.choices.element.name"/>
