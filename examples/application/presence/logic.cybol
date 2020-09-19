@@ -7,7 +7,7 @@
 
     <!-- Data. -->
     <node name="create" channel="file" format="element/part" model="application/presence/logic/create.cybol"/>
-    <node name="identify" channel="file" format="element/part" model="application/presence/logic/identify.cybol"/>
+    <node name="identify_root" channel="file" format="element/part" model="application/presence/logic/identify_root.cybol"/>
     <node name="reset" channel="file" format="element/part" model="application/presence/logic/reset.cybol"/>
     <node name="send" channel="file" format="element/part" model="application/presence/logic/send.cybol"/>
     <node name="translate" channel="file" format="element/part" model="application/presence/logic/translate.cybol"/>

@@ -4,7 +4,6 @@
     <node name="reset" channel="inline" format="text/plain" model=""/>
     <node name="identify_prefix" channel="inline" format="text/plain" model=""/>
     <node name="identify_source" channel="inline" format="text/plain" model=""/>
-    <node name="identify" channel="inline" format="text/plain" model=""/>
 
     <!-- The creation. -->
     <node name="lecturers" channel="file" format="element/part" model="application/presence/var/stack.cybol"/>

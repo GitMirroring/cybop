@@ -16,6 +16,7 @@ ______________
 
         * Optimise cybol application "presence"
         * Reactivate (uncomment) sections in file "logic/create/choices/row.cybol"
+        * CONTINUE: Find out why dereferencing asterisk does not work in "*#root", in file "row.cybol"
         * Change source code to using stack memory variables as properties instead of duplicate loop indices
 
         * Uncomment helpful "TEST: check io receive." in file "receive_io_checker.c" to log client requests on terminal

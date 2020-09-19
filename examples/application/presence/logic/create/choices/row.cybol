@@ -9,16 +9,6 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    <!-- Reset. -->
-    <!-- Initialisation IS necessary, since data might have got changed within another logic called below. -->
-<!--
-    <node name="initialise_reset" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".var.reset"/>
-        <node name="source" channel="inline" format="text/plain" model="choices"/>
-    </node>
-    <node name="reset_element" channel="inline" format="text/cybol-path" model=".logic.reset.stack.element"/>
--->
-
     <!-- Identification. -->
     <node name="overwrite_identify_prefix" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".var.identify_prefix"/>
@@ -28,20 +18,53 @@
         <node name="destination" channel="inline" format="text/cybol-path" model=".var.identify_source"/>
         <node name="source" channel="inline" format="text/plain" model="choices"/>
     </node>
-    <node name="overwrite_identify" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".var.identify"/>
-        <node name="source" channel="inline" format="text/plain" model="choices"/>
-    </node>
-    <node name="identify_choice_number" channel="inline" format="text/cybol-path" model=".logic.identify.number"/>
-<!--
-    <node name="identify_choice_root" channel="inline" format="text/cybol-path" model=".logic.identify.root"/>
-    <node name="get_choice_name" channel="inline" format="access/get-name" model="">
-        <node name="element" channel="inline" format="text/cybol-path" model=".var.choices.element.name"/>
-        <node name="part" channel="inline" format="text/cybol-path" model="*.var.choices.element.root"/>
+    <node name="serialise_choice_number" channel="inline" format="represent/serialise" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#number"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#index"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>
 
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="#number:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#number"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="identify_choice_root" channel="inline" format="text/cybol-path" model=".logic.identify_root"/>
+
+    <node name="get_choice_name" channel="inline" format="access/get-name" model="">
+        <node name="element" channel="inline" format="text/cybol-path" model="#name"/>
+<!-- CAUTION! Mind the asterisk/dereferencing! The returned name (see stack printout) is "root", but with dereferencing * it would be "bankholiday", however, currently there is still an error!
+        <node name="part" channel="inline" format="text/cybol-path" model="*#root"/>
+-->
+        <node name="part" channel="inline" format="text/cybol-path" model="#root"/>
+    </node>
+
+    <!-- Write stack into file. -->
+    <node name="TEST_STACK" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#"/>
+        <node name="receiver" channel="inline" format="text/plain" model="test_presence_stack-row.txt"/>
+    </node>
+
+<!--
     <node name="create_choice" channel="inline" format="memorise/create" model="">
-        <node name="name" channel="inline" format="text/cybol-path" model=".var.choices.element.name"/>
+        <node name="name" channel="inline" format="text/cybol-path" model="#name"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="whole" channel="inline" format="text/cybol-path" model=".wui.index.body.choices.table"/>
     </node>
@@ -52,7 +75,7 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="sender" channel="inline" format="text/plain" model="application/presence/wui/choices/row.cybol"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".wui.index.body.choices.table.(.var.choices.element.name)"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.index.body.choices.table.(#name)"/>
     </node>
     <node name="initialise_choice_properties" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -60,16 +83,16 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/property"/>
         <node name="sender" channel="inline" format="text/plain" model="application/presence/wui/choices/row_properties.cybol"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".wui.index.body.choices.table.(.var.choices.element.name)"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.index.body.choices.table.(#name)"/>
     </node>
 
     <node name="overwrite_data" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.index.body.choices.table.(.var.choices.element.name).data"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".domain.choices.(.var.choices.element.name)"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.index.body.choices.table.(#name).data"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.choices.(#name)"/>
     </node>
     <node name="overwrite_class" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.index.body.choices.table.(.var.choices.element.name).data:class"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".var.choices.element.name"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.index.body.choices.table.(#name).data:class"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#name"/>
     </node>
 -->
 

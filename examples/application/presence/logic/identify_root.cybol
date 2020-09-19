@@ -1,27 +1,27 @@
 <node>
 
     <node name="overwrite_application" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".var.(.var.identify).element.root"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model="#root"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".var.identify_prefix"/>
     </node>
 
     <node name="append_identify" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".var.(.var.identify).element.root"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model="#root"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".var.identify_source"/>
     </node>
 
     <node name="append_prefix" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".var.(.var.identify).element.root"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model="#root"/>
         <node name="source" channel="inline" format="text/plain" model=".["/>
     </node>
 
     <node name="append_number" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".var.(.var.identify).element.root"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".var.(.var.identify).element.number"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model="#root"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#number"/>
     </node>
 
     <node name="append_suffix" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".var.(.var.identify).element.root"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model="#root"/>
         <node name="source" channel="inline" format="text/plain" model="]"/>
     </node>
 

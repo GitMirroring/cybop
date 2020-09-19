@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-09-19  Christian Heller  <christian.heller@cybop.org>
+
+        * Change cybol application "presence" to using stack memory variables
+
 2020-09-14  Christian Heller  <christian.heller@cybop.org>
 
         * Add file "double_index_count_verifier.c" in order to optimise file "index_count_verifier.c"

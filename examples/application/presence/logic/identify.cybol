@@ -1,6 +1,0 @@
-<node>
-
-    <node name="number" channel="file" format="element/part" model="application/presence/logic/identify/number.cybol"/>
-    <node name="root" channel="file" format="element/part" model="application/presence/logic/identify/root.cybol"/>
-
-</node>
