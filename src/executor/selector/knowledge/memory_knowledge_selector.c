@@ -55,7 +55,7 @@ void select_knowledge_memory(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge memory.");
 
-    fwprintf(stdout, L"TEST select knowledge memory *p5: %i\n", *((int*) p5));
+    fwprintf(stdout, L"TEST select knowledge memory (legend: 7 = model; 8 = properties; -1 = stack) *p5: %i\n", *((int*) p5));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -67,7 +67,7 @@ void select_knowledge_memory(void* p0, void* p1, void* p2, void* p3, void* p4, v
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Get part with name from stack memory.
-            // CAUTION! The last argument is true to indicate last-in-first-out (lifo) retrieval.
+            // CAUTION! The last argument is TRUE to indicate last-in-first-out (lifo) retrieval.
             get_name_item_element(p0, p4, p2, p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
