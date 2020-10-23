@@ -14,11 +14,23 @@
 WUI and Socket
 ______________
 
+        DONE:
+        * Path syntax has already been changed in cyboi (OLD: [0]; NEW: [#stack_variable] or [.tree_variable])
+        * See e.g. cybol application "repertoire"
+
+        CONTINUE:
+        * Assumption: problem might be that the closing bracket "]" does not get detected;
+            this error only appeared after having implemented the error messages in file "part_knowledge_deserialiser.c":
+                Error: Could not deserialise knowledge part. The returned whole (parent) is NULL, even though the knowledge path contained another element to follow. w: 0
+                Error: Could not deserialise knowledge part. The returned element (child) is NULL, even though the knowledge path contained another element to follow. e: 0
+        * Migrate cybol application to new knowledge path syntax
+        * Replace all code where knowledge path was assembled manually a la "[index]" --> search for "["
+            --> many operations only adding path elements or an index like "[", "index", "]" may get deleted in the future
+        * Make cybol application "knowledge_tree/cybol-path_2/" work FIRST
+            in it, dereferencing stack memory "**#z" gets tested
+        * Find out why dereferencing asterisk does not work in "*#root", in file "logic/create/choices/row.cybol" of cybol application "presence"
         * Optimise cybol application "presence"
         * Reactivate (uncomment) sections in file "logic/create/choices/row.cybol"
-        * CONTINUE: Find out why dereferencing asterisk does not work in "*#root", in file "row.cybol"
-            --> make cybol application "knowledge_tree/cybol-path_2/" work FIRST, before continueing with "presence"
-            --> in it, dereferencing stack memory "**#z" gets tested
         * Change source code to using stack memory variables as properties instead of duplicate loop indices
 
         * Uncomment helpful "TEST: check io receive." in file "receive_io_checker.c" to log client requests on terminal
@@ -448,6 +460,14 @@ _____
 CYBOL Application
 _________________
 
+        Hints for migrating cybol application to new knowledge path syntax:
+        * Rename "path/knowledge" and "path/reference" with "text/cybol-path"
+        * Replace OLD property prefix "#" with ":" (CAUTION! for webpage generation the html anchor sign has to REMAIN a #)
+        * Adapt stack variables by adding knowledge path prefix "#"
+        * Delete operation "create" at beginning of "run.cybol" and initialise to knowledge memory root "." instead
+        * Replace all code where knowledge path was assembled manually a la "[index]" --> search for "["
+            --> many operations only adding path elements or an index like "[", "index", "]" may get deleted in the future
+
         * Rewrite cybol application "clean_result_directory"
             - make PIPES work in cyboi (e.g. as named pipes in the background), before continuing, needed for: n=$(ls -a $1 | wc -l);
             - continue file "remove_superfluous_element.cybol", see original script, count contained elements first, delete if > 2
@@ -458,14 +478,6 @@ _________________
             - ALREADY DONE: make DEEP COPY and SOCKET work in cyboi, before continuing
             - use stack properties instead of duplicate loop indices etc.
             - consider file "tmp/cybop_stack.pdf"
-
-        Hints for migrating cybol application to new knowledge path syntax:
-        * Rename "path/knowledge" and "path/reference" with "text/cybol-path"
-        * Replace OLD property prefix "#" with ":" (CAUTION! for webpage generation the html anchor sign has to REMAIN a #)
-        * Adapt stack variables by adding knowledge path prefix "#"
-        * Delete operation "create" at beginning of "run.cybol" and initialise to knowledge memory root "." instead
-        * Replace all code where knowledge path was assembled manually a la "[index]" --> search for "["
-            --> many operations only adding path elements or an index like "[", "index", "]" may get deleted in the future
 
 Repertoire
 __________

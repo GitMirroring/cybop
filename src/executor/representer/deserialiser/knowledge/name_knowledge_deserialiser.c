@@ -56,11 +56,14 @@ void deserialise_knowledge_name(void* p0, void* p1, void* p2, void* p3, void* p4
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    //
     // The name data, count.
+    //
     // CAUTION! This variable IS necessary, since the knowledge path data
     // position parametre is a pointer reference that cannot be handed over
     // to some of the functions below, which expect a simple pointer.
     // Also, the count has to be incremented below.
+    //
     void* nd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int nc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
@@ -69,6 +72,7 @@ void deserialise_knowledge_name(void* p0, void* p1, void* p2, void* p3, void* p4
 
     if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
@@ -76,25 +80,28 @@ void deserialise_knowledge_name(void* p0, void* p1, void* p2, void* p3, void* p4
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
+        //
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
-//?? fwprintf(stdout, L"TEST deserialise knowledge name nd: %ls\n", (wchar_t*) nd);
+    //?? fwprintf(stdout, L"TEST deserialise knowledge name nd: %ls\n", (wchar_t*) nd);
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//?? fwprintf(stdout, L"TEST deserialise knowledge name nc: %i\n", nc);
+        //?? fwprintf(stdout, L"TEST deserialise knowledge name nc: %i\n", nc);
 
         compare_integer_less_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // The knowledge path end has been reached
             // or a special delimiter was found.
+            //
 
             if (nc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-//?? fwprintf(stdout, L"TEST deserialise knowledge name TEST: %i\n", nc);
+                //?? fwprintf(stdout, L"TEST deserialise knowledge name TEST: %i\n", nc);
 
                 //
                 // CAUTION! Only call function below if a name EXISTS.
@@ -104,8 +111,10 @@ void deserialise_knowledge_name(void* p0, void* p1, void* p2, void* p3, void* p4
                 // However, this comparison here is done to improve performance.
                 //
 
+                //
                 // Get part with the given name
                 // from the memory identified by p5.
+                //
                 select_knowledge_identification(p0, p1, nd, (void*) &nc, p4, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
             }
 
@@ -117,8 +126,10 @@ void deserialise_knowledge_name(void* p0, void* p1, void* p2, void* p3, void* p4
 
         if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // Increment name count,
             // since a special delimiter was NOT found.
+            //
             nc++;
         }
     }

@@ -71,6 +71,7 @@ void deserialise_knowledge_identification(void* p0, void* p1, void* p2, void* p3
     void* nmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* nmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
     // Get name part.
     //
     // CAUTION! Use the KNOWLEDGE MEMORY p4 as source whole part here,
@@ -82,6 +83,7 @@ void deserialise_knowledge_identification(void* p0, void* p1, void* p2, void* p3
     //
     // CAUTION! Do NOT forward the source whole part element index p7 as argument here,
     // but NULL instead, since the next separator is unknown yet.
+    //
     deserialise_knowledge((void*) &n, p4, p2, p3, p4, p5, p6, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // Get name part model item.
@@ -90,6 +92,7 @@ void deserialise_knowledge_identification(void* p0, void* p1, void* p2, void* p3
     copy_array_forward((void*) &nmd, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &nmc, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+    //
     // Get destination part with the given identification
     // from source whole part model OR properties OR stack memory,
     // depending on the source whole part element index p7.
@@ -98,6 +101,7 @@ void deserialise_knowledge_identification(void* p0, void* p1, void* p2, void* p3
     // since it identifies the memory to retrieve the part from.
     // The memory delimiter was determined before and
     // is still valid for the part name used here.
+    //
     select_knowledge_identification(p0, p1, nmd, nmc, p5, p7, p8);
 }
 

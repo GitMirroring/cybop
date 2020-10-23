@@ -20,7 +20,7 @@
 
 2020-09-19  Christian Heller  <christian.heller@cybop.org>
 
-        * Change cybol application "presence" to using stack memory variables
+        * Adapt cybol application "presence" to using stack memory variables
 
 2020-09-14  Christian Heller  <christian.heller@cybop.org>
 
@@ -30,7 +30,7 @@
 
 2020-08-26  Christian Heller  <christian.heller@cybop.org>
 
-        * Adapt cybol application "presence" to stack memory variables
+        * Adapt cybol application "presence" to using stack memory variables
 
 2020-07-29  Christian Heller  <christian.heller@cybop.org>
 

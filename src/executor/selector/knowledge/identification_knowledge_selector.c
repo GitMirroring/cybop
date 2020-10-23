@@ -65,26 +65,35 @@ void select_knowledge_identification(void* p0, void* p1, void* p2, void* p3, voi
 
         compare_integer_unequal((void*) &r, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-//?? fwprintf(stdout, L"TEST select knowledge identification r: %i\n", r);
+        //?? fwprintf(stdout, L"TEST select knowledge identification r: %i\n", r);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // The index flag IS set.
             // Treat part name data as index.
+            //
 
+            //
             // CAUTION! The stack memory argument p4 is NOT needed here,
             // since it is forbidden to access arbitrary stack variables via index.
             // Otherwise, the whole stack order might get ignored,
             // which is not wanted.
             //
+            // The argument p2 is used as source index related to the source whole part.
+            // The part name count p3 is NOT needed, since there is only ONE integer pointer.
+            //
             // CAUTION! Do NOT use the "copy_array_forward" function,
             // since it is low-level and does not check array boundaries!
+            //
             get_part_metadata(p0, *s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2, p5);
 
         } else {
 
+            //
             // The index flag is NOT set.
             // Treat part name data as name.
+            //
 
             select_knowledge_memory(p0, *s, p2, p3, p4, p5);
         }

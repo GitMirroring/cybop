@@ -10,6 +10,11 @@
         <node name="source" channel="inline" format="text/cybol-path" model=".var.identify_source"/>
     </node>
 
+    <!--
+        TODO: Merge the following three into just one path-part of the kind:
+        ".[#number]
+    -->
+
     <node name="append_prefix" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model="#root"/>
         <node name="source" channel="inline" format="text/plain" model=".["/>

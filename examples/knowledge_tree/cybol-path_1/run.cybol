@@ -3,7 +3,6 @@
     <node name="create_test" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="test"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-         
     </node>
     <node name="initialise_test" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>

@@ -56,6 +56,9 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part.");
 
+    fwprintf(stdout, L"TEST: Deserialise knowledge part.\n");
+    fwprintf(stdout, L"TEST: knowledge path data position: %ls\n", (wchar_t*) *((void**) p2));
+
     // The new whole part.
     void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The element part.
@@ -68,7 +71,7 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
     //
     // Compare if knowledge path count remaining contains at least one character.
     //
-    // CAUTION! In case p3 is null, the comparison result r remains false that way.
+    // CAUTION! In case p3 is null, the comparison result remains false that way.
     //
     compare_integer_greater((void*) &rw, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
@@ -91,7 +94,7 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
             //
             // Compare if knowledge path count remaining contains at least one character.
             //
-            // CAUTION! In case p3 is null, the comparison result r remains false that way.
+            // CAUTION! In case p3 is null, the comparison result remains false that way.
             //
             compare_integer_greater((void*) &re, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 

@@ -83,8 +83,8 @@ void select_knowledge_begin(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge begin.");
 
-//?? fwprintf(stdout, L"TEST select knowledge begin *p3: %i\n", *((int*) p3));
-//?? fwprintf(stdout, L"TEST select knowledge begin *p2: %ls\n", (wchar_t*) *((void**) p2));
+    //?? fwprintf(stdout, L"TEST select knowledge begin *p3: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"TEST select knowledge begin *p2: %ls\n", (wchar_t*) *((void**) p2));
 
     //
     // The order of comparisons does NOT matter
@@ -92,7 +92,7 @@ void select_knowledge_begin(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     // that is characters often used are standing on top.
     //
     // The only exception are pure names without prefix,
-    // which are taken as last option, if nothing else applies.
+    // which are taken as LAST option, if nothing else applies.
     //
 
     // The comparison result.

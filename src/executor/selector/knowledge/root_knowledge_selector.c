@@ -69,9 +69,14 @@ void select_knowledge_root(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         //
         // CAUTION! The order of comparisons IS IMPORTANT.
         //
-        // Memory root characters have to be tested first,
-        // with simple COMPARISON functions, NOT detection.
-        // The reason is that the count/length matters here.
+        // Memory root characters have to be tested first, i.e.:
+        // - "." = knowledge memory
+        // - "|" = signal memory
+        // - "#" = stack memory
+        //
+        // Use the function "check_operation", NOT detection.
+        // It does a lexicographical comparison considering
+        // the count/length of both operands.
         //
         // Only afterwards, further comparisons may be done in file
         // "begin_knowledge_selector.c", using the function "detect_array",
