@@ -56,8 +56,77 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part.");
 
-    fwprintf(stdout, L"TEST: Deserialise knowledge part.\n");
-    fwprintf(stdout, L"TEST: knowledge path data position: %ls\n", (wchar_t*) *((void**) p2));
+    // The new whole part.
+    void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The element part.
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //?? fwprintf(stdout, L"TEST: Deserialise knowledge part 0. knowledge path data position: %ls\n", (wchar_t*) *((void**) p2));
+    //?? fwprintf(stdout, L"TEST: Deserialise knowledge part 0. knowledge path count remaining: %i\n", *((int*) p3));
+
+    //
+    // Get new whole part.
+    //
+    // CAUTION! Forward the source whole part element INDEX p7 as argument here,
+    // since it identifies the memory to retrieve the part from.
+    //
+    deserialise_knowledge((void*) &w, p1, p2, p3, p4, p5, p6, p7);
+
+    //?? fwprintf(stdout, L"TEST: Deserialise knowledge part 1. knowledge path data position: %ls\n", (wchar_t*) *((void**) p2));
+    //?? fwprintf(stdout, L"TEST: Deserialise knowledge part 1. knowledge path count remaining: %i\n", *((int*) p3));
+
+    //
+    // Get element part.
+    //
+    // Process knowledge path hierarchy recursively further down,
+    // using new whole part.
+    //
+    // CAUTION! Do NOT forward the source whole part element index p7 as argument here,
+    // but NULL instead, since the next separator is unknown yet.
+    //
+    deserialise_knowledge((void*) &e, (void*) &w, p2, p3, p4, p5, p6, *NULL_POINTER_STATE_CYBOI_MODEL);
+
+    //?? fwprintf(stdout, L"TEST: Deserialise knowledge part 2. knowledge path data position: %ls\n", (wchar_t*) *((void**) p2));
+    //?? fwprintf(stdout, L"TEST: Deserialise knowledge part 2. knowledge path count remaining: %i\n", *((int*) p3));
+
+    //
+    // CAUTION! The order of below comparisons IS IMPORTANT.
+    // If an element (child) was found, then it has
+    // higher priority than the whole (parent) found before.
+    //
+
+    if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        //
+        // The knowledge path contains another element to follow.
+        //
+
+        // Take the element (child) as result.
+        copy_pointer(p0, (void*) &e);
+
+    } else if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        //
+        // The knowledge path does NOT contain further elements.
+        // Its end has been reached.
+        //
+
+        //
+        // Take the whole (parent) as result,
+        // since it is the last existing part in the hierarchy.
+        //
+        copy_pointer(p0, (void*) &w);
+    }
+
+    //
+    // If both, the whole and the element are null,
+    // then nothing will be done and p0 remains untouched.
+    //
+
+/*??
+
+    CAUTION! The following solution is NOT working well!
+    Possibly delete it in the future.
 
     // The new whole part.
     void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -67,6 +136,9 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
     int rw = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The comparison result for the element.
     int re = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    fwprintf(stdout, L"TEST: Deserialise knowledge part. knowledge path data position: %ls\n", (wchar_t*) *((void**) p2));
+    fwprintf(stdout, L"TEST: Deserialise knowledge part. knowledge path count remaining: %i\n", *((int*) p3));
 
     //
     // Compare if knowledge path count remaining contains at least one character.
@@ -197,6 +269,7 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
 
         // Do NOTHING here.
     }
+*/
 }
 
 /* PART_KNOWLEDGE_DESERIALISER_SOURCE */

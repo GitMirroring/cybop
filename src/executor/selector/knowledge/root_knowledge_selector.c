@@ -63,8 +63,8 @@ void select_knowledge_root(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge root.");
 
-//?? fwprintf(stdout, L"TEST select knowledge root *p3: %i\n", *((int*) p3));
-//?? fwprintf(stdout, L"TEST select knowledge root *p2: %ls\n", (wchar_t*) *d);
+        //?? fwprintf(stdout, L"TEST select knowledge root *p3: %i\n", *((int*) p3));
+        //?? fwprintf(stdout, L"TEST select knowledge root *p2: %ls\n", (wchar_t*) *d);
 
         //
         // CAUTION! The order of comparisons IS IMPORTANT.

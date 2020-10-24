@@ -72,10 +72,12 @@ void deserialise_knowledge_reference(void* p0, void* p1, void* p2, void* p3, voi
     void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
     int tc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+    //
     // Get knowledge path part.
     //
     // CAUTION! Do NOT forward the source whole part element index p7 as argument here,
     // but NULL instead, since it has no influence anyway.
+    //
     deserialise_knowledge((void*) &p, p1, p2, p3, p4, p5, p6, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // Get knowledge path part model item.
@@ -84,6 +86,7 @@ void deserialise_knowledge_reference(void* p0, void* p1, void* p2, void* p3, voi
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pmc, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+    //
     // Copy knowledge path part model item data, count
     // to temporary knowledge path data, count.
     //
@@ -91,15 +94,18 @@ void deserialise_knowledge_reference(void* p0, void* p1, void* p2, void* p3, voi
     // Otherwise, the original knowledge part would get modified,
     // with its count being decremented to zero, leading to false results.
     // For example, multiple references would not be processed in this case.
+    //
     copy_pointer((void*) &td, (void*) &pmd);
     copy_integer((void*) &tc, pmc);
 
+    //
     // Get destination part using knowledge path part determined above.
     //
     // CAUTION! Hand over td as REFERENCE.
     //
     // CAUTION! Do NOT forward the source whole part element index p7 as argument here,
     // but NULL instead, since it has no influence anyway.
+    //
     deserialise_knowledge(p0, p1, (void*) &td, (void*) &tc, p4, p5, p6, *NULL_POINTER_STATE_CYBOI_MODEL);
 }
 

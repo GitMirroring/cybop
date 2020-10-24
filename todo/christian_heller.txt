@@ -14,24 +14,17 @@
 WUI and Socket
 ______________
 
-        DONE:
-        * Path syntax has already been changed in cyboi (OLD: [0]; NEW: [#stack_variable] or [.tree_variable])
-        * See e.g. cybol application "repertoire"
-
-        CONTINUE:
-        * Assumption: problem might be that the closing bracket "]" does not get detected;
-            this error only appeared after having implemented the error messages in file "part_knowledge_deserialiser.c":
-                Error: Could not deserialise knowledge part. The returned whole (parent) is NULL, even though the knowledge path contained another element to follow. w: 0
-                Error: Could not deserialise knowledge part. The returned element (child) is NULL, even though the knowledge path contained another element to follow. e: 0
-        * Migrate cybol application to new knowledge path syntax
+        * Optimise cybol application "presence"
+        * Uncomment and test sections in file "logic/create/choices/row.cybol"
         * Replace all code where knowledge path was assembled manually a la "[index]" --> search for "["
             --> many operations only adding path elements or an index like "[", "index", "]" may get deleted in the future
-        * Make cybol application "knowledge_tree/cybol-path_2/" work FIRST
-            in it, dereferencing stack memory "**#z" gets tested
-        * Find out why dereferencing asterisk does not work in "*#root", in file "logic/create/choices/row.cybol" of cybol application "presence"
-        * Optimise cybol application "presence"
-        * Reactivate (uncomment) sections in file "logic/create/choices/row.cybol"
         * Change source code to using stack memory variables as properties instead of duplicate loop indices
+
+        * Consider knowledge path count remaining in if-clause of file "part_knowledge_deserialiser.c", in block:
+            } else if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            --> that way, non-existing child nodes (possibly caused by wrong cybol paths) can be filtered out
+            --> otherwise, the whole node would be returned and might erroneously get manipulated, which MUST NOT happen
+        * Delete old unused commented functionality from file "part_knowledge_deserialiser.c"
 
         * Uncomment helpful "TEST: check io receive." in file "receive_io_checker.c" to log client requests on terminal
 
