@@ -1,6 +1,14 @@
 <node>
 
-    <node name="rows" channel="file" format="element/part" model="application/presence/logic/create/lecturers/rows.cybol"/>
-    <node name="row" channel="file" format="element/part" model="application/presence/logic/create/lecturers/row.cybol"/>
+    <node name="rows" channel="file" format="element/part" model="application/presence/logic/create/lecturers/rows.cybol">
+        <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="index" channel="inline" format="number/integer" model="0"/>
+        <node name="count" channel="inline" format="number/integer" model="0"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".logic.create.lecturers.row"/>
+    </node>
+
+    <node name="row" channel="file" format="element/part" model="application/presence/logic/create/lecturers/row.cybol">
+        <node name="name" channel="inline" format="text/plain" model=""/>
+    </node>
 
 </node>

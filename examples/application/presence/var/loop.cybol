@@ -1,7 +1,0 @@
-<node>
-
-    <node name="count" channel="inline" format="number/integer" model="0"/>
-    <node name="index" channel="inline" format="number/integer" model="0"/>
-    <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
-
-</node>

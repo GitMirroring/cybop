@@ -15,16 +15,19 @@ WUI and Socket
 ______________
 
         * Optimise cybol application "presence"
-        * Uncomment and test sections in file "logic/create/choices/row.cybol"
-        * Replace all code where knowledge path was assembled manually a la "[index]" --> search for "["
-            --> many operations only adding path elements or an index like "[", "index", "]" may get deleted in the future
-        * Change source code to using stack memory variables as properties instead of duplicate loop indices
+        * Change source code to using stack memory variables
+        DONE:
+        * Reactivate function calls of "create_wui_choices" and "create_wui_lecturers" in file "run.cybol" of cybol application "presence"
+        CONTINUE:
+        * Reactivate function calls of "initialise_date" and "log_translate" in file "run.cybol" of cybol application "presence"
 
         * Consider knowledge path count remaining in if-clause of file "part_knowledge_deserialiser.c", in block:
             } else if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
             --> that way, non-existing child nodes (possibly caused by wrong cybol paths) can be filtered out
             --> otherwise, the whole node would be returned and might erroneously get manipulated, which MUST NOT happen
         * Delete old unused commented functionality from file "part_knowledge_deserialiser.c"
+
+        * Ignore binary data like images in model_diagram_serialiser since otherwise, serialisation fails
 
         * Uncomment helpful "TEST: check io receive." in file "receive_io_checker.c" to log client requests on terminal
 

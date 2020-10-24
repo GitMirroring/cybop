@@ -21,6 +21,8 @@
 2020-10-24  Christian Heller  <christian.heller@cybop.org>
 
         * Turn back file "part_knowledge_deserialiser.c" to old version from 2018, in order to make paths work again
+        * Adapt cybol application "presence" to using stack memory variables and remove unnecessary files and variables
+        * Reactivate function calls of "create_wui_choices" and "create_wui_lecturers" in file "run.cybol" of cybol application "presence"
 
 2020-09-19  Christian Heller  <christian.heller@cybop.org>
 

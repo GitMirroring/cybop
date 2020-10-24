@@ -31,9 +31,7 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="create_wui_choices" channel="inline" format="text/cybol-path" model=".logic.create.choices.rows"/>
-<!--
     <node name="create_wui_lecturers" channel="inline" format="text/cybol-path" model=".logic.create.lecturers.rows"/>
--->
 
 <!--
     <node name="initialise_date" channel="inline" format="communicate/receive" model="">
@@ -80,7 +78,6 @@
 -->
 
     <!-- Write knowledge tree into file. -->
-<!--
     <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -89,7 +86,6 @@
         <node name="message" channel="inline" format="text/cybol-path" model="."/>
         <node name="receiver" channel="inline" format="text/plain" model="test_presence.txt"/>
     </node>
--->
 
 <!--
     <node name="log_startup" channel="inline" format="communicate/send" model="">

@@ -8,11 +8,7 @@
     </node>
 
     <node name="row" channel="file" format="element/part" model="application/presence/logic/create/choices/row.cybol">
-        <node name="number" channel="inline" format="text/plain" model=""/>
-        <node name="root" channel="inline" format="text/plain" model=""/>
         <node name="name" channel="inline" format="text/plain" model=""/>
-        <node name="day" channel="inline" format="text/plain" model=""/>
-        <node name="href" channel="inline" format="text/plain" model=""/>
     </node>
 
 </node>

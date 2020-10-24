@@ -3,20 +3,20 @@
     <!-- Reset is NOT necessary, since this is executed only ONCE at application startup. -->
 
     <node name="count_lecturers" channel="inline" format="access/count" model="">
-        <node name="count" channel="inline" format="text/cybol-path" model=".var.lecturers.loop.count"/>
+        <node name="count" channel="inline" format="text/cybol-path" model="#count"/>
         <node name="part" channel="inline" format="text/cybol-path" model=".domain.lecturers"/>
     </node>
 
     <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
     <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model=".var.lecturers.loop.break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model=".var.lecturers.loop.index"/>
-        <node name="right" channel="inline" format="text/cybol-path" model=".var.lecturers.loop.count"/>
+        <node name="result" channel="inline" format="text/cybol-path" model="#break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="#index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model="#count"/>
     </node>
 
     <node name="loop_lecturers" channel="inline" format="flow/loop" model="">
-        <node name="break" channel="inline" format="text/cybol-path" model=".var.lecturers.loop.break"/>
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.create.lecturers.row"/>
+        <node name="break" channel="inline" format="text/cybol-path" model="#break"/>
+        <node name="model" channel="inline" format="text/cybol-path" model="#model"/>
     </node>
 
 </node>

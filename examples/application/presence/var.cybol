@@ -1,21 +1,7 @@
 <node>
 
-    <!-- The logic working universally for the term specified here. -->
-    <node name="reset" channel="inline" format="text/plain" model=""/>
-    <node name="identify_prefix" channel="inline" format="text/plain" model=""/>
-    <node name="identify_source" channel="inline" format="text/plain" model=""/>
-
-    <!-- The creation. -->
-    <node name="lecturers" channel="file" format="element/part" model="application/presence/var/stack.cybol"/>
-    <node name="choices" channel="file" format="element/part" model="application/presence/var/stack.cybol"/>
-
-    <!-- The translation. -->
-    <node name="db_to_wui_lecturer" channel="file" format="element/part" model="application/presence/var/stack.cybol"/>
-    <node name="db_to_wui_column" channel="file" format="element/part" model="application/presence/var/stack.cybol"/>
-    <node name="db_to_wui_reset" channel="file" format="element/part" model="application/presence/var/stack.cybol"/>
-    <node name="uri_to_db" channel="file" format="element/part" model="application/presence/var/stack.cybol"/>
-
     <!-- The db model. -->
+
     <node name="directory" channel="inline" format="text/plain" model=""/>
     <node name="file" channel="inline" format="text/plain" model=""/>
     <node name="dbday" channel="inline" format="text/plain" model=""/>
@@ -24,6 +10,7 @@
     <node name="empty" channel="inline" format="logicvalue/boolean" model="false"/>
 
     <!-- The calendar. -->
+
     <node name="year" channel="inline" format="number/integer" model="2015"/>
     <!--
         TODO: The year does NOT get serialised yet and therefore HAS TO BE assigned directly here.
@@ -38,6 +25,7 @@
 -->
 
     <!-- Request-response-cycle. -->
+
     <node name="request" channel="inline" format="element/part" model=""/>
     <node name="client_socket" channel="inline" format="number/integer" model="0"/>
     <!--
@@ -52,6 +40,7 @@
     <node name="path" channel="inline" format="text/cybol-path" model=""/>
 
     <!-- The serialised webpage. -->
+
     <node name="webpage" channel="inline" format="text/plain" model="">
         <!--
             CAUTION! The necessary "encoding" is added here DIRECTLY,
@@ -64,18 +53,19 @@
         <node name="connection" channel="inline" format="text/plain" model="close"/>
         <node name="content-type" channel="inline" format="text/plain" model="text/html"/>
     </node>
-    <!--
+
+<!--
     <node name="css" channel="file" format="text/plain" model="application/presence/wui/formatting.css">
-    -->
+-->
         <!--
             CAUTION! The necessary "encoding" is added here DIRECTLY,
             since it does NOT work adding it as constraint at the operation "send".
             The reason is that the format "text/cybol-path" is used there,
             which points to another (this) part ".webpage" whose properties are used.
         -->
-    <!--
+<!--
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
     </node>
-    -->
+-->
 
 </node>
