@@ -6,6 +6,7 @@
     </node>
 
     <node name="reset_db" channel="inline" format="text/cybol-path" model=".logic.reset.db"/>
+    <!-- The stack variable #name is used inside -->
     <node name="translate_path" channel="inline" format="text/cybol-path" model=".logic.translate.db_to_wui.path"/>
 
     <node name="log_filename" channel="inline" format="communicate/send" model="">
@@ -16,7 +17,7 @@
         <node name="message" channel="inline" format="text/cybol-path" model=".var.file"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-    <node name="receive_db" channel="inline" format="communicate/receive" model="">
+    <node name="receive_db_from_file" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>

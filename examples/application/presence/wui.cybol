@@ -23,7 +23,7 @@
         CAUTION! These binary data may cause the serialisation of a model-diagram (knowledge tree) to fail!
     -->
 <!--
-    <node name="header_image" channel="file" language="message/binary" model="application/presence/wui/header/ba-leipzig.png"/>
+    <node name="header_image" channel="file" DELETE:language="message/binary" model="application/presence/wui/header/ba-leipzig.png"/>
         <node name="server" channel="inline" format="text/cybol-path" model=".domain.server"/>
         <node name="connection" channel="inline" format="text/plain" model="close"/>
         <node name="content-type" channel="inline" format="text/plain" model="image/png"/>
@@ -35,7 +35,7 @@
         CAUTION! These binary data may cause the serialisation of a model-diagram (knowledge tree) to fail!
     -->
 <!--
-    <node name="heraldic_symbol" channel="file" language="message/binary" model="application/presence/wui/footer/sachsen.png"/>
+    <node name="heraldic_symbol" channel="file" DELETE:language="message/binary" model="application/presence/wui/footer/sachsen.png"/>
         <node name="server" channel="inline" format="text/cybol-path" model=".domain.server"/>
         <node name="connection" channel="inline" format="text/plain" model="close"/>
         <node name="content-type" channel="inline" format="text/plain" model="image/png"/>
@@ -45,11 +45,11 @@
     <!--
         CAUTION! Do use xml attribute "language" and NOT "format", since these are binary data.
         CAUTION! These binary data may cause the serialisation of a model-diagram (knowledge tree) to fail!
-        <node name="icon" channel="file" language="message/binary" model="application/presence/wui/page/favicon.ico"/>
+        <node name="icon" channel="file" DELETE:language="message/binary" model="application/presence/wui/page/favicon.ico"/>
         <node name="content-type" channel="inline" format="text/plain" model="image/vnd.microsoft.icon"/>
     -->
 <!--
-    <node name="icon" channel="file" language="message/binary" model="application/presence/wui/page/favicon.png"/>
+    <node name="icon" channel="file" DELETE:language="message/binary" model="application/presence/wui/page/favicon.png"/>
         <node name="server" channel="inline" format="text/cybol-path" model=".domain.server"/>
         <node name="connection" channel="inline" format="text/plain" model="close"/>
         <node name="content-type" channel="inline" format="text/plain" model="image/png"/>

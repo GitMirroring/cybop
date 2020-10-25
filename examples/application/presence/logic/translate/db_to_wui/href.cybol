@@ -86,7 +86,7 @@
     </node>
     <node name="append_parametre_lecturer_value" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model="#href"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".var.db_to_wui_lecturer.element.name"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#name"/>
     </node>
 
     <!-- The day parametre. -->
@@ -122,7 +122,7 @@
     </node>
     <node name="append_parametre_choice_value" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model="#href"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".domain.choices.(.var.unref):next"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.choices.(#choice):next"/>
     </node>
 
     <!-- The action parametre. -->

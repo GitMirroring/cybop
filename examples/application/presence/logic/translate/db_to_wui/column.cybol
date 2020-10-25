@@ -2,38 +2,21 @@
 
     <node name="get_weekday_name" channel="inline" format="access/get-name" model="">
         <node name="element" channel="inline" format="text/cybol-path" model="#day"/>
-        <node name="part" channel="inline" format="text/cybol-path" model=".domain.weekdays.[#index]"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".domain.weekdays.[#column_index]"/>
     </node>
 
-    <node name="overwrite_dbday_reference_with_actual_model" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".var.unref"/>
+    <node name="get_choice" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#choice"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".var.db.(#day)"/>
     </node>
 
-    <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="TEST column"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-    <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".var.unref"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-
     <node name="test_for_emptyness" channel="inline" format="access/indicate-empty" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model=".var.empty"/>
-        <node name="part" channel="inline" format="text/cybol-path" model=".var.unref"/>
+        <node name="result" channel="inline" format="text/cybol-path" model="#empty"/>
+        <node name="part" channel="inline" format="text/cybol-path" model="#choice"/>
     </node>
     <!-- Fill cell with database values. If those are empty, then use default values. -->
     <node name="translate_cell" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="text/cybol-path" model=".var.empty"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model="#empty"/>
         <node name="true" channel="inline" format="text/cybol-path" model=".logic.translate.db_to_wui.cell_default"/>
         <node name="false" channel="inline" format="text/cybol-path" model=".logic.translate.db_to_wui.cell"/>
     </node>

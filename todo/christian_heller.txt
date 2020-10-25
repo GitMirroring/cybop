@@ -14,12 +14,11 @@
 WUI and Socket
 ______________
 
-        * Optimise cybol application "presence"
-        * Change source code to using stack memory variables
-        DONE:
-        * Reactivate function calls of "create_wui_choices" and "create_wui_lecturers" in file "run.cybol" of cybol application "presence"
-        CONTINUE:
-        * Reactivate function calls of "initialise_date" and "log_translate" in file "run.cybol" of cybol application "presence"
+        * Adapt cybol application "presence" to using stack memory variables
+        * Reactivate and test socket in file "run.cybol" of cybol application "presence"
+        * Uncomment helpful "TEST: check io receive." in file "receive_io_checker.c" to log client requests on terminal
+        * Consider cybol application "internet/www_server_dynamic/", now being able to handle requests from multiple clients
+        * Handle non-existing database files using default values
 
         * Consider knowledge path count remaining in if-clause of file "part_knowledge_deserialiser.c", in block:
             } else if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
@@ -28,8 +27,6 @@ ______________
         * Delete old unused commented functionality from file "part_knowledge_deserialiser.c"
 
         * Ignore binary data like images in model_diagram_serialiser since otherwise, serialisation fails
-
-        * Uncomment helpful "TEST: check io receive." in file "receive_io_checker.c" to log client requests on terminal
 
         * Improve cybol application "presence"
             - make DATETIME work in cyboi, before continuing
@@ -43,8 +40,6 @@ ______________
         * Append year and week to actions "send_index" and "navigate_forward/backward"?
         * Implement "forward" and "backward" in cybol application "presence", by just adding/subtracting 7 (days) from current day
             --> continue with run.cybol
-
-        * Test cybol application "internet/www_server_dynamic/", now being able to handle requests from multiple clients
 
         * Think through if all necessary options are used already:
             https://stackoverflow.com/questions/1525050/non-blocking-socket

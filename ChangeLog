@@ -20,6 +20,7 @@
 
 2020-10-25  Christian Heller  <christian.heller@cybop.org>
 
+        * Adapt cybol application "presence" to using stack memory variables
         * Reactivate function calls of "translate" and "navigate" in file "run.cybol" of cybol application "presence"
 
 2020-10-24  Christian Heller  <christian.heller@cybop.org>

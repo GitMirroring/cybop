@@ -4,14 +4,12 @@
 
     <node name="directory" channel="inline" format="text/plain" model=""/>
     <node name="file" channel="inline" format="text/plain" model=""/>
-    <node name="unref" channel="inline" format="text/plain" model=""/>
     <node name="db" channel="inline" format="element/part" model=""/>
-    <node name="empty" channel="inline" format="logicvalue/boolean" model="false"/>
 
     <!-- The calendar. -->
 
     <node name="year" channel="inline" format="number/integer" model="2015"/>
-    <node name="week" channel="inline" format="number/integer" model="13"/>
+    <node name="week" channel="inline" format="number/integer" model="12"/>
 <!--
     <node name="day" channel="inline" format="datetime/utc" model="2015-01-01T00:00:00"/>
 -->

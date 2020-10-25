@@ -22,6 +22,8 @@
 
     <node name="column" channel="file" format="element/part" model="application/presence/logic/translate/db_to_wui/column.cybol">
         <node name="day" channel="inline" format="text/plain" model=""/>
+        <node name="choice" channel="inline" format="text/plain" model=""/>
+        <node name="empty" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="href" channel="inline" format="text/plain" model=""/>
     </node>
 

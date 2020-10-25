@@ -2,6 +2,7 @@
 
     <node name="brauer" channel="inline" format="text/plain" model="Frau Prof. Brauer"/>
     <node name="brunner" channel="inline" format="text/plain" model="Herr Prof. Brunner"/>
+<!--
     <node name="glaser" channel="inline" format="text/plain" model="Frau Prof. Glaser"/>
     <node name="groeckel" channel="inline" format="text/plain" model="Frau Prof. Gröckel"/>
     <node name="guckel" channel="inline" format="text/plain" model="Herr Dr. Guckel"/>
@@ -16,5 +17,6 @@
     <node name="siegert" channel="inline" format="text/plain" model="Frau Prof. Siegert"/>
     <node name="stuhr" channel="inline" format="text/plain" model="Frau Dr. Stuhr"/>
     <node name="thoene" channel="inline" format="text/plain" model="Herr Dr. Thöne"/>
+-->
 
 </node>

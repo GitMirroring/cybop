@@ -9,15 +9,6 @@
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    <node name="empty_unref_model" channel="inline" format="modify/empty" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".var.unref"/>
-        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
-    </node>
-    <node name="empty_unref_properties" channel="inline" format="modify/empty" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".var.unref"/>
-        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-
     <node name="empty_db_model" channel="inline" format="modify/empty" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".var.db"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -25,11 +16,6 @@
     <node name="empty_db_properties" channel="inline" format="modify/empty" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".var.db"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-
-    <node name="reset_flag" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".var.empty"/>
-        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
 </node>
