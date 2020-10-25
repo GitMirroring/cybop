@@ -7,7 +7,7 @@
 
     <node name="overwrite_application" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".var.directory"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".domain.pathlication"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.path.application"/>
     </node>
 
     <node name="append_database_separator" channel="inline" format="modify/append" model="">

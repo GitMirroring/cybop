@@ -7,7 +7,7 @@
 
     <node name="overwrite_application" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".var.file"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".domain.pathlication"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.path.application"/>
     </node>
 
     <node name="append_database_separator" channel="inline" format="modify/append" model="">
@@ -43,7 +43,7 @@
     </node>
     <node name="append_lecturer" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".var.file"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".var.db_to_wui_lecturer.element.name"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#name"/>
     </node>
 
     <node name="append_suffix_separator" channel="inline" format="modify/append" model="">

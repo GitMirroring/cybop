@@ -1,47 +1,14 @@
 <node>
 
-    <!-- Reset. -->
-    <!-- Initialisation IS necessary, since data might have got changed within another logic called below. -->
-    <node name="initialise_reset" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".var.reset"/>
-        <node name="source" channel="inline" format="text/plain" model="db_to_wui_lecturer"/>
-    </node>
-    <node name="reset_element" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.reset.stack.element"/>
-    </node>
-
-    <!-- Identification. -->
-    <node name="overwrite_identify_prefix" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".var.identify_prefix"/>
-        <node name="source" channel="inline" format="text/plain" model=".domain."/>
-    </node>
-    <node name="overwrite_identify_source" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".var.identify_source"/>
-        <node name="source" channel="inline" format="text/plain" model="lecturers"/>
-    </node>
-    <node name="overwrite_identify" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".var.identify"/>
-        <node name="source" channel="inline" format="text/plain" model="db_to_wui_lecturer"/>
-    </node>
-    <node name="identify_lecturer_number" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.identify.number"/>
-    </node>
-    <node name="identify_lecturer_root" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.identify.root"/>
-    </node>
     <node name="get_lecturer_name" channel="inline" format="access/get-name" model="">
-        <node name="element" channel="inline" format="text/cybol-path" model=".var.db_to_wui_lecturer.element.name"/>
-        <node name="part" channel="inline" format="text/cybol-path" model="*.var.db_to_wui_lecturer.element.root"/>
+        <node name="element" channel="inline" format="text/cybol-path" model="#name"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".domain.lecturers.[#index]"/>
     </node>
 
-    <node name="reset_db" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.reset.db"/>
-    </node>
-    <node name="translate_path" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.db_to_wui.path"/>
-    </node>
-<!--
-    <node name="TEST" channel="inline" format="communicate/send" model="">
+    <node name="reset_db" channel="inline" format="text/cybol-path" model=".logic.reset.db"/>
+    <node name="translate_path" channel="inline" format="text/cybol-path" model=".logic.translate.db_to_wui.path"/>
+
+    <node name="log_filename" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
@@ -49,7 +16,6 @@
         <node name="message" channel="inline" format="text/cybol-path" model=".var.file"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
--->
     <node name="receive_db" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -59,20 +25,18 @@
         <node name="message" channel="inline" format="text/cybol-path" model=".var.db"/>
     </node>
 
-    <node name="translate_row" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.db_to_wui.row"/>
-    </node>
+    <node name="translate_row" channel="inline" format="text/cybol-path" model=".logic.translate.db_to_wui.row"/>
 
     <!-- Loop test. -->
     <node name="increment_index" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model=".var.db_to_wui_lecturer.loop.index"/>
+        <node name="result" channel="inline" format="text/cybol-path" model="#index"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
     </node>
     <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
     <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model=".var.db_to_wui_lecturer.loop.break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model=".var.db_to_wui_lecturer.loop.index"/>
-        <node name="right" channel="inline" format="text/cybol-path" model=".var.db_to_wui_lecturer.loop.count"/>
+        <node name="result" channel="inline" format="text/cybol-path" model="#break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="#index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model="#count"/>
     </node>
 
 </node>

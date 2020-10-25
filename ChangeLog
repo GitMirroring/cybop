@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-10-25  Christian Heller  <christian.heller@cybop.org>
+
+        * Reactivate function calls of "translate" and "navigate" in file "run.cybol" of cybol application "presence"
+
 2020-10-24  Christian Heller  <christian.heller@cybop.org>
 
         * Turn back file "part_knowledge_deserialiser.c" to old version from 2018, in order to make paths work again

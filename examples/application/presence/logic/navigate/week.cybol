@@ -13,12 +13,7 @@
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>
 
-    <node name="translate_cal_to_wui" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.cal_to_wui"/>
-    </node>
-
-    <node name="translate_db_to_wui" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.db_to_wui.lecturers"/>
-    </node>
+    <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.cal_to_wui"/>
+    <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.db_to_wui.lecturers"/>
 
 </node>

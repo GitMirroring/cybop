@@ -27,13 +27,13 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Create domain"/>
+        <node name="message" channel="inline" format="text/plain" model="Create wui"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="create_wui_choices" channel="inline" format="text/cybol-path" model=".logic.create.choices.rows"/>
     <node name="create_wui_lecturers" channel="inline" format="text/cybol-path" model=".logic.create.lecturers.rows"/>
 
-<!--
+<!-- LEAVE this commented, until data transformation has been fully immplemented in cyboi!
     <node name="initialise_date" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="clock"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
@@ -48,7 +48,6 @@
     </node>
 -->
 
-<!--
     <node name="log_translate" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -63,9 +62,7 @@
     <node name="translate_dom_to_page_icon" channel="inline" format="text/cybol-path" model=".logic.translate.dom_to_page.icon"/>
     <node name="translate_dom_to_nav_backward" channel="inline" format="text/cybol-path" model=".logic.translate.dom_to_nav.backward"/>
     <node name="translate_dom_to_nav_forward" channel="inline" format="text/cybol-path" model=".logic.translate.dom_to_nav.forward"/>
--->
 
-<!--
     <node name="log_navigate" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -75,7 +72,6 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="navigate_week" channel="inline" format="text/cybol-path" model=".logic.navigate.week"/>
--->
 
     <!-- Write knowledge tree into file. -->
     <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
@@ -87,7 +83,6 @@
         <node name="receiver" channel="inline" format="text/plain" model="test_presence.txt"/>
     </node>
 
-<!--
     <node name="log_startup" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -96,6 +91,7 @@
         <node name="message" channel="inline" format="text/plain" model="Startup socket"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+<!--
     <node name="startup" channel="inline" format="text/cybol-path" model=".logic.startup"/>
 -->
 
