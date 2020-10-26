@@ -1,0 +1,90 @@
+<node>
+
+    <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->
+    <node name="overwrite_path" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.path"/>
+        <node name="source" channel="inline" format="text/plain" model=".logic.actions."/>
+    </node>
+    <node name="append_action" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".var.request:uri:query.action"/>
+    </node>
+
+    <node name="print_path_label" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Action path:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="print_path" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".var.path"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="print_action_label" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Action:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="print_action" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="*.var.path"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <!--
+        CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.
+        Otherwise, another signal might be executed before, so that this signal could possibly
+        not find all resources anymore, if they meanwhile have been manipulated by the other signal.
+        The "flow/sequence" operation ensures that the given model is executed directly.
+
+        CAUTION! Use path REFERENCE here, since the action is just
+        a string pointing to the actual model to be executed.
+    -->
+    <node name="execute_action" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="text/cybol-path" model="*.var.path"/>
+    </node>
+
+<!--
+    <node name="TEST_close_label" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Close socket:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="TEST_close_socket" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+-->
+
+    <!-- CAUTION! Close client socket only AFTER having processed the action above. -->
+<!--
+    <node name="shutdown_client_socket" channel="inline" format="maintain/shutdown" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <!-- Specify either service name OR id (port) number, NOT both. If both are given, then the port has higher priority. -->
+        <node name="id" channel="inline" format="number/integer" model="80"/>
+        <node name="service" channel="inline" format="text/plain" model="http"/>
+        <node name="mode" channel="inline" format="text/plain" model="client"/>
+        <node name="socket" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
+    </node>
+-->
+
+</node>

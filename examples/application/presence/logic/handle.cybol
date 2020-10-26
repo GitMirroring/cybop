@@ -26,6 +26,10 @@
         <node name="destination" channel="inline" format="text/cybol-path" model=".var.request"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+    <node name="reset_query_exists_flag" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.query_exists"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
 
     <node name="receive_request" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
@@ -35,8 +39,22 @@
         <node name="sender" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
     </node>
 
+    <!--
+        Verify that uri query is NOT empty.
+
+        CAUTION! This is necessary to filter out uri data which are not understood,
+        e.g. a browser request for "favicon.ico" would result in the non-existing action path:
+        .logic.actions./favicon.ico
+
+        A really complete webserver would have to test for all of these cases.
+        But for this small example application, one short test is sufficient.
+    -->
+    <node name="test_query" channel="inline" format="access/indicate-exists" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".var.query_exists"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".var.request:uri:query"/>
+    </node>
+
     <!-- Write knowledge tree into file. -->
-<!--
     <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -45,89 +63,16 @@
         <node name="message" channel="inline" format="text/cybol-path" model=".var"/>
         <node name="receiver" channel="inline" format="text/plain" model="test_presence_request.txt"/>
     </node>
--->
 
-    <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->
-    <node name="overwrite_path" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".var.path"/>
-        <node name="source" channel="inline" format="text/plain" model=".logic.actions."/>
-    </node>
-    <node name="append_action" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".var.path"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".var.request:uri:query.action"/>
-    </node>
-
-    <node name="print_path_label" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Action path:"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-    <node name="print_path" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".var.path"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-    <node name="print_action_label" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Action:"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-    <node name="print_action" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/cybol-path" model="*.var.path"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-
-    <!--
-        CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.
-        Otherwise, another signal might be executed before, so that this signal could possibly
-        not find all resources anymore, if they meanwhile have been manipulated by the other signal.
-        The "flow/sequence" operation ensures that the given model is executed directly.
-
-        CAUTION! Use path REFERENCE here, since the action is just
-        a string pointing to the actual model to be executed.
-    -->
-    <node name="execute_action" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model="*.var.path"/>
-    </node>
-
-    <node name="TEST_close_label" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Close socket:"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-    <node name="TEST_close_socket" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-
-    <!-- CAUTION! Close client socket only AFTER having processed the action above. -->
-    <node name="shutdown_client_socket" channel="inline" format="maintain/shutdown" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <!-- Specify either service name OR id (port) number, NOT both. If both are given, then the port has higher priority. -->
-        <node name="id" channel="inline" format="number/integer" model="80"/>
-        <node name="service" channel="inline" format="text/plain" model="http"/>
-        <node name="mode" channel="inline" format="text/plain" model="client"/>
-        <node name="socket" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
+    <node name="evaluate_query" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".var.query_exists"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".logic.evaluate_query"/>
+        <!--
+            CAUTION! Sending a response is important, even if the query was empty or not understood,
+            since some browsers request a "/favicon.ico" or other things and if no response was sent,
+            the browser would wait forever and block requests from other clients.
+        -->
+        <node name="false" channel="inline" format="text/cybol-path" model=".logic.send.empty_message"/>
     </node>
 
 </node>

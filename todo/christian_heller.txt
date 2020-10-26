@@ -14,10 +14,12 @@
 WUI and Socket
 ______________
 
-        * Adapt cybol application "presence" to using stack memory variables
-        * Reactivate and test socket in file "run.cybol" of cybol application "presence"
+        * Make css be transfered, which for some reason does not get requested by index.html in the web browser yet
+            close and reopen connection every time?
         * Uncomment helpful "TEST: check io receive." in file "receive_io_checker.c" to log client requests on terminal
         * Consider cybol application "internet/www_server_dynamic/", now being able to handle requests from multiple clients
+
+        * Adapt cybol application "presence" to using stack memory variables
         * Handle non-existing database files using default values
 
         * Consider knowledge path count remaining in if-clause of file "part_knowledge_deserialiser.c", in block:

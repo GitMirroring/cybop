@@ -16,8 +16,7 @@
         </node>
     </node>
 
-<!--
-    <node name="TEST_webpage_in_file" channel="inline" format="communicate/send" model="">
+    <node name="TEST_WUI" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
@@ -25,7 +24,6 @@
         <node name="message" channel="inline" format="text/cybol-path" model=".var.webpage"/>
         <node name="receiver" channel="inline" format="text/plain" model="test_presence_wui.html"/>
     </node>
--->
 
     <!-- Send html encapsulated as http-response. -->
     <node name="send" channel="inline" format="communicate/send" model="">
@@ -54,12 +52,15 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
     </node>
 
-<!--
     <node name="test_http_response" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".var.webpage"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".var.webpage">
+            <node name="Server" channel="inline" format="text/plain" model="CYBOI/0.21.0 (Linux) CYBOL/2.0.0"/>
+            <node name="Connection" channel="inline" format="text/plain" model="close"/>
+            <node name="Content-Type" channel="inline" format="text/plain" model="text/html"/>
+        </node>
         <node name="receiver" channel="inline" format="text/plain" model="test_presence_http_response.txt"/>
     </node>
 -->

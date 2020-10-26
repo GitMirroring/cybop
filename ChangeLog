@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-10-26  Christian Heller  <christian.heller@cybop.org>
+
+        * Reactivate socket and handle requests in cybol application "presence"
+
 2020-10-25  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt cybol application "presence" to using stack memory variables
