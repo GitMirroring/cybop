@@ -14,7 +14,7 @@
     <!--
         CAUTION! Should the path format be "text/cybol-path" OR "text/plain"?
         A knowledge path is treated like a character array anyway.
-        So, text fragments may be added to it in the "handler.cybol" file.
+        So, text fragments may be added to it in the "handle.cybol" file.
 
         Alternative:
         <node name="path" channel="inline" format="text/cybol-path" model=""/>

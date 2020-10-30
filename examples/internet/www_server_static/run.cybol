@@ -53,7 +53,7 @@
         <!-- The requesting client gets stored in this variable. -->
         <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/>
         <!-- This is the call-back function executed whenever a client sends a request. -->
-        <node name="handler" channel="inline" format="text/cybol-path" model=".handler"/>
+        <node name="handler" channel="inline" format="text/cybol-path" model=".handle"/>
     </node>
 
 </node>

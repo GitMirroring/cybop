@@ -1,6 +1,6 @@
 <node>
 
-    <node name="handler" channel="file" format="element/part" model="internet/www_server_static/handler.cybol"/>
+    <node name="handle" channel="file" format="element/part" model="internet/www_server_static/handle.cybol"/>
 
     <node name="request" channel="inline" format="element/part" model=""/>
     <node name="client_socket" channel="inline" format="number/integer" model="0"/>
@@ -8,7 +8,7 @@
     <!--
         CAUTION! Should the path format be "text/cybol-path" OR "text/plain"?
         A knowledge path is treated like a character array anyway.
-        So, text fragments may be added to it in the "handler.cybol" file.
+        So, text fragments may be added to it in the "handle.cybol" file.
 
         Alternative:
         <node name="path" channel="inline" format="text/cybol-path" model=""/>

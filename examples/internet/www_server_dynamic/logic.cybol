@@ -1,6 +1,6 @@
 <node>
 
-    <node name="handler" channel="file" format="element/part" model="internet/www_server_dynamic/logic/handler.cybol"/>
+    <node name="handle" channel="file" format="element/part" model="internet/www_server_dynamic/logic/handle.cybol"/>
     <node name="evaluate_query" channel="file" format="element/part" model="internet/www_server_dynamic/logic/evaluate_query.cybol"/>
     <node name="actions" channel="file" format="element/part" model="internet/www_server_dynamic/logic/actions.cybol"/>
 
