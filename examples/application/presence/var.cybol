@@ -26,17 +26,14 @@
 
     <node name="request" channel="inline" format="element/part" model=""/>
     <node name="client_socket" channel="inline" format="number/integer" model="0"/>
-    <node name="query_exists" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="path" channel="inline" format="text/plain" model=""/>
     <!--
-        CAUTION! Should the path format be "text/cybol-path" OR "text/plain"?
-        A knowledge path is treated like a character array anyway.
-        So, text fragments may be added to it in the "handler.cybol" file.
-
-        Alternative:
-        <node name="path" channel="inline" format="text/cybol-path" model=""/>
-        <node name="path" channel="inline" format="text/plain" model=""/>
+        CAUTION! The format is "text/ascii" and NOT "text/plain",
+        since some data, like images for instance, represent binary data.
     -->
-    <node name="path" channel="inline" format="text/cybol-path" model=""/>
+    <node name="file" channel="inline" format="text/ascii" model=""/>
+    <node name="query_exists" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="action_path" channel="inline" format="text/cybol-path" model=""/>
 
     <!-- The serialised webpage. -->
 

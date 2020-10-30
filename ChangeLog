@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-10-30  Christian Heller  <christian.heller@cybop.org>
+
+        * Integrate handling of static files in file "logic/handle.cybol" of cybol application "presence"
+
 2020-10-26  Christian Heller  <christian.heller@cybop.org>
 
         * Reactivate socket and handle requests in cybol application "presence"

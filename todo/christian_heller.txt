@@ -14,10 +14,11 @@
 WUI and Socket
 ______________
 
-        * Make css be transfered, which for some reason does not get requested by index.html in the web browser yet
-            close and reopen connection every time?
-        * Uncomment helpful "TEST: check io receive." in file "receive_io_checker.c" to log client requests on terminal
-        * Consider cybol application "internet/www_server_dynamic/", now being able to handle requests from multiple clients
+        * Continue in file "handle.cybol"
+            distinguish between file path request and query with key-value-pairs
+            insert if-else branches
+            test if path exists before continueing
+        * Make css be transfered as file, since dynamic URL does only work with JavaScript
 
         * Adapt cybol application "presence" to using stack memory variables
         * Handle non-existing database files using default values
@@ -54,6 +55,7 @@ ______________
             in non-blocking mode, the "recv()" returns errors EAGAIN or EWOULDBLOCK if no more data are available
             --> catch them and close connection in this case
             Reference: hall_-_beej's_guide_to_network_socket_programming.html#blocking
+        * Uncomment helpful "TEST: check io receive." in file "receive_io_checker.c" to log client requests on terminal
 
         * Use the values from the results of the call to getaddrinfo(), instead of
             hard-coded values, and feed them into socket() directly like this:
@@ -81,6 +83,7 @@ ______________
         * Set timeout parametre on server socket startup or sense
         * Close and remove socket from client list when timeout is reached
         * Close and remove socket from client list on error, e.g. non-respoding client
+        * Uncomment helpful "TEST: check io receive." in file "receive_io_checker.c" to log client requests on terminal
         * Increase limit of connecting clients or do only close connexion after a timeout has been reached
             (currently, the web browser blocks after ten clicks, since each request opens a new socket connexion)
 

@@ -20,7 +20,7 @@
         <node name="rel" channel="inline" format="text/plain" model="stylesheet"/>
         <node name="media" channel="inline" format="text/plain" model="all"/>
         <node name="type" channel="inline" format="text/plain" model="text/css"/>
-        <node name="href" channel="inline" format="text/plain" model=""/>
+        <node name="href" channel="inline" format="text/plain" model="page/presence.css"/>
     </node>
     <node name="icon" channel="inline" format="text/plain" model="">
         <node name="tag" channel="inline" format="text/plain" model="link"/>

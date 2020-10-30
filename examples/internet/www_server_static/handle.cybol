@@ -31,8 +31,8 @@
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-request"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".request"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/>
     </node>
 
     <!-- Write knowledge tree into file. -->
@@ -53,7 +53,7 @@
         <node name="source" channel="inline" format="text/plain" model="internet/www_server_static/files"/>
     </node>
 
-    <node name="append_action" channel="inline" format="modify/append" model="">
+    <node name="append_path" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".path"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".request:uri:path"/>
     </node>

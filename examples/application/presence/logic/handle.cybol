@@ -39,6 +39,68 @@
         <node name="sender" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
     </node>
 
+    <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->
+    <node name="overwrite_path" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.path"/>
+        <node name="source" channel="inline" format="text/plain" model="application/presence/wui"/>
+    </node>
+
+    <node name="append_path" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".request:uri:path"/>
+    </node>
+
+    <node name="TEST_path_label" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="File path:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="TEST_path" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".var.path"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <!-- CAUTION! If the request was not reset here, then the last valid previous file would be used again and again, neverendingly. -->
+    <node name="reset_file_model" channel="inline" format="modify/empty" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.file"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+    <node name="receive_file" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="language" channel="inline" format="meta/language" model="message/binary"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".var.path"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".var.file"/>
+    </node>
+
+    <!-- Write data into test file. -->
+    <node name="TEST_file" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="language" channel="inline" format="meta/language" model="message/binary"/>
+        <node name="receiver" channel="inline" format="text/plain" model="test_presence_file.txt"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".var.file"/>
+    </node>
+
+    <node name="send_file" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <!--
+            CAUTION! An "encoding" is NOT given when using the language "message/http-response",
+            since it would cause the WHOLE http message to get encoded.
+            But the http header should be ASCII (single-byte characters) only.
+            Likewise, binary attachments such as images should NOT get encoded.
+        -->
+        <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".var.file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
+    </node>
+
     <!--
         Verify that uri query is NOT empty.
 
@@ -55,12 +117,12 @@
     </node>
 
     <!-- Write knowledge tree into file. -->
-    <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+    <node name="TEST_knowledge_tree" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".var"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".var.request"/>
         <node name="receiver" channel="inline" format="text/plain" model="test_presence_request.txt"/>
     </node>
 
