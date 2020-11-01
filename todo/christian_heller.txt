@@ -14,20 +14,21 @@
 WUI and Socket
 ______________
 
-        * Continue in file "handle.cybol"
-            distinguish between file path request and query with key-value-pairs
-            insert if-else branches
-            test if path exists before continueing
-        * Make css be transfered as file, since dynamic URL does only work with JavaScript
-
-        * Adapt cybol application "presence" to using stack memory variables
-        * Handle non-existing database files using default values
-
+        * Check why new client socket number is assigned for css request
+            possibly close connection first OR remove "close" from http headers and do not close it
+        * Check node "test_query" in file "querytest.cybol"
+            it does not deliver a proper result for ".var.request:uri:query"
+            if a query does not exist, then the uri string itself is taken, which should NOT happen
+            therefore, correct and fix this in cyboi interpreter (return null for non-existing nodes instead of parent node)
+            afterwards, the static css file should get returned properly to the browser
         * Consider knowledge path count remaining in if-clause of file "part_knowledge_deserialiser.c", in block:
             } else if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
             --> that way, non-existing child nodes (possibly caused by wrong cybol paths) can be filtered out
             --> otherwise, the whole node would be returned and might erroneously get manipulated, which MUST NOT happen
         * Delete old unused commented functionality from file "part_knowledge_deserialiser.c"
+
+        * Adapt cybol application "presence" to using stack memory variables
+        * Handle non-existing database files using default values
 
         * Ignore binary data like images in model_diagram_serialiser since otherwise, serialisation fails
 

@@ -4,10 +4,12 @@
 
     <node name="index" channel="file" format="element/part" model="application/presence/logic/send/index.cybol"/>
 
+<!--
     <node name="css" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+-->
         <!--
             CAUTION! An "encoding" is NOT given when using the language "message/http-response",
             since it would cause the WHOLE http message to get encoded.
@@ -22,9 +24,11 @@
             with which the constraints are recognised properly.
             Therefore, the necessary "encoding" is added at the part ".webpage" DIRECTLY.
         -->
+<!--
         <node name="message" channel="inline" format="text/cybol-path" model=".wui.css"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
     </node>
+-->
 
     <node name="header_image" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>

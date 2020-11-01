@@ -2,7 +2,9 @@
 
     <!-- Web page. -->
     <node name="send_index" channel="inline" format="text/cybol-path" model=".logic.send.index"/>
+<!--
     <node name="send_css" channel="inline" format="text/cybol-path" model=".logic.send.css"/>
+-->
     <node name="send_header_image" channel="inline" format="text/cybol-path" model=".logic.send.header_image"/>
     <node name="send_heraldic_symbol" channel="inline" format="text/cybol-path" model=".logic.send.heraldic_symbol"/>
     <node name="send_icon" channel="inline" format="text/cybol-path" model=".logic.send.icon"/>

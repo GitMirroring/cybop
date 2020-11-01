@@ -15,6 +15,11 @@
         <node name="name" channel="inline" format="text/plain" model="robots"/>
         <node name="content" channel="inline" format="text/plain" model="noindex"/>
     </node>
+    <!--
+        Dynamic sending of a css file does NOT work like:
+            <node name="href" channel="inline" format="text/plain" model="http://localhost:1971/?action=send_css"/>
+        JavaScript would be needed to do this. Therefore, the href attribute contains a file path.
+    -->
     <node name="css" channel="inline" format="text/plain" model="">
         <node name="tag" channel="inline" format="text/plain" model="link"/>
         <node name="rel" channel="inline" format="text/plain" model="stylesheet"/>

@@ -26,13 +26,17 @@
 
     <node name="request" channel="inline" format="element/part" model=""/>
     <node name="client_socket" channel="inline" format="number/integer" model="0"/>
+
+    <node name="path_exists" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="query_exists" channel="inline" format="logicvalue/boolean" model="false"/>
+
     <node name="path" channel="inline" format="text/plain" model=""/>
     <!--
         CAUTION! The format is "text/ascii" and NOT "text/plain",
         since some data, like images for instance, represent binary data.
     -->
     <node name="file" channel="inline" format="text/ascii" model=""/>
-    <node name="query_exists" channel="inline" format="logicvalue/boolean" model="false"/>
+
     <node name="action_path" channel="inline" format="text/cybol-path" model=""/>
 
     <!-- The serialised webpage. -->

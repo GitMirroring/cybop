@@ -26,12 +26,13 @@
         <node name="message" channel="inline" format="text/cybol-path" model=".var.action_path"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+
     <node name="print_action_label" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Action:"/>
+        <node name="message" channel="inline" format="text/plain" model="Dereferenced action:"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="print_action" channel="inline" format="communicate/send" model="">
@@ -52,9 +53,7 @@
         CAUTION! Use path REFERENCE here, since the action is just
         a string pointing to the actual model to be executed.
     -->
-    <node name="execute_action" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model="*.var.action_path"/>
-    </node>
+    <node name="execute_action" channel="inline" format="text/cybol-path" model="*.var.action_path"/>
 
 <!--
     <node name="TEST_close_label" channel="inline" format="communicate/send" model="">
@@ -79,7 +78,9 @@
 <!--
     <node name="shutdown_client_socket" channel="inline" format="maintain/shutdown" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+-->
         <!-- Specify either service name OR id (port) number, NOT both. If both are given, then the port has higher priority. -->
+<!--
         <node name="id" channel="inline" format="number/integer" model="80"/>
         <node name="service" channel="inline" format="text/plain" model="http"/>
         <node name="mode" channel="inline" format="text/plain" model="client"/>

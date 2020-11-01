@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-11-01  Christian Heller  <christian.heller@cybop.org>
+
+        * Split file "handle.cybol" into many files in directory "application/presence/logic/handle/"
+        * Distinguish request between file path and query with key-value-pairs in cybol application "presence"
+        * Make css be transferred as file, since dynamic URL does only work with JavaScript
+
 2020-10-30  Christian Heller  <christian.heller@cybop.org>
 
         * Integrate handling of static files in file "logic/handle.cybol" of cybol application "presence"

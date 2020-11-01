@@ -3,7 +3,6 @@
     <!-- Application. -->
     <node name="startup" channel="file" format="element/part" model="application/presence/logic/startup.cybol"/>
     <node name="handle" channel="file" format="element/part" model="application/presence/logic/handle.cybol"/>
-    <node name="evaluate_query" channel="file" format="element/part" model="application/presence/logic/evaluate_query.cybol"/>
     <node name="actions" channel="file" format="element/part" model="application/presence/logic/actions.cybol"/>
 
     <!-- Data. -->

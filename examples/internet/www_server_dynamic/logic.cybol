@@ -6,6 +6,7 @@
 
     <node name="send_empty_message" channel="file" format="element/part" model="internet/www_server_dynamic/logic/send_empty_message.cybol"/>
     <node name="send_index" channel="file" format="element/part" model="internet/www_server_dynamic/logic/send_index.cybol"/>
+    <!-- This might be superfluous, since only static css files may be sent. -->
     <node name="send_css" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-response"/>

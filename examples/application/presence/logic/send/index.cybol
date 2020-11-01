@@ -63,6 +63,5 @@
         </node>
         <node name="receiver" channel="inline" format="text/plain" model="test_presence_http_response.txt"/>
     </node>
--->
 
 </node>

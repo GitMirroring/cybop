@@ -25,7 +25,9 @@
 
     <node name="action_send_header_image" channel="inline" format="text/plain" model="send_header_image"/>
     <node name="action_send_heraldic_symbol" channel="inline" format="text/plain" model="send_heraldic_symbol"/>
+<!--
     <node name="action_send_css" channel="inline" format="text/plain" model="send_css"/>
+-->
     <node name="action_send_icon" channel="inline" format="text/plain" model="send_icon"/>
     <node name="action_navigate_backward" channel="inline" format="text/plain" model="navigate_backward"/>
     <node name="action_navigate_forward" channel="inline" format="text/plain" model="navigate_forward"/>
