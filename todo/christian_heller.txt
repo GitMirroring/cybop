@@ -21,16 +21,20 @@ ______________
             if a query does not exist, then the uri string itself is taken, which should NOT happen
             therefore, correct and fix this in cyboi interpreter (return null for non-existing nodes instead of parent node)
             afterwards, the static css file should get returned properly to the browser
-        * Consider knowledge path count remaining in if-clause of file "part_knowledge_deserialiser.c", in block:
-            } else if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
-            --> that way, non-existing child nodes (possibly caused by wrong cybol paths) can be filtered out
-            --> otherwise, the whole node would be returned and might erroneously get manipulated, which MUST NOT happen
+        * Draw diagram showing programme flow logic
+        * Apply possible solutions:
+            1 Hand over parametre/argument/flag keeping last state (knowledge tree node)
+            2 Consider knowledge path count remaining in if-clause of file "part_knowledge_deserialiser.c", in block:
+                } else if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                --> that way, non-existing child nodes (possibly caused by wrong cybol paths) can be filtered out
+                --> otherwise, the whole node would be returned and might erroneously get manipulated, which MUST NOT happen
+                --> problem: closing parenthesis e.g. ")"
         * Delete old unused commented functionality from file "part_knowledge_deserialiser.c"
 
         * Adapt cybol application "presence" to using stack memory variables
         * Handle non-existing database files using default values
 
-        * Ignore binary data like images in model_diagram_serialiser since otherwise, serialisation fails
+        * Verify that binary data like images are ignored in model_diagram_serialiser since otherwise, serialisation fails
 
         * Improve cybol application "presence"
             - make DATETIME work in cyboi, before continuing

@@ -103,7 +103,7 @@ void select_knowledge_root(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                // Copy knowledge memory part from internal memory to destination.
+                // Copy signal memory part from internal memory to destination.
                 copy_array_forward(p0, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
             }
         }
@@ -114,7 +114,7 @@ void select_knowledge_root(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                // Copy knowledge memory part from internal memory to destination.
+                // Copy stack memory part from internal memory to destination.
                 copy_array_forward(p0, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) STACK_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
             }
         }

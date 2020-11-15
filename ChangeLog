@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-11-15  Christian Heller  <christian.heller@cybop.org>
+
+        * Add diagram "src/knowledge_deserialiser.xmi"
+
 2020-11-01  Christian Heller  <christian.heller@cybop.org>
 
         * Split file "handle.cybol" into many files in directory "application/presence/logic/handle/"
