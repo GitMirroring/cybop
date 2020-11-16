@@ -98,178 +98,79 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
     if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
-        // The knowledge path contains another element to follow.
+        // The knowledge path contained another element to follow.
+        // This child element was successfully retrieved.
         //
 
         // Take the element (child) as result.
         copy_pointer(p0, (void*) &e);
 
-    } else if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    } else {
 
         //
-        // The knowledge path does NOT contain further elements.
-        // Its end has been reached.
+        // A child element could NOT be retrieved.
         //
 
+        // The comparison result.
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+        // Find out if knowledge path contained another element to follow.
         //
-        // Take the whole (parent) as result,
-        // since it is the last existing part in the hierarchy.
+        //?? TODO: Implement this function "deserialise_knowledge_continuation"
         //
-        copy_pointer(p0, (void*) &w);
-    }
-
-    //
-    // If both, the whole and the element are null,
-    // then nothing will be done and p0 remains untouched.
-    //
-
-/*??
-
-    CAUTION! The following solution is NOT working well!
-    Possibly delete it in the future.
-
-    // The new whole part.
-    void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The element part.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The comparison result for the whole.
-    int rw = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The comparison result for the element.
-    int re = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    fwprintf(stdout, L"TEST: Deserialise knowledge part. knowledge path data position: %ls\n", (wchar_t*) *((void**) p2));
-    fwprintf(stdout, L"TEST: Deserialise knowledge part. knowledge path count remaining: %i\n", *((int*) p3));
-
-    //
-    // Compare if knowledge path count remaining contains at least one character.
-    //
-    // CAUTION! In case p3 is null, the comparison result remains false that way.
-    //
-    compare_integer_greater((void*) &rw, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-    if (rw != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
+        // Test for longer path either by:
+        // 1) looking for memory character (. # signal_memory)
+        // OR:
+        // 2) from now on using only OPENING characters [ and ( but NOT closing characters ] and )
+        //   since then, the @param p2 the knowledge path data position can be compared
+        //   and if greater zero, that means that an element is following
         //
-        // The knowledge path contains another element to follow.
-        //
+//??        deserialise_knowledge_continuation((void*) &r, p2, p3);
 
-        //
-        // Get new whole part.
-        //
-        // CAUTION! Forward the source whole part element INDEX p7 as argument here,
-        // since it identifies the memory to retrieve the part from.
-        //
-        deserialise_knowledge((void*) &w, p1, p2, p3, p4, p5, p6, p7);
-
-        if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // Compare if knowledge path count remaining contains at least one character.
+            // The knowledge path does NOT contain further elements.
+            // Its end has been reached.
             //
-            // CAUTION! In case p3 is null, the comparison result remains false that way.
+
+            //?? TODO: Should w be tested for null here first?
+            //?? if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
             //
-            compare_integer_greater((void*) &re, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-            if (re != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                //
-                // The knowledge path contains another element to follow.
-                //
-
-                //
-                // Get element part.
-                //
-                // Process knowledge path hierarchy recursively further down,
-                // using new whole part.
-                //
-                // CAUTION! Do NOT forward the source whole part element index p7 as argument here,
-                // but NULL instead, since the next separator is unknown yet.
-                //
-                deserialise_knowledge((void*) &e, (void*) &w, p2, p3, p4, p5, p6, *NULL_POINTER_STATE_CYBOI_MODEL);
-
-                if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                    // Take the element (child) as result.
-                    copy_pointer(p0, (void*) &e);
-
-                } else {
-
-                    //
-                    // The returned element (child) is NULL, even though the
-                    // knowledge path contained another element to follow.
-                    // That is, something went wrong.
-                    //
-                    // Possible reasons:
-                    // 1 Node does not exist.
-                    // 2 Knowledge path is wrong.
-                    //
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise knowledge part. The returned element (child) is NULL, even though the knowledge path contained another element to follow.");
-                    fwprintf(stdout, L"Error: Could not deserialise knowledge part. The returned element (child) is NULL, even though the knowledge path contained another element to follow. e: %i\n", e);
-
-                    //
-                    // Reset destination part to NULL.
-                    //
-                    // CAUTION! This is important since otherwise, a previously
-                    // retrieved whole part will be returned and the cybol application
-                    // work with it instead of the child element actually meant.
-                    // But this could MIX UP the whole cybol application
-                    // and surely lead to errors.
-                    //
-                    copy_pointer(p0, NULL_POINTER_STATE_CYBOI_MODEL);
-                }
-
-            } else {
-
-                //
-                // The knowledge path contains NO MORE elements to follow.
-                // Its end has been reached.
-                //
-
-                //
-                // Take the whole (parent) as result,
-                // since it is the last existing part in the hierarchy.
-                //
-                copy_pointer(p0, (void*) &w);
-            }
+            // Take the whole (parent) as result,
+            // since it is the last existing part in the hierarchy.
+            //
+            copy_pointer(p0, (void*) &w);
 
         } else {
 
             //
-            // The returned whole (parent) is NULL, even though the
-            // knowledge path contained another element to follow.
-            // That is, something went wrong.
+            // The knowledge path DOES contain further elements.
+            // However, the expected element (child) could NOT be retrieved.
             //
-            // Possible reasons:
-            // 1 Node does not exist.
-            // 2 Knowledge path is wrong.
+            // Reasons might be:
+            // 1) a spelling error
+            // 2) the element (child) does not exist
+            //
+            // A non-existing element may indeed be
+            // regular behaviour in a cybol application.
             //
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise knowledge part. The returned whole (parent) is NULL, even though the knowledge path contained another element to follow.");
-            fwprintf(stdout, L"Error: Could not deserialise knowledge part. The returned whole (parent) is NULL, even though the knowledge path contained another element to follow. w: %i\n", w);
-
             //
-            // Reset destination part to NULL.
+            // Reset p0 to NULL.
             //
-            // CAUTION! This is important since otherwise, a previously
-            // retrieved whole part will be returned and the cybol application
-            // work with it instead of the child element actually meant.
-            // But this could MIX UP the whole cybol application
-            // and surely lead to errors.
+            // Other elements (parents) may have been found and assigned previously.
+            // Therefore, these have to be reset right here,
+            // since the searched element has not been found.
             //
-            copy_pointer(p0, NULL_POINTER_STATE_CYBOI_MODEL);
+            // Otherwise, the cybol application would manipulate
+            // the parent instead of the non-existing child node,
+            // which would definitely lead to wrong application data.
+            //
+            copy_pointer(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL);
         }
-
-    } else {
-
-        //
-        // The knowledge path contains NO MORE elements to follow.
-        // Its end has been reached.
-        //
-
-        // Do NOTHING here.
     }
-*/
 }
 
 /* PART_KNOWLEDGE_DESERIALISER_SOURCE */
