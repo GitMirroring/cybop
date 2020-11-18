@@ -69,7 +69,8 @@ void verify_index_count(void* p0, void* p1, void* p2, void* p3) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not verify index count. The sum of the data index and count is greater than the data count.");
         fwprintf(stdout, L"Warning: Could not verify index count. The sum of the data index and count is greater than the data count.\n");
-        fwprintf(stdout, L"Hint: Test count sum c: %i. Data count *p3: %i.\n", c, *((int*) p3));
+        //?? CAUTION! The following print messages causes an error, if p3 is null! It is therefore commented out.
+        //?? fwprintf(stdout, L"Hint: Test count sum c: %i. Data count *p3: %i.\n", c, *((int*) p3));
     }
 }
 

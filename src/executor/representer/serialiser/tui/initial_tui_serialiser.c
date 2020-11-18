@@ -57,10 +57,14 @@ void serialise_tui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     // The output.
     void* op = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //
     // The tree level.
+    //
     // CAUTION! Do NOT forward the NUMBER_0_INTEGER_STATE_CYBOI_MODEL
     // constant directly, since the value gets changed in the functions!
+    //
     int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    //
     // The original attributes.
     //
     // CAUTION! Black colour is defined by specifying no red-green-blue (rgb)
@@ -76,18 +80,22 @@ void serialise_tui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     //
     // CAUTION! Do NOT forward the NUMBER_0_INTEGER_STATE_CYBOI_MODEL
     // constant directly, since the value gets changed in the functions!
+    //
 #ifdef WIN32
     WORD a = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 #else
+    //
     // CAUTION! This is just a placeholder variable, since
     // something HAS to be forwarded as parametre below.
     // It has no meaning outside win32.
+    //
     int a = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 #endif
 
     // Get output.
 //??    copy_array_forward((void*) &op, p7, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
+    //
     // CAUTION! Handing over the output item is necessary
     // for serialising into a win32 console, since
     // win32 console functions have to be called inside.
@@ -97,6 +105,7 @@ void serialise_tui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // The only difference is the CLI FLAG handed over,
     // which is used to avoid cursor positioning,
     // since that is NOT wanted for cli.
+    //
     serialise_tui_part_element_content(p0, op, p1, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, p6, p7, p8, p9, (void*) &l, p10, (void*) &a, p11);
 }
 

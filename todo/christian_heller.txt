@@ -14,13 +14,6 @@
 WUI and Socket
 ______________
 
-        * Check correct knowledge path end behaviour with node "test_query" in file "querytest.cybol"
-            the (now old) problem before knowledge path end solution:
-            it does not deliver a proper result for ".var.request:uri:query"
-            if a query does not exist, then the uri string itself is taken, which should NOT happen
-            therefore, correct and fix this in cyboi interpreter (return null for non-existing nodes instead of parent node)
-            afterwards, the static css file should get returned properly to the browser
-
         * Adapt cybol application "presence" to using stack memory variables
         * Handle non-existing database files using default values
         * Check why new client socket number is assigned for css request

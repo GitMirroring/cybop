@@ -1,10 +1,10 @@
 <node>
 
-    <node name="node1" channel="file" format="element/part" model="cybol-path_1/node1.cybol"/>
+    <node name="node1" channel="file" format="element/part" model="knowledge_tree/cybol-path_1/node1.cybol"/>
     <node name="node2" channel="inline" format="text/plain" model="node2">
         <node name="a" channel="inline" format="text/plain" model="a"/>
         <node name="b" channel="inline" format="text/plain" model="b"/>
-        <node name="c" channel="file" format="element/part" model="cybol-path_1/c.cybol"/>
+        <node name="c" channel="file" format="element/part" model="knowledge_tree/cybol-path_1/c.cybol"/>
     </node>
     <node name="node3" channel="inline" format="text/plain" model="node3"/>
     <node name="reference" channel="inline" format="text/cybol-path" model=".test.node2:c.node1:b"/>

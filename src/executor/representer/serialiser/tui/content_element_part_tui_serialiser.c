@@ -79,11 +79,14 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui part element content.");
 
+    //
     // The serialised item.
+    //
     // CAUTION! This variable is necessary,
     // because translation for unix terminal and
     // win32 console is done in different ways below.
     // So, the serialised data are handed over as parametre.
+    //
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The serialised item data, count.
     void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -97,22 +100,29 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // If this is the first tui element being processed (tree level zero),
         // then store the current original win32 console attributes.
+        //
         serialise_win32_console_state(p15, p1);
 
     } else {
 
+        //
         // If this is any of the following tui elements,
         // then reset console to original attributes
         // before actually manipulating them below.
+        //
         serialise_win32_console_reset(p1, p15);
     }
 #endif
 
+    //
     // Allocate serialised item.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Clear terminal screen.
@@ -128,10 +138,13 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     // Decrement tree level.
     calculate_integer_subtract(p13, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
+    //
     // Get serialised item data, count.
+    //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
+    //
     copy_array_forward((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sc, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
@@ -144,6 +157,7 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     // Append newline.
     serialise_tui_newline(p0, p1, p12, p13);
 
+    //
     // Reset terminal attributes in order to have
     // original settings in two situations:
     // - leaving cyboi
@@ -153,6 +167,7 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     // Therefore, the reset is done not only
     // once after serialisation, but EVERYTIME
     // after having painted a part here.
+    //
 #ifdef WIN32
     serialise_win32_console_reset(p1, p15);
 #else

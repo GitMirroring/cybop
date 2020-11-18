@@ -20,8 +20,10 @@
 
 2020-11-18  Christian Heller  <christian.heller@cybop.org>
 
-        * Correct knowledge deserialiser so that whole (parent) nodes are not assigned instead of a non-existing element (child), in order to avoid cybol applications manipulate the wrong node
         * Set knowledge path end flag not only in file "knowledge_deserialiser.c", but also in file "end_knowledge_selector.c"
+        * Return null for non-existing element (child) nodes instead of the whole (parent) node in knowledge deserialiser
+        * Test existence of ".var.request:uri:query" node in "logic/handle/querytest.cybol" of cybol application "presence"
+        * Make sure dynamic content as well as static files (such as css) are delivered properly to the webbrowser client
 
 2020-11-15  Christian Heller  <christian.heller@cybop.org>
 

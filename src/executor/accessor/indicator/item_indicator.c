@@ -60,11 +60,13 @@ void indicate_item(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // Check for emptiness.
             //
             // CAUTION! Do NOT merge this function with the one above.
-            // The function above passes a pointer REFERENCE and
+            // The function "copy_array_forward" above passes a pointer REFERENCE and
             // CANNOT pass p0 as destination integer pointer straightforward.
+            //
             compare_integer_less_or_equal(p0, ic, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
@@ -75,11 +77,13 @@ void indicate_item(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // Check for existence.
             //
             // CAUTION! Do NOT merge this function with the one above.
-            // The function above passes a pointer REFERENCE and
+            // The function "copy_array_forward" above passes a pointer REFERENCE and
             // CANNOT pass p0 as destination integer pointer straightforward.
+            //
             compare_integer_greater(p0, ic, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }

@@ -171,7 +171,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     //?? fwprintf(stdout, L"TEST send data termination ad: %s\n", (char*) ad);
 
     // Compress message.
-//??    send_compress((void*) &ad, (void*) &ac, c, ad, ac, p??);
+    //?? send_compress((void*) &ad, (void*) &ac, c, ad, ac, p??);
 
     //?? fwprintf(stdout, L"TEST send data compress *ac: %i\n", *((int*) ac));
     //?? fwprintf(stdout, L"TEST send data compress ad: %s\n", (char*) ad);

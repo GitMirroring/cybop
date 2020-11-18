@@ -1,7 +1,7 @@
 <node>
 
     <node name="count_weekdays" channel="inline" format="access/count" model="">
-        <node name="count" channel="inline" format="text/cybol-path" model="#column_count"/>
+        <node name="result" channel="inline" format="text/cybol-path" model="#column_count"/>
         <node name="part" channel="inline" format="text/cybol-path" model=".domain.weekdays"/>
     </node>
 
