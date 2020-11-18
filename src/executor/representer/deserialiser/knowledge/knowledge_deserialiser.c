@@ -47,13 +47,14 @@
  *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
  *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties
  *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for stack variables
+ * @param p8 the knowledge path end flag
  */
-void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge.");
 
-//?? fwprintf(stdout, L"TEST deserialise knowledge *p3: %i\n", *((int*) p3));
-//?? fwprintf(stdout, L"TEST deserialise knowledge *p2: %ls\n", (wchar_t*) *((void**) p2));
+    //?? fwprintf(stdout, L"TEST deserialise knowledge *p3: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"TEST deserialise knowledge *p2: %ls\n", (wchar_t*) *((void**) p2));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -72,7 +73,26 @@ void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
+        // The knowledge path contains further characters.
+        //
+
         select_knowledge_root(p0, p1, p2, p3, p4, p5, p6, p7);
+
+    } else {
+
+        //
+        // The knowledge path end has been reached.
+        //
+
+        //
+        // Set knowledge path end flag.
+        //
+        // CAUTION! Setting this flag IS IMPORTANT
+        // for deciding whether to assign the whole (parent) or
+        // element (child) node in file "part_knowledge_deserialiser.c".
+        //
+        copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 

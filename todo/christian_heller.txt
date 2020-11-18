@@ -14,13 +14,8 @@
 WUI and Socket
 ______________
 
-        * Apply possible solutions:
-            1 Hand over parametre/argument/flag keeping last state (knowledge tree node)
-            2 Implement function "deserialise_knowledge_continuation"
-                to consider knowledge path count remaining in if-clause
-                of file "part_knowledge_deserialiser.c"
-                --> problem: closing parenthesis e.g. ")"
-        * Check node "test_query" in file "querytest.cybol"
+        * Check correct knowledge path end behaviour with node "test_query" in file "querytest.cybol"
+            the (now old) problem before knowledge path end solution:
             it does not deliver a proper result for ".var.request:uri:query"
             if a query does not exist, then the uri string itself is taken, which should NOT happen
             therefore, correct and fix this in cyboi interpreter (return null for non-existing nodes instead of parent node)

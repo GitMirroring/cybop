@@ -75,9 +75,11 @@ void sort_bubble_criterion(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! The left and right source data position gets copied and
         // used independently, since it is handed over as pointer reference
         // and gets manipulated inside the "deserialise_knowledge" function.
+        //
 
         // Initialise left source data position and source count remaining.
         copy_pointer((void*) &lpos, p4);
@@ -87,9 +89,9 @@ void sort_bubble_criterion(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         copy_integer((void*) &rrem, p5);
 
         // Get left part.
-        deserialise_knowledge(p0, p2, (void*) &lpos, (void*) &lrem, p7, p8, p9, *NULL_POINTER_STATE_CYBOI_MODEL);
+        deserialise_knowledge(p0, p2, (void*) &lpos, (void*) &lrem, p7, p8, p9, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
         // Get right part.
-        deserialise_knowledge(p1, p3, (void*) &rpos, (void*) &rrem, p7, p8, p9, *NULL_POINTER_STATE_CYBOI_MODEL);
+        deserialise_knowledge(p1, p3, (void*) &rpos, (void*) &rrem, p7, p8, p9, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     } else {
 

@@ -116,7 +116,7 @@ fwprintf(stdout, L"TEST get part knowledge smd: %ls\n", (wchar_t*) smd);
                 // This is IMPORTANT since otherwise, the original data position
                 // gets increased and the count remaining decreased to zero,
                 // so that knowledge access works only once, but not anymore afterwards.
-                deserialise_knowledge(p0, p2, (void*) &pathd, (void*) &pathc, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL);
+                deserialise_knowledge(p0, p2, (void*) &pathd, (void*) &pathc, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
             }
         }
 

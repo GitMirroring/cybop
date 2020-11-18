@@ -35,7 +35,7 @@
 // Forward declarations.
 //
 
-void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
+void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
 
 /**
  * Deserialises a knowledge part.
@@ -70,72 +70,45 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
     // CAUTION! Forward the source whole part element INDEX p7 as argument here,
     // since it identifies the memory to retrieve the part from.
     //
-    deserialise_knowledge((void*) &w, p1, p2, p3, p4, p5, p6, p7);
+    deserialise_knowledge((void*) &w, p1, p2, p3, p4, p5, p6, p7, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     //?? fwprintf(stdout, L"TEST: Deserialise knowledge part 1. knowledge path data position: %ls\n", (wchar_t*) *((void**) p2));
     //?? fwprintf(stdout, L"TEST: Deserialise knowledge part 1. knowledge path count remaining: %i\n", *((int*) p3));
 
-    //
-    // Get element part.
-    //
-    // Process knowledge path hierarchy recursively further down,
-    // using new whole part.
-    //
-    // CAUTION! Do NOT forward the source whole part element index p7 as argument here,
-    // but NULL instead, since the next separator is unknown yet.
-    //
-    deserialise_knowledge((void*) &e, (void*) &w, p2, p3, p4, p5, p6, *NULL_POINTER_STATE_CYBOI_MODEL);
-
-    //?? fwprintf(stdout, L"TEST: Deserialise knowledge part 2. knowledge path data position: %ls\n", (wchar_t*) *((void**) p2));
-    //?? fwprintf(stdout, L"TEST: Deserialise knowledge part 2. knowledge path count remaining: %i\n", *((int*) p3));
-
-    //
-    // CAUTION! The order of below comparisons IS IMPORTANT.
-    // If an element (child) was found, then it has
-    // higher priority than the whole (parent) found before.
-    //
-
-    if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
-        // The knowledge path contained another element to follow.
-        // This child element was successfully retrieved.
+        // A new whole (parent) exists.
+        // Further processing of the knowledge path makes sense.
         //
 
-        // Take the element (child) as result.
-        copy_pointer(p0, (void*) &e);
+        //?? fwprintf(stdout, L"TEST: Deserialise knowledge part. a new whole (parent) exists: %i\n", w);
 
-    } else {
+        // The knowledge path end flag.
+        int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         //
-        // A child element could NOT be retrieved.
+        // Get element part.
         //
+        // Process knowledge path hierarchy recursively further down,
+        // using new whole part.
+        //
+        // CAUTION! Do NOT forward the source whole part element index p7 as argument here,
+        // but NULL instead, since the next separator is unknown yet.
+        //
+        deserialise_knowledge((void*) &e, (void*) &w, p2, p3, p4, p5, p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &f);
 
-        // The comparison result.
-        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        //?? fwprintf(stdout, L"TEST: Deserialise knowledge part 2. knowledge path data position: %ls\n", (wchar_t*) *((void**) p2));
+        //?? fwprintf(stdout, L"TEST: Deserialise knowledge part 2. knowledge path count remaining: %i\n", *((int*) p3));
 
-        // Find out if knowledge path contained another element to follow.
-        //
-        //?? TODO: Implement this function "deserialise_knowledge_continuation"
-        //
-        // Test for longer path either by:
-        // 1) looking for memory character (. # signal_memory)
-        // OR:
-        // 2) from now on using only OPENING characters [ and ( but NOT closing characters ] and )
-        //   since then, the @param p2 the knowledge path data position can be compared
-        //   and if greater zero, that means that an element is following
-        //
-//??        deserialise_knowledge_continuation((void*) &r, p2, p3);
+        if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            //?? fwprintf(stdout, L"TEST: Deserialise knowledge part. knowledge path end has been reached: %i\n", f);
 
             //
             // The knowledge path does NOT contain further elements.
             // Its end has been reached.
             //
-
-            //?? TODO: Should w be tested for null here first?
-            //?? if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             //
             // Take the whole (parent) as result,
@@ -147,29 +120,65 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
 
             //
             // The knowledge path DOES contain further elements.
-            // However, the expected element (child) could NOT be retrieved.
-            //
-            // Reasons might be:
-            // 1) a spelling error
-            // 2) the element (child) does not exist
-            //
-            // A non-existing element may indeed be
-            // regular behaviour in a cybol application.
             //
 
-            //
-            // Reset p0 to NULL.
-            //
-            // Other elements (parents) may have been found and assigned previously.
-            // Therefore, these have to be reset right here,
-            // since the searched element has not been found.
-            //
-            // Otherwise, the cybol application would manipulate
-            // the parent instead of the non-existing child node,
-            // which would definitely lead to wrong application data.
-            //
-            copy_pointer(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL);
+            //?? fwprintf(stdout, L"TEST: Deserialise knowledge part. knowledge path end has NOT been reached: %i\n", f);
+
+            if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                //
+                // The element (child) was successfully retrieved.
+                //
+
+                //?? fwprintf(stdout, L"TEST: Deserialise knowledge part. element (child) exists: %i\n", e);
+
+                //
+                // Take the element (child) as result.
+                //
+                // The element (child) has higher priority
+                // than the whole (parent) found before.
+                //
+                copy_pointer(p0, (void*) &e);
+
+            } else {
+
+                //
+                // The element (child) could NOT be retrieved.
+                //
+                // Reasons might be:
+                // 1) a spelling error
+                // 2) the element (child) does not exist
+                //
+                // A non-existing element (child) may indeed be
+                // regular behaviour in a cybol application since sometimes,
+                // knowledge paths may point to non-existing nodes.
+                //
+
+                //?? fwprintf(stdout, L"TEST: Deserialise knowledge part. element (child) is null: %i\n", e);
+
+                //
+                // Do NOTHING here.
+                //
+                // CAUTION! A reset of p0 to null is NOT necessary,
+                // since other elements (parents) were not assigned yet.
+                //
+                // However, it IS IMPORTANT that the return value is only set,
+                // if a valid existing element (child) was found.
+                // Assigning the whole (parent) instead of a non-existing element (child)
+                // would cause a cybol application to manipulate
+                // the parent instead of the (non-existing) child node,
+                // which would definitely lead to wrong application data.
+                //
+                // REMARK: This empty block containing this comment only
+                // does no harm, since the compiler will remove it anyway.
+                //
+            }
         }
+
+    } else {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise knowledge part. The new whole (parent) is null.");
+        fwprintf(stdout, L"Error: Could not deserialise knowledge part. The new whole (parent) is null. w: %i\n", w);
     }
 }
 

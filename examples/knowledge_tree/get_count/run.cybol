@@ -5,7 +5,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/plain" model="counter/app.cybol"/>
+        <node name="sender" channel="inline" format="text/plain" model="knowledge_tree/get_count/app.cybol"/>
         <node name="message" channel="inline" format="text/cybol-path" model="."/>
     </node>
 

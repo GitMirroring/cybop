@@ -53,7 +53,7 @@ void select_knowledge_move(void* p0, void* p1, void* p2, void* p3) {
         //
         // The source whole part element index is NOT null.
         // That is, this is the FIRST time that this function is called
-        // from "deserialise_knowledge_part" via "deserialise_knowledge_part_name".
+        // from "deserialise_knowledge_part" via "deserialise_knowledge_name".
         // Therefore, the move flag MUST NOT be set here,
         // so that the delimiter ")" may be detected once again.
         //
@@ -65,7 +65,7 @@ void select_knowledge_move(void* p0, void* p1, void* p2, void* p3) {
         //
         // The source whole part element index is NULL.
         // That is, this is the SECOND time that this function is called
-        // from "deserialise_knowledge_part" via "deserialise_knowledge_part_name".
+        // from "deserialise_knowledge_part" via "deserialise_knowledge_name".
         // Therefore, the move flag HAS TO BE set here,
         // so that the delimiter ")" is NOT detected once again and
         // further characters may get processed down the knowledge path hierarchy.

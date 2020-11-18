@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-11-18  Christian Heller  <christian.heller@cybop.org>
+
+        * Correct knowledge deserialiser so that whole (parent) nodes are not assigned instead of a non-existing element (child), in order to avoid cybol applications manipulate the wrong node
+
 2020-11-15  Christian Heller  <christian.heller@cybop.org>
 
         * Add diagram "src/knowledge_deserialiser.xmi"

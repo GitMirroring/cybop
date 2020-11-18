@@ -1,6 +1,6 @@
 <node>
 
-    <node name="window" channel="file" format="element/part" model="tui/window.cybol">
+    <node name="window" channel="file" format="element/part" model="user_interface/tui/window.cybol">
         <node name="position" channel="inline" format="number/integer" model="0,0"/>
         <node name="size" channel="inline" format="number/integer" model="80,15"/>
         <node name="background" channel="inline" format="colour/terminal" model="green"/>

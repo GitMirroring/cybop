@@ -67,12 +67,20 @@ void select_knowledge_root(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         //?? fwprintf(stdout, L"TEST select knowledge root *p2: %ls\n", (wchar_t*) *d);
 
         //
+        // Select the correct memory.
+        //
+        // CAUTION! This is to filter out the special case
+        // that ONLY a memory root is given, that is
+        // the path consists of one character only.
+        // The STANDARD CASE, however, is to call the function
+        // "select_knowledge_begin" at the end of this file.
+        //
         // CAUTION! The order of comparisons IS IMPORTANT.
         //
-        // Memory root characters have to be tested first, i.e.:
-        // - "." = knowledge memory
-        // - "|" = signal memory
-        // - "#" = stack memory
+        // Memory root characters have to be tested FIRST, i.e.:
+        // . knowledge memory
+        // | signal memory
+        // # stack memory
         //
         // Use the function "check_operation", NOT detection.
         // It does a lexicographical comparison considering

@@ -41,7 +41,7 @@
 // Forward declarations.
 //
 
-void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
+void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
 
 /**
  * Deserialises a knowledge part identification (name or index).
@@ -84,7 +84,7 @@ void deserialise_knowledge_identification(void* p0, void* p1, void* p2, void* p3
     // CAUTION! Do NOT forward the source whole part element index p7 as argument here,
     // but NULL instead, since the next separator is unknown yet.
     //
-    deserialise_knowledge((void*) &n, p4, p2, p3, p4, p5, p6, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_knowledge((void*) &n, p4, p2, p3, p4, p5, p6, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // Get name part model item.
     copy_array_forward((void*) &nm, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

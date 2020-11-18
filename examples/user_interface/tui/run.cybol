@@ -26,7 +26,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/plain" model="tui/temporary.cybol"/>
+        <node name="sender" channel="inline" format="text/plain" model="user_interface/tui/temporary.cybol"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".temporary"/>
     </node>
     <node name="initialise_logic" channel="inline" format="communicate/receive" model="">
@@ -34,7 +34,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/plain" model="tui/logic.cybol"/>
+        <node name="sender" channel="inline" format="text/plain" model="user_interface/tui/logic.cybol"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".logic"/>
     </node>
     <node name="initialise_tui" channel="inline" format="communicate/receive" model="">
@@ -42,7 +42,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/plain" model="tui/tui.cybol"/>
+        <node name="sender" channel="inline" format="text/plain" model="user_interface/tui/tui.cybol"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".tui"/>
     </node>
     <node name="initialise_actions" channel="inline" format="communicate/receive" model="">
@@ -50,7 +50,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/plain" model="tui/actions.cybol"/>
+        <node name="sender" channel="inline" format="text/plain" model="user_interface/tui/actions.cybol"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".actions"/>
     </node>
     <node name="initialise_handler" channel="inline" format="communicate/receive" model="">
@@ -58,7 +58,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/plain" model="tui/handler.cybol"/>
+        <node name="sender" channel="inline" format="text/plain" model="user_interface/tui/handler.cybol"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".handler"/>
     </node>
 

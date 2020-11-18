@@ -1,7 +1,9 @@
 <node>
 
+    <!-- This is the result. -->
     <node name="count" channel="inline" format="number/integer" model="0"/>
 
+    <!-- These are just the placeholder nodes, which are to be counted. -->
     <node name="hello" channel="inline" format="number/integer" model="0"/>
     <node name="world" channel="inline" format="number/integer" model="0"/>
     <node name="blubla" channel="inline" format="number/integer" model="0"/>
