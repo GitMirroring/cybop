@@ -24,6 +24,7 @@
         * Return null for non-existing element (child) nodes instead of the whole (parent) node in knowledge deserialiser
         * Test existence of ".var.request:uri:query" node in "logic/handle/querytest.cybol" of cybol application "presence"
         * Make sure dynamic content as well as static files (such as css) are delivered properly to the webbrowser client
+        * Move development documentation files and diagrams from "src/" to "doc/development/cyboi/"
 
 2020-11-15  Christian Heller  <christian.heller@cybop.org>
 
