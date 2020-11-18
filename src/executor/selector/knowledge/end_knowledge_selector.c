@@ -66,8 +66,9 @@
  * @param p1 the knowledge path data position (pointer reference)
  * @param p2 the knowledge path count remaining
  * @param p3 the move flag
+ * @param p4 the knowledge path end flag
  */
-void select_knowledge_end(void* p0, void* p1, void* p2, void* p3) {
+void select_knowledge_end(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge end.");
 
@@ -112,6 +113,29 @@ void select_knowledge_end(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
+            // Set knowledge path end flag.
+            //
+            // CAUTION! Setting this flag IS IMPORTANT
+            // for deciding whether to assign the whole (parent) or
+            // element (child) node in file "part_knowledge_deserialiser.c".
+            //
+            // There are two files, where the end flag is set:
+            // 1) knowledge_deserialiser.c
+            // 2) end_knowledge_selector.c
+            //
+            // Case 1 applies, when the absolute end of the knowledge path
+            // has been reached, i.e. count remaining is zero.
+            //
+            // Case 2 applies, when a SUB PATH was used:
+            // - either as name, like e.g. "(.some.path)"
+            // - or as index, like e.g. "[#some_index_on_stack]"
+            // and the end of that sub path has been reached:
+            // - either a ")"
+            // - or a "]"
+            //
+            copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
             // Set break flag.
             copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
@@ -122,6 +146,29 @@ void select_knowledge_end(void* p0, void* p1, void* p2, void* p3) {
         detect((void*) &r, p1, p2, (void*) END_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) END_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, p3);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // Set knowledge path end flag.
+            //
+            // CAUTION! Setting this flag IS IMPORTANT
+            // for deciding whether to assign the whole (parent) or
+            // element (child) node in file "part_knowledge_deserialiser.c".
+            //
+            // There are two files, where the end flag is set:
+            // 1) knowledge_deserialiser.c
+            // 2) end_knowledge_selector.c
+            //
+            // Case 1 applies, when the absolute end of the knowledge path
+            // has been reached, i.e. count remaining is zero.
+            //
+            // Case 2 applies, when a SUB PATH was used:
+            // - either as name, like e.g. "(.some.path)"
+            // - or as index, like e.g. "[#some_index_on_stack]"
+            // and the end of that sub path has been reached:
+            // - either a ")"
+            // - or a "]"
+            //
+            copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // Set break flag.
             copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

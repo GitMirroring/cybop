@@ -78,8 +78,9 @@
  *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
  *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties
  *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for stack variables
+ * @param p8 the knowledge path end flag
  */
-void select_knowledge_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void select_knowledge_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge begin.");
 
@@ -179,7 +180,7 @@ void select_knowledge_begin(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         // itself will get copied to become the destination part.
         //
 
-        deserialise_knowledge_name(p0, p1, p2, p3, p5, p7);
+        deserialise_knowledge_name(p0, p1, p2, p3, p5, p7, p8);
     }
 }
 

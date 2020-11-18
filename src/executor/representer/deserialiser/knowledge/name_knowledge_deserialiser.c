@@ -49,8 +49,9 @@
  *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
  *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties
  *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for stack variables
+ * @param p6 the knowledge path end flag
  */
-void deserialise_knowledge_name(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_knowledge_name(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge name.");
 
@@ -120,7 +121,7 @@ void deserialise_knowledge_name(void* p0, void* p1, void* p2, void* p3, void* p4
         }
 
         // Search for a delimiter.
-        select_knowledge_move((void*) &b, p2, p3, p5);
+        select_knowledge_move((void*) &b, p2, p3, p5, p6);
 
         if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

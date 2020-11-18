@@ -20,7 +20,7 @@
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".test"/>
-        <node name="receiver" channel="inline" format="text/plain" model="TEST_INDEX_USAGE.txt"/>
+        <node name="receiver" channel="inline" format="text/plain" model="test_cybol-path_1.txt"/>
     </node>
 
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">

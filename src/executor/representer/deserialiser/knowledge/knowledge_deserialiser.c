@@ -77,7 +77,7 @@ void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         // The knowledge path contains further characters.
         //
 
-        select_knowledge_root(p0, p1, p2, p3, p4, p5, p6, p7);
+        select_knowledge_root(p0, p1, p2, p3, p4, p5, p6, p7, p8);
 
     } else {
 
@@ -91,6 +91,20 @@ void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         // CAUTION! Setting this flag IS IMPORTANT
         // for deciding whether to assign the whole (parent) or
         // element (child) node in file "part_knowledge_deserialiser.c".
+        //
+        // There are two files, where the end flag is set:
+        // 1) knowledge_deserialiser.c
+        // 2) end_knowledge_selector.c
+        //
+        // Case 1 applies, when the absolute end of the knowledge path
+        // has been reached, i.e. count remaining is zero.
+        //
+        // Case 2 applies, when a SUB PATH was used:
+        // - either as name, like e.g. "(.some.path)"
+        // - or as index, like e.g. "[#some_index_on_stack]"
+        // and the end of that sub path has been reached:
+        // - either a ")"
+        // - or a "]"
         //
         copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }

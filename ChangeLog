@@ -21,6 +21,7 @@
 2020-11-18  Christian Heller  <christian.heller@cybop.org>
 
         * Correct knowledge deserialiser so that whole (parent) nodes are not assigned instead of a non-existing element (child), in order to avoid cybol applications manipulate the wrong node
+        * Set knowledge path end flag not only in file "knowledge_deserialiser.c", but also in file "end_knowledge_selector.c"
 
 2020-11-15  Christian Heller  <christian.heller@cybop.org>
 

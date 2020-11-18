@@ -43,8 +43,9 @@
  *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties
  *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for stack variables
  *           - *NULL_POINTER_STATE_CYBOI_MODEL if none of the above applies
+ * @param p4 the knowledge path end flag
  */
-void select_knowledge_move(void* p0, void* p1, void* p2, void* p3) {
+void select_knowledge_move(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge move.");
 
@@ -52,26 +53,30 @@ void select_knowledge_move(void* p0, void* p1, void* p2, void* p3) {
 
         //
         // The source whole part element index is NOT null.
+        //
         // That is, this is the FIRST time that this function is called
-        // from "deserialise_knowledge_part" via "deserialise_knowledge_name".
+        // from "deserialise_knowledge_part" via "deserialise_knowledge_name",
+        // in order to deserialise a whole (parent) node.
         // Therefore, the move flag MUST NOT be set here,
-        // so that the delimiter ")" may be detected once again.
+        // so that the delimiters ")" and "]" may be detected once again.
         //
 
-        select_knowledge_end(p0, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        select_knowledge_end(p0, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p4);
 
     } else {
 
         //
         // The source whole part element index is NULL.
+        //
         // That is, this is the SECOND time that this function is called
-        // from "deserialise_knowledge_part" via "deserialise_knowledge_name".
+        // from "deserialise_knowledge_part" via "deserialise_knowledge_name"
+        // in order to deserialise an element (child) node.
         // Therefore, the move flag HAS TO BE set here,
-        // so that the delimiter ")" is NOT detected once again and
+        // so that the delimiters ")" and "]" are NOT detected once again and
         // further characters may get processed down the knowledge path hierarchy.
         //
 
-        select_knowledge_end(p0, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        select_knowledge_end(p0, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p4);
     }
 }
 
