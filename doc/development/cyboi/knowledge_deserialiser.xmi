@@ -1,208 +1,300 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<XMI xmlns:UML="http://schema.omg.org/spec/UML/1.4" xmi.version="1.2" timestamp="2020-11-15T05:02:53" verified="false">
+<XMI timestamp="2020-11-18T21:14:25" xmlns:UML="http://schema.omg.org/spec/UML/1.4" xmi.version="1.2" verified="false">
  <XMI.header>
   <XMI.documentation>
    <XMI.exporter>umbrello uml modeller http://umbrello.kde.org</XMI.exporter>
    <XMI.exporterVersion>1.6.12</XMI.exporterVersion>
    <XMI.exporterEncoding>UnicodeUTF8</XMI.exporterEncoding>
   </XMI.documentation>
-  <XMI.metamodel href="UML.xml" xmi.version="1.4" xmi.name="UML"/>
+  <XMI.metamodel xmi.version="1.4" href="UML.xml" xmi.name="UML"/>
  </XMI.header>
  <XMI.content>
-  <UML:Model isSpecification="false" name="UML-Modell" xmi.id="m1" isAbstract="false" isRoot="false" isLeaf="false">
+  <UML:Model isAbstract="false" xmi.id="m1" name="UML-Modell" isRoot="false" isSpecification="false" isLeaf="false">
    <UML:Namespace.ownedElement>
-    <UML:Stereotype isSpecification="false" namespace="m1" name="folder" visibility="public" xmi.id="folder" isRoot="false" isAbstract="false" isLeaf="false"/>
-    <UML:Model isSpecification="false" namespace="m1" name="Logical View" visibility="public" xmi.id="Logical_View" isRoot="false" isAbstract="false" isLeaf="false">
+    <UML:Stereotype isAbstract="false" xmi.id="folder" name="folder" isRoot="false" isSpecification="false" isLeaf="false" namespace="m1" visibility="public"/>
+    <UML:Model isAbstract="false" xmi.id="Logical_View" name="Logical View" isRoot="false" isSpecification="false" isLeaf="false" namespace="m1" visibility="public">
      <UML:Namespace.ownedElement>
-      <UML:Package isSpecification="false" namespace="Logical_View" stereotype="folder" name="Datatypes" visibility="public" xmi.id="Datatypes" isRoot="false" isAbstract="false" isLeaf="false">
+      <UML:Package isAbstract="false" xmi.id="Datatypes" name="Datatypes" stereotype="folder" isRoot="false" isSpecification="false" isLeaf="false" namespace="Logical_View" visibility="public">
        <UML:Namespace.ownedElement>
-        <UML:DataType isSpecification="false" namespace="Datatypes" name="int" visibility="public" xmi.id="u43U4iPHrdN4W" isRoot="false" isAbstract="false" isLeaf="false"/>
-        <UML:DataType isSpecification="false" namespace="Datatypes" name="char" visibility="public" xmi.id="uprb6uLnoraV4" isRoot="false" isAbstract="false" isLeaf="false"/>
-        <UML:DataType isSpecification="false" namespace="Datatypes" name="boolean" visibility="public" xmi.id="uhEj09cSNJBBW" isRoot="false" isAbstract="false" isLeaf="false"/>
-        <UML:DataType isSpecification="false" namespace="Datatypes" name="float" visibility="public" xmi.id="uIDvUtdiEQIJm" isRoot="false" isAbstract="false" isLeaf="false"/>
-        <UML:DataType isSpecification="false" namespace="Datatypes" name="double" visibility="public" xmi.id="ufTDsnPjG5g5R" isRoot="false" isAbstract="false" isLeaf="false"/>
-        <UML:DataType isSpecification="false" namespace="Datatypes" name="byte" visibility="public" xmi.id="uLNpenn4CAuD0" isRoot="false" isAbstract="false" isLeaf="false"/>
-        <UML:DataType isSpecification="false" namespace="Datatypes" name="short" visibility="public" xmi.id="ukdJzaZD4HfoV" isRoot="false" isAbstract="false" isLeaf="false"/>
-        <UML:DataType isSpecification="false" namespace="Datatypes" name="long" visibility="public" xmi.id="u5BywRhe8zaLr" isRoot="false" isAbstract="false" isLeaf="false"/>
-        <UML:DataType isSpecification="false" namespace="Datatypes" name="String" visibility="public" xmi.id="ufKL0L3SsgX5U" isRoot="false" isAbstract="false" isLeaf="false"/>
-        <UML:DataType isSpecification="false" namespace="Datatypes" name="Integer" visibility="public" xmi.id="uQx5T8MQCO7jO" isRoot="false" isAbstract="false" isLeaf="false"/>
-        <UML:DataType isSpecification="false" namespace="Datatypes" name="Character" visibility="public" xmi.id="uY7p4rO5E3z1B" isRoot="false" isAbstract="false" isLeaf="false"/>
-        <UML:DataType isSpecification="false" namespace="Datatypes" name="Boolean" visibility="public" xmi.id="uyxa0q32WIgWR" isRoot="false" isAbstract="false" isLeaf="false"/>
-        <UML:DataType isSpecification="false" namespace="Datatypes" name="Float" visibility="public" xmi.id="uIW5FCxqjeGR2" isRoot="false" isAbstract="false" isLeaf="false"/>
-        <UML:DataType isSpecification="false" namespace="Datatypes" name="Double" visibility="public" xmi.id="uGOJufLN5MsBc" isRoot="false" isAbstract="false" isLeaf="false"/>
-        <UML:DataType isSpecification="false" namespace="Datatypes" name="Byte" visibility="public" xmi.id="uVgGc64om6In4" isRoot="false" isAbstract="false" isLeaf="false"/>
-        <UML:DataType isSpecification="false" namespace="Datatypes" name="Short" visibility="public" xmi.id="uxSSJaeyA6HKy" isRoot="false" isAbstract="false" isLeaf="false"/>
-        <UML:DataType isSpecification="false" namespace="Datatypes" name="Long" visibility="public" xmi.id="uygKTExcmh7oi" isRoot="false" isAbstract="false" isLeaf="false"/>
-        <UML:DataType isSpecification="false" namespace="Datatypes" name="StringBuffer" visibility="public" xmi.id="uVo519TtiDVV3" isRoot="false" isAbstract="false" isLeaf="false"/>
-        <UML:DataType isSpecification="false" namespace="Datatypes" name="StringBuilder" visibility="public" xmi.id="uV80MdrBFxum6" isRoot="false" isAbstract="false" isLeaf="false"/>
+        <UML:DataType isAbstract="false" xmi.id="u43U4iPHrdN4W" name="int" isRoot="false" isSpecification="false" isLeaf="false" namespace="Datatypes" visibility="public"/>
+        <UML:DataType isAbstract="false" xmi.id="uprb6uLnoraV4" name="char" isRoot="false" isSpecification="false" isLeaf="false" namespace="Datatypes" visibility="public"/>
+        <UML:DataType isAbstract="false" xmi.id="uhEj09cSNJBBW" name="boolean" isRoot="false" isSpecification="false" isLeaf="false" namespace="Datatypes" visibility="public"/>
+        <UML:DataType isAbstract="false" xmi.id="uIDvUtdiEQIJm" name="float" isRoot="false" isSpecification="false" isLeaf="false" namespace="Datatypes" visibility="public"/>
+        <UML:DataType isAbstract="false" xmi.id="ufTDsnPjG5g5R" name="double" isRoot="false" isSpecification="false" isLeaf="false" namespace="Datatypes" visibility="public"/>
+        <UML:DataType isAbstract="false" xmi.id="uLNpenn4CAuD0" name="byte" isRoot="false" isSpecification="false" isLeaf="false" namespace="Datatypes" visibility="public"/>
+        <UML:DataType isAbstract="false" xmi.id="ukdJzaZD4HfoV" name="short" isRoot="false" isSpecification="false" isLeaf="false" namespace="Datatypes" visibility="public"/>
+        <UML:DataType isAbstract="false" xmi.id="u5BywRhe8zaLr" name="long" isRoot="false" isSpecification="false" isLeaf="false" namespace="Datatypes" visibility="public"/>
+        <UML:DataType isAbstract="false" xmi.id="ufKL0L3SsgX5U" name="String" isRoot="false" isSpecification="false" isLeaf="false" namespace="Datatypes" visibility="public"/>
+        <UML:DataType isAbstract="false" xmi.id="uQx5T8MQCO7jO" name="Integer" isRoot="false" isSpecification="false" isLeaf="false" namespace="Datatypes" visibility="public"/>
+        <UML:DataType isAbstract="false" xmi.id="uY7p4rO5E3z1B" name="Character" isRoot="false" isSpecification="false" isLeaf="false" namespace="Datatypes" visibility="public"/>
+        <UML:DataType isAbstract="false" xmi.id="uyxa0q32WIgWR" name="Boolean" isRoot="false" isSpecification="false" isLeaf="false" namespace="Datatypes" visibility="public"/>
+        <UML:DataType isAbstract="false" xmi.id="uIW5FCxqjeGR2" name="Float" isRoot="false" isSpecification="false" isLeaf="false" namespace="Datatypes" visibility="public"/>
+        <UML:DataType isAbstract="false" xmi.id="uGOJufLN5MsBc" name="Double" isRoot="false" isSpecification="false" isLeaf="false" namespace="Datatypes" visibility="public"/>
+        <UML:DataType isAbstract="false" xmi.id="uVgGc64om6In4" name="Byte" isRoot="false" isSpecification="false" isLeaf="false" namespace="Datatypes" visibility="public"/>
+        <UML:DataType isAbstract="false" xmi.id="uxSSJaeyA6HKy" name="Short" isRoot="false" isSpecification="false" isLeaf="false" namespace="Datatypes" visibility="public"/>
+        <UML:DataType isAbstract="false" xmi.id="uygKTExcmh7oi" name="Long" isRoot="false" isSpecification="false" isLeaf="false" namespace="Datatypes" visibility="public"/>
+        <UML:DataType isAbstract="false" xmi.id="uVo519TtiDVV3" name="StringBuffer" isRoot="false" isSpecification="false" isLeaf="false" namespace="Datatypes" visibility="public"/>
+        <UML:DataType isAbstract="false" xmi.id="uV80MdrBFxum6" name="StringBuilder" isRoot="false" isSpecification="false" isLeaf="false" namespace="Datatypes" visibility="public"/>
        </UML:Namespace.ownedElement>
       </UML:Package>
      </UML:Namespace.ownedElement>
      <XMI.extension xmi.extender="umbrello">
       <diagrams resolution="96">
-       <diagram font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" documentation="" backgroundcolor="#ffffff" showopsig="1" linecolor="#ff0000" showattsig="1" showpubliconly="0" snapy="25" showscope="1" canvasheight="705" textcolor="#000000" griddotcolor="#d3d3d3" isopen="1" snapx="25" xmi.id="uadetro7PO78C" snapcsgrid="1" showgrid="0" type="6" showops="1" showpackage="1" localid="-1" canvaswidth="1150" showatts="1" linewidth="0" usefillcolor="1" showattribassocs="1" name="knowledge_deserialiser" snapgrid="1" fillcolor="#ffff00" showstereotype="1" zoom="93,57620873536673">
+       <diagram snapgrid="1" isopen="1" showopsig="1" snapy="25" fillcolor="#ffff00" textcolor="#000000" snapx="25" backgroundcolor="#ffffff" canvasheight="855.183" type="6" showatts="1" zoom="93,57620873536673" xmi.id="uadetro7PO78C" documentation="" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" localid="-1" showops="1" linecolor="#ff0000" showscope="1" griddotcolor="#d3d3d3" showattribassocs="1" snapcsgrid="1" linewidth="0" showattsig="1" usefillcolor="1" name="knowledge_deserialiser" showstereotype="1" showpubliconly="0" showpackage="1" showgrid="0" canvaswidth="1450">
         <widgets>
-         <activitywidget activityname="select_knowledge_memory" isinstance="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" postcondition="" activitytype="1" height="50" y="-550" documentation="" x="-1900" precondition="" linecolor="#ff0000" usesdiagramfillcolor="0" autoresize="1" width="200" textcolor="#000000" xmi.id="uQaPbocDx7ilt" localid="uASdtJmEneesS" linewidth="0" usefillcolor="1" showstereotype="1" fillcolor="#ffff00" usesdiagramusefillcolor="0"/>
-         <activitywidget activityname="select_knowledge_root" isinstance="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" postcondition="" activitytype="1" height="50" y="-700" documentation="" x="-2550" precondition="" linecolor="#ff0000" usesdiagramfillcolor="0" autoresize="1" width="175" textcolor="#000000" xmi.id="um8yCH5lfFZWF" localid="u657n9AlzGAOp" linewidth="0" usefillcolor="1" showstereotype="1" fillcolor="#ffff00" usesdiagramusefillcolor="0"/>
-         <activitywidget activityname="" isinstance="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" postcondition="" activitytype="4" height="50" y="-375" documentation="" x="-1825" precondition="" linecolor="#ff0000" usesdiagramfillcolor="0" autoresize="0" width="50" textcolor="#000000" xmi.id="unVMkIuNFkptF" localid="u72lq1m7VIRsS" linewidth="0" usefillcolor="1" showstereotype="1" fillcolor="#ffff00" usesdiagramusefillcolor="0"/>
-         <activitywidget activityname="select_knowledge_identification" isinstance="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" postcondition="" activitytype="1" height="50" y="-475" documentation="" x="-1900" precondition="" linecolor="#ff0000" usesdiagramfillcolor="0" autoresize="1" width="225" textcolor="#000000" xmi.id="ut6P6b8PUDvtV" localid="ui9yRjyPAmVf4" linewidth="0" usefillcolor="1" showstereotype="1" fillcolor="#ffff00" usesdiagramusefillcolor="0"/>
-         <activitywidget activityname="select_knowledge_end" isinstance="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" postcondition="" activitytype="1" height="50" y="-200" documentation="" x="-1875" precondition="" linecolor="#ff0000" usesdiagramfillcolor="0" autoresize="1" width="175" textcolor="#000000" xmi.id="udcQNRt0dAay2" localid="uIySjW8cZ4ZD6" linewidth="0" usefillcolor="1" showstereotype="1" fillcolor="#ffff00" usesdiagramusefillcolor="0"/>
-         <activitywidget activityname="" isinstance="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" postcondition="" activitytype="4" height="50" y="-450" documentation="" x="-2500" precondition="" linecolor="#ff0000" usesdiagramfillcolor="0" autoresize="0" width="50" textcolor="#000000" xmi.id="uawzl6rc8dkZ9" localid="u6vH6OstqlIij" linewidth="0" usefillcolor="1" showstereotype="1" fillcolor="#ffff00" usesdiagramusefillcolor="0"/>
-         <activitywidget activityname="deserialise_knowledge_name" isinstance="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" postcondition="" activitytype="1" height="50" y="-375" documentation="" x="-2225" precondition="" linecolor="#ff0000" usesdiagramfillcolor="0" autoresize="1" width="200" textcolor="#000000" xmi.id="uOi2u4J1XepKD" localid="uC58OqIMR56xQ" linewidth="0" usefillcolor="1" showstereotype="1" fillcolor="#ffff00" usesdiagramusefillcolor="0"/>
-         <activitywidget activityname="deserialise_knowledge_reference" isinstance="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" postcondition="" activitytype="1" height="50" y="-550" documentation="" x="-2225" precondition="" linecolor="#ff0000" usesdiagramfillcolor="0" autoresize="1" width="225" textcolor="#000000" xmi.id="uwpFjHsVWLcOi" localid="uSMrmL3qqX3ND" linewidth="0" usefillcolor="1" showstereotype="1" fillcolor="#ffff00" usesdiagramusefillcolor="0"/>
-         <activitywidget activityname="deserialise_knowledge" isinstance="0" font="Linux Biolinum O,10,-1,5,50,0,0,0,0,0,Regular" postcondition="" activitytype="1" height="50" y="-800" documentation="" x="-2550" precondition="" linecolor="#ff0000" usesdiagramfillcolor="0" autoresize="1" width="175" textcolor="#000000" xmi.id="uukdHeIh6AVzM" localid="ucoSyL5OdZgP2" linewidth="0" usefillcolor="1" showstereotype="1" fillcolor="#ffff00" usesdiagramusefillcolor="0"/>
-         <activitywidget activityname="select_knowledge_begin" isinstance="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" postcondition="" activitytype="1" height="50" y="-600" documentation="" x="-2550" precondition="" linecolor="#ff0000" usesdiagramfillcolor="0" autoresize="1" width="175" textcolor="#000000" xmi.id="uwJ5hwRR2sO5v" localid="uZGyO9NlACVjm" linewidth="0" usefillcolor="1" showstereotype="1" fillcolor="#ffff00" usesdiagramusefillcolor="0"/>
-         <activitywidget activityname="select_knowledge_move" isinstance="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" postcondition="" activitytype="1" height="50" y="-275" documentation="" x="-1875" precondition="" linecolor="#ff0000" usesdiagramfillcolor="0" autoresize="1" width="175" textcolor="#000000" xmi.id="uFd0v0kVkllIw" localid="uDlYi0sX4jKL6" linewidth="0" usefillcolor="1" showstereotype="1" fillcolor="#ffff00" usesdiagramusefillcolor="0"/>
-         <activitywidget activityname="deserialise_knowledge_part" isinstance="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" postcondition="" activitytype="1" height="50" y="-625" documentation="" x="-2225" precondition="" linecolor="#ff0000" usesdiagramfillcolor="0" autoresize="1" width="200" textcolor="#000000" xmi.id="ulfDJnyQF9hGi" localid="urEYO8Yz2pfxk" linewidth="0" usefillcolor="1" showstereotype="1" fillcolor="#ffff00" usesdiagramusefillcolor="0"/>
-         <activitywidget activityname="deserialise_knowledge_identification" isinstance="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" postcondition="" activitytype="1" height="50" y="-475" documentation="" x="-2225" precondition="" linecolor="#ff0000" usesdiagramfillcolor="0" autoresize="1" width="250" textcolor="#000000" xmi.id="uvKeKQoNGkPNC" localid="uRgxMq7HYmKjW" linewidth="0" usefillcolor="1" showstereotype="1" fillcolor="#ffff00" usesdiagramusefillcolor="0"/>
+         <activitywidget fillcolor="#ffff00" textcolor="#000000" y="-2225" activityname="" height="50" xmi.id="usXPMcBU9XJNz" documentation="" localid="uf96Ttqozxat9" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" width="50" linecolor="#ff0000" activitytype="4" isinstance="0" autoresize="0" linewidth="0" usefillcolor="1" postcondition="" showstereotype="1" usesdiagramusefillcolor="0" x="-4175" usesdiagramfillcolor="0" precondition=""/>
+         <notewidget fillcolor="#97eb79" textcolor="#000000" y="-2125" noteType="0" height="75" xmi.id="uCVGspjm7zIz4" localid="uMAdCuNgPiOX8" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" width="175" linecolor="#ff0000" isinstance="0" autoresize="0" linewidth="0" usefillcolor="1" showstereotype="1" text="-1 = stack&#xa;7 = model&#xa;8 = properties" usesdiagramusefillcolor="0" x="-3975" usesdiagramfillcolor="0"/>
+         <activitywidget fillcolor="#ffff00" textcolor="#000000" y="-2325" activityname="deserialise_knowledge" height="50" xmi.id="uukdHeIh6AVzM" documentation="" localid="ucoSyL5OdZgP2" font="Linux Biolinum O,10,-1,5,50,0,0,0,0,0,Regular" width="175" linecolor="#ff0000" activitytype="1" isinstance="0" autoresize="1" linewidth="0" usefillcolor="1" postcondition="" showstereotype="1" usesdiagramusefillcolor="0" x="-4925" usesdiagramfillcolor="0" precondition=""/>
+         <activitywidget fillcolor="#ffff00" textcolor="#000000" y="-2125" activityname="deserialise_knowledge_part" height="50" xmi.id="ulfDJnyQF9hGi" documentation="" localid="urEYO8Yz2pfxk" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" width="200" linecolor="#ff0000" activitytype="1" isinstance="0" autoresize="1" linewidth="0" usefillcolor="1" postcondition="" showstereotype="1" usesdiagramusefillcolor="0" x="-4575" usesdiagramfillcolor="0" precondition=""/>
+         <activitywidget fillcolor="#ffff00" textcolor="#000000" y="-1625" activityname="select_knowledge_end" height="50" xmi.id="udcQNRt0dAay2" documentation="" localid="uIySjW8cZ4ZD6" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" width="175" linecolor="#ff0000" activitytype="1" isinstance="0" autoresize="1" linewidth="0" usefillcolor="1" postcondition="" showstereotype="1" usesdiagramusefillcolor="0" x="-4225" usesdiagramfillcolor="0" precondition=""/>
+         <activitywidget fillcolor="#ffff00" textcolor="#000000" y="-1825" activityname="deserialise_knowledge_name" height="50" xmi.id="uOi2u4J1XepKD" documentation="" localid="uC58OqIMR56xQ" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" width="200" linecolor="#ff0000" activitytype="1" isinstance="0" autoresize="1" linewidth="0" usefillcolor="1" postcondition="" showstereotype="1" usesdiagramusefillcolor="0" x="-4575" usesdiagramfillcolor="0" precondition=""/>
+         <activitywidget fillcolor="#ffff00" textcolor="#000000" y="-2025" activityname="" height="50" xmi.id="uawzl6rc8dkZ9" documentation="" localid="u6vH6OstqlIij" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" width="50" linecolor="#ff0000" activitytype="4" isinstance="0" autoresize="0" linewidth="0" usefillcolor="1" postcondition="" showstereotype="1" usesdiagramusefillcolor="0" x="-4875" usesdiagramfillcolor="0" precondition=""/>
+         <activitywidget fillcolor="#ffff00" textcolor="#000000" y="-1925" activityname="select_knowledge_identification" height="50" xmi.id="ut6P6b8PUDvtV" documentation="" localid="ui9yRjyPAmVf4" font="Linux Biolinum O,10,-1,5,50,0,0,0,0,0,Regular" width="225" linecolor="#ff0000" activitytype="1" isinstance="0" autoresize="1" linewidth="0" usefillcolor="1" postcondition="" showstereotype="1" usesdiagramusefillcolor="0" x="-4250" usesdiagramfillcolor="0" precondition=""/>
+         <activitywidget fillcolor="#ffff00" textcolor="#000000" y="-2325" activityname="get_name_part_element" height="50" xmi.id="uNQ64RtYkNgdi" documentation="" localid="ur3xgjwBqB7xc" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" width="175" linecolor="#ff0000" activitytype="1" isinstance="0" autoresize="1" linewidth="0" usefillcolor="1" postcondition="" showstereotype="1" usesdiagramusefillcolor="0" x="-4225" usesdiagramfillcolor="0" precondition=""/>
+         <notewidget fillcolor="#97eb79" textcolor="#000000" y="-2250" noteType="0" height="75" xmi.id="uiSTdOBu0neyY" localid="uYhzHry4LTKBS" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" width="175" linecolor="#ff0000" isinstance="0" autoresize="0" linewidth="0" usefillcolor="1" showstereotype="1" text=". knowledge memory&#xa;| signal memory&#xa;# stack memory" usesdiagramusefillcolor="0" x="-5250" usesdiagramfillcolor="0"/>
+         <activitywidget fillcolor="#ffff00" textcolor="#000000" y="-2025" activityname="get_part_metadata" height="50" xmi.id="uYsNQJfmZq2kp" documentation="" localid="uPLCNTmh7NluS" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" width="150" linecolor="#ff0000" activitytype="1" isinstance="0" autoresize="1" linewidth="0" usefillcolor="1" postcondition="" showstereotype="1" usesdiagramusefillcolor="0" x="-3975" usesdiagramfillcolor="0" precondition=""/>
+         <activitywidget fillcolor="#ffff00" textcolor="#000000" y="-2025" activityname="" height="50" xmi.id="uwJ6SExWDGd6J" documentation="" localid="uAMJWL1HsLNts" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" width="50" linecolor="#ff0000" activitytype="4" isinstance="0" autoresize="0" linewidth="0" usefillcolor="1" postcondition="" showstereotype="1" usesdiagramusefillcolor="0" x="-4175" usesdiagramfillcolor="0" precondition=""/>
+         <notewidget fillcolor="#97eb79" textcolor="#000000" y="-2225" noteType="0" height="50" xmi.id="urf49L659FZIF" localid="uGuZSlATfuMJj" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" width="150" linecolor="#ff0000" isinstance="0" autoresize="0" linewidth="0" usefillcolor="1" showstereotype="1" text="Central parsing file" usesdiagramusefillcolor="0" x="-4550" usesdiagramfillcolor="0"/>
+         <activitywidget fillcolor="#ffff00" textcolor="#000000" y="-2025" activityname="deserialise_knowledge_reference" height="50" xmi.id="uwpFjHsVWLcOi" documentation="" localid="uSMrmL3qqX3ND" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" width="225" linecolor="#ff0000" activitytype="1" isinstance="0" autoresize="1" linewidth="0" usefillcolor="1" postcondition="" showstereotype="1" usesdiagramusefillcolor="0" x="-4575" usesdiagramfillcolor="0" precondition=""/>
+         <notewidget fillcolor="#97eb79" textcolor="#000000" y="-1650" noteType="0" height="100" xmi.id="ugc6ndkQtnzPd" localid="uEwwRJQT9NPgw" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" width="100" linecolor="#ff0000" isinstance="0" autoresize="0" linewidth="0" usefillcolor="1" showstereotype="1" text="Delimiters:&#xa;.&#xa;:&#xa;)&#xa;]" usesdiagramusefillcolor="0" x="-3950" usesdiagramfillcolor="0"/>
+         <activitywidget fillcolor="#ffff00" textcolor="#000000" y="-1825" activityname="" height="50" xmi.id="unVMkIuNFkptF" documentation="" localid="u72lq1m7VIRsS" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" width="50" linecolor="#ff0000" activitytype="4" isinstance="0" autoresize="0" linewidth="0" usefillcolor="1" postcondition="" showstereotype="1" usesdiagramusefillcolor="0" x="-4175" usesdiagramfillcolor="0" precondition=""/>
+         <activitywidget fillcolor="#ffff00" textcolor="#000000" y="-2225" activityname="select_knowledge_root" height="50" xmi.id="um8yCH5lfFZWF" documentation="" localid="u657n9AlzGAOp" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" width="175" linecolor="#ff0000" activitytype="1" isinstance="0" autoresize="1" linewidth="0" usefillcolor="1" postcondition="" showstereotype="1" usesdiagramusefillcolor="0" x="-4925" usesdiagramfillcolor="0" precondition=""/>
+         <notewidget fillcolor="#97eb79" textcolor="#000000" y="-2150" noteType="0" height="125" xmi.id="ueYgbnfNf6bzv" localid="ucomlLGR1oGfA" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" width="175" linecolor="#ff0000" isinstance="0" autoresize="0" linewidth="0" usefillcolor="1" showstereotype="1" text="Detect:&#xa;#&#xa;.&#xa;:&#xa;[&#xa;(&#xa;*" usesdiagramusefillcolor="0" x="-5250" usesdiagramfillcolor="0"/>
+         <notewidget fillcolor="#97eb79" textcolor="#000000" y="-2350" noteType="0" height="75" xmi.id="uu2ktXs3h3bMD" localid="uGuyClq9KKW5V" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" width="200" linecolor="#ff0000" isinstance="0" autoresize="0" linewidth="0" usefillcolor="1" showstereotype="1" text="Check for path end done in:&#xa;- deserialise_knowledge&#xa;- select_knowledge_end" usesdiagramusefillcolor="0" x="-5250" usesdiagramfillcolor="0"/>
+         <activitywidget fillcolor="#ffff00" textcolor="#000000" y="-2125" activityname="select_knowledge_memory" height="50" xmi.id="uQaPbocDx7ilt" documentation="" localid="uASdtJmEneesS" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" width="200" linecolor="#ff0000" activitytype="1" isinstance="0" autoresize="1" linewidth="0" usefillcolor="1" postcondition="" showstereotype="1" usesdiagramusefillcolor="0" x="-4250" usesdiagramfillcolor="0" precondition=""/>
+         <activitywidget fillcolor="#ffff00" textcolor="#000000" y="-1925" activityname="deserialise_knowledge_identification" height="50" xmi.id="uvKeKQoNGkPNC" documentation="" localid="uRgxMq7HYmKjW" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" width="250" linecolor="#ff0000" activitytype="1" isinstance="0" autoresize="1" linewidth="0" usefillcolor="1" postcondition="" showstereotype="1" usesdiagramusefillcolor="0" x="-4575" usesdiagramfillcolor="0" precondition=""/>
+         <activitywidget fillcolor="#ffff00" textcolor="#000000" y="-2225" activityname="get_name_item_element" height="50" xmi.id="uYenPQPhbw6wQ" documentation="" localid="uulbJNDIv9oqD" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" width="175" linecolor="#ff0000" activitytype="1" isinstance="0" autoresize="1" linewidth="0" usefillcolor="1" postcondition="" showstereotype="1" usesdiagramusefillcolor="0" x="-3975" usesdiagramfillcolor="0" precondition=""/>
+         <activitywidget fillcolor="#ffff00" textcolor="#000000" y="-2125" activityname="select_knowledge_begin" height="50" xmi.id="uwJ5hwRR2sO5v" documentation="" localid="uZGyO9NlACVjm" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" width="175" linecolor="#ff0000" activitytype="1" isinstance="0" autoresize="1" linewidth="0" usefillcolor="1" postcondition="" showstereotype="1" usesdiagramusefillcolor="0" x="-4925" usesdiagramfillcolor="0" precondition=""/>
+         <notewidget fillcolor="#97eb79" textcolor="#000000" y="-1625" noteType="0" height="75" xmi.id="uWTZwN8IKnLO1" localid="uuMEKmuWUZLsj" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" width="200" linecolor="#ff0000" isinstance="0" autoresize="0" linewidth="0" usefillcolor="1" showstereotype="1" text="Check for path end done in:&#xa;- deserialise_knowledge&#xa;- select_knowledge_end" usesdiagramusefillcolor="0" x="-4550" usesdiagramfillcolor="0"/>
+         <activitywidget fillcolor="#ffff00" textcolor="#000000" y="-1725" activityname="select_knowledge_move" height="50" xmi.id="uFd0v0kVkllIw" documentation="" localid="uDlYi0sX4jKL6" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" width="175" linecolor="#ff0000" activitytype="1" isinstance="0" autoresize="1" linewidth="0" usefillcolor="1" postcondition="" showstereotype="1" usesdiagramusefillcolor="0" x="-4225" usesdiagramfillcolor="0" precondition=""/>
         </widgets>
         <messages/>
         <associations>
-         <assocwidget visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" roleAdoc="" roleBdoc="" documentation="" widgetbid="uukdHeIh6AVzM" linecolor="#ff0000" usesdiagramfillcolor="0" totalcounta="2" totalcountb="2" changeabilityB="900" autoresize="1" indexb="1" textcolor="none" changeabilityA="900" type="515" visibilityB="0" linewidth="0" widgetaid="ulfDJnyQF9hGi" usefillcolor="1" indexa="1" seqnum="" fillcolor="#ffff00" usesdiagramusefillcolor="1">
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="none" widgetbid="uukdHeIh6AVzM" totalcounta="2" type="515" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="uwpFjHsVWLcOi" usefillcolor="1" usesdiagramusefillcolor="1" changeabilityB="900" usesdiagramfillcolor="0">
           <linepath layout="Spline">
-           <startpoint startx="-2150" starty="-625"/>
-           <endpoint endy="-775" endx="-2375"/>
-           <point y="-775" x="-2150"/>
+           <startpoint startx="-4350" starty="-2025"/>
+           <endpoint endy="-2325" endx="-4750"/>
+           <point y="-2400.18" x="-4279.93"/>
           </linepath>
          </assocwidget>
-         <assocwidget visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" roleAdoc="" roleBdoc="" documentation="" widgetbid="unVMkIuNFkptF" linecolor="#ff0000" usesdiagramfillcolor="1" totalcounta="2" totalcountb="2" changeabilityB="900" autoresize="1" indexb="1" textcolor="none" changeabilityA="900" type="515" visibilityB="0" linewidth="0" widgetaid="uOi2u4J1XepKD" usefillcolor="1" indexa="1" seqnum="" fillcolor="none" usesdiagramusefillcolor="1">
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="none" widgetbid="uCVGspjm7zIz4" totalcounta="2" type="513" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="uQaPbocDx7ilt" usefillcolor="1" usesdiagramusefillcolor="0" changeabilityB="900" usesdiagramfillcolor="0">
           <linepath layout="Polyline">
-           <startpoint startx="-2025" starty="-348.089"/>
-           <endpoint endy="-348.089" endx="-1839.31"/>
+           <startpoint startx="-4050" starty="-2100"/>
+           <endpoint endy="-2100" endx="-3975"/>
           </linepath>
          </assocwidget>
-         <assocwidget visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0" roleAdoc="" roleBdoc="" documentation="" widgetbid="uvKeKQoNGkPNC" linecolor="#ff0000" usesdiagramfillcolor="0" totalcounta="2" totalcountb="2" changeabilityB="900" autoresize="1" indexb="1" textcolor="none" changeabilityA="900" type="515" visibilityB="0" linewidth="0" widgetaid="uawzl6rc8dkZ9" usefillcolor="1" indexa="1" seqnum="" fillcolor="#ffff00" usesdiagramusefillcolor="1">
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="none" indexb="1" textcolor="none" widgetbid="unVMkIuNFkptF" totalcounta="2" type="515" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="uOi2u4J1XepKD" usefillcolor="1" usesdiagramusefillcolor="1" changeabilityB="900" usesdiagramfillcolor="1">
           <linepath layout="Polyline">
-           <startpoint startx="-2450" starty="-426.768"/>
-           <endpoint endy="-426.768" endx="-2225"/>
+           <startpoint startx="-4375" starty="-1800"/>
+           <endpoint endy="-1800" endx="-4175"/>
           </linepath>
          </assocwidget>
-         <assocwidget visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" roleAdoc="" roleBdoc="" documentation="" widgetbid="uwJ5hwRR2sO5v" linecolor="#ff0000" usesdiagramfillcolor="0" totalcounta="2" totalcountb="2" changeabilityB="900" autoresize="1" indexb="1" textcolor="none" changeabilityA="900" type="515" visibilityB="0" linewidth="0" widgetaid="um8yCH5lfFZWF" usefillcolor="1" indexa="1" seqnum="" fillcolor="#ffff00" usesdiagramusefillcolor="1">
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="none" widgetbid="uukdHeIh6AVzM" totalcounta="2" type="513" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="uu2ktXs3h3bMD" usefillcolor="1" usesdiagramusefillcolor="1" changeabilityB="900" usesdiagramfillcolor="0">
           <linepath layout="Polyline">
-           <startpoint startx="-2475" starty="-650"/>
-           <endpoint endy="-600" endx="-2475"/>
+           <startpoint startx="-5050" starty="-2303.43"/>
+           <endpoint endy="-2303.43" endx="-4925"/>
           </linepath>
          </assocwidget>
-         <assocwidget visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" roleAdoc="" roleBdoc="" documentation="" widgetbid="udcQNRt0dAay2" linecolor="#ff0000" usesdiagramfillcolor="0" totalcounta="2" totalcountb="2" changeabilityB="900" autoresize="1" indexb="1" textcolor="none" changeabilityA="900" type="515" visibilityB="0" linewidth="0" widgetaid="uFd0v0kVkllIw" usefillcolor="1" indexa="1" seqnum="" fillcolor="#ffff00" usesdiagramusefillcolor="0">
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="#000000" widgetbid="uvKeKQoNGkPNC" totalcounta="2" type="515" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="uawzl6rc8dkZ9" usefillcolor="1" usesdiagramusefillcolor="0" changeabilityB="900" usesdiagramfillcolor="0">
           <linepath layout="Polyline">
-           <startpoint startx="-1800" starty="-225"/>
-           <endpoint endy="-200" endx="-1800"/>
+           <startpoint startx="-4825" starty="-1975"/>
+           <endpoint endy="-1925" endx="-4575"/>
           </linepath>
+          <floatingtext fillcolor="none" textcolor="none" y="-1925" pretext="" height="25" xmi.id="ufqzUNmLkryI6" localid="ue8mJGFsqptWg" font="Linux Biolinum O,10,-1,5,50,0,0,0,0,0,Regular" width="100" linecolor="#ff0000" role="703" isinstance="0" autoresize="1" linewidth="0" usefillcolor="1" showstereotype="1" text="separator [ (" usesdiagramusefillcolor="1" x="-4700" posttext="" usesdiagramfillcolor="1"/>
          </assocwidget>
-         <assocwidget visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" roleAdoc="" roleBdoc="" documentation="" widgetbid="ut6P6b8PUDvtV" linecolor="#ff0000" usesdiagramfillcolor="0" totalcounta="2" totalcountb="2" changeabilityB="900" autoresize="1" indexb="1" textcolor="none" changeabilityA="900" type="515" visibilityB="0" linewidth="0" widgetaid="uvKeKQoNGkPNC" usefillcolor="1" indexa="1" seqnum="" fillcolor="#ffff00" usesdiagramusefillcolor="0">
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="none" widgetbid="uiSTdOBu0neyY" totalcounta="2" type="513" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="um8yCH5lfFZWF" usefillcolor="1" usesdiagramusefillcolor="1" changeabilityB="900" usesdiagramfillcolor="0">
           <linepath layout="Polyline">
-           <startpoint startx="-1975" starty="-439.961"/>
-           <endpoint endy="-439.961" endx="-1900"/>
+           <startpoint startx="-4925" starty="-2200"/>
+           <endpoint endy="-2200" endx="-5075"/>
           </linepath>
          </assocwidget>
-         <assocwidget visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" roleAdoc="" roleBdoc="" documentation="" widgetbid="uQaPbocDx7ilt" linecolor="#ff0000" usesdiagramfillcolor="0" totalcounta="2" totalcountb="2" changeabilityB="900" autoresize="1" indexb="1" textcolor="none" changeabilityA="900" type="515" visibilityB="0" linewidth="0" widgetaid="ut6P6b8PUDvtV" usefillcolor="1" indexa="1" seqnum="" fillcolor="#ffff00" usesdiagramusefillcolor="1">
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="none" widgetbid="udcQNRt0dAay2" totalcounta="2" type="515" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="uFd0v0kVkllIw" usefillcolor="1" usesdiagramusefillcolor="0" changeabilityB="900" usesdiagramfillcolor="0">
           <linepath layout="Polyline">
-           <startpoint startx="-1804.37" starty="-475"/>
-           <endpoint endy="-500" endx="-1804.37"/>
+           <startpoint startx="-4150" starty="-1675"/>
+           <endpoint endy="-1625" endx="-4150"/>
           </linepath>
          </assocwidget>
-         <assocwidget visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0" roleAdoc="" roleBdoc="" documentation="" widgetbid="uOi2u4J1XepKD" linecolor="#ff0000" usesdiagramfillcolor="0" totalcounta="2" totalcountb="2" changeabilityB="900" autoresize="1" indexb="1" textcolor="none" changeabilityA="900" type="515" visibilityB="0" linewidth="0" widgetaid="uawzl6rc8dkZ9" usefillcolor="1" indexa="1" seqnum="" fillcolor="#ffff00" usesdiagramusefillcolor="1">
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="#000000" widgetbid="uQaPbocDx7ilt" totalcounta="2" type="515" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="uwJ6SExWDGd6J" usefillcolor="1" usesdiagramusefillcolor="0" changeabilityB="900" usesdiagramfillcolor="0">
           <linepath layout="Polyline">
-           <startpoint startx="-2450" starty="-400"/>
-           <endpoint endy="-375" endx="-2225"/>
+           <startpoint startx="-4150" starty="-2025"/>
+           <endpoint endy="-2075" endx="-4150"/>
           </linepath>
+          <floatingtext fillcolor="none" textcolor="none" y="-2050" pretext="" height="25" xmi.id="u4wlJRXcS17n2" localid="uOiiGc7C6mp9d" font="Linux Biolinum O,10,-1,5,50,0,0,0,0,0,Regular" width="125" linecolor="#ff0000" role="703" isinstance="0" autoresize="1" linewidth="0" usefillcolor="1" showstereotype="1" text="index_flag == false" usesdiagramusefillcolor="1" x="-4152" posttext="" usesdiagramfillcolor="1"/>
          </assocwidget>
-         <assocwidget visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" roleAdoc="" roleBdoc="" documentation="" widgetbid="uFd0v0kVkllIw" linecolor="#ff0000" usesdiagramfillcolor="0" totalcounta="2" totalcountb="2" changeabilityB="900" autoresize="1" indexb="1" textcolor="none" changeabilityA="900" type="515" visibilityB="0" linewidth="0" widgetaid="unVMkIuNFkptF" usefillcolor="1" indexa="1" seqnum="" fillcolor="#ffff00" usesdiagramusefillcolor="0">
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="none" widgetbid="uwJ5hwRR2sO5v" totalcounta="2" type="515" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="um8yCH5lfFZWF" usefillcolor="1" usesdiagramusefillcolor="1" changeabilityB="900" usesdiagramfillcolor="0">
           <linepath layout="Polyline">
-           <startpoint startx="-1800" starty="-325"/>
-           <endpoint endy="-275" endx="-1800"/>
+           <startpoint startx="-4850" starty="-2175"/>
+           <endpoint endy="-2125" endx="-4850"/>
           </linepath>
          </assocwidget>
-         <assocwidget visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0" roleAdoc="" roleBdoc="" documentation="" widgetbid="uawzl6rc8dkZ9" linecolor="#ff0000" usesdiagramfillcolor="0" totalcounta="2" totalcountb="2" changeabilityB="900" autoresize="1" indexb="1" textcolor="none" changeabilityA="900" type="515" visibilityB="0" linewidth="0" widgetaid="uwJ5hwRR2sO5v" usefillcolor="1" indexa="1" seqnum="" fillcolor="#ffff00" usesdiagramusefillcolor="1">
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="#000000" widgetbid="uFd0v0kVkllIw" totalcounta="2" type="515" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="unVMkIuNFkptF" usefillcolor="1" usesdiagramusefillcolor="0" changeabilityB="900" usesdiagramfillcolor="0">
           <linepath layout="Polyline">
-           <startpoint startx="-2475" starty="-550"/>
-           <endpoint endy="-450" endx="-2475"/>
+           <startpoint startx="-4150" starty="-1775"/>
+           <endpoint endy="-1725" endx="-4150"/>
           </linepath>
+          <floatingtext fillcolor="none" textcolor="none" y="-1775" pretext="" height="25" xmi.id="u3WNUhwntNFuy" localid="uL1S91sIH46M9" font="Linux Biolinum O,10,-1,5,50,0,0,0,0,0,Regular" width="150" linecolor="#ff0000" role="703" isinstance="0" autoresize="1" linewidth="0" usefillcolor="1" showstereotype="1" text="search for delimiter" usesdiagramusefillcolor="1" x="-4150" posttext="" usesdiagramfillcolor="1"/>
          </assocwidget>
-         <assocwidget visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0" roleAdoc="" roleBdoc="" documentation="" widgetbid="ulfDJnyQF9hGi" linecolor="#ff0000" usesdiagramfillcolor="0" totalcounta="2" totalcountb="2" changeabilityB="900" autoresize="1" indexb="1" textcolor="none" changeabilityA="900" type="515" visibilityB="0" linewidth="0" widgetaid="uawzl6rc8dkZ9" usefillcolor="1" indexa="1" seqnum="" fillcolor="#ffff00" usesdiagramusefillcolor="0">
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="none" widgetbid="ut6P6b8PUDvtV" totalcounta="2" type="515" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="uvKeKQoNGkPNC" usefillcolor="1" usesdiagramusefillcolor="0" changeabilityB="900" usesdiagramfillcolor="0">
           <linepath layout="Polyline">
-           <startpoint startx="-2450" starty="-450"/>
-           <endpoint endy="-575" endx="-2225"/>
+           <startpoint startx="-4325" starty="-1900"/>
+           <endpoint endy="-1900" endx="-4250"/>
           </linepath>
          </assocwidget>
-         <assocwidget visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0" roleAdoc="" roleBdoc="" documentation="" widgetbid="uwpFjHsVWLcOi" linecolor="#ff0000" usesdiagramfillcolor="0" totalcounta="2" totalcountb="2" changeabilityB="900" autoresize="1" indexb="1" textcolor="none" changeabilityA="900" type="515" visibilityB="0" linewidth="0" widgetaid="uawzl6rc8dkZ9" usefillcolor="1" indexa="1" seqnum="" fillcolor="#ffff00" usesdiagramusefillcolor="1">
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="none" widgetbid="uawzl6rc8dkZ9" totalcounta="2" type="515" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="uwJ5hwRR2sO5v" usefillcolor="1" usesdiagramusefillcolor="1" changeabilityB="900" usesdiagramfillcolor="0">
           <linepath layout="Polyline">
-           <startpoint startx="-2450" starty="-450"/>
-           <endpoint endy="-500" endx="-2225"/>
+           <startpoint startx="-4850" starty="-2075"/>
+           <endpoint endy="-2025" endx="-4850"/>
           </linepath>
          </assocwidget>
-         <assocwidget visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" roleAdoc="" roleBdoc="" documentation="" widgetbid="ut6P6b8PUDvtV" linecolor="#ff0000" usesdiagramfillcolor="0" totalcounta="2" totalcountb="2" changeabilityB="900" autoresize="1" indexb="1" textcolor="#000000" changeabilityA="900" type="515" visibilityB="0" linewidth="0" widgetaid="unVMkIuNFkptF" usefillcolor="1" indexa="1" seqnum="" fillcolor="#ffff00" usesdiagramusefillcolor="0">
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="#000000" widgetbid="uYsNQJfmZq2kp" totalcounta="2" type="515" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="uwJ6SExWDGd6J" usefillcolor="1" usesdiagramusefillcolor="0" changeabilityB="900" usesdiagramfillcolor="0">
           <linepath layout="Polyline">
-           <startpoint startx="-1800" starty="-375"/>
-           <endpoint endy="-425" endx="-1800"/>
+           <startpoint startx="-4125" starty="-2000"/>
+           <endpoint endy="-2000" endx="-3975"/>
           </linepath>
-          <floatingtext isinstance="0" role="703" font="Linux Biolinum O,10,-1,5,50,0,0,0,0,0,Regular" height="25" y="-387" x="-1788" linecolor="#ff0000" usesdiagramfillcolor="1" autoresize="1" width="125" textcolor="none" posttext="" xmi.id="uwP8tJArAirJ9" localid="uQMBDPq5964HA" linewidth="0" usefillcolor="1" showstereotype="1" fillcolor="none" usesdiagramusefillcolor="1" pretext="" text="[path end reached]"/>
+          <floatingtext fillcolor="none" textcolor="none" y="-1975" pretext="" height="25" xmi.id="urc0pQwNH5MFh" localid="uEdMGSsrS1OOA" font="Linux Biolinum O,10,-1,5,50,0,0,0,0,0,Regular" width="125" linecolor="#ff0000" role="703" isinstance="0" autoresize="1" linewidth="0" usefillcolor="1" showstereotype="1" text="index_flag == true" usesdiagramusefillcolor="1" x="-4075" posttext="" usesdiagramfillcolor="1"/>
          </assocwidget>
-         <assocwidget visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" roleAdoc="" roleBdoc="" documentation="" widgetbid="um8yCH5lfFZWF" linecolor="#ff0000" usesdiagramfillcolor="0" totalcounta="2" totalcountb="2" changeabilityB="900" autoresize="1" indexb="1" textcolor="none" changeabilityA="900" type="515" visibilityB="0" linewidth="0" widgetaid="uukdHeIh6AVzM" usefillcolor="1" indexa="1" seqnum="" fillcolor="#ffff00" usesdiagramusefillcolor="1">
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="none" widgetbid="ulfDJnyQF9hGi" totalcounta="2" type="513" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="urf49L659FZIF" usefillcolor="1" usesdiagramusefillcolor="0" changeabilityB="900" usesdiagramfillcolor="0">
           <linepath layout="Polyline">
-           <startpoint startx="-2475" starty="-750"/>
-           <endpoint endy="-700" endx="-2475"/>
+           <startpoint startx="-4473.03" starty="-2175"/>
+           <endpoint endy="-2125" endx="-4473.03"/>
           </linepath>
          </assocwidget>
-         <assocwidget visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" roleAdoc="" roleBdoc="" documentation="" widgetbid="uukdHeIh6AVzM" linecolor="#ff0000" usesdiagramfillcolor="0" totalcounta="2" totalcountb="2" changeabilityB="900" autoresize="1" indexb="1" textcolor="none" changeabilityA="900" type="515" visibilityB="0" linewidth="0" widgetaid="uwpFjHsVWLcOi" usefillcolor="1" indexa="1" seqnum="" fillcolor="#ffff00" usesdiagramusefillcolor="1">
-          <linepath layout="Spline">
-           <startpoint startx="-2000" starty="-550"/>
-           <endpoint endy="-800" endx="-2375"/>
-           <point y="-825" x="-1950"/>
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="#000000" widgetbid="uNQ64RtYkNgdi" totalcounta="2" type="515" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="usXPMcBU9XJNz" usefillcolor="1" usesdiagramusefillcolor="0" changeabilityB="900" usesdiagramfillcolor="0">
+          <linepath layout="Polyline">
+           <startpoint startx="-4150" starty="-2225"/>
+           <endpoint endy="-2275" endx="-4150"/>
           </linepath>
+          <floatingtext fillcolor="none" textcolor="none" y="-2250" pretext="" height="25" xmi.id="u0lqqwAGo6fTo" localid="uP4rB9YvsXdDE" font="Linux Biolinum O,10,-1,5,50,0,0,0,0,0,Regular" width="150" linecolor="#ff0000" role="703" isinstance="0" autoresize="1" linewidth="0" usefillcolor="1" showstereotype="1" text="model or properties" usesdiagramusefillcolor="1" x="-4151" posttext="" usesdiagramfillcolor="1"/>
+         </assocwidget>
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="#000000" widgetbid="uwpFjHsVWLcOi" totalcounta="2" type="515" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="uawzl6rc8dkZ9" usefillcolor="1" usesdiagramusefillcolor="0" changeabilityB="900" usesdiagramfillcolor="0">
+          <linepath layout="Polyline">
+           <startpoint startx="-4825" starty="-2000"/>
+           <endpoint endy="-2000" endx="-4575"/>
+          </linepath>
+          <floatingtext fillcolor="none" textcolor="none" y="-2000" pretext="" height="25" xmi.id="uClf2i5273VJ9" localid="uyaSe1IQP9rlW" font="Linux Biolinum O,10,-1,5,50,0,0,0,0,0,Regular" width="100" linecolor="#ff0000" role="703" isinstance="0" autoresize="1" linewidth="0" usefillcolor="1" showstereotype="1" text="separator *" usesdiagramusefillcolor="1" x="-4700" posttext="" usesdiagramfillcolor="1"/>
+         </assocwidget>
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="none" widgetbid="usXPMcBU9XJNz" totalcounta="2" type="515" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="uQaPbocDx7ilt" usefillcolor="1" usesdiagramusefillcolor="1" changeabilityB="900" usesdiagramfillcolor="0">
+          <linepath layout="Polyline">
+           <startpoint startx="-4150" starty="-2125"/>
+           <endpoint endy="-2175" endx="-4150"/>
+          </linepath>
+         </assocwidget>
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="none" widgetbid="ugc6ndkQtnzPd" totalcounta="2" type="513" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="udcQNRt0dAay2" usefillcolor="1" usesdiagramusefillcolor="1" changeabilityB="900" usesdiagramfillcolor="0">
+          <linepath layout="Polyline">
+           <startpoint startx="-4050" starty="-1600"/>
+           <endpoint endy="-1600" endx="-3950"/>
+          </linepath>
+         </assocwidget>
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="none" widgetbid="um8yCH5lfFZWF" totalcounta="2" type="515" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="uukdHeIh6AVzM" usefillcolor="1" usesdiagramusefillcolor="1" changeabilityB="900" usesdiagramfillcolor="0">
+          <linepath layout="Polyline">
+           <startpoint startx="-4843.93" starty="-2275"/>
+           <endpoint endy="-2225" endx="-4843.93"/>
+          </linepath>
+         </assocwidget>
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="#000000" widgetbid="uYenPQPhbw6wQ" totalcounta="2" type="515" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="usXPMcBU9XJNz" usefillcolor="1" usesdiagramusefillcolor="0" changeabilityB="900" usesdiagramfillcolor="0">
+          <linepath layout="Polyline">
+           <startpoint startx="-4125" starty="-2200"/>
+           <endpoint endy="-2200" endx="-3975"/>
+          </linepath>
+          <floatingtext fillcolor="none" textcolor="none" y="-2175" pretext="" height="25" xmi.id="uwovUz7gB97k9" localid="uuOHMkmInxzo1" font="Linux Biolinum O,10,-1,5,50,0,0,0,0,0,Regular" width="100" linecolor="#ff0000" role="703" isinstance="0" autoresize="1" linewidth="0" usefillcolor="1" showstereotype="1" text="stack memory" usesdiagramusefillcolor="1" x="-4075" posttext="" usesdiagramfillcolor="1"/>
+         </assocwidget>
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="none" widgetbid="uwJ5hwRR2sO5v" totalcounta="2" type="513" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="ueYgbnfNf6bzv" usefillcolor="1" usesdiagramusefillcolor="1" changeabilityB="900" usesdiagramfillcolor="0">
+          <linepath layout="Polyline">
+           <startpoint startx="-5075" starty="-2103.54"/>
+           <endpoint endy="-2103.54" endx="-4925"/>
+          </linepath>
+         </assocwidget>
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="none" widgetbid="uwJ6SExWDGd6J" totalcounta="2" type="515" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="ut6P6b8PUDvtV" usefillcolor="1" usesdiagramusefillcolor="1" changeabilityB="900" usesdiagramfillcolor="0">
+          <linepath layout="Polyline">
+           <startpoint startx="-4150" starty="-1925"/>
+           <endpoint endy="-1975" endx="-4150"/>
+          </linepath>
+         </assocwidget>
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="#000000" widgetbid="uOi2u4J1XepKD" totalcounta="2" type="515" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="uawzl6rc8dkZ9" usefillcolor="1" usesdiagramusefillcolor="0" changeabilityB="900" usesdiagramfillcolor="0">
+          <linepath layout="Polyline">
+           <startpoint startx="-4825" starty="-1975"/>
+           <endpoint endy="-1825" endx="-4575"/>
+          </linepath>
+          <floatingtext fillcolor="none" textcolor="none" y="-1850" pretext="" height="25" xmi.id="uv9nbkg0fCRfv" localid="uem6bDOztcNg6" font="Linux Biolinum O,10,-1,5,50,0,0,0,0,0,Regular" width="50" linecolor="#ff0000" role="703" isinstance="0" autoresize="1" linewidth="0" usefillcolor="1" showstereotype="1" text="else" usesdiagramusefillcolor="1" x="-4675" posttext="" usesdiagramfillcolor="1"/>
+         </assocwidget>
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="none" widgetbid="uukdHeIh6AVzM" totalcounta="2" type="515" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="ulfDJnyQF9hGi" usefillcolor="1" usesdiagramusefillcolor="1" changeabilityB="900" usesdiagramfillcolor="0">
+          <linepath layout="Polyline">
+           <startpoint startx="-4575" starty="-2125"/>
+           <endpoint endy="-2275" endx="-4750"/>
+          </linepath>
+         </assocwidget>
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="#000000" widgetbid="ulfDJnyQF9hGi" totalcounta="2" type="515" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="uawzl6rc8dkZ9" usefillcolor="1" usesdiagramusefillcolor="0" changeabilityB="900" usesdiagramfillcolor="0">
+          <linepath layout="Polyline">
+           <startpoint startx="-4825" starty="-2025"/>
+           <endpoint endy="-2075" endx="-4575"/>
+          </linepath>
+          <floatingtext fillcolor="none" textcolor="none" y="-2050" pretext="" height="25" xmi.id="uWnMSytCWSBbU" localid="u9QCaMlhEPcgj" font="Linux Biolinum O,10,-1,5,50,0,0,0,0,0,Regular" width="100" linecolor="#ff0000" role="703" isinstance="0" autoresize="1" linewidth="0" usefillcolor="1" showstereotype="1" text="separator # . :" usesdiagramusefillcolor="1" x="-4700" posttext="" usesdiagramfillcolor="1"/>
+         </assocwidget>
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="none" widgetbid="udcQNRt0dAay2" totalcounta="2" type="513" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="uWTZwN8IKnLO1" usefillcolor="1" usesdiagramusefillcolor="1" changeabilityB="900" usesdiagramfillcolor="0">
+          <linepath layout="Polyline">
+           <startpoint startx="-4350" starty="-1600"/>
+           <endpoint endy="-1600" endx="-4225"/>
+          </linepath>
+         </assocwidget>
+         <assocwidget roleBdoc="" changeabilityA="900" roleAdoc="" fillcolor="#ffff00" indexb="1" textcolor="#000000" widgetbid="ut6P6b8PUDvtV" totalcounta="2" type="515" seqnum="" indexa="1" documentation="" visibilityA="0" font="Linux Biolinum O,10,-1,0,50,0,0,0,0,0,Regular" linecolor="#ff0000" totalcountb="2" autoresize="1" linewidth="0" visibilityB="0" widgetaid="unVMkIuNFkptF" usefillcolor="1" usesdiagramusefillcolor="0" changeabilityB="900" usesdiagramfillcolor="0">
+          <linepath layout="Polyline">
+           <startpoint startx="-4150" starty="-1825"/>
+           <endpoint endy="-1875" endx="-4150"/>
+          </linepath>
+          <floatingtext fillcolor="none" textcolor="none" y="-1851" pretext="" height="25" xmi.id="uwP8tJArAirJ9" localid="uQMBDPq5964HA" font="Linux Biolinum O,10,-1,5,50,0,0,0,0,0,Regular" width="125" linecolor="#ff0000" role="703" isinstance="0" autoresize="1" linewidth="0" usefillcolor="1" showstereotype="1" text="name end reached" usesdiagramusefillcolor="1" x="-4151" posttext="" usesdiagramfillcolor="1"/>
          </assocwidget>
         </associations>
        </diagram>
       </diagrams>
      </XMI.extension>
     </UML:Model>
-    <UML:Model isSpecification="false" namespace="m1" name="Use Case View" visibility="public" xmi.id="Use_Case_View" isRoot="false" isAbstract="false" isLeaf="false">
+    <UML:Model isAbstract="false" xmi.id="Use_Case_View" name="Use Case View" isRoot="false" isSpecification="false" isLeaf="false" namespace="m1" visibility="public">
      <UML:Namespace.ownedElement/>
     </UML:Model>
-    <UML:Model isSpecification="false" namespace="m1" name="Component View" visibility="public" xmi.id="Component_View" isRoot="false" isAbstract="false" isLeaf="false">
+    <UML:Model isAbstract="false" xmi.id="Component_View" name="Component View" isRoot="false" isSpecification="false" isLeaf="false" namespace="m1" visibility="public">
      <UML:Namespace.ownedElement/>
     </UML:Model>
-    <UML:Model isSpecification="false" namespace="m1" name="Deployment View" visibility="public" xmi.id="Deployment_View" isRoot="false" isAbstract="false" isLeaf="false">
+    <UML:Model isAbstract="false" xmi.id="Deployment_View" name="Deployment View" isRoot="false" isSpecification="false" isLeaf="false" namespace="m1" visibility="public">
      <UML:Namespace.ownedElement/>
     </UML:Model>
-    <UML:Model isSpecification="false" namespace="m1" name="Entity Relationship Model" visibility="public" xmi.id="Entity_Relationship_Model" isRoot="false" isAbstract="false" isLeaf="false">
+    <UML:Model isAbstract="false" xmi.id="Entity_Relationship_Model" name="Entity Relationship Model" isRoot="false" isSpecification="false" isLeaf="false" namespace="m1" visibility="public">
      <UML:Namespace.ownedElement/>
     </UML:Model>
    </UML:Namespace.ownedElement>
   </UML:Model>
  </XMI.content>
  <XMI.extensions xmi.extender="umbrello">
-  <docsettings uniqueid="udcQNRt0dAay2" documentation="" viewid="uadetro7PO78C"/>
+  <docsettings uniqueid="uBmlNNrwMrJTj" viewid="uadetro7PO78C" documentation=""/>
   <listview>
-   <listitem type="800" id="Views" open="1">
-    <listitem type="802" id="Use_Case_View" open="1"/>
-    <listitem type="836" id="Entity_Relationship_Model" open="1"/>
-    <listitem type="821" id="Component_View" open="1"/>
-    <listitem type="801" id="Logical_View" open="1">
-     <listitem type="830" id="Datatypes" open="0">
-      <listitem type="829" id="uhEj09cSNJBBW" open="1"/>
-      <listitem type="829" id="uyxa0q32WIgWR" open="1"/>
-      <listitem type="829" id="uLNpenn4CAuD0" open="1"/>
-      <listitem type="829" id="uVgGc64om6In4" open="1"/>
-      <listitem type="829" id="uprb6uLnoraV4" open="1"/>
-      <listitem type="829" id="uY7p4rO5E3z1B" open="1"/>
-      <listitem type="829" id="ufTDsnPjG5g5R" open="1"/>
-      <listitem type="829" id="uGOJufLN5MsBc" open="1"/>
-      <listitem type="829" id="uIDvUtdiEQIJm" open="1"/>
-      <listitem type="829" id="uIW5FCxqjeGR2" open="1"/>
-      <listitem type="829" id="u43U4iPHrdN4W" open="1"/>
-      <listitem type="829" id="uQx5T8MQCO7jO" open="1"/>
-      <listitem type="829" id="u5BywRhe8zaLr" open="1"/>
-      <listitem type="829" id="uygKTExcmh7oi" open="1"/>
-      <listitem type="829" id="ukdJzaZD4HfoV" open="1"/>
-      <listitem type="829" id="uxSSJaeyA6HKy" open="1"/>
-      <listitem type="829" id="ufKL0L3SsgX5U" open="1"/>
-      <listitem type="829" id="uVo519TtiDVV3" open="1"/>
-      <listitem type="829" id="uV80MdrBFxum6" open="1"/>
+   <listitem open="1" type="800" id="Views">
+    <listitem open="1" type="802" id="Use_Case_View"/>
+    <listitem open="1" type="836" id="Entity_Relationship_Model"/>
+    <listitem open="1" type="821" id="Component_View"/>
+    <listitem open="1" type="801" id="Logical_View">
+     <listitem open="0" type="830" id="Datatypes">
+      <listitem open="1" type="829" id="uhEj09cSNJBBW"/>
+      <listitem open="1" type="829" id="uyxa0q32WIgWR"/>
+      <listitem open="1" type="829" id="uLNpenn4CAuD0"/>
+      <listitem open="1" type="829" id="uVgGc64om6In4"/>
+      <listitem open="1" type="829" id="uprb6uLnoraV4"/>
+      <listitem open="1" type="829" id="uY7p4rO5E3z1B"/>
+      <listitem open="1" type="829" id="ufTDsnPjG5g5R"/>
+      <listitem open="1" type="829" id="uGOJufLN5MsBc"/>
+      <listitem open="1" type="829" id="uIDvUtdiEQIJm"/>
+      <listitem open="1" type="829" id="uIW5FCxqjeGR2"/>
+      <listitem open="1" type="829" id="u43U4iPHrdN4W"/>
+      <listitem open="1" type="829" id="uQx5T8MQCO7jO"/>
+      <listitem open="1" type="829" id="u5BywRhe8zaLr"/>
+      <listitem open="1" type="829" id="uygKTExcmh7oi"/>
+      <listitem open="1" type="829" id="ukdJzaZD4HfoV"/>
+      <listitem open="1" type="829" id="uxSSJaeyA6HKy"/>
+      <listitem open="1" type="829" id="ufKL0L3SsgX5U"/>
+      <listitem open="1" type="829" id="uVo519TtiDVV3"/>
+      <listitem open="1" type="829" id="uV80MdrBFxum6"/>
      </listitem>
-     <listitem type="809" label="knowledge_deserialiser" id="uadetro7PO78C" open="0"/>
+     <listitem open="0" type="809" label="knowledge_deserialiser" id="uadetro7PO78C"/>
     </listitem>
-    <listitem type="827" id="Deployment_View" open="1"/>
+    <listitem open="1" type="827" id="Deployment_View"/>
    </listitem>
   </listview>
   <codegeneration>
