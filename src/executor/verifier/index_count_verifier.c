@@ -67,8 +67,24 @@ void verify_index_count(void* p0, void* p1, void* p2, void* p3) {
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not verify index count. The sum of the data index and count is greater than the data count.");
-        fwprintf(stdout, L"Warning: Could not verify index count. The sum of the data index and count is greater than the data count.\n");
+        //
+        // The sum of the data index and count
+        // is greater than the data count.
+        //
+        // This is most often caused by a knowledge path
+        // pointing to a non-existing node, which may be
+        // regular behaviour in a cybol application.
+        //
+        // REMARK: In order to keep the log file size low,
+        // the following log messages are commented out.
+        //
+        // REMARK: This empty block containing a comment only
+        // does no harm, since the compiler will remove it anyway.
+        //
+
+        //?? log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not verify index count. The sum of the data index and count is greater than the data count.");
+        //?? fwprintf(stdout, L"Warning: Could not verify index count. The sum of the data index and count is greater than the data count.\n");
+
         //?? CAUTION! The following print messages causes an error, if p3 is null! It is therefore commented out.
         //?? fwprintf(stdout, L"Hint: Test count sum c: %i. Data count *p3: %i.\n", c, *((int*) p3));
     }

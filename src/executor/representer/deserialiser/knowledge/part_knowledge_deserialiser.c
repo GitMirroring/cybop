@@ -149,12 +149,9 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
                 // 1) a spelling error
                 // 2) the element (child) does not exist
                 //
-                // A non-existing element (child) may indeed be
-                // regular behaviour in a cybol application since sometimes,
-                // knowledge paths may point to non-existing nodes.
+                // Case 2 may be regular behaviour in a cybol application
+                // since sometimes, knowledge paths may point to non-existing nodes.
                 //
-
-                //?? fwprintf(stdout, L"TEST: Deserialise knowledge part. element (child) is null: %i\n", e);
 
                 //
                 // Do NOTHING here.
@@ -169,16 +166,34 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
                 // the parent instead of the (non-existing) child node,
                 // which would definitely lead to wrong application data.
                 //
-                // REMARK: This empty block containing this comment only
+                // REMARK: In order to keep the log file size low,
+                // the following log messages are commented out.
+                //
+                // REMARK: This empty block containing a comment only
                 // does no harm, since the compiler will remove it anyway.
                 //
+
+                //?? fwprintf(stdout, L"TEST: Deserialise knowledge part. element (child) is null: %i\n", e);
             }
         }
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise knowledge part. The new whole (parent) is null.");
-        fwprintf(stdout, L"Error: Could not deserialise knowledge part. The new whole (parent) is null. w: %i\n", w);
+        //
+        // The whole (parent) does not exist.
+        //
+        // This may be regular behaviour in a cybol application
+        // since sometimes, knowledge paths may point to non-existing nodes.
+        //
+        // REMARK: In order to keep the log file size low,
+        // the following log messages are commented out.
+        //
+        // REMARK: This empty block containing a comment only
+        // does no harm, since the compiler will remove it anyway.
+        //
+
+        //?? log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise knowledge part. The new whole (parent) is null.");
+        //?? fwprintf(stdout, L"Warning: Could not deserialise knowledge part. The new whole (parent) is null. w: %i\n", w);
     }
 }
 

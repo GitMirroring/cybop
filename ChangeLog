@@ -22,6 +22,7 @@
 
         * Make header image and heraldic symbol get transferred as static file and not dynamic byte stream in cybol application "presence"
         * Finish adapting cybol application "presence" to using stack memory variables
+        * Make tables that remained empty in wui work again
 
 2020-11-18  Christian Heller  <christian.heller@cybop.org>
 

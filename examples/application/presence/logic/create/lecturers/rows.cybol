@@ -3,7 +3,7 @@
     <!-- Reset is NOT necessary, since this is executed only ONCE at application startup. -->
 
     <node name="count_lecturers" channel="inline" format="access/count" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model="#count"/>
+        <node name="count" channel="inline" format="text/cybol-path" model="#count"/>
         <node name="part" channel="inline" format="text/cybol-path" model=".domain.lecturers"/>
     </node>
 

@@ -3,7 +3,7 @@
     <node name="model" channel="inline" format="text/cybol-path" model=".logic.reset.db"/>
 
     <node name="count_weekdays" channel="inline" format="access/count" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model="#count"/>
+        <node name="count" channel="inline" format="text/cybol-path" model="#count"/>
         <node name="part" channel="inline" format="text/cybol-path" model=".domain.weekdays"/>
     </node>
 
