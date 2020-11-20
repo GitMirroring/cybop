@@ -14,11 +14,11 @@
 WUI and Socket
 ______________
 
-        * Adapt cybol application "presence" to using stack memory variables
+        Continue:
+        * Check why tables remain empty in wui --> verify access to db files
         * Handle non-existing database files using default values
         * Check why new client socket number is assigned for css request
             possibly close connection first OR remove "close" from http headers and do not close it
-        * Verify that binary data like images are ignored in model_diagram_serialiser since otherwise, serialisation fails
 
         * Improve cybol application "presence"
             - make DATETIME work in cyboi, before continuing

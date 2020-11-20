@@ -14,7 +14,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".var.file"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="receive_db_from_file" channel="inline" format="communicate/receive" model="">
@@ -22,7 +22,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/cybol-path" model=".var.file"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".var.db"/>
     </node>
 

@@ -16,4 +16,13 @@
     <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.cal_to_wui"/>
     <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.db_to_wui.lecturers"/>
 
+    <!--
+        CAUTION! Do NOT send index page in file "logic/navigate/week.cybol".
+        It gets called on system startup before a socket was created,
+        so that it MUST NOT try to send data yet.
+        Therefore, the page is sent only when reacting to an action request, e.g. in:
+        logic/navigate/backward.cybol
+        logic/navigate/forward.cybol
+    -->
+
 </node>

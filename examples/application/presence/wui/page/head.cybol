@@ -17,7 +17,7 @@
     </node>
     <!--
         Dynamic sending of a css file does NOT work like:
-            <node name="href" channel="inline" format="text/plain" model="http://localhost:1971/?action=send_css"/>
+        <node name="href" channel="inline" format="text/plain" model="http://localhost:1971/?action=send_css"/>
         JavaScript would be needed to do this. Therefore, the href attribute contains a file path.
     -->
     <node name="css" channel="inline" format="text/plain" model="">
@@ -27,6 +27,11 @@
         <node name="type" channel="inline" format="text/plain" model="text/css"/>
         <node name="href" channel="inline" format="text/plain" model="page/presence.css"/>
     </node>
+    <!--
+        Dynamic sending of the icon file does NOT work like:
+        <node name="href" channel="inline" format="text/plain" model="http://localhost:1971/?action=send_icon"/>
+        JavaScript would be needed to do this. Therefore, the href attribute contains a file path.
+    -->
     <node name="icon" channel="inline" format="text/plain" model="">
         <node name="tag" channel="inline" format="text/plain" model="link"/>
         <node name="rel" channel="inline" format="text/plain" model="icon"/>
@@ -34,7 +39,7 @@
 <!--
         <node name="type" channel="inline" format="text/plain" model="image/vnd.microsoft.icon"/>
 -->
-        <node name="href" channel="inline" format="text/plain" model=""/>
+        <node name="href" channel="inline" format="text/plain" model="page/favicon.png"/>
     </node>
     <node name="title" channel="inline" format="text/plain" model="Anwesenheit Hauptberufliche Dozenten">
         <node name="tag" channel="inline" format="text/plain" model="title"/>

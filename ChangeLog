@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-11-20  Christian Heller  <christian.heller@cybop.org>
+
+        * Make header image and heraldic symbol get transferred as static file and not dynamic byte stream in cybol application "presence"
+        * Finish adapting cybol application "presence" to using stack memory variables
+
 2020-11-18  Christian Heller  <christian.heller@cybop.org>
 
         * Set knowledge path end flag not only in file "knowledge_deserialiser.c", but also in file "end_knowledge_selector.c"

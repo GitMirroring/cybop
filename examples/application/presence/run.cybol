@@ -1,6 +1,6 @@
 <node>
 
-    <!-- This is needed for printing messages on terminal. -->
+    <!-- This is needed for printing log messages on terminal. -->
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
@@ -56,12 +56,6 @@
         <node name="message" channel="inline" format="text/plain" model="Translate models"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-    <node name="translate_dom_to_page_header_image" channel="inline" format="text/cybol-path" model=".logic.translate.dom_to_page.header_image"/>
-    <node name="translate_dom_to_page_heraldic_symbol" channel="inline" format="text/cybol-path" model=".logic.translate.dom_to_page.heraldic_symbol"/>
-<!--
-    <node name="translate_dom_to_page_css" channel="inline" format="text/cybol-path" model=".logic.translate.dom_to_page.css"/>
--->
-    <node name="translate_dom_to_page_icon" channel="inline" format="text/cybol-path" model=".logic.translate.dom_to_page.icon"/>
     <node name="translate_dom_to_nav_backward" channel="inline" format="text/cybol-path" model=".logic.translate.dom_to_nav.backward"/>
     <node name="translate_dom_to_nav_forward" channel="inline" format="text/cybol-path" model=".logic.translate.dom_to_nav.forward"/>
 

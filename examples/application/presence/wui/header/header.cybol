@@ -2,7 +2,7 @@
 
     <node name="image" channel="inline" format="text/plain" model="">
         <node name="tag" channel="inline" format="text/plain" model="img"/>
-        <node name="src" channel="inline" format="text/plain" model=""/>
+        <node name="src" channel="inline" format="text/plain" model="header/ba-leipzig.png"/>
         <node name="alt" channel="inline" format="text/plain" model="Kopf BA Leipzig"/>
     </node>
 

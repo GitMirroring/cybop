@@ -9,12 +9,6 @@
         <node name="model" channel="inline" format="text/cybol-path" model=".logic.navigate.week"/>
     </node>
 
-    <!--
-        CAUTION! Do NOT send index page in file "logic/navigate/week.cybol".
-        It gets called on system startup before a socket was created,
-        so that it MUST NOT try to send data yet.
-        Therefore, the page is sent only here, reacting to an action request.
-    -->
     <node name="send_index" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="text/cybol-path" model=".logic.send.index"/>
     </node>

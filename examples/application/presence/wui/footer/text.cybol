@@ -1,6 +1,6 @@
 <node>
 
-    <node name="copyright" channel="inline" format="text/plain" model="Copyright (c) 2011-2015.">
+    <node name="copyright" channel="inline" format="text/plain" model="Copyright (c) 2011-2020.">
         <node name="tag" channel="inline" format="text/plain" model="span"/>
     </node>
     <node name="holder" channel="inline" format="text/plain" model="Staatliche Studienakademie Leipzig.">
@@ -12,13 +12,13 @@
     </node>
     <node name="imprint" channel="inline" format="text/plain" model="Impressum.">
         <node name="tag" channel="inline" format="text/plain" model="a"/>
-        <node name="href" channel="inline" format="text/plain" model="http://www.ba-leipzig.de/service/impressum.html"/>
+        <node name="href" channel="inline" format="text/plain" model="https://www.ba-leipzig.de/impressum-1"/>
     </node>
     <node name="webmaster" channel="inline" format="text/plain" model="Webmaster.">
         <node name="tag" channel="inline" format="text/plain" model="a"/>
-        <node name="href" channel="inline" format="text/plain" model="mailto:christian.heller@ba-leipzig.de"/>
+        <node name="href" channel="inline" format="text/plain" model="mailto:christian.heller@ba-sachsen.de"/>
     </node>
-    <node name="update" channel="inline" format="text/plain" model="Last Update: 2015-03-16.">
+    <node name="update" channel="inline" format="text/plain" model="Last Update: 2020-11-20.">
         <node name="tag" channel="inline" format="text/plain" model="span"/>
     </node>
 

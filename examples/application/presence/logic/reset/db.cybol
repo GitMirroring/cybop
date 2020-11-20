@@ -1,11 +1,11 @@
 <node>
 
-    <node name="empty_file_model" channel="inline" format="modify/empty" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".var.file"/>
+    <node name="empty_dbfile_model" channel="inline" format="modify/empty" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
-    <node name="empty_file_properties" channel="inline" format="modify/empty" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".var.file"/>
+    <node name="empty_dbfile_properties" channel="inline" format="modify/empty" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 

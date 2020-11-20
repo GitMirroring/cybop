@@ -3,7 +3,7 @@
     <!-- The db model. -->
 
     <node name="directory" channel="inline" format="text/plain" model=""/>
-    <node name="file" channel="inline" format="text/plain" model=""/>
+    <node name="dbfile" channel="inline" format="text/plain" model=""/>
     <node name="db" channel="inline" format="element/part" model=""/>
 
     <!-- The calendar. -->

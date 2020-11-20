@@ -1,54 +1,25 @@
 <node>
 
-    <!-- Reset. -->
-    <!-- Initialisation IS necessary, since data might have got changed within another logic called below. -->
-    <node name="initialise_reset" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".var.reset"/>
-        <node name="source" channel="inline" format="text/plain" model="uri_to_db"/>
-    </node>
-    <node name="reset_element" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.reset.stack.element"/>
-    </node>
-
-    <!-- Identification. -->
-    <node name="overwrite_identify_prefix" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".var.identify_prefix"/>
-        <node name="source" channel="inline" format="text/plain" model=".domain."/>
-    </node>
-    <node name="overwrite_identify_source" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".var.identify_source"/>
-        <node name="source" channel="inline" format="text/plain" model="weekdays"/>
-    </node>
-    <node name="overwrite_identify" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".var.identify"/>
-        <node name="source" channel="inline" format="text/plain" model="uri_to_db"/>
-    </node>
-    <node name="identify_weekday_number" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.identify.number"/>
-    </node>
-    <node name="identify_weekday_root" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.identify.root"/>
-    </node>
     <node name="get_weekday_name" channel="inline" format="access/get-name" model="">
-        <node name="element" channel="inline" format="text/cybol-path" model=".var.uri_to_db.element.day"/>
-        <node name="part" channel="inline" format="text/cybol-path" model="*.var.uri_to_db.element.root"/>
+        <node name="element" channel="inline" format="text/cybol-path" model="#day"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".domain.weekdays.[#index]"/>
     </node>
 
     <node name="overwrite_db_entry" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".db.(.var.uri_to_db.element.day)"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(.var.uri_to_db.element.day):class"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".db.(#day)"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".wui.index.body.lecturers.table.(.var.request:uri:query.lecturer).(#day):class"/>
     </node>
 
     <!-- Loop test. -->
     <node name="increment_index" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model=".var.uri_to_db.loop.index"/>
+        <node name="result" channel="inline" format="text/cybol-path" model="#index"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
     </node>
     <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
     <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model=".var.uri_to_db.loop.break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model=".var.uri_to_db.loop.index"/>
-        <node name="right" channel="inline" format="text/cybol-path" model=".var.uri_to_db.loop.count"/>
+        <node name="result" channel="inline" format="text/cybol-path" model="#break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="#index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model="#count"/>
     </node>
 
 </node>
