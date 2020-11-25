@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2020-11-25  Christian Heller  <christian.heller@cybop.org>
+
+        * Add third version and update screenshots for prototype of cybol application "presence"
+
 2020-11-20  Christian Heller  <christian.heller@cybop.org>
 
         * Make header image and heraldic symbol get transferred as static file and not dynamic byte stream in cybol application "presence"
