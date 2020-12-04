@@ -45,6 +45,7 @@ Pseudo Terminal
 GUI Event Processing
 Dynamic Typing
 Hello World!
+S-P-O
 
 Terminology
 ___________
@@ -923,4 +924,13 @@ the principles of human thinking:
 - discrimination (discrete part models)
 - composition (parts are containers)
 - categorisation (inheritance of part properties)
+
+S-P-O
+_____
+
+Compare CYBOP to Subject-Predicate-Object of RDFa/Microdata/Microformat:
+
+S: a structural node as whole-part
+P: a property node describing the structural node
+O: the value assigned to a property
 
