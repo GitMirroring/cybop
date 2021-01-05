@@ -46,6 +46,7 @@ GUI Event Processing
 Dynamic Typing
 Hello World!
 S-P-O
+X11, Wayland, Xlib, XCB
 
 Terminology
 ___________
@@ -933,4 +934,14 @@ Compare CYBOP to Subject-Predicate-Object of RDFa/Microdata/Microformat:
 S: a structural node as whole-part
 P: a property node describing the structural node
 O: the value assigned to a property
+
+X11, Wayland, Xlib, XCB
+_______________________
+
+X11 and Wayland are display servers, so it does not matter
+on which of these cyboi is run.
+
+Xlib is complex and somewhat outdated, whilst XCB is modern and
+efficient, which is why XCB is used in cyboi. Moreover, both are
+compatible with each other.
 
