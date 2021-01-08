@@ -14,9 +14,14 @@
 WUI and Socket
 ______________
 
-        * Handle non-existing database files using default values
         * Check why new client socket number is assigned for css request
-            possibly close connection first OR remove "close" from http headers and do not close it
+            - verify that socket is NOT closed
+            - remove "close" from http headers and do not close it
+            - client sockets are stored in list
+            - changing the order of function calls in file "element_io_checker.c" did not help
+            - client sockets are checked for available data --> verify if this really works!
+
+        * Handle non-existing database files using default values
 
         * Improve cybol application "presence"
             - make DATETIME work in cyboi, before continuing
