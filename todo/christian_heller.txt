@@ -14,9 +14,6 @@
 WUI and Socket
 ______________
 
-        DONE:
-        * Remove "close" from http headers to not close http connection
-        TODO:
         * Check why new client socket number is assigned for each new request
             - see "examples/application/presence/logic/send/index.cybol"
             - changing the order of function calls in file "element_io_checker.c" did not help

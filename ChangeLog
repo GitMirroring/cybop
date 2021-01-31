@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-01-08  Christian Heller  <christian.heller@cybop.org>
+
+        * Remove "close" from http headers in cybol application "presence", to not always close http connection
+
 2020-11-25  Christian Heller  <christian.heller@cybop.org>
 
         * Add third version and update screenshots for prototype of cybol application "presence"

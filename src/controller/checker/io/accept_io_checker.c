@@ -64,7 +64,7 @@ void check_io_accept(void* p0, void* p1, void* p2) {
 
         // A client request has been detected on the server.
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io accept. A client request was detected.");
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io accept. A client request was detected.");
 
 //??        fwprintf(stdout, L"Debug: Check io accept. A client request was detected. c: %i\n", c);
 

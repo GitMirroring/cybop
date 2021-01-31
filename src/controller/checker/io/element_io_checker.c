@@ -39,7 +39,7 @@
 /**
  * Checks input output entry data.
  *
- * @param p0 the io flag
+ * @param p0 the input/output flag
  * @param p1 the internal memory data
  * @param p2 the input/output base
  * @param p3 the service identification
@@ -47,81 +47,110 @@
  */
 void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    //
-    // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
-    // Otherwise, it would produce huge log files filled up with useless entries.
-    //
-    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io element.");
-    //
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // The input/output entry.
-    void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Get input/output entry.
-    maintain_io_get((void*) &io, p1, p2, p3);
-
-    if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        // The input/output entry (service) DOES exist in internal memory.
-
-/*??
-        fwprintf(stdout, L"TEST: check io element. input/output base p2: %i \n", *((int*) p2));
-        fwprintf(stdout, L"TEST: check io element. service identification p3: %i \n", *((int*) p3));
-        fwprintf(stdout, L"TEST: check io element io: %i \n", io);
-*/
-
-        // The enable flag.
-        int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-        // Get enable flag from input/output entry.
-        get_io_entry_element((void*) &e, io, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-        if (e != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // The enable flag is set.
-
-            //?? fwprintf(stdout, L"TEST: check io element e: %i \n", e);
-
-            // The client list item.
-            void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-            // Get client list item from input/output entry.
-            get_io_entry_element((void*) &l, io, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-            //
-            // Check for new client requests.
-            //
-            // CAUTION! Actually, only (server) sockets use the "accept" function,
-            // for sensing new client requests.
-            // However, in order to apply a unified handling, the function
-            // is called here in general, for ALL channels.
-            //
-            // CAUTION! When using a blocking socket, the programme would wait here.
-            // Changing the order of "accept" and "receive" can NOT avoid this.
-            // Even comparing with the returned io flag, in order to
-            // call "accept" only if no input/output data are available
-            // does NOT help, since already in the next loop cycle
-            // "accept" will block anyway.
-            // In other words, when running cyboi as socket server,
-            // it makes sense only together with NON-BLOCKING mode.
-            //
-            check_io_accept(l, io, p4);
-
-            // Check for available input/output.
-            check_io_receive(p0, l, io, p4);
-        }
-
-    } else {
+        int* r = (int*) p0;
 
         //
         // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
         // Otherwise, it would produce huge log files filled up with useless entries.
-        // The reason is that an input/output entry being null is the standard case,
-        // since all 65536 service identification ports are tested,
-        // of whom only one or a few are active.
         //
-        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check io element. The input/output entry is null.");
+        // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io element.");
         //
+
+        // The input/output entry.
+        void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+        // Get input/output entry.
+        maintain_io_get((void*) &io, p1, p2, p3);
+
+        if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            // The input/output entry (service) DOES exist in internal memory.
+
+/*??
+            fwprintf(stdout, L"TEST: check io element. input/output base p2: %i \n", *((int*) p2));
+            fwprintf(stdout, L"TEST: check io element. service identification p3: %i \n", *((int*) p3));
+            fwprintf(stdout, L"TEST: check io element io: %i \n", io);
+*/
+
+            // The enable flag.
+            int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+            // Get enable flag from input/output entry.
+            get_io_entry_element((void*) &e, io, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+            if (e != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                // The enable flag is set.
+
+                //?? fwprintf(stdout, L"TEST: check io element e: %i \n", e);
+
+                // The client list item.
+                void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+                // Get client list item from input/output entry.
+                get_io_entry_element((void*) &l, io, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+                // Check for available input/output.
+                check_io_receive(p0, l, io, p4);
+
+                //
+                // CAUTION! This "if" clause and branching are NECESSARY since otherwise,
+                // new client requests are accepted and a new client socket assigned,
+                // yet before receiving data via the already existing client socket.
+                //
+                // Calling "check_io_receive" first and "check_io_accept" only after,
+                // that is adapting the order of function calls alone, does NOT suffice.
+                // When many client requests are available, then data are received
+                // but the following data might lead to accepting a new request anyway.
+                //
+                // Therefore, "check_io_accept" is only called when no more data are
+                // available on the already existing client sockets.
+                //
+                if (*r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                    //
+                    // There are NO DATA available on input/output.
+                    //
+
+                    //
+                    // Check for new client requests.
+                    //
+                    // CAUTION! Actually, only (server) sockets use the "accept" function,
+                    // for sensing new client requests.
+                    // However, in order to apply a unified handling, the function
+                    // is called here in general, for ALL channels.
+                    //
+                    // CAUTION! When using a blocking socket, the programme would wait here.
+                    // Changing the order of "accept" and "receive" can NOT avoid this.
+                    // Even comparing with the returned io flag, in order to
+                    // call "accept" only if no input/output data are available
+                    // does NOT help, since already in the next loop cycle
+                    // "accept" will block anyway.
+                    // In other words, when running cyboi as socket server,
+                    // it makes sense only together with NON-BLOCKING mode.
+                    //
+                    check_io_accept(l, io, p4);
+                }
+            }
+
+        } else {
+
+            //
+            // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
+            // Otherwise, it would produce huge log files filled up with useless entries.
+            // The reason is that an input/output entry being null is the standard case,
+            // since all 65536 service identification ports are tested,
+            // of whom only one or a few are active.
+            //
+            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check io element. The input/output entry is null.");
+            //
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check io element. The input/output flag is null.");
     }
 }
 

@@ -32,12 +32,17 @@
 /**
  * The internal memory cyboi model count.
  *
- * CAUTION! The total number of possible socket ports/services alone is: 65,536
- * Therefore, the internal memory size has to be greater than that, currently 100,000.
+ * CAUTION! The total number of possible socket ports/services alone is: 65,536.
+ * Therefore, the internal memory size has to be greater than that.
+ * It is currently set to the power of two 98304 = 65536 + 32768,
+ * for easier memory allocation handling.
+ *
  * Also, before the socket base, there are some other input/output values,
  * e.g. for serial port, terminal, display etc. which have to be taken into account.
+ * A standard central processing unit (cpu) = processor
+ * has a value around 256 in its interrupt descriptor table (idt).
  */
-static int* INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT = NUMBER_100000_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT = NUMBER_98304_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The item cyboi model count. */
 static int* ITEM_STATE_CYBOI_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
