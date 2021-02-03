@@ -47,6 +47,7 @@ Dynamic Typing
 Hello World!
 S-P-O
 X11, Wayland, Xlib, XCB
+Idle Process woken up by OS -- Idle CPU woken up by IRQ
 
 Terminology
 ___________
@@ -944,4 +945,18 @@ on which of these cyboi is run.
 Xlib is complex and somewhat outdated, whilst XCB is modern and
 efficient, which is why XCB is used in cyboi. Moreover, both are
 compatible with each other.
+
+Idle Process woken up by OS -- Idle CPU woken up by IRQ
+_______________________________________________________
+
+https://unix.stackexchange.com/questions/361245/what-does-an-idle-cpu-process-do
+
+@StephenKitt: The analogy is that:
+- while a process is "idling", waiting for the OS to wake it back up,
+  it's not doing anything (e.g. spinwaiting), thus saving resources.
+- By comparison, when the OS has a CPU idling, it's waiting for an interrupt
+  to wake it back up and otherwise not doing anything.
+Same approach for the same effect, just at a different layer of abstraction.
+You could model the idle CPU in the computer, as an idle process in an OS!
+– Lightness Races in Orbit Apr 28 '17 at 14:02
 
