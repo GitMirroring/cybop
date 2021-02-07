@@ -24,11 +24,7 @@ Arithmetic Operands
 HTML Formatting
 Accessing Array Elements
 Multiple Formats
-Multi Channel Communication
 Date Time
-Socket
-Receiving Data via Server Socket
-Receiving Data via Client Socket
 Allocation
 Serialisation/Encoding/Compression/Sending
 Encoding
@@ -47,7 +43,10 @@ Dynamic Typing
 Hello World!
 S-P-O
 X11, Wayland, Xlib, XCB
-Client-Server Communication via TCP Socket
+Input/Output (I/O)
+Storing server and client service identification
+Socket
+Receiving Data via Client Socket
 
 Terminology
 ___________
@@ -157,29 +156,6 @@ This is NOT necessary.
   by assigning the result of one translation to a tree node
   which serves as input to another operation
 - similar to pipelining in UNIX
-
-Multi Channel Communication
-___________________________
-
-- the libuv multi-channel communication library of Node.js was checked out
-- it was decided not to use its ideas, since it is based on threads again
-- the "select" function is NOT used either, since it works only with file descriptors, but not xcb etc.
-
-- in cyboi, sensing threads are NOT used any longer
-- instead, the main thread frequently queries all channels for available data (busy waiting)
-
-Storing server and client service identification:
-
-The communication client service identification is kept as variable in the
-corresponding cybol application, as is done with the client socket, see:
-examples/socket_server/handler.cybol: operation "communicate/receive", property: "sender"
-examples/socket_server/logic.cybol: operation "communicate/send", property: "receiver"
-
-The communication client service identification MAY be given (but does NOT have to)
-as property for a "send" or "receive" cybol operation.
-If it is NOT given as property, then a standard value of zero (0) is expected inside cyboi.
-This applies e.g. for terminal communication where it would be tedious to always
-have to specify a client terminal service identification.
 
 Date Time
 _________
@@ -372,123 +348,6 @@ http://de.wikipedia.org/wiki/Uhrzeit
 Timezone database (tz, zoneinfo):
 
 http://www.twinsun.com/tz/tz-link.htm
-
-Socket
-______
-
-Only one service may exist per port
-server sockets are stored in internal memory
-client sockets NOT -- they have to be stored in the corresponding cybol application
-Implement session on application level (e.g. in Res Medicinae)
-
-Only the server socket number gets stored in internal memory,
-in order to be able to use it for communication
-all other things (address, port etc.) are set inside the socket
-
-Receiving Data via Server Socket
-________________________________
-
-For detecting available data, a server socket may use various techniques.
-
-Solutions:
-
-1 non-blocking mode
-
-This IS the current solution in cyboi.
-Not very efficient due to the "busy wait" loop, but it works.
-
-2 poll(), select(), WSAAsyncSelect(), WSASelectEvent()
-
-These functions are blocking and work only with file descriptors.
-However, file descriptors do not exist for all kinds of communication
-channels. For the x window system, for example, they do not.
-But cyboi wants to serve other channels besides sockets as well
-(terminal/tui, x-window-system/xcb/gui).
-
-Therefore, this solution was NOT chosen.
-
-3 self-made thread with blocking mode
-
-This approach requires more overhead, an import of libpthread or
-similar libraries and the handling of a special thread.
-
-Since non-blocking mode is easier to implement, this solution was
-NOT chosen for now. However, it may be an option for the future.
-
-Receiving Data via Client Socket
-________________________________
-
-Data received via socket are stored in a buffer (array).
-This happens in an endless loop, since more data than
-the buffer can store might be available. Problem:
-When there are no further data available, the recv() call blocks.
-
-Solutions:
-
-1 Non-blocking socket mode:
-
-Used on the client side, it causes the recv() function to return
-too fast and early, WITHOUT having received the data yet.
-
-Therefore, blocking mode is necessary on the client side and
-this solution was NOT chosen.
-
-However, there are some exceptions: Advanced applications like
-web browsers handle many connections being the client,
-and often do non-blocking connect.
-
-2 Delimiter on application level:
-
-Stream sockets do not delimit messages. All data are an opaque byte stream.
-One could implement that on application level, for example:
-- a size field in the message header structure
-or:
-- using a delimiter such as '\n' for single-line text
-
-However, cyboi is to be free of application-level logic.
-Therefore, this solution was NOT chosen.
-
-Reference:
-https://stackoverflow.com/questions/3053757/read-from-socket
-
-3 Peeking ahead available data:
-
-Microsoft documentation states in several places that MSG_PEEK should
-be avoided altogether because it were inefficient and inaccurate.
-One is forced to call "recv()" twice.
-
-Therefore, this solution was NOT chosen.
-However, it could be a fallback solution if "ioctl" below does not work.
-
-Reference:
-https://stackoverflow.com/questions/11266783/recv-with-msg-peek-shows-full-message-but-returns-would-block-normally
-
-4 Using ioctl() to query FIONREAD
-
-This function call will return how many data are available.
-
-The "ioctl" system call is supported by most Unix and Unix-like systems,
-including Linux and macOS, though the available request codes
-differ from system to system. Microsoft Windows provides a
-similar function, named "DeviceIoControl", in its Win32 API.
-https://en.wikipedia.org/wiki/Ioctl
-
-#include <sys/ioctl.h>
-int ioctl(int fd, unsigned long request, ...);
-
-Example:
-
-int len = 0;
-ioctl(sock, FIONREAD, &len);
-if (len > 0) {
-    len = read(sock, buffer, len);
-}
-
-Reference:
-https://www.gnu.org/software/libc/manual/html_node/IOCTLs.html
-https://man7.org/linux/man-pages/man2/ioctl.2.html
-https://stackoverflow.com/questions/3053757/read-from-socket
-https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.3.0/com.ibm.zos.v2r3.bpxbd00/ioctl.htm#ioctl
 
 Allocation
 __________
@@ -946,67 +805,83 @@ Xlib is complex and somewhat outdated, whilst XCB is modern and
 efficient, which is why XCB is used in cyboi. Moreover, both are
 compatible with each other.
 
-Client-Server Communication via TCP Socket
-__________________________________________
+Input/Output (I/O)
+__________________
 
-Situation:
-A standard client-server communication is to be taking place.
-The server process has already accepted a client request via socket.
-The client socket integer number was stored in the server.
-The question is how the server should receive client data.
+One of the main issues when writing an application programme
+is input/output (i/o). There are different ways to handle it.
+Output does not seem to be so problematic, since the programme's
+main thread decides when it is going to be sent. Furthermore,
+there is the possibility to use special "worker threads".
+When it comes to input, then the major problem is the unpredictability of
+incoming data or events. Therefore, some solutions are investigated here.
 
-Possibility 1 "glibc select":
+In general, there are two different approaches:
+1 Programme is active and i/o device passive
+2 Programme is passive and i/o device active
 
-The glibc "select" function is not to be used in the cyboi server
-application since it may not serve all channels. For instance,
-x window system events may not be detected via "select".
+Solution 1: Programme is active and i/o device passive
 
-Possibility 2 "main thread":
+- synonyms: busy waiting, spinning, polling, active waiting for state changes
+- blocking call only possible if just one communication channel
+- for multiple channels, non-blocking style is mandatory
+- easy to understand serial processing
 
-A main thread with event handling endless loop is running in the
-server process (busy waiting) but sleeps in between, e.g. 100 ms,
-to give the processor some time to breathe and to serve other processes.
+In the programme's main thread, there runs an endless loop
+permanently testing all input channels for available data.
 
-The server frequently tests the client socket for available input,
-repeatedly calling "ioctl":
+Solution 2: Programme is passive and i/o device active
 
-    // Returned value: usually zero (non-negative value) on success.
-    int command = FIONREAD;
-    int argument = 0;
-    int r = ioctl(*socket_file_descriptor, *command, (void*) &argument);
+- synonyms: event-based, hardware interrupt based, Inversion of Control (IoC)
+- does not waste system resources (processor time)
+- interrupt handler or callback function
 
-Unfortunately, reading data from the already known clients
-stored in the client list works only sometimes. Other times,
-the requesting client gets accepted a second and third time etc.
-and gets redundantly stored as new client socket in the list again.
+Low level interrupt handling is left to the operating system.
+In cyboi, the following possibilities were considered:
+2.1 glibc select
+2.2 sensing threads
+2.3 asynchronous i/o
 
-The number of redundant "accept" calls could be reduced partly,
-but not fully, when commenting out the "sleep", leading to faster
-"read" calls and successful response to the client.
-However, the redundant "accept" calls could not be eliminated fully.
-Furthermore, the cpu is running on 100 %.
+Solution 2.1: glibc select
 
-Note, that it does not matter and had no influence whether or not
-the client has a timeout set. The client is sending data.
-If the server is not reading the data at the right time,
-the client is accepted redundantly, as new client socket,
-which is not wanted.
+- similar solutions: poll(), select(), WSAAsyncSelect(), WSASelectEvent()
+- disadvantage: functions are blocking and work only with file descriptors
+- disadvantage: does not cover all channels, e.g. x window system (xlibs, xcb)
 
-Possibility 3 "sensing thread":
+Solution 2.2: sensing threads
 
-Therefore, there seems to be no other way than creating a special
-sensing thread with blocking "read" call, waiting for client data.
-This thread would react faster and just in time to interrupts,
-in this case client data arriving on socket.
+- disadvantage: makes programming more complex
+- disadvantage: implementation of multi-threading differs in operating systems
+- library e.g. posix libpthread
 
-Hopefully, already known clients would then not get accepted
-redundantly a second time, but only the data received from them instead.
+Solution 2.3: asynchronous i/o
 
-Analogy:
-"An idling application process is waiting for the os to wake it up.
-An os with idling cpu is waiting for an interrupt (irq) to wake it up."
-Cited from comment by "Lightness Races in Orbit" to first answer in:
-https://unix.stackexchange.com/questions/361245/what-does-an-idle-cpu-process-do
+- known from libuv multi-channel communication library of Node.js
+- disadvantage: not yet implemented and provided for all channels
+
+Conclusion for cyboi:
+
+The simplest possible solution 1 (active programme and passive i/o device)
+is used. There is one central main thread for signal/event handling.
+For many channels such as "terminal" and "x window system" this is sufficient.
+The main thread is calling functions testing for available input and
+then processes input data. In between, it uses a small sleeping time
+of 100 ms. This delay is adjustable and avoids the cpu running at 100 %.
+
+However, the socket channel may not be handled this way. If cyboi is
+acting as server, then due to the sleep time it is not reacting prompt
+to client requests. This can cause already known client sockets stored
+in a client list to get "accepted" and redundantly stored in the list
+a second and third time etc., instead of just "reading" data from them.
+Therefore, solution 1 is combined with solution 2.2 (sensing threads)
+for socket handling.
+
+In the future, solution 2.3 might become an option. But this is only
+realistic if asynchronous i/o is provided for all possible i/o channels.
+In this case, there would be no more main signal/event handling loop,
+but only callback functions reacting to input. Since cyboi processes
+all input in an identical manner, these callback functions would have
+to call the same identical signal/event handling function (delegation).
 
 Note, that it does not matter how long the microprogramme command pipeline
 of the cpu actually takes to process a command. It also does not matter
@@ -1020,7 +895,103 @@ Also note, that the scheduler has influence not only by switching
 between threads, but also by switching between processes.
 Therefore, it would be no advantage to use the main thread
 for client data detection and creating a "sensing thread"
-seems to be the best solution, with two disadvantages:
-- more complexity in cyboi architecture and source code
-- different handling of multi-threading in different operating systems
+seems to be the best solution.
+
+Storing server and client service identification
+________________________________________________
+
+The communication client service identification is kept as variable in the
+corresponding cybol application, as is done with the client socket, see:
+examples/socket_server/handler.cybol: operation "communicate/receive", property: "sender"
+examples/socket_server/logic.cybol: operation "communicate/send", property: "receiver"
+
+The communication client service identification MAY be given (but does NOT have to)
+as property for a "send" or "receive" cybol operation.
+If it is NOT given as property, then a standard value of zero (0) is expected inside cyboi.
+This applies e.g. for terminal communication where it would be tedious to always
+have to specify a client terminal service identification.
+
+Socket
+______
+
+- only one service may exist per port
+- server sockets are stored in internal memory
+- client sockets NOT -- they have to be stored in the corresponding cybol application
+- implement session on application level
+
+- only the server socket number gets stored in internal memory
+- in order to be able to use it for communication
+- all other things (address, port etc.) are set inside the socket
+
+Receiving Data via Client Socket
+________________________________
+
+Data received via socket are stored in a buffer (array).
+This happens in an endless loop, since more data than
+the buffer can store might be available. Problem:
+When there are no further data available, the recv() call blocks.
+
+Solutions:
+
+1 Non-blocking socket mode:
+
+Used on the client side, it causes the recv() function to return
+too fast and early, WITHOUT having received the data yet.
+Therefore, blocking mode is necessary on the client side and
+this solution was NOT chosen.
+
+However, there are some exceptions: Advanced applications like
+web browsers handle many connections being the client,
+and often do non-blocking connect.
+
+2 Delimiter on application level:
+
+Stream sockets do not delimit messages. All data are an opaque byte stream.
+One could implement that on application level, for example:
+- a size field in the message header structure
+or:
+- using a delimiter such as '\n' for single-line text
+However, cyboi is to be free of application-level logic.
+Therefore, this solution was NOT chosen.
+
+Reference:
+https://stackoverflow.com/questions/3053757/read-from-socket
+
+3 Peeking ahead available data:
+
+Microsoft documentation states in several places that MSG_PEEK should
+be avoided altogether because it were inefficient and inaccurate.
+One is forced to call "recv()" twice.
+Therefore, this solution was NOT chosen.
+However, it could be a fallback solution if "ioctl" below does not work.
+
+Reference:
+https://stackoverflow.com/questions/11266783/recv-with-msg-peek-shows-full-message-but-returns-would-block-normally
+
+4 Using ioctl() to query FIONREAD
+
+This function call will return how many data are available.
+
+The "ioctl" system call is supported by most Unix and Unix-like systems,
+including Linux and macOS, though the available request codes
+differ from system to system. Microsoft Windows provides a
+similar function, named "DeviceIoControl", in its Win32 API.
+https://en.wikipedia.org/wiki/Ioctl
+
+#include <sys/ioctl.h>
+int ioctl(int fd, unsigned long request, ...);
+
+Example:
+
+int len = 0;
+ioctl(sock, FIONREAD, &len);
+if (len > 0) {
+    len = read(sock, buffer, len);
+}
+
+Reference:
+https://www.gnu.org/software/libc/manual/html_node/IOCTLs.html
+https://man7.org/linux/man-pages/man2/ioctl.2.html
+https://stackoverflow.com/questions/3053757/read-from-socket
+https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.3.0/com.ibm.zos.v2r3.bpxbd00/ioctl.htm#ioctl
 
