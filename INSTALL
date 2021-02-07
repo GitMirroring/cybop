@@ -67,13 +67,12 @@ CYBOL application execution:
 CYBOI compilation:
     cmake (version >= 3.0.2)
     xorg-dev
-    libxcb1-dev (automatically installed with xorg-dev; libx11-dev "xlibs" not used anymore)
+    libxcb1-dev (automatically installed by libx11-dev and xorg-dev; but libx11-dev "xlibs" actually not used anymore in cyboi)
     freeglut3-dev
 
 CYBOP development (helpful, but not essential):
     doxygen
-    valgrind
-    graphviz
+    valgrind (graphviz, kcachegrind, valkyrie)
 
 1.3 OSX
 _______

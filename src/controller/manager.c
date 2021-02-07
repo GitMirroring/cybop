@@ -172,7 +172,7 @@ void manage(void* p0) {
     // Initialise signal memory sleep time.
     //
     // Unit: nano second
-    // Current value: 100 ms == 100,000 us == 100.000.000 ns
+    // Current value: 0.1 s == 100 ms == 100,000 us == 100.000.000 ns
     //
     copy_integer((void*) signal_memory_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
 

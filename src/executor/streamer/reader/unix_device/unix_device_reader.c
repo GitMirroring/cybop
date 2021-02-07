@@ -100,7 +100,7 @@ void read_unix_device(void* p0, void* p1, void* p2) {
                 //
                 int r = ioctl(*f, *c, (void*) &d);
 
-                //?? fwprintf(stdout, L"TEST: Read unix device. ioctl r: %i\n", r);
+                fwprintf(stdout, L"TEST: Read unix device. ioctl r: %i\n", r);
 
                 if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

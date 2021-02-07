@@ -14,15 +14,19 @@
 WUI and Socket
 ______________
 
-        * Check why new client socket number is assigned for each new request
-            - see "examples/application/presence/logic/send/index.cybol"
-            - changing the order of function calls in file "element_io_checker.c" did not help
-            - client sockets are stored in list
-            - client sockets are checked for available data --> verify if this really works!
-                (or only in separate thread/process with blocking "read"? --> problem, due to different handling of threads in different OS)
-            - think this through
+        * Check if "ioctl" call in file "executor/streamer/reader/unix_device/unix_device_reader.c"
+            can be replaced by posix-conform "fcntl" call
+            see "fcntl" comment in file "executor/maintainer/starter/bsd_socket/set_status_bsd_socket_starter.c"
 
-        * Handle non-existing database files using default values
+        * Think through if all necessary options are used already:
+            https://stackoverflow.com/questions/1525050/non-blocking-socket
+            setsockopt(s, SOL_TCP, TCP_NODELAY, [1], 4)
+            setsockopt(s, SOL_SOCKET, SO_KEEPALIVE, [1], 4)
+            setsockopt(s, SOL_SOCKET, SO_REUSEADDR, [1], 4)
+
+        * Make cybol example "user_interface/ui/" wui work via socket
+
+        * Handle non-existing database files using default values in cybol application "presence"
 
         * Improve cybol application "presence"
             - make DATETIME work in cyboi, before continuing
@@ -36,12 +40,6 @@ ______________
         * Append year and week to actions "send_index" and "navigate_forward/backward"?
         * Implement "forward" and "backward" in cybol application "presence", by just adding/subtracting 7 (days) from current day
             --> continue with run.cybol
-
-        * Think through if all necessary options are used already:
-            https://stackoverflow.com/questions/1525050/non-blocking-socket
-            setsockopt(s, SOL_TCP, TCP_NODELAY, [1], 4)
-            setsockopt(s, SOL_SOCKET, SO_KEEPALIVE, [1], 4)
-            setsockopt(s, SOL_SOCKET, SO_REUSEADDR, [1], 4)
 
         * Fix error that resource gets interpreted as Stylesheet but transferred with MIME type text/plain
         * Close connection if read zero bytes (client closed connection) and remove it from client list
@@ -84,15 +82,12 @@ ______________
             "Could not startup unix terminal mode set. An error occured within tcsetattr."
             Is the blocking flag the reason?
 
-        * Implement file "win32_device_reader.c"
-            see win32 function "DeviceIoControl" in:
-                https://docs.microsoft.com/de-de/windows/win32/api/ioapiset/nf-ioapiset-deviceiocontrol?redirectedfrom=MSDN
-            see also file "unix_device_reader.c" as template
-
-        * Find out if threads have to be reactivated when waiting for client requests via socket
+        * Reactivate separate sensing thread with blocking "read" call on socket
+            see thoughts formulated in chapter "Client-Server Communication via TCP Socket" of file "doc/development/cyboi/design_decisions.txt"
             see backup directory "todo_thread" and read its file "readme-hint.txt"
-            see "libuv" of "Node.js" project
-        * Investigate libuv:
+        * Use option "MSG_PEEK" with function "recv" for sensing data
+            see: gnu_-_c_library.html#Socket-Data-Options
+        * Investigate "libuv" of "Node.js" project
             https://stackoverflow.com/questions/10680601/nodejs-event-loop
             1 Libev: is the event loop which actually runs internally in node.js to perform simple event loop operations
                 http://software.schmorp.de/pkg/libev.html
@@ -126,16 +121,11 @@ ______________
             https://www.geeksforgeeks.org/non-blocking-io-with-pipes-in-c/
             https://gamedev.stackexchange.com/questions/146256/how-do-i-get-getchar-to-not-block-the-input
 
-        * Check why only one of many files (css or js or image etc.) referenced from within html is delivered by server
-            https://de.wikipedia.org/wiki/Keepalive
-            https://de.wikipedia.org/wiki/HTTP-Pipelining
-            --> Is non-blocking mode used?
-            --> possible reason is parallel request by browser
-            --> enable multiple (not only one) parallel requests on server socket
-            --> Are these put in a wait queue so that they can be processed one-by-one serially
-                or do they have to be processed in more than one threads on the server?
+        * Implement file "win32_device_reader.c"
+            see win32 function "DeviceIoControl" in:
+                https://docs.microsoft.com/de-de/windows/win32/api/ioapiset/nf-ioapiset-deviceiocontrol?redirectedfrom=MSDN
+            see also file "unix_device_reader.c" as template
 
-        * Make cybol example "user_interface/ui/" wui work via socket
         * Implement web socket
         * Use server push to update wui in web client (browser)
 

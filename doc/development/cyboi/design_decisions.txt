@@ -47,7 +47,7 @@ Dynamic Typing
 Hello World!
 S-P-O
 X11, Wayland, Xlib, XCB
-Idle Process woken up by OS -- Idle CPU woken up by IRQ
+Client-Server Communication via TCP Socket
 
 Terminology
 ___________
@@ -946,17 +946,81 @@ Xlib is complex and somewhat outdated, whilst XCB is modern and
 efficient, which is why XCB is used in cyboi. Moreover, both are
 compatible with each other.
 
-Idle Process woken up by OS -- Idle CPU woken up by IRQ
-_______________________________________________________
+Client-Server Communication via TCP Socket
+__________________________________________
 
+Situation:
+A standard client-server communication is to be taking place.
+The server process has already accepted a client request via socket.
+The client socket integer number was stored in the server.
+The question is how the server should receive client data.
+
+Possibility 1 "glibc select":
+
+The glibc "select" function is not to be used in the cyboi server
+application since it may not serve all channels. For instance,
+x window system events may not be detected via "select".
+
+Possibility 2 "main thread":
+
+A main thread with event handling endless loop is running in the
+server process (busy waiting) but sleeps in between, e.g. 100 ms,
+to give the processor some time to breathe and to serve other processes.
+
+The server frequently tests the client socket for available input,
+repeatedly calling "ioctl":
+
+    // Returned value: usually zero (non-negative value) on success.
+    int command = FIONREAD;
+    int argument = 0;
+    int r = ioctl(*socket_file_descriptor, *command, (void*) &argument);
+
+Unfortunately, reading data from the already known clients
+stored in the client list works only sometimes. Other times,
+the requesting client gets accepted a second and third time etc.
+and gets redundantly stored as new client socket in the list again.
+
+The number of redundant "accept" calls could be reduced partly,
+but not fully, when commenting out the "sleep", leading to faster
+"read" calls and successful response to the client.
+However, the redundant "accept" calls could not be eliminated fully.
+Furthermore, the cpu is running on 100 %.
+
+Note, that it does not matter and had no influence whether or not
+the client has a timeout set. The client is sending data.
+If the server is not reading the data at the right time,
+the client is accepted redundantly, as new client socket,
+which is not wanted.
+
+Possibility 3 "sensing thread":
+
+Therefore, there seems to be no other way than creating a special
+sensing thread with blocking "read" call, waiting for client data.
+This thread would react faster and just in time to interrupts,
+in this case client data arriving on socket.
+
+Hopefully, already known clients would then not get accepted
+redundantly a second time, but only the data received from them instead.
+
+Analogy:
+"An idling application process is waiting for the os to wake it up.
+An os with idling cpu is waiting for an interrupt (irq) to wake it up."
+Cited from comment by "Lightness Races in Orbit" to first answer in:
 https://unix.stackexchange.com/questions/361245/what-does-an-idle-cpu-process-do
 
-@StephenKitt: The analogy is that:
-- while a process is "idling", waiting for the OS to wake it back up,
-  it's not doing anything (e.g. spinwaiting), thus saving resources.
-- By comparison, when the OS has a CPU idling, it's waiting for an interrupt
-  to wake it back up and otherwise not doing anything.
-Same approach for the same effect, just at a different layer of abstraction.
-You could model the idle CPU in the computer, as an idle process in an OS!
-– Lightness Races in Orbit Apr 28 '17 at 14:02
+Note, that it does not matter how long the microprogramme command pipeline
+of the cpu actually takes to process a command. It also does not matter
+how long it takes for the cpu to wake up after having been asleep
+(hlt instruction).
+This is because in both cases (main thread or sensing thread),
+the cpu processing time is the same and makes no difference
+to the event processing in the programme.
+
+Also note, that the scheduler has influence not only by switching
+between threads, but also by switching between processes.
+Therefore, it would be no advantage to use the main thread
+for client data detection and creating a "sensing thread"
+seems to be the best solution, with two disadvantages:
+- more complexity in cyboi architecture and source code
+- different handling of multi-threading in different operating systems
 
