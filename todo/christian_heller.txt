@@ -106,6 +106,9 @@ ______________
                 The same applies to third party subsystems like databases.
                 Here the authors of the driver will rather use the asynchronous interface than utilizing a thread pool.
                 In short: Only if there is no other way, the thread pool will be used for asynchronous I/O.
+                --> two notification mechanisms are mentioned in online papers on "AIO on Linux":
+                    (1) system signal; (2) callback function
+                --> for cyboi, it was decided to set a simple flag whenever data are detected by the sensing thread on socket
 
         * Check if freeing address in line 113 of file "lifecycle_server_socket_starter.c" is too early:
             free(ad);
