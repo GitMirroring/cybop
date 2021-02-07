@@ -44,6 +44,7 @@ Hello World!
 S-P-O
 X11, Wayland, Xlib, XCB
 Input/Output (I/O)
+Comparison with libuv of Node.js
 Storing server and client service identification
 Socket
 Receiving Data via Client Socket
@@ -838,23 +839,34 @@ Solution 2: Programme is passive and i/o device active
 
 Low level interrupt handling is left to the operating system.
 In cyboi, the following possibilities were considered:
-2.1 glibc select
-2.2 sensing threads
-2.3 asynchronous i/o
+2.1 interrupt request
+2.2 system signal
+2.3 glibc select
+2.4 sensing threads
+2.5 asynchronous i/o
 
-Solution 2.1: glibc select
+Solution 2.1 interrupt request
+
+- disadvantage: too low-level for cyboi
+- left to the operating system with assembly language to handle
+
+Solution 2.2 system signal
+
+- disadvantage: too specific for one single operating system
+
+Solution 2.3: glibc select
 
 - similar solutions: poll(), select(), WSAAsyncSelect(), WSASelectEvent()
 - disadvantage: functions are blocking and work only with file descriptors
 - disadvantage: does not cover all channels, e.g. x window system (xlibs, xcb)
 
-Solution 2.2: sensing threads
+Solution 2.4: sensing threads
 
 - disadvantage: makes programming more complex
 - disadvantage: implementation of multi-threading differs in operating systems
 - library e.g. posix libpthread
 
-Solution 2.3: asynchronous i/o
+Solution 2.5: asynchronous i/o
 
 - known from libuv multi-channel communication library of Node.js
 - disadvantage: not yet implemented and provided for all channels
@@ -873,10 +885,10 @@ acting as server, then due to the sleep time it is not reacting prompt
 to client requests. This can cause already known client sockets stored
 in a client list to get "accepted" and redundantly stored in the list
 a second and third time etc., instead of just "reading" data from them.
-Therefore, solution 1 is combined with solution 2.2 (sensing threads)
+Therefore, solution 1 is combined with solution 2.4 (sensing threads)
 for socket handling.
 
-In the future, solution 2.3 might become an option. But this is only
+In the future, solution 2.5 might become an option. But this is only
 realistic if asynchronous i/o is provided for all possible i/o channels.
 In this case, there would be no more main signal/event handling loop,
 but only callback functions reacting to input. Since cyboi processes
@@ -896,6 +908,36 @@ between threads, but also by switching between processes.
 Therefore, it would be no advantage to use the main thread
 for client data detection and creating a "sensing thread"
 seems to be the best solution.
+
+Comparison with libuv of Node.js
+________________________________
+
+https://stackoverflow.com/questions/10680601/nodejs-event-loop
+
+1 Libev: is the event loop which actually runs internally in node.js to perform simple event loop operations
+    http://software.schmorp.de/pkg/libev.html
+
+2 LibEio is a library to perform input output asynchronously. It handles file descriptors, data handlers, sockets etc.
+    http://software.schmorp.de/pkg/libeio.html
+
+3 LibUv: is an abstraction layer on the top of libeio , libev, c-ares ( for DNS ) and iocp (for windows asynchronous-io).
+    LibUv performs, maintains and manages all the io and events in the event pool. ( in case of libeio threadpool ).
+    https://github.com/libuv/libuv
+
+Ryan Dahl's tutorial on libUv:
+    https://vimeo.com/24713213
+
+Misconception 2: Everything that's asynchronous is handled by a thread pool
+    https://medium.com/the-node-js-collection/what-you-should-know-to-really-understand-the-node-js-event-loop-and-its-metrics-c4907b19da4c
+    Reality: Libuv by default creates a thread pool with four threads to offload asynchronous work to.
+    Today's operating systems already provide asynchronous interfaces for many I/O tasks (e.g. AIO on Linux).
+    Whenever possible, libuv will use those asynchronous interfaces, avoiding usage of the thread pool.
+    The same applies to third party subsystems like databases.
+    Here the authors of the driver will rather use the asynchronous interface than utilizing a thread pool.
+    In short: Only if there is no other way, the thread pool will be used for asynchronous I/O.
+    --> two notification mechanisms are mentioned in online papers on "AIO on Linux":
+        (1) system signal; (2) callback function
+    --> for cyboi, it was decided to set a simple flag whenever data are detected by the sensing thread on socket
 
 Storing server and client service identification
 ________________________________________________

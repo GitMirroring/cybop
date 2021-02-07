@@ -14,6 +14,18 @@
 WUI and Socket
 ______________
 
+        * Make cybol example "user_interface/ui/" wui work via socket
+        * Handle non-existing database files using default values in cybol application "presence"
+        * Update other cybol applications (see INSTALL file for a list):
+            properties message --> sender
+            model --> message
+            for operation "modify/empty", DO specify property "model" in addition to "part"
+            Replace all tags with name "node"
+
+        * Check if sender should be pointer or integer (e.g. for client socket) in file "io_entry_getter.c" used in file "accept_io_checker.c"
+        * Check if sender has to be reset in server socket io entry in file "receive_io_checker.c", when being closed
+        * Study directory "executor/accessor/getter/part_getter.c" in order to find out redundancies with sub directory "part/"
+
         * Check if "ioctl" call in file "executor/streamer/reader/unix_device/unix_device_reader.c"
             can be replaced by posix-conform "fcntl" call
             see "fcntl" comment in file "executor/maintainer/starter/bsd_socket/set_status_bsd_socket_starter.c"
@@ -23,23 +35,6 @@ ______________
             setsockopt(s, SOL_TCP, TCP_NODELAY, [1], 4)
             setsockopt(s, SOL_SOCKET, SO_KEEPALIVE, [1], 4)
             setsockopt(s, SOL_SOCKET, SO_REUSEADDR, [1], 4)
-
-        * Make cybol example "user_interface/ui/" wui work via socket
-
-        * Handle non-existing database files using default values in cybol application "presence"
-
-        * Improve cybol application "presence"
-            - make DATETIME work in cyboi, before continuing
-            - remind lecturers via email on editing their presence
-            - use login and password retrieved from ldap server
-        * Test new chronology language and datetime format conversion in cybol application "presence"
-        * Extend file "sender.c" with long long int buffer for datetime
-        * Add files "clock_reader.c" (returning current unix time in s) and "clock_writer.c" (setting computer time, which needs administrator rights)
-        * Adapt cybol applications using old versions of "time/current" with new receive via channel "clock"
-        * Configure date dynamically in cybol application "presence"
-        * Append year and week to actions "send_index" and "navigate_forward/backward"?
-        * Implement "forward" and "backward" in cybol application "presence", by just adding/subtracting 7 (days) from current day
-            --> continue with run.cybol
 
         * Fix error that resource gets interpreted as Stylesheet but transferred with MIME type text/plain
         * Close connection if read zero bytes (client closed connection) and remove it from client list
@@ -87,28 +82,6 @@ ______________
             see backup directory "todo_thread" and read its file "readme-hint.txt"
         * Use option "MSG_PEEK" with function "recv" for sensing data
             see: gnu_-_c_library.html#Socket-Data-Options
-        * Investigate "libuv" of "Node.js" project
-            https://stackoverflow.com/questions/10680601/nodejs-event-loop
-            1 Libev: is the event loop which actually runs internally in node.js to perform simple event loop operations
-                http://software.schmorp.de/pkg/libev.html
-            2 LibEio is a library to perform input output asynchronously. It handles file descriptors, data handlers, sockets etc.
-                http://software.schmorp.de/pkg/libeio.html
-            3 LibUv: is an abstraction layer on the top of libeio , libev, c-ares ( for DNS ) and iocp (for windows asynchronous-io).
-                LibUv performs, maintains and manages all the io and events in the event pool. ( in case of libeio threadpool ).
-                https://github.com/libuv/libuv
-            Ryan Dahl's tutorial on libUv:
-                https://vimeo.com/24713213
-            Misconception 2: Everything that's asynchronous is handled by a thread pool
-                https://medium.com/the-node-js-collection/what-you-should-know-to-really-understand-the-node-js-event-loop-and-its-metrics-c4907b19da4c
-                Reality: Libuv by default creates a thread pool with four threads to offload asynchronous work to.
-                Today's operating systems already provide asynchronous interfaces for many I/O tasks (e.g. AIO on Linux).
-                Whenever possible, libuv will use those asynchronous interfaces, avoiding usage of the thread pool.
-                The same applies to third party subsystems like databases.
-                Here the authors of the driver will rather use the asynchronous interface than utilizing a thread pool.
-                In short: Only if there is no other way, the thread pool will be used for asynchronous I/O.
-                --> two notification mechanisms are mentioned in online papers on "AIO on Linux":
-                    (1) system signal; (2) callback function
-                --> for cyboi, it was decided to set a simple flag whenever data are detected by the sensing thread on socket
 
         * Check if freeing address in line 113 of file "lifecycle_server_socket_starter.c" is too early:
             free(ad);
@@ -131,20 +104,6 @@ ______________
 
         * Implement web socket
         * Use server push to update wui in web client (browser)
-
-        * Check if sender should be pointer or integer (e.g. for client socket) in file "io_entry_getter.c" used in file "accept_io_checker.c"
-        * Check if sender has to be reset in server socket io entry in file "receive_io_checker.c", when being closed
-
-        * Check why action is sometimes empty by test-logging http requests
-        * Branch cybol code sending a standard html error page if action is empty in file "handle.cybol"
-
-        * Study directory "executor/accessor/getter/part_getter.c" in order to find out redundancies with sub directory "part/"
-
-        * Update other cybol applications (see INSTALL file for a list):
-            properties message --> sender
-            model --> message
-            for operation "modify/empty", DO specify property "model" in addition to "part"
-            Replace all tags with name "node"
 
         * Find solution for send/receive arguments. Test e.g. encoding for null OR for a defined integer value?
             --> Fix bug that encoding IS assigned in file "content_element_part_cybol_deserialiser.c" since new allocated part HAS an encoding item whose data are NOT null
@@ -516,6 +475,19 @@ ______
 
 Datetime
 ________
+
+        * Improve cybol application "presence"
+            - make DATETIME work in cyboi, before continuing
+            - remind lecturers via email on editing their presence
+            - use login and password retrieved from ldap server
+        * Test new chronology language and datetime format conversion in cybol application "presence"
+        * Extend file "sender.c" with long long int buffer for datetime
+        * Add files "clock_reader.c" (returning current unix time in s) and "clock_writer.c" (setting computer time, which needs administrator rights)
+        * Adapt cybol applications using old versions of "time/current" with new receive via channel "clock"
+        * Configure date dynamically in cybol application "presence"
+        * Append year and week to actions "send_index" and "navigate_forward/backward"?
+        * Implement "forward" and "backward" in cybol application "presence", by just adding/subtracting 7 (days) from current day
+            --> continue with run.cybol
 
         * Provide "get_current_date" (or similarly called) operation in cybol
             <node name="read_date_today" channel="inline" format="modify/overwrite" model="">
