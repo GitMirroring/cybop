@@ -26,7 +26,8 @@
 #ifndef CREATE_BSD_SOCKET_STARTER_SOURCE
 #define CREATE_BSD_SOCKET_STARTER_SOURCE
 
-#include <sys/socket.h>
+#include <netinet/tcp.h> // SOL_TCP, TCP_NODELAY
+#include <sys/socket.h> // setsockopt
 #include <errno.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -92,17 +93,55 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3, void* p4)
                     *s = socket(*pf, *st, *pr);
 
                     // The socket options.
-                    char od = (char) *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                    int od = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                     int os = sizeof(od);
 
                     //
+                    // Disable nagle algorithm delay.
+                    //
+                    // SOL_TCP:
+                    // - constant handed over to indicate tcp-level options
+                    //
+                    // TCP_NODELAY:
+                    // - specifies whether or not to use the nagle algorithm (delay)
+                    //   for deciding when to send data
+                    // - only supported by stream sockets (tcp)
+                    // - should be used for applications using the request/response paradigm
+                    // - a non-zero value sets the option forcing tcp to always
+                    //   send data immediately (disabled nagle algorithm)
+                    //
+                    // https://stackoverflow.com/questions/1525050/non-blocking-socket
+                    // https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_72/apis/ssocko.htm
+                    //
+                    setsockopt(*s, SOL_TCP, TCP_NODELAY, &od, os);
+
+                    //
                     // Set socket reusable after execution.
+                    //
+                    // SOL_SOCKET:
+                    // - constant handed over to indicate socket-level options
                     //
                     // SO_REUSEADDR:
                     // - avoid error message "address already in use"
                     // - should always be set for a tcp server before it calls "bind"
                     //
                     setsockopt(*s, SOL_SOCKET, SO_REUSEADDR, &od, os);
+
+                    //
+                    // The SO_KEEPALIVE option may be used for sending
+                    // "heartbeats" through a persistent connection.
+                    //
+                    // It has two end purposes:
+                    // - back-end application: detect an absent client,
+                    //   so as to drop a connection and release the associated resources
+                    // - client: prevent connection resources stored within intermediate nodes
+                    //   (such as a nat router) being released, so as to keep the connection alive
+                    //
+                    // https://holmeshe.me/network-essentials-setsockopt-SO_KEEPALIVE/
+                    //
+                    // Neither of these two is needed in cyboi,
+                    // which is why the SO_KEEPALIVE option is NOT set here.
+                    //
 
                     if (*s >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

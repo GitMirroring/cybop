@@ -21,12 +21,6 @@ ______________
         * Check if sender has to be reset in server socket io entry in file "receive_io_checker.c", when being closed
         * Study directory "executor/accessor/getter/part_getter.c" in order to find out redundancies with sub directory "part/"
 
-        * Think through if all necessary options are used already:
-            https://stackoverflow.com/questions/1525050/non-blocking-socket
-            setsockopt(s, SOL_TCP, TCP_NODELAY, [1], 4)
-            setsockopt(s, SOL_SOCKET, SO_KEEPALIVE, [1], 4)
-            setsockopt(s, SOL_SOCKET, SO_REUSEADDR, [1], 4)
-
         * Fix error that resource gets interpreted as Stylesheet but transferred with MIME type text/plain
         * Close connection if read zero bytes (client closed connection) and remove it from client list
             in non-blocking mode, the "recv()" returns errors EAGAIN or EWOULDBLOCK if no more data are available
