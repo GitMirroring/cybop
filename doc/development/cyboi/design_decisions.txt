@@ -841,7 +841,7 @@ Low level interrupt handling is left to the operating system.
 In cyboi, the following possibilities were considered:
 2.1 interrupt request
 2.2 system signal
-2.3 glibc select
+2.3 epoll
 2.4 sensing threads
 2.5 asynchronous i/o
 
@@ -854,10 +854,12 @@ Solution 2.2 system signal
 
 - disadvantage: too specific for one single operating system
 
-Solution 2.3: glibc select
+Solution 2.3: epoll
 
-- similar solutions: poll(), select(), WSAAsyncSelect(), WSASelectEvent()
-- disadvantage: functions are blocking and work only with file descriptors
+- epoll is a linux kernel system call monitoring multiple file descriptors, e.g. terminal, socket
+- successor of the old solutions: posix select and poll
+- windows solutions: WSAAsyncSelect(), WSASelectEvent()
+- disadvantage: functions work only with file descriptors and are mostly blocking
 - disadvantage: does not cover all channels, e.g. x window system (xlibs, xcb)
 
 Solution 2.4: sensing threads
