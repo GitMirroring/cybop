@@ -16,19 +16,10 @@ ______________
 
         * Make cybol example "user_interface/ui/" wui work via socket
         * Handle non-existing database files using default values in cybol application "presence"
-        * Update other cybol applications (see INSTALL file for a list):
-            properties message --> sender
-            model --> message
-            for operation "modify/empty", DO specify property "model" in addition to "part"
-            Replace all tags with name "node"
 
         * Check if sender should be pointer or integer (e.g. for client socket) in file "io_entry_getter.c" used in file "accept_io_checker.c"
         * Check if sender has to be reset in server socket io entry in file "receive_io_checker.c", when being closed
         * Study directory "executor/accessor/getter/part_getter.c" in order to find out redundancies with sub directory "part/"
-
-        * Check if "ioctl" call in file "executor/streamer/reader/unix_device/unix_device_reader.c"
-            can be replaced by posix-conform "fcntl" call
-            see "fcntl" comment in file "executor/maintainer/starter/bsd_socket/set_status_bsd_socket_starter.c"
 
         * Think through if all necessary options are used already:
             https://stackoverflow.com/questions/1525050/non-blocking-socket

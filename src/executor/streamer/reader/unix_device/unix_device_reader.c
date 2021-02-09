@@ -98,6 +98,24 @@ void read_unix_device(void* p0, void* p1, void* p2) {
                 //
                 // Error codes: meaning depends upon the command used
                 //
+                // Alternative function:
+                // Some sources recommend to replace "ioctl" with "fcntl":
+                // https://stackoverflow.com/questions/1150635/unix-nonblocking-i-o-o-nonblock-vs-fionbio
+                // However, the glibc documentation only mentions the following possibilities of "fcntl":
+                // - duplicating file descriptors
+                // - manipulating flags
+                // - implementing locking
+                // - asynchronous signal for interrupt input via SIGIO signals
+                // https://www.gnu.org/software/libc/manual/html_mono/libc.html#Control-Operations
+                // Generic i/o control operations, on the other hand, are offered via "ioctl":
+                // - changing the character font used on a terminal
+                // - telling a magnetic tape system to rewind or fast forward
+                // - ejecting a disk from a drive
+                // - playing an audio track from a CD-ROM drive
+                // - maintaining routing tables for a network
+                // https://www.gnu.org/software/libc/manual/html_mono/libc.html#IOCTLs
+                // However, most ioctl operations are operating system-specific and not part of glibc.
+                //
                 int r = ioctl(*f, *c, (void*) &d);
 
                 fwprintf(stdout, L"TEST: Read unix device. ioctl r: %i\n", r);
