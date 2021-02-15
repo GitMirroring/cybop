@@ -51,18 +51,28 @@ void shutdown_terminal_mode(void* p0, void* p1, void* p2) {
         // The original terminal mode (attributes).
         void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+        //
         // Retrieves original terminal mode.
+        //
         // CAUTION! Hand over pointer REFERENCE.
+        //
         shutdown_terminal_mode_retrieve((void*) &o, p1, p2);
 
+        //
         // Write original terminal mode.
+        //
         // CAUTION! Do NOT hand over pointer reference.
+        //
         // CAUTION! The STARTUP "set" function is used here,
         // in order to avoid redundant source code.
+        //
         startup_terminal_mode_set(p0, o);
 
+        //
         // Deallocate original terminal mode.
+        //
         // CAUTION! Hand over pointer REFERENCE.
+        //
         startup_terminal_mode_deallocate((void*) &o);
 
     } else {

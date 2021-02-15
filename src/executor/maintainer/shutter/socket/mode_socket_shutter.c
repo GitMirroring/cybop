@@ -52,7 +52,7 @@ void shutdown_socket_mode(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-//?? fwprintf(stdout, L"TEST: shutdown socket mode r: %i \n", r);
+    //?? fwprintf(stdout, L"TEST: shutdown socket mode r: %i \n", r);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INTERNAL_MEMORY_MANAGER_SOURCE
-#define INTERNAL_MEMORY_MANAGER_SOURCE
+#ifndef INTERNAL_MEMORY_STARTUP_MANAGER_SOURCE
+#define INTERNAL_MEMORY_STARTUP_MANAGER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -63,7 +63,7 @@
  * @param p3 the signal memory item (pointer reference)
  * @param p4 the signal memory sleep time (pointer reference)
  */
-void startup_internal_memory(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void manage_startup_internal_memory(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup internal memory.");
@@ -130,5 +130,5 @@ void startup_internal_memory(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward(p0, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SLEEP_TIME_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
-/* INTERNAL_MEMORY_MANAGER_SOURCE */
+/* INTERNAL_MEMORY_STARTUP_MANAGER_SOURCE */
 #endif

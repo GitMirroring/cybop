@@ -30,11 +30,8 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
-#include "../../../../executor/accessor/setter/io_entry_setter.c"
-#include "../../../../executor/maintainer/starter/terminal/get_file_number_terminal_starter.c"
-#include "../../../../executor/maintainer/starter/terminal/mode_terminal_starter.c"
+#include "../../../../executor/maintainer/starter/terminal/stream_terminal_starter.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -46,21 +43,15 @@ void startup_terminal(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal.");
 
+    //
     // The terminal output- and input file streams.
+    //
     // CAUTION! The standard input/output streams "stdin"
     // and "stdout" exist on posix as well as on win32.
+    //
     void* os = (void*) stdout;
     void* is = (void*) stdin;
-    // The terminal output- and input file descriptors.
-    int od = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    int id = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
-    // Get terminal output- and input file descriptors from file streams.
-    startup_terminal_file_number_get((void*) &od, os);
-    startup_terminal_file_number_get((void*) &id, is);
-
-    //
-    // Configure terminal mode.
     //
     // Linux:
     //
@@ -115,29 +106,28 @@ void startup_terminal(void* p0) {
     // The input- and output constants have OVERLAPPING VALUES (identification),
     // so that both MUST NOT be combined or set together.
     //
-    // For linux, this redundant storage of mode settings
-    // is actually not necessary, but does no harm either.
+    // For linux, a redundant storage of mode settings does not make sense.
+    // Therefore, the function below is called JUST ONCE for the output stream,
+    // but NOT for the input stream.
     //
-    // The third (and last) argument is a boolean value indicating
-    // whether input or output mode is meant,
-    // so that the correct flags may be used internally.
+    // The second argument is the file stream.
+    // CAUTION! Hand it over as pointer REFERENCE.
     //
-    startup_terminal_mode((void*) &od, p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-    startup_terminal_mode((void*) &id, p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    // The third (and last) argument is a boolean value (flag)
+    // indicating input (true) or output (false).
+    //
 
-    //
-    // Store terminal file streams in input/output entry.
-    //
-    // CAUTION! Do NOT use "overwrite_array" function here,
-    // since it adapts the array count and size.
-    // But the array's count and size are CONSTANT.
-    //
-    // CAUTION! Do NOT hand over input/output entry as pointer reference.
-    //
-    // CAUTION! Hand over output file stream and input file stream as pointer REFERENCE.
-    //
-    set_io_entry_element(p0, (void*) &os, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    set_io_entry_element(p0, (void*) &is, (void*) INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+#if defined(__linux__) || defined(__unix__)
+    startup_terminal_stream(p0, (void*) &os, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+#elif defined(__APPLE__) && defined(__MACH__)
+    startup_terminal_stream(p0, (void*) &os, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    startup_terminal_stream(p0, (void*) &os, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    startup_terminal_stream(p0, (void*) &is, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
 }
 
 /* TERMINAL_STARTER_SOURCE */

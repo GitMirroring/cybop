@@ -28,12 +28,8 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
-#include "../../../../executor/accessor/getter/io_entry_getter.c"
-#include "../../../../executor/maintainer/shutter/terminal/mode_terminal_shutter.c"
-#include "../../../../executor/maintainer/starter/terminal/get_file_number_terminal_starter.c"
+#include "../../../../executor/maintainer/shutter/terminal/stream_terminal_shutter.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -47,52 +43,17 @@ void shutdown_terminal(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown terminal.");
 
-    // The terminal output- and input file streams.
-    // CAUTION! The standard input/output streams "stdin"
-    // and "stdout" exist on posix as well as on win32.
-    void* os = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* is = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The terminal output- and input file descriptors.
-    int od = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    int id = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-
-    //
-    // Retrieve terminal file streams from input/output entry.
-    //
-    // CAUTION! Do NOT use "overwrite_array" function here,
-    // since it adapts the array count and size.
-    // But the array's count and size are CONSTANT.
-    //
-    // CAUTION! Hand over values as pointer REFERENCE.
-    //
-    // CAUTION! Do NOT hand over input/output entry as pointer reference.
-    //
-    get_io_entry_element((void*) &os, p0, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    get_io_entry_element((void*) &is, p0, (void*) INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-    // Get terminal output- and input file descriptors from file streams.
-    startup_terminal_file_number_get((void*) &od, os);
-    startup_terminal_file_number_get((void*) &id, is);
-
-    //
-    // Restore original terminal mode.
-    //
-    // CAUTION! The order of function calls IS IMPORTANT (first input, then output).
-    // For some unknown reason, the terminal mode is not restored properly
-    // (enter | return key does not break the line but adds prompt to the end of a line),
-    // when restoring the output first and the input only afterwards.
-    // However, restoring the output only (not the input) is NOT a viable solution,
-    // since the win32 console expects different modes for input and output.
-    //
-    shutdown_terminal_mode((void*) &id, p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    shutdown_terminal_mode((void*) &od, p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-    //
-    // CAUTION! A "close" function is NOT called here,
-    // since standard terminal output- and input file descriptors
-    // were used at startup and MUST NOT be closed.
-    // This is the case on all operating systems.
-    //
+#if defined(__linux__) || defined(__unix__)
+    shutdown_terminal_stream(p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+#elif defined(__APPLE__) && defined(__MACH__)
+    shutdown_terminal_stream(p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    shutdown_terminal_stream(p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    shutdown_terminal_stream(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
 }
 
 /* TERMINAL_SHUTTER_SOURCE */

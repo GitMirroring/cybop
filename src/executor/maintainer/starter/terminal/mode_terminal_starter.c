@@ -53,39 +53,64 @@ void startup_terminal_mode(void* p0, void* p1, void* p2) {
     // The new terminal mode (attributes).
     void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
     // Allocate original terminal mode.
+    //
     // CAUTION! Hand over pointer REFERENCE.
+    //
     startup_terminal_mode_allocate((void*) &o);
+    //
     // Allocate new terminal mode.
+    //
     // CAUTION! Hand over pointer REFERENCE.
+    //
     startup_terminal_mode_allocate((void*) &n);
 
+    //
     // Read original terminal mode.
+    //
     // CAUTION! Do NOT hand over pointer reference.
+    //
     startup_terminal_mode_get(o, p0);
 
+    //
     // Store original terminal mode.
+    //
     // CAUTION! Hand over pointer REFERENCE.
+    //
     startup_terminal_mode_store(p1, (void*) &o, p2);
 
+    //
     // Copy original to new terminal mode.
+    //
     // CAUTION! Do NOT hand over pointer references,
     // since only the CONTENT, but not pointer is to be copied.
+    //
     startup_terminal_mode_copy(n, o);
 
+    //
     // Edit new terminal mode.
+    //
     // CAUTION! Do NOT hand over pointer reference,
     // since only the CONTENT, but not pointer is to be edited.
+    //
     startup_terminal_mode_edit(n, p2);
 
+    //
     // Write new terminal mode.
+    //
     // CAUTION! Do NOT hand over pointer reference.
+    //
     startup_terminal_mode_set(p0, n);
 
+    //
     // Deallocate new terminal mode.
+    //
     // CAUTION! It is not stored in input/output memory and
     // used as TEMPORARY variable only.
+    //
     // CAUTION! Hand over pointer REFERENCE.
+    //
     startup_terminal_mode_deallocate((void*) &n);
 }
 

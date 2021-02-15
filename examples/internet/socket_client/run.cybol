@@ -101,7 +101,6 @@
     </node>
 
     <!-- Send exit request -->
-<!--
     <node name="print_request_exit" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -118,7 +117,6 @@
         <node name="message" channel="inline" format="text/plain" model="exit"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
--->
 
     <!-- Exit programme -->
     <node name="exit_programme" channel="inline" format="live/exit" model=""/>
@@ -130,7 +128,7 @@
     It sends and receives a: text, image, exit command.
 
     CAUTION! The reserved service ports 0..1023 can sometimes only be
-    used when running the cybol application as "root" user (Administrator).
+    used when running the cybol application as "root" user (administrator).
 
     The "nmap" tool may be used to find out about active service ports, e.g.:
     nmap localhost

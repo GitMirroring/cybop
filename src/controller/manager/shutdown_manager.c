@@ -41,17 +41,22 @@ void manage_shutdown(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manage shutdown.");
 
-    // The following calls of "shutdown" procedures are just to be sure,
+    //
+    // The following calls of "shutdown" procedures are necessary for cleanup,
     // in case a cybol application developer has forgotten to call the
-    // corresponding service shutdown operation in cybol logic templates.
+    // corresponding service shutdown operations.
+    //
 
     // Shutdown display.
     manage_shutdown_services(p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DISPLAY_CYBOI_CHANNEL);
     // Shutdown serial port.
     manage_shutdown_services(p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) SERIAL_CYBOI_CHANNEL);
+    //
     // Shutdown socket.
-    // CAUTION! The delay is caused by the large number of potential services (65536).
+    //
+    // CAUTION! A small delay is caused by the large number of potential services (65536).
     // However, speed is more important at system startup than at shutdown.
+    //
     manage_shutdown_services(p0, (void*) NUMBER_65536_INTEGER_STATE_CYBOI_MODEL, (void*) SOCKET_CYBOI_CHANNEL);
     // Shutdown terminal.
     manage_shutdown_services(p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) TERMINAL_CYBOI_CHANNEL);

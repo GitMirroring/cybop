@@ -1,4 +1,4 @@
- /*
+/*
  * Copyright (C) 1999-2020. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
@@ -88,6 +88,7 @@ int main(int p0, char** p1) {
 
     //
     // One note about dynamic memory allocation:
+    //
     // There is no point in freeing blocks at the end of an application programme,
     // because all of the programme's space is given back to the operating system
     // when the process terminates.

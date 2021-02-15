@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-02-15  Christian Heller  <christian.heller@cybop.org>
+
+        * Rename file "internal_memory_manager.c" into "internal_memory_startup_manager.c"
+        * Fix error by manipulating terminal mode on linux just once for output (since it is also valid for input), and twice (for input and output) only for windows
+
 2021-02-09  Christian Heller  <christian.heller@cybop.org>
 
         * Investigate if posix-conform "fcntl" call used in file "set_status_bsd_socket_starter.c" may replace os-specific "ioctl" call used in file "unix_device_reader.c"
