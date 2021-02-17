@@ -41,12 +41,13 @@
  * Checks already open clients for new available data.
  *
  * @param p0 the destination sender client
- * @param p1 the source client list data
- * @param p2 the source client list count
- * @param p3 the input/output entry
- * @param p4 the channel
+ * @param p1 the destination sender index
+ * @param p2 the source client list data
+ * @param p3 the source client list count
+ * @param p4 the input/output entry
+ * @param p5 the channel
  */
-void check_client_all(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void check_client_all(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check client all.");
 
@@ -57,8 +58,9 @@ void check_client_all(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The client.
     int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
-    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
@@ -66,15 +68,16 @@ void check_client_all(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
+        //
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
-    //?? fwprintf(stdout, L"TEST check client all. count p2: %i\n", p2);
-    //?? fwprintf(stdout, L"TEST check client all. count *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"TEST check client all. count p3: %i\n", p3);
+    //?? fwprintf(stdout, L"TEST check client all. count *p3: %i\n", *((int*) p3));
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p3);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -87,7 +90,7 @@ void check_client_all(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // CAUTION! This function only PEEKS into data,
         // but does NOT remove them, so that they can be read again later.
         //
-        check_client_element((void*) &c, p1, (void*) &j, p3, p4);
+        check_client_element((void*) &c, p2, (void*) &j, p4, p5);
 
         //
         // CAUTION! This second comparison IS NECESSARY for two reasons:
@@ -109,6 +112,8 @@ void check_client_all(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             // Copy client.
             copy_integer(p0, (void*) &c);
+            // Copy index.
+            copy_integer(p1, (void*) &j);
 
             break;
         }

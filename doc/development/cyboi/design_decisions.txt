@@ -944,16 +944,56 @@ Misconception 2: Everything that's asynchronous is handled by a thread pool
 Storing server and client service identification
 ________________________________________________
 
-The communication client service identification is kept as variable in the
-corresponding cybol application, as is done with the client socket, see:
-examples/socket_server/handler.cybol: operation "communicate/receive", property: "sender"
-examples/socket_server/logic.cybol: operation "communicate/send", property: "receiver"
+Sockets get declared as integer variable in the corresponding cybol
+application. However, their initial value is just a placeholder.
+Inside cyboi, it gets filled with the correct socket number through
+glibc by low-level function calls to the operating system.
+
+A client-side server socket (communicating with a server) gets created and assigned:
+- in function "startup_bsd_socket_create" of file "create_bsd_socket_starter.c"
+- called by function "startup_socket_create" of file "create_socket_starter.c"
+- called by function "startup_socket_client" of file "client_socket_starter.c"
+- called by function "startup_socket_mode" of file "mode_socket_starter.c"
+
+A server-side client socket (communicating with a client) gets copied:
+- in function "check_io_receive" of file "receive_io_checker.c"
+- called by function "check_io_element" of file "element_io_checker.c"
+- called by function "check_io_all" of file "all_io_checker.c"
+- called by function "check_io" of file "io_checker.c"
+- called by function "check_wait" of file "wait_checker.c"
+
+The corresponding timeout gets initialised:
+- in function "check_io_accept" of file "accept_io_checker.c"
+and reset
+- in function "check_io_receive" of file "receive_io_checker.c"
+
+CYBOL Examples:
+examples/internet/socket_client/app.cybol
+examples/internet/socket_server/app.cybol
+
+    <!--
+        This is just a placeholder value.
+        Inside cyboi, it gets filled with the correct server socket number,
+        which gets created by the operating system through a low-level function call.
+    -->
+    <node name="server_socket" channel="inline" format="number/integer" model="0"/>
+
+The client list storing client sockets having been accepted by a server
+gets allocated together with the corresponding timeout list when
+starting up the service:
+- in function "maintain_io_allocate" of file "allocate_io_maintainer.c"
+- called by function "startup_io" of file "io_starter.c"
+- called by function "startup_service" of file "starter.c"
 
 The communication client service identification MAY be given (but does NOT have to)
 as property for a "send" or "receive" cybol operation.
 If it is NOT given as property, then a standard value of zero (0) is expected inside cyboi.
 This applies e.g. for terminal communication where it would be tedious to always
 have to specify a client terminal service identification.
+
+Examples:
+examples/socket_server/handler.cybol: operation "communicate/receive", property: "sender"
+examples/socket_server/logic.cybol: operation "communicate/send", property: "receiver"
 
 Socket
 ______

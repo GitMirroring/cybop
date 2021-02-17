@@ -53,16 +53,21 @@ void shutdown_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
     // The port.
     int p = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+    //
     // Copy port.
+    //
     // CAUTION! It will NOT be copied, if its value is a NULL pointer.
+    //
     copy_integer((void*) &p, p1);
 
     //?? fwprintf(stdout, L"TEST: shutdown socket p: %i \n", p);
 
     if (p == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
+        //
         // A direct port was NOT given as parametre.
         // Therefore, determine port from service name.
+        //
 
         // Deserialise port from network service name.
         deserialise_network_service((void*) &p, p5, p6);

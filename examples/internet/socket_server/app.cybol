@@ -4,6 +4,11 @@
     <node name="actions" channel="file" format="element/part" model="internet/socket_server/actions.cybol"/>
 
     <node name="request" channel="inline" format="text/plain" model=""/>
+    <!--
+        This is just a placeholder value.
+        Inside cyboi, it gets filled with the correct client socket number,
+        on which data have been sensed, i.e. a cyboi-internal irq has been set.
+    -->
     <node name="client_socket" channel="inline" format="number/integer" model="0"/>
 
     <node name="path" channel="inline" format="text/plain" model=""/>

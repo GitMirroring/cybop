@@ -21,6 +21,8 @@
 2021-02-17  Christian Heller  <christian.heller@cybop.org>
 
         * Replace pointer access using pointer->field with (*variable).field in all source code
+        * Prepare usage of timeout for each sender client having been accepted by the server socket
+        * Introduce timeout list item in parallel to already existing sender client list item
 
 2021-02-15  Christian Heller  <christian.heller@cybop.org>
 

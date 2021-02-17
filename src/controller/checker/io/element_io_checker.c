@@ -87,13 +87,21 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 //?? fwprintf(stdout, L"TEST: check io element e: %i \n", e);
 
                 // The client list item.
-                void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
+                void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+                // The timeout list item.
+                void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+                // The default timeout.
+                int d = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                 // Get client list item from input/output entry.
-                get_io_entry_element((void*) &l, io, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+                get_io_entry_element((void*) &c, io, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+                // Get timeout list item from input/output entry.
+                get_io_entry_element((void*) &t, io, (void*) TIMEOUT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+                // Get default timeout from input/output entry.
+                get_io_entry_element((void*) &d, io, (void*) TIMEOUT_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
                 // Check for available input/output.
-                check_io_receive(p0, l, io, p4);
+                check_io_receive(p0, c, t, (void*) &d, io, p4);
 
                 //
                 // CAUTION! This "if" clause and branching are NECESSARY since otherwise,
@@ -131,7 +139,7 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
                     // In other words, when running cyboi as socket server,
                     // it makes sense only together with NON-BLOCKING mode.
                     //
-                    check_io_accept(l, io, p4);
+                    check_io_accept(c, t, (void*) &d, io, p4);
                 }
             }
 

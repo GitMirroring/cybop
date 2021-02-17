@@ -42,7 +42,7 @@
  * @param p1 the input/output base
  * @param p2 the service identification (e.g. socket port)
  * @param p3 the handler part (pointer reference)
- * @param p4 the sender client data (pointer reference)
+ * @param p4 the sender client data (pointer reference, e.g. display connection, file descriptor, client socket)
  */
 void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
@@ -87,7 +87,7 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // Set enable flag into input/output entry.
         set_io_entry_element(io, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-//??        fwprintf(stdout, L"TEST: Enable channel. Handler part *p3: %i\n", *((void**) p3));
+        //?? fwprintf(stdout, L"TEST: Enable channel. Handler part *p3: %i\n", *((void**) p3));
 
     } else {
 

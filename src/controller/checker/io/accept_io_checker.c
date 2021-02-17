@@ -36,6 +36,7 @@
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/acceptor/acceptor.c"
 #include "../../../executor/comparator/integer/greater_integer_comparator.c"
+#include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/modifier/item_modifier.c"
 #include "../../../logger/logger.c"
 
@@ -43,10 +44,12 @@
  * Checks input output for new client requests.
  *
  * @param p0 the client list item
- * @param p1 the input/output entry
- * @param p2 the channel
+ * @param p1 the timeout list item
+ * @param p2 the default timeout
+ * @param p3 the input/output entry
+ * @param p4 the channel
  */
-void check_io_accept(void* p0, void* p1, void* p2) {
+void check_io_accept(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io accept.");
 
@@ -56,24 +59,29 @@ void check_io_accept(void* p0, void* p1, void* p2) {
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Accept new client requests.
-    accept_client((void*) &c, p1, p0, p2);
+    accept_client((void*) &c, p3, p0, p4);
 
     compare_integer_greater((void*) &r, (void*) &c, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // A client request has been detected on the server.
+        //
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io accept. A client request was detected.");
-
-//??        fwprintf(stdout, L"Debug: Check io accept. A client request was detected. c: %i\n", c);
+        //?? fwprintf(stdout, L"Information: Check io accept. A client request was detected. c: %i\n", c);
 
         // Add client to client list item.
         modify_item(p0, (void*) &c, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+        // Add default timeout to timeout list item.
+        modify_item(p1, p2, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
     } else {
 
+        //
         // There is NO client request.
+        //
 
         //
         // CAUTION! Do NOT log messages here, since this function is called in an endless loop.

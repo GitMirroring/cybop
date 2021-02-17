@@ -69,7 +69,9 @@ void check_client_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         //?? fwprintf(stdout, L"TEST: Check client element. post sense f: %i \n", f);
 
+        //
         // There are data available on the client.
+        //
 
         // Copy client.
         copy_integer(p0, (void*) &c);

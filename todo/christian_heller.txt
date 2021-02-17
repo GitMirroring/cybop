@@ -14,16 +14,23 @@
 WUI and Socket
 ______________
 
-        * Make cybol example "user_interface/ui/" wui work via socket
-        * Fix error that resource gets interpreted as Stylesheet but transferred with MIME type text/plain
-            see file "app.cybol" in cybol applications "socket_client" and "socket_server"
-        * Handle non-existing database files using default values in cybol application "presence"
+        * Debug cybol application "internet/socket_server/"
+        * Find bug causing memory access error (appears since timeout got prepared)
+        * Use valgrind for help
+        * See file "compound_type_size_globaliser.c"
+            Does timeout have to be a pointer instead of an integer, since it is allocated in cybol?
+            See comment there for "sender"!
+            Adjust files "io_entry_setter.c" and "io_entry_getter.c" (ONLY if possibly changing integer to pointer)
 
-        * Assign a timeout to each client having been accepted by the server
-            timeout storage:
-            - in a "timeout" array in parallel to the client int number array
-            - directly in the client -- which in this case has to be treated as object, not just simple int value
-            - in the cybol application, in a special client list
+        * Hand over default timeout at server socket startup in cybol
+        * Store it in io entry
+        * Implement timeout calculation using glibc function "time" which has a resolution of one second
+            https://www.gnu.org/software/libc/manual/html_mono/libc.html#Getting-the-Time
+            - store long at the time instant when having accepted a client socket
+            - in each cycle, do a "get_current_time" or the like
+            - calculate the difference = timeout
+            - compare calculated timeout per sender client with default timeout of io entry
+            - close client connexion, if timeout has been reached
         * Close connection if read zero bytes (client closed connection) and remove it from client list
             in non-blocking mode, the "recv()" returns errors EAGAIN or EWOULDBLOCK if no more data are available
             --> catch them and close connection in this case
@@ -38,6 +45,11 @@ ______________
         * Increase limit of connecting clients or do only close connexion after a timeout has been reached
             (currently, the web browser blocks after ten clicks, since each request opens a new socket connexion)
         * Uncomment helpful "TEST: check io receive." in file "receive_io_checker.c" to log client requests on terminal
+
+        * Make cybol example "user_interface/ui/" wui work via socket
+        * Fix error that resource gets interpreted as Stylesheet but transferred with MIME type text/plain
+            see file "app.cybol" in cybol applications "socket_client" and "socket_server"
+        * Handle non-existing database files using default values in cybol application "presence"
 
         * Use the values from the results of the call to getaddrinfo(), instead of
             hard-coded values, and feed them into socket() directly like this:
@@ -620,9 +632,6 @@ _____________
         * Rename function call of "check_operation" into "lex" in all code and adapt include
 
         * Update directory "executor/container/"
-
-        * Rename "internal memory" into "system memory"
-        * Rename looping files to either (1) plural + singular, e.g. shutdown_services (loop) + shutdown service or (2) container + element, e.g. shutdown_list (loop) + shutdown_element
 
 Shell Commands
 ______________

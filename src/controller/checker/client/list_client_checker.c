@@ -36,29 +36,33 @@
  * Checks list of already open clients for new available data.
  *
  * @param p0 the destination sender client
- * @param p1 the source client list item
- * @param p2 the input/output entry
- * @param p3 the channel
+ * @param p1 the destination sender index
+ * @param p2 the source client list item
+ * @param p3 the input/output entry
+ * @param p4 the channel
  */
-void check_client_list(void* p0, void* p1, void* p2, void* p3) {
+void check_client_list(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check client list.");
 
-//??     fwprintf(stdout, L"TEST: check client list. channel *p3: %i \n", *((int*) p3));
+    //?? fwprintf(stdout, L"TEST: check client list. channel *p4: %i \n", *((int*) p4));
 
     // The client list item data, count.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
     // Get client list item data, count.
+    //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &d, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    //
+    copy_array_forward((void*) &d, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &c, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Test clients for available data.
-    check_client_all(p0, d, c, p2, p3);
+    check_client_all(p0, p1, d, c, p3, p4);
 }
 
 /* LIST_CLIENT_CHECKER_SOURCE */
