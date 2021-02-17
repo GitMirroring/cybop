@@ -115,7 +115,7 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xcb.");
 
         // Get response type.
-        uint8_t t = e->response_type;
+        uint8_t t = (*e).response_type;
 
 //??        fwprintf(stdout, L"TEST deserialise xcb t: %i\n", t);
 
@@ -141,14 +141,14 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             xcb_button_press_event_t* ev = (xcb_button_press_event_t*) e;
 
             // Get window identification.
-            int w = (int) ev->event;
+            int w = (int) (*ev).event;
             // Get mouse coordinates.
-            int x = (int) ev->event_x;
-            int y = (int) ev->event_y;
+            int x = (int) (*ev).event_x;
+            int y = (int) (*ev).event_y;
             // Get mouse button or keycode.
-            int b = (int) ev->detail;
+            int b = (int) (*ev).detail;
             // Get button mask.
-            int mask = (int) ev->state;
+            int mask = (int) (*ev).state;
 
             // Set window identification.
             modify_item(p1, (void*) &w, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
@@ -169,14 +169,14 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             xcb_button_release_event_t* ev = (xcb_button_release_event_t*) e;
 
             // Get window identification.
-            int w = (int) ev->event;
+            int w = (int) (*ev).event;
             // Get mouse coordinates.
-            int x = (int) ev->event_x;
-            int y = (int) ev->event_y;
+            int x = (int) (*ev).event_x;
+            int y = (int) (*ev).event_y;
             // Get mouse button or keycode.
-            int b = (int) ev->detail;
+            int b = (int) (*ev).detail;
             // Get button mask.
-            int mask = (int) ev->state;
+            int mask = (int) (*ev).state;
 
             // Set window identification.
             modify_item(p1, (void*) &w, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
@@ -209,10 +209,10 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             uint32_t w = (uint32_t) (*ev).window;
             fwprintf(stdout, L"TEST deserialise xcb XCB_CLIENT_MESSAGE 0 w: %i\n", w);
             // Get type.
-            uint32_t ty = (uint32_t) ev->type;
+            uint32_t ty = (uint32_t) (*ev).type;
             fwprintf(stdout, L"TEST deserialise xcb XCB_CLIENT_MESSAGE 1 ty: %i\n", ty);
             // Get data.
-            xcb_client_message_data_t d = ev->data;
+            xcb_client_message_data_t d = (*ev).data;
             fwprintf(stdout, L"TEST deserialise xcb XCB_CLIENT_MESSAGE 2 d: %i\n", d);
 
             // Set window.
@@ -275,12 +275,12 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             // this code is executed, in order to store the original window size.
             // Later, original and new window size may be compared.
             //
-            static uint16_t ow = ev->width;
-            static uint16_t oh = ev->height;
+            static uint16_t ow = (*ev).width;
+            static uint16_t oh = (*ev).height;
 
             // Get current window size.
-            uint16_t ew = ev->width;
-            uint16_t eh = ev->height;
+            uint16_t ew = (*ev).width;
+            uint16_t eh = (*ev).height;
 
             // Resize window.
             if (((ew > 0) && (ow != ew)) || ((eh > 0) && (oh != eh)) ) {
@@ -314,16 +314,16 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             //?? an_event.xcrossing
 
             // Get window identification.
-            int w = (int) ev->event;
+            int w = (int) (*ev).event;
             // Get mouse coordinates.
-            int x = (int) ev->event_x;
-            int y = (int) ev->event_y;
+            int x = (int) (*ev).event_x;
+            int y = (int) (*ev).event_y;
             // Get mouse button or keycode.
-            int b = (int) ev->detail;
+            int b = (int) (*ev).detail;
             // Get button mask.
-            int mask = (int) ev->state;
+            int mask = (int) (*ev).state;
             // Get mouse button identification.
-            int mode = (int) ev->mode;
+            int mode = (int) (*ev).mode;
 
             // Set window identification.
             modify_item(p1, (void*) &w, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
@@ -351,22 +351,22 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
             xcb_expose_event_t* ev = (xcb_expose_event_t*) e;
 
-//??            fwprintf(stdout, L"TEST deserialise xcb XCB_EXPOSE ev->count: %i\n", ev->count);
+//??            fwprintf(stdout, L"TEST deserialise xcb XCB_EXPOSE (*ev).count: %i\n", (*ev).count);
 
             //
             // Consider only the last in a row of multiple expose events,
             // in order to avoid flickering of the display.
             //
-            if (ev->count == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+            if ((*ev).count == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 // Get window identification.
-                int w = (int) ev->window;
+                int w = (int) (*ev).window;
                 // Get expose area position.
-                int ex = (int) ev->x;
-                int ey = (int) ev->y;
+                int ex = (int) (*ev).x;
+                int ey = (int) (*ev).y;
                 // Get expose area size.
-                int ew = (int) ev->width;
-                int eh = (int) ev->height;
+                int ew = (int) (*ev).width;
+                int eh = (int) (*ev).height;
 
                 // Set window identification.
                 modify_item(p1, (void*) &w, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
@@ -408,14 +408,14 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             xcb_key_press_event_t* ev = (xcb_key_press_event_t*) e;
 
             // Get window identification.
-            int w = (int) ev->event;
+            int w = (int) (*ev).event;
             // Get mouse coordinates.
-            int x = (int) ev->event_x;
-            int y = (int) ev->event_y;
+            int x = (int) (*ev).event_x;
+            int y = (int) (*ev).event_y;
             // Get keycode.
-            int k = (int) ev->detail;
+            int k = (int) (*ev).detail;
             // Get button mask.
-            int mask = (int) ev->state;
+            int mask = (int) (*ev).state;
 
             // Set window identification.
             modify_item(p1, (void*) &w, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
@@ -436,14 +436,14 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             xcb_key_release_event_t* ev = (xcb_key_release_event_t*) e;
 
             // Get window identification.
-            int w = (int) ev->event;
+            int w = (int) (*ev).event;
             // Get mouse coordinates.
-            int x = (int) ev->event_x;
-            int y = (int) ev->event_y;
+            int x = (int) (*ev).event_x;
+            int y = (int) (*ev).event_y;
             // Get keycode.
-            int k = (int) ev->detail;
+            int k = (int) (*ev).detail;
             // Get button mask.
-            int mask = (int) ev->state;
+            int mask = (int) (*ev).state;
 
             // Set window identification.
             modify_item(p1, (void*) &w, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
@@ -468,16 +468,16 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             xcb_leave_notify_event_t* ev = (xcb_leave_notify_event_t*) e;
 
             // Get window identification.
-            int w = (int) ev->event;
+            int w = (int) (*ev).event;
             // Get mouse coordinates.
-            int x = (int) ev->event_x;
-            int y = (int) ev->event_y;
+            int x = (int) (*ev).event_x;
+            int y = (int) (*ev).event_y;
             // Get mouse button or keycode.
-            int b = (int) ev->detail;
+            int b = (int) (*ev).detail;
             // Get button mask.
-            int mask = (int) ev->state;
+            int mask = (int) (*ev).state;
             // Get mouse button identification.
-            int mode = (int) ev->mode;
+            int mode = (int) (*ev).mode;
 
             // Set window identification.
             modify_item(p1, (void*) &w, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
@@ -512,14 +512,14 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             xcb_motion_notify_event_t* ev = (xcb_motion_notify_event_t*) e;
 
             // Get window identification.
-            int w = (int) ev->event;
+            int w = (int) (*ev).event;
             // Get mouse coordinates.
-            int x = (int) ev->event_x;
-            int y = (int) ev->event_y;
+            int x = (int) (*ev).event_x;
+            int y = (int) (*ev).event_y;
             // Get mouse button or keycode.
-            int b = (int) ev->detail;
+            int b = (int) (*ev).detail;
             // Get button mask.
-            int mask = (int) ev->state;
+            int mask = (int) (*ev).state;
 
             // Set window identification.
             modify_item(p1, (void*) &w, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);

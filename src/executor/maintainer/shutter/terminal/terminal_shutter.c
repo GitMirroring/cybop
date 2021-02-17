@@ -43,6 +43,10 @@ void shutdown_terminal(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown terminal.");
 
+    //
+    // See comment in file "terminal_starter.c"!
+    //
+
 #if defined(__linux__) || defined(__unix__)
     shutdown_terminal_stream(p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 #elif defined(__APPLE__) && defined(__MACH__)

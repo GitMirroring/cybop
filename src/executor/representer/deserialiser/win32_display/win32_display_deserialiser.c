@@ -122,27 +122,27 @@ void deserialise_win32_display(void* p0, void* p1, void* p2, void* p3, void* p4,
         //
         // https://docs.microsoft.com/en-us/windows/desktop/api/winuser/ns-winuser-msg
         //
-        UINT t = msg->message;
+        UINT t = (*msg).message;
         //
         // Get handle to the window whose window procedure receives the message.
         // This member is NULL when the message is a thread message.
         //
-        HWND win = msg->hwnd;
+        HWND win = (*msg).hwnd;
         //
         // Get additional information about the message.
         // The exact meaning depends on the message type.
         //
-        WPARAM t = msg->wParam;
+        WPARAM t = (*msg).wParam;
         //
         // Get additional information about the message.
         // The exact meaning depends on the message type.
         //
-        LPARAM t = msg->lParam;
+        LPARAM t = (*msg).lParam;
         //
         // The cursor position, in SCREEN coordinates,
         // when the message was posted.
         //
-        POINT pos = msg->pt;
+        POINT pos = (*msg).pt;
 
 fwprintf(stdout, L"TEST deserialise win32 display t: %i\n", t);
 
@@ -221,7 +221,7 @@ fwprintf(stdout, L"TEST deserialise win32 display t: %i\n", t);
             copy_pointer(p1, (void*) &KEY_PRESS_KEYBOARD_STATE_CYBOL_NAME_COUNT);
 
             // The additional message parametres of type WPARAM.
-            WPARAM wp = msg->wParam;
+            WPARAM wp = (*msg).wParam;
 
             if (wp == VK_ESCAPE) {
 
@@ -251,10 +251,10 @@ fwprintf(stdout, L"TEST deserialise win32 display t: %i\n", t);
             copy_pointer(p1, (void*) &BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME_COUNT);
 
             // Get window where the message occured (identification).
-            *win = (int) msg->hwnd;
+            *win = (int) (*msg).hwnd;
 
             // The additional message parametres of type LPARAM.
-            LPARAM lp = msg->lParam;
+            LPARAM lp = (*msg).lParam;
 
             // Get mouse coordinates.
             //
@@ -269,7 +269,7 @@ fwprintf(stdout, L"TEST deserialise win32 display t: %i\n", t);
             *py = GET_Y_LPARAM(lp);
 
             // The additional message parametres of type WPARAM (button mask).
-            *m = (int) msg->wParam;
+            *m = (int) (*msg).wParam;
 
         } else if (t == WM_LBUTTONUP) {
 
@@ -277,10 +277,10 @@ fwprintf(stdout, L"TEST deserialise win32 display t: %i\n", t);
             copy_pointer(p1, (void*) &BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME_COUNT);
 
             // Get window where the message occured (identification).
-            *win = (int) msg->hwnd;
+            *win = (int) (*msg).hwnd;
 
             // The additional message parametres of type LPARAM.
-            LPARAM lp = msg->lParam;
+            LPARAM lp = (*msg).lParam;
 
             // Get mouse coordinates.
             //
@@ -295,7 +295,7 @@ fwprintf(stdout, L"TEST deserialise win32 display t: %i\n", t);
             *py = GET_Y_LPARAM(lp);
 
             // The additional message parametres of type WPARAM (button mask).
-            *m = (int) msg->wParam;
+            *m = (int) (*msg).wParam;
 
         } else if (t == WM_MBUTTONDOWN) {
 
@@ -351,7 +351,7 @@ fwprintf(stdout, L"TEST deserialise win32 display t: %i\n", t);
             copy_pointer(p1, (void*) &BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME_COUNT);
 
             // The additional message parametres of type LPARAM.
-            LPARAM lp = msg->lParam;
+            LPARAM lp = (*msg).lParam;
 
             int x = GET_X_LPARAM(lp);
             int y = GET_Y_LPARAM(lp);

@@ -79,6 +79,7 @@ void manage_startup_internal_memory(void* p0, void* p1, void* p2, void* p3, void
 
     if (((void*) INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT) == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
@@ -86,6 +87,7 @@ void manage_startup_internal_memory(void* p0, void* p1, void* p2, void* p3, void
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
+        //
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
@@ -98,6 +100,7 @@ void manage_startup_internal_memory(void* p0, void* p1, void* p2, void* p3, void
             break;
         }
 
+        //
         // Set null pointer at index.
         //
         // CAUTION! The "copy" (other than the "overwrite") function does
@@ -108,6 +111,7 @@ void manage_startup_internal_memory(void* p0, void* p1, void* p2, void* p3, void
         // CAUTION! Assign NULL to the internal memory.
         // It is ESSENTIAL, since cyboi tests for null pointers.
         // Otherwise, wild pointers would lead to memory corruption.
+        //
         copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &j, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         j++;

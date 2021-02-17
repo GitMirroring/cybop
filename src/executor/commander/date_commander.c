@@ -63,7 +63,7 @@
 #endif
 
 /**
- * Display the date -> 6 params in function
+ * Display the date.
  *
  * @param nmd the new date model data
  * @param nmc the new date model count

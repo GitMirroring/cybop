@@ -161,14 +161,14 @@ void sense_unix_terminal(void* p0, void* p1) {
                 ungetwc(c, (FILE*) fs);
 
 /*??
-//?? TEST BEGIN
-wint_t test = fgetwc((FILE*) fs);
-fwprintf(stdout, L"TEST sense unix terminal c SECOND READING: %lc\n", c);
-ungetwc(test, (FILE*) fs);
-test = fgetwc((FILE*) fs);
-fwprintf(stdout, L"TEST sense unix terminal c THIRD READING: %lc\n", c);
-ungetwc(test, (FILE*) fs);
-//?? TEST END
+                //?? TEST BEGIN
+                wint_t test = fgetwc((FILE*) fs);
+                fwprintf(stdout, L"TEST sense unix terminal c SECOND READING: %lc\n", c);
+                ungetwc(test, (FILE*) fs);
+                test = fgetwc((FILE*) fs);
+                fwprintf(stdout, L"TEST sense unix terminal c THIRD READING: %lc\n", c);
+                ungetwc(test, (FILE*) fs);
+                //?? TEST END
 */
 
                 copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

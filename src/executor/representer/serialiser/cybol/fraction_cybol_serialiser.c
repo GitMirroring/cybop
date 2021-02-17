@@ -54,7 +54,7 @@ void serialise_fraction(void* p0, void* p1, void* p2) {
     remove_array_element(p0, (void*) &INTEGER_ARRAY, (void*) &FRACTION_STATE_CYBOI_MODEL_COUNT, (void*) &DENOMINATOR_INDEX);
     remove_array_element(p0, (void*) &INTEGER_ARRAY, (void*) &FRACTION_STATE_CYBOI_MODEL_COUNT, (void*) &NUMERATOR_INDEX);
 
-//??    sprintf(p1, %l, (void*) &(m->value));
+//??    sprintf(p1, %l, (void*) &((*m).value));
 */
 }
 

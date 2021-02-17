@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-02-17  Christian Heller  <christian.heller@cybop.org>
+
+        * Replace pointer access using pointer->field with (*variable).field in all source code
+
 2021-02-15  Christian Heller  <christian.heller@cybop.org>
 
         * Rename file "internal_memory_manager.c" into "internal_memory_startup_manager.c"

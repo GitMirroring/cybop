@@ -55,18 +55,18 @@ void startup_terminal(void* p0) {
     //
     // Linux:
     //
-    // CAUTION! Although some functions specify the terminal device with a file descriptor,
+    // Although some functions specify the terminal device with a file descriptor,
     // the attributes are those of the terminal device itself and NOT of the file descriptor.
     // This means that the effects of changing terminal attributes are persistent;
     // if another process opens the same terminal file later on, it will see
-    // the CHANGED attributes even though it doesn’t have anything to do with
+    // the CHANGED attributes even though it doesn't have anything to do with
     // the open file descriptor originally specified in changing the attributes.
     //
     // Similarly, if a single process has multiple or duplicated file descriptors
     // for the same terminal device, changing the terminal attributes affects
     // INPUT AND OUTPUT to ALL of these file descriptors.
     //
-    // This means, for example, that one can’t open one file descriptor or stream
+    // This means, for example, that one can't open one file descriptor or stream
     // to read from a terminal in the normal line-buffered, echoed mode;
     // and simultaneously have another file descriptor for the same terminal
     // that one uses to read from it in single-character, non-echoed mode.
@@ -74,6 +74,19 @@ void startup_terminal(void* p0) {
     //
     // Reference:
     // https://www.gnu.org/software/libc/manual/html_mono/libc.html#Mode-Functions
+    //
+    // Since linux terminal modes are valid for input AND output,
+    // it does NOT matter whether the input- or output file descriptor
+    // is handed over as argument here. Either may be used.
+    // A redundant storage of mode settings does not make sense, however.
+    // It would also lead to errors like the following, e.g. in cybol application "socket_client":
+    //
+    // Shutdown terminal mode.
+    // Could not startup unix terminal mode set. An error occured within tcsetattr.
+    // Could not startup unix terminal mode set. The filedes argument is not a valid file descriptor. EBADF errno: 9
+    //
+    // Therefore, the function below is called JUST ONCE for the output stream,
+    // but NOT for the input stream.
     //
     // Windows:
     //
@@ -88,27 +101,17 @@ void startup_terminal(void* p0) {
     // Reference:
     // https://docs.microsoft.com/en-us/windows/console/setconsolemode
     //
-    // Decision:
-    //
-    // Linux terminal modes are valid for input AND output,
-    // so that it does NOT matter whether the input- or output file descriptor
-    // is handed over as argument here. Either may be used.
-    // In windows, however, a DIFFERENT SET OF FLAGS is used for each,
-    // input and output.
-    //
-    // Due to the fact that windows distinguishes between the
-    // input and output mode settings, both are treated SEPARATELY here,
-    // i.e. the function "startup_terminal_mode" is called twice,
-    // once for input and another time for output.
-    //
     // The sets of flag constants are definitely different, to be verified here:
     // https://docs.microsoft.com/en-us/windows/console/setconsolemode
     // The input- and output constants have OVERLAPPING VALUES (identification),
     // so that both MUST NOT be combined or set together.
     //
-    // For linux, a redundant storage of mode settings does not make sense.
-    // Therefore, the function below is called JUST ONCE for the output stream,
-    // but NOT for the input stream.
+    // Since windows distinguishes between the input and output mode settings
+    // and uses a DIFFERENT SET OF FLAGS for each, both are treated SEPARATELY here.
+    // Therefore, the function "startup_terminal_mode" is called twice,
+    // once for input and another time for output.
+    //
+    // Arguments:
     //
     // The second argument is the file stream.
     // CAUTION! Hand it over as pointer REFERENCE.

@@ -68,7 +68,7 @@ void read_directory_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void
         if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             // Get filename.
-            char* f = e->d_name;
+            char* f = (*e).d_name;
 
             // Process file.
 //??            receive_data(pm, *NULL_POINTER_STATE_CYBOI_MODEL, smmd, smmc, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, fd, pld, ped, pcd);
