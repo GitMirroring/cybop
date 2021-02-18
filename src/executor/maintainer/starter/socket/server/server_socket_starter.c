@@ -56,8 +56,9 @@
  * @param p11 the host address count
  * @param p12 the port
  * @param p13 the connexions (number of possible pending client requests)
+ * @param p14 the timeout
  */
-void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
+void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket server.");
 
@@ -69,6 +70,8 @@ void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     // Store socket in input/output entry.
     set_io_entry_element(p0, (void*) &s, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Store default timeout in input/output entry.
+    set_io_entry_element(p0, p14, (void*) TIMEOUT_INPUT_OUTPUT_STATE_CYBOI_NAME);
 }
 
 /* SERVER_SOCKET_STARTER_SOURCE */

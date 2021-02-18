@@ -108,6 +108,40 @@ void maintain_io_deallocate(void* p0) {
         deallocate_item((void*) &tl, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         //
+        // Store NULL value for client list item in input/output entry.
+        //
+        // This is commented out, since the input/output entry gets
+        // deallocated itself anyway below. However, for proper processing,
+        // the pointer would actually have to be set to null here.
+        //
+        // CAUTION! Do NOT use "overwrite_array" function here,
+        // since it adapts the array count and size.
+        // But the array's count and size are CONSTANT.
+        //
+        // CAUTION! Do NOT hand over input/output entry as pointer reference.
+        //
+        // CAUTION! Hand over value as pointer REFERENCE.
+        //
+        // set_io_entry_element(*io, NULL_POINTER_STATE_CYBOI_MODEL, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+        //
+        // Store NULL value for timeout list item in input/output entry.
+        //
+        // This is commented out, since the input/output entry gets
+        // deallocated itself anyway below. However, for proper processing,
+        // the pointer would actually have to be set to null here.
+        //
+        // CAUTION! Do NOT use "overwrite_array" function here,
+        // since it adapts the array count and size.
+        // But the array's count and size are CONSTANT.
+        //
+        // CAUTION! Do NOT hand over input/output entry as pointer reference.
+        //
+        // CAUTION! Hand over value as pointer REFERENCE.
+        //
+        // set_io_entry_element(*io, NULL_POINTER_STATE_CYBOI_MODEL, (void*) TIMEOUT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+        //
         // Deallocate input/output entry.
         //
         // CAUTION! The second argument "count" is NULL,

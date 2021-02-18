@@ -72,13 +72,17 @@ void maintain_io_get(void* p0, void* p1, void* p2, void* p3) {
     calculate_integer_add((void*) &i, p2);
     calculate_integer_add((void*) &i, p3);
 
+    //
     // CAUTION! Use greater-or-equal operator >=,
     // since the first service has the identification zero.
+    //
     compare_integer_greater_or_equal((void*) &r, (void*) &i, p2);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // The given service identification is valid.
+        //
 
         // Get input/output entry from internal memory.
         copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);

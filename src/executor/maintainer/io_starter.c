@@ -54,15 +54,16 @@
  * @param p14 the socket host address data
  * @param p15 the socket host address count
  * @param p16 the socket connexions (number of possible pending client requests)
- * @param p17 the socket client socket
- * @param p18 the socket mode data
- * @param p19 the socket mode count
- * @param p20 the socket network service data
- * @param p21 the socket network service count
- * @param p22 the channel
- * @param p23 the input/output base
+ * @param p17 the socket timeout
+ * @param p18 the socket client socket
+ * @param p19 the socket mode data
+ * @param p20 the socket mode count
+ * @param p21 the socket network service data
+ * @param p22 the socket network service count
+ * @param p23 the channel
+ * @param p24 the input/output base
  */
-void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22, void* p23) {
+void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22, void* p23, void* p24) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup io.");
 
@@ -70,7 +71,7 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get input/output entry.
-    maintain_io_get((void*) &io, p0, p23, p1);
+    maintain_io_get((void*) &io, p0, p24, p1);
 
     if (io == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -80,10 +81,10 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
         maintain_io_allocate((void*) &io);
 
         // Startup service details.
-        startup_details(io, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22);
+        startup_details(io, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23);
 
         // Set input/output entry.
-        maintain_io_set(p0, (void*) &io, p23, p1);
+        maintain_io_set(p0, (void*) &io, p24, p1);
 
     } else {
 

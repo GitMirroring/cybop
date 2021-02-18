@@ -16,14 +16,42 @@ ______________
 
         * Debug cybol application "internet/socket_server/"
         * Find bug causing memory access error (appears since timeout got prepared)
-        * Use valgrind for help
+        * Use valgrind for help: client is clean; only in server, the error appears
+        * Debug on heap memory:
+==17223== 4 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==17223==    at 0x483577F: malloc (vg_replace_malloc.c:299)
+==17223==    by 0x17895C: allocate_array (in /home/project/cybop/src/controller/cyboi)
+==17223==    by 0x17B6E9: allocate_item (in /home/project/cybop/src/controller/cyboi)
+==17223==    by 0x297032: maintain_io_allocate (in /home/project/cybop/src/controller/cyboi)
+==17223==    by 0x29EC9E: startup_io (in /home/project/cybop/src/controller/cyboi)
+==17223==    by 0x29F0D0: startup_service (in /home/project/cybop/src/controller/cyboi)
+==17223==    by 0x2A07C8: apply_startup (in /home/project/cybop/src/controller/cyboi)
+==17223==    by 0x2ACEAB: handle_operation (in /home/project/cybop/src/controller/cyboi)
+==17223==    by 0x2AEB1C: handle (in /home/project/cybop/src/controller/cyboi)
+==17223==    by 0x2AE18C: handle_part_element (in /home/project/cybop/src/controller/cyboi)
+==17223==    by 0x2AE44D: handle_part (in /home/project/cybop/src/controller/cyboi)
+==17223==    by 0x2AE930: handle (in /home/project/cybop/src/controller/cyboi)
+==17223==
+        * Debug on stack memory (possibly this is the "sender" integer value created within the cybol but now destroyed in cyboi):
+==17883== Invalid free() / delete / delete[] / realloc()
+==17883==    at 0x48369AB: free (vg_replace_malloc.c:530)
+==17883==    by 0x178B87: deallocate_array (in /home/project/cybop/src/controller/cyboi)
+==17883==    by 0x17E59C: deallocate_item (in /home/project/cybop/src/controller/cyboi)
+==17883==    by 0x185EF4: maintain_io_deallocate (in /home/project/cybop/src/controller/cyboi)
+==17883==    by 0x1922BA: shutdown_io (in /home/project/cybop/src/controller/cyboi)
+==17883==    by 0x19252B: shutdown_service (in /home/project/cybop/src/controller/cyboi)
+==17883==    by 0x19279E: manage_shutdown_services (in /home/project/cybop/src/controller/cyboi)
+==17883==    by 0x192892: manage_shutdown (in /home/project/cybop/src/controller/cyboi)
+==17883==    by 0x2AFF72: manage (in /home/project/cybop/src/controller/cyboi)
+==17883==    by 0x2B1AE3: main (in /home/project/cybop/src/controller/cyboi)
+==17883==  Address 0x3c is not stack'd, malloc'd or (recently) free'd
+==17883==
+
         * See file "compound_type_size_globaliser.c"
             Does timeout have to be a pointer instead of an integer, since it is allocated in cybol?
             See comment there for "sender"!
             Adjust files "io_entry_setter.c" and "io_entry_getter.c" (ONLY if possibly changing integer to pointer)
 
-        * Hand over default timeout at server socket startup in cybol
-        * Store it in io entry
         * Implement timeout calculation using glibc function "time" which has a resolution of one second
             https://www.gnu.org/software/libc/manual/html_mono/libc.html#Getting-the-Time
             - store long at the time instant when having accepted a client socket

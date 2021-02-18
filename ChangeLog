@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-02-18  Christian Heller  <christian.heller@cybop.org>
+
+        * Create new property "timeout" for cybol operation "maintain/startup"
+        * Store it as default timeout in input/output entry of server socket at startup
+
 2021-02-17  Christian Heller  <christian.heller@cybop.org>
 
         * Replace pointer access using pointer->field with (*variable).field in all source code

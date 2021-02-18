@@ -57,6 +57,8 @@
         -->
         <node name="blocking" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="connexions" channel="inline" format="number/integer" model="1"/>
+        <!-- The timeout unit is second. -->
+        <node name="timeout" channel="inline" format="number/integer" model="60"/>
     </node>
 
     <node name="print_message" channel="inline" format="communicate/send" model="">

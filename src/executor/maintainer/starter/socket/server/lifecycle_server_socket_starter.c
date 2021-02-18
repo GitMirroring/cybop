@@ -95,16 +95,22 @@ void startup_socket_server_lifecycle(void* p0, void* p1, void* p2, void* p3, voi
     startup_socket_style((void*) &st, p3, p4);
     // Get protocol.
     startup_socket_protocol((void*) &p, p5, p6);
+    //
     // Create socket.
+    //
     // CAUTION! A value of ZERO is usually right for the "protocol".
+    //
     startup_socket_create(p0, (void*) &pf, (void*) &st, (void*) &p, p7);
+    //
     // Allocate and initialise socket address depending on family.
+    //
     // CAUTION! Hand over address data as POINTER REFERENCE,
     // since it gets allocated inside the function and
     // has to be preserved as return value.
+    //
     startup_socket_socket_address((void*) &ad, (void*) &as, p8, p9, p10, p11, p12, (void*) &af);
 
-//?? fwprintf(stdout, L"TEST: startup socket server lifecycle bind s: %i \n", *((int*) p0));
+    //?? fwprintf(stdout, L"TEST: startup socket server lifecycle bind s: %i \n", *((int*) p0));
 
     // Bind address to socket.
     startup_socket_server_bind(p0, ad, (void*) &as);
@@ -119,7 +125,7 @@ void startup_socket_server_lifecycle(void* p0, void* p1, void* p2, void* p3, voi
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//?? fwprintf(stdout, L"TEST: startup socket server lifecycle listen s: %i \n", *((int*) p0));
+        //?? fwprintf(stdout, L"TEST: startup socket server lifecycle listen s: %i \n", *((int*) p0));
 
         //
         // This is a stream socket.

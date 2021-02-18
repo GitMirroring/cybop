@@ -50,34 +50,40 @@
  * @param p11 the host address data
  * @param p12 the host address count
  * @param p13 the connexions (number of possible pending client requests)
- * @param p14 the client socket
- * @param p15 the mode data
- * @param p16 the mode count
- * @param p17 the network service data
- * @param p18 the network service count
+ * @param p14 the timeout
+ * @param p15 the client socket
+ * @param p16 the mode data
+ * @param p17 the mode count
+ * @param p18 the network service data
+ * @param p19 the network service count
  */
-void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18) {
+void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket.");
 
     // The port.
     int p = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+    //
     // Copy port.
+    //
     // CAUTION! It will NOT be copied, if its value is a NULL pointer.
+    //
     copy_integer((void*) &p, p1);
 
     if (p == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
+        //
         // A direct port was NOT given as parametre.
         // Therefore, determine port from service name.
+        //
 
         // Deserialise port from network service name.
-        deserialise_network_service((void*) &p, p17, p18);
+        deserialise_network_service((void*) &p, p18, p19);
     }
 
     // Startup socket in either client or server mode.
-    startup_socket_mode(p0, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, (void*) &p, p13, p14, p15, p16);
+    startup_socket_mode(p0, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, (void*) &p, p13, p14, p15, p16, p17);
 }
 
 /* SOCKET_STARTER_SOURCE */

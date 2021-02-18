@@ -42,10 +42,12 @@ void globalise_type_size_compound() {
     // Elements: julian day + julian second
     *DATETIME_COMPOUND_TYPE_SIZE = *SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE + *DOUBLE_REAL_TYPE_SIZE;
 
+    //
     // Elements: value + start + end
     //
     // CAUTION! This type size depends upon DATETIME_COMPOUND_TYPE_SIZE,
     // so that it can only be defined AFTER the "datetime" size.
+    //
     *DURATION_COMPOUND_TYPE_SIZE = *DATETIME_COMPOUND_TYPE_SIZE + *DATETIME_COMPOUND_TYPE_SIZE + *DATETIME_COMPOUND_TYPE_SIZE;
 
     // Elements: numerator + denominator
