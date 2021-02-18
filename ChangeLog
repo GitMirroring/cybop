@@ -22,6 +22,12 @@
 
         * Create new property "timeout" for cybol operation "maintain/startup"
         * Store it as default timeout in input/output entry of server socket at startup
+        * Rename "timeout list item" to "accepttime list item"
+        * Integrate timeout handling into controller's checker files
+        * Split file "element_client_checker.c" into "available_element_client_checker.c" and "empty_element_client_checker.c"
+        * Determine current calendar time via function "time" using data type "time_t"
+        * Reset client's accepttime on available data
+        * Debug memory access error by casting timeout value from type "time_t" to "int" before storing it in input/output entry
 
 2021-02-17  Christian Heller  <christian.heller@cybop.org>
 

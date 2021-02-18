@@ -40,10 +40,10 @@
 /**
  * Checks already open clients for new available data.
  *
- * @param p0 the destination sender client
- * @param p1 the destination sender index
- * @param p2 the source client list data
- * @param p3 the source client list count
+ * @param p0 the destination client
+ * @param p1 the source client list data
+ * @param p2 the source accepttime list data
+ * @param p3 the source list count
  * @param p4 the input/output entry
  * @param p5 the channel
  */
@@ -90,7 +90,7 @@ void check_client_all(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         // CAUTION! This function only PEEKS into data,
         // but does NOT remove them, so that they can be read again later.
         //
-        check_client_element((void*) &c, p2, (void*) &j, p4, p5);
+        check_client_element((void*) &c, p1, p2, (void*) &j, p4, p5);
 
         //
         // CAUTION! This second comparison IS NECESSARY for two reasons:
@@ -112,8 +112,6 @@ void check_client_all(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
             // Copy client.
             copy_integer(p0, (void*) &c);
-            // Copy index.
-            copy_integer(p1, (void*) &j);
 
             break;
         }

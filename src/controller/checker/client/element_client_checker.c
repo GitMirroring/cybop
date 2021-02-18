@@ -26,12 +26,18 @@
 #ifndef ELEMENT_CLIENT_CHECKER_SOURCE
 #define ELEMENT_CLIENT_CHECKER_SOURCE
 
+#include <time.h> // time_t, time()
+
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../executor/sensor/sensor.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../controller/checker/client/available_element_client_checker.c"
+#include "../../../controller/checker/client/empty_element_client_checker.c"
 #include "../../../executor/copier/array_copier.c"
-#include "../../../executor/copier/integer_copier.c"
+#include "../../../executor/sensor/sensor.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -39,14 +45,17 @@
  *
  * @param p0 the destination client
  * @param p1 the source client list data
- * @param p2 the source client list index
- * @param p3 the input/output entry
- * @param p4 the channel
+ * @param p2 the source accepttime list data
+ * @param p3 the source list index
+ * @param p4 the input/output entry
+ * @param p5 the channel
  */
-void check_client_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void check_client_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check client element.");
 
+    // The client.
+    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     //
     // The data available flag.
     //
@@ -54,27 +63,42 @@ void check_client_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Any value greater than zero means that data are available.
     //
     int f = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The client.
-    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Get client at the given index.
-    copy_array_forward((void*) &c, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
+    // Get client from client list at the given index.
+    copy_array_forward((void*) &c, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p3);
 
-    //?? fwprintf(stdout, L"TEST: Check client element. pre sense client c: %i \n", c);
-
+    //?? fwprintf(stdout, L"TEST: Check client element. pre sense. client c: %i \n", c);
     // Sense data available on already open client.
-    sense((void*) &f, (void*) &c, p3, p4);
+    sense((void*) &f, (void*) &c, p4, p5);
+    //?? fwprintf(stdout, L"TEST: Check client element. post sense. data count f: %i \n", f);
+
+    //
+    // The current calendar time.
+    //
+    // The type "time_t" is used to represent a simple calendar time.
+    // In iso c, it can be either an integer or a floating-point type.
+    //
+    // On posix-conformant systems, "time_t" is an integer type
+    // and its values represent the number of seconds elapsed
+    // since the epoch, which is 1970-01-01T00:00:00 UTC.
+    //
+    time_t t = time(*NULL_POINTER_STATE_CYBOI_MODEL);
 
     if (f > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        //?? fwprintf(stdout, L"TEST: Check client element. post sense f: %i \n", f);
-
         //
-        // There are data available on the client.
+        // There ARE data available on the client.
         //
 
-        // Copy client.
-        copy_integer(p0, (void*) &c);
+        check_client_element_available(p0, p2, p3, (void*) &c, (void*) &t);
+
+    } else {
+
+        //
+        // There are NO data available on the client.
+        //
+
+        check_client_element_empty(p2, p3, p4, (void*) &c, (void*) &t);
     }
 }
 

@@ -37,7 +37,8 @@
 #include "../../logger/logger.c"
 
 /**
- * Deallocates the input/output entry with client list and timeout list.
+ * Deallocates the input/output entry together with
+ * its client list and accepttime list.
  *
  * @param p0 the input/output entry (pointer reference)
  */
@@ -62,8 +63,8 @@ void maintain_io_deallocate(void* p0) {
         // as opposed to a socket with many possible clients.
         //
         void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The corresponding timeout list item.
-        void* tl = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The corresponding accepttime list item.
+        void* al = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         //
         // Retrieve client list item from input/output entry.
@@ -78,7 +79,7 @@ void maintain_io_deallocate(void* p0) {
         //
         get_io_entry_element((void*) &cl, *io, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
         //
-        // Retrieve timeout list item from input/output entry.
+        // Retrieve accepttime list item from input/output entry.
         //
         // CAUTION! Do NOT use "overwrite_array" function here,
         // since it adapts the array count and size.
@@ -88,7 +89,7 @@ void maintain_io_deallocate(void* p0) {
         //
         // CAUTION! Do NOT hand over input/output entry as pointer reference.
         //
-        get_io_entry_element((void*) &tl, *io, (void*) TIMEOUT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        get_io_entry_element((void*) &al, *io, (void*) ACCEPTTIME_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         //
         // Deallocate client list item.
@@ -99,13 +100,13 @@ void maintain_io_deallocate(void* p0) {
         //
         deallocate_item((void*) &cl, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         //
-        // Deallocate timeout list item.
+        // Deallocate accepttime list item.
         //
         // CAUTION! The second argument "count" is NULL,
         // since it is only needed for looping elements of type PART,
         // in order to decrement the rubbish (garbage) collection counter.
         //
-        deallocate_item((void*) &tl, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        deallocate_item((void*) &al, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         //
         // Store NULL value for client list item in input/output entry.
@@ -125,7 +126,7 @@ void maintain_io_deallocate(void* p0) {
         // set_io_entry_element(*io, NULL_POINTER_STATE_CYBOI_MODEL, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         //
-        // Store NULL value for timeout list item in input/output entry.
+        // Store NULL value for accepttime list item in input/output entry.
         //
         // This is commented out, since the input/output entry gets
         // deallocated itself anyway below. However, for proper processing,
@@ -139,7 +140,7 @@ void maintain_io_deallocate(void* p0) {
         //
         // CAUTION! Hand over value as pointer REFERENCE.
         //
-        // set_io_entry_element(*io, NULL_POINTER_STATE_CYBOI_MODEL, (void*) TIMEOUT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        // set_io_entry_element(*io, NULL_POINTER_STATE_CYBOI_MODEL, (void*) ACCEPTTIME_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         //
         // Deallocate input/output entry.

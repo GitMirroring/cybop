@@ -65,7 +65,7 @@ void globalise_type_size_compound() {
         // in cyboi. A simple integer value would be lost.
         + *POINTER_TYPE_SIZE // sender
         + *POINTER_TYPE_SIZE // client list
-        + *POINTER_TYPE_SIZE // timeout list
+        + *POINTER_TYPE_SIZE // accepttime list
         + *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE // timeout
 
         //

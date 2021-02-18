@@ -26,6 +26,8 @@
 #ifndef ACCEPT_IO_CHECKER_SOURCE
 #define ACCEPT_IO_CHECKER_SOURCE
 
+#include <time.h> // time_t, time()
+
 #include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -44,12 +46,11 @@
  * Checks input output for new client requests.
  *
  * @param p0 the client list item
- * @param p1 the timeout list item
- * @param p2 the default timeout
- * @param p3 the input/output entry
- * @param p4 the channel
+ * @param p1 the accepttime list item
+ * @param p2 the input/output entry
+ * @param p3 the channel
  */
-void check_io_accept(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void check_io_accept(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io accept.");
 
@@ -59,7 +60,7 @@ void check_io_accept(void* p0, void* p1, void* p2, void* p3, void* p4) {
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Accept new client requests.
-    accept_client((void*) &c, p3, p0, p4);
+    accept_client((void*) &c, p2, p0, p3);
 
     compare_integer_greater((void*) &r, (void*) &c, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
 
@@ -72,10 +73,25 @@ void check_io_accept(void* p0, void* p1, void* p2, void* p3, void* p4) {
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io accept. A client request was detected.");
         //?? fwprintf(stdout, L"Information: Check io accept. A client request was detected. c: %i\n", c);
 
+        //
+        // Get current calendar time.
+        //
+        // The type "time_t" is used to represent a simple calendar time.
+        // In iso c, it can be either an integer or a floating-point type.
+        //
+        // On posix-conformant systems, "time_t" is an integer type
+        // and its values represent the number of seconds elapsed
+        // since the epoch, which is 1970-01-01T00:00:00 UTC.
+        //
+        time_t t = time(*NULL_POINTER_STATE_CYBOI_MODEL);
+
+        // The current calendar time as integer value.
+        int ti = (int) t;
+
         // Add client to client list item.
         modify_item(p0, (void*) &c, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-        // Add default timeout to timeout list item.
-        modify_item(p1, p2, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+        // Add current calendar time to accepttime list item.
+        modify_item(p1, (void*) &ti, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
     } else {
 

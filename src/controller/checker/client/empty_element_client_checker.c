@@ -1,0 +1,104 @@
+/*
+ * Copyright (C) 1999-2020. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.21.0 2020-07-29
+ * @author Christian Heller <christian.heller@cybop.org>
+ */
+
+#ifndef EMPTY_ELEMENT_CLIENT_CHECKER_SOURCE
+#define EMPTY_ELEMENT_CLIENT_CHECKER_SOURCE
+
+#include <time.h> // time_t, difftime()
+
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/comparator/integer/greater_integer_comparator.c"
+#include "../../../logger/logger.c"
+
+/**
+ * Checks timeout of open but inactive client
+ * and closes it if the timeout has been crossed.
+ *
+ * @param p0 the accepttime list data
+ * @param p1 the accepttime list index
+ * @param p2 the input/output entry
+ * @param p3 the client
+ * @param p4 the current calendar time
+ */
+void check_client_element_empty(void* p0, void* p1, void* p2, void* p3, void* p4) {
+
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        time_t* t = (time_t*) p4;
+
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check client element empty.");
+
+        // The accepttime.
+        int a = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The timeout.
+        int to = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+        // Get accepttime from accepttime list at the given index.
+        copy_array_forward((void*) &a, p0, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1);
+        // Get timeout from input/output entry.
+        get_io_entry_element((void*) &to, p2, (void*) TIMEOUT_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+        // The accepttime as time_t value.
+        time_t at = (time_t) a;
+        //
+        // Calculate elapsed time (difference) between two calendar times.
+        //
+        // CAUTION! Since the type "time_t" might differ between platforms
+        // (integer or floating-point), a simple subtraction might fail.
+        // Therefore, the function "difftime" is used to compute the difference.
+        //
+        double d = difftime(*t, at);
+        // The elapsed time (difference) as integer value.
+        int di = (int) d;
+        // The comparison result.
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+        compare_integer_greater((void*) &r, (void*) &di, (void*) &to);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // The timeout has been crossed.
+            //
+
+            // Close client.
+            //?? close(p3);
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check client element empty. The current calendar time is null.");
+    }
+}
+
+/* EMPTY_ELEMENT_CLIENT_CHECKER_SOURCE */
+#endif

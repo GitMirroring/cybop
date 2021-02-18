@@ -44,26 +44,23 @@
  *
  * @param p0 the io flag
  * @param p1 the client list item
- * @param p2 the timeout list item
- * @param p3 the default timeout
- * @param p4 the input/output entry
- * @param p5 the channel
+ * @param p2 the accepttime list item
+ * @param p3 the input/output entry
+ * @param p4 the channel
  */
-void check_io_receive(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void check_io_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io receive.");
 
-//??     fwprintf(stdout, L"TEST: check io receive. channel *p5: %i \n", *((int*) p5));
+//??     fwprintf(stdout, L"TEST: check io receive. channel *p4: %i \n", *((int*) p4));
 
-    // The client.
+    // The sender client.
     int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The index.
-    int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Sense data on already open clients.
-    check_client_list((void*) &c, (void*) &i, p1, p4, p5);
+    check_client_list((void*) &c, p1, p2, p3, p4);
 
     compare_integer_greater((void*) &r, (void*) &c, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
 
@@ -92,15 +89,13 @@ void check_io_receive(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get sender client from input/output entry.
-        get_io_entry_element((void*) &s, p4, (void*) SENDER_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        get_io_entry_element((void*) &s, p3, (void*) SENDER_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         // Copy client as sender.
         copy_integer(s, (void*) &c);
-        // Reset sender client timeout in timeout list item at the given index, using default timeout parametre.
-        copy_array_forward(p2, p3, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         // Set interrupt request into input/output entry.
-        set_io_entry_element(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        set_io_entry_element(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         // Set io flag.
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

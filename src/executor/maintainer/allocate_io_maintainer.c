@@ -37,7 +37,8 @@
 #include "../../logger/logger.c"
 
 /**
- * Allocates the input/output entry with client list and timeout list.
+ * Allocates the input/output entry together with
+ * a client list and an accepttime list.
  *
  * @param p0 the input/output entry (pointer reference)
  */
@@ -62,8 +63,8 @@ void maintain_io_allocate(void* p0) {
         // as opposed to a socket with many possible clients.
         //
         void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The corresponding timeout list item.
-        void* tl = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The corresponding accepttime list item.
+        void* al = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         //
         // Allocate input/output entry.
@@ -81,12 +82,12 @@ void maintain_io_allocate(void* p0) {
         //
         allocate_item((void*) &cl, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         //
-        // Allocate timeout list item.
+        // Allocate accepttime list item.
         //
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
         //
-        allocate_item((void*) &tl, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        allocate_item((void*) &al, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         //
         // Store client list item in input/output entry.
@@ -101,7 +102,7 @@ void maintain_io_allocate(void* p0) {
         //
         set_io_entry_element(*io, (void*) &cl, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
         //
-        // Store timeout list item in input/output entry.
+        // Store accepttime list item in input/output entry.
         //
         // CAUTION! Do NOT use "overwrite_array" function here,
         // since it adapts the array count and size.
@@ -111,7 +112,7 @@ void maintain_io_allocate(void* p0) {
         //
         // CAUTION! Hand over value as pointer REFERENCE.
         //
-        set_io_entry_element(*io, (void*) &tl, (void*) TIMEOUT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        set_io_entry_element(*io, (void*) &al, (void*) ACCEPTTIME_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     } else {
 
