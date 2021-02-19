@@ -37,6 +37,7 @@
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/comparator/integer/greater_integer_comparator.c"
+#include "../../../executor/maintainer/shutter/socket/close_socket_shutter.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -90,8 +91,11 @@ void check_client_element_empty(void* p0, void* p1, void* p2, void* p3, void* p4
             // The timeout has been crossed.
             //
 
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close client connexion due to crossed timeout.");
+            fwprintf(stdout, L"TEST: Close client connexion due to crossed timeout. p3: %i\n", *((int*) p3));
+
             // Close client.
-            //?? close(p3);
+            shutdown_socket_close(p3);
         }
 
     } else {

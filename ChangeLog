@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-02-19  Christian Heller  <christian.heller@cybop.org>
+
+        * Close client socket when timeout has been crossed, in file "empty_element_client_checker.c"
+        * Test timeout handling using cybol applications "internet/socket_server/" and "internet/socket_client/"
+
 2021-02-18  Christian Heller  <christian.heller@cybop.org>
 
         * Create new property "timeout" for cybol operation "maintain/startup"

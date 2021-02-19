@@ -51,8 +51,7 @@ void startup_socket_client_connect(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket client connect.");
 
-fwprintf(stdout, L"TEST: startup socket client connect s: %i \n", *((int*) p0));
-sleep(2);
+    fwprintf(stdout, L"TEST: Startup socket client connect. Client socket: %i \n", *((int*) p0));
 
 #if defined(__linux__) || defined(__unix__)
     startup_bsd_socket_connect(p0, p1, p2);
