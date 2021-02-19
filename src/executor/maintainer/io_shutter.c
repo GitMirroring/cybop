@@ -42,12 +42,10 @@
  * @param p2 the socket client socket
  * @param p3 the socket mode data
  * @param p4 the socket mode count
- * @param p5 the socket network service data
- * @param p6 the socket network service count
- * @param p7 the channel
- * @param p8 the input/output base
+ * @param p5 the channel
+ * @param p6 the input/output base
  */
-void shutdown_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void shutdown_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     //
     // CAUTION! This log message has been commented out
@@ -61,7 +59,7 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get input/output entry.
-    maintain_io_get((void*) &io, p0, p8, p1);
+    maintain_io_get((void*) &io, p0, p6, p1);
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -83,10 +81,10 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         // CAUTION! Hand over null as pointer reference NULL_POINTER_STATE_CYBOI_MODEL
         // and NOT as dereferenced pointer *NULL_POINTER_STATE_CYBOI_MODEL.
         //
-        maintain_io_set(p0, NULL_POINTER_STATE_CYBOI_MODEL, p8, p1);
+        maintain_io_set(p0, NULL_POINTER_STATE_CYBOI_MODEL, p6, p1);
 
         // Shutdown service details.
-        shutdown_details(io, p1, p2, p3, p4, p5, p6, p7);
+        shutdown_details(io, p2, p3, p4, p5);
 
         // Deallocate input/output entry.
         maintain_io_deallocate((void*) &io);

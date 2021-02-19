@@ -30,7 +30,8 @@
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
+#include "../../../../../executor/calculator/integer/subtract_integer_calculator.c"
+#include "../../../../../executor/comparator/integer/less_integer_comparator.c"
 #include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../executor/maintainer/shutter/socket/server/element_server_socket_shutter.c"
 #include "../../../../../logger/logger.c"
@@ -38,17 +39,32 @@
 /**
  * Shuts down all clients in the list.
  *
- * @param p0 the client list data
+ * @param p0 the client list data (pointer reference)
  * @param p1 the client list count
+ * @param p2 the client list size
+ * @param p3 the accepttime list data (pointer reference)
+ * @param p4 the accepttime list count
+ * @param p5 the accepttime list size
  */
-void shutdown_socket_server_all(void* p0, void* p1) {
+void shutdown_socket_server_all(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown socket server all.");
+
+    //
+    // CAUTION! The loop is running in REVERSE ORDER,
+    // from the last to the first element, since that way,
+    // the function "remove" works much faster inside.
+    //
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    // Initialise loop variable.
+    copy_integer((void*) &j, p1);
+    // Subtract one, since this is an index.
+    calculate_integer_subtract((void*) &j, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
     if (p1 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -62,21 +78,21 @@ void shutdown_socket_server_all(void* p0, void* p1) {
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
-fwprintf(stdout, L"TEST: shutdown socket server all loop count p1: %i \n", *((int*) p1));
+    fwprintf(stdout, L"TEST: Shutdown socket server all. The loop is running in reverse order! Loop count p1: %i \n", *((int*) p1));
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p1);
+        compare_integer_less((void*) &b, (void*) &j, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }
 
-        shutdown_socket_server_element(p0, (void*) &j);
+        shutdown_socket_server_element(p0, p1, p2, p3, p4, p5, (void*) &j);
 
-        // Increment loop variable.
-        j++;
+        // Decrement loop variable.
+        j--;
     }
 }
 

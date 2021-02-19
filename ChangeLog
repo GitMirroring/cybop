@@ -22,6 +22,10 @@
 
         * Close client socket when timeout has been crossed, in file "empty_element_client_checker.c"
         * Test timeout handling using cybol applications "internet/socket_server/" and "internet/socket_client/"
+        * Remove superfluous directory "executor/maintainer/shutter/socket/client/"
+        * Update directory "executor/maintainer/shutter/socket/server/", so that client sockets belonging to a server socket are shutdown as well
+        * Hand over accepttime list in addition to client list, to also remove its element, together with the client socket, in file "server_socket_shutter.c"
+        * Remove file "mode_socket_shutter.c", after having moved its content into file "socket_shutter.c"
 
 2021-02-18  Christian Heller  <christian.heller@cybop.org>
 

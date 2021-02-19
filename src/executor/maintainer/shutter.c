@@ -46,11 +46,9 @@
  * @param p2 the socket client socket
  * @param p3 the socket mode data
  * @param p4 the socket mode count
- * @param p5 the socket network service data
- * @param p6 the socket network service count
- * @param p7 the channel
+ * @param p5 the channel
  */
-void shutdown_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void shutdown_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     //
     // CAUTION! Do NOT log messages here, since this function is called 65,536 times
@@ -65,41 +63,41 @@ void shutdown_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p7, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p5, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            shutdown_io(p0, p1, p2, p3, p4, p5, p6, p7, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            shutdown_io(p0, p1, p2, p3, p4, p5, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p7, (void*) SERIAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p5, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            shutdown_io(p0, p1, p2, p3, p4, p5, p6, p7, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            shutdown_io(p0, p1, p2, p3, p4, p5, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p7, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p5, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            shutdown_io(p0, p1, p2, p3, p4, p5, p6, p7, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            shutdown_io(p0, p1, p2, p3, p4, p5, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p7, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p5, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            shutdown_io(p0, p1, p2, p3, p4, p5, p6, p7, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            shutdown_io(p0, p1, p2, p3, p4, p5, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 

@@ -26,11 +26,14 @@
 #ifndef SOCKET_SHUTTER_SOURCE
 #define SOCKET_SHUTTER_SOURCE
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../executor/maintainer/shutter/socket/mode_socket_shutter.c"
-#include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/representer/deserialiser/network_service/network_service_deserialiser.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cybol/socket/mode_socket_cybol_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/checker/operation_checker.c"
+#include "../../../../executor/maintainer/shutter/socket/server/server_socket_shutter.c"
+#include "../../../../executor/maintainer/shutter/socket/close_socket_shutter.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -39,41 +42,41 @@
  * CAUTION! This is done in the reverse order the service was started up.
  *
  * @param p0 the input/output entry
- * @param p1 the port
- * @param p2 the client socket
- * @param p3 the mode data
- * @param p4 the mode count
- * @param p5 the network service data
- * @param p6 the network service count
+ * @param p1 the client socket
+ * @param p2 the mode data
+ * @param p3 the mode count
  */
-void shutdown_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void shutdown_socket(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown socket.");
 
-    // The port.
-    int p = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    //
-    // Copy port.
-    //
-    // CAUTION! It will NOT be copied, if its value is a NULL pointer.
-    //
-    copy_integer((void*) &p, p1);
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    //?? fwprintf(stdout, L"TEST: shutdown socket p: %i \n", p);
+        check_operation((void*) &r, p2, (void*) CLIENT_MODE_SOCKET_CYBOL_MODEL, p3, (void*) CLIENT_MODE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    if (p == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        //
-        // A direct port was NOT given as parametre.
-        // Therefore, determine port from service name.
-        //
-
-        // Deserialise port from network service name.
-        deserialise_network_service((void*) &p, p5, p6);
+            shutdown_socket_close(p1);
+        }
     }
 
-    shutdown_socket_mode(p0, (void*) &p, p2, p3, p4);
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p2, (void*) SERVER_MODE_SOCKET_CYBOL_MODEL, p3, (void*) SERVER_MODE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            shutdown_socket_server(p0);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown socket. The mode is unknown.");
+    }
 }
 
 /* SOCKET_SHUTTER_SOURCE */

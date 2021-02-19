@@ -27,29 +27,54 @@
 #define ELEMENT_SERVER_SOCKET_SHUTTER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/copier/array_copier.c"
 #include "../../../../../executor/maintainer/shutter/socket/close_socket_shutter.c"
+#include "../../../../../executor/modifier/remove_modifier.c"
 #include "../../../../../logger/logger.c"
 
 /**
- * Shuts down one client.
+ * Shuts down the client socket at the given index.
  *
- * @param p0 the source client list data
- * @param p1 the source client list index
+ * @param p0 the client list data (pointer reference)
+ * @param p1 the client list count
+ * @param p2 the client list size
+ * @param p3 the accepttime list data (pointer reference)
+ * @param p4 the accepttime list count
+ * @param p5 the accepttime list size
+ * @param p6 the list index
  */
-void shutdown_socket_server_element(void* p0, void* p1) {
+void shutdown_socket_server_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown socket server element.");
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // The client.
-    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        void** d = (void**) p0;
 
-    // Get client at the given index.
-    copy_array_forward((void*) &c, p0, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1);
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown socket server element.");
 
-    // Close client socket.
-    shutdown_socket_close((void*) &c);
+        // The client socket.
+        int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+
+        // Get client socket at the given index.
+        copy_array_forward((void*) &c, *d, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
+
+        // Remove element from client list.
+        modify_remove(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p6, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        // Remove element from accepttime list.
+        modify_remove(p3, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p6, p4, p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        // Close client socket.
+        shutdown_socket_close((void*) &c);
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown socket server element. The client list data is null.");
+    }
 }
 
 /* ELEMENT_SERVER_SOCKET_SHUTTER_SOURCE */
