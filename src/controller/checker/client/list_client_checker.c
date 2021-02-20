@@ -45,19 +45,21 @@ void check_client_list(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check client list.");
 
-    //?? fwprintf(stdout, L"TEST: check client list. channel *p4: %i \n", *((int*) p4));
+    //?? fwprintf(stdout, L"TEST: Check client list. channel *p4: %i \n", *((int*) p4));
 
-    // The client list item data, count.
+    // The client list item data, count, size.
     void* cd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* cc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The accepttime list item data, count.
+    void* cs = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The accepttime list item data, count, size.
     void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* ac = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* as = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
-    // Get client list item data, count.
+    // Get client list item data, count, size.
     //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
@@ -65,8 +67,9 @@ void check_client_list(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //
     copy_array_forward((void*) &cd, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &cc, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &cs, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
     //
-    // Get accepttime list item data, count.
+    // Get accepttime list item data, count, size.
     //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
@@ -74,6 +77,7 @@ void check_client_list(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //
     copy_array_forward((void*) &ad, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &ac, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &as, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
     //
     // Compare client list item count and accepttime list item count.
@@ -85,7 +89,7 @@ void check_client_list(void* p0, void* p1, void* p2, void* p3, void* p4) {
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Test clients for available data.
-        check_client_all(p0, cd, ad, cc, p3, p4);
+        check_client_all(p0, (void*) &cd, cc, cs, (void*) &ad, ac, as, p3, p4);
 
     } else {
 

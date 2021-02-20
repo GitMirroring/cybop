@@ -14,16 +14,16 @@
 WUI and Socket
 ______________
 
-        * Eliminate cybol property "network_service", since specifying a unique port suffices
-            --> check which related files may be removed, e.g. in directory "constant" (http, ftp etc.)
-            --> if still needed, however, then convert service into port in file "applicator/maintain/shutdown.c"
-
-        * Close and remove socket from client list when timeout has been crossed, in file "empty_element_client_checker.c"
+        * Test why server seems to be hanging (no i/o check) after having removed a client due to timeout, with cybol applications "internet/socket_server/" and "internet/socket_client/"
         * Close and remove socket from client list on error, e.g. non-respoding client
         * Close and remove socket from client list if having read zero bytes, which means client closed connection
             in non-blocking mode, the "recv()" returns errors EAGAIN or EWOULDBLOCK if no more data are available
             --> catch them and close connection in this case
             Reference: hall_-_beej's_guide_to_network_socket_programming.html#blocking
+
+        * Eliminate cybol property "network_service", since specifying a unique port suffices
+            --> check which related files may be removed, e.g. in directory "constant" (http, ftp etc.)
+            --> if still needed, however, then convert service into port in file "applicator/maintain/shutdown.c"
 
         * Make cybol example "user_interface/ui/" wui work via socket
         * Fix error that resource gets interpreted as Stylesheet but transferred with MIME type text/plain

@@ -42,8 +42,8 @@
  * Checks open client for available data.
  *
  * @param p0 the destination client
- * @param p1 the source accepttime list data
- * @param p2 the source list index
+ * @param p1 the accepttime list data (pointer reference)
+ * @param p2 the list index
  * @param p3 the source client
  * @param p4 the current calendar time
  */
@@ -53,19 +53,28 @@ void check_client_element_available(void* p0, void* p1, void* p2, void* p3, void
 
         time_t* t = (time_t*) p4;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check client element available.");
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // Copy client.
-        copy_integer(p0, p3);
+            void** al = (void**) p1;
 
-        // The current calendar time as integer value.
-        int ti = (int) *t;
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check client element available.");
 
-        //
-        // Reset sender client accepttime in accepttime list item
-        // at the given index, using the current calendar time.
-        //
-        copy_array_forward(p1, (void*) &ti, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            // Copy client.
+            copy_integer(p0, p3);
+
+            // The current calendar time as integer value.
+            int ti = (int) *t;
+
+            //
+            // Reset sender client accepttime in accepttime list item
+            // at the given index, using the current calendar time.
+            //
+            copy_array_forward(*al, (void*) &ti, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check client element empty. The accepttime list data is null.");
+        }
 
     } else {
 

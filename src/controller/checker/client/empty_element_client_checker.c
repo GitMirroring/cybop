@@ -37,65 +37,90 @@
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/comparator/integer/greater_integer_comparator.c"
+#include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/maintainer/shutter/socket/close_socket_shutter.c"
+#include "../../../executor/modifier/remove_modifier.c"
 #include "../../../logger/logger.c"
 
 /**
  * Checks timeout of open but inactive client
  * and closes it if the timeout has been crossed.
  *
- * @param p0 the accepttime list data
- * @param p1 the accepttime list index
- * @param p2 the input/output entry
- * @param p3 the client
- * @param p4 the current calendar time
+ * @param p0 the client list data (pointer reference)
+ * @param p1 the client list count
+ * @param p2 the client list size
+ * @param p3 the accepttime list data (pointer reference)
+ * @param p4 the accepttime list count
+ * @param p5 the accepttime list size
+ * @param p6 the list index
+ * @param p7 the client
+ * @param p8 the input/output entry
+ * @param p9 the client removed flag
+ * @param p10 the current calendar time
  */
-void check_client_element_empty(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void check_client_element_empty(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
-    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p10 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        time_t* t = (time_t*) p4;
+        time_t* t = (time_t*) p10;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check client element empty.");
+        if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // The accepttime.
-        int a = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // The timeout.
-        int to = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            void** al = (void**) p3;
 
-        // Get accepttime from accepttime list at the given index.
-        copy_array_forward((void*) &a, p0, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1);
-        // Get timeout from input/output entry.
-        get_io_entry_element((void*) &to, p2, (void*) TIMEOUT_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check client element empty.");
 
-        // The accepttime as time_t value.
-        time_t at = (time_t) a;
-        //
-        // Calculate elapsed time (difference) between two calendar times.
-        //
-        // CAUTION! Since the type "time_t" might differ between platforms
-        // (integer or floating-point), a simple subtraction might fail.
-        // Therefore, the function "difftime" is used to compute the difference.
-        //
-        double d = difftime(*t, at);
-        // The elapsed time (difference) as integer value.
-        int di = (int) d;
-        // The comparison result.
-        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+            // The accepttime.
+            int a = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            // The timeout.
+            int to = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        compare_integer_greater((void*) &r, (void*) &di, (void*) &to);
+            // Get accepttime from accepttime list at the given index.
+            copy_array_forward((void*) &a, *al, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
+            // Get timeout from input/output entry.
+            get_io_entry_element((void*) &to, p8, (void*) TIMEOUT_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
+            // The accepttime as time_t value.
+            time_t at = (time_t) a;
             //
-            // The timeout has been crossed.
+            // Calculate elapsed time (difference) between two calendar times.
             //
+            // CAUTION! Since the type "time_t" might differ between platforms
+            // (integer or floating-point), a simple subtraction might fail.
+            // Therefore, the function "difftime" is used to compute the difference.
+            //
+            double d = difftime(*t, at);
+            // The elapsed time (difference) as integer value.
+            int di = (int) d;
+            // The comparison result.
+            int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close client connexion due to crossed timeout.");
-            fwprintf(stdout, L"TEST: Close client connexion due to crossed timeout. p3: %i\n", *((int*) p3));
+            compare_integer_greater((void*) &r, (void*) &di, (void*) &to);
 
-            // Close client.
-            shutdown_socket_close(p3);
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                //
+                // The timeout has been crossed.
+                //
+
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close client connexion due to crossed timeout.");
+                fwprintf(stdout, L"TEST: Close client connexion due to crossed timeout. p3: %i\n", *((int*) p3));
+
+                // Remove element from client list.
+                modify_remove(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p6, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                // Remove element from accepttime list.
+                modify_remove(p3, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p6, p4, p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+                // Set client removed flag.
+                copy_integer(p9, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+                // Close client.
+                shutdown_socket_close(p7);
+            }
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check client element empty. The accepttime list data is null.");
         }
 
     } else {

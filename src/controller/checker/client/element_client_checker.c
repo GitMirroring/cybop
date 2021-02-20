@@ -44,61 +44,73 @@
  * Checks open client for available data.
  *
  * @param p0 the destination client
- * @param p1 the source client list data
- * @param p2 the source accepttime list data
- * @param p3 the source list index
- * @param p4 the input/output entry
- * @param p5 the channel
+ * @param p1 the client list data (pointer reference)
+ * @param p2 the client list count
+ * @param p3 the client list size
+ * @param p4 the accepttime list data (pointer reference)
+ * @param p5 the accepttime list count
+ * @param p6 the accepttime list size
+ * @param p7 the list index
+ * @param p8 the input/output entry
+ * @param p9 the channel
+ * @param p10 the client removed flag
  */
-void check_client_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void check_client_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check client element.");
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // The client.
-    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    //
-    // The data available flag.
-    //
-    // CAUTION! It is actually the data count being returned.
-    // Any value greater than zero means that data are available.
-    //
-    int f = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        void** cl = (void**) p1;
 
-    // Get client from client list at the given index.
-    copy_array_forward((void*) &c, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p3);
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check client element.");
 
-    //?? fwprintf(stdout, L"TEST: Check client element. pre sense. client c: %i \n", c);
-    // Sense data available on already open client.
-    sense((void*) &f, (void*) &c, p4, p5);
-    //?? fwprintf(stdout, L"TEST: Check client element. post sense. data count f: %i \n", f);
+        // The client.
+        int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        //
+        // The data available flag.
+        //
+        // CAUTION! It is actually the data count being returned.
+        // Any value greater than zero means that data are available.
+        //
+        int f = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    //
-    // The current calendar time.
-    //
-    // The type "time_t" is used to represent a simple calendar time.
-    // In iso c, it can be either an integer or a floating-point type.
-    //
-    // On posix-conformant systems, "time_t" is an integer type
-    // and its values represent the number of seconds elapsed
-    // since the epoch, which is 1970-01-01T00:00:00 UTC.
-    //
-    time_t t = time(*NULL_POINTER_STATE_CYBOI_MODEL);
+        // Get client from client list at the given index.
+        copy_array_forward((void*) &c, *cl, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p7);
 
-    if (f > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        // Sense data available on already open client.
+        sense((void*) &f, (void*) &c, p8, p9);
 
         //
-        // There ARE data available on the client.
+        // The current calendar time.
         //
+        // The type "time_t" is used to represent a simple calendar time.
+        // In iso c, it can be either an integer or a floating-point type.
+        //
+        // On posix-conformant systems, "time_t" is an integer type
+        // and its values represent the number of seconds elapsed
+        // since the epoch, which is 1970-01-01T00:00:00 UTC.
+        //
+        time_t t = time(*NULL_POINTER_STATE_CYBOI_MODEL);
 
-        check_client_element_available(p0, p2, p3, (void*) &c, (void*) &t);
+        if (f > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+            //
+            // There ARE data available on the client.
+            //
+
+            check_client_element_available(p0, p4, p7, (void*) &c, (void*) &t);
+
+        } else {
+
+            //
+            // There are NO data available on the client.
+            //
+
+            check_client_element_empty(p1, p2, p3, p4, p5, p6, p7, (void*) &c, p8, p10, (void*) &t);
+        }
 
     } else {
 
-        //
-        // There are NO data available on the client.
-        //
-
-        check_client_element_empty(p2, p3, p4, (void*) &c, (void*) &t);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check client element empty. The accepttime list data is null.");
     }
 }
 

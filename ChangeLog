@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-02-20  Christian Heller  <christian.heller@cybop.org>
+
+        * Remove socket from client list when timeout has been crossed, in file "empty_element_client_checker.c"
+        * Remove corresponding entry from accepttime list when timeout has been crossed, in file "empty_element_client_checker.c"
+        * Adapt loop in file "all_client_checker.c", so that loop variable does not get incremented if a client had been removed
+
 2021-02-19  Christian Heller  <christian.heller@cybop.org>
 
         * Close client socket when timeout has been crossed, in file "empty_element_client_checker.c"

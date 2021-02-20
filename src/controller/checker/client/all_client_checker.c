@@ -41,13 +41,16 @@
  * Checks already open clients for new available data.
  *
  * @param p0 the destination client
- * @param p1 the source client list data
- * @param p2 the source accepttime list data
- * @param p3 the source list count
- * @param p4 the input/output entry
- * @param p5 the channel
+ * @param p1 the client list data (pointer reference)
+ * @param p2 the client list count
+ * @param p3 the client list size
+ * @param p4 the accepttime list data (pointer reference)
+ * @param p5 the accepttime list count
+ * @param p6 the accepttime list size
+ * @param p7 the input/output entry
+ * @param p8 the channel
  */
-void check_client_all(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void check_client_all(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check client all.");
 
@@ -57,8 +60,10 @@ void check_client_all(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The client.
     int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The client removed flag.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
         // CAUTION! If the loop count handed over as parametre is NULL,
@@ -72,12 +77,12 @@ void check_client_all(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
-    //?? fwprintf(stdout, L"TEST check client all. count p3: %i\n", p3);
-    //?? fwprintf(stdout, L"TEST check client all. count *p3: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"TEST: Check client all. count p2: %i\n", p2);
+    //?? fwprintf(stdout, L"TEST: Check client all. count *p2: %i\n", *((int*) p2));
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p3);
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -90,7 +95,7 @@ void check_client_all(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         // CAUTION! This function only PEEKS into data,
         // but does NOT remove them, so that they can be read again later.
         //
-        check_client_element((void*) &c, p1, p2, (void*) &j, p4, p5);
+        check_client_element((void*) &c, p1, p2, p3, p4, p5, p6, (void*) &j, p7, p8, (void*) &r);
 
         //
         // CAUTION! This second comparison IS NECESSARY for two reasons:
@@ -116,8 +121,35 @@ void check_client_all(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             break;
         }
 
-        // Increment loop variable.
-        j++;
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // There was NO client socket removed.
+            // This is standard behaviour.
+            //
+
+            // Increment loop variable.
+            j++;
+
+        } else {
+
+            //
+            // An inactive client socket was REMOVED inside,
+            // due to a crossed timeout.
+            //
+            // CAUTION! All following elements got MOVED one
+            // position towards the beginning of the list.
+            // The loop variable MUST NOT be incremented here!
+            // It is now already pointing to the NEXT element.
+            //
+            // CAUTION! Also, the LIST COUNT value should be LEFT AS IT IS.
+            // The corresponding parametre is a pointer to the correct value,
+            // which has got changed already in the remove function inside.
+            //
+
+            // Reset client removed flag.
+            r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        }
     }
 }
 
