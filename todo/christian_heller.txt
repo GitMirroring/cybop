@@ -14,7 +14,6 @@
 WUI and Socket
 ______________
 
-        * Test why server seems to be hanging (no i/o check) after having removed a client due to timeout, with cybol applications "internet/socket_server/" and "internet/socket_client/"
         * Close and remove socket from client list on error, e.g. non-respoding client
         * Close and remove socket from client list if having read zero bytes, which means client closed connection
             in non-blocking mode, the "recv()" returns errors EAGAIN or EWOULDBLOCK if no more data are available
