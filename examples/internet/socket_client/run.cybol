@@ -23,8 +23,6 @@
         <node name="address" channel="inline" format="text/plain" model="localhost"/>
 -->
         <node name="address" channel="inline" format="text/plain" model="127.0.0.1"/>
-        <!-- Specify either service name OR id (port) number, NOT both. If both are given, then the port has higher priority. -->
-        <node name="service" channel="inline" format="text/plain" model="http"/>
         <node name="id" channel="inline" format="number/integer" model="1971"/>
         <node name="mode" channel="inline" format="text/plain" model="client"/>
         <!-- Making the client non-blocking ("false") results in error EWOULDBLOCK when reading/writing. -->
@@ -101,7 +99,6 @@
     </node>
 
     <!-- Send exit request -->
-<!--
     <node name="print_request_exit" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -118,12 +115,9 @@
         <node name="message" channel="inline" format="text/plain" model="exit"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
--->
 
     <!-- Exit programme -->
-<!--
     <node name="exit_programme" channel="inline" format="live/exit" model=""/>
--->
 
 </node>
 

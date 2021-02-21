@@ -40,7 +40,7 @@
  *
  * Expected parametres:
  * - channel (required): the channel on which to shutdown a service (terminal, www, x-window-system, ...)
- * - id (optional): the service identification if having multiple terminals/displays/sockets etc., e.g. socket port 80; either port or service may be specified; port has higher priority; if missing, zero will be used (first io entry)
+ * - id (optional): the service identification if having multiple terminals/displays/sockets etc., e.g. socket port 80; if missing, zero will be used (first io entry)
  * - mode (optional): the communication mode (needed only if channel is "socket")
  * - socket (optional): the client socket (needed only if mode is "client")
  *

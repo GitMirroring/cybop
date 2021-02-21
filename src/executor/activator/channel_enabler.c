@@ -48,6 +48,8 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable channel.");
 
+    fwprintf(stdout, L"TEST: Enable channel. Service id *p2: %i\n", *((int*) p2));
+
     // The internal memory index.
     int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The input/output entry.
@@ -84,15 +86,12 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
         set_io_entry_element(io, p3, (void*) HANDLER_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Set sender client into input/output entry.
         set_io_entry_element(io, p4, (void*) SENDER_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Set enable flag into input/output entry.
+        // Set enable flag in input/output entry.
         set_io_entry_element(io, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-        //?? fwprintf(stdout, L"TEST: Enable channel. Handler part *p3: %i\n", *((void**) p3));
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable channel. There exists no input/output entry at the given service identification.");
-
         fwprintf(stdout, L"Error: Could not enable channel. There exists no input/output entry at the given service identification. io: %i\n", io);
     }
 }

@@ -1,10 +1,8 @@
- 
 <node>
 
     <node name="create_app" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="app"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-         
     </node>
 
     <node name="initialise_app" channel="inline" format="communicate/receive" model="">
@@ -20,7 +18,7 @@
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
-    
+
     <node name="startup_socket" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
@@ -41,7 +39,7 @@
         <node name="message" channel="inline" format="text/plain" model="Waiting for client requests ..."/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-    
+
     <node name="sense_requests" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="id" channel="inline" format="text/cybol-path" model=".app.var.port"/>

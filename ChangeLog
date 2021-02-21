@@ -18,6 +18,13 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-02-21  Christian Heller  <christian.heller@cybop.org>
+
+        * Eliminate cybol property "network_service" (e.g. "http"), since specifying a unique port (e.g. 80) suffices
+        * Eliminate "network service" parametre from file "activator/enabler.c" and from all socket startup functions
+        * Remove file "mode_socket_starter.c", after having moved its content into file "socket_starter.c"
+        * Uncomment content of file "applicator/activate/disable.c" and make it work
+
 2021-02-20  Christian Heller  <christian.heller@cybop.org>
 
         * Remove socket from client list when timeout has been crossed, in file "empty_element_client_checker.c"

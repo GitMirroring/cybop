@@ -26,64 +26,77 @@
 #ifndef SOCKET_STARTER_SOURCE
 #define SOCKET_STARTER_SOURCE
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../executor/maintainer/starter/socket/mode_socket_starter.c"
-#include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/representer/deserialiser/network_service/network_service_deserialiser.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cybol/socket/mode_socket_cybol_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/checker/operation_checker.c"
+#include "../../../../executor/maintainer/starter/socket/client/client_socket_starter.c"
+#include "../../../../executor/maintainer/starter/socket/server/server_socket_starter.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Starts up the socket.
+ * Starts up socket in either client or server mode.
  *
  * @param p0 the input/output entry
- * @param p1 the service id, e.g. socket port
- * @param p2 the family data (namespace)
- * @param p3 the family count
- * @param p4 the style data (communication type)
- * @param p5 the style count
- * @param p6 the protocol data
- * @param p7 the protocol count
- * @param p8 the blocking flag
- * @param p9 the filename data
- * @param p10 the filename count
- * @param p11 the host address data
- * @param p12 the host address count
+ * @param p1 the family data (namespace)
+ * @param p2 the family count
+ * @param p3 the style data (communication type)
+ * @param p4 the style count
+ * @param p5 the protocol data
+ * @param p6 the protocol count
+ * @param p7 the blocking flag
+ * @param p8 the filename data
+ * @param p9 the filename count
+ * @param p10 the host address data
+ * @param p11 the host address count
+ * @param p12 the port (service id)
  * @param p13 the connexions (number of possible pending client requests)
  * @param p14 the timeout
  * @param p15 the client socket
  * @param p16 the mode data
  * @param p17 the mode count
- * @param p18 the network service data
- * @param p19 the network service count
  */
-void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19) {
+void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket.");
 
-    // The port.
-    int p = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    //
-    // Copy port.
-    //
-    // CAUTION! It will NOT be copied, if its value is a NULL pointer.
-    //
-    copy_integer((void*) &p, p1);
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    if (p == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        check_operation((void*) &r, p16, (void*) CLIENT_MODE_SOCKET_CYBOL_MODEL, p17, (void*) CLIENT_MODE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-        //
-        // A direct port was NOT given as parametre.
-        // Therefore, determine port from service name.
-        //
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Deserialise port from network service name.
-        deserialise_network_service((void*) &p, p18, p19);
+            //
+            // Hand over client socket.
+            //
+            // CAUTION! It does NOT have to be determined
+            // from internal memory or the input/output entry
+            // and is NOT TO BE MIXED UP with the client socket list
+            // that a server socket stores as its communication partners.
+            //
+            startup_socket_client(p15, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+        }
     }
 
-    // Startup socket in either client or server mode.
-    startup_socket_mode(p0, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, (void*) &p, p13, p14, p15, p16, p17);
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p16, (void*) SERVER_MODE_SOCKET_CYBOL_MODEL, p17, (void*) SERVER_MODE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            startup_socket_server(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket. The mode is unknown.");
+    }
 }
 
 /* SOCKET_STARTER_SOURCE */

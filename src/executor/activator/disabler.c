@@ -39,22 +39,20 @@
  *
  * @param p0 the internal memory data
  * @param p1 the service identification (e.g. socket port)
- * @param p2 the handler part (pointer reference)
- * @param p3 the sender client data (pointer reference, e.g. display connection, file descriptor, client socket)
- * @param p4 the channel
+ * @param p2 the channel
  */
-void disable(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void disable(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Disable.");
 
-    fwprintf(stdout, L"TEST Disable. Channel p4: %i\n", *((int*) p4));
+    fwprintf(stdout, L"TEST Disable. Channel p2: %i\n", *((int*) p2));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -64,7 +62,7 @@ void disable(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) SERIAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -74,7 +72,7 @@ void disable(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -84,7 +82,7 @@ void disable(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -95,8 +93,7 @@ void disable(void* p0, void* p1, void* p2, void* p3, void* p4) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not disable. The channel is unknown.");
-
-        fwprintf(stdout, L"Error: Could not disable. The channel is unknown. The channel p4: %i\n", *((int*) p4));
+        fwprintf(stdout, L"Error: Could not disable. The channel is unknown. Channel p2: %i\n", *((int*) p2));
     }
 }
 

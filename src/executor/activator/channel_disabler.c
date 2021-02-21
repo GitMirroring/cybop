@@ -46,7 +46,7 @@ void disable_channel(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Disable channel.");
 
-    fwprintf(stdout, L"TEST: Disable channel. Service id *p2: %i\n", *((void**) p2));
+    fwprintf(stdout, L"TEST: Disable channel. Service id *p2: %i\n", *((int*) p2));
 
     // The internal memory index.
     int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -80,14 +80,18 @@ void disable_channel(void* p0, void* p1, void* p2) {
         // CAUTION! Hand over values as pointer REFERENCE.
         //
 
+        //
         // CAUTION! Do NOT reset handler to null,
         // since the service may get reenabled later again.
-
+        //
         // CAUTION! Do NOT reset sender client to null,
         // since the service may get reenabled later again.
+        //
 
-        // Reset enable flag into input/output entry,
+        //
+        // Unset enable flag in input/output entry,
         // so that the service gets temporarily interrupted.
+        //
         set_io_entry_element(io, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     } else {

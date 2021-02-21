@@ -50,10 +50,7 @@
  *
  * Expected parametres:
  * - channel (required): the channel via which to receive the message (terminal, www, x-window-system etc.)
- * - handler (optional): the handler (usually a receive operation) that parses an input and filters out a command that the system is to react to
- * - id (optional): the service identification if having multiple terminals/displays/sockets etc., e.g. socket port 80; either port or service may be specified; port has higher priority; if missing, zero will be used (first io entry)
- * - service (optional): the network service, e.g. http; either port or service may be specified; port has higher priority; useful only if channel is "socket"
- * - sender (required): the source where to sense data, e.g. a socket
+ * - id (required): the service identification if having multiple terminals/displays/sockets etc., e.g. socket port 80; if missing, zero will be used (first io entry)
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -65,69 +62,37 @@ void apply_disable(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply disable.");
 
-/*??
     // The channel part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The handler part.
-    void* h = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The service id part.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The service name part.
-    void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The sender part.
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The service id part model item.
     void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The service name part model item.
-    void* sem = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The sender part model item.
-    void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model item data.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The service id part model item data.
     void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The service name part model item data, count.
-    void* semd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* semc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The sender part model item data.
-    void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get channel part.
     get_part_name((void*) &c, p0, (void*) CHANNEL_ACTIVATION_LOGIC_CYBOL_NAME, (void*) CHANNEL_ACTIVATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get handler part.
-    get_part_name((void*) &h, p0, (void*) HANDLER_ACTIVATION_LOGIC_CYBOL_NAME, (void*) HANDLER_ACTIVATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get service id part.
     get_part_name((void*) &i, p0, (void*) IDENTIFICATION_ACTIVATION_LOGIC_CYBOL_NAME, (void*) IDENTIFICATION_ACTIVATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get service name part.
-    get_part_name((void*) &se, p0, (void*) SERVICE_ACTIVATION_LOGIC_CYBOL_NAME, (void*) SERVICE_ACTIVATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get sender part.
-    get_part_name((void*) &s, p0, (void*) SENDER_ACTIVATION_LOGIC_CYBOL_NAME, (void*) SENDER_ACTIVATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get channel part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get service id part model item.
     copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get service name part model item.
-    copy_array_forward((void*) &sem, se, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get sender part model item.
-    copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Get channel part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get service id part model item data.
     copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get service name part model item data, count.
-    copy_array_forward((void*) &semd, sem, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &semc, sem, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get sender part model item data.
-    copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-*/
 
-//??    disable(p4, imd, (void*) &h, (void*) &smd, cmd);
+    disable(p4, imd, cmd);
 }
 
 /* DISABLE_SOURCE */
