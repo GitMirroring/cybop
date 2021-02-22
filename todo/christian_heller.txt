@@ -14,9 +14,6 @@
 WUI and Socket
 ______________
 
-        * Decide what to do with file "network_service_deserialiser.c"
-            Is there a corresponding serialiser as well?
-
         * Make cybol example "user_interface/ui/" wui work via socket
         * Fix error that resource gets interpreted as Stylesheet but transferred with MIME type text/plain
             see file "app.cybol" in cybol applications "socket_client" and "socket_server"
@@ -84,6 +81,9 @@ ______________
         * Set non-blocking flag also for accepted client sockets, in order to be able to send/receive in non-blocking mode? See:
             wolf_-_linux-unix-programmierung/Kap11-019.htm#RxxKap11019040003981F017100
             done in modern web browsers --> see document "src/design_decisions.txt"
+
+        * Decide what to do with files "network_service_deserialiser.c" and "network_service_serialiser.c"
+            --> Should they be kept in cyboi or rather be key-value-mapped in cybol?
 
 CYBOL Library
 _____________
