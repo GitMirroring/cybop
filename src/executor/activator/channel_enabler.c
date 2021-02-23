@@ -48,7 +48,8 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable channel.");
 
-    fwprintf(stdout, L"TEST: Enable channel. Service id *p2: %i\n", *((int*) p2));
+    //?? CAUTION! Uncomment only for socket test since otherwise, the id is null.
+    //?? fwprintf(stdout, L"TEST: Enable channel. Service id *p2: %i\n", *((int*) p2));
 
     // The internal memory index.
     int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;

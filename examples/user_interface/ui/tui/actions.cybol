@@ -1,13 +1,13 @@
 <node>
 
-    <node name="arrow-left" channel="inline" format="text/cybol-path" model=".logic.greet_world"/>
-    <node name="arrow-right" channel="inline" format="text/cybol-path" model=".logic.greet_cybop"/>
-    <node name="arrow-up" channel="inline" format="text/cybol-path" model=".logic.greet_world"/>
-    <node name="arrow-down" channel="inline" format="text/cybol-path" model=".logic.greet_cybop"/>
-    <node name="enter" channel="inline" format="text/cybol-path" model=".logic.greet_world"/>
+    <node name="arrow-left" channel="inline" format="text/cybol-path" model=".logic.greet-world"/>
+    <node name="arrow-right" channel="inline" format="text/cybol-path" model=".logic.greet-cybop"/>
+    <node name="arrow-up" channel="inline" format="text/cybol-path" model=".logic.greet-world"/>
+    <node name="arrow-down" channel="inline" format="text/cybol-path" model=".logic.greet-cybop"/>
+    <node name="enter" channel="inline" format="text/cybol-path" model=".logic.greet-world"/>
     <node name="escape" channel="inline" format="text/cybol-path" model=".logic.exit"/>
-    <node name="w" channel="inline" format="text/cybol-path" model=".logic.greet_world"/>
-    <node name="c" channel="inline" format="text/cybol-path" model=".logic.greet_cybop"/>
+    <node name="w" channel="inline" format="text/cybol-path" model=".logic.greet-world"/>
+    <node name="c" channel="inline" format="text/cybol-path" model=".logic.greet-cybop"/>
     <node name="e" channel="inline" format="text/cybol-path" model=".logic.exit"/>
 
 </node>

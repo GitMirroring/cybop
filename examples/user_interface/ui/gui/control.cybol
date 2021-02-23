@@ -6,7 +6,7 @@
         <!-- grey -->
         <node name="foreground" channel="inline" format="colour/rgb" model="128,128,128"/>
         <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
-        <node name="button-release" channel="inline" format="text/plain" model=".logic.greet_world"/>
+        <node name="button-release" channel="inline" format="text/plain" model=".logic.greet-world"/>
     </node>
 
     <node name="cybop_button" channel="file" format="element/part" model="user_interface/ui/gui/cybop_button.cybol">
@@ -15,7 +15,7 @@
         <!-- grey -->
         <node name="foreground" channel="inline" format="colour/rgb" model="128,128,128"/>
         <node name="shape" channel="inline" format="text/plain" model="rectangle"/>
-        <node name="button-release" channel="inline" format="text/plain" model=".logic.greet_cybop"/>
+        <node name="button-release" channel="inline" format="text/plain" model=".logic.greet-cybop"/>
     </node>
 
 </node>

@@ -3,16 +3,22 @@
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
+
     <node name="startup_display" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
     </node>
-<!--
+
     <node name="startup_socket" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
         <node name="style" channel="inline" format="text/plain" model="stream"/>
-        <node name="address" channel="inline" format="text/plain" model="any"/>
+        <node name="protocol" channel="inline" format="text/plain" model="tcp"/>
+        <node name="address" channel="inline" format="text/plain" model="127.0.0.1"/>
+        <node name="id" channel="inline" format="number/integer" model="1971"/>
+        <node name="mode" channel="inline" format="text/plain" model="server"/>
+        <node name="blocking" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="connexions" channel="inline" format="number/integer" model="1"/>
+        <node name="timeout" channel="inline" format="number/integer" model="300"/>
     </node>
--->
 
 </node>

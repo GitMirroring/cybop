@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-02-22  Christian Heller  <christian.heller@cybop.org>
+
+        * Integrate socket communication for wui into cybol example "user_interface/ui/"
+
 2021-02-21  Christian Heller  <christian.heller@cybop.org>
 
         * Eliminate cybol property "network_service" (e.g. "http"), since specifying a unique port (e.g. 80) suffices

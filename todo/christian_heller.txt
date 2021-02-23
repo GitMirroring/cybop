@@ -14,7 +14,10 @@
 WUI and Socket
 ______________
 
-        * Make cybol example "user_interface/ui/" wui work via socket
+        * Fix errors in cybol example "user_interface/ui/"
+        * Integrate handling of uri file paths into cybol example "user_interface/ui/"
+        * Fix tui in cybol example "user_interface/ui/"
+
         * Fix error that resource gets interpreted as Stylesheet but transferred with MIME type text/plain
             see file "app.cybol" in cybol applications "socket_client" and "socket_server"
         * Handle non-existing database files using default values in cybol application "presence"

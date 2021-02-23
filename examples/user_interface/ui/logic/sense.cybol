@@ -4,20 +4,25 @@
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle.terminal"/>
     </node>
+
     <node name="sense_display" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
         <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle.display"/>
         <node name="root" channel="inline" format="text/cybol-path" model=".gui.window"/>
     </node>
+
 <!--
     <node name="sense_opengl" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="opengl"/>
         <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle.opengl"/>
     </node>
+-->
+
     <node name="sense_socket" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="id" channel="inline" format="number/integer" model="1971"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".wui.client_socket"/>
         <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle.socket"/>
     </node>
--->
 
 </node>

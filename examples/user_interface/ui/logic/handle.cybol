@@ -2,5 +2,6 @@
 
     <node name="terminal" channel="file" format="element/part" model="user_interface/ui/logic/handle/terminal.cybol"/>
     <node name="display" channel="file" format="element/part" model="user_interface/ui/logic/handle/display.cybol"/>
+    <node name="socket" channel="file" format="element/part" model="user_interface/ui/logic/handle/socket.cybol"/>
 
 </node>

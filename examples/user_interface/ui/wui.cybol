@@ -6,6 +6,18 @@
         <node name="document_type" channel="inline" format="text/plain" model="html"/>
     </node>
 
-    <!-- Further html files may follow here. -->
+    <!-- The serialised webpage. -->
+    <node name="webpage" channel="inline" format="text/plain" model="">
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="server" channel="inline" format="text/plain" model="Presence/2.0 2020-08-26 (CYBOI/0.21.0)"/>
+        <node name="connection" channel="inline" format="text/plain" model="close"/>
+        <node name="content-type" channel="inline" format="text/plain" model="text/html"/>
+    </node>
+
+    <node name="actions" channel="file" format="element/part" model="user_interface/ui/wui/actions.cybol"/>
+
+    <node name="request" channel="inline" format="element/part" model=""/>
+    <node name="client_socket" channel="inline" format="number/integer" model="0"/>
+    <node name="path" channel="inline" format="text/cybol-path" model=""/>
 
 </node>
