@@ -27,15 +27,7 @@
         <node name="source" channel="inline" format="text/cybol-path" model=".tui.command"/>
     </node>
 
-    <!--
-        CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.
-        Otherwise, another signal might be executed before, so that this signal could possibly
-        not find all resources anymore, if they meanwhile have been manipulated by the other signal.
-        The "flow/sequence" operation ensures that the given model is executed directly.
-    -->
-    <node name="process_command" channel="inline" format="flow/sequence" model="">
-        <!-- CAUTION! The path is NOT a reference. -->
-        <node name="model" channel="inline" format="text/cybol-path" model=".tui.path"/>
-    </node>
+    <!-- CAUTION! The path is NOT a reference. -->
+    <node name="execute_action" channel="inline" format="text/cybol-path" model=".tui.path"/>
 
 </node>

@@ -1,9 +1,32 @@
 <node>
 
-    <node name="cli" channel="file" format="element/part" model="user_interface/ui/logic/translate/cli.cybol"/>
-    <node name="tui" channel="file" format="element/part" model="user_interface/ui/logic/translate/tui.cybol"/>
-    <node name="gui" channel="file" format="element/part" model="user_interface/ui/logic/translate/gui.cybol"/>
-    <node name="scene" channel="file" format="element/part" model="user_interface/ui/logic/translate/scene.cybol"/>
-    <node name="wui" channel="file" format="element/part" model="user_interface/ui/logic/translate/wui.cybol"/>
+<!--
+    <node name="copy_to_box" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".cli.label"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.greeting"/>
+    </node>
+-->
+
+    <node name="copy_to_box" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".tui.window.box.label"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.greeting"/>
+    </node>
+
+    <node name="copy_to_box" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".gui.window.box.label"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.greeting"/>
+    </node>
+
+<!--
+    <node name="copy_to_box" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".opengl.scene.label"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.greeting"/>
+    </node>
+-->
+
+    <node name="copy_to_box" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.index.body.box"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".domain.greeting"/>
+    </node>
 
 </node>

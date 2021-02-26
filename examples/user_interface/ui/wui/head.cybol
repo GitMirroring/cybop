@@ -21,7 +21,7 @@
         <node name="tag" channel="inline" format="text/plain" model="link"/>
         <node name="rel" channel="inline" format="text/plain" model="stylesheet"/>
         <node name="type" channel="inline" format="text/plain" model="text/css"/>
-        <node name="href" channel="inline" format="text/plain" model="user_interface/ui/wui/format.css"/>
+        <node name="href" channel="inline" format="text/plain" model="user_interface/ui/wui/file/format.css"/>
     </node>
 
     <node name="title" channel="inline" format="text/plain" model="CYBOL User Interface (UI) Example">

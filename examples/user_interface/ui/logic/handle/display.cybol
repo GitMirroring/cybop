@@ -19,16 +19,9 @@
     </node>
 
     <!--
-        CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.
-        Otherwise, another signal might be executed before, so that this signal could possibly
-        not find all resources anymore, if they meanwhile have been manipulated by the other signal.
-        The "flow/sequence" operation ensures that the given model is executed directly.
-
         CAUTION! Use path REFERENCE here, since the action is just
         a string pointing to the actual model to be executed.
     -->
-    <node name="execute_action" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model="*.gui.action"/>
-    </node>
+    <node name="execute_action" channel="inline" format="text/cybol-path" model="*.gui.action"/>
 
 </node>

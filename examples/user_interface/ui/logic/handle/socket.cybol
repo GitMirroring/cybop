@@ -78,8 +78,10 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    <node name="execute_action" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model="*.wui.path"/>
-    </node>
+    <!--
+        CAUTION! Use path REFERENCE here, since the action is just
+        a string pointing to the actual model to be executed.
+    -->
+    <node name="execute_action" channel="inline" format="text/cybol-path" model="*.wui.path"/>
 
 </node>

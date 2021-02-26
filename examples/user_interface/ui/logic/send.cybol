@@ -38,7 +38,6 @@
     </node>
 -->
 
-<!--
     <node name="wui_file" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -48,9 +47,8 @@
         </node>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".wui.index"/>
-        <node name="receiver" channel="inline" format="text/plain" model="test_ui_wui.html"/>
+        <node name="receiver" channel="inline" format="text/plain" model="user_interface/ui/wui/file/index.html"/>
     </node>
--->
 
     <node name="reset_webpage" channel="inline" format="modify/empty" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".wui.webpage"/>

@@ -9,21 +9,13 @@
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
     </node>
 
-    <node name="startup" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.startup"/>
-    </node>
-
-    <node name="greet" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.greet-world"/>
-    </node>
-
-    <node name="sense" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.sense"/>
-    </node>
+    <node name="startup" channel="inline" format="text/cybol-path" model=".logic.startup"/>
+    <node name="greet" channel="inline" format="text/cybol-path" model=".logic.greet-world"/>
+    <node name="sense" channel="inline" format="text/cybol-path" model=".logic.sense"/>
 
 </node>
 
 <!--
     This example shows interaction between different user interfaces: tui, gui, wui via socket.
-    A click on the button leads to updated views on all user interfaces.
+    A click on one of the two buttons leads to updated views on all user interfaces.
 -->

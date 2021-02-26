@@ -4,11 +4,8 @@
         <node name="destination" channel="inline" format="text/cybol-path" model=".domain.greeting"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".domain.cybop"/>
     </node>
-    <node name="translate" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate"/>
-    </node>
-    <node name="send" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.send"/>
-    </node>
+
+    <node name="translate" channel="inline" format="text/cybol-path" model=".logic.translate"/>
+    <node name="send" channel="inline" format="text/cybol-path" model=".logic.send"/>
 
 </node>
