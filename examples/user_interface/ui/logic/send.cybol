@@ -38,6 +38,7 @@
     </node>
 -->
 
+<!--
     <node name="wui_file" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -47,8 +48,9 @@
         </node>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".wui.index"/>
-        <node name="receiver" channel="inline" format="text/plain" model="user_interface/ui/wui/file/index.html"/>
+        <node name="receiver" channel="inline" format="text/plain" model="user_interface/ui/wui/index.html"/>
     </node>
+-->
 
     <node name="reset_webpage" channel="inline" format="modify/empty" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".wui.webpage"/>
@@ -66,6 +68,12 @@
 
     <node name="wui_socket" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <!--
+            CAUTION! An "encoding" is NOT given when using the language "message/http-response",
+            since it would cause the WHOLE http message to get encoded.
+            But the http header should be ASCII (single-byte characters) only.
+            Likewise, binary attachments such as images should NOT get encoded.
+        -->
         <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".wui.webpage"/>

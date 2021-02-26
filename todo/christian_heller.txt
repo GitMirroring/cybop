@@ -14,8 +14,6 @@
 WUI and Socket
 ______________
 
-        * Fix errors in cybol example "user_interface/ui/"
-        * Integrate handling of uri file paths into cybol example "user_interface/ui/"
         * Fix tui in cybol example "user_interface/ui/"
 
         * Fix error that resource gets interpreted as Stylesheet but transferred with MIME type text/plain

@@ -20,7 +20,9 @@
 
 2021-02-26  Christian Heller  <christian.heller@cybop.org>
 
-        * Optimise cybol example "user_interface/ui/"
+        * Optimise cybol example "user_interface/ui/" by unifying "translate" files
+        * Fix http-response errors in cybol example "user_interface/ui/"
+        * Insert css as stylesheet are directly into html file
 
 2021-02-22  Christian Heller  <christian.heller@cybop.org>
 

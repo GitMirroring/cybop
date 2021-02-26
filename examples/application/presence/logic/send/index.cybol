@@ -33,6 +33,12 @@
         <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <!--
+            For the http response, the following headers are recommended:
+            - Date
+            - Server
+            - Content-Length
+            - Content-Type
+
             CAUTION! An "encoding" is NOT given when using the language "message/http-response",
             since it would cause the WHOLE http message to get encoded.
             But the http header should be ASCII (single-byte characters) only.
@@ -48,15 +54,14 @@
         -->
         <node name="message" channel="inline" format="text/cybol-path" model=".var.webpage">
             <node name="Connection" channel="inline" format="text/plain" model="keep-alive"/>
-            <!--
+<!--
             <node name="Content-Type" channel="inline" format="text/plain" model="text/html; charset=utf-8"/>
-            -->
+-->
             <!--
                 The client has 300 s == 5 min to make any additional requests before the connection is closed.
                 The client can send up to 1000 more requests.
             -->
             <node name="Keep-Alive" channel="inline" format="text/plain" model="timeout=300, max=1000"/>
-            <node name="Server" channel="inline" format="text/plain" model="CYBOI/0.21.0 (Linux) CYBOL/2.0.0"/>
         </node>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
     </node>
