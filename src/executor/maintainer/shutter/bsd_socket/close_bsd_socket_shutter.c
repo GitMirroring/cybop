@@ -85,7 +85,7 @@ void shutdown_bsd_socket_close(void* p0) {
             if (errno == EBADF) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown bsd socket close. The filedes argument is not a valid file descriptor.");
-                fwprintf(stdout, L"TEST: shutdown bsd socket close error EBADF: %i \n", errno);
+                //?? fwprintf(stdout, L"TEST: shutdown bsd socket close error EBADF: %i \n", errno);
 
             } else if (errno == EINTR) {
 

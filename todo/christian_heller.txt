@@ -14,6 +14,14 @@
 WUI and Socket
 ______________
 
+        * Fix error "Could not handle operation. The operation is unknown." in cybol example "user_interface/ui/"
+            Warning: Could not handle operation. The operation is unknown.
+            Hint: Operation format p7: 882860032
+            Hint: Operation format *p7: 493
+            (other wrong formats are 494 and 622:
+            493 - meta/language
+            494 - meta/format
+            622 - text/plain
         * Fix tui in cybol example "user_interface/ui/"
 
         * Fix error that resource gets interpreted as Stylesheet but transferred with MIME type text/plain

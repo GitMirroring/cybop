@@ -118,7 +118,7 @@ void read_unix_device(void* p0, void* p1, void* p2) {
                 //
                 int r = ioctl(*f, *c, (void*) &d);
 
-                fwprintf(stdout, L"TEST: Read unix device. ioctl r: %i\n", r);
+                //?? fwprintf(stdout, L"TEST: Read unix device. ioctl r: %i\n", r);
 
                 if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -134,7 +134,7 @@ void read_unix_device(void* p0, void* p1, void* p2) {
                     if (errno == EBADF) {
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read unix device. The first argument is not a valid file descriptor.");
-                        fwprintf(stdout, L"TEST: Read unix device error EBADF: %i\n", errno);
+                        //?? fwprintf(stdout, L"TEST: Read unix device error EBADF: %i\n", errno);
 
                     } else if (errno == EFAULT) {
 
