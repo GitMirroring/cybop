@@ -26,6 +26,10 @@
         <node name="destination" channel="inline" format="text/cybol-path" model=".wui.request"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+    <node name="reset_action_exists_flag" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.action_exists"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
 
     <node name="receive_request" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
@@ -35,53 +39,28 @@
         <node name="sender" channel="inline" format="text/cybol-path" model=".wui.client_socket"/>
     </node>
 
-    <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->
-    <node name="overwrite_path" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.path"/>
-        <node name="source" channel="inline" format="text/plain" model=".wui.actions."/>
-    </node>
-    <node name="append_action" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.path"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".wui.request:uri:query.action"/>
+    <node name="test_action" channel="inline" format="access/indicate-exists" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".wui.action_exists"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".wui.request:uri:query.action"/>
     </node>
 
-    <node name="print_path_label" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Action path:"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-    <node name="print_path" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".wui.path"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-    <node name="print_action_label" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Action:"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-    <node name="print_action" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/cybol-path" model="*.wui.path"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
+    <node name="handle_action" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".wui.action_exists"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".logic.handle.socket_action"/>
+        <!--
+            Send an empty text encapsulated as http-response. -->
 
-    <!--
-        CAUTION! Use path REFERENCE here, since the action is just
-        a string pointing to the actual model to be executed.
-    -->
-    <node name="execute_action" channel="inline" format="text/cybol-path" model="*.wui.path"/>
+            CAUTION! Sending a response is important, even if the query was empty or not understood,
+            since some browsers request a "/favicon.ico" or other things and if no response was sent,
+            the browser would wait forever and block requests from other clients.
+        -->
+        <node name="false" channel="inline" format="communicate/send" model="">
+            <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+            <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
+            <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+            <node name="message" channel="inline" format="text/plain" model=""/>
+            <node name="receiver" channel="inline" format="text/cybol-path" model=".wui.client_socket"/>
+        </node>
+    </node>
 
 </node>

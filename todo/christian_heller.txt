@@ -14,15 +14,18 @@
 WUI and Socket
 ______________
 
-        * Fix error "Could not handle operation. The operation is unknown." in cybol example "user_interface/ui/"
-            Warning: Could not handle operation. The operation is unknown.
-            Hint: Operation format p7: 882860032
-            Hint: Operation format *p7: 493
-            (other wrong formats are 494 and 622:
-            493 - meta/language
-            494 - meta/format
-            622 - text/plain
         * Fix tui in cybol example "user_interface/ui/"
+        * Fix error "TEST: Close client connexion due to crossed timeout. p3: 286605728" in cybol example "user_interface/ui/"
+            it is NOT caused by a socket, but by other channels like tui or gui, which have no timeout
+        * Do NOT consider timeout for channels other than socket in function "check_client_element_available"
+            since otherwise, they get removed, which is not wanted for a terminal or gui window
+
+        * Use stack variables to avoid "empty"
+            Is it possible at all?
+            the handle is called by cyboi
+        * Think about how to inform the user about errors (tui, gui, wui, all, message dialog?)
+            e.g. there is an uncritical error when first calling "send" trying to send the wui via socket, because a client socket does not exist yet
+            give the user a possibility to configure error handling in cybol on system startup?
 
         * Fix error that resource gets interpreted as Stylesheet but transferred with MIME type text/plain
             see file "app.cybol" in cybol applications "socket_client" and "socket_server"

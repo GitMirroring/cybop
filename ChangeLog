@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-02-27  Christian Heller  <christian.heller@cybop.org>
+
+        * Fix error caused by wrong-placed comment characters in cybol example "user_interface/ui/"
+        * Split socket handler in cybol example "user_interface/ui/" into action handler and empty message sender, in order to reply to favicon and other requests
+
 2021-02-26  Christian Heller  <christian.heller@cybop.org>
 
         * Optimise cybol example "user_interface/ui/" by unifying "translate" files

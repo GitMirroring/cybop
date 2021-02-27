@@ -6,7 +6,6 @@
     </node>
 
     <node name="translate" channel="inline" format="text/cybol-path" model=".logic.translate"/>
-
     <node name="send" channel="inline" format="text/cybol-path" model=".logic.send"/>
 
 </node>

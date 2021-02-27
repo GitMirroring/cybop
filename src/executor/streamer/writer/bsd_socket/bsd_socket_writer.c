@@ -138,7 +138,7 @@ void write_bsd_socket(void* p0, void* p1, void* p2, void* p3) {
                         } else if (errno == ENOTSOCK) {
 
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write bsd socket. The descriptor socket is not a socket.");
-                            fwprintf(stdout, L"TEST: write bsd socket error ENOTSOCK: %i \n", errno);
+                            //?? fwprintf(stdout, L"TEST: write bsd socket error ENOTSOCK: %i \n", errno);
 
                         } else if (errno == EMSGSIZE) {
 

@@ -75,14 +75,18 @@ void accept_empty(void* p0, void* p1) {
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // The client list is empty.
+        //
 
         // Copy sender client user identification to destination.
         copy_integer(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     } else {
 
+        //
         // A sender client user already exists in the client list.
+        //
 
         //
         // CAUTION! Do NOT log messages here, since this is normal behaviour.
