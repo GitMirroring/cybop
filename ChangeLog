@@ -18,6 +18,13 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-03-15  Christian Heller  <christian.heller@cybop.org>
+
+        * Think through unified handling of id/port in socket/gui/tui
+        * Treat gui windows as clients managed via a unique integer identifier (id) by the display server
+        * Store each window identifier (id) in the corresponding cybol application
+        * Add new files "sense_io_checker.c", "socket_io_checker.c"
+
 2021-02-27  Christian Heller  <christian.heller@cybop.org>
 
         * Fix error caused by wrong-placed comment characters in cybol example "user_interface/ui/"
@@ -27,7 +34,7 @@
 
         * Optimise cybol example "user_interface/ui/" by unifying "translate" files
         * Fix http-response errors in cybol example "user_interface/ui/"
-        * Insert css as stylesheet are directly into html file
+        * Insert css as stylesheet area directly into html file
 
 2021-02-22  Christian Heller  <christian.heller@cybop.org>
 

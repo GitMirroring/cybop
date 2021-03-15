@@ -50,9 +50,14 @@
  */
 void check_io_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io receive.");
+    //
+    // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
+    // Otherwise, it would produce huge log files filled up with useless entries.
+    //
+    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io receive.");
+    //
 
-//??     fwprintf(stdout, L"TEST: check io receive. channel *p4: %i \n", *((int*) p4));
+    //?? fwprintf(stdout, L"TEST: check io receive. channel *p4: %i \n", *((int*) p4));
 
     // The sender client.
     int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
@@ -73,8 +78,11 @@ void check_io_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         //?? fwprintf(stdout, L"TEST: check io receive. client c: %i \n", c);
 
+        // The sender client.
+        void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+
         //
-        // Retrieve various values from input/output entry.
+        // Get sender client from input/output entry.
         //
         // CAUTION! Do NOT use "overwrite_array" function here,
         // since it adapts the array count and size.
@@ -84,11 +92,6 @@ void check_io_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
         //
         // CAUTION! Do NOT hand over input/output entry as pointer reference.
         //
-
-        // The sender client.
-        void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-        // Get sender client from input/output entry.
         get_io_entry_element((void*) &s, p3, (void*) SENDER_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         // Copy client as sender.

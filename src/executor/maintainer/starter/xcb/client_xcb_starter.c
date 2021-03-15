@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef X_WINDOW_SYSTEM_STARTER_SOURCE
-#define X_WINDOW_SYSTEM_STARTER_SOURCE
+#ifndef CLIENT_XCB_STARTER_SOURCE
+#define CLIENT_XCB_STARTER_SOURCE
 
 #include <xcb/xcb.h>
 
@@ -33,45 +33,22 @@
 #include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
-#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/accessor/getter/io_entry_getter.c"
 #include "../../../../executor/accessor/setter/io_entry_setter.c"
-#include "../../../../executor/copier/array_copier.c"
-#include "../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../logger/logger.c"
 
-//
-// The X.Org Foundation formed by X.Org and freedesktop.org
-// has an oversight role in X Window System development.
-// XFree86 is still being developed at a very slow pace,
-// but the X.Org Foundation currently sets the standard.
-//
-// http://www.x.org/wiki/Documentation:
-// For low-level X development, the X C Bindings (XCB)
-// provide a clean low-level protocol binding:
-// http://xcb.freedesktop.org/tutorial/
-//
-// Its older cousin Xlib (or libX11), is NOT recommended
-// for new development, but is still very widely used.
-// Xt is a similarly DEPRECATED library for building toolkits.
-//
-
 /**
- * Starts up the x window system.
+ * Starts up an x window system client (a window).
  *
  * @param p0 the input/output entry
+ * @param p1 the window id
  */
-void startup_x_window_system(void* p0) {
+void startup_xcb_client(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup x window system.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup xcb client.");
 
-    //
-    // CAUTION! The following variables are declared RIGHT HERE
-    // and not only further down since otherwise,
-    // they would not be known to the compiler when
-    // being stored in input/output entry at the end.
-    //
-
+    // The client list item.
+    //?? void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The connexion.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The screen.
@@ -85,23 +62,33 @@ void startup_x_window_system(void* p0) {
     // The delete window cookie.
     void* dwc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    // Get client list item from input/output entry.
+    //?? get_io_entry_element((void*) &cl, io, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
     //
-    // Allocate and open connexion.
+    // Retrieve connexion from input/output entry.
     //
-    // CAUTION! Do NOT allocate the connexion manually here.
-    // The xcb_connection_t is a structure containing
-    // all data needed to communicate with an x server.
+    // CAUTION! Do NOT use "overwrite_array" function here,
+    // since it adapts the array count and size.
+    // But the array's count and size are CONSTANT.
     //
-    c = (void*) xcb_connect(NULL, NULL);
+    // CAUTION! Hand over values as pointer REFERENCE.
+    //
+    // CAUTION! Do NOT hand over input/output entry as pointer reference.
+    //
+    get_io_entry_element((void*) &c, p0, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-    //?? fwprintf(stdout, L"TEST startup x window system c: %i\n", c);
+    //?? fwprintf(stdout, L"TEST: Startup xcb client. c: %i\n", c);
 
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        //
+        // A display DOES exist in input/output entry.
+        //
 
         // Get setup.
         const xcb_setup_t* setup = xcb_get_setup((xcb_connection_t*) c);
 
-        //?? fwprintf(stdout, L"TEST startup x window system setup: %i\n", setup);
+        //?? fwprintf(stdout, L"TEST: Startup xcb client. setup: %i\n", setup);
 
         if (setup != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -116,7 +103,7 @@ void startup_x_window_system(void* p0) {
             //
             s = (void*) iter.data;
 
-            //?? fwprintf(stdout, L"TEST startup x window system s: %i\n", s);
+            //?? fwprintf(stdout, L"TEST: Startup xcb client. s: %i\n", s);
 
             if (s != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -385,8 +372,8 @@ void startup_x_window_system(void* p0) {
                 // Free internal protocols cookie structure.
                 free(protocols_reply);
 
-                //?? fwprintf(stdout, L"TEST startup x window system delete_reply: %i\n", delete_reply);
-                //?? fwprintf(stdout, L"TEST startup x window system (*delete_reply).atom: %i\n", (*delete_reply).atom);
+                //?? fwprintf(stdout, L"TEST: Startup xcb client. delete_reply: %i\n", delete_reply);
+                //?? fwprintf(stdout, L"TEST: Startup xcb client. (*delete_reply).atom: %i\n", (*delete_reply).atom);
 
                 //
                 // CAUTION! Do NOT free the delete cookie structure here.
@@ -394,53 +381,56 @@ void startup_x_window_system(void* p0) {
                 // It gets freed at system shutdown.
                 //
 
+                // Add window to client list item.
+                //?? modify_item(cl, (void*) &w, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+                // Copy window as id to corresponding parametre.
+                copy_integer(p1, (void*) &w);
+
+                //
+                // Store various values in input/output entry.
+                //
+                // CAUTION! Do NOT use "overwrite_array" function here,
+                // since it adapts the array count and size.
+                // But the array's count and size are CONSTANT.
+                //
+                // CAUTION! Do NOT hand over input/output entry as pointer reference.
+                //
+                // CAUTION! Hand over values as pointer REFERENCE.
+                //
+
+/*??
+                fwprintf(stdout, L"TEST: Startup xcb client. dwc: %i\n", dwc);
+                xcb_intern_atom_reply_t* test = (xcb_intern_atom_reply_t*) dwc;
+                fwprintf(stdout, L"TEST: Startup xcb client. test: %i\n", test);
+                fwprintf(stdout, L"TEST: Startup xcb client. (*test).atom: %i\n", (*test).atom);
+*/
+
+                //?? TODO: REMOVE, since the window is now stored in the client list
+                // Store window in input/output entry.
+                //?? set_io_entry_element(p0, (void*) &w, (void*) WINDOW_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+                // Store graphic context in input/output entry.
+                //?? set_io_entry_element(p0, (void*) &gc, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+                // Store font in input/output entry.
+                //?? set_io_entry_element(p0, (void*) &f, (void*) FONT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+                // Store delete window cookie in input/output entry.
+                //?? set_io_entry_element(p0, (void*) &dwc, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
             } else {
 
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup x window system. The screen is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup xcb client. The screen is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup x window system. The setup is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup xcb client. The setup is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup x window system. The connexion is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup xcb client. The connexion is null.");
     }
-
-    //
-    // Store various values in input/output entry.
-    //
-    // CAUTION! Do NOT use "overwrite_array" function here,
-    // since it adapts the array count and size.
-    // But the array's count and size are CONSTANT.
-    //
-    // CAUTION! Do NOT hand over input/output entry as pointer reference.
-    //
-    // CAUTION! Hand over values as pointer REFERENCE.
-    //
-
-/*??
-    fwprintf(stdout, L"TEST startup x window system dwc: %i\n", dwc);
-    xcb_intern_atom_reply_t* test = (xcb_intern_atom_reply_t*) dwc;
-    fwprintf(stdout, L"TEST startup x window system test: %i\n", test);
-    fwprintf(stdout, L"TEST startup x window system (*test).atom: %i\n", (*test).atom);
-*/
-
-    // Store connexion in input/output entry.
-    set_io_entry_element(p0, (void*) &c, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Store screen in input/output entry.
-    set_io_entry_element(p0, (void*) &s, (void*) SCREEN_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Store window in input/output entry.
-    set_io_entry_element(p0, (void*) &w, (void*) WINDOW_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Store graphic context in input/output entry.
-    set_io_entry_element(p0, (void*) &gc, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Store font in input/output entry.
-    set_io_entry_element(p0, (void*) &f, (void*) FONT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Store delete window cookie in input/output entry.
-    set_io_entry_element(p0, (void*) &dwc, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 }
 
-/* X_WINDOW_SYSTEM_STARTER_SOURCE */
+/* CLIENT_XCB_STARTER_SOURCE */
 #endif

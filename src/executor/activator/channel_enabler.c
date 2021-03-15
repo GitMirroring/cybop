@@ -42,7 +42,7 @@
  * @param p1 the input/output base
  * @param p2 the service identification (e.g. socket port)
  * @param p3 the handler part (pointer reference)
- * @param p4 the sender client data (pointer reference, e.g. display connection, file descriptor, client socket)
+ * @param p4 the sender client data (pointer reference, e.g. client socket id, window id, file descriptor)
  */
 void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
 

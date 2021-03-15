@@ -36,4 +36,6 @@
         <node name="mode" channel="inline" format="number/integer" model="0"/>
     </node>
 
+    <node name="window_id" channel="inline" format="number/integer" model="-1"/>
+
 </node>

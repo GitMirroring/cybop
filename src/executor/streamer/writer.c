@@ -46,7 +46,7 @@
  * CAUTION! Do NOT rename this function to "write",
  * as that name is already used for glibc library's output.
  *
- * @param p0 the destination item (e.g. filename, client socket number, service identification, gui window)
+ * @param p0 the destination item (e.g. filename, client socket number, service identification, gui window id)
  * @param p1 the source model data (pointer reference)
  * @param p2 the source model count
  * @param p3 the source properties data (e.g. signal memory index)
@@ -84,7 +84,13 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                write_display(p7);
+                // The destination window identification item data.
+                void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+                // Get destination window identification item data.
+                copy_array_forward((void*) &w, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+                write_display(w, p7);
             }
         }
 

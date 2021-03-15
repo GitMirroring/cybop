@@ -5,6 +5,7 @@
         <node name="language" channel="inline" format="meta/language" model="message/gui"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".gui.window"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
     </node>
 
     <node name="print_message" channel="inline" format="communicate/send" model="">

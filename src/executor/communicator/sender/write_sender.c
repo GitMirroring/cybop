@@ -34,7 +34,7 @@
 /**
  * Writes source to destination.
  *
- * @param p0 the destination item
+ * @param p0 the destination item (e.g. filename, client socket number, service identification, gui window id)
  * @param p1 the source model data (pointer reference)
  * @param p2 the source model count
  * @param p3 the source properties data (e.g. signal memory index)

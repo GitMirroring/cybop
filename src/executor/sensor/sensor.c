@@ -48,7 +48,7 @@
  * such as the display connexion may be retrieved from it inside.
  *
  * @param p0 the data available flag
- * @param p1 the sender client (e.g. file descriptor, client socket)
+ * @param p1 the sender client (e.g. file descriptor, client socket id)
  * @param p2 the input/output entry (containing e.g. display connexion, event)
  * @param p3 the channel
  */

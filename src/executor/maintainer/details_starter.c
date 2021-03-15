@@ -40,7 +40,7 @@
  * Starts up the service details.
  *
  * @param p0 the input/output entry
- * @param p1 the service identification (e.g. socket port)
+ * @param p1 the identification (e.g. socket port for server or window id for client)
  * @param p2 the serial filename data
  * @param p3 the serial filename count
  * @param p4 the serial baudrate
@@ -75,7 +75,7 @@ void startup_details(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_display(p0);
+            startup_display(p0, p1, p19, p20);
         }
     }
 

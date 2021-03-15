@@ -99,7 +99,9 @@ void shutdown_x_window_system(void* p0) {
 
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // A display DOES exist in input/output entry.
+        //
 
         //
         // CAUTION! Use descending order as compared to startup,

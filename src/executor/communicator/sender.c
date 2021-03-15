@@ -50,7 +50,7 @@
  * CAUTION! The properties are handed over as well,
  * since the model might also contain meta data.
  *
- * @param p0 the destination item
+ * @param p0 the destination item (e.g. filename, client socket number, service identification, gui window id)
  * @param p1 the source name data
  * @param p2 the source name count
  * @param p3 the source channel data

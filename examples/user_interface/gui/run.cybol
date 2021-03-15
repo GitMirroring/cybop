@@ -1,12 +1,12 @@
 <node>
 
     <node name="initialise_app" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model="."/>
         <node name="sender" channel="inline" format="text/plain" model="user_interface/gui/app.cybol"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
     </node>
 
     <!-- TEST only. Necessary for displaying test messages on console. Delete later. -->
@@ -15,11 +15,16 @@
     </node>
     <node name="startup_display" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
+        <node name="mode" channel="inline" format="text/plain" model="server"/>
+        <node name="connexions" channel="inline" format="number/integer" model="1"/>
+    </node>
+    <node name="startup_window" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
+        <node name="mode" channel="inline" format="text/plain" model="client"/>
+        <node name="id" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
     </node>
 
-    <node name="send_display" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.refresh_display"/>
-    </node>
+    <node name="model" channel="inline" format="text/cybol-path" model=".logic.refresh_display"/>
 
     <node name="sense_display" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>

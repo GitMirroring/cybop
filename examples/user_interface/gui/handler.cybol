@@ -11,34 +11,30 @@
     </node>
 
     <node name="receive_event" channel="inline" format="communicate/receive" model="">
-        <node name="sender" channel="inline" format="text/cybol-path" model=".gui.window"/>
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
         <node name="language" channel="inline" format="meta/language" model="event/gui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".gui.action"/>
+        <!--
+        <node name="sender" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
+        -->
+        <node name="sender" channel="inline" format="text/cybol-path" model=".gui.window"/>
     </node>
 
     <!-- Write knowledge tree into file. -->
     <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="receiver" channel="inline" format="text/plain" model="test_gui_received.txt"/>
-        <node name="message" channel="inline" format="text/cybol-path" model="."/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
+        <node name="receiver" channel="inline" format="text/plain" model="test_gui_received.txt"/>
     </node>
 
     <!--
-        CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.
-        Otherwise, another signal might be executed before, so that this signal could possibly
-        not find all resources anymore, if they meanwhile have been manipulated by the other signal.
-        The "flow/sequence" operation ensures that the given model is executed directly.
-
         CAUTION! Use path REFERENCE here, since the action is just
         a string pointing to the actual model to be executed.
     -->
-    <node name="execute_action" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model="*.gui.action"/>
-    </node>
+    <node name="execute_action" channel="inline" format="text/cybol-path" model="*.gui.action"/>
 
 </node>

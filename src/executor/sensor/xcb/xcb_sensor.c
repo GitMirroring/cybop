@@ -127,7 +127,7 @@ void sense_xcb(void* p0, void* p1) {
         //
         void* e = (void*) xcb_poll_for_event((xcb_connection_t*) c);
 
-//??        fwprintf(stdout, L"TEST Sense xcb. event e: %i\n", e);
+        //?? fwprintf(stdout, L"TEST Sense xcb. event e: %i\n", e);
 
         if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

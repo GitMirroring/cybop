@@ -49,6 +49,7 @@ Storing server and client service identification
 Socket
 Receiving Data via Client Socket
 Variables
+Handling of windows events versus socket client requests
 
 Terminology
 ___________
@@ -807,6 +808,20 @@ Xlib is complex and somewhat outdated, whilst XCB is modern and
 efficient, which is why XCB is used in cyboi. Moreover, both are
 compatible with each other.
 
+The X.Org Foundation formed by X.Org and freedesktop.org
+has an oversight role in X Window System development.
+XFree86 is still being developed at a very slow pace,
+but the X.Org Foundation currently sets the standard.
+
+http://www.x.org/wiki/Documentation:
+For low-level X development, the X C Bindings (XCB)
+provide a clean low-level protocol binding:
+http://xcb.freedesktop.org/tutorial/
+
+Its older cousin Xlib (or libX11), is NOT recommended
+for new development, but is still very widely used.
+Xt is a similarly DEPRECATED library for building toolkits.
+
 Input/Output (I/O)
 __________________
 
@@ -1087,4 +1102,23 @@ There are no local variables in a cybol logic file. But one can hand
 over parametres which may be used as de-facto (quasi) local variables.
 They are declared as (meta) properties of the corresponding cybol
 logic file, outside of it, in the calling file.
+
+Handling of windows events versus socket client requests
+________________________________________________________
+
+When sensing/receiving a client request via socket, the corresponding
+client socket id is returned, so that a response may be sent to it.
+This is possible, because all client requests are treated the same way.
+
+However, when working with mutliple different windows, this is not
+the case, since each window may have different actions, i.e. react
+to events in an own specific way. The window id is received just
+like for a socket request. But how to know which content to send?
+
+Therefore, the window id has to be stored and assigned to a specific
+variable, e.g. ".gui.main" or ".gui.about_dialogue", right when
+starting up (creating) the window in cybol. Only then, responses
+to later requests may be sent to the correct window id, by using
+comparison (alternative, if-else-else) for identifying the window
+that had sent the request (event).
 

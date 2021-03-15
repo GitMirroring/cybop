@@ -41,87 +41,95 @@
 /**
  * Updates the xcb window.
  *
- * @param p0 the internal memory data
+ * @param p0 the destination data (gui window id)
+ * @param p1 the internal memory data
  */
-void write_xcb(void* p0) {
+void write_xcb(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write xcb.");
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // The internal memory index.
-    int i = *DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-    // The display input/output entry.
-    void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The window identification.
+        int* w = (int*) p0;
 
-    // Get display input/output entry from internal memory.
-    copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write xcb.");
 
-//??    fwprintf(stdout, L"TEST Write xcb io: %i\n", io);
+        // The internal memory index.
+        int i = *DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+        // The display input/output entry.
+        void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        // Get display input/output entry from internal memory.
+        copy_array_forward((void*) &io, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
-        // A display DOES exist in internal memory.
+        //?? fwprintf(stdout, L"TEST Write xcb io: %i\n", io);
 
-        // The connexion.
-        void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The window.
-        int w = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+        if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        //
-        // Retrieve various values from input/output entry.
-        //
-        // CAUTION! Do NOT use "overwrite_array" function here,
-        // since it adapts the array count and size.
-        // But the array's count and size are CONSTANT.
-        //
-        // CAUTION! Hand over values as pointer REFERENCE.
-        //
-        // CAUTION! Do NOT hand over input/output entry as pointer reference.
-        //
+            //
+            // A display DOES exist in internal memory.
+            //
 
-        // Retrieve connexion from input/output entry.
-        get_io_entry_element((void*) &c, io, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Retrieve window from input/output entry.
-        get_io_entry_element((void*) &w, io, (void*) WINDOW_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            // The connexion.
+            void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        // CAUTION! This test is necessary to avoid a "Segmentation fault"!
-        if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            //
+            // Retrieve various values from input/output entry.
+            //
+            // CAUTION! Do NOT use "overwrite_array" function here,
+            // since it adapts the array count and size.
+            // But the array's count and size are CONSTANT.
+            //
+            // CAUTION! Hand over values as pointer REFERENCE.
+            //
+            // CAUTION! Do NOT hand over input/output entry as pointer reference.
+            //
+
+            // Retrieve connexion from input/output entry.
+            get_io_entry_element((void*) &c, io, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             // CAUTION! This test is necessary to avoid a "Segmentation fault"!
-            if (w != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
+            if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-//??                fwprintf(stdout, L"TEST Write xcb: %i\n", w);
+                // CAUTION! This test is necessary to avoid a "Segmentation fault"!
+                //?? if (w != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
-                // Use xcb connexion type.
-                xcb_connection_t* connexion = (xcb_connection_t*) c;
-                // Use xcb window type.
-                xcb_window_t window = w;
+                    //?? fwprintf(stdout, L"TEST Write xcb: %i\n", w);
 
-                // Map window on the screen, in order to make it visible.
-                xcb_map_window(connexion, window);
+                    // Use xcb connexion type.
+                    xcb_connection_t* connexion = (xcb_connection_t*) c;
+                    // Use xcb window type.
+                    xcb_window_t window = *w;
 
-                // Make sure all pending requests to the x server are sent.
-                // This is similar to "fflush" used for standard terminal output.
-                xcb_flush(connexion);
+                    // Map window on the screen, in order to make it visible.
+                    xcb_map_window(connexion, window);
+
+                    // Make sure all pending requests to the x server are sent.
+                    // This is similar to "fflush" used for standard terminal output.
+                    xcb_flush(connexion);
+
+/*??
+                } else {
+
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write xcb. The window is null.");
+                    fwprintf(stdout, L"Error: Could not write xcb. The window is null. w: %i\n", w);
+                }
+*/
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write xcb. The window is null.");
-
-                fwprintf(stdout, L"Error: Could not write xcb. The window is null. w: %i\n", w);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write xcb. The connexion is null.");
+                fwprintf(stdout, L"Error: Could not write xcb. The connexion is null. c: %i\n", c);
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write xcb. The connexion is null.");
-
-            fwprintf(stdout, L"Error: Could not write xcb. The connexion is null. c: %i\n", c);
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write xcb. There is no input/output x window system entry in the internal memory.");
+            fwprintf(stdout, L"Error: Could not write xcb. There is no input/output x window system entry in the internal memory. io: %i\n", io);
         }
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write xcb. There is no input/output x window system entry in the internal memory.");
-
-        fwprintf(stdout, L"Error: Could not write xcb. There is no input/output x window system entry in the internal memory. io: %i\n", io);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write xcb. The destination item (gui window id) is null.");
     }
 }
 

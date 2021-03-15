@@ -23,44 +23,46 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DISPLAY_WRITER_SOURCE
-#define DISPLAY_WRITER_SOURCE
+#ifndef CLIENT_DISPLAY_STARTER_SOURCE
+#define CLIENT_DISPLAY_STARTER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/streamer/writer/xcb/xcb_writer.c"
+    #include "../../../../executor/maintainer/starter/xcb/client_xcb_starter.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    //?? TODO: Add cocoa support for Apple
+//??    #include "../../../../executor/maintainer/starter/darwin_display/client_darwin_display_starter.c"
+    //?? TODO: Add cocoa support for apple.
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../../executor/streamer/writer/win32_display/win32_display_writer.c"
+    #include "../../../../executor/maintainer/starter/win32_display/client_win32_display_starter.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
- * Writes the source to the display.
+ * Starts up the display client (creates a window).
  *
- * @param p0 the destination data (gui window id)
- * @param p1 the internal memory data
+ * @param p0 the input/output entry
+ * @param p1 the window id
  */
-void write_display(void* p0, void* p1) {
+void startup_display_client(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write display.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup display client.");
 
 #if defined(__linux__) || defined(__unix__)
-    write_xcb(p0, p1);
+    startup_xcb_client(p0, p1);
 #elif defined(__APPLE__) && defined(__MACH__)
-    //?? TODO: Add cocoa support for Apple
+//??    startup_darwin_display_client(p0);
+    // Add cocoa support for apple
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    write_win32_display(p0, p1);
+    startup_win32_display_client(p0);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 
-/* DISPLAY_WRITER_SOURCE */
+/* CLIENT_DISPLAY_STARTER_SOURCE */
 #endif
