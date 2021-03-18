@@ -16,7 +16,8 @@ ______________
 
         CONTINUE WITH:
         * Make "gui" cybol application work again
-        * Look through and clean up "sensor.c" (or files in sub directory), since client list is NOT checked anymore for channels other than socket (is there a -1 initial value?)
+        * sensor is NOT the reason
+        * Look through and clean up receiver files, since client list is NOT checked anymore for channels other than socket (is there a -1 initial value?)
 
         SOLUTION (extract from document "design_decisions.txt"):
             When sensing/receiving a client request via socket, the corresponding
