@@ -98,20 +98,19 @@ void serialise_gui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         // Retrieve screen from input/output entry.
         get_io_entry_element((void*) &s, io, (void*) SCREEN_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Retrieve window from input/output entry.
-        get_io_entry_element((void*) &w, io, (void*) WINDOW_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        //?? get_io_entry_element((void*) &w, io, (void*) WINDOW_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Retrieve graphic context from input/output entry.
-        get_io_entry_element((void*) &gc, io, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        //?? get_io_entry_element((void*) &gc, io, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Retrieve font from input/output entry.
-        get_io_entry_element((void*) &f, io, (void*) FONT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        //?? get_io_entry_element((void*) &f, io, (void*) FONT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Retrieve win32 device context from input/output entry.
-        get_io_entry_element((void*) &dc, io, (void*) DEVICE_CONTEXT_WIN32_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        //?? get_io_entry_element((void*) &dc, io, (void*) DEVICE_CONTEXT_WIN32_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         serialise_gui_part_element_content(c, s, (void*) &w, (void*) &gc, (void*) &f, (void*) &dc, p0, p1, p2, p3, p4, p5, p6, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p7);
 
     } else {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui initial. There is no input/output x window system entry in the internal memory.");
-
         fwprintf(stdout, L"Warning: Could not serialise gui initial. There is no input/output x window system entry in the internal memory. io: %i\n", io);
     }
 }

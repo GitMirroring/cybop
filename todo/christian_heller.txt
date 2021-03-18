@@ -16,8 +16,126 @@ ______________
 
         CONTINUE WITH:
         * Make "gui" cybol application work again
-        * sensor is NOT the reason
+        * Sensor is NOT the reason
+        * Look through and clean up sender files, since client list is NOT checked anymore for channels other than socket (is there a -1 initial value?)
         * Look through and clean up receiver files, since client list is NOT checked anymore for channels other than socket (is there a -1 initial value?)
+
+        * Create in server: connexion, screen, graphic context, device context + Keep them in input/output entry
+        * Create in client: (only) window
+        * Create in serialiser: font for each drawable using one
+
+        * Keep window_id in cybol application
+        * Configure graphic context using function "xcb_change_gc"
+        * Use the same (but adjusted/configured) graphic context for all drawables, in serialiser
+
+        * Insert the following comment into the source code:
+            CAUTION! When a graphic context gets created, it is always related to a drawable.
+            Later changes of the graphic context are possible,
+            but the associated drawable CANNOT be changed anymore.
+            Therefore, a separate graphic context has to be created for each client window
+            and be stored parallel to the window identification WITHIN the CYBOL application.
+
+--
+MOVE to serialiser:
+
+            //
+            // The graphic context value mask.
+            //
+            // CAUTION! It is possible to set several attributes
+            // at the same time by OR'ing these values in valuemask.
+            //
+            // The values that a mask could take are given
+            // by the "xcb_gc_t" enumeration:
+            //
+            // enum xcb_gc_t {
+            //     XCB_GC_FUNCTION = 1,
+            //     XCB_GC_PLANE_MASK = 2,
+            //     XCB_GC_FOREGROUND = 4,
+            //     XCB_GC_BACKGROUND = 8,
+            //     XCB_GC_LINE_WIDTH = 16,
+            //     XCB_GC_LINE_STYLE = 32,
+            //     XCB_GC_CAP_STYLE = 64,
+            //     XCB_GC_JOIN_STYLE = 128,
+            //     XCB_GC_FILL_STYLE = 256,
+            //     XCB_GC_FILL_RULE = 512,
+            //     XCB_GC_TILE = 1024,
+            //     XCB_GC_STIPPLE = 2048,
+            //     XCB_GC_TILE_STIPPLE_ORIGIN_X = 4096,
+            //     XCB_GC_TILE_STIPPLE_ORIGIN_Y = 8192,
+            //     XCB_GC_FONT = 16384,
+            //     XCB_GC_SUBWINDOW_MODE = 32768,
+            //     XCB_GC_GRAPHICS_EXPOSURES = 65536,
+            //     XCB_GC_CLIP_ORIGIN_X = 131072,
+            //     XCB_GC_CLIP_ORIGIN_Y = 262144,
+            //     XCB_GC_CLIP_MASK = 524288,
+            //     XCB_GC_DASH_OFFSET = 1048576,
+            //     XCB_GC_DASH_LIST = 2097152,
+            //     XCB_GC_ARC_MODE = 4194304
+            // }
+            //
+            // CAUTION! Be careful when setting the values,
+            // as they HAVE TO FOLLOW the order of the enumeration.
+            //
+            //?? uint32_t gcm = XCB_GC_BACKGROUND | XCB_GC_FOREGROUND; //?? | XCB_GC_FONT;
+            //?? uint32_t gcm = XCB_GC_FOREGROUND | XCB_GC_GRAPHICS_EXPOSURES;
+            uint32_t gcm = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+            // The graphic context values.
+            //?? uint32_t gcv[2];
+            void* gcv = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+            //
+            // CAUTION! Initialise values BEFORE using
+            // them in function calls further below.
+            // Otherwise, drawing errors will occur.
+            //
+
+            //
+            // Initialise graphic context values.
+            //
+            // CAUTION! The index has to be in the
+            // SAME ORDER as given in the mask above.
+            //
+            //?? gcv[0] = (*st).black_pixel;
+            //?? gcv[1] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+/*??
+            gcv[0] = (*st).white_pixel;
+            gcv[1] = (*st).black_pixel;
+            //?? gcv[2] = font;
+*/
+
+            //
+            // Create graphic context.
+            //
+            // The graphics context can be used with any drawable
+            // that has the same root and depth as the specified drawable.
+            //
+            // CAUTION! It is possible to use more than one
+            // graphical context with a single window,
+            // in order to draw in multiple styles
+            // (different colors, different line widths etc).
+            //
+            // However, just ONE graphic context suffices here,
+            // since its styles get updated as needed
+            // with each new send / serialise gui function call.
+            //
+            // In order to be able to use a font, one has to create a
+            // graphic context that will contain the information about
+            // the color of the foreground and the background used
+            // when a text is drawn in a drawable.
+            //
+            // CAUTION! The last parametre has to be a pointer,
+            // and it already IS one, since it is an array.
+            //
+            //?? xcb_create_gc((xcb_connection_t*) c, (xcb_gcontext_t) gc, (xcb_drawable_t) w, gcm, gcv);
+            xcb_create_gc((xcb_connection_t*) c, (xcb_gcontext_t) gc, (xcb_drawable_t) w, gcm, gcv);
+
+            // Store graphic context in input/output entry.
+            //?? set_io_entry_element(p0, (void*) &gc, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            // Store delete window cookie in input/output entry.
+            //?? set_io_entry_element(p0, (void*) &dwc, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+--
 
         SOLUTION (extract from document "design_decisions.txt"):
             When sensing/receiving a client request via socket, the corresponding

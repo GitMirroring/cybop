@@ -45,6 +45,8 @@ void startup_xcb_server(void* p0) {
 
     // The connexion.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The screen.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // Allocate and open connexion.
@@ -55,20 +57,50 @@ void startup_xcb_server(void* p0) {
     //
     c = (void*) xcb_connect(*NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-    //
-    // Store various values in input/output entry.
-    //
-    // CAUTION! Do NOT use "overwrite_array" function here,
-    // since it adapts the array count and size.
-    // But the array's count and size are CONSTANT.
-    //
-    // CAUTION! Do NOT hand over input/output entry as pointer reference.
-    //
-    // CAUTION! Hand over values as pointer REFERENCE.
-    //
+    if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // Store connexion in input/output entry.
-    set_io_entry_element(p0, (void*) &c, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        // Get setup.
+        const xcb_setup_t* setup = xcb_get_setup((xcb_connection_t*) c);
+
+        if (setup != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            // Get screen iterator.
+            xcb_screen_iterator_t iter = xcb_setup_roots_iterator(setup);
+
+            //
+            // Get first screen.
+            //
+            // CAUTION! Do NOT allocate the screen manually here.
+            // It gets allocated through the connexion above.
+            //
+            s = (void*) iter.data;
+
+            //
+            // Store various values in input/output entry.
+            //
+            // CAUTION! Do NOT use "overwrite_array" function here,
+            // since it adapts the array count and size.
+            // But the array's count and size are CONSTANT.
+            //
+            // CAUTION! Do NOT hand over input/output entry as pointer reference.
+            //
+            // CAUTION! Hand over values as pointer REFERENCE.
+            //
+
+            // Store connexion in input/output entry.
+            set_io_entry_element(p0, (void*) &c, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            // Store screen in input/output entry.
+            set_io_entry_element(p0, (void*) &s, (void*) SCREEN_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup xcb server. The setup is null.");
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup xcb server. The connexion is null.");
+    }
 }
 
 /* SERVER_XCB_STARTER_SOURCE */
