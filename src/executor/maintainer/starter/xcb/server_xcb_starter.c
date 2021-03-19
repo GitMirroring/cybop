@@ -76,6 +76,105 @@ void startup_xcb_server(void* p0) {
             s = (void*) iter.data;
 
             //
+            // The graphic context value mask.
+            //
+            // CAUTION! It is possible to set several attributes
+            // at the same time by OR'ing these values in valuemask.
+            //
+            // The values that a mask could take are given
+            // by the "xcb_gc_t" enumeration:
+            //
+            // enum xcb_gc_t {
+            //     XCB_GC_FUNCTION = 1,
+            //     XCB_GC_PLANE_MASK = 2,
+            //     XCB_GC_FOREGROUND = 4,
+            //     XCB_GC_BACKGROUND = 8,
+            //     XCB_GC_LINE_WIDTH = 16,
+            //     XCB_GC_LINE_STYLE = 32,
+            //     XCB_GC_CAP_STYLE = 64,
+            //     XCB_GC_JOIN_STYLE = 128,
+            //     XCB_GC_FILL_STYLE = 256,
+            //     XCB_GC_FILL_RULE = 512,
+            //     XCB_GC_TILE = 1024,
+            //     XCB_GC_STIPPLE = 2048,
+            //     XCB_GC_TILE_STIPPLE_ORIGIN_X = 4096,
+            //     XCB_GC_TILE_STIPPLE_ORIGIN_Y = 8192,
+            //     XCB_GC_FONT = 16384,
+            //     XCB_GC_SUBWINDOW_MODE = 32768,
+            //     XCB_GC_GRAPHICS_EXPOSURES = 65536,
+            //     XCB_GC_CLIP_ORIGIN_X = 131072,
+            //     XCB_GC_CLIP_ORIGIN_Y = 262144,
+            //     XCB_GC_CLIP_MASK = 524288,
+            //     XCB_GC_DASH_OFFSET = 1048576,
+            //     XCB_GC_DASH_LIST = 2097152,
+            //     XCB_GC_ARC_MODE = 4194304
+            // }
+            //
+            // CAUTION! Be careful when setting the values,
+            // as they HAVE TO FOLLOW the order of the enumeration.
+            //
+            //?? uint32_t gcm = XCB_GC_BACKGROUND | XCB_GC_FOREGROUND; //?? | XCB_GC_FONT;
+            //?? uint32_t gcm = XCB_GC_FOREGROUND | XCB_GC_GRAPHICS_EXPOSURES;
+            uint32_t gcm = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+            // The graphic context values.
+            //?? uint32_t gcv[2];
+            void* gcv = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+            //
+            // Initialise graphic context values.
+            //
+            // CAUTION! Initialise values BEFORE using
+            // them in function calls further below.
+            // Otherwise, drawing errors will occur.
+            //
+            // CAUTION! The index has to be in the
+            // SAME ORDER as given in the mask above.
+            //
+            //?? gcv[0] = (*st).black_pixel;
+            //?? gcv[1] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+/*??
+            gcv[0] = (*st).white_pixel;
+            gcv[1] = (*st).black_pixel;
+            //?? gcv[2] = font;
+*/
+
+            //
+            // Create graphic context.
+            //
+            // Relation between graphic context and drawable:
+            // 1:n One graphic context can be used with all "like" drawables
+            //     of the same root (screen) and the same bit depth.
+            // n:1 Many graphic contexts can be assigned to one drawable,
+            //     e.g. to draw in multiple styles (colors, line widths, font).
+            //
+            // An x11 graphic context does not contain the memory buffer.
+            // Both the drawable and the graphic context are passed in
+            // to all the drawing operations.
+            //
+            // In some drawing libraries, the context references a
+            // current drawable (target surface), which may be changed.
+            // OpenGL also has a "current target" kind of concept.
+            //
+            // https://stackoverflow.com/questions/6818468/what-exactly-is-a-graphic-context
+            //
+            // CAUTION! Only ONE graphic context is used in cyboi,
+            // since its styles get updated as needed in the serialiser,
+            // with each new send gui function call.
+            //
+            // In order to be able to use a font, one has to create a
+            // graphic context that will contain the information about
+            // the color of the foreground and the background used
+            // when a text is drawn in a drawable.
+            //
+            // Parametres:
+            // - the drawable is used inside to get the root and bit depth
+            // - the last parametre has to be a pointer, and it already IS one,
+            //   since it is an array
+            //
+            xcb_create_gc((xcb_connection_t*) c, (xcb_gcontext_t) gc, (xcb_drawable_t) w, gcm, gcv);
+
+            //
             // Store various values in input/output entry.
             //
             // CAUTION! Do NOT use "overwrite_array" function here,
@@ -91,6 +190,8 @@ void startup_xcb_server(void* p0) {
             set_io_entry_element(p0, (void*) &c, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
             // Store screen in input/output entry.
             set_io_entry_element(p0, (void*) &s, (void*) SCREEN_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            // Store graphic context in input/output entry.
+            set_io_entry_element(p0, (void*) &gc, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         } else {
 

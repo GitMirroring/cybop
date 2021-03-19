@@ -312,6 +312,9 @@ void startup_xcb_client(void* p0, void* p1) {
             fwprintf(stdout, L"TEST: Startup xcb client. (*test).atom: %i\n", (*test).atom);
 */
 
+            // Store delete window cookie in input/output entry.
+            //?? set_io_entry_element(p0, (void*) &dwc, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup xcb client. The screen is null.");
