@@ -55,10 +55,8 @@ void serialise_gui_part_element(void* p0, void* p1, void* p2, void* p3, void* p4
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui part element.");
 
-/*??
-    fwprintf(stdout, L"TEST Serialise gui part element. Source model index p7: %i\n", p7);
-    fwprintf(stdout, L"TEST Serialise gui part element. Source model index *p7: %i\n", *((int*) p7));
-*/
+    //?? fwprintf(stdout, L"TEST Serialise gui part element. Source model index p7: %i\n", p7);
+    //?? fwprintf(stdout, L"TEST Serialise gui part element. Source model index *p7: %i\n", *((int*) p7));
 
     // The part.
     void* part = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -86,8 +84,11 @@ void serialise_gui_part_element(void* p0, void* p1, void* p2, void* p3, void* p4
     copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+    //
     // Serialise part element content.
+    //
     // CAUTION! Do not forget to hand over whole properties.
+    //
     serialise_gui_part_element_content(p0, p1, p2, p3, p4, p5, md, mc, pd, pc, p10, p11, p12, p13, p14, fd);
 }
 

@@ -120,7 +120,12 @@ void startup_xcb_server(void* p0) {
             //
             uint32_t gcm = XCB_GC_FOREGROUND | XCB_GC_BACKGROUND;
 
+            //
             // The graphic context values.
+            //
+            // CAUTION! They have to be IN THE SAME ORDER
+            // as given in the value mask above.
+            //
             uint32_t gcv[2];
 
             //

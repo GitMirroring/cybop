@@ -69,10 +69,8 @@ void serialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui part element content.");
 
-/*??
-    fwprintf(stdout, L"TEST: Serialise gui part element content. model count: %i\n", *((int*) p7));
-    fwprintf(stdout, L"TEST: Serialise gui part element content. properties count: %i\n", *((int*) p9));
-*/
+    //?? fwprintf(stdout, L"TEST: Serialise gui part element content. model count: %i\n", *((int*) p7));
+    //?? fwprintf(stdout, L"TEST: Serialise gui part element content. properties count: %i\n", *((int*) p9));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -109,12 +107,10 @@ void serialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
         calculate_integer_add((void*) &px, (void*) &x);
         calculate_integer_add((void*) &py, (void*) &y);
 
-/*??
-        fwprintf(stdout, L"TEST: Serialise gui part element content. child element x: %i\n", x);
-        fwprintf(stdout, L"TEST: Serialise gui part element content. child element y: %i\n", y);
-        fwprintf(stdout, L"TEST: Serialise gui part element content. new parent px: %i\n", px);
-        fwprintf(stdout, L"TEST: Serialise gui part element content. new parent py: %i\n", py);
-*/
+        //?? fwprintf(stdout, L"TEST: Serialise gui part element content. child element x: %i\n", x);
+        //?? fwprintf(stdout, L"TEST: Serialise gui part element content. child element y: %i\n", y);
+        //?? fwprintf(stdout, L"TEST: Serialise gui part element content. new parent px: %i\n", px);
+        //?? fwprintf(stdout, L"TEST: Serialise gui part element content. new parent py: %i\n", py);
 
         // Serialise embedded model.
         serialise_gui(p0, p1, p2, p3, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL, p6, p7, p8, p9, p10, p11, p12, (void*) &px, (void*) &py, p15);
@@ -140,9 +136,12 @@ void serialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
         //
         void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+        //
         // Allocate text item.
+        //
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
+        //
         allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         // Serialise embedded model into text item.

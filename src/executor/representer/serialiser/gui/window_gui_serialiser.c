@@ -69,7 +69,7 @@ void serialise_gui_window(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui window.");
 
-//??fwprintf(stdout, L"TEST Serialise gui window. Connexion p0: %i\n", p0);
+    //?? fwprintf(stdout, L"TEST Serialise gui window. Connexion p0: %i\n", p0);
 
     // The super part.
     void* super = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -85,12 +85,10 @@ void serialise_gui_window(void* p0, void* p1, void* p2, void* p3, void* p4, void
     void* fg = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The border part.
     void* bo = *NULL_POINTER_STATE_CYBOI_MODEL;
-/*??
     // The whole position part.
-    void* wp = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //?? void* wp = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The whole size part.
-    void* ws = *NULL_POINTER_STATE_CYBOI_MODEL;
-*/
+    //?? void* ws = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The super part model item.
     void* superm = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -106,12 +104,10 @@ void serialise_gui_window(void* p0, void* p1, void* p2, void* p3, void* p4, void
     void* fgm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The border part model item.
     void* bom = *NULL_POINTER_STATE_CYBOI_MODEL;
-/*??
     // The whole position part model item.
-    void* wpm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //?? void* wpm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The whole size part model item.
-    void* wsm = *NULL_POINTER_STATE_CYBOI_MODEL;
-*/
+    //?? void* wsm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The super part model item data, count.
     void* supermd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -132,21 +128,17 @@ void serialise_gui_window(void* p0, void* p1, void* p2, void* p3, void* p4, void
     // The border part model item data, count.
     void* bomd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* bomc = *NULL_POINTER_STATE_CYBOI_MODEL;
-/*??
     // The whole position part model item data.
-    void* wpmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //?? void* wpmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The whole size part model item data.
-    void* wsmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-*/
+    //?? void* wsmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-/*??
     // The whole position part model item data x, y.
-    int wpmdx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int wpmdy = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    //?? int wpmdx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    //?? int wpmdy = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The whole size part model item data width, height.
-    int wsmdw = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int wsmdh = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-*/
+    //?? int wsmdw = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    //?? int wsmdh = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get parts.
     get_part_name((void*) &super, p7, (void*) SUPER_CYBOL_NAME, (void*) SUPER_CYBOL_NAME_COUNT, p8, p9, p10, p11);
@@ -155,7 +147,7 @@ void serialise_gui_window(void* p0, void* p1, void* p2, void* p3, void* p4, void
     get_part_name((void*) &it, p7, (void*) ICON_TITLE_GUI_STATE_CYBOL_NAME, (void*) ICON_TITLE_GUI_STATE_CYBOL_NAME_COUNT, p8, p9, p10, p11);
     get_part_name((void*) &bg, p7, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME_COUNT, p8, p9, p10, p11);
     get_part_name((void*) &fg, p7, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME_COUNT, p8, p9, p10, p11);
-//??    get_part_name((void*) &bo, p7, (void*) BORDER_GUI_STATE_CYBOL_NAME, (void*) BORDER_GUI_STATE_CYBOL_NAME_COUNT, p8, p9, p10, p11);
+    //?? get_part_name((void*) &bo, p7, (void*) BORDER_GUI_STATE_CYBOL_NAME, (void*) BORDER_GUI_STATE_CYBOL_NAME_COUNT, p8, p9, p10, p11);
 
     // Get super part model item.
     copy_array_forward((void*) &superm, super, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -195,14 +187,12 @@ void serialise_gui_window(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     if (bo == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-//??        get_part_name((void*) &bo, supermd, (void*) BORDER_GUI_STATE_CYBOL_NAME, (void*) BORDER_GUI_STATE_CYBOL_NAME_COUNT, supermc, p9, p10, p11);
+        //?? get_part_name((void*) &bo, supermd, (void*) BORDER_GUI_STATE_CYBOL_NAME, (void*) BORDER_GUI_STATE_CYBOL_NAME_COUNT, supermc, p9, p10, p11);
     }
 
-/*??
     // Get parts from whole properties.
-    get_part_name((void*) &wp, p7, (void*) POSITION_GUI_STATE_CYBOL_NAME, (void*) POSITION_GUI_STATE_CYBOL_NAME_COUNT, p8, p9, p10, p11);
-    get_part_name((void*) &ws, p7, (void*) SIZE_GUI_STATE_CYBOL_NAME, (void*) SIZE_GUI_STATE_CYBOL_NAME_COUNT, p8, p9, p10, p11);
-*/
+    //?? get_part_name((void*) &wp, p7, (void*) POSITION_GUI_STATE_CYBOL_NAME, (void*) POSITION_GUI_STATE_CYBOL_NAME_COUNT, p8, p9, p10, p11);
+    //?? get_part_name((void*) &ws, p7, (void*) SIZE_GUI_STATE_CYBOL_NAME, (void*) SIZE_GUI_STATE_CYBOL_NAME_COUNT, p8, p9, p10, p11);
 
     // Get part model items.
     copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -212,11 +202,9 @@ void serialise_gui_window(void* p0, void* p1, void* p2, void* p3, void* p4, void
     copy_array_forward((void*) &fgm, fg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &bom, bo, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-/*??
     // Get part model items from whole properties.
-    copy_array_forward((void*) &wpm, wp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &wsm, ws, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-*/
+    //?? copy_array_forward((void*) &wpm, wp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    //?? copy_array_forward((void*) &wsm, ws, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Get part model item data.
     copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -230,26 +218,20 @@ void serialise_gui_window(void* p0, void* p1, void* p2, void* p3, void* p4, void
     copy_array_forward((void*) &bomd, bom, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &bomc, bom, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-/*??
     // Get part model item data from whole properties.
-    copy_array_forward((void*) &wpmd, wpm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &wsmd, wsm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-*/
+    //?? copy_array_forward((void*) &wpmd, wpm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    //?? copy_array_forward((void*) &wsmd, wsm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-/*??
     // Get position coordinates from whole properties.
-    copy_array_forward((void*) &wpmdx, wpmd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_0_VECTOR_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &wpmdy, wpmd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_1_VECTOR_STATE_CYBOI_NAME);
+    //?? copy_array_forward((void*) &wpmdx, wpmd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_0_VECTOR_STATE_CYBOI_NAME);
+    //?? copy_array_forward((void*) &wpmdy, wpmd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_1_VECTOR_STATE_CYBOI_NAME);
     // Get size coordinates from whole properties.
-    copy_array_forward((void*) &wsmdx, wsmd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_0_VECTOR_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &wsmdy, wsmd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_1_VECTOR_STATE_CYBOI_NAME);
-*/
+    //?? copy_array_forward((void*) &wsmdx, wsmd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_0_VECTOR_STATE_CYBOI_NAME);
+    //?? copy_array_forward((void*) &wsmdy, wsmd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_1_VECTOR_STATE_CYBOI_NAME);
 
-/*??
     // Adjust position coordinates by adding the origo (whole position).
-    calculate_integer_add((void*) &pmdx, (void*) &wpmdx);
-    calculate_integer_add((void*) &pmdy, (void*) &wpmdy);
-*/
+    //?? calculate_integer_add((void*) &pmdx, (void*) &wpmdx);
+    //?? calculate_integer_add((void*) &pmdy, (void*) &wpmdy);
 
 #if defined(__linux__) || defined(__unix__)
     serialise_x_window_system_window(p0, p1, p3, p4, p5, p6, tmd, tmc, itmd, itmc);

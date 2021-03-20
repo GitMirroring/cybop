@@ -74,6 +74,39 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
                     // CAUTION! It is possible to set several attributes
                     // at the same time by OR'ing these values in valuemask.
                     //
+                    // The values that a mask could take are given
+                    // by the "xcb_gc_t" enumeration:
+                    //
+                    // enum xcb_gc_t {
+                    //     XCB_GC_FUNCTION = 1,
+                    //     XCB_GC_PLANE_MASK = 2,
+                    //     XCB_GC_FOREGROUND = 4,
+                    //     XCB_GC_BACKGROUND = 8,
+                    //     XCB_GC_LINE_WIDTH = 16,
+                    //     XCB_GC_LINE_STYLE = 32,
+                    //     XCB_GC_CAP_STYLE = 64,
+                    //     XCB_GC_JOIN_STYLE = 128,
+                    //     XCB_GC_FILL_STYLE = 256,
+                    //     XCB_GC_FILL_RULE = 512,
+                    //     XCB_GC_TILE = 1024,
+                    //     XCB_GC_STIPPLE = 2048,
+                    //     XCB_GC_TILE_STIPPLE_ORIGIN_X = 4096,
+                    //     XCB_GC_TILE_STIPPLE_ORIGIN_Y = 8192,
+                    //     XCB_GC_FONT = 16384,
+                    //     XCB_GC_SUBWINDOW_MODE = 32768,
+                    //     XCB_GC_GRAPHICS_EXPOSURES = 65536,
+                    //     XCB_GC_CLIP_ORIGIN_X = 131072,
+                    //     XCB_GC_CLIP_ORIGIN_Y = 262144,
+                    //     XCB_GC_CLIP_MASK = 524288,
+                    //     XCB_GC_DASH_OFFSET = 1048576,
+                    //     XCB_GC_DASH_LIST = 2097152,
+                    //     XCB_GC_ARC_MODE = 4194304
+                    // }
+                    //
+                    // CAUTION! Be careful when setting the values,
+                    // as they HAVE TO FOLLOW THE ORDER of the enumeration.
+                    // https://www.x.org/releases/X11R7.6/doc/libxcb/tutorial/
+                    //
                     uint32_t m = XCB_GC_FOREGROUND
                         | XCB_GC_BACKGROUND
                         | XCB_GC_LINE_WIDTH
