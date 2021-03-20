@@ -73,11 +73,11 @@ void startup_xcb_server(void* p0) {
             // The xcb screen type value.
             xcb_screen_t* st = (xcb_screen_t*) s;
 
-            // Allocate xid for default graphic context.
-            int gc = (int) xcb_generate_id((xcb_connection_t*) c);
-
             // Get root window of the screen.
             int r = (*st).root;
+
+            // Allocate xid for default graphic context.
+            int gc = (int) xcb_generate_id((xcb_connection_t*) c);
 
             //
             // The graphic context value mask.
@@ -115,34 +115,23 @@ void startup_xcb_server(void* p0) {
             // }
             //
             // CAUTION! Be careful when setting the values,
-            // as they HAVE TO FOLLOW the order of the enumeration.
+            // as they HAVE TO FOLLOW THE ORDER of the enumeration.
             // https://www.x.org/releases/X11R7.6/doc/libxcb/tutorial/
             //
-            //?? uint32_t gcm = XCB_GC_BACKGROUND | XCB_GC_FOREGROUND; //?? | XCB_GC_FONT;
-            //?? uint32_t gcm = XCB_GC_FOREGROUND | XCB_GC_GRAPHICS_EXPOSURES;
-            uint32_t gcm = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            uint32_t gcm = XCB_GC_FOREGROUND | XCB_GC_BACKGROUND;
 
             // The graphic context values.
-            //?? uint32_t gcv[2];
-            void* gcv = *NULL_POINTER_STATE_CYBOI_MODEL;
+            uint32_t gcv[2];
 
             //
-            // Initialise graphic context values.
-            //
-            // CAUTION! Initialise values BEFORE using
-            // them in function calls further below.
-            // Otherwise, drawing errors will occur.
+            // Initialise graphic context values with
+            // black and white pixels of the screen.
             //
             // CAUTION! The index has to be in the
             // SAME ORDER as given in the mask above.
             //
-            //?? gcv[0] = (*st).black_pixel;
-            //?? gcv[1] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-/*??
-            gcv[0] = (*st).white_pixel;
-            gcv[1] = (*st).black_pixel;
-            //?? gcv[2] = font;
-*/
+            gcv[0] = (*st).black_pixel;
+            gcv[1] = (*st).white_pixel;
 
             //
             // Create graphic context.

@@ -92,8 +92,9 @@
  * @param p16 the knowledge memory part (pointer reference)
  * @param p17 the stack memory item
  * @param p18 the internal memory data
+ * @param p19 the destination item (currently only needed for gui window id)
  */
-void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18) {
+void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise.");
 
@@ -139,7 +140,13 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_gui_initial(p10, p11, p12, p13, p16, p17, p18, p8);
+            // The destination window id item data.
+            void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+            // Get destination window id item data.
+            copy_array_forward((void*) &w, p19, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+            serialise_gui_initial(w, p10, p11, p12, p13, p16, p17, p18, p8);
         }
     }
 
@@ -197,7 +204,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_authority(p0, p10, p11, p12);
+            //?? serialise_authority(p0, p10, p11, p12);
         }
     }
 
@@ -207,7 +214,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_xdt(p0, p10, p11, p12, p13, p7);
+            //?? serialise_xdt(p0, p10, p11, p12, p13, p7);
         }
     }
 
@@ -227,7 +234,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_xdt(p0, p10, p11, p12, p13, p7);
+            //?? serialise_xdt(p0, p10, p11, p12, p13, p7);
         }
     }
 
@@ -237,10 +244,12 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // The indentation level.
             //
             // CAUTION! Do NOT forward the NUMBER_0_INTEGER_STATE_CYBOI_MODEL constant directly,
             // since the indentation level value gets changed in the following functions!
+            //
             int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // The indentation flag part.
             void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -267,7 +276,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_xdt(p0, p10, p11, p12, p13, p7);
+            //?? serialise_xdt(p0, p10, p11, p12, p13, p7);
         }
     }
 
@@ -277,9 +286,12 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // The tree level.
+            //
             // CAUTION! Do NOT forward the NUMBER_0_INTEGER_STATE_CYBOI_MODEL constant directly,
             // since the tree level value gets changed in the following functions!
+            //
             int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
             serialise_model_diagram_part_element_content(p0, (void*) L"[selected_node]", (void*) NUMBER_15_INTEGER_STATE_CYBOI_MODEL, p8, p10, p11, p12, p13, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l);
@@ -292,7 +304,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_uri(p0, p10);
+            //?? serialise_uri(p0, p10);
         }
     }
 
@@ -302,12 +314,15 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             //?? TODO: Uncomment this later again!
-            //?? It is already implemented, but too large (4 MiB),
-            //?? so that compilation takes much too long.
-            //?? The xDT de-/serialisation should be moved
-            //?? into a library in the future.
-//??            serialise_xdt_field_description(p0, p10);
+            //
+            // It is already implemented, but too large (4 MiB),
+            // so that compilation takes much too long.
+            // The xDT de-/serialisation should be moved
+            // into a library in the future.
+            //
+            //?? serialise_xdt_field_description(p0, p10);
         }
     }
 

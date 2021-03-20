@@ -21,6 +21,7 @@
 2021-03-20  Christian Heller  <christian.heller@cybop.org>
 
         * Store default graphic context initialised with the screen's root window bit depth in input/output entry, in file "server_xcb_starter.c"
+        * Forward receiver window id to gui serialiser, in files "sender.c", "serialiser.c", "initial_gui_serialiser.c"
 
 2021-03-15  Christian Heller  <christian.heller@cybop.org>
 

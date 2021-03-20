@@ -27,7 +27,6 @@
 #define SERIALISE_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/representation/serialise_representation_logic_cybol_name.c"
@@ -47,8 +46,6 @@
  * - source (required): the source part, e.g. an integer number
  * - format (required): the source part format (type)
  * - language (required): the source part language (cybol, http_request, xdt etc.)
- *
- * Constraints:
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -154,7 +151,7 @@ void apply_serialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //
     // CAUTION! Hand over NULL for "clear" and "initial call" flags,
     // since they are only needed when sending data to a terminal.
-    serialise(dm, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, lmd, lpd, lpc, fmd, td, smd, smc, spd, spc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p3, p4);
+    serialise(dm, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, lmd, lpd, lpc, fmd, td, smd, smc, spd, spc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // Deallocate type item.
     deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);

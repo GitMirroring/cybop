@@ -41,16 +41,17 @@
 /**
  * Initialises the gui serialiser.
  *
- * @param p0 the source model data
- * @param p1 the source model count
- * @param p2 the source properties data
- * @param p3 the source properties count
- * @param p4 the knowledge memory part (pointer reference)
- * @param p5 the stack memory item
- * @param p6 the internal memory data
- * @param p7 the format
+ * @param p0 the destination window id
+ * @param p1 the source model data
+ * @param p2 the source model count
+ * @param p3 the source properties data
+ * @param p4 the source properties count
+ * @param p5 the knowledge memory part (pointer reference)
+ * @param p6 the stack memory item
+ * @param p7 the internal memory data
+ * @param p8 the format
  */
-void serialise_gui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void serialise_gui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui initial.");
 
@@ -60,9 +61,7 @@ void serialise_gui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get display input/output entry from internal memory.
-    copy_array_forward((void*) &io, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
-
-//??    fwprintf(stdout, L"TEST Serialise gui initial. io: %i\n", io);
+    copy_array_forward((void*) &io, p7, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -72,8 +71,6 @@ void serialise_gui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The screen.
         void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The window.
-        int w = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
         // The graphic context.
         int gc = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
         // The font.
@@ -97,16 +94,14 @@ void serialise_gui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         get_io_entry_element((void*) &c, io, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Retrieve screen from input/output entry.
         get_io_entry_element((void*) &s, io, (void*) SCREEN_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Retrieve window from input/output entry.
-        //?? get_io_entry_element((void*) &w, io, (void*) WINDOW_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Retrieve graphic context from input/output entry.
-        //?? get_io_entry_element((void*) &gc, io, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        get_io_entry_element((void*) &gc, io, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Retrieve font from input/output entry.
         //?? get_io_entry_element((void*) &f, io, (void*) FONT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Retrieve win32 device context from input/output entry.
-        //?? get_io_entry_element((void*) &dc, io, (void*) DEVICE_CONTEXT_WIN32_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        get_io_entry_element((void*) &dc, io, (void*) DEVICE_CONTEXT_WIN32_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-        serialise_gui_part_element_content(c, s, (void*) &w, (void*) &gc, (void*) &f, (void*) &dc, p0, p1, p2, p3, p4, p5, p6, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p7);
+        serialise_gui_part_element_content(c, s, p0, (void*) &gc, (void*) &f, (void*) &dc, p1, p2, p3, p4, p5, p6, p7, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p8);
 
     } else {
 

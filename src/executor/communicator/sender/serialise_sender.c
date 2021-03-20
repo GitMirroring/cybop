@@ -61,15 +61,16 @@
  * @param p18 the knowledge memory part (pointer reference)
  * @param p19 the stack memory item
  * @param p20 the internal memory data
+ * @param p21 the destination item (currently only needed for gui window id)
  */
-void send_serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20) {
+void send_serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21) {
 
     if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send serialise.");
 
         // Serialise message.
-        serialise(p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20);
+        serialise(p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21);
 
         //
         // Get item data, count.
@@ -81,9 +82,9 @@ void send_serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         copy_array_forward(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         copy_array_forward(p1, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-//?? fwprintf(stdout, L"TEST: send serialise *c: %i \n", *((int*) c));
-//?? fwprintf(stdout, L"TEST: send serialise d: %i \n", d);
-//?? fwprintf(stdout, L"TEST: send serialise d as char*: %s \n", (char*) d);
+        //?? fwprintf(stdout, L"TEST: send serialise *c: %i \n", *((int*) c));
+        //?? fwprintf(stdout, L"TEST: send serialise d: %i \n", d);
+        //?? fwprintf(stdout, L"TEST: send serialise d as char*: %s \n", (char*) d);
 
     } else {
 

@@ -20,7 +20,7 @@ ______________
         * Look through and clean up sender files, since client list is NOT checked anymore for channels other than socket (is there a -1 initial value?)
         * Look through and clean up receiver files, since client list is NOT checked anymore for channels other than socket (is there a -1 initial value?)
 
-        * Configure graphic context using function "xcb_change_gc", in function "serialise"
+        * Configure graphic context using function "xcb_change_gc", in gui serialiser
 
         * Create in server: connexion, screen, graphic context, device context
         * Create in client: (only) window
