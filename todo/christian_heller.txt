@@ -20,16 +20,11 @@ ______________
         * Look through and clean up sender files, since client list is NOT checked anymore for channels other than socket (is there a -1 initial value?)
         * Look through and clean up receiver files, since client list is NOT checked anymore for channels other than socket (is there a -1 initial value?)
 
-        CAUTION! The graphic context CANNOT be created in function:
-        - "startup_xcb_server", since a drawable window is yet missing
-        - "startup_xcb_client", since it should not be necessary to keep it separately in the cybol application
-        TODO NEXT: Therefore, the graphic context should get created with each new call to function "serialise".
-        --> It can then be configured for each sub element of a window, using function "xcb_change_gc".
-        --> MOVE creation of graphic context from "startup_xcb_server" to serialiser
+        * Configure graphic context using function "xcb_change_gc", in function "serialise"
 
-        * Create in server: connexion, screen
+        * Create in server: connexion, screen, graphic context, device context
         * Create in client: (only) window
-        * Create in serialiser: graphic context, device context, font
+        * Create in serialiser: font
         * OPEN question: Where to store the delete_window cookie, which is specific for one window?
         * Keep window_id in cybol application
 

@@ -43,11 +43,6 @@ void startup_xcb_server(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup xcb server.");
 
-    // The connexion.
-    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The screen.
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-
     //
     // Allocate and open connexion.
     //
@@ -55,7 +50,7 @@ void startup_xcb_server(void* p0) {
     // The xcb_connection_t is a structure containing
     // all data needed to communicate with an x server.
     //
-    c = (void*) xcb_connect(*NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    void* c = (void*) xcb_connect(*NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -73,7 +68,16 @@ void startup_xcb_server(void* p0) {
             // CAUTION! Do NOT allocate the screen manually here.
             // It gets allocated through the connexion above.
             //
-            s = (void*) iter.data;
+            void* s = (void*) iter.data;
+
+            // The xcb screen type value.
+            xcb_screen_t* st = (xcb_screen_t*) s;
+
+            // Allocate xid for default graphic context.
+            int gc = (int) xcb_generate_id((xcb_connection_t*) c);
+
+            // Get root window of the screen.
+            int r = (*st).root;
 
             //
             // The graphic context value mask.
@@ -112,6 +116,7 @@ void startup_xcb_server(void* p0) {
             //
             // CAUTION! Be careful when setting the values,
             // as they HAVE TO FOLLOW the order of the enumeration.
+            // https://www.x.org/releases/X11R7.6/doc/libxcb/tutorial/
             //
             //?? uint32_t gcm = XCB_GC_BACKGROUND | XCB_GC_FOREGROUND; //?? | XCB_GC_FONT;
             //?? uint32_t gcm = XCB_GC_FOREGROUND | XCB_GC_GRAPHICS_EXPOSURES;
@@ -142,11 +147,14 @@ void startup_xcb_server(void* p0) {
             //
             // Create graphic context.
             //
+            // It is used to store general drawing parameters,
+            // e.g. colour, line width, font.
+            //
             // Relation between graphic context and drawable:
             // 1:n One graphic context can be used with all "like" drawables
-            //     of the same root (screen) and the same bit depth.
+            //     of the same screen root window and the same bit depth.
             // n:1 Many graphic contexts can be assigned to one drawable,
-            //     e.g. to draw in multiple styles (colors, line widths, font).
+            //     e.g. to draw in multiple styles.
             //
             // An x11 graphic context does not contain the memory buffer.
             // Both the drawable and the graphic context are passed in
@@ -168,11 +176,10 @@ void startup_xcb_server(void* p0) {
             // when a text is drawn in a drawable.
             //
             // Parametres:
-            // - the drawable is used inside to get the root and bit depth
-            // - the last parametre has to be a pointer, and it already IS one,
-            //   since it is an array
+            // - the screen root window drawable is used inside to get the bit depth
+            // - the last parametre has to be a pointer, and it already IS one, since it is an array
             //
-            xcb_create_gc((xcb_connection_t*) c, (xcb_gcontext_t) gc, (xcb_drawable_t) w, gcm, gcv);
+            xcb_create_gc((xcb_connection_t*) c, (xcb_gcontext_t) gc, (xcb_drawable_t) r, gcm, gcv);
 
             //
             // Store various values in input/output entry.
@@ -190,7 +197,7 @@ void startup_xcb_server(void* p0) {
             set_io_entry_element(p0, (void*) &c, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
             // Store screen in input/output entry.
             set_io_entry_element(p0, (void*) &s, (void*) SCREEN_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-            // Store graphic context in input/output entry.
+            // Store default graphic context in input/output entry.
             set_io_entry_element(p0, (void*) &gc, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         } else {

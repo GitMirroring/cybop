@@ -53,8 +53,6 @@ void startup_xcb_client(void* p0, void* p1) {
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The window.
     int w = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The graphic context.
-    int gc = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The delete window cookie.
     void* dwc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -239,9 +237,8 @@ void startup_xcb_client(void* p0, void* p1) {
                 | XCB_EVENT_MASK_COLOR_MAP_CHANGE
                 | XCB_EVENT_MASK_OWNER_GRAB_BUTTON;
 
-            // Allocate xid for window, graphic context, font.
+            // Allocate xid for window.
             w = (int) xcb_generate_id((xcb_connection_t*) c);
-            gc = (int) xcb_generate_id((xcb_connection_t*) c);
 
             // Create window.
             xcb_create_window((xcb_connection_t*) c, // connexion

@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-03-20  Christian Heller  <christian.heller@cybop.org>
+
+        * Store default graphic context initialised with the screen's root window bit depth in input/output entry, in file "server_xcb_starter.c"
+
 2021-03-15  Christian Heller  <christian.heller@cybop.org>
 
         * Think through unified handling of id/port in socket/gui/tui
