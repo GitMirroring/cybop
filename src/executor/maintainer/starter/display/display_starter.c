@@ -48,6 +48,8 @@ void startup_display(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup display.");
 
+    fwprintf(stdout, L"Test: Startup display. p3: %i\n", p3);
+
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 

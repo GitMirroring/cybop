@@ -47,6 +47,8 @@ void startup_xcb_client(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup xcb client.");
 
+    fwprintf(stdout, L"Test: Startup xcb client. p0: %i\n", p0);
+
     // The connexion.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The screen.

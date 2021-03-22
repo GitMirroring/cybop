@@ -67,6 +67,8 @@ void startup_details(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup details.");
 
+    fwprintf(stdout, L"Test: Startup details. p22: %i\n", p22);
+
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 

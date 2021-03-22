@@ -14,6 +14,11 @@
 WUI and Socket
 ______________
 
+        * Solve problem that display clients (windows) are never created due to file "io_starter.c",
+            where an io entry already exists from the display server, so that the function "startup_details" is never called
+            --> think through handling of services
+            --> actually only sockets use a port as id, so why handle other services the same way
+
         CONTINUE WITH:
         * Make "gui" cybol application work again
         * Sensor is NOT the reason

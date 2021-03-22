@@ -66,6 +66,9 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup io.");
 
+    fwprintf(stdout, L"Test: Startup io. io_base *p23: %i\n", *((int*) p23));
+    fwprintf(stdout, L"Test: Startup io. service_id *p1: %i\n", *((int*) p1));
+
     // The input/output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
