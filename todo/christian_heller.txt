@@ -20,6 +20,7 @@ ______________
         * Look through and clean up sender files, since client list is NOT checked anymore for channels other than socket (is there a -1 initial value?)
         * Look through and clean up receiver files, since client list is NOT checked anymore for channels other than socket (is there a -1 initial value?)
 
+        * Adapt shutter to new display client (window identification parametre)
         * Adjust font in graphic context of file "context_x_window_system_serialiser.c"
 
         * Create in server: connexion, screen, graphic context, device context

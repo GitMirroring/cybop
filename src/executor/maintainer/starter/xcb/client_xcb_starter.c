@@ -41,7 +41,7 @@
  * Starts up an x window system client (a window).
  *
  * @param p0 the input/output entry
- * @param p1 the window id
+ * @param p1 the window identification
  */
 void startup_xcb_client(void* p0, void* p1) {
 
@@ -125,12 +125,6 @@ void startup_xcb_client(void* p0, void* p1) {
             uint32_t wm = XCB_CW_BACK_PIXEL | XCB_CW_EVENT_MASK;
             // The window values.
             uint32_t wv[2];
-
-            //
-            // CAUTION! Initialise values BEFORE using
-            // them in function calls further below.
-            // Otherwise, drawing errors will occur.
-            //
 
             //
             // Initialise window background.
@@ -252,6 +246,8 @@ void startup_xcb_client(void* p0, void* p1) {
                 (*st).root_visual, // visual
                 wm, wv); // mask and values
 
+            fwprintf(stdout, L"TEST: Startup xcb client. w: %i\n", w);
+
             //
             // Create delete window cookie.
             //
@@ -287,7 +283,7 @@ void startup_xcb_client(void* p0, void* p1) {
             // It gets freed at system shutdown.
             //
 
-            // Copy window as id to corresponding parametre.
+            // Copy window identification to corresponding parametre.
             copy_integer(p1, (void*) &w);
 
             //
@@ -315,11 +311,13 @@ void startup_xcb_client(void* p0, void* p1) {
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup xcb client. The screen is null.");
+            fwprintf(stdout, L"Error: Could not startup xcb client. The screen is null. s: %i\n", s);
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup xcb client. The connexion is null.");
+        fwprintf(stdout, L"Error: Could not startup xcb client. The connexion is null. c: %i\n", c);
     }
 }
 

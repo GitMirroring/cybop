@@ -42,6 +42,9 @@
  * - channel (required): the channel on which to startup a service (serial, terminal, display, socket ...)
  * - id (optional): the service identification of a terminal/display/socket etc., e.g. socket port 80; if missing, zero will be used (first io entry)
  *
+ * Expected parametres only for channel "display":
+ * - client (required): the window id (only when in client mode)
+ *
  * Expected parametres only for channel "serial":
  * - filename (required): the filename
  * - baudrate (optional): the filename
@@ -72,6 +75,8 @@ void apply_startup(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The service id part.
     void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The display client part.
+    void* display_cl = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The serial filename part.
     void* serial_f = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The serial baudrate part.
@@ -101,6 +106,8 @@ void apply_startup(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The service id part model item.
     void* idm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The display client part model item.
+    void* display_clm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The serial filename part model item.
     void* serial_fm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The serial baudrate part model item.
@@ -130,6 +137,8 @@ void apply_startup(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The service id part model item data.
     void* idmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The display client part model item data.
+    void* display_clmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The serial filename part model item data, count.
     void* serial_fmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* serial_fmc = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -166,6 +175,9 @@ void apply_startup(void* p0, void* p1, void* p2, void* p3, void* p4) {
     get_part_name((void*) &c, p0, (void*) CHANNEL_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) CHANNEL_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get service id part.
     get_part_name((void*) &id, p0, (void*) IDENTIFICATION_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) IDENTIFICATION_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get display client part.
+    get_part_name((void*) &display_cl, p0, (void*) CLIENT_DISPLAY_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) CLIENT_DISPLAY_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    fwprintf(stdout, L"Apply startup. display_cl: %i\n", display_cl);
     // Get serial filename part.
     get_part_name((void*) &serial_f, p0, (void*) FILENAME_SERIAL_INTERFACE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) FILENAME_SERIAL_INTERFACE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get serial baudrate part.
@@ -193,8 +205,11 @@ void apply_startup(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // Get channel part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get id part model item.
+    // Get service id part model item.
     copy_array_forward((void*) &idm, id, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get display client part model item.
+    copy_array_forward((void*) &display_clm, display_cl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    fwprintf(stdout, L"Apply startup. display_clm: %i\n", display_clm);
     // Get serial filename part model item.
     copy_array_forward((void*) &serial_fm, serial_f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get serial baudrate part model item.
@@ -222,8 +237,10 @@ void apply_startup(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // Get channel part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get id part model item data.
+    // Get service id part model item data.
     copy_array_forward((void*) &idmd, idm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get display client part model item data.
+    copy_array_forward((void*) &display_clmd, display_clm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get serial filename part model item data, count.
     copy_array_forward((void*) &serial_fmd, serial_fm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &serial_fmc, serial_fm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
@@ -276,8 +293,13 @@ void apply_startup(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Use the service id part model item data by default.
     copy_integer((void*) &identification, idmd);
 
+    fwprintf(stdout, L"Apply startup. display_clmd: %i\n", display_clmd);
+    if (display_clmd != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        fwprintf(stdout, L"Apply startup. *display_clmd: %i\n", *((int*) display_clmd));
+    }
+
     // Startup service.
-    startup_service(p4, (void*) &identification, serial_fmd, serial_fmc, serial_bmd, socket_nmd, socket_nmc, socket_stmd, socket_stmc, socket_pmd, socket_pmc, socket_bmd, socket_fmd, socket_fmc, socket_amd, socket_amc, socket_comd, socket_tomd, socket_smd, socket_mmd, socket_mmc, cmd);
+    startup_service(p4, (void*) &identification, serial_fmd, serial_fmc, serial_bmd, socket_nmd, socket_nmc, socket_stmd, socket_stmc, socket_pmd, socket_pmc, socket_bmd, socket_fmd, socket_fmc, socket_amd, socket_amc, socket_comd, socket_tomd, socket_smd, socket_mmd, socket_mmc, display_clmd, cmd);
 }
 
 /* STARTUP_SOURCE */

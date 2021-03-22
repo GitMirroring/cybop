@@ -48,7 +48,7 @@
  * The value of unneeded parametres may just be set to NULL.
  *
  * @param p0 the internal memory data
- * @param p1 the service identification (e.g. socket port)
+ * @param p1 the service identification (e.g. filename, socket port)
  * @param p2 the serial filename data
  * @param p3 the serial filename count
  * @param p4 the serial baudrate
@@ -68,9 +68,10 @@
  * @param p18 the socket client socket
  * @param p19 the socket mode data
  * @param p20 the socket mode count
- * @param p21 the channel
+ * @param p21 the display client (window identification)
+ * @param p22 the channel
  */
-void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21) {
+void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup service.");
 
@@ -79,41 +80,41 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p21, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p22, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_io(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            startup_io(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p21, (void*) SERIAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p22, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_io(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            startup_io(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p21, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p22, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_io(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            startup_io(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p21, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p22, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_io(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            startup_io(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 

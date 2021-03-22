@@ -45,7 +45,7 @@
  * Starts up the display client (creates a window).
  *
  * @param p0 the input/output entry
- * @param p1 the window id
+ * @param p1 the window identification
  */
 void startup_display_client(void* p0, void* p1) {
 

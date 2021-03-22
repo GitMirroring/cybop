@@ -43,7 +43,7 @@
  * as that name is already used for glibc library's output.
  *
  * Properties:
- * - receiver (optional): the destination receiving the message, e.g. filename, client socket number, service identification, gui window
+ * - receiver (optional): the destination receiving the message, e.g. filename, client socket number, service identification, gui window id
  * - channel (required): the channel via which to send the message (e.g. http)
  * - encoding (optional): the encoding to be used, e.g. ascii; the default is utf-8
  * - language (required): the language into which to serialise the message before sending it (e.g. html, model-diagram etc.)
@@ -67,7 +67,7 @@ void apply_send(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply send.");
 
-    // The receiver part (e.g. a filename or socket number).
+    // The receiver part.
     void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The channel part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;

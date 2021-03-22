@@ -29,7 +29,7 @@
 #include <xcb/xcb.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
@@ -73,7 +73,7 @@ void write_xcb(void* p0, void* p1) {
             void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             //
-            // Retrieve various values from input/output entry.
+            // Retrieve connexion from input/output entry.
             //
             // CAUTION! Do NOT use "overwrite_array" function here,
             // since it adapts the array count and size.
@@ -83,17 +83,15 @@ void write_xcb(void* p0, void* p1) {
             //
             // CAUTION! Do NOT hand over input/output entry as pointer reference.
             //
-
-            // Retrieve connexion from input/output entry.
             get_io_entry_element((void*) &c, io, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             // CAUTION! This test is necessary to avoid a "Segmentation fault"!
             if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 // CAUTION! This test is necessary to avoid a "Segmentation fault"!
-                //?? if (w != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
+//??                if (*w >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                    //?? fwprintf(stdout, L"TEST Write xcb: %i\n", w);
+                    fwprintf(stdout, L"TEST Write xcb: %i\n", *w);
 
                     // Use xcb connexion type.
                     xcb_connection_t* connexion = (xcb_connection_t*) c;
@@ -110,8 +108,8 @@ void write_xcb(void* p0, void* p1) {
 /*??
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write xcb. The window is null.");
-                    fwprintf(stdout, L"Error: Could not write xcb. The window is null. w: %i\n", w);
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write xcb. The window identification is negative.");
+                    fwprintf(stdout, L"Error: Could not write xcb. The window identification is negative. w: %i\n", *w);
                 }
 */
 

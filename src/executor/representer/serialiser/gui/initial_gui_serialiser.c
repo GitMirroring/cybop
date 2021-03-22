@@ -41,7 +41,7 @@
 /**
  * Initialises the gui serialiser.
  *
- * @param p0 the destination window id
+ * @param p0 the destination window
  * @param p1 the source model data
  * @param p2 the source model count
  * @param p3 the source properties data

@@ -197,11 +197,13 @@ void startup_xcb_server(void* p0) {
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup xcb server. The setup is null.");
+            fwprintf(stdout, L"Error: Could not startup xcb server. The setup is null. setup: %i\n", setup);
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup xcb server. The connexion is null.");
+        fwprintf(stdout, L"Error: Could not startup xcb server. The connexion is null. c: %i\n", c);
     }
 }
 

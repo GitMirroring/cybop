@@ -40,7 +40,7 @@
  * Starts up the display.
  *
  * @param p0 the input/output entry
- * @param p1 the window id
+ * @param p1 the window identification
  * @param p2 the mode data
  * @param p3 the mode count
  */
@@ -74,6 +74,7 @@ void startup_display(void* p0, void* p1, void* p2, void* p3) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup display. The mode is unknown.");
+        fwprintf(stdout, L"Warning: Could not startup display. The mode is unknown. r: %i\n", r);
     }
 }
 

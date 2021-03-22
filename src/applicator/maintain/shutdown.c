@@ -41,9 +41,14 @@
  * Expected parametres:
  * - channel (required): the channel on which to shutdown a service (terminal, www, x-window-system, ...)
  * - id (optional): the service identification if having multiple terminals/displays/sockets etc., e.g. socket port 80; if missing, zero will be used (first io entry)
+ *
+ * Expected parametres only for channel "display":
+ * - client (required): the window id (only when in client mode)
+ *
+ * Expected parametres only for channel "socket":
  * - mode (optional): the communication mode (needed only if channel is "socket")
  * - socket (optional): the client socket (needed only if mode is "client")
- *
+ * *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)
@@ -58,6 +63,8 @@ void apply_shutdown(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The service id part.
     void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The display client part.
+    void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The communication mode part.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The client socket part.
@@ -67,6 +74,8 @@ void apply_shutdown(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The service id part model item.
     void* idm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The display client part model item.
+    void* clm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The communication mode part model item.
     void* mm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The client socket part model item.
@@ -76,6 +85,8 @@ void apply_shutdown(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The service id part model item data.
     void* idmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The display client part model item data.
+    void* clmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The communication mode part model item data, count.
     void* mmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* mmc = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -86,6 +97,8 @@ void apply_shutdown(void* p0, void* p1, void* p2, void* p3, void* p4) {
     get_part_name((void*) &c, p0, (void*) CHANNEL_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) CHANNEL_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get service id part.
     get_part_name((void*) &id, p0, (void*) IDENTIFICATION_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) IDENTIFICATION_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get display client part.
+    get_part_name((void*) &cl, p0, (void*) CLIENT_DISPLAY_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) CLIENT_DISPLAY_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get communication mode part.
     get_part_name((void*) &m, p0, (void*) MODE_SOCKET_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) MODE_SOCKET_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get client socket part.
@@ -95,6 +108,8 @@ void apply_shutdown(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get service id part model item.
     copy_array_forward((void*) &idm, id, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get display client part model item.
+    copy_array_forward((void*) &clm, cl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get communication mode part model item.
     copy_array_forward((void*) &mm, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get client socket part model item.
@@ -104,6 +119,8 @@ void apply_shutdown(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get service id part model item data.
     copy_array_forward((void*) &idmd, idm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get display client part model item data.
+    copy_array_forward((void*) &clmd, clm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get communication mode part model item data, count.
     copy_array_forward((void*) &mmd, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &mmc, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);

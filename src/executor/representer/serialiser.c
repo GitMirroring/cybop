@@ -140,10 +140,10 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // The destination window id item data.
+            // The destination window identification item data.
             void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-            // Get destination window id item data.
+            // Get destination window identification item data.
             copy_array_forward((void*) &w, p19, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
             serialise_gui_initial(w, p10, p11, p12, p13, p16, p17, p18, p8);
