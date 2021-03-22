@@ -227,8 +227,8 @@ http://www.resmedicinae.org/
 3 Compilation
 =============
 
-3.1 POSIX, OSX, Windows
-_______________________
+3.1 Under Linux for POSIX, Linux, OSX (GCC)
+___________________________________________
 
 - Change into cybop's build directory, e.g.:
 
@@ -250,8 +250,8 @@ _______________________
 
     make cyboi
 
-3.2 Windows (GCC)
-_________________
+3.2 Under Linux for Windows (MinGW)
+___________________________________
 
 - Change into cybop's root directory, e.g.:
 
@@ -270,51 +270,65 @@ _________________
     i686-w64-mingw32-gcc -o src/controller/cyboi.exe src/controller/cyboi.c -DPTW32_STATIC_LIB -lpthread -lws2_32 -lgdi32 -w
     i586-mingw32msvc-gcc -o src/controller/cyboi.exe src/controller/cyboi.c -DPTW32_STATIC_LIB -lpthreadGC2 -lxcb -lX11 -lXau -lws2_32 -w
 
-3.3 Windows (MSVC)
-__________________
+3.3 Under Windows for Windows (MSVC)
+____________________________________
 
-- For windows compilation using Microsoft Visual Studio you will need version 2013 or higher.
-  Up to now XCB features are not supported. Other limitations you will find in the TODO list.
+For windows compilation using Microsoft Visual Studio you will need version 2013 or higher.
+Up to now XCB features are NOT supported. Other limitations you will find in the TODO list.
 
-- Checkout cybop trunk from savannah.gnu.org using Putty and TortoiseSVN:
+SVN
+___
 
-    Check if TortoiseSVN-Client is installed on your System. If not, download and install (Admin privileges required) from:
-        http://tortoisesvn.net/downloads.html
+Install TortoiseSVN:
+https://tortoisesvn.net/downloads.html
 
-    Download and unzip Putty from:
-        http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
+Configure TortoiseSVN for svn+ssh:
+https://sourceforge.net/p/forge/documentation/Using%20SSH%20Keys%20with%20SVN%20on%20Windows/
 
-    Putty must not be installed so no Admin privileges are required.
+Download Pageant and PuTTYgen:
+https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
-    Generate SSH-Key using PUTTYGEN.EXE. Save private key to secure location, copy public key to savannah registration web form.
-    Make sure your GNU-Savannah username contains only lowercase letters to avoid login errors!
+Generate ssh key:
+https://sourceforge.net/p/forge/documentation/SSH%20Keys/#key-generation-putty
 
-    Create new SSH-Session configuration using PUTTY.EXE. Adjust the following settings:
-    - Set hostname to svn.savannah.nongnu.org
-    - In the "Connection" section set "Auto-login username" to your GNU-Savannah username.
-    - In the "Connection" section subset "SSH/Auth" set "Private key file for authentication" to your previously saved private keyfile.
-    - Set session name to svn.savannah.gnu.org and save session.
-    - Open the created session. If everything works fine, the session is connecting and closing without any further error notice.
+Upload ssh key:
+https://savannah.nongnu.org/
 
-    (Technical background: The putty session is saved into registry, so TortoiseSVN is able to find this session via its session name.)
+Add private key to:
+pageant.exe
 
-    Change into some directory (documents for example).
-    Right click and chose "SVN checkout" in context menu.
-    In the SVN-Checkout dialog set the "URL of repository" to:
-        svn+ssh://username@putty_session_name/cybop/trunk
-    where
-        username is your GNU-Savannah username
-        putty_session_name is the name of the putty-session created in the step above: svn.savannah.nongnu.org
+Checkout project:
+svn+ssh://LOGIN@svn.savannah.nongnu.org/cybop/trunk
 
-    The "Checkout directory" will be automaticaly completed to ...\cybop
+VS
+__
 
-    All other options should be left to defaults.
+- Open file ide/visualstudio/cyboi.sln in Visual Studio (VS)
+- Adjust platform
+- Compile
 
-    By clicking OK, the checkout procedure begins.
+Adapt platform toolset version in project settings,
+if VS version is higher than 2013 since otherwise,
+strange compiler errors might occur.
 
-- Open the file ide/visualstudio/cyboi.sln in Visual Studio, adjust your platform and compile.
+GCC
+___
 
-- If your VS version is above 2013 you may need to change platform-toolset version in the project settings to your current version. Otherwise you may get curious compiler errors.
+References and hints:
+https://stackoverflow.com/questions/39863157/cgo-sorry-unimplemented-64-bit-mode-not-compiled-in
+
+Download installer:
+http://tdm-gcc.tdragon.net/download
+
+Execute installer:
+tdm-gcc-webdl.exe
+
+Avoid CMake errors:
+Use the following command for the first cmake call:
+cmake -G "MinGW Makefiles" .
+instead of just:
+cmake .
+https://stackoverflow.com/questions/35869564/cmake-on-windows
 
 4 Development
 =============
