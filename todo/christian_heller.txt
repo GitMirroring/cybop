@@ -14,6 +14,8 @@
 WUI and Socket
 ______________
 
+		test svn
+
         CONTINUE WITH:
         * Make "gui" cybol application work again
         * Sensor is NOT the reason
