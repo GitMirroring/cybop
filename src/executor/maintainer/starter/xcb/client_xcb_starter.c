@@ -85,11 +85,15 @@ void startup_xcb_client(void* p0, void* p1) {
 
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        fwprintf(stdout, L"Test: Startup xcb client. c: %i\n", c);
+
         //
         // A display DOES exist in input/output entry.
         //
 
         if (s != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            fwprintf(stdout, L"Test: Startup xcb client. s: %i\n", s);
 
             // The xcb screen type value.
             xcb_screen_t* st = (xcb_screen_t*) s;
@@ -233,8 +237,12 @@ void startup_xcb_client(void* p0, void* p1) {
                 | XCB_EVENT_MASK_COLOR_MAP_CHANGE
                 | XCB_EVENT_MASK_OWNER_GRAB_BUTTON;
 
+            fwprintf(stdout, L"Test: Startup xcb client. 0 w: %i\n", w);
+
             // Allocate xid for window.
             w = (int) xcb_generate_id((xcb_connection_t*) c);
+
+            fwprintf(stdout, L"Test: Startup xcb client. 1 w: %i\n", w);
 
             // Create window.
             xcb_create_window((xcb_connection_t*) c, // connexion
@@ -248,7 +256,7 @@ void startup_xcb_client(void* p0, void* p1) {
                 (*st).root_visual, // visual
                 wm, wv); // mask and values
 
-            fwprintf(stdout, L"TEST: Startup xcb client. w: %i\n", w);
+            fwprintf(stdout, L"Test: Startup xcb client. 2 w: %i\n", w);
 
             //
             // Create delete window cookie.
@@ -285,8 +293,13 @@ void startup_xcb_client(void* p0, void* p1) {
             // It gets freed at system shutdown.
             //
 
+            fwprintf(stdout, L"Test: Startup xcb client. pointer p1: %i\n", p1);
+            fwprintf(stdout, L"Test: Startup xcb client. pre *p1: %i\n", *((int*) p1));
+
             // Copy window identification to corresponding parametre.
             copy_integer(p1, (void*) &w);
+
+            fwprintf(stdout, L"Test: Startup xcb client. post *p1: %i\n", *((int*) p1));
 
             //
             // Store various values in input/output entry.

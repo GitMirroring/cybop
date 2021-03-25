@@ -93,6 +93,9 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     } else {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup io. The input/output entry (service) is not null, i.e. it does already exist in internal memory.");
+
+        //?? TEST ONLY! Delete later.
+        startup_details(io, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22);
     }
 }
 

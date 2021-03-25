@@ -56,13 +56,19 @@ void startup_xcb_server(void* p0) {
 
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        fwprintf(stdout, L"Test: Startup xcb server. c: %i\n", c);
+
         // Get setup.
         const xcb_setup_t* setup = xcb_get_setup((xcb_connection_t*) c);
 
         if (setup != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+            fwprintf(stdout, L"Test: Startup xcb server. setup: %i\n", setup);
+
             // Get screen iterator.
             xcb_screen_iterator_t iter = xcb_setup_roots_iterator(setup);
+
+            fwprintf(stdout, L"Test: Startup xcb server. iter: %i\n", iter);
 
             //
             // Get first screen.
@@ -75,11 +81,17 @@ void startup_xcb_server(void* p0) {
             // The xcb screen type value.
             xcb_screen_t* st = (xcb_screen_t*) s;
 
+            fwprintf(stdout, L"Test: Startup xcb server. st: %i\n", st);
+
             // Get root window of the screen.
             int r = (*st).root;
 
+            fwprintf(stdout, L"Test: Startup xcb server. r: %i\n", r);
+
             // Allocate xid for default graphic context.
             int gc = (int) xcb_generate_id((xcb_connection_t*) c);
+
+            fwprintf(stdout, L"Test: Startup xcb server. gc: %i\n", gc);
 
             //
             // The graphic context value mask.
@@ -195,6 +207,8 @@ void startup_xcb_server(void* p0) {
             set_io_entry_element(p0, (void*) &s, (void*) SCREEN_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
             // Store default graphic context in input/output entry.
             set_io_entry_element(p0, (void*) &gc, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+            fwprintf(stdout, L"Test: Startup xcb server. END c: %i\n", c);
 
         } else {
 

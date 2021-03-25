@@ -18,6 +18,7 @@ ______________
             where an io entry already exists from the display server, so that the function "startup_details" is never called
             --> think through handling of services
             --> actually only sockets use a port as id, so why handle other services the same way
+            finally delete temporary solution in "else"-branch of file "io_starter.c" again
 
         CONTINUE WITH:
         * Make "gui" cybol application work again
