@@ -15,15 +15,10 @@
     </node>
     <node name="startup_display" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
-        <node name="mode" channel="inline" format="text/plain" model="server"/>
-<!--
-        <node name="connexions" channel="inline" format="number/integer" model="1"/>
--->
     </node>
-    <node name="startup_window" channel="inline" format="maintain/startup" model="">
+    <node name="open_window" channel="inline" format="register/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
-        <node name="mode" channel="inline" format="text/plain" model="client"/>
-        <node name="client" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
+        <node name="id" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
     </node>
 
     <node name="TEST" channel="inline" format="communicate/send" model="">

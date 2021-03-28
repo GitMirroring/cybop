@@ -23,32 +23,20 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
-#define SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
+#ifndef CLOSE_REGISTRATION_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
+#define CLOSE_REGISTRATION_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-//
-// General
-//
+/** The channel close registration logic cybol name. */
+static wchar_t* CHANNEL_CLOSE_REGISTRATION_LOGIC_CYBOL_NAME = L"channel";
+static int* CHANNEL_CLOSE_REGISTRATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The channel shutdown maintenance logic cybol name. */
-static wchar_t* CHANNEL_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME = L"channel";
-static int* CHANNEL_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The identification (id) close registration logic cybol name. */
+static wchar_t* IDENTIFICATION_CLOSE_REGISTRATION_LOGIC_CYBOL_NAME = L"id";
+static int* IDENTIFICATION_CLOSE_REGISTRATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-//
-// Socket
-//
-
-/** The filename socket shutdown maintenance logic cybol name. */
-static wchar_t* FILENAME_SOCKET_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME = L"filename";
-static int* FILENAME_SOCKET_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The port socket shutdown maintenance logic cybol name. */
-static wchar_t* PORT_SOCKET_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME = L"port";
-static int* PORT_SOCKET_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/* SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */
+/* CLOSE_REGISTRATION_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

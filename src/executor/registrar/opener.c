@@ -23,34 +23,25 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STARTER_SOURCE
-#define STARTER_SOURCE
+#ifndef OPENER_SOURCE
+#define OPENER_SOURCE
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/maintainer/io_starter.c"
+#include "../../executor/registrar/closer_TODO.c"
 #include "../../logger/logger.c"
 
 /**
- * Starts up the given service.
- *
- * CAUTION! Do NOT rename this function to "startup",
- * since it should be consistent with "shutdown_service",
- * which cannot be renamed to "shutdown",
- * as that name is already used by low-level socket functionality:
- * /usr/include/i386-linux-gnu/sys/socket.h:232:12
+ * Opens up the client.
  *
  * There may be DOZENS of parametres handed over to this function.
  * This is due to the variety of communication channel settings.
  * The value of unneeded parametres may just be set to NULL.
  *
- * @param p0 the internal memory data
- * @param p2 the serial filename data
- * @param p3 the serial filename count
- * @param p4 the serial baudrate
+ * @param p1 the client identification (e.g. socket or window id)
  * @param p5 the socket family data (namespace)
  * @param p6 the socket family count
  * @param p7 the socket style data (communication type)
@@ -63,15 +54,14 @@
  * @param p15 the socket host address count
  * @param p1x the socket port
  * @param p11 the blocking flag
- * @param p16 the socket connexions (number of possible pending client requests)
- * @param p17 the socket timeout
+ * @param p0 the internal memory data
  * @param p22 the channel
  */
-void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22) {
+void open(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup service.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open.");
 
-    fwprintf(stdout, L"Test: Startup service. p22: %i\n", p22);
+    fwprintf(stdout, L"Test: Open. p22: %i\n", p22);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -82,17 +72,7 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_io(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p22, (void*) SERIAL_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            startup_io(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            open_TODO(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 
@@ -102,25 +82,15 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_io(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            open_TODO(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p22, (void*) TERMINAL_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            startup_io(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup. The channel is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open. The channel is unknown.");
     }
 }
 
-/* STARTER_SOURCE */
+/* OPENER_SOURCE */
 #endif

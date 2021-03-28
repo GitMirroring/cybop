@@ -37,13 +37,8 @@
         <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
         <node name="style" channel="inline" format="text/plain" model="stream"/>
         <node name="protocol" channel="inline" format="text/plain" model="tcp"/>
-<!--
-        <node name="address" channel="inline" format="text/plain" model="any"/>
-        <node name="address" channel="inline" format="text/plain" model="localhost"/>
--->
         <node name="address" channel="inline" format="text/plain" model="127.0.0.1"/>
-        <node name="id" channel="inline" format="number/integer" model="1971"/>
-        <node name="mode" channel="inline" format="text/plain" model="server"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
         <!--
             If setting the server socket non-blocking,
             cyboi will run a "busy waiting" endless loop,

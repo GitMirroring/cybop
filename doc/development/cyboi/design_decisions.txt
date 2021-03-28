@@ -965,18 +965,13 @@ application. However, their initial value is just a placeholder.
 Inside cyboi, it gets filled with the correct socket number through
 glibc by low-level function calls to the operating system.
 
-A client-side server socket (communicating with a server) gets created and assigned:
-- in function "startup_bsd_socket_create" of file "create_bsd_socket_starter.c"
-- called by function "startup_socket_create" of file "create_socket_starter.c"
-- called by function "startup_socket_client" of file "client_socket_starter.c"
-- called by function "startup_socket_mode" of file "mode_socket_starter.c"
+A client-side socket (communicating with a server socket) and
+a window (communicating with a display server) both get created
+using the cybol operation "register/open".
 
-A server-side client socket (communicating with a client) gets copied:
-- in function "check_io_receive" of file "receive_io_checker.c"
-- called by function "check_io_element" of file "element_io_checker.c"
-- called by function "check_io_all" of file "all_io_checker.c"
-- called by function "check_io" of file "io_checker.c"
-- called by function "check_wait" of file "wait_checker.c"
+A server-side socket (communicating with many client sockets) and
+a display server managing its many windows both get created
+using the cybol operation "maintain/startup".
 
 The corresponding timeout gets initialised:
 - in function "check_io_accept" of file "accept_io_checker.c"

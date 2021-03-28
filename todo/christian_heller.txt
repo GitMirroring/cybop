@@ -14,26 +14,16 @@
 WUI and Socket
 ______________
 
-        * Solve problem that display clients (windows) are never created due to file "io_starter.c",
-            where an io entry already exists from the display server, so that the function "startup_details" is never called
-            --> think through handling of services
-            --> actually only sockets use a port as id, so why handle other services the same way
-            finally delete temporary solution in "else"-branch of file "io_starter.c" again
-
-        CONTINUE WITH:
-        * Make "gui" cybol application work again
-        * Sensor is NOT the reason
-        * Look through and clean up sender files, since client list is NOT checked anymore for channels other than socket (is there a -1 initial value?)
-        * Look through and clean up receiver files, since client list is NOT checked anymore for channels other than socket (is there a -1 initial value?)
-
-        * Adapt shutter to new display client (window identification parametre)
+        * Make "gui" cybol application work again using cybol operations "maintain/startup" and "register/open"
+        * Test operation "register/close" there
         * Adjust font in graphic context of file "context_x_window_system_serialiser.c"
 
-        * Create in server: connexion, screen, graphic context, device context
-        * Create in client: (only) window
+        * Create in server starter: connexion, screen, default graphic context, device context
+        * Create in client starter: (only) window
         * Create in serialiser: font
         * OPEN question: Where to store the delete_window cookie, which is specific for one window?
         * Keep window_id in cybol application
+        * Delete temporary solution in "else"-branch of file "io_starter.c" again
 
         * Fix tui in cybol example "user_interface/ui/"
 

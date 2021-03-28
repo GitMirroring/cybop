@@ -94,6 +94,8 @@
 #include "../../applicator/modify/modify.c"
 #include "../../applicator/randomise/retrieve.c"
 #include "../../applicator/randomise/sow.c"
+#include "../../applicator/register/close.c"
+#include "../../applicator/register/open.c"
 #include "../../applicator/represent/deserialise.c"
 #include "../../applicator/represent/serialise.c"
 #include "../../applicator/run/run.c"
@@ -1419,6 +1421,30 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             apply_sow(p0, p1, p3, p4, p2);
+        }
+    }
+
+    //
+    // register
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) CLOSE_REGISTER_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_close(p0, p1, p3, p4, p2);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) OPEN_REGISTER_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_open(p0, p1, p3, p4, p2);
         }
     }
 

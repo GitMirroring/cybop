@@ -14,20 +14,16 @@
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
-    <node name="startup_socket" channel="inline" format="maintain/startup" model="">
+    <node name="open_socket" channel="inline" format="register/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
         <node name="style" channel="inline" format="text/plain" model="stream"/>
         <node name="protocol" channel="inline" format="text/plain" model="tcp"/>
-<!--
-        <node name="address" channel="inline" format="text/plain" model="localhost"/>
--->
         <node name="address" channel="inline" format="text/plain" model="127.0.0.1"/>
-        <node name="id" channel="inline" format="number/integer" model="1971"/>
-        <node name="mode" channel="inline" format="text/plain" model="client"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
         <!-- Making the client non-blocking ("false") results in error EWOULDBLOCK when reading/writing. -->
         <node name="blocking" channel="inline" format="logicvalue/boolean" model="true"/>
-        <node name="socket" channel="inline" format="text/cybol-path" model=".server_socket"/>
+        <node name="id" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
 
     <!-- Send hello request -->

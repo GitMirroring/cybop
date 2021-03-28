@@ -23,37 +23,27 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SHUTTER_SOURCE
-#define SHUTTER_SOURCE
+#ifndef CLOSER_SOURCE
+#define CLOSER_SOURCE
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/maintainer/io_shutter.c"
+#include "../../executor/registrar/closer_TODO.c"
 #include "../../logger/logger.c"
 
 /**
- * Shuts down the given service.
+ * Closes down the client.
  *
- * CAUTION! Do NOT rename this function to "shutdown",
- * as that name is already used by low-level socket functionality:
- * /usr/include/i386-linux-gnu/sys/socket.h:232:12
- *
- * @param p0 the internal memory data
- * @param p1 the socket port
+ * @param p0 the client identification (e.g. socket or window id)
+ * @param p1 the internal memory data
  * @param p2 the channel
  */
-void shutdown_service(void* p0, void* p1, void* p2) {
+void close(void* p0, void* p1, void* p2) {
 
-    //
-    // CAUTION! Do NOT log messages here, since this function is called 65,536 times
-    // for socket channels in a loop.
-    // Otherwise, it would produce huge log files filled up with useless entries.
-    //
-    // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown service.");
-    //
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -64,17 +54,7 @@ void shutdown_service(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            shutdown_io(p0, p1, p2, p3, p4, p5, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p5, (void*) SERIAL_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            shutdown_io(p0, p1, p2, p3, p4, p5, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            close_TODO(p0, p1, p2, p3, p4, p5, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 
@@ -84,25 +64,15 @@ void shutdown_service(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            shutdown_io(p0, p1, p2, p3, p4, p5, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            close_TODO(p0, p1, p2, p3, p4, p5, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) TERMINAL_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            shutdown_io(p0, p1, p2, p3, p4, p5, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown service. The channel is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close. The channel is unknown.");
     }
 }
 
-/* SHUTTER_SOURCE */
+/* CLOSER_SOURCE */
 #endif
