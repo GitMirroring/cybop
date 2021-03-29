@@ -53,11 +53,13 @@ void startup_winsock_status(void* p0, void* p1) {
 
         // Cast int to winsock SOCKET.
         SOCKET ws = (SOCKET) *s;
+        //
         // The command.
         //
         // In this case, FIONBIO enables nonblocking mode
         // for the socket based on the numerical value of
         // the argument below.
+        //
         long c = FIONBIO;
         //
         // The argument.
@@ -118,12 +120,16 @@ void startup_winsock_status(void* p0, void* p1) {
 
         } else {
 
-            // If the return value is NOT zero, then an error occured.
+            //
+            // An error occured, since the return value is NOT zero.
+            //
 
+            //
             // Get the calling thread's last-error code.
             //
             // CAUTION! This function is the winsock substitute
             // for the Windows "GetLastError" function.
+            //
             int e = WSAGetLastError();
 
             if (e == WSANOTINITIALISED) {

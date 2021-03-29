@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLIENT_SOCKET_STARTER_SOURCE
-#define CLIENT_SOCKET_STARTER_SOURCE
+#ifndef SOCKET_OPENER_SOURCE
+#define SOCKET_OPENER_SOURCE
 
 /*??
 #if defined(__linux__) || defined(__unix__)
@@ -42,12 +42,12 @@
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../executor/maintainer/starter/socket/client/connect_client_socket_starter.c"
 #include "../../../../../executor/maintainer/starter/socket/socket_address/socket_address_socket_starter.c"
 #include "../../../../../executor/maintainer/starter/socket/create_socket_starter.c"
 #include "../../../../../executor/maintainer/starter/socket/family_socket_starter.c"
 #include "../../../../../executor/maintainer/starter/socket/protocol_socket_starter.c"
 #include "../../../../../executor/maintainer/starter/socket/style_socket_starter.c"
+#include "../../../../../executor/registrar/opener/socket/connect_socket_opener.c"
 #include "../../../../../logger/logger.c"
 #include "../../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
 #include "../../../../../variable/symbolic_name/protocol_family_socket_symbolic_name.c"
@@ -55,7 +55,7 @@
 #include "../../../../../variable/symbolic_name/style_socket_symbolic_name.c"
 
 /**
- * Starts up socket in client mode.
+ * Opens up the given client socket.
  *
  * @param p0 the client socket
  * @param p1 the family data (namespace)
@@ -71,9 +71,9 @@
  * @param p11 the host address count
  * @param p12 the port
  */
-void startup_socket_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void open_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket client.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket.");
 
     // The protocol family (socket namespace).
     int pf = *UNSPEC_PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME;
@@ -101,10 +101,10 @@ void startup_socket_client(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // has to be preserved as return value.
     startup_socket_socket_address((void*) &ad, (void*) &as, p8, p9, p10, p11, p12, (void*) &af);
     // Connect via socket with server.
-    startup_socket_client_connect(p0, ad, (void*) &as);
+    open_socket_connect(p0, ad, (void*) &as);
     // Deallocate socket address.
     free(ad);
 }
 
-/* CLIENT_SOCKET_STARTER_SOURCE */
+/* SOCKET_OPENER_SOURCE */
 #endif

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLIENT_XCB_STARTER_SOURCE
-#define CLIENT_XCB_STARTER_SOURCE
+#ifndef XCB_OPENER_SOURCE
+#define XCB_OPENER_SOURCE
 
 #include <xcb/xcb.h>
 
@@ -38,16 +38,16 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Starts up an x window system client (a window).
+ * Opens up an x window.
  *
- * @param p0 the input/output entry
- * @param p1 the window identification
+ * @param p0 the window identification
+ * @param p1 the input/output entry
  */
-void startup_xcb_client(void* p0, void* p1) {
+void open_xcb(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup xcb client.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open xcb.");
 
-    fwprintf(stdout, L"Test: Startup xcb client. p0: %i\n", p0);
+    fwprintf(stdout, L"Test: Open xcb. p0: %i\n", p0);
 
     // The connexion.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -69,7 +69,7 @@ void startup_xcb_client(void* p0, void* p1) {
     //
     // CAUTION! Do NOT hand over input/output entry as pointer reference.
     //
-    get_io_entry_element((void*) &c, p0, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    get_io_entry_element((void*) &c, p1, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
     //
     // Retrieve screen from input/output entry.
     //
@@ -81,19 +81,15 @@ void startup_xcb_client(void* p0, void* p1) {
     //
     // CAUTION! Do NOT hand over input/output entry as pointer reference.
     //
-    get_io_entry_element((void*) &s, p0, (void*) SCREEN_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    get_io_entry_element((void*) &s, p1, (void*) SCREEN_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        fwprintf(stdout, L"Test: Startup xcb client. c: %i\n", c);
 
         //
         // A display DOES exist in input/output entry.
         //
 
         if (s != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            fwprintf(stdout, L"Test: Startup xcb client. s: %i\n", s);
 
             // The xcb screen type value.
             xcb_screen_t* st = (xcb_screen_t*) s;
@@ -182,7 +178,6 @@ void startup_xcb_client(void* p0, void* p1) {
             //     XCB_EVENT_MASK_OWNER_GRAB_BUTTON = 16777216
             // }
             //
-            // ??TODO: Is the following claim REALLY needed?
             // CAUTION! Be careful when setting the values,
             // as they HAVE TO FOLLOW the order of the enumeration.
             //
@@ -237,12 +232,10 @@ void startup_xcb_client(void* p0, void* p1) {
                 | XCB_EVENT_MASK_COLOR_MAP_CHANGE
                 | XCB_EVENT_MASK_OWNER_GRAB_BUTTON;
 
-            fwprintf(stdout, L"Test: Startup xcb client. 0 w: %i\n", w);
-
             // Allocate xid for window.
             w = (int) xcb_generate_id((xcb_connection_t*) c);
 
-            fwprintf(stdout, L"Test: Startup xcb client. 1 w: %i\n", w);
+            fwprintf(stdout, L"Test: Open xcb. w: %i\n", w);
 
             // Create window.
             xcb_create_window((xcb_connection_t*) c, // connexion
@@ -255,8 +248,6 @@ void startup_xcb_client(void* p0, void* p1) {
                 XCB_WINDOW_CLASS_INPUT_OUTPUT, // class
                 (*st).root_visual, // visual
                 wm, wv); // mask and values
-
-            fwprintf(stdout, L"Test: Startup xcb client. 2 w: %i\n", w);
 
             //
             // Create delete window cookie.
@@ -284,8 +275,8 @@ void startup_xcb_client(void* p0, void* p1) {
             // Free internal protocols cookie structure.
             free(protocols_reply);
 
-            //?? fwprintf(stdout, L"TEST: Startup xcb client. delete_reply: %i\n", delete_reply);
-            //?? fwprintf(stdout, L"TEST: Startup xcb client. (*delete_reply).atom: %i\n", (*delete_reply).atom);
+            //?? fwprintf(stdout, L"TEST: Open xcb. delete_reply: %i\n", delete_reply);
+            //?? fwprintf(stdout, L"TEST: Open xcb. (*delete_reply).atom: %i\n", (*delete_reply).atom);
 
             //
             // CAUTION! Do NOT free the delete cookie structure here.
@@ -293,13 +284,10 @@ void startup_xcb_client(void* p0, void* p1) {
             // It gets freed at system shutdown.
             //
 
-            fwprintf(stdout, L"Test: Startup xcb client. pointer p1: %i\n", p1);
-            fwprintf(stdout, L"Test: Startup xcb client. pre *p1: %i\n", *((int*) p1));
-
             // Copy window identification to corresponding parametre.
-            copy_integer(p1, (void*) &w);
+            copy_integer(p0, (void*) &w);
 
-            fwprintf(stdout, L"Test: Startup xcb client. post *p1: %i\n", *((int*) p1));
+            fwprintf(stdout, L"Test: Open xcb. *p0: %i\n", *((int*) p0));
 
             //
             // Store various values in input/output entry.
@@ -314,27 +302,27 @@ void startup_xcb_client(void* p0, void* p1) {
             //
 
 /*??
-            fwprintf(stdout, L"TEST: Startup xcb client. dwc: %i\n", dwc);
+            fwprintf(stdout, L"TEST: Open xcb. dwc: %i\n", dwc);
             xcb_intern_atom_reply_t* test = (xcb_intern_atom_reply_t*) dwc;
-            fwprintf(stdout, L"TEST: Startup xcb client. test: %i\n", test);
-            fwprintf(stdout, L"TEST: Startup xcb client. (*test).atom: %i\n", (*test).atom);
+            fwprintf(stdout, L"TEST: Open xcb. test: %i\n", test);
+            fwprintf(stdout, L"TEST: Open xcb. (*test).atom: %i\n", (*test).atom);
 */
 
             // Store delete window cookie in input/output entry.
-            //?? set_io_entry_element(p0, (void*) &dwc, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            //?? set_io_entry_element(p1, (void*) &dwc, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup xcb client. The screen is null.");
-            fwprintf(stdout, L"Error: Could not startup xcb client. The screen is null. s: %i\n", s);
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open xcb. The screen is null.");
+            fwprintf(stdout, L"Error: Could not open xcb. The screen is null. s: %i\n", s);
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup xcb client. The connexion is null.");
-        fwprintf(stdout, L"Error: Could not startup xcb client. The connexion is null. c: %i\n", c);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open xcb. The connexion is null.");
+        fwprintf(stdout, L"Error: Could not open xcb. The connexion is null. c: %i\n", c);
     }
 }
 
-/* CLIENT_XCB_STARTER_SOURCE */
+/* XCB_OPENER_SOURCE */
 #endif

@@ -14,12 +14,14 @@
 WUI and Socket
 ______________
 
+        * Complete restructuring of "maintainer" and "registrar" following the splitting up of client- from server code
+
         * Make "gui" cybol application work again using cybol operations "maintain/startup" and "register/open"
         * Test operation "register/close" there
         * Adjust font in graphic context of file "context_x_window_system_serialiser.c"
 
-        * Create in server starter: connexion, screen, default graphic context, device context
-        * Create in client starter: (only) window
+        * Create in display server starter: connexion, screen, default graphic context, device context
+        * Create in display client (window) opener: (only) window
         * Create in serialiser: font
         * OPEN question: Where to store the delete_window cookie, which is specific for one window?
         * Keep window_id in cybol application

@@ -26,18 +26,15 @@
 #ifndef SOCKET_STARTER_SOURCE
 #define SOCKET_STARTER_SOURCE
 
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cybol/socket/mode_socket_cybol_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/checker/operation_checker.c"
-#include "../../../../executor/maintainer/starter/socket/client/client_socket_starter.c"
-#include "../../../../executor/maintainer/starter/socket/server/server_socket_starter.c"
+#include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../../executor/accessor/setter/io_entry_setter.c"
+#include "../../../../executor/maintainer/starter/socket/server/lifecycle_server_socket_starter.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Starts up socket in either client or server mode.
+ * Starts up server socket.
  *
  * @param p0 the input/output entry
  * @param p1 the family data (namespace)
@@ -54,49 +51,21 @@
  * @param p12 the port (service id)
  * @param p13 the connexions (number of possible pending client requests)
  * @param p14 the timeout
- * @param p15 the client socket
- * @param p16 the mode data
- * @param p17 the mode count
  */
-void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
+void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket.");
 
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The socket.
+    int s = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    // Startup server socket.
+    startup_socket_server_lifecycle((void*) &s, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
 
-        check_operation((void*) &r, p16, (void*) CLIENT_MODE_SOCKET_CYBOL_MODEL, p17, (void*) CLIENT_MODE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //
-            // Hand over client socket.
-            //
-            // CAUTION! It does NOT have to be determined
-            // from internal memory or the input/output entry
-            // and is NOT TO BE MIXED UP with the client socket list
-            // that a server socket stores as its communication partners.
-            //
-            startup_socket_client(p15, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        check_operation((void*) &r, p16, (void*) SERVER_MODE_SOCKET_CYBOL_MODEL, p17, (void*) SERVER_MODE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            startup_socket_server(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket. The mode is unknown.");
-    }
+    // Store socket in input/output entry.
+    set_io_entry_element(p0, (void*) &s, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Store default timeout in input/output entry.
+    set_io_entry_element(p0, p14, (void*) TIMEOUT_INPUT_OUTPUT_STATE_CYBOI_NAME);
 }
 
 /* SOCKET_STARTER_SOURCE */

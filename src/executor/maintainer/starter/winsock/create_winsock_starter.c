@@ -89,12 +89,16 @@ void startup_winsock_create(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
                     } else {
 
-                        // If the return value IS invalid, then an error occured.
+                        //
+                        // An error occured, since the return value IS invalid.
+                        //
 
+                        //
                         // Get the calling thread's last-error code.
                         //
                         // CAUTION! This function is the winsock substitute
                         // for the Windows "GetLastError" function.
+                        //
                         int e = WSAGetLastError();
 
                         if (e == WSANOTINITIALISED) {

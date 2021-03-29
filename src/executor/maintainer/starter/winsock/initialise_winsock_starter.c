@@ -75,12 +75,16 @@ void startup_winsock_initialise() {
 
     } else {
 
-        // If the return value is NOT zero, then an error occured.
+        //
+        // An error occured, since the return value is NOT zero.
+        //
 
+        //
         // CAUTION! The WSAStartup function directly returns the
         // extended error code in the return value for this function.
         // A call to the WSAGetLastError function is NOT needed
         // and should NOT be used.
+        //
 
         if (e == WSASYSNOTREADY) {
 

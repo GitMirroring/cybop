@@ -58,6 +58,7 @@ void startup_socket_protocol(void* p0, void* p1, void* p2) {
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    //
     // The protocol.
     //
     // CAUTION! The symbolic names (pre-processor-defined constants)
@@ -67,12 +68,16 @@ void startup_socket_protocol(void* p0, void* p1, void* p2) {
     //
     // Therefore, they are used to assign a value to this local variable,
     // which then gets copied to the destination parametre.
+    //
     int p = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+    //
     // Initialise protocol.
+    //
     // CAUTION! This is IMPORTANT in case none of the values below matches.
     // Just leaving the zero assigned above might falsify the original value
     // that was handed over as argument to this function.
+    //
     copy_integer((void*) &p, p0);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -81,7 +86,7 @@ void startup_socket_protocol(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            p = BTHPROTO_RFCOMM;
+            //?? p = BTHPROTO_RFCOMM;
         }
     }
 
@@ -134,7 +139,7 @@ void startup_socket_protocol(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            p = IPPROTO_RM;
+            //?? p = IPPROTO_RM;
         }
     }
 

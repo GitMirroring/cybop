@@ -26,58 +26,41 @@
 #ifndef DISPLAY_STARTER_SOURCE
 #define DISPLAY_STARTER_SOURCE
 
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cybol/display/mode_display_cybol_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/checker/operation_checker.c"
-#include "../../../../executor/maintainer/starter/display/client_display_starter.c"
-#include "../../../../executor/maintainer/starter/display/server_display_starter.c"
 #include "../../../../logger/logger.c"
 
+#if defined(__linux__) || defined(__unix__)
+    #include "../../../../executor/maintainer/starter/xcb/xcb_starter.c"
+#elif defined(__APPLE__) && defined(__MACH__)
+//??    #include "../../../../executor/maintainer/starter/darwin_display/darwin_display_starter.c"
+    //?? TODO: Add cocoa support for apple.
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    #include "../../../../executor/maintainer/starter/win32_display/win32_display_starter.c"
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
+
 /**
- * Starts up the display.
+ * Starts up the display server.
  *
  * @param p0 the input/output entry
- * @param p1 the window identification
- * @param p2 the mode data
- * @param p3 the mode count
  */
-void startup_display(void* p0, void* p1, void* p2, void* p3) {
+void startup_display(void* p0) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup display.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup display.");
 
-    fwprintf(stdout, L"Test: Startup display. p3: %i\n", p3);
-
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        check_operation((void*) &r, p2, (void*) CLIENT_MODE_DISPLAY_CYBOL_MODEL, p3, (void*) CLIENT_MODE_DISPLAY_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            startup_display_client(p0, p1);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        check_operation((void*) &r, p2, (void*) SERVER_MODE_DISPLAY_CYBOL_MODEL, p3, (void*) SERVER_MODE_DISPLAY_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            startup_display_server(p0);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup display. The mode is unknown.");
-        fwprintf(stdout, L"Warning: Could not startup display. The mode is unknown. r: %i\n", r);
-    }
+#if defined(__linux__) || defined(__unix__)
+    startup_xcb(p0);
+#elif defined(__APPLE__) && defined(__MACH__)
+//??    startup_darwin_display(p0);
+    // Add cocoa support for apple
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    startup_win32_display(p0);
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
 }
 
 /* DISPLAY_STARTER_SOURCE */
