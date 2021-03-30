@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-03-30  Christian Heller  <christian.heller@cybop.org>
+
+        * Continue restructuring of "maintainer" and "registrar" following the splitting up of client- from server code
+
 2021-03-29  Christian Heller  <christian.heller@cybop.org>
 
         * Restructure "maintainer" and "registrar" following the splitting up of client- from server code

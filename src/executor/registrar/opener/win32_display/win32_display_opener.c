@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WIN32_DISPLAY_STARTER_SOURCE
-#define WIN32_DISPLAY_STARTER_SOURCE
+#ifndef WIN32_DISPLAY_OPENER_SOURCE
+#define WIN32_DISPLAY_OPENER_SOURCE
 
 #include <windows.h>
 
@@ -33,24 +33,28 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/maintainer/starter/win32_display/register_win32_display_starter.c"
+#include "../../../../executor/copier/integer_copier.c"
+#include "../../../../executor/registrar/opener/win32_display/register_win32_display_opener.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Starts up the win32 display.
+ * Opens up a win32 display window.
  *
- * @param p0 the input/output entry
+ * @param p0 the window identification
+ * @param p1 the input/output entry
  */
-void startup_win32_display(void* p0) {
+void open_win32_display(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup win32 display.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open win32 display.");
+
+    fwprintf(stdout, L"Test: Open win32 display. p0: %i\n", p0);
 
     // The extended style.
     DWORD e = (DWORD) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL; // WS_EX_CLIENTEDGE;
     // The class.
     LPCTSTR c = (LPCTSTR) L"myWindowClass"; // const char g_szClassName[] = "myWindowClass";
     // The title.
-    LPCTSTR t = (LPCTSTR) L"Learn to Program Windows";
+    LPCTSTR t = (LPCTSTR) L"Default Window Title";
     // The style.
     DWORD s = (DWORD) WS_OVERLAPPEDWINDOW;
     // The position (x, y) and size (width, height).
@@ -62,6 +66,7 @@ void startup_win32_display(void* p0) {
     HWND p = (HWND) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The menu.
     HMENU m = (HMENU) *NULL_POINTER_STATE_CYBOI_MODEL;
+    //
     // The module.
     //
     // Normally, the name of the loaded module
@@ -71,29 +76,32 @@ void startup_win32_display(void* p0) {
     // This helps AVOID having to use the "WinMain" function
     // to get the module handle.
     //
-    // CAUTION! This handle is associated
-    // with the window created below.
+    // CAUTION! This handle is associated with the window created below.
     //
     // http://msdn.microsoft.com/en-us/library/windows/desktop/ms683199.aspx
     // http://stackoverflow.com/questions/11785157/replacing-winmain-with-main-function-in-win32-programs?rq=1
+    //
     HMODULE mo = GetModuleHandle((LPCTSTR) *NULL_POINTER_STATE_CYBOI_MODEL);
-fwprintf(stdout, L"TEST mo: %i\n", mo);
+    fwprintf(stdout, L"TEST mo: %i\n", mo);
     // The module instance to be associated with the window.
     HINSTANCE i = (HINSTANCE) mo;
-fwprintf(stdout, L"TEST i: %i\n", i);
+    fwprintf(stdout, L"TEST i: %i\n", i);
     // The additional application data.
     LPVOID a = (LPVOID) *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Register window class.
-    startup_win32_display_register((void*) i, (void*) c);
-fwprintf(stdout, L"TEST pre create: %i\n", i);
+    open_win32_display_register((void*) i, (void*) c);
+    fwprintf(stdout, L"TEST pre create: %i\n", i);
     // Create window.
     HWND wnd = CreateWindowEx(e, c, t, s, x, y, w, h, p, m, i, a);
-fwprintf(stdout, L"TEST wnd: %i\n", wnd);
+    fwprintf(stdout, L"TEST wnd: %i\n", wnd);
+    // Convert window handle to integer.
+    int wndi = (int) wnd;
+    fwprintf(stdout, L"TEST wndi: %i\n", wndi);
 
     // Set window.
-//??    copy_array_forward(p0, (void*) &wnd, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) WINDOW_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_integer(p0, (void*) &wndi);
 }
 
-/* WIN32_DISPLAY_STARTER_SOURCE */
+/* WIN32_DISPLAY_OPENER_SOURCE */
 #endif

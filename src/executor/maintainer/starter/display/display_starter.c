@@ -32,11 +32,13 @@
 #if defined(__linux__) || defined(__unix__)
     #include "../../../../executor/maintainer/starter/xcb/xcb_starter.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-//??    #include "../../../../executor/maintainer/starter/darwin_display/darwin_display_starter.c"
+    //?? #include "../../../../executor/maintainer/starter/darwin_display/darwin_display_starter.c"
     //?? TODO: Add cocoa support for apple.
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../../executor/maintainer/starter/win32_display/win32_display_starter.c"
+    // CAUTION! There is nothing to do here.
+    // The windows operating system does NOT have
+    // a separate window server to handle here.
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
@@ -53,11 +55,13 @@ void startup_display(void* p0) {
 #if defined(__linux__) || defined(__unix__)
     startup_xcb(p0);
 #elif defined(__APPLE__) && defined(__MACH__)
-//??    startup_darwin_display(p0);
+    //?? startup_darwin_display(p0);
     // Add cocoa support for apple
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    startup_win32_display(p0);
+    // CAUTION! There is nothing to do here.
+    // The windows operating system does NOT have
+    // a separate window server to handle here.
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif

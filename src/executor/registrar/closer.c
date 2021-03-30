@@ -54,7 +54,7 @@ void close(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            close_TODO(p0, p1, p2, p3, p4, p5, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            close_TODO(p0, p1, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 
@@ -64,7 +64,8 @@ void close(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            close_TODO(p0, p1, p2, p3, p4, p5, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            // shutdown_socket_close(p1);
+            close_TODO(p0, p1, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 

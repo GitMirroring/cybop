@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WIN32_DISPLAY_SHUTTER_SOURCE
-#define WIN32_DISPLAY_SHUTTER_SOURCE
+#ifndef WIN32_DISPLAY_CLOSER_SOURCE
+#define WIN32_DISPLAY_CLOSER_SOURCE
 
 #include <windows.h>
 
@@ -36,14 +36,15 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Shuts down the win32 display.
+ * Closes down a win32 display window.
  *
- * @param p0 the internal memory data
+ * @param p0 the window identification
+ * @param p1 the input/output entry
  */
-void shutdown_win32_display(void* p0) {
+void close_win32_display(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown win32 display.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close win32 display.");
 }
 
-/* WIN32_DISPLAY_SHUTTER_SOURCE */
+/* WIN32_DISPLAY_CLOSER_SOURCE */
 #endif

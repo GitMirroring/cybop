@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef X_WINDOW_SYSTEM_SHUTTER_SOURCE
-#define X_WINDOW_SYSTEM_SHUTTER_SOURCE
+#ifndef XCB_SHUTTER_SOURCE
+#define XCB_SHUTTER_SOURCE
 
 #include <xcb/xcb.h>
 
@@ -46,29 +46,16 @@
  *
  * @param p0 the input/output entry
  */
-void shutdown_x_window_system(void* p0) {
+void shutdown_xcb(void* p0) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown x window system.");
-
-    //
-    // CAUTION! The following variables are declared RIGHT HERE
-    // and not only further down since otherwise,
-    // they would not be known to the compiler when
-    // being stored in input/output entry at the end.
-    //
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown xcb.");
 
     // The connexion.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The screen.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The window.
-    int w = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The graphic context.
     int gc = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The font.
-    int f = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The delete window cookie.
-    void* dwc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // Retrieve various values from input/output entry.
@@ -86,16 +73,10 @@ void shutdown_x_window_system(void* p0) {
     get_io_entry_element((void*) &c, p0, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Retrieve screen from input/output entry.
     get_io_entry_element((void*) &s, p0, (void*) SCREEN_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Retrieve window from input/output entry.
-    get_io_entry_element((void*) &w, p0, (void*) WINDOW_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Retrieve graphic context from input/output entry.
     get_io_entry_element((void*) &gc, p0, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Retrieve font from input/output entry.
-    get_io_entry_element((void*) &f, p0, (void*) FONT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Retrieve delete window cookie from input/output entry.
-    get_io_entry_element((void*) &dwc, p0, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-    fwprintf(stdout, L"TEST shutdown x window system c: %i\n", c);
+    fwprintf(stdout, L"TEST shutdown xcb c: %i\n", c);
 
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -108,29 +89,6 @@ void shutdown_x_window_system(void* p0) {
         // for the following deallocations.
         //
 
-        if (dwc != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-/*??
-            fwprintf(stdout, L"TEST shutdown x window system before dwc: %i\n", dwc);
-            // Free delete window cookie atom reply that was created at startup.
-            free(dwc);
-            fwprintf(stdout, L"TEST shutdown x window system after dwc: %i\n", dwc);
-*/
-
-        } else {
-
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown x window system. The delete window cookie is null.");
-        }
-
-        if (f != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
-
-            //?? TODO: Is there anything to destroy?
-
-        } else {
-
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown x window system. The font is null.");
-        }
-
         if (gc != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
             // Use xcb type.
@@ -140,19 +98,7 @@ void shutdown_x_window_system(void* p0) {
 
         } else {
 
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown x window system. The graphic context is null.");
-        }
-
-        if (w != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
-
-            // Use xcb type.
-            xcb_window_t wt = w;
-            // Destroy window.
-            xcb_destroy_window((xcb_connection_t*) c, wt);
-
-        } else {
-
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown x window system. The window is null.");
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown xcb. The graphic context is null.");
         }
 
         //
@@ -187,20 +133,14 @@ void shutdown_x_window_system(void* p0) {
         set_io_entry_element(p0, NULL_POINTER_STATE_CYBOI_MODEL, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Reset screen in input/output entry.
         set_io_entry_element(p0, NULL_POINTER_STATE_CYBOI_MODEL, (void*) SCREEN_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Reset window in input/output entry.
-        set_io_entry_element(p0, NULL_POINTER_STATE_CYBOI_MODEL, (void*) WINDOW_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Reset graphic context in input/output entry.
         set_io_entry_element(p0, NULL_POINTER_STATE_CYBOI_MODEL, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Reset font in input/output entry.
-        set_io_entry_element(p0, NULL_POINTER_STATE_CYBOI_MODEL, (void*) FONT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Reset delete window cookie in input/output entry.
-        set_io_entry_element(p0, NULL_POINTER_STATE_CYBOI_MODEL, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown x window system. The display is null.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown xcb. The display is null.");
     }
 }
 
-/* X_WINDOW_SYSTEM_SHUTTER_SOURCE */
+/* XCB_SHUTTER_SOURCE */
 #endif

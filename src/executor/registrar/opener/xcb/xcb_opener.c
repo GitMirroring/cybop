@@ -38,7 +38,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Opens up an x window.
+ * Opens up a window.
  *
  * @param p0 the window identification
  * @param p1 the input/output entry

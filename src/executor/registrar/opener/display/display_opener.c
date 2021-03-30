@@ -32,7 +32,7 @@
 #if defined(__linux__) || defined(__unix__)
     #include "../../../../executor/registrar/opener/xcb/xcb_opener.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-//??    #include "../../../../executor/registrar/opener/darwin_display/darwin_display_opener.c"
+    //?? #include "../../../../executor/registrar/opener/darwin_display/darwin_display_opener.c"
     //?? TODO: Add cocoa support for apple.
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
@@ -54,11 +54,11 @@ void open_display(void* p0, void* p1) {
 #if defined(__linux__) || defined(__unix__)
     open_xcb(p0, p1);
 #elif defined(__APPLE__) && defined(__MACH__)
-//??    open_darwin_display(p0);
+    //?? open_darwin_display(p0, p1);
     // Add cocoa support for apple
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    open_win32_display(p0);
+    open_win32_display(p0, p1);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif

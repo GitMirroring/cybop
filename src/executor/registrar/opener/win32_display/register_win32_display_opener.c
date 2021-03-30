@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef REGISTER_WIN32_DISPLAY_STARTER_SOURCE
-#define REGISTER_WIN32_DISPLAY_STARTER_SOURCE
+#ifndef REGISTER_WIN32_DISPLAY_OPENER_SOURCE
+#define REGISTER_WIN32_DISPLAY_OPENER_SOURCE
 
 #include <windows.h>
 
@@ -45,7 +45,7 @@
  * @param p0 the module instance
  * @param p1 the window class
  */
-void startup_win32_display_register(void* p0, void* p1) {
+void open_win32_display_register(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -55,7 +55,7 @@ void startup_win32_display_register(void* p0, void* p1) {
 
             HINSTANCE i = (HINSTANCE) p0;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup win32 display register.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open win32 display register.");
 
             WNDCLASSEX wc; // = {0};
 
@@ -72,19 +72,19 @@ void startup_win32_display_register(void* p0, void* p1) {
             wc.lpszClassName = c;
             wc.hIconSm = (HICON) LoadIcon((HINSTANCE) *NULL_POINTER_STATE_CYBOI_MODEL, IDI_APPLICATION); // wndclassex.hIcon; // LoadIcon(wcex.hInstance, (LPCTSTR) IDI_SMALL);
 
-fwprintf(stdout, L"TEST reg c: %i\n", c);
-fwprintf(stdout, L"TEST reg i: %i\n", i);
+            fwprintf(stdout, L"TEST reg c: %i\n", c);
+            fwprintf(stdout, L"TEST reg i: %i\n", i);
 
             ATOM e = RegisterClassEx(&wc);
 
-fwprintf(stdout, L"TEST reg e: %i\n", e);
+            fwprintf(stdout, L"TEST reg e: %i\n", e);
 
             if (e == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 // Get the calling thread's last-error code.
                 DWORD e = GetLastError();
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 display register. The window class registration failed.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open win32 display register. The window class registration failed.");
                 log_windows_system_error((void*) &e);
 
                 MessageBox(*NULL_POINTER_STATE_CYBOI_MODEL, "Window Registration Failed!", "Error!", MB_ICONEXCLAMATION | MB_OK);
@@ -92,14 +92,14 @@ fwprintf(stdout, L"TEST reg e: %i\n", e);
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 display register. The application instance is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open win32 display register. The application instance is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 display register. The window class is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open win32 display register. The window class is null.");
     }
 }
 
-/* REGISTER_WIN32_DISPLAY_STARTER_SOURCE */
+/* REGISTER_WIN32_DISPLAY_OPENER_SOURCE */
 #endif

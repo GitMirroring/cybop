@@ -15,6 +15,7 @@ WUI and Socket
 ______________
 
         * Complete restructuring of "maintainer" and "registrar" following the splitting up of client- from server code
+        * Determine input/output entry in "opener.c" and "closer.c", to be forwarded as parametre
 
         * Make "gui" cybol application work again using cybol operations "maintain/startup" and "register/open"
         * Test operation "register/close" there

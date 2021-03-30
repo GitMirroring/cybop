@@ -23,49 +23,46 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DISPLAY_SHUTTER_SOURCE
-#define DISPLAY_SHUTTER_SOURCE
+#ifndef DISPLAY_CLOSER_SOURCE
+#define DISPLAY_CLOSER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/maintainer/shutter/xcb/xcb_shutter.c"
+    #include "../../../../executor/registrar/closer/xcb/xcb_closer.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    // #include "../../../../executor/maintainer/shutter/darwin_display/darwin_display_shutter.c"
+    // #include "../../../../executor/registrar/closer/darwin_display/darwin_display_closer.c"
     //?? TODO: Add cocoa support for Apple
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    // CAUTION! There is nothing to do here.
-    // The windows operating system does NOT have
-    // a separate window server to handle here.
+    #include "../../../../executor/registrar/closer/win32_display/win32_display_closer.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
- * Shuts down the display.
+ * Closes down the display.
  *
- * @param p0 the input/output entry
+ * @param p0 the window identification
+ * @param p1 the input/output entry
  */
-void shutdown_display(void* p0) {
+void close_display(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown display.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close display.");
 
 #if defined(__linux__) || defined(__unix__)
-    shutdown_xcb(p0);
+    close_xcb(p0, p1);
 #elif defined(__APPLE__) && defined(__MACH__)
-    // shutdown_darwin_display(p0);
+    // close_darwin_display(p0, p1);
     //?? TODO: Add cocoa support for Apple
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    // CAUTION! There is nothing to do here.
-    // The windows operating system does NOT have
-    // a separate window server to handle here.
+    close_win32_display(p0, p1);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 
-/* DISPLAY_SHUTTER_SOURCE */
+/* DISPLAY_CLOSER_SOURCE */
 #endif
