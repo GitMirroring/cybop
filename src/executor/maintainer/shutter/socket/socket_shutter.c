@@ -30,9 +30,11 @@
 #include "../../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/accessor/getter/io_entry_getter.c"
 #include "../../../../../executor/maintainer/shutter/socket/server/list_server_socket_shutter.c"
 #include "../../../../../executor/maintainer/shutter/socket/close_socket_shutter.c"
+#include "../../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../../logger/logger.c"
 
 /**
@@ -49,19 +51,37 @@ void shutdown_socket(void* p0, void* p1, void* p2, void* p3) {
     // The socket.
     int s = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The client list item.
-    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The accepttime list item.
-    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* al = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Retrieve various values from input/output entry.
+    //
+    // CAUTION! Do NOT use "overwrite_array" function here,
+    // since it adapts the array count and size.
+    // But the array's count and size are CONSTANT.
+    //
+    // CAUTION! Hand over value as pointer REFERENCE.
+    //
+    // CAUTION! Do NOT hand over input/output entry as pointer reference.
+    //
 
     // Get socket from input/output entry.
     get_io_entry_element((void*) &s, p0, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get client list item from input/output entry.
-    get_io_entry_element((void*) &c, p0, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    get_io_entry_element((void*) &cl, p0, (void*) CLIENT_LIST_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get accepttime list item from input/output entry.
-    get_io_entry_element((void*) &a, p0, (void*) ACCEPTTIME_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    get_io_entry_element((void*) &al, p0, (void*) ACCEPTTIME_LIST_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // The timeout is just an integer number that does not have to get deallocated.
 
     // Shutdown client list.
-    shutdown_socket_server_list(c, a);
+    shutdown_socket_server_list(cl, al);
+
+    // Deallocate client list item.
+    deallocate_item((void*) &cl, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    // Deallocate accepttime list item.
+    deallocate_item((void*) &al, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
     // Close server socket.
     shutdown_socket_close((void*) &s);

@@ -42,48 +42,48 @@
  * This is due to the variety of communication channel settings.
  * The value of unneeded parametres may just be set to NULL.
  *
- * @param p1 the client identification (e.g. socket or window id)
- * @param p5 the socket family data (namespace)
- * @param p6 the socket family count
- * @param p7 the socket style data (communication type)
- * @param p8 the socket style count
- * @param p9 the socket protocol data
- * @param p10 the socket protocol count
- * @param p12 the socket filename data
- * @param p13 the socket filename count
- * @param p14 the socket host address data
- * @param p15 the socket host address count
- * @param p1x the socket port
- * @param p11 the blocking flag
- * @param p0 the internal memory data
- * @param p22 the channel
+ * @param p0 the client identification (e.g. socket or window id)
+ * @param p1 the socket family data (namespace)
+ * @param p2 the socket family count
+ * @param p3 the socket style data (communication type)
+ * @param p4 the socket style count
+ * @param p5 the socket protocol data
+ * @param p6 the socket protocol count
+ * @param p7 the socket filename data
+ * @param p8 the socket filename count
+ * @param p9 the socket host address data
+ * @param p10 the socket host address count
+ * @param p11 the socket port
+ * @param p12 the socket blocking flag
+ * @param p13 the internal memory data
+ * @param p14 the channel
  */
-void open(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22) {
+void open(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open.");
 
-    fwprintf(stdout, L"Test: Open. p22: %i\n", p22);
+    fwprintf(stdout, L"Test: Open. p14: %i\n", p14);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p22, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p14, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            open_display(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            open_display(p0, p13, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p22, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p14, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            open_socket(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            open_socket(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
 

@@ -60,41 +60,41 @@ void shutdown_service(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            shutdown_io(p0, p1, p2, p3, p4, p5, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            shutdown_io(p0, p1, p2, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) SERIAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            shutdown_io(p0, p1, p2, p3, p4, p5, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            shutdown_io(p0, p1, p2, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            shutdown_io(p0, p1, p2, p3, p4, p5, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            shutdown_io(p0, p1, p2, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            shutdown_io(p0, p1, p2, p3, p4, p5, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            shutdown_io(p0, p1, p2, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 

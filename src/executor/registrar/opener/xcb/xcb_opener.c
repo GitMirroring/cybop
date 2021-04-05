@@ -289,25 +289,6 @@ void open_xcb(void* p0, void* p1) {
 
             fwprintf(stdout, L"Test: Open xcb. *p0: %i\n", *((int*) p0));
 
-            //
-            // Store various values in input/output entry.
-            //
-            // CAUTION! Do NOT use "overwrite_array" function here,
-            // since it adapts the array count and size.
-            // But the array's count and size are CONSTANT.
-            //
-            // CAUTION! Do NOT hand over input/output entry as pointer reference.
-            //
-            // CAUTION! Hand over values as pointer REFERENCE.
-            //
-
-/*??
-            fwprintf(stdout, L"TEST: Open xcb. dwc: %i\n", dwc);
-            xcb_intern_atom_reply_t* test = (xcb_intern_atom_reply_t*) dwc;
-            fwprintf(stdout, L"TEST: Open xcb. test: %i\n", test);
-            fwprintf(stdout, L"TEST: Open xcb. (*test).atom: %i\n", (*test).atom);
-*/
-
             // Store delete window cookie in input/output entry.
             //?? set_io_entry_element(p1, (void*) &dwc, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 

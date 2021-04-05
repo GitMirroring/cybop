@@ -27,25 +27,26 @@
 #define IO_SHUTTER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../executor/maintainer/deallocate_io_maintainer.c"
+#include "../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/copier/integer_copier.c"
 #include "../../executor/maintainer/details_shutter.c"
 #include "../../executor/maintainer/get_io_maintainer.c"
 #include "../../executor/maintainer/set_io_maintainer.c"
+#include "../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../logger/logger.c"
 
 /**
  * Shuts down the given service.
  *
  * @param p0 the internal memory data
- * @param p1 the service identification (e.g. socket port)
- * @param p2 the socket client socket
- * @param p3 the socket mode data
- * @param p4 the socket mode count
- * @param p5 the channel
- * @param p6 the input/output base
+ * @param p1 the socket port
+ * @param p2 the channel
+ * @param p3 the input/output base
  */
-void shutdown_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
 
     //
     // CAUTION! This log message has been commented out
@@ -55,11 +56,28 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     //
     // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown io.");
 
+    // The service identification (id).
+    int id = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The input/output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Copy socket port to be used as service identification (id).
+    //
+    // CAUTION! The value gets copied ONLY if the source value is NOT NULL.
+    // This is tested inside the "copy_integer" function.
+    // Otherwise, the destination value remains as is.
+    //
+    // In other words, the identification is ZERO BY DEFAULT.
+    // Only for the socket channel, it gets replaced by the PORT number.
+    //
+    copy_integer((void*) &id, p1);
+
+    fwprintf(stdout, L"Test: Shutdown io. io base *p3: %i\n", *((int*) p3));
+    fwprintf(stdout, L"Test: Shutdown io. service id: %i\n", id);
+
     // Get input/output entry.
-    maintain_io_get((void*) &io, p0, p6, p1);
+    maintain_io_get((void*) &io, p0, p3, (void*) &id);
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -81,13 +99,19 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         // CAUTION! Hand over null as pointer reference NULL_POINTER_STATE_CYBOI_MODEL
         // and NOT as dereferenced pointer *NULL_POINTER_STATE_CYBOI_MODEL.
         //
-        maintain_io_set(p0, NULL_POINTER_STATE_CYBOI_MODEL, p6, p1);
+        maintain_io_set(p0, NULL_POINTER_STATE_CYBOI_MODEL, p3, (void*) &id);
 
         // Shutdown service details.
-        shutdown_details(io, p2, p3, p4, p5);
+        shutdown_details(io, p2);
 
+        //
         // Deallocate input/output entry.
-        maintain_io_deallocate((void*) &io);
+        //
+        // CAUTION! The second argument "count" is NULL,
+        // since it is only needed for looping elements of type PART,
+        // in order to decrement the rubbish (garbage) collection counter.
+        //
+        deallocate_array((void*) &io, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
 
     } else {
 

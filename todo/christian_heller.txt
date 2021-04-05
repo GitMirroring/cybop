@@ -14,6 +14,11 @@
 WUI and Socket
 ______________
 
+        * Add file "io_opener.c" for reading input/output entry, similar to file "io_starter.c"
+        * Adapt file "display_opener.c" (DONE: open_socket)
+        * Adapt files "io_entry_setter.c" and "io_entry_getter.c"
+            by moving CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME, ACCEPTTIME_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME, TIMEOUT_INPUT_OUTPUT_STATE_CYBOI_NAME
+            from general- to socket section
         * Complete restructuring of "maintainer" and "registrar" following the splitting up of client- from server code
         * Determine input/output entry in "opener.c" and "closer.c", to be forwarded as parametre
 

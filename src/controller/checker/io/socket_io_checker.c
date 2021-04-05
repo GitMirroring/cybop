@@ -60,9 +60,9 @@ void check_io_socket(void* p0, void* p1, void* p2) {
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Get client list item from input/output entry.
-    get_io_entry_element((void*) &c, p1, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    get_io_entry_element((void*) &c, p1, (void*) CLIENT_LIST_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get accepttime list item from input/output entry.
-    get_io_entry_element((void*) &a, p1, (void*) ACCEPTTIME_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    get_io_entry_element((void*) &a, p1, (void*) ACCEPTTIME_LIST_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     // Check for available input/output.
     check_io_receive((void*) &r, c, a, p1, p2);

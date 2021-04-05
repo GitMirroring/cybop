@@ -49,7 +49,7 @@
  * @param p7 the socket style count
  * @param p8 the socket protocol data
  * @param p9 the socket protocol count
- * @param p10 the blocking flag
+ * @param p10 the socket blocking flag
  * @param p11 the socket filename data
  * @param p12 the socket filename count
  * @param p13 the socket host address data

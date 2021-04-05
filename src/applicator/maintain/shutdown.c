@@ -53,45 +53,31 @@ void apply_shutdown(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // The channel part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket filename part.
-    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The socket port part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket filename part model item.
-    void* fm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The socket port part model item.
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model item data.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket filename part model item data, count.
-    void* fmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* fmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The socket port part model item data.
     void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get channel part.
     get_part_name((void*) &c, p0, (void*) CHANNEL_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) CHANNEL_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get socket filename part.
-    get_part_name((void*) &f, p0, (void*) FILENAME_SOCKET_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) FILENAME_SOCKET_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get socket port part.
     get_part_name((void*) &p, p0, (void*) PORT_SOCKET_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) PORT_SOCKET_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get channel part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get socket filename part model item.
-    copy_array_forward((void*) &fm, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get socket port part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Get channel part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get socket filename part model item data, count.
-    copy_array_forward((void*) &fmd, fm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &fmc, fm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get socket port part model item data.
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 

@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-04-05  Christian Heller  <christian.heller@cybop.org>
+
+        * Delete files "allocate_io_maintainer.c" and "deallocate_io_maintainer.c"
+
 2021-03-30  Christian Heller  <christian.heller@cybop.org>
 
         * Continue restructuring of "maintainer" and "registrar" following the splitting up of client- from server code

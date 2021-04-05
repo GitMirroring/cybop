@@ -40,12 +40,9 @@
  * Shuts down the service details.
  *
  * @param p0 the input/output entry
- * @param p1 the socket client socket
- * @param p2 the socket mode data
- * @param p3 the socket mode count
- * @param p4 the channel
+ * @param p1 the channel
  */
-void shutdown_details(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void shutdown_details(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown details.");
 
@@ -54,7 +51,7 @@ void shutdown_details(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p1, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -64,7 +61,7 @@ void shutdown_details(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) SERIAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p1, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -76,17 +73,17 @@ void shutdown_details(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p1, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            shutdown_socket(p0, p1, p2, p3);
+            shutdown_socket(p0);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p1, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

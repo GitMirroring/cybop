@@ -48,7 +48,7 @@
  * @param p9 the filename count
  * @param p10 the host address data
  * @param p11 the host address count
- * @param p12 the port (service id)
+ * @param p12 the port
  * @param p13 the connexions (number of possible pending client requests)
  * @param p14 the timeout
  */
@@ -58,14 +58,54 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     // The socket.
     int s = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    //
+    // The client list item.
+    //
+    // CAUTION! A client list IS needed here,
+    // since a socket can have MANY possible clients.
+    //
+    void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The corresponding accepttime list item.
+    void* al = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Startup server socket.
     startup_socket_server_lifecycle((void*) &s, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
 
+    //
+    // Allocate client list item.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_item((void*) &cl, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    //
+    // Allocate accepttime list item.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_item((void*) &al, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+
+    //
+    // Store various values in input/output entry.
+    //
+    // CAUTION! Do NOT use "overwrite_array" function here,
+    // since it adapts the array count and size.
+    // But the array's count and size are CONSTANT.
+    //
+    // CAUTION! Do NOT hand over input/output entry as pointer reference.
+    //
+    // CAUTION! Hand over value as pointer REFERENCE.
+    //
+
     // Store socket in input/output entry.
     set_io_entry_element(p0, (void*) &s, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Store client list item in input/output entry.
+    set_io_entry_element(p0, (void*) &cl, (void*) CLIENT_LIST_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Store accepttime list item in input/output entry.
+    set_io_entry_element(p0, (void*) &al, (void*) ACCEPTTIME_LIST_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Store default timeout in input/output entry.
-    set_io_entry_element(p0, p14, (void*) TIMEOUT_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    set_io_entry_element(p0, p14, (void*) TIMEOUT_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
 }
 
 /* SOCKET_STARTER_SOURCE */
