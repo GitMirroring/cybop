@@ -26,16 +26,16 @@
 #ifndef SOCKET_SHUTTER_SOURCE
 #define SOCKET_SHUTTER_SOURCE
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
-#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../executor/accessor/getter/io_entry_getter.c"
-#include "../../../../../executor/maintainer/shutter/socket/server/list_server_socket_shutter.c"
-#include "../../../../../executor/maintainer/shutter/socket/close_socket_shutter.c"
-#include "../../../../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../../../../logger/logger.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/accessor/getter/io_entry_getter.c"
+#include "../../../../executor/maintainer/shutter/socket/server/list_server_socket_shutter.c"
+#include "../../../../executor/maintainer/shutter/socket/close_socket_shutter.c"
+#include "../../../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Shuts down the socket service.
@@ -44,7 +44,7 @@
  *
  * @param p0 the input/output entry
  */
-void shutdown_socket(void* p0, void* p1, void* p2, void* p3) {
+void shutdown_socket(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown socket.");
 

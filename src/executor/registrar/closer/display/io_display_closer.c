@@ -27,6 +27,7 @@
 #define IO_DISPLAY_CLOSER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../executor/registrar/closer/display/display_closer.c"
 #include "../../../../logger/logger.c"
 
 /**

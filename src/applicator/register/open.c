@@ -186,7 +186,7 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &socket_bmd, socket_bm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Open up client.
-    open(idmd, socket_nmd, socket_nmc, socket_stmd, socket_stmc, socket_pmd, socket_pmc, socket_fmd, socket_fmc, socket_amd, socket_amc, socket_pomd, socket_bmd, p4, cmd);
+    open_client(idmd, socket_nmd, socket_nmc, socket_stmd, socket_stmc, socket_pmd, socket_pmc, socket_fmd, socket_fmc, socket_amd, socket_amc, socket_pomd, socket_bmd, p4, cmd);
 }
 
 /* OPEN_SOURCE */

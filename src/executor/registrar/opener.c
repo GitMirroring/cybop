@@ -38,6 +38,11 @@
 /**
  * Opens up the client.
  *
+ * CAUTION! Do NOT rename this function to "open",
+ * as that name is already used by low-level file descriptor functionality:
+ * /usr/include/fcntl.h:168
+ * extern int open (const char *__file, int __oflag, ...) __nonnull ((1));
+ *
  * @param p0 the client identification (e.g. socket or window id)
  * @param p1 the socket family data (namespace)
  * @param p2 the socket family count
@@ -54,7 +59,7 @@
  * @param p13 the internal memory data
  * @param p14 the channel
  */
-void open(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
+void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open.");
 

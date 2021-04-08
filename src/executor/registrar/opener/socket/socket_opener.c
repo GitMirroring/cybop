@@ -39,20 +39,20 @@
 #endif
 */
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../executor/maintainer/starter/socket/socket_address/socket_address_socket_starter.c"
-#include "../../../../../executor/maintainer/starter/socket/create_socket_starter.c"
-#include "../../../../../executor/maintainer/starter/socket/family_socket_starter.c"
-#include "../../../../../executor/maintainer/starter/socket/protocol_socket_starter.c"
-#include "../../../../../executor/maintainer/starter/socket/style_socket_starter.c"
-#include "../../../../../executor/registrar/opener/socket/connect_socket_opener.c"
-#include "../../../../../logger/logger.c"
-#include "../../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
-#include "../../../../../variable/symbolic_name/protocol_family_socket_symbolic_name.c"
-#include "../../../../../variable/symbolic_name/protocol_socket_symbolic_name.c"
-#include "../../../../../variable/symbolic_name/style_socket_symbolic_name.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/maintainer/starter/socket/socket_address/socket_address_socket_starter.c"
+#include "../../../../executor/maintainer/starter/socket/create_socket_starter.c"
+#include "../../../../executor/maintainer/starter/socket/family_socket_starter.c"
+#include "../../../../executor/maintainer/starter/socket/protocol_socket_starter.c"
+#include "../../../../executor/maintainer/starter/socket/style_socket_starter.c"
+#include "../../../../executor/registrar/opener/socket/connect_socket_opener.c"
+#include "../../../../logger/logger.c"
+#include "../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
+#include "../../../../variable/symbolic_name/protocol_family_socket_symbolic_name.c"
+#include "../../../../variable/symbolic_name/protocol_socket_symbolic_name.c"
+#include "../../../../variable/symbolic_name/style_socket_symbolic_name.c"
 
 /**
  * Opens up the given client socket.

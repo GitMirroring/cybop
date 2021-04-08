@@ -14,7 +14,6 @@
 WUI and Socket
 ______________
 
-        * Complete restructuring of "maintainer" and "registrar" following the splitting up of client- from server code
         * Make "gui" cybol application work again using cybol operations "maintain/startup" and "register/open"
         * Test operation "register/close" there
             question: Where to store the delete_window cookie, which is specific for one window?

@@ -76,7 +76,7 @@ void manage_shutdown_services(void* p0, void* p1, void* p2) {
             break;
         }
 
-        shutdown_service(p0, (void*) &j, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) SERVER_MODE_SOCKET_CYBOL_MODEL, (void*) SERVER_MODE_SOCKET_CYBOL_MODEL_COUNT, p2);
+        shutdown_service(p0, (void*) &j, p2);
 
         // Increment loop variable.
         j++;

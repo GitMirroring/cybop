@@ -27,6 +27,7 @@
 #define IO_DISPLAY_OPENER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../executor/registrar/opener/display/display_opener.c"
 #include "../../../../logger/logger.c"
 
 /**

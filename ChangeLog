@@ -22,6 +22,7 @@
 
         * Add files "io_display_opener.c" and "io_display_closer.c", for determining the input/output entry
         * Adapt files "io_entry_setter.c" and "io_entry_getter.c" by moving client list, accepttime list and timeout from general- to socket section
+        * Complete restructuring of "maintainer" and "registrar" following the splitting up of client- from server code
 
 2021-04-05  Christian Heller  <christian.heller@cybop.org>
 

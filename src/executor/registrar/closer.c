@@ -31,18 +31,23 @@
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/registrar/closer/display/display_closer.c"
-#include "../../executor/registrar/closer/socket/socket_closer.c"
+#include "../../executor/maintainer/shutter/socket/close_socket_shutter.c"
+#include "../../executor/registrar/closer/display/io_display_closer.c"
 #include "../../logger/logger.c"
 
 /**
  * Closes down the client.
  *
+ * CAUTION! Do NOT rename this function to "close",
+ * as that name is already used by low-level functionality:
+ * /usr/include/unistd.h:353:12
+ * extern int close (int __fd);
+ *
  * @param p0 the client identification (e.g. socket or window id)
  * @param p1 the internal memory data
  * @param p2 the channel
  */
-void close(void* p0, void* p1, void* p2) {
+void close_client(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close.");
 
@@ -67,7 +72,7 @@ void close(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            close_socket(p0);
+            shutdown_socket_close(p0);
         }
     }
 

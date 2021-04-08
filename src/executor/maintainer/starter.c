@@ -43,10 +43,6 @@
  * as that name is already used by low-level socket functionality:
  * /usr/include/i386-linux-gnu/sys/socket.h:232:12
  *
- * There may be DOZENS of parametres handed over to this function.
- * This is due to the variety of communication channel settings.
- * The value of unneeded parametres may just be set to NULL.
- *
  * @param p0 the internal memory data
  * @param p1 the serial filename data
  * @param p2 the serial filename count
