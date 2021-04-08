@@ -14,28 +14,24 @@
 WUI and Socket
 ______________
 
-        * Add file "io_opener.c" for reading input/output entry, similar to file "io_starter.c"
-        * Adapt file "display_opener.c" (DONE: open_socket)
-        * Adapt files "io_entry_setter.c" and "io_entry_getter.c"
-            by moving CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME, ACCEPTTIME_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME, TIMEOUT_INPUT_OUTPUT_STATE_CYBOI_NAME
-            from general- to socket section
+        * Adapt files "io_entry_setter.c" and "io_entry_getter.c" by moving some entries from general- to socket section
+            CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME, ACCEPTTIME_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME, TIMEOUT_INPUT_OUTPUT_STATE_CYBOI_NAME
         * Complete restructuring of "maintainer" and "registrar" following the splitting up of client- from server code
-        * Determine input/output entry in "opener.c" and "closer.c", to be forwarded as parametre
 
         * Make "gui" cybol application work again using cybol operations "maintain/startup" and "register/open"
         * Test operation "register/close" there
+            question: Where to store the delete_window cookie, which is specific for one window?
         * Adjust font in graphic context of file "context_x_window_system_serialiser.c"
 
+        HINTS only (delete later):
         * Create in display server starter: connexion, screen, default graphic context, device context
         * Create in display client (window) opener: (only) window
         * Create in serialiser: font
-        * OPEN question: Where to store the delete_window cookie, which is specific for one window?
         * Keep window_id in cybol application
-        * Delete temporary solution in "else"-branch of file "io_starter.c" again
 
         * Fix tui in cybol example "user_interface/ui/"
 
-        * Use stack variables to avoid "empty"
+        * Use stack variables to avoid cybol operation call of "empty"
             Is it possible at all?
             the handle is called by cyboi
         * Think about how to inform the user about errors (tui, gui, wui, all, message dialog?)

@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-04-08  Christian Heller  <christian.heller@cybop.org>
+
+        * Add files "io_display_opener.c" and "io_display_closer.c", for determining the input/output entry
+
 2021-04-05  Christian Heller  <christian.heller@cybop.org>
 
         * Delete files "allocate_io_maintainer.c" and "deallocate_io_maintainer.c"

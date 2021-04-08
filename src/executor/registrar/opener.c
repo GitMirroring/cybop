@@ -31,16 +31,12 @@
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/registrar/opener/display/display_opener.c"
+#include "../../executor/registrar/opener/display/io_display_opener.c"
 #include "../../executor/registrar/opener/socket/socket_opener.c"
 #include "../../logger/logger.c"
 
 /**
  * Opens up the client.
- *
- * There may be DOZENS of parametres handed over to this function.
- * This is due to the variety of communication channel settings.
- * The value of unneeded parametres may just be set to NULL.
  *
  * @param p0 the client identification (e.g. socket or window id)
  * @param p1 the socket family data (namespace)
@@ -73,7 +69,7 @@ void open(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, 
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            open_display(p0, p13, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            open_display_io(p0, p13, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 

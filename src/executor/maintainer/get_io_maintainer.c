@@ -89,7 +89,7 @@ void maintain_io_get(void* p0, void* p1, void* p2, void* p3) {
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not maintain io get. The service identification is invalid.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not maintain io get. The service identification is negative and hence invalid.");
     }
 }
 

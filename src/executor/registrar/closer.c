@@ -31,7 +31,8 @@
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/registrar/closer_TODO.c"
+#include "../../executor/registrar/closer/display/display_closer.c"
+#include "../../executor/registrar/closer/socket/socket_closer.c"
 #include "../../logger/logger.c"
 
 /**
@@ -45,27 +46,28 @@ void close(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close.");
 
+    fwprintf(stdout, L"Test: Close. p2: %i\n", p2);
+
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            close_TODO(p0, p1, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            close_display_io(p0, p1, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // shutdown_socket_close(p1);
-            close_TODO(p0, p1, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            close_socket(p0);
         }
     }
 
