@@ -14,10 +14,7 @@
 WUI and Socket
 ______________
 
-        * Adapt files "io_entry_setter.c" and "io_entry_getter.c" by moving some entries from general- to socket section
-            CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME, ACCEPTTIME_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME, TIMEOUT_INPUT_OUTPUT_STATE_CYBOI_NAME
         * Complete restructuring of "maintainer" and "registrar" following the splitting up of client- from server code
-
         * Make "gui" cybol application work again using cybol operations "maintain/startup" and "register/open"
         * Test operation "register/close" there
             question: Where to store the delete_window cookie, which is specific for one window?
