@@ -73,6 +73,7 @@ CYBOI compilation:
     freeglut3-dev
 
 CYBOP development (helpful, but not essential):
+    subversion
     doxygen
     valgrind (graphviz, kcachegrind, valkyrie)
 
