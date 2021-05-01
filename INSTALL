@@ -32,6 +32,7 @@ Contents
 4.1 Testing
 4.2 Formatting
 4.3 Documentation
+4.4 Homepage
 
 5 Distribution
 5.1 Tagging
@@ -383,6 +384,39 @@ _________________
 - Run the doxygen
 
     make doc
+
+4.4 Homepage
+____________
+
+https://savannah.gnu.org/maintenance/HomepageUpload/
+
+- upload project web pages
+- use cvs for accessing the web repository (it is completely separate from any source trees)
+- upload ssh key to gnu savannah portal in order to access sources
+- go to local directory, e.g.:
+
+mkdir ~/project/www
+cd ~/project/www
+
+- download cvs html tree structure:
+
+cvs -z3 -d:ext:LOGIN@cvs.sv.gnu.org:/web/PROJECT co .
+
+- copy all necessary files to cvs html tree using e.g.:
+
+cp ~/tmp/index.html ~/project/www/PROJECT
+
+- import local html tree to cvs:
+
+cd ~/project/www/PROJECT
+cvs add index.html
+cvs add mydir
+# (or: cvs add index.html mydir)
+cvs commit
+
+- update and commit as needed
+
+Hint: The webpages will be updated within an hour.
 
 5 Distribution
 ==============
