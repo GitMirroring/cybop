@@ -73,8 +73,8 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
     //
     copy_integer((void*) &id, p1);
 
-    fwprintf(stdout, L"Test: Shutdown io. io base *p3: %i\n", *((int*) p3));
-    fwprintf(stdout, L"Test: Shutdown io. service id: %i\n", id);
+    //?? fwprintf(stdout, L"Test: Shutdown io. io base *p3: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"Test: Shutdown io. service id: %i\n", id);
 
     // Get input/output entry.
     maintain_io_get((void*) &io, p0, p3, (void*) &id);

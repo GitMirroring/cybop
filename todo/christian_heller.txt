@@ -14,7 +14,9 @@
 WUI and Socket
 ______________
 
-        * Make "gui" cybol application work again using cybol operations "maintain/startup" and "register/open"
+        * Make cybol application "counter/simple/" work again
+
+        * Make cybol application "gui" work again using cybol operations "maintain/startup" and "register/open"
         * Test operation "register/close" there
             question: Where to store the delete_window cookie, which is specific for one window?
         * Adjust font in graphic context of file "context_x_window_system_serialiser.c"
@@ -25,8 +27,8 @@ ______________
         * Create in serialiser: font
         * Keep window_id in cybol application
 
-        * Fix tui in cybol example "user_interface/ui/"
-
+        * Adapt cybol application "user_interface/ui/"
+        * Fix tui in cybol application "user_interface/ui/"
         * Use stack variables to avoid cybol operation call of "empty"
             Is it possible at all?
             the handle is called by cyboi
