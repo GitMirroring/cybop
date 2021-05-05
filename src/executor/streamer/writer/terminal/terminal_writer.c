@@ -41,7 +41,7 @@
 /**
  * Writes the source to the terminal.
  *
- * @param p0 the destination service identification item
+ * @param p0 the destination service identification item (currently NOT used, only the standard terminal)
  * @param p1 the source data
  * @param p2 the source count
  * @param p3 the internal memory data

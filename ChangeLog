@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-05-05  Christian Heller  <christian.heller@cybop.org>
+
+        * Use "stdout" stream directly in files "file_unix_terminal_writer.c" and "stream_terminal_shutter.c"
+        * Make simple cybol applications like "hello_world/simple/" work again
+
 2021-04-08  Christian Heller  <christian.heller@cybop.org>
 
         * Add files "io_display_opener.c" and "io_display_closer.c", for determining the input/output entry

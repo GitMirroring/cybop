@@ -71,7 +71,14 @@ void shutdown_terminal_stream(void* p0, void* p1, void* p2) {
     get_io_entry_element((void*) &s, p0, p2);
 
     // Get terminal file descriptor from file stream.
-    startup_terminal_file_number_get((void*) &d, s);
+    //??
+    //?? TODO: Commented out, since stdout cannot be stored
+    //?? in input/output entry successfully.
+    //?? Therefore, stdout of type FILE* is handed over
+    //?? directly here. Investigate this later.
+    //?? startup_terminal_file_number_get((void*) &d, s);
+    //??
+    startup_terminal_file_number_get((void*) &d, (void*) stdout);
 
     // Restore original terminal mode.
     shutdown_terminal_mode((void*) &d, p0, p1);

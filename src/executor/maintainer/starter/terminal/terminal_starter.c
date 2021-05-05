@@ -116,7 +116,7 @@ void startup_terminal(void* p0) {
     // The second argument is the file stream.
     // CAUTION! Hand it over as pointer REFERENCE.
     //
-    // The third (and last) argument is a boolean value (flag)
+    // The third argument is a boolean value (flag)
     // indicating input (true) or output (false).
     //
 

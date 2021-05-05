@@ -70,7 +70,16 @@ void write_unix_terminal_file(void* p0, void* p1) {
             //
             // CAUTION! The data ought to be null-terminated.
             //
-            int e = fwprintf(f, L"%s", d);
+            //?? int e = fwprintf(f, L"%s", d);
+
+            //
+            //?? TODO: This is a temporary solution using "stdout".
+            //
+            // For some unknown reason, stdout cannot be stored and
+            // retrieved successfully from the input/output entry.
+            // Investigate this later on.
+            //
+            int e = fwprintf(stdout, L"%s", d);
 
             //
             // Test error value.
@@ -89,6 +98,7 @@ void write_unix_terminal_file(void* p0, void* p1) {
             if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write unix terminal file. A write error occured.");
+                fwprintf(stdout, L"Error: Could not write unix terminal file. A write error occured. e: %i\n", e);
             }
 
             //
@@ -102,16 +112,27 @@ void write_unix_terminal_file(void* p0, void* p1) {
             // - a newline was written with the stream being line buffered
             // - an input operation on any stream actually read data from its file
             //
-            fflush(f);
+            //?? fflush(f);
+
+            //
+            //?? TODO: This is a temporary solution using "stdout".
+            //
+            // For some unknown reason, stdout cannot be stored and
+            // retrieved successfully from the input/output entry.
+            // Investigate this later on.
+            //
+            fflush(stdout);
 
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write unix terminal file. The destination output file stream is null.");
+            fwprintf(stdout, L"Error: Could not write unix terminal file. The destination output file stream is null.\n");
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write unix terminal file. The source data is null.");
+        fwprintf(stdout, L"Error: Could not write unix terminal file. The source data is null.\n");
     }
 }
 

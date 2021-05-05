@@ -44,20 +44,19 @@
  *
  * @param p0 the terminal output file stream (pointer reference)
  * @param p1 the internal memory data
- * @param p2 the service identification
+ * @param p2 the service identification (currently NOT used, only the standard terminal)
  */
 void write_terminal_entry(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write terminal entry.");
 
-    // The internal memory index.
+    // The input/output base (internal memory index).
     int i = *TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME;
 
     //
     // Calculate internal memory index using given service identification.
     //
-    // CAUTION! If the service identification is null,
-    // then NOTHING GETS COPIED here.
+    // CAUTION! If the service identification is null, then NOTHING GETS COPIED here.
     // In this case, the base internal memory index defined above
     // remains as is which is the same as a service identification of zero.
     //
@@ -66,7 +65,9 @@ void write_terminal_entry(void* p0, void* p1, void* p2) {
     // CAUTION! Use greater-or-equal operator >=, since the first terminal has the identification zero.
     if (i >= *TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME) {
 
+        //
         // The given service identification is valid.
+        //
 
         // The terminal input/output entry.
         void* io = *NULL_POINTER_STATE_CYBOI_MODEL;

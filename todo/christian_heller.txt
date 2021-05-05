@@ -14,8 +14,6 @@
 WUI and Socket
 ______________
 
-        * Make cybol application "counter/simple/" work again
-
         * Make cybol application "gui" work again using cybol operations "maintain/startup" and "register/open"
         * Test operation "register/close" there
             question: Where to store the delete_window cookie, which is specific for one window?
@@ -35,6 +33,11 @@ ______________
         * Think about how to inform the user about errors (tui, gui, wui, all, message dialog?)
             e.g. there is an uncritical error when first calling "send" trying to send the wui via socket, because a client socket does not exist yet
             give the user a possibility to configure error handling in cybol on system startup?
+
+        LATER:
+        * Centralise and move determination of input/output entry to "executor/accessor/setter/internal_memory_setter.c"
+        * See example in file "get_io_maintainer.c"
+        * Remove it from "maintainer/starter/io_starter.c" and "streamer/writer/*"
 
         * Fix error that resource gets interpreted as Stylesheet but transferred with MIME type text/plain
             see file "app.cybol" in cybol applications "socket_client" and "socket_server"
@@ -105,6 +108,12 @@ ______________
 
         * Decide what to do with files "network_service_deserialiser.c" and "network_service_serialiser.c"
             --> Should they be kept in cyboi or rather be key-value-mapped in cybol?
+
+        STDOUT:
+        * Delete temporary solution using "stdout" in file "file_unix_terminal_writer.c" at "fwprintf" and "fflush"
+        * Delete temporary solution using "stdout" in file "stream_terminal_shutter.c" at "startup_terminal_file_number_get"
+        * For some unknown reason, stdout cannot be stored and retrieved successfully from the input/output entry
+        * The FILE* pointer being stored is always different from the one retrieved afterwards
 
 CYBOL Library
 _____________

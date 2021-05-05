@@ -83,8 +83,8 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     //
     copy_integer((void*) &id, p15);
 
-    fwprintf(stdout, L"Test: Startup io. io base *p19: %i\n", *((int*) p19));
-    fwprintf(stdout, L"Test: Startup io. service id: %i\n", id);
+    //?? fwprintf(stdout, L"Test: Startup io. io base *p19: %i\n", *((int*) p19));
+    //?? fwprintf(stdout, L"Test: Startup io. service id: %i\n", id);
 
     // Get input/output entry.
     maintain_io_get((void*) &io, p0, p19, (void*) &id);
