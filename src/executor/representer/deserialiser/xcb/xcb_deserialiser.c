@@ -225,7 +225,7 @@ void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             // Retrieve delete window cookie from input/output entry.
             fwprintf(stdout, L"TEST deserialise xcb XCB_CLIENT_MESSAGE 4 dwc: %i\n", dwc);
             fwprintf(stdout, L"TEST deserialise xcb XCB_CLIENT_MESSAGE 5 p12: %i\n", p12);
-            get_io_entry_element((void*) &dwc, p12, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+//??            get_io_entry_element((void*) &dwc, p12, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
             fwprintf(stdout, L"TEST deserialise xcb XCB_CLIENT_MESSAGE 6 dwc: %i\n", dwc);
 
             // The delete window cookie structure.

@@ -41,9 +41,11 @@
 /**
  * Gets the source input/output entry's element at the given index.
  *
- * CAUTION! When editing this file, then also adapt files:
- * "constant/name/cyboi/state/input_output_state_cyboi_name.c".
+ * CAUTION! When editing one file, then adapt ALL FOUR files:
+ * "constant/name/cyboi/state/input_output_state_cyboi_name.c"
  * "controller/globaliser/type_size/compound_type_size_globaliser.c"
+ * "executor/accessor/getter/io_entry_getter.c"
+ * "executor/accessor/setter/io_entry_setter.c"
  *
  * @param p0 the destination element (pointer reference only if pointer is retrieved)
  * @param p1 the source input/output entry
@@ -53,14 +55,19 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get input/output entry element.");
 
+    //
     // The element pointer.
+    //
     // CAUTION! Initialise with source input/output entry.
+    //
     void* e = p1;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
+        // Copy source input/output entry to destination element.
         //
         // CAUTION! Add offset to each element pointer below.
         //
@@ -81,14 +88,11 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                //
-                // Nothing.
-                //
-
-                // calculate_pointer_add((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-                // Copy source input/output entry to destination element.
                 copy_integer(p0, e);
+
+            } else {
+
+                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
             }
         }
 
@@ -98,14 +102,11 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                //
-                // General.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
-
-                // Copy source input/output entry to destination element.
                 copy_integer(p0, e);
+
+            } else {
+
+                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
             }
         }
 
@@ -115,18 +116,11 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                //
-                // General.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
-
-                // Copy source input/output entry to destination element.
-                //
-                // CAUTION! Hand over element as POINTER REFERENCE,
-                // since a pointer is copied here.
                 copy_pointer(p0, e);
+
+            } else {
+
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE);
             }
         }
 
@@ -136,16 +130,11 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                //
-                // General.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
-
-                // Copy source input/output entry to destination element.
                 copy_pointer(p0, e);
+
+            } else {
+
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE);
             }
         }
 
@@ -159,20 +148,11 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                //
-                // General.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // sender
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // client list
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // accepttime list
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // timeout
-
-                // Copy source input/output entry to destination element.
                 copy_pointer(p0, e);
+
+            } else {
+
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE);
             }
         }
 
@@ -182,26 +162,11 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                //
-                // General.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // sender
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // client list
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // accepttime list
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // timeout
-
-                //
-                // Serial port.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // file stream
-
-                // Copy source input/output entry to destination element.
                 copy_pointer(p0, e);
+
+            } else {
+
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE);
             }
         }
 
@@ -215,27 +180,11 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                //
-                // General.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // sender
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // client list
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // accepttime list
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // timeout
-
-                //
-                // Serial port.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // original mode
-
-                // Copy source input/output entry to destination element.
                 copy_pointer(p0, e);
+
+            } else {
+
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE);
             }
         }
 
@@ -245,33 +194,11 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                //
-                // General.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // sender
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // client list
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // accepttime list
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // timeout
-
-                //
-                // Serial port.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // original mode
-
-                //
-                // Terminal.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output file stream
-
-                // Copy source input/output entry to destination element.
                 copy_pointer(p0, e);
+
+            } else {
+
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE);
             }
         }
 
@@ -281,34 +208,11 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                //
-                // General.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // sender
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // client list
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // accepttime list
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // timeout
-
-                //
-                // Serial port.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // original mode
-
-                //
-                // Terminal.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input file stream
-
-                // Copy source input/output entry to destination element.
                 copy_pointer(p0, e);
+
+            } else {
+
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE);
             }
         }
 
@@ -318,35 +222,11 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                //
-                // General.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // sender
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // client list
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // accepttime list
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // timeout
-
-                //
-                // Serial port.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // original mode
-
-                //
-                // Terminal.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output original mode
-
-                // Copy source input/output entry to destination element.
                 copy_pointer(p0, e);
+
+            } else {
+
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE);
             }
         }
 
@@ -356,131 +236,15 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p2, (void*) EVENT_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                //
-                // General.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // sender
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // client list
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // accepttime list
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // timeout
-
-                //
-                // Serial port.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // original mode
-
-                //
-                // Terminal.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output original mode
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input original mode
-
-                // Copy source input/output entry to destination element.
-                copy_pointer(p0, e);
-            }
-        }
-
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            compare_integer_equal((void*) &r, p2, (void*) WINDOW_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                //
-                // General.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // sender
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // client list
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // accepttime list
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // timeout
-
-                //
-                // Serial port.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // original mode
-
-                //
-                // Terminal.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output original mode
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input original mode
-
-                //
-                // Display.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // event
-
-                // Copy source input/output entry to destination element.
-                copy_integer(p0, e);
-            }
-        }
-
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
             compare_integer_equal((void*) &r, p2, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                //
-                // General.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // sender
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // client list
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // accepttime list
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // timeout
-
-                //
-                // Serial port.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // original mode
-
-                //
-                // Terminal.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output original mode
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input original mode
-
-                //
-                // Display.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // event
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // window
-
-                // Copy source input/output entry to destination element.
                 copy_pointer(p0, e);
+
+            } else {
+
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE);
             }
         }
 
@@ -490,45 +254,11 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                //
-                // General.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // sender
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // client list
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // accepttime list
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // timeout
-
-                //
-                // Serial port.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // original mode
-
-                //
-                // Terminal.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output original mode
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input original mode
-
-                //
-                // Display.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // event
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // window
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // connexion xcb
-
-                // Copy source input/output entry to destination element.
                 copy_pointer(p0, e);
+
+            } else {
+
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE);
             }
         }
 
@@ -538,199 +268,11 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                //
-                // General.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // sender
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // client list
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // accepttime list
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // timeout
-
-                //
-                // Serial port.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // original mode
-
-                //
-                // Terminal.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output original mode
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input original mode
-
-                //
-                // Display.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // event
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // window
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // connexion xcb
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // screen xcb
-
-                // Copy source input/output entry to destination element.
                 copy_integer(p0, e);
-            }
-        }
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            } else {
 
-            compare_integer_equal((void*) &r, p2, (void*) FONT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                //
-                // General.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // sender
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // client list
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // accepttime list
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // timeout
-
-                //
-                // Serial port.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // original mode
-
-                //
-                // Terminal.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output original mode
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input original mode
-
-                //
-                // Display.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // event
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // window
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // connexion xcb
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // screen xcb
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // graphic context xcb
-
-                // Copy source input/output entry to destination element.
-                copy_integer(p0, e);
-            }
-        }
-
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            compare_integer_equal((void*) &r, p2, (void*) COLOUR_MAP_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                //
-                // General.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // sender
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // client list
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // accepttime list
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // timeout
-
-                //
-                // Serial port.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // original mode
-
-                //
-                // Terminal.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output original mode
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input original mode
-
-                //
-                // Display.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // event
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // window
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // connexion xcb
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // screen xcb
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // graphic context xcb
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // font xcb
-
-                // Copy source input/output entry to destination element.
-                copy_integer(p0, e);
-            }
-        }
-
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            compare_integer_equal((void*) &r, p2, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                //
-                // General.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // sender
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // client list
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // accepttime list
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // timeout
-
-                //
-                // Serial port.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // original mode
-
-                //
-                // Terminal.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output original mode
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input original mode
-
-                //
-                // Display.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // event
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // window
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // connexion xcb
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // screen xcb
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // graphic context xcb
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // font xcb
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // colour map xcb
-
-                // Copy source input/output entry to destination element.
-                copy_pointer(p0, e);
+                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
             }
         }
 
@@ -740,51 +282,25 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                //
-                // General.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // sender
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // client list
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // accepttime list
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // timeout
-
-                //
-                // Serial port.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // original mode
-
-                //
-                // Terminal.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output original mode
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input original mode
-
-                //
-                // Display.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // event
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // window
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // connexion xcb
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // screen xcb
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // graphic context xcb
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // font xcb
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // colour map xcb
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // delete window cookie xcb
-
-                // Copy source input/output entry to destination element.
                 copy_integer(p0, e);
+
+            } else {
+
+                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            compare_integer_equal((void*) &r, p2, (void*) EVENT_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                copy_pointer(p0, e);
+
+            } else {
+
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE);
             }
         }
 
@@ -798,53 +314,11 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                //
-                // General.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // sender
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // client list
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // accepttime list
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // timeout
-
-                //
-                // Serial port.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // original mode
-
-                //
-                // Terminal.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output original mode
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input original mode
-
-                //
-                // Display.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // event
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // window
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // connexion xcb
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // screen xcb
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // graphic context xcb
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // font xcb
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // colour map xcb
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // delete window cookie xcb
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // device context win32
-
-                // Copy source input/output entry to destination element.
                 copy_integer(p0, e);
+
+            } else {
+
+                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
             }
         }
 
@@ -854,59 +328,11 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                //
-                // General.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // sender
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // client list
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // accepttime list
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // timeout
-
-                //
-                // Serial port.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // original mode
-
-                //
-                // Terminal.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output original mode
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input original mode
-
-                //
-                // Display.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // event
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // window
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // connexion xcb
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // screen xcb
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // graphic context xcb
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // font xcb
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // colour map xcb
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // delete window cookie xcb
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // device context win32
-
-                //
-                // Socket.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // socket number
-
-                // Copy source input/output entry to destination element.
                 copy_pointer(p0, e);
+
+            } else {
+
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE);
             }
         }
 
@@ -916,60 +342,11 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                //
-                // General.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // sender
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // client list
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // accepttime list
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // timeout
-
-                //
-                // Serial port.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // original mode
-
-                //
-                // Terminal.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output original mode
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input original mode
-
-                //
-                // Display.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // event
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // window
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // connexion xcb
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // screen xcb
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // graphic context xcb
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // font xcb
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // colour map xcb
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // delete window cookie xcb
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // device context win32
-
-                //
-                // Socket.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // socket number
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // client list
-
-                // Copy source input/output entry to destination element.
                 copy_pointer(p0, e);
+
+            } else {
+
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE);
             }
         }
 
@@ -979,61 +356,11 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                //
-                // General.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // sender
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // client list
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // accepttime list
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // timeout
-
-                //
-                // Serial port.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // original mode
-
-                //
-                // Terminal.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input file stream
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // output original mode
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // input original mode
-
-                //
-                // Display.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // event
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // window
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // connexion xcb
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // screen xcb
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // graphic context xcb
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // font xcb
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // colour map xcb
-
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // delete window cookie xcb
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // device context win32
-
-                //
-                // Socket.
-                //
-
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // socket number
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // client list
-                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // accepttime list
-
-                // Copy source input/output entry to destination element.
                 copy_integer(p0, e);
+
+            } else {
+
+                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
             }
         }
 

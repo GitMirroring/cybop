@@ -33,6 +33,12 @@
 
 /**
  * Initialises compound type size global variables.
+ *
+ * CAUTION! When editing one file, then adapt ALL FOUR files:
+ * "constant/name/cyboi/state/input_output_state_cyboi_name.c"
+ * "controller/globaliser/type_size/compound_type_size_globaliser.c"
+ * "executor/accessor/getter/io_entry_getter.c"
+ * "executor/accessor/setter/io_entry_setter.c"
  */
 void globalise_type_size_compound() {
 
@@ -56,7 +62,9 @@ void globalise_type_size_compound() {
     // Elements:
     *IO_ENTRY_COMPOUND_TYPE_SIZE =
 
-        // General
+        //
+        // General.
+        //
           *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE // enable
         + *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE // interrupt
         + *POINTER_TYPE_SIZE // handler
@@ -64,9 +72,6 @@ void globalise_type_size_compound() {
         // allocated as model in cybol and needs to be manipulated
         // in cyboi. A simple integer value would be lost.
         + *POINTER_TYPE_SIZE // sender
-        + *POINTER_TYPE_SIZE // client list
-        + *POINTER_TYPE_SIZE // accepttime list
-        + *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE // timeout
 
         //
         // Serial port.
@@ -88,24 +93,20 @@ void globalise_type_size_compound() {
         // Display.
         //
 
-        + *POINTER_TYPE_SIZE // event
-        + *POINTER_TYPE_SIZE // window
-
         + *POINTER_TYPE_SIZE // connexion xcb
         + *POINTER_TYPE_SIZE // screen xcb
-        + *POINTER_TYPE_SIZE // graphic context xcb
-        + *POINTER_TYPE_SIZE // font xcb
-        + *POINTER_TYPE_SIZE // colour map xcb
-
-        + *POINTER_TYPE_SIZE // delete window cookie xcb
-
-        + *POINTER_TYPE_SIZE // device context win32
+        + *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE // graphic context xcb
+        + *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE // device context win32
+        + *POINTER_TYPE_SIZE // event
 
         //
         // Socket.
         //
 
         + *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE // socket number
+        + *POINTER_TYPE_SIZE // client list
+        + *POINTER_TYPE_SIZE // accepttime list
+        + *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE // timeout
 
         // The end.
         ;

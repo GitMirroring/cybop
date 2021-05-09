@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-05-09  Christian Heller  <christian.heller@cybop.org>
+
+        * Restructure and optimise files "io_entry_getter.c" and "io_entry_setter.c" avoiding redundant code
+        * Adapt files "input_output_state_cyboi_name.c" and "compound_type_size_globaliser.c"
+        * Make cybol application "gui" work again using cybol operations "maintain/startup" and "register/open"
+
 2021-05-05  Christian Heller  <christian.heller@cybop.org>
 
         * Use "stdout" stream directly in files "file_unix_terminal_writer.c" and "stream_terminal_shutter.c"
