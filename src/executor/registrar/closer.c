@@ -51,8 +51,6 @@ void close_client(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close.");
 
-    fwprintf(stdout, L"Test: Close. p2: %i\n", p2);
-
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 

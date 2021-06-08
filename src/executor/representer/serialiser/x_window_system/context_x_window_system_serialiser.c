@@ -50,9 +50,11 @@
  */
 void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
+/*??
     if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* f = (int*) p4;
+*/
 
         if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -209,6 +211,20 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
                     bg = (*bgcr).pixel;
 
                     //
+                    // Ask x server to attribute an id to the font.
+                    //
+                    // The font type is defined as id internally:
+                    // typedef uint32_t xcb_font_t;
+                    //
+                    // It is used to contain information about a font,
+                    // and is passed to several functions that handle
+                    // font selection and text drawing.
+                    //
+                    xcb_font_t f = xcb_generate_id(c);
+
+                    //?? fwprintf(stdout, L"Test: Serialise x window system context. generated id f: %i\n", f);
+
+                    //
                     // Get font name item data, count.
                     //
                     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -220,10 +236,11 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
 
                     if (fnc != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                        // The font name item count as integer value.
-                        int* fnci = (int*) fnc;
+                        // Convert font name item data, count to expected type.
+                        char* fndt = (char*) fnd;
+                        uint16_t* fnct = (uint16_t*) fnc;
 
-                        if (*fnci > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                        if (*fnct > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                             //
                             // Open font.
@@ -235,18 +252,21 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
                             // "7x13"
                             // "*-helvetica-*-12-*"
                             //
-                            xcb_open_font(c, *f, *fnci, (char*) fnd);
+                            xcb_open_font(c, f, *fnct, fndt);
+
+                            //?? fwprintf(stdout, L"Test: Serialise x window system context. *fnct: %i\n", *fnct);
+                            //?? fwprintf(stdout, L"Test: Serialise x window system context. fndt: %s\n", fndt);
 
                         } else {
 
                             log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The font name count is zero.");
-                            fwprintf(stdout, L"Warning: Could not serialise x window system context. The font name count is zero.\n");
+                            fwprintf(stdout, L"Error: Could not serialise x window system context. The font name count is zero.\n");
                         }
 
                     } else {
 
                         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The font name count is null.");
-                        fwprintf(stdout, L"Warning: Could not serialise x window system context. The font name count is null.\n");
+                        fwprintf(stdout, L"Error: Could not serialise x window system context. The font name count is null.\n");
                     }
 
                     // Deallocate font name item.
@@ -286,15 +306,18 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
                     v[6] = fs;
                     v[7] = fr;
 
-                    if (*f > *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
+//??                    if (f > *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
-                        v[8] = *f;
+                        v[8] = f;
 
+/*??
                     } else {
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The font is negative.");
-                        fwprintf(stdout, L"Error: Could not serialise x window system context. The font is minus one.\n");
+                        fwprintf(stdout, L"Error: Could not serialise x window system context. The font is negative. f: %i\n", f);
+                        fwprintf(stdout, L"Error: Could not serialise x window system context. The font is negative. *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL: %i\n", *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
                     }
+*/
 
                     // The xcb graphic context type value.
                     xcb_gcontext_t gct = (xcb_gcontext_t) *gc;
@@ -316,11 +339,13 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The graphic context is null.");
         }
 
+/*??
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The font is null.");
         fwprintf(stdout, L"Error: Could not serialise x window system context. The font is null.\n");
     }
+*/
 }
 
 /* CONTEXT_X_WINDOW_SYSTEM_SERIALISER_SOURCE */

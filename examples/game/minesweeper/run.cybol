@@ -3,8 +3,8 @@
     <node name="create_app" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="app"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-         
     </node>
+
     <node name="initialise_app" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -14,12 +14,11 @@
         <node name="message" channel="inline" format="text/cybol-path" model=".app"/>
     </node>
 
-
-
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
-    <!--<node name="send_terminal" channel="inline" format="communicate/send" model="">
+<!--
+    <node name="send_terminal" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
@@ -27,7 +26,8 @@
         <node name="message" channel="inline" format="text/cybol-path" model=".app.tui.window"/>
         <node name="area" channel="inline" format="text/cybol-path" model=".app.tui.menu"/>
         <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>-->
+    </node>
+-->
     <node name="focus_current_menu_item" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.user_interface.focus"/>
     </node>

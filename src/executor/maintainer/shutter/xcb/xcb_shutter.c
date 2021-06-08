@@ -76,7 +76,7 @@ void shutdown_xcb(void* p0) {
     // Retrieve graphic context from input/output entry.
     get_io_entry_element((void*) &gc, p0, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-    fwprintf(stdout, L"TEST shutdown xcb c: %i\n", c);
+    //?? fwprintf(stdout, L"Test: Shutdown xcb. c: %i\n", c);
 
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -99,6 +99,7 @@ void shutdown_xcb(void* p0) {
         } else {
 
             log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown xcb. The graphic context is null.");
+            fwprintf(stdout, L"Warning: Could not shutdown xcb. The graphic context is null. gc: %i\n", gc);
         }
 
         //

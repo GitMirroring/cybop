@@ -41,6 +41,9 @@
  * Expected parametres:
  * - channel (required): the channel on which to shutdown a service, e.g. serial, terminal, display, socket
  *
+ * Expected parametres only for channel "socket":
+ * - port (required): the service identification, e.g. socket port 80
+ *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)

@@ -18,12 +18,8 @@
         <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
         <node name="style" channel="inline" format="text/plain" model="stream"/>
         <node name="protocol" channel="inline" format="text/plain" model="tcp"/>
-<!--
-        <node name="address" channel="inline" format="text/plain" model="any"/>
-        <node name="address" channel="inline" format="text/plain" model="localhost"/>
--->
         <node name="address" channel="inline" format="text/plain" model="127.0.0.1"/>
-        <node name="id" channel="inline" format="number/integer" model="1971"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
         <node name="mode" channel="inline" format="text/plain" model="server"/>
         <node name="blocking" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="connexions" channel="inline" format="number/integer" model="1"/>
@@ -37,9 +33,10 @@
         <node name="message" channel="inline" format="text/plain" model="Wait for client requests."/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+
     <node name="sense_requests" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <node name="id" channel="inline" format="number/integer" model="1971"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
         <!-- The requesting client gets stored in this variable. -->
         <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/>
         <!-- This is the call-back function executed whenever a client sends a request. -->

@@ -45,7 +45,7 @@ void disable(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Disable.");
 
-    fwprintf(stdout, L"TEST Disable. Channel p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Test: Disable. channel p2: %i\n", *((int*) p2));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

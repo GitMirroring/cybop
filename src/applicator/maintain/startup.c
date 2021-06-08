@@ -52,7 +52,7 @@
  * - blocking (required): the socket status, i.e. whether or not a socket is blocking
  * - filename (optional): the unix domain socket filename
  * - address (required): the host address
- * - port (required): the service identification of a terminal/display/socket etc., e.g. socket port 80; if missing, zero will be used (first io entry)
+ * - port (required): the service identification, e.g. socket port 80
  * - connexions (optional): the number of possible pending client requests
  * - timeout (optional): the timeout set for each new client
  *

@@ -30,6 +30,10 @@
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
+//
+// General
+//
+
 /** The channel close registration logic cybol name. */
 static wchar_t* CHANNEL_CLOSE_REGISTRATION_LOGIC_CYBOL_NAME = L"channel";
 static int* CHANNEL_CLOSE_REGISTRATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;

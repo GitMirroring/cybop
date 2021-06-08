@@ -63,8 +63,6 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open.");
 
-    fwprintf(stdout, L"Test: Open. p14: %i\n", p14);
-
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 

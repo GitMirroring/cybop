@@ -62,9 +62,10 @@
         <node name="message" channel="inline" format="text/plain" model="Wait for client requests."/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+
     <node name="sense_requests" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <node name="id" channel="inline" format="number/integer" model="1971"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
         <!-- The requesting client gets stored in this variable. -->
         <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/>
         <!-- This is the call-back function executed whenever a client sends a request. -->

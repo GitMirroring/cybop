@@ -30,6 +30,10 @@
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
+//
+// General
+//
+
 /** The channel activation logic cybol name. */
 static wchar_t* CHANNEL_ACTIVATION_LOGIC_CYBOL_NAME = L"channel";
 static int* CHANNEL_ACTIVATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -38,13 +42,17 @@ static int* CHANNEL_ACTIVATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_C
 static wchar_t* HANDLER_ACTIVATION_LOGIC_CYBOL_NAME = L"handler";
 static int* HANDLER_ACTIVATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The identification (id) activation logic cybol name. */
-static wchar_t* IDENTIFICATION_ACTIVATION_LOGIC_CYBOL_NAME = L"id";
-static int* IDENTIFICATION_ACTIVATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The sender activation logic cybol name. */
 static wchar_t* SENDER_ACTIVATION_LOGIC_CYBOL_NAME = L"sender";
 static int* SENDER_ACTIVATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// Socket
+//
+
+/** The port socket activation logic cybol name. */
+static wchar_t* PORT_SOCKET_ACTIVATION_LOGIC_CYBOL_NAME = L"port";
+static int* PORT_SOCKET_ACTIVATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* ACTIVATION_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

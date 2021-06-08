@@ -47,7 +47,7 @@ void open_xcb(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open xcb.");
 
-    fwprintf(stdout, L"Test: Open xcb. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Test: Open xcb. p0: %i\n", p0);
 
     // The connexion.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -287,7 +287,7 @@ void open_xcb(void* p0, void* p1) {
             // Copy window identification to corresponding parametre.
             copy_integer(p0, (void*) &w);
 
-            fwprintf(stdout, L"Test: Open xcb. *p0: %i\n", *((int*) p0));
+            //?? fwprintf(stdout, L"Test: Open xcb. *p0: %i\n", *((int*) p0));
 
             // Store delete window cookie in input/output entry.
             //?? set_io_entry_element(p1, (void*) &dwc, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);

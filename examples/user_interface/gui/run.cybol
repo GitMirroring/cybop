@@ -25,14 +25,21 @@
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="The cybol application window_id: "/>
+    </node>
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    <node name="model" channel="inline" format="text/cybol-path" model=".logic.refresh_display"/>
+    <node name="show_window" channel="inline" format="text/cybol-path" model=".logic.refresh_display"/>
 
-    <node name="sense_display" channel="inline" format="activate/enable" model="">
+    <node name="sense_events" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
         <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handler"/>
         <node name="root" channel="inline" format="text/cybol-path" model=".gui.window"/>

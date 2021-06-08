@@ -100,7 +100,7 @@ void check_io_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // Set interrupt request into input/output entry.
         set_io_entry_element(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-        // Set io flag.
+        // Set input/output flag.
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }

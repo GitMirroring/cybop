@@ -46,7 +46,7 @@ void disable_channel(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Disable channel.");
 
-    fwprintf(stdout, L"TEST: Disable channel. Service id *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Test: Disable channel. service id *p2: %i\n", *((int*) p2));
 
     // The internal memory index.
     int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -66,7 +66,10 @@ void disable_channel(void* p0, void* p1, void* p2) {
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // An input/output entry DOES exist for the service at the calculated internal memory index.
+        //
+        // An input/output entry DOES exist for the service
+        // at the calculated internal memory index.
+        //
 
         //
         // Store various values in input/output entry.
@@ -97,7 +100,6 @@ void disable_channel(void* p0, void* p1, void* p2) {
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not disable channel. There exists no input/output entry at the given service identification.");
-
         fwprintf(stdout, L"Error: Could not disable channel. There exists no input/output entry at the given service identification. io: %i\n", io);
     }
 }

@@ -104,8 +104,7 @@ void sense(void* p0, void* p1, void* p2, void* p3) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense. The channel is unknown.");
-
-        fwprintf(stdout, L"Error: Could not sense. The channel is unknown. The channel p3: %i\n", *((int*) p3));
+        fwprintf(stdout, L"Error: Could not sense. The channel is unknown. The channel is unknown. p3: %i\n", *((int*) p3));
     }
 }
 

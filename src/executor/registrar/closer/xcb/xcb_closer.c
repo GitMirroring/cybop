@@ -73,9 +73,9 @@ void close_xcb(void* p0, void* p1) {
         // Retrieve connexion from input/output entry.
         get_io_entry_element((void*) &c, p1, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Retrieve delete window cookie from input/output entry.
-//??        get_io_entry_element((void*) &dwc, p1, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        //?? get_io_entry_element((void*) &dwc, p1, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-        fwprintf(stdout, L"TEST: Close xcb. c: %i\n", c);
+        fwprintf(stdout, L"Test: Close xcb. c: %i\n", c);
 
         if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

@@ -84,11 +84,16 @@ void check_io_sense(void* p0, void* p1, void* p2) {
         // Sense data available.
         sense((void*) &f, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2);
 
+        //?? fwprintf(stdout, L"Test: Check io sense. f: %i\n", f);
+
         if (f > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             //
             // There ARE data available on the client.
             //
+
+            // Set interrupt request into input/output entry.
+            set_io_entry_element(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             // Set input/output flag.
             copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

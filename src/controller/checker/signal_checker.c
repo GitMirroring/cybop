@@ -87,40 +87,55 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // The signal memory index used to search for a signal.
     int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+    //
     // Allocate neutral message item.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
 
+    //
     // Receive signal.
+    //
     // It suffices to hand over: destination signal, signal memory item, signal memory index, channel.
+    //
     receive_data(s, *NULL_POINTER_STATE_CYBOI_MODEL, p3, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &i, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) SIGNAL_CYBOI_CHANNEL);
 
+    //
     // Get signal item data.
+    //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
+    //
     // CAUTION! Do NOT use the "copy_array_forward" function here,
     // since it returns an array, but not the contained element.
+    //
     get_item_metadata((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-//?? fwprintf(stdout, L"TEST check signal sd: %i\n", sd);
+    //?? fwprintf(stdout, L"TEST check signal sd: %i\n", sd);
 
     if (sd != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // A signal was found and has to be handled.
         // Handling a signal has higher priority than checking for new interrupt requests.
+        //
 
         check_found(sd, p0, p1, p2, p3, (void*) &i, p5);
 
     } else {
 
+        //
         // No signal is available in the signal memory.
         // Query interrupt flags for requests.
+        //
 
         check_empty(p0, p3, p4);
     }
 
+    //
     // Deallocate signal item.
     //
     // CAUTION! Do NOT destroy the contained signal or its parts here!

@@ -73,7 +73,9 @@ void check_io(void* p0, void* p1) {
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // The comparison result is TRUE.
+        //
 
         // Set interrupt request.
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

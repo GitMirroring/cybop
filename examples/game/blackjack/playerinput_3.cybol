@@ -12,7 +12,7 @@
         <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-    
+
      <node name="line1" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -22,7 +22,7 @@
         <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-    
+
     <node name="line2" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -39,6 +39,5 @@
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="handler" channel="inline" format="text/cybol-path" model=".app.checkplayerinput_3"/>
     </node>
-
 
 </node>
