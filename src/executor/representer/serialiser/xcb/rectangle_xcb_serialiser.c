@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef RECTANGLE_X_WINDOW_SYSTEM_SERIALISER_SOURCE
-#define RECTANGLE_X_WINDOW_SYSTEM_SERIALISER_SOURCE
+#ifndef RECTANGLE_XCB_SERIALISER_SOURCE
+#define RECTANGLE_XCB_SERIALISER_SOURCE
 
 #include <xcb/xcb.h>
 
@@ -34,7 +34,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the rectangle into x window system.
+ * Serialises the rectangle into xcb.
  *
  * @param p0 the connexion
  * @param p1 the screen
@@ -45,7 +45,7 @@
  * @param p6 the size width
  * @param p7 the size height
  */
-void serialise_x_window_system_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void serialise_xcb_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -75,7 +75,7 @@ void serialise_x_window_system_rectangle(void* p0, void* p1, void* p2, void* p3,
 
                                 xcb_connection_t* c = (xcb_connection_t*) p0;
 
-                                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise x window system rectangle.");
+                                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xcb rectangle.");
 
                                 // The xcb graphic context type value.
                                 xcb_gcontext_t gct = *gc;
@@ -95,10 +95,10 @@ void serialise_x_window_system_rectangle(void* p0, void* p1, void* p2, void* p3,
                                 xcb_rectangle_t rd;
 
 /*??
-                                fwprintf(stdout, L"TEST: Serialise x window system rectangle. *x: %i\n", *x);
-                                fwprintf(stdout, L"TEST: Serialise x window system rectangle. *y: %i\n", *y);
-                                fwprintf(stdout, L"TEST: Serialise x window system rectangle. *w: %i\n", *w);
-                                fwprintf(stdout, L"TEST: Serialise x window system rectangle. *h: %i\n", *h);
+                                fwprintf(stdout, L"Test: Serialise xcb rectangle. *x: %i\n", *x);
+                                fwprintf(stdout, L"Test: Serialise xcb rectangle. *y: %i\n", *y);
+                                fwprintf(stdout, L"Test: Serialise xcb rectangle. *w: %i\n", *w);
+                                fwprintf(stdout, L"Test: Serialise xcb rectangle. *h: %i\n", *h);
 */
 
                                 // Initialise rectangle.
@@ -115,39 +115,39 @@ void serialise_x_window_system_rectangle(void* p0, void* p1, void* p2, void* p3,
 
                             } else {
 
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system rectangle. The connexion is null.");
+                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb rectangle. The connexion is null.");
                             }
 
                         } else {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system rectangle. The window is null.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb rectangle. The window is null.");
                         }
 
                     } else {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system rectangle. The graphic context is null.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb rectangle. The graphic context is null.");
                     }
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system rectangle. The position x is null.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb rectangle. The position x is null.");
                 }
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system rectangle. The position y is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb rectangle. The position y is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system rectangle. The width is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb rectangle. The width is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system rectangle. The height is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb rectangle. The height is null.");
     }
 }
 
-/* RECTANGLE_X_WINDOW_SYSTEM_SERIALISER_SOURCE */
+/* RECTANGLE_XCB_SERIALISER_SOURCE */
 #endif

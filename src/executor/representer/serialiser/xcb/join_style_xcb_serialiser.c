@@ -23,15 +23,15 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FILL_STYLE_X_WINDOW_SYSTEM_SERIALISER_SOURCE
-#define FILL_STYLE_X_WINDOW_SYSTEM_SERIALISER_SOURCE
+#ifndef JOIN_STYLE_XCB_SERIALISER_SOURCE
+#define JOIN_STYLE_XCB_SERIALISER_SOURCE
 
 #include <xcb/xcb.h>
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cybol/xcb/fill_style_xcb_cybol_model.c"
+#include "../../../../constant/model/cybol/xcb/join_style_xcb_cybol_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/copier/integer_copier.c"
@@ -44,9 +44,9 @@
  * @param p1 the source wide character data
  * @param p2 the source wide character count
  */
-void serialise_x_window_system_fill_style(void* p0, void* p1, void* p2) {
+void serialise_xcb_join_style(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise x window system fill style.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xcb join style.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -66,57 +66,46 @@ void serialise_x_window_system_fill_style(void* p0, void* p1, void* p2) {
     // Therefore, this temporary variable
     // had to be introduced.
     //
-    int v = XCB_FILL_STYLE_SOLID;
+    int v = XCB_JOIN_STYLE_MITER;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) SOLID_FILL_STYLE_XCB_CYBOL_MODEL, p2, (void*) SOLID_FILL_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) MITER_JOIN_STYLE_XCB_CYBOL_MODEL, p2, (void*) MITER_JOIN_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            v = XCB_FILL_STYLE_SOLID;
+            v = XCB_JOIN_STYLE_MITER;
             copy_integer(p0, (void*) &v);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) TILED_FILL_STYLE_XCB_CYBOL_MODEL, p2, (void*) TILED_FILL_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) ROUND_JOIN_STYLE_XCB_CYBOL_MODEL, p2, (void*) ROUND_JOIN_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            v = XCB_FILL_STYLE_TILED;
+            v = XCB_JOIN_STYLE_ROUND;
             copy_integer(p0, (void*) &v);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) STIPPLED_FILL_STYLE_XCB_CYBOL_MODEL, p2, (void*) STIPPLED_FILL_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) BEVEL_JOIN_STYLE_XCB_CYBOL_MODEL, p2, (void*) BEVEL_JOIN_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            v = XCB_FILL_STYLE_STIPPLED;
+            v = XCB_JOIN_STYLE_BEVEL;
             copy_integer(p0, (void*) &v);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) OPAQUE_STIPPLED_FILL_STYLE_XCB_CYBOL_MODEL, p2, (void*) OPAQUE_STIPPLED_FILL_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            v = XCB_FILL_STYLE_OPAQUE_STIPPLED;
-            copy_integer(p0, (void*) &v);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system fill style. The fill style is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb join style. The join style is unknown.");
     }
 }
 
-/* FILL_STYLE_X_WINDOW_SYSTEM_SERIALISER_SOURCE */
+/* JOIN_STYLE_XCB_SERIALISER_SOURCE */
 #endif

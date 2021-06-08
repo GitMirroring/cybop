@@ -23,15 +23,15 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FILL_RULE_X_WINDOW_SYSTEM_SERIALISER_SOURCE
-#define FILL_RULE_X_WINDOW_SYSTEM_SERIALISER_SOURCE
+#ifndef CAP_STYLE_XCB_SERIALISER_SOURCE
+#define CAP_STYLE_XCB_SERIALISER_SOURCE
 
 #include <xcb/xcb.h>
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cybol/xcb/fill_rule_xcb_cybol_model.c"
+#include "../../../../constant/model/cybol/xcb/cap_style_xcb_cybol_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/copier/integer_copier.c"
@@ -44,9 +44,9 @@
  * @param p1 the source wide character data
  * @param p2 the source wide character count
  */
-void serialise_x_window_system_fill_rule(void* p0, void* p1, void* p2) {
+void serialise_xcb_cap_style(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise x window system fill rule.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xcb cap style.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -66,35 +66,57 @@ void serialise_x_window_system_fill_rule(void* p0, void* p1, void* p2) {
     // Therefore, this temporary variable
     // had to be introduced.
     //
-    int v = XCB_FILL_RULE_EVEN_ODD;
+    int v = XCB_CAP_STYLE_NOT_LAST;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) EVEN_ODD_FILL_RULE_XCB_CYBOL_MODEL, p2, (void*) EVEN_ODD_FILL_RULE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) NOT_LAST_CAP_STYLE_XCB_CYBOL_MODEL, p2, (void*) NOT_LAST_CAP_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            v = XCB_FILL_RULE_EVEN_ODD;
+            v = XCB_CAP_STYLE_NOT_LAST;
             copy_integer(p0, (void*) &v);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) WINDING_FILL_RULE_XCB_CYBOL_MODEL, p2, (void*) WINDING_FILL_RULE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) BUTT_CAP_STYLE_XCB_CYBOL_MODEL, p2, (void*) BUTT_CAP_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            v = XCB_FILL_RULE_WINDING;
+            v = XCB_CAP_STYLE_BUTT;
             copy_integer(p0, (void*) &v);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system fill rule. The fill rule is unknown.");
+        check_operation((void*) &r, p1, (void*) ROUND_CAP_STYLE_XCB_CYBOL_MODEL, p2, (void*) ROUND_CAP_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            v = XCB_CAP_STYLE_ROUND;
+            copy_integer(p0, (void*) &v);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p1, (void*) PROJECTING_CAP_STYLE_XCB_CYBOL_MODEL, p2, (void*) PROJECTING_CAP_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            v = XCB_CAP_STYLE_PROJECTING;
+            copy_integer(p0, (void*) &v);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb cap style. The cap style is unknown.");
     }
 }
 
-/* FILL_RULE_X_WINDOW_SYSTEM_SERIALISER_SOURCE */
+/* CAP_STYLE_XCB_SERIALISER_SOURCE */
 #endif

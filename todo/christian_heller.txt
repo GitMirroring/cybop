@@ -14,8 +14,6 @@
 WUI and Socket
 ______________
 
-        * Rename "serialiser/x_window_system/" into "serialiser/xcb/"
-
         * Test font using cybol application "gui"
         * Remove font parametre p4 from file "context_x_window_system_serialiser.c"
         * Adjust font in graphic context of file "context_x_window_system_serialiser.c"

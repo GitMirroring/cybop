@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WINDOW_X_WINDOW_SYSTEM_SERIALISER_SOURCE
-#define WINDOW_X_WINDOW_SYSTEM_SERIALISER_SOURCE
+#ifndef WINDOW_XCB_SERIALISER_SOURCE
+#define WINDOW_XCB_SERIALISER_SOURCE
 
 #include <xcb/xcb.h>
 
@@ -40,7 +40,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the window into x window system.
+ * Serialises the window into xcb.
  *
  * @param p0 the connexion
  * @param p1 the window
@@ -53,7 +53,7 @@
  * @param p8 the icon title data
  * @param p9 the icon title count
  */
-void serialise_x_window_system_window(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void serialise_xcb_window(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -79,7 +79,7 @@ void serialise_x_window_system_window(void* p0, void* p1, void* p2, void* p3, vo
 
                             xcb_connection_t* c = (xcb_connection_t*) p0;
 
-                            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise x window system window.");
+                            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xcb window.");
 
                             //?? TODO:
                             // http://xcb.freedesktop.org/manual/group__XCB____API.html
@@ -116,10 +116,10 @@ void serialise_x_window_system_window(void* p0, void* p1, void* p2, void* p3, vo
                             encode_utf_8(itmdt, p8, p9);
 
 /*??
-                            fwprintf(stdout, L"TEST: Serialise x window system window. *x: %i\n", *x);
-                            fwprintf(stdout, L"TEST: Serialise x window system window. *y: %i\n", *y);
-                            fwprintf(stdout, L"TEST: Serialise x window system window. *w: %i\n", *w);
-                            fwprintf(stdout, L"TEST: Serialise x window system window. *h: %i\n", *h);
+                            fwprintf(stdout, L"Test: Serialise xcb window. *x: %i\n", *x);
+                            fwprintf(stdout, L"Test: Serialise xcb window. *y: %i\n", *y);
+                            fwprintf(stdout, L"Test: Serialise xcb window. *w: %i\n", *w);
+                            fwprintf(stdout, L"Test: Serialise xcb window. *h: %i\n", *h);
 */
 
                             // Initialise values.
@@ -173,34 +173,34 @@ void serialise_x_window_system_window(void* p0, void* p1, void* p2, void* p3, vo
 
                         } else {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system window. The connexion is null.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb window. The connexion is null.");
                         }
 
                     } else {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system window. The window is null.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb window. The window is null.");
                     }
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system window. The source position x is null.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb window. The source position x is null.");
                 }
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system window. The source position y is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb window. The source position y is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system window. The source size width is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb window. The source size width is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system window. The source size height is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb window. The source size height is null.");
     }
 }
 
-/* WINDOW_X_WINDOW_SYSTEM_SERIALISER_SOURCE */
+/* WINDOW_XCB_SERIALISER_SOURCE */
 #endif

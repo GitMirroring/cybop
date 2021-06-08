@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TEXT_X_WINDOW_SYSTEM_SERIALISER_SOURCE
-#define TEXT_X_WINDOW_SYSTEM_SERIALISER_SOURCE
+#ifndef TEXT_XCB_SERIALISER_SOURCE
+#define TEXT_XCB_SERIALISER_SOURCE
 
 #include <xcb/xcb.h>
 
@@ -34,7 +34,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the x window system text.
+ * Serialises the xcb text.
  *
  * @param p0 the connexion
  * @param p1 the screen
@@ -47,7 +47,7 @@
  * @param p8 the size width
  * @param p9 the size height
  */
-void serialise_x_window_system_text(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void serialise_xcb_text(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     if (p9 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -119,10 +119,10 @@ void serialise_x_window_system_text(void* p0, void* p1, void* p2, void* p3, void
                                     int cy = *y + 10;
 
 /*??
-                                    fwprintf(stdout, L"TEST: Serialise x window system text. *x: %i\n", *x);
-                                    fwprintf(stdout, L"TEST: Serialise x window system text. *y: %i\n", *y);
-                                    fwprintf(stdout, L"TEST: Serialise x window system text. *w: %i\n", *w);
-                                    fwprintf(stdout, L"TEST: Serialise x window system text. *h: %i\n", *h);
+                                    fwprintf(stdout, L"Test: Serialise xcb text. *x: %i\n", *x);
+                                    fwprintf(stdout, L"Test: Serialise xcb text. *y: %i\n", *y);
+                                    fwprintf(stdout, L"Test: Serialise xcb text. *w: %i\n", *w);
+                                    fwprintf(stdout, L"Test: Serialise xcb text. *h: %i\n", *h);
 */
 
                                     // Draw text.
@@ -130,7 +130,7 @@ void serialise_x_window_system_text(void* p0, void* p1, void* p2, void* p3, void
 
                                 } else {
 
-                                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system text. The text item count is null.");
+                                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb text. The text item count is null.");
                                 }
 
                                 // Deallocate text item.
@@ -138,39 +138,39 @@ void serialise_x_window_system_text(void* p0, void* p1, void* p2, void* p3, void
 
                             } else {
 
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system text. The connexion is null.");
+                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb text. The connexion is null.");
                             }
 
                         } else {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system text. The window is null.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb text. The window is null.");
                         }
 
                     } else {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system text. The graphic context is null.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb text. The graphic context is null.");
                     }
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system text. The position x is null.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb text. The position x is null.");
                 }
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system text. The position y is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb text. The position y is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system text. The size width is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb text. The size width is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system text. The size height is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb text. The size height is null.");
     }
 }
 
-/* TEXT_X_WINDOW_SYSTEM_SERIALISER_SOURCE */
+/* TEXT_XCB_SERIALISER_SOURCE */
 #endif

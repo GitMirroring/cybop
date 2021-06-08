@@ -30,7 +30,7 @@
 #include "../../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../../../executor/representer/serialiser/x_window_system/rectangle_x_window_system_serialiser.c"
+    #include "../../../../../executor/representer/serialiser/xcb/rectangle_xcb_serialiser.c"
 #elif defined(__APPLE__) && defined(__MACH__)
     //?? TODO: Add support for Cocoa
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
@@ -58,7 +58,7 @@ void serialise_gui_shape_rectangle(void* p0, void* p1, void* p2, void* p3, void*
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui shape rectangle.");
 
 #if defined(__linux__) || defined(__unix__)
-    serialise_x_window_system_rectangle(p0, p1, p2, p3, p5, p6, p7, p8);
+    serialise_xcb_rectangle(p0, p1, p2, p3, p5, p6, p7, p8);
 #elif defined(__APPLE__) && defined(__MACH__)
     //?? TODO: Add support for Cocoa
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.

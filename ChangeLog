@@ -24,6 +24,7 @@
         * Find out why gui events get detected but do not arrive and are thus not processed
         * Add forgotten irq flag to input/output entry in file "sense_io_checker.c"
         * Make cybol application "gui" display window content again
+        * Rename "serialiser/x_window_system/" into "serialiser/xcb/"
 
 2021-05-09  Christian Heller  <christian.heller@cybop.org>
 

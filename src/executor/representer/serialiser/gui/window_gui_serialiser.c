@@ -39,7 +39,7 @@
 #include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/representer/serialiser/x_window_system/window_x_window_system_serialiser.c"
+    #include "../../../../executor/representer/serialiser/xcb/window_xcb_serialiser.c"
 #elif defined(__APPLE__) && defined(__MACH__)
     //?? TODO: Add support for Cocoa
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
@@ -234,7 +234,7 @@ void serialise_gui_window(void* p0, void* p1, void* p2, void* p3, void* p4, void
     //?? calculate_integer_add((void*) &pmdy, (void*) &wpmdy);
 
 #if defined(__linux__) || defined(__unix__)
-    serialise_x_window_system_window(p0, p1, p3, p4, p5, p6, tmd, tmc, itmd, itmc);
+    serialise_xcb_window(p0, p1, p3, p4, p5, p6, tmd, tmc, itmd, itmc);
 #elif defined(__APPLE__) && defined(__MACH__)
     //?? TODO: Add support for Cocoa
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.

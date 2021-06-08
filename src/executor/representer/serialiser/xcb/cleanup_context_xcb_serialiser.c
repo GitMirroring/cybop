@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLEANUP_CONTEXT_X_WINDOW_SYSTEM_SERIALISER_SOURCE
-#define CLEANUP_CONTEXT_X_WINDOW_SYSTEM_SERIALISER_SOURCE
+#ifndef CLEANUP_CONTEXT_XCB_SERIALISER_SOURCE
+#define CLEANUP_CONTEXT_XCB_SERIALISER_SOURCE
 
 #include <xcb/xcb.h>
 
@@ -34,7 +34,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Cleans up the x window system context.
+ * Cleans up the xcb context.
  *
  * @param p0 the connexion
  * @param p1 the screen
@@ -42,7 +42,7 @@
  * @param p3 the graphic context
  * @param p4 the font
  */
-void serialise_x_window_system_context_cleanup(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void serialise_xcb_context_cleanup(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -52,7 +52,7 @@ void serialise_x_window_system_context_cleanup(void* p0, void* p1, void* p2, voi
 
             xcb_connection_t* c = (xcb_connection_t*) p0;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise x window system context cleanup.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xcb context cleanup.");
 
             // The xcb font type value.
             xcb_font_t ft = *f;
@@ -62,14 +62,14 @@ void serialise_x_window_system_context_cleanup(void* p0, void* p1, void* p2, voi
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context cleanup. The connexion is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb context cleanup. The connexion is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context cleanup. The font is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb context cleanup. The font is null.");
     }
 }
 
-/* CLEANUP_CONTEXT_X_WINDOW_SYSTEM_SERIALISER_SOURCE */
+/* CLEANUP_CONTEXT_XCB_SERIALISER_SOURCE */
 #endif

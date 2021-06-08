@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PROPERTIES_CONTEXT_X_WINDOW_SYSTEM_SERIALISER_SOURCE
-#define PROPERTIES_CONTEXT_X_WINDOW_SYSTEM_SERIALISER_SOURCE
+#ifndef PROPERTIES_CONTEXT_XCB_SERIALISER_SOURCE
+#define PROPERTIES_CONTEXT_XCB_SERIALISER_SOURCE
 
 #include <xcb/xcb.h>
 
@@ -36,15 +36,15 @@
 #include "../../../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/representer/serialiser/x_window_system/cap_style_x_window_system_serialiser.c"
-#include "../../../../executor/representer/serialiser/x_window_system/fill_rule_x_window_system_serialiser.c"
-#include "../../../../executor/representer/serialiser/x_window_system/fill_style_x_window_system_serialiser.c"
-#include "../../../../executor/representer/serialiser/x_window_system/join_style_x_window_system_serialiser.c"
-#include "../../../../executor/representer/serialiser/x_window_system/line_style_x_window_system_serialiser.c"
+#include "../../../../executor/representer/serialiser/xcb/cap_style_xcb_serialiser.c"
+#include "../../../../executor/representer/serialiser/xcb/fill_rule_xcb_serialiser.c"
+#include "../../../../executor/representer/serialiser/xcb/fill_style_xcb_serialiser.c"
+#include "../../../../executor/representer/serialiser/xcb/join_style_xcb_serialiser.c"
+#include "../../../../executor/representer/serialiser/xcb/line_style_xcb_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the x window system context properties.
+ * Serialises the xcb context properties.
  *
  * @param p0 the foreground colour red
  * @param p1 the foreground colour green
@@ -65,9 +65,9 @@
  * @param p16 the stack memory item
  * @param p17 the internal memory data
  */
-void serialise_x_window_system_context_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
+void serialise_xcb_context_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise x window system context properties.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xcb context properties.");
 
     // The super part.
     void* super = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -245,22 +245,26 @@ void serialise_x_window_system_context_properties(void* p0, void* p1, void* p2, 
     copy_array_forward(p5, bgmd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_2_VECTOR_STATE_CYBOI_NAME);
     // Set further destination values.
     copy_integer(p6, lwmd);
-    serialise_x_window_system_line_style(p7, lsmd, lsmc);
-    serialise_x_window_system_cap_style(p8, csmd, csmc);
-    serialise_x_window_system_join_style(p9, jsmd, jsmc);
-    serialise_x_window_system_fill_style(p10, fsmd, fsmc);
-    serialise_x_window_system_fill_rule(p11, frmd, frmc);
+    serialise_xcb_line_style(p7, lsmd, lsmc);
+    serialise_xcb_cap_style(p8, csmd, csmc);
+    serialise_xcb_join_style(p9, jsmd, jsmc);
+    serialise_xcb_fill_style(p10, fsmd, fsmc);
+    serialise_xcb_fill_rule(p11, frmd, frmc);
 
     if (fmd != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // A valid font was given.
+        //
 
         // Encode font name wide character data into multibyte character item.
         encode_utf_8(p12, fmd, fmc);
 
     } else {
 
+        //
         // No valid font was given.
+        //
 
         //
         // Encode font name wide character data into multibyte character item.
@@ -273,5 +277,5 @@ void serialise_x_window_system_context_properties(void* p0, void* p1, void* p2, 
     }
 }
 
-/* PROPERTIES_CONTEXT_X_WINDOW_SYSTEM_SERIALISER_SOURCE */
+/* PROPERTIES_CONTEXT_XCB_SERIALISER_SOURCE */
 #endif

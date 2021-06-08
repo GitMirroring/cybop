@@ -23,15 +23,15 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef JOIN_STYLE_X_WINDOW_SYSTEM_SERIALISER_SOURCE
-#define JOIN_STYLE_X_WINDOW_SYSTEM_SERIALISER_SOURCE
+#ifndef LINE_STYLE_XCB_SERIALISER_SOURCE
+#define LINE_STYLE_XCB_SERIALISER_SOURCE
 
 #include <xcb/xcb.h>
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cybol/xcb/join_style_xcb_cybol_model.c"
+#include "../../../../constant/model/cybol/xcb/line_style_xcb_cybol_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/checker/operation_checker.c"
 #include "../../../../executor/copier/integer_copier.c"
@@ -44,9 +44,9 @@
  * @param p1 the source wide character data
  * @param p2 the source wide character count
  */
-void serialise_x_window_system_join_style(void* p0, void* p1, void* p2) {
+void serialise_xcb_line_style(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise x window system join style.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xcb line style.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -66,46 +66,46 @@ void serialise_x_window_system_join_style(void* p0, void* p1, void* p2) {
     // Therefore, this temporary variable
     // had to be introduced.
     //
-    int v = XCB_JOIN_STYLE_MITER;
+    int v = XCB_LINE_STYLE_SOLID;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) MITER_JOIN_STYLE_XCB_CYBOL_MODEL, p2, (void*) MITER_JOIN_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) SOLID_LINE_STYLE_XCB_CYBOL_MODEL, p2, (void*) SOLID_LINE_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            v = XCB_JOIN_STYLE_MITER;
+            v = XCB_LINE_STYLE_SOLID;
             copy_integer(p0, (void*) &v);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) ROUND_JOIN_STYLE_XCB_CYBOL_MODEL, p2, (void*) ROUND_JOIN_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) DOUBLE_DASH_LINE_STYLE_XCB_CYBOL_MODEL, p2, (void*) DOUBLE_DASH_LINE_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            v = XCB_JOIN_STYLE_ROUND;
+            v = XCB_LINE_STYLE_DOUBLE_DASH;
             copy_integer(p0, (void*) &v);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p1, (void*) BEVEL_JOIN_STYLE_XCB_CYBOL_MODEL, p2, (void*) BEVEL_JOIN_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) ON_OFF_DASH_LINE_STYLE_XCB_CYBOL_MODEL, p2, (void*) ON_OFF_DASH_LINE_STYLE_XCB_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            v = XCB_JOIN_STYLE_BEVEL;
+            v = XCB_LINE_STYLE_ON_OFF_DASH;
             copy_integer(p0, (void*) &v);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system join style. The join style is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb line style. The line style is unknown.");
     }
 }
 
-/* JOIN_STYLE_X_WINDOW_SYSTEM_SERIALISER_SOURCE */
+/* LINE_STYLE_XCB_SERIALISER_SOURCE */
 #endif

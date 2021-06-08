@@ -23,19 +23,19 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONTEXT_X_WINDOW_SYSTEM_SERIALISER_SOURCE
-#define CONTEXT_X_WINDOW_SYSTEM_SERIALISER_SOURCE
+#ifndef CONTEXT_XCB_SERIALISER_SOURCE
+#define CONTEXT_XCB_SERIALISER_SOURCE
 
 #include <xcb/xcb.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/representer/serialiser/x_window_system/properties_context_x_window_system_serialiser.c"
+#include "../../../../executor/representer/serialiser/xcb/properties_context_xcb_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the x window system context.
+ * Serialises the xcb context.
  *
  * @param p0 the connexion
  * @param p1 the screen
@@ -48,7 +48,7 @@
  * @param p8 the stack memory item
  * @param p9 the internal memory data
  */
-void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void serialise_xcb_context(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
 /*??
     if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
@@ -68,7 +68,7 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
 
                     xcb_connection_t* c = (xcb_connection_t*) p0;
 
-                    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise x window system context.");
+                    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xcb context.");
 
                     //
                     // The graphic context value mask.
@@ -169,7 +169,7 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
                     allocate_item((void*) &fn, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
                     // Get properties.
-                    serialise_x_window_system_context_properties((void*) &fgr, (void*) &fgg, (void*) &fgb, (void*) &bgr, (void*) &bgg, (void*) &bgb, (void*) &lw, (void*) &ls, (void*) &cs, (void*) &js, (void*) &fs, (void*) &fr, fn, p5, p6, p7, p8, p9);
+                    serialise_xcb_context_properties((void*) &fgr, (void*) &fgg, (void*) &fgb, (void*) &bgr, (void*) &bgg, (void*) &bgb, (void*) &lw, (void*) &ls, (void*) &cs, (void*) &js, (void*) &fs, (void*) &fr, fn, p5, p6, p7, p8, p9);
 
                     //
                     // Set colour values.
@@ -222,7 +222,7 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
                     //
                     xcb_font_t f = xcb_generate_id(c);
 
-                    //?? fwprintf(stdout, L"Test: Serialise x window system context. generated id f: %i\n", f);
+                    //?? fwprintf(stdout, L"Test: Serialise xcb context. generated id f: %i\n", f);
 
                     //
                     // Get font name item data, count.
@@ -254,19 +254,19 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
                             //
                             xcb_open_font(c, f, *fnct, fndt);
 
-                            //?? fwprintf(stdout, L"Test: Serialise x window system context. *fnct: %i\n", *fnct);
-                            //?? fwprintf(stdout, L"Test: Serialise x window system context. fndt: %s\n", fndt);
+                            //?? fwprintf(stdout, L"Test: Serialise xcb context. *fnct: %i\n", *fnct);
+                            //?? fwprintf(stdout, L"Test: Serialise xcb context. fndt: %s\n", fndt);
 
                         } else {
 
-                            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The font name count is zero.");
-                            fwprintf(stdout, L"Error: Could not serialise x window system context. The font name count is zero.\n");
+                            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb context. The font name count is zero.");
+                            fwprintf(stdout, L"Error: Could not serialise xcb context. The font name count is zero.\n");
                         }
 
                     } else {
 
-                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The font name count is null.");
-                        fwprintf(stdout, L"Error: Could not serialise x window system context. The font name count is null.\n");
+                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb context. The font name count is null.");
+                        fwprintf(stdout, L"Error: Could not serialise xcb context. The font name count is null.\n");
                     }
 
                     // Deallocate font name item.
@@ -285,8 +285,8 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
 
                     } else {
 
-                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The foreground colour reply is null.");
-                        fwprintf(stdout, L"Error: Could not serialise x window system context. The foreground colour reply is null.\n");
+                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb context. The foreground colour reply is null.");
+                        fwprintf(stdout, L"Error: Could not serialise xcb context. The foreground colour reply is null.\n");
                     }
 
                     if (bgcr != *NULL_POINTER_STATE_CYBOI_MODEL) {
@@ -295,8 +295,8 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
 
                     } else {
 
-                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The background colour reply is null.");
-                        fwprintf(stdout, L"Error: Could not serialise x window system context. The background colour reply is null.\n");
+                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb context. The background colour reply is null.");
+                        fwprintf(stdout, L"Error: Could not serialise xcb context. The background colour reply is null.\n");
                     }
 
                     v[2] = lw;
@@ -313,9 +313,9 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
 /*??
                     } else {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The font is negative.");
-                        fwprintf(stdout, L"Error: Could not serialise x window system context. The font is negative. f: %i\n", f);
-                        fwprintf(stdout, L"Error: Could not serialise x window system context. The font is negative. *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL: %i\n", *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb context. The font is negative.");
+                        fwprintf(stdout, L"Error: Could not serialise xcb context. The font is negative. f: %i\n", f);
+                        fwprintf(stdout, L"Error: Could not serialise xcb context. The font is negative. *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL: %i\n", *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
                     }
 */
 
@@ -326,27 +326,27 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The connexion is null.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb context. The connexion is null.");
                 }
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The screen is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb context. The screen is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The graphic context is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb context. The graphic context is null.");
         }
 
 /*??
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The font is null.");
-        fwprintf(stdout, L"Error: Could not serialise x window system context. The font is null.\n");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise xcb context. The font is null.");
+        fwprintf(stdout, L"Error: Could not serialise xcb context. The font is null.\n");
     }
 */
 }
 
-/* CONTEXT_X_WINDOW_SYSTEM_SERIALISER_SOURCE */
+/* CONTEXT_XCB_SERIALISER_SOURCE */
 #endif
