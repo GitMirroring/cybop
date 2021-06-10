@@ -145,7 +145,6 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
                     // a mutex exists for all channels and it does no harm
                     // to lock it here even if only the main thread accesses it.
                     //
-                    //?? mtx_t* m;
                     mtx_lock((mtx_t*) m);
 
                     // Reset interrupt request in input/output entry.
