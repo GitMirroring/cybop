@@ -60,6 +60,7 @@ void allocate_array(void* p0, void* p1, void* p2) {
         // Calculate memory area.
         calculate_integer_multiply((void*) &ma, p1);
 
+        //
         // Test memory area for valid value.
         //
         // Quotation from the C standard:
@@ -86,8 +87,10 @@ void allocate_array(void* p0, void* p1, void* p2) {
         // CAUTION! Wherever something gets allocated in source code,
         // it HAS TO HAVE a size of at least one byte.
         // Otherwise, nothing gets allocated.
+        //
         if (ma > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
+            //
             // The temporary size_t variable.
             //
             // CAUTION! It IS NECESSARY because on 64 Bit machines,
@@ -102,17 +105,22 @@ void allocate_array(void* p0, void* p1, void* p2) {
             //
             // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
             // because values are casted to int* internally again.
+            //
             size_t tma = (size_t) ma;
 
             // Allocate memory area.
             *a = malloc(tma);
 
+            //
             // Increment array reference counter.
+            //
             // CAUTION! This is ONLY needed for debugging.
+            //
             (*ARRAY_REFERENCE_COUNTER)++;
 
             if (*a != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+                //
                 // Initialise array elements.
                 //
                 // CAUTION! Initialising with zero values is essential,
@@ -123,6 +131,7 @@ void allocate_array(void* p0, void* p1, void* p2) {
                 // zero integer or zero float or null pointer or
                 // something else, depends on the programming
                 // context, i.e. where the array got allocated.
+                //
                 memset(*a, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, tma);
 
             } else {
@@ -133,7 +142,7 @@ void allocate_array(void* p0, void* p1, void* p2) {
         } else if (ma == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate array. The memory area to be allocated is zero.");
-//??            fwprintf(stdout, L"Error: Could not allocate array. The memory area to be allocated is zero: %i\n", *a);
+            //?? fwprintf(stdout, L"Error: Could not allocate array. The memory area to be allocated is zero: %i\n", *a);
 
         } else {
 

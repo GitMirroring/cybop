@@ -47,9 +47,9 @@ void read_unix_terminal_stream(void* p0, void* p1, void* p2) {
 
         int* bl = (int*) p2;
 
-//??        fwprintf(stdout, L"TEST: read unix terminal stream *p2 %i\n", *((int*) p2));
-
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read unix terminal stream.");
+
+        //?? fwprintf(stdout, L"Test: Read unix terminal stream. *p2 %i\n", *((int*) p2));
 
         // The loop break flag.
         int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -61,6 +61,7 @@ void read_unix_terminal_stream(void* p0, void* p1, void* p2) {
         // CAUTION! This variable HAS TO BE defined here,
         // since it is used across many loop cycles.
         int aec = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        //
         // The input character.
         //
         // CAUTION! This variable HAS TO BE defined here,
@@ -70,21 +71,24 @@ void read_unix_terminal_stream(void* p0, void* p1, void* p2) {
         // since it is returned by the fgetwc function by default.
         // Hence, do NOT assign the following value:
         // wint_t c = *((wint_t*) NULL_UNICODE_CHARACTER_CODE_MODEL);
+        //
         wint_t c = WEOF;
 
-//??        fwprintf(stdout, L"TEST: read unix terminal stream b %i\n", b);
+        //?? fwprintf(stdout, L"Test: Read unix terminal stream. b %i\n", b);
 
         while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            fwprintf(stdout, L"TEST: read unix terminal stream inside loop b %i\n", b);
+            //?? fwprintf(stdout, L"Test: Read unix terminal stream. inside loop b %i\n", b);
 
             if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 if (*bl == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+                    //
                     // Break loop only if break flag is set
                     // AND blocking flag is false
                     // (possibly reset inside when data were available).
+                    //
                     break;
                 }
             }
@@ -95,7 +99,6 @@ void read_unix_terminal_stream(void* p0, void* p1, void* p2) {
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read unix terminal stream. The blocking flag is null.");
-
         fwprintf(stdout, L"Error: Could not read unix terminal stream. The blocking flag is null.\n");
     }
 }

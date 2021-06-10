@@ -67,6 +67,7 @@ void globalise_type_size_compound() {
         //
           *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE // enable
         + *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE // interrupt
+        + *POINTER_TYPE_SIZE // mutex
         + *POINTER_TYPE_SIZE // handler
         // CAUTION! The sender HAS TO BE a pointer, since it is
         // allocated as model in cybol and needs to be manipulated

@@ -46,6 +46,22 @@ void shutdown_terminal(void* p0) {
     //
     // See comment in file "terminal_starter.c"!
     //
+    // The output- and input stream were stored separately
+    // in the input/output entry, since they are needed
+    // for writing and reading data.
+    //
+    // However, both streams have identical terminal settings.
+    // Shutting down both would cause the settings to be reset
+    // to the original attributes TWICE and lead to errors like:
+    //
+    // Shutdown terminal mode.
+    // Could not startup unix terminal mode set. An error occured within tcsetattr.
+    // Could not startup unix terminal mode set. The filedes argument is not a valid file descriptor. EBADF errno: 9
+    //
+    // Therefore, ONLY the output stream is shut down below
+    // but NOT the input stream.
+    // Exception: In the windows operating system they are treated separately.
+    //
 
 #if defined(__linux__) || defined(__unix__)
     shutdown_terminal_stream(p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);

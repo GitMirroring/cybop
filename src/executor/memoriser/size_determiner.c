@@ -172,6 +172,22 @@ void determine_size(void* p0, void* p1) {
 
             copy_integer(p0, (void*) WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
 
+        //
+        // thread
+        //
+
+        } else if (*t == *THREAD_STATE_CYBOI_TYPE) {
+
+            copy_integer(p0, (void*) THREAD_TYPE_SIZE);
+
+        } else if (*t == *MUTEX_THREAD_STATE_CYBOI_TYPE) {
+
+            copy_integer(p0, (void*) MUTEX_THREAD_TYPE_SIZE);
+
+        //
+        // unknown
+        //
+
         } else {
 
             // CAUTION! Do NOT call the logger here.

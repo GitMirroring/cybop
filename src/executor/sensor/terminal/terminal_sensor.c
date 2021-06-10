@@ -48,7 +48,7 @@
  * Senses terminal messages.
  *
  * @param p0 the data available flag
- * @param p1 the sender client
+ * @param p1 the input/output entry (containing e.g. file descriptor)
  */
 void sense_terminal(void* p0, void* p1) {
 

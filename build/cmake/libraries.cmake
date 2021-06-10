@@ -22,7 +22,7 @@ IF ( OPENGL_FOUND )
 ENDIF ( OPENGL_FOUND)
 
 FIND_PACKAGE ( Threads REQUIRED )
-target_link_libraries(${BINARY_NAME} ${CMAKE_THREAD_LIBS_INIT}) # link posix thread library to cyboi target
+target_link_libraries(${BINARY_NAME} ${CMAKE_THREAD_LIBS_INIT}) # link posix thread (pthread) library to cyboi target
 
 # --- link optional libraries --- #
 

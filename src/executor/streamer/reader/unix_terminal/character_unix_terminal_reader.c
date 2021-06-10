@@ -96,7 +96,7 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
 
                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read unix terminal character.");
 
-                    fwprintf(stdout, L"TEST read unix terminal character f: %i\n", f);
+                    fwprintf(stdout, L"Test: Read unix terminal character. f: %i\n", f);
 
                     //
                     // Get character from source input stream of terminal.
@@ -112,8 +112,9 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
                     //
                     *c = fgetwc(f);
 
-                    fwprintf(stdout, L"TEST read unix terminal character c: %i\n", *c);
+                    fwprintf(stdout, L"Test: Read unix terminal character. c: %i\n", *c);
 
+                    //
                     // Check for end-of-file condition or read error,
                     // in which case WEOF (the integer -1) is returned.
                     //
@@ -122,6 +123,7 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
                     // recognised by the return value WEOF.
                     // However, to be on the safe side, they are
                     // filtered out here once more.
+                    //
                     if (*c != WEOF) {
 
                         if (*aec == *TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -132,10 +134,13 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
                             // Append source character to destination item.
                             modify_item(p0, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
+                            //
                             // Set loop break flag.
+                            //
                             // An escape character followed by a left square bracket character
                             // were received before. So this is an ansi escape code sequence.
                             // Since all values have been received, the loop can be left now.
+                            //
                             copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                         } else if (*esc == *TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -147,10 +152,12 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
 
                             if (*c == *((wint_t*) LEFT_SQUARE_BRACKET_UNICODE_CHARACTER_CODE_MODEL)) {
 
-                                // The escape character received before is
-                                // followed by an opening square bracket,
+                                //
+                                // The escape character received before
+                                // is followed by an opening square bracket,
                                 // which means that this is the start of
                                 // an ansi escape code.
+                                //
 
                                 // Set ansi escape code flag.
                                 copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -160,13 +167,17 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
 
                             } else {
 
+                                //
                                 // This is NOT going to be an escape control sequence.
                                 // An escape- followed by another, second character
                                 // (which is not an opening square bracket)
                                 // has been detected.
+                                //
 
+                                //
                                 // Unget this character so that it may be
                                 // processed once more later on.
+                                //
                                 ungetwc(*c, f);
 
                                 // Set loop break flag.
@@ -186,24 +197,31 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
                             // Copy source character to destination character array.
                             modify_item(p0, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
+                            //
                             // Reset blocking flag.
+                            //
                             // Some input has been received,
                             // so that waiting is not necessary anymore.
                             // In case the blocking flag is not needed or used,
                             // this resetting does NOT disturb or harm the programme.
+                            //
                             copy_integer(p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
+                            //
                             // CAUTION! Do NOT set loop break flag here,
                             // if more than just one character are to be
                             // received in a sequence, e.g. an ansi escape code.
                             // In this case, only a WEOF will break the loop.
+                            //
                         }
 
                     } else {
 
+                        //
                         // CAUTION! Do NOT log message here, since this is NOT an error.
                         // The last return value in a sequence of characters is always invalid.
                         // This is the only way to recognise the end. So, this is normal behaviour.
+                        //
 
                         // Set loop break flag.
                         copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -212,7 +230,6 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
                 } else {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read unix terminal character. The source file stream is null.");
-
                     fwprintf(stdout, L"Error: Could not read unix terminal character. The source file stream is null.\n");
                 }
 

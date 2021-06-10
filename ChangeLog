@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-06-10  Christian Heller  <christian.heller@cybop.org>
+
+        * Prepare reintroduction of threads for detecting available input data (they had been eliminated in year 2018)
+        * Use source code backup in directory "src/todo_thread/" and delete afterwards
+        * Make use of new iso c library "threads.h" instead of old posix thread (pthread) library
+
 2021-06-08  Christian Heller  <christian.heller@cybop.org>
 
         * Rename "id" into "port" in all affected cybol applications, to make web applications work again

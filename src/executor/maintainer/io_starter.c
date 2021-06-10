@@ -26,6 +26,8 @@
 #ifndef IO_STARTER_SOURCE
 #define IO_STARTER_SOURCE
 
+#include <threads.h>
+
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -37,6 +39,7 @@
 #include "../../executor/maintainer/set_io_maintainer.c"
 #include "../../executor/memoriser/allocator/array_allocator.c"
 #include "../../logger/logger.c"
+#include "../../variable/symbolic_name/mutex_thread_symbolic_name.c"
 
 /**
  * Retrieves the input/output entry of the given service.
@@ -95,6 +98,9 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
         // The input/output entry (service) does NOT yet exist in internal memory.
         //
 
+        // The mutex.
+        void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+
         //
         // Allocate input/output entry.
         //
@@ -102,6 +108,19 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
         // be negative or zero, but have at least a value of ONE.
         //
         allocate_array((void*) &io, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
+        //
+        // Allocate mutex.
+        //
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        //
+        allocate_array((void*) &m, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
+
+        // Create and initialise mutex.
+        mtx_init((mtx_t*) m, *PLAIN_MUTEX_TYPE_THREAD_SYMBOLIC_NAME);
+
+        // Set mutex in input/output entry.
+        set_io_entry_element(io, (void*) &m, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         // Startup service details.
         startup_details(io, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18);

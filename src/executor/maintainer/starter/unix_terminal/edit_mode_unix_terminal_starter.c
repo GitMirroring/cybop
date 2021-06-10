@@ -110,7 +110,14 @@ void startup_unix_terminal_mode_edit(void* p0) {
         (*m).c_lflag &= ~ECHO;
 
         //
-        // Set number of input characters to be available, before read() will return.
+        // CAUTION! In non-blocking mode, VMIN/VTIME have NO EFFECT.
+        // (FNDELAY / O_NDELAY seem to be linux variants
+        // of O_NONBLOCK, the portable, POSIX flag).
+        //
+
+        //
+        // Set number of input characters to be available,
+        // before read() will return.
         //
         // CAUTION! This value HAS TO BE set to zero,
         // so that one key press such as ESCAPE gets processed

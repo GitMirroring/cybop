@@ -140,5 +140,15 @@ static int* CHARACTER_TEXT_STATE_CYBOI_TYPE = NUMBER_70_INTEGER_STATE_CYBOI_MODE
 /** The wide character text state cyboi type. */
 static int* WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE = NUMBER_71_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+//
+// thread
+//
+
+/** The thread state cyboi type. */
+static int* THREAD_STATE_CYBOI_TYPE = NUMBER_80_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The mutex thread state cyboi type. */
+static int* MUTEX_THREAD_STATE_CYBOI_TYPE = NUMBER_81_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /* STATE_CYBOI_TYPE_CONSTANT_SOURCE */
 #endif

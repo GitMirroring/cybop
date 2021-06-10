@@ -112,6 +112,20 @@ void set_io_entry_element(void* p0, void* p1, void* p2) {
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            compare_integer_equal((void*) &r, p2, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                copy_pointer(e, p1);
+
+            } else {
+
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
             compare_integer_equal((void*) &r, p2, (void*) HANDLER_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

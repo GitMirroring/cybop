@@ -78,15 +78,12 @@ void startup_terminal(void* p0) {
     // Since linux terminal modes are valid for input AND output,
     // it does NOT matter whether the input- or output file descriptor
     // is handed over as argument here. Either may be used.
-    // A redundant storage of mode settings does not make sense, however.
-    // It would also lead to errors like the following, e.g. in cybol application "socket_client":
+    // A redundant storage of mode settings does not make sense.
     //
-    // Shutdown terminal mode.
-    // Could not startup unix terminal mode set. An error occured within tcsetattr.
-    // Could not startup unix terminal mode set. The filedes argument is not a valid file descriptor. EBADF errno: 9
-    //
-    // Therefore, the function below is called JUST ONCE for the output stream,
-    // but NOT for the input stream.
+    // However, output- AND input stream have to be stored here in
+    // the input/output entry. It is true that both streams have
+    // identical terminal settings. But if only the output stream was stored,
+    // then the missing input stream would cause read errors.
     //
     // Windows:
     //
@@ -118,12 +115,17 @@ void startup_terminal(void* p0) {
     //
     // The third argument is a boolean value (flag)
     // indicating input (true) or output (false).
+    // CAUTION! Do NOT set it to *NULL_POINTER_STATE_CYBOI_MODEL
+    // since it is evaluated not only for the windows operating system
+    // but also in function "startup_terminal_mode_store".
     //
 
 #if defined(__linux__) || defined(__unix__)
     startup_terminal_stream(p0, (void*) &os, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    startup_terminal_stream(p0, (void*) &is, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 #elif defined(__APPLE__) && defined(__MACH__)
     startup_terminal_stream(p0, (void*) &os, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    startup_terminal_stream(p0, (void*) &is, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
     startup_terminal_stream(p0, (void*) &os, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);

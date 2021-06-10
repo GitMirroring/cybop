@@ -11,8 +11,23 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-WUI and Socket
-______________
+Input Threads
+_____________
+
+        CONTINUE:
+        * Reintroduce threads for detecting available input data (they had been eliminated in year 2018)
+        * Use source code backup in directory "todo_thread" and delete afterwards
+        * Integrate locking and unlocking of mutex in affected input/output channels
+        * Search for and replace old "pthread_t" string in all source code
+
+        * Think through processing of events "check" loop mechanism
+        * Make data input of cybol application "tui" work again
+        * Input stream is everywhere correct but input via "fgetwc" does always return -1
+        * Is multi-threading necessary for terminal input?
+
+        * Eliminate flickering of window
+        * Process sensed event and remove from input/output entry, before polling for further events
+        * Receive data from input/output (currently, tui and gui are only sensed/detected, but that is not enough)
 
         * Test font using cybol application "gui"
         * Remove font parametre p4 from file "context_x_window_system_serialiser.c"
@@ -20,7 +35,7 @@ ______________
         * Test operation "register/close" for window
             question: Where to store the delete_window cookie, which is specific for one window?
 
-        HINTS only (delete later):
+        HINTS for gui (delete later):
         * Create in display server starter: connexion, screen, default graphic context, device context
         * Create in display client (window) opener: (only) window
         * Create in serialiser: font (and potentially colour map)
@@ -39,6 +54,9 @@ ______________
         * Centralise and move determination of input/output entry to "executor/accessor/setter/internal_memory_setter.c"
         * See example in file "get_io_maintainer.c"
         * Remove it from "maintainer/starter/io_starter.c" and "streamer/writer/*"
+
+WUI and Socket
+______________
 
         * Fix error that resource gets interpreted as Stylesheet but transferred with MIME type text/plain
             see file "app.cybol" in cybol applications "socket_client" and "socket_server"

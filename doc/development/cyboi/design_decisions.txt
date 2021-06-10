@@ -50,6 +50,7 @@ Socket
 Receiving Data via Client Socket
 Variables
 Handling of windows events versus socket client requests
+Asynchronous Input/Output
 
 Terminology
 ___________
@@ -1116,4 +1117,72 @@ starting up (creating) the window in cybol. Only then, responses
 to later requests may be sent to the correct window id, by using
 comparison (alternative, if-else-else) for identifying the window
 that had sent the request (event).
+
+Asynchronous Input/Output
+_________________________
+
+libuv:
+http://docs.libuv.org/en/v1.x/design.html
+
+asynchronous disk I/O:
+https://blog.libtorrent.org/2012/10/asynchronous-disk-io/
+
+How to detect data available on any communication channel?
+https://stackoverflow.com/questions/67918216/how-to-detect-data-available-on-any-communication-channel/67918264#67918264
+
+Motivation:
+
+I am writing an application handling all possible communication channels
+in a uniform way, that is input/output via terminal, serial interface,
+graphical user interface (xcb | win32), web interface via sockets.
+
+Question:
+
+I need some mechanism to: a) make my main application loop sleep
+or block (to save cpu time); b) wake it up again as soon as data
+arrive on any of the channels.
+
+Any ideas? Thank you.
+
+Solutions:
+
+1 blocking call:
+
+function: blocks the program on just one channel
+problem: data arriving on other channels cannot be detected
+example: xcb_wait_for_event, fgetwc
+
+2 non-blocking call:
+
+function: tests/reads all channels in an endless loop
+problem: cpu usage (busy waiting)
+problem: does not detect all input if loop is faster than user
+example: xcb_poll_for_event, fgetwc with termios settings ~ICANON; ~ECHO; c_cc[VMIN] = 0; c_cc[VTIME] = 0;
+
+3 select:
+
+function: avoids busy waiting and covers many channels
+problem: handles only those channels with file descriptor (not xcb etc.)
+
+4 libuv (from Node.js):
+
+function: handles multiple channels, event-driven asynchronous i/o model
+problem: does not handle graphical windowing system events
+problem: forces me to use their data structures
+problem: dependency on external library
+
+5 one thread per channel and sleep:
+
+function: does detect data and may set an internal flag
+problem: the main loop needs to check the flag (busy waiting, cpu usage)
+
+6 one thread per channel and pause or sigsuspend and system signal to wake up:
+
+function: like sleep but avoiding busy waiting using system signal to wake up
+problem: the process's threads are sleeping as well and cannot detect input
+problem: if running multiple instances of my program, all will be woken up
+
+--> Current solution in cyboi:
+One thread per channel and sleep (busy waiting).
+... until a better solution is found
 

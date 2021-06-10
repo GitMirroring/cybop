@@ -23,23 +23,27 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SIGNAL_TYPE_SIZE_SOURCE
-#define SIGNAL_TYPE_SIZE_SOURCE
+#ifndef MUTEX_THREAD_SYMBOLIC_NAME_GLOBALISER_SOURCE
+#define MUTEX_THREAD_SYMBOLIC_NAME_GLOBALISER_SOURCE
+
+#include <threads.h>
+
+#include "../../../variable/symbolic_name/mutex_thread_symbolic_name.c"
 
 //
-// The global variables.
-//
-// CAUTION! This is just the variable definition.
-// Initialisation happens in directory "controller/globaliser/".
+// The symbolic constants below were taken from file "threads.h".
 //
 
-/** The sig_atomic_t signal type size. */
-static int ATOMIC_SIGNAL_TYPE_SIZE_ARRAY[1];
-static int* ATOMIC_SIGNAL_TYPE_SIZE = ATOMIC_SIGNAL_TYPE_SIZE_ARRAY;
+/**
+ * Initialises mutex thread symbolic name
+ * (enumeration element) global variables.
+ */
+void globalise_symbolic_name_thread_mutex() {
 
-/** The volatile sig_atomic_t signal type size. */
-static int VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE_ARRAY[1];
-static int* VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE = VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE_ARRAY;
+    *PLAIN_MUTEX_TYPE_THREAD_SYMBOLIC_NAME = mtx_plain;
+    *RECURSIVE_MUTEX_TYPE_THREAD_SYMBOLIC_NAME = mtx_recursive;
+    *TIMED_MUTEX_TYPE_THREAD_SYMBOLIC_NAME = mtx_timed;
+}
 
-/* SIGNAL_TYPE_SIZE_SOURCE */
+/* MUTEX_THREAD_SYMBOLIC_NAME_GLOBALISER_SOURCE */
 #endif

@@ -26,7 +26,7 @@
 #ifndef THREAD_TYPE_SIZE_GLOBALISER_SOURCE
 #define THREAD_TYPE_SIZE_GLOBALISER_SOURCE
 
-#include <pthread.h>
+#include <threads.h>
 
 #include "../../../variable/type_size/thread_type_size.c"
 
@@ -35,8 +35,8 @@
  */
 void globalise_type_size_thread() {
 
-    *THREAD_TYPE_SIZE = sizeof (pthread_t);
-    *MUTEX_THREAD_TYPE_SIZE = sizeof (pthread_mutex_t);
+    *THREAD_TYPE_SIZE = sizeof (thrd_t);
+    *MUTEX_THREAD_TYPE_SIZE = sizeof (mtx_t);
 }
 
 /* THREAD_TYPE_SIZE_GLOBALISER_SOURCE */

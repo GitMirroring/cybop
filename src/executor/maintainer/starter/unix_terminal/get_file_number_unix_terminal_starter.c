@@ -73,6 +73,7 @@ void startup_unix_terminal_file_number_get(void* p0, void* p1) {
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix terminal file number get. The file stream is null.");
+        fwprintf(stdout, L"Error: Could not startup unix terminal file number get. The file stream is null. p1: %i\n", p1);
     }
 }
 

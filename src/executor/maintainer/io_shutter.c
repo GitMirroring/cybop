@@ -26,6 +26,8 @@
 #ifndef IO_SHUTTER_SOURCE
 #define IO_SHUTTER_SOURCE
 
+#include <threads.h>
+
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -99,11 +101,31 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
         // CAUTION! Hand over null as pointer reference NULL_POINTER_STATE_CYBOI_MODEL
         // and NOT as dereferenced pointer *NULL_POINTER_STATE_CYBOI_MODEL.
         //
-        maintain_io_set(p0, NULL_POINTER_STATE_CYBOI_MODEL, p3, (void*) &id);
+        maintain_io_set(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, p3, (void*) &id);
 
         // Shutdown service details.
         shutdown_details(io, p2);
 
+        // The mutex.
+        void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+        // Get mutex from input/output entry.
+        get_io_entry_element((void*) &m, io, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+        // Reset mutex in input/output entry.
+        set_io_entry_element(io, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+        // Destroy mutex.
+        mtx_destroy((mtx_t*) m);
+
+        //
+        // Deallocate mutex.
+        //
+        // CAUTION! The second argument "count" is NULL,
+        // since it is only needed for looping elements of type PART,
+        // in order to decrement the rubbish (garbage) collection counter.
+        //
+        deallocate_array((void*) &m, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
         //
         // Deallocate input/output entry.
         //

@@ -48,8 +48,8 @@
  * such as the display connexion may be retrieved from it inside.
  *
  * @param p0 the data available flag
- * @param p1 the sender client (e.g. file descriptor, client socket id)
- * @param p2 the input/output entry (containing e.g. display connexion, event)
+ * @param p1 the sender client (client socket id)
+ * @param p2 the input/output entry (containing e.g. display connexion, event, file descriptor)
  * @param p3 the channel
  */
 void sense(void* p0, void* p1, void* p2, void* p3) {
@@ -97,7 +97,7 @@ void sense(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            sense_terminal(p0, p1);
+            sense_terminal(p0, p2);
         }
     }
 
