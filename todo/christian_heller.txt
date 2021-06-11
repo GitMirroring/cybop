@@ -14,10 +14,17 @@
 Input Threads
 _____________
 
+        * Continue in file "reader.c" where the input/output entry as well as mutex are already determined
+        * Continue in files "socket_sensor.c" and "bsd_socket_reader.c"
+        * Add cybol property "port" to all cybol operations "communicate/receive" with channel "socket"
+
         * Integrate locking and unlocking of mutex in affected input/output channels
+            also for channel display, in order to avoid detection of (already detected) data by the sensor thread while processing an event
+            also for channel socket, in order to avoid detection of (already detected) data by the sensor thread in the midth of receiving them
         * Reintroduce threads for detecting available input data (they had been eliminated in year 2018)
             input stream is everywhere correct but input via "fgetwc" does always return -1
             therefore, multi-threading is necessary for terminal input
+        * Reactivate system signal as notification to end a thread
         * Use source code backup in directory "todo_thread" and delete afterwards
 
         * Think through processing of events "check" loop mechanism

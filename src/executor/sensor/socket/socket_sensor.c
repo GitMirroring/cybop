@@ -93,12 +93,12 @@ void sense_socket(void* p0, void* p1) {
     //
     int o = MSG_PEEK;
 
-    //?? fwprintf(stdout, L"TEST sense socket bs: %i\n", bs);
+    //?? fwprintf(stdout, L"Test: sense socket bs: %i\n", bs);
 
     // Read data until buffer is filled.
     read_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) &o);
 
-    //?? fwprintf(stdout, L"TEST sense socket bc: %i\n", bc);
+    //?? fwprintf(stdout, L"Test: sense socket bc: %i\n", bc);
 
     if (bc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

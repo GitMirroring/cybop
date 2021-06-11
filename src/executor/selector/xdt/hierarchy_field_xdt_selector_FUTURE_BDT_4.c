@@ -80,9 +80,9 @@ void select_xdt_field_hierarchy(void* p0, void* p1, void* p2, void* p3, void* p4
     // Calculate next lower tree level.
     calculate_integer_add((void*) &l, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-fwprintf(stdout, L"TEST select xdt field hierarchy current level: %i\n", *((int*) p2));
-fwprintf(stdout, L"TEST select xdt field hierarchy next lower level: %i\n", l);
-fwprintf(stdout, L"TEST select xdt field hierarchy dependency hierarchy: %i\n", *((int*) p8));
+    fwprintf(stdout, L"Test: select xdt field hierarchy current level: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Test: select xdt field hierarchy next lower level: %i\n", l);
+    fwprintf(stdout, L"Test: select xdt field hierarchy dependency hierarchy: %i\n", *((int*) p8));
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -90,9 +90,13 @@ fwprintf(stdout, L"TEST select xdt field hierarchy dependency hierarchy: %i\n", 
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // The field is on the same tree level.
+            //
 
+            //
             // Create new part.
+            //
             // CAUTION! Hand over parent properties item p0 as parent parametre.
             //
             // CAUTION! Do NOT hand over the null pointer constant as last parametre like:
@@ -103,33 +107,47 @@ fwprintf(stdout, L"TEST select xdt field hierarchy dependency hierarchy: %i\n", 
             //
             // But then, errors might occur and programme execution fail,
             // since many variables are compared against the null pointer.
+            //
             deserialise_xdt_record_part(p0, p5, p6, p7, (void*) &p);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! Do NOT use the "compare_integer_greater" function here.
         // This comparison is to filter out ONLY nodes which are ONE level lower.
         // Other nodes which are yet lower should not appear and would be erroneous.
         // Those are filtered out in the last branch further below.
+        //
         compare_integer_equal((void*) &r, p8, (void*) &l);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // The field is one tree level lower.
+            //
 
+            //
             // Create new part.
+            //
             // CAUTION! Hand over part properties item p1 as new parent parametre.
+            //
             deserialise_xdt_record_part(p1, p5, p6, p7, (void*) &p);
 
+            //
             // Increment current tree level.
             // An alternative could be to assign to it the field hierarchy.
+            //
             calculate_integer_add(p2, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
+            //
             // Deserialise fields following this field recursively.
+            //
             // CAUTION! Hand over part properties item p1 as new parent parametre.
+            //
             // CAUTION! Also, hand over NEW part properties item p as POTENTIAL new parent parametre.
+            //
             deserialise_xdt_record(p1, p, p2, p3, p4, p10);
 
             // Decrement current tree level.
@@ -143,9 +161,12 @@ fwprintf(stdout, L"TEST select xdt field hierarchy dependency hierarchy: %i\n", 
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // This field belongs to a higher tree level (parent or higher)
             // and must NOT be added to the current parent part.
+            //
 
+            //
             // Reset data position and count remaining BACKWARD to
             // the beginning of the field last read by using its size.
             //
@@ -154,17 +175,20 @@ fwprintf(stdout, L"TEST select xdt field hierarchy dependency hierarchy: %i\n", 
             // Only this way, the end of the current record can be detected.
             // This is not very convenient and efficient, but the only way
             // in which this is possible when processing xdt data.
+            //
             move(p3, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p9, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // The field is more than one level below the current node.
         // There is a gap in the hierarchy.
         // This should not happen.
         // Presumably, a field hierarchy value is wrong.
         // Therefore, ignore field and just do nothing.
+        //
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select xdt field hierarchy. The hierarchy is more than one level below the current one.");
     }

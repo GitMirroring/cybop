@@ -212,16 +212,18 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The default blocking value.
     int blocking = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    //
     // CAUTION! The following values are ONLY copied,
     // if the source value is NOT NULL.
     // This is tested inside the "copy_integer" function.
     // Otherwise, the destination value remains as is.
+    //
 
     // Use the explicit blocking value that was given as argument.
     copy_integer((void*) &blocking, bmd);
 
-//??    fwprintf(stdout, L"TEST apply receive smc: %i\n", smc);
-//??    fwprintf(stdout, L"TEST apply receive smd: %i\n", smd);
+    //?? fwprintf(stdout, L"Test: apply receive smc: %i\n", smc);
+    //?? fwprintf(stdout, L"Test: apply receive smd: %i\n", smd);
 
     receive_data(mm, mp, smd, smc, spd, spc, sfd, p2, p3, p4, (void*) &blocking, mimd, mamd, fmd, lmd, emd, cmd);
 }

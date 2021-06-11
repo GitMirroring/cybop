@@ -84,8 +84,8 @@ void select_knowledge_begin(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge begin.");
 
-    //?? fwprintf(stdout, L"TEST select knowledge begin *p3: %i\n", *((int*) p3));
-    //?? fwprintf(stdout, L"TEST select knowledge begin *p2: %ls\n", (wchar_t*) *((void**) p2));
+    //?? fwprintf(stdout, L"Test: select knowledge begin *p3: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"Test: select knowledge begin *p2: %ls\n", (wchar_t*) *((void**) p2));
 
     //
     // The order of comparisons does NOT matter
@@ -105,7 +105,9 @@ void select_knowledge_begin(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // The "#" indicates that a stack variable name begins.
+            //
 
             deserialise_knowledge_part(p0, p1, p2, p3, p4, p5, p6, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
         }
@@ -117,7 +119,9 @@ void select_knowledge_begin(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // The "." indicates that a sub part's model begins.
+            //
 
             deserialise_knowledge_part(p0, p1, p2, p3, p4, p5, p6, (void*) MODEL_PART_STATE_CYBOI_NAME);
         }
@@ -129,7 +133,9 @@ void select_knowledge_begin(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // The ":" indicates that a sub part's property begins.
+            //
 
             deserialise_knowledge_part(p0, p1, p2, p3, p4, p5, p6, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
         }
@@ -141,7 +147,9 @@ void select_knowledge_begin(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // The "[" indicates that a nested path containing an index begins.
+            //
 
             deserialise_knowledge_identification(p0, p1, p2, p3, p4, p5, p6, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
@@ -153,7 +161,9 @@ void select_knowledge_begin(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // The "(" indicates that a nested path containing a name begins.
+            //
 
             deserialise_knowledge_identification(p0, p1, p2, p3, p4, p5, p6, p7, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
         }
@@ -165,7 +175,9 @@ void select_knowledge_begin(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // The "*" indicates that a reference begins.
+            //
 
             deserialise_knowledge_reference(p0, p1, p2, p3, p4, p5, p6, p7);
         }

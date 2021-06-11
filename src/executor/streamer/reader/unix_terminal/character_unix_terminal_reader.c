@@ -95,7 +95,6 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
                     FILE* f = (FILE*) p1;
 
                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read unix terminal character.");
-
                     fwprintf(stdout, L"Test: Read unix terminal character. f: %i\n", f);
 
                     //
@@ -148,7 +147,9 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
                             // Reset escape character flag.
                             copy_integer(p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
+                            //
                             // An escape character was received before.
+                            //
 
                             if (*c == *((wint_t*) LEFT_SQUARE_BRACKET_UNICODE_CHARACTER_CODE_MODEL)) {
 

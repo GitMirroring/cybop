@@ -61,7 +61,7 @@ void read_signal(void* p0, void* p1, void* p2) {
     //
     get_item_metadata((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-//?? fwprintf(stdout, L"TEST read signal s: %i\n\n", s);
+    //?? fwprintf(stdout, L"Test: read signal s: %i\n\n", s);
 
     //
     // Add signal part to destination item.

@@ -359,42 +359,52 @@ void execute(void* p0, void* p1) {
 
                 fwprintf(stdout, L"Test: EACCES errno: %i\n", errno);
 
+                //
                 // The process does not have search permission for a
                 // directory component of the file name.
+                //
 
             } else if (errno == ENAMETOOLONG) {
 
                 fwprintf(stdout, L"Test: ENAMETOOLONG errno: %i\n", errno);
 
+                //
                 // This error is used when either the total length of a file name
                 // is greater than PATH_MAX, or when an individual file name component
                 // has a length greater than NAME_MAX.
                 // In the GNU system, there is no imposed limit on overall file name length,
                 // but some file systems may place limits on the length of a component.
+                //
 
             } else if (errno == ENOENT) {
 
                 fwprintf(stdout, L"Test: ENOENT errno: %i\n", errno);
 
+                //
                 // This error is reported when a file referenced as a directory component
                 // in the file name doesn't exist, or when a component is a symbolic link
                 // whose target file does not exist.
+                //
 
             } else if (errno == ENOTDIR) {
 
                 fwprintf(stdout, L"Test: ENOTDIR errno: %i\n", errno);
 
+                //
                 // A file that is referenced as a directory component in the file name
                 // exists, but it isn't a directory.
+                //
 
             } else if (errno == ELOOP) {
 
                 fwprintf(stdout, L"Test: ELOOP errno: %i\n", errno);
 
+                //
                 // Too many symbolic links were resolved while trying to look up the file name.
                 // The system has an arbitrary limit on the number of symbolic links
                 // that may be resolved in looking up a single file name,
                 // as a primitive way to detect loops.
+                //
 
             //
             // Three additional, "exec"-specific errors.
@@ -402,26 +412,32 @@ void execute(void* p0, void* p1) {
 
             } else if (errno == E2BIG) {
 
-        fwprintf(stdout, L"Test: E2BIG errno: %i\n", errno);
+                fwprintf(stdout, L"Test: E2BIG errno: %i\n", errno);
 
+                //
                 // The combined size of the new programme's argument list and
                 // environment list is larger than ARG_MAX bytes.
                 // The GNU system has no specific limit on the argument list size,
                 // so this error code cannot result, but one may get ENOMEM
                 // instead if the arguments are too big for available memory.
+                //
 
             } else if (errno == ENOEXEC) {
 
-        fwprintf(stdout, L"Test: ENOEXEC errno: %i\n", errno);
+                fwprintf(stdout, L"Test: ENOEXEC errno: %i\n", errno);
 
+                //
                 // The specified file can't be executed because
                 // it isn't in the right format.
+                //
 
             } else if (errno == ENOMEM) {
 
-        fwprintf(stdout, L"Test: ENOMEM errno: %i\n", errno);
+                fwprintf(stdout, L"Test: ENOMEM errno: %i\n", errno);
 
+                //
                 // Executing the specified file requires more storage than is available.
+                //
 
             //
             // Other errors.
@@ -429,13 +445,16 @@ void execute(void* p0, void* p1) {
 
             } else if (errno == EFAULT) {
 
-        fwprintf(stdout, L"Test: EFAULT errno: %i\n", errno);
+                fwprintf(stdout, L"Test: EFAULT errno: %i\n", errno);
 
+                //
                 // Bad address; an invalid pointer was detected.
                 // In the GNU system, this error never happens;
                 // one gets a signal instead.
+                //
             }
 
+            //
             // Exit the child process.
             //
             // The "exec" call in the child process doesn't return if it is successful,
@@ -466,39 +485,47 @@ void execute(void* p0, void* p1) {
             // buffers and perform aditional clean-up before calling _exit() internally.
             //
             // Set return value to 1, indicating that an error occured in the child process.
+            //
             _exit(*NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
         }
 
-    fwprintf(stdout, L"Test: post-exit errno: %i\n", errno);
+        fwprintf(stdout, L"Test: post-exit errno: %i\n", errno);
 
     } else if (pid < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-    fwprintf(stdout, L"Test: pid < 0 pid: %i\n", pid);
+        fwprintf(stdout, L"Test: pid < 0 pid: %i\n", pid);
 
+        //
         // The "fork" did not succeed. An error occured.
         // This is still the parent process.
         // A child process could not be created.
+        //
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not execute command as process. The process fork failed.");
 
     } else {
 
+        //
         // The "fork" was successful.
+        //
         // This is the parent process.
         // The following code is only executed by the parent process.
         // A pid > 0 represents the child process's id.
+        //
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Executed command as process. The process fork succeeded. Now waiting for the child process to exit.");
 
-    fwprintf(stdout, L"Test: pid > 0 pid: %i\n", pid);
+        fwprintf(stdout, L"Test: pid > 0 pid: %i\n", pid);
 
+        //
         // Request status information from child process.
         // In the GNU C library, pid_t corresponds to the int type.
+        //
         waitpid(pid, (int*) *NULL_POINTER_STATE_CYBOI_MODEL, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"The child process exited. Continue executing parent process.");
 
-    fwprintf(stdout, L"Test: post-waitpid pid: %i\n", pid);
+        fwprintf(stdout, L"Test: post-waitpid pid: %i\n", pid);
     }
 */
 }

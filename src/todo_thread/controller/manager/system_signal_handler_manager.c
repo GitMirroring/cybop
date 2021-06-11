@@ -65,104 +65,128 @@ void interrupt_service_system_signal_handler(int p0) {
     pthread_getunique_np(&t, &id);
 
     // Get unique thread id.
-//??    pthread_id_np_t id = pthread_getthreadid_np();
+    //?? pthread_id_np_t id = pthread_getthreadid_np();
 */
 
-//??    fwprintf(stdout, L"TEST signal handler thread t: %l\n", t);
+    //?? fwprintf(stdout, L"Test: signal handler thread t: %l\n", t);
 
     if (t == *DISPLAY_THREAD) {
 
-//??    fwprintf(stdout, L"TEST signal handler x window system %i\n", p0);
+        //?? fwprintf(stdout, L"Test: signal handler x window system %i\n", p0);
 
         if (*DISPLAY_EXIT != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-//??    fwprintf(stdout, L"TEST signal handler x window system irq %i\n", p0);
+            //?? fwprintf(stdout, L"Test: signal handler x window system irq %i\n", p0);
 
+            //
             // Terminate the calling thread.
+            //
             // The parametre handed over is the return value
             // that (if the thread is joinable) is available
             // to another thread in the same process that calls pthread_join(3).
             // Since this is not needed here, NULL is handed over as value.
+            //
             pthread_exit(*NULL_POINTER_STATE_CYBOI_MODEL);
 
+            //
             // CAUTION! The thread CANNOT be reset here with:
             // *DISPLAY_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
             // because this line would NOT be reached anymore,
             // after "pthread_exit" has been called above!
+            //
             // Therefore, do the reset in the corresponding
             // "interrupt" procedure where "kill" was called!
+            //
         }
     }
 
     if (t == *SERIAL_THREAD) {
 
-//??    fwprintf(stdout, L"TEST signal handler serial %i\n", p0);
+        //?? fwprintf(stdout, L"Test: signal handler serial %i\n", p0);
 
         if (*SERIAL_EXIT != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-//??    fwprintf(stdout, L"TEST signal handler serial irq %i\n", p0);
+            //?? fwprintf(stdout, L"Test: signal handler serial irq %i\n", p0);
 
+            //
             // Terminate the calling thread.
+            //
             // The parametre handed over is the return value
             // that (if the thread is joinable) is available
             // to another thread in the same process that calls pthread_join(3).
             // Since this is not needed here, NULL is handed over as value.
+            //
             pthread_exit(*NULL_POINTER_STATE_CYBOI_MODEL);
 
+            //
             // CAUTION! The thread CANNOT be reset here with:
             // *SERIAL_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
             // because this line would NOT be reached anymore,
             // after "pthread_exit" has been called above!
+            //
             // Therefore, do the reset in the corresponding
             // "interrupt" procedure where "kill" was called!
+            //
         }
     }
 
     if (t == *SOCKET_THREAD) {
 
-//??    fwprintf(stdout, L"TEST signal handler www service %i\n", p0);
+        //?? fwprintf(stdout, L"Test: signal handler www service %i\n", p0);
 
         if (*SOCKET_EXIT != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-//??    fwprintf(stdout, L"TEST signal handler www service irq %i\n", p0);
+            //?? fwprintf(stdout, L"Test: signal handler www service irq %i\n", p0);
 
+            //
             // Terminate the calling thread.
+            //
             // The parametre handed over is the return value
             // that (if the thread is joinable) is available
             // to another thread in the same process that calls pthread_join(3).
             // Since this is not needed here, NULL is handed over as value.
+            //
             pthread_exit(*NULL_POINTER_STATE_CYBOI_MODEL);
 
+            //
             // CAUTION! The thread CANNOT be reset here with:
             // *SOCKET_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
             // because this line would NOT be reached anymore,
             // after "pthread_exit" has been called above!
+            //
             // Therefore, do the reset in the corresponding
             // "interrupt" procedure where "kill" was called!
+            //
         }
     }
 
     if (t == *TERMINAL_THREAD) {
 
-//??    fwprintf(stdout, L"TEST signal handler terminal %i\n", p0);
+        //?? fwprintf(stdout, L"Test: signal handler terminal %i\n", p0);
 
         if (*TERMINAL_EXIT != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-//??    fwprintf(stdout, L"TEST signal handler terminal irq %i\n", p0);
+            //?? fwprintf(stdout, L"Test: signal handler terminal irq %i\n", p0);
 
+            //
             // Terminate the calling thread.
+            //
             // The parametre handed over is the return value
             // that (if the thread is joinable) is available
             // to another thread in the same process that calls pthread_join(3).
             // Since this is not needed here, NULL is handed over as value.
+            //
             pthread_exit(*NULL_POINTER_STATE_CYBOI_MODEL);
 
+            //
             // CAUTION! The thread CANNOT be reset here with:
             // *TERMINAL_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
             // because this line would NOT be reached anymore,
             // after "pthread_exit" has been called above!
+            //
             // Therefore, do the reset in the corresponding
             // "interrupt" procedure where "kill" was called!
+            //
         }
     }
 #endif
@@ -192,17 +216,24 @@ void startup_system_signal_handler() {
     // The old signal action.
     struct sigaction oldact;
 
+    //
     // Initialise signal set (mask) to exclude all of the defined signals.
     // Specify the set of signals to be blocked while the handler runs.
+    //
     sigemptyset(&mask);
 
+    //
     // All sigaddset does is to modify the signal set (mask);
     // it does not block or unblock any signals.
+    //
     sigaddset(&mask, SIGIO);
 
+    //
     // Establish signal handler.
+    //
     // The interrupt_request_handler procedure is located in module:
     // /controller/checker.c
+    //
     act.sa_handler = interrupt_service_system_signal_handler;
     act.sa_mask = mask;
     act.sa_flags = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -217,7 +248,9 @@ void startup_system_signal_handler() {
     // Examine or change the calling process's signal mask.
     sigprocmask(SIG_BLOCK, &mask, &oldmask);
 
+    //
     // Wait for a signal to arrive.
+    //
     // Although the program is apparently only waiting for special
     // signals, the while loop is necessary. The signal set (mask)
     // passed to sigsuspend permits the process to be woken up
@@ -225,8 +258,10 @@ void startup_system_signal_handler() {
     // for example, job control signals. If the process is woken up
     // by a signal that doesn't set INTERRUPT_REQUEST, it just suspends
     // itself again until the "right" kind of signal eventually arrives.
+    //
     while (*INTERRUPT_REQUEST == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // This function replaces the process's signal set (mask) with
         // the old set and then suspends the process until a signal is
         // delivered whose action is either to terminate the process
@@ -236,18 +271,23 @@ void startup_system_signal_handler() {
         // If the process is woken up by delivery of a signal that
         // invokes a handler function, and the handler function
         // returns, then sigsuspend also returns.
+        //
         // The signal set (mask) remains set only as long as sigsuspend
         // is waiting. The function sigsuspend always restores the
         // previous signal mask when it returns.
+        //
         sigsuspend(&oldmask);
     }
 
+    //
     // Examine or change the calling process's signal mask.
+    //
     // When sigsuspend returns, it resets the process's signal set (mask)
     // to the original value, the value from before the call to
     // sigsuspend -- in this case, the SIGIO and SIGUSR1 signals are
     // once again blocked. This call to sigprocmask is necessary to
     // explicitly unblock this signal.
+    //
     sigprocmask(SIG_UNBLOCK, &mask, *NULL_POINTER_STATE_CYBOI_MODEL);
 */
 #endif

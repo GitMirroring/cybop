@@ -176,11 +176,12 @@ void sense_unix_terminal(void* p0, void* p1) {
 
     } else {
 
-        fwprintf(stdout, L"Error: Could not sense unix terminal. The file stream is null. fs: %i\n", fs);
-
+        //
         // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
         // Otherwise, it would produce huge log files filled up with useless entries.
+        //
         // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal. The file stream is null.");
+        fwprintf(stdout, L"Error: Could not sense unix terminal. The file stream is null. fs: %i\n", fs);
     }
 }
 

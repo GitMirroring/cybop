@@ -65,7 +65,7 @@ void select_knowledge_identification(void* p0, void* p1, void* p2, void* p3, voi
 
         compare_integer_unequal((void*) &r, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        //?? fwprintf(stdout, L"TEST select knowledge identification r: %i\n", r);
+        //?? fwprintf(stdout, L"Test: select knowledge identification r: %i\n", r);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

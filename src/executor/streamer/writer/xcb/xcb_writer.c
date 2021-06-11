@@ -91,7 +91,7 @@ void write_xcb(void* p0, void* p1) {
                 // CAUTION! This test is necessary to avoid a "Segmentation fault"!
                 if (*w >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                    //?? fwprintf(stdout, L"TEST Write xcb. *w: %i\n", *w);
+                    //?? fwprintf(stdout, L"Test: Write xcb. *w: %i\n", *w);
 
                     // Use xcb connexion type.
                     xcb_connection_t* connexion = (xcb_connection_t*) c;
@@ -101,8 +101,10 @@ void write_xcb(void* p0, void* p1) {
                     // Map window on the screen, in order to make it visible.
                     xcb_map_window(connexion, window);
 
+                    //
                     // Make sure all pending requests to the x server are sent.
                     // This is similar to "fflush" used for standard terminal output.
+                    //
                     xcb_flush(connexion);
 
                 } else {

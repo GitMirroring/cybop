@@ -195,8 +195,8 @@ void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                     //
                     if (e > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                        // fwprintf(stdout, L"TEST read serial port read character c[0]: %i\n", c[0]);
-                        fwprintf(stdout, L"TEST read serial port read character c: %i %c\n", c, c);
+                        // fwprintf(stdout, L"Test: read serial port read character c[0]: %i\n", c[0]);
+                        fwprintf(stdout, L"Test: read serial port read character c: %i %c\n", c, c);
 
                         // The maximum comparison result.
                         int rmax = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

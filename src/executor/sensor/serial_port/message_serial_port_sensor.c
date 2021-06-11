@@ -47,24 +47,30 @@ void sense_serial_port_message(void* p0) {
 
         int* f = (int*) p0;
 
+        //
         // The file stream created from the given file descriptor.
+        //
         // CAUTION! The opentype string "r+" means an existing file
         // is opened for both reading and writing.
         // The initial contents of the file are unchanged and
         // the initial file position is at the beginning of the file.
+        //
         void* fs = (void*) fdopen(*f, "r+");
 
         if (fs != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+            //
             // Get character from source input stream of terminal.
             //
             // This is just to detect that some character is available,
             // what is also called "peeking ahead" at the input.
+            //
             unsigned char c = fgetc((FILE*) fs);
 
             // The EOF constant usually corresponds to the value: -1
             if (c != ((unsigned char) EOF)) {
 
+                //
                 // Unread character, that is push it back on the stream to
                 // make it available to be input again from the stream, by the
                 // next call to fgetc or another input function on that stream.
@@ -98,13 +104,16 @@ void sense_serial_port_message(void* p0) {
                 // makes the character of input available.
                 // After you read that character, trying to read again will
                 // encounter end of file.
+                //
                 ungetc(c, (FILE*) fs);
 
-//?? fwprintf(stdout, L"TEST sense serial port message c: %c\n", c);
+                //?? fwprintf(stdout, L"Test: sense serial port message c: %c\n", c);
 
+                //
                 // Set serial port interrupt request to indicate
                 // that a message has been received via serial port,
                 // which may now be processed in the main thread of this system.
+                //
                 copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
             }
 
@@ -112,19 +121,23 @@ void sense_serial_port_message(void* p0) {
 
             fwprintf(stdout, L"Error: Could not sense serial port message. The file stream is null. fs: %i\n", fs);
 
+            //
             // CAUTION! DO NOT log this function call!
             // This function is executed within a thread, but the
             // logging is not guaranteed to be thread-safe and might
             // cause unpredictable programme behaviour.
+            //
             // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense serial port message. The file stream is null.");
         }
 
     } else {
 
+        //
         // CAUTION! DO NOT log this function call!
         // This function is executed within a thread, but the
         // logging is not guaranteed to be thread-safe and might
         // cause unpredictable programme behaviour.
+        //
         // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense serial port message. The input stream is null.");
     }
 }

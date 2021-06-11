@@ -29,6 +29,10 @@
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../executor/accessor/getter/internal_memory_getter.c"
+#include "../../executor/accessor/getter/io_entry_getter.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/streamer/reader/directory/directory_reader.c"
 #include "../../executor/streamer/reader/file/file_reader.c"
@@ -64,6 +68,10 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The input/output entry.
+    void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The mutex.
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -82,15 +90,21 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // There is NOTHING to do here, since the gui event
-            // is already stored in the io structure by the sensor.
+            // There is NOTHING to do here, since the gui event got
+            // already stored in the input/output structure by the sensor.
             //
             // However, this is valid when using xcb.
             // It is yet unclear how win32 handles this:
             // Peeking ahead of storing the event right away?
             //
-            // read_display(p0, p7, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL);
-            //
+
+            // Get input/output entry.
+            //?? get_internal_memory_element((void*) &io, p7, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p??-TODO-port);
+            // Get mutex from input/output entry.
+            //?? get_io_entry_element((void*) &m, io, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+            //?? read_display(p0, p7, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL);
+
             modify_item(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
         }
     }
@@ -121,6 +135,11 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            // Get input/output entry.
+            //?? get_internal_memory_element((void*) &io, p7, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p??-TODO-port);
+            // Get mutex from input/output entry.
+            get_io_entry_element((void*) &m, io, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
             read_serial_port(p0, p9, p10, p7);
         }
     }
@@ -141,6 +160,11 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            // Get input/output entry.
+            //?? get_internal_memory_element((void*) &io, p7, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p??-TODO-port);
+            // Get mutex from input/output entry.
+            get_io_entry_element((void*) &m, io, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
             read_socket(p0, p1);
         }
     }
@@ -150,6 +174,11 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         compare_integer_equal((void*) &r, p11, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Get input/output entry.
+            //?? get_internal_memory_element((void*) &io, p7, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p??-TODO-port);
+            // Get mutex from input/output entry.
+            get_io_entry_element((void*) &m, io, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             read_terminal(p0, p1, p7, p8);
         }
