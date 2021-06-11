@@ -51,6 +51,7 @@ void deserialise_xdt_field_lines(void* p0, void* p1, void* p2) {
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
@@ -58,12 +59,13 @@ void deserialise_xdt_field_lines(void* p0, void* p1, void* p2) {
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
+        //
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//?? fwprintf(stdout, L"TEST deserialise xdt field lines rem: %i\n", *((int*) p2));
+        //?? fwprintf(stdout, L"Test: deserialise xdt field lines rem: %i\n", *((int*) p2));
 
         compare_integer_less_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 

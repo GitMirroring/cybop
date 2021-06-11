@@ -69,7 +69,9 @@ void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3) {
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // The input/output entry (service) DOES exist in internal memory.
+        //
 
         // The event.
         void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -91,7 +93,7 @@ void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3) {
         //
         get_io_entry_element((void*) &e, io, (void*) EVENT_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-//??        fwprintf(stdout, L"TEST: Deserialise gui event. event e: %i \n", e);
+        //?? fwprintf(stdout, L"Test: Deserialise gui event. event e: %i\n", e);
 
         if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -140,15 +142,13 @@ void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3) {
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui event. The event is null.");
-
-            fwprintf(stdout, L"Error: Could not deserialise gui event. The event is null. e: %i \n", e);
+            fwprintf(stdout, L"Error: Could not deserialise gui event. The event is null. e: %i\n", e);
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui event. The input/output entry (service) is null, i.e. it does not exist in internal memory.");
-
-        fwprintf(stdout, L"Error: Could not deserialise gui event. The input/output entry (service) is null, i.e. it does not exist in internal memory. io: %i \n", io);
+        fwprintf(stdout, L"Error: Could not deserialise gui event. The input/output entry (service) is null, i.e. it does not exist in internal memory. io: %i\n", io);
     }
 }
 

@@ -90,12 +90,15 @@ LRESULT CALLBACK deserialise_win32_display_message_callback(HWND w, UINT m, WPAR
 
     LRESULT r = (LRESULT) 0;
 
-fwprintf(stdout, L"TEST deserialise win32 callback: %i\n", r);
+    fwprintf(stdout, L"Test: deserialise win32 callback: %i\n", r);
 
     if (m == WM_PAINT) {
 
+        //
         // Paint the window's client area.
+        //
 
+        //
         // This is the place where graphics device interface (gdi)
         // drawing primitives may be used.
         //
@@ -113,6 +116,7 @@ fwprintf(stdout, L"TEST deserialise win32 callback: %i\n", r);
         // activated through the "SelectObject" function.
         // At the end, "DeleteObject" should
         // be called to release the object.
+        //
 
         // The paint structure.
         PAINTSTRUCT ps;
@@ -132,8 +136,10 @@ fwprintf(stdout, L"TEST deserialise win32 callback: %i\n", r);
 
     } else {
 
+        //
         // Continue with the default processing,
         // if none of the above messages matched.
+        //
         r = DefWindowProc(w, m, wp, lp);
     }
 

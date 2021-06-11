@@ -65,10 +65,10 @@ void deserialise_gui_action_close_window(void* p0, void* p1, void* p2, void* p3,
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
 /*??
-    fwprintf(stdout, L"TEST: Deserialise gui action close window. event name count p11: %i\n", p11);
-    fwprintf(stdout, L"TEST: Deserialise gui action close window. event name count *p11: %i\n", *((int*) p11));
-    fwprintf(stdout, L"TEST: Deserialise gui action close window. event name data p10: %i\n", p10);
-    fwprintf(stdout, L"TEST: Deserialise gui action close window. event name data p10 as string: %ls\n", (wchar_t*) p10);
+    fwprintf(stdout, L"Test: Deserialise gui action close window. event name count p11: %i\n", p11);
+    fwprintf(stdout, L"Test: Deserialise gui action close window. event name count *p11: %i\n", *((int*) p11));
+    fwprintf(stdout, L"Test: Deserialise gui action close window. event name data p10: %i\n", p10);
+    fwprintf(stdout, L"Test: Deserialise gui action close window. event name data p10 as string: %ls\n", (wchar_t*) p10);
 */
 
     // Get action part.
@@ -104,13 +104,13 @@ void deserialise_gui_action_close_window(void* p0, void* p1, void* p2, void* p3,
             //
 
 /*??
-            fwprintf(stdout, L"TEST: Deserialise gui action close window. amc: %i\n", amc);
-            fwprintf(stdout, L"TEST: Deserialise gui action close window. *amc: %i\n", *((int*) amc));
-            fwprintf(stdout, L"TEST: Deserialise gui action close window. amd: %i\n", amd);
-            fwprintf(stdout, L"TEST: Deserialise gui action close window. (wchar_t*) amd: %ls\n", (wchar_t*) amd);
+            fwprintf(stdout, L"Test: Deserialise gui action close window. amc: %i\n", amc);
+            fwprintf(stdout, L"Test: Deserialise gui action close window. *amc: %i\n", *((int*) amc));
+            fwprintf(stdout, L"Test: Deserialise gui action close window. amd: %i\n", amd);
+            fwprintf(stdout, L"Test: Deserialise gui action close window. (wchar_t*) amd: %ls\n", (wchar_t*) amd);
 */
 
-//??            fwprintf(stdout, L"TEST: Deserialise gui action close window. Modify overwrite action.\n");
+            //?? fwprintf(stdout, L"Test: Deserialise gui action close window. Modify overwrite action.\n");
 
             //
             // Overwrite previous action of parent element

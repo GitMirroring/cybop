@@ -174,8 +174,8 @@ void deserialise_gui_event_properties(void* p0, void* p1, void* p2, void* p3, vo
     //
 
 /*??
-    fwprintf(stdout, L"TEST: Deserialise gui event properties. xmd: %i \n", xmd);
-    fwprintf(stdout, L"TEST: Deserialise gui event properties. *xmd: %i \n", *((int*) xmd));
+    fwprintf(stdout, L"Test: Deserialise gui event properties. xmd: %i\n", xmd);
+    fwprintf(stdout, L"Test: Deserialise gui event properties. *xmd: %i\n", *((int*) xmd));
 */
 
     deserialise_gui_event_values(em, wm, exm, eym, ewm, ehm, xm, ym, bm, km, mm, mom, p5, p6);

@@ -117,16 +117,12 @@ void shutdown_service(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            fwprintf(stdout, L"Test 0. io: %i \n", io);
             // Get input/output entry.
             get_internal_memory_element((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
-            fwprintf(stdout, L"Test 1. io: %i \n", io);
             // Shutdown service.
             shutdown_terminal(io);
-            fwprintf(stdout, L"Test 2. io: %i \n", io);
             // Shutdown input/output entry.
             shutdown_io((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
-            fwprintf(stdout, L"Test 3. io: %i \n", io);
         }
     }
 

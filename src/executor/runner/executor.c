@@ -59,10 +59,12 @@ void execute(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Execute.");
 
+    //??
     //?? TODO: Figure out if assembling a shell command line is necessary at all!
     //?? The "system" function call further below does search programmes internally
     //?? and by default uses the "sh" to execute commands.
     //?? Therefore, the prefix "sh" and the rest assembled below MIGHT be superfluous.
+    //??
 
     // The shell command line item.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -74,13 +76,19 @@ void execute(void* p0, void* p1) {
     // The encoded shell command line item data.
     void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
     // Allocate shell command line item.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_item((void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    //
     // Allocate encoded shell command line item.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_item((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
 #if defined(__linux__) || defined(__unix__)
@@ -123,32 +131,42 @@ void execute(void* p0, void* p1) {
     // Append null character as string termination.
     modify_item(c, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
+    //
     // Get shell command line item data, count.
+    //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
+    //
     copy_array_forward((void*) &cd, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &cc, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
 /*??
-    fwprintf(stdout, L"TEST dir: %ls\n", (wchar_t*) cld);
-    fwprintf(stdout, L"TEST dir count: %i\n", *((int*) clc));
+    fwprintf(stdout, L"Test: dir: %ls\n", (wchar_t*) cld);
+    fwprintf(stdout, L"Test: dir count: %i\n", *((int*) clc));
 */
 
     // Encode encoded shell command line.
     encode_utf_8(e, cd, cc);
 
+    //
     // Get encoded shell command line item data.
+    //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
+    //
     copy_array_forward((void*) &ed, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    //
     // Initialise error number.
+    //
     // It is a global variable/ function and other operations
     // may have set some value that is not wanted here.
+    //
     errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+    //
     // Run a programme as shell command in an own process.
     //
     // The "system" function provides a simple, portable mechanism for running
@@ -163,6 +181,7 @@ void execute(void* p0, void* p1) {
     //
     // CAUTION! The command line MUST NOT be given as wide character array!
     // This is just because the "system" function call expects an ASCII string.
+    //
     int r = system(ed);
 
     if (r == *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
@@ -205,7 +224,7 @@ void execute(void* p0, void* p1) {
     //?? Therefore, the "system" function (see above) was used for now.
     //?? It might be even better, since it is platform-neutral (portable).
 
-    fwprintf(stdout, L"TEST pre-fork: %i\n", p0);
+    fwprintf(stdout, L"Test: pre-fork: %i\n", p0);
 
     // Fork a new process and remember its process identification (PID).
     // In the GNU C library, pid_t corresponds to the int type.
@@ -214,31 +233,40 @@ void execute(void* p0, void* p1) {
     // The child process is a duplicate of the parent (except for a few properties).
     pid_t pid = fork();
 
-    fwprintf(stdout, L"TEST post-fork pid: %i\n", pid);
+    fwprintf(stdout, L"Test: post-fork pid: %i\n", pid);
 
     if (pid == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-    fwprintf(stdout, L"TEST pid == 0 pid: %i\n", pid);
+        fwprintf(stdout, L"Test: pid == 0 pid: %i\n", pid);
 
+        //
         // The "fork" was successful.
+        //
         // This is the child process.
         // The following code is only executed by the child process.
+        //
         // CAUTION! Remember that BOTH processes are now executing!
         // Do therefore NOT USE logging functionality of the parent here!
+        //
 
+        //
         // There are two reasons why POSIX programmers call "fork":
+        //
         // 1 Create a new thread of control within the same programme
         //   (which was originally only possible in POSIX by creating a new process)
+        //
         // 2 Create a new process running a different programme.
         //   In this case, the call to "fork" is soon followed by a call
         //   to one of the "exec" functions.
         //
         // The general problem with making "fork" work in a multi-threaded world is:
         // "What to do with all of the threads?". There are two alternatives:
+        //
         // 1 Copy all of the threads into the new process, using "pthread_create".
         //   This causes the programmer or implementation to deal with (duplicated)
         //   threads that are suspended on system calls or that might be about to
         //   execute system calls that should not be executed in the new process.
+        //
         // 2 The other alternative is to copy only the thread that calls "fork".
         //   This creates the difficulty that the state of process-local resources
         //   is usually held in process memory.
@@ -262,26 +290,31 @@ void execute(void* p0, void* p1) {
         // created at service startup and will be deallocated at service shutdown.
         // Thus, there is NO NEED to deallocate any thread resources here
         // (that is in the child process), since there are none.
+        //
 
         //?? TEMPORARY TEST!
         wchar_t** args = (wchar_t**) p0;
-        fwprintf(stdout, L"TEST args 0: %s\n", *(args + 0));
-        fwprintf(stdout, L"TEST args 1: %s\n", *(args + 1));
-        fwprintf(stdout, L"TEST args 2: %s\n", *(args + 2));
-        fwprintf(stdout, L"TEST args 3: %s\n", *(args + 3));
+        fwprintf(stdout, L"Test: args 0: %s\n", *(args + 0));
+        fwprintf(stdout, L"Test: args 1: %s\n", *(args + 1));
+        fwprintf(stdout, L"Test: args 2: %s\n", *(args + 2));
+        fwprintf(stdout, L"Test: args 3: %s\n", *(args + 3));
         if (*(args + 3) == *NULL_POINTER_STATE_CYBOI_MODEL) {
-            fwprintf(stdout, L"TEST args 3 IS null pointer: %i\n", *(args + 3));
+            fwprintf(stdout, L"Test: args 3 IS null pointer: %i\n", *(args + 3));
         } else {
-            fwprintf(stdout, L"TEST args 3 is NOT null pointer: %i\n", *(args + 3));
+            fwprintf(stdout, L"Test: args 3 is NOT null pointer: %i\n", *(args + 3));
         }
 
-    fwprintf(stdout, L"TEST pre-exec: %i\n", p0);
+        fwprintf(stdout, L"Test: pre-exec: %i\n", p0);
 
+        //
         // Initialise error number.
+        //
         // It is a global variable/ function and other operations
         // may have set some value that is not wanted here.
+        //
         errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+        //
         // Execute file (given as first parametre) as new process image.
         //
         // The "exec" function may be used to make a child process
@@ -308,14 +341,15 @@ void execute(void* p0, void* p1) {
         // Example:
         // execl(SHELL_SYSTEM_EXECUTABLE, SHELL_SYSTEM_EXECUTABLE, "-c", ARCHIVE_UNIX_SHELL_COMMAND, *NULL_POINTER_STATE_CYBOI_MODEL);
         // execl(SHELL_SYSTEM_EXECUTABLE, SHELL_SYSTEM_EXECUTABLE, "-c", "xdosemu", *NULL_POINTER_STATE_CYBOI_MODEL);
+        //
         int e = execv(SHELL_SYSTEM_EXECUTABLE, (wchar_t**) p0);
 
-    fwprintf(stdout, L"TEST post-exec e: %i\n", e);
+        fwprintf(stdout, L"Test: post-exec e: %i\n", e);
 
         // A value of -1 is returned in the event of a failure.
         if (e == *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
-    fwprintf(stdout, L"TEST e == -1 errno: %i\n", errno);
+            fwprintf(stdout, L"Test: e == -1 errno: %i\n", errno);
 
             //
             // The five "usual file name errors":
@@ -323,14 +357,14 @@ void execute(void* p0, void* p1) {
 
             if (errno == EACCES) {
 
-        fwprintf(stdout, L"TEST EACCES errno: %i\n", errno);
+                fwprintf(stdout, L"Test: EACCES errno: %i\n", errno);
 
                 // The process does not have search permission for a
                 // directory component of the file name.
 
             } else if (errno == ENAMETOOLONG) {
 
-        fwprintf(stdout, L"TEST ENAMETOOLONG errno: %i\n", errno);
+                fwprintf(stdout, L"Test: ENAMETOOLONG errno: %i\n", errno);
 
                 // This error is used when either the total length of a file name
                 // is greater than PATH_MAX, or when an individual file name component
@@ -340,7 +374,7 @@ void execute(void* p0, void* p1) {
 
             } else if (errno == ENOENT) {
 
-        fwprintf(stdout, L"TEST ENOENT errno: %i\n", errno);
+                fwprintf(stdout, L"Test: ENOENT errno: %i\n", errno);
 
                 // This error is reported when a file referenced as a directory component
                 // in the file name doesn't exist, or when a component is a symbolic link
@@ -348,14 +382,14 @@ void execute(void* p0, void* p1) {
 
             } else if (errno == ENOTDIR) {
 
-        fwprintf(stdout, L"TEST ENOTDIR errno: %i\n", errno);
+                fwprintf(stdout, L"Test: ENOTDIR errno: %i\n", errno);
 
                 // A file that is referenced as a directory component in the file name
                 // exists, but it isn't a directory.
 
             } else if (errno == ELOOP) {
 
-        fwprintf(stdout, L"TEST ELOOP errno: %i\n", errno);
+                fwprintf(stdout, L"Test: ELOOP errno: %i\n", errno);
 
                 // Too many symbolic links were resolved while trying to look up the file name.
                 // The system has an arbitrary limit on the number of symbolic links
@@ -368,7 +402,7 @@ void execute(void* p0, void* p1) {
 
             } else if (errno == E2BIG) {
 
-        fwprintf(stdout, L"TEST E2BIG errno: %i\n", errno);
+        fwprintf(stdout, L"Test: E2BIG errno: %i\n", errno);
 
                 // The combined size of the new programme's argument list and
                 // environment list is larger than ARG_MAX bytes.
@@ -378,14 +412,14 @@ void execute(void* p0, void* p1) {
 
             } else if (errno == ENOEXEC) {
 
-        fwprintf(stdout, L"TEST ENOEXEC errno: %i\n", errno);
+        fwprintf(stdout, L"Test: ENOEXEC errno: %i\n", errno);
 
                 // The specified file can't be executed because
                 // it isn't in the right format.
 
             } else if (errno == ENOMEM) {
 
-        fwprintf(stdout, L"TEST ENOMEM errno: %i\n", errno);
+        fwprintf(stdout, L"Test: ENOMEM errno: %i\n", errno);
 
                 // Executing the specified file requires more storage than is available.
 
@@ -395,7 +429,7 @@ void execute(void* p0, void* p1) {
 
             } else if (errno == EFAULT) {
 
-        fwprintf(stdout, L"TEST EFAULT errno: %i\n", errno);
+        fwprintf(stdout, L"Test: EFAULT errno: %i\n", errno);
 
                 // Bad address; an invalid pointer was detected.
                 // In the GNU system, this error never happens;
@@ -435,11 +469,11 @@ void execute(void* p0, void* p1) {
             _exit(*NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
         }
 
-    fwprintf(stdout, L"TEST post-exit errno: %i\n", errno);
+    fwprintf(stdout, L"Test: post-exit errno: %i\n", errno);
 
     } else if (pid < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-    fwprintf(stdout, L"TEST pid < 0 pid: %i\n", pid);
+    fwprintf(stdout, L"Test: pid < 0 pid: %i\n", pid);
 
         // The "fork" did not succeed. An error occured.
         // This is still the parent process.
@@ -456,7 +490,7 @@ void execute(void* p0, void* p1) {
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Executed command as process. The process fork succeeded. Now waiting for the child process to exit.");
 
-    fwprintf(stdout, L"TEST pid > 0 pid: %i\n", pid);
+    fwprintf(stdout, L"Test: pid > 0 pid: %i\n", pid);
 
         // Request status information from child process.
         // In the GNU C library, pid_t corresponds to the int type.
@@ -464,7 +498,7 @@ void execute(void* p0, void* p1) {
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"The child process exited. Continue executing parent process.");
 
-    fwprintf(stdout, L"TEST post-waitpid pid: %i\n", pid);
+    fwprintf(stdout, L"Test: post-waitpid pid: %i\n", pid);
     }
 */
 }

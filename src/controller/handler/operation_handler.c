@@ -124,8 +124,8 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle operation.");
 
-//?? fwprintf(stdout, L"TEST handle operation: %i\n", p7);
-//?? fwprintf(stdout, L"TEST handle operation: %i\n", *((int*) p7));
+    //?? fwprintf(stdout, L"Test: handle operation: %i\n", p7);
+    //?? fwprintf(stdout, L"Test: handle operation: %i\n", *((int*) p7));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

@@ -54,7 +54,7 @@ void accept_bsd_socket(void* p0, void* p1) {
         //
         // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Accept bsd socket.");
 
-//??        fwprintf(stdout, L"TEST: Accept bsd socket *s: %i \n", *s);
+        //?? fwprintf(stdout, L"Test: Accept bsd socket *s: %i\n", *s);
 
         //
         // Initialise error number.
@@ -92,13 +92,12 @@ void accept_bsd_socket(void* p0, void* p1) {
         //
         int c = accept(*s, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-//??        fwprintf(stdout, L"TEST: Accept bsd socket. client socket c: %i \n", c);
+        //?? fwprintf(stdout, L"Test: Accept bsd socket. client socket c: %i\n", c);
 
         if (c >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Accept bsd socket successful.");
-
-            fwprintf(stdout, L"TEST: Accept bsd socket successful. client socket c: %i \n", c);
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Accept bsd socket. success");
+            fwprintf(stdout, L"Test: Accept bsd socket. success. client socket c: %i\n", c);
 
             copy_integer(p0, (void*) &c);
 
@@ -111,20 +110,17 @@ void accept_bsd_socket(void* p0, void* p1) {
             if (errno == EBADF) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not accept bsd socket. The socket argument is not a valid file descriptor.");
-
-                fwprintf(stdout, L"TEST: sense bsd socket accept error EBADF: %i \n", errno);
+                fwprintf(stdout, L"Test: sense bsd socket accept error EBADF: %i\n", errno);
 
             } else if (errno == ENOTSOCK) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not accept bsd socket. The descriptor socket argument is not a socket.");
-
-                fwprintf(stdout, L"TEST: sense bsd socket accept error ENOTSOCK: %i \n", errno);
+                fwprintf(stdout, L"Test: sense bsd socket accept error ENOTSOCK: %i\n", errno);
 
             } else if (errno == EOPNOTSUPP) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not accept bsd socket. The descriptor socket does not support this operation.");
-
-                fwprintf(stdout, L"TEST: sense bsd socket accept error EOPNOTSUPP: %i \n", errno);
+                fwprintf(stdout, L"Test: sense bsd socket accept error EOPNOTSUPP: %i\n", errno);
 
             } else if (errno == EWOULDBLOCK) {
 
@@ -139,13 +135,12 @@ void accept_bsd_socket(void* p0, void* p1) {
                 //
                 // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not accept bsd socket. The socket has nonblocking mode set, and there are no pending connexions immediately available.");
 
-//??                fwprintf(stdout, L"TEST: Accept bsd socket. error EWOULDBLOCK: %i \n", errno);
+                //?? fwprintf(stdout, L"Test: Accept bsd socket. error EWOULDBLOCK: %i\n", errno);
 
             } else {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not accept bsd socket. An unknown error occured.");
-
-                fwprintf(stdout, L"TEST: sense bsd socket accept error UNKNOWN: %i \n", errno);
+                fwprintf(stdout, L"Test: sense bsd socket accept error UNKNOWN: %i\n", errno);
             }
         }
 

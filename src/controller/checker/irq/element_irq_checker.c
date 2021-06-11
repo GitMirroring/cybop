@@ -81,7 +81,7 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         // at the calculated internal memory index.
         //
 
-        //?? fwprintf(stdout, L"TEST Check irq element. io_entry: %i\n", io);
+        //?? fwprintf(stdout, L"Test: Check irq element. io_entry: %i\n", io);
 
         //
         // Retrieve various values from input/output entry.

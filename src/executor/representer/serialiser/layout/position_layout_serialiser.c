@@ -71,7 +71,7 @@ void serialise_layout_position(void* p0, void* p1, void* p2, void* p3, void* p4,
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_layout_border_position(p0, p2, p3);
+            //?? serialise_layout_border_position(p0, p2, p3);
         }
     }
 
@@ -81,12 +81,12 @@ void serialise_layout_position(void* p0, void* p1, void* p2, void* p3, void* p4,
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            fwprintf(stdout, L"TEST: Serialise layout position BOX.");
+            fwprintf(stdout, L"Test: Serialise layout position BOX.");
 
             //?? Layout in a row or column WITHOUT breaking them.
             //?? If a row break is desired, then use flow layout.
 
-//??            serialise_layout_box_position(p0, p2, p3);
+            //?? serialise_layout_box_position(p0, p2, p3);
         }
     }
 
@@ -96,7 +96,7 @@ void serialise_layout_position(void* p0, void* p1, void* p2, void* p3, void* p4,
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_layout_flow_position(p0, p2, p3);
+            //?? serialise_layout_flow_position(p0, p2, p3);
         }
     }
 

@@ -58,7 +58,7 @@ void serialise_gui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui part.");
 
-//??    fwprintf(stdout, L"TEST serialise gui part: %i\n", p7);
+    //?? fwprintf(stdout, L"Test: serialise gui part: %i\n", p7);
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -67,6 +67,7 @@ void serialise_gui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
     if (p7 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
@@ -74,6 +75,7 @@ void serialise_gui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
+        //
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 

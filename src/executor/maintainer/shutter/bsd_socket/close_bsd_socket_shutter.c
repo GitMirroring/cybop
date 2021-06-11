@@ -72,51 +72,51 @@ void shutdown_bsd_socket_close(void* p0) {
         //
         int r = close(*s);
 
-        //?? fwprintf(stdout, L"\nTEST: shutdown bsd socket close *s: %i \n\n", *s);
+        //?? fwprintf(stdout, L"\nTest: Shutdown bsd socket close. *s: %i \n\n", *s);
 
         if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            //?? fwprintf(stdout, L"TEST: shutdown bsd socket close success r: %i \n", r);
-
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully shutdown bsd socket close.");
+            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown bsd socket close. success");
+            //?? fwprintf(stdout, L"Test: Shutdown bsd socket close. success r: %i\n", r);
 
         } else {
 
             if (errno == EBADF) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown bsd socket close. The filedes argument is not a valid file descriptor.");
-                //?? fwprintf(stdout, L"TEST: shutdown bsd socket close error EBADF: %i \n", errno);
+                //?? fwprintf(stdout, L"Test: Could not shutdown bsd socket close. The filedes argument is not a valid file descriptor. error EBADF: %i\n", errno);
 
             } else if (errno == EINTR) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown bsd socket close. The close call was interrupted by a signal.");
-                fwprintf(stdout, L"TEST: shutdown bsd socket close error EINTR: %i \n", errno);
+                fwprintf(stdout, L"Test: Could not shutdown bsd socket close. The close call was interrupted by a signal. error EINTR: %i\n", errno);
 
             } else if (errno == ENOSPC) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown bsd socket close. Error: ENOSPC. NO ERROR CONDITION DEFINED IN GLIBC.");
-                fwprintf(stdout, L"TEST: shutdown bsd socket close error ENOSPC: %i \n", errno);
+                fwprintf(stdout, L"Test: Could not shutdown bsd socket close. Error: ENOSPC. NO ERROR CONDITION DEFINED IN GLIBC. error ENOSPC: %i\n", errno);
 
             } else if (errno == EIO) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown bsd socket close. Error: EIO. NO ERROR CONDITION DEFINED IN GLIBC.");
-                fwprintf(stdout, L"TEST: shutdown bsd socket close error EIO: %i \n", errno);
+                fwprintf(stdout, L"Test: Could not shutdown bsd socket close. Error: EIO. NO ERROR CONDITION DEFINED IN GLIBC. error EIO: %i\n", errno);
 
             } else if (errno == EDQUOT) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown bsd socket close. When the file is accessed by NFS, these errors from write can sometimes not be detected until close.");
-                fwprintf(stdout, L"TEST: shutdown bsd socket close error EDQUOT: %i \n", errno);
+                fwprintf(stdout, L"Test: Could not shutdown bsd socket close. When the file is accessed by NFS, these errors from write can sometimes not be detected until close. error EDQUOT: %i\n", errno);
 
             } else {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown bsd socket close. An unknown error occured while binding the socket to the address.");
-                fwprintf(stdout, L"TEST: shutdown bsd socket close error UNKNOWN: %i \n", errno);
+                fwprintf(stdout, L"Test: Could not shutdown bsd socket close. An unknown error occured while binding the socket to the address. error UNKNOWN: %i\n", errno);
             }
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown bsd socket close. The socket is null.");
+        fwprintf(stdout, L"Error: Could not shutdown bsd socket close. The socket is null. p0: %i\n", p0);
     }
 }
 

@@ -82,22 +82,22 @@ void open_win32_display(void* p0, void* p1) {
     // http://stackoverflow.com/questions/11785157/replacing-winmain-with-main-function-in-win32-programs?rq=1
     //
     HMODULE mo = GetModuleHandle((LPCTSTR) *NULL_POINTER_STATE_CYBOI_MODEL);
-    fwprintf(stdout, L"TEST mo: %i\n", mo);
+    fwprintf(stdout, L"Test: mo: %i\n", mo);
     // The module instance to be associated with the window.
     HINSTANCE i = (HINSTANCE) mo;
-    fwprintf(stdout, L"TEST i: %i\n", i);
+    fwprintf(stdout, L"Test: i: %i\n", i);
     // The additional application data.
     LPVOID a = (LPVOID) *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Register window class.
     open_win32_display_register((void*) i, (void*) c);
-    fwprintf(stdout, L"TEST pre create: %i\n", i);
+    fwprintf(stdout, L"Test: pre create: %i\n", i);
     // Create window.
     HWND wnd = CreateWindowEx(e, c, t, s, x, y, w, h, p, m, i, a);
-    fwprintf(stdout, L"TEST wnd: %i\n", wnd);
+    fwprintf(stdout, L"Test: wnd: %i\n", wnd);
     // Convert window handle to integer.
     int wndi = (int) wnd;
-    fwprintf(stdout, L"TEST wndi: %i\n", wndi);
+    fwprintf(stdout, L"Test: wndi: %i\n", wndi);
 
     // Set window.
     copy_integer(p0, (void*) &wndi);

@@ -54,13 +54,13 @@
  */
 void copy(void* p0, void* p1, void* p2, void* p3) {
 
+    //
     // CAUTION! Do NOT call the logger here.
     // It uses functions causing circular references.
+    //
     // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy.");
 
     // The comparison result.
-    // CAUTION! It is used instead of if-else statements.
-    // May be one day, this is useful when using assembler or implementing cyboi as hardware chip.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
@@ -138,8 +138,10 @@ void copy(void* p0, void* p1, void* p2, void* p3) {
                 // Directed Acyclic Graph (DAG) with unidirectional references.
                 //
 
+                //
                 // CAUTION! Both, the destination- as well as the source value
                 // will get interpreted as pointer reference inside.
+                //
                 copy_pointer(p0, p1);
 
             } else {
@@ -158,11 +160,15 @@ void copy(void* p0, void* p1, void* p2, void* p3) {
                 // It is also used when storing variables on stack memory.
                 //
 
-//?? fwprintf(stdout, L"TEST copy deep pre: %i\n", r);
+                //?? fwprintf(stdout, L"Test: copy deep pre: %i\n", r);
+
+                //
                 // CAUTION! Both, the destination- as well as the source value
                 // will get interpreted as pointer reference inside.
+                //
                 copy_part(p0, p1);
-//?? fwprintf(stdout, L"TEST copy deep post: %i\n", r);
+
+                //?? fwprintf(stdout, L"Test: copy deep post: %i\n", r);
             }
         }
     }
@@ -275,9 +281,11 @@ void copy(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! Do NOT call the logger here.
         // It uses functions causing circular references.
         // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy. The operand type is unknown.");
+        //
     }
 }
 
@@ -293,13 +301,18 @@ void copy(void* p0, void* p1, void* p2, void* p3) {
  */
 void copy_offset(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
+    //
     // CAUTION! Do NOT call the logger here.
     // It uses functions causing circular references.
+    //
     // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy offset.");
 
+    //
     // The destination value, source value.
+    //
     // CAUTION! They HAVE TO BE initialised with p0 and p1,
     // since an offset is added below.
+    //
     void* d = p0;
     void* s = p1;
 

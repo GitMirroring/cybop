@@ -51,7 +51,7 @@ void deallocate_part(void* p0) {
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate part.");
 
-//?? fwprintf(stdout, L"TEST deallocate part: %i\n", *part);
+        //?? fwprintf(stdout, L"Test: Deallocate part. *part: %i\n", *part);
 
         // The references, name, channel, encoding, language, format, type, model, properties.
         void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -83,14 +83,18 @@ void deallocate_part(void* p0) {
         copy_array_forward((void*) &rd, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+        //
         // Verify that reference data is zero.
+        //
         // CAUTION! Otherwise, do NOT deallocate this part.
         // This test IS USEFUL in order to find out via log file
         // if there are forgotten allocations/deallocations in source code.
+        //
         compare_integer_equal((void*) &res, rd, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (res != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // Deallocate references, name, channel, encoding, language, format, type, model, properties.
             //
             // CAUTION! Use REVERSE ORDER as compared to allocation!
@@ -98,6 +102,7 @@ void deallocate_part(void* p0) {
             // since the type is needed for model deallocation.
             // If the type got destroyed before the model,
             // then model deallocation would not work.
+            //
             deallocate_item((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
             deallocate_item((void*) &m, td);
             deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
@@ -108,14 +113,20 @@ void deallocate_part(void* p0) {
             deallocate_item((void*) &n, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
             deallocate_item((void*) &r, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
+            //
             // Deallocate part.
+            //
             // CAUTION! The second argument "count" is NULL,
             // since it is only needed for looping elements of type PART,
             // in order to decrement the rubbish (garbage) collection counter.
+            //
             deallocate_array(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
 
+            //
             // Decrement part reference counter.
+            //
             // CAUTION! This is ONLY needed for debugging.
+            //
             (*PART_REFERENCE_COUNTER)--;
 
         } else {
@@ -132,9 +143,11 @@ void deallocate_part(void* p0) {
 
             } else {
 
+                //
                 // If the references count is neither zero (first comparison),
                 // nor greater than zero (second comparison),
                 // then it is smaller than zero.
+                //
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deallocate part. Its references count is negative.");
                 fwprintf(stdout, L"Error: Could not deallocate part. Its references count is negative: %i\n", *part);

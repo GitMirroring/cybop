@@ -53,8 +53,8 @@ void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge.");
 
-    //?? fwprintf(stdout, L"TEST deserialise knowledge *p3: %i\n", *((int*) p3));
-    //?? fwprintf(stdout, L"TEST deserialise knowledge *p2: %ls\n", (wchar_t*) *((void**) p2));
+    //?? fwprintf(stdout, L"Test: deserialise knowledge *p3: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"Test: deserialise knowledge *p2: %ls\n", (wchar_t*) *((void**) p2));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

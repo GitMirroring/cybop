@@ -65,23 +65,27 @@ void accept_winsock(void* p0, void* p1) {
             //
             SOCKET wc = accept(ws, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-            fwprintf(stdout, L"TEST: Accept winsock. client socket wc: %i \n", (int) wc);
+            fwprintf(stdout, L"Test: Accept winsock. client socket wc: %i\n", (int) wc);
 
             if (wc != INVALID_SOCKET) {
 
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Accept winsock successfully.");
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Accept winsock. success.");
 
                 // Cast winsock SOCKET to client int.
                 *c = (int) wc;
 
             } else {
 
+                //
                 // If the return value is INVALID_SOCKET, then an error occured.
+                //
 
+                //
                 // Get the calling thread's last-error code.
                 //
                 // CAUTION! This function is the winsock substitute
                 // for the Windows "GetLastError" function.
+                //
                 int e = WSAGetLastError();
 
                 if (e == WSANOTINITIALISED) {

@@ -275,8 +275,8 @@ void open_xcb(void* p0, void* p1) {
             // Free internal protocols cookie structure.
             free(protocols_reply);
 
-            //?? fwprintf(stdout, L"TEST: Open xcb. delete_reply: %i\n", delete_reply);
-            //?? fwprintf(stdout, L"TEST: Open xcb. (*delete_reply).atom: %i\n", (*delete_reply).atom);
+            //?? fwprintf(stdout, L"Test: Open xcb. delete_reply: %i\n", delete_reply);
+            //?? fwprintf(stdout, L"Test: Open xcb. (*delete_reply).atom: %i\n", (*delete_reply).atom);
 
             //
             // CAUTION! Do NOT free the delete cookie structure here.

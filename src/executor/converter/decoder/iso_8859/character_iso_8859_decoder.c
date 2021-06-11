@@ -52,7 +52,7 @@ void decode_iso_8859_character(void* p0, void* p1, void* p2) {
     // Characters 0..127 (ascii)
     //
 
-//?? fwprintf(stdout, L"TEST decode iso-8859 character: %i\n", r);
+    //?? fwprintf(stdout, L"Test: decode iso-8859 character: %i\n", r);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -62,7 +62,8 @@ void decode_iso_8859_character(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//?? fwprintf(stdout, L"TEST decode iso-8859 character ascii: %i\n", r);
+            //?? fwprintf(stdout, L"Test: decode iso-8859 character ascii: %i\n", r);
+
             decode_ascii(p0, p1);
         }
     }
@@ -73,7 +74,8 @@ void decode_iso_8859_character(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//?? fwprintf(stdout, L"TEST decode iso-8859 character iso: %i\n", r);
+        //?? fwprintf(stdout, L"Test: decode iso-8859 character iso: %i\n", r);
+
         decode_iso_8859_extension(p0, p1, p2);
     }
 }

@@ -27,11 +27,6 @@
 #define UNGLOBALISER_SOURCE
 
 #include "../controller/unglobaliser/log_unglobaliser.c"
-#include "../controller/unglobaliser/pointer_unglobaliser.c"
-#include "../controller/unglobaliser/process_unglobaliser.c"
-#include "../controller/unglobaliser/real_unglobaliser.c"
-#include "../controller/unglobaliser/reallocation_factor_unglobaliser.c"
-#include "../controller/unglobaliser/socket_unglobaliser.c"
 
 /**
  * Deallocates global variables.

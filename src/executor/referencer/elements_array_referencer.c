@@ -60,7 +60,7 @@ void reference_array_elements(void* p0, void* p1, void* p2) {
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
-//?? fwprintf(stdout, L"TEST reference array elements count p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Test: reference array elements count p2: %i\n", *((int*) p2));
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -75,7 +75,7 @@ void reference_array_elements(void* p0, void* p1, void* p2) {
             break;
         }
 
-//?? fwprintf(stdout, L"TEST reference array elements index j: %i\n", j);
+        //?? fwprintf(stdout, L"Test: reference array elements index j: %i\n", j);
 
         reference_part(p0, p1, (void*) &j);
 

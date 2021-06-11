@@ -76,7 +76,7 @@ void startup_bsd_socket_status_get(void* p0, void* p1) {
         if (f >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket status get success.");
-            //?? fwprintf(stdout, L"TEST: startup bsd socket status get success f: %i \n", f);
+            //?? fwprintf(stdout, L"Test: startup bsd socket status get success f: %i\n", f);
 
             startup_bsd_socket_status_set(p0, (void*) &f, p1);
 
@@ -89,12 +89,12 @@ void startup_bsd_socket_status_get(void* p0, void* p1) {
             if (errno == EBADF) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket status get. The filedes argument is invalid.");
-                fwprintf(stdout, L"TEST: Could not startup bsd socket status get. The filedes argument is invalid. EBADF errno: %i \n", errno);
+                fwprintf(stdout, L"Test: Could not startup bsd socket status get. The filedes argument is invalid. EBADF errno: %i\n", errno);
 
             } else {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket status get. An unknown error occured.");
-                fwprintf(stdout, L"TEST: Could not startup bsd socket status get. An unknown error occured. UNKNOWN errno: %i \n", errno);
+                fwprintf(stdout, L"Test: Could not startup bsd socket status get. An unknown error occured. UNKNOWN errno: %i\n", errno);
             }
         }
 

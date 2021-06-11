@@ -65,7 +65,7 @@ void serialise_gui_element(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui element.");
 
-    //?? fwprintf(stdout, L"TEST Serialise gui element. Connexion p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Test: Serialise gui element. Connexion p0: %i\n", p0);
 
     // The super part.
     void* super = *NULL_POINTER_STATE_CYBOI_MODEL;

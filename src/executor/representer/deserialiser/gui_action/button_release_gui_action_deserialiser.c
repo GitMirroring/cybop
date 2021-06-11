@@ -109,10 +109,10 @@ void deserialise_gui_action_button_release(void* p0, void* p1, void* p2, void* p
             int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
 /*??
-            fwprintf(stdout, L"TEST: Deserialise gui action button release. event name count p11: %i\n", p11);
-            fwprintf(stdout, L"TEST: Deserialise gui action button release. event name count *p11: %i\n", *((int*) p11));
-            fwprintf(stdout, L"TEST: Deserialise gui action button release. event name data p10: %i\n", p10);
-            fwprintf(stdout, L"TEST: Deserialise gui action button release. event name data p10 as string: %ls\n", (wchar_t*) p10);
+            fwprintf(stdout, L"Test: Deserialise gui action button release. event name count p11: %i\n", p11);
+            fwprintf(stdout, L"Test: Deserialise gui action button release. event name count *p11: %i\n", *((int*) p11));
+            fwprintf(stdout, L"Test: Deserialise gui action button release. event name data p10: %i\n", p10);
+            fwprintf(stdout, L"Test: Deserialise gui action button release. event name data p10 as string: %ls\n", (wchar_t*) p10);
 */
 
             // Get position part.
@@ -151,12 +151,12 @@ void deserialise_gui_action_button_release(void* p0, void* p1, void* p2, void* p
             calculate_integer_add((void*) &y, p16);
 
 /*??
-            fwprintf(stdout, L"TEST: Deserialise gui action button release. x: %i\n", x);
-            fwprintf(stdout, L"TEST: Deserialise gui action button release. y: %i\n", y);
-            fwprintf(stdout, L"TEST: Deserialise gui action button release. w: %i\n", w);
-            fwprintf(stdout, L"TEST: Deserialise gui action button release. h: %i\n", h);
-            fwprintf(stdout, L"TEST: Deserialise gui action button release. *mx: %i\n", *mx);
-            fwprintf(stdout, L"TEST: Deserialise gui action button release. *my: %i\n", *my);
+            fwprintf(stdout, L"Test: Deserialise gui action button release. x: %i\n", x);
+            fwprintf(stdout, L"Test: Deserialise gui action button release. y: %i\n", y);
+            fwprintf(stdout, L"Test: Deserialise gui action button release. w: %i\n", w);
+            fwprintf(stdout, L"Test: Deserialise gui action button release. h: %i\n", h);
+            fwprintf(stdout, L"Test: Deserialise gui action button release. *mx: %i\n", *mx);
+            fwprintf(stdout, L"Test: Deserialise gui action button release. *my: %i\n", *my);
 */
 
             //
@@ -169,7 +169,7 @@ void deserialise_gui_action_button_release(void* p0, void* p1, void* p2, void* p
             //
             if ((*mx >= x) && (*my >= y) && (*mx < (x + w)) && (*my < (y + h))) {
 
-//??                fwprintf(stdout, L"TEST: Deserialise gui action button release. The mouse x- and y coordinate are within the gui element's area.\n");
+                //?? fwprintf(stdout, L"Test: Deserialise gui action button release. The mouse x- and y coordinate are within the gui element's area.\n");
 
                 //
                 // Set break flag, so that the loop can be left in the next cycle.
@@ -194,12 +194,12 @@ void deserialise_gui_action_button_release(void* p0, void* p1, void* p2, void* p
                         //
 
 /*??
-                        fwprintf(stdout, L"TEST: Deserialise gui action button release. Modify overwrite action.\n");
+                        fwprintf(stdout, L"Test: Deserialise gui action button release. Modify overwrite action.\n");
 
-                        fwprintf(stdout, L"TEST: Deserialise gui action button release. amc: %i\n", amc);
-                        fwprintf(stdout, L"TEST: Deserialise gui action button release. *amc: %i\n", *((int*) amc));
-                        fwprintf(stdout, L"TEST: Deserialise gui action button release. amd: %i\n", amd);
-                        fwprintf(stdout, L"TEST: Deserialise gui action button release. (wchar_t*) amd: %ls\n", (wchar_t*) amd);
+                        fwprintf(stdout, L"Test: Deserialise gui action button release. amc: %i\n", amc);
+                        fwprintf(stdout, L"Test: Deserialise gui action button release. *amc: %i\n", *((int*) amc));
+                        fwprintf(stdout, L"Test: Deserialise gui action button release. amd: %i\n", amd);
+                        fwprintf(stdout, L"Test: Deserialise gui action button release. (wchar_t*) amd: %ls\n", (wchar_t*) amd);
 */
 
                         //

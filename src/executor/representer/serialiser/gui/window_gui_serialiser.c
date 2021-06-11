@@ -69,7 +69,7 @@ void serialise_gui_window(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui window.");
 
-    //?? fwprintf(stdout, L"TEST Serialise gui window. Connexion p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Test: Serialise gui window. Connexion p0: %i\n", p0);
 
     // The super part.
     void* super = *NULL_POINTER_STATE_CYBOI_MODEL;

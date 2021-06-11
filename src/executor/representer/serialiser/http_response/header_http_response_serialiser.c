@@ -56,6 +56,7 @@ void serialise_http_response_header(void* p0, void* p1, void* p2, void* p3, void
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
@@ -63,10 +64,11 @@ void serialise_http_response_header(void* p0, void* p1, void* p2, void* p3, void
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
+        //
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
-//?? fwprintf(stdout, L"TEST serialise http response header p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Test: serialise http response header p2: %i\n", *((int*) p2));
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -83,8 +85,10 @@ void serialise_http_response_header(void* p0, void* p1, void* p2, void* p3, void
         j++;
     }
 
+    //
     // The content length is currently always added
     // (but this solution may change later).
+    //
     serialise_http_response_header_content_length(p0, p3);
 }
 

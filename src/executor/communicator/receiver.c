@@ -85,7 +85,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive data.");
 
-    //?? fwprintf(stdout, L"TEST receive data p16: %i\n", *((int*) p16));
+    //?? fwprintf(stdout, L"Test: Receive data. p16: %i\n", *((int*) p16));
 
     // The pointer message item, e.g. an xcb display event or win32 input record.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -97,13 +97,19 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The serialised message item.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //
     // The buffer.
+    //
     // CAUTION! This is just a helper variable,
     // to be used for forwarding the correct argument.
+    //
     void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //
     // The buffer data, count.
+    //
     // CAUTION! This is just helper variables,
     // to be used for forwarding the correct argument.
+    //
     void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -162,11 +168,12 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     // Read message.
     receive_read((void*) &bd, (void*) &bc, b, p2, p3, p4, p5, p7, p8, p9, p10, p11, p12, p16);
+
 /*??
     if ((p14 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p14) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
-        fwprintf(stdout, L"TEST: Receive data. read binary message *bc: %i\n", *((int*) bc));
-        fwprintf(stdout, L"TEST: Receive data. read binary message bd: %s\n", (char*) bd);
-        fwprintf(stdout, L"TEST: Receive data. read binary message *p15: %i\n", *((int*) p15));
+        fwprintf(stdout, L"Test: Receive data. read binary message *bc: %i\n", *((int*) bc));
+        fwprintf(stdout, L"Test: Receive data. read binary message bd: %s\n", (char*) bd);
+        fwprintf(stdout, L"Test: Receive data. read binary message *p15: %i\n", *((int*) p15));
     }
 */
 
@@ -175,10 +182,11 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     // Decode message.
     receive_decode((void*) &bd, (void*) &bc, s, bd, bc, p15);
+
 /*??
     if ((p14 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p14) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
-        fwprintf(stdout, L"TEST: Receive data. decode binary message *bc: %i\n", *((int*) bc));
-        fwprintf(stdout, L"TEST: Receive data. decode binary message bd: %s\n", (char*) bd);
+        fwprintf(stdout, L"Test: Receive data. decode binary message *bc: %i\n", *((int*) bc));
+        fwprintf(stdout, L"Test: Receive data. decode binary message bd: %s\n", (char*) bd);
     }
 */
 
@@ -189,13 +197,14 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // type "char" or type "wchar_t" or type "void*", which is IRRELEVANT.
     // This function knows how to handle it, depending on the given language.
     //
-    //?? fwprintf(stdout, L"TEST: Receive data. deserialise binary message pre *bc: %i\n", *((int*) bc));
-    //?? fwprintf(stdout, L"TEST: Receive data. deserialise binary message pre bd: %ls\n", (wchar_t*) bd);
+    //?? fwprintf(stdout, L"Test: Receive data. deserialise binary message pre *bc: %i\n", *((int*) bc));
+    //?? fwprintf(stdout, L"Test: Receive data. deserialise binary message pre bd: %ls\n", (wchar_t*) bd);
     receive_deserialise(p0, p1, bd, bc, p4, p5, p6, p7, p8, p9, p13, p14);
+
 /*??
     if ((p14 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p14) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
-        fwprintf(stdout, L"TEST: Receive data. deserialise binary message post *bc: %i\n", *((int*) bc));
-        fwprintf(stdout, L"TEST: Receive data. deserialise binary message post bd: %s\n", (char*) bd);
+        fwprintf(stdout, L"Test: Receive data. deserialise binary message post *bc: %i\n", *((int*) bc));
+        fwprintf(stdout, L"Test: Receive data. deserialise binary message post bd: %s\n", (char*) bd);
     }
 */
 

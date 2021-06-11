@@ -124,12 +124,12 @@ void apply_contain(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     copy_array_forward((void*) &smc, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
 /*??
-    fwprintf(stdout, L"TEST apply contain r: %i\n", r);
-    fwprintf(stdout, L"TEST apply contain v: %i\n", v);
-    fwprintf(stdout, L"TEST apply contain lb: %i\n", lb);
-    fwprintf(stdout, L"TEST apply contain rb: %i\n", rb);
-    fwprintf(stdout, L"TEST apply contain t: %i\n", t);
-    fwprintf(stdout, L"TEST apply contain s: %i\n", s);
+    fwprintf(stdout, L"Test: apply contain r: %i\n", r);
+    fwprintf(stdout, L"Test: apply contain v: %i\n", v);
+    fwprintf(stdout, L"Test: apply contain lb: %i\n", lb);
+    fwprintf(stdout, L"Test: apply contain rb: %i\n", rb);
+    fwprintf(stdout, L"Test: apply contain t: %i\n", t);
+    fwprintf(stdout, L"Test: apply contain s: %i\n", s);
 */
 
 //??    contain(rmd, v, lb, rb, p5);

@@ -60,7 +60,7 @@ void apply_modify_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply modify type.");
 
-//??    fwprintf(stdout, L"TEST: Apply modify type. Destination type: %i. Source type: %i.\n", *((int*) p2), *((int*) p12));
+    //?? fwprintf(stdout, L"Test: Apply modify type. Destination type: %i. Source type: %i.\n", *((int*) p2), *((int*) p12));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -69,7 +69,9 @@ void apply_modify_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // The destination- and source type are identical.
+        //
 
         apply_modify_deep(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
 

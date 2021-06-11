@@ -58,33 +58,45 @@ void reallocate_item(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
+    //
     // Reallocate data.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     reallocate_array((void*) &d, c, p1, p2);
 
     if (d != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // CAUTION! The count remains the same.
+        //
         // Set size.
+        //
+        // CAUTION! The count remains the same.
+        //
         copy_integer(s, p1);
 
+        //
         // Set data.
+        //
         // CAUTION! This IS necessary since the data array
         // got reallocated and a new memory pointer returned.
+        //
         // CAUTION! The count and size do NOT have to be set,
         // since they were not reallocated and thus
         // still point to the same memory area.
+        //
         copy_array_forward(p0, (void*) &d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DATA_ITEM_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     } else {
 
-fwprintf(stdout, L"TEST Could not reallocate item. The data is null. This should NEVER happen. d: %p\n", d);
+        fwprintf(stdout, L"Test: Could not reallocate item. The data is null. This should NEVER happen. d: %p\n", d);
 
+        //
         // Reasons might be:
         // - given size is zero
         // - given size is negative
         // - no more memory (RAM) left in the system
+        //
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate item. The data is null.");
     }
 }

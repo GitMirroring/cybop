@@ -51,7 +51,7 @@ void open_socket_connect(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket connect.");
 
-    fwprintf(stdout, L"TEST: Open socket connect. Client socket: %i \n", *((int*) p0));
+    fwprintf(stdout, L"Test: Open socket connect. Client socket: %i\n", *((int*) p0));
 
 #if defined(__linux__) || defined(__unix__)
     open_bsd_socket_connect(p0, p1, p2);

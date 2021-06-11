@@ -77,8 +77,8 @@ void check_client_all(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
-    //?? fwprintf(stdout, L"TEST: Check client all. count p2: %i\n", p2);
-    //?? fwprintf(stdout, L"TEST: Check client all. count *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Test: Check client all. count p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Test: Check client all. count *p2: %i\n", *((int*) p2));
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 

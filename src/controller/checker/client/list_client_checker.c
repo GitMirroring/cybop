@@ -45,7 +45,7 @@ void check_client_list(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check client list.");
 
-    //?? fwprintf(stdout, L"TEST: Check client list. channel *p4: %i \n", *((int*) p4));
+    //?? fwprintf(stdout, L"Test: Check client list. channel *p4: %i\n", *((int*) p4));
 
     // The client list item data, count, size.
     void* cd = *NULL_POINTER_STATE_CYBOI_MODEL;

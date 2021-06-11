@@ -47,7 +47,7 @@ void deserialise_http_request_method(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise http request method.");
 
-    //?? fwprintf(stdout, L"TEST: Deserialise http request method. p3: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"Test: Deserialise http request method. p3: %i\n", *((int*) p3));
 
     // The element.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;

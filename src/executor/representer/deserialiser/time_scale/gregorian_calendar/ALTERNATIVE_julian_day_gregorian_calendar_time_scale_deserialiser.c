@@ -58,8 +58,10 @@ void deserialise_time_scale_gregorian_calendar_julian_day(void* p0, void* p1, vo
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise time scale gregorian calendar julian day.");
 
+    //
     // The flag indicating whether or not the given date (year/month/day)
     // lies AFTER the Gregorian calendar reform.
+    //
     int reform = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     int a = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -119,30 +121,30 @@ void deserialise_time_scale_gregorian_calendar_julian_day(void* p0, void* p1, vo
     calculate_double_multiply((void*) &dd, (void*) &Y_CONSTANT);
     cast_integer_double((void*) &d, (void*) &dd);
 
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day a: %i\n", a);
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day c: %i\n", c);
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day b: %i\n", b);
+    fwprintf(stdout, L"Test: deserialise time scale gregorian calendar julian day a: %i\n", a);
+    fwprintf(stdout, L"Test: deserialise time scale gregorian calendar julian day c: %i\n", c);
+    fwprintf(stdout, L"Test: deserialise time scale gregorian calendar julian day b: %i\n", b);
 
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day *p0: %i\n", *((int*) p0));
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day *p3: %i\n", *((int*) p3));
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day c: %i\n", c);
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day d: %i\n", d);
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day Z_CONSTANT: %i\n", Z_CONSTANT);
+    fwprintf(stdout, L"Test: deserialise time scale gregorian calendar julian day *p0: %i\n", *((int*) p0));
+    fwprintf(stdout, L"Test: deserialise time scale gregorian calendar julian day *p3: %i\n", *((int*) p3));
+    fwprintf(stdout, L"Test: deserialise time scale gregorian calendar julian day c: %i\n", c);
+    fwprintf(stdout, L"Test: deserialise time scale gregorian calendar julian day d: %i\n", d);
+    fwprintf(stdout, L"Test: deserialise time scale gregorian calendar julian day Z_CONSTANT: %i\n", Z_CONSTANT);
 
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day *p0 0: %i\n", *((int*) p0));
+    fwprintf(stdout, L"Test: deserialise time scale gregorian calendar julian day *p0 0: %i\n", *((int*) p0));
     copy_integer(p0, p3);
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day *p0 1: %i\n", *((int*) p0));
+    fwprintf(stdout, L"Test: deserialise time scale gregorian calendar julian day *p0 1: %i\n", *((int*) p0));
     calculate_integer_add(p0, (void*) &c);
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day *p0 2: %i\n", *((int*) p0));
+    fwprintf(stdout, L"Test: deserialise time scale gregorian calendar julian day *p0 2: %i\n", *((int*) p0));
     calculate_integer_add(p0, (void*) &d);
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day *p0 3: %i\n", *((int*) p0));
+    fwprintf(stdout, L"Test: deserialise time scale gregorian calendar julian day *p0 3: %i\n", *((int*) p0));
     calculate_integer_add(p0, (void*) &Z_CONSTANT);
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day *p0 4: %i\n", *((int*) p0));
+    fwprintf(stdout, L"Test: deserialise time scale gregorian calendar julian day *p0 4: %i\n", *((int*) p0));
 
     if (reform != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         calculate_integer_add(p0, (void*) &b);
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day *p0 5: %i\n", *((int*) p0));
+        fwprintf(stdout, L"Test: deserialise time scale gregorian calendar julian day *p0 5: %i\n", *((int*) p0));
     }
 }
 

@@ -60,13 +60,17 @@ void deserialise_xdt_field_line(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt field line.");
 
+    //
     // The field size.
+    //
     // CAUTION! It seems to be useless, since a field's end
     // is defined as line feed + carriage return
     // and may thus be detected and thereby
     // count the length of the field.
+    //
     // However, it is used below for verifying if
     // calculated and given field size match.
+    //
     int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The field identification data, count.
     void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -90,31 +94,41 @@ void deserialise_xdt_field_line(void* p0, void* p1, void* p2) {
     // Deserialise content.
     deserialise_xdt_field_content((void*) &cd, (void*) &cc, p1, p2);
 
+    //
     // Calculate field content count.
+    //
     // CAUTION! The xdt field size comprises ALL elements, even itself.
+    //
     copy_integer((void*) &cc2, (void*) &s);
+    //
     // Subtract meta bytes.
+    //
     // content count = size value - 9 Byte (3 size + 4 identification + 2 cr and lf)
+    //
     calculate_integer_subtract((void*) &cc2, (void*) NUMBER_9_INTEGER_STATE_CYBOI_MODEL);
 
 /*??
-fwprintf(stdout, L"TEST deserialise xdt field s: %i\n", s);
-fwprintf(stdout, L"TEST deserialise xdt field ic: %i\n", ic);
-//?? fwprintf(stdout, L"TEST deserialise xdt field id: %ls\n", (wchar_t*) id);
-fwprintf(stdout, L"TEST deserialise xdt field i: %i\n", i);
-fwprintf(stdout, L"TEST deserialise xdt field cc: %i\n", cc);
-//?? fwprintf(stdout, L"TEST deserialise xdt field cd: %ls\n", (wchar_t*) cd);
-fwprintf(stdout, L"TEST deserialise xdt field cc2: %i\n", cc2);
+    fwprintf(stdout, L"Test: deserialise xdt field s: %i\n", s);
+    fwprintf(stdout, L"Test: deserialise xdt field ic: %i\n", ic);
+    //?? fwprintf(stdout, L"Test: deserialise xdt field id: %ls\n", (wchar_t*) id);
+    fwprintf(stdout, L"Test: deserialise xdt field i: %i\n", i);
+    fwprintf(stdout, L"Test: deserialise xdt field cc: %i\n", cc);
+    //?? fwprintf(stdout, L"Test: deserialise xdt field cd: %ls\n", (wchar_t*) cd);
+    fwprintf(stdout, L"Test: deserialise xdt field cc2: %i\n", cc2);
 */
 
+    //
     // Verify correctness by comparing the following two field content counts:
     // - calculated above from size given at beginning of xdt field
     // - incremented until the xdt field end (cr, lf) was detected
+    //
     compare_integer_equal((void*) &r, (void*) &cc, (void*) &cc2);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // Both field content counts match, i.e. everything is fine.
+        //
 
         deserialise_xdt_field_part(p0, id, (void*) &ic, cd, (void*) &cc, (void*) &i);
 

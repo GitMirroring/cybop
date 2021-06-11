@@ -62,15 +62,15 @@ void startup_bsd_socket_status_set(void* p0, void* p1, void* p2) {
 
             compare_integer_unequal((void*) &r, p2, FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-            //?? fwprintf(stdout, L"TEST pre *f: %i\n", *f);
-            //?? fwprintf(stdout, L"TEST pre O_NONBLOCK: %i\n", O_NONBLOCK);
+            //?? fwprintf(stdout, L"Test: pre *f: %i\n", *f);
+            //?? fwprintf(stdout, L"Test: pre O_NONBLOCK: %i\n", O_NONBLOCK);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 // Set BLOCKING status by clearing non-blocking flag (bit).
                 (*f) &= ~O_NONBLOCK;
 
-                //?? fwprintf(stdout, L"TEST startup bsd socket status set blocking *f: %i\n", *f);
+                //?? fwprintf(stdout, L"Test: startup bsd socket status set blocking *f: %i\n", *f);
 
             } else {
 
@@ -84,7 +84,7 @@ void startup_bsd_socket_status_set(void* p0, void* p1, void* p2) {
                 //
                 (*f) |= O_NONBLOCK;
 
-                //?? fwprintf(stdout, L"TEST startup bsd socket status set non-blocking *f: %i\n", *f);
+                //?? fwprintf(stdout, L"Test: startup bsd socket status set non-blocking *f: %i\n", *f);
             }
 
             //
@@ -126,7 +126,7 @@ void startup_bsd_socket_status_set(void* p0, void* p1, void* p2) {
             if (e != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
                 log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket status set success.");
-                //?? fwprintf(stdout, L"TEST: Startup bsd socket status set success. *f: %i \n", *f);
+                //?? fwprintf(stdout, L"Test: Startup bsd socket status set success. *f: %i\n", *f);
 
             } else {
 
@@ -137,12 +137,12 @@ void startup_bsd_socket_status_set(void* p0, void* p1, void* p2) {
                 if (errno == EBADF) {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket status set. The filedes argument is invalid.");
-                    fwprintf(stdout, L"TEST: Could not startup bsd socket status set. The filedes argument is invalid. EBADF errno: %i \n", errno);
+                    fwprintf(stdout, L"Test: Could not startup bsd socket status set. The filedes argument is invalid. EBADF errno: %i\n", errno);
 
                 } else {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket status set. An unknown error occured.");
-                    fwprintf(stdout, L"TEST: Could not startup bsd socket status set. An unknown error occured. UNKNOWN errno: %i \n", errno);
+                    fwprintf(stdout, L"Test: Could not startup bsd socket status set. An unknown error occured. UNKNOWN errno: %i\n", errno);
                 }
             }
 

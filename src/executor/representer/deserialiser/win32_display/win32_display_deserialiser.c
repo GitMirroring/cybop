@@ -144,28 +144,36 @@ void deserialise_win32_display(void* p0, void* p1, void* p2, void* p3, void* p4,
         //
         POINT pos = (*msg).pt;
 
-fwprintf(stdout, L"TEST deserialise win32 display t: %i\n", t);
+        fwprintf(stdout, L"Test: deserialise win32 display t: %i\n", t);
 
         if (t == WM_ACTIVATE) {
 
+            //
             // Sent when a window is activated or becomes the focus.
+            //
 
         } else if (t == WM_CHAR) {
 
         } else if (t == WM_CLOSE) {
 
+            //
             // Sent when a window is closed.
+            //
 
-//??            PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            //?? PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
             DestroyWindow((HWND) w);
 
         } else if (t == WM_CREATE) {
 
+            //
             // Sent when a window is first created. Used for window initialisation.
+            //
 
         } else if (t == WM_DESTROY) {
 
+            //
             // Sent when a window is about to be destroyed.
+            //
 
             // Clean up window-specific data objects.
             PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
@@ -215,7 +223,9 @@ fwprintf(stdout, L"TEST deserialise win32 display t: %i\n", t);
 
         } else if (t == WM_KEYDOWN) {
 
+            //
             // Sent when a key is pressed.
+            //
 
             copy_pointer(p0, (void*) &KEY_PRESS_KEYBOARD_STATE_CYBOL_NAME);
             copy_pointer(p1, (void*) &KEY_PRESS_KEYBOARD_STATE_CYBOL_NAME_COUNT);
@@ -233,14 +243,18 @@ fwprintf(stdout, L"TEST deserialise win32 display t: %i\n", t);
 
         } else if (t == WM_KEYUP) {
 
+            //
             // Sent when a key is released.
+            //
 
             copy_pointer(p0, (void*) &KEY_RELEASE_KEYBOARD_STATE_CYBOL_NAME);
             copy_pointer(p1, (void*) &KEY_RELEASE_KEYBOARD_STATE_CYBOL_NAME_COUNT);
 
         } else if (t == WM_KILLFOCUS) {
 
+            //
             // May be used to hide and delete the caret (cursor).
+            //
 
             copy_pointer(p0, (void*) &LEAVE_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME);
             copy_pointer(p1, (void*) &LEAVE_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
@@ -256,6 +270,7 @@ fwprintf(stdout, L"TEST deserialise win32 display t: %i\n", t);
             // The additional message parametres of type LPARAM.
             LPARAM lp = (*msg).lParam;
 
+            //
             // Get mouse coordinates.
             //
             // CAUTION! Do NOT use the LOWORD or HIWORD macros to
@@ -265,6 +280,7 @@ fwprintf(stdout, L"TEST deserialise win32 display t: %i\n", t);
             // Systems with multiple monitors can have negative
             // x- and y- coordinates, and LOWORD and HIWORD treat
             // the coordinates as unsigned quantities.
+            //
             *px = GET_X_LPARAM(lp);
             *py = GET_Y_LPARAM(lp);
 
@@ -282,6 +298,7 @@ fwprintf(stdout, L"TEST deserialise win32 display t: %i\n", t);
             // The additional message parametres of type LPARAM.
             LPARAM lp = (*msg).lParam;
 
+            //
             // Get mouse coordinates.
             //
             // CAUTION! Do NOT use the LOWORD or HIWORD macros to
@@ -291,6 +308,7 @@ fwprintf(stdout, L"TEST deserialise win32 display t: %i\n", t);
             // Systems with multiple monitors can have negative
             // x- and y- coordinates, and LOWORD and HIWORD treat
             // the coordinates as unsigned quantities.
+            //
             *px = GET_X_LPARAM(lp);
             *py = GET_Y_LPARAM(lp);
 
@@ -304,18 +322,24 @@ fwprintf(stdout, L"TEST deserialise win32 display t: %i\n", t);
 
         } else if (t == WM_MOUSEMOVE) {
 
+            //
             // Sent when the mouse has been moved.
+            //
 
             copy_pointer(p0, (void*) &MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME);
             copy_pointer(p1, (void*) &MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME_COUNT);
 
         } else if (t == WM_MOVE) {
 
+            //
             // Sent when a window has been moved.
+            //
 
         } else if (t == WM_PAINT) {
 
+            //
             // Sent when a window needs repainting.
+            //
 
             //
             // Paint the window's client area.
@@ -336,12 +360,14 @@ fwprintf(stdout, L"TEST deserialise win32 display t: %i\n", t);
             // http://msdn.microsoft.com/en-us/library/windows/desktop/ms644943(v=vs.85).aspx
             //
 
-//??            copy_pointer(p0, (void*) &EXPOSE_EVENT_GUI_STATE_CYBOL_NAME);
-//??            copy_pointer(p1, (void*) &EXPOSE_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
+            //?? copy_pointer(p0, (void*) &EXPOSE_EVENT_GUI_STATE_CYBOL_NAME);
+            //?? copy_pointer(p1, (void*) &EXPOSE_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
 
         } else if (t == WM_QUIT) {
 
+            //
             // Sent when a Windows application is finally terminating.
+            //
 
             //?? TODO: Set global "break" flag here, in order to exit cyboi?
 
@@ -356,27 +382,35 @@ fwprintf(stdout, L"TEST deserialise win32 display t: %i\n", t);
             int x = GET_X_LPARAM(lp);
             int y = GET_Y_LPARAM(lp);
 
-            fwprintf(stdout, L"TEST WM_RBUTTONDOWN x: %i\n", x);
-            fwprintf(stdout, L"TEST WM_RBUTTONDOWN y: %i\n", y);
+            fwprintf(stdout, L"Test: WM_RBUTTONDOWN x: %i\n", x);
+            fwprintf(stdout, L"Test: WM_RBUTTONDOWN y: %i\n", y);
 
         } else if (t == WM_SETFOCUS) {
 
+            //
             // May be used to create and display the caret (cursor).
+            //
 
             copy_pointer(p0, (void*) &ENTER_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME);
             copy_pointer(p1, (void*) &ENTER_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
 
         } else if (t == WM_SIZE) {
 
+            //
             // Sent when a window has changed size.
+            //
 
         } else if (t == WM_TIMER) {
 
+            //
             // Sent when a timer event occurs.
+            //
 
         } else if (t == WM_USER) {
 
+            //
             // Allows you to send messages.
+            //
 
         } else {
 

@@ -42,7 +42,7 @@ void sense_socket(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket.");
 
-    //?? fwprintf(stdout, L"TEST: Sense socket. *p1: %i \n", *((int*) p1));
+    //?? fwprintf(stdout, L"Test: Sense socket. *p1: %i\n", *((int*) p1));
 
     // The number of data available on socket.
     int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -55,7 +55,7 @@ void sense_socket(void* p0, void* p1) {
     if (n > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket successful.");
-        //?? fwprintf(stdout, L"TEST: Sense socket successful. n: %i \n", n);
+        //?? fwprintf(stdout, L"Test: Sense socket successful. n: %i\n", n);
 
         // Set data available flag.
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -103,7 +103,7 @@ void sense_socket(void* p0, void* p1) {
     if (bc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket success.");
-        //?? fwprintf(stdout, L"TEST: sense socket success bc: %i \n", bc);
+        //?? fwprintf(stdout, L"Test: sense socket success bc: %i\n", bc);
 
         // Copy destination buffer count.
         copy_integer(p0, (void*) &bc);

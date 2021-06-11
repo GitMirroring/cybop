@@ -55,7 +55,7 @@ void accept_empty(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Accept empty.");
 
-//??     fwprintf(stdout, L"TEST: Accept empty. sender client user *p0: %i \n", *((int*) p0));
+    //?? fwprintf(stdout, L"Test: Accept empty. sender client user *p0: %i\n", *((int*) p0));
 
     // The client list item count.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;

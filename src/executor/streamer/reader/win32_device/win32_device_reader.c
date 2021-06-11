@@ -75,9 +75,9 @@ void read_win32_device(void* p0, void* p1, void* p2) {
                 //
                 errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                fwprintf(stdout, L"TEST: Read win32 device. Command *c: %i \n", *c);
-                fwprintf(stdout, L"TEST: Read win32 device. File descriptor *f: %i \n", *f);
-                fwprintf(stdout, L"TEST: Read win32 device. errno: %i\n", errno);
+                fwprintf(stdout, L"Test: Read win32 device. Command *c: %i\n", *c);
+                fwprintf(stdout, L"Test: Read win32 device. File descriptor *f: %i\n", *f);
+                fwprintf(stdout, L"Test: Read win32 device. errno: %i\n", errno);
 
                 //
                 // Perform a generic input/output operation on
@@ -98,15 +98,14 @@ void read_win32_device(void* p0, void* p1, void* p2) {
                 //
                 // Error codes: meaning depends upon the command used
                 //
-//??                int r = ioctl(*f, *c, (void*) &d);
+                //?? int r = ioctl(*f, *c, (void*) &d);
 
-                fwprintf(stdout, L"TEST: Read win32 device. ioctl r: %i\n", r);
+                fwprintf(stdout, L"Test: Read win32 device. ioctl r: %i\n", r);
 
                 if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                    fwprintf(stdout, L"TEST: Read win32 device. success r: %i\n", r);
-
                     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully read win32 device.");
+                    fwprintf(stdout, L"Test: Read win32 device. success r: %i\n", r);
 
                     // Copy destination data.
                     copy_integer(p0, (void*) &d);
@@ -118,17 +117,17 @@ void read_win32_device(void* p0, void* p1, void* p2) {
                     if (errno == EBADF) {
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read win32 device. The first argument is not a valid file descriptor.");
-                        fwprintf(stdout, L"TEST: Read win32 device error EBADF: %i\n", errno);
+                        fwprintf(stdout, L"Test: Read win32 device error EBADF: %i\n", errno);
 
                     } else if (errno == EFAULT) {
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read win32 device. The third argument references an inaccessible memory area.");
-                        fwprintf(stdout, L"TEST: Read win32 device error EFAULT: %i\n", errno);
+                        fwprintf(stdout, L"Test: Read win32 device error EFAULT: %i\n", errno);
 
                     } else if (errno == EINVAL) {
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read win32 device. The request or third argument is not valid.");
-                        fwprintf(stdout, L"TEST: Read win32 device error EINVAL: %i\n", errno);
+                        fwprintf(stdout, L"Test: Read win32 device error EINVAL: %i\n", errno);
 
                     } else if (errno == ENOTTY) {
 
@@ -141,12 +140,12 @@ void read_win32_device(void* p0, void* p1, void* p2) {
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read win32 device. The file descriptor is not associated with a character special device.");
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"OR:");
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read win32 device. The specified request does not apply to the kind of object that the file descriptor references.");
-                        fwprintf(stdout, L"TEST: Read win32 device error ENOTTY: %i\n", errno);
+                        fwprintf(stdout, L"Test: Read win32 device error ENOTTY: %i\n", errno);
 
                     } else {
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read win32 device. An unknown error occured.");
-                        fwprintf(stdout, L"TEST: Read win32 device error UNKNOWN: %i\n", errno);
+                        fwprintf(stdout, L"Test: Read win32 device error UNKNOWN: %i\n", errno);
                     }
                 }
 

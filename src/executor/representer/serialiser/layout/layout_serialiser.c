@@ -62,7 +62,7 @@ void serialise_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout.");
 
-//??    fwprintf(stdout, L"TEST serialise layout: %ls\n", (wchar_t*) p12);
+    //?? fwprintf(stdout, L"Test: serialise layout: %ls\n", (wchar_t*) p12);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -83,7 +83,7 @@ void serialise_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_layout_border_size(p0, p2, p3);
+            //?? serialise_layout_border_size(p0, p2, p3);
         }
     }
 
@@ -96,9 +96,9 @@ void serialise_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             //?? Layout in a row or column WITHOUT breaking them.
             //?? If a row break is desired, then use flow layout.
 
-            fwprintf(stdout, L"TEST: Serialise layout BOX.");
+            fwprintf(stdout, L"Test: Serialise layout BOX.");
 
-//??            serialise_layout_box_size(p0, p2, p3);
+            //?? serialise_layout_box_size(p0, p2, p3);
         }
     }
 
@@ -108,7 +108,7 @@ void serialise_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_layout_flow_size(p0, p2, p3);
+            //?? serialise_layout_flow_size(p0, p2, p3);
         }
     }
 

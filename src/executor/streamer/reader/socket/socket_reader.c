@@ -126,7 +126,7 @@ void read_socket(void* p0, void* p1) {
             // Read data into buffer with given size.
             read_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-            //?? fwprintf(stdout, L"TEST: Read socket. initial read bc: %i\n", bc);
+            //?? fwprintf(stdout, L"Test: Read socket. initial read bc: %i\n", bc);
 
         } else {
 
@@ -136,14 +136,14 @@ void read_socket(void* p0, void* p1) {
 
             sense_socket((void*) &d, p1);
 
-            //?? fwprintf(stdout, L"TEST: Read socket. follow-up read d: %i\n", d);
+            //?? fwprintf(stdout, L"Test: Read socket. follow-up read d: %i\n", d);
 
             if (d != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 // Read data into buffer with given size.
                 read_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-                //?? fwprintf(stdout, L"TEST: Read socket. follow-up read bc: %i\n", bc);
+                //?? fwprintf(stdout, L"Test: Read socket. follow-up read bc: %i\n", bc);
 
             } else {
 
@@ -153,7 +153,7 @@ void read_socket(void* p0, void* p1) {
                 // However, NO MORE DATA are available, so that the loop may be left.
                 //
 
-                //?? fwprintf(stdout, L"TEST: Read socket. follow-up break d == FALSE\n");
+                //?? fwprintf(stdout, L"Test: Read socket. follow-up break d == FALSE\n");
 
                 // Leave loop.
                 break;
@@ -162,15 +162,15 @@ void read_socket(void* p0, void* p1) {
 
         if (bc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            //?? fwprintf(stdout, L"TEST: Read socket. bc > 0. bc: %i\n", bc);
-            //?? fwprintf(stdout, L"TEST: Read socket. bc > 0. bd: %s\n", (char*) bd);
+            //?? fwprintf(stdout, L"Test: Read socket. bc > 0. bc: %i\n", bc);
+            //?? fwprintf(stdout, L"Test: Read socket. bc > 0. bd: %s\n", (char*) bd);
 
             // Append buffer to destination data.
             modify_item(p0, bd, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &bc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
             if (bc == bs) {
 
-                //?? fwprintf(stdout, L"TEST: Read socket. reset buffer count with bc == bs.\n");
+                //?? fwprintf(stdout, L"Test: Read socket. reset buffer count with bc == bs.\n");
 
                 //
                 // Reset buffer count.
@@ -195,7 +195,7 @@ void read_socket(void* p0, void* p1) {
                 // which means that NO MORE DATA are available.
                 //
 
-                //?? fwprintf(stdout, L"TEST: Read socket. break with bc > 0.\n");
+                //?? fwprintf(stdout, L"Test: Read socket. break with bc > 0.\n");
 
                 // Leave loop.
                 break;
@@ -207,7 +207,7 @@ void read_socket(void* p0, void* p1) {
             // NO DATA have been received and NO MORE DATA are available.
             //
 
-            //?? fwprintf(stdout, L"TEST: Read socket. break with bc <= 0.\n");
+            //?? fwprintf(stdout, L"Test: Read socket. break with bc <= 0.\n");
 
             // Leave loop.
             break;

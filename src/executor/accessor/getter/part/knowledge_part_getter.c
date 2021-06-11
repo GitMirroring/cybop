@@ -96,12 +96,12 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 //
 
 /*??
-if (smc == *NULL_POINTER_STATE_CYBOI_MODEL) {
-    fwprintf(stdout, L"TEST get part knowledge smc: %i\n", smc);
-} else {
-    fwprintf(stdout, L"TEST get part knowledge *smc: %i\n", *((int*) smc));
-}
-fwprintf(stdout, L"TEST get part knowledge smd: %ls\n", (wchar_t*) smd);
+                if (smc == *NULL_POINTER_STATE_CYBOI_MODEL) {
+                    fwprintf(stdout, L"Test: get part knowledge smc: %i\n", smc);
+                } else {
+                    fwprintf(stdout, L"Test: get part knowledge *smc: %i\n", *((int*) smc));
+                }
+                fwprintf(stdout, L"Test: get part knowledge smd: %ls\n", (wchar_t*) smd);
 */
 
                 // Copy source data position.

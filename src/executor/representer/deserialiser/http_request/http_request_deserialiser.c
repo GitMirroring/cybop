@@ -185,8 +185,8 @@ void deserialise_http_request(void* p0, void* p1, void* p2, void* p3) {
     // Copy source count remaining.
     copy_integer((void*) &c, p3);
 
-    //?? fwprintf(stdout, L"TEST: Deserialise http request. c: %i\n", c);
-    //?? fwprintf(stdout, L"TEST: Deserialise http request. d: %s\n", (char*) d);
+    //?? fwprintf(stdout, L"Test: Deserialise http request. c: %i\n", c);
+    //?? fwprintf(stdout, L"Test: Deserialise http request. d: %s\n", (char*) d);
 
     //
     // CAUTION! A COPY of source count remaining is forwarded here,

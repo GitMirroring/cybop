@@ -47,7 +47,9 @@ void decode_iso_8859_element(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode iso-8859 element.");
 
+    //
     // The source character.
+    //
     // CAUTION! The character MUST NOT be initialised with null.
     // If the source character at the given index is not known
     // or cannot be converted due to a wrong encoding or an error,
@@ -57,15 +59,14 @@ void decode_iso_8859_element(void* p0, void* p1, void* p2, void* p3) {
     // Therefore, do NOT use the following initialisation:
     // unsigned char c = *NULL_ASCII_CHARACTER_CODE_MODEL;
     // Instead, the SPACE character is used by default.
+    //
     unsigned char c = *SPACE_ASCII_CHARACTER_CODE_MODEL;
 
     // Get source character at given index.
     copy_array_forward((void*) &c, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
-/*??
-fwprintf(stdout, L"TEST decode iso-8859 element c as char: %c\n", c);
-fwprintf(stdout, L"TEST decode iso-8859 element c as int: %i\n", c);
-*/
+    //?? fwprintf(stdout, L"Test: decode iso-8859 element c as char: %c\n", c);
+    //?? fwprintf(stdout, L"Test: decode iso-8859 element c as int: %i\n", c);
 
     // Decode source character.
     decode_iso_8859_character(p0, (void*) &c, p3);
