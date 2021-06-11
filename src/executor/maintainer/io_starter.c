@@ -69,28 +69,11 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup io.");
 
-    // The service identification (id).
-    int id = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The input/output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    //
-    // Copy socket port to be used as service identification (id).
-    //
-    // CAUTION! The value gets copied ONLY if the source value is NOT NULL.
-    // This is tested inside the "copy_integer" function.
-    // Otherwise, the destination value remains as is.
-    //
-    // In other words, the identification is ZERO BY DEFAULT.
-    // Only for the socket channel, it gets replaced by the PORT number.
-    //
-    copy_integer((void*) &id, p15);
-
-    fwprintf(stdout, L"Test: Startup io. io base *p19: %i\n", *((int*) p19));
-    fwprintf(stdout, L"Test: Startup io. service id: %i\n", id);
-
     // Get input/output entry.
-    get_internal_memory_element((void*) &io, p0, p19, (void*) &id);
+    get_internal_memory_element((void*) &io, p0, p19, p15);
 
     if (io == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -126,7 +109,7 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
         startup_details(io, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18);
 
         // Set input/output entry.
-        set_internal_memory_element(p0, (void*) &io, p19, (void*) &id);
+        set_internal_memory_element(p0, (void*) &io, p19, p15);
 
     } else {
 

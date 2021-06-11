@@ -58,28 +58,11 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
     //
     // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown io.");
 
-    // The service identification (id).
-    int id = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The input/output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    //
-    // Copy socket port to be used as service identification (id).
-    //
-    // CAUTION! The value gets copied ONLY if the source value is NOT NULL.
-    // This is tested inside the "copy_integer" function.
-    // Otherwise, the destination value remains as is.
-    //
-    // In other words, the identification is ZERO BY DEFAULT.
-    // Only for the socket channel, it gets replaced by the PORT number.
-    //
-    copy_integer((void*) &id, p1);
-
-    //?? fwprintf(stdout, L"Test: Shutdown io. io base *p3: %i\n", *((int*) p3));
-    //?? fwprintf(stdout, L"Test: Shutdown io. service id: %i\n", id);
-
     // Get input/output entry.
-    get_internal_memory_element((void*) &io, p0, p3, (void*) &id);
+    get_internal_memory_element((void*) &io, p0, p3, p1);
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -101,7 +84,7 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
         // CAUTION! Hand over null as pointer reference NULL_POINTER_STATE_CYBOI_MODEL
         // and NOT as dereferenced pointer *NULL_POINTER_STATE_CYBOI_MODEL.
         //
-        set_internal_memory_element(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, p3, (void*) &id);
+        set_internal_memory_element(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, p3, p1);
 
         // Shutdown service details.
         shutdown_details(io, p2);

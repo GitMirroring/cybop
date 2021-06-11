@@ -67,9 +67,13 @@ void set_internal_memory_element(void* p0, void* p1, void* p2, void* p3) {
     // - add input/output base
     // - add service identification (input/output entry index)
     //
-    // CAUTION! If the service identification is null, then it is NOT copied here.
-    // In this case, the input/output base added before remains as is,
-    // which is the same as a service identification of zero.
+    // CAUTION! If the service identification is NULL, then it is NOT copied here.
+    // This is tested inside the "calculate_integer_add" function.
+    // In this case, the input/output base added before remains AS IS,
+    // which is the same as a service identification of ZERO.
+    //
+    // In other words, the service identification is ZERO BY DEFAULT.
+    // Only for the socket channel, it gets replaced by the PORT number.
     //
     calculate_integer_add((void*) &i, p2);
     calculate_integer_add((void*) &i, p3);

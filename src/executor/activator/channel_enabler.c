@@ -28,11 +28,10 @@
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../executor/accessor/getter/internal_memory_getter.c"
 #include "../../executor/accessor/setter/io_entry_setter.c"
-#include "../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../executor/copier/array_copier.c"
 #include "../../logger/logger.c"
 
 /**
@@ -52,24 +51,11 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //?? fwprintf(stdout, L"Test: Enable channel. service id p2: %i\n", p2);
     //?? fwprintf(stdout, L"Test: Enable channel. service id *p2: %i\n", *((int*) p2));
 
-    // The internal memory index.
-    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The input/output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    //
-    // Calculate internal memory index.
-    // - add input output base
-    // - add service identification (input/output entry index)
-    //
-    calculate_integer_add((void*) &i, p1);
-    calculate_integer_add((void*) &i, p2);
-
-    //?? fwprintf(stdout, L"Test: Enable channel. io base *p1: %i\n", *((int*) p1));
-    //?? fwprintf(stdout, L"Test: Enable channel. i: %i\n", i);
-
-    // Get input/output entry from internal memory.
-    copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+    // Get input/output entry.
+    get_internal_memory_element((void*) &io, p0, p1, p2);
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
