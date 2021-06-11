@@ -29,96 +29,29 @@
 #include <threads.h>
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/accessor/getter/internal_memory_getter.c"
+#include "../../executor/accessor/getter/io_entry_getter.c"
 #include "../../executor/accessor/setter/internal_memory_setter.c"
-#include "../../executor/copier/integer_copier.c"
-#include "../../executor/maintainer/details_shutter.c"
+#include "../../executor/accessor/setter/io_entry_setter.c"
 #include "../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../logger/logger.c"
 
 /**
- * Shuts down the given service.
+ * Deallocates the input/output entry of the given service.
  *
- * @param p0 the internal memory data
- * @param p1 the socket port
- * @param p2 the channel
- * @param p3 the input/output base
+ * @param p0 the input/output entry
+ * @param p1 the internal memory data
+ * @param p2 the input/output base
+ * @param p3 the socket port
  */
 void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
 
-    //
-    // CAUTION! This log message has been commented out
-    // due to the large number of potential calls caused
-    // by the the number of socket services (65536).
-    // See file "shutdown_manager.c".
-    //
-    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown io.");
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // The input/output entry.
-    void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Get input/output entry.
-    get_internal_memory_element((void*) &io, p0, p3, p1);
-
-    if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        //
-        // The input/output entry (service) DOES exist in internal memory.
-        //
-
-        //
-        // Reset input/output entry.
-        //
-        // CAUTION! It is ESSENTIAL to assign NULL here,
-        // since cyboi tests for null pointers and otherwise,
-        // wild pointers would lead to memory corruption.
-        //
-        // CAUTION! Do NOT use the "modify_array" (overwrite) function,
-        // since it adapts the array count and size.
-        // But the internal memory array's count and size are CONSTANT.
-        //
-        // CAUTION! Hand over null as pointer reference NULL_POINTER_STATE_CYBOI_MODEL
-        // and NOT as dereferenced pointer *NULL_POINTER_STATE_CYBOI_MODEL.
-        //
-        set_internal_memory_element(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, p3, p1);
-
-        // Shutdown service details.
-        shutdown_details(io, p2);
-
-        // The mutex.
-        void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-        // Get mutex from input/output entry.
-        get_io_entry_element((void*) &m, io, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-        // Reset mutex in input/output entry.
-        set_io_entry_element(io, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-        // Destroy mutex.
-        mtx_destroy((mtx_t*) m);
-
-        //
-        // Deallocate mutex.
-        //
-        // CAUTION! The second argument "count" is NULL,
-        // since it is only needed for looping elements of type PART,
-        // in order to decrement the rubbish (garbage) collection counter.
-        //
-        deallocate_array((void*) &m, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
-        //
-        // Deallocate input/output entry.
-        //
-        // CAUTION! The second argument "count" is NULL,
-        // since it is only needed for looping elements of type PART,
-        // in order to decrement the rubbish (garbage) collection counter.
-        //
-        deallocate_array((void*) &io, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
-
-    } else {
+        void** io = (void**) p0;
 
         //
         // CAUTION! This log message has been commented out
@@ -126,7 +59,73 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
         // by the the number of socket services (65536).
         // See file "shutdown_manager.c".
         //
-        // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown io. The input/output entry (service) is null, i.e. it does not exist in internal memory.");
+        // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown io.");
+
+        if (*io != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            //
+            // The input/output entry (service) DOES exist in internal memory.
+            //
+
+            //
+            // Reset input/output entry.
+            //
+            // CAUTION! It is ESSENTIAL to assign NULL here,
+            // since cyboi tests for null pointers and otherwise,
+            // wild pointers would lead to memory corruption.
+            //
+            // CAUTION! Do NOT use the "modify_array" (overwrite) function,
+            // since it adapts the array count and size.
+            // But the internal memory array's count and size are CONSTANT.
+            //
+            // CAUTION! Hand over null as pointer reference NULL_POINTER_STATE_CYBOI_MODEL
+            // and NOT as dereferenced pointer *NULL_POINTER_STATE_CYBOI_MODEL.
+            //
+            set_internal_memory_element(p1, (void*) NULL_POINTER_STATE_CYBOI_MODEL, p2, p3);
+
+            // The mutex.
+            void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+            // Get mutex from input/output entry.
+            get_io_entry_element((void*) &m, *io, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+            // Reset mutex in input/output entry.
+            set_io_entry_element(*io, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+            // Destroy mutex.
+            mtx_destroy((mtx_t*) m);
+
+            //
+            // Deallocate mutex.
+            //
+            // CAUTION! The second argument "count" is NULL,
+            // since it is only needed for looping elements of type PART,
+            // in order to decrement the rubbish (garbage) collection counter.
+            //
+            deallocate_array((void*) &m, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
+            //
+            // Deallocate input/output entry.
+            //
+            // CAUTION! The second argument "count" is NULL,
+            // since it is only needed for looping elements of type PART,
+            // in order to decrement the rubbish (garbage) collection counter.
+            //
+            deallocate_array(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
+
+        } else {
+
+            //
+            // CAUTION! This log message has been commented out
+            // due to the large number of potential calls caused
+            // by the the number of socket services (65536).
+            // See file "shutdown_manager.c".
+            //
+            // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown io. The input/output entry value is null, i.e. it does not exist in internal memory.");
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown io. The input/output entry is null.");
     }
 }
 

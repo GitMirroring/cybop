@@ -23,6 +23,8 @@
         * Add files "internal_memory_getter.c" and "internal_memory_setter.c" to provide central access to input/output entry
         * Use these access files in maintainer, sensor, streamer
         * Remove old files "get_io_maintainer.c" and "set_io_maintainer.c"
+        * Restructure function calls in files "starter.c" and "shutter.c"
+        * Clean up empty files in directory "controller/unglobaliser/"
 
 2021-06-10  Christian Heller  <christian.heller@cybop.org>
 

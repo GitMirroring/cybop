@@ -29,8 +29,14 @@
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../executor/accessor/getter/internal_memory_getter.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../executor/maintainer/starter/display/display_starter.c"
+#include "../../executor/maintainer/starter/serial_port/serial_port_starter.c"
+#include "../../executor/maintainer/starter/socket/socket_starter.c"
+#include "../../executor/maintainer/starter/terminal/terminal_starter.c"
 #include "../../executor/maintainer/io_starter.c"
 #include "../../logger/logger.c"
 
@@ -69,6 +75,8 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The input/output entry.
+    void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -76,7 +84,12 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_io(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            // Get input/output entry.
+            get_internal_memory_element((void*) &io, p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15);
+            // Startup input/output entry.
+            startup_io((void*) &io, p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15);
+            // Startup service.
+            startup_display(io);
         }
     }
 
@@ -86,7 +99,12 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_io(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            // Get input/output entry.
+            get_internal_memory_element((void*) &io, p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15);
+            // Startup input/output entry.
+            startup_io((void*) &io, p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15);
+            // Startup service.
+            //?? startup_serial_port(io, p1, p2, p3);
         }
     }
 
@@ -96,7 +114,12 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_io(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            // Get input/output entry.
+            get_internal_memory_element((void*) &io, p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15);
+            // Startup input/output entry.
+            startup_io((void*) &io, p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15);
+            // Startup service.
+            startup_socket(io, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17);
         }
     }
 
@@ -106,7 +129,12 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_io(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            // Get input/output entry.
+            get_internal_memory_element((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15);
+            // Startup input/output entry.
+            startup_io((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15);
+            // Startup service.
+            startup_terminal(io);
         }
     }
 

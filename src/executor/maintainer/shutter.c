@@ -29,8 +29,14 @@
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../executor/accessor/getter/internal_memory_getter.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../executor/maintainer/shutter/display/display_shutter.c"
+#include "../../executor/maintainer/shutter/serial_port/serial_port_shutter.c"
+#include "../../executor/maintainer/shutter/socket/socket_shutter.c"
+#include "../../executor/maintainer/shutter/terminal/terminal_shutter.c"
 #include "../../executor/maintainer/io_shutter.c"
 #include "../../logger/logger.c"
 
@@ -57,6 +63,8 @@ void shutdown_service(void* p0, void* p1, void* p2) {
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The input/output entry.
+    void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -64,7 +72,12 @@ void shutdown_service(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            shutdown_io(p0, p1, p2, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            // Get input/output entry.
+            get_internal_memory_element((void*) &io, p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
+            // Shutdown service.
+            shutdown_display(io);
+            // Shutdown input/output entry.
+            shutdown_io((void*) &io, p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
         }
     }
 
@@ -74,7 +87,12 @@ void shutdown_service(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            shutdown_io(p0, p1, p2, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            // Get input/output entry.
+            get_internal_memory_element((void*) &io, p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
+            // Shutdown service.
+            //?? shutdown_serial_port(io);
+            // Shutdown input/output entry.
+            shutdown_io((void*) &io, p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
         }
     }
 
@@ -84,7 +102,12 @@ void shutdown_service(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            shutdown_io(p0, p1, p2, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            // Get input/output entry.
+            get_internal_memory_element((void*) &io, p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
+            // Shutdown service.
+            shutdown_socket(io);
+            // Shutdown input/output entry.
+            shutdown_io((void*) &io, p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
         }
     }
 
@@ -94,7 +117,16 @@ void shutdown_service(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            shutdown_io(p0, p1, p2, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            fwprintf(stdout, L"Test 0. io: %i \n", io);
+            // Get input/output entry.
+            get_internal_memory_element((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
+            fwprintf(stdout, L"Test 1. io: %i \n", io);
+            // Shutdown service.
+            shutdown_terminal(io);
+            fwprintf(stdout, L"Test 2. io: %i \n", io);
+            // Shutdown input/output entry.
+            shutdown_io((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
+            fwprintf(stdout, L"Test 3. io: %i \n", io);
         }
     }
 
