@@ -31,8 +31,8 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../../controller/checker/io/sense_io_checker.c"
+#include "../../../executor/accessor/getter/internal_memory_getter.c"
 #include "../../../executor/accessor/getter/io_entry_getter.c"
-#include "../../../executor/maintainer/get_io_maintainer.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -57,7 +57,7 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get input/output entry.
-    maintain_io_get((void*) &io, p1, p2, p3);
+    get_internal_memory_element((void*) &io, p1, p2, p3);
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

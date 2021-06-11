@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-06-11  Christian Heller  <christian.heller@cybop.org>
+
+        * Add files "internal_memory_getter.c" and "internal_memory_setter.c" to provide central access to input/output entry
+        * Use these access files in maintainer, sensor, streamer
+        * Remove old files "get_io_maintainer.c" and "set_io_maintainer.c"
+
 2021-06-10  Christian Heller  <christian.heller@cybop.org>
 
         * Prepare reintroduction of threads for detecting available input data (they had been eliminated in year 2018)

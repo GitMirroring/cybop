@@ -14,20 +14,22 @@
 Input Threads
 _____________
 
-        CONTINUE:
-        * Reintroduce threads for detecting available input data (they had been eliminated in year 2018)
-        * Use source code backup in directory "todo_thread" and delete afterwards
         * Integrate locking and unlocking of mutex in affected input/output channels
-        * Search for and replace old "pthread_t" string in all source code
+        * Reintroduce threads for detecting available input data (they had been eliminated in year 2018)
+            input stream is everywhere correct but input via "fgetwc" does always return -1
+            therefore, multi-threading is necessary for terminal input
+        * Use source code backup in directory "todo_thread" and delete afterwards
 
         * Think through processing of events "check" loop mechanism
+        * Search for and replace old "pthread_t" string in all source code
+
         * Make data input of cybol application "tui" work again
-        * Input stream is everywhere correct but input via "fgetwc" does always return -1
-        * Is multi-threading necessary for terminal input?
 
         * Eliminate flickering of window
         * Process sensed event and remove from input/output entry, before polling for further events
-        * Receive data from input/output (currently, tui and gui are only sensed/detected, but that is not enough)
+        * Receive data from input/output
+            currently, tui and gui are only sensed/detected, but that is not enough
+            NO, this is NOT necessary, since the handler (passed from cybol app) is responsible for receiving data
 
         * Test font using cybol application "gui"
         * Remove font parametre p4 from file "context_x_window_system_serialiser.c"
@@ -49,11 +51,6 @@ _____________
         * Think about how to inform the user about errors (tui, gui, wui, all, message dialog?)
             e.g. there is an uncritical error when first calling "send" trying to send the wui via socket, because a client socket does not exist yet
             give the user a possibility to configure error handling in cybol on system startup?
-
-        LATER:
-        * Centralise and move determination of input/output entry to "executor/accessor/setter/internal_memory_setter.c"
-        * See example in file "get_io_maintainer.c"
-        * Remove it from "maintainer/starter/io_starter.c" and "streamer/writer/*"
 
 WUI and Socket
 ______________

@@ -33,10 +33,10 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/accessor/getter/internal_memory_getter.c"
+#include "../../executor/accessor/setter/internal_memory_setter.c"
 #include "../../executor/copier/integer_copier.c"
 #include "../../executor/maintainer/details_shutter.c"
-#include "../../executor/maintainer/get_io_maintainer.c"
-#include "../../executor/maintainer/set_io_maintainer.c"
 #include "../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../logger/logger.c"
 
@@ -79,7 +79,7 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
     //?? fwprintf(stdout, L"Test: Shutdown io. service id: %i\n", id);
 
     // Get input/output entry.
-    maintain_io_get((void*) &io, p0, p3, (void*) &id);
+    get_internal_memory_element((void*) &io, p0, p3, (void*) &id);
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -101,7 +101,7 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
         // CAUTION! Hand over null as pointer reference NULL_POINTER_STATE_CYBOI_MODEL
         // and NOT as dereferenced pointer *NULL_POINTER_STATE_CYBOI_MODEL.
         //
-        maintain_io_set(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, p3, (void*) &id);
+        set_internal_memory_element(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, p3, (void*) &id);
 
         // Shutdown service details.
         shutdown_details(io, p2);

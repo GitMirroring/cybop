@@ -23,21 +23,23 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef GET_IO_MAINTAINER_SOURCE
-#define GET_IO_MAINTAINER_SOURCE
+#ifndef INTERNAL_MEMORY_GETTER_SOURCE
+#define INTERNAL_MEMORY_GETTER_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/calculator/integer/add_integer_calculator.c"
-#include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
-#include "../../executor/copier/array_copier.c"
-#include "../../logger/logger.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/calculator/integer/add_integer_calculator.c"
+#include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
+#include "../../../executor/copier/array_copier.c"
+#include "../../../logger/logger.c"
 
 /**
+ * Gets the internal memory's element at the given base and id.
+ *
  * Retrieves the input/output entry from internal memory.
  *
  * @param p0 the input/output entry (pointer reference)
@@ -45,13 +47,13 @@
  * @param p2 the input/output base
  * @param p3 the service identification (e.g. socket port)
  */
-void maintain_io_get(void* p0, void* p1, void* p2, void* p3) {
+void get_internal_memory_element(void* p0, void* p1, void* p2, void* p3) {
 
     //
     // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
     // Otherwise, it would produce huge log files filled up with useless entries.
     //
-    // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Maintain io get.");
+    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Set internal memory element.");
     //
 
     // The internal memory index.
@@ -62,12 +64,12 @@ void maintain_io_get(void* p0, void* p1, void* p2, void* p3) {
     //
     // Calculate internal memory index.
     //
-    // - add input output base
+    // - add input/output base
     // - add service identification (input/output entry index)
     //
     // CAUTION! If the service identification is null, then it is NOT copied here.
-    // In this case, the base internal memory index added before
-    // remains as is which is the same as a service identification of zero.
+    // In this case, the input/output base added before remains as is,
+    // which is the same as a service identification of zero.
     //
     calculate_integer_add((void*) &i, p2);
     calculate_integer_add((void*) &i, p3);
@@ -81,7 +83,7 @@ void maintain_io_get(void* p0, void* p1, void* p2, void* p3) {
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
-        // The given service identification is valid.
+        // The internal memory index is valid.
         //
 
         // Get input/output entry from internal memory.
@@ -89,9 +91,9 @@ void maintain_io_get(void* p0, void* p1, void* p2, void* p3) {
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not maintain io get. The service identification is negative and hence invalid.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set internal memory element. The internal memory index is negative and hence invalid.");
     }
 }
 
-/* GET_IO_MAINTAINER_SOURCE */
+/* INTERNAL_MEMORY_GETTER_SOURCE */
 #endif

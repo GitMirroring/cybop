@@ -33,10 +33,10 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/accessor/getter/internal_memory_getter.c"
+#include "../../executor/accessor/setter/internal_memory_setter.c"
 #include "../../executor/copier/integer_copier.c"
 #include "../../executor/maintainer/details_starter.c"
-#include "../../executor/maintainer/get_io_maintainer.c"
-#include "../../executor/maintainer/set_io_maintainer.c"
 #include "../../executor/memoriser/allocator/array_allocator.c"
 #include "../../logger/logger.c"
 #include "../../variable/symbolic_name/mutex_thread_symbolic_name.c"
@@ -90,7 +90,7 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     fwprintf(stdout, L"Test: Startup io. service id: %i\n", id);
 
     // Get input/output entry.
-    maintain_io_get((void*) &io, p0, p19, (void*) &id);
+    get_internal_memory_element((void*) &io, p0, p19, (void*) &id);
 
     if (io == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -126,7 +126,7 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
         startup_details(io, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18);
 
         // Set input/output entry.
-        maintain_io_set(p0, (void*) &io, p19, (void*) &id);
+        set_internal_memory_element(p0, (void*) &io, p19, (void*) &id);
 
     } else {
 
