@@ -27,6 +27,7 @@
         * Delete files "io_entry_getter.c" and "io_entry_setter.c", since now standard pointer array access is possible
         * Replace calls of functions "set_io_entry_element" and "get_io_entry_element" with standard pointer array access using function "copy_array_forward"
         * Replace includes "io_entry_getter.c" and "io_entry_setter.c" with "array_copier.c"
+        * Shrink size of cyboi executable by commenting unused integer number constants in file "integer_state_cyboi_model.c"
 
 2021-06-11  Christian Heller  <christian.heller@cybop.org>
 

@@ -37,8 +37,6 @@ _____________
 
         * Think through and adapt file "element_irq_checker.c" where interrupt request flag is processed twice
 
-        * Shrink size of cyboi executable by uncommenting unused integer number constants
-
         * Continue in files "socket_sensor.c" and "bsd_socket_reader.c"
         * See file "element_irq_checker.c"
         * See file "reader.c" where the input/output entry as well as mutex are already determined
