@@ -29,7 +29,7 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/accessor/setter/io_entry_setter.c"
+#include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/maintainer/starter/terminal/get_file_number_terminal_starter.c"
 #include "../../../../executor/maintainer/starter/terminal/mode_terminal_starter.c"
 #include "../../../../logger/logger.c"
@@ -70,7 +70,7 @@ void startup_terminal_stream(void* p0, void* p1, void* p2, void* p3) {
         //
         // CAUTION! Hand over file stream (second argument) as pointer REFERENCE.
         //
-        set_io_entry_element(p0, p1, p3);
+        copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p3, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     } else {
 

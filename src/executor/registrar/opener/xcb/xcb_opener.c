@@ -33,8 +33,7 @@
 #include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
-#include "../../../../executor/accessor/getter/io_entry_getter.c"
-#include "../../../../executor/accessor/setter/io_entry_setter.c"
+#include "../../../../executor/copier/array_copier.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -69,7 +68,7 @@ void open_xcb(void* p0, void* p1) {
     //
     // CAUTION! Do NOT hand over input/output entry as pointer reference.
     //
-    get_io_entry_element((void*) &c, p1, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
     //
     // Retrieve screen from input/output entry.
     //
@@ -81,7 +80,7 @@ void open_xcb(void* p0, void* p1) {
     //
     // CAUTION! Do NOT hand over input/output entry as pointer reference.
     //
-    get_io_entry_element((void*) &s, p1, (void*) SCREEN_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SCREEN_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -290,7 +289,7 @@ void open_xcb(void* p0, void* p1) {
             //?? fwprintf(stdout, L"Test: Open xcb. *p0: %i\n", *((int*) p0));
 
             // Store delete window cookie in input/output entry.
-            //?? set_io_entry_element(p1, (void*) &dwc, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            //?? copy_array_forward(p1, (void*) &dwc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         } else {
 

@@ -29,7 +29,7 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/accessor/getter/io_entry_getter.c"
+#include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/maintainer/shutter/terminal/mode_terminal_shutter.c"
 #include "../../../../executor/maintainer/starter/terminal/get_file_number_terminal_starter.c"
 #include "../../../../logger/logger.c"
@@ -68,7 +68,7 @@ void shutdown_terminal_stream(void* p0, void* p1, void* p2) {
     //
     // CAUTION! Do NOT hand over input/output entry as pointer reference.
     //
-    get_io_entry_element((void*) &s, p0, p2);
+    copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
     // Get terminal file descriptor from file stream.
     //??

@@ -85,14 +85,6 @@ void determine_size(void* p0, void* p1) {
             copy_integer(p0, (void*) POINTER_TYPE_SIZE);
 
         //
-        // input output
-        //
-
-        } else if (*t == *IO_ENTRY_STATE_CYBOI_TYPE) {
-
-            copy_integer(p0, (void*) IO_ENTRY_COMPOUND_TYPE_SIZE);
-
-        //
         // logicvalue
         //
 

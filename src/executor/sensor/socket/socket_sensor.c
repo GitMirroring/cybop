@@ -35,31 +35,80 @@
 /**
  * Senses data available on the given server socket.
  *
- * @param p0 the data available flag
+ * @param p0 the interrupt request flag
  * @param p1 the source socket
+ * @param p2 the mutex
  */
-void sense_socket(void* p0, void* p1) {
+void sense_socket(void* p0, void* p1/*??, void* p2*/) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket.");
+//??    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    //?? fwprintf(stdout, L"Test: Sense socket. *p1: %i\n", *((int*) p1));
+//??        mtx_t* m = (mtx_t*) p2;
 
-    // The number of data available on socket.
-    int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The command (device-dependent request code).
-    int c = FIONREAD;
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket.");
 
-    // Read the number of data available on socket.
-    read_device((void*) &n, p1, (void*) &c);
+        //?? fwprintf(stdout, L"Test: Sense socket. p1: %i\n", p1);
+        //?? fwprintf(stdout, L"Test: Sense socket. *p1: %i\n", *((int*) p1));
 
-    if (n > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        // The number of data available on socket.
+        int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The command (device-dependent request code).
+        int c = FIONREAD;
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket successful.");
-        //?? fwprintf(stdout, L"Test: Sense socket successful. n: %i\n", n);
+        //
+        // Lock mutex.
+        //
+        // CAUTION! This function call blocks the current thread
+        // until the mutex is locked.
+        //
+        // CAUTION! This guarantees exclusive access to
+        // input/output resources as well as the interrupt flag,
+        // which are shared between input sensing (child) threads
+        // and the main (parent) thread.
+        //
+        // CAUTION! Not all input/output channels use sensing threads.
+        // Sometimes, the main thread is the only one accessing resources.
+        // However, in order to have a uniform implementation,
+        // a mutex exists for all channels and it does no harm
+        // to lock it here even if only the main thread accesses it.
+        //
+//??        mtx_lock(m);
 
-        // Set data available flag.
-        copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        //
+        // CAUTION! The mutex has to span BOTH instructions:
+        // - calling of the input/output function
+        //   AND:
+        // - setting of the interrupt request flag
+        //
+        // Otherwise, conflicts might occur, e.g.:
+        // - sensing thread: detects data
+        // - main thread: processes data
+        // - sensing thread: sets interrupt request flag (TOO LATE)
+        // - main thread: processes data (which are EMPTY now)
+        // - error
+        //
+
+        // Read the number of data available on socket.
+        read_device((void*) &n, p1, (void*) &c);
+
+        if (n > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+            // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket. success.");
+            fwprintf(stdout, L"Test: Sense socket. success. n: %i\n", n);
+
+            // Set interrupt request flag.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
+
+        // Unlock mutex.
+//??        mtx_unlock(m);
+
+/*??
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket. The mutex is null.");
     }
+*/
 
 /*?? DELETE later, since deprecated!
 

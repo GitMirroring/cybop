@@ -30,7 +30,7 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../../executor/acceptor/socket/socket_acceptor.c"
-#include "../../../executor/accessor/getter/io_entry_getter.c"
+#include "../../../executor/copier/array_copier.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -47,7 +47,7 @@ void accept_socket_server(void* p0, void* p1) {
     int s = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Get receiver server socket from io entry.
-    get_io_entry_element((void*) &s, p1, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     // Sense new client requests on server socket.
     accept_socket(p0, (void*) &s);

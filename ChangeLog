@@ -18,6 +18,16 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-06-12  Christian Heller  <christian.heller@cybop.org>
+
+        * Replace input/output entry compound structure with standard pointer array
+        * Delete constant "IO_ENTRY_STATE_CYBOI_TYPE" from file "state_cyboi_type.c" and replace it with constant "POINTER_STATE_CYBOI_TYPE"
+        * Adapt files "io_starter.c" and "io_shutter.c" accordingly
+        * Delete variable "IO_ENTRY_COMPOUND_TYPE_SIZE" from files "compound_type_size.c" and "compound_type_size_globaliser.c"
+        * Delete files "io_entry_getter.c" and "io_entry_setter.c", since now standard pointer array access is possible
+        * Replace calls of functions "set_io_entry_element" and "get_io_entry_element" with standard pointer array access using function "copy_array_forward"
+        * Replace includes "io_entry_getter.c" and "io_entry_setter.c" with "array_copier.c"
+
 2021-06-11  Christian Heller  <christian.heller@cybop.org>
 
         * Add files "internal_memory_getter.c" and "internal_memory_setter.c" to provide central access to input/output entry

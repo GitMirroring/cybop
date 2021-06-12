@@ -34,8 +34,7 @@
 #include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/accessor/getter/io_entry_getter.c"
-#include "../../../../executor/accessor/setter/io_entry_setter.c"
+#include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../../logger/logger.c"
 
@@ -71,9 +70,9 @@ void close_xcb(void* p0, void* p1) {
         //
 
         // Retrieve connexion from input/output entry.
-        get_io_entry_element((void*) &c, p1, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Retrieve delete window cookie from input/output entry.
-        //?? get_io_entry_element((void*) &dwc, p1, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        //?? copy_array_forward((void*) &dwc, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         fwprintf(stdout, L"Test: Close xcb. c: %i\n", c);
 

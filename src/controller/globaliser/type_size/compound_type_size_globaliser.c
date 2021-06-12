@@ -34,11 +34,8 @@
 /**
  * Initialises compound type size global variables.
  *
- * CAUTION! When editing one file, then adapt ALL FOUR files:
- * "constant/name/cyboi/state/input_output_state_cyboi_name.c"
+ * CAUTION! When editing this file, then also adapt:
  * "controller/globaliser/type_size/compound_type_size_globaliser.c"
- * "executor/accessor/getter/io_entry_getter.c"
- * "executor/accessor/setter/io_entry_setter.c"
  */
 void globalise_type_size_compound() {
 
@@ -58,59 +55,6 @@ void globalise_type_size_compound() {
 
     // Elements: numerator + denominator
     *FRACTION_COMPOUND_TYPE_SIZE = *SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE + *SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE;
-
-    // Elements:
-    *IO_ENTRY_COMPOUND_TYPE_SIZE =
-
-        //
-        // General.
-        //
-          *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE // enable
-        + *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE // interrupt
-        + *POINTER_TYPE_SIZE // mutex
-        + *POINTER_TYPE_SIZE // handler
-        // CAUTION! The sender HAS TO BE a pointer, since it is
-        // allocated as model in cybol and needs to be manipulated
-        // in cyboi. A simple integer value would be lost.
-        + *POINTER_TYPE_SIZE // sender
-
-        //
-        // Serial port.
-        //
-
-        + *POINTER_TYPE_SIZE // file stream
-        + *POINTER_TYPE_SIZE // original mode
-
-        //
-        // Terminal.
-        //
-
-        + *POINTER_TYPE_SIZE // output file stream
-        + *POINTER_TYPE_SIZE // input file stream
-        + *POINTER_TYPE_SIZE // output original mode
-        + *POINTER_TYPE_SIZE // input original mode
-
-        //
-        // Display.
-        //
-
-        + *POINTER_TYPE_SIZE // connexion xcb
-        + *POINTER_TYPE_SIZE // screen xcb
-        + *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE // graphic context xcb
-        + *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE // device context win32
-        + *POINTER_TYPE_SIZE // event
-
-        //
-        // Socket.
-        //
-
-        + *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE // socket number
-        + *POINTER_TYPE_SIZE // client list
-        + *POINTER_TYPE_SIZE // accepttime list
-        + *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE // timeout
-
-        // The end.
-        ;
 }
 
 /* COMPOUND_TYPE_SIZE_GLOBALISER_SOURCE */

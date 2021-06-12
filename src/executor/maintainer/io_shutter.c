@@ -33,16 +33,15 @@
 #include "../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/accessor/getter/io_entry_getter.c"
 #include "../../executor/accessor/setter/internal_memory_setter.c"
-#include "../../executor/accessor/setter/io_entry_setter.c"
+#include "../../executor/copier/array_copier.c"
 #include "../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../logger/logger.c"
 
 /**
  * Deallocates the input/output entry of the given service.
  *
- * @param p0 the input/output entry
+ * @param p0 the input/output entry (pointer reference)
  * @param p1 the internal memory data
  * @param p2 the input/output base
  * @param p3 the socket port
@@ -87,10 +86,10 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
             void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Get mutex from input/output entry.
-            get_io_entry_element((void*) &m, *io, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &m, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             // Reset mutex in input/output entry.
-            set_io_entry_element(*io, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            copy_array_forward(*io, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             // Destroy mutex.
             mtx_destroy((mtx_t*) m);
@@ -110,7 +109,7 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
             // since it is only needed for looping elements of type PART,
             // in order to decrement the rubbish (garbage) collection counter.
             //
-            deallocate_array(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
+            deallocate_array(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) IO_ENTRY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
 
         } else {
 

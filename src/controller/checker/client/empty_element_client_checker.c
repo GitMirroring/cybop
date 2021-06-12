@@ -78,7 +78,7 @@ void check_client_element_empty(void* p0, void* p1, void* p2, void* p3, void* p4
             // Get accepttime from accepttime list at the given index.
             copy_array_forward((void*) &a, *al, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
             // Get timeout from input/output entry.
-            get_io_entry_element((void*) &to, p8, (void*) TIMEOUT_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &to, p8, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TIMEOUT_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             // The accepttime as time_t value.
             time_t at = (time_t) a;

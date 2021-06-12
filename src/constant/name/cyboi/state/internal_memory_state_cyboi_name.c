@@ -30,17 +30,21 @@
 
 //
 // These constants are NOT sorted alphabetically, but as follows:
+//
 // - knowledge memory
 // - stack memory
 // - signal memory
 // - sleep time
+//
 // - serial port
 // - terminal
 // - display
 // - socket
 //
-// CAUTION! The socket stands at last, since unpredictably
-// many socket services may have to be added in the future.
+// CAUTION! The socket stands at last, since more services
+// may have to be added in the future.
+//
+// The current internal memory size is calculated in file "state_cyboi_model.c"!
 //
 
 /** The knowledge memory. */

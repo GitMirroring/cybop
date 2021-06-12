@@ -30,9 +30,9 @@
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../executor/accessor/setter/io_entry_setter.c"
 #include "../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../executor/copier/array_copier.c"
+#include "../../executor/copier/integer_copier.c"
 #include "../../logger/logger.c"
 
 /**
@@ -91,11 +91,17 @@ void disable_channel(void* p0, void* p1, void* p2) {
         // since the service may get reenabled later again.
         //
 
+        // The TODO flag.
+        void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+        // Get enable flag from input/output entry.
+        copy_array_forward((void*) &e, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
         //
         // Unset enable flag in input/output entry,
         // so that the service gets temporarily interrupted.
         //
-        set_io_entry_element(io, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        copy_integer(e, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     } else {
 

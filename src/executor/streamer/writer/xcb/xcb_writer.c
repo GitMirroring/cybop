@@ -83,7 +83,7 @@ void write_xcb(void* p0, void* p1) {
             //
             // CAUTION! Do NOT hand over input/output entry as pointer reference.
             //
-            get_io_entry_element((void*) &c, io, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &c, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             // CAUTION! This test is necessary to avoid a "Segmentation fault"!
             if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {

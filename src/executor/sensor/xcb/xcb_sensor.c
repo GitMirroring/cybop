@@ -36,8 +36,7 @@
 #include "../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/accessor/getter/io_entry_getter.c"
-#include "../../../executor/accessor/setter/io_entry_setter.c"
+#include "../../../executor/copier/array_copier.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -66,7 +65,7 @@ void sense_xcb(void* p0, void* p1) {
     //
     // CAUTION! Do NOT hand over input/output entry as pointer reference.
     //
-    get_io_entry_element((void*) &c, p1, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -142,7 +141,7 @@ void sense_xcb(void* p0, void* p1) {
             //
             // CAUTION! Hand over value as pointer REFERENCE.
             //
-            set_io_entry_element(p1, (void*) &e, (void*) EVENT_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            copy_array_forward(p1, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EVENT_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             // Set data available flag.
             copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

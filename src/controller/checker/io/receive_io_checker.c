@@ -33,16 +33,15 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../../controller/checker/client/list_client_checker.c"
-#include "../../../executor/accessor/getter/io_entry_getter.c"
-#include "../../../executor/accessor/setter/io_entry_setter.c"
 #include "../../../executor/comparator/integer/greater_integer_comparator.c"
+#include "../../../executor/copier/array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"
 
 /**
  * Checks input output for data.
  *
- * @param p0 the io flag
+ * @param p0 the input/output flag
  * @param p1 the client list item
  * @param p2 the accepttime list item
  * @param p3 the input/output entry
@@ -92,13 +91,19 @@ void check_io_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
         //
         // CAUTION! Do NOT hand over input/output entry as pointer reference.
         //
-        get_io_entry_element((void*) &s, p3, (void*) SENDER_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &s, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SENDER_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         // Copy client as sender.
         copy_integer(s, (void*) &c);
 
-        // Set interrupt request into input/output entry.
-        set_io_entry_element(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        // The interrupt request flag.
+        void* irq = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+        // Get interrupt request flag from input/output entry.
+        copy_array_forward((void*) &irq, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+        // Set interrupt request flag into input/output entry.
+        copy_integer(irq, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         // Set input/output flag.
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

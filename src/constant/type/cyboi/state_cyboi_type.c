@@ -62,13 +62,6 @@ static int* DURATION_STATE_CYBOI_TYPE = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY
 static int* PART_ELEMENT_STATE_CYBOI_TYPE = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// input output
-//
-
-/** The input output memory entry state cyboi type. */
-static int* IO_ENTRY_STATE_CYBOI_TYPE = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
 // logicvalue
 //
 

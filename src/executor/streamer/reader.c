@@ -32,8 +32,8 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../executor/accessor/getter/internal_memory_getter.c"
-#include "../../executor/accessor/getter/io_entry_getter.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../executor/copier/array_copier.c"
 #include "../../executor/streamer/reader/directory/directory_reader.c"
 #include "../../executor/streamer/reader/file/file_reader.c"
 #include "../../executor/streamer/reader/inline/inline_reader.c"
@@ -101,7 +101,7 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             // Get input/output entry.
             //?? get_internal_memory_element((void*) &io, p7, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p??-TODO-port);
             // Get mutex from input/output entry.
-            //?? get_io_entry_element((void*) &m, io, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            //?? copy_array_forward((void*) &m, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             //?? read_display(p0, p7, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL);
 
@@ -138,7 +138,7 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             // Get input/output entry.
             //?? get_internal_memory_element((void*) &io, p7, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p??-TODO-port);
             // Get mutex from input/output entry.
-            get_io_entry_element((void*) &m, io, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &m, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             read_serial_port(p0, p9, p10, p7);
         }
@@ -163,7 +163,7 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             // Get input/output entry.
             //?? get_internal_memory_element((void*) &io, p7, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p??-TODO-port);
             // Get mutex from input/output entry.
-            get_io_entry_element((void*) &m, io, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &m, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             read_socket(p0, p1);
         }
@@ -178,7 +178,7 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             // Get input/output entry.
             //?? get_internal_memory_element((void*) &io, p7, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p??-TODO-port);
             // Get mutex from input/output entry.
-            get_io_entry_element((void*) &m, io, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &m, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             read_terminal(p0, p1, p7, p8);
         }

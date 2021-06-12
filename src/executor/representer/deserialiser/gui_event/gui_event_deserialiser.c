@@ -38,8 +38,6 @@
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/getter/internal_memory_getter.c"
-#include "../../../../executor/accessor/getter/io_entry_getter.c"
-#include "../../../../executor/accessor/setter/io_entry_setter.c"
 #include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/representer/deserialiser/gui_event/properties_gui_event_deserialiser.c"
 #include "../../../../logger/logger.c"
@@ -91,7 +89,7 @@ void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3) {
         //
         // CAUTION! Do NOT hand over input/output entry as pointer reference.
         //
-        get_io_entry_element((void*) &e, io, (void*) EVENT_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &e, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EVENT_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         //?? fwprintf(stdout, L"Test: Deserialise gui event. event e: %i\n", e);
 
@@ -123,7 +121,7 @@ void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3) {
             // CAUTION! Hand over null as pointer reference NULL_POINTER_STATE_CYBOI_MODEL
             // and NOT as dereferenced pointer *NULL_POINTER_STATE_CYBOI_MODEL.
             //
-            set_io_entry_element(io, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) EVENT_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            copy_array_forward(io, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EVENT_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             //
             // Deallocate event.

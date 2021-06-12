@@ -31,7 +31,8 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../executor/accessor/getter/internal_memory_getter.c"
-#include "../../executor/accessor/setter/io_entry_setter.c"
+#include "../../executor/copier/array_copier.c"
+#include "../../executor/copier/integer_copier.c"
 #include "../../logger/logger.c"
 
 /**
@@ -73,12 +74,18 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // CAUTION! Hand over values as pointer REFERENCE.
         //
 
+        // The enable flag.
+        void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+
         // Set handler into input/output entry.
-        set_io_entry_element(io, p3, (void*) HANDLER_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        copy_array_forward(io, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Set sender client into input/output entry.
-        set_io_entry_element(io, p4, (void*) SENDER_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Set enable flag in input/output entry.
-        set_io_entry_element(io, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        copy_array_forward(io, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SENDER_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        // Get enable flag from input/output entry.
+        copy_array_forward((void*) &e, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+        // Copy enable flag.
+        copy_integer(e, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     } else {
 

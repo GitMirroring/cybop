@@ -29,8 +29,8 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
-#include "../../../../executor/accessor/getter/io_entry_getter.c"
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../../executor/copier/array_copier.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -51,11 +51,11 @@ void shutdown_terminal_mode_retrieve(void* p0, void* p1, void* p2) {
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        get_io_entry_element(p0, p1, (void*) OUTPUT_ORIGINAL_MODE_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_ORIGINAL_MODE_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     } else {
 
-        get_io_entry_element(p0, p1, (void*) INPUT_ORIGINAL_MODE_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_ORIGINAL_MODE_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
     }
 }
 

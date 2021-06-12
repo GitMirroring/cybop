@@ -72,11 +72,11 @@ void serialise_gui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         // The screen.
         void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The graphic context.
-        int gc = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+        void* gc = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The font.
-        int f = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+        void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The win32 device context.
-        int dc = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+        void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         //
         // Retrieve various values from input/output entry.
@@ -91,17 +91,17 @@ void serialise_gui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         //
 
         // Retrieve connexion from input/output entry.
-        get_io_entry_element((void*) &c, io, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &c, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Retrieve screen from input/output entry.
-        get_io_entry_element((void*) &s, io, (void*) SCREEN_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &s, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SCREEN_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Retrieve graphic context from input/output entry.
-        get_io_entry_element((void*) &gc, io, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &gc, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Retrieve font from input/output entry.
-        //?? get_io_entry_element((void*) &f, io, (void*) FONT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        //?? copy_array_forward((void*) &f, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FONT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Retrieve win32 device context from input/output entry.
-        get_io_entry_element((void*) &dc, io, (void*) DEVICE_CONTEXT_WIN32_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &dc, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DEVICE_CONTEXT_WIN32_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-        serialise_gui_part_element_content(c, s, p0, (void*) &gc, (void*) &f, (void*) &dc, p1, p2, p3, p4, p5, p6, p7, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p8);
+        serialise_gui_part_element_content(c, s, p0, gc, f, dc, p1, p2, p3, p4, p5, p6, p7, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p8);
 
     } else {
 

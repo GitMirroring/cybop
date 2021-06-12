@@ -34,7 +34,7 @@
 #include "../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/setter/internal_memory_setter.c"
-#include "../../executor/accessor/setter/io_entry_setter.c"
+#include "../../executor/copier/array_copier.c"
 #include "../../executor/memoriser/allocator/array_allocator.c"
 #include "../../logger/logger.c"
 #include "../../variable/symbolic_name/mutex_thread_symbolic_name.c"
@@ -70,7 +70,7 @@ void startup_io(void* p0, void* p1, void* p2, void* p3) {
             // CAUTION! Due to memory allocation handling, the size MUST NOT
             // be negative or zero, but have at least a value of ONE.
             //
-            allocate_array(p0, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
+            allocate_array(p0, (void*) IO_ENTRY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
             //
             // Allocate mutex.
             //
@@ -83,7 +83,7 @@ void startup_io(void* p0, void* p1, void* p2, void* p3) {
             mtx_init((mtx_t*) m, *PLAIN_MUTEX_TYPE_THREAD_SYMBOLIC_NAME);
 
             // Set mutex in input/output entry.
-            set_io_entry_element(*io, (void*) &m, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            copy_array_forward(*io, (void*) &m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             // Set input/output entry.
             set_internal_memory_element(p1, p0, p2, p3);

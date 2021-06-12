@@ -32,7 +32,7 @@
 #include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../../controller/checker/io/sense_io_checker.c"
 #include "../../../executor/accessor/getter/internal_memory_getter.c"
-#include "../../../executor/accessor/getter/io_entry_getter.c"
+#include "../../../executor/copier/array_copier.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -69,7 +69,7 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
         int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         // Get enable flag from input/output entry.
-        get_io_entry_element((void*) &e, io, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &e, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         if (e != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

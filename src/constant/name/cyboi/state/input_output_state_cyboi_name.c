@@ -28,14 +28,6 @@
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/**
- * CAUTION! When editing one file, then adapt ALL FOUR files:
- * "constant/name/cyboi/state/input_output_state_cyboi_name.c"
- * "controller/globaliser/type_size/compound_type_size_globaliser.c"
- * "executor/accessor/getter/io_entry_getter.c"
- * "executor/accessor/setter/io_entry_setter.c"
- */
-
 //
 // CAUTION! If extending the number of entries here,
 // the INTERNAL MEMORY base segment size MIGHT HAVE TO BE adapted as well.

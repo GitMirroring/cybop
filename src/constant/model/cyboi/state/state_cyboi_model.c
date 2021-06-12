@@ -30,7 +30,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /**
- * The internal memory cyboi model count.
+ * The internal memory state cyboi model count.
  *
  * CAUTION! The total number of possible socket ports/services alone is: 65,536.
  * Therefore, the internal memory size has to be greater than that.
@@ -39,21 +39,26 @@
  *
  * Also, before the socket base, there are some other input/output values,
  * e.g. for serial port, terminal, display etc. which have to be taken into account.
+ * See internal memory indices in file "internal_memory_state_cyboi_name.c"!
+ *
  * A standard central processing unit (cpu) = processor
  * has a value around 256 in its interrupt descriptor table (idt).
  */
 static int* INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT = NUMBER_98304_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The item cyboi model count. */
+/** The input/output entry state cyboi model count. */
+static int* IO_ENTRY_STATE_CYBOI_MODEL_COUNT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The item state cyboi model count. */
 static int* ITEM_STATE_CYBOI_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The part cyboi model count. */
+/** The part state cyboi model count. */
 static int* PART_STATE_CYBOI_MODEL_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The primitive cyboi model count. */
+/** The primitive state cyboi model count. */
 static int* PRIMITIVE_STATE_CYBOI_MODEL_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The vector cyboi model count. */
+/** The vector state cyboi model count. */
 static int* VECTOR_STATE_CYBOI_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* STATE_CYBOI_MODEL_CONSTANT_SOURCE */

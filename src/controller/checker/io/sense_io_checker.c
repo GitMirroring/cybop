@@ -33,6 +33,7 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../controller/checker/io/socket_io_checker.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../executor/copier/array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/sensor/sensor.c"
 #include "../../../logger/logger.c"
@@ -92,8 +93,14 @@ void check_io_sense(void* p0, void* p1, void* p2) {
             // There ARE data available on the client.
             //
 
-            // Set interrupt request into input/output entry.
-            set_io_entry_element(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            // The interrupt request flag.
+            void* irq = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+            // Get interrupt request flag from input/output entry.
+            copy_array_forward((void*) &irq, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+            // Set interrupt request flag into input/output entry.
+            copy_integer(irq, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // Set input/output flag.
             copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
