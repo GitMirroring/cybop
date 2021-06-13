@@ -29,9 +29,13 @@
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../controller/checker/io/sense_io_checker.c"
 #include "../../../executor/accessor/getter/internal_memory_getter.c"
+#include "../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../logger/logger.c"
 
@@ -66,12 +70,16 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
         //
 
         // The enable flag.
-        int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The comparison result.
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         // Get enable flag from input/output entry.
         copy_array_forward((void*) &e, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        // Compare enable flag.
+        compare_integer_unequal((void*) &r, e, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (e != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
             // The enable flag is set, i.e. the service is active.

@@ -14,13 +14,7 @@
 Input Threads
 _____________
 
-        * Change type of integer values in input/output entry to pointer in all source code
-            replace variables from "int" to "void*" where "_INPUT_OUTPUT_STATE_CYBOI_NAME" is used:
-            DONE: all others
-            BESIDES the following TODO: seven files:
-                element_irq_checker.c
-                element_io_checker.c
-                empty_element_client_checker.c
+        * Change type "int" in input/output entry to "void*" in file "element_irq_checker.c" (see file "element_io_checker.c")
         * Think through and adapt file "element_irq_checker.c" where interrupt request flag is processed twice
         * Provide faster access to interrupt request flag by holding it as pointer, so that the input/output entry does not have to be accessed everytime
 

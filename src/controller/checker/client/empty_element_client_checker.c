@@ -66,21 +66,21 @@ void check_client_element_empty(void* p0, void* p1, void* p2, void* p3, void* p4
 
         if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            void** al = (void**) p3;
+            void** ad = (void**) p3;
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check client element empty.");
 
             // The accepttime.
             int a = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // The timeout.
-            int to = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            void* to = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Get accepttime from accepttime list at the given index.
-            copy_array_forward((void*) &a, *al, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
+            copy_array_forward((void*) &a, *ad, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
             // Get timeout from input/output entry.
             copy_array_forward((void*) &to, p8, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TIMEOUT_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-            // The accepttime as time_t value.
+            // The accepttime with correct type.
             time_t at = (time_t) a;
             //
             // Calculate elapsed time (difference) between two calendar times.
@@ -95,7 +95,7 @@ void check_client_element_empty(void* p0, void* p1, void* p2, void* p3, void* p4
             // The comparison result.
             int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-            compare_integer_greater((void*) &r, (void*) &di, (void*) &to);
+            compare_integer_greater((void*) &r, (void*) &di, to);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -104,7 +104,7 @@ void check_client_element_empty(void* p0, void* p1, void* p2, void* p3, void* p4
                 //
 
                 log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close client connexion due to crossed timeout.");
-                fwprintf(stdout, L"Test: Close client connexion due to crossed timeout. p3: %i\n", *((int*) p3));
+                fwprintf(stdout, L"Test: Close client connexion due to crossed timeout. r: %i\n", r);
 
                 // Remove element from client list.
                 modify_remove(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p6, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
