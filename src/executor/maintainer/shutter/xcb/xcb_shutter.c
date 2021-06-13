@@ -54,7 +54,11 @@ void shutdown_xcb(void* p0) {
     // The screen.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The graphic context.
-    int gc = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    void* gc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The connexion with correct type.
+    xcb_connection_t* ct = (xcb_connection_t*) c;
+    // The graphic context with correct type.
+    xcb_gcontext_t* gct = (xcb_gcontext_t*) gc;
 
     //
     // Retrieve various values from input/output entry.
@@ -88,12 +92,10 @@ void shutdown_xcb(void* p0) {
         // for the following deallocations.
         //
 
-        if (gc != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
+        if (gc != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            // Use xcb type.
-            xcb_gcontext_t gct = (xcb_gcontext_t) gc;
             // Free graphic context.
-            xcb_free_gc((xcb_connection_t*) c, gct);
+            xcb_free_gc(ct, *gct);
 
         } else {
 
@@ -115,7 +117,7 @@ void shutdown_xcb(void* p0) {
         // The called function closes the file descriptor and
         // frees ALL memory associated with the connexion.
         //
-        xcb_disconnect((xcb_connection_t*) c);
+        xcb_disconnect(ct);
 
         //
         // Reset various values in input/output entry.

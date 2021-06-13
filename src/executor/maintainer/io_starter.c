@@ -61,8 +61,14 @@ void startup_io(void* p0, void* p1, void* p2, void* p3) {
             // The input/output entry (service) does NOT yet exist in internal memory.
             //
 
+            // The enable flag.
+            void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The mutex.
             void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The interrupt request.
+            void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The sender identification.
+            void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             //
             // Allocate input/output entry.
@@ -72,18 +78,47 @@ void startup_io(void* p0, void* p1, void* p2, void* p3) {
             //
             allocate_array(p0, (void*) IO_ENTRY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
             //
+            // Allocate enable flag.
+            //
+            // CAUTION! Due to memory allocation handling, the size MUST NOT
+            // be negative or zero, but have at least a value of ONE.
+            //
+            allocate_array((void*) &e, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            //
             // Allocate mutex.
             //
             // CAUTION! Due to memory allocation handling, the size MUST NOT
             // be negative or zero, but have at least a value of ONE.
             //
             allocate_array((void*) &m, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
+            //
+            // Allocate interrupt request.
+            //
+            // CAUTION! Due to memory allocation handling, the size MUST NOT
+            // be negative or zero, but have at least a value of ONE.
+            //
+            allocate_array((void*) &i, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            //
+            // Allocate sender identification.
+            //
+            // CAUTION! Due to memory allocation handling, the size MUST NOT
+            // be negative or zero, but have at least a value of ONE.
+            //
+            allocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
+            // The mutex with casted type.
+            mtx_t* mt = (mtx_t*) m;
             // Create and initialise mutex.
-            mtx_init((mtx_t*) m, *PLAIN_MUTEX_TYPE_THREAD_SYMBOLIC_NAME);
+            mtx_init(mt, *PLAIN_MUTEX_TYPE_THREAD_SYMBOLIC_NAME);
 
-            // Set mutex in input/output entry.
+            // Set enable flag into input/output entry.
+            copy_array_forward(*io, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            // Set mutex into input/output entry.
             copy_array_forward(*io, (void*) &m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            // Set interrupt request into input/output entry.
+            copy_array_forward(*io, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            // Set sender identification into input/output entry.
+            copy_array_forward(*io, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SENDER_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             // Set input/output entry.
             set_internal_memory_element(p1, p0, p2, p3);

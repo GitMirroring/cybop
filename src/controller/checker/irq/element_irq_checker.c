@@ -111,7 +111,7 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             int irq = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
             // Get interrupt request flag from input/output entry.
-            copy_array_forward((void*) &irq, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &irq, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             if (irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -159,7 +159,7 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
                     void* irq2 = *NULL_POINTER_STATE_CYBOI_MODEL;
 
                     // Get interrupt request flag from input/output entry.
-                    copy_array_forward((void*) &irq2, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+                    copy_array_forward((void*) &irq2, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
                     // Reset interrupt request flag in input/output entry.
                     copy_integer(irq2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);

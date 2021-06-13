@@ -51,11 +51,13 @@ void startup_xcb(void* p0) {
     // all data needed to communicate with an x server.
     //
     void* c = (void*) xcb_connect(*NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    // The connexion with correct type.
+    xcb_connection_t* ct = (xcb_connection_t*) c;
 
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // Get setup.
-        const xcb_setup_t* setup = xcb_get_setup((xcb_connection_t*) c);
+        const xcb_setup_t* setup = xcb_get_setup(ct);
 
         if (setup != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -69,15 +71,24 @@ void startup_xcb(void* p0) {
             // It gets allocated through the connexion above.
             //
             void* s = (void*) iter.data;
-
-            // The xcb screen type value.
+            // The graphic context.
+            void* gc = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The xcb screen with correct type.
             xcb_screen_t* st = (xcb_screen_t*) s;
-
+            // The graphic context with correct type.
+            xcb_gcontext_t* gct = (xcb_gcontext_t*) gc;
             // Get root window of the screen.
-            int r = (*st).root;
+            xcb_drawable_t r = (*st).root;
 
-            // Allocate xid for default graphic context.
-            int gc = (int) xcb_generate_id((xcb_connection_t*) c);
+            //
+            // Allocate graphic context.
+            //
+            // CAUTION! Due to memory allocation handling, the size MUST NOT
+            // be negative or zero, but have at least a value of ONE.
+            //
+            allocate_array((void*) &gc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            // Generate xid for default graphic context.
+            *gct = (int) xcb_generate_id(ct);
 
             //
             // The graphic context value mask.
@@ -173,7 +184,7 @@ void startup_xcb(void* p0) {
             // - the screen root window drawable is used inside to get the bit depth
             // - the last parametre has to be a pointer, and it already IS one, since it is an array
             //
-            xcb_create_gc((xcb_connection_t*) c, (xcb_gcontext_t) gc, (xcb_drawable_t) r, gcm, gcv);
+            xcb_create_gc(ct, *gct, r, gcm, gcv);
 
             //
             // Store various values in input/output entry.

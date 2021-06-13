@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-06-13  Christian Heller  <christian.heller@cybop.org>
+
+        * Change type of integer values to pointer in input/output channel files
+        * Allocate/deallocate these integer values in the corresponding startup/shutdown file
+
 2021-06-12  Christian Heller  <christian.heller@cybop.org>
 
         * Replace input/output entry compound structure with standard pointer array

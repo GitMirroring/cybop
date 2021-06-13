@@ -15,27 +15,15 @@ Input Threads
 _____________
 
         * Change type of integer values in input/output entry to pointer in all source code
-            replace LOCAL variables from "int" to "void*" where "_INPUT_OUTPUT_STATE_CYBOI_NAME" is used:
-                enable
-                interrupt
-                graphic context xcb
-                device context win32
-                socket number
-                timeout
+            replace variables from "int" to "void*" where "_INPUT_OUTPUT_STATE_CYBOI_NAME" is used:
             DONE: all others
             BESIDES the following TODO: seven files:
-                xcb_starter.c
-                socket_starter.c
-                xcb_shutter.c
-                socket_shutter.c
                 server_socket_acceptor.c
                 element_irq_checker.c
                 element_io_checker.c
                 empty_element_client_checker.c
-        * Allocate/deallocate these integer values in the corresponding startup/shutdown file
-        * Provide faster access to interrupt request flag by holding it as pointer, so that the input/output entry does not have to be accessed everytime
-
         * Think through and adapt file "element_irq_checker.c" where interrupt request flag is processed twice
+        * Provide faster access to interrupt request flag by holding it as pointer, so that the input/output entry does not have to be accessed everytime
 
         * Continue in files "socket_sensor.c" and "bsd_socket_reader.c"
         * See file "element_irq_checker.c"
@@ -53,6 +41,9 @@ _____________
 
         * Think through processing of events "check" loop mechanism
         * Search for and replace old "pthread_t" string in all source code
+
+        * Investigate why stdout cannot be stored in input/output entry successfully in file "stream_terminal_shutter.c"
+        * Check all terminal-related files and replace stdin and stdout with local variables
 
         * Make data input of cybol application "tui" work again
 
