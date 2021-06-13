@@ -30,11 +30,13 @@
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/calculator/integer/add_integer_calculator.c"
+#include "../../../executor/accessor/getter/internal_memory_getter.c"
+#include "../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"
@@ -43,7 +45,7 @@
  * Checks input/output entry data.
  *
  * @param p0 the comparison result
- * @param p1 the interrupt request flag
+ * @param p1 the interrupt request
  * @param p2 the handler (pointer reference)
  * @param p3 the internal memory data
  * @param p4 the internal memory index (already initialised with input/output base)
@@ -58,28 +60,19 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check irq element.");
     //
 
-    // The internal memory index.
-    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The input/output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Calculate internal memory index.
-    calculate_integer_add((void*) &i, p4);
-    calculate_integer_add((void*) &i, p5);
-
-    //?? fwprintf(stdout, L"Test: Check irq element. index i: %i\n", i);
-
     // Get input/output entry.
-    copy_array_forward((void*) &io, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+    get_internal_memory_element((void*) &io, p3, p4, p5);
+
+    //?? fwprintf(stdout, L"Test: Check irq element. io: %i\n", io);
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
-        // An input/output entry exists for the service
-        // at the calculated internal memory index.
+        // An input/output entry exists for the service.
         //
-
-        //?? fwprintf(stdout, L"Test: Check irq element. io_entry: %i\n", io);
 
         //
         // Retrieve various values from input/output entry.
@@ -94,32 +87,40 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         //
 
         // The enable flag.
-        int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The enable flag comparison result.
+        int er = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         // Get enable flag from input/output entry.
         copy_array_forward((void*) &e, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        // Compare enable flag.
+        compare_integer_unequal((void*) &er, e, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (e != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (er != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
             // The enable flag is set.
             //
 
-            //?? fwprintf(stdout, L"Test: Check irq element. enable_flag e: %i\n", e);
+            //?? fwprintf(stdout, L"Test: Check irq element. enable_flag er: %i\n", er);
 
-            // The interrupt request flag.
-            int irq = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+            // The interrupt request.
+            void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The interrupt request comparison result.
+            int ir = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-            // Get interrupt request flag from input/output entry.
-            copy_array_forward((void*) &irq, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            // Get interrupt request from input/output entry.
+            copy_array_forward((void*) &i, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            // Compare interrupt request.
+            compare_integer_unequal((void*) &ir, i, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-            if (irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            if (ir != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 //
-                // The interrupt request flag is set.
+                // The interrupt request is set.
                 //
 
-                //?? fwprintf(stdout, L"Test: Check irq element. irq: %i\n", irq);
+                //?? fwprintf(stdout, L"Test: Check irq element. ir: %i\n", ir);
 
                 // The mutex.
                 void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -129,6 +130,9 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
                 if (m != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+                    // The mutex with correct type.
+                    mtx_t* mt = (mtx_t*) m;
+
                     //
                     // Lock mutex.
                     //
@@ -136,7 +140,7 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
                     // until the mutex is locked.
                     //
                     // CAUTION! This guarantees exclusive access to
-                    // input/output resources as well as the interrupt flag,
+                    // input/output resources as well as the interrupt request,
                     // which are shared between input sensing (child) threads
                     // and the main (parent) thread.
                     //
@@ -146,35 +150,23 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
                     // a mutex exists for all channels and it does no harm
                     // to lock it here even if only the main thread accesses it.
                     //
-                    mtx_lock((mtx_t*) m);
+                    mtx_lock(mt);
 
-                    //
-                    // CAUTION! The interrupt request flag has to be set
-                    // IN THE input/output entry, not only locally here,
-                    // since the sensing threads refer to it as well
-                    // and the mutex protects this access.
-                    //
-
-                    // The interrupt request flag.
-                    void* irq2 = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-                    // Get interrupt request flag from input/output entry.
-                    copy_array_forward((void*) &irq2, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-                    // Reset interrupt request flag in input/output entry.
-                    copy_integer(irq2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+                    // Reset interrupt request in input/output entry.
+                    copy_integer(i, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
                     // Unlock mutex.
-                    mtx_unlock((mtx_t*) m);
+                    mtx_unlock(mt);
 
                     // Get handler from input/output entry.
                     copy_array_forward(p2, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLER_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
+                    //?? fwprintf(stdout, L"Test: Check irq element. handler p2: %i\n", p2);
                     //?? fwprintf(stdout, L"Test: Check irq element. handler *p2: %i\n", *((void**) p2));
 
                     // Set comparison result.
                     copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-                    // Set interrupt request flag.
+                    // Set interrupt request.
                     copy_integer(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                     // Set break flag.
                     copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

@@ -80,6 +80,8 @@ void shutdown_socket(void* p0) {
 
     // Shutdown client list.
     shutdown_socket_server_list(c, a);
+    // Close server socket.
+    shutdown_socket_close(s);
 
     //
     // Deallocate socket number.
@@ -101,9 +103,6 @@ void shutdown_socket(void* p0) {
     // in order to decrement the rubbish (garbage) collection counter.
     //
     deallocate_array((void*) &t, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-
-    // Close server socket.
-    shutdown_socket_close(s);
 }
 
 /* SOCKET_SHUTTER_SOURCE */

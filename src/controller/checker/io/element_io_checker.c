@@ -66,7 +66,7 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
-        // The input/output entry (service) DOES exist in internal memory.
+        // An input/output entry exists for the service.
         //
 
         // The enable flag.

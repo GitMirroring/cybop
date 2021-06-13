@@ -14,10 +14,7 @@
 Input Threads
 _____________
 
-        * Change type "int" in input/output entry to "void*" in file "element_irq_checker.c" (see file "element_io_checker.c")
-        * Think through and adapt file "element_irq_checker.c" where interrupt request flag is processed twice
         * Provide faster access to interrupt request flag by holding it as pointer, so that the input/output entry does not have to be accessed everytime
-
         * Continue in files "socket_sensor.c" and "bsd_socket_reader.c"
         * See file "element_irq_checker.c"
         * See file "reader.c" where the input/output entry as well as mutex are already determined

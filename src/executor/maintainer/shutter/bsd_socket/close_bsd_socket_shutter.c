@@ -115,8 +115,14 @@ void shutdown_bsd_socket_close(void* p0) {
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown bsd socket close. The socket is null.");
-        fwprintf(stdout, L"Error: Could not shutdown bsd socket close. The socket is null. p0: %i\n", p0);
+        //
+        // CAUTION! This log message has been commented out
+        // due to the large number of potential calls caused
+        // by the the number of socket services (65536).
+        // See file "shutdown_manager.c".
+        //
+        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown bsd socket close. The socket is null.");
+        // fwprintf(stdout, L"Error: Could not shutdown bsd socket close. The socket is null. p0: %i\n", p0);
     }
 }
 
