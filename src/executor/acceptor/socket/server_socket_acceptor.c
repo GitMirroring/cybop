@@ -43,14 +43,14 @@ void accept_socket_server(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Accept socket.");
 
-    // The receiver server socket.
-    int s = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The receiver server socket number.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get receiver server socket from io entry.
+    // Get receiver server socket number from input/output entry.
     copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     // Sense new client requests on server socket.
-    accept_socket(p0, (void*) &s);
+    accept_socket(p0, s);
 }
 
 /* SERVER_SOCKET_ACCEPTOR_SOURCE */

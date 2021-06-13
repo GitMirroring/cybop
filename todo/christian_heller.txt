@@ -18,7 +18,6 @@ _____________
             replace variables from "int" to "void*" where "_INPUT_OUTPUT_STATE_CYBOI_NAME" is used:
             DONE: all others
             BESIDES the following TODO: seven files:
-                server_socket_acceptor.c
                 element_irq_checker.c
                 element_io_checker.c
                 empty_element_client_checker.c
