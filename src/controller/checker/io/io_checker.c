@@ -38,9 +38,6 @@
 /**
  * Senses data on the given channels.
  *
- * This is the NEW solution avoiding threads,
- * in order to be more platform-independent.
- *
  * @param p0 the io flag
  * @param p1 the internal memory data
  */
@@ -77,7 +74,6 @@ void check_io(void* p0, void* p1) {
         // The comparison result is TRUE.
         //
 
-        // Set interrupt request.
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }

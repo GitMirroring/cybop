@@ -46,15 +46,17 @@
  * @param p0 the destination item
  * @param p1 the source file stream
  * @param p2 the blocking flag
+ * @param p3 the interrupt request
+ * @param p4 the mutex
  */
-void read_terminal_stream(void* p0, void* p1, void* p2) {
+void read_terminal_stream(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read terminal stream.");
 
 #if defined(__linux__) || defined(__unix__)
-    read_unix_terminal_stream(p0, p1, p2);
+    read_unix_terminal_stream(p0, p1, p2, p3, p4);
 #elif defined(__APPLE__) && defined(__MACH__)
-    read_unix_terminal_stream(p0, p1, p2);
+    read_unix_terminal_stream(p0, p1, p2, p3, p4);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
     //?? CAUTION! Possibly move this functionality into "win32_console_deserialiser".

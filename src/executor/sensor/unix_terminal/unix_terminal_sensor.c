@@ -27,6 +27,7 @@
 #define UNIX_TERMINAL_SENSOR_SOURCE
 
 #include <stdio.h> // fdopen
+#include <threads.h> // mtx_t, mtx_lock, mtx_unlock
 #include <wchar.h> // fgetwc, fgetwc_unlocked
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -39,17 +40,11 @@
  * Senses unix terminal message.
  *
  * @param p0 the data available flag
- * @param p1 the input/output entry (containing e.g. file descriptor)
+ * @param p1 the interrupt request
+ * @param p2 the mutex
+ * @param p3 the input/output entry
  */
-void sense_unix_terminal(void* p0, void* p1) {
-
-    //
-    // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
-    // Otherwise, it would produce huge log files filled up with useless entries.
-    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense unix terminal.");
-    //
-
-    fwprintf(stdout, L"Test: Sense unix terminal. input/output entry p1: %i\n", p1);
+void sense_unix_terminal(void* p0, void* p1, void* p2, void* p3) {
 
     //
     // The file stream associated with the given file descriptor.
@@ -82,96 +77,158 @@ void sense_unix_terminal(void* p0, void* p1) {
     //
     //?? void* fs = (void*) fdopen(*f, "r+");
     void* fs = (void*) stdin;
+    // The file stream with correct type.
+    FILE* fst = (FILE*) fs;
 
     if (fs != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         fwprintf(stdout, L"Test: Sense unix terminal. fs: %i\n", fs);
 
-        //
-        // Get character from source input stream of terminal.
-        //
-        // This is just to detect if some character is available,
-        // what is also called "peeking ahead" at the input.
-        //
-        // CAUTION! The multibyte character is converted to a
-        // wide character internally in glibc function "fgetwc".
-        //
-        // CAUTION! Use 'wint_t' instead of 'int' as return type for
-        // 'fgetwc()', since that returns 'WEOF' instead of 'EOF'!
-        //
-        // CAUTION! The return value of type "wint_t"
-        // MAY BE CASTED to "wchar_t".
-        //
-        // CAUTION! Do NOT use function "fgetwc_unlocked",
-        // since it is a gnu extension and may not exist everywhere.
-        //
-        // CAUTION! Do NOT use the function "read", which is lower-level
-        // and may even be a system call directly into the OS.
-        // Furthermore, it is NOT standard C, but part of POSIX.
-        //
-        wint_t c = fgetwc((FILE*) fs);
+        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        fwprintf(stdout, L"Test: Sense unix terminal. c: %i\n", c);
+            mtx_t* m = (mtx_t*) p2;
 
-        //
-        // The WEOF constant usually corresponds to the value: -1
-        //
-        // CAUTION! However, do NOT compare like the following:
-        // if (c < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-        // The reason is that wint_t and int comparison might deliver
-        // wrong results, so that an input is mistakenly assumed below.
-        //
-        if (c != WEOF) {
+            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            //
-            // Unread character, that is push it back on the stream to
-            // make it available to be input again from the stream, by the
-            // next call to fgetc or another input function on that stream.
-            //
-            // If c is EOF, ungetc does nothing and just returns EOF.
-            // This lets you call ungetc with the return value of getc
-            // without needing to check for an error from getc.
-            //
-            // The character that you push back doesn't have to be the same
-            // as the last character that was actually read from the stream.
-            // In fact, it isn't necessary to actually read any characters
-            // from the stream before unreading them with ungetc!
-            // But that is a strange way to write a program;
-            // usually ungetc is used only to unread a character that was
-            // just read from the same stream.
-            //
-            // The GNU C library only supports ONE character of pushback.
-            // In other words, it does not work to call ungetc twice without
-            // doing input in between.
-            // Other systems might let you push back multiple characters;
-            // then reading from the stream retrieves the characters in the
-            // reverse order that they were pushed.
-            //
-            // Pushing back characters doesn't alter the file;
-            // only the internal buffering for the stream is affected.
-            // If a file positioning function (such as fseek, fseeko or rewind)
-            // is called, any pending pushed-back characters are discarded.
-            //
-            // Unreading a character on a stream that is at end of file
-            // clears the end-of-file indicator for the stream, because it
-            // makes the character of input available.
-            // After you read that character, trying to read again will
-            // encounter end of file.
-            //
-            ungetwc(c, (FILE*) fs);
+                //
+                // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
+                // Otherwise, it would produce huge log files filled up with useless entries.
+                // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense unix terminal.");
+                //
+
+                fwprintf(stdout, L"Test: Sense unix terminal. p0: %i\n", p0);
+
+                //
+                // Lock mutex.
+                //
+                // CAUTION! This function call blocks the current thread
+                // until the mutex is locked.
+                //
+                // CAUTION! This guarantees exclusive access to
+                // input/output resources as well as the interrupt request,
+                // which are shared between input sensing (child) threads
+                // and the main (parent) thread.
+                //
+                // CAUTION! Not all input/output channels use sensing threads.
+                // Sometimes, the main thread is the only one accessing resources.
+                // However, in order to have a uniform implementation,
+                // a mutex exists for all channels and it does no harm
+                // to lock it here even if only the main thread accesses it.
+                //
+                mtx_lock(m);
+
+                //
+                // Get character from source input stream of terminal.
+                //
+                // This is just to detect if some character is available,
+                // what is also called "peeking ahead" at the input.
+                //
+                // CAUTION! The multibyte character is converted to a
+                // wide character internally in glibc function "fgetwc".
+                //
+                // CAUTION! Use 'wint_t' instead of 'int' as return type for
+                // 'fgetwc()', since that returns 'WEOF' instead of 'EOF'!
+                //
+                // CAUTION! The return value of type "wint_t"
+                // MAY BE CASTED to "wchar_t".
+                //
+                // CAUTION! Do NOT use function "fgetwc_unlocked",
+                // since it is a gnu extension and may not exist everywhere.
+                //
+                // CAUTION! Do NOT use the function "read", which is lower-level
+                // and may even be a system call directly into the OS.
+                // Furthermore, it is NOT standard C, but part of POSIX.
+                //
+                wint_t c = fgetwc(fst);
+
+                fwprintf(stdout, L"Test: Sense unix terminal. c: %i\n", c);
+
+                //
+                // The WEOF constant usually corresponds to the value: -1
+                //
+                // CAUTION! However, do NOT compare like the following:
+                // if (c < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                // The reason is that wint_t and int comparison might deliver
+                // wrong results, so that an input is mistakenly assumed below.
+                //
+                if (c != WEOF) {
+
+                    //
+                    // Unread character, that is push it back on the stream to
+                    // make it available to be input again from the stream, by the
+                    // next call to fgetc or another input function on that stream.
+                    //
+                    // If c is EOF, ungetc does nothing and just returns EOF.
+                    // This lets you call ungetc with the return value of getc
+                    // without needing to check for an error from getc.
+                    //
+                    // The character that you push back doesn't have to be the same
+                    // as the last character that was actually read from the stream.
+                    // In fact, it isn't necessary to actually read any characters
+                    // from the stream before unreading them with ungetc!
+                    // But that is a strange way to write a program;
+                    // usually ungetc is used only to unread a character that was
+                    // just read from the same stream.
+                    //
+                    // The GNU C library only supports ONE character of pushback.
+                    // In other words, it does not work to call ungetc twice without
+                    // doing input in between.
+                    // Other systems might let you push back multiple characters;
+                    // then reading from the stream retrieves the characters in the
+                    // reverse order that they were pushed.
+                    //
+                    // Pushing back characters doesn't alter the file;
+                    // only the internal buffering for the stream is affected.
+                    // If a file positioning function (such as fseek, fseeko or rewind)
+                    // is called, any pending pushed-back characters are discarded.
+                    //
+                    // Unreading a character on a stream that is at end of file
+                    // clears the end-of-file indicator for the stream, because it
+                    // makes the character of input available.
+                    // After you read that character, trying to read again will
+                    // encounter end of file.
+                    //
+                    ungetwc(c, fst);
 
 /*??
-            //?? TEST BEGIN
-            wint_t test = fgetwc((FILE*) fs);
-            fwprintf(stdout, L"TEST sense unix terminal c SECOND READING: %lc\n", c);
-            ungetwc(test, (FILE*) fs);
-            test = fgetwc((FILE*) fs);
-            fwprintf(stdout, L"TEST sense unix terminal c THIRD READING: %lc\n", c);
-            ungetwc(test, (FILE*) fs);
-            //?? TEST END
+                    //?? TEST BEGIN
+                    wint_t test = fgetwc(fst);
+                    fwprintf(stdout, L"TEST sense unix terminal c SECOND READING: %lc\n", c);
+                    ungetwc(test, fst);
+                    test = fgetwc(fst);
+                    fwprintf(stdout, L"TEST sense unix terminal c THIRD READING: %lc\n", c);
+                    ungetwc(test, fst);
+                    //?? TEST END
 */
 
-            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                    // Set interrupt request.
+                    copy_integer(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                }
+
+                // Unlock mutex.
+                mtx_unlock(m);
+
+                // Set data available flag to the value of interrupt request.
+                copy_integer(p0, p1);
+
+            } else {
+
+                //
+                // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
+                // Otherwise, it would produce huge log files filled up with useless entries.
+                //
+                // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal. The interrupt request is null.");
+                fwprintf(stdout, L"Error: Could not sense unix terminal. The interrupt request is null.\n");
+            }
+
+        } else {
+
+            //
+            // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
+            // Otherwise, it would produce huge log files filled up with useless entries.
+            //
+            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal. The mutex is null.");
+            fwprintf(stdout, L"Error: Could not sense unix terminal. The mutex is null.\n");
         }
 
     } else {

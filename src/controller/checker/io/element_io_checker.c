@@ -42,10 +42,10 @@
 /**
  * Checks input output entry data.
  *
- * @param p0 the input/output flag
+ * @param p0 the io flag
  * @param p1 the internal memory data
  * @param p2 the input/output base
- * @param p3 the service identification
+ * @param p3 the service identification (e.g. port)
  * @param p4 the channel
  */
 void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
@@ -63,6 +63,8 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get input/output entry.
     get_internal_memory_element((void*) &io, p1, p2, p3);
 
+    //?? fwprintf(stdout, L"Test: Check io element. io: %i\n", io);
+
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
@@ -71,19 +73,21 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         // The enable flag.
         void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The comparison result.
-        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        // The enable flag comparison result.
+        int er = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         // Get enable flag from input/output entry.
         copy_array_forward((void*) &e, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Compare enable flag.
-        compare_integer_unequal((void*) &r, e, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        compare_integer_unequal((void*) &er, e, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (er != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // The enable flag is set, i.e. the service is active.
+            // The enable flag is set.
             //
+
+            //?? fwprintf(stdout, L"Test: Check irq element. er: %i\n", er);
 
             check_io_sense(p0, io, p4);
         }

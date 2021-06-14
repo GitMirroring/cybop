@@ -41,7 +41,7 @@
 /**
  * Senses channels for new data.
  *
- * @param p0 the input/output flag
+ * @param p0 the io flag
  * @param p1 the input/output entry
  * @param p2 the channel
  */
@@ -74,37 +74,8 @@ void check_io_sense(void* p0, void* p1, void* p2) {
         // This is another channel, e.g. serial, terminal, display.
         //
 
-        //
-        // The data available flag.
-        //
-        // CAUTION! It is actually the data count being returned.
-        // Any value greater than zero means that data are available.
-        //
-        int f = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
         // Sense data available.
-        sense((void*) &f, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2);
-
-        //?? fwprintf(stdout, L"Test: Check io sense. f: %i\n", f);
-
-        if (f > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-            //
-            // There ARE data available on the client.
-            //
-
-            // The interrupt request flag.
-            void* irq = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-            // Get interrupt request flag from input/output entry.
-            copy_array_forward((void*) &irq, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-            // Set interrupt request flag into input/output entry.
-            copy_integer(irq, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-            // Set input/output flag.
-            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
+        sense(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2);
     }
 }
 

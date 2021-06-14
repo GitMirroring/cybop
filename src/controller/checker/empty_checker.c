@@ -40,7 +40,7 @@
 
 /**
  * Handles the situation that no signal is available in the signal memory
- * and queries interrupts instead.
+ * and queries interrupt requests instead.
  *
  * @param p0 the internal memory data
  * @param p1 the signal memory item
@@ -50,7 +50,7 @@ void check_empty(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check empty.");
 
-    // The interrupt.
+    // The irq flag.
     int irq = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The signal part representing the interrupt request handler.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -59,8 +59,9 @@ void check_empty(void* p0, void* p1, void* p2) {
 
     //
     // The signal memory is empty, so that the cyboi system
-    // may check for new interrupt requests now.
+    // may check for interrupt requests now.
     //
+    //?? TODO: Is the following comment possibly OUTDATED?
     // CAUTION! This code section also covers the situation
     // when a new signal has been placed in signal memory
     // just after it was checked to be empty.

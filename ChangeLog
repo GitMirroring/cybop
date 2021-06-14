@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-06-14  Christian Heller  <christian.heller@cybop.org>
+
+        * Implement mutex in terminal reader
+        * Clean up files related to "check_irq" and "check_io", in order to sense available data
+
 2021-06-13  Christian Heller  <christian.heller@cybop.org>
 
         * Change type of integer values to pointer in input/output channel files
@@ -25,6 +30,7 @@
 
 2021-06-12  Christian Heller  <christian.heller@cybop.org>
 
+        * Provide faster access to interrupt request by holding it as pointer, so that the input/output entry does not have to be accessed everytime
         * Replace input/output entry compound structure with standard pointer array
         * Delete constant "IO_ENTRY_STATE_CYBOI_TYPE" from file "state_cyboi_type.c" and replace it with constant "POINTER_STATE_CYBOI_TYPE"
         * Adapt files "io_starter.c" and "io_shutter.c" accordingly

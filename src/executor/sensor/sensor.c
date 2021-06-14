@@ -29,7 +29,15 @@
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/accessor/getter/internal_memory_getter.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../executor/copier/array_copier.c"
 #include "../../executor/sensor/display/display_sensor.c"
 #include "../../executor/sensor/serial_port/serial_port_sensor.c"
 #include "../../executor/sensor/socket/socket_sensor.c"
@@ -49,17 +57,27 @@
  *
  * @param p0 the data available flag
  * @param p1 the sender client (client socket id)
- * @param p2 the input/output entry (containing e.g. display connexion, event, file descriptor)
+ * @param p2 the input/output entry
  * @param p3 the channel
  */
 void sense(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense.");
 
-    //?? fwprintf(stdout, L"Test: Sense. channel p3: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"Test: Sense. channel p3: %i\n", p3);
+    //?? fwprintf(stdout, L"Test: Sense. channel *p3: %i\n", *((int*) p3));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The interrupt request.
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The mutex.
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Get interrupt request from input/output entry.
+    copy_array_forward((void*) &i, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get mutex from input/output entry.
+    copy_array_forward((void*) &m, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -97,7 +115,7 @@ void sense(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            sense_terminal(p0, p2);
+            sense_terminal(p0, i, m, p2);
         }
     }
 

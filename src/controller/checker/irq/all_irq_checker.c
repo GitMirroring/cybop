@@ -38,26 +38,30 @@
 /**
  * Checks input/output for data.
  *
- * @param p0 the comparison result
- * @param p1 the interrupt request
- * @param p2 the handler (pointer reference)
- * @param p3 the internal memory data
- * @param p4 the input/output base
- * @param p5 the loop count
+ * @param p0 the irq flag
+ * @param p1 the handler (pointer reference)
+ * @param p2 the internal memory data
+ * @param p3 the input/output base
+ * @param p4 the loop count
  */
-void check_irq_all(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void check_irq_all(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check irq all.");
 
-    //?? fwprintf(stdout, L"Test: check irq all loop count p5: %i\n", p5);
-    //?? fwprintf(stdout, L"Test: check irq all loop count *p5: %i\n", *((int*) p5));
+    //?? fwprintf(stdout, L"Test: check irq all loop count p4: %i\n", p4);
+    //?? fwprintf(stdout, L"Test: check irq all loop count *p4: %i\n", *((int*) p4));
 
+    //
     // The break flag.
+    //
+    // CAUTION! It has to be kept separately from the interrupt request flag
+    // since the loop has to be left even if no interrupt is set.
+    //
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    if (p5 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p4 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
         // CAUTION! If the loop count handed over as parametre is NULL,
@@ -73,14 +77,22 @@ void check_irq_all(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p5);
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p4);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }
 
-        check_irq_element(p0, p1, p2, p3, p4, (void*) &j, (void*) &b);
+        check_irq_element(p0, p1, p2, p3, (void*) &j);
+
+        //
+        // Set break flag if irq flag was set inside.
+        //
+        // CAUTION! It is NOT useful to check any other channels,
+        // but rather save processing time for more efficiency.
+        //
+        compare_integer_unequal((void*) &b, p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         // Increment loop variable.
         j++;

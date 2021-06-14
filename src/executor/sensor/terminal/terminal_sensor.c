@@ -27,10 +27,6 @@
 #define TERMINAL_SENSOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
@@ -48,19 +44,21 @@
  * Senses terminal messages.
  *
  * @param p0 the data available flag
- * @param p1 the input/output entry (containing e.g. file descriptor)
+ * @param p1 the interrupt request
+ * @param p2 the mutex
+ * @param p3 the input/output entry
  */
-void sense_terminal(void* p0, void* p1) {
+void sense_terminal(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense terminal.");
 
 #if defined(__linux__) || defined(__unix__)
-    sense_unix_terminal(p0, p1);
+    sense_unix_terminal(p0, p1, p2, p3);
 #elif defined(__APPLE__) && defined(__MACH__)
-    sense_unix_terminal(p0, p1);
+    sense_unix_terminal(p0, p1, p2, p3);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    sense_win32_console(p0, p1);
+    sense_win32_console(p0, p1, p2, p3);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif

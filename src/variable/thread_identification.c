@@ -23,21 +23,42 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef THREAD_TYPE_SIZE_GLOBALISER_SOURCE
-#define THREAD_TYPE_SIZE_GLOBALISER_SOURCE
+#ifndef THREAD_IDENTIFICATION_SOURCE
+#define THREAD_IDENTIFICATION_SOURCE
 
-#include <threads.h> // thrd_t, mtx_t
+#include <pthread.h>
 
-#include "../../../variable/type_size/thread_type_size.c"
+//
+// The global variables.
+//
+// CAUTION! This is just the variable definition.
+// Initialisation happens in directory "controller/globaliser/".
+//
 
 /**
- * Initialises thread type size global variables.
+ * The empty default thread.
+ *
+ * CAUTION! It is used for comparison only,
+ * in order to find out whether or not
+ * a thread was created already.
  */
-void globalise_type_size_thread() {
+static pthread_t DEFAULT_THREAD;
 
-    *THREAD_TYPE_SIZE = sizeof (thrd_t);
-    *MUTEX_THREAD_TYPE_SIZE = sizeof (mtx_t);
-}
+/** The display thread. */
+static pthread_t DISPLAY_THREAD_ARRAY[1];
+static pthread_t* DISPLAY_THREAD = DISPLAY_THREAD_ARRAY;
 
-/* THREAD_TYPE_SIZE_GLOBALISER_SOURCE */
+/** The serial thread. */
+static pthread_t SERIAL_THREAD_ARRAY[1];
+static pthread_t* SERIAL_THREAD = SERIAL_THREAD_ARRAY;
+
+/** The socket service thread. */
+static pthread_t SOCKET_THREAD_ARRAY[1];
+static pthread_t* SOCKET_THREAD = SOCKET_THREAD_ARRAY;
+
+/** The terminal thread. */
+static pthread_t TERMINAL_THREAD_ARRAY[1];
+static pthread_t* TERMINAL_THREAD = TERMINAL_THREAD_ARRAY;
+
+/* THREAD_IDENTIFICATION_SOURCE */
 #endif

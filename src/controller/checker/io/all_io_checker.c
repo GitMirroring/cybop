@@ -83,7 +83,7 @@ void check_io_all(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // Set break flag if io flag was set inside.
         //
         // CAUTION! It is NOT useful to check any other channels,
-        // if data have been detected on one already.
+        // but rather save processing time for more efficiency.
         //
         compare_integer_unequal((void*) &b, p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 

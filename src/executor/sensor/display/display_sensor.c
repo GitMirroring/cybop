@@ -44,7 +44,7 @@
  * Senses display messages.
  *
  * @param p0 the data available flag
- * @param p1 the input/output entry (containing e.g. display connexion, event)
+ * @param p1 the input/output entry
  */
 void sense_display(void* p0, void* p1) {
 

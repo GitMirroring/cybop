@@ -26,7 +26,7 @@
 #ifndef IO_SHUTTER_SOURCE
 #define IO_SHUTTER_SOURCE
 
-#include <threads.h>
+#include <threads.h> // mtx_t, mtx_destroy
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -84,28 +84,28 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
 
             // The enable flag.
             void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The mutex.
-            void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The interrupt request.
             void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The mutex.
+            void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The sender identification.
             void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Get enable flag from input/output entry.
             copy_array_forward((void*) &e, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
-            // Get mutex from input/output entry.
-            copy_array_forward((void*) &m, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
             // Get interrupt request from input/output entry.
             copy_array_forward((void*) &i, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            // Get mutex from input/output entry.
+            copy_array_forward((void*) &m, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
             // Get sender identification from input/output entry.
             copy_array_forward((void*) &s, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SENDER_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             // Reset enable flag in input/output entry.
             copy_array_forward(*io, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            // Reset mutex in input/output entry.
-            copy_array_forward(*io, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             // Reset interrupt request in input/output entry.
             copy_array_forward(*io, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            // Reset mutex in input/output entry.
+            copy_array_forward(*io, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             // Reset sender identification in input/output entry.
             copy_array_forward(*io, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SENDER_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
@@ -123,14 +123,6 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
             //
             deallocate_array((void*) &e, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
             //
-            // Deallocate mutex.
-            //
-            // CAUTION! The second argument "count" is NULL,
-            // since it is only needed for looping elements of type PART,
-            // in order to decrement the rubbish (garbage) collection counter.
-            //
-            deallocate_array((void*) &m, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
-            //
             // Deallocate interrupt request.
             //
             // CAUTION! The second argument "count" is NULL,
@@ -138,6 +130,14 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
             // in order to decrement the rubbish (garbage) collection counter.
             //
             deallocate_array((void*) &i, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            //
+            // Deallocate mutex.
+            //
+            // CAUTION! The second argument "count" is NULL,
+            // since it is only needed for looping elements of type PART,
+            // in order to decrement the rubbish (garbage) collection counter.
+            //
+            deallocate_array((void*) &m, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
             //
             // Deallocate sender identification.
             //

@@ -26,7 +26,7 @@
 #ifndef MUTEX_THREAD_SYMBOLIC_NAME_GLOBALISER_SOURCE
 #define MUTEX_THREAD_SYMBOLIC_NAME_GLOBALISER_SOURCE
 
-#include <threads.h>
+#include <threads.h> // mtx_*
 
 #include "../../../variable/symbolic_name/mutex_thread_symbolic_name.c"
 
