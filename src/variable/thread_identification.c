@@ -26,7 +26,7 @@
 #ifndef THREAD_IDENTIFICATION_SOURCE
 #define THREAD_IDENTIFICATION_SOURCE
 
-#include <pthread.h>
+#include <threads.h>
 
 //
 // The global variables.
@@ -36,29 +36,29 @@
 //
 
 /**
- * The empty default thread.
+ * The empty default thread identification.
  *
  * CAUTION! It is used for comparison only,
  * in order to find out whether or not
  * a thread was created already.
  */
-static pthread_t DEFAULT_THREAD;
+static thrd_t DEFAULT_THREAD_IDENTIFICATION;
 
-/** The display thread. */
-static pthread_t DISPLAY_THREAD_ARRAY[1];
-static pthread_t* DISPLAY_THREAD = DISPLAY_THREAD_ARRAY;
+/** The display thread identification. */
+static thrd_t DISPLAY_THREAD_IDENTIFICATION_ARRAY[1];
+static thrd_t* DISPLAY_THREAD_IDENTIFICATION = DISPLAY_THREAD_IDENTIFICATION_ARRAY;
 
-/** The serial thread. */
-static pthread_t SERIAL_THREAD_ARRAY[1];
-static pthread_t* SERIAL_THREAD = SERIAL_THREAD_ARRAY;
+/** The serial thread identification. */
+static thrd_t SERIAL_THREAD_IDENTIFICATION_ARRAY[1];
+static thrd_t* SERIAL_THREAD_IDENTIFICATION = SERIAL_THREAD_IDENTIFICATION_ARRAY;
 
-/** The socket service thread. */
-static pthread_t SOCKET_THREAD_ARRAY[1];
-static pthread_t* SOCKET_THREAD = SOCKET_THREAD_ARRAY;
+/** The socket service thread identification. */
+static thrd_t SOCKET_THREAD_IDENTIFICATION_ARRAY[1];
+static thrd_t* SOCKET_THREAD_IDENTIFICATION = SOCKET_THREAD_IDENTIFICATION_ARRAY;
 
-/** The terminal thread. */
-static pthread_t TERMINAL_THREAD_ARRAY[1];
-static pthread_t* TERMINAL_THREAD = TERMINAL_THREAD_ARRAY;
+/** The terminal thread identification. */
+static thrd_t TERMINAL_THREAD_IDENTIFICATION_ARRAY[1];
+static thrd_t* TERMINAL_THREAD_IDENTIFICATION = TERMINAL_THREAD_IDENTIFICATION_ARRAY;
 
 /* THREAD_IDENTIFICATION_SOURCE */
 #endif

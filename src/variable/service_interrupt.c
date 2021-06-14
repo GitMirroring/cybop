@@ -33,21 +33,21 @@
 // Initialisation happens in directory "controller/globaliser/".
 //
 
-/** The display exit flag. */
-static int DISPLAY_EXIT_ARRAY[1];
-static int* DISPLAY_EXIT = DISPLAY_EXIT_ARRAY;
+/** The display service interrupt flag. */
+static int DISPLAY_SERVICE_INTERRUPT_ARRAY[1];
+static int* DISPLAY_SERVICE_INTERRUPT = DISPLAY_SERVICE_INTERRUPT_ARRAY;
 
-/** The serial exit flag. */
-static int SERIAL_EXIT_ARRAY[1];
-static int* SERIAL_EXIT = SERIAL_EXIT_ARRAY;
+/** The serial service interrupt flag. */
+static int SERIAL_SERVICE_INTERRUPT_ARRAY[1];
+static int* SERIAL_SERVICE_INTERRUPT = SERIAL_SERVICE_INTERRUPT_ARRAY;
 
-/** The socket exit flag. */
-static int SOCKET_EXIT_ARRAY[1];
-static int* SOCKET_EXIT = SOCKET_EXIT_ARRAY;
+/** The socket service interrupt flag. */
+static int SOCKET_SERVICE_INTERRUPT_ARRAY[1];
+static int* SOCKET_SERVICE_INTERRUPT = SOCKET_SERVICE_INTERRUPT_ARRAY;
 
-/** The terminal exit flag. */
-static int TERMINAL_EXIT_ARRAY[1];
-static int* TERMINAL_EXIT = TERMINAL_EXIT_ARRAY;
+/** The terminal service interrupt flag. */
+static int TERMINAL_SERVICE_INTERRUPT_ARRAY[1];
+static int* TERMINAL_SERVICE_INTERRUPT = TERMINAL_SERVICE_INTERRUPT_ARRAY;
 
 /* SERVICE_INTERRUPT_SOURCE */
 #endif

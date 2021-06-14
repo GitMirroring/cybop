@@ -14,6 +14,16 @@
 Input Threads
 _____________
 
+        * Reintroduce threads for detecting available input data (they had been eliminated in year 2018)
+            input stream is everywhere correct but input via "fgetwc" does always return -1
+            therefore, multi-threading is necessary for terminal input
+        * Reactivate system signal as notification to end a thread
+        * Use source code backup in directory "todo_thread" and delete afterwards
+        * Search for and replace old "pthread_t" string in all source code
+
+        * Integrate locking and unlocking of mutex in affected input/output channels
+            also for channel display, in order to avoid detection of (already detected) data by the sensor thread while processing an event
+            also for channel socket, in order to avoid detection of (already detected) data by the sensor thread in the midth of receiving them
         * Implement mutex in terminal sensor + test terminal cybol application
         * Implement mutex in terminal writer
         * Implement mutex in socket reader and writer
@@ -25,18 +35,6 @@ _____________
         CAUTION!
         * Read data AND reset irq TOGETHER in one block locked by a mutex --> only then race conditions between sensing- and main thread can be avoided
         * Reset irq where reading/writing occures and NOT in file "element_irq_checker.c"
-
-        * Integrate locking and unlocking of mutex in affected input/output channels
-            also for channel display, in order to avoid detection of (already detected) data by the sensor thread while processing an event
-            also for channel socket, in order to avoid detection of (already detected) data by the sensor thread in the midth of receiving them
-        * Reintroduce threads for detecting available input data (they had been eliminated in year 2018)
-            input stream is everywhere correct but input via "fgetwc" does always return -1
-            therefore, multi-threading is necessary for terminal input
-        * Reactivate system signal as notification to end a thread
-        * Use source code backup in directory "todo_thread" and delete afterwards
-
-        * Think through processing of events "check" loop mechanism
-        * Search for and replace old "pthread_t" string in all source code
 
         * Eliminate blocking flag from terminal and possibly other channels
 

@@ -22,6 +22,7 @@
 
         * Implement mutex in terminal reader
         * Clean up files related to "check_irq" and "check_io", in order to sense available data
+        * Reintroduce threads for detecting available input data (they had been eliminated in year 2018)
 
 2021-06-13  Christian Heller  <christian.heller@cybop.org>
 
