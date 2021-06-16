@@ -29,6 +29,7 @@
             (b) a flag frequently tested in the thread's endless loop does not work either, if using blocking calls of input functions
         * Decide that sensing threads may run until a cybol application process exits normally
         * Live with the fact that as a result, the cybol operation "maintain/shutdown" does currently not work
+        * Add directory "executor/threader/" with "spinner" and "cutter"
 
 2021-06-14  Christian Heller  <christian.heller@cybop.org>
 

@@ -14,14 +14,11 @@
 Input Threads
 _____________
 
-        * Add directory "executor/threader/" with "spinner" and "cutter"
-
         * Reintroduce threads for detecting available input data
             input stream is everywhere correct but input via "fgetwc" does always return -1
             therefore, multi-threading is necessary for terminal input
             DONE: terminal
             TODO: other channels
-        * Use source code backup in directory "todo_thread" and delete afterwards
         * Search for and replace old "pthread_t" string in all source code
 
         * Integrate locking and unlocking of mutex in affected input/output channels
@@ -109,7 +106,6 @@ ______________
 
         * Reactivate separate sensing thread with blocking "read" call on socket
             see thoughts formulated in chapter "Client-Server Communication via TCP Socket" of file "doc/development/cyboi/design_decisions.txt"
-            see backup directory "todo_thread" and read its file "readme-hint.txt"
         * Use option "MSG_PEEK" with function "recv" for sensing data
             see: gnu_-_c_library.html#Socket-Data-Options
 
