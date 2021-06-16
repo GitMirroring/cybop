@@ -104,6 +104,13 @@ static int* INTEGER_NUMBER_STATE_CYBOI_TYPE = NUMBER_34_INTEGER_STATE_CYBOI_MODE
 static int* LONG_LONG_INTEGER_NUMBER_STATE_CYBOI_TYPE = NUMBER_35_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
+// signal
+//
+
+/** The atomic signal state cyboi type. */
+static int* ATOMIC_SIGNAL_STATE_CYBOI_TYPE = NUMBER_40_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
 // pointer
 //
 
@@ -137,8 +144,8 @@ static int* WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE = NUMBER_71_INTEGER_STATE_CYBOI
 // thread
 //
 
-/** The thread state cyboi type. */
-static int* THREAD_STATE_CYBOI_TYPE = NUMBER_80_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The identification thread state cyboi type. */
+static int* IDENTIFICATION_THREAD_STATE_CYBOI_TYPE = NUMBER_80_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The mutex thread state cyboi type. */
 static int* MUTEX_THREAD_STATE_CYBOI_TYPE = NUMBER_81_INTEGER_STATE_CYBOI_MODEL_ARRAY;

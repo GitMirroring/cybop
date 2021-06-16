@@ -20,7 +20,9 @@
 
 2021-06-16  Christian Heller  <christian.heller@cybop.org>
 
+        * Reintroduce system signal handling as notification to exit a thread
         * Add files "thread_identification_globaliser.c", "service_interrupt_globaliser.c", "mutex_thread_symbolic_name_globaliser.c"
+        * Add file "system_signal_handler_startup_manager.c"
 
 2021-06-14  Christian Heller  <christian.heller@cybop.org>
 

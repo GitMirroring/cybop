@@ -33,11 +33,11 @@
 // Initialisation happens in directory "controller/globaliser/".
 //
 
-/** The pthread_t thread type size. */
-static int THREAD_TYPE_SIZE_ARRAY[1];
-static int* THREAD_TYPE_SIZE = THREAD_TYPE_SIZE_ARRAY;
+/** The identification thread type size. */
+static int IDENTIFICATION_THREAD_TYPE_SIZE_ARRAY[1];
+static int* IDENTIFICATION_THREAD_TYPE_SIZE = IDENTIFICATION_THREAD_TYPE_SIZE_ARRAY;
 
-/** The pthread_mutex_t thread type size. */
+/** The mutex thread type size. */
 static int MUTEX_THREAD_TYPE_SIZE_ARRAY[1];
 static int* MUTEX_THREAD_TYPE_SIZE = MUTEX_THREAD_TYPE_SIZE_ARRAY;
 

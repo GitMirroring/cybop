@@ -23,16 +23,15 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SYSTEM_SIGNAL_HANDLER_MANAGER_SOURCE
-#define SYSTEM_SIGNAL_HANDLER_MANAGER_SOURCE
+#ifndef SYSTEM_SIGNAL_HANDLER_STARTUP_MANAGER_SOURCE
+#define SYSTEM_SIGNAL_HANDLER_STARTUP_MANAGER_SOURCE
 
-#include <pthread.h>
-#include <signal.h>
+#include <signal.h> // SIGIO, SIGUSR1, sigset_t, struct sigaction, sigemptyset, sigaddset
+#include <threads.h> // thrd_t, thrd_exit
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../logger/logger.c"
 #include "../../variable/service_interrupt.c"
@@ -41,7 +40,7 @@
 /**
  * Reacts to an interrupt service system signal.
  *
- * Services run in a separate thread each, for example:
+ * Services run in a separate thread each, for:
  * - display
  * - serial port
  * - socket
@@ -56,7 +55,9 @@ void interrupt_service_system_signal_handler(int p0) {
 #ifdef WIN32
 #else
     // This thread itself.
-    pthread_t t = pthread_self();
+    thrd_t t = thrd_current();
+    // The result.
+    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 /*??
     // This thread's identification.
     pthread_id_np_t id;
@@ -68,29 +69,29 @@ void interrupt_service_system_signal_handler(int p0) {
     //?? pthread_id_np_t id = pthread_getthreadid_np();
 */
 
-    //?? fwprintf(stdout, L"Test: signal handler thread t: %l\n", t);
+    //?? fwprintf(stdout, L"Test: Interrupt service system signal handler. thread t: %l\n", t);
 
-    if (t == *DISPLAY_THREAD) {
+    if (t == *DISPLAY_THREAD_IDENTIFICATION) {
 
-        //?? fwprintf(stdout, L"Test: signal handler x window system %i\n", p0);
+        //?? fwprintf(stdout, L"Test: Interrupt service system signal handler. display %l\n", t);
 
-        if (*DISPLAY_EXIT != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (*DISPLAY_SERVICE_INTERRUPT != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? fwprintf(stdout, L"Test: signal handler x window system irq %i\n", p0);
+            //?? fwprintf(stdout, L"Test: Interrupt service system signal handler. display exit p0: %i\n", p0);
 
             //
             // Terminate the calling thread.
             //
-            // The parametre handed over is the return value
-            // that (if the thread is joinable) is available
-            // to another thread in the same process that calls pthread_join(3).
+            // The parametre handed over is the return value that
+            // (if the thread is joinable) is available to another thread
+            // in the same process that calls pthread_join(3).
             // Since this is not needed here, NULL is handed over as value.
             //
-            pthread_exit(*NULL_POINTER_STATE_CYBOI_MODEL);
+            thrd_exit(r);
 
             //
             // CAUTION! The thread CANNOT be reset here with:
-            // *DISPLAY_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+            // *DISPLAY_THREAD_IDENTIFICATION = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
             // because this line would NOT be reached anymore,
             // after "pthread_exit" has been called above!
             //
@@ -100,13 +101,13 @@ void interrupt_service_system_signal_handler(int p0) {
         }
     }
 
-    if (t == *SERIAL_THREAD) {
+    if (t == *SERIAL_THREAD_IDENTIFICATION) {
 
-        //?? fwprintf(stdout, L"Test: signal handler serial %i\n", p0);
+        //?? fwprintf(stdout, L"Test: Interrupt service system signal handler. serial %l\n", t);
 
-        if (*SERIAL_EXIT != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (*SERIAL_SERVICE_INTERRUPT != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? fwprintf(stdout, L"Test: signal handler serial irq %i\n", p0);
+            //?? fwprintf(stdout, L"Test: Interrupt service system signal handler. serial exit p0: %i\n", p0);
 
             //
             // Terminate the calling thread.
@@ -116,11 +117,11 @@ void interrupt_service_system_signal_handler(int p0) {
             // to another thread in the same process that calls pthread_join(3).
             // Since this is not needed here, NULL is handed over as value.
             //
-            pthread_exit(*NULL_POINTER_STATE_CYBOI_MODEL);
+            thrd_exit(r);
 
             //
             // CAUTION! The thread CANNOT be reset here with:
-            // *SERIAL_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+            // *SERIAL_THREAD_IDENTIFICATION = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
             // because this line would NOT be reached anymore,
             // after "pthread_exit" has been called above!
             //
@@ -130,13 +131,13 @@ void interrupt_service_system_signal_handler(int p0) {
         }
     }
 
-    if (t == *SOCKET_THREAD) {
+    if (t == *SOCKET_THREAD_IDENTIFICATION) {
 
-        //?? fwprintf(stdout, L"Test: signal handler www service %i\n", p0);
+        //?? fwprintf(stdout, L"Test: Interrupt service system signal handler. socket %l\n", t);
 
-        if (*SOCKET_EXIT != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (*SOCKET_SERVICE_INTERRUPT != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? fwprintf(stdout, L"Test: signal handler www service irq %i\n", p0);
+            //?? fwprintf(stdout, L"Test: Interrupt service system signal handler. socket exit p0: %i\n", p0);
 
             //
             // Terminate the calling thread.
@@ -146,11 +147,11 @@ void interrupt_service_system_signal_handler(int p0) {
             // to another thread in the same process that calls pthread_join(3).
             // Since this is not needed here, NULL is handed over as value.
             //
-            pthread_exit(*NULL_POINTER_STATE_CYBOI_MODEL);
+            thrd_exit(r);
 
             //
             // CAUTION! The thread CANNOT be reset here with:
-            // *SOCKET_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+            // *SOCKET_THREAD_IDENTIFICATION = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
             // because this line would NOT be reached anymore,
             // after "pthread_exit" has been called above!
             //
@@ -160,13 +161,13 @@ void interrupt_service_system_signal_handler(int p0) {
         }
     }
 
-    if (t == *TERMINAL_THREAD) {
+    if (t == *TERMINAL_THREAD_IDENTIFICATION) {
 
-        //?? fwprintf(stdout, L"Test: signal handler terminal %i\n", p0);
+        //?? fwprintf(stdout, L"Test: Interrupt service system signal handler. terminal %l\n", t);
 
-        if (*TERMINAL_EXIT != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (*TERMINAL_SERVICE_INTERRUPT != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? fwprintf(stdout, L"Test: signal handler terminal irq %i\n", p0);
+            //?? fwprintf(stdout, L"Test: Interrupt service system signal handler. terminal exit p0: %i\n", p0);
 
             //
             // Terminate the calling thread.
@@ -176,11 +177,11 @@ void interrupt_service_system_signal_handler(int p0) {
             // to another thread in the same process that calls pthread_join(3).
             // Since this is not needed here, NULL is handed over as value.
             //
-            pthread_exit(*NULL_POINTER_STATE_CYBOI_MODEL);
+            thrd_exit(r);
 
             //
             // CAUTION! The thread CANNOT be reset here with:
-            // *TERMINAL_THREAD = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+            // *TERMINAL_SERVICE_INTERRUPT = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
             // because this line would NOT be reached anymore,
             // after "pthread_exit" has been called above!
             //
@@ -196,16 +197,15 @@ void interrupt_service_system_signal_handler(int p0) {
  * Starts up the system signal handler.
  *
  * CAUTION! Operating system signals are NOT TO BE MIXED UP with cyboi signals!
- * The system signals are used in cyboi to notify and exit threads
- * that served for input/ output and user communication.
- * These threads are not able to exit themselves because they block
- * while waiting for cyboi signals.
+ * The system signals are used in cyboi to notify and exit threads that
+ * served for sensing input. These threads are not able to exit themselves
+ * because they block while waiting for cyboi signals.
  */
-void startup_system_signal_handler() {
+void manage_startup_system_signal_handler() {
 
 #ifdef WIN32
 #else
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup system signal handler.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manage startup system signal handler.");
 
     // The signal set (mask).
     sigset_t mask;
@@ -223,17 +223,12 @@ void startup_system_signal_handler() {
     sigemptyset(&mask);
 
     //
-    // All sigaddset does is to modify the signal set (mask);
-    // it does not block or unblock any signals.
+    // All sigaddset does is to modify the signal set (mask).
+    // It does not block or unblock any signals.
     //
     sigaddset(&mask, SIGIO);
 
-    //
     // Establish signal handler.
-    //
-    // The interrupt_request_handler procedure is located in module:
-    // /controller/checker.c
-    //
     act.sa_handler = interrupt_service_system_signal_handler;
     act.sa_mask = mask;
     act.sa_flags = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -293,5 +288,5 @@ void startup_system_signal_handler() {
 #endif
 }
 
-/* SYSTEM_SIGNAL_HANDLER_MANAGER_SOURCE */
+/* SYSTEM_SIGNAL_HANDLER_STARTUP_MANAGER_SOURCE */
 #endif

@@ -26,8 +26,6 @@
 #ifndef THREAD_IDENTIFICATION_GLOBALISER_SOURCE
 #define THREAD_IDENTIFICATION_GLOBALISER_SOURCE
 
-#include <threads.h>
-
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../variable/type_size/thread_type_size.c"
 #include "../../variable/thread_identification.c"
@@ -41,9 +39,8 @@ void globalise_thread_identification() {
     // Initialise threads.
     //
     // CAUTION! The default thread does NOT get initialised.
-    //
-    // It is left empty ON PURPOSE, since it is used for
-    // comparison only further below.
+    // It is left EMPTY ON PURPOSE, since it is used for
+    // comparison only. See further below!
     //
     // CAUTION! Do NOT assign an integer value here.
     // The threads (pthread) implementation under mingw win32

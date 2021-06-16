@@ -35,7 +35,7 @@
  */
 void globalise_type_size_thread() {
 
-    *THREAD_TYPE_SIZE = sizeof (thrd_t);
+    *IDENTIFICATION_THREAD_TYPE_SIZE = sizeof (thrd_t);
     *MUTEX_THREAD_TYPE_SIZE = sizeof (mtx_t);
 }
 

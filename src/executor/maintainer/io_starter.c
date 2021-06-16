@@ -39,6 +39,77 @@
 #include "../../logger/logger.c"
 #include "../../variable/symbolic_name/mutex_thread_symbolic_name.c"
 
+//
+// Explanation concerning interrupt request flags:
+//
+// Unix system signal handlers that return normally must modify some global
+// variable in order to have any effect. Typically, the variable is one that
+// is examined periodically by the program during normal operation.
+//
+// Whether the data in an application concerns atoms, or mere text, one has to
+// be careful about the fact that access to a single datum is not necessarily
+// atomic. This means that it can take more than one instruction to read or
+// write a single object. In such cases, a signal handler might be invoked in
+// the middle of reading or writing the object.
+// The usage of data types that are always accessed atomically is one way to
+// cope with this problem. Therefore, this flag is of type sig_atomic_t.
+//
+// Reading and writing this data type is guaranteed to happen in a single
+// instruction, so there's no way for a handler to run in the middle of an access.
+// The type sig_atomic_t is always an integer data type, but which one it is,
+// and how many bits it contains, may vary from machine to machine.
+// In practice, one can assume that int and other integer types no longer than
+// int are atomic, that is objects of this type are always accessed atomically.
+// One can also assume that pointer types are atomic; that is very convenient.
+// Both of these assumptions are true on all of the machines that the GNU C
+// library supports and on all known POSIX systems.
+//
+// Why is the keyword "volatile" used here?
+//
+// In the following example, the code sets the value stored in "foo" to 0.
+// It then starts to poll that value repeatedly until it changes to 255:
+//
+// static int foo;
+// void bar(void) {
+//     foo = 0;
+//     while (foo != 255);
+// }
+//
+// An optimizing compiler will notice that no other code can possibly
+// change the value stored in "foo", and will assume that it will
+// remain equal to "0" at all times. The compiler will therefore
+// replace the function body with an infinite loop similar to this:
+//
+// void bar_optimized(void) {
+//     foo = 0;
+//     while (true);
+// }
+//
+// However, foo might represent a location that can be changed
+// by other elements of the computer system at any time,
+// such as a hardware register of a device connected to the CPU.
+// The above code would never detect such a change;
+// without the "volatile" keyword, the compiler assumes that
+// the current program is the only part of the system that could
+// change the value (which is by far the most common situation).
+//
+// To prevent the compiler from optimising code as above,
+// the "volatile" keyword is used:
+//
+// static volatile int foo;
+// void bar (void) {
+//     foo = 0;
+//     while (foo != 255);
+// }
+//
+// With this modification, the loop condition will not be optimised
+// away, and the system will detect the change when it occurs.
+//
+// The display interrupt request flag.
+// volatile sig_atomic_t display_irq_array[1];
+// volatile sig_atomic_t* display_irq = display_irq_array;
+//
+
 /**
  * Retrieves or allocates the input/output entry of the given service.
  *
@@ -90,7 +161,7 @@ void startup_io(void* p0, void* p1, void* p2, void* p3) {
             // CAUTION! Due to memory allocation handling, the size MUST NOT
             // be negative or zero, but have at least a value of ONE.
             //
-            allocate_array((void*) &i, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            allocate_array((void*) &i, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ATOMIC_SIGNAL_STATE_CYBOI_TYPE);
             //
             // Allocate mutex.
             //
@@ -106,10 +177,16 @@ void startup_io(void* p0, void* p1, void* p2, void* p3) {
             //
             allocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
+            // Initialise enable flag.
+            copy_integer(e, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            // Initialise interrupt request.
+            copy_integer(i, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
             // The mutex with casted type.
             mtx_t* mt = (mtx_t*) m;
-            // Create and initialise mutex.
+            // Initialise mutex.
             mtx_init(mt, *PLAIN_MUTEX_TYPE_THREAD_SYMBOLIC_NAME);
+            // Initialise sender identification.
+            copy_integer(s, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
             // Set enable flag into input/output entry.
             copy_array_forward(*io, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);

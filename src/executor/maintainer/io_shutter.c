@@ -111,7 +111,7 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
 
             // The mutex with casted type.
             mtx_t* mt = (mtx_t*) m;
-            // Destroy mutex.
+            // Finalise mutex.
             mtx_destroy(mt);
 
             //

@@ -51,8 +51,10 @@ void determine_size(void* p0, void* p1) {
 
         int* t = (int*) p1;
 
+        //
         // CAUTION! Do NOT call the logger here.
         // It uses functions causing circular references.
+        //
         // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Determine size.");
 
         //
@@ -77,11 +79,14 @@ void determine_size(void* p0, void* p1) {
 
         } else if (*t == *PART_ELEMENT_STATE_CYBOI_TYPE) {
 
+            //
             // CAUTION! This type IS NEEDED, e.g. when DEEP copying a part
             // or when setting the references of a part
             // for rubbish (garbage) collection.
+            //
             // It is actually a pointer array, of which each
             // pointer references a structure element.
+            //
             copy_integer(p0, (void*) POINTER_TYPE_SIZE);
 
         //
@@ -90,9 +95,7 @@ void determine_size(void* p0, void* p1) {
 
         } else if (*t == *BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE) {
 
-            //?? TODO: Remove this later, when boolean values have been changed from "int" to "unsigned char"!
             copy_integer(p0, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
-//??            copy_integer(p0, (void*) UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
 
         //
         // number
@@ -116,9 +119,7 @@ void determine_size(void* p0, void* p1) {
 
         } else if (*t == *INTEGER_NUMBER_STATE_CYBOI_TYPE) {
 
-            //?? TODO: Remove this later, when integer values have been changed from "int" to "long long int"!
             copy_integer(p0, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
-//??            copy_integer(p0, (void*) SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
 
         } else if (*t == *LONG_LONG_INTEGER_NUMBER_STATE_CYBOI_TYPE) {
 
@@ -131,6 +132,14 @@ void determine_size(void* p0, void* p1) {
         } else if (*t == *POINTER_STATE_CYBOI_TYPE) {
 
             copy_integer(p0, (void*) POINTER_TYPE_SIZE);
+
+        //
+        // signal
+        //
+
+        } else if (*t == *ATOMIC_SIGNAL_STATE_CYBOI_TYPE) {
+
+            copy_integer(p0, (void*) ATOMIC_SIGNAL_TYPE_SIZE);
 
         //
         // socket address
@@ -154,10 +163,12 @@ void determine_size(void* p0, void* p1) {
 
         } else if (*t == *CHARACTER_TEXT_STATE_CYBOI_TYPE) {
 
+            //
             // CAUTION! Using SIGNED character is NOT sufficient!
             // It covers the range -127..+127.
             // But ASCII extended by ISO-8859 occupies the range 0..+255.
             // Therefore, the UNSIGNED character is used here.
+            //
             copy_integer(p0, (void*) UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
 
         } else if (*t == *WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE) {
@@ -168,9 +179,9 @@ void determine_size(void* p0, void* p1) {
         // thread
         //
 
-        } else if (*t == *THREAD_STATE_CYBOI_TYPE) {
+        } else if (*t == *IDENTIFICATION_THREAD_STATE_CYBOI_TYPE) {
 
-            copy_integer(p0, (void*) THREAD_TYPE_SIZE);
+            copy_integer(p0, (void*) IDENTIFICATION_THREAD_TYPE_SIZE);
 
         } else if (*t == *MUTEX_THREAD_STATE_CYBOI_TYPE) {
 
@@ -182,15 +193,19 @@ void determine_size(void* p0, void* p1) {
 
         } else {
 
+            //
             // CAUTION! Do NOT call the logger here.
             // It uses functions causing circular references.
+            //
             // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not determine size. The type is unknown.");
         }
 
     } else {
 
+        //
         // CAUTION! Do NOT call the logger here.
         // It uses functions causing circular references.
+        //
         // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not determine size. The type is null.");
     }
 }

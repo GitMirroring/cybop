@@ -37,6 +37,7 @@
 #include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../controller/manager/internal_memory_startup_manager.c"
 #include "../controller/manager/shutdown_manager.c"
+#include "../controller/manager/system_signal_handler_startup_manager.c"
 #include "../controller/initialiser.c"
 #include "../executor/maintainer/shutter/display/display_shutter.c"
 #include "../executor/maintainer/shutter/opengl/opengl_shutter.c"
@@ -190,7 +191,7 @@ void manage(void* p0) {
     //
 
     //
-    // Start up internal memory.
+    // Startup internal memory.
     //
     // CAUTION! The internal memory items have a fixed position,
     // determined by constants. The items HAVE TO be assigned an
@@ -208,6 +209,9 @@ void manage(void* p0) {
     // to the internal memory, in order to be forwardable to threads.
     //
     manage_startup_internal_memory(i, (void*) &k, (void*) &st, (void*) &s, (void*) &signal_memory_sleep_time);
+
+    // Startup system signal handler.
+    manage_startup_system_signal_handler();
 
     //
     // System initialisation.
