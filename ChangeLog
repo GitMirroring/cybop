@@ -23,6 +23,7 @@
         * Reintroduce system signal handling as notification to exit a thread
         * Add files "thread_identification_globaliser.c", "service_interrupt_globaliser.c", "mutex_thread_symbolic_name_globaliser.c"
         * Add file "system_signal_handler_startup_manager.c"
+        * Delete directory "src/todo_thread/"
 
 2021-06-14  Christian Heller  <christian.heller@cybop.org>
 
@@ -59,7 +60,7 @@
 2021-06-10  Christian Heller  <christian.heller@cybop.org>
 
         * Prepare reintroduction of threads for detecting available input data (they had been eliminated in year 2018)
-        * Use source code backup in directory "src/todo_thread/" and delete afterwards
+        * Use source code backup in directory "src/todo_thread/"
         * Add files "thread_type_size.c", "thread_identification.c", "service_interrupt.c", "mutex_thread_symbolic_name.c"
         * Make use of new iso c library "threads.h" instead of old posix thread (pthread) library
 
@@ -586,8 +587,8 @@
             "controller/unglobaliser/thread_identification_unglobaliser.c"
             "controller/unglobaliser/thread_unglobaliser.c"
             "executor/lifeguard/" (including "interrupter/")
-            "variable/thread_identification.c"
             "variable/type_size/thread_type_size.c"
+            "variable/thread_identification.c"
             "variable/service_interrupt.c"
         * Preserve these old thread-handling files for potential future worker threads by adding them to new directory "todo_thread"
         * Clean up file "controller/manager/internal_memory_manager.c" by deleting old thread-related variables
