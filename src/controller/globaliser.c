@@ -29,7 +29,9 @@
 #include "../controller/globaliser/log_globaliser.c"
 #include "../controller/globaliser/reallocation_factor_globaliser.c"
 #include "../controller/globaliser/reference_counter_globaliser.c"
+#include "../controller/globaliser/service_interrupt_globaliser.c"
 #include "../controller/globaliser/symbolic_name_globaliser.c"
+#include "../controller/globaliser/thread_identification_globaliser.c"
 #include "../controller/globaliser/type_size_globaliser.c"
 
 /**
@@ -51,10 +53,9 @@ void globalise() {
     // static int LOG_LEVEL_ARRAY[] = {0};
     // static int* LOG_LEVEL = LOG_LEVEL_ARRAY;
     //
-    // But there are also other types like pthread_t or FILE,
+    // But there are also other types like thrd_t or FILE,
     // for which only an array variable using a size was defined,
-    // because initial values are more complex and should be
-    // initialised here.
+    // because initial values are more complex and should be initialised here.
     //
 
     globalise_symbolic_name();
@@ -62,6 +63,8 @@ void globalise() {
     globalise_log();
     globalise_reallocation_factor();
     globalise_reference_counter();
+    globalise_service_interrupt();
+    globalise_thread_identification();
 }
 
 /* GLOBALISER_SOURCE */

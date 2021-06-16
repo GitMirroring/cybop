@@ -28,6 +28,7 @@
 
 #include "../../controller/globaliser/symbolic_name/address_family_socket_symbolic_name_globaliser.c"
 #include "../../controller/globaliser/symbolic_name/baudrate_serial_symbolic_name_globaliser.c"
+#include "../../controller/globaliser/symbolic_name/mutex_thread_symbolic_name_globaliser.c"
 #include "../../controller/globaliser/symbolic_name/protocol_family_socket_symbolic_name_globaliser.c"
 #include "../../controller/globaliser/symbolic_name/protocol_socket_symbolic_name_globaliser.c"
 #include "../../controller/globaliser/symbolic_name/style_socket_symbolic_name_globaliser.c"
@@ -36,6 +37,18 @@
  * Initialises symbolic name (pre-processor-defined) global variables.
  */
 void globalise_symbolic_name() {
+
+    //
+    // Sensing thread.
+    //
+
+    globalise_symbolic_name_thread_mutex();
+
+    //
+    // Serial port.
+    //
+
+    globalise_symbolic_name_serial_baudrate();
 
     //
     // Socket.
@@ -48,12 +61,6 @@ void globalise_symbolic_name() {
     globalise_symbolic_name_socket_protocol_family();
     globalise_symbolic_name_socket_style();
     globalise_symbolic_name_socket_protocol();
-
-    //
-    // Serial port.
-    //
-
-    globalise_symbolic_name_serial_baudrate();
 }
 
 /* SYMBOLIC_NAME_GLOBALISER_SOURCE */

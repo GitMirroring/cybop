@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-06-16  Christian Heller  <christian.heller@cybop.org>
+
+        * Add files "thread_identification_globaliser.c", "service_interrupt_globaliser.c", "mutex_thread_symbolic_name_globaliser.c"
+
 2021-06-14  Christian Heller  <christian.heller@cybop.org>
 
         * Implement mutex in terminal reader
@@ -54,6 +58,7 @@
 
         * Prepare reintroduction of threads for detecting available input data (they had been eliminated in year 2018)
         * Use source code backup in directory "src/todo_thread/" and delete afterwards
+        * Add files "thread_type_size.c", "thread_identification.c", "service_interrupt.c", "mutex_thread_symbolic_name.c"
         * Make use of new iso c library "threads.h" instead of old posix thread (pthread) library
 
 2021-06-08  Christian Heller  <christian.heller@cybop.org>

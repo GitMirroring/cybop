@@ -23,32 +23,32 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SERVICE_EXIT_GLOBALISER_SOURCE
-#define SERVICE_EXIT_GLOBALISER_SOURCE
+#ifndef SERVICE_INTERRUPT_GLOBALISER_SOURCE
+#define SERVICE_INTERRUPT_GLOBALISER_SOURCE
 
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../variable/service_interrupt.c"
 
 /**
- * Initialises service thread exit global variables.
+ * Initialises service thread interrupt global variables.
  */
-void globalise_service_exit() {
+void globalise_service_interrupt() {
 
     //
-    // The service exit variables are accessed in the system signal handler.
+    // The service interrupt variables are accessed in the system signal handler.
     // Since the "interrupt_service_system_signal_handler" function
     // receives no parametres besides a simple signal numeric code,
-    // neither the exit variables nor the internal memory can be
+    // neither the interrupt variables nor the internal memory can be
     // handed over as argument.
     //
     // Therefore, they HAVE TO be defined as GLOBAL variables here.
     //
 
-    *DISPLAY_EXIT = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    *SERIAL_EXIT = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    *SOCKET_EXIT = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    *TERMINAL_EXIT = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    *DISPLAY_SERVICE_INTERRUPT = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    *SERIAL_SERVICE_INTERRUPT = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    *SOCKET_SERVICE_INTERRUPT = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    *TERMINAL_SERVICE_INTERRUPT = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 }
 
-/* SERVICE_EXIT_GLOBALISER_SOURCE */
+/* SERVICE_INTERRUPT_GLOBALISER_SOURCE */
 #endif

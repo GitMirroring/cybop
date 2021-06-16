@@ -26,7 +26,7 @@
 #ifndef THREAD_IDENTIFICATION_GLOBALISER_SOURCE
 #define THREAD_IDENTIFICATION_GLOBALISER_SOURCE
 
-#include <pthread.h>
+#include <threads.h>
 
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../variable/type_size/thread_type_size.c"
@@ -40,14 +40,13 @@ void globalise_thread_identification() {
     //
     // Initialise threads.
     //
-    // CAUTION! The default thread does NOT
-    // get initialised.
+    // CAUTION! The default thread does NOT get initialised.
     //
-    // It is left empty on purpose, since it
-    // is used for comparison only further below.
+    // It is left empty ON PURPOSE, since it is used for
+    // comparison only further below.
     //
     // CAUTION! Do NOT assign an integer value here.
-    // The pthread implementation under mingw win32
+    // The threads (pthread) implementation under mingw win32
     // uses a struct and NOT a scalar value.
     //
     // Otherwise, the compiler reports the error:
@@ -56,14 +55,14 @@ void globalise_thread_identification() {
     // And when trying to cast, the compiler reports the error:
     // conversion to non-scalar type requested
     //
-    // Originally pthread_t was defined as a pointer
+    // Originally, pthread_t was defined as a pointer
     // (to the opaque pthread_t_struct) and later it was
     // changed to a struct containing the original pointer
     // plus a sequence counter. This is allowed under both
     // the original POSIX Threads Standard and the current
     // Single Unix Specification.
     //
-    // Other pthreads implementations, such as Sun's,
+    // Other threads (pthreads) implementations, such as Sun's,
     // use an int as the handle but do guarantee uniqueness
     // within the process scope. Win32 scalar typed thread
     // handles also guarantee uniqueness in system scope.
@@ -71,10 +70,10 @@ void globalise_thread_identification() {
     // http://sourceware.org/pthreads-win32/faq.html
     //
 
-    *DISPLAY_THREAD = DEFAULT_THREAD;
-    *SERIAL_THREAD = DEFAULT_THREAD;
-    *SOCKET_THREAD = DEFAULT_THREAD;
-    *TERMINAL_THREAD = DEFAULT_THREAD;
+    *DISPLAY_THREAD_IDENTIFICATION = DEFAULT_THREAD_IDENTIFICATION;
+    *SERIAL_THREAD_IDENTIFICATION = DEFAULT_THREAD_IDENTIFICATION;
+    *SOCKET_THREAD_IDENTIFICATION = DEFAULT_THREAD_IDENTIFICATION;
+    *TERMINAL_THREAD_IDENTIFICATION = DEFAULT_THREAD_IDENTIFICATION;
 }
 
 /* THREAD_IDENTIFICATION_GLOBALISER_SOURCE */
