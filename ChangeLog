@@ -24,6 +24,11 @@
         * Add files "thread_identification_globaliser.c", "service_interrupt_globaliser.c", "mutex_thread_symbolic_name_globaliser.c"
         * Add file "system_signal_handler_startup_manager.c"
         * Delete directory "src/todo_thread/"
+        * Realise that sensing threads may not be interrupted from outside, since:
+            (a) a system signal is not usable, since only posix <pthread.h> provides a function "pthread_kill", but not iso c <threads.h>
+            (b) a flag frequently tested in the thread's endless loop does not work either, if using blocking calls of input functions
+        * Decide that sensing threads may run until a cybol application process exits normally
+        * Live with the fact that as a result, the cybol operation "maintain/shutdown" does currently not work
 
 2021-06-14  Christian Heller  <christian.heller@cybop.org>
 

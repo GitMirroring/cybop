@@ -54,7 +54,7 @@ void interrupt_service_system_signal_handler(int p0) {
 
 #ifdef WIN32
 #else
-    // This thread itself.
+    // Determine this thread itself.
     thrd_t t = thrd_current();
     // The result.
     int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;

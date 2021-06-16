@@ -14,7 +14,6 @@
 Input Threads
 _____________
 
-        * Continue system signal handling
         * Add directory "executor/threader/" with "spinner" and "cutter"
 
         * Reintroduce threads for detecting available input data
@@ -39,6 +38,8 @@ _____________
         CAUTION!
         * Read data AND reset irq TOGETHER in one block locked by a mutex --> only then race conditions between sensing- and main thread can be avoided
         * Reset irq where reading/writing occures and NOT in file "element_irq_checker.c"
+
+        * Delete (??) files "system_signal_handler_startup_manager.c", "..."
 
         * Eliminate blocking flag from terminal and possibly other channels
 

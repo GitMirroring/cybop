@@ -835,80 +835,99 @@ When it comes to input, then the major problem is the unpredictability of
 incoming data or events. Therefore, some solutions are investigated here.
 
 In general, there are two different approaches:
-1 Programme is active and i/o device passive
-2 Programme is passive and i/o device active
+1 Programme is active and i/o passive
+2 Programme is passive and i/o active
 
-Solution 1: Programme is active and i/o device passive
+1 Programme is active and i/o passive
 
-- synonyms: busy waiting, spinning, polling, active waiting for state changes
-- blocking call only possible if just one communication channel
-- for multiple channels, non-blocking style is mandatory
-- easy to understand serial processing
+- advantage: easy to understand serial processing
 
-In the programme's main thread, there runs an endless loop
-permanently testing all input channels for available data.
+1.1 Blocking call
 
-Solution 2: Programme is passive and i/o device active
+- synonyms: synchronous communication
+- function: blocks the program on just one communication channel
+- problem: data arriving on other channels cannot be detected
+- example: xcb_wait_for_event, fgetwc
 
-- synonyms: event-based, hardware interrupt based, Inversion of Control (IoC)
-- does not waste system resources (processor time)
-- interrupt handler or callback function
+1.2 Non-blocking call
 
-Low level interrupt handling is left to the operating system.
-In cyboi, the following possibilities were considered:
-2.1 interrupt request
-2.2 system signal
-2.3 epoll
-2.4 sensing threads
-2.5 asynchronous i/o
+- synonyms: asynchronous communication, busy waiting, spinning, polling, active waiting for state changes
+- function: reads multiple channels in an endless loop
+- problem: cpu usage (busy waiting)
+- problem: does not detect all input if loop is faster than user
+- example: xcb_poll_for_event, fgetwc with termios settings ~ICANON; ~ECHO; c_cc[VMIN] = 0; c_cc[VTIME] = 0;
 
-Solution 2.1 interrupt request
+2 Programme is passive and i/o active
 
-- disadvantage: too low-level for cyboi
-- left to the operating system with assembly language to handle
+- synonyms: hardware interrupt based, event-based, inversion of control (ioc)
+- function: interrupt handler or callback function
+- advantage: saves system resources (processor time)
 
-Solution 2.2 system signal
+2.1 Interrupt request
 
-- disadvantage: too specific for one single operating system
+- function: write interrupt service routines (isr) to handle interrupt requests
+- problem: too low-level for cyboi, better leave it to the operating system
 
-Solution 2.3: epoll
+2.2 epoll
 
-- epoll is a linux kernel system call monitoring multiple file descriptors, e.g. terminal, socket
-- successor of the old solutions: posix select and poll
-- windows solutions: WSAAsyncSelect(), WSASelectEvent()
-- disadvantage: functions work only with file descriptors and are mostly blocking
-- disadvantage: does not cover all channels, e.g. x window system (xlibs, xcb)
+- advantage: avoids busy waiting
+- function: epoll is a linux kernel system call monitoring multiple file descriptors, e.g. terminal, socket
+- function: successor of the old solutions: posix select and poll
+- function: in windows via WSAAsyncSelect(), WSASelectEvent()
+- problem: works only on those channels with file descriptor, not with xcb/xlibs
 
-Solution 2.4: sensing threads
+2.3 libuv of Node.js
 
-- disadvantage: makes programming more complex
-- disadvantage: implementation of multi-threading differs in operating systems
-- library e.g. posix libpthread
+- function: handles multiple channels, event-driven asynchronous i/o model
+- problem: does not handle graphical windowing system events, e.g. xcb/xlibs
+- problem: dependency on external library
 
-Solution 2.5: asynchronous i/o
+2.4 Sensing threads
 
-- known from libuv multi-channel communication library of Node.js
-- disadvantage: not yet implemented and provided for all channels
+- function: one thread per channel
+- function: detect data and set an internal flag
+- problem: main loop needs to check the flag (busy waiting, cpu usage)
+- problem: multi-threading differs in operating systems
+
+2.4.1 Asynchronous call and sleep
+
+- problem: thread loop checking for input (busy waiting, cpu usage)
+
+2.4.2 Asynchronous call and pause
+
+- advantage: avoids busy waiting
+- function: sigsuspend and system signal to wake up from pause
+- problem: the process including its threads is sleeping and cannot detect input
+- problem: if running multiple instances of the program, all will be woken up
+- problem: system signal specific for operating system
+
+2.4.3 Synchronous call
+
+- function: blocking call of input function within sensing thread
+- problem: sensing thread cannot be interrupted from outside
+- problem: system signal cannot be used, since only POSIX <pthread.h> provides a function "pthread_kill", but NOT iso c <threads.h>
+- problem: alternative flag frequently tested in the thread's endless loop does not work either if using blocking calls of input functions
 
 Conclusion for cyboi:
 
-The simplest possible solution 1 (active programme and passive i/o device)
-is used. There is one central main thread for signal/event handling.
-For many channels such as "terminal" and "x window system" this is sufficient.
-The main thread is calling functions testing for available input and
-then processes input data. In between, it uses a small sleeping time
-of 100 ms. This delay is adjustable and avoids the cpu running at 100 %.
+- mix of solution 1.2 and solution 2.4.3
+- one central main thread for signal/event handling with easy to understand serial processing
+- it uses a small sleeping time of currently 100 ms
+- some channels might (! TEST this yet) be checked asynchronously as in 1.2, e.g. xcb which uses the x window system event queue
+- other channels like serial, terminal or socket need a prompt reaction so that several sensing threads are essential
+- there is currently no possibility to exit threads from outside, as mentioned in 2.4.3, due to the missing signal function and unchecked flag in blocking function
+- as a result, the cybol operation "maintain/shutdown" does currently not work
+- this does no harm, however, since the sensing threads that got started in a cybol application may run until that application process exits normally
 
-However, the socket channel may not be handled this way. If cyboi is
-acting as server, then due to the sleep time it is not reacting prompt
-to client requests. This can cause already known client sockets stored
-in a client list to get "accepted" and redundantly stored in the list
-a second and third time etc., instead of just "reading" data from them.
-Therefore, solution 1 is combined with solution 2.4 (sensing threads)
-for socket handling.
+Example:
+The socket channel needs an own sensing thread. If cyboi is acting as server,
+then due to the sleep time it is not reacting prompt to client requests.
+This can cause already known client sockets stored in a client list
+to get "accepted" and redundantly stored in the list a second and
+third time etc., instead of just "reading" data from them.
 
-In the future, solution 2.5 might become an option. But this is only
-realistic if asynchronous i/o is provided for all possible i/o channels.
+In the future, solution "2.3 libuv of Node.js" might become an option.
+But only if asynchronous i/o is provided for all possible i/o channels (gui).
 In this case, there would be no more main signal/event handling loop,
 but only callback functions reacting to input. Since cyboi processes
 all input in an identical manner, these callback functions would have
@@ -916,8 +935,7 @@ to call the same identical signal/event handling function (delegation).
 
 Note, that it does not matter how long the microprogramme command pipeline
 of the cpu actually takes to process a command. It also does not matter
-how long it takes for the cpu to wake up after having been asleep
-(hlt instruction).
+how long it takes for the cpu to wake up after having been asleep (hlt instruction).
 This is because in both cases (main thread or sensing thread),
 the cpu processing time is the same and makes no difference
 to the event processing in the programme.
@@ -928,8 +946,18 @@ Therefore, it would be no advantage to use the main thread
 for client data detection and creating a "sensing thread"
 seems to be the best solution.
 
+my own question on stackoverflow:
+How to detect data available on any communication channel?
+https://stackoverflow.com/questions/67918216/how-to-detect-data-available-on-any-communication-channel/67918264#67918264
+
 Comparison with libuv of Node.js
 ________________________________
+
+libuv:
+http://docs.libuv.org/en/v1.x/design.html
+
+asynchronous disk I/O:
+https://blog.libtorrent.org/2012/10/asynchronous-disk-io/
 
 https://stackoverflow.com/questions/10680601/nodejs-event-loop
 
@@ -1117,72 +1145,4 @@ starting up (creating) the window in cybol. Only then, responses
 to later requests may be sent to the correct window id, by using
 comparison (alternative, if-else-else) for identifying the window
 that had sent the request (event).
-
-Asynchronous Input/Output
-_________________________
-
-libuv:
-http://docs.libuv.org/en/v1.x/design.html
-
-asynchronous disk I/O:
-https://blog.libtorrent.org/2012/10/asynchronous-disk-io/
-
-How to detect data available on any communication channel?
-https://stackoverflow.com/questions/67918216/how-to-detect-data-available-on-any-communication-channel/67918264#67918264
-
-Motivation:
-
-I am writing an application handling all possible communication channels
-in a uniform way, that is input/output via terminal, serial interface,
-graphical user interface (xcb | win32), web interface via sockets.
-
-Question:
-
-I need some mechanism to: a) make my main application loop sleep
-or block (to save cpu time); b) wake it up again as soon as data
-arrive on any of the channels.
-
-Any ideas? Thank you.
-
-Solutions:
-
-1 blocking call:
-
-function: blocks the program on just one channel
-problem: data arriving on other channels cannot be detected
-example: xcb_wait_for_event, fgetwc
-
-2 non-blocking call:
-
-function: tests/reads all channels in an endless loop
-problem: cpu usage (busy waiting)
-problem: does not detect all input if loop is faster than user
-example: xcb_poll_for_event, fgetwc with termios settings ~ICANON; ~ECHO; c_cc[VMIN] = 0; c_cc[VTIME] = 0;
-
-3 select:
-
-function: avoids busy waiting and covers many channels
-problem: handles only those channels with file descriptor (not xcb etc.)
-
-4 libuv (from Node.js):
-
-function: handles multiple channels, event-driven asynchronous i/o model
-problem: does not handle graphical windowing system events
-problem: forces me to use their data structures
-problem: dependency on external library
-
-5 one thread per channel and sleep:
-
-function: does detect data and may set an internal flag
-problem: the main loop needs to check the flag (busy waiting, cpu usage)
-
-6 one thread per channel and pause or sigsuspend and system signal to wake up:
-
-function: like sleep but avoiding busy waiting using system signal to wake up
-problem: the process's threads are sleeping as well and cannot detect input
-problem: if running multiple instances of my program, all will be woken up
-
---> Current solution in cyboi:
-One thread per channel and sleep (busy waiting).
-... until a better solution is found
 
