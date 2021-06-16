@@ -60,7 +60,10 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // An input/output entry DOES exist for the service at the calculated internal memory index.
+        //
+        // An input/output entry DOES exist for the service
+        // at the calculated internal memory index.
+        //
 
         //
         // Store various values in input/output entry.
@@ -84,7 +87,10 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // Get enable flag from input/output entry.
         copy_array_forward((void*) &e, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-        // Copy enable flag.
+        //
+        // Set enable flag in input/output entry,
+        // so that the service gets marked as ready for input.
+        //
         copy_integer(e, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     } else {

@@ -48,21 +48,11 @@ void disable_channel(void* p0, void* p1, void* p2) {
 
     //?? fwprintf(stdout, L"Test: Disable channel. service id *p2: %i\n", *((int*) p2));
 
-    // The internal memory index.
-    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The input/output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    //
-    // Calculate internal memory index.
-    // - add input output base
-    // - add service identification (input/output entry index)
-    //
-    calculate_integer_add((void*) &i, p1);
-    calculate_integer_add((void*) &i, p2);
-
-    // Get input/output entry from internal memory.
-    copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+    // Get input/output entry.
+    get_internal_memory_element((void*) &io, p0, p1, p2);
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
