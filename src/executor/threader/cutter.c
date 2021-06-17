@@ -40,7 +40,7 @@
 /**
  * Cuts the thread, so that it is interrupted.
  *
- * @param p0 the thread
+ * @param p0 the thread identification
  * @param p1 the thread interrupt
  */
 void cut(void* p0, void* p1) {

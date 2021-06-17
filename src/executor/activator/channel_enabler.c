@@ -33,6 +33,7 @@
 #include "../../executor/accessor/getter/internal_memory_getter.c"
 #include "../../executor/copier/array_copier.c"
 #include "../../executor/copier/integer_copier.c"
+#include "../../executor/threader/spinner.c"
 #include "../../logger/logger.c"
 
 /**
@@ -43,8 +44,10 @@
  * @param p2 the service identification (e.g. socket port)
  * @param p3 the handler part (pointer reference)
  * @param p4 the sender client data (pointer reference, e.g. client socket id, window id, file descriptor)
+ * @param p5 the thread identification
+ * @param p6 the sensing function
  */
-void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable channel.");
 
@@ -86,6 +89,29 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
         copy_array_forward(io, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SENDER_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Get enable flag from input/output entry.
         copy_array_forward((void*) &e, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+        if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            //
+            // A sensing function was handed over as parametre.
+            //
+
+            // Create thread and invoke sensing function.
+            spin(p5, p6, io);
+
+        } else {
+
+            //
+            // No sensing function was handed over.
+            //
+            // A sensing thread will NOT be created. The data input
+            // sensing function will instead be called repeatedly
+            // from within the main thread's signal (event) processing loop.
+            //
+            // This block with just a comment does no harm and
+            // will be optimised away by the compiler.
+            //
+        }
 
         //
         // Set enable flag in input/output entry,

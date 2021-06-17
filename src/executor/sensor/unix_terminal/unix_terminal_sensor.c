@@ -39,12 +39,22 @@
 /**
  * Senses unix terminal message.
  *
- * @param p0 the data available flag
- * @param p1 the interrupt request
- * @param p2 the mutex
- * @param p3 the input/output entry
+ * @param p0 the input/output entry
  */
-void sense_unix_terminal(void* p0, void* p1, void* p2, void* p3) {
+void sense_unix_terminal(void* p0) {
+
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense unix terminal.");
+    fwprintf(stdout, L"Debug: Sense unix terminal. p0: %i\n", p0);
+
+    // The interrupt request.
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The mutex.
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Get interrupt request from input/output entry.
+    copy_array_forward((void*) &i, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get mutex from input/output entry.
+    copy_array_forward((void*) &m, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     //
     // The file stream associated with the given file descriptor.
@@ -84,19 +94,12 @@ void sense_unix_terminal(void* p0, void* p1, void* p2, void* p3) {
 
         fwprintf(stdout, L"Test: Sense unix terminal. fs: %i\n", fs);
 
-        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (m != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            mtx_t* m = (mtx_t*) p2;
+            // The mutex with correct type.
+            mtx_t* mt = (mtx_t*) m;
 
-            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                //
-                // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
-                // Otherwise, it would produce huge log files filled up with useless entries.
-                // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense unix terminal.");
-                //
-
-                fwprintf(stdout, L"Test: Sense unix terminal. p0: %i\n", p0);
+            if (i != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 //
                 // Lock mutex.
@@ -202,42 +205,27 @@ void sense_unix_terminal(void* p0, void* p1, void* p2, void* p3) {
 */
 
                     // Set interrupt request.
-                    copy_integer(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                    copy_integer(i, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                 }
 
                 // Unlock mutex.
                 mtx_unlock(m);
 
-                // Set data available flag to the value of interrupt request.
-                copy_integer(p0, p1);
-
             } else {
 
-                //
-                // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
-                // Otherwise, it would produce huge log files filled up with useless entries.
-                //
-                // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal. The interrupt request is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal. The interrupt request is null.");
                 fwprintf(stdout, L"Error: Could not sense unix terminal. The interrupt request is null.\n");
             }
 
         } else {
 
-            //
-            // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
-            // Otherwise, it would produce huge log files filled up with useless entries.
-            //
-            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal. The mutex is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal. The mutex is null.");
             fwprintf(stdout, L"Error: Could not sense unix terminal. The mutex is null.\n");
         }
 
     } else {
 
-        //
-        // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
-        // Otherwise, it would produce huge log files filled up with useless entries.
-        //
-        // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal. The file stream is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal. The file stream is null.");
         fwprintf(stdout, L"Error: Could not sense unix terminal. The file stream is null. fs: %i\n", fs);
     }
 }

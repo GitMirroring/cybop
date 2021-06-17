@@ -14,11 +14,7 @@
 Input Threads
 _____________
 
-        * Call function "spin" in file "sensor.c" to create a thread handing over pointer to function "sense_unix_terminal"
-        * Delete parametres of that function since only one is allowed (internal memory data)
-        * See old release 0.20.0 file "lifeguard/sensor.c" for how to create a thread using function "sense_message"
-        * Comment out terminal section in checker files of controller, since input now gets detected in sensing thread
-        * Start sensing thread
+        * Test sensing thread with unix terminal channel
         * Reintroduce threads for detecting available input data
             input stream is everywhere correct but input via "fgetwc" does always return -1
             therefore, multi-threading is necessary for terminal input

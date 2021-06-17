@@ -40,7 +40,7 @@
 /**
  * Spins the thread, so that it is created.
  *
- * @param p0 the service thread
+ * @param p0 the thread identification
  * @param p1 the thread function
  * @param p2 the internal memory data
  */

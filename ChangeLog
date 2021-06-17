@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-06-17  Christian Heller  <christian.heller@cybop.org>
+
+        * Reintroduce thread handling for data input
+        * Call function "spin" in file "channel_enabler.c" to create thread and invoke sensing function
+        * Comment out unix terminal section in file "terminal_sensor.c", since input now gets detected in sensing thread
+
 2021-06-16  Christian Heller  <christian.heller@cybop.org>
 
         * Reintroduce system signal handling as notification to exit a thread
@@ -29,7 +35,7 @@
             (b) a flag frequently tested in the thread's endless loop does not work either, if using blocking calls of input functions
         * Decide that sensing threads may run until a cybol application process exits normally
         * Live with the fact that as a result, the cybol operation "maintain/shutdown" does currently not work
-        * Add directory "executor/threader/" with files "spinner" and "cutter"
+        * Add directory "executor/threader/" with files "spinner.c" and "cutter.c"
 
 2021-06-14  Christian Heller  <christian.heller@cybop.org>
 
