@@ -18,9 +18,14 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-06-18  Christian Heller  <christian.heller@cybop.org>
+
+        * Separate general- from thread-related constants in file "input_output_state_cyboi_name.c"
+        * Add new thread fields to input/output entry: identification, function, argument, mutex, exit
+
 2021-06-17  Christian Heller  <christian.heller@cybop.org>
 
-        * Reintroduce thread handling for data input
+        * Reintroduce threads for detecting available input data
         * Call function "spin" in file "channel_enabler.c" to create thread and invoke sensing function
         * Comment out unix terminal section in file "terminal_sensor.c", since input now gets detected in sensing thread
 

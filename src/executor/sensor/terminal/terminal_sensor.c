@@ -59,7 +59,7 @@
 //
 
 void sense_serial_port(void* p0);
-void sense_unix_terminal(void* p0);
+int sense_unix_terminal(void* p0);
 
 /**
  * Senses terminal messages.

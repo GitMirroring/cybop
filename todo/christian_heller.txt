@@ -14,7 +14,12 @@
 Input Threads
 _____________
 
-        * Test sensing thread with unix terminal channel
+        * Test input data sensing thread with unix terminal channel using cybol application "tui"
+        * Find segmentation fault memory error
+        * See end of file "examples/test.log"
+        * Study and copy comments from to-be-deleted files before deleting them
+        * Delete thread-related global variables and files "thread_identification.c", "service_interrupt.c", "thread_identification_globaliser.c", "service_interrupt_globaliser.c", since they are now kept in channel-related input/output entry
+
         * Reintroduce threads for detecting available input data
             input stream is everywhere correct but input via "fgetwc" does always return -1
             therefore, multi-threading is necessary for terminal input

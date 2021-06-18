@@ -39,22 +39,45 @@
 /**
  * Senses unix terminal message.
  *
+ * CAUTION! In cyboi, all functions by default have
+ * NO return value. In relation with threads, however,
+ * iso c defines the data type "thrd_start_t" as:
+ *
+ * int (*) (void*)
+ *
+ * with the following meaning:
+ *
+ * int      - the integer return type
+ * *        - the function pointer with arbitrary name
+ * void*    - the function argument
+ *
+ * Therefore, this function exceptionally has
+ * the return type "int".
+ *
  * @param p0 the input/output entry
  */
-void sense_unix_terminal(void* p0) {
+int sense_unix_terminal(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense unix terminal.");
-    fwprintf(stdout, L"Debug: Sense unix terminal. p0: %i\n", p0);
+    fwprintf(stdout, L"Test: Sense unix terminal. p0: %i\n", p0);
 
+    //
+    // The return value.
+    // Return 1 to indicate an error, by default.
+    //
+    int r = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
     // The interrupt request.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The mutex.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get interrupt request from input/output entry.
-    copy_array_forward((void*) &i, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &i, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get mutex from input/output entry.
-    copy_array_forward((void*) &m, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &m, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+    fwprintf(stdout, L"Test: Sense unix terminal. m: %i\n", m);
+    fwprintf(stdout, L"Test: Sense unix terminal. *m: %i\n", *((int*) m));
 
     //
     // The file stream associated with the given file descriptor.
@@ -211,6 +234,9 @@ void sense_unix_terminal(void* p0) {
                 // Unlock mutex.
                 mtx_unlock(m);
 
+                // Set return value to 0, to indicate proper thread exit.
+                copy_integer((void*) &r, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
             } else {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal. The interrupt request is null.");
@@ -228,6 +254,8 @@ void sense_unix_terminal(void* p0) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal. The file stream is null.");
         fwprintf(stdout, L"Error: Could not sense unix terminal. The file stream is null. fs: %i\n", fs);
     }
+
+    return r;
 }
 
 /* UNIX_TERMINAL_SENSOR_SOURCE */

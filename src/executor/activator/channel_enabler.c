@@ -44,15 +44,13 @@
  * @param p2 the service identification (e.g. socket port)
  * @param p3 the handler part (pointer reference)
  * @param p4 the sender client data (pointer reference, e.g. client socket id, window id, file descriptor)
- * @param p5 the thread identification
- * @param p6 the sensing function
  */
-void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable channel.");
 
-    //?? CAUTION! Uncomment only for socket test since otherwise, the id is null.
     //?? fwprintf(stdout, L"Test: Enable channel. service id p2: %i\n", p2);
+    //?? CAUTION! Uncomment only for socket test since otherwise, the id is null.
     //?? fwprintf(stdout, L"Test: Enable channel. service id *p2: %i\n", *((int*) p2));
 
     // The input/output entry.
@@ -68,41 +66,42 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         // at the calculated internal memory index.
         //
 
-        //
-        // Store various values in input/output entry.
-        //
-        // CAUTION! Do NOT use "overwrite_array" function here,
-        // since it adapts the array count and size.
-        // But the array's count and size are CONSTANT.
-        //
-        // CAUTION! Do NOT hand over input/output entry as pointer reference.
-        //
-        // CAUTION! Hand over values as pointer REFERENCE.
-        //
-
         // The enable flag.
         void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The thread identification.
+        void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The thread function.
+        void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The function argument.
+        void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+        // Get enable flag from input/output entry.
+        copy_array_forward((void*) &e, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        // Get thread identification into input/output entry.
+        copy_array_forward((void*) &t, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        // Get thread function into input/output entry.
+        copy_array_forward((void*) &f, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FUNCTION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        // Get function argument into input/output entry.
+        copy_array_forward((void*) &a, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ARGUMENT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         // Set handler into input/output entry.
-        copy_array_forward(io, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        copy_array_forward(io, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Set sender client into input/output entry.
-        copy_array_forward(io, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SENDER_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        // Get enable flag from input/output entry.
-        copy_array_forward((void*) &e, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        copy_array_forward(io, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SENDER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-        if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (f != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             //
-            // A sensing function was handed over as parametre.
+            // A sensing function exists.
             //
 
             // Create thread and invoke sensing function.
-            spin(p5, p6, io);
+            spin(t, f, a);
 
         } else {
 
             //
-            // No sensing function was handed over.
+            // A sensing function does NOT exist.
             //
             // A sensing thread will NOT be created. The data input
             // sensing function will instead be called repeatedly

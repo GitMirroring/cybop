@@ -76,7 +76,7 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
         int er = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         // Get enable flag from input/output entry.
-        copy_array_forward((void*) &e, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &e, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Compare enable flag.
         compare_integer_unequal((void*) &er, e, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
@@ -94,7 +94,7 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
             int ir = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
             // Get interrupt request from input/output entry.
-            copy_array_forward((void*) &i, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &i, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
             // Compare interrupt request.
             compare_integer_unequal((void*) &ir, i, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
@@ -107,7 +107,7 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 //?? fwprintf(stdout, L"Test: Check irq element. ir: %i\n", ir);
 
                 // Get handler from input/output entry.
-                copy_array_forward(p1, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLER_INPUT_OUTPUT_STATE_CYBOI_NAME);
+                copy_array_forward(p1, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
                 //?? fwprintf(stdout, L"Test: Check irq element. handler p1: %i\n", p1);
                 //?? fwprintf(stdout, L"Test: Check irq element. handler *p1: %i\n", *((void**) p1));

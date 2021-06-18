@@ -42,76 +42,95 @@
  *
  * @param p0 the thread identification
  * @param p1 the thread function
- * @param p2 the internal memory data
+ * @param p2 the thread function argument
  */
 void spin(void* p0, void* p1, void* p2) {
 
     //
-    // It is IMPORTANT that the thread is NOT NULL,
-    // since it is handed over as parametre to the
-    // "pthread_create" glibc function further below,
-    // which possibly does not check for null and
-    // exit the whole cyboi process.
+    // It is IMPORTANT that the thread and function are NOT NULL,
+    // since they are handed over as parametre to "thrd_create"
+    // which possibly does not check for null and might
+    // exit the whole cyboi process on error.
     //
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        thrd_t* t = (thrd_t*) p0;
-
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Spin.");
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
-        // Compare thread identifications.
+        // CAUTION! The type "thrd_start_t" is a pointer,
+        // so that an aserisk "*" is NOT needed here.
         //
-        // Returns a non-zero value (true) if t1 and t2
-        // are equal and zero if they are unequal (false).
-        //
-        // CAUTION! The threads (pthread) implementation under
-        // mingw win32 uses a struct and NOT a scalar value.
-        //
-        int r = thrd_equal(DEFAULT_THREAD_IDENTIFICATION, *t);
+        thrd_start_t f = (thrd_start_t) p1;
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            //
-            // The thread does NOT exist yet.
-            // It is equal to the empty default thread.
-            //
+            thrd_t* t = (thrd_t*) p0;
+
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Spin.");
+            fwprintf(stdout, L"Test: Spin. t: %i\n", t);
+            fwprintf(stdout, L"Test: Spin. *t: %i\n", *((int*) t));
 
             //
-            // The returned value is non-zero, which means
-            // that both threads compared above are EQUAL.
-            // Since one of the two thread variables was
-            // introduced with empty initialisation,
-            // this means that the other is empty, too.
-            // Therefore, the thread has NOT been created
-            // before and CAN be created below now.
+            // Compare thread identifications.
             //
+            // Returns a non-zero value (true) if t1 and t2
+            // are equal and zero if they are unequal (false).
+            //
+            // CAUTION! The threads (pthread) implementation under
+            // mingw win32 uses a struct and NOT a scalar value.
+            //
+            int r = thrd_equal(DEFAULT_THREAD_IDENTIFICATION, *t);
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Spin. Create thread.");
+            if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            //
-            // Create thread.
-            //
-            // CAUTION! Do NOT allocate any resources within the thread function!
-            // The reason is that this main process thread gets forked when executing
-            // external programs. A "fork" duplicates ALL resources of the parent process,
-            // including ALL resources of any threads running within the parent process.
-            // However, since the created child process does not have those threads running,
-            // their duplicated resources will never be deallocated, which eats up memory.
-            // See source code file: applicator/run/run_execute.c
-            //
-            // Any dynamically allocated resources needed within the thread have to be:
-            // - allocated at service startup
-            // - added to the internal memory
-            // - handed over to the thread function HERE (as internal memory)
-            // - deallocated at service shutdown
-            //
-            thrd_create(t, p1, p2);
+                //
+                // The thread does NOT exist yet.
+                // It is equal to the empty default thread.
+                //
+
+                //
+                // The returned value is non-zero, which means
+                // that both threads compared above are EQUAL.
+                // Since one of the two thread variables was
+                // introduced with empty initialisation,
+                // this means that the other is empty, too.
+                // Therefore, the thread has NOT been created
+                // before and CAN be created below now.
+                //
+
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Spin. Create thread.");
+                fwprintf(stdout, L"Test: Spin. Create thread. r: %i\n", r);
+
+                //
+                // Create thread.
+                //
+                // CAUTION! Do NOT allocate any resources within the thread function!
+                // The reason is that this main process thread gets forked when executing
+                // external programs. A "fork" duplicates ALL resources of the parent process,
+                // including ALL resources of any threads running within the parent process.
+                // However, since the created child process does not have those threads running,
+                // their duplicated resources will never be deallocated, which eats up memory.
+                // See source code file: applicator/run/run_execute.c
+                //
+                // Any dynamically allocated resources needed within the thread have to be:
+                // - allocated at service startup
+                // - added to the internal memory
+                // - handed over to the thread function HERE (as internal memory)
+                // - deallocated at service shutdown
+                //
+                thrd_create(t, f, p2);
+
+                fwprintf(stdout, L"Test: Spin. Created thread. t: %i\n", t);
+                fwprintf(stdout, L"Test: Spin. Created thread. *t: %i\n", *((int*) t));
+            }
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not spin. The thread identification is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not spin. The service thread is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not spin. The thread function is null.");
     }
 }
 

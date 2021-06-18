@@ -183,6 +183,10 @@ void determine_size(void* p0, void* p1) {
 
             copy_integer(p0, (void*) IDENTIFICATION_THREAD_TYPE_SIZE);
 
+        } else if (*t == *FUNCTION_THREAD_STATE_CYBOI_TYPE) {
+
+            copy_integer(p0, (void*) FUNCTION_THREAD_TYPE_SIZE);
+
         } else if (*t == *MUTEX_THREAD_STATE_CYBOI_TYPE) {
 
             copy_integer(p0, (void*) MUTEX_THREAD_TYPE_SIZE);

@@ -87,7 +87,7 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             // Get input/output entry.
             get_internal_memory_element((void*) &io, p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15);
             // Startup input/output entry.
-            startup_io((void*) &io, p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15);
+            startup_io((void*) &io, p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, *NULL_POINTER_STATE_CYBOI_MODEL);
             // Startup service.
             startup_display(io);
         }
@@ -102,7 +102,7 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             // Get input/output entry.
             get_internal_memory_element((void*) &io, p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15);
             // Startup input/output entry.
-            startup_io((void*) &io, p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15);
+            startup_io((void*) &io, p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, *NULL_POINTER_STATE_CYBOI_MODEL);
             // Startup service.
             //?? startup_serial_port(io, p1, p2, p3);
         }
@@ -117,7 +117,7 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             // Get input/output entry.
             get_internal_memory_element((void*) &io, p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15);
             // Startup input/output entry.
-            startup_io((void*) &io, p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15);
+            startup_io((void*) &io, p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, *NULL_POINTER_STATE_CYBOI_MODEL);
             // Startup service.
             startup_socket(io, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17);
         }
@@ -129,10 +129,31 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            // The thread function.
+            thrd_start_t f = sense_unix_terminal;
+
+            //
+            // Provide thread function ONLY for unix terminal below.
+            //
+            // CAUTION! A sensing thread for win32 console is NOT necessary,
+            // since its input gets sensed in the main thread.
+            // Therefore, the function "sense_unix_terminal"
+            // and NOT "sense_terminal" is called here.
+            //
+
             // Get input/output entry.
             get_internal_memory_element((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15);
             // Startup input/output entry.
-            startup_io((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15);
+#if defined(__linux__) || defined(__unix__)
+            startup_io((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, (void*) &f);
+#elif defined(__APPLE__) && defined(__MACH__)
+            startup_io((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, (void*) &f);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+            startup_io((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, *NULL_POINTER_STATE_CYBOI_MODEL);
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
             // Startup service.
             startup_terminal(io);
         }
