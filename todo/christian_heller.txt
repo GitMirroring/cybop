@@ -14,6 +14,11 @@
 Input Threads
 _____________
 
+        * Test terminal event handling
+        * Adapt shutdown files to new thread-related fields of input/output entry
+
+        * Reactivate socket sensing by uncommenting function call "check_wait" in file "empty_checker.c"
+
         * Test input data sensing thread with unix terminal channel using cybol application "tui"
         * Find segmentation fault memory error
         * See end of file "examples/test.log"

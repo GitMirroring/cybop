@@ -119,12 +119,17 @@ void startup_unix_terminal_mode_edit(void* p0) {
         // Set number of input characters to be available,
         // before read() will return.
         //
-        // CAUTION! This value HAS TO BE set to zero,
-        // so that one key press such as ESCAPE gets processed
-        // right away (e.g. to exit an application),
-        // without waiting for yet another character input.
+        // Some documentations recommend to set TIME=0 and MAX=1 in noncanonical mode:
+        // https://cboard.cprogramming.com/linux-programming/158476-termios-examples.html
+        // This means that "read" will block until at least one byte is available
+        // and maintains best compatibility with normal behaviour of terminals.
         //
-        (*m).c_cc[VMIN] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // CAUTION! However, this value HAS TO BE set to ZERO,
+        // so that one key press such as ESCAPE gets processed
+        // right away (e.g. to exit a cybol application),
+        // WITHOUT WAITING for yet another character input.
+        //
+        (*m).c_cc[VMIN] = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
         //
         // Set time to wait before read() will return.

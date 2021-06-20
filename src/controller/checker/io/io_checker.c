@@ -44,6 +44,7 @@
 void check_io(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io.");
+    fwprintf(stdout, L"Test: Check io. p0: %i\n", p0);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

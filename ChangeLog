@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-06-19  Christian Heller  <christian.heller@cybop.org>
+
+        * Dereference pointer arguments in file "channel_enabler.c" in order to fix segmentation fault memory errors of file "unix_terminal_sensor.c" in sensing thread
+        * Introduce endless loop in file "unix_terminal_sensor.c" and separate out code into file "message_unix_terminal_sensor.c"
+
 2021-06-18  Christian Heller  <christian.heller@cybop.org>
 
         * Separate general- from thread-related constants in file "input_output_state_cyboi_name.c"

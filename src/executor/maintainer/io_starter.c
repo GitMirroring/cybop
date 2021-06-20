@@ -191,7 +191,8 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // CAUTION! Due to memory allocation handling, the size MUST NOT
             // be negative or zero, but have at least a value of ONE.
             //
-            allocate_array((void*) &f, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FUNCTION_THREAD_STATE_CYBOI_TYPE);
+            //?? allocate_array((void*) &f, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FUNCTION_THREAD_STATE_CYBOI_TYPE);
+            allocate_array((void*) &f, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
             //
             // Allocate function argument.
             //
@@ -225,6 +226,8 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Initialise thread function.
             // CAUTION! Hand over function as pointer REFERENCE.
             copy_pointer(f, p4);
+            fwprintf(stdout, L"Test: Startup io. f: %i\n", f);
+            fwprintf(stdout, L"Test: Startup io. *f: %i\n", *((void**) f));
             // Initialise function argument.
             // CAUTION! Hand over input/output entry as pointer REFERENCE.
             copy_pointer(a, p0);
@@ -236,8 +239,8 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4) {
             copy_integer(ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
             fwprintf(stdout, L"Test: Startup io. m: %i\n", m);
-            fwprintf(stdout, L"Test: Startup io. mt: %i\n", mt);
             fwprintf(stdout, L"Test: Startup io. *m: %i\n", *((int*) m));
+            fwprintf(stdout, L"Test: Startup io. mt: %i\n", mt);
             fwprintf(stdout, L"Test: Startup io. *mt: %i\n", *((int*) mt));
 
             // Set enable flag into input/output entry.

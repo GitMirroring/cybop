@@ -49,9 +49,9 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable channel.");
 
-    //?? fwprintf(stdout, L"Test: Enable channel. service id p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Test: Enable channel. port p2: %i\n", p2);
     //?? CAUTION! Uncomment only for socket test since otherwise, the id is null.
-    //?? fwprintf(stdout, L"Test: Enable channel. service id *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Test: Enable channel. port *p2: %i\n", *((int*) p2));
 
     // The input/output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -60,6 +60,8 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
     get_internal_memory_element((void*) &io, p0, p1, p2);
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        fwprintf(stdout, L"Test: Enable channel. io: %i\n", io);
 
         //
         // An input/output entry DOES exist for the service
@@ -95,8 +97,27 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // A sensing function exists.
             //
 
+            // The actual thread function.
+            void* ff = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The actual function argument.
+            void* aa = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+            // Extract actual thread function from pointer array.
+            copy_pointer((void*) &ff, f);
+            // Extract actual function argument from pointer array.
+            copy_pointer((void*) &aa, a);
+
+            fwprintf(stdout, L"Test: Enable channel. t: %i\n", t);
+            fwprintf(stdout, L"Test: Enable channel. *t: %i\n", *((int*) t));
+            fwprintf(stdout, L"Test: Enable channel. f: %i\n", f);
+            fwprintf(stdout, L"Test: Enable channel. ff: %i\n", ff);
+            fwprintf(stdout, L"Test: Enable channel. a: %i\n", a);
+            fwprintf(stdout, L"Test: Enable channel. aa: %i\n", aa);
+
             // Create thread and invoke sensing function.
-            spin(t, f, a);
+            spin(t, ff, aa);
+
+            fwprintf(stdout, L"Test: Enable channel. DONE t: %i\n", t);
 
         } else {
 

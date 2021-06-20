@@ -129,8 +129,19 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // The thread function.
-            thrd_start_t f = sense_unix_terminal;
+            //
+            // CAUTION! The function pointer can be determined
+            // in TWO WAYS, with or without address operator.
+            // Both are resulting in the same pointer (address):
+            //
+            // void* f = (void*) sense_unix_terminal;
+            // void* f = (void*) &sense_unix_terminal;
+            //
+            void* f = (void*) &sense_unix_terminal;
+
+            //?? fwprintf(stdout, L"Test: Startup. f: %i\n", f);
 
             //
             // Provide thread function ONLY for unix terminal below.
