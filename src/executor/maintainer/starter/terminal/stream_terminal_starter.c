@@ -27,10 +27,14 @@
 #define STREAM_TERMINAL_STARTER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/copier/array_copier.c"
-#include "../../../../executor/maintainer/starter/terminal/get_file_number_terminal_starter.c"
+#include "../../../../executor/maintainer/editor/terminal/get_file_number_terminal_editor.c"
 #include "../../../../executor/maintainer/starter/terminal/mode_terminal_starter.c"
 #include "../../../../logger/logger.c"
 
@@ -54,9 +58,9 @@ void startup_terminal_stream(void* p0, void* p1, void* p2, void* p3) {
         int d = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
         // Get terminal file descriptor from file stream.
-        startup_terminal_file_number_get((void*) &d, *s);
+        edit_terminal_file_number_get((void*) &d, *s);
 
-        // Configure terminal mode.
+        // Store original terminal mode.
         startup_terminal_mode((void*) &d, p0, p2);
 
         //

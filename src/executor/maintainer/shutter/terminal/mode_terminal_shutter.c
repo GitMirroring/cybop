@@ -28,9 +28,9 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/maintainer/shutter/terminal/retrieve_mode_terminal_shutter.c"
-#include "../../../../executor/maintainer/starter/terminal/deallocate_mode_terminal_starter.c"
-#include "../../../../executor/maintainer/starter/terminal/set_mode_terminal_starter.c"
+#include "../../../../executor/maintainer/editor/terminal/retrieve_mode_terminal_editor.c"
+#include "../../../../executor/maintainer/editor/terminal/deallocate_mode_terminal_editor.c"
+#include "../../../../executor/maintainer/editor/terminal/set_mode_terminal_editor.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -48,28 +48,25 @@ void shutdown_terminal_mode(void* p0, void* p1, void* p2) {
     void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
-    // Retrieves original terminal mode.
+    // Retrieve original terminal mode.
     //
     // CAUTION! Hand over pointer REFERENCE.
     //
-    shutdown_terminal_mode_retrieve((void*) &o, p1, p2);
+    edit_terminal_mode_retrieve((void*) &o, p1, p2);
 
     //
     // Write original terminal mode.
     //
     // CAUTION! Do NOT hand over pointer reference.
     //
-    // CAUTION! The STARTUP "set" function is used here,
-    // in order to avoid redundant source code.
-    //
-    startup_terminal_mode_set(p0, o);
+    edit_terminal_mode_set(p0, o);
 
     //
     // Deallocate original terminal mode.
     //
     // CAUTION! Hand over pointer REFERENCE.
     //
-    startup_terminal_mode_deallocate((void*) &o);
+    edit_terminal_mode_deallocate((void*) &o);
 }
 
 /* MODE_TERMINAL_SHUTTER_SOURCE */

@@ -45,9 +45,9 @@
  *
  * @param p0 the destination item
  * @param p1 the source file stream
- * @param p2 the blocking flag
- * @param p3 the interrupt request
- * @param p4 the mutex
+ * @param p2 the interrupt request
+ * @param p3 the mutex
+ * @param p4 the internal memory data
  */
 void read_terminal_stream(void* p0, void* p1, void* p2, void* p3, void* p4) {
 

@@ -55,7 +55,7 @@ void check_empty(void* p0, void* p1, void* p2) {
     // The signal part representing the interrupt request handler.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    fwprintf(stdout, L"Test: Check empty. irq: %i\n", irq);
+    //?? fwprintf(stdout, L"Test: Check empty. irq: %i\n", irq);
 
     //
     // The signal memory is empty, so that the cyboi system

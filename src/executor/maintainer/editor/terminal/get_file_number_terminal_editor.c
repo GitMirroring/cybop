@@ -23,44 +23,48 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COPY_MODE_TERMINAL_STARTER_SOURCE
-#define COPY_MODE_TERMINAL_STARTER_SOURCE
+#ifndef GET_FILE_NUMBER_TERMINAL_EDITOR_SOURCE
+#define GET_FILE_NUMBER_TERMINAL_EDITOR_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/maintainer/starter/unix_terminal/copy_mode_unix_terminal_starter.c"
+    #include "../../../../executor/maintainer/editor/unix_terminal/get_file_number_unix_terminal_editor.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../executor/maintainer/starter/unix_terminal/copy_mode_unix_terminal_starter.c"
+    #include "../../../../executor/maintainer/editor/unix_terminal/get_file_number_unix_terminal_editor.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../../executor/maintainer/starter/win32_console/copy_mode_win32_console_starter.c"
+    #include "../../../../executor/maintainer/editor/win32_console/get_file_number_win32_console_editor.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
- * Copies the terminal mode.
+ * Gets the file number from the given file stream.
  *
- * @param p0 the new terminal mode
- * @param p1 the original terminal mode
+ * The file number has various synonyms:
+ * - posix: file descriptor of type int, used in direct file access functions
+ * - win32: file handle of type DWORD, used in alternative input/output functions
+ *
+ * @param p0 the file number
+ * @param p1 the file stream
  */
-void startup_terminal_mode_copy(void* p0, void* p1) {
+void edit_terminal_file_number_get(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal mode copy.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Edit terminal file number get.");
 
 #if defined(__linux__) || defined(__unix__)
-    startup_unix_terminal_mode_copy(p0, p1);
+    edit_unix_terminal_file_number_get(p0, p1);
 #elif defined(__APPLE__) && defined(__MACH__)
-    startup_unix_terminal_mode_copy(p0, p1);
+    edit_unix_terminal_file_number_get(p0, p1);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    startup_win32_console_mode_copy(p0, p1);
+    edit_win32_console_file_number_get(p0, p1);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 
-/* COPY_MODE_TERMINAL_STARTER_SOURCE */
+/* GET_FILE_NUMBER_TERMINAL_EDITOR_SOURCE */
 #endif

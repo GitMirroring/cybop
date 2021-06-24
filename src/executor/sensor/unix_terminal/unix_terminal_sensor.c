@@ -60,7 +60,7 @@
 int sense_unix_terminal(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense unix terminal.");
-    fwprintf(stdout, L"Test: Sense unix terminal. p0: %i\n", p0);
+    //??fwprintf(stdout, L"Test: Sense unix terminal. p0: %i\n", p0);
 
     // The interrupt request.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;

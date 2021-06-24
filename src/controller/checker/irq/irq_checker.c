@@ -56,7 +56,7 @@ void check_irq(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check irq.");
 
-    fwprintf(stdout, L"Test: Check irq. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Test: Check irq. p0: %i\n", p0);
     //?? fwprintf(stdout, L"Test: Check irq. *p0: %i\n", *((int*) p0));
 
     // The comparison result.

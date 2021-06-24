@@ -23,43 +23,47 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ALLOCATE_MODE_TERMINAL_STARTER_SOURCE
-#define ALLOCATE_MODE_TERMINAL_STARTER_SOURCE
+#ifndef TERMINAL_EDITOR_SOURCE
+#define TERMINAL_EDITOR_SOURCE
+
+#include <stdio.h> // stdout, stdin
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../../executor/maintainer/editor/terminal/stream_terminal_editor.c"
 #include "../../../../logger/logger.c"
 
-#if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/maintainer/starter/unix_terminal/allocate_mode_unix_terminal_starter.c"
-#elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../executor/maintainer/starter/unix_terminal/allocate_mode_unix_terminal_starter.c"
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../../executor/maintainer/starter/win32_console/allocate_mode_win32_console_starter.c"
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
-
 /**
- * Allocates the terminal mode.
+ * Edits the terminal settings.
  *
- * @param p0 the terminal mode (pointer reference)
+ * @param p0 the input/output entry
  */
-void startup_terminal_mode_allocate(void* p0) {
+void edit_terminal(void* p0) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal mode allocate.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Edit terminal.");
+
+    //
+    // The output- and input file streams.
+    //
+    // CAUTION! The standard input/output streams "stdin"
+    // and "stdout" exist on posix as well as on win32.
+    //
+    void* os = (void*) stdout;
+    void* is = (void*) stdin;
 
 #if defined(__linux__) || defined(__unix__)
-    startup_unix_terminal_mode_allocate(p0);
+    edit_terminal_stream(p0, (void*) os, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 #elif defined(__APPLE__) && defined(__MACH__)
-    startup_unix_terminal_mode_allocate(p0);
+    edit_terminal_stream(p0, (void*) os, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    startup_win32_console_mode_allocate(p0);
+    edit_terminal_stream(p0, (void*) os, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    edit_terminal_stream(p0, (void*) is, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 
-/* ALLOCATE_MODE_TERMINAL_STARTER_SOURCE */
+/* TERMINAL_EDITOR_SOURCE */
 #endif

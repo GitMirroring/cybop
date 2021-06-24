@@ -18,6 +18,20 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-06-24  Christian Heller  <christian.heller@cybop.org>
+
+        * Adapt editor as well as starter and shutter
+        * Implement un-/blocking via function call "edit_service" into file "stream_unix_terminal_reader.c"
+        * Use combination of terminal mode settings (termios) with TIME = 0 and MIN = 1 (blocking) or MIN = 0 (unblocking)
+        * Eliminate sleep time variable in file "message_unix_terminal_sensor.c"
+        * Delete superfluous cybol property "blocking" for operation "communicate/receive"
+
+2021-06-21  Christian Heller  <christian.heller@cybop.org>
+
+        * Add files "editor.c" and "io_editor.c"
+        * Move "maintainer/starter/unix_terminal/" to "maintainer/editor/unix_terminal/"
+        * Move "maintainer/starter/terminal/" to "maintainer/editor/terminal/"
+
 2021-06-19  Christian Heller  <christian.heller@cybop.org>
 
         * Dereference pointer arguments in file "channel_enabler.c" in order to fix segmentation fault memory errors of file "unix_terminal_sensor.c" in sensing thread

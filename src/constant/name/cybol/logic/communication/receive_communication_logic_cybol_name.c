@@ -34,10 +34,6 @@
 // Properties.
 //
 
-/** The blocking receive communication logic cybol name. */
-static wchar_t* BLOCKING_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME = L"blocking";
-static int* BLOCKING_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The channel receive communication logic cybol name. */
 static wchar_t* CHANNEL_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME = L"channel";
 static int* CHANNEL_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;

@@ -129,6 +129,8 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (*io == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+            //?? fwprintf(stdout, L"Test: Startup io. *io: %i\n", io);
+
             //
             // The input/output entry (service) does NOT yet exist in internal memory.
             //
@@ -157,6 +159,7 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // be negative or zero, but have at least a value of ONE.
             //
             allocate_array(p0, (void*) IO_ENTRY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
+
             //
             // Allocate enable flag.
             //
@@ -226,8 +229,6 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Initialise thread function.
             // CAUTION! Hand over function as pointer REFERENCE.
             copy_pointer(f, p4);
-            fwprintf(stdout, L"Test: Startup io. f: %i\n", f);
-            fwprintf(stdout, L"Test: Startup io. *f: %i\n", *((void**) f));
             // Initialise function argument.
             // CAUTION! Hand over input/output entry as pointer REFERENCE.
             copy_pointer(a, p0);
@@ -237,11 +238,6 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4) {
             mtx_init(mt, *PLAIN_MUTEX_TYPE_THREAD_SYMBOLIC_NAME);
             // Initialise exit flag.
             copy_integer(ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-            fwprintf(stdout, L"Test: Startup io. m: %i\n", m);
-            fwprintf(stdout, L"Test: Startup io. *m: %i\n", *((int*) m));
-            fwprintf(stdout, L"Test: Startup io. mt: %i\n", mt);
-            fwprintf(stdout, L"Test: Startup io. *mt: %i\n", *((int*) mt));
 
             // Set enable flag into input/output entry.
             copy_array_forward(*io, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ENABLE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
@@ -259,11 +255,6 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4) {
             copy_array_forward(*io, (void*) &m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             // Set exit flag into input/output entry.
             copy_array_forward(*io, (void*) &ex, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EXIT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-    void* test = *NULL_POINTER_STATE_CYBOI_MODEL;
-    copy_array_forward((void*) &test, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    fwprintf(stdout, L"Test: Startup io. test: %i\n", test);
-    fwprintf(stdout, L"Test: Startup io. *test: %i\n", *((int*) test));
 
             // Set input/output entry.
             set_internal_memory_element(p1, p0, p2, p3);

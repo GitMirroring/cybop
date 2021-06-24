@@ -54,7 +54,6 @@
  * - format (required): the format of the data received (boolean, character, integer etc.)
  * - message (required): the model to be filled with the data received
  * - metadata (optional): the source (knowledge template) from where to receive meta data (properties)
- * - blocking (optional): the blocking flag indicating whether or not the read should wait endlessly for data at input
  * - minimum (optional): the minimum number of bytes to be received in one call of the read function
  * - maximum (optional): the maximum number of bytes to be received in one call of the read function
  *
@@ -85,8 +84,6 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The metadata part.
     void* me = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The blocking part.
-    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The minimum part.
     void* mi = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The maximum part.
@@ -109,8 +106,6 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* mp = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The metadata part model item.
     void* mem = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The blocking part model item.
-    void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The minimum part model item.
     void* mim = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The maximum part model item.
@@ -133,8 +128,6 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The metadata part model item data, count.
     void* memd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* memc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The blocking part model item data.
-    void* bmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The minimum part model item data.
     void* mimd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The maximum part model item data.
@@ -154,8 +147,6 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     get_part_name((void*) &m, p0, (void*) MESSAGE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) MESSAGE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get metadata part.
     get_part_name((void*) &me, p0, (void*) METADATA_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) METADATA_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get blocking part.
-    get_part_name((void*) &b, p0, (void*) BLOCKING_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) BLOCKING_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get minimum part.
     get_part_name((void*) &mi, p0, (void*) MINIMUM_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) MINIMUM_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get maximum part.
@@ -178,8 +169,6 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &mp, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
     // Get metadata part model item.
     copy_array_forward((void*) &mem, me, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get blocking part model item.
-    copy_array_forward((void*) &bm, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get minimum part model item.
     copy_array_forward((void*) &mim, mi, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get maximum part model item.
@@ -202,30 +191,12 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get metadata part model item data, count.
     copy_array_forward((void*) &memd, mem, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &memc, mem, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get blocking part model item data.
-    copy_array_forward((void*) &bmd, bm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get minimum part model item data.
     copy_array_forward((void*) &mimd, mim, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get maximum part model item data.
     copy_array_forward((void*) &mamd, mam, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    // The default blocking value.
-    int blocking = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    //
-    // CAUTION! The following values are ONLY copied,
-    // if the source value is NOT NULL.
-    // This is tested inside the "copy_integer" function.
-    // Otherwise, the destination value remains as is.
-    //
-
-    // Use the explicit blocking value that was given as argument.
-    copy_integer((void*) &blocking, bmd);
-
-    //?? fwprintf(stdout, L"Test: apply receive smc: %i\n", smc);
-    //?? fwprintf(stdout, L"Test: apply receive smd: %i\n", smd);
-
-    receive_data(mm, mp, smd, smc, spd, spc, sfd, p2, p3, p4, (void*) &blocking, mimd, mamd, fmd, lmd, emd, cmd);
+    receive_data(mm, mp, smd, smc, spd, spc, sfd, p2, p3, p4, mimd, mamd, fmd, lmd, emd, cmd);
 }
 
 /* RECEIVE_SOURCE */

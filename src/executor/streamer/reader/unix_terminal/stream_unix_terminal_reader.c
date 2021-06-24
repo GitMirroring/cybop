@@ -32,6 +32,7 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/maintainer/editor.c"
 #include "../../../../executor/streamer/reader/unix_terminal/character_unix_terminal_reader.c"
 #include "../../../../logger/logger.c"
 
@@ -40,38 +41,40 @@
  *
  * @param p0 the destination item
  * @param p1 the source file stream
- * @param p2 the blocking flag
- * @param p3 the interrupt request
- * @param p4 the mutex
+ * @param p2 the interrupt request
+ * @param p3 the mutex
+ * @param p4 the internal memory data
  */
 void read_unix_terminal_stream(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        mtx_t* m = (mtx_t*) p4;
+        mtx_t* m = (mtx_t*) p3;
 
-        if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* i = (int*) p3;
-
-            if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                int* bl = (int*) p2;
+            int* i = (int*) p2;
 
                 log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read unix terminal stream.");
 
-                fwprintf(stdout, L"Test: Read unix terminal stream. p3 %i\n", p3);
-                //?? fwprintf(stdout, L"Test: Read unix terminal stream. *p3 %i\n", *((int*) p3));
+                //?? fwprintf(stdout, L"Test: Read unix terminal stream. irq p2 %i\n", p2);
+                //?? fwprintf(stdout, L"Test: Read unix terminal stream. irq *p2 %i\n", *((int*) p2));
 
                 // The loop break flag.
                 int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+                //
                 // The escape character flag.
+                //
                 // CAUTION! This variable HAS TO BE defined here,
                 // since it is used across many loop cycles.
+                //
                 int esc = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+                //
                 // The ansi escape code flag.
+                //
                 // CAUTION! This variable HAS TO BE defined here,
                 // since it is used across many loop cycles.
+                //
                 int aec = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
                 //
                 // The input character.
@@ -107,37 +110,48 @@ void read_unix_terminal_stream(void* p0, void* p1, void* p2, void* p3, void* p4)
                 //
                 mtx_lock(m);
 
+                //
+                // Set unblocking mode in terminal.
+                //
+                // CAUTION! The unix terminal reader is looking ahead for special
+                // characters, in order to detect a possible ansi escape code sequence.
+                // If no more character is available, then "read" will block
+                // the whole main thread with MIN = 1. Therefore, set MIN = 0 here.
+                //
+                // Example:
+                // Pressing the escape key should get processed right away,
+                // e.g. to exit a cybol application, WITHOUT WAITING for
+                // yet another character input as would be the case
+                // with blocking terminal.
+                //
+                // The value of MIN is set back to 1 (blocking mode) further below,
+                // so that sensing terminal data input does not take too much
+                // processor time due to busy waiting in an endless loop.
+                //
+                fwprintf(stdout, L"Test: Read unix terminal stream. set unblocking c %i\n", c);
+                edit_service(p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TERMINAL_CYBOI_CHANNEL);
+
                 while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                     //?? fwprintf(stdout, L"Test: Read unix terminal stream. inside loop b %i\n", b);
 
                     if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                        if (*bl == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                            //
-                            // Break loop only if break flag is set
-                            // AND blocking flag is false
-                            // (possibly reset inside when data were available).
-                            //
-                            break;
-                        }
+                        break;
                     }
 
-                    read_unix_terminal_character(p0, p1, p2, (void*) &b, (void*) &esc, (void*) &aec, (void*) &c);
+                    read_unix_terminal_character(p0, p1, (void*) &b, (void*) &esc, (void*) &aec, (void*) &c);
                 }
+
+                // Set blocking mode in terminal. VMIN = 1
+                fwprintf(stdout, L"Test: Read unix terminal stream. set blocking c %i\n", c);
+                edit_service(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TERMINAL_CYBOI_CHANNEL);
 
                 // Reset interrupt request in input/output entry.
                 copy_integer(i, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
                 // Unlock mutex.
                 mtx_unlock(m);
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read unix terminal stream. The blocking flag is null.");
-                fwprintf(stdout, L"Error: Could not read unix terminal stream. The blocking flag is null.\n");
-            }
 
         } else {
 

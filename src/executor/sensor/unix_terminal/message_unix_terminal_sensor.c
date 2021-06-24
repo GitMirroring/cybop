@@ -55,8 +55,10 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2) {
 
             if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+                volatile sig_atomic_t* i = (volatile sig_atomic_t*) p0;
+
                 log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense unix terminal message.");
-                fwprintf(stdout, L"Test: Sense unix terminal message. p0: %i\n", p0);
+                //?? fwprintf(stdout, L"Test: Sense unix terminal message. p0: %i\n", p0);
 
                 //
                 // Lock mutex.
@@ -71,9 +73,6 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2) {
                 //
                 // CAUTION! Not all input/output channels use sensing threads.
                 // Sometimes, the main thread is the only one accessing resources.
-                // However, in order to have a uniform implementation,
-                // a mutex exists for all channels and it does no harm
-                // to lock it here even if only the main thread accesses it.
                 //
                 mtx_lock(m);
 
@@ -104,16 +103,14 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2) {
                 fwprintf(stdout, L"Test: Sense unix terminal message. c: %i\n", c);
 
                 //
-                // The WEOF constant usually corresponds to the value: -1
+                // The WEOF constant usually corresponds to the value -1.
                 //
                 // CAUTION! However, do NOT compare like the following:
-                // if (c < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                //     if (c < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
                 // The reason is that wint_t and int comparison might deliver
                 // wrong results, so that an input is mistakenly assumed below.
                 //
                 if (c != WEOF) {
-
-                    fwprintf(stdout, L"Test: Sense unix terminal message. c != WEOF: %i\n", c);
 
                     //
                     // Unread character, that is push it back on the stream to
@@ -150,6 +147,7 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2) {
                     // After you read that character, trying to read again will
                     // encounter end of file.
                     //
+                    fwprintf(stdout, L"Test: Sense unix terminal message. unread c: %i\n", c);
                     ungetwc(c, f);
 
 /*??
@@ -165,10 +163,47 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2) {
 
                     // Set interrupt request.
                     copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+                } else {
+
+                    //
+                    // The returned value is WEOF.
+                    //
+                    // CAUTION! This error should NEVER happen, since
+                    // the terminal is set to "blocking" mode (VMIN = 1)
+                    // so that it will only return when at least
+                    // ONE VALID character is available.
+                    //
+
+                    //
+                    //?? TODO: This is commented out temporarily,
+                    // as long as operating system signal handling
+                    // for interrupting the sensing thread does not work yet.
+                    //
+                    // Otherwise, many of these error messages are written
+                    // to standard output, because on system SHUTDOWN,
+                    // the sensing thread is still running but  due to
+                    // missing (already destroyed) resources in non-blocking mode.
+                    //
+                    //?? log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The returned value is WEOF.");
+                    //?? fwprintf(stdout, L"Error: Could not sense unix terminal message. The returned value is WEOF. p0: %i\n", p0);
                 }
 
                 // Unlock mutex.
                 mtx_unlock(m);
+
+                //
+                // Wait until interrupt request is reset by main thread.
+                //
+                // This endless waiting loop is also called "busy waiting".
+                // Its running causes the processor (cpu) to run at 100 %.
+                // However, the usual case is that the main thread needs
+                // only minimal time to handle the interrupt request,
+                // so that this endless loop is left very quickly.
+                //
+                fwprintf(stdout, L"Test: Sense unix terminal message. enter loop. *i: %i\n", *i);
+                while (*i != *FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+                fwprintf(stdout, L"Test: Sense unix terminal message. leave loop. *i: %i\n", *i);
 
             } else {
 

@@ -1,5 +1,14 @@
 <node>
 
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="TEST handler"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
     <!-- The command HAS TO BE EMPTIED since otherwise, the new is appended to the old command in the receive operation below. -->
     <node name="reset_command" channel="inline" format="modify/empty" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".temporary.command"/>
@@ -24,16 +33,9 @@
         <node name="source" channel="inline" format="text/cybol-path" model=".temporary.command"/>
     </node>
 
-    <!--
-        CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.
-        Otherwise, another signal might be executed before, so that this signal could possibly
-        not find all resources anymore, if they meanwhile have been manipulated by the other signal.
-        The "flow/sequence" operation ensures that the given model is executed directly.
-    -->
-    <node name="send_command" channel="inline" format="flow/sequence" model="">
-        <!-- CAUTION! The path is NOT a reference. -->
-        <node name="model" channel="inline" format="text/cybol-path" model=".temporary.path"/>
-    </node>
+    <!-- CAUTION! The path is NOT a reference. -->
+    <node name="model" channel="inline" format="text/cybol-path" model=".temporary.path"/>
+
     <node name="sleep_for_some_time_so_that_the_output_can_be_read_by_the_user" channel="inline" format="run/run" model="">
         <node name="programme" channel="inline" format="text/plain" model="sleep 0.8"/>
     </node>

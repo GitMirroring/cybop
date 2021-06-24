@@ -66,8 +66,9 @@ void spin(void* p0, void* p1, void* p2) {
             thrd_t* t = (thrd_t*) p0;
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Spin.");
-            fwprintf(stdout, L"Test: Spin. t: %i\n", t);
-            fwprintf(stdout, L"Test: Spin. *t: %i\n", *((int*) t));
+
+            fwprintf(stdout, L"Test: Spin. empty thread t: %i\n", t);
+            fwprintf(stdout, L"Test: Spin. empty thread *t: %i\n", *((int*) t));
 
             //
             // Compare thread identifications.
@@ -98,7 +99,6 @@ void spin(void* p0, void* p1, void* p2) {
                 //
 
                 log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Spin. Create thread.");
-                fwprintf(stdout, L"Test: Spin. Create thread. r: %i\n", r);
 
                 //
                 // Create thread.
@@ -119,8 +119,8 @@ void spin(void* p0, void* p1, void* p2) {
                 //
                 thrd_create(t, f, p2);
 
-                fwprintf(stdout, L"Test: Spin. Created thread. t: %i\n", t);
-                fwprintf(stdout, L"Test: Spin. Created thread. *t: %i\n", *((int*) t));
+                fwprintf(stdout, L"Test: Spin. created thread t: %i\n", t);
+                fwprintf(stdout, L"Test: Spin. created thread *t: %i\n", *((int*) t));
             }
 
         } else {

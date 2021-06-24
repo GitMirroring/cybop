@@ -23,44 +23,44 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef GET_MODE_TERMINAL_STARTER_SOURCE
-#define GET_MODE_TERMINAL_STARTER_SOURCE
+#ifndef EDIT_MODE_TERMINAL_EDITOR_SOURCE
+#define EDIT_MODE_TERMINAL_EDITOR_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/maintainer/starter/unix_terminal/get_mode_unix_terminal_starter.c"
+    #include "../../../../executor/maintainer/editor/unix_terminal/edit_mode_unix_terminal_editor.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../executor/maintainer/starter/unix_terminal/get_mode_unix_terminal_starter.c"
+    #include "../../../../executor/maintainer/editor/unix_terminal/edit_mode_unix_terminal_editor.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../../executor/maintainer/starter/win32_console/get_mode_win32_console_starter.c"
+    #include "../../../../executor/maintainer/editor/win32_console/edit_mode_win32_console_editor.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
- * Gets the terminal mode.
+ * Edits the terminal mode.
  *
  * @param p0 the terminal mode
- * @param p1 the file descriptor
+ * @param p1 the input/output entry
  */
-void startup_terminal_mode_get(void* p0, void* p1) {
+void edit_terminal_mode_edit(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal mode get.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Edit terminal mode edit.");
 
 #if defined(__linux__) || defined(__unix__)
-    startup_unix_terminal_mode_get(p0, p1);
+    edit_unix_terminal_mode_edit(p0, p1);
 #elif defined(__APPLE__) && defined(__MACH__)
-    startup_unix_terminal_mode_get(p0, p1);
+    edit_unix_terminal_mode_edit(p0, p1);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    startup_win32_console_mode_get(p0, p1);
+    edit_win32_console_mode_edit(p0, p1);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 
-/* GET_MODE_TERMINAL_STARTER_SOURCE */
+/* EDIT_MODE_TERMINAL_EDITOR_SOURCE */
 #endif

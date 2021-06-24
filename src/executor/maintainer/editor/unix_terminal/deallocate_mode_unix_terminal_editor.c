@@ -23,36 +23,35 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TERMINAL_READER_SOURCE
-#define TERMINAL_READER_SOURCE
+#ifndef DEALLOCATE_MODE_UNIX_TERMINAL_EDITOR_SOURCE
+#define DEALLOCATE_MODE_UNIX_TERMINAL_EDITOR_SOURCE
+
+#include <stdlib.h> // free
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/streamer/reader/terminal/stream_terminal_reader.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Reads data via terminal.
+ * Deallocates the terminal mode.
  *
- * @param p0 the destination item
- * @param p1 the input/output entry
- * @param p2 the interrupt request
- * @param p3 the mutex
- * @param p4 the internal memory data
+ * @param p0 the terminal mode (pointer reference)
  */
-void read_terminal(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void edit_unix_terminal_mode_deallocate(void* p0) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read terminal.");
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // The input file stream.
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void** m = (void**) p0;
 
-    // Get input file stream from input/output entry.
-    copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Edit unix terminal mode deallocate.");
 
-    // Read data from file stream.
-    read_terminal_stream(p0, s, p2, p3, p4);
+        free(*m);
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not edit unix terminal mode deallocate. The terminal mode is null.");
+    }
 }
 
-/* TERMINAL_READER_SOURCE */
+/* DEALLOCATE_MODE_UNIX_TERMINAL_EDITOR_SOURCE */
 #endif

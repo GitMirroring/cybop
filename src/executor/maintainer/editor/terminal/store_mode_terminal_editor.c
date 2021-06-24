@@ -23,12 +23,15 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STORE_MODE_TERMINAL_STARTER_SOURCE
-#define STORE_MODE_TERMINAL_STARTER_SOURCE
+#ifndef STORE_MODE_TERMINAL_EDITOR_SOURCE
+#define STORE_MODE_TERMINAL_EDITOR_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/copier/array_copier.c"
 #include "../../../../logger/logger.c"
@@ -40,9 +43,9 @@
  * @param p1 the terminal mode (pointer reference)
  * @param p2 the flag indicating input (true) or output (false)
  */
-void startup_terminal_mode_store(void* p0, void* p1, void* p2) {
+void edit_terminal_mode_store(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal mode store.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Edit terminal mode store.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -51,13 +54,15 @@ void startup_terminal_mode_store(void* p0, void* p1, void* p2) {
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // Store output.
         copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) OUTPUT_ORIGINAL_MODE_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     } else {
 
+        // Store input.
         copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INPUT_ORIGINAL_MODE_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     }
 }
 
-/* STORE_MODE_TERMINAL_STARTER_SOURCE */
+/* STORE_MODE_TERMINAL_EDITOR_SOURCE */
 #endif

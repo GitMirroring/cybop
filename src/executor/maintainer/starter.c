@@ -40,6 +40,27 @@
 #include "../../executor/maintainer/io_starter.c"
 #include "../../logger/logger.c"
 
+//
+// Forward declarations.
+//
+// The following functions HAVE TO BE declared here since
+// otherwise, the compiler will report errors like:
+//
+// error: 'sense_terminal' undeclared
+//
+// The reason is (probably) that the functions are forwarded
+// as reference (function pointer), for example:
+//
+// &sense_unix_terminal
+//
+// The compiler does not seem to be able to recognise them
+// as functions that way. Therefore, the following explicit
+// declarations of the functions are necessary.
+//
+
+void sense_serial_port(void* p0);
+int sense_unix_terminal(void* p0);
+
 /**
  * Starts up the given service.
  *
@@ -167,6 +188,8 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 #endif
             // Startup service.
             startup_terminal(io);
+            // Configure service.
+            edit_service(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TERMINAL_CYBOI_CHANNEL);
         }
     }
 

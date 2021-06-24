@@ -14,22 +14,33 @@
 Input Threads
 _____________
 
-        * Test terminal event handling
+        * Find out why terminal sensing does not block
+            processor (cpu) runs at 100 %
+            even though unix terminal is set to blocking (MIN = 1)
+            Is the mode change to blocking recognised in the thread?
+            Is writing log messages from within the thread the reason? (actually, stdin and stdout should be separate)
         * Adapt shutdown files to new thread-related fields of input/output entry
+
+        * Factor out assigning of new handler from "activate/enable" to new operation e.g. "activate/handle" with cybol property "handler"
+            leave cybol operations "activate/enable" and "activate/disable" to only set "enabled" flag
+
+        * Restore original terminal attributes at shutdown (call "edit"?)
+
+        * Deallocate flags blocking, canonical, echo in file "terminal_shutter.c"
+        * Think through unix terminal shutdown in file "terminal_shutter.c" and related
+        * Consider:
+            termios settings are applied to stdin AND stdout (in linux, NOT in win32)
+            therefore, set only once at startup and restore only once at shutdown
+            ALSO DO deallocate input termios! But do NOT reset original attributes, since this is already done via output termios!
 
         * Reactivate socket sensing by uncommenting function call "check_wait" in file "empty_checker.c"
 
         * Test input data sensing thread with unix terminal channel using cybol application "tui"
-        * Find segmentation fault memory error
-        * See end of file "examples/test.log"
         * Study and copy comments from to-be-deleted files before deleting them
-        * Delete thread-related global variables and files "thread_identification.c", "service_interrupt.c", "thread_identification_globaliser.c", "service_interrupt_globaliser.c", since they are now kept in channel-related input/output entry
+        * Delete thread-related global variables and files
+            "thread_identification.c", "service_interrupt.c", "thread_identification_globaliser.c", "service_interrupt_globaliser.c",
+            since they are now kept in channel-related input/output entry
 
-        * Reintroduce threads for detecting available input data
-            input stream is everywhere correct but input via "fgetwc" does always return -1
-            therefore, multi-threading is necessary for terminal input
-            DONE: terminal
-            TODO: other channels
         * Search for and replace old "pthread_t" string in all source code
 
         * Integrate locking and unlocking of mutex in affected input/output channels

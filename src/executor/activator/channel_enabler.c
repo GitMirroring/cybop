@@ -107,17 +107,8 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Extract actual function argument from pointer array.
             copy_pointer((void*) &aa, a);
 
-            fwprintf(stdout, L"Test: Enable channel. t: %i\n", t);
-            fwprintf(stdout, L"Test: Enable channel. *t: %i\n", *((int*) t));
-            fwprintf(stdout, L"Test: Enable channel. f: %i\n", f);
-            fwprintf(stdout, L"Test: Enable channel. ff: %i\n", ff);
-            fwprintf(stdout, L"Test: Enable channel. a: %i\n", a);
-            fwprintf(stdout, L"Test: Enable channel. aa: %i\n", aa);
-
             // Create thread and invoke sensing function.
             spin(t, ff, aa);
-
-            fwprintf(stdout, L"Test: Enable channel. DONE t: %i\n", t);
 
         } else {
 

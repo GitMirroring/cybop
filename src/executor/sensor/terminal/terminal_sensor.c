@@ -40,27 +40,6 @@
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
-//
-// Forward declarations.
-//
-// The following functions HAVE TO BE declared here since
-// otherwise, the compiler will report errors like:
-//
-// error: 'sense_terminal' undeclared
-//
-// The reason is (probably) that the functions are forwarded
-// as reference (function pointer), for example:
-//
-// &sense_unix_terminal
-//
-// The compiler does not seem to be able to recognise them
-// as functions that way. Therefore, the following explicit
-// declarations of the functions are necessary.
-//
-
-void sense_serial_port(void* p0);
-int sense_unix_terminal(void* p0);
-
 /**
  * Senses terminal messages.
  *
@@ -73,21 +52,13 @@ void sense_terminal(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense terminal.");
 
-    //
-    // Run sensing thread ONLY for unix terminal.
-    //
-    // CAUTION! A sensing thread for win32 console is NOT necessary,
-    // since its input gets sensed in the main thread.
-    // Therefore, the function "sense_unix_terminal" and NOT
-    // "sense_terminal" is called here.
-    //
-
 #if defined(__linux__) || defined(__unix__)
     //
     // CAUTION! Do NOTHING here.
     //
     // Data input detection (sensing) gets activated in file
     // "channel_enabler.c" using the following function "spin".
+    // The corresponding thread function is determined in file "starter.c".
     //
 #elif defined(__APPLE__) && defined(__MACH__)
     //
@@ -95,6 +66,7 @@ void sense_terminal(void* p0, void* p1, void* p2, void* p3) {
     //
     // Data input detection (sensing) gets activated in file
     // "channel_enabler.c" using the following function "spin".
+    // The corresponding thread function is determined in file "starter.c".
     //
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)

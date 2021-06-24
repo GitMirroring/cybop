@@ -23,43 +23,43 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DEALLOCATE_MODE_TERMINAL_STARTER_SOURCE
-#define DEALLOCATE_MODE_TERMINAL_STARTER_SOURCE
+#ifndef ALLOCATE_MODE_TERMINAL_EDITOR_SOURCE
+#define ALLOCATE_MODE_TERMINAL_EDITOR_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/maintainer/starter/unix_terminal/deallocate_mode_unix_terminal_starter.c"
+    #include "../../../../executor/maintainer/editor/unix_terminal/allocate_mode_unix_terminal_editor.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../executor/maintainer/starter/unix_terminal/deallocate_mode_unix_terminal_starter.c"
+    #include "../../../../executor/maintainer/editor/unix_terminal/allocate_mode_unix_terminal_editor.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../../executor/maintainer/starter/win32_console/deallocate_mode_win32_console_starter.c"
+    #include "../../../../executor/maintainer/editor/win32_console/allocate_mode_win32_console_editor.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
- * Deallocates the terminal mode.
+ * Allocates the terminal mode.
  *
  * @param p0 the terminal mode (pointer reference)
  */
-void startup_terminal_mode_deallocate(void* p0) {
+void edit_terminal_mode_allocate(void* p0) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal mode deallocate.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Edit terminal mode allocate.");
 
 #if defined(__linux__) || defined(__unix__)
-    startup_unix_terminal_mode_deallocate(p0);
+    edit_unix_terminal_mode_allocate(p0);
 #elif defined(__APPLE__) && defined(__MACH__)
-    startup_unix_terminal_mode_deallocate(p0);
+    edit_unix_terminal_mode_allocate(p0);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    startup_win32_console_mode_deallocate(p0);
+    edit_win32_console_mode_allocate(p0);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 
-/* DEALLOCATE_MODE_TERMINAL_STARTER_SOURCE */
+/* ALLOCATE_MODE_TERMINAL_EDITOR_SOURCE */
 #endif

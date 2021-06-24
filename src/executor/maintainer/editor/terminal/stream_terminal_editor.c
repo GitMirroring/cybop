@@ -23,36 +23,34 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TERMINAL_READER_SOURCE
-#define TERMINAL_READER_SOURCE
+#ifndef STREAM_TERMINAL_EDITOR_SOURCE
+#define STREAM_TERMINAL_EDITOR_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/streamer/reader/terminal/stream_terminal_reader.c"
+#include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
+#include "../../../../executor/maintainer/editor/terminal/mode_terminal_editor.c"
+#include "../../../../executor/maintainer/editor/terminal/get_file_number_terminal_editor.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Reads data via terminal.
+ * Edits the terminal stream.
  *
- * @param p0 the destination item
- * @param p1 the input/output entry
- * @param p2 the interrupt request
- * @param p3 the mutex
- * @param p4 the internal memory data
+ * @param p0 the input/output entry
+ * @param p1 the file stream
  */
-void read_terminal(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void edit_terminal_stream(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read terminal.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Edit terminal stream.");
 
-    // The input file stream.
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The terminal file descriptor.
+    int d = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
-    // Get input file stream from input/output entry.
-    copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get terminal file descriptor from file stream.
+    edit_terminal_file_number_get((void*) &d, p1);
 
-    // Read data from file stream.
-    read_terminal_stream(p0, s, p2, p3, p4);
+    // Edit original terminal mode.
+    edit_terminal_mode((void*) &d, p0);
 }
 
-/* TERMINAL_READER_SOURCE */
+/* STREAM_TERMINAL_EDITOR_SOURCE */
 #endif

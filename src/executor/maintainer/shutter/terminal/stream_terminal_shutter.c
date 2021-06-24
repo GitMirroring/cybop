@@ -27,11 +27,15 @@
 #define STREAM_TERMINAL_SHUTTER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/maintainer/editor/terminal/get_file_number_terminal_editor.c"
 #include "../../../../executor/maintainer/shutter/terminal/mode_terminal_shutter.c"
-#include "../../../../executor/maintainer/starter/terminal/get_file_number_terminal_starter.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -70,15 +74,17 @@ void shutdown_terminal_stream(void* p0, void* p1, void* p2) {
     //
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
+    //
     // Get terminal file descriptor from file stream.
-    //??
+    //
     //?? TODO: Commented out, since stdout cannot be stored
-    //?? in input/output entry successfully.
-    //?? Therefore, stdout of type FILE* is handed over
-    //?? directly here. Investigate this later.
-    //?? startup_terminal_file_number_get((void*) &d, s);
-    //??
-    startup_terminal_file_number_get((void*) &d, (void*) stdout);
+    // in input/output entry successfully.
+    // Therefore, stdout of type FILE* is handed over
+    // directly here. Investigate this later.
+    //
+    // edit_terminal_file_number_get((void*) &d, s);
+    //
+    edit_terminal_file_number_get((void*) &d, (void*) stdout);
 
     // Restore original terminal mode.
     shutdown_terminal_mode((void*) &d, p0, p1);

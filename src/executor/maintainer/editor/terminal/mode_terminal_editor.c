@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MODE_TERMINAL_STARTER_SOURCE
-#define MODE_TERMINAL_STARTER_SOURCE
+#ifndef MODE_TERMINAL_EDITOR_SOURCE
+#define MODE_TERMINAL_EDITOR_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -33,44 +33,60 @@
 #include "../../../../executor/maintainer/editor/terminal/edit_mode_terminal_editor.c"
 #include "../../../../executor/maintainer/editor/terminal/get_mode_terminal_editor.c"
 #include "../../../../executor/maintainer/editor/terminal/set_mode_terminal_editor.c"
-#include "../../../../executor/maintainer/editor/terminal/store_mode_terminal_editor.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Stores the original terminal mode.
+ * Edits the terminal mode.
  *
  * @param p0 the file descriptor
  * @param p1 the input/output entry
- * @param p2 the flag indicating input (true) or output (false)
  */
-void startup_terminal_mode(void* p0, void* p1, void* p2) {
+void edit_terminal_mode(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal mode.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Edit terminal mode.");
 
-    // The original terminal mode (attributes).
-    void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The terminal mode (attributes).
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
-    // Allocate original terminal mode.
+    // Allocate terminal mode.
     //
     // CAUTION! Hand over pointer REFERENCE.
     //
-    edit_terminal_mode_allocate((void*) &o);
+    edit_terminal_mode_allocate((void*) &m);
 
     //
-    // Read original terminal mode.
+    // Read current terminal mode.
     //
     // CAUTION! Do NOT hand over pointer reference.
     //
-    edit_terminal_mode_get(o, p0);
+    edit_terminal_mode_get(m, p0);
 
     //
-    // Store original terminal mode.
+    // Edit terminal mode.
+    //
+    // CAUTION! Do NOT hand over pointer reference,
+    // since only the CONTENT, but not pointer is to be edited.
+    //
+    edit_terminal_mode_edit(m, p1);
+
+    //
+    // Write new terminal mode.
+    //
+    // CAUTION! Do NOT hand over pointer reference.
+    //
+    edit_terminal_mode_set(p0, m);
+
+    //
+    // Deallocate terminal mode.
+    //
+    // CAUTION! It is not stored in input/output memory and
+    // used as TEMPORARY variable only.
     //
     // CAUTION! Hand over pointer REFERENCE.
     //
-    edit_terminal_mode_store(p1, (void*) &o, p2);
+    edit_terminal_mode_deallocate((void*) &m);
 }
 
-/* MODE_TERMINAL_STARTER_SOURCE */
+/* MODE_TERMINAL_EDITOR_SOURCE */
 #endif
