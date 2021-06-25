@@ -19,6 +19,8 @@ _____________
             even though unix terminal is set to blocking (MIN = 1)
             Is the mode change to blocking recognised in the thread?
             Is writing log messages from within the thread the reason? (actually, stdin and stdout should be separate)
+            Läuft der main thread oder child sensing thread auf 100 %?
+            Teste durch Mitzählen der Log-Nachrichten per counter in child thread!
         * Adapt shutdown files to new thread-related fields of input/output entry
 
         * Factor out assigning of new handler from "activate/enable" to new operation e.g. "activate/handle" with cybol property "handler"
