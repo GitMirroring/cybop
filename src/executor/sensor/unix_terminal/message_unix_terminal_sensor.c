@@ -98,6 +98,18 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2) {
                 // and may even be a system call directly into the OS.
                 // Furthermore, it is NOT standard C, but part of POSIX.
                 //
+
+//?? --
+                int testf = fileno(stdin);
+                struct termios testm;
+                int teste = tcgetattr(testf, &testm);
+
+                fwprintf(stdout, L"Test: Sense unix terminal message. termios testf: %i\n", testf);
+                fwprintf(stdout, L"Test: Sense unix terminal message. termios testm: %i\n", testm);
+                fwprintf(stdout, L"Test: Sense unix terminal message. termios teste: %i\n", teste);
+                fwprintf(stdout, L"Test: Sense unix terminal message. termios testm.c_cc[VMIN]: %i\n", testm.c_cc[VMIN]);
+//?? --
+
                 wint_t c = fgetwc(f);
 
                 fwprintf(stdout, L"Test: Sense unix terminal message. c: %i\n", c);
@@ -185,8 +197,8 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2) {
                     // the sensing thread is still running but  due to
                     // missing (already destroyed) resources in non-blocking mode.
                     //
-                    //?? log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The returned value is WEOF.");
-                    //?? fwprintf(stdout, L"Error: Could not sense unix terminal message. The returned value is WEOF. p0: %i\n", p0);
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The returned value is WEOF.");
+                    fwprintf(stdout, L"Error: Could not sense unix terminal message. The returned value is WEOF. p0: %i\n", p0);
                 }
 
                 // Unlock mutex.
@@ -204,6 +216,11 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2) {
                 fwprintf(stdout, L"Test: Sense unix terminal message. enter loop. *i: %i\n", *i);
                 while (*i != *FALSE_BOOLEAN_STATE_CYBOI_MODEL);
                 fwprintf(stdout, L"Test: Sense unix terminal message. leave loop. *i: %i\n", *i);
+
+                static int testcounter = 1;
+                testcounter++;
+                fwprintf(stdout, L"Test: Sense unix terminal message. testcounter: %i\n", testcounter);
+                if (testcounter == 5) exit(0);
 
             } else {
 

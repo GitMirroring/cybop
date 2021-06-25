@@ -20,6 +20,7 @@
 
 2021-06-24  Christian Heller  <christian.heller@cybop.org>
 
+        * Adapt shutdown files to new thread-related fields of input/output entry
         * Adapt editor as well as starter and shutter
         * Implement un-/blocking via function call "edit_service" into file "stream_unix_terminal_reader.c"
         * Use combination of terminal mode settings (termios) with TIME = 0 and MIN = 1 (blocking) or MIN = 0 (unblocking)
