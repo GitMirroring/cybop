@@ -14,10 +14,11 @@
 Input Threads
 _____________
 
-        * Investigate strange behaviour that terminal sensing does sometimes not block:
+        * Investigate strange behaviour that terminal sensing in file "message_unix_terminal_sensor.c" does sometimes not block:
             when pressing e.g. an arrow up (3 characters end loop break set right afterwards), the following sensing thread cycle DOES block
             when pressing e.g. escape (1 character with following -1 as end), the following sensing thread cycle does NOT block,
                 even though unix terminal is set to blocking (MIN = 1), which was recognised by output (tested just before calling "fgetwc")
+            --> Where else to use "volatile"!
         * Uncomment function call to "check_wait" in file "empty_checker.c" which was currently temporarily commented out for testing
             therefore, the main thread (currently, while testing) causes one cpu to run at 100 % due to the missing "sleep_nano"
 

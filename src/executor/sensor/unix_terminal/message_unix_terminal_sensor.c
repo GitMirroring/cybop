@@ -110,7 +110,7 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2) {
                 fwprintf(stdout, L"Test: Sense unix terminal message. termios testm.c_cc[VMIN]: %i\n", testm.c_cc[VMIN]);
 //?? --
 
-                wint_t c = fgetwc(f);
+                volatile wint_t c = fgetwc(f);
 
                 fwprintf(stdout, L"Test: Sense unix terminal message. c: %i\n", c);
 
