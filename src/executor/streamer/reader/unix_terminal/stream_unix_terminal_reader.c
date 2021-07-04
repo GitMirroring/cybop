@@ -87,7 +87,7 @@ void read_unix_terminal_stream(void* p0, void* p1, void* p2, void* p3, void* p4)
                 // Hence, do NOT assign the following value:
                 // wint_t c = *((wint_t*) NULL_UNICODE_CHARACTER_CODE_MODEL);
                 //
-                wint_t c = WEOF;
+                volatile wint_t c = WEOF;
 
                 //?? fwprintf(stdout, L"Test: Read unix terminal stream. b %i\n", b);
 
