@@ -1,6 +1,6 @@
 <node>
 
-    <node name="handler" channel="file" format="element/part" model="internet/socket_server/handler.cybol"/>
+    <node name="handle" channel="file" format="element/part" model="internet/socket_server/handle.cybol"/>
 
     <node name="send-hello" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
