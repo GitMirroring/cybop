@@ -14,6 +14,8 @@
 Pipe
 ____
 
+        * Create local unix-domain socket using just one function (see glibc doc), just to test and compare with current error
+
         * Why does ipv4 socket work, but local (unix domain) socket does not?
         * See file "create_bsd_socket_starter.c"
         * Test with cybol applications "socket_server/run.cybol" and "socket_client/run.cybol"
