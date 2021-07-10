@@ -34,25 +34,26 @@
 
     <node name="startup_socket" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="namespace" channel="inline" format="text/plain" model="local"/>
+        <node name="style" channel="inline" format="text/plain" model="datagram"/>
+        <node name="protocol" channel="inline" format="text/plain" model="udp"/>
+        <node name="filename" channel="inline" format="text/plain" model="cyboi.socket"/>
+        <node name="connexions" channel="inline" format="number/integer" model="1"/>
+        <node name="timeout" channel="inline" format="number/integer" model="5"/>
+    </node>
+<!--
+    <node name="startup_socket" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
         <node name="style" channel="inline" format="text/plain" model="stream"/>
         <node name="protocol" channel="inline" format="text/plain" model="tcp"/>
+        <node name="filename" channel="inline" format="text/plain" model="cyboi.socket"/>
         <node name="address" channel="inline" format="text/plain" model="127.0.0.1"/>
         <node name="port" channel="inline" format="number/integer" model="1971"/>
-        <!--
-            If setting the server socket non-blocking,
-            cyboi will run a "busy waiting" endless loop,
-            and be able to process other signals/events.
-            Otherwise, if blocking, the operating system will care
-            about waiting for new client requests in socket "accept"
-            and meanwhile block any other message processing in cyboi.
-            You may try out either here: "true" for blocking; "false" for non-blocking.
-        -->
-        <node name="blocking" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="connexions" channel="inline" format="number/integer" model="1"/>
-        <!-- The timeout unit is second. -->
         <node name="timeout" channel="inline" format="number/integer" model="5"/>
     </node>
+-->
 
     <node name="print_message" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>

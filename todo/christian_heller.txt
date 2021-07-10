@@ -11,10 +11,21 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-Input Threads
-_____________
+Pipe
+____
 
-        * Implement pipe as suggested by fpiette in comment at:
+        * Why does ipv4 socket work, but local (unix domain) socket does not?
+        * See file "create_bsd_socket_starter.c"
+        * Test with cybol applications "socket_server/run.cybol" and "socket_client/run.cybol"
+
+        * Test udp socket
+        * Test local unix domain socket
+        * Implement named pipe (fifo)
+        * Reflect how to exchange data between cyboi and another (previous or following) process via anonymous pipe
+        * Implement anonymous pipe
+        * Use anonymous pipe as irq i/o message queue
+
+        * Implement pipe-based irq i/o message handling as suggested by fpiette in comment at:
             https://stackoverflow.com/questions/68172507/two-threads-and-terminal-does-not-block-even-though-struct-termios-c-ccvmin-1
 
             - The child thread is only to detect... This IMO is simply bad design.
@@ -31,6 +42,13 @@ _____________
                 Probably the answers to this SO question will help you:
                 https://stackoverflow.com/questions/5524780/i-want-to-wait-on-both-a-file-descriptor-and-a-mutex-whats-the-recommended-way
                 If it doesn't please open a new explicit question about the topic. – fpiette Jun 30 at 12:05
+
+        * Eliminate cybol property "blocking" from startup and shutdown??
+
+Input Threads
+_____________
+
+        * Testwise deactivate socket sensing by commenting out function call "check_wait" in file "empty_checker.c"
 
         * Test again, since I have added "volatile" in file "stream_unix_terminal_reader.c":
             volatile wint_t c = WEOF;
@@ -54,8 +72,6 @@ _____________
             termios settings are applied to stdin AND stdout (in linux, NOT in win32)
             therefore, set only once at startup and restore only once at shutdown
             ALSO DO deallocate input termios! But do NOT reset original attributes, since this is already done via output termios!
-
-        * Reactivate socket sensing by uncommenting function call "check_wait" in file "empty_checker.c"
 
         * Test input data sensing thread with unix terminal channel using cybol application "tui"
         * Study and copy comments from to-be-deleted files before deleting them

@@ -46,15 +46,15 @@
  * - baudrate (optional): the filename
  *
  * Expected parametres only for channel "socket":
- * - namespace (optional): the address family, e.g. ip6
- * - style (optional): the communication style, e.g. stream
- * - protocol (optional): the protocol, e.g. tcp
+ * - namespace (optional): the address family, e.g. local, ipv4, ipv6
+ * - style (optional): the communication style, e.g. stream, datagram, raw
+ * - protocol (optional): the protocol, e.g. tcp, udp, rdp
  * - blocking (required): the socket status, i.e. whether or not a socket is blocking
  * - filename (optional): the unix domain socket filename
  * - address (required): the host address
  * - port (required): the service identification, e.g. socket port 80
  * - connexions (optional): the number of possible pending client requests
- * - timeout (optional): the timeout set for each new client
+ * - timeout (optional): the timeout in seconds set for each new client
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

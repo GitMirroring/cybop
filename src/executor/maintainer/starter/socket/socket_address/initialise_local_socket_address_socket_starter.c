@@ -38,7 +38,6 @@
 #endif
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
@@ -63,13 +62,16 @@ void startup_socket_socket_address_local_initialise(void* p0, void* p1, void* p2
 
             if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                // CAUTION! The compiler brings an error if the "struct sockaddr_un"
-                // type is used, because pointer calculation is done below!
+                //
+                // CAUTION! The compiler brings an error if the type "struct sockaddr_un"
+                // is used, because pointer calculation is done below!
                 // Therefore, a cast to void* is done here instead.
+                //
                 void* a = (void*) p0;
 
                 log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket socket address local initialise.");
 
+                //
                 // Determine position of namespace
                 // ("sun_family" field within the "sockaddr_un" structure).
                 //
@@ -79,20 +81,30 @@ void startup_socket_socket_address_local_initialise(void* p0, void* p1, void* p2
                 // the unknown size of its "sun_path" field (a character array),
                 // is considered an incomplete type, so that the compiler
                 // brings an error.
+                //
                 short int* family = (short int*) (a + *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
+                //
                 // Set namespace (address format/family).
                 //
                 // CAUTION! Use the prefix "AF_" here and NOT "PF_"!
                 // The latter is to be used for socket creation.
+                //
                 *family = *LOCAL_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME;
 
+                //
                 // CAUTION! For some strange reason, the socket file name length
                 // is limited to 108 ascii characters in the gnu c library!
                 // The documentation called it a "magic number" and does not
                 // know why this limit exists.
-                if (*fc <= *NUMBER_108_INTEGER_STATE_CYBOI_MODEL) {
+                //
+                // CAUTION! Use the operator < (less than) and NOT
+                // the operator <= (less than or equal) for comparison,
+                // because there has to be space for the null termination character.
+                //
+                if (*fc < *NUMBER_108_INTEGER_STATE_CYBOI_MODEL) {
 
+                    //
                     // CAUTION! Do NOT reallocate the file name array with:
                     // int nc = *fc + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                     // reallocate_array((void*) &(a.sun_path), p2, (void*) &nc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
@@ -105,7 +117,9 @@ void startup_socket_socket_address_local_initialise(void* p0, void* p1, void* p2
                     // It is no problem if the "sun_path" array size is greater
                     // than the actual file name size, since the file name is
                     // terminated with a null character.
+                    //
 
+                    //
                     // Determine position of file name
                     // ("sun_path" field within the "sockaddr_un" structure).
                     //
@@ -115,31 +129,41 @@ void startup_socket_socket_address_local_initialise(void* p0, void* p1, void* p2
                     // the unknown size of its "sun_path" field (a character array),
                     // is considered an incomplete type, so that the compiler
                     // brings an error.
+                    //
                     void* path = (void*) (a + *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
 
+                    //
                     // Set terminated file name by first copying the actual name
                     // and then adding the null termination character.
+                    //
                     copy_array_forward(path, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
                     copy_array_forward(path, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+                    fwprintf(stdout, L"Test: Startup socket socket address local initialise. path: %ls\n", path);
+                    fwprintf(stdout, L"Test: Startup socket socket address local initialise. *fc: %i\n", *fc);
 
                 } else {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address local initialise. The socket file name is longer than the limit 108, as set by the gnu c library.");
+                    fwprintf(stdout, L"Error: Could not startup socket socket address local initialise. The socket file name is longer than the limit 108, as set by the gnu c library. *fc: %i\n", *fc);
                 }
 
             } else {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address local initialise. The socket address is null.");
+                fwprintf(stdout, L"Error: Could not startup socket socket address local initialise. The socket address is null. p0: %i\n", p0);
             }
 
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address local initialise. The file name is null.");
+            fwprintf(stdout, L"Error: Could not startup socket socket address local initialise. The file name is null. p1: %i\n", p1);
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address local initialise. The file name count is null.");
+        fwprintf(stdout, L"Error: Could not startup socket socket address local initialise. The file name count is null. p2: %i\n", p2);
     }
 }
 

@@ -113,7 +113,7 @@ void check_empty(void* p0, void* p1, void* p2) {
         // No interrupt request was detected.
         //
 
-        //?? check_wait(p0, p2);
+        check_wait(p0, p2);
     }
 }
 

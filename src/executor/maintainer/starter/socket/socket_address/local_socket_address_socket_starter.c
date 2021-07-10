@@ -32,11 +32,10 @@
 #include <string.h> // memset
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../executor/maintainer/starter/socket/socket_address/initialise_local_socket_address_socket_starter.c"
 #include "../../../../../executor/copier/integer_copier.c"
+#include "../../../../../executor/maintainer/starter/socket/socket_address/initialise_local_socket_address_socket_starter.c"
 #include "../../../../../logger/logger.c"
 #include "../../../../../variable/type_size/integral_type_size.c"
 
@@ -56,18 +55,22 @@ void startup_socket_socket_address_local(void* p0, void* p1, void* p2, void* p3)
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket socket address local.");
 
+        //
         // Allocate socket address.
         //
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
+        //
         allocate_array(p0, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) LOCAL_SOCKET_ADDRESS_STATE_CYBOI_TYPE);
 
+        //
         // Initialise socket address size.
         //
         // CAUTION! For the allocation above, the size gets determined inside
         // the "allocate_array" function, so that it is not needed as argument.
         // However, socket functions DO REQUIRE the socket address size
         // as argument, so that it has to be assigned here explicitly.
+        //
         copy_integer(p1, (void*) LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
 
         // Initialise address.
