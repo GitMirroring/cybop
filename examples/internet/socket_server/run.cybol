@@ -47,7 +47,6 @@
         <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
         <node name="style" channel="inline" format="text/plain" model="stream"/>
         <node name="protocol" channel="inline" format="text/plain" model="tcp"/>
-        <node name="filename" channel="inline" format="text/plain" model="cyboi.socket"/>
         <node name="address" channel="inline" format="text/plain" model="127.0.0.1"/>
         <node name="port" channel="inline" format="number/integer" model="1971"/>
         <node name="connexions" channel="inline" format="number/integer" model="1"/>

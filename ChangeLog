@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-07-11  Christian Heller  <christian.heller@cybop.org>
+
+        * Use zero as default value in call of function "socket" in file "create_bsd_socket_starter.c"
+        * Convert "wchar_t*" to "char*" for filename of local socket in file "initialise_local_socket_address_socket_starter.c"
+
 2021-06-24  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt shutdown files to new thread-related fields of input/output entry

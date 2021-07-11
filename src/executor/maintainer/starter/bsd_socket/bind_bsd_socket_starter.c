@@ -57,8 +57,8 @@ void startup_bsd_socket_bind(void* p0, void* p1, void* p2) {
 
                 log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket bind.");
 
-                // Cast int to socklen_t.
-                socklen_t sl = (socklen_t) *as;
+                // The address size casted to the correct type.
+                socklen_t ast = (socklen_t) *as;
 
                 //
                 // Initialise error number.
@@ -70,12 +70,12 @@ void startup_bsd_socket_bind(void* p0, void* p1, void* p2) {
                 //
                 errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                int r = bind(*s, ad, sl);
+                int r = bind(*s, ad, ast);
 
                 if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully startup bsd socket bind.");
-                    //?? fwprintf(stdout, L"Test: startup bsd socket bind success r: %i\n", r);
+                    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket bind. Success!");
+                    fwprintf(stdout, L"Test: Startup bsd socket bind. r: %i\n", r);
 
                 } else {
 

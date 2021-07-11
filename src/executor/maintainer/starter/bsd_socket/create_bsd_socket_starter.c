@@ -79,6 +79,10 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3, void* p4)
                     fwprintf(stdout, L"Test: Startup bsd socket create *st: %i\n", *st);
                     fwprintf(stdout, L"Test: Startup bsd socket create *pr: %i\n", *pr);
 
+                    fwprintf(stdout, L"Test: Startup bsd socket create PF_LOCAL: %i\n", PF_LOCAL);
+                    fwprintf(stdout, L"Test: Startup bsd socket create SOCK_DGRAM: %i\n", SOCK_DGRAM);
+                    fwprintf(stdout, L"Test: Startup bsd socket create 0: %i\n", 0);
+
                     //
                     // Initialise server socket.
                     //
@@ -90,9 +94,18 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3, void* p4)
                     // The latter is to be used for address family assignment.
                     // See further below!
                     //
-                    *s = socket(*pf, *st, *pr);
+                    // CAUTION! When using the protocol "tcp" and an ipv4 stream socket,
+                    // then everything just works fine. However, for some unknown reason,
+                    // the protocol "udp" does NOT work with a local datagram udp socket.
+                    // *s = socket(*pf, *st, *pr);
+                    // In order to avoid problems, the third parametre is set to ZERO here.
+                    // This decision follows the recommendation of the glibc documentation:
+                    // "zero is usually right for protocol".
+                    // *s = socket(PF_LOCAL, SOCK_DGRAM, 0);
+                    //
+                    *s = socket(*pf, *st, 0);
 
-                    fwprintf(stdout, L"Test: Startup bsd socket create success. *s: %i\n", *s);
+                    fwprintf(stdout, L"Test: Startup bsd socket create return value. *s: %i\n", *s);
 
                     // The socket options.
                     int od = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;

@@ -40,8 +40,12 @@
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/copier/array_copier.c"
+#include "../../../../../executor/converter/encoder/utf/utf_8_encoder.c"
+#include "../../../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../../logger/logger.c"
 #include "../../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
 
@@ -72,27 +76,6 @@ void startup_socket_socket_address_local_initialise(void* p0, void* p1, void* p2
                 log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket socket address local initialise.");
 
                 //
-                // Determine position of namespace
-                // ("sun_family" field within the "sockaddr_un" structure).
-                //
-                // Do NOT access the "sun_family" field directly with:
-                // (*a).sun_family = AF_LOCAL;
-                // It won't work because the "sockaddr_un" structure, due to
-                // the unknown size of its "sun_path" field (a character array),
-                // is considered an incomplete type, so that the compiler
-                // brings an error.
-                //
-                short int* family = (short int*) (a + *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-                //
-                // Set namespace (address format/family).
-                //
-                // CAUTION! Use the prefix "AF_" here and NOT "PF_"!
-                // The latter is to be used for socket creation.
-                //
-                *family = *LOCAL_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME;
-
-                //
                 // CAUTION! For some strange reason, the socket file name length
                 // is limited to 108 ascii characters in the gnu c library!
                 // The documentation called it a "magic number" and does not
@@ -104,6 +87,69 @@ void startup_socket_socket_address_local_initialise(void* p0, void* p1, void* p2
                 //
                 if (*fc < *NUMBER_108_INTEGER_STATE_CYBOI_MODEL) {
 
+                    //
+                    // Determine position of namespace
+                    // ("sun_family" field within the "sockaddr_un" structure).
+                    //
+                    // Do NOT access the "sun_family" field DIRECTLY with:
+                    // (*a).sun_family = AF_LOCAL;
+                    // It won't work because the "sockaddr_un" structure, due to
+                    // the unknown size of its "sun_path" field (a character array),
+                    // is considered an incomplete type, so that the compiler
+                    // brings an error.
+                    //
+                    short int* family = (short int*) (a + *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+                    //
+                    // Determine position of file name
+                    // ("sun_path" field within the "sockaddr_un" structure).
+                    //
+                    // Do NOT access the "sun_path" field directly with:
+                    // (*a).sun_path
+                    // It won't work because the "sockaddr_un" structure, due to
+                    // the unknown size of its "sun_path" field (a character array),
+                    // is considered an incomplete type, so that the compiler
+                    // brings an error.
+                    //
+                    void* path = (void*) (a + *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
+                    // The terminated file name item.
+                    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+                    // The terminated file name item data, count.
+                    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+                    void* tc = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+                    //
+                    // Allocate terminated file name item.
+                    //
+                    // CAUTION! Due to memory allocation handling, the size MUST NOT
+                    // be negative or zero, but have at least a value of ONE.
+                    //
+                    allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+                    // Encode wide character file name into multibyte character data.
+                    encode_utf_8(t, p1, p2);
+                    //
+                    // Get terminated file name item data, count.
+                    //
+                    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+                    // Inside the structure, arrays may have been reallocated,
+                    // with elements pointing to different memory areas now.
+                    //
+                    copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+                    copy_array_forward((void*) &tc, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+                    fwprintf(stdout, L"Test: Startup socket socket address local initialise. td: %s\n", td);
+                    fwprintf(stdout, L"Test: Startup socket socket address local initialise. tc: %i\n", *((int*) tc));
+
+                    //
+                    // Set namespace (address format/family).
+                    //
+                    // CAUTION! Use the prefix "AF_" here and NOT "PF_"!
+                    // The latter is to be used for socket creation.
+                    //
+                    *family = *LOCAL_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME;
+
+                    //
+                    // Set terminated file name by first copying the actual name
+                    // and then adding the null termination character.
                     //
                     // CAUTION! Do NOT reallocate the file name array with:
                     // int nc = *fc + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
@@ -118,29 +164,13 @@ void startup_socket_socket_address_local_initialise(void* p0, void* p1, void* p2
                     // than the actual file name size, since the file name is
                     // terminated with a null character.
                     //
+                    copy_array_forward(path, td, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, tc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+                    copy_array_forward(path, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, tc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-                    //
-                    // Determine position of file name
-                    // ("sun_path" field within the "sockaddr_un" structure).
-                    //
-                    // Do NOT access the "sun_path" field directly with:
-                    // (*a).sun_path
-                    // It won't work because the "sockaddr_un" structure, due to
-                    // the unknown size of its "sun_path" field (a character array),
-                    // is considered an incomplete type, so that the compiler
-                    // brings an error.
-                    //
-                    void* path = (void*) (a + *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
+                    fwprintf(stdout, L"Test: Startup socket socket address local initialise. path: %s\n", path);
 
-                    //
-                    // Set terminated file name by first copying the actual name
-                    // and then adding the null termination character.
-                    //
-                    copy_array_forward(path, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-                    copy_array_forward(path, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-                    fwprintf(stdout, L"Test: Startup socket socket address local initialise. path: %ls\n", path);
-                    fwprintf(stdout, L"Test: Startup socket socket address local initialise. *fc: %i\n", *fc);
+                    // Deallocate terminated file name item.
+                    deallocate_item((void*) &t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
                 } else {
 
