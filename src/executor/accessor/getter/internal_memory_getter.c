@@ -53,7 +53,7 @@ void get_internal_memory_element(void* p0, void* p1, void* p2, void* p3) {
     // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
     // Otherwise, it would produce huge log files filled up with useless entries.
     //
-    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Set internal memory element.");
+    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get internal memory element.");
     //
 
     // The internal memory index.
@@ -79,7 +79,7 @@ void get_internal_memory_element(void* p0, void* p1, void* p2, void* p3) {
     calculate_integer_add((void*) &i, p3);
 
     //
-    // CAUTION! Use greater-or-equal operator >=,
+    // CAUTION! Use greater-or-EQUAL operator >=,
     // since the first service has the identification zero.
     //
     compare_integer_greater_or_equal((void*) &r, (void*) &i, p2);
@@ -95,7 +95,8 @@ void get_internal_memory_element(void* p0, void* p1, void* p2, void* p3) {
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set internal memory element. The internal memory index is negative and hence invalid.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get internal memory element. The internal memory index is negative and hence invalid.");
+        fwprintf(stdout, L"Error: Could not get internal memory element. The internal memory index is negative and hence invalid. i: %i\n", i);
     }
 }
 

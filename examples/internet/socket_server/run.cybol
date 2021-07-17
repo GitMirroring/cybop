@@ -28,8 +28,13 @@
         <node name="sender" channel="inline" format="text/plain" model="internet/socket_server/image.png"/>
     </node>
 
-    <node name="TEST" channel="file" format="element/part" model="cybol/print-newline.cybol">
-        <node name="text" channel="inline" format="text/plain" model="Startup socket."/>
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Startup socket."/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="startup_socket" channel="inline" format="maintain/startup" model="">
@@ -65,7 +70,13 @@
 
     <node name="sense_requests" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <!--
+            The service port for a tcp or udp socket.
+            CAUTION! Uncomment when using a local unix domain socket.
+        -->
+        <!-- TODO??: DELETE when using unix domain socket only
         <node name="port" channel="inline" format="number/integer" model="1971"/>
+        -->
         <!-- The requesting client gets stored in this variable. -->
         <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/>
         <!-- This is the call-back function executed whenever a client sends a request. -->

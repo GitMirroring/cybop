@@ -30,9 +30,9 @@
 #include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/maintainer/shutter/bsd_socket/close_bsd_socket_shutter.c"
+    #include "../../../../executor/maintainer/shutter/unix_file_descriptor/close_unix_file_descriptor_shutter.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../executor/maintainer/shutter/bsd_socket/close_bsd_socket_shutter.c"
+    #include "../../../../executor/maintainer/shutter/unix_file_descriptor/close_unix_file_descriptor_shutter.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../../../executor/maintainer/shutter/winsock/winsock_shutter.c"
@@ -50,9 +50,9 @@ void shutdown_socket_close(void* p0) {
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown socket close.");
 
 #if defined(__linux__) || defined(__unix__)
-    shutdown_bsd_socket_close(p0);
+    shutdown_unix_file_descriptor_close(p0);
 #elif defined(__APPLE__) && defined(__MACH__)
-    shutdown_bsd_socket_close(p0);
+    shutdown_unix_file_descriptor_close(p0);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
     shutdown_winsock(p0);

@@ -79,7 +79,7 @@ void set_internal_memory_element(void* p0, void* p1, void* p2, void* p3) {
     calculate_integer_add((void*) &i, p3);
 
     //
-    // CAUTION! Use greater-or-equal operator >=,
+    // CAUTION! Use greater-or-EQUAL operator >=,
     // since the first service has the identification zero.
     //
     compare_integer_greater_or_equal((void*) &r, (void*) &i, p2);
@@ -90,12 +90,13 @@ void set_internal_memory_element(void* p0, void* p1, void* p2, void* p3) {
         // The internal memory index is valid.
         //
 
-        // Set input/output entry in internal memory.
+        // Set input/output entry into internal memory.
         copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set internal memory element. The internal memory index is negative and hence invalid.");
+        fwprintf(stdout, L"Error: Could not set internal memory element. The internal memory index is negative and hence invalid. i: %i\n", i);
     }
 }
 

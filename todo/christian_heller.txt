@@ -14,19 +14,22 @@
 Pipe
 ____
 
-        * Test local unix-domain socket --> Check why io_entry does not get created
-        * Test with cybol applications "socket_server/run.cybol" and "socket_client/run.cybol"
-
-        * Test udp socket
-        * Test local unix domain socket
-        * Implement named pipe (fifo)
-        * Reflect how to exchange data between cyboi and another (previous or following) process via anonymous pipe
-        * Implement anonymous pipe
-        * Use anonymous pipe as irq i/o message queue
-
+        * How to store input data?
+            no: pipe only to replace irq flag just to detect available input? (but main thread reading input itself from channel --> not possible as it would block at the end of data)
+            no: mix of bytes and signal parts? --> not useful
+            yes: replace signal memory with event queue pipe?
+                child threads would have to do input processing and allocate a cyboi knowledge part at the end, to be stored in the pipe
+                the pipe would hold only cyboi knowledge parts, no other data
+                main process does event processing as is already done
+        * Use already implemented named pipe (unix fifo) as signal memory (queue)
+        * Take the following as guide to implement a pipe:
+            https://stackoverflow.com/questions/5524780/i-want-to-wait-on-both-a-file-descriptor-and-a-mutex-whats-the-recommended-way
+            "I've solved this exact problem using what you mention, pipe() and libevent (which wraps epoll).
+            The worker thread writes a byte to its pipe FD when its output queue goes from empty to non-empty.
+            That wakes up the main IO thread, which can then grab the worker thread's output.
+            This works great is actually very simple to code."
         * Implement pipe-based irq i/o message handling as suggested by fpiette in comment at:
             https://stackoverflow.com/questions/68172507/two-threads-and-terminal-does-not-block-even-though-struct-termios-c-ccvmin-1
-
             - The child thread is only to detect... This IMO is simply bad design.
                 The child thread should read input, handling escape sequences and
                 signal to the main thread when a ready to use input is available.
@@ -42,7 +45,25 @@ ____
                 https://stackoverflow.com/questions/5524780/i-want-to-wait-on-both-a-file-descriptor-and-a-mutex-whats-the-recommended-way
                 If it doesn't please open a new explicit question about the topic. – fpiette Jun 30 at 12:05
 
-        * Eliminate cybol property "blocking" from startup and shutdown??
+        * Find reason for error "EOPNOTSUPP" in server
+        * Find reason for error "ECONNREFUSED" in client
+            "ioctl" is usable only with internet sockets, but not with local unix domain socket
+            therefore, implement pipe first and use pipe-based signal memory (queue) event handling so that "ioctl" becomes superfluous
+            afterwards, test local unix domain socket once more
+
+        * Find a solution for storing many local unix-domain sockets in internal memory
+            the port is used to distinguish tcp and udp sockets in internal memory
+            but what about local unix domain sockets without port number?
+            store the filename instead? but this is not an integer and cannot be calculated
+        * Test with cybol applications "socket_server/run.cybol" and "socket_client/run.cybol"
+
+        * Test udp socket
+        * Test local unix domain socket
+        * Reflect how to exchange data between cyboi and another (previous or following) process via anonymous pipe
+        * Implement anonymous pipe
+        * Use anonymous pipe as irq i/o message queue
+
+        * Eliminate cybol property "blocking" from startup and shutdown, but only for server socket, NOT client socket
 
 Input Threads
 _____________

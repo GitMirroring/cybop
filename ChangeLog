@@ -18,6 +18,13 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-07-17  Christian Heller  <christian.heller@cybop.org>
+
+        * Comment out port in cybol operation call "activate/enable" of cybol application file "socket_server/run.cybol"
+            since otherwise, the input/output entry is not found for local unix domain socket
+        * Implement named pipe (unix fifo)
+        * Replace bsd socket shutter with general unix file descriptor shutter to be used by file, pipe and socket
+
 2021-07-11  Christian Heller  <christian.heller@cybop.org>
 
         * Use zero as default value in call of function "socket" in file "create_bsd_socket_starter.c"

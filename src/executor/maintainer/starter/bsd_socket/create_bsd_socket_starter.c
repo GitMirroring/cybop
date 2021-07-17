@@ -43,7 +43,7 @@
  * @param p1 the protocol family (socket namespace)
  * @param p2 the communication style
  * @param p3 the protocol
- * @param p4 the blocking flag
+ * @param p4 the blocking flag (not needed for the server socket, but for the connected client socket)
  */
 void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3, void* p4) {
 

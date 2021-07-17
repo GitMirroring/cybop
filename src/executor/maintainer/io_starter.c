@@ -129,7 +129,7 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (*io == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            //?? fwprintf(stdout, L"Test: Startup io. *io: %i\n", io);
+            fwprintf(stdout, L"Test: Startup io. *io: %i\n", *io);
 
             //
             // The input/output entry (service) does NOT yet exist in internal memory.
@@ -262,11 +262,13 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4) {
         } else {
 
             log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup io. The input/output entry (service) is not null, i.e. it does already exist in internal memory.");
+            fwprintf(stdout, L"Warning: Could not startup io. The input/output entry (service) is not null, i.e. it does already exist in internal memory. *io: %i\n", *io);
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup io. The input/output entry is null.");
+        fwprintf(stdout, L"Error: Could not startup io. The input/output entry is null. p0: %i\n", p0);
     }
 }
 

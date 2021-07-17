@@ -162,7 +162,7 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             //
             void* f = (void*) &sense_unix_terminal;
 
-            //?? fwprintf(stdout, L"Test: Startup. f: %i\n", f);
+            //?? fwprintf(stdout, L"Test: Startup (section terminal). f: %i\n", f);
 
             //
             // Provide thread function ONLY for unix terminal below.
@@ -196,6 +196,8 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup. The channel is unknown.");
+        fwprintf(stdout, L"Warning: Could not startup. The channel is unknown. p18: %i\n", p18);
+        fwprintf(stdout, L"Warning: Could not startup. The channel is unknown. *p18: %i\n", *((int*) p18));
     }
 }
 
