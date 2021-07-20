@@ -22,7 +22,7 @@
 
         * Comment out port in cybol operation call "activate/enable" of cybol application file "socket_server/run.cybol"
             since otherwise, the input/output entry is not found for local unix domain socket
-        * Implement named pipe (unix fifo)
+        * Implement named pipe (unix fifo) maintainer
         * Replace bsd socket shutter with general unix file descriptor shutter to be used by file, pipe and socket
 
 2021-07-11  Christian Heller  <christian.heller@cybop.org>
