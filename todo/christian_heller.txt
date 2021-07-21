@@ -14,14 +14,50 @@
 Pipe
 ____
 
-        Nachdenken:
-        - zeichenweise Verarbeitung (Lesen) von Dateien i. O. (üblich)
-        - NICHT auf EOF (oder -1?) prüfen, da es innerhalb von Binärdateien auftauchen könnte
-            --> stattdessen Verwenden der Funktion "feof()"
-        - Array-Größe zum Einlesen kann 1024 sein oder z. B. auch 65000
-        - Beispielprogramm aus Buch schaut *in* die Inhalte der übertragenen HTTP Daten hinein, um das Ende der Nachricht zu detektieren
-            --> unschöne Lösung, neutrale Detektion des Datenendes wäre schöner, aber wie?
-            --> wenn Puffer nur 1024 ist, muss in Schleife solange eingelesen werden, bis Ende der Daten erreicht ist
+        //
+        // A pipe is a mechanism for interprocess communication.
+        // Data written to the pipe by one thread can be read by another thread.
+        // The data is handled in a first-in, first-out (FIFO) order.
+        // The pipe has no name. It is created for one use.
+        //
+        // A pipe has to be open at both ends simultaneously.
+        // If you read from a pipe that doesn’t have any processes
+        // writing to it, the read returns end-of-file (EOF).
+        // Writing to a pipe that doesn’t have a reading process
+        // is treated as an error condition.
+        //
+        // https://www.gnu.org/software/libc/manual/html_mono/libc.html#Pipes-and-FIFOs
+        //
+
+        //
+        // Each input/output thread has TWO PIPES connected to it:
+        // - the interrupt pipe to inform the main thread that data are available
+        // - the data pipe for handing over received data from child- to main thread
+        //
+
+        * Use early prototyping with deep coding to try out pipe idea, e.g. irq pipe and terminal pipe (escape sequences)
+        * Store characters in terminal pipe
+        * Store bytes in socket pipe
+        * Store events in display pipe
+
+        Possible problems (try out behaviour):
+        * The main thread is reading the interrupt pipe
+            --> the pipe is (hopefully) blocking and does NOT return EOF, since other threads are connected to it for writing, even if there are currently no data available
+            --> the blocking read call returns as soon as one of the threads is writing to the pipe (locked with mutex before)
+        * Is libevent (which wraps epoll) necessary for all of this?
+        * Use anonymous pipe or already implemented named pipe (unix fifo) as signal memory (queue) ??
+
+        CONTINUE:
+        * Create one fifo per input/output channel
+        * Create special fifo used as interrupt
+        * Block all channels while waiting for data
+        * Write channel number constant into interrupt fifo when data are available in corresponding child thread
+        * Write data received into the channel's fifo until channel function is blocking again in corresponding child thread
+        * Wake up main thread when special fifo used as interrupt returns from blocking call of "read"
+        * Detect affected channel via returned channel number
+        * Read data from channel's fifo until the end is reached
+        * Detect the end of data NOT via EOF (-1), but rather by using the functions "feof" and  "ferror", since some binary files might contain EOF (-1) as value
+        * Check other channel's fifos as well, once the main thread has been woken up ??
 
         * How to store input data?
             no: pipe only to replace irq flag just to detect available input? (but main thread reading input itself from channel --> not possible as it would block at the end of data)
@@ -30,7 +66,6 @@ ____
                 child threads would have to do input processing and allocate a cyboi knowledge part at the end, to be stored in the pipe
                 the pipe would hold only cyboi knowledge parts, no other data
                 main process does event processing as is already done
-        * Use already implemented named pipe (unix fifo) as signal memory (queue)
         * Take the following as guide to implement a pipe:
             https://stackoverflow.com/questions/5524780/i-want-to-wait-on-both-a-file-descriptor-and-a-mutex-whats-the-recommended-way
             "I've solved this exact problem using what you mention, pipe() and libevent (which wraps epoll).
@@ -53,6 +88,8 @@ ____
                 Probably the answers to this SO question will help you:
                 https://stackoverflow.com/questions/5524780/i-want-to-wait-on-both-a-file-descriptor-and-a-mutex-whats-the-recommended-way
                 If it doesn't please open a new explicit question about the topic. – fpiette Jun 30 at 12:05
+
+        * Use pipe functions "popen" and "pclose" to execute external shell command and process its output within a cybol application
 
         * Find reason for error "EOPNOTSUPP" in server
         * Find reason for error "ECONNREFUSED" in client
