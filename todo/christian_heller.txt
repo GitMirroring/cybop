@@ -14,6 +14,15 @@
 Pipe
 ____
 
+        Nachdenken:
+        - zeichenweise Verarbeitung (Lesen) von Dateien i. O. (üblich)
+        - NICHT auf EOF (oder -1?) prüfen, da es innerhalb von Binärdateien auftauchen könnte
+            --> stattdessen Verwenden der Funktion "feof()"
+        - Array-Größe zum Einlesen kann 1024 sein oder z. B. auch 65000
+        - Beispielprogramm aus Buch schaut *in* die Inhalte der übertragenen HTTP Daten hinein, um das Ende der Nachricht zu detektieren
+            --> unschöne Lösung, neutrale Detektion des Datenendes wäre schöner, aber wie?
+            --> wenn Puffer nur 1024 ist, muss in Schleife solange eingelesen werden, bis Ende der Daten erreicht ist
+
         * How to store input data?
             no: pipe only to replace irq flag just to detect available input? (but main thread reading input itself from channel --> not possible as it would block at the end of data)
             no: mix of bytes and signal parts? --> not useful
@@ -834,7 +843,7 @@ ______________
             - is the cybol parser REusable when parsing json in the first step?
                 (the tree structure resulting from xml has a root node; the json tree not necessarily)
         * See directory "doc/books/cybol/syntax"
-        * Encode binary data (e.g. x-ray images in the electronic health record of a patient) into text using Base64
+        * Encode binary data (e.g. x-ray images in the electronic health record of a patient) into text string using Base64 or base64url
         * Add the following comment into cyboi source code:
 
         //
