@@ -289,9 +289,9 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4) {
             int rd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
             // The write pipe file descriptor.
             int wd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-            // Get read pipe file descriptor DISPLAY_PIPE[0].
+            // Get read pipe file descriptor.
             copy_array_forward((void*) &rd, p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-            // Get write pipe file descriptor DISPLAY_PIPE[1].
+            // Get write pipe file descriptor.
             copy_array_forward((void*) &wd, p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
             // Get read pipe stream.
             convert_descriptor_to_stream((void*) &rp, (void*) &rd, (void*) READ_WITHOUT_BINARY_MODE_OPENTYPE_FILE_MODEL);

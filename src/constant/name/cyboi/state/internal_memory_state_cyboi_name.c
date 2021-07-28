@@ -44,7 +44,7 @@
 // CAUTION! The socket stands at last, since more services
 // may have to be added in the future.
 //
-// The current internal memory size is calculated in file "state_cyboi_model.c"!
+// The current internal memory size is set in file "state_cyboi_model.c"!
 //
 
 /** The knowledge memory. */
@@ -56,6 +56,11 @@ static int* STACK_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_1_INTEGER_STA
 /** The signal memory. */
 static int* SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 static int* SLEEP_TIME_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The interrupt request pipe. */
+static int* INTERRUPT_REQUEST_PIPE_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* READ_STREAM_INTERRUPT_REQUEST_PIPE_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* WRITE_STREAM_INTERRUPT_REQUEST_PIPE_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The serial port.

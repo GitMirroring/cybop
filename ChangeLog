@@ -24,6 +24,8 @@
         * Add new constants file "opentype_file_model.c" for opening a file resource
         * Adapt files "io_starter.c" and "io_shutter.c" calling functions of new porter for opening and closing the pipe
         * Adapt files "file_reader.c" and "file_writer.c" calling functions of new porter for opening and closing as well as flushing the file
+        * Create and destroy special interrupt request pipe in file "manager.c", and store in internal memory
+        * Add read interrupt request pipe stream as parametre in files "checker.c", "signal_checker.c", "empty_checker.c"
 
 2021-07-27  Christian Heller  <christian.heller@cybop.org>
 

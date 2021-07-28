@@ -46,18 +46,6 @@ void check(void* p0) {
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check for signals.");
 
-/*??
-    fwprintf(stdout, L"Test: Create pipes: %i\n", 0);
-    if (pipe(INTERRUPT_PIPE) == 0) {
-        INTERRUPT_PIPE_STREAM = fdopen(INTERRUPT_PIPE[0], "r");
-    } else {
-        fwprintf(stdout, L"Error: pipe(INTERRUPT_PIPE): %i\n", -1);
-    }
-
-    fwprintf(stdout, L"Test: INTERRUPT_PIPE[0]: %i\n", INTERRUPT_PIPE[0]);
-    fwprintf(stdout, L"Test: INTERRUPT_PIPE[1]: %i\n", INTERRUPT_PIPE[1]);
-*/
-
     //
     // CAUTION! The parametres were not handed over as function arguments,
     // since it is more flexible to just hand over the internal memory as argument.
@@ -79,6 +67,8 @@ void check(void* p0) {
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The signal memory sleep time.
     void* sl = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The read interrupt request pipe stream.
+    void* rp = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The stack memory part model item.
     void* stm = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -93,6 +83,8 @@ void check(void* p0) {
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get signal memory sleep time.
     copy_array_forward((void*) &sl, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SLEEP_TIME_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Get read interrupt request pipe stream.
+    copy_array_forward((void*) &rp, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) READ_STREAM_INTERRUPT_REQUEST_PIPE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     //
     // Get stack memory part model item.
@@ -123,13 +115,8 @@ void check(void* p0) {
             break;
         }
 
-        check_signal(p0, (void*) &k, stm, sm, sl, (void*) &f);
+        check_signal(p0, (void*) &k, stm, sm, sl, rp, (void*) &f);
     }
-
-/*??
-    close(INTERRUPT_PIPE[0]);
-    close(INTERRUPT_PIPE[1]);
-*/
 }
 
 /* CHECKER_SOURCE */

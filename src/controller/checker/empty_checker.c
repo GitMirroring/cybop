@@ -45,8 +45,9 @@
  * @param p0 the internal memory data
  * @param p1 the signal memory item
  * @param p2 the signal memory sleep time
+ * @param p3 the read interrupt request pipe stream
  */
-void check_empty(void* p0, void* p1, void* p2) {
+void check_empty(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check empty.");
 
@@ -61,7 +62,6 @@ void check_empty(void* p0, void* p1, void* p2) {
     // The signal memory is empty, so that the cyboi system
     // may check for interrupt requests now.
     //
-    //?? TODO: Is the following comment possibly OUTDATED?
     // CAUTION! This code section also covers the situation
     // when a new signal has been placed in signal memory
     // just after it was checked to be empty.
@@ -70,34 +70,11 @@ void check_empty(void* p0, void* p1, void* p2) {
     // and does not get forgotten.
     //
 
-
-/*??
-    fwprintf(stdout, L"Test: Check empty. TERMINAL_PIPE[0]: %i\n", TERMINAL_PIPE[0]);
-    FILE* irq_stream = fdopen(INTERRUPT_PIPE[0], "r");
-    FILE* terminal_stream = fdopen(TERMINAL_PIPE[0], "r");
-    fwprintf(stdout, L"Test: Check empty. irq_stream: %i\n", irq_stream);
-    fwprintf(stdout, L"Test: Check empty. terminal_stream: %i\n", terminal_stream);
-    wint_t irqc = fgetwc(irq_stream);
-    //?? while (irqc != WEOF) {
-    if (irqc != WEOF) {
-        fwprintf(stdout, L"Test: Check empty. Loop read. irq: %i\n", irqc);
-        //?? irqc = fgetwc(irq_stream);
-    }
-    fwprintf(stdout, L"Test: Check empty. Post irqc loop. irqc: %i\n", irqc);
-*/
-
-/*??
-        wint_t c = fgetwc(terminal_stream);
-        while (c != WEOF) {
-            fwprintf(stdout, L"Test: Check empty. Loop read. c: %i\n", c);
-            c = fgetwc(terminal_stream);
-        }
-        fwprintf(stdout, L"Test: Check empty. Post c loop. c: %i\n", c);
-*/
-
-
     // Check channels for interrupt requests.
-    //?? check_irq((void*) &irq, (void*) &s, p0);
+    check_irq((void*) &irq, (void*) &s, p0);
+    //?? wint_t irqc = fgetwc(irq_stream);
+
+    //?? fwprintf(stdout, L"Test: Check empty. post fgetwc irqc: %i\n", irqc);
 
     if (irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
     //?? if (irqc != WEOF) {

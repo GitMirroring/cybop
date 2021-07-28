@@ -39,12 +39,17 @@
 #include "../controller/manager/shutdown_manager.c"
 #include "../controller/manager/system_signal_handler_startup_manager.c"
 #include "../controller/initialiser.c"
+#include "../executor/copier/array_copier.c"
 #include "../executor/maintainer/shutter/display/display_shutter.c"
 #include "../executor/maintainer/shutter/opengl/opengl_shutter.c"
 #include "../executor/maintainer/shutter/serial_port/serial_port_shutter.c"
 #include "../executor/maintainer/shutter/socket/socket_shutter.c"
 #include "../executor/maintainer/shutter/terminal/terminal_shutter.c"
+#include "../executor/maintainer/starter/pipe/create_pipe_starter.c"
+#include "../executor/memoriser/allocator/array_allocator.c"
+#include "../executor/memoriser/deallocator/array_deallocator.c"
 #include "../executor/modifier/part_modifier.c"
+#include "../executor/porter/file_stream_closer.c"
 #include "../logger/logger.c"
 #include "../variable/type_size/integral_type_size.c"
 #include "../variable/type_size/real_type_size.c"
@@ -78,7 +83,7 @@ void manage(void* p0) {
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manage.");
 
     //
-    // Variable declaration.
+    // Declaration.
     //
 
     // The internal memory data.
@@ -91,13 +96,18 @@ void manage(void* p0) {
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The signal memory part model item.
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
-
     // The signal memory sleep time.
     int signal_memory_sleep_time_array[1];
     int* signal_memory_sleep_time = signal_memory_sleep_time_array;
+    // The interrupt request pipe.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The read interrupt request pipe stream.
+    void* rp = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The write interrupt request pipe stream.
+    void* wp = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
-    // Variable allocation.
+    // Allocation.
     //
 
     //
@@ -137,9 +147,20 @@ void manage(void* p0) {
     // to avoid steady reallocation, for better performance.
     //
     allocate_part((void*) &s, (void*) NUMBER_1024_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    //
+    // Allocate interrupt request pipe.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_array((void*) &p, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    //
+    // CAUTION! Do NOT allocate read/write interrupt request pipe streams,
+    // since they are just references to the array elements of the pipe.
+    //
 
     //
-    // Variable initialisation.
+    // Initialisation.
     //
 
     //
@@ -186,6 +207,26 @@ void manage(void* p0) {
     //
     copy_integer((void*) signal_memory_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
 
+    // Initialise interrupt request pipe.
+    startup_pipe_create(p);
+
+    //
+    // Opening.
+    //
+
+    // The read interrupt request pipe file descriptor.
+    int rd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The write interrupt request pipe file descriptor.
+    int wd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // Get read interrupt request pipe file descriptor.
+    copy_array_forward((void*) &rd, p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    // Get write interrupt request pipe file descriptor.
+    copy_array_forward((void*) &wd, p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    // Get read interrupt request pipe stream.
+    convert_descriptor_to_stream((void*) &rp, (void*) &rd, (void*) READ_WITHOUT_BINARY_MODE_OPENTYPE_FILE_MODEL);
+    // Get write interrupt request pipe stream.
+    convert_descriptor_to_stream((void*) &wp, (void*) &wd, (void*) WRITE_WITHOUT_BINARY_MODE_OPENTYPE_FILE_MODEL);
+
     //
     // System startup.
     //
@@ -208,7 +249,26 @@ void manage(void* p0) {
     // Therefore, the knowledge memory and signal memory NEED TO BE ADDED
     // to the internal memory, in order to be forwardable to threads.
     //
-    manage_startup_internal_memory(i, (void*) &k, (void*) &st, (void*) &s, (void*) &signal_memory_sleep_time);
+    manage_startup_internal_memory(i);
+
+    //
+    // Set special values.
+    //
+
+    // Set knowledge memory internals.
+    copy_array_forward(i, (void*) &k, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) KNOWLEDGE_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set stack memory internals.
+    copy_array_forward(i, (void*) &st, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) STACK_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set signal memory internals.
+    copy_array_forward(i, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set signal memory sleep time.
+    copy_array_forward(i, (void*) &signal_memory_sleep_time, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SLEEP_TIME_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set interrupt request pipe.
+    copy_array_forward(i, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_REQUEST_PIPE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set read interrupt request pipe stream.
+    copy_array_forward(i, (void*) &rp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) READ_STREAM_INTERRUPT_REQUEST_PIPE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set write interrupt request pipe stream.
+    copy_array_forward(i, (void*) &wp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) WRITE_STREAM_INTERRUPT_REQUEST_PIPE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Startup system signal handler.
     manage_startup_system_signal_handler();
@@ -235,7 +295,16 @@ void manage(void* p0) {
     manage_shutdown(i);
 
     //
-    // Variable finalisation.
+    // Closing.
+    //
+
+    // Close read interrupt request pipe stream.
+    close_file_stream(rp);
+    // Close write interrupt request pipe stream.
+    close_file_stream(wp);
+
+    //
+    // Finalisation.
     //
 
     //
@@ -247,9 +316,21 @@ void manage(void* p0) {
     //
 
     //
-    // Variable deallocation.
+    // Deallocation.
     //
 
+    //
+    // CAUTION! Do NOT deallocate read/write interrupt request pipe streams,
+    // since they are just references to the array elements of the pipe.
+    //
+    //
+    // Deallocate interrupt request pipe.
+    //
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    //
+    deallocate_array((void*) &p, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
     // Deallocate signal memory item.
     deallocate_part((void*) &s);
     // Deallocate stack memory item.

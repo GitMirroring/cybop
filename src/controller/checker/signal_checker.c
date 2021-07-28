@@ -73,13 +73,14 @@
  * @param p2 the stack memory item
  * @param p3 the signal memory item
  * @param p4 the signal memory sleep time
- * @param p5 the shutdown flag
+ * @param p5 the read interrupt request pipe stream
+ * @param p6 the shutdown flag
  */
-void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check signal.");
-    //?? fwprintf(stdout, L"Test: Check signal. p5: %i\n", p5);
+    //?? fwprintf(stdout, L"Test: Check signal. p6: %i\n", p6);
 
     // The signal item.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -124,7 +125,7 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
         // Handling a signal has higher priority than checking for new interrupt requests.
         //
 
-        check_found(sd, p0, p1, p2, p3, (void*) &i, p5);
+        check_found(sd, p0, p1, p2, p3, (void*) &i, p6);
 
     } else {
 
@@ -133,7 +134,7 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
         // Query interrupt flags for requests.
         //
 
-        check_empty(p0, p3, p4);
+        check_empty(p0, p3, p4, p5);
     }
 
     //
