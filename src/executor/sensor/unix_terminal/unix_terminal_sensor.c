@@ -60,12 +60,13 @@
 int sense_unix_terminal(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense unix terminal.");
-    //??fwprintf(stdout, L"Test: Sense unix terminal. p0: %i\n", p0);
 
     // The interrupt request.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The mutex.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // Get write pipe stream from input/output entry.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     //
     // The file stream associated with the given file descriptor.
     //
@@ -102,6 +103,11 @@ int sense_unix_terminal(void* p0) {
     copy_array_forward((void*) &i, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get mutex from input/output entry.
     copy_array_forward((void*) &m, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get write pipe stream from input/output entry.
+    copy_array_forward((void*) &p, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) WRITE_STREAM_PIPE_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+    //?? FILE* irq_stream = fdopen(INTERRUPT_PIPE[1], "w");
+    //?? FILE* terminal_stream = fdopen(TERMINAL_PIPE[1], "w");
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -114,6 +120,23 @@ int sense_unix_terminal(void* p0) {
         //
 
         sense_unix_terminal_message(i, m, f);
+
+        //?? TEST BEGIN DELETE LATER
+
+/*??
+        fwprintf(stdout, L"Test: Sense unix terminal. Wait for input using fgetwc. *TRUE_BOOLEAN_STATE_CYBOI_MODEL: %i\n", *TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        volatile wint_t c = fgetwc(stdin);
+
+        fwprintf(stdout, L"Test: Sense unix terminal. terminal_stream: %i\n", p);
+        fwprintf(p, L"%lc", c);
+        fflush(p);
+
+        fwprintf(stdout, L"Test: Sense unix terminal. irq_stream: %i\n", irq_stream);
+        fwprintf(irq_stream, L"%i", *TERMINAL_CYBOI_CHANNEL);
+        fflush(irq_stream);
+*/
+
+        //?? TEST END DELETE LATER
     }
 
     //

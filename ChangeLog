@@ -18,6 +18,20 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-07-28  Christian Heller  <christian.heller@cybop.org>
+
+        * Add new directory "executor/porter/" encapsulating file stream open/close/flush/convert functions including error handling
+        * Add new constants file "opentype_file_model.c" for opening a file resource
+        * Adapt files "io_starter.c" and "io_shutter.c" calling functions of new porter for opening and closing the pipe
+        * Adapt files "file_reader.c" and "file_writer.c" calling functions of new porter for opening and closing as well as flushing the file
+
+2021-07-27  Christian Heller  <christian.heller@cybop.org>
+
+        * Adapt pipe starter in directory "maintainer/pipe/"
+        * Create fifo starter in directory "maintainer/fifo/"
+        * Add pipe-related constants to file "input_output_state_cyboi_name.c"
+        * Create and destroy pipe in files "io_starter.c" and "io_shutter.c"
+
 2021-07-17  Christian Heller  <christian.heller@cybop.org>
 
         * Comment out port in cybol operation call "activate/enable" of cybol application file "socket_server/run.cybol"

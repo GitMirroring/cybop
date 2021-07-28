@@ -140,12 +140,21 @@ void read_unix_terminal_stream(void* p0, void* p1, void* p2, void* p3, void* p4)
                         break;
                     }
 
+/*??
+                    c = fgetwc(terminal_stream);
+                    while (c != WEOF) {
+                        fwprintf(stdout, L"Test: Check empty. Loop read. c: %i\n", c);
+                        c = fgetwc(terminal_stream);
+                    }
+                    fwprintf(stdout, L"Test: Check empty. Post c loop. c: %i\n", c);
+*/
+
                     read_unix_terminal_character(p0, p1, (void*) &b, (void*) &esc, (void*) &aec, (void*) &c);
                 }
 
                 // Set blocking mode in terminal. VMIN = 1
-                fwprintf(stdout, L"Test: Read unix terminal stream. set blocking c %i\n", c);
-                edit_service(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TERMINAL_CYBOI_CHANNEL);
+                //?? fwprintf(stdout, L"Test: Read unix terminal stream. set blocking c %i\n", c);
+                //?? edit_service(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TERMINAL_CYBOI_CHANNEL);
 
                 // Reset interrupt request in input/output entry.
                 copy_integer(i, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);

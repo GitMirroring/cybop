@@ -49,7 +49,7 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable channel.");
 
-    //?? fwprintf(stdout, L"Test: Enable channel. port p2: %i\n", p2);
+    fwprintf(stdout, L"Test: Enable channel. port p2: %i\n", p2);
     //?? CAUTION! Uncomment only for socket test since otherwise, the id is null.
     //?? fwprintf(stdout, L"Test: Enable channel. port *p2: %i\n", *((int*) p2));
 
@@ -79,11 +79,11 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         // Get enable flag from input/output entry.
         copy_array_forward((void*) &e, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Get thread identification into input/output entry.
+        // Get thread identification from input/output entry.
         copy_array_forward((void*) &t, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Get thread function into input/output entry.
+        // Get thread function from input/output entry.
         copy_array_forward((void*) &f, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FUNCTION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Get function argument into input/output entry.
+        // Get function argument from input/output entry.
         copy_array_forward((void*) &a, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ARGUMENT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         // Set handler into input/output entry.

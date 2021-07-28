@@ -99,7 +99,7 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2) {
                 // Furthermore, it is NOT standard C, but part of POSIX.
                 //
 
-//?? --
+//?? -- TEST START
                 int testf = fileno(stdin);
                 struct termios testm;
                 int teste = tcgetattr(testf, &testm);
@@ -108,7 +108,7 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2) {
                 fwprintf(stdout, L"Test: Sense unix terminal message. termios testm: %i\n", testm);
                 fwprintf(stdout, L"Test: Sense unix terminal message. termios teste: %i\n", teste);
                 fwprintf(stdout, L"Test: Sense unix terminal message. termios testm.c_cc[VMIN]: %i\n", testm.c_cc[VMIN]);
-//?? --
+//?? -- TEST END
 
                 volatile wint_t c = fgetwc(f);
 

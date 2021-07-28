@@ -14,6 +14,24 @@
 Pipe
 ____
 
+        * Create special interrupt pipe e.g. in file "checker.c" by calling pipe starter
+        * Write received bytes into pipe in file "unix_terminal_sensor.c"
+        * Read received bytes from pipe in file "stream_unix_terminal_reader.c"
+        * Adapt interrupt pipe handling in file "empty_checker.c"
+        * Use mutex and volatile variables when accessing pipes?
+
+        Idea for reading bytes from pipe ??:
+        * Increment and store number of bytes written to pipe in global variable, in child thread?
+        * Increment a second counter variable in main thread and compare with the one from child thread?
+
+        Alternative idea:
+        * Do NOT write *TERMINAL_CYBOI_CHANNEL to irq_stream in child thread, but rather an incremented terminal_irq_counter
+        * Decrement this counter in main thread
+        * Reason: The writing in the child thread might happen at a different speed than the reading in the main thread
+        * Lock this terminal_irq_counter variable using a mutex
+        * Advantage: the main thread may read multiple characters at once, if the terminal_irq_counter is greater than 1
+        * CAUTION! Without such a terminal_irq_counter the setting of the irq flag might overlap a previous setting --> is this harmful or NOT ??
+
         //
         // A pipe is a mechanism for interprocess communication.
         // Data written to the pipe by one thread can be read by another thread.
@@ -110,6 +128,14 @@ ____
         * Use anonymous pipe as irq i/o message queue
 
         * Eliminate cybol property "blocking" from startup and shutdown, but only for server socket, NOT client socket
+
+FIFO (Named Pipe)
+_________________
+
+        * Complete fifo (named pipe) starter
+        * See fifo example at:
+            https://www.ibm.com/docs/en/zos/2.3.0?topic=functions-mkfifo-make-fifo-special-file
+        * Write cybol application for testing
 
 Input Threads
 _____________
@@ -281,6 +307,8 @@ ______________
         * Delete temporary solution using "stdout" in file "stream_terminal_shutter.c" at "startup_terminal_file_number_get"
         * For some unknown reason, stdout cannot be stored and retrieved successfully from the input/output entry
         * The FILE* pointer being stored is always different from the one retrieved afterwards
+        * See glibc documentation with STDIN_FILENO, STDOUT_FILENO, STDERR_FILENO:
+            https://www.gnu.org/software/libc/manual/html_mono/libc.html#Descriptors-and-Streams
 
 CYBOL Library
 _____________

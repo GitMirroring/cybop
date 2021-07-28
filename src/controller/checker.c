@@ -46,6 +46,18 @@ void check(void* p0) {
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check for signals.");
 
+/*??
+    fwprintf(stdout, L"Test: Create pipes: %i\n", 0);
+    if (pipe(INTERRUPT_PIPE) == 0) {
+        INTERRUPT_PIPE_STREAM = fdopen(INTERRUPT_PIPE[0], "r");
+    } else {
+        fwprintf(stdout, L"Error: pipe(INTERRUPT_PIPE): %i\n", -1);
+    }
+
+    fwprintf(stdout, L"Test: INTERRUPT_PIPE[0]: %i\n", INTERRUPT_PIPE[0]);
+    fwprintf(stdout, L"Test: INTERRUPT_PIPE[1]: %i\n", INTERRUPT_PIPE[1]);
+*/
+
     //
     // CAUTION! The parametres were not handed over as function arguments,
     // since it is more flexible to just hand over the internal memory as argument.
@@ -113,6 +125,11 @@ void check(void* p0) {
 
         check_signal(p0, (void*) &k, stm, sm, sl, (void*) &f);
     }
+
+/*??
+    close(INTERRUPT_PIPE[0]);
+    close(INTERRUPT_PIPE[1]);
+*/
 }
 
 /* CHECKER_SOURCE */
