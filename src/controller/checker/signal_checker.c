@@ -73,7 +73,7 @@
  * @param p2 the stack memory item
  * @param p3 the signal memory item
  * @param p4 the signal memory sleep time
- * @param p5 the read interrupt request pipe stream
+ * @param p5 the interrupt request pipe
  * @param p6 the shutdown flag
  */
 void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {

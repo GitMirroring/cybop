@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-08-01  Christian Heller  <christian.heller@cybop.org>
+
+        * Use interrupt request pipe file descriptors (instead of streams) in files "manager.c", "message_unix_terminal_sensor.c", "empty_checker.c"
+        * Detect interrupt request pipe input in file "empty_checker.c"
+
 2021-07-31  Christian Heller  <christian.heller@cybop.org>
 
         * Store input/output entry identification (channel base + service port) in input/output entry itself, when creating it (needed for handling irq in thread function)

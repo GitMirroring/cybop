@@ -41,7 +41,7 @@
  *
  * @param p0 the write pipe stream
  * @param p1 the interrupt request
- * @param p2 the write interrupt request pipe stream
+ * @param p2 the interrupt request pipe
  * @param p3 the access mutex
  * @param p4 the file stream
  * @param p5 the input/output entry identification
@@ -62,7 +62,7 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
 
                 if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                    FILE* ip = (FILE*) p2;
+                    void* ip = (void*) p2;
 
                     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -89,7 +89,7 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                             // CAUTION! Not all input/output channels use sensing threads.
                             // Sometimes, the main thread is the only one accessing resources.
                             //
-                            mtx_lock(m);
+                            //?? mtx_lock(m);
 
                             //
                             // Get character from source input stream of terminal.
@@ -113,20 +113,6 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                             // and may even be a system call directly into the OS.
                             // Furthermore, it is NOT standard C, but part of POSIX.
                             //
-
-                            /*??
-                            //?? TEST START
-                            int testf = fileno(stdin);
-                            struct termios testm;
-                            int teste = tcgetattr(testf, &testm);
-
-                            fwprintf(stdout, L"Test: Sense unix terminal message. termios testf: %i\n", testf);
-                            fwprintf(stdout, L"Test: Sense unix terminal message. termios testm: %i\n", testm);
-                            fwprintf(stdout, L"Test: Sense unix terminal message. termios teste: %i\n", teste);
-                            fwprintf(stdout, L"Test: Sense unix terminal message. termios testm.c_cc[VMIN]: %i\n", testm.c_cc[VMIN]);
-                            //?? TEST END
-                            */
-
                             volatile wint_t c = fgetwc(f);
 
                             fwprintf(stdout, L"Test: Sense unix terminal message. c: %i\n", c);
@@ -141,55 +127,6 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                             //
                             if (c != WEOF) {
 
-                                //
-                                // Unread character, that is push it back on the stream to
-                                // make it available to be input again from the stream, by the
-                                // next call to fgetc or another input function on that stream.
-                                //
-                                // If c is EOF, ungetc does nothing and just returns EOF.
-                                // This lets you call ungetc with the return value of getc
-                                // without needing to check for an error from getc.
-                                //
-                                // The character that you push back doesn't have to be the same
-                                // as the last character that was actually read from the stream.
-                                // In fact, it isn't necessary to actually read any characters
-                                // from the stream before unreading them with ungetc!
-                                // But that is a strange way to write a program;
-                                // usually ungetc is used only to unread a character that was
-                                // just read from the same stream.
-                                //
-                                // The GNU C library only supports ONE character of pushback.
-                                // In other words, it does not work to call ungetc twice without
-                                // doing input in between.
-                                // Other systems might let you push back multiple characters;
-                                // then reading from the stream retrieves the characters in the
-                                // reverse order that they were pushed.
-                                //
-                                // Pushing back characters doesn't alter the file;
-                                // only the internal buffering for the stream is affected.
-                                // If a file positioning function (such as fseek, fseeko or rewind)
-                                // is called, any pending pushed-back characters are discarded.
-                                //
-                                // Unreading a character on a stream that is at end of file
-                                // clears the end-of-file indicator for the stream, because it
-                                // makes the character of input available.
-                                // After you read that character, trying to read again will
-                                // encounter end of file.
-                                //
-                                fwprintf(stdout, L"Test: Sense unix terminal message. unread c: %i\n", c);
-                                //?? ungetwc(c, f);
-
-                                /*??
-                                //?? TEST BEGIN
-                                wint_t test = fgetwc(f);
-                                fwprintf(stdout, L"TEST sense unix terminal c SECOND READING: %lc\n", c);
-                                ungetwc(test, f);
-                                test = fgetwc(f);
-                                fwprintf(stdout, L"TEST sense unix terminal c THIRD READING: %lc\n", c);
-                                ungetwc(test, f);
-                                //?? TEST END
-                                */
-
                                 // Write character to write pipe stream.
                                 fwprintf(stdout, L"Test: Sense unix terminal message. p: %i\n", p);
                                 fwprintf(p, L"%lc", c);
@@ -198,10 +135,31 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                                 // Set interrupt request.
                                 //?? copy_integer(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-                                // Write input/output entry identification to write interrupt request pipe stream.
-                                fwprintf(stdout, L"Test: Sense unix terminal message. ip: %i\n", ip);
-                                fprintf(ip, "%i", *id);
-                                fflush(ip);
+                                // The write interrupt request pipe file descriptor.
+                                int wd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+                                // Get write interrupt request pipe file descriptor.
+                                copy_array_forward((void*) &wd, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+                                fwprintf(stdout, L"Test: Sense unix terminal message. wd: %i\n", wd);
+                                //
+                                // Write input/output entry identification to interrupt request pipe.
+                                //
+                                // CAUTION! The safe way is to use the functions "snprintf" and "strtol".
+                                // However, if both processes were created using the same compiler version,
+                                // one can take advantage of the fact that anything in C can be
+                                // read or written as an array of char (byte).
+                                //
+                                // Example:
+                                //
+                                // int n = something();
+                                // write(pipe_w, &n, sizeof(n));
+                                // int n;
+                                // read(pipe_r, &n, sizeof(n));
+                                //
+                                // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
+                                //
+                                //?? fprintf(ip, "%i", *id);
+                                write(wd, (void*) id, sizeof(*id));
+                                //?? fflush(ip);
 
                             } else {
 
@@ -229,27 +187,7 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                             }
 
                             // Unlock mutex.
-                            mtx_unlock(m);
-
-                            //
-                            // Wait until interrupt request is reset by main thread.
-                            //
-                            // This endless waiting loop is also called "busy waiting".
-                            // Its running causes the processor (cpu) to run at 100 %.
-                            // However, the usual case is that the main thread needs
-                            // only minimal time to handle the interrupt request,
-                            // so that this endless loop is left very quickly.
-                            //
-                            /*??
-                            fwprintf(stdout, L"Test: Sense unix terminal message. enter loop. *i: %i\n", *i);
-                            while (*i != *FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-                            fwprintf(stdout, L"Test: Sense unix terminal message. leave loop. *i: %i\n", *i);
-
-                            static int testcounter = 1;
-                            testcounter++;
-                            fwprintf(stdout, L"Test: Sense unix terminal message. testcounter: %i\n", testcounter);
-                            if (testcounter == 5) exit(0);
-                            */
+                            //?? mtx_unlock(m);
 
                         } else {
 
@@ -265,8 +203,8 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The write interrupt request pipe stream is null.");
-                    fwprintf(stdout, L"Error: Could not sense unix terminal message. The write interrupt request pipe stream is null. p2: %i\n", p2);
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The interrupt request pipe is null.");
+                    fwprintf(stdout, L"Error: Could not sense unix terminal message. The interrupt request pipe is null. p2: %i\n", p2);
                 }
 
             } else {

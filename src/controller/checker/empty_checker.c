@@ -45,7 +45,7 @@
  * @param p0 the internal memory data
  * @param p1 the signal memory item
  * @param p2 the signal memory sleep time
- * @param p3 the read interrupt request pipe stream
+ * @param p3 the interrupt request pipe
  */
 void check_empty(void* p0, void* p1, void* p2, void* p3) {
 
@@ -70,17 +70,40 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
     // and does not get forgotten.
     //
 
+    // The read interrupt request pipe file descriptor.
+    int rd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // Get read interrupt request pipe file descriptor.
+    copy_array_forward((void*) &rd, p3, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    fwprintf(stdout, L"Test: Empty checker. rd: %i\n", rd);
     // Check channels for interrupt requests.
     //?? check_irq((void*) &irq, (void*) &s, p0);
-    char c = fgetc(p3);
-    //?? fwprintf(stdout, L"Test: Check empty. c: %i\n", c);
+    //
+    // Read from interrupt request pipe.
+    //
+    // CAUTION! The safe way is to use the functions "snprintf" and "strtol".
+    // However, if both processes were created using the same compiler version,
+    // one can take advantage of the fact that anything in C can be
+    // read or written as an array of char (byte).
+    //
+    // Example:
+    //
+    // int n = something();
+    // write(pipe_w, &n, sizeof(n));
+    // int n;
+    // read(pipe_r, &n, sizeof(n));
+    //
+    // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
+    //
+    // The input/output entry identification.
+    int id = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    int n = read(rd, (void*) &id, sizeof(id));
+    fwprintf(stdout, L"Test: Check empty. n: %i\n", n);
 
     //?? if (irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-    if (c != EOF) {
+    if (id != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
         //?? fwprintf(stdout, L"Test: Check empty. found irq: %i\n", irq);
-        fwprintf(stdout, L"Test: Check empty. found c: %i\n", c);
-        fwprintf(stdout, L"Test: Check empty. found c: %c\n", c);
+        fwprintf(stdout, L"Test: Check empty. found id: %i\n", id);
 
         //
         // Add part model (signal) to signal memory.

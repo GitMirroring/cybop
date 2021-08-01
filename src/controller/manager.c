@@ -101,10 +101,6 @@ void manage(void* p0) {
     int* signal_memory_sleep_time = signal_memory_sleep_time_array;
     // The interrupt request pipe.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The read interrupt request pipe stream.
-    void* rp = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The write interrupt request pipe stream.
-    void* wp = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // Allocation.
@@ -154,10 +150,6 @@ void manage(void* p0) {
     // be negative or zero, but have at least a value of ONE.
     //
     allocate_array((void*) &p, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    //
-    // CAUTION! Do NOT allocate read/write interrupt request pipe streams,
-    // since they are just references to the array elements of the pipe.
-    //
 
     //
     // Initialisation.
@@ -211,23 +203,6 @@ void manage(void* p0) {
     startup_pipe_create(p);
 
     //
-    // Opening.
-    //
-
-    // The read interrupt request pipe file descriptor.
-    int rd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The write interrupt request pipe file descriptor.
-    int wd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // Get read interrupt request pipe file descriptor.
-    copy_array_forward((void*) &rd, p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-    // Get write interrupt request pipe file descriptor.
-    copy_array_forward((void*) &wd, p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-    // Get read interrupt request pipe stream.
-    convert_descriptor_to_stream((void*) &rp, (void*) &rd, (void*) READ_WITHOUT_BINARY_MODE_OPENTYPE_FILE_MODEL);
-    // Get write interrupt request pipe stream.
-    convert_descriptor_to_stream((void*) &wp, (void*) &wd, (void*) WRITE_WITHOUT_BINARY_MODE_OPENTYPE_FILE_MODEL);
-
-    //
     // System startup.
     //
 
@@ -265,10 +240,6 @@ void manage(void* p0) {
     copy_array_forward(i, (void*) &signal_memory_sleep_time, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SLEEP_TIME_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set interrupt request pipe.
     copy_array_forward(i, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_REQUEST_PIPE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set read interrupt request pipe stream.
-    copy_array_forward(i, (void*) &rp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) READ_STREAM_INTERRUPT_REQUEST_PIPE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set write interrupt request pipe stream.
-    copy_array_forward(i, (void*) &wp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) WRITE_STREAM_INTERRUPT_REQUEST_PIPE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Startup system signal handler.
     manage_startup_system_signal_handler();
@@ -295,17 +266,20 @@ void manage(void* p0) {
     manage_shutdown(i);
 
     //
-    // Closing.
-    //
-
-    // Close read interrupt request pipe stream.
-    close_file_stream(rp);
-    // Close write interrupt request pipe stream.
-    close_file_stream(wp);
-
-    //
     // Finalisation.
     //
+
+    // The read/write interrupt request pipe file descriptors.
+    int rd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    int wd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+
+    // Get read/write interrupt request pipe file descriptors.
+    copy_array_forward((void*) &rd, p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    copy_array_forward((void*) &wd, p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+
+    // Close read/write interrupt request pipe file descriptors.
+    shutdown_unix_file_descriptor_close((void*) &rd);
+    shutdown_unix_file_descriptor_close((void*) &wd);
 
     //
     // CAUTION! Do NOT REMOVE any internal memory internals!
@@ -319,10 +293,6 @@ void manage(void* p0) {
     // Deallocation.
     //
 
-    //
-    // CAUTION! Do NOT deallocate read/write interrupt request pipe streams,
-    // since they are just references to the array elements of the pipe.
-    //
     //
     // Deallocate interrupt request pipe.
     //

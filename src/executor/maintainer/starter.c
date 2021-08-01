@@ -88,7 +88,7 @@ int sense_unix_terminal(void* p0);
  * @param p15 the socket port
  * @param p16 the socket connexions (number of possible pending client requests)
  * @param p17 the socket timeout
- * @param p18 the write interrupt request pipe stream (pointer reference)
+ * @param p18 the interrupt request pipe (pointer reference)
  * @param p19 the channel
  */
 void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19) {
