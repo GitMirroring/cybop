@@ -18,6 +18,15 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-07-31  Christian Heller  <christian.heller@cybop.org>
+
+        * Store input/output entry identification (channel base + service port) in input/output entry itself, when creating it (needed for handling irq in thread function)
+        * Store write interrupt request pipe stream twice, in internal memory and additionally in input/output entry,
+            in order to be able to pass it to the corresponding sensing thread, which does accept only one function argument
+        * Write input/output entry identification into interrupt request pipe in file "message_unix_terminal_sensor.c"
+        * Write received characters into pipe in file "message_unix_terminal_sensor.c"
+        * Detect interrupt request pipe input in file "empty_checker.c"
+
 2021-07-28  Christian Heller  <christian.heller@cybop.org>
 
         * Add new directory "executor/porter/" encapsulating file stream open/close/flush/convert functions including error handling

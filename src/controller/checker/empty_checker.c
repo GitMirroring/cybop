@@ -71,16 +71,16 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
     //
 
     // Check channels for interrupt requests.
-    check_irq((void*) &irq, (void*) &s, p0);
-    //?? wint_t irqc = fgetwc(irq_stream);
+    //?? check_irq((void*) &irq, (void*) &s, p0);
+    char c = fgetc(p3);
+    //?? fwprintf(stdout, L"Test: Check empty. c: %i\n", c);
 
-    //?? fwprintf(stdout, L"Test: Check empty. post fgetwc irqc: %i\n", irqc);
+    //?? if (irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (c != EOF) {
 
-    if (irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-    //?? if (irqc != WEOF) {
-
-        fwprintf(stdout, L"Test: Check empty. found irq: %i\n", irq);
-        //?? fwprintf(stdout, L"Test: Check empty. found s: %i\n", s);
+        //?? fwprintf(stdout, L"Test: Check empty. found irq: %i\n", irq);
+        fwprintf(stdout, L"Test: Check empty. found c: %i\n", c);
+        fwprintf(stdout, L"Test: Check empty. found c: %c\n", c);
 
         //
         // Add part model (signal) to signal memory.

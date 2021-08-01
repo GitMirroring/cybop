@@ -88,9 +88,10 @@ int sense_unix_terminal(void* p0);
  * @param p15 the socket port
  * @param p16 the socket connexions (number of possible pending client requests)
  * @param p17 the socket timeout
- * @param p18 the channel
+ * @param p18 the write interrupt request pipe stream (pointer reference)
+ * @param p19 the channel
  */
-void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18) {
+void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup service.");
 
@@ -101,14 +102,14 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p18, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p19, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Get input/output entry.
             get_internal_memory_element((void*) &io, p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15);
             // Startup input/output entry.
-            startup_io((void*) &io, p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, *NULL_POINTER_STATE_CYBOI_MODEL);
+            startup_io((void*) &io, p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
             // Startup service.
             startup_display(io);
         }
@@ -116,14 +117,14 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p18, (void*) SERIAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p19, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Get input/output entry.
             get_internal_memory_element((void*) &io, p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15);
             // Startup input/output entry.
-            startup_io((void*) &io, p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, *NULL_POINTER_STATE_CYBOI_MODEL);
+            startup_io((void*) &io, p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
             // Startup service.
             //?? startup_serial_port(io, p1, p2, p3);
         }
@@ -131,14 +132,14 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p18, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p19, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Get input/output entry.
             get_internal_memory_element((void*) &io, p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15);
             // Startup input/output entry.
-            startup_io((void*) &io, p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, *NULL_POINTER_STATE_CYBOI_MODEL);
+            startup_io((void*) &io, p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
             // Startup service.
             startup_socket(io, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17);
         }
@@ -146,7 +147,7 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p18, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p19, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -177,12 +178,12 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             get_internal_memory_element((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15);
             // Startup input/output entry.
 #if defined(__linux__) || defined(__unix__)
-            startup_io((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, (void*) &f);
+            startup_io((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, (void*) &f, p18);
 #elif defined(__APPLE__) && defined(__MACH__)
-            startup_io((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, (void*) &f);
+            startup_io((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, (void*) &f, p18);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-            startup_io((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, *NULL_POINTER_STATE_CYBOI_MODEL);
+            startup_io((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, *NULL_POINTER_STATE_CYBOI_MODEL, p18);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
@@ -196,8 +197,8 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not startup. The channel is unknown. p18: %i\n", p18);
-        fwprintf(stdout, L"Warning: Could not startup. The channel is unknown. *p18: %i\n", *((int*) p18));
+        fwprintf(stdout, L"Warning: Could not startup. The channel is unknown. p19: %i\n", p19);
+        fwprintf(stdout, L"Warning: Could not startup. The channel is unknown. *p19: %i\n", *((int*) p19));
     }
 }
 

@@ -14,9 +14,12 @@
 Pipe
 ____
 
-        * Adapt interrupt pipe handling in file "empty_checker.c"
-        * Write received bytes into pipe in file "unix_terminal_sensor.c"
-        * Read received bytes from pipe in file "stream_unix_terminal_reader.c"
+        * Detect interrupt request pipe input in file "empty_checker.c"
+            --> problem: how to convert large service id numbers > 65000 from char (read from irq pipe) to int?
+        * Add correct handler corresponding to irq number (input/output entry identification) to signal memory
+            this is comparable to the irq service routine in an operating system
+        * Read received bytes from pipe in file "stream_unix_terminal_reader.c" (executed as handler/callback function)
+        * Adapt handling of ansi escape code sequences if necessary
         * Use mutex and volatile variables when accessing pipes?
 
 /*?? TODO: terminal read stream
@@ -39,6 +42,12 @@ ____
         * Lock this terminal_irq_counter variable using a mutex
         * Advantage: the main thread may read multiple characters at once, if the terminal_irq_counter is greater than 1
         * CAUTION! Without such a terminal_irq_counter the setting of the irq flag might overlap a previous setting --> is this harmful or NOT ??
+
+        * Check flag "enable" in sensing functions before detecting data
+            It is currently not possible to interrupt threads,
+            because system signals cannot be used easily.
+            Therefore, the "enable" flag should be set and
+            evaluated instead, BEFORE setting an interrupt.
 
         //
         // A pipe is a mechanism for interprocess communication.

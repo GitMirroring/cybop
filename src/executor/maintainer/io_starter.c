@@ -36,6 +36,7 @@
 #include "../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/setter/internal_memory_setter.c"
+#include "../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../executor/copier/array_copier.c"
 #include "../../executor/maintainer/starter/pipe/create_pipe_starter.c"
 #include "../../executor/memoriser/allocator/array_allocator.c"
@@ -122,8 +123,9 @@
  * @param p2 the input/output base
  * @param p3 the socket port
  * @param p4 the thread function (pointer reference)
+ * @param p5 the write interrupt request pipe stream (pointer reference)
  */
-void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -143,6 +145,8 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Declaration.
             //
 
+            // The identification.
+            void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The enable flag.
             void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The interrupt request.
@@ -178,6 +182,13 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4) {
             //
             allocate_array(p0, (void*) IO_ENTRY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
 
+            //
+            // Allocate identification.
+            //
+            // CAUTION! Due to memory allocation handling, the size MUST NOT
+            // be negative or zero, but have at least a value of ONE.
+            //
+            allocate_array((void*) &id, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
             //
             // Allocate enable flag.
             //
@@ -251,6 +262,22 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Initialisation.
             //
 
+            //
+            // Initialise identification.
+            //
+            // - add input/output base
+            // - add service identification (port)
+            //
+            // CAUTION! If the service identification is NULL, then it is NOT copied here.
+            // This is tested inside the "calculate_integer_add" function.
+            // In this case, the input/output base added before remains AS IS,
+            // which is the same as a service identification of ZERO.
+            //
+            // In other words, the service identification is ZERO BY DEFAULT.
+            // Only for the socket channel, it gets replaced by the PORT number.
+            //
+            calculate_integer_add(id, p2);
+            calculate_integer_add(id, p3);
             // Initialise enable flag.
             copy_integer(e, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
             // Initialise interrupt request.
@@ -262,8 +289,11 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Initialise thread function.
             // CAUTION! Hand over function as pointer REFERENCE.
             copy_pointer(f, p4);
+            //
             // Initialise function argument.
-            // CAUTION! Hand over input/output entry as pointer REFERENCE.
+            //
+            // CAUTION! Hand over input/output entry itself, but as pointer REFERENCE.
+            //
             copy_pointer(a, p0);
             // The access mutex with casted type.
             mtx_t* mt = (mtx_t*) m;
@@ -302,6 +332,8 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // Storing.
             //
 
+            // Set identification into input/output entry.
+            copy_array_forward(*io, (void*) &id, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             // Set enable flag into input/output entry.
             copy_array_forward(*io, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ENABLE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             // Set interrupt request into input/output entry.
@@ -324,6 +356,15 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4) {
             copy_array_forward(*io, (void*) &rp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) READ_STREAM_PIPE_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             // Set write pipe stream into input/output entry.
             copy_array_forward(*io, (void*) &wp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) WRITE_STREAM_PIPE_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            //
+            // Set write interrupt request pipe stream into input/output entry.
+            //
+            // CAUTION! This reference is actually stored in internal memory.
+            // However, it gets stored in input/output entry HERE a SECOND time,
+            // in order to be able to pass it to the corresponding sensing thread,
+            // which does accept only one function argument.
+            //
+            copy_array_forward(*io, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) WRITE_STREAM_INTERRUPT_REQUEST_PIPE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             // Set input/output entry.
             set_internal_memory_element(p1, p0, p2, p3);

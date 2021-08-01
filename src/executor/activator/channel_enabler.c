@@ -109,19 +109,6 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             // Create thread and invoke sensing function.
             spin(t, ff, aa);
-
-        } else {
-
-            //
-            // A sensing function does NOT exist.
-            //
-            // A sensing thread will NOT be created. The data input
-            // sensing function will instead be called repeatedly
-            // from within the main thread's signal (event) processing loop.
-            //
-            // This block with just a comment does no harm and
-            // will be optimised away by the compiler.
-            //
         }
 
         //

@@ -228,8 +228,14 @@ void apply_startup(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get socket timeout part model item data.
     copy_array_forward((void*) &socket_tomd, socket_tom, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    // The write interrupt request pipe stream. */
+    void* wp = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Get write interrupt request pipe stream. */
+    copy_array_forward((void*) &wp, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) WRITE_STREAM_INTERRUPT_REQUEST_PIPE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+
     // Startup service.
-    startup_service(p4, serial_fmd, serial_fmc, serial_bmd, socket_nmd, socket_nmc, socket_stmd, socket_stmc, socket_pmd, socket_pmc, socket_bmd, socket_fmd, socket_fmc, socket_amd, socket_amc, socket_pomd, socket_comd, socket_tomd, cmd);
+    startup_service(p4, serial_fmd, serial_fmc, serial_bmd, socket_nmd, socket_nmc, socket_stmd, socket_stmc, socket_pmd, socket_pmc, socket_bmd, socket_fmd, socket_fmc, socket_amd, socket_amc, socket_pomd, socket_comd, socket_tomd, (void*) &wp, cmd);
 }
 
 /* STARTUP_SOURCE */
