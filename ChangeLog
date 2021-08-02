@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-08-02  Christian Heller  <christian.heller@cybop.org>
+
+        * Get handler corresponding to irq number (input/output entry identification), in file "empty_checker.c"
+
 2021-08-01  Christian Heller  <christian.heller@cybop.org>
 
         * Use interrupt request pipe file descriptors (instead of streams) in files "manager.c", "message_unix_terminal_sensor.c", "empty_checker.c"

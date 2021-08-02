@@ -14,12 +14,13 @@
 Pipe
 ____
 
-        * Add correct handler corresponding to irq number (input/output entry identification) to signal memory, in file "empty_checker.c"
-            this is comparable to the irq service routine in an operating system
         * Read received bytes from pipe in file "stream_unix_terminal_reader.c" (executed as handler/callback function)
+        * (possibly ??) Use pipe file descriptors (instead of streams) in files "message_unix_terminal_sensor.c", "stream_unix_terminal_reader.c"
         * Adapt handling of ansi escape code sequences if necessary
+        * Clean up input/output related source code by removing old interrupt handling
 
         * Use mutex and volatile variables when accessing pipes?
+        * Check flag "enable" in terminal sensor and write data to pipe only if activated
         * Encapsulate low-level functions "read" and "write" in cyboi, in order to catch possible errors
 
 /*?? TODO: terminal read stream

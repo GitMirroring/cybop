@@ -75,8 +75,10 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
     // Get read interrupt request pipe file descriptor.
     copy_array_forward((void*) &rd, p3, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"Test: Empty checker. rd: %i\n", rd);
+
     // Check channels for interrupt requests.
     //?? check_irq((void*) &irq, (void*) &s, p0);
+
     //
     // Read from interrupt request pipe.
     //
@@ -105,34 +107,54 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
         //?? fwprintf(stdout, L"Test: Check empty. found irq: %i\n", irq);
         fwprintf(stdout, L"Test: Check empty. found id: %i\n", id);
 
-        //
-        // Add part model (signal) to signal memory.
-        //
-        // CAUTION! Use simple POINTER_STATE_CYBOI_TYPE and NOT PART_ELEMENT_STATE_CYBOI_TYPE here.
-        // The signal memory just holds references to knowledge memory parts (signals),
-        // but only the knowledge memory may care about rubbish (garbage) collection.
-        //
-        // Example:
-        // Assume there are two signals in the signal memory.
-        // The second references a logic part that is to be destroyed by the first.
-        // If reference counting from rubbish (garbage) collection were used,
-        // then the logic part serving as second signal could not be deallocated
-        // as long as it is still referenced from the signal memory item.
-        //
-        // But probably, there is a reason the first signal wants to destroy the
-        // second and consequently, the second should not be executed anymore.
-        // After destruction, the second signal just points to null, which is ignored.
-        // Hence, rubbish (garbage) collection would only disturb here
-        // and should be left to the knowledge memory.
-        //
-        modify_item(p1, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+        // The input/output entry.
+        void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        //
-        // CAUTION! An interrupt request was detected and the corresponding data received.
-        // It is therefore VERY likely that new signals have been generated while handling the data.
-        // The cyboi system is therefore NOT sent to sleep, so that possibly existing
-        // signals may be handled in the next iteration of the signal checker loop.
-        //
+        // Get input/output entry from internal memory.
+        copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &id);
+
+        if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            //
+            // An input/output entry exists for the service.
+            //
+
+            //
+            // Get handler from input/output entry.
+            //
+            // It is comparable to the irq service routine in an operating system.
+            //
+            copy_array_forward((void*) &s, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+            //
+            // Add part model (signal) to signal memory.
+            //
+            // CAUTION! Use simple POINTER_STATE_CYBOI_TYPE and NOT PART_ELEMENT_STATE_CYBOI_TYPE here.
+            // The signal memory just holds references to knowledge memory parts (signals),
+            // but only the knowledge memory may care about rubbish (garbage) collection.
+            //
+            // Example:
+            // Assume there are two signals in the signal memory.
+            // The second references a logic part that is to be destroyed by the first.
+            // If reference counting from rubbish (garbage) collection were used,
+            // then the logic part serving as second signal could not be deallocated
+            // as long as it is still referenced from the signal memory item.
+            //
+            // But probably, there is a reason the first signal wants to destroy the
+            // second and consequently, the second should not be executed anymore.
+            // After destruction, the second signal just points to null, which is ignored.
+            // Hence, rubbish (garbage) collection would only disturb here
+            // and should be left to the knowledge memory.
+            //
+            modify_item(p1, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+            //
+            // CAUTION! An interrupt request was detected and the corresponding data received.
+            // It is therefore VERY likely that new signals have been generated while handling the data.
+            // The cyboi system is therefore NOT sent to sleep, so that possibly existing
+            // signals may be handled in the next iteration of the signal checker loop.
+            //
+        }
 
 /*??
     } else {
