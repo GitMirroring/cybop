@@ -15,7 +15,7 @@ Pipe
 ____
 
         * Read received bytes from pipe in file "stream_unix_terminal_reader.c" (executed as handler/callback function)
-        * (possibly ??) Use pipe file descriptors (instead of streams) in files "message_unix_terminal_sensor.c", "stream_unix_terminal_reader.c"
+            Use pipe file descriptors (instead of streams) in file "stream_unix_terminal_reader.c"??
         * Adapt handling of ansi escape code sequences if necessary
         * Clean up input/output related source code by removing old interrupt handling
 

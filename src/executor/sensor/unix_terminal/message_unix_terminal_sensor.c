@@ -39,7 +39,8 @@
 /**
  * Senses unix terminal message.
  *
- * @param p0 the write pipe stream
+ * @param p0 the pipe
+//?? * @param p0 the write pipe stream
  * @param p1 the interrupt request
  * @param p2 the interrupt request pipe
  * @param p3 the access mutex
@@ -70,7 +71,8 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
 
                         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                            FILE* p = (FILE*) p0;
+                            int* p = (int*) p0;
+                            //?? FILE* p = (FILE*) p0;
 
                             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense unix terminal message.");
                             //?? fwprintf(stdout, L"Test: Sense unix terminal message. p1: %i\n", p1);
@@ -127,19 +129,27 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                             //
                             if (c != WEOF) {
 
+                                // The write pipe file descriptor.
+                                int wp = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+                                // Get write pipe file descriptor.
+                                copy_array_forward((void*) &wp, p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+                                fwprintf(stdout, L"Test: Sense unix terminal message. wp: %i\n", wp);
+                                // Write character to write pipe file descriptor.
+                                write(wp, (void*) &c, sizeof(c));
+
                                 // Write character to write pipe stream.
-                                fwprintf(stdout, L"Test: Sense unix terminal message. p: %i\n", p);
-                                fwprintf(p, L"%lc", c);
-                                fflush(p);
+                                //?? fwprintf(stdout, L"Test: Sense unix terminal message. p: %i\n", p);
+                                //?? fwprintf(p, L"%lc", c);
+                                //?? fflush(p);
 
                                 // Set interrupt request.
                                 //?? copy_integer(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                                 // The write interrupt request pipe file descriptor.
-                                int wd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+                                int wip = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
                                 // Get write interrupt request pipe file descriptor.
-                                copy_array_forward((void*) &wd, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-                                fwprintf(stdout, L"Test: Sense unix terminal message. wd: %i\n", wd);
+                                copy_array_forward((void*) &wip, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+                                fwprintf(stdout, L"Test: Sense unix terminal message. wip: %i\n", wip);
                                 //
                                 // Write input/output entry identification to interrupt request pipe.
                                 //
@@ -158,7 +168,7 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                                 // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
                                 //
                                 //?? fprintf(ip, "%i", *id);
-                                write(wd, (void*) id, sizeof(*id));
+                                write(wip, (void*) id, sizeof(*id));
                                 //?? fflush(ip);
 
                             } else {
@@ -191,8 +201,10 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
 
                         } else {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The write pipe stream is null.");
-                            fwprintf(stdout, L"Error: Could not sense unix terminal message. The write pipe stream is null. p0: %i\n", p0);
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The pipe is null.");
+                            fwprintf(stdout, L"Error: Could not sense unix terminal message. The pipe is null. p0: %i\n", p0);
+                            //?? log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The write pipe stream is null.");
+                            //?? fwprintf(stdout, L"Error: Could not sense unix terminal message. The write pipe stream is null. p0: %i\n", p0);
                         }
 
                     } else {
