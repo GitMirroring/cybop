@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-08-04  Christian Heller  <christian.heller@cybop.org>
+
+        * Read received bytes from read pipe stream in file "stream_unix_terminal_reader.c", which gets executed as handler (callback function) from cybol
+
 2021-08-03  Christian Heller  <christian.heller@cybop.org>
 
         * Use file descriptor to write wide characters into pipe in file "message_unix_terminal_sensor.c"

@@ -91,7 +91,8 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
 
                 if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                    FILE* f = (FILE*) p1;
+                    //?? FILE* f = (FILE*) p1;
+                    int* f = (int*) p1;
 
                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read unix terminal character.");
                     //?? fwprintf(stdout, L"Test: Read unix terminal character. f: %i\n", f);
@@ -108,8 +109,11 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
                     // CAUTION! The return value of type "wint_t"
                     // MAY BE CASTED to "wchar_t".
                     //
-                    *c = fgetwc(f);
-
+                    //?? *c = fgetwc(f);
+                    // Read character from read pipe file descriptor.
+                    size_t s = sizeof(*c);
+                    int n = read(*f, (void*) c, s);
+                    fwprintf(stdout, L"Test: Read unix terminal character. n: %i\n", n);
                     fwprintf(stdout, L"Test: Read unix terminal character. c: %i\n", *c);
 
                     //
@@ -177,7 +181,7 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
                                 // Unread this character so that it may be
                                 // processed once more later on.
                                 //
-                                ungetwc(*c, f);
+//??                                ungetwc(*c, f);
 
                                 // Set loop break flag.
                                 copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

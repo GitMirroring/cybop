@@ -14,9 +14,8 @@
 Pipe
 ____
 
-        * Read received bytes from pipe in file "stream_unix_terminal_reader.c" (executed as handler/callback function)
-            Use pipe file descriptors (instead of streams) in file "stream_unix_terminal_reader.c"??
-        * Adapt handling of ansi escape code sequences if necessary
+        * Test input data sensing in file "stream_unix_terminal_reader.c" using cybol application "tui"
+        * Adapt handling of ansi escape code sequences (if necessary)
         * Clean up input/output related source code by removing old interrupt handling
 
         * Use mutex and volatile variables when accessing pipes?
@@ -49,6 +48,8 @@ ____
             because system signals cannot be used easily.
             Therefore, the "enable" flag should be set and
             evaluated instead, BEFORE setting an interrupt.
+
+        * Delete function "edit_service" ??
 
         //
         // A pipe is a mechanism for interprocess communication.
@@ -183,7 +184,6 @@ _____________
             therefore, set only once at startup and restore only once at shutdown
             ALSO DO deallocate input termios! But do NOT reset original attributes, since this is already done via output termios!
 
-        * Test input data sensing thread with unix terminal channel using cybol application "tui"
         * Study and copy comments from to-be-deleted files before deleting them
         * Delete thread-related global variables and files
             "thread_identification.c", "service_interrupt.c", "thread_identification_globaliser.c", "service_interrupt_globaliser.c",
