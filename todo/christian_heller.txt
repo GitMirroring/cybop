@@ -14,6 +14,12 @@
 Pipe
 ____
 
+        * Use "read" instead of "fgetwc" in file "message_unix_terminal_sensor.c", in order to get all input characters at once into a buffer array,
+            since some keyboard buttons deliver multiple characters belonging to an ansi escape sequence,
+            and write these characters within a loop out to the data pipe, before setting the interrupt
+            this is necessary to assure all characters of an ansi escape sequence have arrived in the main thread through the pipe,
+            before that is going to parse/deserialise/interpret them
+
         * Test input data sensing in file "stream_unix_terminal_reader.c" using cybol application "tui"
         * Adapt handling of ansi escape code sequences (if necessary)
         * Clean up input/output related source code by removing old interrupt handling
