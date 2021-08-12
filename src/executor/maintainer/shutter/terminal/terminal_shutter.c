@@ -49,6 +49,11 @@ void shutdown_terminal(void* p0) {
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The echo mode.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The buffer data, count.
+    void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The wide character buffer.
+    void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get blocking mode from input/output entry.
     copy_array_forward((void*) &b, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BLOCKING_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
@@ -56,13 +61,16 @@ void shutdown_terminal(void* p0) {
     copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CANONICAL_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get echo mode from input/output entry.
     copy_array_forward((void*) &e, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ECHO_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get buffer data, count from input/output entry.
+    copy_array_forward((void*) &bd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_DATA_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &bc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_COUNT_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get wide character buffer from input/output entry.
+    copy_array_forward((void*) &w, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) WIDE_CHARACTER_BUFFER_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-    // Reset blocking mode in input/output entry.
-    copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) BLOCKING_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Reset canonical mode in input/output entry.
-    copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CANONICAL_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Reset echo mode in input/output entry.
-    copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ECHO_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    //
+    // CAUTION! Resetting the values is not necessary,
+    // since the input/output entry gets deallocated anyway.
+    //
 
     //
     // Deallocate blocking mode.
@@ -88,6 +96,17 @@ void shutdown_terminal(void* p0) {
     // in order to decrement the rubbish (garbage) collection counter.
     //
     deallocate_array((void*) &e, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    //
+    // Deallocate buffer data, count.
+    //
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    //
+    deallocate_array((void*) &bd, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_64_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &bc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    // Deallocate wide character buffer item.
+    deallocate_item((void*) &w, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     //
     // See comment in file "terminal_starter.c"!

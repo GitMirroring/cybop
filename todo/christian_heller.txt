@@ -14,11 +14,10 @@
 Pipe
 ____
 
-        * Use "read" instead of "fgetwc" in file "message_unix_terminal_sensor.c", in order to get all input characters at once into a buffer array,
-            since some keyboard buttons deliver multiple characters belonging to an ansi escape sequence,
-            and write these characters within a loop out to the data pipe, before setting the interrupt
-            this is necessary to assure all characters of an ansi escape sequence have arrived in the main thread through the pipe,
-            before that is going to parse/deserialise/interpret them
+        * Reallocate only if buffer size changed in file "utf_8_decoder.c"
+
+        * Work around commented-out "ungetwc" in file "character_unix_terminal_reader.c"
+        * Create a new terminal-input OR ansi-escape-code deserialiser and move source code from file "character_unix_terminal_reader.c" to it?
 
         * Test input data sensing in file "stream_unix_terminal_reader.c" using cybol application "tui"
         * Adapt handling of ansi escape code sequences (if necessary)
@@ -27,15 +26,10 @@ ____
         * Use mutex and volatile variables when accessing pipes?
         * Check flag "enable" in terminal sensor and write data to pipe only if activated
         * Encapsulate low-level functions "read" and "write" in cyboi, in order to catch possible errors
+        * Provide windows operating system version using function "_read" as described in:
+            https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/read?view=msvc-160
 
-/*?? TODO: terminal read stream
-    wint_t c = fgetwc(terminal_stream);
-    while (c != WEOF) {
-        fwprintf(stdout, L"Test: Check empty. Loop read. c: %i\n", c);
-        c = fgetwc(terminal_stream);
-    }
-    fwprintf(stdout, L"Test: Check empty. Post c loop. c: %i\n", c);
-*/
+        * Store standard input/output/error file descriptors and streams in terminal input/output entry
 
         Idea for reading bytes from pipe ??:
         * Increment and store number of bytes written to pipe in global variable, in child thread?

@@ -71,28 +71,13 @@ int sense_unix_terminal(void* p0) {
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The pipe.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The write pipe stream.
-    //?? void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The buffer data, count.
+    void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The wide character buffer item.
+    void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
     //
-    // The file stream associated with the given file descriptor.
-    //
-    // CAUTION! The mode of the stream must be compatible with the mode of the
-    // file descriptor. Possible modes are : "r", "r+", "w", "w+", "a", "a+"
-    //
-    // CAUTION! The file position indicator of the new stream is set to
-    // that belonging to the file descriptor. The error and end-of-file
-    // indicators are cleared.
-    // Modes "w" or "w+" do not cause truncation of the file.
-    //
-    // CAUTION! The file descriptor is not duplicated. It will be closed
-    // when the stream created by fdopen() is closed.
-    // The result of applying fdopen() to a shared memory object is undefined.
-    //
-    // https://stackoverflow.com/questions/1516766/how-to-get-a-file-stream-from-a-file-descriptor
-    //
-    // CAUTION! The opentype string "r+" means an existing file
-    // is opened for both reading and writing:
-    // https://www.gnu.org/software/libc/manual/html_mono/libc.html#Opening-Streams
+    // The standard input file descriptor.
     //
     // CAUTION! Don't confuse terminal attributes with file attributes.
     // A device special file which is associated with a terminal
@@ -102,8 +87,7 @@ int sense_unix_terminal(void* p0) {
     // which are discussed in this section:
     // https://www.gnu.org/software/libc/manual/html_mono/libc.html#Low_002dLevel-Terminal-Interface
     //
-    //?? void* fs = (void*) fdopen(*f, "r+");
-    void* f = (void*) stdin;
+    int f = STDIN_FILENO;
 
     // Get identification from input/output entry.
     copy_array_forward((void*) &id, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
@@ -115,8 +99,11 @@ int sense_unix_terminal(void* p0) {
     copy_array_forward((void*) &m, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get pipe from input/output entry.
     copy_array_forward((void*) &p, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PIPE_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get write pipe stream from input/output entry.
-    //?? copy_array_forward((void*) &p, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) WRITE_STREAM_PIPE_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get buffer data, count from input/output entry.
+    copy_array_forward((void*) &bd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_DATA_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &bc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_COUNT_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get wide character buffer item from input/output entry.
+    copy_array_forward((void*) &w, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) WIDE_CHARACTER_BUFFER_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -128,7 +115,7 @@ int sense_unix_terminal(void* p0) {
         // Possibly, there will be a solution in the future, however.
         //
 
-        sense_unix_terminal_message(p, i, ip, m, f, id);
+        sense_unix_terminal_message(p, i, ip, m, (void*) &f, id, bd, bc, w);
     }
 
     //

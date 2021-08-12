@@ -74,7 +74,7 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
     int rd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // Get read interrupt request pipe file descriptor.
     copy_array_forward((void*) &rd, p3, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-    fwprintf(stdout, L"Test: Empty checker. rd: %i\n", rd);
+    fwprintf(stdout, L"Test: Check empty. rd: %i\n", rd);
 
     // Check channels for interrupt requests.
     //?? check_irq((void*) &irq, (void*) &s, p0);
@@ -99,7 +99,7 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
     // The input/output entry identification.
     int id = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     int n = read(rd, (void*) &id, sizeof(id));
-    fwprintf(stdout, L"Test: Check empty. n: %i\n", n);
+    fwprintf(stdout, L"Test: Check empty. found irq pipe n: %i\n", n);
 
     //?? if (irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
     if (id != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {

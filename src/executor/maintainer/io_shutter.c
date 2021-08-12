@@ -143,7 +143,7 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
 
             //
             // CAUTION! Resetting the values is not necessary,
-            // since the input/output entry gets deallocated below anyway.
+            // since the input/output entry gets deallocated anyway.
             //
 
             //

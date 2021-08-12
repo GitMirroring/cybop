@@ -18,6 +18,15 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-08-12  Christian Heller  <christian.heller@cybop.org>
+
+        * Optimise and clean up file "message_unix_terminal_sensor.c" and related ones
+
+2021-08-06  Christian Heller  <christian.heller@cybop.org>
+
+        * Use function "read" instead of "fgetwc" in file "message_unix_terminal_sensor.c", in order to get ansi escape code sequences at once
+        * Decode multibyte characters received through function "read" into wide characters in file "message_unix_terminal_sensor.c"
+
 2021-08-04  Christian Heller  <christian.heller@cybop.org>
 
         * Read received bytes from read pipe stream in file "stream_unix_terminal_reader.c", which gets executed as handler (callback function) from cybol
