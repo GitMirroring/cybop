@@ -14,26 +14,23 @@
 Pipe
 ____
 
-        * Reallocate only if buffer size changed in file "utf_8_decoder.c"
-
-        * Work around commented-out "ungetwc" in file "character_unix_terminal_reader.c"
         * Create a new terminal-input OR ansi-escape-code deserialiser and move source code from file "character_unix_terminal_reader.c" to it?
-
+        * Work around commented-out "ungetwc" in file "character_unix_terminal_reader.c"
         * Test input data sensing in file "stream_unix_terminal_reader.c" using cybol application "tui"
-        * Adapt handling of ansi escape code sequences (if necessary)
-        * Clean up input/output related source code by removing old interrupt handling
-
-        * Use mutex and volatile variables when accessing pipes?
-        * Check flag "enable" in terminal sensor and write data to pipe only if activated
-        * Encapsulate low-level functions "read" and "write" in cyboi, in order to catch possible errors
-        * Provide windows operating system version using function "_read" as described in:
-            https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/read?view=msvc-160
-
-        * Store standard input/output/error file descriptors and streams in terminal input/output entry
 
         Idea for reading bytes from pipe ??:
         * Increment and store number of bytes written to pipe in global variable, in child thread?
         * Increment a second counter variable in main thread and compare with the one from child thread?
+
+        * Use mutex and volatile variables when accessing pipes?
+        * Check flag "enable" in terminal sensor and write data to pipe only if activated
+        * Clean up input/output related source code by removing old interrupt handling now replaced by pipe communication
+
+        * Store standard input/output/error file descriptors and streams in terminal input/output entry
+
+        * Encapsulate low-level functions "read" and "write" in cyboi, in order to catch possible errors
+        * Provide windows operating system version using function "_read" as described in:
+            https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/read?view=msvc-160
 
         Alternative idea:
         * Do NOT write *TERMINAL_CYBOI_CHANNEL to irq_stream in child thread, but rather an incremented terminal_irq_counter
@@ -1128,6 +1125,9 @@ _____
 
 Database
 ________
+
+        * Compare cyboi with key-value-database such as Redis
+            https://de.wikipedia.org/wiki/Schl%C3%BCssel-Werte-Datenbank
 
         * See Apache Derby
             - database written entirely in Java

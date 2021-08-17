@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-08-17  Christian Heller  <christian.heller@cybop.org>
+
+        * Optimise files "utf_8_encoder.c" and "utf_8_decoder.c" to reallocate destination item only if buffer size changed
+
 2021-08-12  Christian Heller  <christian.heller@cybop.org>
 
         * Optimise and clean up file "message_unix_terminal_sensor.c" and related ones
