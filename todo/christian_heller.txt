@@ -14,7 +14,8 @@
 Pipe
 ____
 
-        * Create a new terminal-input OR ansi-escape-code deserialiser and move source code from file "character_unix_terminal_reader.c" to it?
+        * Create new unix terminal input deserialiser (DELETE AGAIN?) OR use existing ansi escape code deserialiser
+        * Move source code from file "character_unix_terminal_reader.c" to it
         * Work around commented-out "ungetwc" in file "character_unix_terminal_reader.c"
         * Test input data sensing in file "stream_unix_terminal_reader.c" using cybol application "tui"
 

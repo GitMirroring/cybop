@@ -95,10 +95,12 @@ void select_ansi_escape_code_command(void* p0, void* p1, void* p2) {
         }
     }
 
+    //
     // CAUTION! Just don't do anything here, if none of the ansi escape codes above matched.
     // This was to be an ansi escape code, as it started with the corresponding prefix.
     // If the sequence's values are not recognised, they probably do not make sense anyway.
     // So, just ignore this and wait for other, proper sequences and characters to be converted.
+    //
 }
 
 /* COMMAND_ANSI_ESCAPE_CODE_SELECTOR_SOURCE */

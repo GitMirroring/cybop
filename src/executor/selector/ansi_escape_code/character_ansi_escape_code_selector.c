@@ -78,8 +78,10 @@ void select_ansi_escape_code_character(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // None of the control characters above matched.
         // Pass along character without modification.
+        //
         deserialise_ansi_escape_code_character(p0, p1, p2);
     }
 }
