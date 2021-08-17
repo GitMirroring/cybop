@@ -77,12 +77,14 @@ void serialise_ansi_escape_code_attributes(void* p0, void* p1, void* p2, void* p
     serialise_ansi_escape_code_colour(p0, bd, bc, (void*) &p);
     serialise_ansi_escape_code_colour(p0, fd, fc, (void*) &p);
 
+    //
     // Set further attributes.
     //
     // CAUTION! The "bold" attribute influences ONLY
     // text (foreground) colour, NOT the background.
     // In win32, on the contrary, there are two different
     // "intensity" values, for foreground AND background.
+    //
     serialise_ansi_escape_code_effect(p0, (void*) HIDDEN_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL, (void*) HIDDEN_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) &p, p3);
     serialise_ansi_escape_code_effect(p0, (void*) INVERSE_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL, (void*) INVERSE_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) &p, p4);
     serialise_ansi_escape_code_effect(p0, (void*) BLINK_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL, (void*) BLINK_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) &p, p5);
@@ -93,9 +95,11 @@ void serialise_ansi_escape_code_attributes(void* p0, void* p1, void* p2, void* p
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // The prefix flag HAS been set.
         // That is, attributes have been added.
         // Therefore, add the suffix here.
+        //
 
         modify_item(p0, (void*) ATTRIBUTE_SUFFIX_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ATTRIBUTE_SUFFIX_ANSI_ESCAPE_CODE_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
     }

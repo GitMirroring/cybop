@@ -51,18 +51,23 @@ void serialise_ansi_escape_code_position(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code position.");
 
+    //
     // CAUTION! The top-left terminal corner is 1:1,
     // but the given cybol positions start counting from 0,
     // so that 1 has to be added to all positions!
     // Therefore, the coordinates handed over need to be corrected.
+    //
 
     // The y, x coordinates.
     int cy = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int cx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+    //
     // Correct y, x coordinates.
+    //
     // The origin of the coordinate system (1,1)
     // is at the top, left cell of the terminal.
+    //
     calculate_integer_add((void*) &cy, p2);
     calculate_integer_add((void*) &cy, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     calculate_integer_add((void*) &cx, p1);
