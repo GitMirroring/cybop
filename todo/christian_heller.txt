@@ -14,10 +14,52 @@
 Pipe
 ____
 
+        Done and working:
+        * sense + read
+        * handler in cybol app is ok
+
+        Continue for unix terminal:
+        * Why does input get detected only once/twice correctly, but not a second/third time
+        * Check ansi escape sequence deserialiser
         * Create new unix terminal input deserialiser (DELETE AGAIN?) OR use existing ansi escape code deserialiser
+            also delete (??) directory "unix_terminal_input"
         * Move source code from file "character_unix_terminal_reader.c" to it
         * Work around commented-out "ungetwc" in file "character_unix_terminal_reader.c"
         * Test input data sensing in file "stream_unix_terminal_reader.c" using cybol application "tui"
+
+        * Introduce and use additional mutex for interrupt pipe?
+
+        See file "ngx_epoll_module.c" function "event/modules/ngx_epoll_eventfd_handler"
+            a uint64_t with size 8 byte is received in "read"
+            variable "ready" is probably just to count the available bytes
+            while the call of function "io_getevents" (probably) actually reads --> check this out yet
+            consider syscall "io_getevents" in line 216
+
+        Open questions:
+        * Betrachte auch den Fall, dass das Puffer-Array groß genug ist, aber mit einem "read" nur teilweise gefüllt wurde,
+            da der Sender noch nicht alle Daten geschickt hatte.
+            --> Parsing for end of data is obviously always necessary
+        * Im Buch "Linux Sockets" S. 147 wird das lokale Array "empfangen" NICHT dyn. vergrößert (geht nicht, da fixe Größe),
+            sondern nur schrittweise gefüllt, falls der Sender noch nicht alle Daten geschickt hatte.
+        * How to detect real end (not only end of header "\r\n\r\n") of http message?
+            Parse all data?
+        * How to detect end of ansi escape sequence?
+        * What about data of a new message that have already been read into the buffer, behind the end of the current message?
+            Leave them stored in buffer?
+        * Write only one or many messages into pipe?
+        * How to avoid blocking of main thread when reading data input pipe?
+            buffer might be filled just complete and then next byte expected by read but no more data available
+            --> single wide characters are read and compared with WEOF to detect end of message
+            Question: Can WEOF appear in binary file? Probably yes. Is there a wide character pendent to function "feof"?
+
+        * Hand over desired protocol (e.g. http) as property to cybol operation "activate/enable" for sensing input
+        * Detect end of a message header (e.g. "\r\n\r\n" or ansi escape sequence -- how??) by string comparison already in sensor and not only in reader
+        * Detect end of whole message (HOW?? parsing http properties?) by string comparison already in sensor and not only in reader
+            Otherwise, the sensor does not know when to stop reading and might:
+            - set the interrupt even though the data are not complete yet
+            - block while waiting for more data, even though the message was received completely
+        * Use busy waiting loop in sensor thread as long as a "processing flag" has not been reset, before detecting new data
+            this is to ensure that only one message at a time is standing in the receive pipe
 
         Idea for reading bytes from pipe ??:
         * Increment and store number of bytes written to pipe in global variable, in child thread?
@@ -91,7 +133,7 @@ ____
         * Wake up main thread when special fifo used as interrupt returns from blocking call of "read"
         * Detect affected channel via returned channel number
         * Read data from channel's fifo until the end is reached
-        * Detect the end of data NOT via EOF (-1), but rather by using the functions "feof" and  "ferror", since some binary files might contain EOF (-1) as value
+        * Detect the end of data NOT via EOF (-1), but rather by using the functions "feof" and  "ferror", since some binary files might contain EOF (-1) as value --> however, the function "feof" works only with streams
         * Check other channel's fifos as well, once the main thread has been woken up ??
 
         * How to store input data?
