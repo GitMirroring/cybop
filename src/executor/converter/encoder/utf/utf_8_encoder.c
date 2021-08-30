@@ -230,8 +230,9 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
                 //
                 // The new destination size is greater than the old.
                 //
-                // CAUTION! Do NOT reallocate destination item if its size
-                // is already great enough to store all source data.
+                // CAUTION! The destination item DOES get reallocated,
+                // since its size is not great enough to store all source data.
+                //
                 // Some buffers such as for terminal ansi escape code input
                 // are filled repeatedly in a loop, so that steady reallocation
                 // would harm performance. This condition is just an optimisation.
@@ -247,127 +248,127 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
                     //
                     reallocate_item(p0, (void*) &nds, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-                    //
-                    // Set locale.
-                    //
-                    // Possible locales are: LANG, LC_CTYPE, ..., LC_ALL
-                    // where LANG has the lowest and LC_ALL the highest priority.
-                    // That is, if LC_ALL is specified, it overwrites e.g. the LC_CTYPE setting.
-                    // If no value "" is given, the default will be used.
-                    // Note, that LC_CTYPE suffices for the purpose of character conversion,
-                    // since it is the category that applies to classification and conversion
-                    // of characters, and to multibyte and wide characters.
-                    //
-                    // CAUTION! This setting IS NECESSARY for UTF-8 character conversion
-                    // with restartable multibyte conversion functions like "mbsnrtowcs"
-                    // and "wcsnrtombs" to work correctly.
-                    // The return value is not used; this is a global setting.
-                    //
-                    char* loc = setlocale(LC_CTYPE, "");
-
-                    //
-                    // Get destination item data.
-                    //
-                    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-                    // Inside the structure, arrays may have been reallocated,
-                    // with elements pointing to different memory areas now.
-                    //
-                    copy_array_forward((void*) &dd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-                    //
-                    // The temporary size_t variable.
-                    //
-                    // CAUTION! It IS NECESSARY because on 64 Bit machines,
-                    // the "size_t" type has a size of 8 Byte,
-                    // whereas the "int" type has the usual size of 4 Byte.
-                    // When trying to cast between the two, memory errors
-                    // will occur and the valgrind memcheck tool report:
-                    // "Invalid read of size 8".
-                    //
-                    // CAUTION! Initialise temporary size_t variable with final int value
-                    // JUST BEFORE handing that over to the glibc function requiring it.
-                    //
-                    // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
-                    // because values are casted to int* internally again.
-                    //
-                    if (ds != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                        size_t tds = (size_t) *((int*) ds);
-                        size_t tsc = (size_t) *sc;
-
-                        //
-                        // Initialise error number.
-                        //
-                        // It is a global variable/ function and other operations
-                        // may have set some value that is not wanted here.
-                        //
-                        // CAUTION! Initialise the error number BEFORE calling the function
-                        // that might cause an error.
-                        //
-                        errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-                        //
-                        // Converts the wide character string into a multibyte character string.
-                        // Returns the number of bytes in all the multibyte character sequences
-                        // successfully converted, except in the case of an encoding error.
-                        //
-                        // CAUTION! The wide source character string does NOT need to be
-                        // null-terminated, since the third parametre already indicates its count.
-                        //
-                        // CAUTION! Hand over the NEW destination size as fourth parametre,
-                        // since it indicates the maximum number of characters to be converted
-                        // and conversion would break too early if that parametre was too small.
-                        //
-                        // CAUTION! The fifth parametre may be NULL. In this case, a static
-                        // anonymous state only known to the function internally is used instead.
-                        // It just indicates where conversion is started.
-                        //
-                        int n = -1;
-    #if defined(__linux__) || defined(__unix__)
-                        n = wcsnrtombs((char*) dd, (const wchar_t**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
-    #elif defined(__APPLE__) && defined(__MACH__)
-                        n = wcsnrtombs((char*) dd, (const wchar_t**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
-    // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-    #elif defined(_WIN32) || defined(__CYGWIN__)
-                        int len = WideCharToMultiByte (CP_UTF8, 0, (LPCWSTR) sd, *sc, NULL, 0, NULL, NULL);
-                        n =  WideCharToMultiByte (CP_UTF8, 0, (LPCWSTR) sd, *sc, (LPSTR) dd, len, NULL, NULL);
-    #else
-        #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-    #endif
-
-                        if (n >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                            // Set destination count to the number of MULTIBYTE characters converted.
-                            copy_integer(dc, (void*) &n);
-
-                        } else {
-
-                            if (errno == EILSEQ) {
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. An invalid wide character was encountered.");
-                                fwprintf(stdout, L"Error: Could not encode utf-8. An invalid wide character was encountered. EILSEQ errno: %i\n", errno);
-
-                            } else if (errno == EINVAL) {
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. The conversion state is invalid.");
-                                fwprintf(stdout, L"Error: Could not encode utf-8. The conversion state is invalid. EINVAL errno: %i\n", errno);
-
-                            } else {
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. An unknown error occured.");
-                                fwprintf(stdout, L"Error: Could not encode utf-8. An unknown error occured. UNKNOWN errno: %i\n", errno);
-                            }
-                        }
-
-                    } else {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. The destination size is null.");
-                    }
-
                 } else {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. The new destination size is zero or negative.");
                 }
+            }
+
+            //
+            // Set locale.
+            //
+            // Possible locales are: LANG, LC_CTYPE, ..., LC_ALL
+            // where LANG has the lowest and LC_ALL the highest priority.
+            // That is, if LC_ALL is specified, it overwrites e.g. the LC_CTYPE setting.
+            // If no value "" is given, the default will be used.
+            // Note, that LC_CTYPE suffices for the purpose of character conversion,
+            // since it is the category that applies to classification and conversion
+            // of characters, and to multibyte and wide characters.
+            //
+            // CAUTION! This setting IS NECESSARY for UTF-8 character conversion
+            // with restartable multibyte conversion functions like "mbsnrtowcs"
+            // and "wcsnrtombs" to work correctly.
+            // The return value is not used; this is a global setting.
+            //
+            char* loc = setlocale(LC_CTYPE, "");
+
+            //
+            // Get destination item data.
+            //
+            // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+            // Inside the structure, arrays may have been reallocated,
+            // with elements pointing to different memory areas now.
+            //
+            copy_array_forward((void*) &dd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+            //
+            // The temporary size_t variable.
+            //
+            // CAUTION! It IS NECESSARY because on 64 Bit machines,
+            // the "size_t" type has a size of 8 Byte,
+            // whereas the "int" type has the usual size of 4 Byte.
+            // When trying to cast between the two, memory errors
+            // will occur and the valgrind memcheck tool report:
+            // "Invalid read of size 8".
+            //
+            // CAUTION! Initialise temporary size_t variable with final int value
+            // JUST BEFORE handing that over to the glibc function requiring it.
+            //
+            // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
+            // because values are casted to int* internally again.
+            //
+            if (ds != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                size_t tds = (size_t) *((int*) ds);
+                size_t tsc = (size_t) *sc;
+
+                //
+                // Initialise error number.
+                //
+                // It is a global variable/ function and other operations
+                // may have set some value that is not wanted here.
+                //
+                // CAUTION! Initialise the error number BEFORE calling the function
+                // that might cause an error.
+                //
+                errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+                //
+                // Converts the wide character string into a multibyte character string.
+                // Returns the number of bytes in all the multibyte character sequences
+                // successfully converted, except in the case of an encoding error.
+                //
+                // CAUTION! The wide source character string does NOT need to be
+                // null-terminated, since the third parametre already indicates its count.
+                //
+                // CAUTION! Hand over the NEW destination size as fourth parametre,
+                // since it indicates the maximum number of characters to be converted
+                // and conversion would break too early if that parametre was too small.
+                //
+                // CAUTION! The fifth parametre may be NULL. In this case, a static
+                // anonymous state only known to the function internally is used instead.
+                // It just indicates where conversion is started.
+                //
+                int n = -1;
+#if defined(__linux__) || defined(__unix__)
+                n = wcsnrtombs((char*) dd, (const wchar_t**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
+#elif defined(__APPLE__) && defined(__MACH__)
+                n = wcsnrtombs((char*) dd, (const wchar_t**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+                int len = WideCharToMultiByte (CP_UTF8, 0, (LPCWSTR) sd, *sc, NULL, 0, NULL, NULL);
+                n =  WideCharToMultiByte (CP_UTF8, 0, (LPCWSTR) sd, *sc, (LPSTR) dd, len, NULL, NULL);
+#else
+#error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
+
+                if (n >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                    // Set destination count to the number of MULTIBYTE characters converted.
+                    copy_integer(dc, (void*) &n);
+
+                } else {
+
+                    if (errno == EILSEQ) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. An invalid wide character was encountered.");
+                        fwprintf(stdout, L"Error: Could not encode utf-8. An invalid wide character was encountered. EILSEQ errno: %i\n", errno);
+
+                    } else if (errno == EINVAL) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. The conversion state is invalid.");
+                        fwprintf(stdout, L"Error: Could not encode utf-8. The conversion state is invalid. EINVAL errno: %i\n", errno);
+
+                    } else {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. An unknown error occured.");
+                        fwprintf(stdout, L"Error: Could not encode utf-8. An unknown error occured. UNKNOWN errno: %i\n", errno);
+                    }
+                }
+
+            } else {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. The destination size is null.");
             }
 
         } else {
