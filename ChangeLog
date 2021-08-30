@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-08-30  Christian Heller  <christian.heller@cybop.org>
+
+        * Correct if-else conditions in files "utf_8_encoder.c" and "utf_8_decoder.c"
+
 2021-08-17  Christian Heller  <christian.heller@cybop.org>
 
         * Optimise files "utf_8_encoder.c" and "utf_8_decoder.c" to reallocate destination item only if buffer size changed

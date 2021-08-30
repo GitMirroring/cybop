@@ -85,23 +85,7 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                                         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense unix terminal message.");
                                         //?? fwprintf(stdout, L"Test: Sense unix terminal message. p1: %i\n", p1);
 
-                                        //
-                                        // Lock mutex.
-                                        //
-                                        // CAUTION! This function call blocks the current thread
-                                        // until the mutex is locked.
-                                        //
-                                        // CAUTION! This guarantees exclusive access to
-                                        // input/output resources as well as the interrupt request,
-                                        // which are shared between input sensing (child) threads
-                                        // and the main (parent) thread.
-                                        //
-                                        // CAUTION! Not all input/output channels use sensing threads.
-                                        // Sometimes, the main thread is the only one accessing resources.
-                                        //
-                                        //?? mtx_lock(m);
-
-                                        // Convert buffer size to expected type.
+                                        // Cast buffer size to expected type.
                                         size_t s = (size_t) *bc;
 
                                         //
@@ -149,6 +133,9 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                                         fwprintf(stdout, L"Test: Sense unix terminal message. *bc: %i\n", *bc);
                                         fwprintf(stdout, L"Test: Sense unix terminal message. s: %i\n", s);
                                         int n = read(*f, p6, s);
+                                        fwprintf(stdout, L"Test: Sense unix terminal message. n: %i\n", n);
+                                        fwprintf(stdout, L"Test: Sense unix terminal message. *p6 as c: %c\n", *((char*) p6));
+                                        fwprintf(stdout, L"Test: Sense unix terminal message. p6 as s: %s\n", (char*) p6);
 
                                         // Decode multibyte character into wide character.
                                         decode_utf_8(p8, p6, (void*) &n);
@@ -167,7 +154,9 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                                         copy_array_forward((void*) &wd, p8, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
                                         copy_array_forward((void*) &wc, p8, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-                                        fwprintf(stdout, L"Test: Sense unix terminal message. n: %i\n", n);
+                                        fwprintf(stdout, L"Test: Sense unix terminal message. wc: %i\n", wc);
+                                        fwprintf(stdout, L"Test: Sense unix terminal message. *wc: %i\n", *((int*) wc));
+                                        fwprintf(stdout, L"Test: Sense unix terminal message. wd: %ls\n", (wchar_t*) wd);
 
                                         // The loop count.
                                         int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -178,6 +167,22 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                                         // Get pipe write file descriptor.
                                         copy_array_forward((void*) &pw, p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
                                         fwprintf(stdout, L"Test: Sense unix terminal message. pw: %i\n", pw);
+
+                                        //
+                                        // Lock mutex.
+                                        //
+                                        // CAUTION! This function call blocks the current thread
+                                        // until the mutex is locked.
+                                        //
+                                        // CAUTION! This guarantees exclusive access to
+                                        // input/output resources as well as the interrupt request,
+                                        // which are shared between input sensing (child) threads
+                                        // and the main (parent) thread.
+                                        //
+                                        // CAUTION! Not all input/output channels use sensing threads.
+                                        // Sometimes, the main thread is the only one accessing resources.
+                                        //
+                                        mtx_lock(m);
 
                                         while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -190,14 +195,17 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                                             copy_array_forward((void*) &c, wd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j);
                                             fwprintf(stdout, L"Test: Sense unix terminal message. j: %i\n", j);
                                             fwprintf(stdout, L"Test: Sense unix terminal message. c: %i\n", c);
-                                            fwprintf(stdout, L"Test: Sense unix terminal message. c as char: %lc\n", c);
+                                            fwprintf(stdout, L"Test: Sense unix terminal message. c as char: %lc\n", (wchar_t) c);
 
                                             // Write wide character to pipe write file descriptor.
-                                            write(pw, (void*) &c, sizeof(c));
+                                            write(pw, (void*) &c, sizeof(wint_t));
 
                                             // Increment loop count.
                                             j++;
                                         }
+
+                                        // Unlock mutex.
+                                        mtx_unlock(m);
 
                                         // Set interrupt request.
                                         //?? copy_integer(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -225,9 +233,6 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                                         // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
                                         //
                                         write(ipw, p5, sizeof(int));
-
-                                        // Unlock mutex.
-                                        //?? mtx_unlock(m);
 
                                     } else {
 

@@ -51,9 +51,9 @@ void read_unix_terminal_stream(void* p0, void* p1, void* p2, void* p3, void* p4)
 
         mtx_t* m = (mtx_t*) p3;
 
-        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        //?? if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* i = (int*) p2;
+            //?? int* i = (int*) p2;
 
             log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read unix terminal stream.");
 
@@ -76,6 +76,8 @@ void read_unix_terminal_stream(void* p0, void* p1, void* p2, void* p3, void* p4)
             // since it is used across many loop cycles.
             //
             int aec = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+            // The file descriptor.
+            int* f = (int*) p1;
             //
             // The input character.
             //
@@ -88,8 +90,12 @@ void read_unix_terminal_stream(void* p0, void* p1, void* p2, void* p3, void* p4)
             // wint_t c = *((wint_t*) NULL_UNICODE_CHARACTER_CODE_MODEL);
             //
             volatile wint_t c = WEOF;
+            // Determine character size.
+            size_t s = sizeof(wint_t);
+            // The number of characters that was read in.
+            int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-            //?? fwprintf(stdout, L"Test: Read unix terminal stream. b %i\n", b);
+            fwprintf(stdout, L"Test: Read unix terminal stream. c: %i\n", c);
 
             //
             // Lock mutex.
@@ -108,7 +114,7 @@ void read_unix_terminal_stream(void* p0, void* p1, void* p2, void* p3, void* p4)
             // a mutex exists for all channels and it does no harm
             // to lock it here even if only the main thread accesses it.
             //
-            //?? mtx_lock(m);
+            mtx_lock(m);
 
             //
             // Set unblocking mode in terminal.
@@ -135,12 +141,27 @@ void read_unix_terminal_stream(void* p0, void* p1, void* p2, void* p3, void* p4)
 
                 //?? fwprintf(stdout, L"Test: Read unix terminal stream. inside loop b %i\n", b);
 
-                if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+                // Read character from read pipe file descriptor.
+                n = read(*f, (void*) &c, s);
+                fwprintf(stdout, L"Test: Read unix terminal stream. n: %i\n", n);
+                fwprintf(stdout, L"Test: Read unix terminal stream. c: %lc\n", (wchar_t) c);
+
+                //?? read_unix_terminal_character(p0, p1, (void*) &b, (void*) &esc, (void*) &aec, (void*) &c);
+
+                //?? if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+                if (c == WEOF) {
 
                     break;
-                }
 
-                read_unix_terminal_character(p0, p1, (void*) &b, (void*) &esc, (void*) &aec, (void*) &c);
+                } else {
+
+                    //
+                    // The characters are read one-by-one and NOT as buffer array,
+                    // so that the destination item's size can be adjusted automatically
+                    // by calling the function "modify_item" with "append".
+                    //
+                    modify_item(p0, (void*) &c, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+                }
             }
 
             // Set blocking mode in terminal. VMIN = 1
@@ -148,16 +169,18 @@ void read_unix_terminal_stream(void* p0, void* p1, void* p2, void* p3, void* p4)
             //?? edit_service(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TERMINAL_CYBOI_CHANNEL);
 
             // Reset interrupt request in input/output entry.
-            copy_integer(i, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            //?? copy_integer(i, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // Unlock mutex.
-            //?? mtx_unlock(m);
+            mtx_unlock(m);
 
+/*??
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read unix terminal stream. The interrupt request is null.");
             fwprintf(stdout, L"Error: Could not read unix terminal stream. The interrupt request is null.\n");
         }
+*/
 
     } else {
 
