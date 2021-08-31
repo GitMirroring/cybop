@@ -61,21 +61,21 @@ void read_unix_terminal_stream(void* p0, void* p1, void* p2, void* p3, void* p4)
             //?? fwprintf(stdout, L"Test: Read unix terminal stream. irq *p2 %i\n", *((int*) p2));
 
             // The loop break flag.
-            int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+            //?? int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
             //
             // The escape character flag.
             //
             // CAUTION! This variable HAS TO BE defined here,
             // since it is used across many loop cycles.
             //
-            int esc = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+            //?? int esc = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
             //
             // The ansi escape code flag.
             //
             // CAUTION! This variable HAS TO BE defined here,
             // since it is used across many loop cycles.
             //
-            int aec = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+            //?? int aec = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
             // The file descriptor.
             int* f = (int*) p1;
             //

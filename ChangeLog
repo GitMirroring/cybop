@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-08-31  Christian Heller  <christian.heller@cybop.org>
+
+        * Process unix terminal input using wide character buffer filled in sensor and read in receiver
+        * Test terminal input using cybol application "tui" and "tui_control"
+
 2021-08-30  Christian Heller  <christian.heller@cybop.org>
 
         * Correct if-else conditions in files "utf_8_encoder.c" and "utf_8_decoder.c"

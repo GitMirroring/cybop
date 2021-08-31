@@ -137,9 +137,29 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                                         fwprintf(stdout, L"Test: Sense unix terminal message. *p6 as c: %c\n", *((char*) p6));
                                         fwprintf(stdout, L"Test: Sense unix terminal message. p6 as s: %s\n", (char*) p6);
 
+                                        //
+                                        // Lock mutex.
+                                        //
+                                        // CAUTION! This function call blocks the current thread
+                                        // until the mutex is locked.
+                                        //
+                                        // CAUTION! This guarantees exclusive access to
+                                        // input/output resources as well as the interrupt request,
+                                        // which are shared between input sensing (child) threads
+                                        // and the main (parent) thread.
+                                        //
+                                        // CAUTION! Not all input/output channels use sensing threads.
+                                        // Sometimes, the main thread is the only one accessing resources.
+                                        //
+                                        mtx_lock(m);
+
                                         // Decode multibyte character into wide character.
                                         decode_utf_8(p8, p6, (void*) &n);
 
+                                        // Unlock mutex.
+                                        mtx_unlock(m);
+
+/*??
                                         // The wide character buffer item data, count.
                                         void* wd = *NULL_POINTER_STATE_CYBOI_MODEL;
                                         void* wc = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -209,6 +229,7 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
 
                                         // Set interrupt request.
                                         //?? copy_integer(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+*/
 
                                         // The interrupt request pipe write file descriptor.
                                         int ipw = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;

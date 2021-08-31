@@ -43,6 +43,7 @@
 void deserialise_ansi_escape_code(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise ansi escape code.");
+    fwprintf(stdout, L"Information: Deserialise ansi escape code.\n");
 
     // The source data position.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
