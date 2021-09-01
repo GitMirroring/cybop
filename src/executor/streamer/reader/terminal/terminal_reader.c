@@ -28,7 +28,6 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/streamer/reader/terminal/stream_terminal_reader.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -36,38 +35,22 @@
  *
  * @param p0 the destination item
  * @param p1 the input/output entry
- * @param p2 the interrupt request
- * @param p3 the mutex
- * @param p4 the internal memory data
+ * @param p2 the mutex
  */
-void read_terminal(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void read_terminal(void* p0, void* p1, void* p2) {
 
-    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        mtx_t* m = (mtx_t*) p3;
+        mtx_t* m = (mtx_t*) p2;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read terminal.");
 
-        // The input file stream.
-        //?? void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The pipe.
-        //?? void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The read pipe file descriptor.
-        //?? int rp = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
         // The wide character buffer item.
         void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The wide character buffer item data, count.
         void* wd = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* wc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        // Get input file stream from input/output entry.
-        //?? copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Get pipe from input/output entry.
-        //?? copy_array_forward((void*) &p, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PIPE_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Get read pipe stream from input/output entry.
-        //?? copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) READ_STREAM_PIPE_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Get read pipe file descriptor.
-        //?? copy_array_forward((void*) &rp, p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         // Get wide character buffer item from input/output entry.
         copy_array_forward((void*) &w, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) WIDE_CHARACTER_BUFFER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
         //
@@ -80,41 +63,20 @@ void read_terminal(void* p0, void* p1, void* p2, void* p3, void* p4) {
         copy_array_forward((void*) &wd, w, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         copy_array_forward((void*) &wc, w, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-        //?? fwprintf(stdout, L"Test: Read terminal. rp: %i\n", rp);
         fwprintf(stdout, L"Test: Read terminal. wc: %i\n", wc);
         fwprintf(stdout, L"Test: Read terminal. *wc: %i\n", *((int*) wc));
 
-        //
         // Lock mutex.
-        //
-        // CAUTION! This function call blocks the current thread
-        // until the mutex is locked.
-        //
-        // CAUTION! This guarantees exclusive access to
-        // input/output resources as well as the interrupt request,
-        // which are shared between input sensing (child) threads
-        // and the main (parent) thread.
-        //
-        // CAUTION! Not all input/output channels use sensing threads.
-        // Sometimes, the main thread is the only one accessing resources.
-        // However, in order to have a uniform implementation,
-        // a mutex exists for all channels and it does no harm
-        // to lock it here even if only the main thread accesses it.
-        //
         mtx_lock(m);
-
         // Read data from file stream.
-        //?? read_terminal_stream(p0, s, p2, p3, p4);
-        //?? read_terminal_stream(p0, (void*) &rp, p2, p3, p4);
         modify_item(p0, wd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, wc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-
         // Unlock mutex.
         mtx_unlock(m);
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read terminal. The mutex is null.");
-        fwprintf(stdout, L"Error: Could not read terminal. The mutex is null.\n");
+        fwprintf(stdout, L"Error: Could not read terminal. The mutex is null. p2: %i\n", p2);
     }
 }
 

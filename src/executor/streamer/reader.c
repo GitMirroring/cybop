@@ -188,12 +188,10 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
             // Get input/output entry.
             get_internal_memory_element((void*) &io, p7, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL);
-            // Get interrupt request from input/output entry.
-            copy_array_forward((void*) &i, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
             // Get mutex from input/output entry.
             copy_array_forward((void*) &m, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-            read_terminal(p0, io, i, m, p7);
+            read_terminal(p0, io, m);
         }
     }
 
