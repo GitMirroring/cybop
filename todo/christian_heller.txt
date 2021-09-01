@@ -14,7 +14,7 @@
 Pipe
 ____
 
-        * Clean up unix terminal source code
+        * Clean up unix terminal stream reader files
         * Remove terminal pipe which got replaced by wide character buffer stored in input/output entry
         * Delete newly introduced directory "unix_terminal_input" again, since ansi escape code deserialiser suffices
         * Delete (??) source code file "character_unix_terminal_reader.c"
