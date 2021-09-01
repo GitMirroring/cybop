@@ -33,6 +33,7 @@
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../executor/accessor/getter/internal_memory_getter.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../executor/maintainer/editor.c"
 #include "../../executor/maintainer/starter/display/display_starter.c"
 #include "../../executor/maintainer/starter/serial_port/serial_port_starter.c"
 #include "../../executor/maintainer/starter/socket/socket_starter.c"
