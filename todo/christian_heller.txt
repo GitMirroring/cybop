@@ -14,13 +14,9 @@
 Pipe
 ____
 
-        * Clean up unix terminal stream reader files
-        * Remove terminal pipe which got replaced by wide character buffer stored in input/output entry
-        * Delete newly introduced directory "unix_terminal_input" again, since ansi escape code deserialiser suffices
-        * Delete (??) source code file "character_unix_terminal_reader.c"
-
         * Adapt socket and display input handling to new interrupt pipe
-        * Introduce and use additional mutex for interrupt pipe?
+        * Introduce and use additional mutex for interrupt pipe
+        * Adjust input/output entry constants
 
         See file "ngx_epoll_module.c" function "event/modules/ngx_epoll_eventfd_handler"
             a uint64_t with size 8 byte is received in "read"
