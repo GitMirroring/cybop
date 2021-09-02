@@ -67,7 +67,7 @@ void check(void* p0) {
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The signal memory sleep time.
     void* sl = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The interrupt request pipe.
+    // The interrupt pipe.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The stack memory part model item.
@@ -83,8 +83,8 @@ void check(void* p0) {
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get signal memory sleep time.
     copy_array_forward((void*) &sl, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SLEEP_TIME_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    // Get interrupt request pipe.
-    copy_array_forward((void*) &p, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_PIPE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Get interrupt pipe.
+    copy_array_forward((void*) &p, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_PIPE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     //
     // Get stack memory part model item.

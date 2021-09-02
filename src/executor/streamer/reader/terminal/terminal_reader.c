@@ -68,7 +68,7 @@ void read_terminal(void* p0, void* p1, void* p2) {
 
         // Lock mutex.
         mtx_lock(m);
-        // Read data from file stream.
+        // Read data from wide character buffer.
         modify_item(p0, wd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, wc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
         // Unlock mutex.
         mtx_unlock(m);

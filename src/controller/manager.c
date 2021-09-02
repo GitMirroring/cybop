@@ -26,6 +26,8 @@
 #ifndef MANAGER_SOURCE
 #define MANAGER_SOURCE
 
+#include <threads.h> // mtx_t, mtx_init, thrd_error
+
 #include "../constant/format/cyboi/logic_cyboi_format.c"
 #include "../constant/format/cyboi/state_cyboi_format.c"
 #include "../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -99,8 +101,10 @@ void manage(void* p0) {
     // The signal memory sleep time.
     int signal_memory_sleep_time_array[1];
     int* signal_memory_sleep_time = signal_memory_sleep_time_array;
-    // The interrupt request pipe.
+    // The interrupt pipe.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The interrupt mutex.
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // Allocation.
@@ -144,12 +148,19 @@ void manage(void* p0) {
     //
     allocate_part((void*) &s, (void*) NUMBER_1024_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
     //
-    // Allocate interrupt request pipe.
+    // Allocate interrupt pipe.
     //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     //
     allocate_array((void*) &p, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    //
+    // Allocate interrupt mutex.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_array((void*) &m, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
 
     //
     // Initialisation.
@@ -199,8 +210,18 @@ void manage(void* p0) {
     //
     copy_integer((void*) signal_memory_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
 
-    // Initialise interrupt request pipe.
+    // Initialise interrupt pipe.
     startup_pipe_create(p);
+    // The interrupt mutex with casted type.
+    mtx_t* mt = (mtx_t*) m;
+    // Initialise interrupt mutex.
+    int r = mtx_init(mt, *PLAIN_MUTEX_TYPE_THREAD_SYMBOLIC_NAME);
+
+    if (r == thrd_error) {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not manage. The mutex object creation failed.");
+        fwprintf(stdout, L"Error: Could not manage. The mutex object creation failed. r: %i\n", r);
+    }
 
     //
     // System startup.
@@ -238,8 +259,10 @@ void manage(void* p0) {
     copy_array_forward(i, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set signal memory sleep time.
     copy_array_forward(i, (void*) &signal_memory_sleep_time, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SLEEP_TIME_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set interrupt request pipe.
-    copy_array_forward(i, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_REQUEST_PIPE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set interrupt pipe.
+    copy_array_forward(i, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_PIPE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set interrupt mutex.
+    copy_array_forward(i, (void*) &m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Startup system signal handler.
     manage_startup_system_signal_handler();
@@ -269,15 +292,15 @@ void manage(void* p0) {
     // Finalisation.
     //
 
-    // The read/write interrupt request pipe file descriptors.
+    // The read/write interrupt pipe file descriptors.
     int rd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     int wd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
-    // Get read/write interrupt request pipe file descriptors.
+    // Get read/write interrupt pipe file descriptors.
     copy_array_forward((void*) &rd, p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     copy_array_forward((void*) &wd, p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-    // Close read/write interrupt request pipe file descriptors.
+    // Close read/write interrupt pipe file descriptors.
     shutdown_unix_file_descriptor_close((void*) &rd);
     shutdown_unix_file_descriptor_close((void*) &wd);
 
@@ -294,7 +317,7 @@ void manage(void* p0) {
     //
 
     //
-    // Deallocate interrupt request pipe.
+    // Deallocate interrupt pipe.
     //
     // CAUTION! The second argument "count" is NULL,
     // since it is only needed for looping elements of type PART,

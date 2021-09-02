@@ -14,8 +14,7 @@
 Pipe
 ____
 
-        * Adapt socket and display input handling to new interrupt pipe
-        * Introduce and use additional mutex for interrupt pipe
+        * Adapt socket and display input handling to new interrupt pipe and channel pipes
         * Adjust input/output entry constants
 
         See file "ngx_epoll_module.c" function "event/modules/ngx_epoll_eventfd_handler"
@@ -276,6 +275,11 @@ General
 _______
 
         * Use memset() instead of loop ?? in file "internal_memory_startup_manager.c"
+        * Delete files "system_signal_handler_startup_manager.c", "service_interrupt.c", since signals are not used anymore to exit threads
+        * Adapt call of function "shutdown_unix_file_descriptor_close" in file "startup.c" to be usable on all operating systems (using preprocessor "if" macro)
+        * Remove all "sleep" times, if not used anymore for signal (event) processing (busy waiting), since the blocking interrupt pipe and blocking input function calls in threads are used now
+        * Use local variable arrays instead of allocating them on heap, in file "manager.c" and everywhere possible
+        * Store pipe file descriptors in input/output entry in file "io_starter.c", since it is more efficient than having to determine them with each pipe access
 
 WUI and Socket
 ______________

@@ -228,14 +228,18 @@ void apply_startup(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get socket timeout part model item data.
     copy_array_forward((void*) &socket_tomd, socket_tom, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    // The interrupt request pipe.
+    // The interrupt pipe.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The interrupt mutex.
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get interrupt request pipe.
-    copy_array_forward((void*) &p, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_PIPE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Get interrupt pipe.
+    copy_array_forward((void*) &p, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_PIPE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Get interrupt mutex.
+    copy_array_forward((void*) &m, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     // Startup service.
-    startup_service(p4, serial_fmd, serial_fmc, serial_bmd, socket_nmd, socket_nmc, socket_stmd, socket_stmc, socket_pmd, socket_pmc, socket_bmd, socket_fmd, socket_fmc, socket_amd, socket_amc, socket_pomd, socket_comd, socket_tomd, (void*) &p, cmd);
+    startup_service(p4, serial_fmd, serial_fmc, serial_bmd, socket_nmd, socket_nmc, socket_stmd, socket_stmc, socket_pmd, socket_pmc, socket_bmd, socket_fmd, socket_fmc, socket_amd, socket_amc, socket_pomd, socket_comd, socket_tomd, (void*) &p, (void*) &m, cmd);
 }
 
 /* STARTUP_SOURCE */

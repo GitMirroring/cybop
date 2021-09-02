@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-09-02  Christian Heller  <christian.heller@cybop.org>
+
+        * Introduce interrupt mutex and add it to the internal memory in file "manager.c"
+        * Add interrupt mutex to input/output entry as well in file "io_starter.c"
+        * Consider interrupt mutex in file "message_unix_terminal_sensor.c"
+
 2021-09-01  Christian Heller  <christian.heller@cybop.org>
 
         * Clean up unix terminal sensor

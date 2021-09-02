@@ -42,10 +42,10 @@
  *
  * @param p0 the destination wide character buffer item
  * @param p1 the source file descriptor
- * @param p2 the interrupt request pipe write file descriptor
+ * @param p2 the interrupt pipe write file descriptor
  * @param p3 the input/output entry identification
  * @param p4 the terminal mutex (destination wide character buffer item)
- * @param p5 the interrupt request mutex
+ * @param p5 the interrupt mutex
  * @param p6 the character buffer data
  * @param p7 the character buffer count
  */
@@ -57,11 +57,9 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
 
         if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-/*??
             if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 mtx_t* im = (mtx_t*) p5;
-*/
 
                 if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -140,10 +138,12 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                                     // Unlock terminal mutex.
                                     mtx_unlock(tm);
 
-                                    // Lock interrupt request mutex.
-                                    //?? mtx_lock(im);
+                                    fwprintf(stdout, L"Test: Sense unix terminal message. *ipw: %i\n", *ipw);
+
+                                    // Lock interrupt mutex.
+                                    mtx_lock(im);
                                     //
-                                    // Write input/output entry identification to interrupt request pipe.
+                                    // Write input/output entry identification to interrupt pipe.
                                     //
                                     // CAUTION! The safe way is to use the functions "snprintf" and "strtol".
                                     // However, if both processes were created using the same compiler version,
@@ -159,10 +159,9 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                                     //
                                     // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
                                     //
-                                    fwprintf(stdout, L"Test: Sense unix terminal message. *ipw: %i\n", *ipw);
                                     write(*ipw, p3, sizeof(int));
-                                    // Unlock interrupt request mutex.
-                                    //?? mtx_unlock(im);
+                                    // Unlock interrupt mutex.
+                                    mtx_unlock(im);
 
                                 } else {
 
@@ -178,8 +177,8 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
 
                         } else {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The interrupt request pipe is null.");
-                            fwprintf(stdout, L"Error: Could not sense unix terminal message. The interrupt request pipe is null. p2: %i\n", p2);
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The interrupt pipe is null.");
+                            fwprintf(stdout, L"Error: Could not sense unix terminal message. The interrupt pipe is null. p2: %i\n", p2);
                         }
 
                     } else {
@@ -194,13 +193,11 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                     fwprintf(stdout, L"Error: Could not sense unix terminal message. The terminal mutex is null. p4: %i\n", p4);
                 }
 
-/*??
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The interrupt request mutex is null.");
-                fwprintf(stdout, L"Error: Could not sense unix terminal message. The interrupt request mutex is null. p5: %i\n", p5);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The interrupt mutex is null.");
+                fwprintf(stdout, L"Error: Could not sense unix terminal message. The interrupt mutex is null. p5: %i\n", p5);
             }
-*/
 
         } else {
 

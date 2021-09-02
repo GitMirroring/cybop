@@ -89,10 +89,11 @@ int sense_unix_terminal(void* p0);
  * @param p15 the socket port
  * @param p16 the socket connexions (number of possible pending client requests)
  * @param p17 the socket timeout
- * @param p18 the interrupt request pipe (pointer reference)
- * @param p19 the channel
+ * @param p18 the interrupt pipe (pointer reference)
+ * @param p19 the interrupt mutex (pointer reference)
+ * @param p20 the channel
  */
-void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19) {
+void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup service.");
 
@@ -103,14 +104,27 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p19, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p20, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // The thread function.
+            //
+            // CAUTION! The function pointer can be determined
+            // in TWO WAYS, with or without address operator.
+            // Both are resulting in the same pointer (address):
+            //
+            // void* f = (void*) sense_display;
+            // void* f = (void*) &sense_display;
+            //
+            //?? void* f = (void*) &sense_display;
+            void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Get input/output entry.
             get_internal_memory_element((void*) &io, p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15);
             // Startup input/output entry.
-            startup_io((void*) &io, p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+            startup_io((void*) &io, p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, (void*) &f, p18, p19);
             // Startup service.
             startup_display(io);
         }
@@ -118,14 +132,27 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p19, (void*) SERIAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p20, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // The thread function.
+            //
+            // CAUTION! The function pointer can be determined
+            // in TWO WAYS, with or without address operator.
+            // Both are resulting in the same pointer (address):
+            //
+            // void* f = (void*) sense_serial;
+            // void* f = (void*) &sense_serial;
+            //
+            //?? void* f = (void*) &sense_serial;
+            void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Get input/output entry.
             get_internal_memory_element((void*) &io, p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15);
             // Startup input/output entry.
-            startup_io((void*) &io, p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+            startup_io((void*) &io, p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, (void*) &f, p18, p19);
             // Startup service.
             //?? startup_serial_port(io, p1, p2, p3);
         }
@@ -133,14 +160,27 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p19, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p20, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // The thread function.
+            //
+            // CAUTION! The function pointer can be determined
+            // in TWO WAYS, with or without address operator.
+            // Both are resulting in the same pointer (address):
+            //
+            // void* f = (void*) sense_socket;
+            // void* f = (void*) &sense_socket;
+            //
+            //?? void* f = (void*) &sense_socket;
+            void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Get input/output entry.
             get_internal_memory_element((void*) &io, p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15);
             // Startup input/output entry.
-            startup_io((void*) &io, p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+            startup_io((void*) &io, p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, (void*) &f, p18, p19);
             // Startup service.
             startup_socket(io, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17);
         }
@@ -148,7 +188,7 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p19, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p20, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -164,8 +204,8 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             //
             void* f = (void*) &sense_unix_terminal;
 
-            //?? fwprintf(stdout, L"Test: Startup (section terminal). f: %i\n", f);
-
+            //
+            //?? TODO: Is the following still correct? Probably NOT! Delete and adapt code.
             //
             // Provide thread function ONLY for unix terminal below.
             //
@@ -179,12 +219,12 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             get_internal_memory_element((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15);
             // Startup input/output entry.
 #if defined(__linux__) || defined(__unix__)
-            startup_io((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, (void*) &f, p18);
+            startup_io((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, (void*) &f, p18, p19);
 #elif defined(__APPLE__) && defined(__MACH__)
-            startup_io((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, (void*) &f, p18);
+            startup_io((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, (void*) &f, p18, p19);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-            startup_io((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, *NULL_POINTER_STATE_CYBOI_MODEL, p18);
+            startup_io((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15, *NULL_POINTER_STATE_CYBOI_MODEL, p18, p19);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
@@ -198,8 +238,8 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not startup. The channel is unknown. p19: %i\n", p19);
-        fwprintf(stdout, L"Warning: Could not startup. The channel is unknown. *p19: %i\n", *((int*) p19));
+        fwprintf(stdout, L"Warning: Could not startup. The channel is unknown. p20: %i\n", p20);
+        fwprintf(stdout, L"Warning: Could not startup. The channel is unknown. *p20: %i\n", *((int*) p20));
     }
 }
 
