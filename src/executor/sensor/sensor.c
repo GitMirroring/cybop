@@ -85,7 +85,7 @@ void sense(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            sense_display(p0, p2);
+            //?? sense_display(p0, p2);
         }
     }
 
@@ -115,7 +115,7 @@ void sense(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            sense_terminal(p0, i, m, p2);
+            //?? sense_terminal(p0, i, m, p2);
         }
     }
 

@@ -37,120 +37,100 @@
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/copier/array_copier.c"
+#include "../../../executor/sensor/xcb/event_xcb_sensor.c"
 #include "../../../logger/logger.c"
 
 /**
  * Senses xcb x window system messages.
  *
- * @param p0 the data available flag
- * @param p1 the input/output entry (containing e.g. display connexion, event)
+ * CAUTION! In cyboi, all functions by default have
+ * NO return value. In relation with threads, however,
+ * iso c defines the data type "thrd_start_t" as:
+ *
+ * int (*) (void*)
+ *
+ * with the following meaning:
+ *
+ * int      - the integer return type
+ * *        - the function pointer with arbitrary name
+ * void*    - the function argument
+ *
+ * Therefore, this function exceptionally has
+ * the return type "int".
+ *
+ * @param p0 the input/output entry
  */
-void sense_xcb(void* p0, void* p1) {
+int sense_xcb(void* p0) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense xcb.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense xcb.");
+    fwprintf(stdout, L"Test: Sense xcb. p0: %i\n", p0);
 
-    //?? fwprintf(stdout, L"Test: Sense xcb. p0: %i\n", p0);
-
+    // The buffer item.
+    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The connexion.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The interrupt pipe.
+    void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The identification.
+    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The mutex.
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The interrupt mutex.
+    void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The character buffer data, count.
+    void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    //
-    // Retrieve connexion from input/output entry.
-    //
-    // CAUTION! Do NOT use "overwrite_array" function here,
-    // since it adapts the array count and size.
-    // But the array's count and size are CONSTANT.
-    //
-    // CAUTION! Hand over value as pointer REFERENCE.
-    //
-    // CAUTION! Do NOT hand over input/output entry as pointer reference.
-    //
-    copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // The interrupt pipe write file descriptor.
+    int ipw = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+
+    //?? TODO: buffer is an array and NOT item --> adapt io_entry ??
+    // Get buffer item from input/output entry.
+    //?? copy_array_forward((void*) &b, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get connexion from input/output entry.
+    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get interrupt pipe from input/output entry.
+    copy_array_forward((void*) &ip, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_PIPE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get identification from input/output entry.
+    copy_array_forward((void*) &id, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get mutex from input/output entry.
+    copy_array_forward((void*) &m, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get interrupt mutex from input/output entry.
+    copy_array_forward((void*) &im, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+    // Get interrupt pipe write file descriptor.
+    copy_array_forward((void*) &ipw, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        //
-        // Get next event available from the x window system server.
-        // If none is available, NULL gets returned.
-        //
-        // There are two ways to read events:
-        // - blocking: xcb_wait_for_event
-        // - non-blocking: xcb_poll_for_event
-        //
-        // The "xcb_wait_for_event" function blocks until an event
-        // is queued in the x server, then dequeues it from the
-        // queue, then returns it as a newly allocated structure.
-        //
-        // The "xcb_poll_for_event" function dequeues and returns
-        // an event immediately. It returns NULL if no event is
-        // available at the time of the call. If an error occurs,
-        // the parameter error will be filled with the error status.
-        //
-        // Decision:
-        //
-        // Since this is the main thread, it MUST NOT block.
-        // Therefore, the non-blocking "xcb_poll_for_event"
-        // function is used here.
-        //
-        // In cyboi, sensing as well as processing of input happens
-        // in the one single main thread. Formerly, special "sensing"
-        // threads were used together with blocking function calls,
-        // but not NOT anymore.
-        //
-        // CAUTION! Whenever an event is queued in the x server,
-        // it gets dequeued from the queue here and is then
-        // returned as a newly allocated structure.
-        // It is cyboi's responsibility to FREE the
-        // returned event structure.
-        //
-        // CAUTION! The event gets REMOVED from the queue
-        // by the "xcb_poll_for_event" function.
-        // The event therefore HAS TO BE STORED temporarily in the
-        // input/output entry of the internal memory,
-        // in order to be able to process it later on.
-        //
-        // Unfortunately, there is no function or option in xcb to
-        // just peek ahead into the event queue for available events,
-        // without removing them.
-        // The xcb developers have been asked to add a function like
-        // "xcb_test_for_event" that would return on availability
-        // of an event WITHOUT ACTUALLY REMOVING the event from the queue.
-        // However, the xcb developers did not like the idea for now.
-        //
-        // See mailing list discussion in xcb project:
-        // http://stackoverflow.com/questions/15775281/need-for-xeventsqueueddisplay-queuedafterreading-in-xcb
-        // http://lists.freedesktop.org/archives/xcb/2013-April/008219.html
-        // http://lists.freedesktop.org/archives/xcb/2013-May/008245.html
-        // http://lists.freedesktop.org/archives/xcb/2013-May/008249.html
-        // http://xcb.freedesktop.org/
-        //
-        void* e = (void*) xcb_poll_for_event((xcb_connection_t*) c);
-
-        //?? fwprintf(stdout, L"Test: Sense xcb. Event e: %i\n", e);
-
-        if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // Set event into input/output entry.
+            // A break condition does not exist here because the loop
+            // is running neverendingly while sensing messages.
             //
-            // CAUTION! Do NOT use "overwrite_array" function here,
-            // since it adapts the array count and size.
-            // But the array's count and size are CONSTANT.
+            // The loop and this sensing thread CANNOT be exited.
+            // Possibly, there will be a solution in the future, however.
             //
-            // CAUTION! Do NOT hand over input/output entry as pointer reference.
-            //
-            // CAUTION! Hand over value as pointer REFERENCE.
-            //
-            copy_array_forward(p1, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EVENT_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-            // Set data available flag.
-            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            sense_xcb_event(b, c, (void*) &ipw, id, m, im);
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense xcb. The connexion is null.");
     }
+
+    //
+    // An implicit call to "thrd_exit" is made when this thread
+    // (other than the thread in which "main" was first invoked)
+    // returns from the function that was used to create it (this function).
+    // The "thrd_exit" function does therefore not have to be called here.
+    // However, since this function runs an endless loop waiting for input,
+    // it may only be left by using either (1) a flag (2) an external signal.
+    //
+
+    return *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 }
 
 /* XCB_SENSOR_SOURCE */

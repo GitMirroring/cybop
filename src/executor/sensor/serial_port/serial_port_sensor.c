@@ -40,7 +40,7 @@
  *
  * @param p0 the internal memory data
  */
-void sense_serial_port(void* p0) {
+int sense_serial_port(void* p0) {
 
     // CAUTION! DO NOT log this function call!
     // This function is executed within a thread, but the

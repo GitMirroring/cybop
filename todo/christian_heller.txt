@@ -14,10 +14,27 @@
 Pipe
 ____
 
+        Reflexion on event handling (move to design document in doc/dev/):
+        * Pipe cannot be used, since it might block, when read out to be empty before but an irq was set in a thread only later (filling pipe and setting irq are not atomic)
+        * Array is good, disadvantage of having to move all entries with each "read+remove"
+        * IRQ might be set later (filling array and setting irq are not atomic) even though array is empty when main thread was faster reading+removing entry than sensing thread setting irq
+            --> not a problem, since reading out the array does not block and may just return null, so that NO signal/event is added to the cyboi signal/event memory
+        * Conclusion: all is fine when working with an array, one for each separate channel; only the irq is sent via pipe
+        * Hint: APPEND (not overwrite) array elements, so that no input gets lost when input in sensing thread happens faster than processing in main thread
+
+        CONTINUE:
+        * Continue files "xcb_sensor.c" and "event_xcb_sensor.c"
+        * Think through buffers in input/output entry
+
         * Adapt socket and display input handling to new interrupt pipe and channel pipes
         * Adjust input/output entry constants
 
-        See file "ngx_epoll_module.c" function "event/modules/ngx_epoll_eventfd_handler"
+        * Use platform-neutral function "sense" instead of function "sense_unix_terminal" in file "starter.c"
+        * Delete terminal sensor, since platform-specific sensor functions are called within thread in file "starter.c"
+        * Cleanup unused variables (interrupt, pipe, pipe read/write stream) in file "io_starter.c"
+        * Think through sensing threads exit via system signal again (usable or not?) --> clean up source code accordingly
+
+        * See file "ngx_epoll_module.c" function "event/modules/ngx_epoll_eventfd_handler"
             a uint64_t with size 8 byte is received in "read"
             variable "ready" is probably just to count the available bytes
             while the call of function "io_getevents" (probably) actually reads --> check this out yet
@@ -377,6 +394,9 @@ _______
 
 XCB
 ___
+
+        * Send close event to invisible window in xcb, in order to properly shutdown:
+            https://stackoverflow.com/questions/30387126/how-do-i-interrupt-xcb-wait-for-event
 
         REACTIVATE:
         * Test window resize event in file "xcb_deserialiser.c"

@@ -43,20 +43,19 @@
 /**
  * Senses display messages.
  *
- * @param p0 the data available flag
- * @param p1 the input/output entry
+ * @param p0 the input/output entry
  */
-void sense_display(void* p0, void* p1) {
+void sense_display(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense display.");
 
 #if defined(__linux__) || defined(__unix__)
-    sense_xcb(p0, p1);
+    sense_xcb(p0);
 #elif defined(__APPLE__) && defined(__MACH__)
     //?? TODO: Add cocoa support for apple
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    sense_win32_display(p0, p1);
+    sense_win32_display(p0);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif

@@ -63,7 +63,7 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
 
                 if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                    mtx_t* tm = (mtx_t*) p4;
+                    mtx_t* m = (mtx_t*) p4;
 
                     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -79,7 +79,7 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
 
                                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense unix terminal message.");
 
-                                    // Cast buffer size to expected type.
+                                    // Cast buffer size to correct type.
                                     size_t s = (size_t) *bc;
 
                                     //
@@ -132,11 +132,11 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                                     fwprintf(stdout, L"Test: Sense unix terminal message. p6 as s: %s\n", (char*) p6);
 
                                     // Lock terminal mutex.
-                                    mtx_lock(tm);
+                                    mtx_lock(m);
                                     // Decode multibyte character into wide character.
                                     decode_utf_8(p0, p6, (void*) &n);
                                     // Unlock terminal mutex.
-                                    mtx_unlock(tm);
+                                    mtx_unlock(m);
 
                                     fwprintf(stdout, L"Test: Sense unix terminal message. *ipw: %i\n", *ipw);
 
@@ -165,14 +165,14 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
 
                                 } else {
 
-                                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The wide character buffer item is null.");
-                                    fwprintf(stdout, L"Error: Could not sense unix terminal message. The wide character buffer item is null. p0: %i\n", p0);
+                                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The destination wide character buffer item is null.");
+                                    fwprintf(stdout, L"Error: Could not sense unix terminal message. The destination wide character buffer item is null. p0: %i\n", p0);
                                 }
 
                             } else {
 
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The file descriptor is null.");
-                                fwprintf(stdout, L"Error: Could not sense unix terminal message. The file descriptor is null. p1: %i\n", p1);
+                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The source file descriptor is null.");
+                                fwprintf(stdout, L"Error: Could not sense unix terminal message. The source file descriptor is null. p1: %i\n", p1);
                             }
 
                         } else {

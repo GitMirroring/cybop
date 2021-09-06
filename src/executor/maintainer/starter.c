@@ -59,7 +59,9 @@
 // declarations of the functions are necessary.
 //
 
-void sense_serial_port(void* p0);
+//?? int sense_xcb(void* p0);
+int sense_serial_port(void* p0);
+//?? int sense_socket(void* p0);
 int sense_unix_terminal(void* p0);
 
 /**
@@ -119,6 +121,7 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             // void* f = (void*) &sense_display;
             //
             //?? void* f = (void*) &sense_display;
+            //?? void* f = (void*) &sense_xcb;
             void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Get input/output entry.

@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-09-06  Christian Heller  <christian.heller@cybop.org>
+
+        * Prepare xcb event handling
+        * Add new file "event_xcb_sensor.c"
+
 2021-09-02  Christian Heller  <christian.heller@cybop.org>
 
         * Introduce interrupt mutex and add it to the internal memory in file "manager.c"
