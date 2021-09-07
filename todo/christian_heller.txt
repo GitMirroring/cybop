@@ -24,10 +24,8 @@ ____
 
         CONTINUE:
         * Continue files "xcb_sensor.c" and "event_xcb_sensor.c"
-        * Think through buffers in input/output entry
-
-        * Adapt socket and display input handling to new interrupt pipe and channel pipes
-        * Adjust input/output entry constants
+        * Adapt display input handling to new buffer and interrupt pipe
+        * Adapt socket input handling to new buffer and interrupt pipe
 
         * Use platform-neutral function "sense" instead of function "sense_unix_terminal" in file "starter.c"
         * Delete terminal sensor, since platform-specific sensor functions are called within thread in file "starter.c"

@@ -62,7 +62,7 @@ int sense_unix_terminal(void* p0) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense unix terminal.");
 
     // The wide character buffer item.
-    void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The interrupt pipe.
     void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The identification.
@@ -72,8 +72,8 @@ int sense_unix_terminal(void* p0) {
     // The interrupt mutex.
     void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The character buffer data, count.
-    void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* cd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* cc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // The standard input file descriptor.
@@ -91,7 +91,7 @@ int sense_unix_terminal(void* p0) {
     int ipw = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Get wide character buffer item from input/output entry.
-    copy_array_forward((void*) &w, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) WIDE_CHARACTER_BUFFER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &b, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get interrupt pipe from input/output entry.
     copy_array_forward((void*) &ip, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_PIPE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get identification from input/output entry.
@@ -101,8 +101,8 @@ int sense_unix_terminal(void* p0) {
     // Get interrupt mutex from input/output entry.
     copy_array_forward((void*) &im, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get character buffer data, count from input/output entry.
-    copy_array_forward((void*) &bd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_DATA_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &bc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_COUNT_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &cd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CHARACTER_BUFFER_DATA_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &cc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CHARACTER_BUFFER_COUNT_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     // Get interrupt pipe write file descriptor.
     copy_array_forward((void*) &ipw, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
@@ -117,7 +117,7 @@ int sense_unix_terminal(void* p0) {
         // Possibly, there will be a solution in the future, however.
         //
 
-        sense_unix_terminal_message(w, (void*) &f, (void*) &ipw, id, m, im, bd, bc);
+        sense_unix_terminal_message(b, (void*) &f, (void*) &ipw, id, m, im, cd, cc);
     }
 
     //

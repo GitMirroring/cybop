@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-09-07  Christian Heller  <christian.heller@cybop.org>
+
+        * Adjust input/output entry buffer constants
+
 2021-09-06  Christian Heller  <christian.heller@cybop.org>
 
         * Prepare xcb event handling

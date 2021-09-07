@@ -81,10 +81,9 @@ void sense_xcb_event(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
                             // an event arrives or an input/output error occurs.
                             //
                             // CAUTION! Whenever an event is queued in the x server,
-                            // it gets dequeued from the queue here and is then
-                            // returned as a newly allocated structure.
-                            // It is cyboi's responsibility to FREE the
-                            // returned event structure.
+                            // it gets dequeued from the queue here and is then returned
+                            // as a newly allocated structure. It is cyboi's responsibility
+                            // to FREE the returned event structure.
                             //
                             // CAUTION! The event gets REMOVED from the queue by
                             // the "xcb_wait_for_event" function. It therefore
@@ -130,13 +129,8 @@ void sense_xcb_event(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
 
                             } else {
 
-                                //
-                                // The null value was returned.
-                                // It indicates an input/output error.
-                                //
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense xcb event. The event is null.");
-                                fwprintf(stdout, L"Error: Could not sense xcb event. The event is null. e: %i\n", e);
+                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense xcb event. The event is null. This indicates an input/output error.");
+                                fwprintf(stdout, L"Error: Could not sense xcb event. The event is null. This indicates an input/output error. e: %i\n", e);
                             }
 
                         } else {
