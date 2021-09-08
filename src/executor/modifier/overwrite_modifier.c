@@ -90,9 +90,11 @@ void modify_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         void** d = (void**) p0;
 
+        //
         // CAUTION! Do NOT call the logger here.
         // It uses functions causing circular references.
         // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Modify overwrite.");
+        //
 
         // The new destination count.
         int nc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -101,6 +103,7 @@ void modify_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+        //
         // CAUTION! An element may be added far behind the end of the array.
         // This is similar to random access of an arbitrary byte of a file.
         // In such a case, the destination index plus number of source elements
@@ -122,8 +125,10 @@ void modify_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         // Add count of source elements to be written over destination elements.
         calculate_integer_add((void*) &nc, p4);
 
+        //
         // CAUTION! An element may be added far behind the end of the array.
         // In such a case, the result will be negative.
+        //
 
         // Initialise with original destination array count.
         copy_integer((void*) &oc, p7);
@@ -132,12 +137,14 @@ void modify_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (oc < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
+            //
             // The index is outside the array boundaries,
             // NOT before, but BEHIND the array.
             // Therefore, NO elements are overwritten
             // and oc may thus be set to zero here,
             // in order to avoid errors below,
             // due to the negative value.
+            //
             oc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         }
 
@@ -148,17 +155,21 @@ void modify_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+                //
                 // The new destination count is greater than
                 // the current destination size.
+                //
 
                 // Initialise new destination size with new destination count.
                 int ns = nc;
 
+                //
                 // Multiply new destination size with factor.
                 //
                 // CAUTION! This multiplication has to be done AFTER the comparison
                 // of new size and old size since otherwise, the new size is falsified,
                 // which would lead to runtime errors.
+                //
                 calculate_integer_multiply((void*) &ns, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL);
 
                 // Make sure allocation size is at least one.
@@ -172,16 +183,19 @@ void modify_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 //??                    ns = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                 }
 
+                //
                 // Enlarge array using new destination size.
                 //
                 // CAUTION! Due to memory allocation handling, the size MUST NOT
                 // be negative or zero, but have at least a value of ONE.
+                //
                 reallocate_array(p0, p7, (void*) &ns, p2);
 
                 // Set new size.
                 copy_integer(p8, (void*) &ns);
             }
 
+            //
             // Decrement reference count of overwritten parts for rubbish (garbage) collection.
             //
             // CAUTION! This has to be done BEFORE actually overwriting old elements,
@@ -194,21 +208,26 @@ void modify_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             // e. g. if the destination index is greater than
             // the original destination array count.
             // However, this case was already handled further above.
+            //
             reference(*d, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_FORMAT, (void*) &oc, p5, p2);
 
+            //
             // Copy source to destination.
             //
             // CAUTION! Set the deep copying flag to the PARAMETRE here,
             // since the source may be of primitive types like pointer or integer,
             // but also of a compound node type with sub tree.
+            //
             copy_array_forward(*d, p1, p2, p3, p4, p5, p6);
 
+            //
             // Increment reference count of new parts for rubbish (garbage) collection.
             //
             // CAUTION! This has to be done AFTER having overwritten old elements with new elements,
             // since beforehand, the latter are not known to the destination yet.
             //
             // CAUTION! Use the count handed over as parametre p4 and NOT the overwritten elements count here!
+            //
             reference(*d, (void*) ADD_CALCULATE_LOGIC_CYBOI_FORMAT, p4, p5, p2);
 
             // Reset comparison result.
@@ -284,8 +303,10 @@ void modify_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     } else {
 
+        //
         // CAUTION! Do NOT call the logger here.
         // It uses functions causing circular references.
+        //
         // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify overwrite. The destination array is null.");
     }
 }

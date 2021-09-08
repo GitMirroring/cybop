@@ -59,19 +59,26 @@ void modify_fill(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    //
     // Initialise loop count with destination index parametre
     // PLUS the count parametre.
+    //
     calculate_integer_add((void*) &c, p5);
     calculate_integer_add((void*) &c, p4);
+    //
     // Initialise loop variable with destination index parametre.
+    //
     // That way, all destination entries starting from
     // the given index parametre are processed.
+    //
     calculate_integer_add((void*) &j, p5);
 
+    //
     // CAUTION! The usual loop count parametre test for NULL
     // is NOT necessary here, since a local variable is used.
     // Therefore, the loop count variable comparison will work
     // and the break flag may be set to true.
+    //
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -82,8 +89,10 @@ void modify_fill(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
             break;
         }
 
+        //
         // Fill given element repeatedly into array.
         // The count and size are adjusted inside.
+        //
         modify_overwrite(p0, p1, p2, p3, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &j, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6, p7, p8);
 
         // Increment loop variable.

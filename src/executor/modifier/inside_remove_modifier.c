@@ -110,12 +110,15 @@ void modify_remove_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
                 if (nc >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
+                    //
                     // Decrement reference count of removed parts for rubbish (garbage) collection.
                     //
                     // CAUTION! This has to be done BEFORE actually removing elements,
                     // since afterwards, they are not reachable anymore from the destination.
+                    //
                     reference(*d, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_FORMAT, p2, p3, p1);
 
+                    //
                     // Move current elements behind area to be removed towards the beginning of the array.
                     //
                     // CAUTION! Move array elements starting from the FIRST since otherwise,
@@ -131,6 +134,7 @@ void modify_remove_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void
                     // CAUTION! Set the deep copying flag to FALSE here,
                     // since only POINTERS or PRIMITIVE VALUES are to be moved,
                     // but NOT sub trees copied.
+                    //
                     copy_array_forward(*d, *d, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &c, p3, (void*) &i);
 
                     compare_integer_unequal((void*) &r, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);

@@ -114,11 +114,13 @@ void modify_insert_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void
                         // Initialise new destination size with new destination count.
                         int ns = nc;
 
+                        //
                         // Multiply new destination size with factor.
                         //
                         // CAUTION! This multiplication has to be done AFTER the comparison
                         // of new size and old size since otherwise, the new size is falsified,
                         // which would lead to runtime errors.
+                        //
                         calculate_integer_multiply((void*) &ns, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL);
 
                         // Make sure allocation size is at least one.
@@ -129,16 +131,19 @@ void modify_insert_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void
 //??                            ns = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                         }
 
+                        //
                         // Enlarge array using new destination size.
                         //
                         // CAUTION! Due to memory allocation handling, the size MUST NOT
                         // be negative or zero, but have at least a value of ONE.
+                        //
                         reallocate_array(p0, p7, (void*) &ns, p2);
 
                         // Set new size.
                         copy_integer(p8, (void*) &ns);
                     }
 
+                    //
                     // Move current elements behind given index towards the end of the array.
                     //
                     // CAUTION! Move array elements starting from the LAST since otherwise,
@@ -150,22 +155,27 @@ void modify_insert_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void
                     // CAUTION! Set the deep copying flag to FALSE here,
                     // since only POINTERS or PRIMITIVE VALUES are to be moved,
                     // but NOT sub trees copied.
+                    //
                     copy_array_backward(*d, *d, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &c, (void*) &i, p5);
 
+                    //
                     // Copy source to destination.
                     //
                     // CAUTION! Set the deep copying flag to the PARAMETRE here,
                     // since the source may be of primitive types like pointer or integer,
                     // but also of a compound node type with sub tree.
+                    //
                     copy_array_forward(*d, p1, p2, p3, p4, p5, p6);
 
                     // Set destination array count.
                     copy_integer(p7, (void*) &nc);
 
+                    //
                     // Increment reference count of inserted parts for rubbish (garbage) collection.
                     //
                     // CAUTION! This has to be done AFTER having inserted elements,
                     // since beforehand, these are not known to the destination yet.
+                    //
                     reference(*d, (void*) ADD_CALCULATE_LOGIC_CYBOI_FORMAT, p4, p5, p2);
 
                 } else {
