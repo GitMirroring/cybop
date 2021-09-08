@@ -56,6 +56,8 @@ void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3) {
 
     // The input/output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The mutex.
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // Get input/output entry from internal memory.
@@ -71,27 +73,58 @@ void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3) {
         // The input/output entry (service) DOES exist in internal memory.
         //
 
+        // The event buffer item.
+        void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The event buffer item data, count.
+        void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The comparison result.
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
         // The event.
         void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+        // Get event buffer item from input/output entry.
+        copy_array_forward((void*) &b, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        // Get mutex from input/output entry.
+        copy_array_forward((void*) &m, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
         //
-        // Retrieve event from input/output entry.
+        // Get event buffer item data, count.
         //
-        // CAUTION! The file "wait_checker.c" polls for events in the main thread
-        // and stores a found event in the input/output entry of the internal memory,
-        // before it can be processed here.
+        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+        // Inside the structure, arrays may have been reallocated,
+        // with elements pointing to different memory areas now.
         //
-        // CAUTION! Do NOT use the "modify_array" (overwrite) function,
-        // since it adapts the array count and size.
-        // But the io array's count and size are CONSTANT.
-        //
-        // CAUTION! Hand over value as pointer REFERENCE.
-        //
-        // CAUTION! Do NOT hand over input/output entry as pointer reference.
-        //
-        copy_array_forward((void*) &e, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EVENT_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &bd, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &bc, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-        //?? fwprintf(stdout, L"Test: Deserialise gui event. event e: %i\n", e);
+        fwprintf(stdout, L"Test: Deserialise gui event. bc: %i\n", bc);
+        fwprintf(stdout, L"Test: Deserialise gui event. *bc: %i\n", *((int*) bc));
+
+        // Lock mutex.
+        mtx_lock(m);
+
+        compare_integer_greater_or_equal((void*) &r, bc, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+
+        fwprintf(stdout, L"Test: Deserialise gui event. r: %i\n", r);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Get event from event buffer.
+            copy_array_forward((void*) &e, bd, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            //
+            // Remove event from event buffer item.
+            //
+            // CAUTION! Set the adjust count flag to TRUE since otherwise,
+            // the destination item will hold a wrong "count" number
+            // leading to unpredictable errors in further processing.
+            //
+            modify_item(b, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
+        }
+
+        // Unlock mutex.
+        mtx_unlock(m);
+
+        fwprintf(stdout, L"Test: Deserialise gui event. e: %i\n", e);
 
         if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -107,23 +140,6 @@ void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3) {
             deserialise_gui_event_properties(d, c, p1, p2, p3, io, e);
 
             //
-            // Reset event in input/output entry.
-            //
-            // CAUTION! This IS NECESSARY since otherwise,
-            // the same old event would be processed again and again.
-            //
-            // CAUTION! Do NOT use the "modify_array" (overwrite) function,
-            // since it adapts the array count and size.
-            // But the io array's count and size are CONSTANT.
-            //
-            // CAUTION! Do NOT hand over input/output entry as pointer reference.
-            //
-            // CAUTION! Hand over null as pointer reference NULL_POINTER_STATE_CYBOI_MODEL
-            // and NOT as dereferenced pointer *NULL_POINTER_STATE_CYBOI_MODEL.
-            //
-            copy_array_forward(io, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EVENT_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-            //
             // Deallocate event.
             //
             // CAUTION! Free memory only if event is NOT null.
@@ -136,6 +152,8 @@ void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3) {
             // NOT platform-specific and therefore may get freed here.
             //
             free(e);
+
+            fwprintf(stdout, L"Test: Deserialise gui event. after free e: %i\n", e);
 
         } else {
 

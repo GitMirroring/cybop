@@ -42,6 +42,7 @@
 void startup_xcb(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup xcb.");
+    //?? fwprintf(stdout, L"Debug: Startup xcb. p0: %i\n", p0);
 
     //
     // Allocate and open connexion.
@@ -65,6 +66,10 @@ void startup_xcb(void* p0) {
             xcb_screen_iterator_t iter = xcb_setup_roots_iterator(setup);
 
             //
+            // Declaration.
+            //
+
+            //
             // Get first screen.
             //
             // CAUTION! Do NOT allocate the screen manually here.
@@ -75,10 +80,14 @@ void startup_xcb(void* p0) {
             void* gc = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The xcb screen with correct type.
             xcb_screen_t* st = (xcb_screen_t*) s;
-            // The graphic context with correct type.
-            xcb_gcontext_t* gct = (xcb_gcontext_t*) gc;
             // Get root window of the screen.
             xcb_drawable_t r = (*st).root;
+            // The event buffer item.
+            void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+            //
+            // Allocation.
+            //
 
             //
             // Allocate graphic context.
@@ -87,8 +96,37 @@ void startup_xcb(void* p0) {
             // be negative or zero, but have at least a value of ONE.
             //
             allocate_array((void*) &gc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            // Generate xid for default graphic context.
-            *gct = (int) xcb_generate_id(ct);
+            //
+            // Allocate event buffer item.
+            //
+            // CAUTION! Due to memory allocation handling, the size MUST NOT
+            // be negative or zero, but have at least a value of ONE.
+            //
+            allocate_item((void*) &b, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
+
+            //
+            // Initialisation.
+            //
+
+            //
+            // The graphic context as integer.
+            //
+            // CAUTION! The graphic context is defined as:
+            // typedef uint32_t xcb_gcontext_t;
+            //
+            // CAUTION! Dereference value ONLY VIA uint32_t
+            // and do NOT dereference xcb_gcontext_t value directly
+            // as shown in the following example, since it is
+            // leading to a memory segmentation fault:
+            //
+            // xcb_gcontext_t* gct = (xcb_gcontext_t*) gc;
+            // ... *gct ...
+            //
+            uint32_t* gci = (uint32_t*) gc;
+            // Generate graphic context xid.
+            *gci = xcb_generate_id(ct);
+            // Convert graphic context to correct type.
+            xcb_gcontext_t gct = (xcb_gcontext_t) *gci;
 
             //
             // The graphic context value mask.
@@ -184,7 +222,11 @@ void startup_xcb(void* p0) {
             // - the screen root window drawable is used inside to get the bit depth
             // - the last parametre has to be a pointer, and it already IS one, since it is an array
             //
-            xcb_create_gc(ct, *gct, r, gcm, gcv);
+            xcb_create_gc(ct, gct, r, gcm, gcv);
+
+            //
+            // Storage.
+            //
 
             //
             // Store various values in input/output entry.
@@ -204,6 +246,8 @@ void startup_xcb(void* p0) {
             copy_array_forward(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SCREEN_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             // Store default graphic context in input/output entry.
             copy_array_forward(p0, (void*) &gc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            // Set event buffer item into input/output entry.
+            copy_array_forward(p0, (void*) &b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) BUFFER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         } else {
 

@@ -43,6 +43,10 @@ void shutdown_terminal(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown terminal.");
 
+    //
+    // Declaration.
+    //
+
     // The blocking mode.
     void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The canonical mode.
@@ -54,6 +58,10 @@ void shutdown_terminal(void* p0) {
     void* cc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The wide character buffer.
     void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Retrieval.
+    //
 
     // Get blocking mode from input/output entry.
     copy_array_forward((void*) &b, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BLOCKING_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
@@ -70,6 +78,10 @@ void shutdown_terminal(void* p0) {
     //
     // CAUTION! Resetting the values is not necessary,
     // since the input/output entry gets deallocated anyway.
+    //
+
+    //
+    // Deallocation.
     //
 
     //

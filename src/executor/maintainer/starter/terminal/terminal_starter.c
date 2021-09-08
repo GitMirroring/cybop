@@ -50,6 +50,10 @@ void startup_terminal(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal.");
 
+    //
+    // Declaration.
+    //
+
     // The blocking mode.
     void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The canonical mode.
@@ -61,6 +65,10 @@ void startup_terminal(void* p0) {
     void* cc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The wide character buffer item.
     void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Allocation.
+    //
 
     //
     // Allocate blocking mode.
@@ -121,6 +129,10 @@ void startup_terminal(void* p0) {
     //
     allocate_item((void*) &w, (void*) NUMBER_64_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
+    //
+    // Initialisation.
+    //
+
     // Initialise blocking mode.
     copy_integer(b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     // Initialise canonical mode.
@@ -129,6 +141,10 @@ void startup_terminal(void* p0) {
     copy_integer(e, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     // Initialise character buffer count.
     copy_integer(cc, (void*) NUMBER_64_INTEGER_STATE_CYBOI_MODEL);
+
+    //
+    // Storage.
+    //
 
     // Set blocking mode into input/output entry.
     copy_array_forward(p0, (void*) &b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) BLOCKING_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);

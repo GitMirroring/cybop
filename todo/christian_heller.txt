@@ -23,14 +23,26 @@ ____
         * Hint: APPEND (not overwrite) array elements, so that no input gets lost when input in sensing thread happens faster than processing in main thread
 
         CONTINUE:
-        * Continue files "xcb_sensor.c" and "event_xcb_sensor.c"
+        * Check why xcb events are not received
+        * See file "gui_event_deserialiser.c"
+        * Loop reading events, until array is empty
+        * Clear up: Is display_reader really needed or is gui_*_deserialiser sufficient?
         * Adapt display input handling to new buffer and interrupt pipe
+        * Make cybol application "user_interface/gui/" work again
+
         * Adapt socket input handling to new buffer and interrupt pipe
 
+        * Move stdout and stdin to correct places for terminal-related files
+        * Rename file "stream" into "descriptor" in terminal-related files
+        * Delete sensor, once all functions have been moved into threads started by activator
         * Use platform-neutral function "sense" instead of function "sense_unix_terminal" in file "starter.c"
         * Delete terminal sensor, since platform-specific sensor functions are called within thread in file "starter.c"
         * Cleanup unused variables (interrupt, pipe, pipe read/write stream) in file "io_starter.c"
         * Think through sensing threads exit via system signal again (usable or not?) --> clean up source code accordingly
+        * Optimise arrays: one array is filled in sensor and copied once more in reader --> Can this be avoided in a unique way for all channels, including inline, file etc.?
+
+        * IDEA: Store all kinds of buffers of communicator in input/output entry, so that different element types (char, void* for xcb events etc.) can be stored
+            (the communicator currently stores data in a byte array of type char by default)
 
         * See file "ngx_epoll_module.c" function "event/modules/ngx_epoll_eventfd_handler"
             a uint64_t with size 8 byte is received in "read"

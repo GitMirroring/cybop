@@ -66,14 +66,17 @@ void get_item_metadata(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get item element.");
 
+    //
     // CAUTION! Do NOT simplify the lines below to one line like:
     // copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
     // If doing this, the parametres type, count, index etc.
     // will not be considered.
+    //
 
     // The source item element.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
     // Get source item element.
     //
     // CAUTION! It is NOT necessary to use the "overwrite" function here,
@@ -81,6 +84,7 @@ void get_item_metadata(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     // with a fixed size of one which does not have to be changed.
     // Only a simple reference (pointer) of size one is copied here.
     // Using the "copy_array_forward" function is more efficient.
+    //
     copy_array_forward((void*) &e, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
 
     // The comparison result.
@@ -90,7 +94,9 @@ void get_item_metadata(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // This is a data item element.
+        //
 
         // The count is only needed if the item element is "data".
         void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -101,11 +107,13 @@ void get_item_metadata(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         // Reset comparison result.
         copy_integer((void*) &r, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
+        //
         // CAUTION! The given source index HAS TO BE smaller than
         // the data item element's count.
         // Otherwise, array boundaries might get crossed and
         // false pointer values returned.
         // Therefore, this is checked here.
+        //
         compare_integer_less((void*) &r, p5, c);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -113,10 +121,12 @@ void get_item_metadata(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             // Reset comparison result.
             copy_integer((void*) &r, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
+            //
             // CAUTION! The given source index MUST NOT be negative.
             // Otherwise, array boundaries might get crossed and
             // false pointer values returned.
             // Therefore, this is checked here.
+            //
             compare_integer_greater_or_equal((void*) &r, p5, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -136,12 +146,16 @@ void get_item_metadata(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
     } else {
 
+        //
         // This is a count or size item element.
+        //
 
+        //
         // CAUTION! The count or size do NOT have
         // a count or size themselves. They are just
         // primitive data values with a fixed size of one.
         // Therefore, nothing has to be checked here.
+        //
 
         // Get destination array as element of the source item container.
         copy_array_forward(p0, e, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4, p5);

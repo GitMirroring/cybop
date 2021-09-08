@@ -48,6 +48,11 @@
 void shutdown_xcb(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown xcb.");
+    fwprintf(stdout, L"Test: Shutdown xcb. p0: %i\n", p0);
+
+    //
+    // Declaration.
+    //
 
     // The connexion.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -57,8 +62,10 @@ void shutdown_xcb(void* p0) {
     void* gc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The connexion with correct type.
     xcb_connection_t* ct = (xcb_connection_t*) c;
-    // The graphic context with correct type.
-    xcb_gcontext_t* gct = (xcb_gcontext_t*) gc;
+
+    //
+    // Retrieval.
+    //
 
     //
     // Retrieve various values from input/output entry.
@@ -79,12 +86,14 @@ void shutdown_xcb(void* p0) {
     // Retrieve graphic context from input/output entry.
     copy_array_forward((void*) &gc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-    //?? fwprintf(stdout, L"Test: Shutdown xcb. c: %i\n", c);
-
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
         // A display DOES exist in input/output entry.
+        //
+
+        //
+        // Deallocation.
         //
 
         //
@@ -94,8 +103,26 @@ void shutdown_xcb(void* p0) {
 
         if (gc != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+            //
+            // The graphic context as integer.
+            //
+            // CAUTION! The graphic context is defined as:
+            // typedef uint32_t xcb_gcontext_t;
+            //
+            // CAUTION! Dereference value ONLY VIA uint32_t
+            // and do NOT dereference xcb_gcontext_t value directly
+            // as shown in the following example, since it is
+            // leading to a memory segmentation fault:
+            //
+            // xcb_gcontext_t* gct = (xcb_gcontext_t*) gc;
+            // ... *gct ...
+            //
+            uint32_t* gci = (uint32_t*) gc;
+            // Convert graphic context to correct type.
+            xcb_gcontext_t gct = (xcb_gcontext_t) *gci;
+
             // Free graphic context.
-            xcb_free_gc(ct, *gct);
+            xcb_free_gc(ct, gct);
 
         } else {
 
@@ -120,23 +147,9 @@ void shutdown_xcb(void* p0) {
         xcb_disconnect(ct);
 
         //
-        // Reset various values in input/output entry.
+        // CAUTION! Resetting the values is not necessary,
+        // since the input/output entry gets deallocated anyway.
         //
-        // CAUTION! Do NOT use "overwrite_array" function here,
-        // since it adapts the array count and size.
-        // But the array's count and size are CONSTANT.
-        //
-        // CAUTION! Do NOT hand over input/output entry as pointer reference.
-        //
-        // CAUTION! Hand over values as pointer REFERENCE.
-        //
-
-        // Reset connexion in input/output entry.
-        copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        // Reset screen in input/output entry.
-        copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SCREEN_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        // Reset graphic context in input/output entry.
-        copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     } else {
 

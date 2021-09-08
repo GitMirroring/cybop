@@ -118,6 +118,7 @@ int sense_xcb(void* p0) {
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense xcb. The connexion is null.");
+        fwprintf(stdout, L"Error: Could not sense xcb. The connexion is null. c: %i\n", c);
     }
 
     //

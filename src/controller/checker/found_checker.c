@@ -75,7 +75,7 @@ void check_found(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // Hence, rubbish (garbage) collection would only disturb here
     // and should be left to the knowledge memory.
     //
-    // CAUTION! Set the adjust flag to TRUE since otherwise,
+    // CAUTION! Set the adjust count flag to TRUE since otherwise,
     // the destination item will hold a wrong "count" number
     // leading to unpredictable errors in further processing.
     //

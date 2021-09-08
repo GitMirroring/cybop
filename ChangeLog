@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-09-08  Christian Heller  <christian.heller@cybop.org>
+
+        * Rename "handler" into "handle" in some cybol applications, since it is an operation
+        * Adapt file "gui_event_deserialiser.c" for receiving xcb events
+
 2021-09-07  Christian Heller  <christian.heller@cybop.org>
 
         * Adjust input/output entry buffer constants
