@@ -23,12 +23,12 @@ ____
         * Hint: APPEND (not overwrite) array elements, so that no input gets lost when input in sensing thread happens faster than processing in main thread
 
         CONTINUE:
-        * Check why xcb events are not received
+        * Test cybol application "user_interface/gui/"
+        * Eliminate endless loop in sensing events
         * See file "gui_event_deserialiser.c"
         * Loop reading events, until array is empty
         * Clear up: Is display_reader really needed or is gui_*_deserialiser sufficient?
         * Adapt display input handling to new buffer and interrupt pipe
-        * Make cybol application "user_interface/gui/" work again
 
         * Adapt socket input handling to new buffer and interrupt pipe
 

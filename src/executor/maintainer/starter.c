@@ -121,8 +121,7 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             // void* f = (void*) &sense_display;
             //
             //?? void* f = (void*) &sense_display;
-            //?? void* f = (void*) &sense_xcb;
-            void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* f = (void*) &sense_xcb;
 
             // Get input/output entry.
             get_internal_memory_element((void*) &io, p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p15);

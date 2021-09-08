@@ -22,6 +22,7 @@
 
         * Rename "handler" into "handle" in some cybol applications, since it is an operation
         * Adapt file "gui_event_deserialiser.c" for receiving xcb events
+        * Make cybol application "user_interface/gui/" start again
 
 2021-09-07  Christian Heller  <christian.heller@cybop.org>
 
