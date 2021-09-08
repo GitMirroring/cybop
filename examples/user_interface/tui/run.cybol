@@ -16,8 +16,8 @@
         <node name="name" channel="inline" format="text/plain" model="actions"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
     </node>
-    <node name="create_handler" channel="inline" format="memorise/create" model="">
-        <node name="name" channel="inline" format="text/plain" model="handler"/>
+    <node name="create_handle" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="handle"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
     </node>
 
@@ -53,13 +53,13 @@
         <node name="sender" channel="inline" format="text/plain" model="user_interface/tui/actions.cybol"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".actions"/>
     </node>
-    <node name="initialise_handler" channel="inline" format="communicate/receive" model="">
+    <node name="initialise_handle" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/plain" model="user_interface/tui/handler.cybol"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".handler"/>
+        <node name="sender" channel="inline" format="text/plain" model="user_interface/tui/handle.cybol"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".handle"/>
     </node>
 
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
@@ -84,7 +84,7 @@
 
     <node name="sense_commands" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="handler" channel="inline" format="text/cybol-path" model=".handler"/>
+        <node name="handler" channel="inline" format="text/cybol-path" model=".handle"/>
     </node>
 
 </node>

@@ -20,7 +20,7 @@
         <node name="close-window" channel="inline" format="text/plain" model=".logic.exit_programme"/>
     </node>
 
-    <!-- The following variable is used in file "handler.cybol". -->
+    <!-- The following variable is used in file "handle.cybol". -->
     <node name="action" channel="inline" format="text/plain" model="">
         <node name="event" channel="inline" format="text/plain" model=""/>
         <node name="window" channel="inline" format="number/integer" model="0"/>

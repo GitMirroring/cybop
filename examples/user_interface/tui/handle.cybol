@@ -5,7 +5,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="TEST handler"/>
+        <node name="message" channel="inline" format="text/plain" model="TEST handle"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
@@ -27,7 +27,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="TEST handler .temporary.command"/>
+        <node name="message" channel="inline" format="text/plain" model="TEST handle .temporary.command"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="TEST" channel="inline" format="communicate/send" model="">
@@ -51,7 +51,7 @@
     </node>
 
     <!-- CAUTION! The path is NOT a reference. -->
-    <node name="model" channel="inline" format="text/cybol-path" model=".temporary.path"/>
+    <node name="execute_command" channel="inline" format="text/cybol-path" model=".temporary.path"/>
 
     <node name="sleep_for_some_time_so_that_the_output_can_be_read_by_the_user" channel="inline" format="run/run" model="">
         <node name="programme" channel="inline" format="text/plain" model="sleep 0.8"/>
