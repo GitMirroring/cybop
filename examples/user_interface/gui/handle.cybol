@@ -10,14 +10,10 @@
     </node>
 
     <!--
-        CAUTION! If these variables were not reset here,
-        then the last valid previous action would be executed
-        again and again, neverendingly.
+        CAUTION! If these variables were not reset here, then the last valid
+        previous action would be executed again and again, neverendingly.
     -->
-    <node name="reset_action" channel="inline" format="modify/empty" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".gui.action"/>
-        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
-    </node>
+    <node name="reset_action" channel="inline" format="text/cybol-path" model=".logic.reset_action"/>
 
     <node name="receive_event" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>

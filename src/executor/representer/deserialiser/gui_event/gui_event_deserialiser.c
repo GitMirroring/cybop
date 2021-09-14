@@ -83,6 +83,8 @@ void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3) {
         // The event.
         void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+        fwprintf(stdout, L"Test: Deserialise gui event. init e: %i\n", e);
+
         // Get event buffer item from input/output entry.
         copy_array_forward((void*) &b, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Get mutex from input/output entry.
@@ -103,6 +105,12 @@ void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3) {
         // Lock mutex.
         mtx_lock(m);
 
+        //
+        // CAUTION! The comparison HAS TO BE inside the locked block
+        // since otherwise, the value might be changed by another thread
+        // so that the comparison result would NOT BE VALID anymore.
+        //
+
         compare_integer_greater_or_equal((void*) &r, bc, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
         fwprintf(stdout, L"Test: Deserialise gui event. r: %i\n", r);
@@ -111,6 +119,7 @@ void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3) {
 
             // Get event from event buffer.
             copy_array_forward((void*) &e, bd, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
             //
             // Remove event from event buffer item.
             //
@@ -124,7 +133,7 @@ void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3) {
         // Unlock mutex.
         mtx_unlock(m);
 
-        fwprintf(stdout, L"Test: Deserialise gui event. e: %i\n", e);
+        fwprintf(stdout, L"Test: Deserialise gui event. new e: %i\n", e);
 
         if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

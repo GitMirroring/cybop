@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-09-14  Christian Heller  <christian.heller@cybop.org>
+
+        * Add new file "reset_action.cybol" to cybol application "user_interface/gui/", in order to reset action properties for avoiding an endless loop sensing the same event again and again
+
 2021-09-08  Christian Heller  <christian.heller@cybop.org>
 
         * Rename "handler" into "handle" in some cybol applications, since it is an operation
