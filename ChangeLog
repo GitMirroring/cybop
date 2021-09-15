@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-09-15  Christian Heller  <christian.heller@cybop.org>
+
+        * Implement sensing child thread exit by using an exit flag set by the main thread and function "thrd_join" to wait for it to finish
+        * Let each sensing child thread exit itself when exit flag is set
+        * Adapt files "io_shutter.c", "channel_disabler.c", "cutter.c"
+
 2021-09-14  Christian Heller  <christian.heller@cybop.org>
 
         * Add new file "reset_action.cybol" to cybol application "user_interface/gui/", in order to reset action properties for avoiding an endless loop sensing the same event again and again

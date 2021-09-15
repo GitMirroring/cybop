@@ -482,18 +482,15 @@ encoding="utf-8" compression="tar|gzip|base64"
 Sensing Threads
 _______________
 
-Are not used anymore, due to different handling and difficulties
-in the various operating systems.
+- one sensing thread per channel
+- threads are blocking while waiting for message
+- set child thread interrupt flag within main thread
+- send arbitrary message such as some byte from main thread over the corresponding input/output channel to wake up the blocking sensing child thread
+- check interrupt flag within child thread and exit thread if flag is set
+- use join to let main thread wait until child threads have exited properly
 
-// CAUTION! Moving the following code to an own thread in files
-// "win32_display_sensor.c" and "message_win32_display_sensor.c"
-// does NOT work, since the "PeekMessage" function
-// checks the message queue of the CALLING thread ONLY.
-//
-// If it was called within an external "sensing" thread,
-// then messages of the cyboi main thread
-// (to which all windows belong) would never get recognised.
-// Therefore, this main thread has to check for messages.
+CAUTION! Mind the mutex regions and do NOT call exit thread within them since otherwise,
+mutexes may never be reset anymore, if no other thread can enter the locked region
 
 Stack Memory
 ____________
@@ -1145,4 +1142,15 @@ starting up (creating) the window in cybol. Only then, responses
 to later requests may be sent to the correct window id, by using
 comparison (alternative, if-else-else) for identifying the window
 that had sent the request (event).
+
+Asynchronous Input/Output
+_________________________
+
+Reflexion on event handling (move to design document in doc/dev/):
+* Pipe cannot be used, since it might block, when read out to be empty before but an irq was set in a thread only later (filling pipe and setting irq are not atomic)
+* Array is good, disadvantage of having to move all entries with each "read+remove"
+* IRQ might be set later (filling array and setting irq are not atomic) even though array is empty when main thread was faster reading+removing entry than sensing thread setting irq
+--> not a problem, since reading out the array does not block and may just return null, so that NO signal/event is added to the cyboi signal/event memory
+* Conclusion: all is fine when working with an array, one for each separate channel; only the irq is sent via pipe
+* Hint: APPEND (not overwrite) array elements, so that no input gets lost when input in sensing thread happens faster than processing in main thread
 

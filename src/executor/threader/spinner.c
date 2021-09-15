@@ -26,7 +26,7 @@
 #ifndef SPINNER_SOURCE
 #define SPINNER_SOURCE
 
-#include <threads.h> // thrd_t, thrd_equal, thrd_create
+#include <threads.h> // thrd_start_t, thrd_t, thrd_equal, thrd_create
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"

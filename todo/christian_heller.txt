@@ -14,16 +14,12 @@
 Pipe
 ____
 
-        Reflexion on event handling (move to design document in doc/dev/):
-        * Pipe cannot be used, since it might block, when read out to be empty before but an irq was set in a thread only later (filling pipe and setting irq are not atomic)
-        * Array is good, disadvantage of having to move all entries with each "read+remove"
-        * IRQ might be set later (filling array and setting irq are not atomic) even though array is empty when main thread was faster reading+removing entry than sensing thread setting irq
-            --> not a problem, since reading out the array does not block and may just return null, so that NO signal/event is added to the cyboi signal/event memory
-        * Conclusion: all is fine when working with an array, one for each separate channel; only the irq is sent via pipe
-        * Hint: APPEND (not overwrite) array elements, so that no input gets lost when input in sensing thread happens faster than processing in main thread
+        * Test sensing child thread exiting --> why comes an error (service not found, io_entry null)?
 
-        CONTINUE:
         * Catch events properly in cybol application "user_interface/gui/"
+            events get identified correctly when being a property of the window
+            they do not get identified when belonging to an embedded area
+            check identification hierarchy along window tree
         * See also file "gui_event_deserialiser.c"
         * Loop reading display events, until array is empty
         * Clear up: Is display_reader really needed or is gui_*_deserialiser sufficient?
@@ -406,7 +402,7 @@ _______
 XCB
 ___
 
-        * Send close event to invisible window in xcb, in order to properly shutdown:
+        * Send close event to invisible (hidden) window in xcb, in order to properly shutdown:
             https://stackoverflow.com/questions/30387126/how-do-i-interrupt-xcb-wait-for-event
 
         REACTIVATE:

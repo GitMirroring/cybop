@@ -26,24 +26,22 @@
 #ifndef CUTTER_SOURCE
 #define CUTTER_SOURCE
 
-//?? #include <signal.h> // SIGUSR1
-#include <threads.h> // thrd_t, thrd_equal, thrd_join, thrd_error
+#include <threads.h> // thrd_t, thrd_join, thrd_error
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../logger/logger.c"
-#include "../../../variable/service_interrupt.c"
-#include "../../../variable/thread_identification.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../logger/logger.c"
+#include "../../variable/service_interrupt.c"
+#include "../../variable/thread_identification.c"
 
 /**
- * Cuts the thread, so that it is interrupted.
+ * Cuts the thread, that is wait for it to exit.
  *
  * @param p0 the thread identification
- * @param p1 the thread interrupt
  */
-void cut(void* p0, void* p1) {
+void cut(void* p0) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -51,94 +49,25 @@ void cut(void* p0, void* p1) {
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cut.");
 
-        //
-        // Compare thread identifications.
-        //
-        // Returns a non-zero value (true) if t1 and t2
-        // are equal and zero if they are unequal (false).
-        //
-        // CAUTION! The threads (pthread) implementation under
-        // mingw win32 uses a struct and NOT a scalar value.
-        //
-        int r = thrd_equal(DEFAULT_THREAD_IDENTIFICATION, *t);
+        // The result code.
+        int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // Wait for thread to finish.
+        int e = thrd_join(*t, &c);
 
-        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (e != thrd_error) {
 
-            //
-            // The thread DOES exist.
-            // It is unequal to the empty default thread.
-            //
-
-            // Set thread service interrupt flag for signal handler.
-            copy_integer(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-            //
-            // Send signal to thread.
-            //
-            // CAUTION! Sending a SIGKILL signal to a thread using pthread_kill()
-            // ends the ENTIRE PROCESS, not simply the target thread.
-            // SIGKILL is defined to end the entire process, regardless
-            // of the thread it is delivered to, or how it is sent.
-            //
-            // The user signal SIGUSR1 is used here instead.
-            // It is processed in function "interrupt_service_system_signal_handler",
-            // situated in file "system_signal_handler_startup_manager.c".
-            //
-            // CAUTION! Several documentations suggest to replace
-            // the system signal solution with an atomic exit flag being
-            // frequently tested in an endless loop within the thread.
-            // However, this is NOT AN OPTION for cyboi, since its
-            // sensing threads are often blocking while waiting for input.
-            // As a result, they cannot repeatedly test for an exit flag.
-            //
-#if defined(__linux__) || defined(__unix__)
-            pthread_kill(*t, SIGUSR1);
-#elif defined(__APPLE__) && defined(__MACH__)
-            pthread_kill(*t, SIGUSR1);
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-            // Pthread-Win32 only supports a zero value!
-            // ...
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
-
-            // The result code.
-            int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            // Wait for thread to finish.
-            int e = thrd_join(*t, &c);
-
-            if (e != thrd_error) {
-
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"The cut was successful. The service thread is now interrupted.");
-                fwprintf(stdout, L"Debug: The cut was successful. The service thread is now interrupted. result code: %i\n", c);
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cut. The service thread join function returned an error.");
-                fwprintf(stdout, L"Error: Could not cut. The service thread join function returned an error. result code: %i\n", c);
-            }
-
-            //
-            // A mutex is not needed while setting the following parametres,
-            // since the corresponding thread was killed above so that NO
-            // other entities exist that may access the parametres.
-            //
-
-            // Reset thread.
-            *t = DEFAULT_THREAD;
-
-            // Reset thread interrupt flag for signal handler.
-            copy_integer(p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"The thread was cut (exited) successfully.");
+            fwprintf(stdout, L"Debug: The thread was cut (exited) successfully. result code: %i\n", c);
 
         } else {
 
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cut. The service thread is invalid (empty like the default thread).");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cut. The thread join function returned an error.");
+            fwprintf(stdout, L"Error: Could not cut. The thread join function returned an error. result code: %i\n", c);
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cut. The service thread is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cut. The thread identification is null.");
     }
 }
 

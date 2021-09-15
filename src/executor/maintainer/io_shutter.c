@@ -34,6 +34,7 @@
 #include "../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/setter/internal_memory_setter.c"
+#include "../../executor/activator/channel_disabler.c"
 #include "../../executor/copier/array_copier.c"
 #include "../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../executor/porter/file_stream_closer.c"
@@ -95,14 +96,14 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
             void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The sender identification.
             void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The access mutex.
+            void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The thread identification.
             void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The thread function.
             void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The function argument.
             void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The access mutex.
-            void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The exit flag.
             void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The pipe.
@@ -124,14 +125,14 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
             copy_array_forward((void*) &i, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
             // Get sender identification from input/output entry.
             copy_array_forward((void*) &s, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SENDER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            // Get access mutex from input/output entry.
+            copy_array_forward((void*) &m, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
             // Get thread identification from input/output entry.
             copy_array_forward((void*) &t, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
             // Get thread function from input/output entry.
             copy_array_forward((void*) &f, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FUNCTION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
             // Get function argument from input/output entry.
             copy_array_forward((void*) &a, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ARGUMENT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
-            // Get access mutex from input/output entry.
-            copy_array_forward((void*) &m, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
             // Get exit flag from input/output entry.
             copy_array_forward((void*) &ex, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
             // Get pipe from input/output entry.
@@ -163,6 +164,8 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
             mtx_t* mt = (mtx_t*) m;
             // Finalise access mutex.
             mtx_destroy(mt);
+            // Disable channel and exit sensing thread.
+            disable_channel(p1, p2, p3);
 
             //
             // Deallocation.
@@ -201,6 +204,14 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
             //
             deallocate_array((void*) &s, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
             //
+            // Deallocate access mutex.
+            //
+            // CAUTION! The second argument "count" is NULL,
+            // since it is only needed for looping elements of type PART,
+            // in order to decrement the rubbish (garbage) collection counter.
+            //
+            deallocate_array((void*) &m, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
+            //
             // Deallocate thread identification.
             //
             // CAUTION! The second argument "count" is NULL,
@@ -225,14 +236,6 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
             // in order to decrement the rubbish (garbage) collection counter.
             //
             deallocate_array((void*) &a, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
-            //
-            // Deallocate access mutex.
-            //
-            // CAUTION! The second argument "count" is NULL,
-            // since it is only needed for looping elements of type PART,
-            // in order to decrement the rubbish (garbage) collection counter.
-            //
-            deallocate_array((void*) &m, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
             //
             // Deallocate exit flag.
             //
@@ -272,11 +275,13 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
             // See file "shutdown_manager.c".
             //
             // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown io. The input/output entry value is null, i.e. it does not exist in internal memory.");
+            // fwprintf(stdout, L"Warning: Could not shutdown io. The input/output entry value is null, i.e. it does not exist in internal memory. *io: %i\n", *io);
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown io. The input/output entry is null.");
+        fwprintf(stdout, L"Error: Could not shutdown io. The input/output entry is null. p0: %i\n", p0);
     }
 }
 

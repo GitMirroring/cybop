@@ -33,6 +33,7 @@
 #include "../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../executor/copier/array_copier.c"
 #include "../../executor/copier/integer_copier.c"
+#include "../../executor/threader/cutter.c"
 #include "../../logger/logger.c"
 
 /**
@@ -45,7 +46,7 @@
 void disable_channel(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Disable channel.");
-
+    //?? CAUTION! Uncomment only for socket test since otherwise, the id is null.
     //?? fwprintf(stdout, L"Test: Disable channel. service id *p2: %i\n", *((int*) p2));
 
     // The input/output entry.
@@ -61,17 +62,19 @@ void disable_channel(void* p0, void* p1, void* p2) {
         // at the calculated internal memory index.
         //
 
-        //
-        // Store various values in input/output entry.
-        //
-        // CAUTION! Do NOT use "overwrite_array" function here,
-        // since it adapts the array count and size.
-        // But the array's count and size are CONSTANT.
-        //
-        // CAUTION! Do NOT hand over input/output entry as pointer reference.
-        //
-        // CAUTION! Hand over values as pointer REFERENCE.
-        //
+        // The enable flag.
+        void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The thread identification.
+        void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The exit flag.
+        void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+        // Get enable flag from input/output entry.
+        copy_array_forward((void*) &e, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        // Get thread identification from input/output entry.
+        copy_array_forward((void*) &t, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        // Get exit flag from input/output entry.
+        copy_array_forward((void*) &ex, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         //
         // CAUTION! Do NOT reset handler to null,
@@ -81,17 +84,21 @@ void disable_channel(void* p0, void* p1, void* p2) {
         // since the service may get reenabled later again.
         //
 
-        // The TODO flag.
-        void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-        // Get enable flag from input/output entry.
-        copy_array_forward((void*) &e, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
         //
         // Unset enable flag in input/output entry,
-        // so that the service gets temporarily interrupted.
+        // so that the service gets marked as interrupted.
         //
         copy_integer(e, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        //
+        // Set exit flag.
+        //
+        // CAUTION! A mutex is NOT needed here, since only the main thread
+        // does set (write) the flag and child threads ONLY READ it.
+        //
+        copy_integer(ex, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        // Cut thread (wait for it to exit).
+        cut(t);
 
     } else {
 

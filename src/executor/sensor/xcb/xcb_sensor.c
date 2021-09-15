@@ -65,6 +65,8 @@ int sense_xcb(void* p0) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense xcb.");
     fwprintf(stdout, L"Test: Sense xcb. p0: %i\n", p0);
 
+    // The exit flag.
+    void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The buffer item.
     void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The connexion.
@@ -84,6 +86,8 @@ int sense_xcb(void* p0) {
     // The interrupt pipe write file descriptor.
     int ipw = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
+    // Get exit flag from input/output entry.
+    copy_array_forward((void*) &ex, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get buffer item from input/output entry.
     copy_array_forward((void*) &b, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get connexion from input/output entry.
@@ -102,15 +106,24 @@ int sense_xcb(void* p0) {
 
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        // The comparison result.
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+        // Run loop neverendingly while sensing messages.
         while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //
-            // A break condition does not exist here because the loop
-            // is running neverendingly while sensing messages.
-            //
-            // The loop and this sensing thread CANNOT be exited.
-            // Possibly, there will be a solution in the future, however.
-            //
+            compare_integer_unequal((void*) &r, ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                //
+                // The exit flag was set in the main thread.
+                // Therefore, leave this endless loop now.
+                // The child thread exits when this function returns.
+                //
+
+                break;
+            }
 
             sense_xcb_event(b, c, (void*) &ipw, id, m, im);
         }
@@ -125,9 +138,7 @@ int sense_xcb(void* p0) {
     // An implicit call to "thrd_exit" is made when this thread
     // (other than the thread in which "main" was first invoked)
     // returns from the function that was used to create it (this function).
-    // The "thrd_exit" function does therefore not have to be called here.
-    // However, since this function runs an endless loop waiting for input,
-    // it may only be left by using either (1) a flag (2) an external signal.
+    // The "thrd_exit" function does therefore NOT have to be called here.
     //
 
     return *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;

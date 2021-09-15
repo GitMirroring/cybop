@@ -60,8 +60,6 @@ void shutdown_xcb(void* p0) {
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The graphic context.
     void* gc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The connexion with correct type.
-    xcb_connection_t* ct = (xcb_connection_t*) c;
 
     //
     // Retrieval.
@@ -86,7 +84,11 @@ void shutdown_xcb(void* p0) {
     // Retrieve graphic context from input/output entry.
     copy_array_forward((void*) &gc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
+    fwprintf(stdout, L"Test: Shutdown xcb. c: %i\n", c);
+
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        fwprintf(stdout, L"Test: Shutdown xcb. inside c: %i\n", c);
 
         //
         // A display DOES exist in input/output entry.
@@ -101,10 +103,17 @@ void shutdown_xcb(void* p0) {
         // for the following deallocations.
         //
 
+        // Cast connexion to correct type.
+        xcb_connection_t* ct = (xcb_connection_t*) c;
+
+        fwprintf(stdout, L"Test: Shutdown xcb. gc: %i\n", gc);
+
         if (gc != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+            fwprintf(stdout, L"Test: Shutdown xcb. inside gc: %i\n", gc);
+
             //
-            // The graphic context as integer.
+            // Cast graphic context to integer.
             //
             // CAUTION! The graphic context is defined as:
             // typedef uint32_t xcb_gcontext_t;
@@ -118,11 +127,15 @@ void shutdown_xcb(void* p0) {
             // ... *gct ...
             //
             uint32_t* gci = (uint32_t*) gc;
-            // Convert graphic context to correct type.
+            // Cast graphic context to correct type.
             xcb_gcontext_t gct = (xcb_gcontext_t) *gci;
+
+            fwprintf(stdout, L"Test: Shutdown xcb. free gc: %i\n", gc);
 
             // Free graphic context.
             xcb_free_gc(ct, gct);
+
+            fwprintf(stdout, L"Test: Shutdown xcb. post free gc: %i\n", gc);
 
         } else {
 
@@ -136,6 +149,8 @@ void shutdown_xcb(void* p0) {
         // deallocated automatically via the connexion below.
         //
 
+        fwprintf(stdout, L"Test: Shutdown xcb. disconnect ct: %i\n", ct);
+
         //
         // Close connexion.
         //
@@ -146,6 +161,8 @@ void shutdown_xcb(void* p0) {
         //
         xcb_disconnect(ct);
 
+        fwprintf(stdout, L"Test: Shutdown xcb. post disconnect ct: %i\n", ct);
+
         //
         // CAUTION! Resetting the values is not necessary,
         // since the input/output entry gets deallocated anyway.
@@ -153,7 +170,8 @@ void shutdown_xcb(void* p0) {
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown xcb. The display is null.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown xcb. The connexion is null.");
+        fwprintf(stdout, L"Warning: Could not shutdown xcb. The connexion is null. c: %i\n", c);
     }
 }
 

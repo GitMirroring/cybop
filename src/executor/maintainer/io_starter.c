@@ -154,14 +154,14 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
             void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The sender identification.
             void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The access mutex.
+            void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The thread identification.
             void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The thread function.
             void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The function argument.
             void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The access mutex.
-            void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The exit flag.
             void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The pipe.
@@ -212,6 +212,13 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
             //
             allocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
             //
+            // Allocate access mutex.
+            //
+            // CAUTION! Due to memory allocation handling, the size MUST NOT
+            // be negative or zero, but have at least a value of ONE.
+            //
+            allocate_array((void*) &m, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
+            //
             // Allocate thread identification.
             //
             // CAUTION! Due to memory allocation handling, the size MUST NOT
@@ -233,13 +240,6 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
             // be negative or zero, but have at least a value of ONE.
             //
             allocate_array((void*) &a, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
-            //
-            // Allocate access mutex.
-            //
-            // CAUTION! Due to memory allocation handling, the size MUST NOT
-            // be negative or zero, but have at least a value of ONE.
-            //
-            allocate_array((void*) &m, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
             //
             // Allocate exit flag.
             //
@@ -285,6 +285,17 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
             copy_integer(i, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
             // Initialise sender identification.
             copy_integer(s, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            // The access mutex with casted type.
+            mtx_t* mt = (mtx_t*) m;
+            // Initialise access mutex.
+            int r = mtx_init(mt, *PLAIN_MUTEX_TYPE_THREAD_SYMBOLIC_NAME);
+
+            if (r == thrd_error) {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup io. The mutex object creation failed.");
+                fwprintf(stdout, L"Error: Could not startup io. The mutex object creation failed. r: %i\n", r);
+            }
+
             // Initialise thread identification.
             copy_integer(t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
             //
@@ -299,17 +310,6 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
             // CAUTION! Hand over input/output entry itself, but as pointer REFERENCE.
             //
             copy_pointer(a, p0);
-            // The access mutex with casted type.
-            mtx_t* mt = (mtx_t*) m;
-            // Initialise access mutex.
-            int r = mtx_init(mt, *PLAIN_MUTEX_TYPE_THREAD_SYMBOLIC_NAME);
-
-            if (r == thrd_error) {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup io. The mutex object creation failed.");
-                fwprintf(stdout, L"Error: Could not startup io. The mutex object creation failed. r: %i\n", r);
-            }
-
             // Initialise exit flag.
             copy_integer(ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
             // Initialise pipe.
@@ -344,14 +344,14 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
             copy_array_forward(*io, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             // Set sender identification into input/output entry.
             copy_array_forward(*io, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SENDER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            // Set access mutex into input/output entry.
+            copy_array_forward(*io, (void*) &m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             // Set thread identification into input/output entry.
             copy_array_forward(*io, (void*) &t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             // Set thread function into input/output entry.
             copy_array_forward(*io, (void*) &f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FUNCTION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             // Set function argument into input/output entry.
             copy_array_forward(*io, (void*) &a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ARGUMENT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            // Set access mutex into input/output entry.
-            copy_array_forward(*io, (void*) &m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             // Set exit flag into input/output entry.
             copy_array_forward(*io, (void*) &ex, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EXIT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             // Set pipe into input/output entry.
