@@ -29,7 +29,6 @@ Allocation
 Serialisation/Encoding/Compression/Sending
 Encoding
 Language and Format
-Sensing Threads
 Stack Memory
 Knowledge Path
 Container Operations
@@ -51,6 +50,7 @@ Receiving Data via Client Socket
 Variables
 Handling of windows events versus socket client requests
 Asynchronous Input/Output
+Sensing Threads
 
 Terminology
 ___________
@@ -478,19 +478,6 @@ Therefore, the following chaining is NOT possible:
 encoding="utf-8,gzip"
 The following, on the other hand, IS POSSIBLE:
 encoding="utf-8" compression="tar|gzip|base64"
-
-Sensing Threads
-_______________
-
-- one sensing thread per channel
-- threads are blocking while waiting for message
-- set child thread interrupt flag within main thread
-- send arbitrary message such as some byte from main thread over the corresponding input/output channel to wake up the blocking sensing child thread
-- check interrupt flag within child thread and exit thread if flag is set
-- use join to let main thread wait until child threads have exited properly
-
-CAUTION! Mind the mutex regions and do NOT call exit thread within them since otherwise,
-mutexes may never be reset anymore, if no other thread can enter the locked region
 
 Stack Memory
 ____________
@@ -1153,4 +1140,17 @@ Reflexion on event handling (move to design document in doc/dev/):
 --> not a problem, since reading out the array does not block and may just return null, so that NO signal/event is added to the cyboi signal/event memory
 * Conclusion: all is fine when working with an array, one for each separate channel; only the irq is sent via pipe
 * Hint: APPEND (not overwrite) array elements, so that no input gets lost when input in sensing thread happens faster than processing in main thread
+
+Sensing Threads
+_______________
+
+- one sensing thread per channel
+- threads are blocking while waiting for message
+- set child thread interrupt flag within main thread (called by cybol operation or on cyboi shutdown)
+- send some data (such as one byte) from main thread to channel on shutdown, in order to wake up the blocking sensing child thread, so that it can exit itself
+- check interrupt flag within child thread and exit thread if flag is set
+- use join to let main thread wait until child threads have exited properly
+
+CAUTION! Mind the mutex regions and do NOT call exit thread within them since otherwise,
+mutexes may never be reset anymore, if no other thread can enter the locked region
 

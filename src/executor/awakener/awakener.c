@@ -23,81 +23,84 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ENABLER_SOURCE
-#define ENABLER_SOURCE
+#ifndef AWAKENER_SOURCE
+#define AWAKENER_SOURCE
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../executor/activator/channel_enabler.c"
+//?? #include "../../executor/awakener/display_awakener.c"
+//?? #include "../../executor/awakener/serial_awakener.c"
+//?? #include "../../executor/awakener/socket_awakener.c"
+#include "../../executor/awakener/terminal_awakener.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../logger/logger.c"
 
 /**
- * Enables the given channel for message sensing.
+ * Let the system send an input to itself over the channel
+ * with the given input/output base.
  *
- * @param p0 the internal memory data
- * @param p1 the service identification (e.g. socket port)
- * @param p2 the handler part (pointer reference)
- * @param p3 the sender client data (pointer reference, e.g. client socket id, window id, file descriptor)
- * @param p4 the channel
+ * This is necessary to wake up blocking sensing threads,
+ * so that they can exit themselves.
+ *
+ * @param p0 the input/output entry
+ * @param p1 the channel
  */
-void enable(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void awake(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable.");
-    //?? fwprintf(stdout, L"Test: Enable. channel p4: %i\n", p4);
-    //?? fwprintf(stdout, L"Test: Enable. channel *p4: %i\n", *((int*) p4));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Awake.");
+    fwprintf(stdout, L"Debug: Awake. channel p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Awake. channel *p1: %i\n", *((int*) p1));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p1, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            enable_channel(p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2, p3);
+            //?? awake_display(p0);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) SERIAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p1, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            enable_channel(p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2, p3);
+            //?? awake_serial(p0);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p1, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            enable_channel(p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2, p3);
+            //?? awake_socket(p0);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p1, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            enable_channel(p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2, p3);
+            awake_terminal(p0);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not enable. The channel is unknown. Channel p4: %i\n", *((int*) p4));
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not awake. The channel is unknown.");
+        fwprintf(stdout, L"Warning: Could not awake. The channel is unknown. p1: %i\n", *((int*) p1));
     }
 }
 
-/* ENABLER_SOURCE */
+/* AWAKENER_SOURCE */
 #endif

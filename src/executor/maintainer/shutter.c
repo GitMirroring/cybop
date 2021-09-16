@@ -77,7 +77,7 @@ void shutdown_service(void* p0, void* p1, void* p2) {
             // Shutdown service.
             shutdown_display(io);
             // Shutdown input/output entry.
-            shutdown_io((void*) &io, p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
+            shutdown_io((void*) &io, p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2);
         }
     }
 
@@ -92,7 +92,7 @@ void shutdown_service(void* p0, void* p1, void* p2) {
             // Shutdown service.
             //?? shutdown_serial_port(io);
             // Shutdown input/output entry.
-            shutdown_io((void*) &io, p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
+            shutdown_io((void*) &io, p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2);
         }
     }
 
@@ -107,7 +107,7 @@ void shutdown_service(void* p0, void* p1, void* p2) {
             // Shutdown service.
             shutdown_socket(io);
             // Shutdown input/output entry.
-            shutdown_io((void*) &io, p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
+            shutdown_io((void*) &io, p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2);
         }
     }
 
@@ -122,7 +122,7 @@ void shutdown_service(void* p0, void* p1, void* p2) {
             // Shutdown service.
             shutdown_terminal(io);
             // Shutdown input/output entry.
-            shutdown_io((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
+            shutdown_io((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2);
         }
     }
 

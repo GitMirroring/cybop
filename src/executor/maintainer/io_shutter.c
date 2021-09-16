@@ -47,8 +47,9 @@
  * @param p1 the internal memory data
  * @param p2 the input/output base
  * @param p3 the socket port
+ * @param p4 the channel
  */
-void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
+void shutdown_io(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -67,22 +68,6 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
             //
             // The input/output entry (service) DOES exist in internal memory.
             //
-
-            //
-            // Reset input/output entry in internal memory.
-            //
-            // CAUTION! It is ESSENTIAL to assign NULL here,
-            // since cyboi tests for null pointers and otherwise,
-            // wild pointers would lead to memory corruption.
-            //
-            // CAUTION! Do NOT use the "modify_array" (overwrite) function,
-            // since it adapts the array count and size.
-            // But the internal memory array's count and size are CONSTANT.
-            //
-            // CAUTION! Hand over null as pointer reference NULL_POINTER_STATE_CYBOI_MODEL
-            // and NOT as dereferenced pointer *NULL_POINTER_STATE_CYBOI_MODEL.
-            //
-            set_internal_memory_element(p1, (void*) NULL_POINTER_STATE_CYBOI_MODEL, p2, p3);
 
             //
             // Declaration.
@@ -165,7 +150,7 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
             // Finalise access mutex.
             mtx_destroy(mt);
             // Disable channel and exit sensing thread.
-            disable_channel(p1, p2, p3);
+            disable_channel(p1, p2, p3, p4);
 
             //
             // Deallocation.
@@ -265,6 +250,25 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3) {
             // in order to decrement the rubbish (garbage) collection counter.
             //
             deallocate_array(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) IO_ENTRY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
+
+            //
+            // Reset input/output entry in internal memory.
+            //
+            // CAUTION! It is ESSENTIAL to assign NULL here,
+            // since cyboi tests for null pointers and otherwise,
+            // wild pointers would lead to memory corruption.
+            //
+            // CAUTION! Do NOT use the "modify_array" (overwrite) function,
+            // since it adapts the array count and size.
+            // But the internal memory array's count and size are CONSTANT.
+            //
+            // CAUTION! Hand over null as pointer reference NULL_POINTER_STATE_CYBOI_MODEL
+            // and NOT as dereferenced pointer *NULL_POINTER_STATE_CYBOI_MODEL.
+            //
+            // CAUTION! Place this function BELOW the call of function "disable_channel" above,
+            // since that is accessing the input/output entry inside, in order to exit the thread.
+            //
+            set_internal_memory_element(p1, (void*) NULL_POINTER_STATE_CYBOI_MODEL, p2, p3);
 
         } else {
 

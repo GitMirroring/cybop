@@ -14,7 +14,10 @@
 Pipe
 ____
 
-        * Test sensing child thread exiting --> why comes an error (service not found, io_entry null)?
+        * Continue directory "executor/awakener/"
+        * Send input on terminal/xcb:
+            https://stackoverflow.com/questions/29614264/unable-to-fake-terminal-input-with-termios-tiocsti
+            https://stackoverflow.com/questions/8794089/how-to-send-key-event-to-application-using-xcb
 
         * Catch events properly in cybol application "user_interface/gui/"
             events get identified correctly when being a property of the window
@@ -34,7 +37,7 @@ ____
         * Delete sensor, once all functions have been moved into threads started by activator
         * Use platform-neutral function "sense" instead of function "sense_unix_terminal" in file "starter.c"
         * Delete terminal sensor, since platform-specific sensor functions are called within thread in file "starter.c"
-        * Cleanup unused variables (interrupt, pipe, pipe read/write stream) in file "io_starter.c"
+        * Cleanup unused variables (interrupt, pipe, pipe read/write stream) in files "io_starter.c" and "io_shutter.c"
         * Think through sensing threads exit via system signal again (usable or not?) --> clean up source code accordingly
         * Optimise arrays: one array is filled in sensor and copied once more in reader --> Can this be avoided in a unique way for all channels, including inline, file etc.?
 

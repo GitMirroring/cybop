@@ -47,11 +47,10 @@
  */
 void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable channel.");
-
-    fwprintf(stdout, L"Test: Enable channel. port p2: %i\n", p2);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable channel.");
+    fwprintf(stdout, L"Debug: Enable channel. port p2: %i\n", p2);
     //?? CAUTION! Uncomment only for socket test since otherwise, the id is null.
-    //?? fwprintf(stdout, L"Test: Enable channel. port *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Enable channel. port *p2: %i\n", *((int*) p2));
 
     // The input/output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -65,7 +64,7 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         //
         // An input/output entry DOES exist for the service
-        // at the calculated internal memory index.
+        // at the given service identification.
         //
 
         // The enable flag.

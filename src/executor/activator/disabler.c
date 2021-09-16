@@ -56,7 +56,7 @@ void disable(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            disable_channel(p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
+            disable_channel(p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2);
         }
     }
 
@@ -66,7 +66,7 @@ void disable(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            disable_channel(p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
+            disable_channel(p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2);
         }
     }
 
@@ -76,7 +76,7 @@ void disable(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            disable_channel(p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
+            disable_channel(p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2);
         }
     }
 
@@ -86,14 +86,14 @@ void disable(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            disable_channel(p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
+            disable_channel(p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not disable. The channel is unknown.");
-        fwprintf(stdout, L"Error: Could not disable. The channel is unknown. Channel p2: %i\n", *((int*) p2));
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not disable. The channel is unknown.");
+        fwprintf(stdout, L"Warning: Could not disable. The channel is unknown. Channel p2: %i\n", *((int*) p2));
     }
 }
 

@@ -18,10 +18,17 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-09-16  Christian Heller  <christian.heller@cybop.org>
+
+        * Fix error that input/output entry got reset before having used it to disable the channel (exit the thread), in file "io_shutter.c"
+        * Add new directory "executor/awakener/" for letting the system send an input to itself over a specific channel, in order to wake up blocking sensing threads, so that they can exit themselves
+        * Call function "awake" from file "channel_disabler.c"
+
 2021-09-15  Christian Heller  <christian.heller@cybop.org>
 
-        * Implement sensing child thread exit by using an exit flag set by the main thread and function "thrd_join" to wait for it to finish
-        * Let each sensing child thread exit itself when exit flag is set
+        * Implement sensing child thread exit by using an exit flag set by the main thread
+        * Wait for child thread to finish using function "thrd_join"
+        * Let sensing child thread exit itself when exit flag is set
         * Adapt files "io_shutter.c", "channel_disabler.c", "cutter.c"
 
 2021-09-14  Christian Heller  <christian.heller@cybop.org>

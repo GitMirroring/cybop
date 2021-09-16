@@ -56,13 +56,22 @@ void cut(void* p0) {
 
         if (e != thrd_error) {
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"The thread was cut (exited) successfully.");
-            fwprintf(stdout, L"Debug: The thread was cut (exited) successfully. result code: %i\n", c);
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cut (exit) thread successfully. The thread join function returned zero.");
+            fwprintf(stdout, L"Debug: Cut (exit) thread successfully. The thread join function returned zero. result code: %i\n", c);
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cut. The thread join function returned an error.");
-            fwprintf(stdout, L"Error: Could not cut. The thread join function returned an error. result code: %i\n", c);
+            //
+            // CAUTION! This error might be harmless and is therefore just a warning.
+            //
+            // Example:
+            // A terminal service was started up to be able to output cybol messages on text console.
+            // But the service sensing thread was not enabled in activator, since input is not needed.
+            // In this case, a thread does not exist and therefore this warning is produced.
+            //
+
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cut. The thread join function returned an error.");
+            fwprintf(stdout, L"Warning: Could not cut. The thread join function returned an error. result code: %i\n", c);
         }
 
     } else {
