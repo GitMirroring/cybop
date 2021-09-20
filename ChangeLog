@@ -18,10 +18,18 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-09-20  Christian Heller  <christian.heller@cybop.org>
+
+        * Replace character buffer taken from input/output entry with a local one, in order to avoid error "corrupted double-linked list" (when main thread deallocated it on shutdown, but sensing thread still uses it)
+        * Use local variable for character buffer on stack, instead of an allocated one on heap, in file "unix_terminal_sensor.c"
+        * Compare functions "write" and "ioctl" to wake up sensing thread, but only ioctl works
+        * Call function "ioctl" in file "terminal_awakener.c" to wake up the blocking sensing thread
+        * Avoid race conditions between main thread and terminal sensing thread by locking exit flag comparison together with call of function "decode_utf_8", using a mutex
+
 2021-09-16  Christian Heller  <christian.heller@cybop.org>
 
         * Fix error that input/output entry got reset before having used it to disable the channel (exit the thread), in file "io_shutter.c"
-        * Add new directory "executor/awakener/" for letting the system send an input to itself over a specific channel, in order to wake up blocking sensing threads, so that they can exit themselves
+        * Add new directory "executor/awakener/" for letting the system send an input to itself ("fake input") over a specific channel, in order to wake up blocking sensing threads, so that they can exit themselves
         * Call function "awake" from file "channel_disabler.c"
 
 2021-09-15  Christian Heller  <christian.heller@cybop.org>

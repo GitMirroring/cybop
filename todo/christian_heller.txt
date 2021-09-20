@@ -14,9 +14,8 @@
 Pipe
 ____
 
-        * Continue directory "executor/awakener/"
-        * Send input on terminal/xcb:
-            https://stackoverflow.com/questions/29614264/unable-to-fake-terminal-input-with-termios-tiocsti
+        * Clean up xcb memory errors using valgrind
+        * Continue file "display_awakener.c" using xcb
             https://stackoverflow.com/questions/8794089/how-to-send-key-event-to-application-using-xcb
 
         * Catch events properly in cybol application "user_interface/gui/"
@@ -307,6 +306,7 @@ _______
         * Remove all "sleep" times, if not used anymore for signal (event) processing (busy waiting), since the blocking interrupt pipe and blocking input function calls in threads are used now
         * Use local variable arrays instead of allocating them on heap, in file "manager.c" and everywhere possible
         * Store pipe file descriptors in input/output entry in file "io_starter.c", since it is more efficient than having to determine them with each pipe access
+        * Use more local arrays on stack in local context of functions than allocated arrays on heap
 
 WUI and Socket
 ______________

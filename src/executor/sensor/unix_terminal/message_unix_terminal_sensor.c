@@ -26,9 +26,8 @@
 #ifndef MESSAGE_UNIX_TERMINAL_SENSOR_SOURCE
 #define MESSAGE_UNIX_TERMINAL_SENSOR_SOURCE
 
-#include <stdio.h> // fdopen
 #include <threads.h> // mtx_t, mtx_lock, mtx_unlock
-#include <wchar.h> // fgetwc, fgetwc_unlocked
+#include <unistd.h> // read
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -48,167 +47,228 @@
  * @param p5 the interrupt mutex
  * @param p6 the character buffer data
  * @param p7 the character buffer count
+ * @param p8 the exit flag
  */
-void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p8 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* bc = (int*) p7;
+        int* ex = (int*) p8;
 
-        if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            int* bc = (int*) p7;
 
-                mtx_t* im = (mtx_t*) p5;
+            if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                    mtx_t* m = (mtx_t*) p4;
+                    mtx_t* im = (mtx_t*) p5;
 
-                    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                        mtx_t* m = (mtx_t*) p4;
 
-                            int* ipw = (int*) p2;
+                        if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                            if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                                int* f = (int*) p1;
+                                int* ipw = (int*) p2;
 
-                                if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                                if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                                    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense unix terminal message.");
+                                    int* f = (int*) p1;
 
-                                    // Cast buffer size to correct type.
-                                    size_t s = (size_t) *bc;
+                                    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                                    //
-                                    // Read characters from terminal file descriptor.
-                                    //
-                                    // 1 buffer array to STORE ansi escape codes
-                                    //
-                                    // Some input arrives not as a single character but
-                                    // rather as ansi escape code SEQUENCE of many characters,
-                                    // e.g. the keyboard button "arrow up" as three characters:
-                                    // ESC + [ + A
-                                    //
-                                    // 2 fgetwc reads ONLY ONE character at a time
-                                    //
-                                    // The cyboi interpreter is using wide characters only.
-                                    // When starting up, the standard input/output/error streams
-                                    // are "oriented" to wide character. Therefore, using STREAM
-                                    // functions such as "fgetwc" would be the easy and desirable way.
-                                    //
-                                    // 3 mutex to ensure EXCLUSIVE ACCESS to the pipe
-                                    //
-                                    // An ansi escape code sequence BELONGS TOGETHER and
-                                    // must not be written in single bytes to the pipe
-                                    // since otherwise, the main thread processes them separately.
-                                    //
-                                    // 4 fread to AVOID BLOCKING
-                                    //
-                                    // The function "fgetwc" BLOCKS so that it is impossible
-                                    // to find out whether or not an escape character is standalone
-                                    // or the beginning of an ansi escape code sequence.
-                                    //
-                                    // 5 read to AVOID BUSY WAITING
-                                    //
-                                    // The function "fread" does NOT block, so that an ENDLESS LOOP
-                                    // steadily checking for new input is necessary (busy waiting).
-                                    //
-                                    // 6 decode_utf_8 for CONVERSION to wide characters
-                                    //
-                                    // The function "read" is using a file descriptor and NOT stream.
-                                    // Therefore, wide characters as mentioned above are NOT provided
-                                    // and multibyte character sequences returned instead.
-                                    // These have to be decoded into wide characters yet,
-                                    // before sending them to the pipe further below.
-                                    //
-                                    fwprintf(stdout, L"Test: Sense unix terminal message. *bc: %i\n", *bc);
-                                    fwprintf(stdout, L"Test: Sense unix terminal message. s: %i\n", s);
-                                    int n = read(*f, p6, s);
-                                    fwprintf(stdout, L"Test: Sense unix terminal message. n: %i\n", n);
-                                    fwprintf(stdout, L"Test: Sense unix terminal message. *p6 as c: %c\n", *((char*) p6));
-                                    fwprintf(stdout, L"Test: Sense unix terminal message. p6 as s: %s\n", (char*) p6);
+                                        //
+                                        // CAUTION! Do NOT log messages within thread,
+                                        // in order to avoid race conditions and other conflicts.
+                                        //
+                                        // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense unix terminal message.");
 
-                                    // Lock terminal mutex.
-                                    mtx_lock(m);
-                                    // Decode multibyte character into wide character.
-                                    decode_utf_8(p0, p6, (void*) &n);
-                                    // Unlock terminal mutex.
-                                    mtx_unlock(m);
+                                        // Cast buffer size to correct type.
+                                        size_t s = (size_t) *bc;
 
-                                    fwprintf(stdout, L"Test: Sense unix terminal message. *ipw: %i\n", *ipw);
+                                        //
+                                        // Read characters from terminal file descriptor.
+                                        //
+                                        // 1 buffer array to STORE ansi escape codes
+                                        //
+                                        // Some input arrives not as a single character but
+                                        // rather as ansi escape code SEQUENCE of many characters,
+                                        // e.g. the keyboard button "arrow up" as three characters:
+                                        // ESC + [ + A
+                                        //
+                                        // 2 fgetwc reads ONLY ONE character at a time
+                                        //
+                                        // The cyboi interpreter is using wide characters only.
+                                        // When starting up, the standard input/output/error streams
+                                        // are "oriented" to wide character. Therefore, using STREAM
+                                        // functions such as "fgetwc" would be the easy and desirable way.
+                                        //
+                                        // 3 mutex to ensure EXCLUSIVE ACCESS to the pipe
+                                        //
+                                        // An ansi escape code sequence BELONGS TOGETHER and
+                                        // must not be written in single bytes to the pipe
+                                        // since otherwise, the main thread processes them separately.
+                                        //
+                                        // 4 fread to AVOID BLOCKING
+                                        //
+                                        // The function "fgetwc" BLOCKS so that it is impossible
+                                        // to find out whether or not an escape character is standalone
+                                        // or the beginning of an ansi escape code sequence.
+                                        //
+                                        // 5 read to AVOID BUSY WAITING
+                                        //
+                                        // The function "fread" does NOT block, so that an ENDLESS LOOP
+                                        // steadily checking for new input is necessary (busy waiting).
+                                        //
+                                        // 6 decode_utf_8 for CONVERSION to wide characters
+                                        //
+                                        // The function "read" is using a file descriptor and NOT stream.
+                                        // Therefore, wide characters as mentioned above are NOT provided
+                                        // and multibyte character sequences returned instead.
+                                        // These have to be decoded into wide characters yet,
+                                        // before sending them to the pipe further below.
+                                        //
+                                        //?? fwprintf(stdout, L"Test: Sense unix terminal message. *bc: %i\n", *bc);
+                                        //?? fwprintf(stdout, L"Test: Sense unix terminal message. s: %i\n", s);
+                                        int n = read(*f, p6, s);
+                                        //?? fwprintf(stdout, L"Test: Sense unix terminal message. n: %i\n", n);
+                                        //?? fwprintf(stdout, L"Test: Sense unix terminal message. *p6 as c: %c\n", *((char*) p6));
+                                        //?? fwprintf(stdout, L"Test: Sense unix terminal message. p6 as s: %s\n", (char*) p6);
 
-                                    // Lock interrupt mutex.
-                                    mtx_lock(im);
-                                    //
-                                    // Write input/output entry identification to interrupt pipe.
-                                    //
-                                    // CAUTION! The safe way is to use the functions "snprintf" and "strtol".
-                                    // However, if both processes were created using the same compiler version,
-                                    // one can take advantage of the fact that anything in C can be
-                                    // read or written as an array of char (byte).
-                                    //
-                                    // Example:
-                                    //
-                                    // int n = something();
-                                    // write(pipe_w, &n, sizeof(n));
-                                    // int n;
-                                    // read(pipe_r, &n, sizeof(n));
-                                    //
-                                    // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
-                                    //
-                                    write(*ipw, p3, sizeof(int));
-                                    // Unlock interrupt mutex.
-                                    mtx_unlock(im);
+                                        // The comparison result.
+                                        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                                        //
+                                        // Lock terminal mutex.
+                                        //
+                                        // CAUTION! Set this lock BEFORE comparing with the exit flag below
+                                        // since otherwise, a race condition might occur.
+                                        //
+                                        // Example:
+                                        // - the exit flag is not set
+                                        // - the sensing child thread enters the block with r != 0
+                                        // - the main thread receives some shutdown cybol operation
+                                        // - the main thread sets the exit flag only now
+                                        // - the main thread shuts down and deallocates the destination buffer
+                                        // - the sensing child thread decodes characters
+                                        // - the sensing child thread possibly reallocates the (non-existing) destination buffer
+                                        // - this leads to memory errors such as "corrupted double-linked list"
+                                        //
+                                        mtx_lock(m);
+
+                                        compare_integer_equal((void*) &r, ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+                                        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                                            //
+                                            // The exit flag was NOT set in the main thread.
+                                            // Therefore, proceed normally.
+                                            //
+
+                                            //?? fwprintf(stdout, L"Test: Sense unix terminal message. DO process data. r: %i\n", r);
+
+                                            // Decode multibyte character into wide character.
+                                            decode_utf_8(p0, p6, (void*) &n);
+
+                                            //?? fwprintf(stdout, L"Test: Sense unix terminal message. *ipw: %i\n", *ipw);
+
+                                            // Lock interrupt mutex.
+                                            mtx_lock(im);
+                                            //
+                                            // Write input/output entry identification to interrupt pipe.
+                                            //
+                                            // CAUTION! The safe way is to use the functions "snprintf" and "strtol".
+                                            // However, if both processes were created using the same compiler version,
+                                            // one can take advantage of the fact that anything in C can be
+                                            // read or written as an array of char (byte).
+                                            //
+                                            // Example:
+                                            //
+                                            // int n = something();
+                                            // write(pipe_w, &n, sizeof(n));
+                                            // int n;
+                                            // read(pipe_r, &n, sizeof(n));
+                                            //
+                                            // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
+                                            //
+                                            write(*ipw, p3, sizeof(int));
+                                            // Unlock interrupt mutex.
+                                            mtx_unlock(im);
+
+                                        } else {
+
+                                            //
+                                            // The exit flag WAS SET in the main thread.
+                                            // Therefore, do NOT process data here any longer.
+                                            //
+                                            // The reason is that data processing might require
+                                            // reallocation of some destination arrays, which may
+                                            // not exist anymore if the main thread deallocated them,
+                                            // leading to the error "realloc(): invalid pointer".
+                                            //
+
+                                            //?? fwprintf(stdout, L"Test: Sense unix terminal message. Do NOT process data. r: %i\n", r);
+                                        }
+
+                                        // Unlock terminal mutex.
+                                        mtx_unlock(m);
+
+                                    } else {
+
+                                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The destination wide character buffer item is null.");
+                                        fwprintf(stdout, L"Error: Could not sense unix terminal message. The destination wide character buffer item is null. p0: %i\n", p0);
+                                    }
 
                                 } else {
 
-                                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The destination wide character buffer item is null.");
-                                    fwprintf(stdout, L"Error: Could not sense unix terminal message. The destination wide character buffer item is null. p0: %i\n", p0);
+                                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The source file descriptor is null.");
+                                    fwprintf(stdout, L"Error: Could not sense unix terminal message. The source file descriptor is null. p1: %i\n", p1);
                                 }
 
                             } else {
 
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The source file descriptor is null.");
-                                fwprintf(stdout, L"Error: Could not sense unix terminal message. The source file descriptor is null. p1: %i\n", p1);
+                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The interrupt pipe is null.");
+                                fwprintf(stdout, L"Error: Could not sense unix terminal message. The interrupt pipe is null. p2: %i\n", p2);
                             }
 
                         } else {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The interrupt pipe is null.");
-                            fwprintf(stdout, L"Error: Could not sense unix terminal message. The interrupt pipe is null. p2: %i\n", p2);
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The input/output entry identification is null.");
+                            fwprintf(stdout, L"Error: Could not sense unix terminal message. The input/output entry identification is null. p3: %i\n", p3);
                         }
 
                     } else {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The input/output entry identification is null.");
-                        fwprintf(stdout, L"Error: Could not sense unix terminal message. The input/output entry identification is null. p3: %i\n", p3);
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The terminal mutex is null.");
+                        fwprintf(stdout, L"Error: Could not sense unix terminal message. The terminal mutex is null. p4: %i\n", p4);
                     }
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The terminal mutex is null.");
-                    fwprintf(stdout, L"Error: Could not sense unix terminal message. The terminal mutex is null. p4: %i\n", p4);
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The interrupt mutex is null.");
+                    fwprintf(stdout, L"Error: Could not sense unix terminal message. The interrupt mutex is null. p5: %i\n", p5);
                 }
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The interrupt mutex is null.");
-                fwprintf(stdout, L"Error: Could not sense unix terminal message. The interrupt mutex is null. p5: %i\n", p5);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The buffer data is null.");
+                fwprintf(stdout, L"Error: Could not sense unix terminal message. The buffer data is null. p6: %i\n", p6);
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The buffer data is null.");
-            fwprintf(stdout, L"Error: Could not sense unix terminal message. The buffer data is null. p6: %i\n", p6);
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The buffer count is null.");
+            fwprintf(stdout, L"Error: Could not sense unix terminal message. The buffer count is null. p7: %i\n", p7);
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The buffer count is null.");
-        fwprintf(stdout, L"Error: Could not sense unix terminal message. The buffer count is null. p7: %i\n", p7);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The exit flag is null.");
+        fwprintf(stdout, L"Error: Could not sense unix terminal message. The exit flag is null. p8: %i\n", p8);
     }
 }
 

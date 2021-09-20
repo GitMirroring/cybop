@@ -286,6 +286,7 @@ void manage(void* p0) {
     //
     // System shutdown.
     //
+
     manage_shutdown(i);
 
     //

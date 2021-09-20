@@ -26,10 +26,6 @@
 #ifndef UNIX_TERMINAL_SENSOR_SOURCE
 #define UNIX_TERMINAL_SENSOR_SOURCE
 
-#include <stdio.h> // fdopen
-#include <threads.h> // mtx_t, mtx_lock, mtx_unlock
-#include <wchar.h> // fgetwc, fgetwc_unlocked
-
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -59,7 +55,11 @@
  */
 int sense_unix_terminal(void* p0) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense unix terminal.");
+    //
+    // CAUTION! Do NOT log messages within thread,
+    // in order to avoid race conditions and other conflicts.
+    //
+    //?? log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense unix terminal.");
 
     // The exit flag.
     void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -73,10 +73,28 @@ int sense_unix_terminal(void* p0) {
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The interrupt mutex.
     void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //
     // The character buffer data, count.
-    void* cd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* cc = *NULL_POINTER_STATE_CYBOI_MODEL;
-
+    //
+    // CAUTION! The size of 64 was chosen here for the following reason:
+    // Pressing special keyboard buttons like "left arrow" does result
+    // in an ansi escape code sequence to be stored in this buffer.
+    // A sequence has at least three signs: escape + left bracket + character code.
+    // Therefore, the buffer size must be at least 3 * typesize bytes.
+    //
+    // Since cyboi is using the terminal in wide character mode,
+    // the single control characters have a size of "wint_t".
+    // In the gnu c library, "wchar_t" is always 32 bit wide.
+    // The types "wchar_t" and "wint_t" have the same representation
+    // and their size is 32 bit = 4 byte in glibc.
+    //
+    // So, the buffer size should be at least 3 * 4 = 12 byte.
+    // But sometimes, more than just three control characters arrive.
+    // Therefore, the size was set to 64 byte, which covers a maximum
+    // of 16 possible control characters.
+    //
+    char cd[*NUMBER_64_INTEGER_STATE_CYBOI_MODEL];
+    int cc = *NUMBER_64_INTEGER_STATE_CYBOI_MODEL;
     //
     // The standard input file descriptor.
     //
@@ -91,6 +109,8 @@ int sense_unix_terminal(void* p0) {
     int f = STDIN_FILENO;
     // The interrupt pipe write file descriptor.
     int ipw = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Get exit flag from input/output entry.
     copy_array_forward((void*) &ex, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
@@ -104,15 +124,8 @@ int sense_unix_terminal(void* p0) {
     copy_array_forward((void*) &m, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get interrupt mutex from input/output entry.
     copy_array_forward((void*) &im, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get character buffer data, count from input/output entry.
-    copy_array_forward((void*) &cd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CHARACTER_BUFFER_DATA_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &cc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CHARACTER_BUFFER_COUNT_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
     // Get interrupt pipe write file descriptor.
     copy_array_forward((void*) &ipw, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Run loop neverendingly while sensing messages.
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -130,7 +143,7 @@ int sense_unix_terminal(void* p0) {
             break;
         }
 
-        sense_unix_terminal_message(b, (void*) &f, (void*) &ipw, id, m, im, cd, cc);
+        sense_unix_terminal_message(b, (void*) &f, (void*) &ipw, id, m, im, (void*) &cd, (void*) &cc, ex);
     }
 
     //

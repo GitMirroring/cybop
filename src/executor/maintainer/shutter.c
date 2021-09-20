@@ -119,6 +119,14 @@ void shutdown_service(void* p0, void* p1, void* p2) {
 
             // Get input/output entry.
             get_internal_memory_element((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
+            //
+            // Disable channel and exit sensing thread.
+            //
+            // CAUTION! This has to be done BEFORE deallocating resources
+            // in the call of function "shutdown_terminal" further below
+            // since otherwise, the terminal properties are reset.
+            //
+            disable_channel(p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2);
             // Shutdown service.
             shutdown_terminal(io);
             // Shutdown input/output entry.

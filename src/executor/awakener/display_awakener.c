@@ -40,20 +40,6 @@ void awake_display(void* p0) {
     fwprintf(stdout, L"Debug: Awake display. p0: %i\n", p0);
 
 /*??
-    // The enable flag.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Get enable flag from input/output entry.
-    copy_array_forward((void*) &e, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-    //
-    // Set enable flag in input/output entry,
-    // so that the service gets marked as ready for input.
-    //
-    copy_integer(e, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-*/
-
-/*??
     #include <xcb/xtest.h>
     //?? xcb_test_fake_input(c, XCB_KEY_PRESS, keycode, XCB_CURRENT_TIME, XCB_NONE, 0, 0, 0);
     xcb_test_fake_input(c, XCB_KEY_PRESS, 0, XCB_CURRENT_TIME, XCB_NONE, 0, 0, 0);

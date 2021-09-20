@@ -61,8 +61,8 @@ void startup_terminal(void* p0) {
     // The echo mode.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The character buffer data, count.
-    void* cd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* cc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //?? void* cd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //?? void* cc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The wide character buffer item.
     void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -114,8 +114,8 @@ void startup_terminal(void* p0) {
     // Therefore, the size was set to 64 byte, which covers a maximum
     // of 16 possible control characters.
     //
-    allocate_array((void*) &cd, (void*) NUMBER_64_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    allocate_array((void*) &cc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    //?? allocate_array((void*) &cd, (void*) NUMBER_64_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    //?? allocate_array((void*) &cc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
     //
     // Allocate wide character buffer item.
     //
@@ -140,7 +140,7 @@ void startup_terminal(void* p0) {
     // Initialise echo mode.
     copy_integer(e, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     // Initialise character buffer count.
-    copy_integer(cc, (void*) NUMBER_64_INTEGER_STATE_CYBOI_MODEL);
+    //?? copy_integer(cc, (void*) NUMBER_64_INTEGER_STATE_CYBOI_MODEL);
 
     //
     // Storage.
@@ -153,8 +153,8 @@ void startup_terminal(void* p0) {
     // Set echo mode into input/output entry.
     copy_array_forward(p0, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ECHO_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set character buffer data, count into input/output entry.
-    copy_array_forward(p0, (void*) &cd, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CHARACTER_BUFFER_DATA_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    copy_array_forward(p0, (void*) &cc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CHARACTER_BUFFER_COUNT_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    //?? copy_array_forward(p0, (void*) &cd, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CHARACTER_BUFFER_DATA_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    //?? copy_array_forward(p0, (void*) &cc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CHARACTER_BUFFER_COUNT_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set wide character buffer item into input/output entry.
     copy_array_forward(p0, (void*) &w, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) BUFFER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 

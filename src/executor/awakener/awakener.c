@@ -29,7 +29,7 @@
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-//?? #include "../../executor/awakener/display_awakener.c"
+#include "../../executor/awakener/display_awakener.c"
 //?? #include "../../executor/awakener/serial_awakener.c"
 //?? #include "../../executor/awakener/socket_awakener.c"
 #include "../../executor/awakener/terminal_awakener.c"
@@ -61,7 +61,7 @@ void awake(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? awake_display(p0);
+            awake_display(p0);
         }
     }
 

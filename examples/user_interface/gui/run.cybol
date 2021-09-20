@@ -39,7 +39,7 @@
 
     <node name="show_window" channel="inline" format="text/cybol-path" model=".logic.refresh_display"/>
 
-    <node name="sense_events" channel="inline" format="activate/enable" model="">
+    <node name="sense_display" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
         <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle"/>
         <node name="root" channel="inline" format="text/cybol-path" model=".gui.window"/>

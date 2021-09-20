@@ -149,8 +149,6 @@ void shutdown_io(void* p0, void* p1, void* p2, void* p3, void* p4) {
             mtx_t* mt = (mtx_t*) m;
             // Finalise access mutex.
             mtx_destroy(mt);
-            // Disable channel and exit sensing thread.
-            disable_channel(p1, p2, p3, p4);
 
             //
             // Deallocation.
