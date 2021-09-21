@@ -52,11 +52,11 @@ void startup_xcb(void* p0) {
     // all data needed to communicate with an x server.
     //
     void* c = (void*) xcb_connect(*NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-    // The connexion with correct type.
-    xcb_connection_t* ct = (xcb_connection_t*) c;
 
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        // The connexion with correct type.
+        xcb_connection_t* ct = (xcb_connection_t*) c;
         // Get setup.
         const xcb_setup_t* setup = xcb_get_setup(ct);
 

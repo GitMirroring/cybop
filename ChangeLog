@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-09-21  Christian Heller  <christian.heller@cybop.org>
+
+        * Clean up xcb memory errors caused by forgotten deallocation, reported by valgrind
+        * Loop and deallocate events in event buffer on shutdown, before deallocating the buffer itself
+        * Implement out file "display_awakener.c" using function "xcb_send_event" from "xcb/xproto.h"
+
 2021-09-20  Christian Heller  <christian.heller@cybop.org>
 
         * Replace character buffer taken from input/output entry with a local one, in order to avoid error "corrupted double-linked list" (when main thread deallocated it on shutdown, but sensing thread still uses it)

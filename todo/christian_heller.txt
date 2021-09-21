@@ -14,9 +14,9 @@
 Pipe
 ____
 
-        * Clean up xcb memory errors using valgrind
-        * Continue file "display_awakener.c" using xcb
-            https://stackoverflow.com/questions/8794089/how-to-send-key-event-to-application-using-xcb
+        * Clean up further errors reported by valgrind
+            error "uninitialised value" and call stack: shutdown_service --> disable_channel --> cut --> fwprintf
+            error "4 bytes in 1 blocks are definitely lost" and call stack: apply_startup --> startup_service --> startup_io --> allocate_array --> malloc
 
         * Catch events properly in cybol application "user_interface/gui/"
             events get identified correctly when being a property of the window
@@ -301,6 +301,7 @@ General
 _______
 
         * Use memset() instead of loop ?? in file "internal_memory_startup_manager.c"
+            https://www.gnu.org/software/libc/manual/html_mono/libc.html#Allocating-Cleared-Space
         * Delete files "system_signal_handler_startup_manager.c", "service_interrupt.c", since signals are not used anymore to exit threads
         * Adapt call of function "shutdown_unix_file_descriptor_close" in file "startup.c" to be usable on all operating systems (using preprocessor "if" macro)
         * Remove all "sleep" times, if not used anymore for signal (event) processing (busy waiting), since the blocking interrupt pipe and blocking input function calls in threads are used now

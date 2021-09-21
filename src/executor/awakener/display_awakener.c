@@ -26,6 +26,8 @@
 #ifndef DISPLAY_AWAKENER_SOURCE
 #define DISPLAY_AWAKENER_SOURCE
 
+#include <xcb/xproto.h>
+
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../logger/logger.c"
 
@@ -39,11 +41,45 @@ void awake_display(void* p0) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Awake display.");
     fwprintf(stdout, L"Debug: Awake display. p0: %i\n", p0);
 
-/*??
-    #include <xcb/xtest.h>
-    //?? xcb_test_fake_input(c, XCB_KEY_PRESS, keycode, XCB_CURRENT_TIME, XCB_NONE, 0, 0, 0);
-    xcb_test_fake_input(c, XCB_KEY_PRESS, 0, XCB_CURRENT_TIME, XCB_NONE, 0, 0, 0);
-*/
+    // The connexion.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The propagation.
+    uint8_t p = (uint8_t) *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    // Get connexion from input/output entry.
+    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+    // Cast connexion to correct type.
+    xcb_connection_t* ct = (xcb_connection_t*) c;
+
+    //
+    // Allocate an empty event.
+    //
+    // CAUTION! Every x11 event is 32 bytes long. Therefore, xcb will copy 32 bytes.
+    // In order to properly initialize these bytes, 32 bytes get allocated
+    // even if only less are needed.
+    //
+    // Example:
+    // https://www.x.org/releases/X11R7.7/doc/man/man3/xcb_send_event.3.xhtml
+    //
+    xcb_configure_notify_event_t* e = calloc(32, 1);
+
+    //
+    // CAUTION! An initialisation of the event is NOT necessary,
+    // since it is just to wake up the sensing thread,
+    // without any further meaning.
+    //
+
+    //
+    // Send event to xcb, so that it can be detected by the sensing thread function.
+    //
+    // Parametres:
+    // https://www.x.org/releases/X11R7.7/doc/man/man3/xcb_send_event.3.xhtml
+    //
+    xcb_send_event(ct, p, XCB_SEND_EVENT_DEST_POINTER_WINDOW, XCB_EVENT_MASK_STRUCTURE_NOTIFY, (char*) e);
+
+    // Flush out event to xcb.
+    xcb_flush(ct);
 }
 
 /* DISPLAY_AWAKENER_SOURCE */

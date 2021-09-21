@@ -74,6 +74,19 @@ void shutdown_service(void* p0, void* p1, void* p2) {
 
             // Get input/output entry.
             get_internal_memory_element((void*) &io, p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
+            //
+            // Disable channel and exit sensing thread.
+            //
+            // CAUTION! This has to be done BEFORE deallocating resources below.
+            //
+            // The sensing thread writes received events into the buffer.
+            // These events have to be deallocated (freed) yet.
+            //
+            // Therefore, the sensing thread has to be exited FIRST
+            // and then the main thread can loop the buffer and deallocate
+            // all events before deallocating the buffer itself.
+            //
+            disable_channel(p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2);
             // Shutdown service.
             shutdown_display(io);
             // Shutdown input/output entry.
@@ -122,9 +135,15 @@ void shutdown_service(void* p0, void* p1, void* p2) {
             //
             // Disable channel and exit sensing thread.
             //
-            // CAUTION! This has to be done BEFORE deallocating resources
-            // in the call of function "shutdown_terminal" further below
-            // since otherwise, the terminal properties are reset.
+            // CAUTION! This has to be done BEFORE deallocating resources below.
+            //
+            // The main thread resets the terminal properties on shutdown, so that
+            // default echoing and canonical input (with <enter> key) are reactivated.
+            // But then, the call of function "ioctl" might not work promptly,
+            // if the terminal is waiting for the <enter> key.
+            //
+            // Therefore, the sensing thread has to be exited FIRST
+            // as long as ioctl fake input can be received prompt.
             //
             disable_channel(p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2);
             // Shutdown service.
