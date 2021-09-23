@@ -18,6 +18,9 @@ ____
             error "uninitialised value" and call stack: shutdown_service --> disable_channel --> cut --> fwprintf
             error "4 bytes in 1 blocks are definitely lost" and call stack: apply_startup --> startup_service --> startup_io --> allocate_array --> malloc
 
+        * Adapt socket input handling to new buffer and interrupt pipe
+        * Loop reading socket events, until array is empty
+
         * Catch events properly in cybol application "user_interface/gui/"
             events get identified correctly when being a property of the window
             they do not get identified when belonging to an embedded area
@@ -26,9 +29,6 @@ ____
         * Loop reading display events, until array is empty
         * Clear up: Is display_reader really needed or is gui_*_deserialiser sufficient?
         * Adapt display input handling to new buffer and interrupt pipe
-
-        * Adapt socket input handling to new buffer and interrupt pipe
-        * Loop reading socket events, until array is empty
 
         * Loop reading terminal events, until array is empty
         * Move stdout and stdin to correct places for terminal-related files
