@@ -45,8 +45,8 @@
  * @param p3 the input/output entry identification
  * @param p4 the terminal mutex (destination wide character buffer item)
  * @param p5 the interrupt mutex
- * @param p6 the character buffer data
- * @param p7 the character buffer count
+ * @param p6 the local character buffer data
+ * @param p7 the local character buffer count
  * @param p8 the exit flag
  */
 void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
@@ -88,7 +88,7 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                                         // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense unix terminal message.");
 
                                         // Cast buffer size to correct type.
-                                        size_t s = (size_t) *bc;
+                                        size_t bct = (size_t) *bc;
 
                                         //
                                         // Read characters from terminal file descriptor.
@@ -133,8 +133,8 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                                         // before sending them to the pipe further below.
                                         //
                                         //?? fwprintf(stdout, L"Test: Sense unix terminal message. *bc: %i\n", *bc);
-                                        //?? fwprintf(stdout, L"Test: Sense unix terminal message. s: %i\n", s);
-                                        int n = read(*f, p6, s);
+                                        //?? fwprintf(stdout, L"Test: Sense unix terminal message. bct: %i\n", bct);
+                                        int n = read(*f, p6, bct);
                                         //?? fwprintf(stdout, L"Test: Sense unix terminal message. n: %i\n", n);
                                         //?? fwprintf(stdout, L"Test: Sense unix terminal message. *p6 as c: %c\n", *((char*) p6));
                                         //?? fwprintf(stdout, L"Test: Sense unix terminal message. p6 as s: %s\n", (char*) p6);
@@ -210,6 +210,8 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                                             // not exist anymore if the main thread deallocated them,
                                             // leading to the error "realloc(): invalid pointer".
                                             //
+                                            // Reallocation may happen above, in call of function "decode_utf_8".
+                                            //
 
                                             //?? fwprintf(stdout, L"Test: Sense unix terminal message. Do NOT process data. r: %i\n", r);
                                         }
@@ -255,14 +257,14 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The buffer data is null.");
-                fwprintf(stdout, L"Error: Could not sense unix terminal message. The buffer data is null. p6: %i\n", p6);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The local buffer data is null.");
+                fwprintf(stdout, L"Error: Could not sense unix terminal message. The local buffer data is null. p6: %i\n", p6);
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The buffer count is null.");
-            fwprintf(stdout, L"Error: Could not sense unix terminal message. The buffer count is null. p7: %i\n", p7);
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense unix terminal message. The local buffer count is null.");
+            fwprintf(stdout, L"Error: Could not sense unix terminal message. The local buffer count is null. p7: %i\n", p7);
         }
 
     } else {

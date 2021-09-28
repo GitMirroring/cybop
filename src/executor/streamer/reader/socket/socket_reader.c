@@ -134,7 +134,7 @@ void read_socket(void* p0, void* p1) {
             // This is a follow-up read.
             //
 
-            sense_socket((void*) &d, p1);
+//??            sense_socket((void*) &d, p1);
 
             //?? fwprintf(stdout, L"Test: Read socket. follow-up read d: %i\n", d);
 

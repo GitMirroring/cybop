@@ -101,9 +101,6 @@ void read_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
                     //
                     // Read message.
                     //
-                    // Normally, "recv" blocks until there is input available to be read.
-                    // However, non-blocking mode may be enabled in cyboi as well.
-                    //
                     // CAUTION! If the flags argument (fourth one) is zero, then one can
                     // just as well use the "read" instead of the "recv" function.
                     // However, the "recv" function is used here since sometimes,

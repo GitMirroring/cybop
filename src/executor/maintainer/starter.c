@@ -59,9 +59,9 @@
 // declarations of the functions are necessary.
 //
 
-//?? int sense_xcb(void* p0);
+int sense_xcb(void* p0);
 int sense_serial_port(void* p0);
-//?? int sense_socket(void* p0);
+int sense_socket(void* p0);
 int sense_unix_terminal(void* p0);
 
 /**

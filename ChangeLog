@@ -18,6 +18,13 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-09-28  Christian Heller  <christian.heller@cybop.org>
+
+        * Adapt socket input handling to new buffer and interrupt pipe
+        * Add file "message_socket_sensor.c"
+        * Harmonise input handling across all channels
+        * Check exit flag in xcb sensing thread
+
 2021-09-21  Christian Heller  <christian.heller@cybop.org>
 
         * Clean up xcb memory errors caused by forgotten deallocation, reported by valgrind

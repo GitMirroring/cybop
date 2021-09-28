@@ -14,12 +14,22 @@
 Pipe
 ____
 
+        * Continue adapting socket input handling to new buffer and interrupt pipe
+        * Loop reading socket events, until array is empty
+
+        * Set exit flag (?? CAUTION! conflict or mutex with main thread) in child thread (in else branch) if one of the args is null?
+
+        * Adapt includes for sensors of all three channels
+
+        * Think: the call of function "read_device" (using "ioctl" internally) was used in file "socket_sensor.c", to detect input on socket
+            --> that means, that output should be sendable to socket as well via "ioctl"
+            --> this could possibly be used for exiting the sensing thread !
+
+        * Make sensor for terminal, socket, display platform-independent
+
         * Clean up further errors reported by valgrind
             error "uninitialised value" and call stack: shutdown_service --> disable_channel --> cut --> fwprintf
             error "4 bytes in 1 blocks are definitely lost" and call stack: apply_startup --> startup_service --> startup_io --> allocate_array --> malloc
-
-        * Adapt socket input handling to new buffer and interrupt pipe
-        * Loop reading socket events, until array is empty
 
         * Catch events properly in cybol application "user_interface/gui/"
             events get identified correctly when being a property of the window

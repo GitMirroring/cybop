@@ -26,147 +26,153 @@
 #ifndef SOCKET_SENSOR_SOURCE
 #define SOCKET_SENSOR_SOURCE
 
-#include <sys/ioctl.h> // FIONREAD
-
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../executor/streamer/reader/device/device_reader.c"
+#include "../../../executor/sensor/socket/message_socket_sensor.c"
 #include "../../../logger/logger.c"
 
 /**
- * Senses data available on the given server socket.
+ * Senses server socket messages.
  *
- * @param p0 the interrupt request flag
- * @param p1 the source socket
- * @param p2 the mutex
+ * CAUTION! In cyboi, all functions by default have
+ * NO return value. In relation with threads, however,
+ * iso c defines the data type "thrd_start_t" as:
+ *
+ * int (*) (void*)
+ *
+ * with the following meaning:
+ *
+ * int      - the integer return type
+ * *        - the function pointer with arbitrary name
+ * void*    - the function argument
+ *
+ * Therefore, this function exceptionally has
+ * the return type "int".
+ *
+ * @param p0 the input/output entry
  */
-void sense_socket(void* p0, void* p1/*??, void* p2*/) {
+int sense_socket(void* p0) {
 
-//??    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    //
+    // CAUTION! Do NOT log messages within thread,
+    // in order to avoid race conditions and other conflicts.
+    //
+    //?? log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket.");
+    fwprintf(stdout, L"Test: Sense socket. p0: %i\n", p0);
 
-//??        mtx_t* m = (mtx_t*) p2;
+    // The exit flag.
+    void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The buffer item.
+    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The interrupt pipe.
+    void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The identification.
+    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The mutex.
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The interrupt mutex.
+    void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The socket number.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket.");
+    //
+    // The local character buffer data, count.
+    //
+    // CAUTION! Do NOT declare these variables inside
+    // the called function, for two reasons:
+    //
+    // 1 It is more EFFICIENT not to have to reserve
+    //   the buffer on stack with each loop cycle.
+    //
+    // 2 The buffer does NOT have to be emptied, since only
+    //   the number of data received is processed further.
+    //
+    // Purpose of this local buffer:
+    //
+    // Received data are to be stored in the buffer item.
+    // However, this buffer item CANNOT be used directly
+    // for reading data, since read calls are BLOCKING.
+    // Since the main thread needs to have access to
+    // the buffer as well, a mutex has to be used.
+    //
+    // It could thus happen that the mutex is set,
+    // in order to protect access to the buffer item,
+    // while the sensing child thread waits for input.
+    // In this case, the main thread would be blocked
+    // while waiting for the mutex to be reset.
+    //
+    // Therefore, an additional LOCAL BUFFER needs to be used
+    // for reading data in a blocking manner. The data received
+    // are then copied to the actual destination buffer item,
+    // whilst the mutex is set only for a short time.
+    //
+    // One more argument for this local buffer:
+    //
+    // The characters received have to be converted to wide characters,
+    // so that this additional local buffer is needed anyway.
+    //
+    // Size of this local buffer:
+    //
+    // 1 It has to be GREATER than zero, so that there is place
+    //   for the data to be read.
+    //
+    // 2 A peek into the APACHE http server showed values like 512 or 2048.
+    //   So, the value of 1024 used here is probably acceptable.
+    //
+    char cd[*NUMBER_1024_INTEGER_STATE_CYBOI_MODEL];
+    int cc = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
+    // The interrupt pipe write file descriptor.
+    int ipw = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        //?? fwprintf(stdout, L"Test: Sense socket. p1: %i\n", p1);
-        //?? fwprintf(stdout, L"Test: Sense socket. *p1: %i\n", *((int*) p1));
+    // Get exit flag from input/output entry.
+    copy_array_forward((void*) &ex, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get buffer item from input/output entry.
+    copy_array_forward((void*) &b, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get interrupt pipe from input/output entry.
+    copy_array_forward((void*) &ip, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_PIPE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get identification from input/output entry.
+    copy_array_forward((void*) &id, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get mutex from input/output entry.
+    copy_array_forward((void*) &m, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get interrupt mutex from input/output entry.
+    copy_array_forward((void*) &im, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get socket number from input/output entry.
+    copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-        // The number of data available on socket.
-        int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // The command (device-dependent request code).
-        int c = FIONREAD;
+    // Get interrupt pipe write file descriptor.
+    copy_array_forward((void*) &ipw, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-        //
-        // Lock mutex.
-        //
-        // CAUTION! This function call blocks the current thread
-        // until the mutex is locked.
-        //
-        // CAUTION! This guarantees exclusive access to
-        // input/output resources as well as the interrupt flag,
-        // which are shared between input sensing (child) threads
-        // and the main (parent) thread.
-        //
-        // CAUTION! Not all input/output channels use sensing threads.
-        // Sometimes, the main thread is the only one accessing resources.
-        // However, in order to have a uniform implementation,
-        // a mutex exists for all channels and it does no harm
-        // to lock it here even if only the main thread accesses it.
-        //
-//??        mtx_lock(m);
+    fwprintf(stdout, L"Test: Sense socket. s: %i\n", s);
+    fwprintf(stdout, L"Test: Sense socket. *s: %i\n", *((int*) s));
 
-        //
-        // CAUTION! The mutex has to span BOTH instructions:
-        // - calling of the input/output function
-        //   AND:
-        // - setting of the interrupt request flag
-        //
-        // Otherwise, conflicts might occur, e.g.:
-        // - sensing thread: detects data
-        // - main thread: processes data
-        // - sensing thread: sets interrupt request flag (TOO LATE)
-        // - main thread: processes data (which are EMPTY now)
-        // - error
-        //
+    // Run loop neverendingly while sensing messages.
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Read the number of data available on socket.
-        read_device((void*) &n, p1, (void*) &c);
+        compare_integer_unequal((void*) &r, ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (n > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket. success.");
-            fwprintf(stdout, L"Test: Sense socket. success. n: %i\n", n);
+            //
+            // The exit flag was set in the main thread.
+            // Therefore, leave this endless loop now.
+            // The child thread exits when this function returns.
+            //
 
-            // Set interrupt request flag.
-            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            break;
         }
 
-        // Unlock mutex.
-//??        mtx_unlock(m);
-
-/*??
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket. The mutex is null.");
-    }
-*/
-
-/*?? DELETE later, since deprecated!
-
-    //
-    // The buffer data, count, size.
-    //
-    // CAUTION! Its size has to be GREATER than zero since otherwise,
-    // there will be no place for the data to be received.
-    // For peeking ahead, a size of just ONE is sufficient to detect data.
-    //
-    void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int bs = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-
-    // Initialise buffer size.
-    //?? copy_integer((void*) &bs, p2);
-
-    //
-    // Allocate buffer data.
-    //
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    //
-    allocate_array((void*) &bd, (void*) &bs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-    //
-    // The socket options.
-    //
-    // CAUTION! Look at the data but do NOT
-    // remove it from the input queue.
-    //
-    int o = MSG_PEEK;
-
-    //?? fwprintf(stdout, L"Test: sense socket bs: %i\n", bs);
-
-    // Read data until buffer is filled.
-    read_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) &o);
-
-    //?? fwprintf(stdout, L"Test: sense socket bc: %i\n", bc);
-
-    if (bc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket success.");
-        //?? fwprintf(stdout, L"Test: sense socket success bc: %i\n", bc);
-
-        // Copy destination buffer count.
-        copy_integer(p0, (void*) &bc);
+        sense_socket_message(b, s, (void*) &ipw, id, m, im, cd, (void*) &cc, ex);
     }
 
     //
-    // Deallocate buffer data.
+    // An implicit call to "thrd_exit" is made when this thread
+    // (other than the thread in which "main" was first invoked)
+    // returns from the function that was used to create it (this function).
+    // The "thrd_exit" function does therefore NOT have to be called here.
     //
-    // CAUTION! The second argument "count" is NULL,
-    // since it is only needed for looping elements of type PART,
-    // in order to decrement the rubbish (garbage) collection counter.
-    //
-    deallocate_array((void*) &bd, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &bs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-*/
+
+    return *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 }
 
 /* SOCKET_SENSOR_SOURCE */

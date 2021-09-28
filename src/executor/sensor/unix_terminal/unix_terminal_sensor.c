@@ -73,8 +73,46 @@ int sense_unix_terminal(void* p0) {
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The interrupt mutex.
     void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The input file descriptor.
+    int f = STDIN_FILENO;
+
     //
-    // The character buffer data, count.
+    // The local character buffer data, count.
+    //
+    // CAUTION! Do NOT declare these variables inside
+    // the called function, for two reasons:
+    //
+    // 1 It is more EFFICIENT not to have to reserve
+    //   the buffer on stack with each loop cycle.
+    //
+    // 2 The buffer does NOT have to be emptied, since only
+    //   the number of data received is processed further.
+    //
+    // Purpose of this local buffer:
+    //
+    // Received data are to be stored in the buffer item.
+    // However, this buffer item CANNOT be used directly
+    // for reading data, since read calls are BLOCKING.
+    // Since the main thread needs to have access to
+    // the buffer as well, a mutex has to be used.
+    //
+    // It could thus happen that the mutex is set,
+    // in order to protect access to the buffer item,
+    // while the sensing child thread waits for input.
+    // In this case, the main thread would be blocked
+    // while waiting for the mutex to be reset.
+    //
+    // Therefore, an additional LOCAL BUFFER needs to be used
+    // for reading data in a blocking manner. The data received
+    // are then copied to the actual destination buffer item,
+    // whilst the mutex is set only for a short time.
+    //
+    // One more argument for this local buffer:
+    //
+    // The characters received have to be converted to wide characters,
+    // so that this additional local buffer is needed anyway.
+    //
+    // Size of this local buffer:
     //
     // CAUTION! The size of 64 was chosen here for the following reason:
     // Pressing special keyboard buttons like "left arrow" does result
@@ -95,18 +133,6 @@ int sense_unix_terminal(void* p0) {
     //
     char cd[*NUMBER_64_INTEGER_STATE_CYBOI_MODEL];
     int cc = *NUMBER_64_INTEGER_STATE_CYBOI_MODEL;
-    //
-    // The standard input file descriptor.
-    //
-    // CAUTION! Don't confuse terminal attributes with file attributes.
-    // A device special file which is associated with a terminal
-    // has file attributes as described in File Attributes:
-    // https://www.gnu.org/software/libc/manual/html_mono/libc.html#File-Attributes
-    // These are unrelated to the attributes of the terminal device itself,
-    // which are discussed in this section:
-    // https://www.gnu.org/software/libc/manual/html_mono/libc.html#Low_002dLevel-Terminal-Interface
-    //
-    int f = STDIN_FILENO;
     // The interrupt pipe write file descriptor.
     int ipw = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The comparison result.
@@ -124,6 +150,9 @@ int sense_unix_terminal(void* p0) {
     copy_array_forward((void*) &m, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get interrupt mutex from input/output entry.
     copy_array_forward((void*) &im, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get input file descriptor from input/output entry.
+    //?? copy_array_forward((void*) &f, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_FILE_DESCRIPTOR_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
     // Get interrupt pipe write file descriptor.
     copy_array_forward((void*) &ipw, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
@@ -143,7 +172,7 @@ int sense_unix_terminal(void* p0) {
             break;
         }
 
-        sense_unix_terminal_message(b, (void*) &f, (void*) &ipw, id, m, im, (void*) &cd, (void*) &cc, ex);
+        sense_unix_terminal_message(b, (void*) &f, (void*) &ipw, id, m, im, cd, (void*) &cc, ex);
     }
 
     //

@@ -48,125 +48,187 @@
  * @param p3 the input/output entry identification
  * @param p4 the display mutex (destination buffer item)
  * @param p5 the interrupt mutex
+ * @param p6 the exit flag
  */
-void sense_xcb_event(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void sense_xcb_event(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        mtx_t* im = (mtx_t*) p5;
+        int* ex = (int*) p6;
 
-        if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            mtx_t* m = (mtx_t*) p4;
+            mtx_t* im = (mtx_t*) p5;
 
-            if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                mtx_t* m = (mtx_t*) p4;
 
-                    int* ipw = (int*) p2;
+                if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                        xcb_connection_t* c = (xcb_connection_t*) p1;
+                        int* ipw = (int*) p2;
 
-                        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense xcb event.");
-                            fwprintf(stdout, L"Test: Sense xcb event. p1: %i\n", p1);
+                            xcb_connection_t* c = (xcb_connection_t*) p1;
 
-                            //
-                            // Get next event available from x window system server.
-                            //
-                            // CAUTION! This is a blocking call waiting until either
-                            // an event arrives or an input/output error occurs.
-                            //
-                            // CAUTION! Whenever an event is queued in the x server,
-                            // it gets dequeued from the queue here and is then returned
-                            // as a newly allocated structure. It is cyboi's responsibility
-                            // to FREE the returned event structure.
-                            //
-                            // CAUTION! The event gets REMOVED from the queue by
-                            // the "xcb_wait_for_event" function. It therefore
-                            // HAS TO BE STORED, in order to be able to process it later on.
-                            //
-                            void* e = (void*) xcb_wait_for_event(c);
+                            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                            fwprintf(stdout, L"Test: Sense xcb. Event e: %i\n", e);
-
-                            if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                                // Lock display mutex.
-                                mtx_lock(m);
-                                // Store event in buffer.
-                                modify_item(p0, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-                                // Unlock display mutex.
-                                mtx_unlock(m);
-
-                                fwprintf(stdout, L"Test: Sense xcb event. *ipw: %i\n", *ipw);
-
-                                // Lock interrupt mutex.
-                                mtx_lock(im);
                                 //
-                                // Write input/output entry identification to interrupt pipe.
+                                // CAUTION! Do NOT log messages within thread,
+                                // in order to avoid race conditions and other conflicts.
                                 //
-                                // CAUTION! The safe way is to use the functions "snprintf" and "strtol".
-                                // However, if both processes were created using the same compiler version,
-                                // one can take advantage of the fact that anything in C can be
-                                // read or written as an array of char (byte).
+                                // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense xcb event.");
+
                                 //
-                                // Example:
+                                // Get next event available from x window system server.
                                 //
-                                // int n = something();
-                                // write(pipe_w, &n, sizeof(n));
-                                // int n;
-                                // read(pipe_r, &n, sizeof(n));
+                                // CAUTION! This is a blocking call waiting until either
+                                // an event arrives or an input/output error occurs.
                                 //
-                                // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
+                                // CAUTION! Whenever an event is queued in the x server,
+                                // it gets dequeued from the queue here and is then returned
+                                // as a newly allocated structure. It is cyboi's responsibility
+                                // to FREE the returned event structure.
                                 //
-                                write(*ipw, p3, sizeof(int));
-                                // Unlock interrupt mutex.
-                                mtx_unlock(im);
+                                // CAUTION! The event gets REMOVED from the queue by
+                                // the "xcb_wait_for_event" function. It therefore
+                                // HAS TO BE STORED, in order to be able to process it later on.
+                                //
+                                fwprintf(stdout, L"Test: Sense xcb event. p1: %i\n", p1);
+                                void* e = (void*) xcb_wait_for_event(c);
+                                fwprintf(stdout, L"Test: Sense xcb. Event e: %i\n", e);
+
+                                if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                                    // The comparison result.
+                                    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                                    //
+                                    // Lock display mutex.
+                                    //
+                                    // CAUTION! Set this lock BEFORE comparing with the exit flag below
+                                    // since otherwise, a race condition might occur.
+                                    //
+                                    // Example:
+                                    // - the exit flag is not set
+                                    // - the sensing child thread enters the block with r != 0
+                                    // - the main thread receives some shutdown cybol operation
+                                    // - the main thread sets the exit flag only now
+                                    // - the main thread shuts down and deallocates the destination buffer
+                                    // - the sensing child thread decodes characters
+                                    // - the sensing child thread possibly reallocates the (non-existing) destination buffer
+                                    // - this leads to memory errors such as "corrupted double-linked list"
+                                    //
+                                    mtx_lock(m);
+
+                                    compare_integer_equal((void*) &r, ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+                                    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                                        //
+                                        // The exit flag was NOT set in the main thread.
+                                        // Therefore, proceed normally.
+                                        //
+
+                                        fwprintf(stdout, L"Test: Sense xcb message. DO process data. r: %i\n", r);
+
+                                        // Store event in buffer.
+                                        modify_item(p0, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+                                        fwprintf(stdout, L"Test: Sense xcb event. *ipw: %i\n", *ipw);
+
+                                        // Lock interrupt mutex.
+                                        mtx_lock(im);
+                                        //
+                                        // Write input/output entry identification to interrupt pipe.
+                                        //
+                                        // CAUTION! The safe way is to use the functions "snprintf" and "strtol".
+                                        // However, if both processes were created using the same compiler version,
+                                        // one can take advantage of the fact that anything in C can be
+                                        // read or written as an array of char (byte).
+                                        //
+                                        // Example:
+                                        //
+                                        // int n = something();
+                                        // write(pipe_w, &n, sizeof(n));
+                                        // int n;
+                                        // read(pipe_r, &n, sizeof(n));
+                                        //
+                                        // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
+                                        //
+                                        write(*ipw, p3, sizeof(int));
+                                        // Unlock interrupt mutex.
+                                        mtx_unlock(im);
+
+                                    } else {
+
+                                        //
+                                        // The exit flag WAS SET in the main thread.
+                                        // Therefore, do NOT process data here any longer.
+                                        //
+                                        // The reason is that data processing might require
+                                        // reallocation of some destination arrays, which may
+                                        // not exist anymore if the main thread deallocated them,
+                                        // leading to the error "realloc(): invalid pointer".
+                                        //
+                                        // Reallocation may happen above, in call of function "modify_item".
+                                        //
+
+                                        fwprintf(stdout, L"Test: Sense socket message. Do NOT process data. r: %i\n", r);
+                                    }
+
+                                    // Unlock display mutex.
+                                    mtx_unlock(m);
+
+                                } else {
+
+                                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense xcb event. The event is null. This indicates an input/output error.");
+                                    fwprintf(stdout, L"Error: Could not sense xcb event. The event is null. This indicates an input/output error. e: %i\n", e);
+                                }
 
                             } else {
 
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense xcb event. The event is null. This indicates an input/output error.");
-                                fwprintf(stdout, L"Error: Could not sense xcb event. The event is null. This indicates an input/output error. e: %i\n", e);
+                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense xcb event. The destination buffer item is null.");
+                                fwprintf(stdout, L"Error: Could not sense xcb event. The destination buffer item is null. p0: %i\n", p0);
                             }
 
                         } else {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense xcb event. The destination buffer item is null.");
-                            fwprintf(stdout, L"Error: Could not sense xcb event. The destination buffer item is null. p0: %i\n", p0);
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense xcb event. The source connexion is null.");
+                            fwprintf(stdout, L"Error: Could not sense xcb event. The source connexion is null. p1: %i\n", p1);
                         }
 
                     } else {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense xcb event. The source connexion is null.");
-                        fwprintf(stdout, L"Error: Could not sense xcb event. The source connexion is null. p1: %i\n", p1);
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense xcb event. The interrupt pipe is null.");
+                        fwprintf(stdout, L"Error: Could not sense xcb event. The interrupt pipe is null. p2: %i\n", p2);
                     }
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense xcb event. The interrupt pipe is null.");
-                    fwprintf(stdout, L"Error: Could not sense xcb event. The interrupt pipe is null. p2: %i\n", p2);
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense xcb event. The input/output entry identification is null.");
+                    fwprintf(stdout, L"Error: Could not sense xcb event. The input/output entry identification is null. p3: %i\n", p3);
                 }
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense xcb event. The input/output entry identification is null.");
-                fwprintf(stdout, L"Error: Could not sense xcb event. The input/output entry identification is null. p3: %i\n", p3);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense xcb event. The display mutex is null.");
+                fwprintf(stdout, L"Error: Could not sense xcb event. The display mutex is null. p4: %i\n", p4);
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense xcb event. The display mutex is null.");
-            fwprintf(stdout, L"Error: Could not sense xcb event. The display mutex is null. p4: %i\n", p4);
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense xcb event. The interrupt mutex is null.");
+            fwprintf(stdout, L"Error: Could not sense xcb event. The interrupt mutex is null. p5: %i\n", p5);
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense xcb event. The interrupt mutex is null.");
-        fwprintf(stdout, L"Error: Could not sense xcb event. The interrupt mutex is null. p5: %i\n", p5);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense xcb event. The exit flag is null.");
+        fwprintf(stdout, L"Error: Could not sense xcb event. The exit flag is null. p6: %i\n", p6);
     }
 }
 

@@ -62,15 +62,17 @@
  */
 int sense_xcb(void* p0) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense xcb.");
+    //
+    // CAUTION! Do NOT log messages within thread,
+    // in order to avoid race conditions and other conflicts.
+    //
+    //?? log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense xcb.");
     fwprintf(stdout, L"Test: Sense xcb. p0: %i\n", p0);
 
     // The exit flag.
     void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The buffer item.
     void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The connexion.
-    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The interrupt pipe.
     void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The identification.
@@ -79,19 +81,18 @@ int sense_xcb(void* p0) {
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The interrupt mutex.
     void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The character buffer data, count.
-    void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The connexion.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The interrupt pipe write file descriptor.
     int ipw = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Get exit flag from input/output entry.
     copy_array_forward((void*) &ex, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get buffer item from input/output entry.
     copy_array_forward((void*) &b, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get connexion from input/output entry.
-    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get interrupt pipe from input/output entry.
     copy_array_forward((void*) &ip, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_PIPE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get identification from input/output entry.
@@ -100,38 +101,32 @@ int sense_xcb(void* p0) {
     copy_array_forward((void*) &m, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get interrupt mutex from input/output entry.
     copy_array_forward((void*) &im, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get connexion from input/output entry.
+    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     // Get interrupt pipe write file descriptor.
     copy_array_forward((void*) &ipw, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-    if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    fwprintf(stdout, L"Test: Sense socket. c: %i\n", c);
+    fwprintf(stdout, L"Test: Sense socket. *c: %i\n", *((int*) c));
 
-        // The comparison result.
-        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // Run loop neverendingly while sensing messages.
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Run loop neverendingly while sensing messages.
-        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+        compare_integer_unequal((void*) &r, ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-            compare_integer_unequal((void*) &r, ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            //
+            // The exit flag was set in the main thread.
+            // Therefore, leave this endless loop now.
+            // The child thread exits when this function returns.
+            //
 
-                //
-                // The exit flag was set in the main thread.
-                // Therefore, leave this endless loop now.
-                // The child thread exits when this function returns.
-                //
-
-                break;
-            }
-
-            sense_xcb_event(b, c, (void*) &ipw, id, m, im);
+            break;
         }
 
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense xcb. The connexion is null.");
-        fwprintf(stdout, L"Error: Could not sense xcb. The connexion is null. c: %i\n", c);
+        sense_xcb_event(b, c, (void*) &ipw, id, m, im, ex);
     }
 
     //
