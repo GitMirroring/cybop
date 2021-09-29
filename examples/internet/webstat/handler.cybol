@@ -30,8 +30,9 @@
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-request"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.request"/>
         <node name="sender" channel="inline" format="text/cybol-path" model=".app.var.client_socket"/>
+        <node name="port" channel="inline" format="number/integer" model="8080"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.request"/>
     </node>
     <node name="overwrite_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.path"/>

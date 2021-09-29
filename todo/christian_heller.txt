@@ -14,17 +14,26 @@
 Pipe
 ____
 
+        * Temporarily for testing: Use terminal read function also for socket in "reader.c", since both are identical
+        * Make socket cybol applications work again
+            DONE: empty_checker.c works fine, proper id (base + port) is assigned at startup and received
+            TODO: think and figure out if separate threads have to be used for "accept" (new connexion) and "read" (existing socket client)
         * Loop reading socket events, until array is empty
 
         * Set exit flag (?? CAUTION! conflict or mutex with main thread) in child thread (in else branch) if one of the args is null?
+            --> use local break flag instead (additionally to exit flag)
 
-        * Adapt includes for sensors of all three channels
+        * Add error handling in file "message_socket_sensor.c" and similar sensor files
+        * Adapt includes for all channels
 
         * Think: the call of function "read_device" (using "ioctl" internally) was used in file "socket_sensor.c", to detect input on socket
             --> that means, that output should be sendable to socket as well via "ioctl"
             --> this could possibly be used for exiting the sensing thread !
 
         * Make sensor for terminal, socket, display platform-independent
+
+        * Remove block with call of function "check_wait" in file "empty_checker.c"
+        * Delete file "wait_checker.c"
 
         * Clean up further errors reported by valgrind
             error "uninitialised value" and call stack: shutdown_service --> disable_channel --> cut --> fwprintf
@@ -316,7 +325,7 @@ _______
         * Remove all "sleep" times, if not used anymore for signal (event) processing (busy waiting), since the blocking interrupt pipe and blocking input function calls in threads are used now
         * Use local variable arrays instead of allocating them on heap, in file "manager.c" and everywhere possible
         * Store pipe file descriptors in input/output entry in file "io_starter.c", since it is more efficient than having to determine them with each pipe access
-        * Use more local arrays on stack in local context of functions than allocated arrays on heap
+        * Use local arrays on stack in local context of functions instead of allocated arrays on heap, wherever possible
 
 WUI and Socket
 ______________

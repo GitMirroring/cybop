@@ -14,6 +14,7 @@
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
+<!--
     <node name="open_socket" channel="inline" format="register/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="namespace" channel="inline" format="text/plain" model="local"/>
@@ -22,7 +23,7 @@
         <node name="filename" channel="inline" format="text/plain" model="cyboi.socket"/>
         <node name="id" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
-<!--
+-->
     <node name="open_socket" channel="inline" format="register/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
@@ -32,7 +33,6 @@
         <node name="port" channel="inline" format="number/integer" model="1971"/>
         <node name="id" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
--->
 
     <!-- Send hello request -->
     <node name="print_request" channel="inline" format="communicate/send" model="">

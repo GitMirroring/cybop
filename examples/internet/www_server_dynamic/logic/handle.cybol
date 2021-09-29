@@ -36,6 +36,7 @@
         <node name="language" channel="inline" format="meta/language" model="message/http-request"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".request"/>
     </node>
 

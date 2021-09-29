@@ -37,6 +37,7 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
+<!--
     <node name="startup_socket" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="namespace" channel="inline" format="text/plain" model="local"/>
@@ -46,7 +47,7 @@
         <node name="connexions" channel="inline" format="number/integer" model="1"/>
         <node name="timeout" channel="inline" format="number/integer" model="5"/>
     </node>
-<!--
+-->
     <node name="startup_socket" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
@@ -58,7 +59,6 @@
         <node name="connexions" channel="inline" format="number/integer" model="1"/>
         <node name="timeout" channel="inline" format="number/integer" model="5"/>
     </node>
--->
 
     <node name="print_message" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -75,6 +75,7 @@
             The service port for a tcp or udp socket.
             CAUTION! Uncomment when using a local unix domain socket.
         -->
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
         <!-- TODO??: DELETE when using unix domain socket only
         <node name="port" channel="inline" format="number/integer" model="1971"/>
         -->

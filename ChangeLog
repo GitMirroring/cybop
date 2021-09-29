@@ -22,6 +22,8 @@
 
         * Remove property "blocking" from affected cybol applications
         * Delete argument "blocking" from socket functions, since all communication is blocking from now on, for server as well as client sockets
+        * Add cybol property "port" for operation "communicate/receive"
+        * Hand over argument "port" to all receive functions
 
 2021-09-28  Christian Heller  <christian.heller@cybop.org>
 
