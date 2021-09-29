@@ -39,7 +39,7 @@
  * Opens up the client on the given channel.
  *
  * Expected parametres:
- * - channel (required): the channel on which to open a client, e.g. socket or display
+ * - channel (required): the channel on which to open a client (window), e.g. socket or display
  * - id (required): the identification
  *
  * Expected parametres only for channel "socket":
@@ -49,7 +49,6 @@
  * - filename (optional): the unix domain socket filename
  * - address (optional): the host address
  * - port (optional): the port
- * - blocking (required): the status, i.e. whether or not a socket is blocking
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -77,8 +76,6 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* socket_a = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The socket port part.
     void* socket_po = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket blocking part.
-    void* socket_b = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -96,8 +93,6 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* socket_am = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The socket port part model item.
     void* socket_pom = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket blocking part model item.
-    void* socket_bm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model item data.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -120,8 +115,6 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* socket_amc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The socket port part model item data.
     void* socket_pomd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket blocking part model item data.
-    void* socket_bmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get channel part.
     get_part_name((void*) &c, p0, (void*) CHANNEL_OPEN_REGISTRATION_LOGIC_CYBOL_NAME, (void*) CHANNEL_OPEN_REGISTRATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
@@ -139,8 +132,6 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4) {
     get_part_name((void*) &socket_a, p0, (void*) ADDRESS_SOCKET_OPEN_REGISTRATION_LOGIC_CYBOL_NAME, (void*) ADDRESS_SOCKET_OPEN_REGISTRATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get socket port part.
     get_part_name((void*) &socket_po, p0, (void*) PORT_SOCKET_OPEN_REGISTRATION_LOGIC_CYBOL_NAME, (void*) PORT_SOCKET_OPEN_REGISTRATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get socket blocking part.
-    get_part_name((void*) &socket_b, p0, (void*) BLOCKING_SOCKET_OPEN_REGISTRATION_LOGIC_CYBOL_NAME, (void*) BLOCKING_SOCKET_OPEN_REGISTRATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get channel part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -158,8 +149,6 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &socket_am, socket_a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get socket port part model item.
     copy_array_forward((void*) &socket_pom, socket_po, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get socket blocking part model item.
-    copy_array_forward((void*) &socket_bm, socket_b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Get channel part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -182,11 +171,9 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &socket_amc, socket_am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get socket port part model item data.
     copy_array_forward((void*) &socket_pomd, socket_pom, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get socket blocking part model item data.
-    copy_array_forward((void*) &socket_bmd, socket_bm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Open up client.
-    open_client(idmd, socket_nmd, socket_nmc, socket_stmd, socket_stmc, socket_pmd, socket_pmc, socket_fmd, socket_fmc, socket_amd, socket_amc, socket_pomd, socket_bmd, p4, cmd);
+    open_client(idmd, socket_nmd, socket_nmc, socket_stmd, socket_stmc, socket_pmd, socket_pmc, socket_fmd, socket_fmc, socket_amd, socket_amc, socket_pomd, p4, cmd);
 }
 
 /* OPEN_SOURCE */

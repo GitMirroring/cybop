@@ -65,15 +65,14 @@
  * @param p4 the style count
  * @param p5 the protocol data
  * @param p6 the protocol count
- * @param p7 the blocking flag
- * @param p8 the filename data
- * @param p9 the filename count
- * @param p10 the host address data
- * @param p11 the host address count
- * @param p12 the port
- * @param p13 the connexions (number of possible pending client requests)
+ * @param p7 the filename data
+ * @param p8 the filename count
+ * @param p9 the host address data
+ * @param p10 the host address count
+ * @param p11 the port
+ * @param p12 the connexions (number of possible pending client requests)
  */
-void startup_socket_server_lifecycle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
+void startup_socket_server_lifecycle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket server lifecycle.");
 
@@ -100,7 +99,7 @@ void startup_socket_server_lifecycle(void* p0, void* p1, void* p2, void* p3, voi
     //
     // CAUTION! A value of ZERO is usually right for the "protocol".
     //
-    startup_socket_create(p0, (void*) &pf, (void*) &st, (void*) &p, p7);
+    startup_socket_create(p0, (void*) &pf, (void*) &st, (void*) &p);
     //
     // Allocate and initialise socket address depending on family.
     //
@@ -108,7 +107,7 @@ void startup_socket_server_lifecycle(void* p0, void* p1, void* p2, void* p3, voi
     // since it gets allocated inside the function and
     // has to be preserved as return value.
     //
-    startup_socket_socket_address((void*) &ad, (void*) &as, p8, p9, p10, p11, p12, (void*) &af);
+    startup_socket_socket_address((void*) &ad, (void*) &as, p7, p8, p9, p10, p11, (void*) &af);
 
     //?? fwprintf(stdout, L"Test: startup socket server lifecycle bind s: %i\n", *((int*) p0));
 
@@ -144,7 +143,7 @@ void startup_socket_server_lifecycle(void* p0, void* p1, void* p2, void* p3, voi
         // fail with ECONNREFUSED until the server calls accept
         // to accept a connexion from the queue.
         //
-        startup_socket_server_listen(p0, p13);
+        startup_socket_server_listen(p0, p12);
     }
 }
 

@@ -98,6 +98,15 @@ void shutdown_xcb(void* p0) {
         //
 
         //
+        // Finalisation.
+        //
+
+        //
+        // CAUTION! Resetting the values is not necessary,
+        // since the input/output entry gets deallocated anyway.
+        //
+
+        //
         // Deallocation.
         //
 

@@ -12,7 +12,6 @@
         <node name="address" channel="inline" format="text/plain" model="localhost"/>
         <node name="id" channel="inline" format="number/integer" model="1971"/>
         <node name="mode" channel="inline" format="text/plain" model="server"/>
-        <node name="blocking" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="connexions" channel="inline" format="number/integer" model="1"/>
     </node>
 

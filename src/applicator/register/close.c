@@ -39,7 +39,7 @@
  * Closes down the client on the given channel.
  *
  * Expected parametres:
- * - channel (required): the channel on which to open a client, e.g. socket or display
+ * - channel (required): the channel on which to close a client (window), e.g. socket or display
  * - id (required): the identification
  *
  * @param p0 the parametres data

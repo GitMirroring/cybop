@@ -55,11 +55,10 @@
  * @param p9 the socket host address data
  * @param p10 the socket host address count
  * @param p11 the socket port
- * @param p12 the socket blocking flag
- * @param p13 the internal memory data
- * @param p14 the channel
+ * @param p12 the internal memory data
+ * @param p13 the channel
  */
-void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
+void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open.");
 
@@ -68,21 +67,21 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p14, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p13, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            open_display_io(p0, p13, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            open_display_io(p0, p12, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p14, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p13, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            open_socket(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+            open_socket(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
         }
     }
 

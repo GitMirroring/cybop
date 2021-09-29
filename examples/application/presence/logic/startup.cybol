@@ -8,7 +8,6 @@
         <node name="address" channel="inline" format="text/plain" model="127.0.0.1"/>
         <node name="port" channel="inline" format="number/integer" model="1971"/>
         <node name="mode" channel="inline" format="text/plain" model="server"/>
-        <node name="blocking" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="connexions" channel="inline" format="number/integer" model="10"/>
         <node name="timeout" channel="inline" format="number/integer" model="300"/>
     </node>

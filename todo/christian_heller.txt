@@ -14,7 +14,6 @@
 Pipe
 ____
 
-        * Continue adapting socket input handling to new buffer and interrupt pipe
         * Loop reading socket events, until array is empty
 
         * Set exit flag (?? CAUTION! conflict or mutex with main thread) in child thread (in else branch) if one of the args is null?

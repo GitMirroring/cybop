@@ -43,18 +43,21 @@
  * @param p4 the style count
  * @param p5 the protocol data
  * @param p6 the protocol count
- * @param p7 the blocking flag (not needed for the server socket, but for the connected client socket)
- * @param p8 the filename data
- * @param p9 the filename count
- * @param p10 the host address data
- * @param p11 the host address count
- * @param p12 the port
- * @param p13 the connexions (number of possible pending client requests)
- * @param p14 the timeout
+ * @param p7 the filename data
+ * @param p8 the filename count
+ * @param p9 the host address data
+ * @param p10 the host address count
+ * @param p11 the port
+ * @param p12 the connexions (number of possible pending client requests)
+ * @param p13 the timeout
  */
-void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
+void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket.");
+
+    //
+    // Declaration.
+    //
 
     // The socket number.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -64,6 +67,12 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The timeout number.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The buffer item.
+    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Allocation.
+    //
 
     //
     // Allocate socket number.
@@ -93,9 +102,34 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     // be negative or zero, but have at least a value of ONE.
     //
     allocate_array((void*) &t, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    //
+    // Allocate buffer item.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    // Size of this local buffer:
+    // See comment in file "socket_sensor.c"!
+    //
+    allocate_item((void*) &b, (void*) NUMBER_1024_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+    //
+    // Initialisation.
+    //
+
+    // Copy timeout.
+    copy_integer(t, p13);
+
+    //
+    // Opening.
+    //
 
     // Startup server socket.
-    startup_socket_server_lifecycle(s, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
+    startup_socket_server_lifecycle(s, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+
+    //
+    // Storage.
+    //
 
     //
     // Store various values in input/output entry.
@@ -109,9 +143,6 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     // CAUTION! Hand over value as pointer REFERENCE.
     //
 
-    // Copy timeout.
-    copy_integer(t, p14);
-
     // Set socket number into input/output entry.
     copy_array_forward(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set client list item into input/output entry.
@@ -120,6 +151,8 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     copy_array_forward(p0, (void*) &a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ACCEPTTIME_LIST_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set timeout number into input/output entry.
     copy_array_forward(p0, (void*) &t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TIMEOUT_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set buffer item into input/output entry.
+    copy_array_forward(p0, (void*) &b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) BUFFER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* SOCKET_STARTER_SOURCE */

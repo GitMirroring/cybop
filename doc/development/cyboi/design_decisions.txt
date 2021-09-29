@@ -1133,7 +1133,7 @@ that had sent the request (event).
 Asynchronous Input/Output
 _________________________
 
-Reflexion on event handling (move to design document in doc/dev/):
+Reflexion on event handling:
 * Pipe cannot be used, since it might block, when read out to be empty before but an irq was set in a thread only later (filling pipe and setting irq are not atomic)
 * Array is good, disadvantage of having to move all entries with each "read+remove"
 * IRQ might be set later (filling array and setting irq are not atomic) even though array is empty when main thread was faster reading+removing entry than sensing thread setting irq
@@ -1153,4 +1153,28 @@ _______________
 
 CAUTION! Mind the mutex regions and do NOT call exit thread within them since otherwise,
 mutexes may never be reset anymore, if no other thread can enter the locked region
+
+Blocking and Non-blocking Mode
+______________________________
+
+CAUTION! Some other chapters on Input/Output (I/O) and socket communication further above are OUTDATED!
+
+A cybol property "blocking" with boolean value is not provided.
+In cyboi, all communication is BLOCKING.
+
+The server (display, socket) senses input in a child thread.
+The client sends data waiting for a server response.
+
+Trying to make the socket client "non-blocking" resulted
+in error "EWOULDBLOCK" when reading/writing.
+
+Open questions:
+
+1 In the future, something like "worker threads" have to be implemented,
+  so that a client may send data in standard blocking mode and
+  continue with other work right away.
+
+2 Is it really necessary to provide blocking terminal communication
+  in a dialogue-manner, without a "handling" cybol file?
+  This would probably only be needed by beginner developers.
 

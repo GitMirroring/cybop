@@ -48,9 +48,8 @@
  * @param p1 the protocol family (socket namespace)
  * @param p2 the communication style
  * @param p3 the protocol
- * @param p4 the blocking flag (not needed for the server socket, but for the connected client socket)
  */
-void startup_socket_create(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void startup_socket_create(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket create.");
 
@@ -66,12 +65,12 @@ void startup_socket_create(void* p0, void* p1, void* p2, void* p3, void* p4) {
 #endif
 
 #if defined(__linux__) || defined(__unix__)
-    startup_bsd_socket_create(p0, p1, p2, p3, p4);
+    startup_bsd_socket_create(p0, p1, p2, p3);
 #elif defined(__APPLE__) && defined(__MACH__)
-    startup_bsd_socket_create(p0, p1, p2, p3, p4);
+    startup_bsd_socket_create(p0, p1, p2, p3);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    startup_winsock_create(p0, p1, p2, p3, p4);
+    startup_winsock_create(p0, p1, p2, p3);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif

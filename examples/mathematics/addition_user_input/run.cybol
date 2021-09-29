@@ -33,8 +33,6 @@
         <!-- CAUTION! Do NOT use an encoding here, since terminal input is already in wide characters. -->
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".app.input"/>
-        <!-- CAUTION! This blocking flag causes the programme to wait until data are available at input. -->
-        <node name="blocking" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <!--
@@ -78,9 +76,8 @@
 
 <!--
     TODO: CAUTION! This example does NOT WORK yet.
-    The cyboi interpreter has to be adapted to being able
-    to receive user input in different ways
-    (canonical with buffer, blocking or not etc.).
+    The cyboi interpreter possibly has to be adapted to being able
+    to receive user input in different ways (canonical with buffer).
 
     This example asks the user for input of an operand.
     It then adds that operand value to the result variable,

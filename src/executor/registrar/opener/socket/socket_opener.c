@@ -26,19 +26,6 @@
 #ifndef SOCKET_OPENER_SOURCE
 #define SOCKET_OPENER_SOURCE
 
-/*??
-#if defined(__linux__) || defined(__unix__)
-    #include <sys/socket.h>
-#elif defined(__APPLE__) && defined(__MACH__)
-    #include <sys/socket.h>
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-    #include <winsock.h>
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
-*/
-
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -69,9 +56,8 @@
  * @param p9 the host address data
  * @param p10 the host address count
  * @param p11 the port
- * @param p12 the blocking flag
  */
-void open_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void open_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket.");
 
@@ -94,7 +80,7 @@ void open_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // Get socket protocol.
     startup_socket_protocol((void*) &p, p5, p6);
     // Create socket.
-    startup_socket_create(p0, (void*) &pf, (void*) &st, (void*) &p, p12);
+    startup_socket_create(p0, (void*) &pf, (void*) &st, (void*) &p);
     //
     // Allocate and initialise socket address depending on family.
     //

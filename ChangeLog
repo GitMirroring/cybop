@@ -18,12 +18,18 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-09-29  Christian Heller  <christian.heller@cybop.org>
+
+        * Remove property "blocking" from affected cybol applications
+        * Delete argument "blocking" from socket functions, since all communication is blocking from now on, for server as well as client sockets
+
 2021-09-28  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt socket input handling to new buffer and interrupt pipe
         * Add file "message_socket_sensor.c"
         * Harmonise input handling across all channels
         * Check exit flag in xcb sensing thread
+        * Allocate and deallocate buffer for socket input handling
 
 2021-09-21  Christian Heller  <christian.heller@cybop.org>
 

@@ -54,6 +54,7 @@
         <node name="protocol" channel="inline" format="text/plain" model="tcp"/>
         <node name="address" channel="inline" format="text/plain" model="127.0.0.1"/>
         <node name="port" channel="inline" format="number/integer" model="1971"/>
+        <node name="mode" channel="inline" format="text/plain" model="server"/>
         <node name="connexions" channel="inline" format="number/integer" model="1"/>
         <node name="timeout" channel="inline" format="number/integer" model="5"/>
     </node>
