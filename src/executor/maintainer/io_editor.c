@@ -48,8 +48,7 @@
 void edit_io(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Edit io.");
-
-    //?? fwprintf(stdout, L"Test: Edit io. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Edit io. p0: %i\n", p0);
 
     // The terminal blocking mode.
     void* b = *NULL_POINTER_STATE_CYBOI_MODEL;

@@ -30,6 +30,7 @@
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../executor/awakener/awakener.c"
 #include "../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../executor/copier/array_copier.c"
@@ -42,7 +43,7 @@
  *
  * @param p0 the internal memory data
  * @param p1 the input/output base
- * @param p2 the service identification (e.g. socket port)
+ * @param p2 the socket port (service identification)
  * @param p3 the channel
  */
 void disable_channel(void* p0, void* p1, void* p2, void* p3) {

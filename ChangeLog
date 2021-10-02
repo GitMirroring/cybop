@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-10-02  Christian Heller  <christian.heller@cybop.org>
+
+        * Restructure startup and shutdown with new files "channel_starter.c", "general_starter.c", "specific_starter.c"
+
 2021-09-29  Christian Heller  <christian.heller@cybop.org>
 
         * Remove property "blocking" from affected cybol applications

@@ -26,18 +26,11 @@
 #ifndef SHUTTER_SOURCE
 #define SHUTTER_SOURCE
 
-#include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../executor/accessor/getter/internal_memory_getter.c"
-#include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/maintainer/shutter/display/display_shutter.c"
-#include "../../executor/maintainer/shutter/serial_port/serial_port_shutter.c"
-#include "../../executor/maintainer/shutter/socket/socket_shutter.c"
-#include "../../executor/maintainer/shutter/terminal/terminal_shutter.c"
-#include "../../executor/maintainer/io_shutter.c"
+#include "../../executor/maintainer/channel_shutter.c"
+#include "../../executor/maintainer/general_shutter.c"
 #include "../../logger/logger.c"
 
 /**
@@ -48,7 +41,7 @@
  * /usr/include/i386-linux-gnu/sys/socket.h:232:12
  *
  * @param p0 the internal memory data
- * @param p1 the socket port
+ * @param p1 the socket port (service identification)
  * @param p2 the channel
  */
 void shutdown_service(void* p0, void* p1, void* p2) {
@@ -59,104 +52,15 @@ void shutdown_service(void* p0, void* p1, void* p2) {
     // Otherwise, it would produce huge log files filled up with useless entries.
     //
     // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown service.");
-    //
+    //?? fwprintf(stdout, L"Information: Shutdown service. p2: %i\n", p2);
 
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The input/output entry.
-    void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The input/output base.
+    int b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p2, (void*) DISPLAY_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Get input/output entry.
-            get_internal_memory_element((void*) &io, p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
-            //
-            // Disable channel and exit sensing thread.
-            //
-            // CAUTION! This has to be done BEFORE deallocating resources below.
-            //
-            // The sensing thread writes received events into the buffer.
-            // These events have to be deallocated (freed) yet.
-            //
-            // Therefore, the sensing thread has to be exited FIRST
-            // and then the main thread can loop the buffer and deallocate
-            // all events before deallocating the buffer itself.
-            //
-            disable_channel(p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2);
-            // Shutdown service.
-            shutdown_display(io);
-            // Shutdown input/output entry.
-            shutdown_io((void*) &io, p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p2, (void*) SERIAL_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Get input/output entry.
-            get_internal_memory_element((void*) &io, p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
-            // Shutdown service.
-            //?? shutdown_serial_port(io);
-            // Shutdown input/output entry.
-            shutdown_io((void*) &io, p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p2, (void*) SOCKET_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Get input/output entry.
-            get_internal_memory_element((void*) &io, p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
-            // Shutdown service.
-            shutdown_socket(io);
-            // Shutdown input/output entry.
-            shutdown_io((void*) &io, p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p2, (void*) TERMINAL_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Get input/output entry.
-            get_internal_memory_element((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1);
-            //
-            // Disable channel and exit sensing thread.
-            //
-            // CAUTION! This has to be done BEFORE deallocating resources below.
-            //
-            // The main thread resets the terminal properties on shutdown, so that
-            // default echoing and canonical input (with <enter> key) are reactivated.
-            // But then, the call of function "ioctl" might not work promptly,
-            // if the terminal is waiting for the <enter> key.
-            //
-            // Therefore, the sensing thread has to be exited FIRST
-            // as long as ioctl fake input can be received prompt.
-            //
-            disable_channel(p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2);
-            // Shutdown service.
-            shutdown_terminal(io);
-            // Shutdown input/output entry.
-            shutdown_io((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown service. The channel is unknown.");
-    }
+    // Determine channel-specific values.
+    shutdown_channel((void*) &b, p2);
+    // Execute general shutdown functions.
+    shutdown_general(p0, p1, p2, (void*) &b);
 }
 
 /* SHUTTER_SOURCE */

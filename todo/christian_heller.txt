@@ -14,6 +14,17 @@
 Pipe
 ____
 
+        * Remove interrupt from input/output entry now replaced by pipe communication in checker
+        * Remove enable flag from input/output entry since thread should exit when disabled
+            receiving data and ignoring them with enable set to false would be misleading and a bad idea, since input data would then be consumed but not processed
+        * Remove channel-specific pipe from input/output entry, since arrays are used to receive input data
+        * Adapt starter and shutter to input/output entry changes
+
+        THINK:
+            1 socket - n service ports
+            1 service port - n clients
+            startup is ok, now investigate activator/enabler.c --> where to place the input/output entry, one for EACH client?
+
         * Temporarily for testing: Use terminal read function also for socket in "reader.c", since both are identical
         * Make socket cybol applications work again
             DONE: empty_checker.c works fine, proper id (base + port) is assigned at startup and received
@@ -54,7 +65,6 @@ ____
         * Delete sensor, once all functions have been moved into threads started by activator
         * Use platform-neutral function "sense" instead of function "sense_unix_terminal" in file "starter.c"
         * Delete terminal sensor, since platform-specific sensor functions are called within thread in file "starter.c"
-        * Cleanup unused variables (interrupt, pipe, pipe read/write stream) in files "io_starter.c" and "io_shutter.c"
         * Think through sensing threads exit via system signal again (usable or not?) --> clean up source code accordingly
         * Optimise arrays: one array is filled in sensor and copied once more in reader --> Can this be avoided in a unique way for all channels, including inline, file etc.?
 
@@ -99,7 +109,6 @@ ____
 
         * Use mutex and volatile variables when accessing pipes?
         * Check flag "enable" in terminal sensor and write data to pipe only if activated
-        * Clean up input/output related source code by removing old interrupt handling now replaced by pipe communication
 
         * Store standard input/output/error file descriptors and streams in terminal input/output entry
 

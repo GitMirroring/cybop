@@ -29,20 +29,25 @@
 #include <threads.h> // mtx_t, mtx_init, thrd_error
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../constant/model/file/opentype_file_model.c"
 #include "../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/accessor/setter/internal_memory_setter.c"
-#include "../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../executor/copier/array_copier.c"
-#include "../../executor/maintainer/starter/pipe/create_pipe_starter.c"
+#include "../../executor/copier/integer_copier.c"
+#include "../../executor/copier/pointer_copier.c"
 #include "../../executor/memoriser/allocator/array_allocator.c"
-#include "../../executor/porter/descriptor_to_stream_converter.c"
 #include "../../logger/logger.c"
 #include "../../variable/symbolic_name/mutex_thread_symbolic_name.c"
+
+//?? Delete the following when the pipes are removed.
+#include "../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
+#include "../../constant/model/file/opentype_file_model.c"
+#include "../../executor/maintainer/starter/pipe/create_pipe_starter.c"
+#include "../../executor/porter/descriptor_to_stream_converter.c"
 
 //
 // Explanation concerning interrupt request flags:
@@ -118,281 +123,231 @@
 /**
  * Retrieves or allocates the input/output entry of the given service.
  *
- * @param p0 the input/output entry (pointer reference)
- * @param p1 the internal memory data
- * @param p2 the input/output base
- * @param p3 the socket port
+ * @param p0 the input/output entry
+ * @param p1 the interrupt pipe (pointer reference)
+ * @param p2 the interrupt mutex (pointer reference)
+ * @param p3 the identification
  * @param p4 the thread function (pointer reference)
- * @param p5 the interrupt pipe (pointer reference)
- * @param p6 the interrupt mutex (pointer reference)
+ * @param p5 the function argument (pointer reference)
  */
-void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup io.");
+    fwprintf(stdout, L"Debug: Startup io. p0: %i\n", p0);
 
-        void** io = (void**) p0;
+    //
+    // Declaration.
+    //
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup io.");
+    // The identification.
+    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The enable flag.
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The interrupt request.
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The sender identification.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The access mutex.
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The thread identification.
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The thread function.
+    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The function argument.
+    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The exit flag.
+    void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The pipe.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The read pipe stream.
+    void* rp = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The write pipe stream.
+    void* wp = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        if (*io == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    //
+    // Allocation.
+    //
 
-            fwprintf(stdout, L"Test: Startup io. *io: %i\n", *io);
+    //
+    // Allocate identification.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_array((void*) &id, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    //
+    // Allocate enable flag.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_array((void*) &e, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    //
+    // Allocate interrupt request.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_array((void*) &i, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ATOMIC_SIGNAL_STATE_CYBOI_TYPE);
+    //
+    // Allocate sender identification.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    //
+    // Allocate access mutex.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_array((void*) &m, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
+    //
+    // Allocate thread identification.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_array((void*) &t, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_THREAD_STATE_CYBOI_TYPE);
+    //
+    // Allocate thread function.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_array((void*) &f, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
+    //
+    // Allocate function argument.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_array((void*) &a, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
+    //
+    // Allocate exit flag.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_array((void*) &ex, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    //
+    // Allocate pipe.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_array((void*) &p, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    //
+    // CAUTION! Do NOT allocate read/write pipe streams, since
+    // they are just references to the array elements of the pipe.
+    //
 
-            //
-            // The input/output entry (service) does NOT yet exist in internal memory.
-            //
+    //
+    // Initialisation.
+    //
 
-            //
-            // Declaration.
-            //
+    // Initialise identification.
+    copy_integer(id, p3);
+    // Initialise enable flag.
+    copy_integer(e, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    // Initialise interrupt request.
+    copy_integer(i, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    // Initialise sender identification.
+    copy_integer(s, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    // The access mutex with casted type.
+    mtx_t* mt = (mtx_t*) m;
+    // Initialise access mutex.
+    int r = mtx_init(mt, *PLAIN_MUTEX_TYPE_THREAD_SYMBOLIC_NAME);
 
-            // The identification.
-            void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The enable flag.
-            void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The interrupt request.
-            void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The sender identification.
-            void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The access mutex.
-            void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The thread identification.
-            void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The thread function.
-            void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The function argument.
-            void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The exit flag.
-            void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The pipe.
-            void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The read pipe stream.
-            void* rp = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The write pipe stream.
-            void* wp = *NULL_POINTER_STATE_CYBOI_MODEL;
+    if (r == thrd_error) {
 
-            //
-            // Allocation.
-            //
-
-            //
-            // Allocate input/output entry.
-            //
-            // CAUTION! Due to memory allocation handling, the size MUST NOT
-            // be negative or zero, but have at least a value of ONE.
-            //
-            allocate_array(p0, (void*) IO_ENTRY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
-
-            //
-            // Allocate identification.
-            //
-            // CAUTION! Due to memory allocation handling, the size MUST NOT
-            // be negative or zero, but have at least a value of ONE.
-            //
-            allocate_array((void*) &id, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            //
-            // Allocate enable flag.
-            //
-            // CAUTION! Due to memory allocation handling, the size MUST NOT
-            // be negative or zero, but have at least a value of ONE.
-            //
-            allocate_array((void*) &e, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            //
-            // Allocate interrupt request.
-            //
-            // CAUTION! Due to memory allocation handling, the size MUST NOT
-            // be negative or zero, but have at least a value of ONE.
-            //
-            allocate_array((void*) &i, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ATOMIC_SIGNAL_STATE_CYBOI_TYPE);
-            //
-            // Allocate sender identification.
-            //
-            // CAUTION! Due to memory allocation handling, the size MUST NOT
-            // be negative or zero, but have at least a value of ONE.
-            //
-            allocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            //
-            // Allocate access mutex.
-            //
-            // CAUTION! Due to memory allocation handling, the size MUST NOT
-            // be negative or zero, but have at least a value of ONE.
-            //
-            allocate_array((void*) &m, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
-            //
-            // Allocate thread identification.
-            //
-            // CAUTION! Due to memory allocation handling, the size MUST NOT
-            // be negative or zero, but have at least a value of ONE.
-            //
-            allocate_array((void*) &t, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_THREAD_STATE_CYBOI_TYPE);
-            //
-            // Allocate thread function.
-            //
-            // CAUTION! Due to memory allocation handling, the size MUST NOT
-            // be negative or zero, but have at least a value of ONE.
-            //
-            //?? allocate_array((void*) &f, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FUNCTION_THREAD_STATE_CYBOI_TYPE);
-            allocate_array((void*) &f, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
-            //
-            // Allocate function argument.
-            //
-            // CAUTION! Due to memory allocation handling, the size MUST NOT
-            // be negative or zero, but have at least a value of ONE.
-            //
-            allocate_array((void*) &a, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
-            //
-            // Allocate exit flag.
-            //
-            // CAUTION! Due to memory allocation handling, the size MUST NOT
-            // be negative or zero, but have at least a value of ONE.
-            //
-            allocate_array((void*) &ex, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            //
-            // Allocate pipe.
-            //
-            // CAUTION! Due to memory allocation handling, the size MUST NOT
-            // be negative or zero, but have at least a value of ONE.
-            //
-            allocate_array((void*) &p, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            //
-            // CAUTION! Do NOT allocate read/write pipe streams, since
-            // they are just references to the array elements of the pipe.
-            //
-
-            //
-            // Initialisation.
-            //
-
-            //
-            // Initialise identification.
-            //
-            // - add input/output base
-            // - add service identification (port)
-            //
-            // CAUTION! If the service identification is NULL, then it is NOT copied here.
-            // This is tested inside the "calculate_integer_add" function.
-            // In this case, the input/output base added before remains AS IS,
-            // which is the same as a service identification of ZERO.
-            //
-            // In other words, the service identification is ZERO BY DEFAULT.
-            // Only for the socket channel, it gets replaced by the PORT number.
-            //
-            calculate_integer_add(id, p2);
-            calculate_integer_add(id, p3);
-            // Initialise enable flag.
-            copy_integer(e, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-            // Initialise interrupt request.
-            copy_integer(i, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-            // Initialise sender identification.
-            copy_integer(s, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-            // The access mutex with casted type.
-            mtx_t* mt = (mtx_t*) m;
-            // Initialise access mutex.
-            int r = mtx_init(mt, *PLAIN_MUTEX_TYPE_THREAD_SYMBOLIC_NAME);
-
-            if (r == thrd_error) {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup io. The mutex object creation failed.");
-                fwprintf(stdout, L"Error: Could not startup io. The mutex object creation failed. r: %i\n", r);
-            }
-
-            // Initialise thread identification.
-            copy_integer(t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-            //
-            // Initialise thread function.
-            //
-            // CAUTION! Hand over function as pointer REFERENCE.
-            //
-            copy_pointer(f, p4);
-            //
-            // Initialise function argument.
-            //
-            // CAUTION! Hand over input/output entry itself, but as pointer REFERENCE.
-            //
-            copy_pointer(a, p0);
-            // Initialise exit flag.
-            copy_integer(ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-            // Initialise pipe.
-            startup_pipe_create(p);
-
-            //
-            // Opening.
-            //
-
-            // The read pipe file descriptor.
-            int rd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-            // The write pipe file descriptor.
-            int wd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-            // Get read pipe file descriptor.
-            copy_array_forward((void*) &rd, p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-            // Get write pipe file descriptor.
-            copy_array_forward((void*) &wd, p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-            // Get read pipe stream.
-            convert_descriptor_to_stream((void*) &rp, (void*) &rd, (void*) READ_WITHOUT_BINARY_MODE_OPENTYPE_FILE_MODEL);
-            // Get write pipe stream.
-            convert_descriptor_to_stream((void*) &wp, (void*) &wd, (void*) WRITE_WITHOUT_BINARY_MODE_OPENTYPE_FILE_MODEL);
-
-            //
-            // Storing.
-            //
-
-            // Set identification into input/output entry.
-            copy_array_forward(*io, (void*) &id, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            // Set enable flag into input/output entry.
-            copy_array_forward(*io, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ENABLE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            // Set interrupt request into input/output entry.
-            copy_array_forward(*io, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            // Set sender identification into input/output entry.
-            copy_array_forward(*io, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SENDER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            // Set access mutex into input/output entry.
-            copy_array_forward(*io, (void*) &m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            // Set thread identification into input/output entry.
-            copy_array_forward(*io, (void*) &t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            // Set thread function into input/output entry.
-            copy_array_forward(*io, (void*) &f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FUNCTION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            // Set function argument into input/output entry.
-            copy_array_forward(*io, (void*) &a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ARGUMENT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            // Set exit flag into input/output entry.
-            copy_array_forward(*io, (void*) &ex, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EXIT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            // Set pipe into input/output entry.
-            copy_array_forward(*io, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PIPE_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            // Set read pipe stream into input/output entry.
-            copy_array_forward(*io, (void*) &rp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) READ_STREAM_PIPE_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            // Set write pipe stream into input/output entry.
-            copy_array_forward(*io, (void*) &wp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) WRITE_STREAM_PIPE_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            //
-            // Set interrupt pipe into input/output entry.
-            //
-            // CAUTION! This reference is actually stored in internal memory.
-            // However, it gets stored in input/output entry HERE a SECOND time,
-            // in order to be able to pass it to the corresponding sensing thread,
-            // which does accept only ONE function argument.
-            //
-            copy_array_forward(*io, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_PIPE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            //
-            // Set interrupt mutex into input/output entry.
-            //
-            // CAUTION! This reference is actually stored in internal memory.
-            // However, it gets stored in input/output entry HERE a SECOND time,
-            // in order to be able to pass it to the corresponding sensing thread,
-            // which does accept only ONE function argument.
-            //
-            copy_array_forward(*io, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-            // Set input/output entry.
-            set_internal_memory_element(p1, p0, p2, p3);
-
-        } else {
-
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup io. The input/output entry (service) is not null, i.e. it does already exist in internal memory.");
-            fwprintf(stdout, L"Warning: Could not startup io. The input/output entry (service) is not null, i.e. it does already exist in internal memory. *io: %i\n", *io);
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup io. The input/output entry is null.");
-        fwprintf(stdout, L"Error: Could not startup io. The input/output entry is null. p0: %i\n", p0);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup io. The mutex object creation failed.");
+        fwprintf(stdout, L"Error: Could not startup io. The mutex object creation failed. r: %i\n", r);
     }
+
+    // Initialise thread identification.
+    copy_integer(t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    //
+    // Initialise thread function.
+    //
+    // CAUTION! Hand over function as pointer REFERENCE.
+    //
+    copy_pointer(f, p4);
+    //
+    // Initialise function argument.
+    //
+    // CAUTION! Hand over input/output entry itself, but as pointer REFERENCE.
+    //
+    copy_pointer(a, p5);
+    // Initialise exit flag.
+    copy_integer(ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    // Initialise pipe.
+    startup_pipe_create(p);
+
+    //
+    // Opening.
+    //
+
+    // The read pipe file descriptor.
+    int rd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The write pipe file descriptor.
+    int wd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // Get read pipe file descriptor.
+    copy_array_forward((void*) &rd, p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    // Get write pipe file descriptor.
+    copy_array_forward((void*) &wd, p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    // Get read pipe stream.
+    convert_descriptor_to_stream((void*) &rp, (void*) &rd, (void*) READ_WITHOUT_BINARY_MODE_OPENTYPE_FILE_MODEL);
+    // Get write pipe stream.
+    convert_descriptor_to_stream((void*) &wp, (void*) &wd, (void*) WRITE_WITHOUT_BINARY_MODE_OPENTYPE_FILE_MODEL);
+
+    //
+    // Storing.
+    //
+
+    //
+    // Set interrupt pipe into input/output entry.
+    //
+    // CAUTION! This reference is actually stored in internal memory.
+    // However, it gets stored in input/output entry HERE a SECOND time,
+    // in order to be able to pass it to the corresponding sensing thread,
+    // which does accept only ONE function argument.
+    //
+    copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_PIPE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    //
+    // Set interrupt mutex into input/output entry.
+    //
+    // CAUTION! This reference is actually stored in internal memory.
+    // However, it gets stored in input/output entry HERE a SECOND time,
+    // in order to be able to pass it to the corresponding sensing thread,
+    // which does accept only ONE function argument.
+    //
+    copy_array_forward(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set identification into input/output entry.
+    copy_array_forward(p0, (void*) &id, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set enable flag into input/output entry.
+    copy_array_forward(p0, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ENABLE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set interrupt request into input/output entry.
+    copy_array_forward(p0, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set sender identification into input/output entry.
+    copy_array_forward(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SENDER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set access mutex into input/output entry.
+    copy_array_forward(p0, (void*) &m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set thread identification into input/output entry.
+    copy_array_forward(p0, (void*) &t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set thread function into input/output entry.
+    copy_array_forward(p0, (void*) &f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FUNCTION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set function argument into input/output entry.
+    copy_array_forward(p0, (void*) &a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ARGUMENT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set exit flag into input/output entry.
+    copy_array_forward(p0, (void*) &ex, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EXIT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set pipe into input/output entry.
+    copy_array_forward(p0, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PIPE_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set read pipe stream into input/output entry.
+    copy_array_forward(p0, (void*) &rp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) READ_STREAM_PIPE_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set write pipe stream into input/output entry.
+    copy_array_forward(p0, (void*) &wp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) WRITE_STREAM_PIPE_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* IO_STARTER_SOURCE */

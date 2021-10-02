@@ -29,12 +29,12 @@
 #include <threads.h> // mtx_t, mtx_destroy
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/accessor/setter/internal_memory_setter.c"
-#include "../../executor/activator/channel_disabler.c"
 #include "../../executor/copier/array_copier.c"
 #include "../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../executor/porter/file_stream_closer.c"
@@ -43,248 +43,190 @@
 /**
  * Deallocates the input/output entry of the given service.
  *
- * @param p0 the input/output entry (pointer reference)
- * @param p1 the internal memory data
- * @param p2 the input/output base
- * @param p3 the socket port
- * @param p4 the channel
+ * @param p0 the input/output entry
  */
-void shutdown_io(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void shutdown_io(void* p0) {
 
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    //
+    // CAUTION! This log message has been commented out
+    // due to the large number of potential calls caused
+    // by the the number of socket services (65536).
+    // See file "shutdown_manager.c".
+    //
+    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown io.");
+    //?? fwprintf(stdout, L"Debug: Shutdown io. p0: %i\n", p0);
 
-        void** io = (void**) p0;
+    //
+    // Declaration.
+    //
 
-        //
-        // CAUTION! This log message has been commented out
-        // due to the large number of potential calls caused
-        // by the the number of socket services (65536).
-        // See file "shutdown_manager.c".
-        //
-        // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown io.");
+    // The identification.
+    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The enable flag.
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The interrupt request.
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The sender identification.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The access mutex.
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The thread identification.
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The thread function.
+    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The function argument.
+    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The exit flag.
+    void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The pipe.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The read pipe stream.
+    void* rp = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The write pipe stream.
+    void* wp = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        if (*io != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    //
+    // Retrieval.
+    //
 
-            //
-            // The input/output entry (service) DOES exist in internal memory.
-            //
+    // Get identification from input/output entry.
+    copy_array_forward((void*) &id, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get enable flag from input/output entry.
+    copy_array_forward((void*) &e, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get interrupt request from input/output entry.
+    copy_array_forward((void*) &i, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get sender identification from input/output entry.
+    copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SENDER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get access mutex from input/output entry.
+    copy_array_forward((void*) &m, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get thread identification from input/output entry.
+    copy_array_forward((void*) &t, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get thread function from input/output entry.
+    copy_array_forward((void*) &f, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FUNCTION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get function argument from input/output entry.
+    copy_array_forward((void*) &a, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ARGUMENT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get exit flag from input/output entry.
+    copy_array_forward((void*) &ex, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get pipe from input/output entry.
+    copy_array_forward((void*) &p, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PIPE_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get read pipe stream from input/output entry.
+    copy_array_forward((void*) &rp, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) READ_STREAM_PIPE_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get write pipe stream from input/output entry.
+    copy_array_forward((void*) &wp, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) WRITE_STREAM_PIPE_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-            //
-            // Declaration.
-            //
+    //
+    // CAUTION! Resetting the values is not necessary,
+    // since the input/output entry gets deallocated anyway.
+    //
 
-            // The identification.
-            void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The enable flag.
-            void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The interrupt request.
-            void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The sender identification.
-            void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The access mutex.
-            void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The thread identification.
-            void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The thread function.
-            void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The function argument.
-            void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The exit flag.
-            void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The pipe.
-            void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The read pipe stream.
-            void* rp = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The write pipe stream.
-            void* wp = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //
+    // Closing.
+    //
 
-            //
-            // Retrieval.
-            //
+    // Close read pipe stream.
+    close_file_stream(rp);
+    // Close write pipe stream.
+    close_file_stream(wp);
 
-            // Get identification from input/output entry.
-            copy_array_forward((void*) &id, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-            // Get enable flag from input/output entry.
-            copy_array_forward((void*) &e, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-            // Get interrupt request from input/output entry.
-            copy_array_forward((void*) &i, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-            // Get sender identification from input/output entry.
-            copy_array_forward((void*) &s, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SENDER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-            // Get access mutex from input/output entry.
-            copy_array_forward((void*) &m, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-            // Get thread identification from input/output entry.
-            copy_array_forward((void*) &t, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
-            // Get thread function from input/output entry.
-            copy_array_forward((void*) &f, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FUNCTION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
-            // Get function argument from input/output entry.
-            copy_array_forward((void*) &a, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ARGUMENT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
-            // Get exit flag from input/output entry.
-            copy_array_forward((void*) &ex, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
-            // Get pipe from input/output entry.
-            copy_array_forward((void*) &p, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PIPE_INPUT_OUTPUT_STATE_CYBOI_NAME);
-            // Get read pipe stream from input/output entry.
-            copy_array_forward((void*) &rp, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) READ_STREAM_PIPE_INPUT_OUTPUT_STATE_CYBOI_NAME);
-            // Get write pipe stream from input/output entry.
-            copy_array_forward((void*) &wp, *io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) WRITE_STREAM_PIPE_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    //
+    // Finalisation.
+    //
 
-            //
-            // CAUTION! Resetting the values is not necessary,
-            // since the input/output entry gets deallocated anyway.
-            //
+    // The access mutex with casted type.
+    mtx_t* mt = (mtx_t*) m;
+    // Finalise access mutex.
+    mtx_destroy(mt);
 
-            //
-            // Closing.
-            //
+    //
+    // Deallocation.
+    //
 
-            // Close read pipe stream.
-            close_file_stream(rp);
-            // Close write pipe stream.
-            close_file_stream(wp);
+    //
+    // CAUTION! Do NOT deallocate read/write pipe streams, since
+    // they are just references to the array elements of the pipe.
+    //
 
-            //
-            // Finalisation.
-            //
-
-            // The access mutex with casted type.
-            mtx_t* mt = (mtx_t*) m;
-            // Finalise access mutex.
-            mtx_destroy(mt);
-
-            //
-            // Deallocation.
-            //
-
-            //
-            // Deallocate identification.
-            //
-            // CAUTION! The second argument "count" is NULL,
-            // since it is only needed for looping elements of type PART,
-            // in order to decrement the rubbish (garbage) collection counter.
-            //
-            deallocate_array((void*) &id, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            //
-            // Deallocate enable flag.
-            //
-            // CAUTION! The second argument "count" is NULL,
-            // since it is only needed for looping elements of type PART,
-            // in order to decrement the rubbish (garbage) collection counter.
-            //
-            deallocate_array((void*) &e, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            //
-            // Deallocate interrupt request.
-            //
-            // CAUTION! The second argument "count" is NULL,
-            // since it is only needed for looping elements of type PART,
-            // in order to decrement the rubbish (garbage) collection counter.
-            //
-            deallocate_array((void*) &i, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ATOMIC_SIGNAL_STATE_CYBOI_TYPE);
-            //
-            // Deallocate sender identification.
-            //
-            // CAUTION! The second argument "count" is NULL,
-            // since it is only needed for looping elements of type PART,
-            // in order to decrement the rubbish (garbage) collection counter.
-            //
-            deallocate_array((void*) &s, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            //
-            // Deallocate access mutex.
-            //
-            // CAUTION! The second argument "count" is NULL,
-            // since it is only needed for looping elements of type PART,
-            // in order to decrement the rubbish (garbage) collection counter.
-            //
-            deallocate_array((void*) &m, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
-            //
-            // Deallocate thread identification.
-            //
-            // CAUTION! The second argument "count" is NULL,
-            // since it is only needed for looping elements of type PART,
-            // in order to decrement the rubbish (garbage) collection counter.
-            //
-            deallocate_array((void*) &t, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_THREAD_STATE_CYBOI_TYPE);
-            //
-            // Deallocate thread function.
-            //
-            // CAUTION! The second argument "count" is NULL,
-            // since it is only needed for looping elements of type PART,
-            // in order to decrement the rubbish (garbage) collection counter.
-            //
-            //?? deallocate_array((void*) &f, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FUNCTION_THREAD_STATE_CYBOI_TYPE);
-            deallocate_array((void*) &f, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
-            //
-            // Deallocate function argument.
-            //
-            // CAUTION! The second argument "count" is NULL,
-            // since it is only needed for looping elements of type PART,
-            // in order to decrement the rubbish (garbage) collection counter.
-            //
-            deallocate_array((void*) &a, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
-            //
-            // Deallocate exit flag.
-            //
-            // CAUTION! The second argument "count" is NULL,
-            // since it is only needed for looping elements of type PART,
-            // in order to decrement the rubbish (garbage) collection counter.
-            //
-            deallocate_array((void*) &ex, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            //
-            // Deallocate pipe.
-            //
-            // CAUTION! The second argument "count" is NULL,
-            // since it is only needed for looping elements of type PART,
-            // in order to decrement the rubbish (garbage) collection counter.
-            //
-            deallocate_array((void*) &p, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-            //
-            // CAUTION! Do NOT deallocate read/write pipe streams, since
-            // they are just references to the array elements of the pipe.
-            //
-
-            //
-            // Deallocate input/output entry.
-            //
-            // CAUTION! The second argument "count" is NULL,
-            // since it is only needed for looping elements of type PART,
-            // in order to decrement the rubbish (garbage) collection counter.
-            //
-            deallocate_array(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) IO_ENTRY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
-
-            //
-            // Reset input/output entry in internal memory.
-            //
-            // CAUTION! It is ESSENTIAL to assign NULL here,
-            // since cyboi tests for null pointers and otherwise,
-            // wild pointers would lead to memory corruption.
-            //
-            // CAUTION! Do NOT use the "modify_array" (overwrite) function,
-            // since it adapts the array count and size.
-            // But the internal memory array's count and size are CONSTANT.
-            //
-            // CAUTION! Hand over null as pointer reference NULL_POINTER_STATE_CYBOI_MODEL
-            // and NOT as dereferenced pointer *NULL_POINTER_STATE_CYBOI_MODEL.
-            //
-            // CAUTION! Place this function BELOW the call of function "disable_channel" above,
-            // since that is accessing the input/output entry inside, in order to exit the thread.
-            //
-            set_internal_memory_element(p1, (void*) NULL_POINTER_STATE_CYBOI_MODEL, p2, p3);
-
-        } else {
-
-            //
-            // CAUTION! This log message has been commented out
-            // due to the large number of potential calls caused
-            // by the the number of socket services (65536).
-            // See file "shutdown_manager.c".
-            //
-            // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown io. The input/output entry value is null, i.e. it does not exist in internal memory.");
-            // fwprintf(stdout, L"Warning: Could not shutdown io. The input/output entry value is null, i.e. it does not exist in internal memory. *io: %i\n", *io);
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown io. The input/output entry is null.");
-        fwprintf(stdout, L"Error: Could not shutdown io. The input/output entry is null. p0: %i\n", p0);
-    }
+    //
+    // Deallocate identification.
+    //
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    //
+    deallocate_array((void*) &id, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    //
+    // Deallocate enable flag.
+    //
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    //
+    deallocate_array((void*) &e, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    //
+    // Deallocate interrupt request.
+    //
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    //
+    deallocate_array((void*) &i, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ATOMIC_SIGNAL_STATE_CYBOI_TYPE);
+    //
+    // Deallocate sender identification.
+    //
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    //
+    deallocate_array((void*) &s, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    //
+    // Deallocate access mutex.
+    //
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    //
+    deallocate_array((void*) &m, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
+    //
+    // Deallocate thread identification.
+    //
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    //
+    deallocate_array((void*) &t, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_THREAD_STATE_CYBOI_TYPE);
+    //
+    // Deallocate thread function.
+    //
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    //
+    //?? deallocate_array((void*) &f, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FUNCTION_THREAD_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &f, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
+    //
+    // Deallocate function argument.
+    //
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    //
+    deallocate_array((void*) &a, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
+    //
+    // Deallocate exit flag.
+    //
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    //
+    deallocate_array((void*) &ex, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    //
+    // Deallocate pipe.
+    //
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    //
+    deallocate_array((void*) &p, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 }
 
 /* IO_SHUTTER_SOURCE */

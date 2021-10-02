@@ -40,7 +40,7 @@
 /**
  * Edits configuration settings of the given service.
  *
- * @param p0 the internal memory data
+ * @param p0 the input/output entry
  * @param p1 the terminal blocking mode
  * @param p2 the terminal canonical mode
  * @param p3 the terminal echo mode
@@ -48,14 +48,11 @@
  */
 void edit_service(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Edit service.");
-
-    //?? fwprintf(stdout, L"Test: Edit service. internal memory p0 %i\n", p0);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Edit service.");
+    //?? fwprintf(stdout, L"Debug: Edit service. p4: %i\n", p4);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The input/output entry.
-    void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -63,19 +60,18 @@ void edit_service(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Get input/output entry.
-            get_internal_memory_element((void*) &io, p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL);
             // Edit input/output entry with new terminal mode settings.
-            edit_io(io, p1, p2, p3);
+            edit_io(p0, p1, p2, p3);
             // Apply terminal mode settings.
-            edit_terminal(io);
+            edit_terminal(p0);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not edit service. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not edit service. The channel is unknown. r: %i\n", r);
+        fwprintf(stdout, L"Warning: Could not edit service. The channel is unknown. p4: %i\n", p4);
+        fwprintf(stdout, L"Warning: Could not edit service. The channel is unknown. *p4: %i\n", *((int*) p4));
     }
 }
 

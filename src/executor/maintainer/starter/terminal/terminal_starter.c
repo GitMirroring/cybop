@@ -48,7 +48,8 @@
  */
 void startup_terminal(void* p0) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal.");
+    fwprintf(stdout, L"Debug: Startup terminal. p0: %i\n", p0);
 
     //
     // Declaration.
