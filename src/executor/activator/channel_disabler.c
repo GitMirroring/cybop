@@ -68,15 +68,11 @@ void disable_channel(void* p0, void* p1, void* p2, void* p3) {
 
         fwprintf(stdout, L"Test: Disable channel. The input/output entry does exist. io: %i\n", io);
 
-        // The enable flag.
-        void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The thread identification.
         void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The exit flag.
         void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        // Get enable flag from input/output entry.
-        copy_array_forward((void*) &e, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Get thread identification from input/output entry.
         copy_array_forward((void*) &t, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Get exit flag from input/output entry.
@@ -90,11 +86,6 @@ void disable_channel(void* p0, void* p1, void* p2, void* p3) {
         // since the service may get reenabled later again.
         //
 
-        //
-        // Unset enable flag in input/output entry,
-        // so that the service gets marked as interrupted.
-        //
-        copy_integer(e, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
         //
         // Set exit flag.
         //

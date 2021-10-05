@@ -21,6 +21,10 @@
 2021-10-05  Christian Heller  <christian.heller@cybop.org>
 
         * Restructure socket acceptor which is now running in a thread
+        * Delete enable flag, interrupt flag, input/output pipe (the interrupt pipe suffices) in input/output entry and everywhere else
+        * Clean up event/signal handling in controller to prepare for child thread usage in sensing/detecting messages
+        * Delete complete directory "controller/checker/irq/"
+        * Delete file "wait_checker.c"
 
 2021-10-04  Christian Heller  <christian.heller@cybop.org>
 

@@ -62,10 +62,6 @@ void shutdown_io(void* p0) {
 
     // The identification.
     void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The enable flag.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The interrupt request.
-    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The sender identification.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The access mutex.
@@ -78,12 +74,6 @@ void shutdown_io(void* p0) {
     void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The exit flag.
     void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The pipe.
-    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The read pipe stream.
-    void* rp = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The write pipe stream.
-    void* wp = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // Retrieval.
@@ -91,10 +81,6 @@ void shutdown_io(void* p0) {
 
     // Get identification from input/output entry.
     copy_array_forward((void*) &id, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get enable flag from input/output entry.
-    copy_array_forward((void*) &e, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get interrupt request from input/output entry.
-    copy_array_forward((void*) &i, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get sender identification from input/output entry.
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SENDER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get access mutex from input/output entry.
@@ -107,26 +93,11 @@ void shutdown_io(void* p0) {
     copy_array_forward((void*) &a, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ARGUMENT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get exit flag from input/output entry.
     copy_array_forward((void*) &ex, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get pipe from input/output entry.
-    copy_array_forward((void*) &p, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PIPE_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get read pipe stream from input/output entry.
-    copy_array_forward((void*) &rp, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) READ_STREAM_PIPE_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get write pipe stream from input/output entry.
-    copy_array_forward((void*) &wp, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) WRITE_STREAM_PIPE_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     //
     // CAUTION! Resetting the values is not necessary,
     // since the input/output entry gets deallocated anyway.
     //
-
-    //
-    // Closing.
-    //
-
-    // Close read pipe stream.
-    close_file_stream(rp);
-    // Close write pipe stream.
-    close_file_stream(wp);
 
     //
     // Finalisation.
@@ -142,11 +113,6 @@ void shutdown_io(void* p0) {
     //
 
     //
-    // CAUTION! Do NOT deallocate read/write pipe streams, since
-    // they are just references to the array elements of the pipe.
-    //
-
-    //
     // Deallocate identification.
     //
     // CAUTION! The second argument "count" is NULL,
@@ -154,22 +120,6 @@ void shutdown_io(void* p0) {
     // in order to decrement the rubbish (garbage) collection counter.
     //
     deallocate_array((void*) &id, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    //
-    // Deallocate enable flag.
-    //
-    // CAUTION! The second argument "count" is NULL,
-    // since it is only needed for looping elements of type PART,
-    // in order to decrement the rubbish (garbage) collection counter.
-    //
-    deallocate_array((void*) &e, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    //
-    // Deallocate interrupt request.
-    //
-    // CAUTION! The second argument "count" is NULL,
-    // since it is only needed for looping elements of type PART,
-    // in order to decrement the rubbish (garbage) collection counter.
-    //
-    deallocate_array((void*) &i, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ATOMIC_SIGNAL_STATE_CYBOI_TYPE);
     //
     // Deallocate sender identification.
     //
@@ -219,14 +169,6 @@ void shutdown_io(void* p0) {
     // in order to decrement the rubbish (garbage) collection counter.
     //
     deallocate_array((void*) &ex, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    //
-    // Deallocate pipe.
-    //
-    // CAUTION! The second argument "count" is NULL,
-    // since it is only needed for looping elements of type PART,
-    // in order to decrement the rubbish (garbage) collection counter.
-    //
-    deallocate_array((void*) &p, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 }
 
 /* IO_SHUTTER_SOURCE */

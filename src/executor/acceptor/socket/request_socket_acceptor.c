@@ -75,15 +75,14 @@ int accept_socket_request(void* p0, void* p1, void* p2, void* p3) {
 
                     // The client socket.
                     int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+                    // The comparison result.
+                    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
                     // Accept client request on server socket.
                     fwprintf(stdout, L"Debug: Accept socket request. *s: %i\n", *s);
                     fwprintf(stdout, L"Debug: Accept socket request. pre c: %i\n", c);
                     accept_socket_client((void*) &c, *s);
                     fwprintf(stdout, L"Debug: Accept socket request. post c: %i\n", c);
-
-                    // The comparison result.
-                    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
                     //
                     // Lock client list mutex.
@@ -112,20 +111,33 @@ int accept_socket_request(void* p0, void* p1, void* p2, void* p3) {
                         // Therefore, proceed normally.
                         //
 
+                        // The client entry.
+                        void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+                        //
+                        // Allocate client entry.
+                        //
+                        // CAUTION! Due to memory allocation handling, the size MUST NOT
+                        // be negative or zero, but have at least a value of ONE.
+                        //
+                        allocate_array((void*) &e, (void*) CLIENT_ENTRY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
+
+                        // - allocate message buffer, client socket thread
+                        // Startup input/output entry.
+                        //?? startup_io(io, p1, p2, (void*) &id, p21, (void*) &io);
+                        // Execute channel-specific startup functions.
+                        //?? startup_specific(io, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19);
+
+                        // Set client entry into client list of input/output entry.
+                        set_internal_memory_??_element(p??, (void*) &e, p20, p16);
                         fwprintf(stdout, L"Debug: Accept socket request. DO process data. r: %i\n", r);
-
-                        // Add client socket to client list item.
-                        modify_item(p0, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-
+                        modify_item(p0, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
                         fwprintf(stdout, L"Debug: Accept socket request. append success c: %i\n", c);
 
-                        //
-                        // Startup child socket thread.
-                        //
-                        //?? TODO: Call startup_socket_client and WITHIN IT:
-                        // - allocate message buffer
-                        // - create new child thread
-                        //
+                        // Assign client socket to client entry.
+                        fwprintf(stdout, L"Debug: Accept socket request. DO process data. r: %i\n", r);
+                        copy_array_forward(e, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+                        fwprintf(stdout, L"Debug: Accept socket request. append success c: %i\n", c);
 
                         //
                         // Create thread for new client socket.

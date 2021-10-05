@@ -33,8 +33,6 @@
 #include "../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../controller/checker/irq/irq_checker.c"
-#include "../../controller/checker/wait_checker.c"
 #include "../../executor/modifier/item_modifier.c"
 #include "../../logger/logger.c"
 
@@ -50,34 +48,20 @@
 void check_empty(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check empty.");
-
-    // The irq flag.
-    //?? int irq = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The signal part representing the interrupt request handler.
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    //?? fwprintf(stdout, L"Test: Check empty. irq: %i\n", irq);
-
-    //
-    // The signal memory is empty, so that the cyboi system
-    // may check for interrupt requests now.
-    //
-    // CAUTION! This code section also covers the situation
-    // when a new signal has been placed in signal memory
-    // just after it was checked to be empty.
-    // In such a case, the signal memory flag was set
-    // so that the new signal may be recognised here
-    // and does not get forgotten.
-    //
+    //?? fwprintf(stdout, L"Debug: Check empty. irq: %i\n", irq);
 
     // The read interrupt request pipe file descriptor.
     int rd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The input/output entry identification.
+    int id = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The client identification.
+    int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The signal part representing the interrupt request handler.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+
     // Get read interrupt request pipe file descriptor.
     copy_array_forward((void*) &rd, p3, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"Test: Check empty. rd: %i\n", rd);
-
-    // Check channels for interrupt requests.
-    //?? check_irq((void*) &irq, (void*) &s, p0);
 
     //
     // CAUTION! Using a mutex would do no harm, but is
@@ -113,20 +97,13 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
     // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
     //
 
-    // The input/output entry identification.
-    int id = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The client identification.
-    int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-
     int n1 = read(rd, (void*) &id, sizeof(int));
     fwprintf(stdout, L"Test: Check empty. found irq pipe id n1: %i\n", n1);
     int n2 = read(rd, (void*) &c, sizeof(int));
     fwprintf(stdout, L"Test: Check empty. found irq pipe client n2: %i\n", n2);
 
-    //?? if (irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
     if (id != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
-        //?? fwprintf(stdout, L"Test: Check empty. found irq: %i\n", irq);
         fwprintf(stdout, L"Test: Check empty. found id: %i\n", id);
 
         // The input/output entry.
@@ -181,15 +158,10 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
             //
         }
 
-/*??
     } else {
 
-        //
-        // No interrupt request was detected.
-        //
-
-        check_wait(p0, p2);
-*/
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check empty. The input/output entry identification is invalid.");
+        fwprintf(stdout, L"Error: Could not check empty. The input/output entry identification is invalid. id: %i\n", id);
     }
 }
 

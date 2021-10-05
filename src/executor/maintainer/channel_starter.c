@@ -33,30 +33,11 @@
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/copier/integer_copier.c"
 #include "../../executor/copier/pointer_copier.c"
+#include "../../executor/sensor/serial_port/serial_port_sensor.c"
+#include "../../executor/sensor/socket/socket_sensor.c"
+#include "../../executor/sensor/unix_terminal/unix_terminal_sensor.c"
+#include "../../executor/sensor/xcb/xcb_sensor.c"
 #include "../../logger/logger.c"
-
-//
-// Forward declarations.
-//
-// The following functions HAVE TO BE declared here since
-// otherwise, the compiler will report errors like:
-//
-// error: 'sense_terminal' undeclared
-//
-// The reason is (probably) that the functions are forwarded
-// as reference (function pointer), for example:
-//
-// &sense_unix_terminal
-//
-// The compiler does not seem to be able to recognise them
-// as functions that way. Therefore, the following explicit
-// declarations of the functions are necessary.
-//
-
-int sense_xcb(void* p0);
-int sense_serial_port(void* p0);
-int sense_socket(void* p0);
-int sense_unix_terminal(void* p0);
 
 /**
  * Determines values specific to the given service.
