@@ -26,6 +26,8 @@
         * Delete complete directory "controller/checker/irq/"
         * Delete some files of directory "controller/checker/io/"
         * Delete file "wait_checker.c"
+        * Delete files "acceptor.c" and "empty_acceptor.c"
+        * Connect activator/enabler and acceptor logically
 
 2021-10-04  Christian Heller  <christian.heller@cybop.org>
 

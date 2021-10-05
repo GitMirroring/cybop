@@ -34,6 +34,7 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/client_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/acceptor/socket/client_socket_acceptor.c"
@@ -61,122 +62,114 @@ int accept_socket_request(void* p0, void* p1, void* p2, void* p3) {
 
             mtx_t* m = (mtx_t*) p2;
 
-            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                int* s = (int*) p1;
+                //
+                // CAUTION! Do NOT log messages within thread,
+                // in order to avoid race conditions and other conflicts.
+                //
+                // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Accept socket request.");
 
-                if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                // The client socket.
+                int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+                // The comparison result.
+                int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                // Accept client request on server socket.
+                fwprintf(stdout, L"Debug: Accept socket request. p1: %i\n", p1);
+                fwprintf(stdout, L"Debug: Accept socket request. *p1: %i\n", *((int*) p1));
+                fwprintf(stdout, L"Debug: Accept socket request. pre c: %i\n", c);
+                accept_socket_client((void*) &c, p1);
+                fwprintf(stdout, L"Debug: Accept socket request. post c: %i\n", c);
+
+                //
+                // Lock client list mutex.
+                //
+                // CAUTION! Set this lock BEFORE comparing with the exit flag below
+                // since otherwise, a race condition might occur.
+                //
+                // Example:
+                // - the exit flag is not set
+                // - the sensing child thread enters the block with r != 0
+                // - the main thread receives some shutdown cybol operation
+                // - the main thread sets the exit flag only now
+                // - the main thread shuts down and deallocates the destination buffer
+                // - the sensing child thread decodes characters
+                // - the sensing child thread possibly reallocates the (non-existing) destination buffer
+                // - this leads to memory errors such as "corrupted double-linked list"
+                //
+                mtx_lock(m);
+
+                compare_integer_equal((void*) &r, ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+                if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                     //
-                    // CAUTION! Do NOT log messages within thread,
-                    // in order to avoid race conditions and other conflicts.
+                    // The exit flag was NOT set in the main thread.
+                    // Therefore, proceed normally.
                     //
-                    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Accept socket request.");
 
-                    // The client socket.
-                    int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-                    // The comparison result.
-                    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-                    // Accept client request on server socket.
-                    fwprintf(stdout, L"Debug: Accept socket request. *s: %i\n", *s);
-                    fwprintf(stdout, L"Debug: Accept socket request. pre c: %i\n", c);
-                    accept_socket_client((void*) &c, *s);
-                    fwprintf(stdout, L"Debug: Accept socket request. post c: %i\n", c);
+                    // The client entry.
+                    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
                     //
-                    // Lock client list mutex.
+                    // Allocate client entry.
                     //
-                    // CAUTION! Set this lock BEFORE comparing with the exit flag below
-                    // since otherwise, a race condition might occur.
+                    // CAUTION! Due to memory allocation handling, the size MUST NOT
+                    // be negative or zero, but have at least a value of ONE.
                     //
-                    // Example:
-                    // - the exit flag is not set
-                    // - the sensing child thread enters the block with r != 0
-                    // - the main thread receives some shutdown cybol operation
-                    // - the main thread sets the exit flag only now
-                    // - the main thread shuts down and deallocates the destination buffer
-                    // - the sensing child thread decodes characters
-                    // - the sensing child thread possibly reallocates the (non-existing) destination buffer
-                    // - this leads to memory errors such as "corrupted double-linked list"
+                    allocate_array((void*) &e, (void*) CLIENT_ENTRY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
+
+                    // - allocate message buffer, client socket thread
+                    // SEE:
+                    // Startup input/output entry.
+                    //?? startup_io(io, p1, p2, (void*) &id, p21, (void*) &io);
+                    // Execute channel-specific startup functions.
+                    //?? startup_specific(io, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19);
+
+                    // Set client socket into client entry.
+                    fwprintf(stdout, L"Debug: Accept socket request. DO process data. r: %i\n", r);
+                    copy_array_forward(e, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+                    fwprintf(stdout, L"Debug: Accept socket request. append success c: %i\n", c);
+
+                    // Set client entry into client list of input/output entry.
+                    //?? set_internal_memory_??_element(p??, (void*) &e, p20, p16);
+                    fwprintf(stdout, L"Debug: Accept socket request. DO process data. r: %i\n", r);
+                    modify_item(p0, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+                    fwprintf(stdout, L"Debug: Accept socket request. append success c: %i\n", c);
+
                     //
-                    mtx_lock(m);
-
-                    compare_integer_equal((void*) &r, ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-                    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                        //
-                        // The exit flag was NOT set in the main thread.
-                        // Therefore, proceed normally.
-                        //
-
-                        // The client entry.
-                        void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-                        //
-                        // Allocate client entry.
-                        //
-                        // CAUTION! Due to memory allocation handling, the size MUST NOT
-                        // be negative or zero, but have at least a value of ONE.
-                        //
-                        allocate_array((void*) &e, (void*) CLIENT_ENTRY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
-
-                        // - allocate message buffer, client socket thread
-                        // Startup input/output entry.
-                        //?? startup_io(io, p1, p2, (void*) &id, p21, (void*) &io);
-                        // Execute channel-specific startup functions.
-                        //?? startup_specific(io, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19);
-
-                        // Set client entry into client list of input/output entry.
-                        set_internal_memory_??_element(p??, (void*) &e, p20, p16);
-                        fwprintf(stdout, L"Debug: Accept socket request. DO process data. r: %i\n", r);
-                        modify_item(p0, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-                        fwprintf(stdout, L"Debug: Accept socket request. append success c: %i\n", c);
-
-                        // Assign client socket to client entry.
-                        fwprintf(stdout, L"Debug: Accept socket request. DO process data. r: %i\n", r);
-                        copy_array_forward(e, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-                        fwprintf(stdout, L"Debug: Accept socket request. append success c: %i\n", c);
-
-                        //
-                        // Create thread for new client socket.
-                        //
-                        // CAUTION! A new child thread can be created by ANY thread,
-                        // not only the main programme thread, at any time.
-                        //
-                        //?? TODO ...
-
-                    } else {
-
-                        //
-                        // The exit flag WAS SET in the main thread.
-                        // Therefore, do NOT process data here any longer.
-                        //
-                        // The reason is that data processing might require
-                        // reallocation of some destination arrays, which may
-                        // not exist anymore if the main thread deallocated them,
-                        // leading to the error "realloc(): invalid pointer".
-                        //
-                        // Reallocation may happen above, when adding a number to the client list item.
-                        //
-
-                        fwprintf(stdout, L"Debug: Accept socket request. Do NOT process data. r: %i\n", r);
-                    }
-
-                    // Unlock client list mutex.
-                    mtx_unlock(m);
+                    // Create thread for new client socket.
+                    //
+                    // CAUTION! A new child thread can be created by ANY thread,
+                    // not only the main programme thread, at any time.
+                    //
+                    //?? TODO ...
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not accept socket request. The destination client list item is null.");
-                    fwprintf(stdout, L"Error: Could not accept socket request. The destination client list item is null. p0: %i\n", p0);
+                    //
+                    // The exit flag WAS SET in the main thread.
+                    // Therefore, do NOT process data here any longer.
+                    //
+                    // The reason is that data processing might require
+                    // reallocation of some destination arrays, which may
+                    // not exist anymore if the main thread deallocated them,
+                    // leading to the error "realloc(): invalid pointer".
+                    //
+                    // Reallocation may happen above, when adding a number to the client list item.
+                    //
+
+                    fwprintf(stdout, L"Debug: Accept socket request. Do NOT process data. r: %i\n", r);
                 }
+
+                // Unlock client list mutex.
+                mtx_unlock(m);
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not accept socket request. The source server socket is null.");
-                fwprintf(stdout, L"Error: Could not accept socket request. The source server socket is null. p1: %i\n", p1);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not accept socket request. The destination client list item is null.");
+                fwprintf(stdout, L"Error: Could not accept socket request. The destination client list item is null. p0: %i\n", p0);
             }
 
         } else {

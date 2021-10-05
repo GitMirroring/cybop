@@ -77,8 +77,6 @@ int accept_socket(void* p0) {
     // The receiver server socket number.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The interrupt pipe write file descriptor.
-    int ipw = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
