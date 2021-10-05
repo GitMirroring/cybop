@@ -14,16 +14,25 @@
 Pipe
 ____
 
-        * Remove interrupt from input/output entry now replaced by pipe communication in checker
-        * Remove enable flag from input/output entry since thread should exit when disabled
-            receiving data and ignoring them with enable set to false would be misleading and a bad idea, since input data would then be consumed but not processed
-        * Remove channel-specific pipe from input/output entry, since arrays are used to receive input data
-        * Adapt starter and shutter to input/output entry changes
+        * Determine client in file "empty_checker.c"
+        * Adapt file "socket_sensor.c" for writing id + client to irq pipe (see example in file "message_unix_terminal_sensor.c")
+        * Continue: executor/activator/
+
+        * TODO ??: Eliminate superfluous signal loop and call processing directly after getting handler (signal) in file "empty_checker.c"
 
         THINK:
             1 socket - n service ports
             1 service port - n clients
             startup is ok, now investigate activator/enabler.c --> where to place the input/output entry, one for EACH client?
+        --> 3 threads are needed for: accept + read + timeout handling (sleep 1 s in between checking timeout)
+
+        * Reactivate file "sensor.c", in order to avoid redundant initialisation code in channel-specific sensors
+
+        * Remove interrupt from input/output entry now replaced by pipe communication in checker
+        * Remove enable flag from input/output entry since thread should exit when disabled
+            receiving data and ignoring them with enable set to false would be misleading and a bad idea, since input data would then be consumed but not processed
+        * Remove channel-specific pipe from input/output entry, since arrays are used to receive input data
+        * Adapt starter and shutter to input/output entry changes
 
         * Temporarily for testing: Use terminal read function also for socket in "reader.c", since both are identical
         * Make socket cybol applications work again

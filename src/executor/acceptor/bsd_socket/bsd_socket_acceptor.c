@@ -53,8 +53,7 @@ void accept_bsd_socket(void* p0, void* p1) {
         // Otherwise, it would produce huge log files filled up with useless entries.
         //
         // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Accept bsd socket.");
-
-        //?? fwprintf(stdout, L"Test: Accept bsd socket *s: %i\n", *s);
+        fwprintf(stdout, L"Debug: Accept bsd socket *s: %i\n", *s);
 
         //
         // Initialise error number.
@@ -91,8 +90,6 @@ void accept_bsd_socket(void* p0, void* p1) {
         // CAUTION! The socket was made non-blocking at startup.
         //
         int c = accept(*s, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-
-        //?? fwprintf(stdout, L"Test: Accept bsd socket. client socket c: %i\n", c);
 
         if (c >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -134,7 +131,6 @@ void accept_bsd_socket(void* p0, void* p1) {
                 // Otherwise, it would produce huge log files filled up with useless entries.
                 //
                 // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not accept bsd socket. The socket has nonblocking mode set, and there are no pending connexions immediately available.");
-
                 //?? fwprintf(stdout, L"Test: Accept bsd socket. error EWOULDBLOCK: %i\n", errno);
 
             } else {

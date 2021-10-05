@@ -28,6 +28,7 @@
 
 #include <xcb/xcb.h>
 
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -37,6 +38,7 @@
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/copier/array_copier.c"
+#include "../../../executor/modifier/item_modifier.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -143,7 +145,10 @@ void sense_xcb_event(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
                                         // Lock interrupt mutex.
                                         mtx_lock(im);
                                         //
-                                        // Write input/output entry identification to interrupt pipe.
+                                        // Write to interrupt pipe.
+                                        //
+                                        // - input/output entry identification
+                                        // - client identification
                                         //
                                         // CAUTION! The safe way is to use the functions "snprintf" and "strtol".
                                         // However, if both processes were created using the same compiler version,
@@ -160,6 +165,7 @@ void sense_xcb_event(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
                                         // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
                                         //
                                         write(*ipw, p3, sizeof(int));
+                                        write(*ipw, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, sizeof(int));
                                         // Unlock interrupt mutex.
                                         mtx_unlock(im);
 

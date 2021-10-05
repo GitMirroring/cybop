@@ -41,7 +41,7 @@
  *
  * @param p0 the internal memory data
  * @param p1 the input/output base
- * @param p2 the service identification (e.g. socket port)
+ * @param p2 the socket port (service identification)
  * @param p3 the handler part (pointer reference)
  * @param p4 the sender client data (pointer reference, e.g. client socket id, window id, file descriptor)
  */

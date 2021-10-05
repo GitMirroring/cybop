@@ -52,7 +52,7 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check empty.");
 
     // The irq flag.
-    int irq = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    //?? int irq = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The signal part representing the interrupt request handler.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -80,6 +80,22 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
     //?? check_irq((void*) &irq, (void*) &s, p0);
 
     //
+    // CAUTION! Using a mutex would do no harm, but is
+    // NOT necessary here, for the following reasons:
+    //
+    // 1 The values are only read but nothing is written.
+    //
+    // 2 The order of the values in the pipe is unchanged.
+    //   If new values are written to the pipe in one
+    //   of the threads, then they are added at the end.
+    //   A mutex is used for writing, so that all values
+    //   belonging together are placed at once.
+    //   Therefore, one can always be sure that the values
+    //   being read in a sequence here really do belong together,
+    //   to the same interrupt (event).
+    //
+
+    //
     // Read from interrupt request pipe.
     //
     // CAUTION! The safe way is to use the functions "snprintf" and "strtol".
@@ -96,10 +112,16 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
     //
     // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
     //
+
     // The input/output entry identification.
     int id = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    int n = read(rd, (void*) &id, sizeof(id));
-    fwprintf(stdout, L"Test: Check empty. found irq pipe n: %i\n", n);
+    // The client identification.
+    int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+
+    int n1 = read(rd, (void*) &id, sizeof(int));
+    fwprintf(stdout, L"Test: Check empty. found irq pipe id n1: %i\n", n1);
+    int n2 = read(rd, (void*) &c, sizeof(int));
+    fwprintf(stdout, L"Test: Check empty. found irq pipe client n2: %i\n", n2);
 
     //?? if (irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
     if (id != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
@@ -118,6 +140,9 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
             //
             // An input/output entry exists for the service.
             //
+
+            // Set client identification into input/output entry.
+            copy_array_forward(io, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SENDER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             //
             // Get handler from input/output entry.

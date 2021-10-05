@@ -29,6 +29,7 @@
 #include <stdio.h>
 #include <wchar.h>
 
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/ansi_escape_code/input_ansi_escape_code_model.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/name/cybol/state/keyboard/keyboard_state_cybol_name.c"

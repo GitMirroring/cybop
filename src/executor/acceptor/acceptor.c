@@ -29,9 +29,7 @@
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-//?? #include "../../executor/acceptor/display/display_acceptor.c"
-//?? #include "../../executor/acceptor/serial/serial_acceptor.c"
-#include "../../executor/acceptor/socket/server_socket_acceptor.c"
+//?? #include "../../executor/acceptor/socket/server_socket_acceptor.c"
 #include "../../executor/acceptor/empty_acceptor.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../logger/logger.c"
@@ -53,8 +51,7 @@
 void accept_client(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Accept.");
-
-    //?? fwprintf(stdout, L"Test: accept. channel *p3: %i\n", *((int*) p3));
+    fwprintf(stdout, L"Test: accept. channel *p3: %i\n", *((int*) p3));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -85,7 +82,7 @@ void accept_client(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            accept_socket_server(p0, p1);
+            //?? accept_socket_server(p0, p1);
         }
     }
 

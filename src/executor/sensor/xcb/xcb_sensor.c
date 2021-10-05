@@ -110,7 +110,6 @@ int sense_xcb(void* p0) {
     fwprintf(stdout, L"Test: Sense socket. c: %i\n", c);
     fwprintf(stdout, L"Test: Sense socket. *c: %i\n", *((int*) c));
 
-    // Run loop neverendingly while sensing messages.
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_unequal((void*) &r, ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);

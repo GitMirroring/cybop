@@ -18,6 +18,15 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-10-05  Christian Heller  <christian.heller@cybop.org>
+
+        * Restructure socket acceptor which is now running in a thread
+
+2021-10-04  Christian Heller  <christian.heller@cybop.org>
+
+        * Hand over to interrupt pipe not only the service (input/output entry) identification (base + port) but also the client identification
+        * Add constants and new file "client_state_cyboi_name.c"
+
 2021-10-02  Christian Heller  <christian.heller@cybop.org>
 
         * Restructure startup and shutdown with new files "channel_starter.c", "general_starter.c", "specific_starter.c"

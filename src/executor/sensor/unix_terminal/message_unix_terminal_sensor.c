@@ -179,7 +179,10 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                                             // Lock interrupt mutex.
                                             mtx_lock(im);
                                             //
-                                            // Write input/output entry identification to interrupt pipe.
+                                            // Write to interrupt pipe.
+                                            //
+                                            // - input/output entry identification (base + port)
+                                            // - client identification
                                             //
                                             // CAUTION! The safe way is to use the functions "snprintf" and "strtol".
                                             // However, if both processes were created using the same compiler version,
@@ -196,6 +199,7 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                                             // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
                                             //
                                             write(*ipw, p3, sizeof(int));
+                                            write(*ipw, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, sizeof(int));
                                             // Unlock interrupt mutex.
                                             mtx_unlock(im);
 

@@ -38,7 +38,7 @@
  * Disables the given channel for message sensing.
  *
  * @param p0 the internal memory data
- * @param p1 the service identification (e.g. socket port)
+ * @param p1 the socket port (service identification)
  * @param p2 the channel
  */
 void disable(void* p0, void* p1, void* p2) {

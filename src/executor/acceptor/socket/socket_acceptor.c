@@ -27,39 +27,96 @@
 #define SOCKET_ACCEPTOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/acceptor/socket/request_socket_acceptor.c"
+#include "../../../executor/comparator/integer/unequal_integer_comparator.c"
+#include "../../../executor/copier/array_copier.c"
 #include "../../../logger/logger.c"
 
-#if defined(__linux__) || defined(__unix__)
-    #include "../../../executor/acceptor/bsd_socket/bsd_socket_acceptor.c"
-#elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../executor/acceptor/bsd_socket/bsd_socket_acceptor.c"
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../executor/acceptor/winsock/winsock_acceptor.c"
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
-
 /**
- * Accepts a new client request waiting on the given server socket.
+ * Accepts new client requests via socket.
  *
- * @param p0 the sender client socket
- * @param p1 the receiver server socket
+ * CAUTION! In cyboi, all functions by default have
+ * NO return value. In relation with threads, however,
+ * iso c defines the data type "thrd_start_t" as:
+ *
+ * int (*) (void*)
+ *
+ * with the following meaning:
+ *
+ * int      - the integer return type
+ * *        - the function pointer with arbitrary name
+ * void*    - the function argument
+ *
+ * Therefore, this function exceptionally has
+ * the return type "int".
+ *
+ * @param p0 the input/output entry
  */
-void accept_socket(void* p0, void* p1) {
+int accept_socket(void* p0) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Accept socket.");
+    //
+    // CAUTION! Do NOT log messages within thread,
+    // in order to avoid race conditions and other conflicts.
+    //
+    //?? log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Accept socket.");
 
-#if defined(__linux__) || defined(__unix__)
-    accept_bsd_socket(p0, p1);
-#elif defined(__APPLE__) && defined(__MACH__)
-    accept_bsd_socket(p0, p1);
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-    accept_winsock(p0, p1);
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
+    // The exit flag.
+    void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The client list item.
+    void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The client list mutex.
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The receiver server socket number.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // The interrupt pipe write file descriptor.
+    int ipw = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    // Get exit flag from input/output entry.
+    copy_array_forward((void*) &ex, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get client list item from input/output entry.
+    copy_array_forward((void*) &cl, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CLIENT_LIST_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get mutex from input/output entry.
+    copy_array_forward((void*) &m, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get receiver server socket number from input/output entry.
+    copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_unequal((void*) &r, ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // The exit flag was set in the main thread.
+            // Therefore, leave this endless loop now.
+            // The child thread exits when this function returns.
+            //
+
+            break;
+        }
+
+        accept_socket_request(cl, s, m, ex);
+    }
+
+    //
+    // An implicit call to "thrd_exit" is made when this thread
+    // (other than the thread in which "main" was first invoked)
+    // returns from the function that was used to create it (this function).
+    // The "thrd_exit" function does therefore NOT have to be called here.
+    //
+
+    return *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 }
 
 /* SOCKET_ACCEPTOR_SOURCE */
