@@ -14,10 +14,11 @@
 Pipe
 ____
 
+        DONE: executor/activator/enabler
+        CONTINUE: acceptor/socket
         * Add file "client_starter.c" as pendent to "io_starter.c"
         * Determine client in file "empty_checker.c"
         * Adapt file "socket_sensor.c" for writing id + client to irq pipe (see example in file "message_unix_terminal_sensor.c")
-        * Continue: executor/activator/
 
         * TODO ??: Eliminate superfluous signal loop and call processing directly after getting handler (signal) in file "empty_checker.c"
 
