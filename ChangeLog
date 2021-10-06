@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-10-06  Christian Heller  <christian.heller@cybop.org>
+
+        * Continue socket acceptor
+        * Add file "client_starter.c" as pendant to "io_starter.c"
+        * Add file "client_channel_enabler.c" for testing socket input/output
+
 2021-10-05  Christian Heller  <christian.heller@cybop.org>
 
         * Restructure socket acceptor which is now running in a thread

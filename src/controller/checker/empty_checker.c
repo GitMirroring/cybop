@@ -156,6 +156,11 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
             // The cyboi system is therefore NOT sent to sleep, so that possibly existing
             // signals may be handled in the next iteration of the signal checker loop.
             //
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check empty. The input/output entry is null.");
+            fwprintf(stdout, L"Error: Could not check empty. The input/output entry is null. id: %i\n", io);
         }
 
     } else {

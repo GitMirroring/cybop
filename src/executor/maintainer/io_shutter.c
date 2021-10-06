@@ -41,7 +41,7 @@
 #include "../../logger/logger.c"
 
 /**
- * Deallocates the input/output entry of the given service.
+ * Deallocates the input/output entry content.
  *
  * @param p0 the input/output entry
  */

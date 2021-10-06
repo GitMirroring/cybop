@@ -115,7 +115,7 @@
 //
 
 /**
- * Retrieves or allocates the input/output entry of the given service.
+ * Allocates the input/output entry content.
  *
  * @param p0 the input/output entry
  * @param p1 the interrupt pipe (pointer reference)

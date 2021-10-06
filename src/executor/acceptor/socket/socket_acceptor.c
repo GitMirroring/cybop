@@ -74,9 +74,15 @@ int accept_socket(void* p0) {
     void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The client list mutex.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The interrupt pipe.
+    void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The interrupt mutex.
+    void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The receiver server socket number.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    // The interrupt pipe write file descriptor.
+    int ipw = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -86,8 +92,18 @@ int accept_socket(void* p0) {
     copy_array_forward((void*) &cl, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CLIENT_LIST_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get mutex from input/output entry.
     copy_array_forward((void*) &m, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get interrupt pipe from input/output entry.
+    copy_array_forward((void*) &ip, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_PIPE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get interrupt mutex from input/output entry.
+    copy_array_forward((void*) &im, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get receiver server socket number from input/output entry.
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+    // Get interrupt pipe write file descriptor.
+    copy_array_forward((void*) &ipw, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+
+    fwprintf(stdout, L"Test: Accept socket. s: %i\n", s);
+    fwprintf(stdout, L"Test: Accept socket. *s: %i\n", *((int*) s));
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -104,7 +120,7 @@ int accept_socket(void* p0) {
             break;
         }
 
-        accept_socket_request(cl, s, m, ex);
+        accept_socket_request(cl, s, m, (void*) &ipw, im, ex);
     }
 
     //

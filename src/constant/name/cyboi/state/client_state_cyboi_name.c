@@ -31,7 +31,14 @@
 //
 // General
 //
+// This is the client socket number that was assigned
+// automatically by the system when accepting the client request.
+//
 
+static int* IDENTIFICATION_CLIENT_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// Message
 //
 // The buffer stores input data read from the client.
 //
@@ -41,19 +48,12 @@
 // - socket: character array of char
 // - terminal: wide character array of wchar_t
 //
-static int* IDENTIFICATION_CLIENT_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
-// Message
-//
 
 static int* BUFFER_MESSAGE_CLIENT_STATE_CYBOI_NAME = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 static int* MUTEX_MESSAGE_CLIENT_STATE_CYBOI_NAME = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // Thread
-//
-
 //
 // The thread runs the function "sense" in order
 // to detect new input on the client.
