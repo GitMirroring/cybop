@@ -14,12 +14,17 @@
 Pipe
 ____
 
-        DONE: executor/activator/enabler
-        CONTINUE: acceptor/socket
-        * Determine client in file "empty_checker.c"
-        * Adapt file "socket_sensor.c" for writing id + client to irq pipe (see example in file "message_unix_terminal_sensor.c")
+        * Fix error "The futex facility returned an unexpected error code."
+            possibly, the input/output identification stored in client entry causes a conflict, since it is also referenced in input/output entry
+            or (search in web showed): this error indicates something like a conflict of concurrent threads or even a possible deadlock
+            or the lock for mutex is not allocated for channel "socket" (in accept or sense ??)
+            or simply the "fwprintf" log messages cause the error
 
-        * TODO ??: Eliminate superfluous signal loop and call processing directly after getting handler (signal) in file "empty_checker.c"
+        * Remove superfluous files in directory "executor/sensor/socket/"
+
+        Working Solution:
+        * Read client socket (id) from pipe in main thread, write it into io entry, so that next signal loop cycle calling handler with cybol receive can use the client socket id
+            --> there is NO danger of concurrent child threads manipulating the id, since it is only written in function "check_empty.c" of the main thread
 
         THINK:
             1 socket - n service ports
@@ -27,38 +32,32 @@ ____
             startup is ok, now investigate activator/enabler.c --> where to place the input/output entry, one for EACH client?
         --> 3 threads are needed for: accept + read + timeout handling (sleep 1 s in between checking timeout)
 
-        * Reactivate file "sensor.c", in order to avoid redundant initialisation code in channel-specific sensors
-
-        * Remove interrupt from input/output entry now replaced by pipe communication in checker
-        * Remove enable flag from input/output entry since thread should exit when disabled
-            receiving data and ignoring them with enable set to false would be misleading and a bad idea, since input data would then be consumed but not processed
-        * Remove channel-specific pipe from input/output entry, since arrays are used to receive input data
-        * Adapt starter and shutter to input/output entry changes
-
-        * Temporarily for testing: Use terminal read function also for socket in "reader.c", since both are identical
+        * Loop reading socket events, until array is empty or end of message is reached
+        * How to detect real end (not only end of header "\r\n\r\n") of http message? Parse all data? Provide end-of-message-parser for all kinds of protocols?
+            cybol operation "receive" does not only hand over a property "channel", but also a "language" and "format"
+            these have to be used as protocol, e.g. "http", and can be handed over as argument inside cyboi
+            then, parse (filter) the sensed message in the child thread until its end is detected
+            only then write to interrupt pipe (if end is detected), otherwise (else) just wait blocking on only that client socket until rest of the message including its end have been received
         * Make socket cybol applications work again
-            DONE: empty_checker.c works fine, proper id (base + port) is assigned at startup and received
-            TODO: think and figure out if separate threads have to be used for "accept" (new connexion) and "read" (existing socket client)
-        * Loop reading socket events, until array is empty
 
         * Set exit flag (?? CAUTION! conflict or mutex with main thread) in child thread (in else branch) if one of the args is null?
             --> use local break flag instead (additionally to exit flag)
 
-        * Add error handling in file "message_socket_sensor.c" and similar sensor files
-        * Adapt includes for all channels
+        * Encapsulate function "read" with proper error handling and use it in sensors for serial port, terminal, socket
+        * Temporarily for testing: Use terminal read function also for socket in "reader.c", since both are identical
+        * Check and adapt includes for all channels
+        * Make sensor for terminal, socket, display platform-independent
+        * Reactivate file "sensor.c", in order to avoid redundant initialisation code in channel-specific sensors ??
 
         * Think: the call of function "read_device" (using "ioctl" internally) was used in file "socket_sensor.c", to detect input on socket
             --> that means, that output should be sendable to socket as well via "ioctl"
             --> this could possibly be used for exiting the sensing thread !
 
-        * Make sensor for terminal, socket, display platform-independent
-
-        * Remove block with call of function "check_wait" in file "empty_checker.c"
-        * Delete file "wait_checker.c"
-
         * Clean up further errors reported by valgrind
             error "uninitialised value" and call stack: shutdown_service --> disable_channel --> cut --> fwprintf
             error "4 bytes in 1 blocks are definitely lost" and call stack: apply_startup --> startup_service --> startup_io --> allocate_array --> malloc
+
+        * Eliminate superfluous signal loop and call processing directly after getting handler (signal) in file "empty_checker.c" ??
 
         * Catch events properly in cybol application "user_interface/gui/"
             events get identified correctly when being a property of the window
@@ -102,7 +101,7 @@ ____
         * How to avoid blocking of main thread when reading data input pipe?
             buffer might be filled just complete and then next byte expected by read but no more data available
             --> single wide characters are read and compared with WEOF to detect end of message
-            Question: Can WEOF appear in binary file? Probably yes. Is there a wide character pendent to function "feof"?
+            Question: Can WEOF appear in binary file? Probably yes. Is there a wide character pendant to function "feof"?
 
         * Hand over desired protocol (e.g. http) as property to cybol operation "activate/enable" for sensing input
         * Detect end of a message header (e.g. "\r\n\r\n" or ansi escape sequence -- how??) by string comparison already in sensor and not only in reader

@@ -57,7 +57,7 @@ int sense_socket(void* p0) {
     // in order to avoid race conditions and other conflicts.
     //
     //?? log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket.");
-    fwprintf(stdout, L"Test: Sense socket. p0: %i\n", p0);
+    fwprintf(stdout, L"Debug: Sense socket. p0: %i\n", p0);
 
     // The exit flag.
     void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -71,6 +71,8 @@ int sense_socket(void* p0) {
     void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The interrupt mutex.
     void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The input/output identification (input/output base + socket port).
+    void* ioid = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // The local character buffer data, count.
@@ -135,12 +137,16 @@ int sense_socket(void* p0) {
     copy_array_forward((void*) &ip, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PIPE_INTERRUPT_CLIENT_STATE_CYBOI_NAME);
     // Get interrupt mutex from client entry.
     copy_array_forward((void*) &im, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INTERRUPT_CLIENT_STATE_CYBOI_NAME);
+    // Get input/output identification (input/output base + socket port) from client entry.
+    copy_array_forward((void*) &ioid, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_OUTPUT_IDENTIFICATION_CLIENT_STATE_CYBOI_NAME);
 
     // Get interrupt pipe write file descriptor.
     copy_array_forward((void*) &ipw, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-    fwprintf(stdout, L"Test: Sense socket. id: %i\n", id);
-    fwprintf(stdout, L"Test: Sense socket. *id: %i\n", *((int*) id));
+    fwprintf(stdout, L"Debug: Sense socket. ioid: %i\n", ioid);
+    fwprintf(stdout, L"Debug: Sense socket. *ioid: %i\n", *((int*) ioid));
+    fwprintf(stdout, L"Debug: Sense socket. id: %i\n", id);
+    fwprintf(stdout, L"Debug: Sense socket. *id: %i\n", *((int*) id));
 
     // Run loop neverendingly while sensing messages.
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -158,7 +164,7 @@ int sense_socket(void* p0) {
             break;
         }
 
-        sense_socket_message(b, id, (void*) &ipw, m, im, cd, (void*) &cc, ex);
+        sense_socket_message(b, id, (void*) &ipw, m, im, cd, (void*) &cc, ioid, ex);
     }
 
     //

@@ -49,11 +49,12 @@
  * @param p0 the client entry
  * @param p1 the interrupt pipe (pointer reference)
  * @param p2 the interrupt mutex (pointer reference)
- * @param p3 the identification
- * @param p4 the thread function (pointer reference)
- * @param p5 the function argument (pointer reference)
+ * @param p3 the input/output identification (pointer reference, input/output base + socket port)
+ * @param p4 the client identification
+ * @param p5 the thread function (pointer reference)
+ * @param p6 the function argument (pointer reference)
  */
-void startup_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void startup_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup client.");
     fwprintf(stdout, L"Debug: Startup client. p0: %i\n", p0);
@@ -136,7 +137,7 @@ void startup_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     //
 
     // Initialise identification.
-    copy_integer(id, p3);
+    copy_integer(id, p4);
     // The access mutex with casted type.
     mtx_t* mt = (mtx_t*) m;
     // Initialise access mutex.
@@ -155,13 +156,13 @@ void startup_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     //
     // CAUTION! Hand over function as pointer REFERENCE.
     //
-    copy_pointer(f, p4);
+    copy_pointer(f, p5);
     //
     // Initialise function argument.
     //
-    // CAUTION! Hand over input/output entry itself, but as pointer REFERENCE.
+    // CAUTION! Hand over client entry itself, but as pointer REFERENCE.
     //
-    copy_pointer(a, p5);
+    copy_pointer(a, p6);
     // Initialise exit flag.
     copy_integer(ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
@@ -187,7 +188,7 @@ void startup_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     // Set interrupt pipe into client entry.
     //
     // CAUTION! This reference is actually stored in internal memory.
-    // However, it gets stored in input/output entry HERE a SECOND time,
+    // However, it gets stored in client entry HERE a SECOND time,
     // in order to be able to pass it to the corresponding thread,
     // which does accept only ONE function argument.
     //
@@ -196,11 +197,20 @@ void startup_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     // Set interrupt mutex into client entry.
     //
     // CAUTION! This reference is actually stored in internal memory.
-    // However, it gets stored in input/output entry HERE a SECOND time,
+    // However, it gets stored in client entry HERE a SECOND time,
     // in order to be able to pass it to the corresponding thread,
     // which does accept only ONE function argument.
     //
     copy_array_forward(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_INTERRUPT_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    //
+    // Set input/output identification (input/output base + socket port) into client entry.
+    //
+    // CAUTION! This reference is actually stored in input/output entry.
+    // However, it gets stored in client entry HERE a SECOND time,
+    // in order to be able to pass it to the corresponding thread,
+    // which does accept only ONE function argument.
+    //
+    copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INPUT_OUTPUT_IDENTIFICATION_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* CLIENT_STARTER_SOURCE */

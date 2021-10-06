@@ -23,15 +23,20 @@
         * Continue socket acceptor
         * Add file "client_starter.c" as pendant to "io_starter.c"
         * Add file "client_channel_enabler.c" for testing socket input/output
+        * Adapt file "message_socket_sensor.c" to write into interrupt pipe not only the service (input/output entry) identification (base + port) but also the client socket identification
 
 2021-10-05  Christian Heller  <christian.heller@cybop.org>
 
         * Restructure socket acceptor which is now running in a thread
-        * Delete enable flag, interrupt flag, input/output pipe (the interrupt pipe suffices) in input/output entry and everywhere else
+        * Use separate threads for "accept" (new connexion) and "read" (existing socket client)
+        * Remove interrupt flag from input/output entry, since it is replaced by pipe communication in checker
+        * Remove enable flag from input/output entry, since thread should exit when disabled (receiving data and ignoring them with enable set to false would be misleading and a bad idea, since input data would then be consumed but not processed)
+        * Remove channel-specific pipe from input/output entry, since arrays are used to receive input data
+        * Adapt starter and shutter to input/output entry changes
         * Clean up event/signal handling in controller to prepare for child thread usage in sensing/detecting messages
         * Delete complete directory "controller/checker/irq/"
         * Delete some files of directory "controller/checker/io/"
-        * Delete file "wait_checker.c"
+        * Delete file "wait_checker.c" and remove call of function "check_wait" in file "empty_checker.c"
         * Delete files "acceptor.c" and "empty_acceptor.c"
         * Connect activator/enabler and acceptor logically
 

@@ -98,9 +98,9 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
     //
 
     int n1 = read(rd, (void*) &id, sizeof(int));
-    fwprintf(stdout, L"Test: Check empty. found irq pipe id n1: %i\n", n1);
+    fwprintf(stdout, L"Test: Check empty. found irq pipe input/output id n1: %i\n", n1);
     int n2 = read(rd, (void*) &c, sizeof(int));
-    fwprintf(stdout, L"Test: Check empty. found irq pipe client n2: %i\n", n2);
+    fwprintf(stdout, L"Test: Check empty. found irq pipe client socket n2: %i\n", n2);
 
     if (id != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 

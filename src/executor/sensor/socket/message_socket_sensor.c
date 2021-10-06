@@ -42,13 +42,14 @@
  * @param p4 the interrupt mutex
  * @param p5 the local character buffer data
  * @param p6 the local character buffer count
- * @param p7 the exit flag
+ * @param p7 the input/output identification (input/output base + socket port)
+ * @param p8 the exit flag
  */
-void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p8 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* ex = (int*) p7;
+        int* ex = (int*) p8;
 
         if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -98,8 +99,8 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
                                     fwprintf(stdout, L"Test: Sense socket message. bct: %i\n", bct);
                                     int n = read(*s, p5, bct);
                                     fwprintf(stdout, L"Test: Sense socket message. n: %i\n", n);
-                                    fwprintf(stdout, L"Test: Sense socket message. *p5 as c: %c\n", *((char*) p5));
-                                    fwprintf(stdout, L"Test: Sense socket message. p5 as s: %s\n", (char*) p5);
+                                    //?? fwprintf(stdout, L"Test: Sense socket message. *p5 as c: %c\n", *((char*) p5));
+                                    //?? fwprintf(stdout, L"Test: Sense socket message. p5 as s: %s\n", (char*) p5);
 
                                     // The comparison result.
                                     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -160,7 +161,7 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
                                         //
                                         // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
                                         //
-                                        write(*ipw, p1, sizeof(int));
+                                        write(*ipw, p7, sizeof(int));
                                         write(*ipw, p1, sizeof(int));
                                         // Unlock interrupt mutex.
                                         mtx_unlock(im);
@@ -230,7 +231,7 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The exit flag is null.");
-        fwprintf(stdout, L"Error: Could not sense socket message. The exit flag is null. p7: %i\n", p7);
+        fwprintf(stdout, L"Error: Could not sense socket message. The exit flag is null. p8: %i\n", p8);
     }
 }
 

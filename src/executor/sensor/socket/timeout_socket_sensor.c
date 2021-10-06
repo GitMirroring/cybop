@@ -23,25 +23,15 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SOCKET_ACCEPTOR_SOURCE
-#define SOCKET_ACCEPTOR_SOURCE
+#ifndef TIMEOUT_SOCKET_SENSOR_SOURCE
+#define TIMEOUT_SOCKET_SENSOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
-#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/acceptor/socket/request_socket_acceptor.c"
-#include "../../../executor/comparator/integer/unequal_integer_comparator.c"
-#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/sensor/socket/request_accept_socket_sensor.c"
 #include "../../../logger/logger.c"
 
 /**
- * Accepts new client requests via socket.
+ * Senses server socket client timeouts.
  *
  * CAUTION! In cyboi, all functions by default have
  * NO return value. In relation with threads, however,
@@ -60,55 +50,93 @@
  *
  * @param p0 the input/output entry
  */
-int accept_socket(void* p0) {
+int sense_socket_timeout(void* p0) {
 
     //
     // CAUTION! Do NOT log messages within thread,
     // in order to avoid race conditions and other conflicts.
     //
-    //?? log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Accept socket.");
+    //?? log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket timeout.");
+    fwprintf(stdout, L"Debug: Sense socket timeout. p0: %i\n", p0);
 
     // The exit flag.
     void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The identification (input/output base + socket port).
+    // The buffer item.
+    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The identification.
     void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The client list item.
-    void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The client list mutex.
+    // The mutex.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The interrupt pipe.
-    void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The interrupt mutex.
-    void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The receiver server socket number.
+    // The socket number.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The interrupt pipe write file descriptor.
-    int ipw = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    //
+    // The local character buffer data, count.
+    //
+    // CAUTION! Do NOT declare these variables inside
+    // the called function, for two reasons:
+    //
+    // 1 It is more EFFICIENT not to have to reserve
+    //   the buffer on stack with each loop cycle.
+    //
+    // 2 The buffer does NOT have to be emptied, since only
+    //   the number of data received is processed further.
+    //
+    // Purpose of this local buffer:
+    //
+    // Received data are to be stored in the buffer item.
+    // However, this buffer item CANNOT be used directly
+    // for reading data, since read calls are BLOCKING.
+    // Since the main thread needs to have access to
+    // the buffer as well, a mutex has to be used.
+    //
+    // It could thus happen that the mutex is set,
+    // in order to protect access to the buffer item,
+    // while the sensing child thread waits for input.
+    // In this case, the main thread would be blocked
+    // while waiting for the mutex to be reset.
+    //
+    // Therefore, an additional LOCAL BUFFER needs to be used
+    // for reading data in a blocking manner. The data received
+    // are then copied to the actual destination buffer item,
+    // whilst the mutex is set only for a short time.
+    //
+    // One more argument for this local buffer:
+    //
+    // The characters received have to be converted to wide characters,
+    // so that this additional local buffer is needed anyway.
+    //
+    // Size of this local buffer:
+    //
+    // 1 It has to be GREATER than zero, so that there is place
+    //   for the data to be read.
+    //
+    // 2 A peek into the APACHE http server showed values like 512 or 2048.
+    //   So, the value of 1024 used here is probably acceptable.
+    //
+    char cd[*NUMBER_1024_INTEGER_STATE_CYBOI_MODEL];
+    int cc = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Get exit flag from input/output entry.
     copy_array_forward((void*) &ex, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get buffer item from input/output entry.
+    copy_array_forward((void*) &b, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get identification from input/output entry.
     copy_array_forward((void*) &id, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get client list item from input/output entry.
-    copy_array_forward((void*) &cl, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CLIENT_LIST_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get mutex from input/output entry.
     copy_array_forward((void*) &m, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get interrupt pipe from input/output entry.
-    copy_array_forward((void*) &ip, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_PIPE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get interrupt mutex from input/output entry.
-    copy_array_forward((void*) &im, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get receiver server socket number from input/output entry.
+    // Get socket number from input/output entry.
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     // Get interrupt pipe write file descriptor.
     copy_array_forward((void*) &ipw, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-    fwprintf(stdout, L"Test: Accept socket. s: %i\n", s);
-    fwprintf(stdout, L"Test: Accept socket. *s: %i\n", *((int*) s));
+    fwprintf(stdout, L"Test: Sense socket timeout. s: %i\n", s);
+    fwprintf(stdout, L"Test: Sense socket timeout. *s: %i\n", *((int*) s));
 
+    // Run loop neverendingly while sensing messages.
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_unequal((void*) &r, ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -124,7 +152,7 @@ int accept_socket(void* p0) {
             break;
         }
 
-        accept_socket_request(cl, s, m, (void*) &ip, (void*) &im, (void*) &id, ex);
+        sense_socket_timeout_check(b, s, id, m, cd, (void*) &cc, ex);
     }
 
     //
@@ -137,5 +165,5 @@ int accept_socket(void* p0) {
     return *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 }
 
-/* SOCKET_ACCEPTOR_SOURCE */
+/* TIMEOUT_SOCKET_SENSOR_SOURCE */
 #endif

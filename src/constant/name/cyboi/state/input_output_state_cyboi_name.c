@@ -46,10 +46,8 @@ static int* INTERRUPT_MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_9_INT
 // General
 //
 
-//?? Possibly delete, if base + port + client number are handed over separately to irq pipe ??
 static int* IDENTIFICATION_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 static int* HANDLER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-//?? Possibly delete, if replaced by client list ??
 static int* SENDER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
