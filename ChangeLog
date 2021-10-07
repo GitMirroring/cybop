@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-10-07  Christian Heller  <christian.heller@cybop.org>
+
+        * Debug strange error "The futex facility returned an unexpected error code." caused by wrong argument used as mutex for locking
+        * Make interrupt pipe data transfer work for socket sensor
+
 2021-10-06  Christian Heller  <christian.heller@cybop.org>
 
         * Continue socket acceptor

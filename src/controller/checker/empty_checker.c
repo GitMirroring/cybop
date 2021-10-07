@@ -61,7 +61,7 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
 
     // Get read interrupt request pipe file descriptor.
     copy_array_forward((void*) &rd, p3, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-    fwprintf(stdout, L"Test: Check empty. rd: %i\n", rd);
+    fwprintf(stdout, L"Debug: Check empty. rd: %i\n", rd);
 
     //
     // CAUTION! Using a mutex would do no harm, but is
@@ -98,13 +98,13 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
     //
 
     int n1 = read(rd, (void*) &id, sizeof(int));
-    fwprintf(stdout, L"Test: Check empty. found irq pipe input/output id n1: %i\n", n1);
+    fwprintf(stdout, L"Debug: Check empty. found irq pipe input/output id n1: %i\n", n1);
+    fwprintf(stdout, L"Debug: Check empty. found id: %i\n", id);
     int n2 = read(rd, (void*) &c, sizeof(int));
-    fwprintf(stdout, L"Test: Check empty. found irq pipe client socket n2: %i\n", n2);
+    fwprintf(stdout, L"Debug: Check empty. found irq pipe client socket n2: %i\n", n2);
+    fwprintf(stdout, L"Debug: Check empty. found c: %i\n", c);
 
     if (id != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
-
-        fwprintf(stdout, L"Test: Check empty. found id: %i\n", id);
 
         // The input/output entry.
         void* io = *NULL_POINTER_STATE_CYBOI_MODEL;

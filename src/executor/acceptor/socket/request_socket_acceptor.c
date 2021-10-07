@@ -88,6 +88,7 @@ int accept_socket_request(void* p0, void* p1, void* p2, void* p3, void* p4, void
                 fwprintf(stdout, L"Debug: Accept socket request. p1: %i\n", p1);
                 fwprintf(stdout, L"Debug: Accept socket request. *p1: %i\n", *((int*) p1));
                 fwprintf(stdout, L"Debug: Accept socket request. pre c: %i\n", c);
+                fwprintf(stdout, L"Waiting for requesting clients on server socket: %i\n", *((int*) p1));
                 accept_socket_client((void*) &c, p1);
                 fwprintf(stdout, L"Debug: Accept socket request. post c: %i\n", c);
 
