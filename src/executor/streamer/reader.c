@@ -68,12 +68,11 @@
  */
 void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read.");
+    fwprintf(stdout, L"Debug: Read. p11: %i\n", p11);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The input/output entry.
-    void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -130,6 +129,9 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            // The input/output entry.
+            void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
+
             // Get input/output entry.
             get_internal_memory_element((void*) &io, p7, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p10);
 
@@ -153,12 +155,25 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            // The input/output entry.
+            void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The client list item.
+            void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The client list item data.
+            void* cld = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The client entry.
+            void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+
             // Get input/output entry.
             get_internal_memory_element((void*) &io, p7, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p10);
+            // Get client list item from input/output entry.
+            copy_array_forward((void*) &cl, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CLIENT_LIST_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            // Get client list item data.
+            copy_array_forward((void*) &cld, cl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            // Get client entry using client socket number as source client list index.
+            copy_array_forward((void*) &e, cld, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1);
 
-            //?? read_socket(p0, io);
-            //?? TEST: testwise use read terminal function, since both are identical
-            read_terminal(p0, io);
+            read_socket(p0, e);
         }
     }
 
@@ -167,6 +182,9 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         compare_integer_equal((void*) &r, p11, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // The input/output entry.
+            void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Get input/output entry.
             get_internal_memory_element((void*) &io, p7, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p10);

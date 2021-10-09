@@ -145,9 +145,27 @@ int accept_socket_request(void* p0, void* p1, void* p2, void* p3, void* p4, void
                     // Copy client socket to become the client identification.
                     copy_integer(id, (void*) &c);
 
+                    //
                     // Set client entry into client list of input/output entry.
-                    fwprintf(stdout, L"Debug: Accept socket request. append client c: %i\n", c);
-                    modify_item(p0, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+                    //
+                    // CAUTION! Hand over the CLIENT SOCKET as DESTINATION INDEX.
+                    // The client socket numbers are unique, so that they may be
+                    // used as destination item array index, which is very efficient.
+                    //
+                    // The unefficient alternative would be to loop through all
+                    // client entries and compare their identification with the
+                    // client socket, in order to get the correct client entry.
+                    // This is needed in read functions that have to access
+                    // the client entry's buffer.
+                    //
+                    // CAUTION! Do NOT adjust count of the destination array
+                    // when writing the client entry, since there may be
+                    // other client entries further behind.
+                    // However, the destination array count does not really matter,
+                    // since the client list is used like a random access file.
+                    //
+                    fwprintf(stdout, L"Debug: Accept socket request. write client entry into client list c: %i\n", c);
+                    modify_item(p0, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &c, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
                     //
                     // Create thread for new client socket.

@@ -14,23 +14,18 @@
 Pipe
 ____
 
-        * Fix error "The futex facility returned an unexpected error code."
-            possibly, the input/output identification stored in client entry causes a conflict, since it is also referenced in input/output entry
-            or (search in web showed): this error indicates something like a conflict of concurrent threads or even a possible deadlock
-            or the lock for mutex is not allocated for channel "socket" (in accept or sense ??)
-            or simply the "fwprintf" log messages cause the error
+        * Debug memory access error in file "socket_reader.c", line 76
 
-        * Remove superfluous files in directory "executor/sensor/socket/"
+        * ?? Remove superfluous files in directory "executor/sensor/socket/"
 
-        Working Solution:
+        * Add description of working solution for input/output handling to design document in "doc/development/cyboi/design_decisions.txt"
         * Read client socket (id) from pipe in main thread, write it into io entry, so that next signal loop cycle calling handler with cybol receive can use the client socket id
             --> there is NO danger of concurrent child threads manipulating the id, since it is only written in function "check_empty.c" of the main thread
-
-        THINK:
+            Architecture:
             1 socket - n service ports
             1 service port - n clients
             startup is ok, now investigate activator/enabler.c --> where to place the input/output entry, one for EACH client?
-        --> 3 threads are needed for: accept + read + timeout handling (sleep 1 s in between checking timeout)
+            --> 3 threads are needed for: accept + read + timeout handling (sleep 1 s in between checking timeout)
 
         * Loop reading socket events, until array is empty or end of message is reached
         * How to detect real end (not only end of header "\r\n\r\n") of http message? Parse all data? Provide end-of-message-parser for all kinds of protocols?

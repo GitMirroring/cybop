@@ -118,8 +118,19 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
             // An input/output entry exists for the service.
             //
 
-            // Set client identification into input/output entry.
-            copy_array_forward(io, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SENDER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            // The input/output entry sender.
+            void* sender = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+            // Get sender from input/output entry.
+            copy_array_forward((void*) &sender, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SENDER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+            //
+            // Copy client identification to sender.
+            //
+            // CAUTION! This is important, since the cybol application
+            // relies on it when sending its response to the requesting client.
+            //
+            copy_integer(sender, (void*) &c);
 
             //
             // Get handler from input/output entry.
@@ -149,13 +160,6 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
             // and should be left to the knowledge memory.
             //
             modify_item(p1, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-
-            //
-            // CAUTION! An interrupt request was detected and the corresponding data received.
-            // It is therefore VERY likely that new signals have been generated while handling the data.
-            // The cyboi system is therefore NOT sent to sleep, so that possibly existing
-            // signals may be handled in the next iteration of the signal checker loop.
-            //
 
         } else {
 

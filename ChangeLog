@@ -18,6 +18,16 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-10-09  Christian Heller  <christian.heller@cybop.org>
+
+        * Retrieve and forward client entry to function "read_socket" in file "reader.c"
+        * Read from client entry buffer and not input/output entry in file "socket_reader.c"
+
+2021-10-08  Christian Heller  <christian.heller@cybop.org>
+
+        * Debug error that client request gets accepted on client socket 6, but cybol application still has a client socket value of 0
+        * Assign sender client socket integer value instead of pointer in file "empty_checker.c"
+
 2021-10-07  Christian Heller  <christian.heller@cybop.org>
 
         * Debug strange error "The futex facility returned an unexpected error code." caused by wrong argument used as mutex for locking
