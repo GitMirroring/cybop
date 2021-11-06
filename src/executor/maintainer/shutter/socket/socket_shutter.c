@@ -121,7 +121,7 @@ void shutdown_socket(void* p0) {
     //
     deallocate_array((void*) &s, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
     // Deallocate client list item.
-    deallocate_item((void*) &c, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &c, (void*) POINTER_STATE_CYBOI_TYPE);
     // Deallocate accepttime list item.
     deallocate_item((void*) &a, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
     //

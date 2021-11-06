@@ -51,11 +51,12 @@
  * @param p10 the minimum number of bytes to be received in one call of the read function
  * @param p11 the maximum number of bytes to be received in one call of the read function
  * @param p12 the socket port
- * @param p13 the channel
+ * @param p13 the socket client mode (true if reading as client from server socket; false otherwise)
+ * @param p14 the channel
  */
-void receive_read(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
+void receive_read(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
-    if (p13 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p14 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive read.");
 
@@ -63,7 +64,7 @@ void receive_read(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         //?? fwprintf(stdout, L"Test: receive read p3: %i\n", p3);
 
         // Read message from device.
-        read_data(p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
+        read_data(p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14);
 
         //
         // Get item data, count.

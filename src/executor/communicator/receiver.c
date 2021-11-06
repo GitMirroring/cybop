@@ -76,16 +76,17 @@
  * @param p10 the minimum number of bytes to be received in one call of the read function
  * @param p11 the maximum number of bytes to be received in one call of the read function
  * @param p12 the socket port
- * @param p13 the format
- * @param p14 the language
- * @param p15 the encoding
- * @param p16 the channel
+ * @param p13 the socket client mode (true if reading as client from server socket; false otherwise)
+ * @param p14 the format
+ * @param p15 the language
+ * @param p16 the encoding
+ * @param p17 the channel
  */
-void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16) {
+void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive data.");
 
-    //?? fwprintf(stdout, L"Test: Receive data. p16: %i\n", *((int*) p16));
+    //?? fwprintf(stdout, L"Test: Receive data. p17: %i\n", *((int*) p17));
 
     // The pointer message item, e.g. an xcb display event or win32 input record.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -164,16 +165,16 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     b = c;
 
     // Select buffer.
-    receive_select((void*) &b, (void*) &p0, (void*) &p, (void*) &i, (void*) &s, p16);
+    receive_select((void*) &b, (void*) &p0, (void*) &p, (void*) &i, (void*) &s, p17);
 
     // Read message.
-    receive_read((void*) &bd, (void*) &bc, b, p2, p3, p4, p5, p7, p8, p9, p10, p11, p12, p16);
+    receive_read((void*) &bd, (void*) &bc, b, p2, p3, p4, p5, p7, p8, p9, p10, p11, p12, p13, p17);
 
 /*??
-    if ((p14 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p14) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
+    if ((p15 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p15) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
         fwprintf(stdout, L"Test: Receive data. read binary message *bc: %i\n", *((int*) bc));
         fwprintf(stdout, L"Test: Receive data. read binary message bd: %s\n", (char*) bd);
-        fwprintf(stdout, L"Test: Receive data. read binary message *p15: %i\n", *((int*) p15));
+        fwprintf(stdout, L"Test: Receive data. read binary message *p16: %i\n", *((int*) p16));
     }
 */
 
@@ -181,10 +182,10 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     //?? receive_extract((void*) &bd, (void*) &bc, e, bd, bc, p??);
 
     // Decode message.
-    receive_decode((void*) &bd, (void*) &bc, s, bd, bc, p15);
+    receive_decode((void*) &bd, (void*) &bc, s, bd, bc, p16);
 
 /*??
-    if ((p14 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p14) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
+    if ((p15 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p15) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
         fwprintf(stdout, L"Test: Receive data. decode binary message *bc: %i\n", *((int*) bc));
         fwprintf(stdout, L"Test: Receive data. decode binary message bd: %s\n", (char*) bd);
     }
@@ -199,10 +200,10 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     //
     //?? fwprintf(stdout, L"Test: Receive data. deserialise binary message pre *bc: %i\n", *((int*) bc));
     //?? fwprintf(stdout, L"Test: Receive data. deserialise binary message pre bd: %ls\n", (wchar_t*) bd);
-    receive_deserialise(p0, p1, bd, bc, p4, p5, p6, p7, p8, p9, p13, p14);
+    receive_deserialise(p0, p1, bd, bc, p4, p5, p6, p7, p8, p9, p14, p15);
 
 /*??
-    if ((p14 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p14) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
+    if ((p15 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p15) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
         fwprintf(stdout, L"Test: Receive data. deserialise binary message post *bc: %i\n", *((int*) bc));
         fwprintf(stdout, L"Test: Receive data. deserialise binary message post bd: %s\n", (char*) bd);
     }

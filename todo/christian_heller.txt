@@ -14,7 +14,32 @@
 Pipe
 ____
 
+        * Test simple cybol applications socket_server and socket_client, in order to find errors
+
+        Ideas:
+        - activate/enable with cybol properties: "count" as int (if directly given) OR "protocol" like e.g. "http" if count or end sequence are to be identified
+        - activate/enable with cybol property: "blocking", if "true" then NO thread is created inside and "receive" has to be called right afterwards in the cybol application
+        - use "element/pointer" instead of "element/part" for temporary cybol request, to NOT dereference parts --> what else to use if "element/pointer" does not exist as format ??
+
         * Debug memory access error in file "socket_reader.c", line 76
+        * Filter out parametres with value "null" in file "inside_remove_modifier.c"
+        --> the problem is that the ".request" is of type "part/element", so that on "remove" the references of its parts are considered/decremented ...
+        - hand over flag as cybol property for (not) considering the reference on "remove" ??
+        - where are the inside parts like "uri" etc. allocated and added to the .request part ?? -- in the http deserialiser (parser) ?? how to handle the references then ??
+
+        * Identify message length and call next loop cycle only if expected number of bytes is not reached yet
+            problem: How big should the temporary buffer be?
+            For http, 1024 might suffice to receive all header data (including "Content-Length:"), but other protocols might have a larger header.
+        * Use comparator to identify "Content-Length:" in HTTP message
+        * Convert number of bytes
+        * Hand over number of bytes to function "sense"
+        * Call next loop cycle only if expected number of bytes is not reached yet
+        * Hand over "http" to cybol operation "activator/enable"
+        * Provide further protocols for detection of message length
+
+        * Adapt call of function "modify_item" so that count does not get considered
+            true and false are not working --> find another solution for using array like a random access file
+            ==> NO, better reallocate array itself at the place where needed, count does not matter, only size is important
 
         * ?? Remove superfluous files in directory "executor/sensor/socket/"
 

@@ -87,7 +87,8 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     //
-    allocate_item((void*) &c, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    allocate_item((void*) &c, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
+    fwprintf(stdout, L"Debug: Startup socket. client list item c: %i\n", c);
     //
     // Allocate accepttime list item.
     //

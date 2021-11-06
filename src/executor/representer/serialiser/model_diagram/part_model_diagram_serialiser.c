@@ -46,13 +46,16 @@
 void serialise_model_diagram_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise model diagram part.");
+    //?? fwprintf(stdout, L"Debug: Serialise model diagram part. r: %i\n", r);
 
+    //
     // The new tree level.
     //
     // It gets initialised with the current tree level incremented by one.
     //
     // CAUTION! Do NOT manipulate the original tree level that was handed over as parametre!
     // Otherwise, it would never be decremented anymore leading to wrong indentation.
+    //
     int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Initialise new tree level with current tree level.
@@ -68,13 +71,16 @@ void serialise_model_diagram_part(void* p0, void* p1, void* p2, void* p3, void* 
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
+        //
         // Therefore, in this case, the break flag is set to true already here.
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
+        //
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
@@ -87,6 +93,7 @@ void serialise_model_diagram_part(void* p0, void* p1, void* p2, void* p3, void* 
             break;
         }
 
+        //?? fwprintf(stdout, L"Debug: Serialise model diagram part. j: %i\n", j);
         serialise_model_diagram_part_element(p0, p1, (void*) &j, p3, (void*) &l);
 
         // Increment loop variable.

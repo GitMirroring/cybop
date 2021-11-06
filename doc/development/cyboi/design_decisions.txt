@@ -32,6 +32,7 @@ Language and Format
 Stack Memory
 Knowledge Path
 Container Operations
+String Handling
 Comparison
 Search
 Arbitrary-precision arithmetic (Langzahlarithmetik)
@@ -631,6 +632,23 @@ ____________________
 - only child nodes are copied/moved, NOT the parent node
 - however, the destination node always has to exist already
 - then adapt cybol operations in "applicator/modify/"
+
+String Handling
+_______________
+
+The glibc provides a number of functions for String handling.
+Here is a comparison for how these are implemented in cyboi.
+
+----------------------------------------------------------------------------------------
+glibc           | cyboi
+----------------------------------------------------------------------------------------
+copying         | copier
+concatenating   | modifier (append, fill, overwrite, insert, remove) --> calls copier
+truncating      | copier (with index and count)
+comparison      | comparator (offset possible)
+collation       | checker (lexicographical comparison) --> calls comparator
+search          | detector --> calls checker
+----------------------------------------------------------------------------------------
 
 Comparison
 __________

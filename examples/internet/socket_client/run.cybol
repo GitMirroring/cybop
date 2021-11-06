@@ -31,6 +31,7 @@
         <node name="protocol" channel="inline" format="text/plain" model="tcp"/>
         <node name="address" channel="inline" format="text/plain" model="127.0.0.1"/>
         <node name="port" channel="inline" format="number/integer" model="1971"/>
+        <node name="mode" channel="inline" format="text/plain" model="client"/>
         <node name="id" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
 
@@ -60,6 +61,7 @@
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="sender" channel="inline" format="text/cybol-path" model=".server_socket"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".text-response"/>
+        <node name="client" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="print_response" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>

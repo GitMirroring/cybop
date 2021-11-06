@@ -131,7 +131,7 @@ void accept_bsd_socket(void* p0, void* p1) {
                 // Otherwise, it would produce huge log files filled up with useless entries.
                 //
                 // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not accept bsd socket. The socket has nonblocking mode set, and there are no pending connexions immediately available.");
-                //?? fwprintf(stdout, L"Test: Accept bsd socket. error EWOULDBLOCK: %i\n", errno);
+                fwprintf(stdout, L"Test: Accept bsd socket. error EWOULDBLOCK: %i\n", errno);
 
             } else {
 

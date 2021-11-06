@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-11-06  Christian Heller  <christian.heller@cybop.org>
+
+        * Add file "server_socket_reader.c" for reading as server from client socket
+        * Add files "client_socket_reader.c" and "message_client_socket_reader.c" for reading as client from server socket
+        * Use file "socket_reader.c" to distinguish between client- and server mode
+
 2021-10-09  Christian Heller  <christian.heller@cybop.org>
 
         * Retrieve and forward client entry to function "read_socket" in file "reader.c"

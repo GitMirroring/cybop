@@ -96,6 +96,7 @@ void modify_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify item. The sum of the given index and count is outside the data array count.");
+        fwprintf(stdout, L"Error: Could not modify item. The sum of the given index and count is outside the data array count. r: %i\n", r);
     }
 }
 

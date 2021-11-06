@@ -50,24 +50,30 @@ void reference_array_elements(void* p0, void* p1, void* p2) {
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
+        //
         // Therefore, in this case, the break flag is set to true already here.
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
+        //
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
-    //?? fwprintf(stdout, L"Test: reference array elements count p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Reference array elements. p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Reference array elements. *p2: %i\n", *((int*) p2));
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! The comparison has to be for equality AND greaterness,
         // since the count handed over as parametre might be negative,
         // e. g. if the destination index is greater than
         // the original destination array count.
+        //
         compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -75,8 +81,7 @@ void reference_array_elements(void* p0, void* p1, void* p2) {
             break;
         }
 
-        //?? fwprintf(stdout, L"Test: reference array elements index j: %i\n", j);
-
+        //?? fwprintf(stdout, L"Debug: Reference array elements. j: %i\n", j);
         reference_part(p0, p1, (void*) &j);
 
         j++;

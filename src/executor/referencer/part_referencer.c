@@ -62,8 +62,8 @@ void reference_part(void* p0, void* p1, void* p2) {
     // The comparison result.
     int res = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    //?? fwprintf(stdout, L"Test: reference part p0: %i\n", p0);
-    //?? fwprintf(stdout, L"Test: reference part *p0: %i\n", *((void**) p0));
+    //?? fwprintf(stdout, L"Debug: Reference part. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Reference part. *p0: %i\n", *((void**) p0));
 
     // Get part at index.
     copy_array_forward((void*) &p, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
@@ -77,18 +77,19 @@ void reference_part(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &ms, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
 /*??
-    fwprintf(stdout, L"Test: reference part p: %i\n", p);
-    fwprintf(stdout, L"Test: reference part r: %i\n", r);
-    fwprintf(stdout, L"Test: reference part t: %i\n", t);
-    fwprintf(stdout, L"Test: reference part m: %i\n", m);
-    fwprintf(stdout, L"Test: reference part rd: %i\n", rd);
-    fwprintf(stdout, L"Test: reference part *rd: %i\n", *((int*) rd));
+    fwprintf(stdout, L"Debug: Reference part. p: %i\n", p);
+    fwprintf(stdout, L"Debug: Reference part. r: %i\n", r);
+    fwprintf(stdout, L"Debug: Reference part. t: %i\n", t);
+    fwprintf(stdout, L"Debug: Reference part. m: %i\n", m);
+    fwprintf(stdout, L"Debug: Reference part. rd: %i\n", rd);
+    fwprintf(stdout, L"Debug: Reference part. *rd: %i\n", *((int*) rd));
 */
 
     // Increment or decrement references counter.
     calculate_integer(rd, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, p1);
 
-    //?? fwprintf(stdout, L"Test: reference part *rd: %i\n", *((int*) rd));
+    //?? fwprintf(stdout, L"Debug: Reference part. rd: %i\n", rd);
+    //?? fwprintf(stdout, L"Debug: Reference part. *rd: %i\n", *((int*) rd));
 
     if (res == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -107,7 +108,8 @@ void reference_part(void* p0, void* p1, void* p2) {
         if (res != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reference part. The references data is negative.");
-            fwprintf(stdout, L"Error: Could not reference part. The references data is negative *rd: %i\n", *((int*) rd));
+            fwprintf(stdout, L"Error: Could not reference part. The references data is negative. *rd: %i\n", rd);
+            fwprintf(stdout, L"Error: Could not reference part. The references data is negative. *rd: %i\n", *((int*) rd));
         }
     }
 }

@@ -135,8 +135,8 @@ int accept_socket_request(void* p0, void* p1, void* p2, void* p3, void* p4, void
                     // be negative or zero, but have at least a value of ONE.
                     //
                     allocate_array((void*) &e, (void*) CLIENT_ENTRY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
-
                     fwprintf(stdout, L"Debug: Accept socket request. startup client e: %i\n", e);
+
                     // Startup client entry.
                     startup_client(e, p3, p4, p5, (void*) &c, (void*) &f, (void*) &e);
 
@@ -164,8 +164,31 @@ int accept_socket_request(void* p0, void* p1, void* p2, void* p3, void* p4, void
                     // However, the destination array count does not really matter,
                     // since the client list is used like a random access file.
                     //
-                    fwprintf(stdout, L"Debug: Accept socket request. write client entry into client list c: %i\n", c);
-                    modify_item(p0, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &c, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+                    fwprintf(stdout, L"Debug: Accept socket request. modify_item e: %i\n", e);
+                    fwprintf(stdout, L"Debug: Accept socket request. modify_item c: %i\n", c);
+                    //?? modify_item(p0, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &c, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+                    // The destination data, size.
+                    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+                    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+                    // Get destination data, count, size.
+                    copy_array_forward((void*) &d, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+                    copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
+                    // Modify destination data.
+                    //?? Use s for both arguments: count AND size.
+                    //?? modify_array((void*) &d, p1, p2, p3, p4, p5, p6, c, s, p7, p8);
+                    modify_array((void*) &d, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &c, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, s, s, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+                    // Set data array as destination item element.
+                    copy_array_forward(p0, (void*) &d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DATA_ITEM_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+            // The client list item data.
+            void* test_cld = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The client entry.
+            void* test_e = *NULL_POINTER_STATE_CYBOI_MODEL;
+            copy_array_forward((void*) &test_cld, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            fwprintf(stdout, L"Debug: Accept socket request. test_cld: %i\n", test_cld);
+            // Get client entry using client socket number as source client list index.
+            copy_array_forward((void*) &test_e, test_cld, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &c);
+            fwprintf(stdout, L"Debug: Accept socket request. test_e: %i\n", test_e);
 
                     //
                     // Create thread for new client socket.

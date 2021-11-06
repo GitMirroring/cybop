@@ -80,9 +80,9 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3) {
                     fwprintf(stdout, L"Test: Startup bsd socket create *st: %i\n", *st);
                     fwprintf(stdout, L"Test: Startup bsd socket create *pr: %i\n", *pr);
 
-                    fwprintf(stdout, L"Test: Startup bsd socket create PF_LOCAL: %i\n", PF_LOCAL);
-                    fwprintf(stdout, L"Test: Startup bsd socket create SOCK_DGRAM: %i\n", SOCK_DGRAM);
-                    fwprintf(stdout, L"Test: Startup bsd socket create 0: %i\n", 0);
+                    //?? fwprintf(stdout, L"Test: Startup bsd socket create PF_LOCAL: %i\n", PF_LOCAL);
+                    //?? fwprintf(stdout, L"Test: Startup bsd socket create SOCK_DGRAM: %i\n", SOCK_DGRAM);
+                    //?? fwprintf(stdout, L"Test: Startup bsd socket create 0: %i\n", 0);
 
                     //
                     // Initialise server socket.

@@ -27,9 +27,15 @@
 #define MESSAGE_SOCKET_SENSOR_SOURCE
 
 #include <threads.h> // mtx_t, mtx_lock, mtx_unlock
-#include <unistd.h> // read
+#include <unistd.h> // read, write
 
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/modifier/item_modifier.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -134,12 +140,12 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
                                             // Therefore, proceed normally.
                                             //
 
-                                            fwprintf(stdout, L"Debug: Sense socket message. DO process data. r: %i\n", r);
+                                            //?? fwprintf(stdout, L"Debug: Sense socket message. DO process data. r: %i\n", r);
 
                                             // Copy local buffer content into destination buffer item.
                                             modify_item(p0, p5, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &n, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
-                                            fwprintf(stdout, L"Debug: Sense socket message. *ipw: %i\n", *ipw);
+                                            //?? fwprintf(stdout, L"Debug: Sense socket message. *ipw: %i\n", *ipw);
 
                                             // Lock interrupt mutex.
                                             mtx_lock(im);

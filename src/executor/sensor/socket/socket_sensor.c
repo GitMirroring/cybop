@@ -27,6 +27,17 @@
 #define SOCKET_SENSOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/client_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/comparator/integer/unequal_integer_comparator.c"
+#include "../../../executor/copier/array_copier.c"
 #include "../../../executor/sensor/socket/message_socket_sensor.c"
 #include "../../../logger/logger.c"
 
@@ -141,7 +152,7 @@ int sense_socket(void* p0) {
     // In this case, the main thread would be blocked
     // while waiting for the mutex to be reset.
     //
-    // Therefore, an additional LOCAL BUFFER needs to be used
+    // Therefore, this additional LOCAL BUFFER needs to be used
     // for reading data in a blocking manner. The data received
     // are then copied to the actual destination buffer item,
     // whilst the mutex is set only for a short time.
