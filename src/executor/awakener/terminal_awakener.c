@@ -57,7 +57,7 @@ void awake_terminal(void* p0) {
 
     //
     // Write (push back) character to terminal input buffer,
-    // so that it can be detected by the sensing thread read function.
+    // so that it can be detected by the sensing thread function.
     //
     // The TIOCSTI command is known to at least Linux and BSD.
     // The characters handed over are limited to 4096 on Linux.

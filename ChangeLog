@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-11-07  Christian Heller  <christian.heller@cybop.org>
+
+        * Add file "socket_awakener.c"
+        * Test with simple cybol applications socket_server and socket_client
+
 2021-11-06  Christian Heller  <christian.heller@cybop.org>
 
         * Add file "server_socket_reader.c" for reading as server from client socket
