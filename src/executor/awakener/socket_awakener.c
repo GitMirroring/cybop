@@ -44,13 +44,44 @@ void awake_socket(void* p0) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Awake socket.");
     fwprintf(stdout, L"Debug: Awake socket. p0: %i\n", p0);
 
-    // Write data to ALL server socket client sensing threads,
-    // so that it can be detected by the sensing thread function.
+    // The server socket.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Loop through client list.
+    // Get server socket from input/output entry.
+    copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-    // Write data to socket.
-    // write();
+    //
+    // For socket handling, there are TWO kinds of threads:
+    // - accept: ONE thread for sensing new client requests
+    // - read: MANY threads for sensing data on existing client sockets
+    //
+    // Both kinds of threads have to be exited:
+    // - at first the accept thread, so that no new client requests are accepted anymore
+    // - afterwards all the single data sensing threads for each existing client socket
+    //
+
+    //
+    // Step 1: accept
+    //
+    // Connect to this system's server socket itself,
+    // so that this client request can be ACCEPTED by the thread function
+    // and the accept thread be exited.
+    //
+    //?? TODO: connect();
+    //?? open_socket(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
+
+    //
+    // Step 2: read
+    //
+    // Write data to sensing thread of each existing client,
+    // so that it can be detected by the SENSING thread function
+    // and ALL the sensing threads be exited.
+    //
+    //?? TODO: Loop through client list.
+
+    // Write data to client socket's local read buffer.
+    //?? TODO: How to write data NOT to remote client socket but rather to local READ BUFFER?
+    //?? ioctl();
 }
 
 /* SOCKET_AWAKENER_SOURCE */

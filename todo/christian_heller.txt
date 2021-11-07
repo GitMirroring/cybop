@@ -55,6 +55,10 @@ ____
             startup is ok, now investigate activator/enabler.c --> where to place the input/output entry, one for EACH client?
             --> 3 threads are needed for: accept + read + timeout handling (sleep 1 s in between checking timeout)
 
+        * Call shutdown before close for socket?
+            shutdown(fd, SHUT_RDWR);
+            close(fd);
+
         * Loop reading socket events, until array is empty or end of message is reached
         * How to detect real end (not only end of header "\r\n\r\n") of http message? Parse all data? Provide end-of-message-parser for all kinds of protocols?
             cybol operation "receive" does not only hand over a property "channel", but also a "language" and "format"
