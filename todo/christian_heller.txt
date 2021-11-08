@@ -14,10 +14,13 @@
 Pipe
 ____
 
-        * Reflect about how to implement file "socket_awakener.c"
-        * Delete testwise break at end of loop in file "socket_sensor.c"
-        * Test simple cybol applications socket_server and socket_client, in order to find errors
-        * Reactivate (uncomment) further cybol operations (currently only "exit" gets sent)
+        * Test simple cybol applications socket_server and socket_client, in order to find errors and make socket communication work
+        * DONE: "say-hello" arrives and reply is received by client
+        * TEST: "show-image" as second command
+        * BEFORE: Delete testwise break at end of loop in file "socket_sensor.c"
+            --> Why does the "read" call not block for the second and following read in file "message_socket_sensor.c"
+        * Reactivate (uncomment) further cybol operations in cybol application "socket_client" (currently only "exit" gets sent)
+        * Reflect about how to implement file "socket_awakener.c" called within exit process
 
         Ideas:
         - activate/enable with cybol properties: "count" as int (if directly given) OR "protocol" like e.g. "http" if count or end sequence are to be identified
