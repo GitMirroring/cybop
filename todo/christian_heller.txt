@@ -15,6 +15,8 @@ Pipe
 ____
 
         * Test simple cybol applications socket_server and socket_client, in order to find errors and make socket communication work
+        * Fix error that hello and image command are mixed as ".actions.say-helloshow-image"
+        * Make cybol operation "modify/empty" work in "socket_server/handle.cybol", so that ".request" gets emptied
         * DONE: "say-hello" arrives and reply is received by client
         * TEST: "show-image" as second command
         * BEFORE: Delete testwise break at end of loop in file "socket_sensor.c"

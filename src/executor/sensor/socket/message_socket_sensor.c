@@ -107,8 +107,8 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
                                         fwprintf(stdout, L"Waiting for input/output on client socket: %i\n", *s);
                                         int n = read(*s, p5, bct);
                                         fwprintf(stdout, L"Debug: Sense socket message. n: %i\n", n);
-                                        //?? fwprintf(stdout, L"Debug: Sense socket message. *p5 as c: %c\n", *((char*) p5));
-                                        //?? fwprintf(stdout, L"Debug: Sense socket message. p5 as s: %s\n", (char*) p5);
+                                        fwprintf(stdout, L"Debug: Sense socket message. *p5 as c: %c\n", *((char*) p5));
+                                        fwprintf(stdout, L"Debug: Sense socket message. p5 as s: %s\n", (char*) p5);
 
                                         // The comparison result.
                                         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -140,7 +140,7 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
                                             // Therefore, proceed normally.
                                             //
 
-                                            //?? fwprintf(stdout, L"Debug: Sense socket message. DO process data. r: %i\n", r);
+                                            fwprintf(stdout, L"Debug: Sense socket message. DO process data. r: %i\n", r);
 
                                             // Copy local buffer content into destination buffer item.
                                             modify_item(p0, p5, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &n, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
