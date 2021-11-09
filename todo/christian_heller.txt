@@ -15,14 +15,10 @@ Pipe
 ____
 
         * Test simple cybol applications socket_server and socket_client, in order to find errors and make socket communication work
-        * Fix error that hello and image command are mixed as ".actions.say-helloshow-image"
-        * Make cybol operation "modify/empty" work in "socket_server/handle.cybol", so that ".request" gets emptied
-        * DONE: "say-hello" arrives and reply is received by client
-        * TEST: "show-image" as second command
         * BEFORE: Delete testwise break at end of loop in file "socket_sensor.c"
-            --> Why does the "read" call not block for the second and following read in file "message_socket_sensor.c"
-        * Reactivate (uncomment) further cybol operations in cybol application "socket_client" (currently only "exit" gets sent)
+            --> Why does the "read" call NOT block for the second and following read in file "message_socket_sensor.c"
         * Reflect about how to implement file "socket_awakener.c" called within exit process
+        * Reactivate "exit" socket request in cybol application "socket_client" (as soon as socket thread exit works on socket server shutdown)
 
         Ideas:
         - activate/enable with cybol properties: "count" as int (if directly given) OR "protocol" like e.g. "http" if count or end sequence are to be identified

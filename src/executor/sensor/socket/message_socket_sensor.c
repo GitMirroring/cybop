@@ -145,6 +145,13 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
                                             // Copy local buffer content into destination buffer item.
                                             modify_item(p0, p5, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &n, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
+                                            //
+                                            //?? TODO: Detect message end, e.g. for http by reading "Content-Length:" in header.
+                                            //
+                                            // Write to interrupt pipe below ONLY if complete message has been received
+                                            // since otherwise, only fragements of the message are processed.
+                                            //
+
                                             //?? fwprintf(stdout, L"Debug: Sense socket message. *ipw: %i\n", *ipw);
 
                                             // Lock interrupt mutex.

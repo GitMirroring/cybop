@@ -68,6 +68,7 @@ void deallocate_item(void* p0, void* p1) {
         copy_array_forward((void*) &c, *i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
         copy_array_forward((void*) &s, *i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
+        //
         // Remove all elements from data.
         //
         // CAUTION! This IS IMPORTANT in order to decrement
@@ -83,8 +84,10 @@ void deallocate_item(void* p0, void* p1) {
         // since the array gets deallocated anyway below.
         // Setting the array count has nothing to do with shrinking or reallocation.
         // The array size remains untouched inside.
+        //
         modify_array((void*) &d, *NULL_POINTER_STATE_CYBOI_MODEL, p1, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, c, s, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) EMPTY_MODIFY_LOGIC_CYBOI_FORMAT);
 
+        //
         // Deallocate data, count, size.
         //
         // CAUTION! Use REVERSE ORDER as compared to allocation!
@@ -96,24 +99,35 @@ void deallocate_item(void* p0, void* p1) {
         // CAUTION! The second argument "count" IS NEEDED for
         // looping elements of type PART, in order to
         // decrement the rubbish (garbage) collection counter.
+        //
         deallocate_array((void*) &d, c, s, p1);
+        //
         // CAUTION! The second argument "count" is NULL,
         // since it is only needed for looping elements of type PART,
         // in order to decrement the rubbish (garbage) collection counter.
+        //
         deallocate_array((void*) &c, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        //
         // CAUTION! The second argument "count" is NULL,
         // since it is only needed for looping elements of type PART,
         // in order to decrement the rubbish (garbage) collection counter.
+        //
         deallocate_array((void*) &s, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
+        //
         // Deallocate item.
+        //
         // CAUTION! The second argument "count" is NULL,
         // since it is only needed for looping elements of type PART,
         // in order to decrement the rubbish (garbage) collection counter.
+        //
         deallocate_array(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) ITEM_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
 
+        //
         // Decrement item reference counter.
+        //
         // CAUTION! This is ONLY needed for debugging.
+        //
         (*ITEM_REFERENCE_COUNTER)--;
 
     } else {

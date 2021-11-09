@@ -91,12 +91,12 @@
     </node>
 
     <!-- Receive image response -->
-<!--
     <node name="receive_response" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/binary"/>
         <node name="sender" channel="inline" format="text/cybol-path" model=".server_socket"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".image-response"/>
+        <node name="client" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="write_response" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -104,7 +104,6 @@
         <node name="message" channel="inline" format="text/cybol-path" model=".image-response"/>
         <node name="receiver" channel="inline" format="text/plain" model="internet/socket_client/received_image.png"/>
     </node>
--->
 
     <!-- Send exit request -->
 <!--

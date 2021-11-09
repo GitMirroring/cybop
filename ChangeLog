@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-11-09  Christian Heller  <christian.heller@cybop.org>
+
+        * Empty buffer item in file "server_socket_reader.c", so that data are not read a second time
+        * Fix error that hello and image command are mixed as ".actions.say-helloshow-image" in cybol applications socket_server and socket_client
+
 2021-11-07  Christian Heller  <christian.heller@cybop.org>
 
         * Add file "socket_awakener.c"

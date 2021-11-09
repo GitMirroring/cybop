@@ -67,9 +67,10 @@ void read_socket_server(void* p0, void* p1, void* p2, void* p3) {
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The buffer item.
     void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The buffer item data, count.
+    // The buffer item data, count, size.
     void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* bs = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The mutex.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -107,7 +108,7 @@ void read_socket_server(void* p0, void* p1, void* p2, void* p3) {
     mtx_lock(mt);
 
     //
-    // Get buffer item data, count.
+    // Get buffer item data, count, size.
     //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
@@ -115,9 +116,13 @@ void read_socket_server(void* p0, void* p1, void* p2, void* p3) {
     //
     copy_array_forward((void*) &bd, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &bc, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &bs, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
     // Read data from buffer.
     modify_item(p0, bd, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, bc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    // Remove data from buffer.
+    modify_array((void*) &bd, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, bc, bs, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) EMPTY_MODIFY_LOGIC_CYBOI_FORMAT);
 
     // Unlock mutex.
     mtx_unlock(mt);
