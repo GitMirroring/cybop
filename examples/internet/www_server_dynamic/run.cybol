@@ -23,6 +23,7 @@
         <node name="port" channel="inline" format="number/integer" model="1971"/>
         <node name="mode" channel="inline" format="text/plain" model="server"/>
         <node name="connexions" channel="inline" format="number/integer" model="10"/>
+        <node name="timeout" channel="inline" format="number/integer" model="5"/>
     </node>
 
     <node name="print_message" channel="inline" format="communicate/send" model="">

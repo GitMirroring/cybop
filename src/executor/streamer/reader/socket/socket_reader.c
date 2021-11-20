@@ -50,25 +50,40 @@ void read_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        compare_integer_equal((void*) &r, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        //
-        // The reading is done in SERVER mode.
-        // That is, this system reads as server from one of its (remote) client sockets.
-        //
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        read_socket_server(p0, p1, p2, p3);
+            //
+            // The reading is done in SERVER mode.
+            // That is, this system reads as server from one of its (remote) client sockets.
+            //
 
-    } else {
+            read_socket_server(p0, p1, p2, p3);
+        }
+    }
 
-        //
-        // The reading is done in CLIENT mode.
-        // That is, this system reads as client from some (remote) server socket.
-        //
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        read_socket_client(p0, p1);
+        compare_integer_equal((void*) &r, p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // The reading is done in CLIENT mode.
+            // That is, this system reads as client from some (remote) server socket.
+            //
+
+            read_socket_client(p0, p1);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read socket. The client mode is unknown.");
+        fwprintf(stdout, L"Error: Could not read socket. The client mode is unknown. p4: %i\n", p4);
     }
 }
 

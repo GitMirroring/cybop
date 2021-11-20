@@ -200,9 +200,6 @@ int sense_socket(void* p0) {
     fwprintf(stdout, L"Debug: Sense socket. id: %i\n", id);
     fwprintf(stdout, L"Debug: Sense socket. *id: %i\n", *((int*) id));
 
-    //?? TEST
-    int counter = 0;
-
     // Run loop neverendingly while sensing messages.
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 

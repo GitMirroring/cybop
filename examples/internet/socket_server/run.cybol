@@ -71,10 +71,6 @@
 
     <node name="sense_requests" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <!--
-            The service port for a tcp or udp socket.
-            CAUTION! Comment out when using a local unix domain socket.
-        -->
         <node name="port" channel="inline" format="number/integer" model="1971"/>
         <!-- The requesting client gets stored in this variable. -->
         <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/>
