@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-11-20  Christian Heller  <christian.heller@cybop.org>
+
+        * Close socket connexion if function "read" returns zero in file "message_socket_sensor.c", since that means the other end closed the connexion already
+        * Fix error thereby that the call of "read" did not block, since the socket communication partner closed the connexion
+
 2021-11-09  Christian Heller  <christian.heller@cybop.org>
 
         * Empty buffer item in file "server_socket_reader.c", so that data are not read a second time

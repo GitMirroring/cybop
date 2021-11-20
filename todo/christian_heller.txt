@@ -14,23 +14,12 @@
 Pipe
 ____
 
-        * Test simple cybol applications socket_server and socket_client, in order to find errors and make socket communication work
-        * BEFORE: Delete testwise break at end of loop in file "socket_sensor.c"
-            --> Why does the "read" call NOT block for the second and following read in file "message_socket_sensor.c"
-        * Reflect about how to implement file "socket_awakener.c" called within exit process
-        * Reactivate "exit" socket request in cybol application "socket_client" (as soon as socket thread exit works on socket server shutdown)
+        * Test cybol application "www_server_dynamic"
+        * if (n < 1024) close();
+        * Prüfe "send" mit Log-Nachrichten --> Geht Antwort an client (browser) raus?
 
-        Ideas:
-        - activate/enable with cybol properties: "count" as int (if directly given) OR "protocol" like e.g. "http" if count or end sequence are to be identified
-        - activate/enable with cybol property: "blocking", if "true" then NO thread is created inside and "receive" has to be called right afterwards in the cybol application
-        - use "element/pointer" instead of "element/part" for temporary cybol request, to NOT dereference parts --> what else to use if "element/pointer" does not exist as format ??
-
-        * Debug memory access error in file "socket_reader.c", line 76
-        * Filter out parametres with value "null" in file "inside_remove_modifier.c"
-        --> the problem is that the ".request" is of type "part/element", so that on "remove" the references of its parts are considered/decremented ...
-        - hand over flag as cybol property for (not) considering the reference on "remove" ??
-        - where are the inside parts like "uri" etc. allocated and added to the .request part ?? -- in the http deserialiser (parser) ?? how to handle the references then ??
-
+        * Loop reading socket events, until array is empty or end of message is reached
+        * Write function to detect length of http message, only afterwards write to irq pipe
         * Identify message length and call next loop cycle only if expected number of bytes is not reached yet
             problem: How big should the temporary buffer be?
             For http, 1024 might suffice to receive all header data (including "Content-Length:"), but other protocols might have a larger header.
@@ -40,6 +29,28 @@ ____
         * Call next loop cycle only if expected number of bytes is not reached yet
         * Hand over "http" to cybol operation "activator/enable"
         * Provide further protocols for detection of message length
+        * How to detect real end (not only end of header "\r\n\r\n") of http message? Parse all data? Provide end-of-message-parser for all kinds of protocols?
+            cybol operation "receive" does not only hand over a property "channel", but also a "language" and "format"
+            these have to be used as protocol, e.g. "http", and can be handed over as argument inside cyboi
+            then, parse (filter) the sensed message in the child thread until its end is detected
+            only then write to interrupt pipe (if end is detected), otherwise (else) just wait blocking on only that client socket until rest of the message including its end have been received
+
+        * Test cybol applications socket_server and socket_client
+        * Reflect about how to implement file "socket_awakener.c" called within exit process
+        * Reactivate "exit" socket request in cybol application "socket_client" (as soon as socket thread exit works on socket server shutdown)
+
+        * Check if deadlocks may occur when nesting the two mutexes in file "message_socket_sensor.c"
+
+        Ideas:
+        - activate/enable with cybol properties: "count" as int (if directly given) OR "protocol" like e.g. "http" if count or end sequence are to be identified
+        - activate/enable with cybol property: "blocking", if "true" then NO thread is created inside and "receive" has to be called right afterwards in the cybol application
+        - use "element/pointer" instead of "element/part" for temporary cybol request, to NOT dereference parts --> what else to use if "element/pointer" does not exist as format ??
+
+        * Debug memory access error in file "socket_reader.c", line 76
+        * Filter out parametres with value "null" in file "inside_remove_modifier.c"
+            --> the problem is that the ".request" is of type "part/element", so that on "remove" the references of its parts are considered/decremented ...
+        - hand over flag as cybol property for (not) considering the reference on "remove" ??
+        - where are the inside parts like "uri" etc. allocated and added to the .request part ?? -- in the http deserialiser (parser) ?? how to handle the references then ??
 
         * Adapt call of function "modify_item" so that count does not get considered
             true and false are not working --> find another solution for using array like a random access file
@@ -59,14 +70,6 @@ ____
         * Call shutdown before close for socket?
             shutdown(fd, SHUT_RDWR);
             close(fd);
-
-        * Loop reading socket events, until array is empty or end of message is reached
-        * How to detect real end (not only end of header "\r\n\r\n") of http message? Parse all data? Provide end-of-message-parser for all kinds of protocols?
-            cybol operation "receive" does not only hand over a property "channel", but also a "language" and "format"
-            these have to be used as protocol, e.g. "http", and can be handed over as argument inside cyboi
-            then, parse (filter) the sensed message in the child thread until its end is detected
-            only then write to interrupt pipe (if end is detected), otherwise (else) just wait blocking on only that client socket until rest of the message including its end have been received
-        * Make socket cybol applications work again
 
         * Set exit flag (?? CAUTION! conflict or mutex with main thread) in child thread (in else branch) if one of the args is null?
             --> use local break flag instead (additionally to exit flag)

@@ -49,10 +49,10 @@
     This example demonstrates world wide web (www) server functionality.
 
     The server delivers dynamically generated content to clients. Use a URL like:
-    http://localhost:80/?action=send_index
+    http://localhost:80/?action=send-index
 
     Or some other port number for testing, since it does not require root access:
-    http://localhost:1971/?action=send_index
+    http://localhost:1971/?action=send-index
 
     CAUTION! The programme needs to be shut down using the key combination ctrl+c!
 

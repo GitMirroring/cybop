@@ -49,8 +49,7 @@
 void check_found(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check found.");
-
-    //?? fwprintf(stdout, L"Test: check found signal p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Check found. signal p0: %i\n", p0);
 
     // The direct execution flag.
     int x = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;

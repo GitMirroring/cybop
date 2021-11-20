@@ -7,7 +7,7 @@
     -->
     <node name="server_socket" channel="inline" format="number/integer" model="0"/>
 
-    <node name="text-response" channel="inline" format="text/plain" model=""/>
-    <node name="image-response" channel="inline" format="text/ascii" model=""/>
+    <node name="text_response" channel="inline" format="text/plain" model=""/>
+    <node name="image_response" channel="inline" format="text/ascii" model=""/>
 
 </node>

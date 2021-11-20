@@ -102,6 +102,16 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
                                         // because no special options are needed.
                                         // Therefore, the function "read" suffices here.
                                         //
+                                        // The function "read" is BLOCKING by default.
+                                        // So, there is NO reason to set the blocking mode
+                                        // manually using the functions "ioctl" or "setsockopt".
+                                        //
+                                        // Do NOT set the option MSG_WAITALL, which requests
+                                        // the operation to block until all data have been received.
+                                        // It is impossible to predict the size of the incoming data,
+                                        // so that it is not clear how big the buffer array shall be.
+                                        // Therefore, call "read" in a loop until no more data are available.
+                                        //
                                         fwprintf(stdout, L"Debug: Sense socket message. *bc: %i\n", *bc);
                                         fwprintf(stdout, L"Debug: Sense socket message. bct: %i\n", bct);
                                         fwprintf(stdout, L"Waiting for input/output on client socket: %i\n", *s);
@@ -130,6 +140,24 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
                                         // - this leads to memory errors such as "corrupted double-linked list"
                                         //
                                         mtx_lock(m);
+
+                                        //
+                                        // A return value of ZERO means the other end (peer, client)
+                                        // CLOSED the socket connexion. It never means there was no data.
+                                        // - blocking mode: "read" will block
+                                        // - non-blocking mode: it will return -1 if there is no data
+                                        //   with errno set to EAGAIN or EWOULDBLOCK, depending on the platform
+                                        //
+                                        // https://stackoverflow.com/questions/12773509/read-is-not-blocking-in-socket-programming
+                                        //
+                                        if (n == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                                            //
+                                            // Close the client socket on this server side,
+                                            // since the client side has closed its connexion.
+                                            //
+                                            copy_integer(ex, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                                        }
 
                                         compare_integer_equal((void*) &r, ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
