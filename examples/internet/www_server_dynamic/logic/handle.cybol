@@ -17,28 +17,10 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="TEST a"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-
     <!-- CAUTION! If the request was not reset here, then the last valid previous request would be used again and again, neverendingly. -->
     <node name="reset_request_model" channel="inline" format="modify/empty" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".request"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
-    </node>
-
-    <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="TEST b"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="reset_request_properties" channel="inline" format="modify/empty" model="">
@@ -46,27 +28,9 @@
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="TEST c"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-
     <node name="reset_query_exists_flag" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".query_exists"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-    </node>
-
-    <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="TEST 0"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="receive_request" channel="inline" format="communicate/receive" model="">
@@ -77,15 +41,6 @@
         <node name="port" channel="inline" format="number/integer" model="1971"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".request"/>
         <node name="client" channel="inline" format="logicvalue/boolean" model="false"/>
-    </node>
-
-    <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="TEST 1"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <!--
@@ -103,15 +58,6 @@
         <node name="part" channel="inline" format="text/cybol-path" model=".request:uri:query"/>
     </node>
 
-    <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="TEST 2"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-
     <!-- Write knowledge tree into file. -->
 <!--
     <node name="test_request" channel="inline" format="communicate/send" model="">
@@ -124,15 +70,6 @@
     </node>
 -->
 
-    <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="TEST 3"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-
     <node name="evaluate_query" channel="inline" format="flow/branch" model="">
         <node name="criterion" channel="inline" format="text/cybol-path" model=".query_exists"/>
         <node name="true" channel="inline" format="text/cybol-path" model=".logic.evaluate_query"/>
@@ -142,15 +79,6 @@
             the browser would wait forever and block requests from other clients.
         -->
         <node name="false" channel="inline" format="text/cybol-path" model=".logic.send_empty_message"/>
-    </node>
-
-    <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="TEST 4"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
 </node>

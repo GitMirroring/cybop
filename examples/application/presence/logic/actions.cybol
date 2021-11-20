@@ -1,16 +1,16 @@
 <node>
 
     <!-- Web page. -->
-    <node name="send_index" channel="inline" format="text/cybol-path" model=".logic.send.index"/>
+    <node name="send-index" channel="inline" format="text/cybol-path" model=".logic.send.index"/>
 
     <!-- Date navigation. -->
-    <node name="navigate_backward" channel="inline" format="text/cybol-path" model=".logic.navigate.backward"/>
-    <node name="navigate_forward" channel="inline" format="text/cybol-path" model=".logic.navigate.forward"/>
+    <node name="navigate-backward" channel="inline" format="text/cybol-path" model=".logic.navigate.backward"/>
+    <node name="navigate-forward" channel="inline" format="text/cybol-path" model=".logic.navigate.forward"/>
 
     <!-- Overview entry choice. -->
     <node name="update" channel="inline" format="text/cybol-path" model=".logic.translate.uri_to_all"/>
 
     <!-- Overview entry choice. -->
-    <node name="exit_application" channel="inline" format="live/exit" model=""/>
+    <node name="exit" channel="inline" format="live/exit" model=""/>
 
 </node>

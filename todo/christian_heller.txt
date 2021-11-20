@@ -14,9 +14,6 @@
 Pipe
 ____
 
-        * Test cybol application "www_server_dynamic"
-        * Check error in uri processing
-
         * Write function to detect message length or message end, for example http header entry "Content-Length:"
         * Write to irq pipe only if complete message has been received since processing of message fragments will lead to errors
         * Use comparator to identify "Content-Length:" in HTTP message

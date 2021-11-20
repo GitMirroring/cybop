@@ -69,7 +69,7 @@ void close_file_stream(void* p0) {
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close file stream. Success.");
-            fwprintf(stdout, L"Debug: Close file stream. Success. r: %i\n", r);
+            //?? fwprintf(stdout, L"Debug: Close file stream. Success. r: %i\n", r);
 
         } else {
 

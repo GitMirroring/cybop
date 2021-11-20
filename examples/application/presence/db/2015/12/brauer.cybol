@@ -1,5 +1,5 @@
 <node>
-    <node name="monday" channel="inline" language="text/cybol" format="text/plain" model="teaching"/>
+    <node name="monday" channel="inline" language="text/cybol" format="text/plain" model="holiday"/>
     <node name="tuesday" channel="inline" language="text/cybol" format="text/plain" model="homeoffice"/>
     <node name="wednesday" channel="inline" language="text/cybol" format="text/plain" model="teaching"/>
     <node name="thursday" channel="inline" language="text/cybol" format="text/plain" model="homeoffice"/>

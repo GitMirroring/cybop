@@ -137,7 +137,7 @@ void open_file_stream(void* p0, void* p1, void* p2, void* p3) {
             if (*s != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open file stream. Success.");
-                fwprintf(stdout, L"Debug: Open file stream. Success. *s: %i\n", *s);
+                //?? fwprintf(stdout, L"Debug: Open file stream. Success. *s: %i\n", *s);
 
             } else {
 
