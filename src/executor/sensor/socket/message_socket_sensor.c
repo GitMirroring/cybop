@@ -26,17 +26,20 @@
 #ifndef MESSAGE_SOCKET_SENSOR_SOURCE
 #define MESSAGE_SOCKET_SENSOR_SOURCE
 
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../logger/logger.c"
+
+/*??
 #include <threads.h> // mtx_t, mtx_lock, mtx_unlock
 #include <unistd.h> // read, write
 
-#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/modifier/item_modifier.c"
-#include "../../../logger/logger.c"
+*/
 
 /**
  * Senses socket message.
@@ -53,234 +56,24 @@
  */
 void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    if (p8 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // The complete flag.
+    int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        int* ex = (int*) p8;
+    // Receive next message fragment.
+    sense_socket_fragment(b, id, m, (void*) &ipw, im, cd, (void*) &cc, ioid, ex);
 
-        if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // Check for length prefix and end suffix.
+    //?? Return flag indicating that message is complete.
+    sense_socket_check_completeness((void*) &f, (void*) &ipw, im, ioid, id, b);
 
-            if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                int* bc = (int*) p6;
+        // Inform interrupt pipe if message is complete.
+        sense_socket_set_interrupt();
 
-                if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                        mtx_t* im = (mtx_t*) p4;
-
-                        if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                            int* ipw = (int*) p3;
-
-                            if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                                mtx_t* m = (mtx_t*) p2;
-
-                                if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                                    int* s = (int*) p1;
-
-                                    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                                        //
-                                        // CAUTION! Do NOT log messages within thread,
-                                        // in order to avoid race conditions and other conflicts.
-                                        //
-                                        // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket message.");
-                                        fwprintf(stdout, L"Debug: Sense socket message. s: %i\n", s);
-                                        fwprintf(stdout, L"Debug: Sense socket message. *s: %i\n", *((int*) s));
-
-                                        // Cast buffer size to correct type.
-                                        size_t bct = (size_t) *bc;
-
-                                        //
-                                        // Read data from socket.
-                                        //
-                                        // CAUTION! Using the function "recv" is NOT necessary,
-                                        // since its flags argument (fourth one) would be zero,
-                                        // because no special options are needed.
-                                        // Therefore, the function "read" suffices here.
-                                        //
-                                        // The function "read" is BLOCKING by default.
-                                        // So, there is NO reason to set the blocking mode
-                                        // manually using the functions "ioctl" or "setsockopt".
-                                        //
-                                        // Do NOT set the option MSG_WAITALL, which requests
-                                        // the operation to block until all data have been received.
-                                        // It is impossible to predict the size of the incoming data,
-                                        // so that it is not clear how big the buffer array shall be.
-                                        // Therefore, call "read" in a loop until no more data are available.
-                                        //
-                                        fwprintf(stdout, L"Debug: Sense socket message. *bc: %i\n", *bc);
-                                        fwprintf(stdout, L"Debug: Sense socket message. bct: %i\n", bct);
-                                        fwprintf(stdout, L"Waiting for input/output on client socket: %i\n", *s);
-                                        int n = read(*s, p5, bct);
-                                        fwprintf(stdout, L"Debug: Sense socket message. n: %i\n", n);
-                                        fwprintf(stdout, L"Debug: Sense socket message. *p5 as c: %c\n", *((char*) p5));
-                                        fwprintf(stdout, L"Debug: Sense socket message. p5 as s: %s\n", (char*) p5);
-
-                                        // The comparison result.
-                                        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-                                        //
-                                        // Lock socket mutex.
-                                        //
-                                        // CAUTION! Set this lock BEFORE comparing with the exit flag below
-                                        // since otherwise, a race condition might occur.
-                                        //
-                                        // Example:
-                                        // - the exit flag is not set
-                                        // - the sensing child thread enters the block with r != 0
-                                        // - the main thread receives some shutdown cybol operation
-                                        // - the main thread sets the exit flag only now
-                                        // - the main thread shuts down and deallocates the destination buffer
-                                        // - the sensing child thread decodes characters
-                                        // - the sensing child thread possibly reallocates the (non-existing) destination buffer
-                                        // - this leads to memory errors such as "corrupted double-linked list"
-                                        //
-                                        mtx_lock(m);
-
-                                        //
-                                        // A return value of ZERO means the other end (peer, client)
-                                        // CLOSED the socket connexion. It never means there was no data.
-                                        // - blocking mode: "read" will block
-                                        // - non-blocking mode: it will return -1 if there is no data
-                                        //   with errno set to EAGAIN or EWOULDBLOCK, depending on the platform
-                                        //
-                                        // https://stackoverflow.com/questions/12773509/read-is-not-blocking-in-socket-programming
-                                        //
-                                        if (n == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                                            //
-                                            // Close the client socket on this server side,
-                                            // since the client side has closed its connexion.
-                                            //
-                                            copy_integer(ex, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-                                        }
-
-                                        compare_integer_equal((void*) &r, ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-                                        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                                            //
-                                            // The exit flag was NOT set in the main thread.
-                                            // Therefore, proceed normally.
-                                            //
-
-                                            fwprintf(stdout, L"Debug: Sense socket message. DO process data. r: %i\n", r);
-
-                                            // Copy local buffer content into destination buffer item.
-                                            modify_item(p0, p5, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &n, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-
-                                            //
-                                            //?? TODO: Detect message end, e.g. for http by reading "Content-Length:" in header.
-                                            //
-                                            // Write to interrupt pipe below ONLY if complete message has been received
-                                            // since otherwise, only fragements of the message are processed.
-                                            //
-
-                                            //?? fwprintf(stdout, L"Debug: Sense socket message. *ipw: %i\n", *ipw);
-
-                                            // Lock interrupt mutex.
-                                            mtx_lock(im);
-                                            //
-                                            // Write to interrupt pipe.
-                                            //
-                                            // - input/output entry identification (base + port)
-                                            // - client identification
-                                            //
-                                            // CAUTION! The safe way is to use the functions "snprintf" and "strtol".
-                                            // However, if both processes were created using the same compiler version,
-                                            // one can take advantage of the fact that anything in C can be
-                                            // read or written as an array of char (byte).
-                                            //
-                                            // Example:
-                                            //
-                                            // int n = something();
-                                            // write(pipe_w, &n, sizeof(n));
-                                            // int n;
-                                            // read(pipe_r, &n, sizeof(n));
-                                            //
-                                            // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
-                                            //
-                                            write(*ipw, p7, sizeof(int));
-                                            write(*ipw, p1, sizeof(int));
-                                            // Unlock interrupt mutex.
-                                            mtx_unlock(im);
-
-                                        } else {
-
-                                            //
-                                            // The exit flag WAS SET in the main thread.
-                                            // Therefore, do NOT process data here any longer.
-                                            //
-                                            // The reason is that data processing might require
-                                            // reallocation of some destination arrays, which may
-                                            // not exist anymore if the main thread deallocated them,
-                                            // leading to the error "realloc(): invalid pointer".
-                                            //
-                                            // Reallocation may happen above, in call of function "modify_item".
-                                            //
-
-                                            fwprintf(stdout, L"Debug: Sense socket message. Do NOT process data, since the exit flag is set. r: %i\n", r);
-                                        }
-
-                                        // Unlock socket mutex.
-                                        mtx_unlock(m);
-
-                                    } else {
-
-                                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The destination wide character buffer item is null.");
-                                        fwprintf(stdout, L"Error: Could not sense socket message. The destination wide character buffer item is null. p0: %i\n", p0);
-                                    }
-
-                                } else {
-
-                                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The source file descriptor is null.");
-                                    fwprintf(stdout, L"Error: Could not sense socket message. The source file descriptor is null. p1: %i\n", p1);
-                                }
-
-                            } else {
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The interrupt pipe is null.");
-                                fwprintf(stdout, L"Error: Could not sense socket message. The interrupt pipe is null. p3: %i\n", p3);
-                            }
-
-                        } else {
-
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The socket mutex is null.");
-                            fwprintf(stdout, L"Error: Could not sense socket message. The socket mutex is null. p2: %i\n", p2);
-                        }
-
-                    } else {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The interrupt mutex is null.");
-                        fwprintf(stdout, L"Error: Could not sense socket message. The interrupt mutex is null. p4: %i\n", p4);
-                    }
-
-                } else {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The local buffer data is null.");
-                    fwprintf(stdout, L"Error: Could not sense socket message. The local buffer data is null. p5: %i\n", p5);
-                }
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The local buffer count is null.");
-                fwprintf(stdout, L"Error: Could not sense socket message. The local buffer count is null. p6: %i\n", p6);
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The input/output identification (input/output base + socket port) is null.");
-            fwprintf(stdout, L"Error: Could not sense socket message. The input/output identification (input/output base + socket port) is null. p7: %i\n", p7);
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket message. The exit flag is null.");
-        fwprintf(stdout, L"Error: Could not sense socket message. The exit flag is null. p8: %i\n", p8);
+        // Reset data position (and count remaining ??).
     }
 }
 

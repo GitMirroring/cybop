@@ -14,6 +14,18 @@
 Pipe
 ____
 
+        * Complete file "completeness_check_socket_sensor.c"
+
+        * RESET message length count local variable after having detected the end of the message
+        * Make file "length_message_socket_sensor.c" reusable for stream reader
+        * Probably, the detection has to be done twice:
+            - in sensor to be able to set the irq pipe
+            - in reader to be able to split several messages, since more than one might have been received and stored in the buffer
+        * ?? [probably NOT necessary] ??
+            Consider exit flag in file "interrupt_socket_sensor.c" and do NOT set irq if exit flag is set,
+            since irq pipe might have been deallocated by main thread already
+            therefore, lock pipe mutex AND socket mutex ??
+
         * Write function to detect message length or message end, for example http header entry "Content-Length:"
         * Write to irq pipe only if complete message has been received since processing of message fragments will lead to errors
         * Use comparator to identify "Content-Length:" in HTTP message
@@ -28,6 +40,7 @@ ____
             For http, 1024 might suffice to receive all header data (including "Content-Length:"), but other protocols might have a larger header
 
         * Test cybol applications socket_server and socket_client
+        * Set timeout to zero so that the thread can detect it and exit? Or is it vice-versa and the thread shall reset the timeout within the exit process?
         * Reflect about how to implement file "socket_awakener.c" called within exit process
         * Reactivate "exit" socket request in cybol application "socket_client" (as soon as socket thread exit works on socket server shutdown)
 
