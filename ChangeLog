@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-12-05  Christian Heller  <christian.heller@cybop.org>
+
+        * Complete files in directory "executor/sensor/socket/"
+
 2021-12-04  Christian Heller  <christian.heller@cybop.org>
 
         * Create new files "fragment_socket_sensor.c", "completeness_check_socket_sensor.c", "interrupt_set_socket_sensor.c"

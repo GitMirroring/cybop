@@ -23,91 +23,96 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INTERRUPT_SOCKET_SENSOR_SOURCE
-#define INTERRUPT_SOCKET_SENSOR_SOURCE
+#ifndef INTERRUPT_SET_SOCKET_SENSOR_SOURCE
+#define INTERRUPT_SET_SOCKET_SENSOR_SOURCE
 
-#include "../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../logger/logger.c"
-
-/*??
 #include <threads.h> // mtx_t, mtx_lock, mtx_unlock
-#include <unistd.h> // read, write
+#include <unistd.h> // write
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/modifier/item_modifier.c"
-*/
+#include "../../../logger/logger.c"
 
 /**
  * Senses socket message end.
- *
- * Depending on the protocol used, this can be either:
- * - a prefix containing the message length (number of bytes)
- * - a suffix sequence marking the end of the message
  *
  * @param p0 the interrupt pipe write file descriptor
  * @param p1 the interrupt mutex
  * @param p2 the input/output identification (input/output base + socket port)
  * @param p3 the source identification (client socket number)
- * @param p4 the destination buffer item
- * @param p5 the message length detected previously
  */
-void sense_socket_set_interrupt(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void sense_socket_set_interrupt(void* p0, void* p1, void* p2, void* p3) {
 
-    //
-    // CAUTION! Do NOT log messages within thread,
-    // in order to avoid race conditions and other conflicts.
-    //
-    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket set interrupt.");
-    fwprintf(stdout, L"Debug: Sense socket set interrupt. p4: %i\n", p4);
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    //
-    // The number of bytes predicted by the message prefix has been received.
-    //
-    // Therefore, the message is COMPLETE and
-    // the interrupt pipe may be informed below.
-    //
-    // CAUTION! The comparison above tests for equal AND greater at the same time
-    // since it is possible that many messages have been received at once,
-    // so that a second message follows the first directly.
-    // In this case, the messages will be SPLIT, which is
-    // not done here, but later in the main thread's "reader".
-    //
+        mtx_t* m = (mtx_t*) p1;
 
-    //?? fwprintf(stdout, L"Debug: Sense socket message. *ipw: %i\n", *ipw);
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // Lock interrupt mutex.
-    mtx_lock(im);
+            int* ipw = (int*) p0;
 
-    //
-    // Write to interrupt pipe.
-    //
-    // - input/output entry identification (base + port)
-    // - client identification
-    //
-    // CAUTION! The safe way is to use the functions "snprintf" and "strtol".
-    // However, if both processes were created using the same compiler version,
-    // one can take advantage of the fact that anything in C can be
-    // read or written as an array of char (byte).
-    //
-    // Example:
-    //
-    // int n = something();
-    // write(pipe_w, &n, sizeof(n));
-    // int n;
-    // read(pipe_r, &n, sizeof(n));
-    //
-    // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
-    //
-    write(*ipw, p7, sizeof(int));
-    write(*ipw, p1, sizeof(int));
+            //
+            // CAUTION! Do NOT log messages within thread,
+            // in order to avoid race conditions and other conflicts.
+            //
+            // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket set interrupt.");
+            fwprintf(stdout, L"Debug: Sense socket set interrupt. ipw p0: %i\n", p0);
+            fwprintf(stdout, L"Debug: Sense socket set interrupt. ipw *p0: %i\n", ((int*) p0));
 
-    // Unlock interrupt mutex.
-    mtx_unlock(im);
+            //
+            // The number of bytes predicted by the message prefix has been received.
+            //
+            // Therefore, the message is COMPLETE and
+            // the interrupt pipe may be informed below.
+            //
+            // CAUTION! The comparison above tests for equal AND greater at the same time
+            // since it is possible that many messages have been received at once,
+            // so that a second message follows the first directly.
+            // In this case, the messages will be SPLIT, which is
+            // not done here, but later in the main thread's "reader".
+            //
+
+            // Lock interrupt mutex.
+            mtx_lock(m);
+
+            //
+            // Write to interrupt pipe.
+            //
+            // - input/output entry identification (base + port)
+            // - client identification
+            //
+            // CAUTION! The safe way is to use the functions "snprintf" and "strtol".
+            // However, if both processes were created using the same compiler version,
+            // one can take advantage of the fact that anything in C can be
+            // read or written as an array of char (byte).
+            //
+            // Example:
+            //
+            // int n = something();
+            // write(pipe_w, &n, sizeof(n));
+            // int n;
+            // read(pipe_r, &n, sizeof(n));
+            //
+            // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
+            //
+            write(*ipw, p2, sizeof(int));
+            write(*ipw, p3, sizeof(int));
+
+            // Unlock interrupt mutex.
+            mtx_unlock(m);
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket set interrupt. The interrupt pipe write file descriptor is null.");
+            fwprintf(stdout, L"Error: Could not sense socket set interrupt. The interrupt pipe write file descriptor is null. p0: %i\n", p0);
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket set interrupt. The interrupt mutex is null.");
+        fwprintf(stdout, L"Error: Could not sense socket set interrupt. The interrupt mutex is null. p1: %i\n", p1);
+    }
 }
 
-/* INTERRUPT_SOCKET_SENSOR_SOURCE */
+/* INTERRUPT_SET_SOCKET_SENSOR_SOURCE */
 #endif

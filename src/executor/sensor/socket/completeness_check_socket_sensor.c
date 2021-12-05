@@ -23,42 +23,36 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INTERRUPT_SOCKET_SENSOR_SOURCE
-#define INTERRUPT_SOCKET_SENSOR_SOURCE
-
-#include "../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../logger/logger.c"
-
-/*??
-#include <threads.h> // mtx_t, mtx_lock, mtx_unlock
-#include <unistd.h> // read, write
+#ifndef COMPLETENESS_CHECK_SOCKET_SENSOR_SOURCE
+#define COMPLETENESS_CHECK_SOCKET_SENSOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/modifier/item_modifier.c"
-*/
+#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/copier/integer_copier.c"
+#include "../../../executor/representer/deserialiser/message_length_or_end/message_length_or_end_deserialiser.c"
+#include "../../../logger/logger.c"
 
 /**
  * Checks if the message is complete, that is if
  * all data belonging to it have been received.
  *
  * @param p0 the complete flag
- * @param p0 the interrupt pipe write file descriptor
- * @param p1 the interrupt mutex
- * @param p2 the input/output identification (input/output base + socket port)
- * @param p3 the source identification (client socket number)
- * @param p4 the message buffer item
- * @param p5 the message length detected previously
- * @param px the language (protocol)
+ * @param p1 the message length (possibly detected previously)
+ * @param p2 the message item
+ * @param p3 the language (protocol)
  */
-void sense_socket_check_completeness(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void sense_socket_check_completeness(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* l = (int*) p5;
+        int* l = (int*) p1;
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -68,8 +62,9 @@ void sense_socket_check_completeness(void* p0, void* p1, void* p2, void* p3, voi
             // CAUTION! Do NOT log messages within thread,
             // in order to avoid race conditions and other conflicts.
             //
-            // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket interrupt.");
-            fwprintf(stdout, L"Debug: Sense socket check completeness. p4: %i\n", p4);
+            // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket check completeness.");
+            fwprintf(stdout, L"Debug: Sense socket check completeness. message length p1: %i\n", p1);
+            fwprintf(stdout, L"Debug: Sense socket check completeness. message length *p1: %i\n", ((int*) p1));
 
             // The buffer item data, count.
             void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -82,11 +77,12 @@ void sense_socket_check_completeness(void* p0, void* p1, void* p2, void* p3, voi
             // Inside the structure, arrays may have been reallocated,
             // with elements pointing to different memory areas now.
             //
-            // CAUTION! The buffer data and count HAVE TO be determined here in each
-            // loop cycle ANEW, since the arrays inside might have got reallocated and changed!
+            // CAUTION! The buffer data and count HAVE TO be determined here
+            // in EACH loop cycle ANEW, since the arrays inside might have
+            // got reallocated and changed!
             //
-            copy_array_forward((void*) &bd, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &bc, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &bd, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &bc, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
             // The buffer item count casted to the correct type.
             int* bct = (int*) bc;
@@ -114,7 +110,7 @@ void sense_socket_check_completeness(void* p0, void* p1, void* p2, void* p3, voi
                 // Example: http has a "Content-Length:" header entry as prefix.
                 //
 
-                deserialise_message_length_or_end(p0, p5, bd, bc, px);
+                deserialise_message_length_or_end(p0, p1, bd, bc, p3);
 
                 if (*f == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -161,5 +157,5 @@ void sense_socket_check_completeness(void* p0, void* p1, void* p2, void* p3, voi
     }
 }
 
-/* INTERRUPT_SOCKET_SENSOR_SOURCE */
+/* COMPLETENESS_CHECK_SOCKET_SENSOR_SOURCE */
 #endif

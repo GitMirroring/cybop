@@ -14,9 +14,10 @@
 Pipe
 ____
 
-        * Complete file "completeness_check_socket_sensor.c"
+        * Hand over language (protocol) to file "message_socket_sensor.c", in file "socket_sensor.c" --> take it from where? client entry?
 
         * RESET message length count local variable after having detected the end of the message
+            OR reset it in socket reader once the character bytes to be read have been deleted in the buffer item
         * Make file "length_message_socket_sensor.c" reusable for stream reader
         * Probably, the detection has to be done twice:
             - in sensor to be able to set the irq pipe

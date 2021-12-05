@@ -52,28 +52,33 @@
  * @param p5 the local character buffer data
  * @param p6 the local character buffer count
  * @param p7 the input/output identification (input/output base + socket port)
- * @param p8 the exit flag
+ * @param p8 the language (protocol)
+ * @param p9 the message length (possibly detected as prefix previously)
+ * @param p10 the exit flag
  */
-void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     // The complete flag.
     int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Receive next message fragment.
-    sense_socket_fragment(b, id, m, (void*) &ipw, im, cd, (void*) &cc, ioid, ex);
+    sense_socket_fragment(p0, p1, p2, p5, p6, p10);
 
     // Check for length prefix and end suffix.
-    //?? Return flag indicating that message is complete.
-    sense_socket_check_completeness((void*) &f, (void*) &ipw, im, ioid, id, b);
+    sense_socket_check_completeness((void*) &f, p9, p0, p8);
 
     if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Inform interrupt pipe if message is complete.
-        sense_socket_set_interrupt();
+        sense_socket_set_interrupt(p3, p4, p7, p1);
 
-        // Reset data position (and count remaining ??).
+        //
+        // CAUTION! The complete flag does NOT have to be reset here,
+        // since it is a local variable on stack and gets freed
+        // automatically when this function is left now.
+        //
+        // f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        //
     }
 }
 
