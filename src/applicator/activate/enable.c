@@ -44,17 +44,17 @@
 /**
  * Enables the given channel for message sensing.
  *
- * The actual sensing of data happens automatically inside cyboi.
- * Its main signal (event) checker loop tests regularly for new data
- * on all channels that have been enabled before.
+ * The actual sensing of data happens in separate threads,
+ * one for each channel and client.
  *
  * Expected parametres:
  * - channel (required): the channel via which to receive the message (terminal, www, x-window-system etc.)
  * - handler (required): the handler (usually a receive operation) that parses an input and filters out a command that the system is to react to
- * - sender (required): the source where to sense data, e.g. a socket
+ * - sender (required): the source where to sense data, e.g. a client socket
  *
  * Expected parametres only for channel "socket":
  * - port (required): the service identification, e.g. socket port 80
+ * - language (required): the application-level protocol used for data transfer, e.g. http or ftp
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -70,6 +70,8 @@ void apply_enable(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The socket port part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The language part.
+    void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The handler part.
     void* h = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The sender part.
@@ -79,6 +81,8 @@ void apply_enable(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The socket port part model item.
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The language part model item.
+    void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The sender part model item.
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -86,6 +90,8 @@ void apply_enable(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The socket port part model item data.
     void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The language part model item data.
+    void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The sender part model item data.
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -93,6 +99,8 @@ void apply_enable(void* p0, void* p1, void* p2, void* p3, void* p4) {
     get_part_name((void*) &c, p0, (void*) CHANNEL_ACTIVATION_LOGIC_CYBOL_NAME, (void*) CHANNEL_ACTIVATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get socket port part.
     get_part_name((void*) &p, p0, (void*) PORT_SOCKET_ACTIVATION_LOGIC_CYBOL_NAME, (void*) PORT_SOCKET_ACTIVATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get language part.
+    get_part_name((void*) &l, p0, (void*) LANGUAGE_ACTIVATION_LOGIC_CYBOL_NAME, (void*) LANGUAGE_ACTIVATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get handler part.
     get_part_name((void*) &h, p0, (void*) HANDLER_ACTIVATION_LOGIC_CYBOL_NAME, (void*) HANDLER_ACTIVATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get sender part.
@@ -102,6 +110,8 @@ void apply_enable(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get socket port part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get language part model item.
+    copy_array_forward((void*) &lm, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get sender part model item.
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
@@ -109,10 +119,12 @@ void apply_enable(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get socket port part model item data.
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get language part model item data.
+    copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get sender part model item data.
     copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    enable(p4, pmd, (void*) &h, (void*) &smd, cmd);
+    enable(p4, pmd, (void*) &h, (void*) &smd, (void*) &lmd, cmd);
 }
 
 /* ENABLE_SOURCE */

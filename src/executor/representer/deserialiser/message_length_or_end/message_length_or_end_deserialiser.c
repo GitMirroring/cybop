@@ -55,7 +55,9 @@ void deserialise_message_length_or_end(void* p0, void* p1, void* p2, void* p3, v
     //
     //?? log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise message length or end.");
     fwprintf(stdout, L"Debug: Deserialise message length or end. p0: %i\n", p0);
-    fwprintf(stdout, L"Debug: Deserialise message length or end. *p0: %i\n", ((int*) p0));
+    fwprintf(stdout, L"Debug: Deserialise message length or end. *p0: %i\n", *((int*) p0));
+    fwprintf(stdout, L"Debug: Deserialise message length or end. p4: %i\n", p4);
+    fwprintf(stdout, L"Debug: Deserialise message length or end. *p4: %i\n", *((int*) p4));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -76,16 +78,27 @@ void deserialise_message_length_or_end(void* p0, void* p1, void* p2, void* p3, v
         }
     }
 
-    //
-    //?? TODO: Add further protocols like for instance FTP here.
-    //
-    // Other protocols may use a message end suffix and
-    // set the parametre p0 complete flag to TRUE.
-    //
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) FTP_RESPONSE_MESSAGE_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // CAUTION! A content length prefix does NOT exist in ftp response
+            // and therefore the parametre p1 message length is NOT set.
+            // Identifying the crlf line end separator suffices here.
+            //
+
+            deserialise_ftp_response_line_end(p0, p2, p3);
+        }
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise message length or end. The protocol is not known.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise message length or end. The language (protocol) is not known.");
+        fwprintf(stdout, L"Debug: Deserialise message length or end. The language (protocol) is not known. p4: %i\n", p4);
+        fwprintf(stdout, L"Debug: Deserialise message length or end. The language (protocol) is not known. *p4: %i\n", *((int*) p4));
     }
 }
 

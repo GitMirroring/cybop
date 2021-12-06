@@ -57,7 +57,7 @@ void sense_socket_set_interrupt(void* p0, void* p1, void* p2, void* p3) {
             //
             // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket set interrupt.");
             fwprintf(stdout, L"Debug: Sense socket set interrupt. ipw p0: %i\n", p0);
-            fwprintf(stdout, L"Debug: Sense socket set interrupt. ipw *p0: %i\n", ((int*) p0));
+            fwprintf(stdout, L"Debug: Sense socket set interrupt. ipw *p0: %i\n", *((int*) p0));
 
             //
             // The number of bytes predicted by the message prefix has been received.

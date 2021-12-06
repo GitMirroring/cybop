@@ -31,6 +31,7 @@
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
@@ -137,6 +138,8 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The sender identification.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The language (protocol).
+    void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The access mutex.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The thread identification.
@@ -166,6 +169,13 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // be negative or zero, but have at least a value of ONE.
     //
     allocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    //
+    // Allocate language (protocol).
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_array((void*) &l, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
     //
     // Allocate access mutex.
     //
@@ -210,6 +220,8 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     copy_integer(id, p3);
     // Initialise sender identification.
     copy_integer(s, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    // Initialise language (protocol).
+    copy_integer(l, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
     // The access mutex with casted type.
     mtx_t* mt = (mtx_t*) m;
     // Initialise access mutex.
@@ -264,6 +276,8 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     copy_array_forward(p0, (void*) &id, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set sender identification into input/output entry.
     copy_array_forward(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SENDER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set language (protocol) into input/output entry.
+    copy_array_forward(p0, (void*) &l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) LANGUAGE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set access mutex into input/output entry.
     copy_array_forward(p0, (void*) &m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set thread identification into input/output entry.

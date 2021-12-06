@@ -125,6 +125,8 @@ int sense_socket(void* p0) {
     void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The input/output identification (input/output base + socket port).
     void* ioid = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The language (protocol).
+    void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // The local character buffer data, count.
@@ -176,8 +178,16 @@ int sense_socket(void* p0) {
     int ipw = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    //
     // The message length.
-    int l = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    //
+    // CAUTION! This variable is NOT read from client entry.
+    // It serves just as a value-holder across many loop cycles,
+    // so that a "message length" header found in the data
+    // (e.g. "Content-Length: " in http) can be compared with
+    // the actual number of bytes that have been read, in each loop cycle.
+    //
+    int ml = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get exit flag from client entry.
     copy_array_forward((void*) &ex, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_CLIENT_STATE_CYBOI_NAME);
@@ -193,6 +203,8 @@ int sense_socket(void* p0) {
     copy_array_forward((void*) &im, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INTERRUPT_CLIENT_STATE_CYBOI_NAME);
     // Get input/output identification (input/output base + socket port) from client entry.
     copy_array_forward((void*) &ioid, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_OUTPUT_IDENTIFICATION_CLIENT_STATE_CYBOI_NAME);
+    // Get language from client entry.
+    copy_array_forward((void*) &l, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LANGUAGE_CLIENT_STATE_CYBOI_NAME);
 
     // Get interrupt pipe write file descriptor.
     copy_array_forward((void*) &ipw, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
@@ -218,7 +230,7 @@ int sense_socket(void* p0) {
             break;
         }
 
-        sense_socket_message(b, id, m, (void*) &ipw, im, cd, (void*) &cc, ioid, px_language, (void*) &l, ex);
+        sense_socket_message(b, id, m, (void*) &ipw, im, cd, (void*) &cc, ioid, l, (void*) &ml, ex);
     }
 
     //

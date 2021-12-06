@@ -44,8 +44,9 @@
  * @param p2 the socket port (service identification)
  * @param p3 the handler part (pointer reference)
  * @param p4 the sender client data (pointer reference, e.g. client socket id, window id, file descriptor)
+ * @param p5 the language (pointer reference, protocol)
  */
-void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable channel.");
     fwprintf(stdout, L"Debug: Enable channel. port p2: %i\n", p2);
@@ -85,6 +86,8 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
         copy_array_forward(io, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Set sender client into input/output entry.
         copy_array_forward(io, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SENDER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        // Set language (protocol) into input/output entry.
+        copy_array_forward(io, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) LANGUAGE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         if (f != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

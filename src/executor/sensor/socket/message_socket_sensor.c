@@ -26,20 +26,12 @@
 #ifndef MESSAGE_SOCKET_SENSOR_SOURCE
 #define MESSAGE_SOCKET_SENSOR_SOURCE
 
-#include "../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../logger/logger.c"
-
-/*??
-#include <threads.h> // mtx_t, mtx_lock, mtx_unlock
-#include <unistd.h> // read, write
-
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/modifier/item_modifier.c"
-*/
+#include "../../../executor/sensor/socket/completeness_check_socket_sensor.c"
+#include "../../../executor/sensor/socket/fragment_socket_sensor.c"
+#include "../../../executor/sensor/socket/interrupt_set_socket_sensor.c"
+#include "../../../logger/logger.c"
 
 /**
  * Senses socket message.
@@ -57,6 +49,14 @@
  * @param p10 the exit flag
  */
 void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+
+    //
+    // CAUTION! Do NOT log messages within thread,
+    // in order to avoid race conditions and other conflicts.
+    //
+    //?? log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket message.");
+    fwprintf(stdout, L"Debug: Sense socket message. p10: %i\n", p10);
+    fwprintf(stdout, L"Debug: Sense socket message. *p10: %i\n", *((int*) p10));
 
     // The complete flag.
     int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

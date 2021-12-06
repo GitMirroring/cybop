@@ -28,6 +28,10 @@
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
+//
+// The item size is set in file "state_cyboi_model.c"!
+//
+
 /** The data item state cyboi name. */
 static int* DATA_ITEM_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

@@ -28,6 +28,10 @@
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
+//
+// The complex size is set in file "state_cyboi_model.c"!
+//
+
 /** The real complex state cyboi name. */
 static int* REAL_COMPLEX_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

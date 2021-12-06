@@ -57,15 +57,16 @@
  * @param p3 the interrupt pipe (pointer reference)
  * @param p4 the interrupt mutex (pointer reference)
  * @param p5 the input/output identification (pointer reference, input/output base + socket port)
- * @param p6 the exit flag
+ * @param p6 the language (pointer reference, protocol)
+ * @param p7 the exit flag
  */
-int accept_socket_request(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+int accept_socket_request(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Accept socket request.");
 
-    if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* ex = (int*) p6;
+        int* ex = (int*) p7;
 
         if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -138,7 +139,7 @@ int accept_socket_request(void* p0, void* p1, void* p2, void* p3, void* p4, void
                     fwprintf(stdout, L"Debug: Accept socket request. startup client e: %i\n", e);
 
                     // Startup client entry.
-                    startup_client(e, p3, p4, p5, (void*) &c, (void*) &f, (void*) &e);
+                    startup_client(e, p3, p4, p5, p6, (void*) &c, (void*) &f, (void*) &e);
 
                     // Get identification from client entry.
                     copy_array_forward((void*) &id, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_CLIENT_STATE_CYBOI_NAME);
@@ -173,9 +174,11 @@ int accept_socket_request(void* p0, void* p1, void* p2, void* p3, void* p4, void
                     // Get destination data, count, size.
                     copy_array_forward((void*) &d, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
                     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
+                    //
                     // Modify destination data.
-                    //?? Use s for both arguments: count AND size.
-                    //?? modify_array((void*) &d, p1, p2, p3, p4, p5, p6, c, s, p7, p8);
+                    //
+                    // CAUTION! Use s for both arguments: count AND size.
+                    //
                     modify_array((void*) &d, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &c, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, s, s, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
                     // Set data array as destination item element.
                     copy_array_forward(p0, (void*) &d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DATA_ITEM_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
@@ -233,7 +236,7 @@ int accept_socket_request(void* p0, void* p1, void* p2, void* p3, void* p4, void
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not accept socket request. The exit flag is null.");
-        fwprintf(stdout, L"Error: Could not accept socket request. The exit flag is null. p6: %i\n", p6);
+        fwprintf(stdout, L"Error: Could not accept socket request. The exit flag is null. p7: %i\n", p7);
     }
 }
 

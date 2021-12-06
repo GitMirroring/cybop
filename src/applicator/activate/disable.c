@@ -44,10 +44,6 @@
 /**
  * Disables the given channel for message sensing.
  *
- * The actual sensing of data happens automatically inside cyboi.
- * Its main signal (event) checker loop tests regularly for new data
- * on all channels that have been enabled before.
- *
  * Expected parametres:
  * - channel (required): the channel via which to receive the message (terminal, www, x-window-system etc.)
  *

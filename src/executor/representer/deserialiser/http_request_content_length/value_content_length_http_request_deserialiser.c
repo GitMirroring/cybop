@@ -57,9 +57,9 @@ void deserialise_http_request_content_length_value(void* p0, void* p1, void* p2)
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Initialise element.
-    copy_pointer((void*) &e, p2);
+    copy_pointer((void*) &e, p1);
 
-    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
         // CAUTION! If the loop count handed over as parametre is NULL,
@@ -76,14 +76,14 @@ void deserialise_http_request_content_length_value(void* p0, void* p1, void* p2)
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_less_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_less_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }
 
-        select_http_request_content_length_value(p0, p1, (void*) &b, p2, p3);
+        select_http_request_content_length_value((void*) &b, p1, p2);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

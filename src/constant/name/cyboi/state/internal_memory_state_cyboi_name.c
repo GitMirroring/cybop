@@ -29,6 +29,10 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
+// The internal memory size is set in file "state_cyboi_model.c"!
+//
+
+//
 // These constants are NOT sorted alphabetically, but as follows:
 //
 // - knowledge memory
@@ -43,8 +47,6 @@
 //
 // CAUTION! The socket stands at last, since more services
 // may have to be added in the future.
-//
-// The current internal memory size is set in file "state_cyboi_model.c"!
 //
 
 /** The knowledge memory. */

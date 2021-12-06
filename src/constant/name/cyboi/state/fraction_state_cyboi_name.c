@@ -28,6 +28,10 @@
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
+//
+// The fraction size is set in file "state_cyboi_model.c"!
+//
+
 /** The numerator fraction state cyboi name. */
 static int* NUMERATOR_FRACTION_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

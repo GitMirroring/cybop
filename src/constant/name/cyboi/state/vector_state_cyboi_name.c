@@ -28,6 +28,10 @@
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
+//
+// The vector size is set in file "state_cyboi_model.c"!
+//
+
 /** The dimension 0 vector memory name. In a (spatial) vector, this is the x coordinate. */
 static int* DIMENSION_0_VECTOR_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

@@ -28,6 +28,10 @@
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
+//
+// The part size is set in file "state_cyboi_model.c"!
+//
+
 /** The references part state cyboi name. */
 static int* REFERENCES_PART_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

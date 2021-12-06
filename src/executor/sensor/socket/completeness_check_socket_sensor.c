@@ -64,7 +64,7 @@ void sense_socket_check_completeness(void* p0, void* p1, void* p2, void* p3) {
             //
             // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket check completeness.");
             fwprintf(stdout, L"Debug: Sense socket check completeness. message length p1: %i\n", p1);
-            fwprintf(stdout, L"Debug: Sense socket check completeness. message length *p1: %i\n", ((int*) p1));
+            fwprintf(stdout, L"Debug: Sense socket check completeness. message length *p1: %i\n", *((int*) p1));
 
             // The buffer item data, count.
             void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -98,6 +98,8 @@ void sense_socket_check_completeness(void* p0, void* p1, void* p2, void* p3) {
 
                     // Set complete flag.
                     copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                    // Reset message length.
+                    copy_integer(p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
                 }
 
             } else {
@@ -126,7 +128,7 @@ void sense_socket_check_completeness(void* p0, void* p1, void* p2, void* p3) {
                     // does NOT have to be read.
                     //
                     // If the buffer count was not checked here and only in the next loop cycle
-                    // then the thread will BLOCK due to the next message fragment "read" call
+                    // then the thread would BLOCK due to the next message fragment "read" call
                     // (at least if no other separate message is following).
                     //
                     if (*l > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
@@ -139,6 +141,8 @@ void sense_socket_check_completeness(void* p0, void* p1, void* p2, void* p3) {
 
                             // Set complete flag.
                             copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                            // Reset message length.
+                            copy_integer(p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
                         }
                     }
                 }
@@ -147,13 +151,13 @@ void sense_socket_check_completeness(void* p0, void* p1, void* p2, void* p3) {
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket check completeness. The complete flag is null.");
-            fwprintf(stdout, L"Error: Could not sense socket check completeness. The complete flag is null. p8: %i\n", p8);
+            fwprintf(stdout, L"Error: Could not sense socket check completeness. The complete flag is null. p0: %i\n", p0);
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket check completeness. The message length is null.");
-        fwprintf(stdout, L"Error: Could not sense socket check completeness. The message length is null. p8: %i\n", p8);
+        fwprintf(stdout, L"Error: Could not sense socket check completeness. The message length is null. p1: %i\n", p1);
     }
 }
 

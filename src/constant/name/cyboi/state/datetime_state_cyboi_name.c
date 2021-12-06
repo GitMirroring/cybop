@@ -28,6 +28,10 @@
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
+//
+// The datetime size is set in file "state_cyboi_model.c"!
+//
+
 /** The julian day datetime state cyboi name. */
 static int* JULIAN_DAY_DATETIME_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

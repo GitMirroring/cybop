@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-12-06  Christian Heller  <christian.heller@cybop.org>
+
+        * Reset message length in file "completeness_check_socket_sensor.c"
+        * Hand over property "language" (protocol) for cybol operation "activate/enable" to all affected files
+
 2021-12-05  Christian Heller  <christian.heller@cybop.org>
 
         * Complete files in directory "executor/sensor/socket/"

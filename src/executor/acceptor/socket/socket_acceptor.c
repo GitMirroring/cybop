@@ -72,6 +72,8 @@ int accept_socket(void* p0) {
     void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The identification (input/output base + socket port).
     void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The language (protocol).
+    void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The client list item.
     void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The client list mutex.
@@ -92,6 +94,8 @@ int accept_socket(void* p0) {
     copy_array_forward((void*) &ex, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get identification from input/output entry.
     copy_array_forward((void*) &id, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get language from input/output entry.
+    copy_array_forward((void*) &l, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LANGUAGE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get client list item from input/output entry.
     copy_array_forward((void*) &cl, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CLIENT_LIST_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get mutex from input/output entry.
@@ -124,7 +128,7 @@ int accept_socket(void* p0) {
             break;
         }
 
-        accept_socket_request(cl, s, m, (void*) &ip, (void*) &im, (void*) &id, ex);
+        accept_socket_request(cl, s, m, (void*) &ip, (void*) &im, (void*) &id, (void*) &l, ex);
     }
 
     //
