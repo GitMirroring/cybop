@@ -22,6 +22,7 @@
 
         * Reset message length in file "completeness_check_socket_sensor.c"
         * Hand over property "language" (protocol) for cybol operation "activate/enable" to all affected files
+        * Add ftp protocol whose crlf line end separator is to be used testwise in cybol example "internet/socket_server/run.cybol"
 
 2021-12-05  Christian Heller  <christian.heller@cybop.org>
 

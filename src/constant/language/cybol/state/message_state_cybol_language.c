@@ -71,6 +71,15 @@ static wchar_t* CLI_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/cli";
 static int* CLI_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The message/ftp-response state cybol language.
+ *
+ * An FTP response message.
+ * This is a CYBOL extension.
+ */
+static wchar_t* FTP_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/ftp-response";
+static int* FTP_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The message/gui state cybol language.
  *
  * A graphical user interface message.

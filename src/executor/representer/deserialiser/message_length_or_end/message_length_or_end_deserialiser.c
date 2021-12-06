@@ -30,6 +30,7 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../../executor/representer/deserialiser/ftp_response_line_end/line_end_ftp_response_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/http_request_content_length/content_length_http_request_deserialiser.c"
 #include "../../../../logger/logger.c"
 

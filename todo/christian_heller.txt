@@ -14,8 +14,8 @@
 Pipe
 ____
 
+        * Create new ftp response line end deserialiser
         * Test code changes that were done to hand over the language (protocol)
-        * Add ftp protocol whose crlf line end separator is to be used testwise in cybol example "internet/socket_server/run.cybol"
 
         * Replace "Test: " with "Debug: "
         * Replace "TEST" with ...
