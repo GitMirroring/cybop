@@ -23,18 +23,17 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HEADER_HTTP_REQUEST_CONTENT_LENGTH_SELECTOR_SOURCE
-#define HEADER_HTTP_REQUEST_CONTENT_LENGTH_SELECTOR_SOURCE
+#ifndef FTP_LINE_END_SELECTOR_SOURCE
+#define FTP_LINE_END_SELECTOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/name/http/separator_http_name.c"
+#include "../../../constant/name/ftp/separator_ftp_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/mover/mover.c"
-#include "../../../executor/representer/deserialiser/http_request_content_length/value_http_request_content_length_deserialiser.c"
 #include "../../../logger/logger.c"
 
 //
@@ -61,27 +60,28 @@
 //
 
 /**
- * Selects the http request content length header.
+ * Selects the ftp line end.
  *
- * @param p0 the destination content length
+ * @param p0 the destination complete flag
  * @param p1 the break flag
  * @param p2 the source data position (pointer reference)
  * @param p3 the source count remaining
  */
-void select_http_request_content_length_header(void* p0, void* p1, void* p2, void* p3) {
+void select_ftp_line_end(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select http request content length header.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select ftp line end.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p2, p3, (void*) CONTENT_LENGTH_ENTITY_HEADER_HTTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CONTENT_LENGTH_ENTITY_HEADER_HTTP_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p2, p3, (void*) LINE_END_FTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LINE_END_FTP_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_http_request_content_length_value(p0, p2, p3);
+            // Set complete flag.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // Set break flag.
             copy_integer(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -94,5 +94,5 @@ void select_http_request_content_length_header(void* p0, void* p1, void* p2, voi
     }
 }
 
-/* HEADER_HTTP_REQUEST_CONTENT_LENGTH_SELECTOR_SOURCE */
+/* FTP_LINE_END_SELECTOR_SOURCE */
 #endif

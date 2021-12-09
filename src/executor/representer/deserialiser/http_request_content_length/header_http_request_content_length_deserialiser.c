@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef VALUE_CONTENT_LENGTH_HTTP_REQUEST_DESERIALISER_SOURCE
-#define VALUE_CONTENT_LENGTH_HTTP_REQUEST_DESERIALISER_SOURCE
+#ifndef HEADER_HTTP_REQUEST_CONTENT_LENGTH_DESERIALISER_SOURCE
+#define HEADER_HTTP_REQUEST_CONTENT_LENGTH_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -33,22 +33,21 @@
 #include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
-#include "../../../../executor/representer/deserialiser/http_request_content_length/decode_content_length_http_request_deserialiser.c"
-#include "../../../../executor/selector/http_request_content_length/value_http_request_content_length_selector.c"
+#include "../../../../executor/selector/http_request_content_length/header_http_request_content_length_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the http request content length value.
+ * Deserialises the http request content length header.
  *
  * @param p0 the destination content length
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
  */
-void deserialise_http_request_content_length_value(void* p0, void* p1, void* p2) {
+void deserialise_http_request_content_length_header(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise http request content length value.");
-    //?? fwprintf(stdout, L"Debug: Deserialise http request content length value. p2: %i\n", p2);
-    //?? fwprintf(stdout, L"Debug: Deserialise http request content length value. *p2: %i\n", *((int*) p2));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise http request content length header.");
+    //?? fwprintf(stdout, L"Debug: Deserialise http request content length header. p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise http request content length header. *p2: %i\n", *((int*) p2));
 
     // The element.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -83,15 +82,9 @@ void deserialise_http_request_content_length_value(void* p0, void* p1, void* p2)
             break;
         }
 
-        select_http_request_content_length_value((void*) &b, p1, p2);
+        select_http_request_content_length_header(p0, (void*) &b, p1, p2);
 
-        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            deserialise_http_request_content_length_decode(p0, e, (void*) &ec);
-
-            break;
-
-        } else {
+        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Increment element count.
             ec++;
@@ -99,5 +92,5 @@ void deserialise_http_request_content_length_value(void* p0, void* p1, void* p2)
     }
 }
 
-/* VALUE_CONTENT_LENGTH_HTTP_REQUEST_DESERIALISER_SOURCE */
+/* HEADER_HTTP_REQUEST_CONTENT_LENGTH_DESERIALISER_SOURCE */
 #endif

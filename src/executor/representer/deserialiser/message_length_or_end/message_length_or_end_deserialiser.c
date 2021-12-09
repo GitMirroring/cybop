@@ -30,8 +30,8 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../../executor/representer/deserialiser/ftp_response_line_end/line_end_ftp_response_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/http_request_content_length/content_length_http_request_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/ftp_line_end/ftp_line_end_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/http_request_content_length/http_request_content_length_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -91,7 +91,7 @@ void deserialise_message_length_or_end(void* p0, void* p1, void* p2, void* p3, v
             // Identifying the crlf line end separator suffices here.
             //
 
-            deserialise_ftp_response_line_end(p0, p2, p3);
+            deserialise_ftp_line_end(p0, p2, p3);
         }
     }
 

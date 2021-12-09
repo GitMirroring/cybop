@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef HEADER_CONTENT_LENGTH_HTTP_REQUEST_DESERIALISER_SOURCE
-#define HEADER_CONTENT_LENGTH_HTTP_REQUEST_DESERIALISER_SOURCE
+#ifndef DATA_FTP_LINE_END_DESERIALISER_SOURCE
+#define DATA_FTP_LINE_END_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -33,21 +33,21 @@
 #include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
-#include "../../../../executor/selector/http_request_content_length/header_http_request_content_length_selector.c"
+#include "../../../../executor/selector/ftp_line_end/ftp_line_end_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the http request content length header.
+ * Deserialises the ftp line end data.
  *
- * @param p0 the destination content length
+ * @param p0 the destination complete flag
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
  */
-void deserialise_http_request_content_length_header(void* p0, void* p1, void* p2) {
+void deserialise_ftp_line_end_data(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise http request content length header.");
-    //?? fwprintf(stdout, L"Debug: Deserialise http request content length header. p2: %i\n", p2);
-    //?? fwprintf(stdout, L"Debug: Deserialise http request content length header. *p2: %i\n", *((int*) p2));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise ftp line end data.");
+    //?? fwprintf(stdout, L"Debug: Deserialise ftp line end data. p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise ftp line end data. *p2: %i\n", *((int*) p2));
 
     // The element.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -82,15 +82,19 @@ void deserialise_http_request_content_length_header(void* p0, void* p1, void* p2
             break;
         }
 
-        select_http_request_content_length_header(p0, (void*) &b, p1, p2);
+        select_ftp_line_end(p0, (void*) &b, p1, p2);
 
         if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Increment element count.
             ec++;
+
+        } else {
+
+            break;
         }
     }
 }
 
-/* HEADER_CONTENT_LENGTH_HTTP_REQUEST_DESERIALISER_SOURCE */
+/* DATA_FTP_LINE_END_DESERIALISER_SOURCE */
 #endif

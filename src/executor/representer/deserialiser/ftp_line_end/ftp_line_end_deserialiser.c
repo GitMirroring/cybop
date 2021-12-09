@@ -23,27 +23,29 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONTENT_LENGTH_HTTP_REQUEST_DESERIALISER_SOURCE
-#define CONTENT_LENGTH_HTTP_REQUEST_DESERIALISER_SOURCE
+#ifndef FTP_LINE_END_DESERIALISER_SOURCE
+#define FTP_LINE_END_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
-#include "../../../../executor/representer/deserialiser/http_request_content_length/header_content_length_http_request_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/ftp_line_end/data_ftp_line_end_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the http request content length.
+ * Deserialises the ftp line end.
  *
- * @param p0 the destination content length
+ * @param p0 the destination complete flag
  * @param p1 the source message data
  * @param p2 the source message count
  */
-void deserialise_http_request_content_length(void* p0, void* p1, void* p2) {
+void deserialise_ftp_line_end(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise http request content length.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise ftp line end.");
+    fwprintf(stdout, L"Debug: Deserialise ftp line end. p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Deserialise ftp line end. *p2: %i\n", *((int*) p2));
 
     // The source data position.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -55,8 +57,8 @@ void deserialise_http_request_content_length(void* p0, void* p1, void* p2) {
     // Copy source count remaining.
     copy_integer((void*) &c, p2);
 
-    //?? fwprintf(stdout, L"Test: Deserialise http request content length. c: %i\n", c);
-    //?? fwprintf(stdout, L"Test: Deserialise http request content length. d: %s\n", (char*) d);
+    //?? fwprintf(stdout, L"Debug: Deserialise ftp line end. c: %i\n", c);
+    //?? fwprintf(stdout, L"Debug: Deserialise ftp line end. d: %s\n", (char*) d);
 
     //
     // CAUTION! A COPY of source count remaining is forwarded here,
@@ -67,8 +69,8 @@ void deserialise_http_request_content_length(void* p0, void* p1, void* p2) {
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
     //
-    deserialise_http_request_content_length_header(p0, (void*) &d, (void*) &c);
+    deserialise_ftp_line_end_data(p0, (void*) &d, (void*) &c);
 }
 
-/* CONTENT_LENGTH_HTTP_REQUEST_DESERIALISER_SOURCE */
+/* FTP_LINE_END_DESERIALISER_SOURCE */
 #endif

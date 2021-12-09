@@ -14,7 +14,9 @@
 Pipe
 ____
 
-        * Create new ftp response line end deserialiser
+        * Define new transfer protocol in file "state_cyboi_language.c" ??
+            e.g. "message/binary-crlf" and "message/text-crlf" or "message/ascii-crlf"
+
         * Test code changes that were done to hand over the language (protocol)
 
         * Replace "Test: " with "Debug: "

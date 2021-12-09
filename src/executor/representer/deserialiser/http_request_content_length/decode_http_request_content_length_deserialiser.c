@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DECODE_CONTENT_LENGTH_HTTP_REQUEST_DESERIALISER_SOURCE
-#define DECODE_CONTENT_LENGTH_HTTP_REQUEST_DESERIALISER_SOURCE
+#ifndef DECODE_HTTP_REQUEST_CONTENT_LENGTH_DESERIALISER_SOURCE
+#define DECODE_HTTP_REQUEST_CONTENT_LENGTH_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -86,5 +86,5 @@ void deserialise_http_request_content_length_decode(void* p0, void* p1, void* p2
     deallocate_item((void*) &i, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
-/* DECODE_CONTENT_LENGTH_HTTP_REQUEST_DESERIALISER_SOURCE */
+/* DECODE_HTTP_REQUEST_CONTENT_LENGTH_DESERIALISER_SOURCE */
 #endif
