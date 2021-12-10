@@ -56,15 +56,39 @@
  * The message/binary state cybol language.
  *
  * An arbitrary binary message that does not get interpreted in any way.
+ * It may be used to read or write image files, for example.
+ *
  * This is a CYBOL extension.
  */
 static wchar_t* BINARY_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/binary";
 static int* BINARY_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The message/binary-crlf-termination state cybol language.
+ *
+ * An arbitrary binary message that does not get interpreted in any way.
+ * It is similar to the language "message/binary" above, only that
+ * the two ascii characters <cr+lf> are:
+ * - appended as termination when sending
+ * - interpreted as separator between consecutive messages when receiving
+ *
+ * CAUTION! The sequence <cr+lf> corresponding to ascii numbers 13 (cr) and 10 (lf)
+ * may occur accidentally in binary data, for example in image data where they
+ * might have the meaning of colour values or something else. In such cases,
+ * proper processing is NOT possible and the message be received only in part.
+ * It is up to the cybol developer to care about that and use a language (protocol)
+ * like http which is able to transfer binary data without termination characters.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* BINARY_CRLF_TERMINATION_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/binary-crlf-termination";
+static int* BINARY_CRLF_TERMINATION_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_31_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The message/cli state cybol language.
  *
  * A command line interface message.
+ *
  * This is a CYBOL extension.
  */
 static wchar_t* CLI_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/cli";
@@ -74,6 +98,7 @@ static int* CLI_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_11_INTEGER_STATE_CYB
  * The message/ftp-response state cybol language.
  *
  * An FTP response message.
+ *
  * This is a CYBOL extension.
  */
 static wchar_t* FTP_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/ftp-response";
@@ -83,6 +108,7 @@ static int* FTP_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_20_INTEGER_
  * The message/gui state cybol language.
  *
  * A graphical user interface message.
+ *
  * This is a CYBOL extension.
  */
 static wchar_t* GUI_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/gui";
@@ -92,6 +118,7 @@ static int* GUI_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_11_INTEGER_STATE_CYB
  * The message/http-request state cybol language.
  *
  * An HTTP request message.
+ *
  * This is a CYBOL extension.
  */
 static wchar_t* HTTP_REQUEST_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/http-request";
@@ -101,6 +128,7 @@ static int* HTTP_REQUEST_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_20_INTEGER_
  * The message/http-response state cybol language.
  *
  * An HTTP response message.
+ *
  * This is a CYBOL extension.
  */
 static wchar_t* HTTP_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/http-response";
@@ -116,6 +144,7 @@ static int* NEWS_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_12_INTEGER_STATE_CY
  * The message/tui state cybol language.
  *
  * A text user interface message.
+ *
  * This is a CYBOL extension.
  */
 static wchar_t* TUI_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/tui";

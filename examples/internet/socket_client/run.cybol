@@ -93,7 +93,7 @@
     <!-- Receive image response -->
     <node name="receive_response" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <node name="language" channel="inline" format="meta/language" model="message/binary"/>
+        <node name="language" channel="inline" format="meta/language" model="message/binary-crlf-termination"/>
         <node name="sender" channel="inline" format="text/cybol-path" model=".server_socket"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".image_response"/>
         <node name="client" channel="inline" format="logicvalue/boolean" model="true"/>

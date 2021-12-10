@@ -18,15 +18,22 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-12-10  Christian Heller  <christian.heller@cybop.org>
+
+        * Add language "message/binary-crlf-termination" as transfer protocol
+        * Add binary crlf termination deserialiser and -selector, as well as file "constant/name/binary/termination_binary_name.c"
+        * Adapt cybol applications to new language
+        * Use new language not only for image- but also text transfer in cybol applications "socket_server" and "socket_client"
+
 2021-12-09  Christian Heller  <christian.heller@cybop.org>
 
-        * Add ftp response line end deserialiser and -selector, as well as "constant/name/ftp/separator_ftp_name.c"
+        * Add ftp response line end deserialiser and -selector, as well as file "constant/name/ftp/separator_ftp_name.c"
 
 2021-12-06  Christian Heller  <christian.heller@cybop.org>
 
         * Reset message length in file "completeness_check_socket_sensor.c"
         * Hand over property "language" (protocol) for cybol operation "activate/enable" to all affected files
-        * Add ftp protocol whose crlf line end separator is to be used testwise in cybol example "internet/socket_server/run.cybol"
+        * Add ftp language (protocol) whose crlf line end separator is to be used testwise in cybol application "socket_server"
 
 2021-12-05  Christian Heller  <christian.heller@cybop.org>
 
@@ -38,7 +45,7 @@
         * Create new directory "executor/representer/deserialiser/message_length_or_end_deserialiser/"
         * Create new directory "executor/representer/deserialiser/http_request_content_length/"
         * Create new directory "executor/selector/http_request_content_length/"
-        * Add property "language" to cybol operation "activate/enable" in file "run.cybol" of cybol example "www_server_dynamic"
+        * Add property "language" to cybol operation "activate/enable" in file "run.cybol" of cybol application "www_server_dynamic"
         * Complete file "message_length_or_end_deserialiser.c" by adding protocol "HTTP_REQUEST_MESSAGE_STATE_CYBOI_LANGUAGE"
 
 2021-11-20  Christian Heller  <christian.heller@cybop.org>
@@ -397,18 +404,18 @@
 
 2021-02-27  Christian Heller  <christian.heller@cybop.org>
 
-        * Fix error caused by wrong-placed comment characters in cybol example "user_interface/ui/"
-        * Split socket handler in cybol example "user_interface/ui/" into action handler and empty message sender, in order to reply to favicon and other requests
+        * Fix error caused by wrong-placed comment characters in cybol application "user_interface/ui/"
+        * Split socket handler in cybol application "user_interface/ui/" into action handler and empty message sender, in order to reply to favicon and other requests
 
 2021-02-26  Christian Heller  <christian.heller@cybop.org>
 
-        * Optimise cybol example "user_interface/ui/" by unifying "translate" files
-        * Fix http-response errors in cybol example "user_interface/ui/"
+        * Optimise cybol application "user_interface/ui/" by unifying "translate" files
+        * Fix http-response errors in cybol application "user_interface/ui/"
         * Insert css as stylesheet area directly into html file
 
 2021-02-22  Christian Heller  <christian.heller@cybop.org>
 
-        * Integrate socket communication for wui into cybol example "user_interface/ui/"
+        * Integrate socket communication for wui into cybol application "user_interface/ui/"
 
 2021-02-21  Christian Heller  <christian.heller@cybop.org>
 
@@ -1114,7 +1121,7 @@
 
 2017-10-11  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Replace cybol operation "compare/equal" with "check/equal" and remove property "selection" with value "all", in all cybol examples, for "text/plain"
+        * Replace cybol operation "compare/equal" with "check/equal" and remove property "selection" with value "all", in all cybol applications, for "text/plain"
         * Optimise checker, since it applies only to type "wide_character", because others may be compared internally and serialised afterwards
         * Add remaining lexicographical comparison functions to directory "executor/checker/"
 
@@ -5064,7 +5071,7 @@
 2008-09-12  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt automake files to new directory structure
-        * Remove xml declaration (first line) from all cybol example files;
+        * Remove xml declaration (first line) from all cybol application files;
             when no such declaration exists, a Unicode encoding is assumed,
             as defined by a Unicode Byte Order Mark before the document's first character;
             if the mark does not exist, UTF-8 encoding is assumed;

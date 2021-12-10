@@ -30,6 +30,7 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../../executor/representer/deserialiser/binary_crlf_termination/binary_crlf_termination_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/ftp_line_end/ftp_line_end_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/http_request_content_length/http_request_content_length_deserialiser.c"
 #include "../../../../logger/logger.c"
@@ -62,6 +63,22 @@ void deserialise_message_length_or_end(void* p0, void* p1, void* p2, void* p3, v
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) BINARY_CRLF_TERMINATION_MESSAGE_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // CAUTION! A content length prefix does NOT exist in ftp response
+            // and therefore the parametre p1 message length is NOT set.
+            // Identifying the crlf line end separator suffices here.
+            //
+
+            deserialise_binary_crlf_termination(p0, p2, p3);
+        }
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

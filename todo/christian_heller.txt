@@ -14,10 +14,8 @@
 Pipe
 ____
 
-        * Define new transfer protocol in file "state_cyboi_language.c" ??
-            e.g. "message/binary-crlf" and "message/text-crlf" or "message/ascii-crlf"
-
         * Test code changes that were done to hand over the language (protocol)
+            see last changes in file "ChangeLog"
 
         * Replace "Test: " with "Debug: "
         * Replace "TEST" with ...
