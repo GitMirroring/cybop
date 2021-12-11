@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-12-11  Christian Heller  <christian.heller@cybop.org>
+
+        * Add binary crlf termination serialiser
+
 2021-12-10  Christian Heller  <christian.heller@cybop.org>
 
         * Add language "message/binary-crlf-termination" as transfer protocol

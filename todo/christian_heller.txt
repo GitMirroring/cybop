@@ -14,8 +14,10 @@
 Pipe
 ____
 
-        * Test code changes that were done to hand over the language (protocol)
-            see last changes in file "ChangeLog"
+        * Adapt OR duplicate binary crlf termination deserialiser so that not just the complete flag but also the deserialised message gets returned
+        * Implement binary crlf termination for sender and receiver
+        * Test code changes that were done to hand over the language (protocol) to cybol operation "activate/enable"
+        * Test binary crlf termination de-/serialiser
 
         * Replace "Test: " with "Debug: "
         * Replace "TEST" with ...

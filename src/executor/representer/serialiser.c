@@ -33,41 +33,55 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/html/document_type_html_model.c"
 #include "../../executor/modifier/item_modifier.c"
+#include "../../executor/representer/serialiser/binary_crlf_termination/binary_crlf_termination_serialiser.c"
+//
 // CAUTION! Do NOT include the "content_element_part_cybol_serialiser.c" module.
 // It is true, the "serialise_cybol_part_element_content" function is called from here,
 // but the module dependency hierarchy slightly differs and just goes top-down
 // by module granularity and NOT by call hierarchy.
+//
 // Therefore, the "cybol_serialiser.c" module is included here.
+//
 #include "../../executor/representer/serialiser/cybol/cybol_serialiser.c"
 #include "../../executor/representer/serialiser/gui/initial_gui_serialiser.c"
+//
 // CAUTION! Do NOT include the "content_element_part_html_serialiser.c" module.
 // It is true, the "serialise_html_part_element_content" function is called from here,
 // but the module dependency hierarchy slightly differs and just goes top-down
 // by module granularity and NOT by call hierarchy.
+//
 // Therefore, the "html_serialiser.c" module is included here.
+//
 #include "../../executor/representer/serialiser/html/html_serialiser.c"
 #include "../../executor/representer/serialiser/http_request/http_request_serialiser.c"
 #include "../../executor/representer/serialiser/http_response/http_response_serialiser.c"
 #include "../../executor/representer/serialiser/latex/latex_serialiser.c"
+//
 // CAUTION! Do NOT include the "content_element_part_model_diagram_serialiser.c" module.
 // It is true, the "serialise_model_diagram_part_element_content" function is called from here,
 // but the module dependency hierarchy slightly differs and just goes top-down
 // by module granularity and NOT by call hierarchy.
+//
 // Therefore, the "model_diagram_serialiser.c" module is included here.
+//
 #include "../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
 #include "../../executor/representer/serialiser/terminal_mode/terminal_mode_serialiser.c"
 #include "../../executor/representer/serialiser/tui/initial_tui_serialiser.c"
 //?? #include "../../executor/representer/serialiser/xdt_field_description/xdt_field_description_serialiser.c"
 #include "../../executor/representer/serialiser/xdt/xdt_serialiser.c"
+//
 // CAUTION! Do NOT include the "content_element_part_xml_serialiser.c" module.
 // It is true, the "serialise_xml_part_element_content" function is called from here,
 // but the module dependency hierarchy slightly differs and just goes top-down
 // by module granularity and NOT by call hierarchy.
+//
 // Therefore, the "xml_serialiser.c" module is included here.
+//
 //
 // CAUTION! The xml serialiser is used e.g. in the cybol serialiser.
 // Therefore, do NOT delete this include, even if the xml serialiser
 // is possibly not called directly below.
+//
 #include "../../executor/representer/serialiser/xml/xml_serialiser.c"
 
 /**
@@ -120,7 +134,22 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
+            // A translation is NOT necessary.
+            // The data are forwarded as they are.
+            //
+
             modify_item(p0, p10, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p11, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p5, (void*) BINARY_CRLF_TERMINATION_MESSAGE_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_binary_crlf_termination(p0, p10, p11);
         }
     }
 
