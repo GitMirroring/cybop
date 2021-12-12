@@ -32,7 +32,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../executor/modifier/item_modifier.c"
 #include "../../executor/representer/deserialiser/authority/authority_deserialiser.c"
-#include "../../executor/representer/deserialiser/binary_crlf_termination/binary_crlf_termination_deserialiser.c"
+#include "../../executor/representer/deserialiser/binary_crlf/binary_crlf_deserialiser.c"
 #include "../../executor/representer/deserialiser/cybol/cybol_deserialiser.c"
 #include "../../executor/representer/deserialiser/gui_event/gui_event_deserialiser.c"
 #include "../../executor/representer/deserialiser/gui/action_gui_deserialiser.c"
@@ -104,11 +104,11 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p11, (void*) BINARY_CRLF_TERMINATION_MESSAGE_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p11, (void*) BINARY_CRLF_MESSAGE_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_binary_crlf_termination(p0, p2, p3);
+            deserialise_binary_crlf(p0, p2, p3);
         }
     }
 

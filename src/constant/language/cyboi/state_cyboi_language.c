@@ -185,8 +185,8 @@ static int* GUI_EVENT_STATE_CYBOI_LANGUAGE = NUMBER_180_INTEGER_STATE_CYBOI_MODE
 /** The binary message state cyboi language. */
 static int* BINARY_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_300_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The binary crlf termination message state cyboi language. */
-static int* BINARY_CRLF_TERMINATION_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_301_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The binary crlf message state cyboi language. */
+static int* BINARY_CRLF_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_301_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The cli message state cyboi language. */
 static int* CLI_MESSAGE_STATE_CYBOI_LANGUAGE = NUMBER_302_INTEGER_STATE_CYBOI_MODEL_ARRAY;

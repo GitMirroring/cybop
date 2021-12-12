@@ -256,7 +256,7 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
             // CAUTION! This setting IS NECESSARY for UTF-8 character conversion
             // with restartable multibyte conversion functions like "mbsnrtowcs"
             // and "wcsnrtombs" to work correctly.
-            // The return value is not used; this is a global setting.
+            // The return value is not used; this is a GLOBAL setting.
             //
             char* loc = setlocale(LC_CTYPE, "");
 

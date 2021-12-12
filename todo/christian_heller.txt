@@ -14,18 +14,21 @@
 Pipe
 ____
 
-        * Adapt OR duplicate binary crlf termination deserialiser so that not just the complete flag but also the deserialised message gets returned
-        * Implement binary crlf termination for sender and receiver
-        * Test code changes that were done to hand over the language (protocol) to cybol operation "activate/enable"
+        * Check if data which were read from buffer are deleted/removed in source for all channels
+            see streamer with files "terminal_reader.c", "server_socket_reader.c"
+            problem: how to know in reader up to which byte data can be deleted if interpretation happens in deserialiser ??
+            problem: do not use "empty" in file "server_socket_reader.c"
         * Test binary crlf termination de-/serialiser
-
-        * Replace "Test: " with "Debug: "
-        * Replace "TEST" with ...
+        * Test code changes that were done to hand over the language (protocol) to cybol operation "activate/enable"
 
         * Make file "length_message_socket_sensor.c" reusable for stream reader
         * Probably, the detection has to be done twice:
             - in sensor to be able to set the irq pipe
             - in reader to be able to split several messages, since more than one might have been received and stored in the buffer
+
+        * Replace "Test: " with "Debug: "
+        * Replace "TEST" with ...
+
         * ?? [probably NOT necessary] ??
             Consider exit flag in file "interrupt_socket_sensor.c" and do NOT set irq if exit flag is set,
             since irq pipe might have been deallocated by main thread already

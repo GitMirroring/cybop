@@ -20,7 +20,9 @@
 
 2021-12-11  Christian Heller  <christian.heller@cybop.org>
 
-        * Add binary crlf termination serialiser
+        * Rename language "binary-crlf-termination" into just "binary-crlf"
+        * Add binary crlf serialiser
+        * Add binary crlf deserialiser (to be distinguished from the binary crlf termination deserialiser which returns a flag only)
 
 2021-12-10  Christian Heller  <christian.heller@cybop.org>
 

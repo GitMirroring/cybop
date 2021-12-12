@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BINARY_CRLF_TERMINATION_SELECTOR_SOURCE
-#define BINARY_CRLF_TERMINATION_SELECTOR_SOURCE
+#ifndef TERMINATION_BINARY_CRLF_SELECTOR_SOURCE
+#define TERMINATION_BINARY_CRLF_SELECTOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -62,12 +62,11 @@
 /**
  * Selects the binary crlf termination.
  *
- * @param p0 the destination complete flag
- * @param p1 the break flag
- * @param p2 the source data position (pointer reference)
- * @param p3 the source count remaining
+ * @param p0 the destination found flag
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
  */
-void select_binary_crlf_termination(void* p0, void* p1, void* p2, void* p3) {
+void select_binary_crlf_termination(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select binary crlf termination.");
 
@@ -76,23 +75,20 @@ void select_binary_crlf_termination(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p2, p3, (void*) CRLF_TERMINATION_BINARY_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CRLF_TERMINATION_BINARY_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p1, p2, (void*) CRLF_TERMINATION_BINARY_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CRLF_TERMINATION_BINARY_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Set complete flag.
+            // Set found flag.
             copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-            // Set break flag.
-            copy_integer(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        move(p2, p3, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        move(p1, p2, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 
-/* BINARY_CRLF_TERMINATION_SELECTOR_SOURCE */
+/* TERMINATION_BINARY_CRLF_SELECTOR_SOURCE */
 #endif

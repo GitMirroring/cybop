@@ -33,7 +33,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/html/document_type_html_model.c"
 #include "../../executor/modifier/item_modifier.c"
-#include "../../executor/representer/serialiser/binary_crlf_termination/binary_crlf_termination_serialiser.c"
+#include "../../executor/representer/serialiser/binary_crlf/binary_crlf_serialiser.c"
 //
 // CAUTION! Do NOT include the "content_element_part_cybol_serialiser.c" module.
 // It is true, the "serialise_cybol_part_element_content" function is called from here,
@@ -145,11 +145,11 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) BINARY_CRLF_TERMINATION_MESSAGE_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p5, (void*) BINARY_CRLF_MESSAGE_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_binary_crlf_termination(p0, p10, p11);
+            serialise_binary_crlf(p0, p10, p11);
         }
     }
 

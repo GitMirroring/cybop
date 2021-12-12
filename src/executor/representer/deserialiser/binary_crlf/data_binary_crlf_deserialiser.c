@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DATA_BINARY_CRLF_TERMINATION_DESERIALISER_SOURCE
-#define DATA_BINARY_CRLF_TERMINATION_DESERIALISER_SOURCE
+#ifndef DATA_BINARY_CRLF_DESERIALISER_SOURCE
+#define DATA_BINARY_CRLF_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -37,17 +37,17 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the binary crlf termination data.
+ * Deserialises the binary crlf data.
  *
- * @param p0 the destination complete flag
+ * @param p0 the destination item
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
  */
-void deserialise_binary_crlf_termination_data(void* p0, void* p1, void* p2) {
+void deserialise_binary_crlf_data(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise binary crlf termination data.");
-    fwprintf(stdout, L"Debug: Deserialise binary crlf termination data. p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise binary crlf termination data. *p2: %i\n", *((int*) p2));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise binary crlf data.");
+    fwprintf(stdout, L"Debug: Deserialise binary crlf data. p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Deserialise binary crlf data. *p2: %i\n", *((int*) p2));
 
     // The element.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -91,13 +91,12 @@ void deserialise_binary_crlf_termination_data(void* p0, void* p1, void* p2) {
 
         } else {
 
-            // Set complete flag.
-            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            modify_item(p0, e, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &ec, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
             break;
         }
     }
 }
 
-/* DATA_BINARY_CRLF_TERMINATION_DESERIALISER_SOURCE */
+/* DATA_BINARY_CRLF_DESERIALISER_SOURCE */
 #endif

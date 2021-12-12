@@ -64,7 +64,7 @@ static wchar_t* BINARY_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/binary";
 static int* BINARY_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The message/binary-crlf-termination state cybol language.
+ * The message/binary-crlf state cybol language.
  *
  * An arbitrary binary message that does not get interpreted in any way.
  * It is similar to the language "message/binary" above, only that
@@ -81,8 +81,8 @@ static int* BINARY_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_14_INTEGER_STATE_
  *
  * This is a CYBOL extension.
  */
-static wchar_t* BINARY_CRLF_TERMINATION_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/binary-crlf-termination";
-static int* BINARY_CRLF_TERMINATION_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_31_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* BINARY_CRLF_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/binary-crlf";
+static int* BINARY_CRLF_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The message/cli state cybol language.

@@ -51,20 +51,20 @@ void read_terminal(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read terminal.");
 
-    // The wide character buffer item.
+    // The source wide character buffer item.
     void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The wide character buffer item data, count.
+    // The source wide character buffer item data, count.
     void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The mutex.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get wide character buffer item from input/output entry.
+    // Get source wide character buffer item from input/output entry.
     copy_array_forward((void*) &b, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get mutex from input/output entry.
     copy_array_forward((void*) &m, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
     //
-    // Get wide character buffer item data, count.
+    // Get source wide character buffer item data, count.
     //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
@@ -78,8 +78,14 @@ void read_terminal(void* p0, void* p1) {
 
     // Lock mutex.
     mtx_lock(m);
-    // Read data from wide character buffer.
+    // Read data from source wide character buffer.
     modify_item(p0, bd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, bc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    //
+    // CAUTION! A deletion of source data
+    // Delete the data that have just been read from source wide character buffer.
+    //
+    // TODO: ??
+    //
     // Unlock mutex.
     mtx_unlock(m);
 }

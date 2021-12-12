@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BINARY_CRLF_TERMINATION_SERIALISER_SOURCE
-#define BINARY_CRLF_TERMINATION_SERIALISER_SOURCE
+#ifndef BINARY_CRLF_SERIALISER_SOURCE
+#define BINARY_CRLF_SERIALISER_SOURCE
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -44,11 +44,11 @@
  * @param p1 the source message data
  * @param p2 the source message count
  */
-void serialise_binary_crlf_termination(void* p0, void* p1, void* p2) {
+void serialise_binary_crlf(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise binary crlf termination.");
-    fwprintf(stdout, L"Debug: Serialise binary crlf termination. p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Serialise binary crlf termination. *p2: %i\n", *((int*) p2));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise binary crlf.");
+    fwprintf(stdout, L"Debug: Serialise binary crlf. p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Serialise binary crlf. *p2: %i\n", *((int*) p2));
 
     // Add binary data as they are.
     modify_item(p0, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
@@ -57,5 +57,5 @@ void serialise_binary_crlf_termination(void* p0, void* p1, void* p2) {
     modify_item(p0, (void*) CRLF_TERMINATION_BINARY_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) CRLF_TERMINATION_BINARY_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 }
 
-/* BINARY_CRLF_TERMINATION_SERIALISER_SOURCE */
+/* BINARY_CRLF_SERIALISER_SOURCE */
 #endif
