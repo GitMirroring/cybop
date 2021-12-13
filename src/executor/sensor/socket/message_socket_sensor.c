@@ -69,6 +69,11 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
+        // The message is complete, that is all data
+        // belonging to it have been received.
+        //
+
         // Inform interrupt pipe if message is complete.
         sense_socket_set_interrupt(p3, p4, p7, p1);
 

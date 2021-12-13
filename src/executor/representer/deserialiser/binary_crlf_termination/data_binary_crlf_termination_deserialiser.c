@@ -39,7 +39,7 @@
 /**
  * Deserialises the binary crlf termination data.
  *
- * @param p0 the destination complete flag
+ * @param p0 the destination message length
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
  */
@@ -91,8 +91,8 @@ void deserialise_binary_crlf_termination_data(void* p0, void* p1, void* p2) {
 
         } else {
 
-            // Set complete flag.
-            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            // Set destination message length.
+            copy_integer(p0, (void*) &ec);
 
             break;
         }

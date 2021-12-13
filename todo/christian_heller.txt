@@ -14,21 +14,24 @@
 Pipe
 ____
 
+        * Clean up redundancies in files "completeness_check_socket_sensor.c", "length_check_socket_sensor.c", "count_check_socket_sensor.c"
+        * Add files "length_check_socket_sensor.c" and "count_check_socket_sensor.c" to clean up redundancies in file "completeness_check_socket_sensor.c"
+        * Replace complete flag with index of termination (or message length??)
+        * Reuse file "message_length_deserialiser.c" in file "server_socket_reader.c"
         * Check if data which were read from buffer are deleted/removed in source for all channels
-            see streamer with files "terminal_reader.c", "server_socket_reader.c"
+            see streamer with files "terminal_reader.c"
             problem: how to know in reader up to which byte data can be deleted if interpretation happens in deserialiser ??
             problem: do not use "empty" in file "server_socket_reader.c"
-        * Test binary crlf termination de-/serialiser
         * Test code changes that were done to hand over the language (protocol) to cybol operation "activate/enable"
-
-        * Make file "length_message_socket_sensor.c" reusable for stream reader
-        * Probably, the detection has to be done twice:
-            - in sensor to be able to set the irq pipe
-            - in reader to be able to split several messages, since more than one might have been received and stored in the buffer
+        * Test binary crlf termination de-/serialiser
 
         * Replace "Test: " with "Debug: "
         * Replace "TEST" with ...
 
+        * Make file "completeness_check_socket_sensor.c" reusable for stream reader
+        * Probably, the detection has to be done twice:
+            - in sensor to be able to set the irq pipe
+            - in reader to be able to split several messages, since more than one might have been received and stored in the buffer
         * ?? [probably NOT necessary] ??
             Consider exit flag in file "interrupt_socket_sensor.c" and do NOT set irq if exit flag is set,
             since irq pipe might have been deallocated by main thread already

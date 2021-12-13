@@ -27,6 +27,8 @@
 #define COMPLETENESS_CHECK_SOCKET_SENSOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../logger/logger.c"
+//?? --
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -36,8 +38,8 @@
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../executor/representer/deserialiser/message_length_or_end/message_length_or_end_deserialiser.c"
-#include "../../../logger/logger.c"
+#include "../../../executor/representer/deserialiser/message_length/message_length_deserialiser.c"
+//?? #include "../../../executor/sensor/socket/length_check_socket_sensor.c"
 
 /**
  * Checks if the message is complete, that is if
@@ -45,7 +47,7 @@
  *
  * @param p0 the complete flag
  * @param p1 the message length (possibly detected previously)
- * @param p2 the message item
+ * @param p2 the buffer item
  * @param p3 the language (protocol)
  */
 void sense_socket_check_completeness(void* p0, void* p1, void* p2, void* p3) {
@@ -54,104 +56,108 @@ void sense_socket_check_completeness(void* p0, void* p1, void* p2, void* p3) {
 
         int* l = (int*) p1;
 
-        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        //
+        // CAUTION! Do NOT log messages within thread,
+        // in order to avoid race conditions and other conflicts.
+        //
+        // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket check completeness.");
+        fwprintf(stdout, L"Debug: Sense socket check completeness. message length p1: %i\n", p1);
+        fwprintf(stdout, L"Debug: Sense socket check completeness. message length *p1: %i\n", *((int*) p1));
 
-            int* f = (int*) p0;
+        // The buffer item data, count.
+        void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+        //
+        // Get buffer item data, count.
+        //
+        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+        // Inside the structure, arrays may have been reallocated,
+        // with elements pointing to different memory areas now.
+        //
+        // CAUTION! The buffer data and count HAVE TO be determined here
+        // in EACH loop cycle ANEW, since the arrays inside might have
+        // got reallocated and changed!
+        //
+        copy_array_forward((void*) &bd, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &bc, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+        // The buffer item count casted to the correct type.
+        int* bct = (int*) bc;
+
+        //
+        // CAUTION! The length was initialised with -1.
+        // Use >= operator and not only > since an otherwise EMPTY message
+        // with length 0 might contain a termination suffix such as crlf anyway.
+        //
+        if (*l >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             //
-            // CAUTION! Do NOT log messages within thread,
-            // in order to avoid race conditions and other conflicts.
+            // The message length WAS DETECTED as prefix within the message
+            // in a PREVIOUS loop cycle.
             //
-            // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket check completeness.");
-            fwprintf(stdout, L"Debug: Sense socket check completeness. message length p1: %i\n", p1);
-            fwprintf(stdout, L"Debug: Sense socket check completeness. message length *p1: %i\n", *((int*) p1));
 
-            // The buffer item data, count.
-            void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
-            void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-            //
-            // Get buffer item data, count.
-            //
-            // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-            // Inside the structure, arrays may have been reallocated,
-            // with elements pointing to different memory areas now.
-            //
-            // CAUTION! The buffer data and count HAVE TO be determined here
-            // in EACH loop cycle ANEW, since the arrays inside might have
-            // got reallocated and changed!
-            //
-            copy_array_forward((void*) &bd, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &bc, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-            // The buffer item count casted to the correct type.
-            int* bct = (int*) bc;
-
-            if (*l > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+            if (*bct >= *l) {
 
                 //
-                // The message length WAS DETECTED as prefix within the message
-                // in a PREVIOUS loop cycle.
+                // The expected number (message length) of characters has been received.
                 //
 
-                if (*bct >= *l) {
-
-                    // Set complete flag.
-                    copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-                    // Reset message length.
-                    copy_integer(p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-                }
-
-            } else {
-
-                //
-                // The message length was NOT detected as prefix within the message before.
-                // Therefore, parse the message and SEARCH for either a PREFIX message length
-                // or SUFFIX sequence marking the end of the message.
-                //
-                // Example: http has a "Content-Length:" header entry as prefix.
-                //
-
-                deserialise_message_length_or_end(p0, p1, bd, bc, p3);
-
-                if (*f == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                    //
-                    // A suffix sequence marking the end of the message has NOT
-                    // been detected. Therefore, check the message length now.
-                    //
-
-                    //
-                    // CAUTION! Check buffer count a SECOND TIME here (already checked once above)
-                    // since it may happen that the message fragment just read before contains
-                    // the message length and is ALREADY COMPLETE, so that a next fragment
-                    // does NOT have to be read.
-                    //
-                    // If the buffer count was not checked here and only in the next loop cycle
-                    // then the thread would BLOCK due to the next message fragment "read" call
-                    // (at least if no other separate message is following).
-                    //
-                    if (*l > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                        //
-                        // The message length WAS DETECTED as prefix within the message.
-                        //
-
-                        if (*bct >= *l) {
-
-                            // Set complete flag.
-                            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-                            // Reset message length.
-                            copy_integer(p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-                        }
-                    }
-                }
+                // Set complete flag.
+                copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                // Reset message length.
+                copy_integer(p1, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket check completeness. The complete flag is null.");
-            fwprintf(stdout, L"Error: Could not sense socket check completeness. The complete flag is null. p0: %i\n", p0);
+            //
+            // The message length was NOT detected as prefix within the message before.
+            // Therefore, parse the message and SEARCH for either a PREFIX message length
+            // or SUFFIX sequence marking the end of the message.
+            //
+            // Examples:
+            // - http has a "Content-Length:" header entry as prefix.
+            // - some binary protocols have a crlf termination
+            //
+
+            deserialise_message_length(p1, bd, bc, p3);
+
+            //?? REPLACE the following code with function call:
+            //?? sense_socket_check_length(...);
+
+            //
+            // CAUTION! The length was initialised with -1.
+            // Use >= operator and not only > since an otherwise EMPTY message
+            // with length 0 might contain a termination suffix such as crlf anyway.
+            //
+            // CAUTION! Check buffer count a SECOND TIME here (already checked once above)
+            // since it may happen that the message fragment just read before contains
+            // the message length and is ALREADY COMPLETE, so that a next fragment
+            // does NOT have to be read.
+            //
+            // If the buffer count was not checked here and only in the next loop cycle
+            // then the thread would BLOCK due to the next message fragment "read" call
+            // (at least if no other separate message is following).
+            //
+            if (*l >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                //
+                // The message length WAS DETECTED as prefix within the message.
+                //
+
+                if (*bct >= *l) {
+
+                    //
+                    // The expected number (message length) of characters has been received.
+                    //
+
+                    // Set complete flag.
+                    copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                    // Reset message length.
+                    copy_integer(p1, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
+                }
+            }
         }
 
     } else {

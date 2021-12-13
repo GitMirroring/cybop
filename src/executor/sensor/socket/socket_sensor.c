@@ -187,7 +187,7 @@ int sense_socket(void* p0) {
     // (e.g. "Content-Length: " in http) can be compared with
     // the actual number of bytes that have been read, in each loop cycle.
     //
-    int ml = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int ml = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Get exit flag from client entry.
     copy_array_forward((void*) &ex, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_CLIENT_STATE_CYBOI_NAME);

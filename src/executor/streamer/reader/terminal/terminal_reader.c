@@ -80,12 +80,6 @@ void read_terminal(void* p0, void* p1) {
     mtx_lock(m);
     // Read data from source wide character buffer.
     modify_item(p0, bd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, bc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-    //
-    // CAUTION! A deletion of source data
-    // Delete the data that have just been read from source wide character buffer.
-    //
-    // TODO: ??
-    //
     // Unlock mutex.
     mtx_unlock(m);
 }

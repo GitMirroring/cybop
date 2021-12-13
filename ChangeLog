@@ -18,6 +18,15 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-12-13  Christian Heller  <christian.heller@cybop.org>
+
+        * Add files "length_check_socket_sensor.c" and "count_check_socket_sensor.c"
+
+2021-12-12  Christian Heller  <christian.heller@cybop.org>
+
+        * Rename file "message_length_or_end_deserialiser.c" into "message_length_deserialiser.c"
+        * Assign message length instead of just a flag value in file "data_binary_crlf_termination_deserialiser.c"
+
 2021-12-11  Christian Heller  <christian.heller@cybop.org>
 
         * Rename language "binary-crlf-termination" into just "binary-crlf"

@@ -37,7 +37,7 @@
 /**
  * Deserialises the binary crlf termination.
  *
- * @param p0 the destination complete flag
+ * @param p0 the destination message length
  * @param p1 the source message data
  * @param p2 the source message count
  */

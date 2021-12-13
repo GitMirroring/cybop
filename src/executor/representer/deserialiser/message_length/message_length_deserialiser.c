@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MESSAGE_LENGTH_OR_END_DESERIALISER_SOURCE
-#define MESSAGE_LENGTH_OR_END_DESERIALISER_SOURCE
+#ifndef MESSAGE_LENGTH_DESERIALISER_SOURCE
+#define MESSAGE_LENGTH_DESERIALISER_SOURCE
 
 #include "../../../../constant/language/cyboi/state_cyboi_language.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -41,84 +41,80 @@
  * - a prefix containing the message length (number of bytes)
  * - a suffix sequence marking the end of the message
  *
- * Which of both options is chosen depends upon the protocol used.
+ * Which of both options is chosen depends upon the language (protocol) used.
  *
- * @param p0 the complete flag
- * @param p1 the message length
- * @param p2 the message data
- * @param p3 the message count
- * @param p4 the language (protocol)
+ * @param p0 the destination message length
+ * @param p1 the source message data
+ * @param p2 the source message count
+ * @param p3 the language (protocol)
  */
-void deserialise_message_length_or_end(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_message_length(void* p0, void* p1, void* p2, void* p3) {
 
     //
     // CAUTION! Do NOT log messages within thread,
     // in order to avoid race conditions and other conflicts.
     //
-    //?? log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise message length or end.");
-    fwprintf(stdout, L"Debug: Deserialise message length or end. p0: %i\n", p0);
-    fwprintf(stdout, L"Debug: Deserialise message length or end. *p0: %i\n", *((int*) p0));
-    fwprintf(stdout, L"Debug: Deserialise message length or end. p4: %i\n", p4);
-    fwprintf(stdout, L"Debug: Deserialise message length or end. *p4: %i\n", *((int*) p4));
+    //?? log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise message length.");
+    fwprintf(stdout, L"Debug: Deserialise message length. p0: %i\n", p0);
+    fwprintf(stdout, L"Debug: Deserialise message length. *p0: %i\n", *((int*) p0));
+    fwprintf(stdout, L"Debug: Deserialise message length. p3: %i\n", p3);
+    fwprintf(stdout, L"Debug: Deserialise message length. *p3: %i\n", *((int*) p3));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) BINARY_CRLF_MESSAGE_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p3, (void*) BINARY_CRLF_MESSAGE_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // CAUTION! A content length prefix does NOT exist in ftp response
-            // and therefore the parametre p1 message length is NOT set.
-            // Identifying the crlf line end separator suffices here.
+            // CAUTION! A message length prefix does NOT exist.
+            // Therefore, identify the message termination.
             //
 
-            deserialise_binary_crlf_termination(p0, p2, p3);
+            deserialise_binary_crlf_termination(p0, p1, p2);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) HTTP_REQUEST_MESSAGE_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p3, (void*) HTTP_REQUEST_MESSAGE_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // CAUTION! A message end suffix does NOT exist in http request
-            // and therefore the parametre p0 complete flag is NOT set.
-            // Identifying the message (content) length header suffices here.
+            // CAUTION! A message termination suffix does NOT exist.
+            // Therefore, identify the message length.
             //
 
-            deserialise_http_request_content_length(p1, p2, p3);
+            deserialise_http_request_content_length(p0, p1, p2);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) FTP_RESPONSE_MESSAGE_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p3, (void*) FTP_RESPONSE_MESSAGE_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // CAUTION! A content length prefix does NOT exist in ftp response
-            // and therefore the parametre p1 message length is NOT set.
-            // Identifying the crlf line end separator suffices here.
+            // CAUTION! A message length prefix does NOT exist.
+            // Therefore, identify the message termination.
             //
 
-            deserialise_ftp_line_end(p0, p2, p3);
+            deserialise_ftp_line_end(p0, p1, p2);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise message length or end. The language (protocol) is not known.");
-        fwprintf(stdout, L"Debug: Deserialise message length or end. The language (protocol) is not known. p4: %i\n", p4);
-        fwprintf(stdout, L"Debug: Deserialise message length or end. The language (protocol) is not known. *p4: %i\n", *((int*) p4));
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise message length. The language (protocol) is not known.");
+        fwprintf(stdout, L"Debug: Deserialise message length. The language (protocol) is not known. p3: %i\n", p3);
+        fwprintf(stdout, L"Debug: Deserialise message length. The language (protocol) is not known. *p3: %i\n", *((int*) p3));
     }
 }
 
-/* MESSAGE_LENGTH_OR_END_DESERIALISER_SOURCE */
+/* MESSAGE_LENGTH_DESERIALISER_SOURCE */
 #endif
