@@ -18,9 +18,13 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-12-14  Christian Heller  <christian.heller@cybop.org>
+
+        * Clean up redundancies in file "completeness_check_socket_sensor.c" using file "count_check_socket_sensor.c"
+
 2021-12-13  Christian Heller  <christian.heller@cybop.org>
 
-        * Add files "length_check_socket_sensor.c" and "count_check_socket_sensor.c"
+        * Add file "count_check_socket_sensor.c"
 
 2021-12-12  Christian Heller  <christian.heller@cybop.org>
 

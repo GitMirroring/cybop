@@ -14,10 +14,8 @@
 Pipe
 ____
 
-        * Clean up redundancies in files "completeness_check_socket_sensor.c", "length_check_socket_sensor.c", "count_check_socket_sensor.c"
-        * Add files "length_check_socket_sensor.c" and "count_check_socket_sensor.c" to clean up redundancies in file "completeness_check_socket_sensor.c"
-        * Replace complete flag with index of termination (or message length??)
         * Reuse file "message_length_deserialiser.c" in file "server_socket_reader.c"
+            see files "completeness_check_socket_sensor.c", "count_check_socket_sensor.c"
         * Check if data which were read from buffer are deleted/removed in source for all channels
             see streamer with files "terminal_reader.c"
             problem: how to know in reader up to which byte data can be deleted if interpretation happens in deserialiser ??
