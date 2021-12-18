@@ -78,8 +78,17 @@ void read_terminal(void* p0, void* p1) {
 
     // Lock mutex.
     mtx_lock(m);
-    // Read data from source wide character buffer.
+
+    // Append source wide character buffer data to destination item.
     modify_item(p0, bd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, bc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    //
+    // CAUTION! Removing or emptying the source wide character buffer
+    // here is NOT necessary, since the local character buffer gets
+    // overwritten from the beginning in the terminal sensor
+    // (see file "message_unix_terminal_sensor.c").
+    //
+
     // Unlock mutex.
     mtx_unlock(m);
 }

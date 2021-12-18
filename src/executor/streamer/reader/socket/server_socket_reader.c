@@ -31,6 +31,8 @@
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/client_state_cyboi_name.c"
@@ -42,17 +44,19 @@
 #include "../../../../executor/accessor/getter/internal_memory_getter.c"
 #include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/sensor/socket/completeness_check_socket_sensor.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Reads as server from client socket.
  *
- * @param p0 the destination item
+ * @param p0 the destination message item
  * @param p1 the source client socket number
  * @param p2 the internal memory data
  * @param p3 the socket port
+ * @param p4 the language (protocol)
  */
-void read_socket_server(void* p0, void* p1, void* p2, void* p3) {
+void read_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read socket server.");
     fwprintf(stdout, L"Debug: Read socket server. p1: %i\n", p1);
@@ -73,6 +77,8 @@ void read_socket_server(void* p0, void* p1, void* p2, void* p3) {
     void* bs = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The mutex.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The message length.
+    int ml = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Get input/output entry.
     get_internal_memory_element((void*) &io, p2, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p3);
@@ -96,6 +102,8 @@ void read_socket_server(void* p0, void* p1, void* p2, void* p3) {
 
     // The mutex with correct type.
     mtx_t* mt = (mtx_t*) m;
+    // The complete flag.
+    int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
     // Lock mutex.
@@ -118,11 +126,8 @@ void read_socket_server(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &bc, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &bs, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
-    // The complete flag.
-    int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
     // Check for length prefix and end suffix.
-    //?? sense_socket_check_completeness((void*) &f, p9, p0, p8);
+    sense_socket_check_completeness((void*) &f, (void*) &ml, p0, p4);
 
     if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -131,8 +136,14 @@ void read_socket_server(void* p0, void* p1, void* p2, void* p3) {
         // belonging to it have been received.
         //
 
-        // Read data from buffer.
-        modify_item(p0, bd, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, bc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+        //
+        // Append buffer data to destination message item.
+        //
+        // CAUTION! Do NOT hand over the buffer count but rather
+        // the message length determined above for specifying
+        // the number of characters to be appended.
+        //
+        modify_item(p0, bd, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &ml, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
         //
         // Remove data from buffer.
@@ -143,7 +154,19 @@ void read_socket_server(void* p0, void* p1, void* p2, void* p3) {
         // CAUTION! Do NOT EMPTY the buffer here since new data
         // might be added continuously within the sensing thread.
         //
-        modify_array((void*) &bd, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, bc, bs, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
+        // CAUTION! Calling the function "modify_item" would work here,
+        // but "modify_array" is used instead since the buffer item's
+        // data and count have already been determined above.
+        //
+        // CAUTION! Do NOT hand over the buffer count but rather
+        // the message length determined above for specifying
+        // the number of characters to be removed.
+        //
+        // CAUTION! Set the adjust count flag to TRUE since otherwise,
+        // the destination item will hold a wrong "count" number
+        // leading to unpredictable errors in further processing.
+        //
+        modify_array((void*) &bd, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &ml, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, bc, bs, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
     }
 
     // Unlock mutex.

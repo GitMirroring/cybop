@@ -36,13 +36,14 @@
 /**
  * Reads from either client- or server socket, depending on the given mode.
  *
- * @param p0 the destination item
+ * @param p0 the destination message item
  * @param p1 the source socket number (server or client)
  * @param p2 the internal memory data
  * @param p3 the socket port
- * @param p4 the client mode (true if reading as client from server socket; false otherwise)
+ * @param p4 the language (protocol)
+ * @param p5 the client mode (true if reading as client from server socket; false otherwise)
  */
-void read_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void read_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read socket.");
     fwprintf(stdout, L"Debug: Read socket. p2: %i\n", p2);
@@ -52,7 +53,7 @@ void read_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -61,13 +62,13 @@ void read_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // That is, this system reads as server from one of its (remote) client sockets.
             //
 
-            read_socket_server(p0, p1, p2, p3);
+            read_socket_server(p0, p1, p2, p3, p4);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -83,7 +84,7 @@ void read_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read socket. The client mode is unknown.");
-        fwprintf(stdout, L"Error: Could not read socket. The client mode is unknown. p4: %i\n", p4);
+        fwprintf(stdout, L"Error: Could not read socket. The client mode is unknown. p5: %i\n", p5);
     }
 }
 

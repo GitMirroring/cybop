@@ -14,45 +14,25 @@
 Pipe
 ____
 
-        * Reuse file "message_length_deserialiser.c" in file "server_socket_reader.c"
-            see files "completeness_check_socket_sensor.c", "count_check_socket_sensor.c"
-        * Check if data which were read from buffer are deleted/removed in source for all channels
-            see streamer with files "terminal_reader.c"
-            problem: how to know in reader up to which byte data can be deleted if interpretation happens in deserialiser ??
-            problem: do not use "empty" in file "server_socket_reader.c"
+        * Reuse file "completeness_check_socket_sensor.c" in file "client_socket_reader.c"
         * Test code changes that were done to hand over the language (protocol) to cybol operation "activate/enable"
-        * Test binary crlf termination de-/serialiser
+        * Test binary crlf termination de-/serialiser with cybol applications socket_server and socket_client
 
         * Replace "Test: " with "Debug: "
         * Replace "TEST" with ...
+        * Clean up superfluous constants in file "input_output_state_cyboi_name.c"
 
-        * Make file "completeness_check_socket_sensor.c" reusable for stream reader
-        * Probably, the detection has to be done twice:
-            - in sensor to be able to set the irq pipe
-            - in reader to be able to split several messages, since more than one might have been received and stored in the buffer
         * ?? [probably NOT necessary] ??
             Consider exit flag in file "interrupt_socket_sensor.c" and do NOT set irq if exit flag is set,
             since irq pipe might have been deallocated by main thread already
             therefore, lock pipe mutex AND socket mutex ??
 
-        * Write function to detect message length or message end, for example http header entry "Content-Length:"
-        * Write to irq pipe only if complete message has been received since processing of message fragments will lead to errors
-        * Use comparator to identify "Content-Length:" in HTTP message
-        * Convert number of bytes
-        * Hand over number of bytes to function "sense"
-        * Call next loop cycle only if expected number of bytes is not reached yet
-        * Hand over "http" to cybol operation "activator/enable"
+        * Hand over "http" to cybol operation "activator/enable" and to "communicate/receive"
             cybol operation "receive" does not only hand over a property "channel", but also a "language" and "format"
             these have to be used as protocol, e.g. "http", and can be handed over as argument inside cyboi
-        * Provide further protocols for detection of message length
-            problem: How big should the temporary buffer be?
-            For http, 1024 might suffice to receive all header data (including "Content-Length:"), but other protocols might have a larger header
-
-        * Clean up superfluous constants in file "input_output_state_cyboi_name.c"
-
-        * Uncomment (reactivate) adding of client to client list by call of function "modify_item" in file "request_socket_acceptor.c"
 
         * Test cybol applications socket_server and socket_client
+        * Uncomment (reactivate) adding of client to client list by call of function "modify_item" in file "request_socket_acceptor.c"
         * Set timeout to zero so that the thread can detect it and exit? Or is it vice-versa and the thread shall reset the timeout within the exit process?
         * Reflect about how to implement file "socket_awakener.c" called within exit process
         * Reactivate "exit" socket request in cybol application "socket_client" (as soon as socket thread exit works on socket server shutdown)

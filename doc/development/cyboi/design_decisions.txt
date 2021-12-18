@@ -52,6 +52,7 @@ Variables
 Handling of windows events versus socket client requests
 Asynchronous Input/Output
 Sensing Threads
+Blocking and Non-blocking Mode
 
 Terminology
 ___________
@@ -1171,6 +1172,16 @@ _______________
 
 CAUTION! Mind the mutex regions and do NOT call exit thread within them since otherwise,
 mutexes may never be reset anymore, if no other thread can enter the locked region
+
+The message length (e.g. http header entry "Content-Length:") or
+message end (e.g. <cr>+<lf>) gets detected twice:
+- in sensor to be able to set the irq pipe
+- in reader to be able to split several messages, since more than one might have been received and stored in the buffer
+
+See for example files: "completeness_check_socket_sensor.c", "message_socket_sensor.c", "server_socket_reader.c"
+
+Source buffer data stemming from sensor are removed in stream readers of
+all channels to avoid processing the same data again and again.
 
 Blocking and Non-blocking Mode
 ______________________________

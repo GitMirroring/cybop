@@ -45,8 +45,8 @@
  * all data belonging to it have been received.
  *
  * @param p0 the complete flag
- * @param p1 the message length (possibly detected previously)
- * @param p2 the buffer item
+ * @param p1 the message length (possibly detected previously; should be initialised with a value < 0, e.g. with -1)
+ * @param p2 the message item
  * @param p3 the language (protocol)
  */
 void sense_socket_check_completeness(void* p0, void* p1, void* p2, void* p3) {

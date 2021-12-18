@@ -78,7 +78,7 @@
  * @param p12 the socket port
  * @param p13 the socket client mode (true if reading as client from server socket; false otherwise)
  * @param p14 the format
- * @param p15 the language
+ * @param p15 the language (protocol)
  * @param p16 the encoding
  * @param p17 the channel
  */
@@ -168,7 +168,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     receive_select((void*) &b, (void*) &p0, (void*) &p, (void*) &i, (void*) &s, p17);
 
     // Read message.
-    receive_read((void*) &bd, (void*) &bc, b, p2, p3, p4, p5, p7, p8, p9, p10, p11, p12, p13, p17);
+    receive_read((void*) &bd, (void*) &bc, b, p2, p3, p4, p5, p7, p8, p9, p10, p11, p12, p15, p13, p17);
 
 /*??
     if ((p15 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p15) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {

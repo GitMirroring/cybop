@@ -106,7 +106,7 @@ void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3) {
         mtx_lock(m);
 
         //
-        // CAUTION! The comparison HAS TO BE inside the locked block
+        // CAUTION! The comparison has to be INSIDE the locked block
         // since otherwise, the value might be changed by another thread
         // so that the comparison result would NOT BE VALID anymore.
         //
@@ -123,11 +123,17 @@ void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3) {
             //
             // Remove event from event buffer item.
             //
+            // CAUTION! This is important since otherwise,
+            // the same data would be processed again and again.
+            //
+            // CAUTION! Do NOT EMPTY the buffer here since new data
+            // might be added continuously within the sensing thread.
+            //
             // CAUTION! Set the adjust count flag to TRUE since otherwise,
             // the destination item will hold a wrong "count" number
             // leading to unpredictable errors in further processing.
             //
-            modify_item(b, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
+            modify_item(b, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
         }
 
         // Unlock mutex.

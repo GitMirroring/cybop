@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-12-18  Christian Heller  <christian.heller@cybop.org>
+
+        * Reuse file "completeness_check_socket_sensor.c" in file "server_socket_reader.c"
+        * Make sure source buffer data stemming from sensor are removed in stream readers of all channels to avoid processing the same data again and again
+
 2021-12-14  Christian Heller  <christian.heller@cybop.org>
 
         * Clean up redundancies in file "completeness_check_socket_sensor.c" using file "count_check_socket_sensor.c"
