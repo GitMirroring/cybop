@@ -14,7 +14,7 @@
 Pipe
 ____
 
-        * Reuse file "completeness_check_socket_sensor.c" in file "client_socket_reader.c"
+        * Figure out how an http get request without body and without "Content-Length:" header is terminated --> blank line? (twice cr+lf)
         * Test code changes that were done to hand over the language (protocol) to cybol operation "activate/enable"
         * Test binary crlf termination de-/serialiser with cybol applications socket_server and socket_client
 
@@ -260,6 +260,15 @@ ____
         * Use anonymous pipe as irq i/o message queue
 
         * Eliminate cybol property "blocking" from startup and shutdown, but only for server socket, NOT client socket
+
+Presentation
+____________
+
+        * Make video tutorial
+        * Describe project in general
+        * Show a short cybol demo
+        * Point out basic design principles (hierarchy)
+        * Propose mime type extension for operations to w3c (see cyboi format constants)
 
 FIFO (Named Pipe)
 _________________

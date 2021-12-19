@@ -26,106 +26,33 @@
 #ifndef MESSAGE_CLIENT_SOCKET_READER_SOURCE
 #define MESSAGE_CLIENT_SOCKET_READER_SOURCE
 
-#include <unistd.h> // read
-
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/sensor/socket/completeness_check_socket_sensor.c"
+#include "../../../../executor/streamer/reader/socket/fragment_client_socket_reader.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Reads message data as client from server socket.
+ * Reads client socket message.
  *
  * @param p0 the destination item to store message data in
  * @param p1 the source server socket to read from
  * @param p2 the local character buffer data
  * @param p3 the local character buffer count
- * @param p4 the break flag
+ * @param p4 the language (protocol)
+ * @param p5 the message length (possibly detected as prefix previously)
+ * @param p6 the break flag
  */
-void read_socket_client_message(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void read_socket_client_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read socket client message.");
+    fwprintf(stdout, L"Debug: Read socket client message. p5: %i\n", p5);
+    fwprintf(stdout, L"Debug: Read socket client message. *p5: %i\n", *((int*) p5));
 
-        int* ex = (int*) p4;
+    // Receive next message fragment.
+    read_socket_client_fragment(p0, p1, p2, p3);
 
-        if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            int* bc = (int*) p3;
-
-            if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                    int* s = (int*) p1;
-
-                    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read socket client message.");
-                        fwprintf(stdout, L"Debug: Read socket client message. s: %i\n", s);
-                        fwprintf(stdout, L"Debug: Read socket client message. *s: %i\n", *((int*) s));
-
-                        // Cast buffer size to correct type.
-                        size_t bct = (size_t) *bc;
-
-                        //
-                        // Read data from socket.
-                        //
-                        // CAUTION! Using the function "recv" is NOT necessary,
-                        // since its flags argument (fourth one) would be zero,
-                        // because no special options are needed.
-                        // Therefore, the function "read" suffices here.
-                        //
-                        fwprintf(stdout, L"Debug: Read socket client message. *bc: %i\n", *bc);
-                        fwprintf(stdout, L"Debug: Read socket client message. bct: %i\n", bct);
-                        fwprintf(stdout, L"Waiting for input on server socket: %i\n", *s);
-                        int n = read(*s, p2, bct);
-                        fwprintf(stdout, L"Debug: Read socket client message. n: %i\n", n);
-                        //?? fwprintf(stdout, L"Debug: Read socket client message. *p2 as c: %c\n", *((char*) p2));
-                        //?? fwprintf(stdout, L"Debug: Read socket client message. p2 as s: %s\n", (char*) p2);
-
-                        // Copy local buffer content into destination buffer item.
-                        modify_item(p0, p2, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &n, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-
-                        //?? TODO: Detect message size prefix or end of message suffix.
-                        //?? TEMPORARY SOLUTION TO BREAK LOOP -- replace later with prefix/suffix detection
-                        if (n < *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL) {
-                            // Set break flag.
-                            copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-                        }
-
-                    } else {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read socket client message. The destination item is null.");
-                        fwprintf(stdout, L"Error: Could not read socket client message. The destination item is null. p0: %i\n", p0);
-                    }
-
-                } else {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read socket client message. The source server socket is null.");
-                    fwprintf(stdout, L"Error: Could not read socket client message. The source server socket is null. p1: %i\n", p1);
-                }
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read socket client message. The local buffer data is null.");
-                fwprintf(stdout, L"Error: Could not read socket client message. The local buffer data is null. p2: %i\n", p2);
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read socket client message. The local buffer count is null.");
-            fwprintf(stdout, L"Error: Could not read socket client message. The local buffer count is null. p3: %i\n", p3);
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read socket client message. The break flag is null.");
-        fwprintf(stdout, L"Error: Could not read socket client message. The break flag is null. p4: %i\n", p4);
-    }
+    // Check for length prefix and end suffix.
+    sense_socket_check_completeness(p6, p5, p0, p4);
 }
 
 /* MESSAGE_CLIENT_SOCKET_READER_SOURCE */

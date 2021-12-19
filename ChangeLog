@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2021-12-19  Christian Heller  <christian.heller@cybop.org>
+
+        * Add file "fragment_client_socket_reader.c"
+        * Reuse file "completeness_check_socket_sensor.c" in file "client_socket_reader.c"
+
 2021-12-18  Christian Heller  <christian.heller@cybop.org>
 
         * Reuse file "completeness_check_socket_sensor.c" in file "server_socket_reader.c"

@@ -101,7 +101,7 @@ void sense_socket_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                         //
                         fwprintf(stdout, L"Debug: Sense socket message. *bc: %i\n", *bc);
                         fwprintf(stdout, L"Debug: Sense socket message. bct: %i\n", bct);
-                        fwprintf(stdout, L"Waiting for input/output on client socket: %i\n", *s);
+                        fwprintf(stdout, L"Debug: Sense socket message. Waiting for input/output on client socket: %i\n", *s);
                         int n = read(*s, p3, bct);
                         fwprintf(stdout, L"Debug: Sense socket message. n: %i\n", n);
                         fwprintf(stdout, L"Debug: Sense socket message. *p5 as c: %c\n", *((char*) p5));
@@ -158,7 +158,7 @@ void sense_socket_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                             fwprintf(stdout, L"Debug: Sense socket message. DO process data. r: %i\n", r);
 
                             // Copy local buffer content into destination buffer item.
-                            modify_item(p0, p5, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &n, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+                            modify_item(p0, p3, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &n, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
                         } else {
 
@@ -194,20 +194,20 @@ void sense_socket_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket fragment. The socket mutex is null.");
-                fwprintf(stdout, L"Error: Could not sense socket fragment. The socket mutex is null. p2: %i\n", p2);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket fragment. The client socket mutex is null.");
+                fwprintf(stdout, L"Error: Could not sense socket fragment. The client socket mutex is null. p2: %i\n", p2);
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket fragment. The local buffer data is null.");
-            fwprintf(stdout, L"Error: Could not sense socket fragment. The local buffer data is null. p3: %i\n", p3);
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket fragment. The local character buffer data is null.");
+            fwprintf(stdout, L"Error: Could not sense socket fragment. The local character buffer data is null. p3: %i\n", p3);
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket fragment. The local buffer count is null.");
-        fwprintf(stdout, L"Error: Could not sense socket fragment. The local buffer count is null. p4: %i\n", p4);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket fragment. The local character buffer count is null.");
+        fwprintf(stdout, L"Error: Could not sense socket fragment. The local character buffer count is null. p4: %i\n", p4);
     }
 }
 

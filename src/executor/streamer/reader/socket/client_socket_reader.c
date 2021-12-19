@@ -29,6 +29,7 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../../executor/streamer/reader/socket/message_client_socket_reader.c"
 #include "../../../../logger/logger.c"
 
@@ -36,9 +37,10 @@
  * Reads as client from server socket.
  *
  * @param p0 the destination item to store message data in
- * @param p1 the source server socket to read from
+ * @param p1 the source server socket number to read from
+ * @param p2 the language (protocol)
  */
-void read_socket_client(void* p0, void* p1) {
+void read_socket_client(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read socket client.");
     fwprintf(stdout, L"Debug: Read socket client. p1: %i\n", p1);
@@ -89,6 +91,16 @@ void read_socket_client(void* p0, void* p1) {
     //
     char cd[*NUMBER_1024_INTEGER_STATE_CYBOI_MODEL];
     int cc = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
+    //
+    // The message length.
+    //
+    // CAUTION! This variable is NOT read from client entry.
+    // It serves just as a value-holder across many loop cycles,
+    // so that a "message length" header found in the data
+    // (e.g. "Content-Length: " in http) can be compared with
+    // the actual number of bytes that have been read, in each loop cycle.
+    //
+    int ml = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -96,14 +108,12 @@ void read_socket_client(void* p0, void* p1) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        //?? TODO: Detect message size prefix or end of message suffix.
-
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }
 
-        read_socket_client_message(p0, p1, cd, (void*) &cc, (void*) &b);
+        read_socket_client_message(p0, p1, cd, (void*) &cc, p2, (void*) &ml, (void*) &b);
     }
 }
 
