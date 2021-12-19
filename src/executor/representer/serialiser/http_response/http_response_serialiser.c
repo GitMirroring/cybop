@@ -56,6 +56,7 @@ void serialise_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     // The body item.
     void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //
     // The argument data, count.
     //
     // CAUTION! This is just helper variables,
@@ -69,15 +70,20 @@ void serialise_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, v
     void* ad = p1;
     void* ac = p2;
 
+    //
     // Allocate body item.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_item((void*) &b, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
+    //
     // Encode body only if encoding is given.
     //
     // CAUTION! The body has to be encoded FIRST, so that its count can be
     // determined, since it has to be given as http header value below.
+    //
     serialise_http_response_body((void*) &ad, (void*) &ac, b, p1, p2, p3, p4, p5, p6, p7);
 
     // Serialise protocol.
@@ -88,6 +94,7 @@ void serialise_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, v
     serialise_http_response_status_code(p0);
     modify_item(p0, (void*) REQUEST_RESPONSE_LINE_FINAL_ELEMENT_SEPARATOR_HTTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REQUEST_RESPONSE_LINE_FINAL_ELEMENT_SEPARATOR_HTTP_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
+    //
     // Serialise header.
     //
     // CAUTION! The body count is handed over as argument,
@@ -95,25 +102,28 @@ void serialise_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, v
     //
     serialise_http_response_header(p0, p3, p4, ac, p5, p6, p7);
 
+    //
     // Serialise separator.
     //
     // CAUTION! Do NOT add the BODY_BEGIN_SEPARATOR_HTTP_NAME
     // (twice carriage return and line feed).
     //
-    // One CR + LF was already added by HEADER_SEPARATOR_HTTP_NAME
+    // One cr + lf was already added by HEADER_SEPARATOR_HTTP_NAME
     // inside the "serialise_http_response_header" function.
     // If there are no header entries (which shouldn't happen normally),
-    // then one CR + LF was already added by
-    // REQUEST_RESPONSE_LINE_ELEMENT_END_SEPARATOR_HTTP_NAME above.
+    // then one cr + lf was already added by
+    // REQUEST_RESPONSE_LINE_FINAL_ELEMENT_SEPARATOR_HTTP_NAME above.
     //
-    // Therefore, ONLY ONE more CR + LF is to be added here.
+    // Therefore, only ONE more cr + lf is to be added here.
     //
     modify_item(p0, (void*) HEADER_SEPARATOR_HTTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) HEADER_SEPARATOR_HTTP_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
+    //
     // Serialise body.
     //
     // CAUTION! Append body ONLY HERE and NOT before,
     // since it has to stand at the end of the http message.
+    //
     modify_item(p0, ad, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, ac, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
     // Deallocate body item.

@@ -14,7 +14,10 @@
 Pipe
 ____
 
-        * Figure out how an http get request without body and without "Content-Length:" header is terminated --> blank line? (twice cr+lf)
+        * Change detection of message length for http, since "Content-Length:" does only specify the body length but not the whole message's length
+        * Detect double <cr> + <lf> instead
+            --> Use this order: detect message length first and crlf at second place
+
         * Test code changes that were done to hand over the language (protocol) to cybol operation "activate/enable"
         * Test binary crlf termination de-/serialiser with cybol applications socket_server and socket_client
 
@@ -269,6 +272,7 @@ ____________
         * Show a short cybol demo
         * Point out basic design principles (hierarchy)
         * Propose mime type extension for operations to w3c (see cyboi format constants)
+        * Show various possible syntax representations of cybol (xml, json, no markers at all with just space, table)
 
 FIFO (Named Pipe)
 _________________
