@@ -46,8 +46,13 @@
     </node>
     <node name="send_request" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+<!--
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+-->
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/binary-crlf-termination"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="say-hello"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
@@ -57,7 +62,7 @@
     <node name="receive_response" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="language" channel="inline" format="meta/language" model="message/binary-crlf-termination"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="sender" channel="inline" format="text/cybol-path" model=".server_socket"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".text_response"/>
@@ -84,7 +89,7 @@
     <node name="send_request" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="language" channel="inline" format="meta/language" model="message/binary-crlf-termination"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="show-image"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
@@ -118,7 +123,7 @@
     <node name="send_request_exit" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="language" channel="inline" format="meta/language" model="message/binary-crlf-termination"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="exit"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>

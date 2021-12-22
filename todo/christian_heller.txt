@@ -14,10 +14,6 @@
 Pipe
 ____
 
-        * Change detection of message length for http, since "Content-Length:" does only specify the body length but not the whole message's length
-        * Detect double <cr> + <lf> instead
-            --> Use this order: detect message length first and crlf at second place
-
         * Test code changes that were done to hand over the language (protocol) to cybol operation "activate/enable"
         * Test binary crlf termination de-/serialiser with cybol applications socket_server and socket_client
 
