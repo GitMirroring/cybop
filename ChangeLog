@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-01-03  Christian Heller  <christian.heller@cybop.org>
+
+        * Use correct language "message/binary-crlf" in cybol files
+
 2021-12-22  Christian Heller  <christian.heller@cybop.org>
 
         * Change detection in file "message_length_deserialiser.c" for http, since "Content-Length:" does specify only the body length but not the whole message's length

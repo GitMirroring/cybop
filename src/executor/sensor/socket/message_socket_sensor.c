@@ -45,7 +45,7 @@
  * @param p6 the local character buffer count
  * @param p7 the input/output identification (input/output base + socket port)
  * @param p8 the language (protocol)
- * @param p9 the message length (possibly detected as prefix previously)
+ * @param p9 the message length (possibly detected previously; should be initialised with a value < 0, e.g. with -1)
  * @param p10 the exit flag
  */
 void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
@@ -63,6 +63,23 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     // Receive next message fragment.
     sense_socket_fragment(p0, p1, p2, p5, p6, p10);
+
+    //
+    // CAUTION! The exit flag might have been set inside
+    // the function "sense_socket_fragment", if the client
+    // closed the connexion. The destination buffer item
+    // remained empty, since no data got copied.
+    //
+    // In this case, further processing is NOT necessary.
+    // It might even lead to errors if the interrupt pipe
+    // of the main thread gets informed below.
+    //
+    // However, the exit flag is not tested here via "if-else"
+    // (it could be done, but is not necessary),
+    // since an empty destination buffer item is just ignored
+    // in function "sense_socket_check_completeness" below,
+    // so that the complete flag is not set.
+    //
 
     // Check for length prefix and end suffix.
     sense_socket_check_completeness((void*) &f, p9, p0, p8);

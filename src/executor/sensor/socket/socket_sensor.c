@@ -187,6 +187,9 @@ int sense_socket(void* p0) {
     // (e.g. "Content-Length: " in http) can be compared with
     // the actual number of bytes that have been read, in each loop cycle.
     //
+    // Since it gets compared inside, it should be initialised
+    // with a value < 0, e.g. with -1.
+    //
     int ml = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Get exit flag from client entry.
@@ -239,6 +242,9 @@ int sense_socket(void* p0) {
     // returns from the function that was used to create it (this function).
     // The "thrd_exit" function does therefore NOT have to be called here.
     //
+
+    fwprintf(stdout, L"Debug: Sense socket. Exit thread now. ex: %i\n", ex);
+    fwprintf(stdout, L"Debug: Sense socket. Exit thread now. *ex: %i\n", *((int*) ex));
 
     return *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 }

@@ -3,7 +3,11 @@
     <node name="logic" channel="file" format="element/part" model="internet/socket_server/logic.cybol"/>
     <node name="actions" channel="file" format="element/part" model="internet/socket_server/actions.cybol"/>
 
+    <!--
     <node name="request" channel="inline" format="text/plain" model=""/>
+    -->
+    <node name="request" channel="inline" format="text/ascii" model=""/>
+
     <!--
         This is just a placeholder value.
         Inside cyboi, it gets filled with the correct client socket number,

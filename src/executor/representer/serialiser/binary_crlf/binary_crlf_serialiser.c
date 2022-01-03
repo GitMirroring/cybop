@@ -55,6 +55,15 @@ void serialise_binary_crlf(void* p0, void* p1, void* p2) {
 
     // Add crlf termination.
     modify_item(p0, (void*) CRLF_TERMINATION_BINARY_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) CRLF_TERMINATION_BINARY_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    //?? TEST only -- delete later
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    copy_array_forward((void*) &d, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    fwprintf(stdout, L"Debug: Serialise binary crlf. post c: %i\n", c);
+    fwprintf(stdout, L"Debug: Serialise binary crlf. post *c: %i\n", *((int*) c));
+    fwprintf(stdout, L"Debug: Serialise binary crlf. post d: %s\n", (char*) d);
 }
 
 /* BINARY_CRLF_SERIALISER_SOURCE */

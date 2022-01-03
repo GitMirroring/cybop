@@ -14,12 +14,26 @@
 Pipe
 ____
 
+        CONTINUE:
+        * Assign correct buffer in file "sender.c"
+            sensing works, but reading not due to empty buffer (probably wrong pointer assigned in file "sender.c")
+
         * Test code changes that were done to hand over the language (protocol) to cybol operation "activate/enable"
         * Test binary crlf termination de-/serialiser with cybol applications socket_server and socket_client
+
+        * Check if http message header AND attachment count were added, in order to retrieve the correct message length
+
+        * Close client socket on server side if exit flag was set in file "socket_sensor.c"
+        * Remove client socket from client list and timeout list
 
         * Replace "Test: " with "Debug: "
         * Replace "TEST" with ...
         * Clean up superfluous constants in file "input_output_state_cyboi_name.c"
+
+        * Reflect about handling of filters in directory "executor/communicator/"
+            * Is it not too complex?
+            * Wouldn't it be more flexible to allow any number of filters (compression, enocding etc.)?
+            * In this case, the buffers used in communicator would be to static and inflexible
 
         * ?? [probably NOT necessary] ??
             Consider exit flag in file "interrupt_socket_sensor.c" and do NOT set irq if exit flag is set,

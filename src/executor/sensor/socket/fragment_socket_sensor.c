@@ -99,13 +99,13 @@ void sense_socket_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                         // so that it is not clear how big the buffer array shall be.
                         // Therefore, call "read" in a loop until no more data are available.
                         //
-                        fwprintf(stdout, L"Debug: Sense socket message. *bc: %i\n", *bc);
-                        fwprintf(stdout, L"Debug: Sense socket message. bct: %i\n", bct);
-                        fwprintf(stdout, L"Debug: Sense socket message. Waiting for input/output on client socket: %i\n", *s);
+                        fwprintf(stdout, L"Debug: Sense socket fragment. *bc: %i\n", *bc);
+                        fwprintf(stdout, L"Debug: Sense socket fragment. bct: %i\n", bct);
+                        fwprintf(stdout, L"Debug: Sense socket fragment. Waiting for input/output on client socket: %i\n", *s);
                         int n = read(*s, p3, bct);
-                        fwprintf(stdout, L"Debug: Sense socket message. n: %i\n", n);
-                        fwprintf(stdout, L"Debug: Sense socket message. *p5 as c: %c\n", *((char*) p5));
-                        fwprintf(stdout, L"Debug: Sense socket message. p5 as s: %s\n", (char*) p5);
+                        fwprintf(stdout, L"Debug: Sense socket fragment. n: %i\n", n);
+                        fwprintf(stdout, L"Debug: Sense socket fragment. *p3 as c: %c\n", *((char*) p3));
+                        fwprintf(stdout, L"Debug: Sense socket fragment. p3 as s: %s\n", (char*) p3);
 
                         // The comparison result.
                         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -155,7 +155,7 @@ void sense_socket_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                             // Therefore, proceed normally.
                             //
 
-                            fwprintf(stdout, L"Debug: Sense socket message. DO process data. r: %i\n", r);
+                            fwprintf(stdout, L"Debug: Sense socket fragment. DO process data. r: %i\n", r);
 
                             // Copy local buffer content into destination buffer item.
                             modify_item(p0, p3, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &n, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
@@ -163,8 +163,11 @@ void sense_socket_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                         } else {
 
                             //
-                            // The exit flag WAS SET in the main thread.
-                            // Therefore, do NOT process data here any longer.
+                            // The exit flag WAS SET, either in the main thread or
+                            // above, since the client side closed its connexion.
+                            //
+                            // Therefore, close the client socket on this server side
+                            // and do NOT process data here any longer.
                             //
                             // The reason is that data processing might require
                             // reallocation of some destination arrays, which may
@@ -174,7 +177,7 @@ void sense_socket_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                             // Reallocation may happen above, in call of function "modify_item".
                             //
 
-                            fwprintf(stdout, L"Debug: Sense socket message. Do NOT process data, since the exit flag is set. r: %i\n", r);
+                            fwprintf(stdout, L"Debug: Sense socket fragment. The exit flag is set since the client side closed its connexion. r: %i\n", r);
                         }
 
                         // Unlock socket mutex.

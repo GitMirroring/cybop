@@ -109,11 +109,14 @@ void sense_socket_check_completeness(void* p0, void* p1, void* p2, void* p3) {
         // or SUFFIX sequence marking the end of the message.
         //
         // Examples:
-        // - http has a "Content-Length:" header entry as prefix.
+        // - http has a "Content-Length:" header entry as prefix
         // - some binary protocols have a crlf termination
         //
 
         deserialise_message_length(p1, bd, bc, p3);
+
+        fwprintf(stdout, L"Debug: Sense socket check completeness. post deserialise message length p1: %i\n", p1);
+        fwprintf(stdout, L"Debug: Sense socket check completeness. post deserialise message length *p1: %i\n", *((int*) p1));
 
         //
         // CAUTION! The length was initialised with -1.

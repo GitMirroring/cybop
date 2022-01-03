@@ -126,6 +126,10 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     //
     allocate_item((void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
+    fwprintf(stdout, L"Debug: Send. s: %i\n", s);
+    fwprintf(stdout, L"Debug: Send. e: %i\n", e);
+    fwprintf(stdout, L"Debug: Send. c: %i\n", c);
+
     //
     // Initialise buffer.
     //
@@ -136,8 +140,12 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     //
     b = s;
 
+    fwprintf(stdout, L"Debug: Send. b after s: %i\n", b);
+
     // Select buffer.
     send_select((void*) &b, (void*) &e, p5);
+
+    fwprintf(stdout, L"Debug: Send. b after e: %i\n", b);
 
     //
     // Serialise message.

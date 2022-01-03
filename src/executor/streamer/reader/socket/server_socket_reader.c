@@ -77,28 +77,32 @@ void read_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* bs = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The mutex.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //
     // The message length.
+    //
+    // Since it gets compared inside, it should be initialised
+    // with a value < 0, e.g. with -1.
+    //
     int ml = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Get input/output entry.
     get_internal_memory_element((void*) &io, p2, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p3);
-    fwprintf(stdout, L"Debug: Read. io: %i\n", io);
+    fwprintf(stdout, L"Debug: Read socket server. io: %i\n", io);
     // Get client list item from input/output entry.
     copy_array_forward((void*) &cl, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CLIENT_LIST_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    fwprintf(stdout, L"Debug: Read. cl: %i\n", cl);
+    fwprintf(stdout, L"Debug: Read socket server. cl: %i\n", cl);
     // Get client list item data.
     copy_array_forward((void*) &cld, cl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    fwprintf(stdout, L"Debug: Read. cld: %i\n", cld);
+    fwprintf(stdout, L"Debug: Read socket server. cld: %i\n", cld);
     // Get client entry using client socket number as source client list index.
     copy_array_forward((void*) &e, cld, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1);
-    fwprintf(stdout, L"Debug: Read. e: %i\n", e);
+    fwprintf(stdout, L"Debug: Read socket server. e: %i\n", e);
     // Get buffer item from client entry.
     copy_array_forward((void*) &b, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_MESSAGE_CLIENT_STATE_CYBOI_NAME);
     // Get mutex from client entry.
     copy_array_forward((void*) &m, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_MESSAGE_CLIENT_STATE_CYBOI_NAME);
-
-    fwprintf(stdout, L"Debug: Read. client socket e: %i\n", e);
-    fwprintf(stdout, L"Debug: Read. client socket *e: %i\n", *((int*) e));
+    fwprintf(stdout, L"Debug: Read socket server. m: %i\n", m);
+    fwprintf(stdout, L"Debug: Read socket server. *m: %i\n", *((int*) m));
 
     // The mutex with correct type.
     mtx_t* mt = (mtx_t*) m;
