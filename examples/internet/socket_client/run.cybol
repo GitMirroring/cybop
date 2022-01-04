@@ -50,9 +50,10 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="say-hello"/>
 -->
         <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
-        <node name="message" channel="inline" format="text/plain" model="say-hello"/>
+        <node name="message" channel="inline" format="text/ascii" model="say-hello"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
 

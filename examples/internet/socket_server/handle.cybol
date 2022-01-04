@@ -46,9 +46,10 @@
         <node name="destination" channel="inline" format="text/cybol-path" model=".path"/>
         <node name="source" channel="inline" format="text/plain" model=".actions."/>
     </node>
-    <node name="append_action" channel="inline" format="modify/append" model="">
+    <node name="decode_and_append_action" channel="inline" format="convert/decode" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".path"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".request"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
     </node>
 
     <node name="print_path_label" channel="inline" format="communicate/send" model="">

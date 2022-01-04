@@ -44,8 +44,8 @@
 void deserialise_binary_crlf_termination(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise binary crlf termination.");
-    fwprintf(stdout, L"Debug: Deserialise binary crlf termination. source message countp2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise binary crlf termination. source message count*p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Deserialise binary crlf termination. source message count p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Deserialise binary crlf termination. source message count *p2: %i\n", *((int*) p2));
 
     // The source data position.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;

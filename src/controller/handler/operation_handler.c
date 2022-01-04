@@ -82,6 +82,8 @@
 #include "../../applicator/communicate/send.c"
 #include "../../applicator/compare/compare.c"
 #include "../../applicator/contain/contain.c"
+#include "../../applicator/convert/decode.c"
+#include "../../applicator/convert/encode.c"
 #include "../../applicator/flow/branch.c"
 #include "../../applicator/flow/loop.c"
 #include "../../applicator/flow/sequence.c"
@@ -1045,7 +1047,6 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         }
     }
 
-/*??
     //
     // convert
     //
@@ -1056,7 +1057,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            decode(p0, p1);
+            apply_decode(p0, p1, p3, p4, p2);
         }
     }
 
@@ -1066,10 +1067,9 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            encode(p0, p1);
+            apply_encode(p0, p1, p3, p4, p2);
         }
     }
-*/
 
     //
     // flow

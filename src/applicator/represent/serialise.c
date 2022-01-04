@@ -38,7 +38,7 @@
 /**
  * Serialises the source- into the destination part.
  *
- * CAUTION! The result get APPENDED to the destination.
+ * CAUTION! The result gets APPENDED to the destination.
  * It does NOT overwrite already existing content in the destination.
  *
  * Expected parametres:

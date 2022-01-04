@@ -14,8 +14,11 @@
 Pipe
 ____
 
-        CONTINUE:
-        * Assign correct buffer in file "sender.c"
+        good: sending on client side works fine
+        problem: received request (command) in "socket_server/handle.cybol" is empty due to empty buffer
+        --> solution:
+        * Add crlf again after sensing (by default, it is detected as termination but not added) since otherwise, it cannot be detected again in reader (main thread)
+        * Assign correct buffer in file "sender.c"??
             sensing works, but reading not due to empty buffer (probably wrong pointer assigned in file "sender.c")
 
         * Test code changes that were done to hand over the language (protocol) to cybol operation "activate/enable"
