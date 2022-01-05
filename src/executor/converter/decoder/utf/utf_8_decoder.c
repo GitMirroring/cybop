@@ -132,8 +132,8 @@
 // character encoding for Unicode.
 //
 // It is able to represent any character in the Unicode standard, yet the
-// initial encoding of byte codes and character assignments for UTF-8 is
-// backwards compatible with ASCII. For these reasons, it is steadily becoming
+// initial encoding of byte codes and character assignments for utf-8 is
+// backwards compatible with ascii. For these reasons, it is steadily becoming
 // the preferred encoding for e-mail, web pages, and other places where
 // characters are stored or streamed.
 //
@@ -150,8 +150,8 @@
 //
 // Four bytes may seem like a lot for one character (code point). However,
 // code points outside the Basic Multilingual Plane are generally very rare.
-// Furthermore, UTF-16 (the main alternative to UTF-8) also needs four bytes
-// for these code points. Whether UTF-8 or UTF-16 is more efficient depends
+// Furthermore, utf-16 (the main alternative to utf-8) also needs four bytes
+// for these code points. Whether utf-8 or utf-16 is more efficient depends
 // on the range of code points being used. However, the differences between
 // different encoding schemes can become negligible with the use of
 // traditional compression systems like DEFLATE. For short items of text
@@ -159,13 +159,13 @@
 // the Standard Compression Scheme for Unicode could be considered instead.
 //
 // The Internet Engineering Task Force (IETF) requires all Internet protocols
-// to identify the encoding used for character data with UTF-8 as at least one
+// to identify the encoding used for character data with utf-8 as at least one
 // supported encoding. The Internet Mail Consortium (IMC) recommends that all
-// email programs be able to display and create mail using UTF-8.
+// email programs be able to display and create mail using utf-8.
 //
 
 /**
- * Decodes the UTF-8 multibyte character data into UTF-32 wide character data.
+ * Decodes the utf-8 multibyte character data into utf-32 wide character data.
  *
  * @param p0 the destination item
  * @param p1 the source data
@@ -181,7 +181,7 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
 
             void* sd = p1;
 
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode UTF-8.");
+            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode utf-8.");
 
             // The destination item data, count, size.
             void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -253,7 +253,7 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
             // since it is the category that applies to classification and conversion
             // of characters, and to multibyte and wide characters.
             //
-            // CAUTION! This setting IS NECESSARY for UTF-8 character conversion
+            // CAUTION! This setting IS NECESSARY for utf-8 character conversion
             // with restartable multibyte conversion functions like "mbsnrtowcs"
             // and "wcsnrtombs" to work correctly.
             // The return value is not used; this is a GLOBAL setting.
@@ -331,6 +331,8 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
 #endif
 
                 if (n >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                    fwprintf(stdout, L"Debug: Decode utf-8. n: %i\n", n);
 
                     // Set destination count to the number of WIDE characters converted.
                     copy_integer(dc, (void*) &n);

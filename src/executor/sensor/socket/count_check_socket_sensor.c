@@ -66,8 +66,6 @@ void sense_socket_check_count(void* p0, void* p1, void* p2) {
 
         // Set complete flag.
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        // Reset message length.
-        copy_integer(p1, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

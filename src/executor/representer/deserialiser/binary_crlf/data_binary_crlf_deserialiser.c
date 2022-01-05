@@ -48,12 +48,15 @@ void deserialise_binary_crlf_data(void* p0, void* p1, void* p2) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise binary crlf data.");
     fwprintf(stdout, L"Debug: Deserialise binary crlf data. p2: %i\n", p2);
     fwprintf(stdout, L"Debug: Deserialise binary crlf data. *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Deserialise binary crlf data. p1: %s\n", (char*) *((void**) p1));
 
     // The element.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
     int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The termination count.
+    int tc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Initialise element.
     copy_pointer((void*) &e, p1);
@@ -82,7 +85,16 @@ void deserialise_binary_crlf_data(void* p0, void* p1, void* p2) {
             break;
         }
 
-        select_binary_crlf_termination((void*) &b, p1, p2);
+        //
+        // CAUTION! The termination count is handed over as requested,
+        // but it has NO MEANING here in the message deserialiser.
+        //
+        // However, it HAS a meaning in both the sensor and the reader,
+        // which have been executed before. Within them, the termination
+        // count/characters have to be added/copied so that this message
+        // deserialiser right here can detect the end of the message.
+        //
+        select_binary_crlf_termination((void*) &b, p1, p2, (void*) &tc);
 
         if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -91,7 +103,27 @@ void deserialise_binary_crlf_data(void* p0, void* p1, void* p2) {
 
         } else {
 
+            fwprintf(stdout, L"Debug: Deserialise binary crlf data. ec: %i\n", ec);
+            fwprintf(stdout, L"Debug: Deserialise binary crlf data. e: %s\n", (char*) e);
+
+            //
+            // Copy source data to destination item.
+            //
+            // CAUTION! The termination count is NOT added or considered
+            // for the element count, since only the message data itself
+            // but NOT the termination characters are to be copied.
+            //
             modify_item(p0, e, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &ec, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+            //?? TEST BEGIN
+            void* testd = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* testc = *NULL_POINTER_STATE_CYBOI_MODEL;
+            copy_array_forward((void*) &testd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &testc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+            fwprintf(stdout, L"Debug: Deserialise binary crlf data. testc: %i\n", testc);
+            fwprintf(stdout, L"Debug: Deserialise binary crlf data. *testc: %i\n", *((int*) testc));
+            fwprintf(stdout, L"Debug: Deserialise binary crlf data. testd: %s\n", (char*) testd);
+            //?? TEST END
 
             break;
         }

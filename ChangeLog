@@ -18,6 +18,13 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-01-05  Christian Heller  <christian.heller@cybop.org>
+
+        * Adapt file "termination_binary_crlf_selector.c" in order to assign termination count that is handed over as parametre
+        * Use correct buffer to be handed over to function "sense_socket_check_completeness" in file "server_socket_reader.c"
+        * Fix logical bug that message length was reset to -1 in file "count_check_socket_sensor.c" but still used in file "server_socket_reader.c"
+        * Test binary crlf termination deserialiser with cybol applications "socket_server" and "socket_client"
+
 2022-01-04  Christian Heller  <christian.heller@cybop.org>
 
         * Use binary format "text/ascii" instead of "text/plain" in socket cybol application (for send in socket_client and receive in socket_server)

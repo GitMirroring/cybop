@@ -99,12 +99,10 @@ void sense_socket_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                         // so that it is not clear how big the buffer array shall be.
                         // Therefore, call "read" in a loop until no more data are available.
                         //
-                        fwprintf(stdout, L"Debug: Sense socket fragment. *bc: %i\n", *bc);
                         fwprintf(stdout, L"Debug: Sense socket fragment. bct: %i\n", bct);
                         fwprintf(stdout, L"Debug: Sense socket fragment. Waiting for input/output on client socket: %i\n", *s);
                         int n = read(*s, p3, bct);
                         fwprintf(stdout, L"Debug: Sense socket fragment. n: %i\n", n);
-                        fwprintf(stdout, L"Debug: Sense socket fragment. *p3 as c: %c\n", *((char*) p3));
                         fwprintf(stdout, L"Debug: Sense socket fragment. p3 as s: %s\n", (char*) p3);
 
                         // The comparison result.
@@ -146,6 +144,10 @@ void sense_socket_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                             copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                         }
 
+                        //
+                        // CAUTION! Do this comparison only AFTER having
+                        // compared the number of received data above.
+                        //
                         compare_integer_equal((void*) &r, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
                         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

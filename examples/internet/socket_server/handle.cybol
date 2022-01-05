@@ -46,10 +46,27 @@
         <node name="destination" channel="inline" format="text/cybol-path" model=".path"/>
         <node name="source" channel="inline" format="text/plain" model=".actions."/>
     </node>
-    <node name="decode_and_append_action" channel="inline" format="convert/decode" model="">
+    <node name="decode_request_and_append_as_action" channel="inline" format="convert/decode" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".path"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".request"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+    </node>
+
+    <node name="print_request_label" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Request:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="print_request" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/ascii"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".request"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="print_path_label" channel="inline" format="communicate/send" model="">
@@ -68,6 +85,7 @@
         <node name="message" channel="inline" format="text/cybol-path" model=".path"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+
     <node name="print_action_label" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>

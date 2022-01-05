@@ -94,11 +94,13 @@ void read_socket_client(void* p0, void* p1, void* p2) {
     //
     // The message length.
     //
-    // CAUTION! This variable is NOT read from client entry.
-    // It serves just as a value-holder across many loop cycles,
+    // CAUTION! It serves just as a value-holder across many loop cycles,
     // so that a "message length" header found in the data
     // (e.g. "Content-Length: " in http) can be compared with
     // the actual number of bytes that have been read, in each loop cycle.
+    //
+    // Since it gets compared inside, it should be initialised
+    // with a value < 0, e.g. with -1.
     //
     int ml = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.

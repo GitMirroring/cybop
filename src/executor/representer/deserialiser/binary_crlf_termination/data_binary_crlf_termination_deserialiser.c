@@ -30,6 +30,7 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
@@ -54,6 +55,8 @@ void deserialise_binary_crlf_termination_data(void* p0, void* p1, void* p2) {
     int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The termination count.
+    int tc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Initialise element.
     copy_pointer((void*) &e, p1);
@@ -82,7 +85,7 @@ void deserialise_binary_crlf_termination_data(void* p0, void* p1, void* p2) {
             break;
         }
 
-        select_binary_crlf_termination((void*) &b, p1, p2);
+        select_binary_crlf_termination((void*) &b, p1, p2, (void*) &tc);
 
         if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -91,8 +94,17 @@ void deserialise_binary_crlf_termination_data(void* p0, void* p1, void* p2) {
 
         } else {
 
-            // Set destination message length.
+            // Copy element count to destination message length.
             copy_integer(p0, (void*) &ec);
+
+            //
+            // Add termination count to destination message length.
+            //
+            // CAUTION! This is important since without termination characters,
+            // the message would be incomplete and might lead to errors
+            // when deserialising it later.
+            //
+            calculate_integer_add(p0, (void*) &tc);
 
             break;
         }

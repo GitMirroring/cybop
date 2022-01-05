@@ -130,8 +130,17 @@ void read_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &bc, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &bs, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
+    //?? TEST BEGIN
+    fwprintf(stdout, L"Debug: Read socket server. bc: %i\n", bc);
+    fwprintf(stdout, L"Debug: Read socket server. *bc: %i\n", *((int*) bc));
+    fwprintf(stdout, L"Debug: Read socket server. bd: %s\n", (char*) bd);
+    //?? TEST END
+
     // Check for length prefix and end suffix.
-    sense_socket_check_completeness((void*) &f, (void*) &ml, p0, p4);
+    sense_socket_check_completeness((void*) &f, (void*) &ml, b, p4);
+
+    fwprintf(stdout, L"Debug: Read socket server. f: %i\n", f);
+    fwprintf(stdout, L"Debug: Read socket server. ml: %i\n", ml);
 
     if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

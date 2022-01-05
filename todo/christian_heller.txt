@@ -14,20 +14,16 @@
 Pipe
 ____
 
-        good: sending on client side works fine
-        problem: received request (command) in "socket_server/handle.cybol" is empty due to empty buffer
-        --> solution:
-        * Add crlf again after sensing (by default, it is detected as termination but not added) since otherwise, it cannot be detected again in reader (main thread)
-        * Assign correct buffer in file "sender.c"??
-            sensing works, but reading not due to empty buffer (probably wrong pointer assigned in file "sender.c")
+        done: check if correct buffer is assigned in file "sender.c" (probably yes)
+        good: sending on client side works fine, sensing works as well, reading works too
+        problem: action is not appended to path ".actions." --> check operations in file "socket_server/handle.cybol"
+        solution: investigate files "socket_server/handle.cybol" and "utf_8_encoder.c" as well as "utf_8_decoder.c"
 
-        * Test code changes that were done to hand over the language (protocol) to cybol operation "activate/enable"
-        * Test binary crlf termination de-/serialiser with cybol applications socket_server and socket_client
-
-        * Check if http message header AND attachment count were added, in order to retrieve the correct message length
+        * Make sure http message header AND attachment count are added, in order to retrieve the correct message length
+        * Test code changes that were done to hand over the language (protocol) to cybol operation "activate/enable", in cybol applications "socket_server" and "socket_client"
 
         * Close client socket on server side if exit flag was set in file "socket_sensor.c"
-        * Remove client socket from client list and timeout list
+        * Remove client socket from client list and timeout list when having been closed
 
         * Replace "Test: " with "Debug: "
         * Replace "TEST" with ...

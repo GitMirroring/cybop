@@ -39,7 +39,7 @@
  * @param p2 the local character buffer data
  * @param p3 the local character buffer count
  * @param p4 the language (protocol)
- * @param p5 the message length (possibly detected as prefix previously)
+ * @param p5 the message length (possibly detected previously; should be initialised with a value < 0, e.g. with -1)
  * @param p6 the break flag
  */
 void read_socket_client_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {

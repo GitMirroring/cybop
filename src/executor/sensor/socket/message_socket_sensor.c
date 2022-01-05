@@ -91,9 +91,6 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
         // belonging to it have been received.
         //
 
-        // Inform interrupt pipe if message is complete.
-        sense_socket_set_interrupt(p3, p4, p7, p1);
-
         //
         // CAUTION! The complete flag does NOT have to be reset here,
         // since it is a local variable on stack and gets freed
@@ -101,6 +98,12 @@ void sense_socket_message(void* p0, void* p1, void* p2, void* p3, void* p4, void
         //
         // f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
         //
+
+        // Reset message length.
+        copy_integer(p9, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
+
+        // Inform interrupt pipe if message is complete.
+        sense_socket_set_interrupt(p3, p4, p7, p1);
     }
 }
 

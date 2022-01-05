@@ -65,8 +65,9 @@
  * @param p0 the destination found flag
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
+ * @param p3 the termination count
  */
-void select_binary_crlf_termination(void* p0, void* p1, void* p2) {
+void select_binary_crlf_termination(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select binary crlf termination.");
 
@@ -81,6 +82,8 @@ void select_binary_crlf_termination(void* p0, void* p1, void* p2) {
 
             // Set found flag.
             copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            // Copy termination count.
+            copy_integer(p3, (void*) CRLF_TERMINATION_BINARY_NAME_COUNT);
         }
     }
 
