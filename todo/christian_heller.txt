@@ -14,11 +14,6 @@
 Pipe
 ____
 
-        done: check if correct buffer is assigned in file "sender.c" (probably yes)
-        good: sending on client side works fine, sensing works as well, reading works too
-        problem: action is not appended to path ".actions." --> check operations in file "socket_server/handle.cybol"
-        solution: investigate files "socket_server/handle.cybol" and "utf_8_encoder.c" as well as "utf_8_decoder.c"
-
         * Make sure http message header AND attachment count are added, in order to retrieve the correct message length
         * Test code changes that were done to hand over the language (protocol) to cybol operation "activate/enable", in cybol applications "socket_server" and "socket_client"
 

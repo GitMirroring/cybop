@@ -73,9 +73,8 @@ void apply_encode(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The source part model item data, count.
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* smc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The encoding part model item data, count.
+    // The encoding part model item data.
     void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* emc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination part.
     get_part_name((void*) &d, p0, (void*) DESTINATION_ENCODE_CONVERSION_LOGIC_CYBOL_NAME, (void*) DESTINATION_ENCODE_CONVERSION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
@@ -94,42 +93,11 @@ void apply_encode(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get source part model item data, count.
     copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smc, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get encoding part model item data, count.
+    // Get encoding part model item data.
     copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &emc, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-    // The encoding type item.
-    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The encoding type item data.
-    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    //
-    // Allocate encoding type item.
-    //
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    //
-    // CAUTION! Initialise integer items with a size of ONE,
-    // in order to avoid later reallocation when overwriting
-    // the element and to thus increase efficiency.
-    //
-    allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    // Deserialise cybol encoding into cyboi runtime type.
-    deserialise_cybol_encoding(t, emd, emc);
-    //
-    // Get encoding type item data.
-    //
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    //
-    copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Encode the source- into the destination part.
-    encode(dm, smd, smc, td);
-
-    // Deallocate encoding type item.
-    deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    encode(dm, smd, smc, emd);
 }
 
 /* ENCODE_SOURCE */

@@ -344,7 +344,7 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
 
                 if (n >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                    fwprintf(stdout, L"Debug: Encode utf-8. n: %i\n", n);
+                    //?? fwprintf(stdout, L"Debug: Encode utf-8. n: %i\n", n);
 
                     // Set destination count to the number of MULTIBYTE characters converted.
                     copy_integer(dc, (void*) &n);
