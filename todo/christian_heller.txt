@@ -14,6 +14,8 @@
 Pipe
 ____
 
+        * Test cybol applications "socket_server" and "socket_client" with both sending AND receiving data
+
         * Make sure http message header AND attachment count are added, in order to retrieve the correct message length
         * Test code changes that were done to hand over the language (protocol) to cybol operation "activate/enable", in cybol applications "socket_server" and "socket_client"
 

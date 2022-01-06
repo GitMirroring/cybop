@@ -103,87 +103,74 @@ void sense_socket_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                         fwprintf(stdout, L"Debug: Sense socket fragment. Waiting for input/output on client socket: %i\n", *s);
                         int n = read(*s, p3, bct);
                         fwprintf(stdout, L"Debug: Sense socket fragment. n: %i\n", n);
-                        fwprintf(stdout, L"Debug: Sense socket fragment. p3 as s: %s\n", (char*) p3);
 
-                        // The comparison result.
-                        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+                        if (n > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                        //
-                        // Lock socket mutex.
-                        //
-                        // CAUTION! Set this lock BEFORE comparing with the exit flag below
-                        // since otherwise, a race condition might occur.
-                        //
-                        // Example:
-                        // - the exit flag is not set
-                        // - the sensing child thread enters the block with r != 0
-                        // - the main thread receives some shutdown cybol operation
-                        // - the main thread sets the exit flag only now
-                        // - the main thread shuts down and deallocates the destination buffer
-                        // - the sensing child thread decodes characters
-                        // - the sensing child thread possibly reallocates the (non-existing) destination buffer
-                        // - this leads to memory errors such as "corrupted double-linked list"
-                        //
-                        mtx_lock(m);
+                            // The comparison result.
+                            int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                        //
-                        // A return value of ZERO means the other end (peer, client)
-                        // CLOSED the socket connexion. It never means there was no data.
-                        // - blocking mode: "read" will block
-                        // - non-blocking mode: it will return -1 if there is no data
-                        //   with errno set to EAGAIN or EWOULDBLOCK, depending on the platform
-                        //
-                        // https://stackoverflow.com/questions/12773509/read-is-not-blocking-in-socket-programming
-                        //
-                        if (n == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                            //
+                            // Lock socket mutex.
+                            //
+                            // CAUTION! Set this lock BEFORE comparing with the exit flag below
+                            // since otherwise, a race condition might occur.
+                            //
+                            // Example:
+                            // - the exit flag is not set
+                            // - the sensing child thread enters the block with r != 0
+                            // - the main thread receives some shutdown cybol operation
+                            // - the main thread sets the exit flag only now
+                            // - the main thread shuts down and deallocates the destination buffer
+                            // - the sensing child thread decodes characters
+                            // - the sensing child thread possibly reallocates the (non-existing) destination buffer
+                            // - this leads to memory errors such as "corrupted double-linked list"
+                            //
+                            // The reallocation of a non-existing buffer would lead to the error
+                            // "realloc(): invalid pointer".
+                            //
+                            mtx_lock(m);
+
+                            compare_integer_equal((void*) &r, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+                            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                                //
+                                // The exit flag was NOT set in the main thread.
+                                // Therefore, proceed normally.
+                                //
+
+                                fwprintf(stdout, L"Debug: Sense socket fragment. Copy local buffer. p3 as s: %s\n", (char*) p3);
+
+                                // Copy local buffer content into destination buffer item.
+                                modify_item(p0, p3, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &n, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+                            }
+
+                            // Unlock socket mutex.
+                            mtx_unlock(m);
+
+                        } else if (n == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                            //
+                            // A return value of ZERO means the other end (peer, client)
+                            // CLOSED the socket connexion. It never means there was no data.
+                            // - blocking mode: "read" will block
+                            // - non-blocking mode: it will return -1 if there is no data
+                            //   with errno set to EAGAIN or EWOULDBLOCK, depending on the platform
+                            //
+                            // https://stackoverflow.com/questions/12773509/read-is-not-blocking-in-socket-programming
+                            //
 
                             //
                             // Close the client socket on this server side,
                             // since the client side has closed its connexion.
                             //
                             copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-                        }
-
-                        //
-                        // CAUTION! Do this comparison only AFTER having
-                        // compared the number of received data above.
-                        //
-                        compare_integer_equal((void*) &r, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-                        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                            //
-                            // The exit flag was NOT set in the main thread.
-                            // Therefore, proceed normally.
-                            //
-
-                            fwprintf(stdout, L"Debug: Sense socket fragment. DO process data. r: %i\n", r);
-
-                            // Copy local buffer content into destination buffer item.
-                            modify_item(p0, p3, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &n, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
                         } else {
 
-                            //
-                            // The exit flag WAS SET, either in the main thread or
-                            // above, since the client side closed its connexion.
-                            //
-                            // Therefore, close the client socket on this server side
-                            // and do NOT process data here any longer.
-                            //
-                            // The reason is that data processing might require
-                            // reallocation of some destination arrays, which may
-                            // not exist anymore if the main thread deallocated them,
-                            // leading to the error "realloc(): invalid pointer".
-                            //
-                            // Reallocation may happen above, in call of function "modify_item".
-                            //
-
-                            fwprintf(stdout, L"Debug: Sense socket fragment. The exit flag is set since the client side closed its connexion. r: %i\n", r);
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket fragment. The return value of function read is negative.");
+                            fwprintf(stdout, L"Error: Could not sense socket fragment. The return value of function read is negative. n: %i\n", n);
                         }
-
-                        // Unlock socket mutex.
-                        mtx_unlock(m);
 
                     } else {
 

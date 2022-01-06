@@ -22,6 +22,7 @@
 
         * Introduce special variable "action" for conversion, since cybol operation "convert/decode" does not append automatically in file "socket_server/handle.cybol"
         * Fix bug in files "encode.c" and "decode.c", where encoding was deserialised instead of taking it as is
+        * Optimise file "fragment_socket_sensor.c" by catching errors when calling function "read"
 
 2022-01-05  Christian Heller  <christian.heller@cybop.org>
 
