@@ -73,23 +73,23 @@
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
-    <!-- Send image request -->
+    <!-- Send data request -->
     <node name="print_request" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Sending image request ..."/>
+        <node name="message" channel="inline" format="text/plain" model="Sending data request ..."/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="send_request" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
-        <node name="message" channel="inline" format="text/ascii" model="show-image"/>
+        <node name="message" channel="inline" format="text/ascii" model="load-data"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
 
-    <!-- Receive image response -->
+    <!-- Receive data response -->
     <node name="receive_response" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
@@ -101,7 +101,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="language" channel="inline" format="meta/language" model="message/binary"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".response"/>
-        <node name="receiver" channel="inline" format="text/plain" model="internet/socket_client/received_image.png"/>
+        <node name="receiver" channel="inline" format="text/plain" model="internet/socket_client/received_data.dat"/>
     </node>
 
     <!-- Send exit request -->
@@ -127,7 +127,9 @@
 
 <!--
     This example demonstrates the client side of a socket communication.
-    It sends and receives a: text, image, exit command.
+    It sends and receives a: text, unicode data, exit command.
+    Transferring an image was not possible here, since that contains cr+lf on various
+    places but the chosen language/protocol stops transfer when a cr+lf is found.
 
     CAUTION! The reserved service ports 0..1023 can sometimes only be
     used when running the cybol application as "root" user (administrator).

@@ -7,10 +7,10 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
     </node>
 
-    <node name="send_image" channel="inline" format="communicate/send" model="">
+    <node name="send_data" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".image"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".data"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
     </node>
 

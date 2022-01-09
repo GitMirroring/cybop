@@ -17,9 +17,9 @@
 
     <!--
         CAUTION! The format is "text/ascii" and NOT "text/plain",
-        since an image contains binary data.
-        These get loaded at application startup in file "run.cybol".
+        since this is binary data.
+        They get loaded at application startup in file "run.cybol".
     -->
-    <node name="image" channel="inline" format="text/ascii" model=""/>
+    <node name="data" channel="inline" format="text/ascii" model=""/>
 
 </node>
