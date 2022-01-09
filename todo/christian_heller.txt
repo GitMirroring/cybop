@@ -14,6 +14,7 @@
 Pipe
 ____
 
+        * Replace png image with other ascii data to be transferred, since crlf is contained in image and interpreted as end of message
         * Test cybol applications "socket_server" and "socket_client" with both sending AND receiving data
 
         * Make sure http message header AND attachment count are added, in order to retrieve the correct message length
@@ -25,6 +26,8 @@ ____
         * Replace "Test: " with "Debug: "
         * Replace "TEST" with ...
         * Clean up superfluous constants in file "input_output_state_cyboi_name.c"
+
+        * Overwrite variable with received data instead of appending, to thereby eliminate the need for emptying variables before receiving new data
 
         * Reflect about handling of filters in directory "executor/communicator/"
             * Is it not too complex?

@@ -2,10 +2,8 @@
 
     <node name="send_hello" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Hello, World!"/>
+        <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
+        <node name="message" channel="inline" format="text/ascii" model="Hello World!"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
     </node>
 

@@ -18,10 +18,14 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-01-09  Christian Heller  <christian.heller@cybop.org>
+
+        * Uncomment all parts of cybol application "socket_client" and make it work with both sending and receiving data
+
 2022-01-06  Christian Heller  <christian.heller@cybop.org>
 
         * Introduce special variable "action" for conversion, since cybol operation "convert/decode" does not append automatically in file "socket_server/handle.cybol"
-        * Fix bug in files "encode.c" and "decode.c", where encoding was deserialised instead of taking it as is
+        * Fix bug in files "encode.c" and "decode.c", where encoding was deserialised instead of taking it as is (since being a meta property, it gets deserialised automatically into an integer before)
         * Optimise file "fragment_socket_sensor.c" by catching errors when calling function "read"
 
 2022-01-05  Christian Heller  <christian.heller@cybop.org>
