@@ -63,7 +63,7 @@ void deserialise_time_scale_julian_calendar(void* p0, void* p1, void* p2, void* 
     deserialise_time_scale_julian_calendar_julian_second((void*) &s, p4, p5, p6);
     deserialise_time_scale_julian_calendar_normalise((void*) &d, (void*) &s);
 
-    fwprintf(stdout, L"Test: deserialise time scale julian calendar d: %i\n", d);
+    fwprintf(stdout, L"Debug: deserialise time scale julian calendar d: %i\n", d);
 */
 
     // Set destination julian day, julian second.

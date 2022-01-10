@@ -116,10 +116,10 @@ void serialise_xcb_window(void* p0, void* p1, void* p2, void* p3, void* p4, void
                             encode_utf_8(itmdt, p8, p9);
 
 /*??
-                            fwprintf(stdout, L"Test: Serialise xcb window. *x: %i\n", *x);
-                            fwprintf(stdout, L"Test: Serialise xcb window. *y: %i\n", *y);
-                            fwprintf(stdout, L"Test: Serialise xcb window. *w: %i\n", *w);
-                            fwprintf(stdout, L"Test: Serialise xcb window. *h: %i\n", *h);
+                            fwprintf(stdout, L"Debug: Serialise xcb window. *x: %i\n", *x);
+                            fwprintf(stdout, L"Debug: Serialise xcb window. *y: %i\n", *y);
+                            fwprintf(stdout, L"Debug: Serialise xcb window. *w: %i\n", *w);
+                            fwprintf(stdout, L"Debug: Serialise xcb window. *h: %i\n", *h);
 */
 
                             // Initialise values.

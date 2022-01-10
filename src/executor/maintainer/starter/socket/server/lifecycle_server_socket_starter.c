@@ -109,7 +109,7 @@ void startup_socket_server_lifecycle(void* p0, void* p1, void* p2, void* p3, voi
     //
     startup_socket_socket_address((void*) &ad, (void*) &as, p7, p8, p9, p10, p11, (void*) &af);
 
-    //?? fwprintf(stdout, L"Test: startup socket server lifecycle bind s: %i\n", *((int*) p0));
+    //?? fwprintf(stdout, L"Debug: startup socket server lifecycle bind s: %i\n", *((int*) p0));
 
     // Bind address to socket.
     startup_socket_server_bind(p0, ad, (void*) &as);
@@ -124,7 +124,7 @@ void startup_socket_server_lifecycle(void* p0, void* p1, void* p2, void* p3, voi
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        //?? fwprintf(stdout, L"Test: startup socket server lifecycle listen s: %i\n", *((int*) p0));
+        //?? fwprintf(stdout, L"Debug: startup socket server lifecycle listen s: %i\n", *((int*) p0));
 
         //
         // This is a stream socket.

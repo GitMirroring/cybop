@@ -108,13 +108,13 @@ void deserialise_xdt_field_line(void* p0, void* p1, void* p2) {
     calculate_integer_subtract((void*) &cc2, (void*) NUMBER_9_INTEGER_STATE_CYBOI_MODEL);
 
 /*??
-    fwprintf(stdout, L"Test: deserialise xdt field s: %i\n", s);
-    fwprintf(stdout, L"Test: deserialise xdt field ic: %i\n", ic);
-    //?? fwprintf(stdout, L"Test: deserialise xdt field id: %ls\n", (wchar_t*) id);
-    fwprintf(stdout, L"Test: deserialise xdt field i: %i\n", i);
-    fwprintf(stdout, L"Test: deserialise xdt field cc: %i\n", cc);
-    //?? fwprintf(stdout, L"Test: deserialise xdt field cd: %ls\n", (wchar_t*) cd);
-    fwprintf(stdout, L"Test: deserialise xdt field cc2: %i\n", cc2);
+    fwprintf(stdout, L"Debug: deserialise xdt field s: %i\n", s);
+    fwprintf(stdout, L"Debug: deserialise xdt field ic: %i\n", ic);
+    //?? fwprintf(stdout, L"Debug: deserialise xdt field id: %ls\n", (wchar_t*) id);
+    fwprintf(stdout, L"Debug: deserialise xdt field i: %i\n", i);
+    fwprintf(stdout, L"Debug: deserialise xdt field cc: %i\n", cc);
+    //?? fwprintf(stdout, L"Debug: deserialise xdt field cd: %ls\n", (wchar_t*) cd);
+    fwprintf(stdout, L"Debug: deserialise xdt field cc2: %i\n", cc2);
 */
 
     //

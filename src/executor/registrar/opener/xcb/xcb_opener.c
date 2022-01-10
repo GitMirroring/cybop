@@ -46,7 +46,7 @@ void open_xcb(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open xcb.");
 
-    //?? fwprintf(stdout, L"Test: Open xcb. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Open xcb. p0: %i\n", p0);
 
     // The connexion.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -234,7 +234,7 @@ void open_xcb(void* p0, void* p1) {
             // Allocate xid for window.
             w = (int) xcb_generate_id((xcb_connection_t*) c);
 
-            fwprintf(stdout, L"Test: Open xcb. w: %i\n", w);
+            fwprintf(stdout, L"Debug: Open xcb. w: %i\n", w);
 
             // Create window.
             xcb_create_window((xcb_connection_t*) c, // connexion
@@ -274,8 +274,8 @@ void open_xcb(void* p0, void* p1) {
             // Free internal protocols cookie structure.
             free(protocols_reply);
 
-            //?? fwprintf(stdout, L"Test: Open xcb. delete_reply: %i\n", delete_reply);
-            //?? fwprintf(stdout, L"Test: Open xcb. (*delete_reply).atom: %i\n", (*delete_reply).atom);
+            //?? fwprintf(stdout, L"Debug: Open xcb. delete_reply: %i\n", delete_reply);
+            //?? fwprintf(stdout, L"Debug: Open xcb. (*delete_reply).atom: %i\n", (*delete_reply).atom);
 
             //
             // CAUTION! Do NOT free the delete cookie structure here.
@@ -286,7 +286,7 @@ void open_xcb(void* p0, void* p1) {
             // Copy window identification to corresponding parametre.
             copy_integer(p0, (void*) &w);
 
-            //?? fwprintf(stdout, L"Test: Open xcb. *p0: %i\n", *((int*) p0));
+            //?? fwprintf(stdout, L"Debug: Open xcb. *p0: %i\n", *((int*) p0));
 
             // Store delete window cookie in input/output entry.
             //?? copy_array_forward(p1, (void*) &dwc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);

@@ -58,7 +58,7 @@ void serialise_gui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui part.");
 
-    //?? fwprintf(stdout, L"Test: serialise gui part: %i\n", p7);
+    //?? fwprintf(stdout, L"Debug: serialise gui part: %i\n", p7);
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;

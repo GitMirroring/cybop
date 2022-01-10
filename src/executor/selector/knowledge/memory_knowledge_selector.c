@@ -55,7 +55,7 @@ void select_knowledge_memory(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge memory.");
 
-    //?? fwprintf(stdout, L"Test: select knowledge memory (legend: 7 = model; 8 = properties; -1 = stack) *p5: %i\n", *((int*) p5));
+    //?? fwprintf(stdout, L"Debug: select knowledge memory (legend: 7 = model; 8 = properties; -1 = stack) *p5: %i\n", *((int*) p5));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

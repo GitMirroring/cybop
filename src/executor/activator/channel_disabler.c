@@ -66,7 +66,7 @@ void disable_channel(void* p0, void* p1, void* p2, void* p3) {
         // at the given service identification.
         //
 
-        fwprintf(stdout, L"Test: Disable channel. The input/output entry does exist. io: %i\n", io);
+        fwprintf(stdout, L"Debug: Disable channel. The input/output entry does exist. io: %i\n", io);
 
         // The thread identification.
         void* t = *NULL_POINTER_STATE_CYBOI_MODEL;

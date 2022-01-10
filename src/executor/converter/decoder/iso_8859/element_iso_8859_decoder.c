@@ -65,8 +65,8 @@ void decode_iso_8859_element(void* p0, void* p1, void* p2, void* p3) {
     // Get source character at given index.
     copy_array_forward((void*) &c, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
-    //?? fwprintf(stdout, L"Test: decode iso-8859 element c as char: %c\n", c);
-    //?? fwprintf(stdout, L"Test: decode iso-8859 element c as int: %i\n", c);
+    //?? fwprintf(stdout, L"Debug: decode iso-8859 element c as char: %c\n", c);
+    //?? fwprintf(stdout, L"Debug: decode iso-8859 element c as int: %i\n", c);
 
     // Decode source character.
     decode_iso_8859_character(p0, (void*) &c, p3);

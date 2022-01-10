@@ -75,7 +75,7 @@ void startup_bsd_socket_bind(void* p0, void* p1, void* p2) {
                 if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket bind. Success!");
-                    fwprintf(stdout, L"Test: Startup bsd socket bind. r: %i\n", r);
+                    fwprintf(stdout, L"Debug: Startup bsd socket bind. r: %i\n", r);
 
                 } else {
 

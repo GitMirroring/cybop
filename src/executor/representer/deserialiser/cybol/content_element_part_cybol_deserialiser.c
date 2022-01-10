@@ -311,14 +311,14 @@ void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* 
         copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
 /*??
-        fwprintf(stdout, L"Test: content element part cybol deserialiser *slmc: %i\n", *((int*) slmc));
-        fwprintf(stdout, L"Test: content element part cybol deserialiser slmd: %i\n", slmd);
-        fwprintf(stdout, L"Test: content element part cybol deserialiser *slmd: %ls\n", (wchar_t*) slmd);
-        fwprintf(stdout, L"Test: content element part cybol deserialiser sfmc: %i\n", *((int*) sfmc));
-        fwprintf(stdout, L"Test: content element part cybol deserialiser sfmd: %i\n", sfmd);
-        fwprintf(stdout, L"Test: content element part cybol deserialiser *sfmd: %ls\n", (wchar_t*) sfmd);
-        fwprintf(stdout, L"Test: content element part cybol deserialiser fd: %i\n", *((int*) fd));
-        fwprintf(stdout, L"Test: content element part cybol deserialiser td: %i\n", *((int*) td));
+        fwprintf(stdout, L"Debug: content element part cybol deserialiser *slmc: %i\n", *((int*) slmc));
+        fwprintf(stdout, L"Debug: content element part cybol deserialiser slmd: %i\n", slmd);
+        fwprintf(stdout, L"Debug: content element part cybol deserialiser *slmd: %ls\n", (wchar_t*) slmd);
+        fwprintf(stdout, L"Debug: content element part cybol deserialiser sfmc: %i\n", *((int*) sfmc));
+        fwprintf(stdout, L"Debug: content element part cybol deserialiser sfmd: %i\n", sfmd);
+        fwprintf(stdout, L"Debug: content element part cybol deserialiser *sfmd: %ls\n", (wchar_t*) sfmd);
+        fwprintf(stdout, L"Debug: content element part cybol deserialiser fd: %i\n", *((int*) fd));
+        fwprintf(stdout, L"Debug: content element part cybol deserialiser td: %i\n", *((int*) td));
 */
 
         //
@@ -387,8 +387,8 @@ void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* 
         //
         copy_array_forward((void*) &pld, pl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-        //?? fwprintf(stdout, L"Test: content element part cybol deserialiser 1 ped: %i\n", ped);
-        //?? fwprintf(stdout, L"Test: content element part cybol deserialiser 1 *ped: %i\n", *((int*) ped));
+        //?? fwprintf(stdout, L"Debug: content element part cybol deserialiser 1 ped: %i\n", ped);
+        //?? fwprintf(stdout, L"Debug: content element part cybol deserialiser 1 *ped: %i\n", *((int*) ped));
 
         //?? TODO: Delete this block below in the future.
         //?? ALL xml attributes should be specified in cybol,
@@ -461,8 +461,8 @@ void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* 
             }
         }
 
-        //?? fwprintf(stdout, L"Test: content element part cybol deserialiser 2 ped: %i\n", ped);
-        //?? fwprintf(stdout, L"Test: content element part cybol deserialiser 2 *ped: %i\n", *((int*) ped));
+        //?? fwprintf(stdout, L"Debug: content element part cybol deserialiser 2 ped: %i\n", ped);
+        //?? fwprintf(stdout, L"Debug: content element part cybol deserialiser 2 *ped: %i\n", *((int*) ped));
 
         //
         // Fill part model item taken from cybol source part properties.
@@ -495,14 +495,14 @@ void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* 
 
             if (*pldi == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE) {
 
-                //?? fwprintf(stdout, L"Test: content element part cybol deserialiser *smmc: %i\n", *((int*) smmc));
-                //?? fwprintf(stdout, L"Test: content element part cybol deserialiser smmd: %s\n", (char*) smmd);
+                //?? fwprintf(stdout, L"Debug: content element part cybol deserialiser *smmc: %i\n", *((int*) smmc));
+                //?? fwprintf(stdout, L"Debug: content element part cybol deserialiser smmd: %s\n", (char*) smmd);
                 void* testd = *NULL_POINTER_STATE_CYBOI_MODEL;
                 void* testc = *NULL_POINTER_STATE_CYBOI_MODEL;
                 copy_array_forward((void*) &testc, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
                 copy_array_forward((void*) &testd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-                //?? fwprintf(stdout, L"Test: content element part cybol deserialiser *testc: %i\n", *((int*) testc));
-                //?? fwprintf(stdout, L"Test: content element part cybol deserialiser testd: %s\n", (char*) testd);
+                //?? fwprintf(stdout, L"Debug: content element part cybol deserialiser *testc: %i\n", *((int*) testc));
+                //?? fwprintf(stdout, L"Debug: content element part cybol deserialiser testd: %s\n", (char*) testd);
             }
         }
 */

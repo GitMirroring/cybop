@@ -110,7 +110,7 @@ void startup_serial_port_open(void* p0, void* p1, void* p2) {
             // Create file descriptor for the given null-terminated filename.
             *spdi = open((char*) p1, f);
 
-            fwprintf(stdout, L"Test: open *spdi: %i\n", *spdi);
+            fwprintf(stdout, L"Debug: open *spdi: %i\n", *spdi);
 
             //
             // Get and set attributes of serial port.

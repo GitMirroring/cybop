@@ -107,7 +107,7 @@ void sense_serial_port_message(void* p0) {
                 //
                 ungetc(c, (FILE*) fs);
 
-                //?? fwprintf(stdout, L"Test: sense serial port message c: %c\n", c);
+                //?? fwprintf(stdout, L"Debug: sense serial port message c: %c\n", c);
 
                 //
                 // Set serial port interrupt request to indicate

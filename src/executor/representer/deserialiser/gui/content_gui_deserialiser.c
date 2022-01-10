@@ -72,7 +72,7 @@ void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    //?? fwprintf(stdout, L"Test: Deserialise gui content. p10: %ls\n", (wchar_t*) p10);
+    //?? fwprintf(stdout, L"Debug: Deserialise gui content. p10: %ls\n", (wchar_t*) p10);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

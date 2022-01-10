@@ -160,7 +160,7 @@ void copy(void* p0, void* p1, void* p2, void* p3) {
                 // It is also used when storing variables on stack memory.
                 //
 
-                //?? fwprintf(stdout, L"Test: copy deep pre: %i\n", r);
+                //?? fwprintf(stdout, L"Debug: copy deep pre: %i\n", r);
 
                 //
                 // CAUTION! Both, the destination- as well as the source value
@@ -168,7 +168,7 @@ void copy(void* p0, void* p1, void* p2, void* p3) {
                 //
                 copy_part(p0, p1);
 
-                //?? fwprintf(stdout, L"Test: copy deep post: %i\n", r);
+                //?? fwprintf(stdout, L"Debug: copy deep post: %i\n", r);
             }
         }
     }

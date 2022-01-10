@@ -76,13 +76,13 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3) {
                     //
                     errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                    fwprintf(stdout, L"Test: Startup bsd socket create *pf: %i\n", *pf);
-                    fwprintf(stdout, L"Test: Startup bsd socket create *st: %i\n", *st);
-                    fwprintf(stdout, L"Test: Startup bsd socket create *pr: %i\n", *pr);
+                    fwprintf(stdout, L"Debug: Startup bsd socket create *pf: %i\n", *pf);
+                    fwprintf(stdout, L"Debug: Startup bsd socket create *st: %i\n", *st);
+                    fwprintf(stdout, L"Debug: Startup bsd socket create *pr: %i\n", *pr);
 
-                    //?? fwprintf(stdout, L"Test: Startup bsd socket create PF_LOCAL: %i\n", PF_LOCAL);
-                    //?? fwprintf(stdout, L"Test: Startup bsd socket create SOCK_DGRAM: %i\n", SOCK_DGRAM);
-                    //?? fwprintf(stdout, L"Test: Startup bsd socket create 0: %i\n", 0);
+                    //?? fwprintf(stdout, L"Debug: Startup bsd socket create PF_LOCAL: %i\n", PF_LOCAL);
+                    //?? fwprintf(stdout, L"Debug: Startup bsd socket create SOCK_DGRAM: %i\n", SOCK_DGRAM);
+                    //?? fwprintf(stdout, L"Debug: Startup bsd socket create 0: %i\n", 0);
 
                     //
                     // Initialise server socket.
@@ -106,7 +106,7 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3) {
                     //
                     *s = socket(*pf, *st, 0);
 
-                    fwprintf(stdout, L"Test: Startup bsd socket create return value. *s: %i\n", *s);
+                    fwprintf(stdout, L"Debug: Startup bsd socket create return value. *s: %i\n", *s);
 
                     // The socket options.
                     void* od = (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL;

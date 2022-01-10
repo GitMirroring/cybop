@@ -80,8 +80,8 @@ void shutdown_socket_server_all(void* p0, void* p1, void* p2, void* p3, void* p4
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
-    //?? fwprintf(stdout, L"Test: Shutdown socket server all. The loop is running in reverse order! Loop count p1: %i\n", p1);
-    //?? fwprintf(stdout, L"Test: Shutdown socket server all. The loop is running in reverse order! Loop count p1: %i\n", *((int*) p1));
+    //?? fwprintf(stdout, L"Debug: Shutdown socket server all. The loop is running in reverse order! Loop count p1: %i\n", p1);
+    //?? fwprintf(stdout, L"Debug: Shutdown socket server all. The loop is running in reverse order! Loop count p1: %i\n", *((int*) p1));
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 

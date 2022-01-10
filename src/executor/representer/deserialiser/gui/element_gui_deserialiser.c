@@ -63,15 +63,15 @@ void deserialise_gui_element(void* p0, void* p1, void* p2, void* p3, void* p4, v
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
 /*??
-    fwprintf(stdout, L"Test: Deserialise gui element. p3: %i\n", p3);
-    fwprintf(stdout, L"Test: Deserialise gui element. *p3: %i\n", *((int*) p3));
-    fwprintf(stdout, L"Test: Deserialise gui element. p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Deserialise gui element. p3: %i\n", p3);
+    fwprintf(stdout, L"Debug: Deserialise gui element. *p3: %i\n", *((int*) p3));
+    fwprintf(stdout, L"Debug: Deserialise gui element. p2: %i\n", p2);
 */
 
     // Get part from source whole at given index.
     copy_array_forward((void*) &p, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p3);
 
-    //?? fwprintf(stdout, L"Test: Deserialise gui element. p: %i\n", p);
+    //?? fwprintf(stdout, L"Debug: Deserialise gui element. p: %i\n", p);
 
     // Deserialise gui part.
     deserialise_gui_part(p0, p1, p, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14);

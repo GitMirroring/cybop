@@ -230,13 +230,13 @@ void apply_send(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
 /*??
-    fwprintf(stdout, L"Test: apply send *fmd: %i\n", *((int*) fmd));
-    fwprintf(stdout, L"Test: apply send *mmc: %i\n", *((int*) mmc));
-    fwprintf(stdout, L"Test: apply send *mpc: %i\n", *((int*) mpc));
+    fwprintf(stdout, L"Debug: apply send *fmd: %i\n", *((int*) fmd));
+    fwprintf(stdout, L"Debug: apply send *mmc: %i\n", *((int*) mmc));
+    fwprintf(stdout, L"Debug: apply send *mpc: %i\n", *((int*) mpc));
     if (*((int*) fmd) == *INTEGER_NUMBER_STATE_CYBOI_FORMAT) {
-        fwprintf(stdout, L"Test: apply send *mmd: %i\n", *((int*) mmd));
+        fwprintf(stdout, L"Debug: apply send *mmd: %i\n", *((int*) mmd));
     } else {
-        fwprintf(stdout, L"Test: apply send *mmd: %i\n", mmd);
+        fwprintf(stdout, L"Debug: apply send *mmd: %i\n", mmd);
     }
 */
 

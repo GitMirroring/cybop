@@ -79,39 +79,39 @@ void shutdown_unix_file_descriptor_close(void* p0) {
         if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown unix file descriptor close. success");
-            //?? fwprintf(stdout, L"Test: Shutdown unix file descriptor close. success r: %i\n", r);
+            //?? fwprintf(stdout, L"Debug: Shutdown unix file descriptor close. success r: %i\n", r);
 
         } else {
 
             if (errno == EBADF) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown unix file descriptor close. The filedes argument is not a valid file descriptor.");
-                //?? fwprintf(stdout, L"Test: Could not shutdown unix file descriptor close. The filedes argument is not a valid file descriptor. error EBADF: %i\n", errno);
+                //?? fwprintf(stdout, L"Debug: Could not shutdown unix file descriptor close. The filedes argument is not a valid file descriptor. error EBADF: %i\n", errno);
 
             } else if (errno == EINTR) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown unix file descriptor close. The close call was interrupted by a signal.");
-                fwprintf(stdout, L"Test: Could not shutdown unix file descriptor close. The close call was interrupted by a signal. error EINTR: %i\n", errno);
+                fwprintf(stdout, L"Debug: Could not shutdown unix file descriptor close. The close call was interrupted by a signal. error EINTR: %i\n", errno);
 
             } else if (errno == ENOSPC) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown unix file descriptor close. Error: ENOSPC. NO ERROR CONDITION DEFINED IN GLIBC.");
-                fwprintf(stdout, L"Test: Could not shutdown unix file descriptor close. Error: ENOSPC. NO ERROR CONDITION DEFINED IN GLIBC. error ENOSPC: %i\n", errno);
+                fwprintf(stdout, L"Debug: Could not shutdown unix file descriptor close. Error: ENOSPC. NO ERROR CONDITION DEFINED IN GLIBC. error ENOSPC: %i\n", errno);
 
             } else if (errno == EIO) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown unix file descriptor close. Error: EIO. NO ERROR CONDITION DEFINED IN GLIBC.");
-                fwprintf(stdout, L"Test: Could not shutdown unix file descriptor close. Error: EIO. NO ERROR CONDITION DEFINED IN GLIBC. error EIO: %i\n", errno);
+                fwprintf(stdout, L"Debug: Could not shutdown unix file descriptor close. Error: EIO. NO ERROR CONDITION DEFINED IN GLIBC. error EIO: %i\n", errno);
 
             } else if (errno == EDQUOT) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown unix file descriptor close. When the file is accessed by NFS, these errors from write can sometimes not be detected until close.");
-                fwprintf(stdout, L"Test: Could not shutdown unix file descriptor close. When the file is accessed by NFS, these errors from write can sometimes not be detected until close. error EDQUOT: %i\n", errno);
+                fwprintf(stdout, L"Debug: Could not shutdown unix file descriptor close. When the file is accessed by NFS, these errors from write can sometimes not be detected until close. error EDQUOT: %i\n", errno);
 
             } else {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown unix file descriptor close. An unknown error occured while binding the socket to the address.");
-                fwprintf(stdout, L"Test: Could not shutdown unix file descriptor close. An unknown error occured while binding the socket to the address. error UNKNOWN: %i\n", errno);
+                fwprintf(stdout, L"Debug: Could not shutdown unix file descriptor close. An unknown error occured while binding the socket to the address. error UNKNOWN: %i\n", errno);
             }
         }
 

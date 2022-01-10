@@ -73,9 +73,9 @@ void deserialise_gui_action_expose(void* p0, void* p1, void* p2, void* p3, void*
     copy_array_forward((void*) &amc, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
 /*??
-    fwprintf(stdout, L"Test: deserialise gui expose amc: %i\n", amc);
-    fwprintf(stdout, L"Test: deserialise gui expose *amc: %i\n", *((int*) amc));
-    fwprintf(stdout, L"Test: deserialise gui expose amd: %ls\n", (wchar_t*) amd);
+    fwprintf(stdout, L"Debug: deserialise gui expose amc: %i\n", amc);
+    fwprintf(stdout, L"Debug: deserialise gui expose *amc: %i\n", *((int*) amc));
+    fwprintf(stdout, L"Debug: deserialise gui expose amd: %ls\n", (wchar_t*) amd);
 */
 
     //

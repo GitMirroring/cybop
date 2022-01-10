@@ -144,7 +144,7 @@ void deserialise_win32_display(void* p0, void* p1, void* p2, void* p3, void* p4,
         //
         POINT pos = (*msg).pt;
 
-        fwprintf(stdout, L"Test: deserialise win32 display t: %i\n", t);
+        fwprintf(stdout, L"Debug: deserialise win32 display t: %i\n", t);
 
         if (t == WM_ACTIVATE) {
 
@@ -382,8 +382,8 @@ void deserialise_win32_display(void* p0, void* p1, void* p2, void* p3, void* p4,
             int x = GET_X_LPARAM(lp);
             int y = GET_Y_LPARAM(lp);
 
-            fwprintf(stdout, L"Test: WM_RBUTTONDOWN x: %i\n", x);
-            fwprintf(stdout, L"Test: WM_RBUTTONDOWN y: %i\n", y);
+            fwprintf(stdout, L"Debug: WM_RBUTTONDOWN x: %i\n", x);
+            fwprintf(stdout, L"Debug: WM_RBUTTONDOWN y: %i\n", y);
 
         } else if (t == WM_SETFOCUS) {
 

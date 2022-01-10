@@ -47,8 +47,8 @@
 void enable(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable.");
-    fwprintf(stdout, L"Test: Enable. channel p5: %i\n", p5);
-    fwprintf(stdout, L"Test: Enable. channel *p5: %i\n", *((int*) p5));
+    fwprintf(stdout, L"Debug: Enable. channel p5: %i\n", p5);
+    fwprintf(stdout, L"Debug: Enable. channel *p5: %i\n", *((int*) p5));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

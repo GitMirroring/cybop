@@ -61,7 +61,7 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        //?? fwprintf(stdout, L"Test: Enable channel. io: %i\n", io);
+        //?? fwprintf(stdout, L"Debug: Enable channel. io: %i\n", io);
 
         //
         // An input/output entry DOES exist for the service

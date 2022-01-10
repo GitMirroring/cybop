@@ -65,7 +65,7 @@ void accept_winsock(void* p0, void* p1) {
             //
             SOCKET wc = accept(ws, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-            fwprintf(stdout, L"Test: Accept winsock. client socket wc: %i\n", (int) wc);
+            fwprintf(stdout, L"Debug: Accept winsock. client socket wc: %i\n", (int) wc);
 
             if (wc != INVALID_SOCKET) {
 

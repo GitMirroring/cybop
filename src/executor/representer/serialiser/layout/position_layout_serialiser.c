@@ -81,7 +81,7 @@ void serialise_layout_position(void* p0, void* p1, void* p2, void* p3, void* p4,
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            fwprintf(stdout, L"Test: Serialise layout position BOX.");
+            fwprintf(stdout, L"Debug: Serialise layout position BOX.");
 
             //?? Layout in a row or column WITHOUT breaking them.
             //?? If a row break is desired, then use flow layout.

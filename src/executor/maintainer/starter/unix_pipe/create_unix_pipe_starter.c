@@ -51,7 +51,7 @@ void startup_unix_pipe_create(void* p0) {
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix pipe create.");
 
-        fwprintf(stdout, L"Test: Startup unix pipe create. *f: %i\n", f);
+        fwprintf(stdout, L"Debug: Startup unix pipe create. *f: %i\n", f);
 
         //
         // Initialise error number.
@@ -66,9 +66,9 @@ void startup_unix_pipe_create(void* p0) {
         // Create pipe.
         int r = pipe(f);
 
-        fwprintf(stdout, L"Test: Startup unix pipe create. r: %i\n", r);
-        fwprintf(stdout, L"Test: Startup unix pipe create. f[0]: %i\n", f[0]);
-        fwprintf(stdout, L"Test: Startup unix pipe create. f[1]: %i\n", f[1]);
+        fwprintf(stdout, L"Debug: Startup unix pipe create. r: %i\n", r);
+        fwprintf(stdout, L"Debug: Startup unix pipe create. f[0]: %i\n", f[0]);
+        fwprintf(stdout, L"Debug: Startup unix pipe create. f[1]: %i\n", f[1]);
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

@@ -29,7 +29,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
-// The internal memory size is set in file "state_cyboi_model.c"!
+// CAUTION! The internal memory size is set in file "state_cyboi_model.c"!
 //
 
 //

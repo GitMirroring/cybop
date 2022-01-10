@@ -67,7 +67,7 @@ int sense_xcb(void* p0) {
     // in order to avoid race conditions and other conflicts.
     //
     //?? log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense xcb.");
-    fwprintf(stdout, L"Test: Sense xcb. p0: %i\n", p0);
+    fwprintf(stdout, L"Debug: Sense xcb. p0: %i\n", p0);
 
     // The exit flag.
     void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -107,8 +107,8 @@ int sense_xcb(void* p0) {
     // Get interrupt pipe write file descriptor.
     copy_array_forward((void*) &ipw, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-    fwprintf(stdout, L"Test: Sense socket. c: %i\n", c);
-    fwprintf(stdout, L"Test: Sense socket. *c: %i\n", *((int*) c));
+    fwprintf(stdout, L"Debug: Sense socket. c: %i\n", c);
+    fwprintf(stdout, L"Debug: Sense socket. *c: %i\n", *((int*) c));
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 

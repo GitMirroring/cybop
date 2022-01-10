@@ -90,7 +90,7 @@ LRESULT CALLBACK deserialise_win32_display_message_callback(HWND w, UINT m, WPAR
 
     LRESULT r = (LRESULT) 0;
 
-    fwprintf(stdout, L"Test: deserialise win32 callback: %i\n", r);
+    fwprintf(stdout, L"Debug: deserialise win32 callback: %i\n", r);
 
     if (m == WM_PAINT) {
 

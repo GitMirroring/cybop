@@ -71,7 +71,7 @@ void deserialise_gui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void
     void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    //?? fwprintf(stdout, L"Test: Deserialise gui part. p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Deserialise gui part. p2: %i\n", p2);
 
     // Get part format, model, properties item.
     copy_array_forward((void*) &f, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FORMAT_PART_STATE_CYBOI_NAME);
@@ -79,9 +79,9 @@ void deserialise_gui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void
     copy_array_forward((void*) &p, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
 /*??
-    fwprintf(stdout, L"Test: Deserialise gui part. f: %i\n", f);
-    fwprintf(stdout, L"Test: Deserialise gui part. m: %i\n", m);
-    fwprintf(stdout, L"Test: Deserialise gui part. p: %iv, p);
+    fwprintf(stdout, L"Debug: Deserialise gui part. f: %i\n", f);
+    fwprintf(stdout, L"Debug: Deserialise gui part. m: %i\n", m);
+    fwprintf(stdout, L"Debug: Deserialise gui part. p: %iv, p);
 */
 
     // Get part format, model, properties item data, count.
@@ -92,10 +92,10 @@ void deserialise_gui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void
     copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
 /*??
-    fwprintf(stdout, L"Test: Deserialise gui part. fd: %i\n", fd);
-    fwprintf(stdout, L"Test: Deserialise gui part. *fd: %i\n", *((int*) fd));
-    fwprintf(stdout, L"Test: Deserialise gui part. *mc: %i\n", *((int*) mc));
-    fwprintf(stdout, L"Test: Deserialise gui part. *pc: %i\n", *((int*) pc));
+    fwprintf(stdout, L"Debug: Deserialise gui part. fd: %i\n", fd);
+    fwprintf(stdout, L"Debug: Deserialise gui part. *fd: %i\n", *((int*) fd));
+    fwprintf(stdout, L"Debug: Deserialise gui part. *mc: %i\n", *((int*) mc));
+    fwprintf(stdout, L"Debug: Deserialise gui part. *pc: %i\n", *((int*) pc));
 */
 
     //

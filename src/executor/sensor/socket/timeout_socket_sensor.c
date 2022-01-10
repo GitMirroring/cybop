@@ -133,8 +133,8 @@ int sense_socket_timeout(void* p0) {
     // Get interrupt pipe write file descriptor.
     copy_array_forward((void*) &ipw, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-    fwprintf(stdout, L"Test: Sense socket timeout. s: %i\n", s);
-    fwprintf(stdout, L"Test: Sense socket timeout. *s: %i\n", *((int*) s));
+    fwprintf(stdout, L"Debug: Sense socket timeout. s: %i\n", s);
+    fwprintf(stdout, L"Debug: Sense socket timeout. *s: %i\n", *((int*) s));
 
     // Run loop neverendingly while sensing messages.
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {

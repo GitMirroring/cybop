@@ -61,8 +61,8 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
     // The element part.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    //?? fwprintf(stdout, L"Test: Deserialise knowledge part 0. knowledge path data position: %ls\n", (wchar_t*) *((void**) p2));
-    //?? fwprintf(stdout, L"Test: Deserialise knowledge part 0. knowledge path count remaining: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"Debug: Deserialise knowledge part 0. knowledge path data position: %ls\n", (wchar_t*) *((void**) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise knowledge part 0. knowledge path count remaining: %i\n", *((int*) p3));
 
     //
     // Get new whole part.
@@ -72,8 +72,8 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
     //
     deserialise_knowledge((void*) &w, p1, p2, p3, p4, p5, p6, p7, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-    //?? fwprintf(stdout, L"Test: Deserialise knowledge part 1. knowledge path data position: %ls\n", (wchar_t*) *((void**) p2));
-    //?? fwprintf(stdout, L"Test: Deserialise knowledge part 1. knowledge path count remaining: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"Debug: Deserialise knowledge part 1. knowledge path data position: %ls\n", (wchar_t*) *((void**) p2));
+    //?? fwprintf(stdout, L"Debug: Deserialise knowledge part 1. knowledge path count remaining: %i\n", *((int*) p3));
 
     if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -82,7 +82,7 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
         // Further processing of the knowledge path makes sense.
         //
 
-        //?? fwprintf(stdout, L"Test: Deserialise knowledge part. a new whole (parent) exists: %i\n", w);
+        //?? fwprintf(stdout, L"Debug: Deserialise knowledge part. a new whole (parent) exists: %i\n", w);
 
         // The knowledge path end flag.
         int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -98,12 +98,12 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
         //
         deserialise_knowledge((void*) &e, (void*) &w, p2, p3, p4, p5, p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &f);
 
-        //?? fwprintf(stdout, L"Test: Deserialise knowledge part 2. knowledge path data position: %ls\n", (wchar_t*) *((void**) p2));
-        //?? fwprintf(stdout, L"Test: Deserialise knowledge part 2. knowledge path count remaining: %i\n", *((int*) p3));
+        //?? fwprintf(stdout, L"Debug: Deserialise knowledge part 2. knowledge path data position: %ls\n", (wchar_t*) *((void**) p2));
+        //?? fwprintf(stdout, L"Debug: Deserialise knowledge part 2. knowledge path count remaining: %i\n", *((int*) p3));
 
         if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? fwprintf(stdout, L"Test: Deserialise knowledge part. knowledge path end has been reached: %i\n", f);
+            //?? fwprintf(stdout, L"Debug: Deserialise knowledge part. knowledge path end has been reached: %i\n", f);
 
             //
             // The knowledge path does NOT contain further elements.
@@ -122,7 +122,7 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
             // The knowledge path DOES contain further elements.
             //
 
-            //?? fwprintf(stdout, L"Test: Deserialise knowledge part. knowledge path end has NOT been reached: %i\n", f);
+            //?? fwprintf(stdout, L"Debug: Deserialise knowledge part. knowledge path end has NOT been reached: %i\n", f);
 
             if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -130,7 +130,7 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
                 // The element (child) was successfully retrieved.
                 //
 
-                //?? fwprintf(stdout, L"Test: Deserialise knowledge part. element (child) exists: %i\n", e);
+                //?? fwprintf(stdout, L"Debug: Deserialise knowledge part. element (child) exists: %i\n", e);
 
                 //
                 // Take the element (child) as result.
@@ -173,7 +173,7 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
                 // does no harm, since the compiler will remove it anyway.
                 //
 
-                //?? fwprintf(stdout, L"Test: Deserialise knowledge part. element (child) is null: %i\n", e);
+                //?? fwprintf(stdout, L"Debug: Deserialise knowledge part. element (child) is null: %i\n", e);
             }
         }
 

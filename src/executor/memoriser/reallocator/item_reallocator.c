@@ -89,7 +89,7 @@ void reallocate_item(void* p0, void* p1, void* p2) {
 
     } else {
 
-        fwprintf(stdout, L"Test: Could not reallocate item. The data is null. This should NEVER happen. d: %p\n", d);
+        fwprintf(stdout, L"Debug: Could not reallocate item. The data is null. This should NEVER happen. d: %p\n", d);
 
         //
         // Reasons might be:

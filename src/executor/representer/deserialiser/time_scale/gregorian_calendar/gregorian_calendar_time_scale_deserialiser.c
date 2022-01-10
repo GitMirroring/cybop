@@ -70,14 +70,14 @@ void deserialise_time_scale_gregorian_calendar(void* p0, void* p1, void* p2, voi
     deserialise_time_scale_gregorian_calendar_julian_day((void*) &d, p1, p2, p3);
     deserialise_time_scale_gregorian_calendar_julian_second((void*) &s, p4, p5, p6);
 
-    //?? fwprintf(stdout, L"Test: deserialise time scale gregorian calendar d: %i\n", d);
-    //?? fwprintf(stdout, L"Test: deserialise time scale gregorian calendar s: %f\n", s);
+    //?? fwprintf(stdout, L"Debug: deserialise time scale gregorian calendar d: %i\n", d);
+    //?? fwprintf(stdout, L"Debug: deserialise time scale gregorian calendar s: %f\n", s);
 
     //?? TODO: Normalisation has not been tested in detail yet!
     deserialise_time_scale_gregorian_calendar_normalise((void*) &d, (void*) &s);
 
-    //?? fwprintf(stdout, L"Test: deserialise time scale gregorian calendar normalised d: %i\n", d);
-    //?? fwprintf(stdout, L"Test: deserialise time scale gregorian calendar normalised s: %f\n", s);
+    //?? fwprintf(stdout, L"Debug: deserialise time scale gregorian calendar normalised d: %i\n", d);
+    //?? fwprintf(stdout, L"Debug: deserialise time scale gregorian calendar normalised s: %f\n", s);
 
     // Set destination julian day, julian second.
     set_datetime_element(p0, (void*) &d, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);

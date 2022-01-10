@@ -73,8 +73,8 @@ void read_terminal(void* p0, void* p1) {
     copy_array_forward((void*) &bd, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &bc, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    fwprintf(stdout, L"Test: Read terminal. bc: %i\n", bc);
-    fwprintf(stdout, L"Test: Read terminal. *bc: %i\n", *((int*) bc));
+    fwprintf(stdout, L"Debug: Read terminal. bc: %i\n", bc);
+    fwprintf(stdout, L"Debug: Read terminal. *bc: %i\n", *((int*) bc));
 
     // Lock mutex.
     mtx_lock(m);

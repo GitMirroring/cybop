@@ -119,10 +119,10 @@ void serialise_xcb_text(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
                                     int cy = *y + 10;
 
 /*??
-                                    fwprintf(stdout, L"Test: Serialise xcb text. *x: %i\n", *x);
-                                    fwprintf(stdout, L"Test: Serialise xcb text. *y: %i\n", *y);
-                                    fwprintf(stdout, L"Test: Serialise xcb text. *w: %i\n", *w);
-                                    fwprintf(stdout, L"Test: Serialise xcb text. *h: %i\n", *h);
+                                    fwprintf(stdout, L"Debug: Serialise xcb text. *x: %i\n", *x);
+                                    fwprintf(stdout, L"Debug: Serialise xcb text. *y: %i\n", *y);
+                                    fwprintf(stdout, L"Debug: Serialise xcb text. *w: %i\n", *w);
+                                    fwprintf(stdout, L"Debug: Serialise xcb text. *h: %i\n", *h);
 */
 
                                     // Draw text.

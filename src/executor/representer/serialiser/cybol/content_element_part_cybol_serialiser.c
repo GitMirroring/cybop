@@ -144,8 +144,8 @@ void serialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3
     void* dfm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* dmm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    //?? fwprintf(stdout, L"Test: serialise cybol part element content p7: %i\n", p7);
-    //?? fwprintf(stdout, L"Test: serialise cybol part element content *p7: %i\n", *((int*) p7));
+    //?? fwprintf(stdout, L"Debug: serialise cybol part element content p7: %i\n", p7);
+    //?? fwprintf(stdout, L"Debug: serialise cybol part element content *p7: %i\n", *((int*) p7));
 
     //
     // Allocate destination part.
@@ -243,9 +243,9 @@ void serialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3
     modify_part(df, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) TYPE_PART_STATE_CYBOI_NAME);
     modify_part(dm, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) TYPE_PART_STATE_CYBOI_NAME);
 
-    //?? fwprintf(stdout, L"Test: serialise cybol part element content p2: %i\n", p2);
-    //?? fwprintf(stdout, L"Test: serialise cybol part element content *p2: %i\n", *((int*) p2));
-    //?? fwprintf(stdout, L"Test: serialise cybol part element content p1: %ls\n", (wchar_t*) p1);
+    //?? fwprintf(stdout, L"Debug: serialise cybol part element content p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: serialise cybol part element content *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: serialise cybol part element content p1: %ls\n", (wchar_t*) p1);
 
     // Get destination name, channel, encoding, language, format, model part model item.
     copy_array_forward((void*) &dnm, dn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -267,11 +267,11 @@ void serialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3
     // Overwrite model of destination name, channel, encoding, language, format, model part.
     modify_item(dnm, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
     //?? modify_item(dnm, L"BLUBLA", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-    //?? fwprintf(stdout, L"Test: serialise cybol part element content dnm: %i\n", dnm);
+    //?? fwprintf(stdout, L"Debug: serialise cybol part element content dnm: %i\n", dnm);
     serialise_cybol_channel(dcm, p3);
-    //?? fwprintf(stdout, L"Test: serialise cybol part element content *p3: %i\n", *((int*) p3));
-    //?? fwprintf(stdout, L"Test: serialise cybol part element content **dcm: %i\n", *((int*) *((void**) dcm)));
-    //?? fwprintf(stdout, L"Test: serialise cybol part element content **dcm as wchar_t*: %ls\n", (wchar_t*) *((void**) dcm));
+    //?? fwprintf(stdout, L"Debug: serialise cybol part element content *p3: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"Debug: serialise cybol part element content **dcm: %i\n", *((int*) *((void**) dcm)));
+    //?? fwprintf(stdout, L"Debug: serialise cybol part element content **dcm as wchar_t*: %ls\n", (wchar_t*) *((void**) dcm));
 
     //
     // CAUTION! The encoding is IGNORED here in general.
@@ -283,15 +283,15 @@ void serialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3
     // since inline data are already available as wide character data.
     //
     // serialise_cybol_encoding(dem, p4);
-    //?? fwprintf(stdout, L"Test: serialise cybol part element content **dem: %i\n", *((int*) *((void**) dem)));
+    //?? fwprintf(stdout, L"Debug: serialise cybol part element content **dem: %i\n", *((int*) *((void**) dem)));
     serialise_cybol_language(dlm, p5);
-    //?? fwprintf(stdout, L"Test: serialise cybol part element content **dlm: %i\n", *((int*) *((void**) dlm)));
+    //?? fwprintf(stdout, L"Debug: serialise cybol part element content **dlm: %i\n", *((int*) *((void**) dlm)));
     serialise_cybol_format(dfm, p6);
-    //?? fwprintf(stdout, L"Test: serialise cybol part element content **dfm: %i\n", *((int*) *((void**) dfm)));
+    //?? fwprintf(stdout, L"Debug: serialise cybol part element content **dfm: %i\n", *((int*) *((void**) dfm)));
 
     serialise_cybol(dmm, p1, p2, p3, p4, p5, p6, p7, p8, p9, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-    //?? fwprintf(stdout, L"Test: serialise cybol part element content p: %i\n", p);
+    //?? fwprintf(stdout, L"Debug: serialise cybol part element content p: %i\n", p);
 
     //
     // Overwrite destination part.
@@ -316,12 +316,12 @@ void serialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pp, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
-    //?? fwprintf(stdout, L"Test: serialise cybol part element content pre serialise part: %i\n", pm);
+    //?? fwprintf(stdout, L"Debug: serialise cybol part element content pre serialise part: %i\n", pm);
 
     // Append source properties to destination part's model.
     serialise_cybol_part(pm, p10, p11);
 
-    //?? fwprintf(stdout, L"Test: serialise cybol part element content pm: %i\n", pm);
+    //?? fwprintf(stdout, L"Debug: serialise cybol part element content pm: %i\n", pm);
 
     // Append destination name, channel, encoding, language, format, model part to destination part's properties.
     modify_item(pp, (void*) &dn, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
@@ -340,7 +340,7 @@ void serialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3
     modify_item(pp, (void*) &df, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
     modify_item(pp, (void*) &dm, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
-    //?? fwprintf(stdout, L"Test: serialise cybol part element content pp: %i\n", pp);
+    //?? fwprintf(stdout, L"Debug: serialise cybol part element content pp: %i\n", pp);
 
     //
     // Add destination part to destination.

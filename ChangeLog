@@ -25,6 +25,7 @@
         * Add blank line termination deserialiser and -selector
         * Make sure both, http message header and attachment count are added, in order to retrieve the correct message length
         * Test cybol application "www_server_dynamic" with buffer size smaller than 1024
+        * Replace console log message "Test: " with "Debug: "
 
 2022-01-09  Christian Heller  <christian.heller@cybop.org>
 

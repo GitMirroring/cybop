@@ -204,7 +204,7 @@ void command_display_content(void* pd, void* pc, void* ln, void* sqz, void* clr)
     copy_array_forward((void*) &argc, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Execute command line in shell.
-    fwprintf(stdout, L"test %ls" , argd);
+    fwprintf(stdout, L"Debug: command line: %ls" , argd);
     execute(argd, argc);
 
     // Deallocate arguments item.

@@ -68,9 +68,9 @@ void edit_unix_terminal_mode_edit(void* p0, void* p1) {
         copy_array_forward((void*) &e, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ECHO_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         /*??
-        fwprintf(stdout, L"Test: Edit unix terminal mode edit. *b: %i\n", *((int*) b));
-        fwprintf(stdout, L"Test: Edit unix terminal mode edit. *c: %i\n", *((int*) c));
-        fwprintf(stdout, L"Test: Edit unix terminal mode edit. *e: %i\n", *((int*) e));
+        fwprintf(stdout, L"Debug: Edit unix terminal mode edit. *b: %i\n", *((int*) b));
+        fwprintf(stdout, L"Debug: Edit unix terminal mode edit. *c: %i\n", *((int*) c));
+        fwprintf(stdout, L"Debug: Edit unix terminal mode edit. *e: %i\n", *((int*) e));
         */
 
         //

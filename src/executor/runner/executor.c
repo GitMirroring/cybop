@@ -142,8 +142,8 @@ void execute(void* p0, void* p1) {
     copy_array_forward((void*) &cc, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
 /*??
-    fwprintf(stdout, L"Test: dir: %ls\n", (wchar_t*) cld);
-    fwprintf(stdout, L"Test: dir count: %i\n", *((int*) clc));
+    fwprintf(stdout, L"Debug: dir: %ls\n", (wchar_t*) cld);
+    fwprintf(stdout, L"Debug: dir count: %i\n", *((int*) clc));
 */
 
     // Encode encoded shell command line.
@@ -224,7 +224,7 @@ void execute(void* p0, void* p1) {
     //?? Therefore, the "system" function (see above) was used for now.
     //?? It might be even better, since it is platform-neutral (portable).
 
-    fwprintf(stdout, L"Test: pre-fork: %i\n", p0);
+    fwprintf(stdout, L"Debug: pre-fork: %i\n", p0);
 
     // Fork a new process and remember its process identification (PID).
     // In the GNU C library, pid_t corresponds to the int type.
@@ -233,11 +233,11 @@ void execute(void* p0, void* p1) {
     // The child process is a duplicate of the parent (except for a few properties).
     pid_t pid = fork();
 
-    fwprintf(stdout, L"Test: post-fork pid: %i\n", pid);
+    fwprintf(stdout, L"Debug: post-fork pid: %i\n", pid);
 
     if (pid == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        fwprintf(stdout, L"Test: pid == 0 pid: %i\n", pid);
+        fwprintf(stdout, L"Debug: pid == 0 pid: %i\n", pid);
 
         //
         // The "fork" was successful.
@@ -294,17 +294,17 @@ void execute(void* p0, void* p1) {
 
         //?? TEMPORARY TEST!
         wchar_t** args = (wchar_t**) p0;
-        fwprintf(stdout, L"Test: args 0: %s\n", *(args + 0));
-        fwprintf(stdout, L"Test: args 1: %s\n", *(args + 1));
-        fwprintf(stdout, L"Test: args 2: %s\n", *(args + 2));
-        fwprintf(stdout, L"Test: args 3: %s\n", *(args + 3));
+        fwprintf(stdout, L"Debug: args 0: %s\n", *(args + 0));
+        fwprintf(stdout, L"Debug: args 1: %s\n", *(args + 1));
+        fwprintf(stdout, L"Debug: args 2: %s\n", *(args + 2));
+        fwprintf(stdout, L"Debug: args 3: %s\n", *(args + 3));
         if (*(args + 3) == *NULL_POINTER_STATE_CYBOI_MODEL) {
-            fwprintf(stdout, L"Test: args 3 IS null pointer: %i\n", *(args + 3));
+            fwprintf(stdout, L"Debug: args 3 IS null pointer: %i\n", *(args + 3));
         } else {
-            fwprintf(stdout, L"Test: args 3 is NOT null pointer: %i\n", *(args + 3));
+            fwprintf(stdout, L"Debug: args 3 is NOT null pointer: %i\n", *(args + 3));
         }
 
-        fwprintf(stdout, L"Test: pre-exec: %i\n", p0);
+        fwprintf(stdout, L"Debug: pre-exec: %i\n", p0);
 
         //
         // Initialise error number.
@@ -344,12 +344,12 @@ void execute(void* p0, void* p1) {
         //
         int e = execv(SHELL_SYSTEM_EXECUTABLE, (wchar_t**) p0);
 
-        fwprintf(stdout, L"Test: post-exec e: %i\n", e);
+        fwprintf(stdout, L"Debug: post-exec e: %i\n", e);
 
         // A value of -1 is returned in the event of a failure.
         if (e == *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
-            fwprintf(stdout, L"Test: e == -1 errno: %i\n", errno);
+            fwprintf(stdout, L"Debug: e == -1 errno: %i\n", errno);
 
             //
             // The five "usual file name errors":
@@ -357,7 +357,7 @@ void execute(void* p0, void* p1) {
 
             if (errno == EACCES) {
 
-                fwprintf(stdout, L"Test: EACCES errno: %i\n", errno);
+                fwprintf(stdout, L"Debug: EACCES errno: %i\n", errno);
 
                 //
                 // The process does not have search permission for a
@@ -366,7 +366,7 @@ void execute(void* p0, void* p1) {
 
             } else if (errno == ENAMETOOLONG) {
 
-                fwprintf(stdout, L"Test: ENAMETOOLONG errno: %i\n", errno);
+                fwprintf(stdout, L"Debug: ENAMETOOLONG errno: %i\n", errno);
 
                 //
                 // This error is used when either the total length of a file name
@@ -378,7 +378,7 @@ void execute(void* p0, void* p1) {
 
             } else if (errno == ENOENT) {
 
-                fwprintf(stdout, L"Test: ENOENT errno: %i\n", errno);
+                fwprintf(stdout, L"Debug: ENOENT errno: %i\n", errno);
 
                 //
                 // This error is reported when a file referenced as a directory component
@@ -388,7 +388,7 @@ void execute(void* p0, void* p1) {
 
             } else if (errno == ENOTDIR) {
 
-                fwprintf(stdout, L"Test: ENOTDIR errno: %i\n", errno);
+                fwprintf(stdout, L"Debug: ENOTDIR errno: %i\n", errno);
 
                 //
                 // A file that is referenced as a directory component in the file name
@@ -397,7 +397,7 @@ void execute(void* p0, void* p1) {
 
             } else if (errno == ELOOP) {
 
-                fwprintf(stdout, L"Test: ELOOP errno: %i\n", errno);
+                fwprintf(stdout, L"Debug: ELOOP errno: %i\n", errno);
 
                 //
                 // Too many symbolic links were resolved while trying to look up the file name.
@@ -412,7 +412,7 @@ void execute(void* p0, void* p1) {
 
             } else if (errno == E2BIG) {
 
-                fwprintf(stdout, L"Test: E2BIG errno: %i\n", errno);
+                fwprintf(stdout, L"Debug: E2BIG errno: %i\n", errno);
 
                 //
                 // The combined size of the new programme's argument list and
@@ -424,7 +424,7 @@ void execute(void* p0, void* p1) {
 
             } else if (errno == ENOEXEC) {
 
-                fwprintf(stdout, L"Test: ENOEXEC errno: %i\n", errno);
+                fwprintf(stdout, L"Debug: ENOEXEC errno: %i\n", errno);
 
                 //
                 // The specified file can't be executed because
@@ -433,7 +433,7 @@ void execute(void* p0, void* p1) {
 
             } else if (errno == ENOMEM) {
 
-                fwprintf(stdout, L"Test: ENOMEM errno: %i\n", errno);
+                fwprintf(stdout, L"Debug: ENOMEM errno: %i\n", errno);
 
                 //
                 // Executing the specified file requires more storage than is available.
@@ -445,7 +445,7 @@ void execute(void* p0, void* p1) {
 
             } else if (errno == EFAULT) {
 
-                fwprintf(stdout, L"Test: EFAULT errno: %i\n", errno);
+                fwprintf(stdout, L"Debug: EFAULT errno: %i\n", errno);
 
                 //
                 // Bad address; an invalid pointer was detected.
@@ -489,11 +489,11 @@ void execute(void* p0, void* p1) {
             _exit(*NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
         }
 
-        fwprintf(stdout, L"Test: post-exit errno: %i\n", errno);
+        fwprintf(stdout, L"Debug: post-exit errno: %i\n", errno);
 
     } else if (pid < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        fwprintf(stdout, L"Test: pid < 0 pid: %i\n", pid);
+        fwprintf(stdout, L"Debug: pid < 0 pid: %i\n", pid);
 
         //
         // The "fork" did not succeed. An error occured.
@@ -515,7 +515,7 @@ void execute(void* p0, void* p1) {
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Executed command as process. The process fork succeeded. Now waiting for the child process to exit.");
 
-        fwprintf(stdout, L"Test: pid > 0 pid: %i\n", pid);
+        fwprintf(stdout, L"Debug: pid > 0 pid: %i\n", pid);
 
         //
         // Request status information from child process.
@@ -525,7 +525,7 @@ void execute(void* p0, void* p1) {
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"The child process exited. Continue executing parent process.");
 
-        fwprintf(stdout, L"Test: post-waitpid pid: %i\n", pid);
+        fwprintf(stdout, L"Debug: post-waitpid pid: %i\n", pid);
     }
 */
 }

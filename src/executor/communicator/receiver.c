@@ -86,7 +86,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive data.");
 
-    //?? fwprintf(stdout, L"Test: Receive data. p17: %i\n", *((int*) p17));
+    //?? fwprintf(stdout, L"Debug: Receive data. p17: %i\n", *((int*) p17));
 
     // The pointer message item, e.g. an xcb display event or win32 input record.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -172,9 +172,9 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
 /*??
     if ((p15 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p15) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
-        fwprintf(stdout, L"Test: Receive data. read binary message *bc: %i\n", *((int*) bc));
-        fwprintf(stdout, L"Test: Receive data. read binary message bd: %s\n", (char*) bd);
-        fwprintf(stdout, L"Test: Receive data. read binary message *p16: %i\n", *((int*) p16));
+        fwprintf(stdout, L"Debug: Receive data. read binary message *bc: %i\n", *((int*) bc));
+        fwprintf(stdout, L"Debug: Receive data. read binary message bd: %s\n", (char*) bd);
+        fwprintf(stdout, L"Debug: Receive data. read binary message *p16: %i\n", *((int*) p16));
     }
 */
 
@@ -186,8 +186,8 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
 /*??
     if ((p15 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p15) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
-        fwprintf(stdout, L"Test: Receive data. decode binary message *bc: %i\n", *((int*) bc));
-        fwprintf(stdout, L"Test: Receive data. decode binary message bd: %s\n", (char*) bd);
+        fwprintf(stdout, L"Debug: Receive data. decode binary message *bc: %i\n", *((int*) bc));
+        fwprintf(stdout, L"Debug: Receive data. decode binary message bd: %s\n", (char*) bd);
     }
 */
 
@@ -198,14 +198,14 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // type "char" or type "wchar_t" or type "void*", which is IRRELEVANT.
     // This function knows how to handle it, depending on the given language.
     //
-    //?? fwprintf(stdout, L"Test: Receive data. deserialise binary message pre *bc: %i\n", *((int*) bc));
-    //?? fwprintf(stdout, L"Test: Receive data. deserialise binary message pre bd: %ls\n", (wchar_t*) bd);
+    //?? fwprintf(stdout, L"Debug: Receive data. deserialise binary message pre *bc: %i\n", *((int*) bc));
+    //?? fwprintf(stdout, L"Debug: Receive data. deserialise binary message pre bd: %ls\n", (wchar_t*) bd);
     receive_deserialise(p0, p1, bd, bc, p4, p5, p6, p7, p8, p9, p14, p15);
 
 /*??
     if ((p15 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p15) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
-        fwprintf(stdout, L"Test: Receive data. deserialise binary message post *bc: %i\n", *((int*) bc));
-        fwprintf(stdout, L"Test: Receive data. deserialise binary message post bd: %s\n", (char*) bd);
+        fwprintf(stdout, L"Debug: Receive data. deserialise binary message post *bc: %i\n", *((int*) bc));
+        fwprintf(stdout, L"Debug: Receive data. deserialise binary message post bd: %s\n", (char*) bd);
     }
 */
 

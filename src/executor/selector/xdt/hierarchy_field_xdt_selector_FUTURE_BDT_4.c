@@ -80,9 +80,9 @@ void select_xdt_field_hierarchy(void* p0, void* p1, void* p2, void* p3, void* p4
     // Calculate next lower tree level.
     calculate_integer_add((void*) &l, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-    fwprintf(stdout, L"Test: select xdt field hierarchy current level: %i\n", *((int*) p2));
-    fwprintf(stdout, L"Test: select xdt field hierarchy next lower level: %i\n", l);
-    fwprintf(stdout, L"Test: select xdt field hierarchy dependency hierarchy: %i\n", *((int*) p8));
+    fwprintf(stdout, L"Debug: select xdt field hierarchy current level: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: select xdt field hierarchy next lower level: %i\n", l);
+    fwprintf(stdout, L"Debug: select xdt field hierarchy dependency hierarchy: %i\n", *((int*) p8));
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

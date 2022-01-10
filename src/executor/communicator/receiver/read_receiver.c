@@ -61,8 +61,8 @@ void receive_read(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive read.");
 
-        //?? fwprintf(stdout, L"Test: receive read p4: %i\n", p4);
-        //?? fwprintf(stdout, L"Test: receive read p3: %i\n", p3);
+        //?? fwprintf(stdout, L"Debug: receive read p4: %i\n", p4);
+        //?? fwprintf(stdout, L"Debug: receive read p3: %i\n", p3);
 
         // Read message from device.
         read_data(p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15);

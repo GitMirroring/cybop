@@ -74,7 +74,7 @@ void close_xcb(void* p0, void* p1) {
         // Retrieve delete window cookie from input/output entry.
         //?? copy_array_forward((void*) &dwc, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-        fwprintf(stdout, L"Test: Close xcb. c: %i\n", c);
+        fwprintf(stdout, L"Debug: Close xcb. c: %i\n", c);
 
         if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -85,15 +85,15 @@ void close_xcb(void* p0, void* p1) {
 /*??
             if (dwc != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                fwprintf(stdout, L"Test: Close xcb pre dwc: %i\n", dwc);
+                fwprintf(stdout, L"Debug: Close xcb pre dwc: %i\n", dwc);
                 // Free delete window cookie atom reply that was created at startup.
                 free(dwc);
-                fwprintf(stdout, L"Test: Close xcb post dwc: %i\n", dwc);
+                fwprintf(stdout, L"Debug: Close xcb post dwc: %i\n", dwc);
 
             } else {
 
                 log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close xcb. The delete window cookie is null.");
-                fwprintf(stdout, L"Test: Could not close xcb. The delete window cookie is null. dwc: %i\n", dwc);
+                fwprintf(stdout, L"Debug: Could not close xcb. The delete window cookie is null. dwc: %i\n", dwc);
             }
 */
 

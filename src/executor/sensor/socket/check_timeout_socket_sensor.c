@@ -116,12 +116,12 @@ void sense_socket_timeout_check(void* p0, void* p1, void* p2, void* p3) {
                                             // Therefore, proceed normally.
                                             //
 
-                                            fwprintf(stdout, L"Test: Sense socket accept. DO process data. r: %i\n", r);
+                                            fwprintf(stdout, L"Debug: Sense socket accept. DO process data. r: %i\n", r);
 
                                             // Copy local buffer content into destination buffer item.
                                             modify_item(p0, p6, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &n, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
-                                            fwprintf(stdout, L"Test: Sense socket accept. *ipw: %i\n", *ipw);
+                                            fwprintf(stdout, L"Debug: Sense socket accept. *ipw: %i\n", *ipw);
 
                                         } else {
 
@@ -137,7 +137,7 @@ void sense_socket_timeout_check(void* p0, void* p1, void* p2, void* p3) {
                                             // Reallocation may happen above, in call of function "modify_item".
                                             //
 
-                                            fwprintf(stdout, L"Test: Sense socket accept. Do NOT process data. r: %i\n", r);
+                                            fwprintf(stdout, L"Debug: Sense socket accept. Do NOT process data. r: %i\n", r);
                                         }
 
                                         // Unlock socket accept mutex.

@@ -136,8 +136,8 @@ void startup_socket_socket_address_local_initialise(void* p0, void* p1, void* p2
                     copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
                     copy_array_forward((void*) &tc, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-                    fwprintf(stdout, L"Test: Startup socket socket address local initialise. td: %s\n", td);
-                    fwprintf(stdout, L"Test: Startup socket socket address local initialise. tc: %i\n", *((int*) tc));
+                    fwprintf(stdout, L"Debug: Startup socket socket address local initialise. td: %s\n", td);
+                    fwprintf(stdout, L"Debug: Startup socket socket address local initialise. tc: %i\n", *((int*) tc));
 
                     //
                     // Set namespace (address format/family).
@@ -167,7 +167,7 @@ void startup_socket_socket_address_local_initialise(void* p0, void* p1, void* p2
                     copy_array_forward(path, td, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, tc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
                     copy_array_forward(path, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, tc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-                    fwprintf(stdout, L"Test: Startup socket socket address local initialise. path: %s\n", path);
+                    fwprintf(stdout, L"Debug: Startup socket socket address local initialise. path: %s\n", path);
 
                     // Deallocate terminated file name item.
                     deallocate_item((void*) &t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);

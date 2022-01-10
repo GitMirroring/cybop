@@ -56,7 +56,7 @@ void check_io_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io receive.");
     //
 
-    //?? fwprintf(stdout, L"Test: check io receive. channel *p4: %i\n", *((int*) p4));
+    //?? fwprintf(stdout, L"Debug: check io receive. channel *p4: %i\n", *((int*) p4));
 
     // The sender client.
     int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
@@ -75,7 +75,7 @@ void check_io_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // The corresponding client number got returned.
         //
 
-        //?? fwprintf(stdout, L"Test: check io receive. client c: %i\n", c);
+        //?? fwprintf(stdout, L"Debug: check io receive. client c: %i\n", c);
 
         // The sender client.
         void* s = *NULL_POINTER_STATE_CYBOI_MODEL;

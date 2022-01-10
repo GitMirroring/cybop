@@ -55,8 +55,8 @@ void deserialise_http_request_content_length(void* p0, void* p1, void* p2) {
     // Copy source count remaining.
     copy_integer((void*) &c, p2);
 
-    //?? fwprintf(stdout, L"Test: Deserialise http request content length. c: %i\n", c);
-    //?? fwprintf(stdout, L"Test: Deserialise http request content length. d: %s\n", (char*) d);
+    //?? fwprintf(stdout, L"Debug: Deserialise http request content length. c: %i\n", c);
+    //?? fwprintf(stdout, L"Debug: Deserialise http request content length. d: %s\n", (char*) d);
 
     //
     // CAUTION! A COPY of source count remaining is forwarded here,

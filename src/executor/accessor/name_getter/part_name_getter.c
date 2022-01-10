@@ -51,8 +51,8 @@ void get_name_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // Get source whole item.
     copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p4);
 
-    //?? fwprintf(stdout, L"Test: get name part element p3: %i\n", *((int*) p3));
-    //?? fwprintf(stdout, L"Test: get name part element p2: %ls\n", (wchar_t*) p2);
+    //?? fwprintf(stdout, L"Debug: get name part element p3: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"Debug: get name part element p2: %ls\n", (wchar_t*) p2);
 
     // Get destination part with given name from source whole data item.
     get_name_item_element(p0, s, p2, p3, p5);

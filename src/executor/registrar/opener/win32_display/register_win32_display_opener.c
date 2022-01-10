@@ -72,12 +72,12 @@ void open_win32_display_register(void* p0, void* p1) {
             wc.lpszClassName = c;
             wc.hIconSm = (HICON) LoadIcon((HINSTANCE) *NULL_POINTER_STATE_CYBOI_MODEL, IDI_APPLICATION); // wndclassex.hIcon; // LoadIcon(wcex.hInstance, (LPCTSTR) IDI_SMALL);
 
-            fwprintf(stdout, L"Test: reg c: %i\n", c);
-            fwprintf(stdout, L"Test: reg i: %i\n", i);
+            fwprintf(stdout, L"Debug: reg c: %i\n", c);
+            fwprintf(stdout, L"Debug: reg i: %i\n", i);
 
             ATOM e = RegisterClassEx(&wc);
 
-            fwprintf(stdout, L"Test: reg e: %i\n", e);
+            fwprintf(stdout, L"Debug: reg e: %i\n", e);
 
             if (e == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

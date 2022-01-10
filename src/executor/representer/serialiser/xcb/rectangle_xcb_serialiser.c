@@ -95,10 +95,10 @@ void serialise_xcb_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, v
                                 xcb_rectangle_t rd;
 
 /*??
-                                fwprintf(stdout, L"Test: Serialise xcb rectangle. *x: %i\n", *x);
-                                fwprintf(stdout, L"Test: Serialise xcb rectangle. *y: %i\n", *y);
-                                fwprintf(stdout, L"Test: Serialise xcb rectangle. *w: %i\n", *w);
-                                fwprintf(stdout, L"Test: Serialise xcb rectangle. *h: %i\n", *h);
+                                fwprintf(stdout, L"Debug: Serialise xcb rectangle. *x: %i\n", *x);
+                                fwprintf(stdout, L"Debug: Serialise xcb rectangle. *y: %i\n", *y);
+                                fwprintf(stdout, L"Debug: Serialise xcb rectangle. *w: %i\n", *w);
+                                fwprintf(stdout, L"Debug: Serialise xcb rectangle. *h: %i\n", *h);
 */
 
                                 // Initialise rectangle.

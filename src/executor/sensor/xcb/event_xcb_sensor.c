@@ -99,9 +99,9 @@ void sense_xcb_event(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
                                 // the "xcb_wait_for_event" function. It therefore
                                 // HAS TO BE STORED, in order to be able to process it later on.
                                 //
-                                fwprintf(stdout, L"Test: Sense xcb event. p1: %i\n", p1);
+                                fwprintf(stdout, L"Debug: Sense xcb event. p1: %i\n", p1);
                                 void* e = (void*) xcb_wait_for_event(c);
-                                fwprintf(stdout, L"Test: Sense xcb. Event e: %i\n", e);
+                                fwprintf(stdout, L"Debug: Sense xcb. Event e: %i\n", e);
 
                                 if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -135,12 +135,12 @@ void sense_xcb_event(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
                                         // Therefore, proceed normally.
                                         //
 
-                                        fwprintf(stdout, L"Test: Sense xcb message. DO process data. r: %i\n", r);
+                                        fwprintf(stdout, L"Debug: Sense xcb message. DO process data. r: %i\n", r);
 
                                         // Store event in buffer.
                                         modify_item(p0, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
-                                        fwprintf(stdout, L"Test: Sense xcb event. *ipw: %i\n", *ipw);
+                                        fwprintf(stdout, L"Debug: Sense xcb event. *ipw: %i\n", *ipw);
 
                                         // Lock interrupt mutex.
                                         mtx_lock(im);
@@ -183,7 +183,7 @@ void sense_xcb_event(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
                                         // Reallocation may happen above, in call of function "modify_item".
                                         //
 
-                                        fwprintf(stdout, L"Test: Sense socket message. Do NOT process data. r: %i\n", r);
+                                        fwprintf(stdout, L"Debug: Sense socket message. Do NOT process data. r: %i\n", r);
                                     }
 
                                     // Unlock display mutex.

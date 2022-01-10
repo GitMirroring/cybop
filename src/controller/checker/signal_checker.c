@@ -80,7 +80,7 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check signal.");
-    //?? fwprintf(stdout, L"Test: Check signal. p6: %i\n", p6);
+    //?? fwprintf(stdout, L"Debug: Check signal. p6: %i\n", p6);
 
     // The signal item.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -116,7 +116,7 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     //
     get_item_metadata((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    //?? fwprintf(stdout, L"Test: check signal sd: %i\n", sd);
+    //?? fwprintf(stdout, L"Debug: check signal sd: %i\n", sd);
 
     if (sd != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

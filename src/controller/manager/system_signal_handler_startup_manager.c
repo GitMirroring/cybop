@@ -69,15 +69,15 @@ void interrupt_service_system_signal_handler(int p0) {
     //?? pthread_id_np_t id = pthread_getthreadid_np();
 */
 
-    //?? fwprintf(stdout, L"Test: Interrupt service system signal handler. thread t: %l\n", t);
+    //?? fwprintf(stdout, L"Debug: Interrupt service system signal handler. thread t: %l\n", t);
 
     if (t == *DISPLAY_THREAD_IDENTIFICATION) {
 
-        //?? fwprintf(stdout, L"Test: Interrupt service system signal handler. display %l\n", t);
+        //?? fwprintf(stdout, L"Debug: Interrupt service system signal handler. display %l\n", t);
 
         if (*DISPLAY_SERVICE_INTERRUPT != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? fwprintf(stdout, L"Test: Interrupt service system signal handler. display exit p0: %i\n", p0);
+            //?? fwprintf(stdout, L"Debug: Interrupt service system signal handler. display exit p0: %i\n", p0);
 
             //
             // Terminate the calling thread.
@@ -103,11 +103,11 @@ void interrupt_service_system_signal_handler(int p0) {
 
     if (t == *SERIAL_THREAD_IDENTIFICATION) {
 
-        //?? fwprintf(stdout, L"Test: Interrupt service system signal handler. serial %l\n", t);
+        //?? fwprintf(stdout, L"Debug: Interrupt service system signal handler. serial %l\n", t);
 
         if (*SERIAL_SERVICE_INTERRUPT != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? fwprintf(stdout, L"Test: Interrupt service system signal handler. serial exit p0: %i\n", p0);
+            //?? fwprintf(stdout, L"Debug: Interrupt service system signal handler. serial exit p0: %i\n", p0);
 
             //
             // Terminate the calling thread.
@@ -133,11 +133,11 @@ void interrupt_service_system_signal_handler(int p0) {
 
     if (t == *SOCKET_THREAD_IDENTIFICATION) {
 
-        //?? fwprintf(stdout, L"Test: Interrupt service system signal handler. socket %l\n", t);
+        //?? fwprintf(stdout, L"Debug: Interrupt service system signal handler. socket %l\n", t);
 
         if (*SOCKET_SERVICE_INTERRUPT != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? fwprintf(stdout, L"Test: Interrupt service system signal handler. socket exit p0: %i\n", p0);
+            //?? fwprintf(stdout, L"Debug: Interrupt service system signal handler. socket exit p0: %i\n", p0);
 
             //
             // Terminate the calling thread.
@@ -163,11 +163,11 @@ void interrupt_service_system_signal_handler(int p0) {
 
     if (t == *TERMINAL_THREAD_IDENTIFICATION) {
 
-        //?? fwprintf(stdout, L"Test: Interrupt service system signal handler. terminal %l\n", t);
+        //?? fwprintf(stdout, L"Debug: Interrupt service system signal handler. terminal %l\n", t);
 
         if (*TERMINAL_SERVICE_INTERRUPT != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? fwprintf(stdout, L"Test: Interrupt service system signal handler. terminal exit p0: %i\n", p0);
+            //?? fwprintf(stdout, L"Debug: Interrupt service system signal handler. terminal exit p0: %i\n", p0);
 
             //
             // Terminate the calling thread.

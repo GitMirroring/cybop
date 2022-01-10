@@ -104,7 +104,7 @@ void check_client_element_empty(void* p0, void* p1, void* p2, void* p3, void* p4
                 //
 
                 log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close client connexion due to crossed timeout.");
-                fwprintf(stdout, L"Test: Close client connexion due to crossed timeout. r: %i\n", r);
+                fwprintf(stdout, L"Debug: Close client connexion due to crossed timeout. r: %i\n", r);
 
                 // Remove element from client list.
                 modify_remove(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p6, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

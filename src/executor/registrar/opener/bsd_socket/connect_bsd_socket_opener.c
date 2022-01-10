@@ -80,9 +80,9 @@ void open_bsd_socket_connect(void* p0, void* p1, void* p2) {
                 // is considered to be a more simple and clean solution here.
                 //
 
-                //?? fwprintf(stdout, L"Test: open bsd socket connect *as: %i\n", *as);
-                //?? fwprintf(stdout, L"Test: open bsd socket connect ad: %i\n", ad);
-                //?? fwprintf(stdout, L"Test: open bsd socket connect *s: %i\n", *s);
+                //?? fwprintf(stdout, L"Debug: open bsd socket connect *as: %i\n", *as);
+                //?? fwprintf(stdout, L"Debug: open bsd socket connect ad: %i\n", ad);
+                //?? fwprintf(stdout, L"Debug: open bsd socket connect *s: %i\n", *s);
 
                 //
                 // Make connexion with server.
@@ -92,12 +92,12 @@ void open_bsd_socket_connect(void* p0, void* p1, void* p2) {
                 //
                 int r = connect(*s, ad, sl);
 
-                //?? fwprintf(stdout, L"Test: open bsd socket connect r: %i\n", r);
+                //?? fwprintf(stdout, L"Debug: open bsd socket connect r: %i\n", r);
 
                 if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully opened bsd socket connect.");
-                    //?? fwprintf(stdout, L"Test: open bsd socket connect successful r: %i\n", r);
+                    //?? fwprintf(stdout, L"Debug: open bsd socket connect successful r: %i\n", r);
 
                 } else {
 
@@ -105,67 +105,67 @@ void open_bsd_socket_connect(void* p0, void* p1, void* p2) {
                     // An error occured.
                     //
 
-                    fwprintf(stdout, L"Test: open bsd socket connect error errorno: %i\n", errno);
+                    fwprintf(stdout, L"Debug: open bsd socket connect error errorno: %i\n", errno);
 
                     if (errno == EBADF) {
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket connect. The argument socket is not a valid file descriptor.");
-                        fwprintf(stdout, L"Test: open bsd socket connect error EBADF: %i\n", errno);
+                        fwprintf(stdout, L"Debug: open bsd socket connect error EBADF: %i\n", errno);
 
                     } else if (errno == ENOTSOCK) {
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket connect. The argument socket is not a socket.");
-                        fwprintf(stdout, L"Test: open bsd socket connect error ENOTSOCK: %i\n", errno);
+                        fwprintf(stdout, L"Debug: open bsd socket connect error ENOTSOCK: %i\n", errno);
 
                     } else if (errno == EADDRNOTAVAIL) {
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket connect. The specified address is not available on the remote machine.");
-                        fwprintf(stdout, L"Test: open bsd socket connect error EADDRNOTAVAIL: %i\n", errno);
+                        fwprintf(stdout, L"Debug: open bsd socket connect error EADDRNOTAVAIL: %i\n", errno);
 
                     } else if (errno == EAFNOSUPPORT) {
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket connect. The namespace of the address is not supported by this socket.");
-                        fwprintf(stdout, L"Test: open bsd socket connect error EAFNOSUPPORT: %i\n", errno);
+                        fwprintf(stdout, L"Debug: open bsd socket connect error EAFNOSUPPORT: %i\n", errno);
 
                     } else if (errno == EISCONN) {
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket connect. The socket is already connected.");
-                        fwprintf(stdout, L"Test: open bsd socket connect error EISCONN: %i\n", errno);
+                        fwprintf(stdout, L"Debug: open bsd socket connect error EISCONN: %i\n", errno);
 
                     } else if (errno == ETIMEDOUT) {
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket connect. The attempt to establish the connexion timed out.");
-                        fwprintf(stdout, L"Test: open bsd socket connect error ETIMEDOUT: %i\n", errno);
+                        fwprintf(stdout, L"Debug: open bsd socket connect error ETIMEDOUT: %i\n", errno);
 
                     } else if (errno == ECONNREFUSED) {
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket connect. The server has actively refused to establish the connexion.");
-                        fwprintf(stdout, L"Test: open bsd socket connect error ECONNREFUSED: %i\n", errno);
+                        fwprintf(stdout, L"Debug: open bsd socket connect error ECONNREFUSED: %i\n", errno);
 
                     } else if (errno == ENETUNREACH) {
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket connect. The network of the given address is not reachable from this host.");
-                        fwprintf(stdout, L"Test: open bsd socket connect error ENETUNREACH: %i\n", errno);
+                        fwprintf(stdout, L"Debug: open bsd socket connect error ENETUNREACH: %i\n", errno);
 
                     } else if (errno == EADDRINUSE) {
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket connect. The socket address of the given address is already in use.");
-                        fwprintf(stdout, L"Test: open bsd socket connect error EADDRINUSE: %i\n", errno);
+                        fwprintf(stdout, L"Debug: open bsd socket connect error EADDRINUSE: %i\n", errno);
 
                     } else if (errno == EINPROGRESS) {
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket connect. The socket is non-blocking and the connexion could not be established immediately. You can determine when the connexion is completely established with select; see Waiting for I/O. Another connect call on the same socket, before the connexion is completely established, will fail with EALREADY.");
-                        fwprintf(stdout, L"Test: open bsd socket connect error EINPROGRESS: %i\n", errno);
+                        fwprintf(stdout, L"Debug: open bsd socket connect error EINPROGRESS: %i\n", errno);
 
                     } else if (errno == EALREADY) {
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket connect. The socket is non-blocking and already has a pending connexion in progress (see EINPROGRESS above).");
-                        fwprintf(stdout, L"Test: open bsd socket connect error EALREADY: %i\n", errno);
+                        fwprintf(stdout, L"Debug: open bsd socket connect error EALREADY: %i\n", errno);
 
                     } else {
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket connect. An unknown error occured while connecting the socket.");
-                        fwprintf(stdout, L"Test: open bsd socket connect error UNKNOWN: %i\n", errno);
+                        fwprintf(stdout, L"Debug: open bsd socket connect error UNKNOWN: %i\n", errno);
                     }
                 }
 

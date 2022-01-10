@@ -68,7 +68,7 @@ void serialise_http_response_header(void* p0, void* p1, void* p2, void* p3, void
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
-    //?? fwprintf(stdout, L"Test: serialise http response header p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: serialise http response header p2: %i\n", *((int*) p2));
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 

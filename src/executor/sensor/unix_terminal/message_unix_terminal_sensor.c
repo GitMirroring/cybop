@@ -132,12 +132,12 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                                         // These have to be decoded into wide characters yet,
                                         // before sending them to the pipe further below.
                                         //
-                                        //?? fwprintf(stdout, L"Test: Sense unix terminal message. *bc: %i\n", *bc);
-                                        //?? fwprintf(stdout, L"Test: Sense unix terminal message. bct: %i\n", bct);
+                                        //?? fwprintf(stdout, L"Debug: Sense unix terminal message. *bc: %i\n", *bc);
+                                        //?? fwprintf(stdout, L"Debug: Sense unix terminal message. bct: %i\n", bct);
                                         int n = read(*f, p6, bct);
-                                        //?? fwprintf(stdout, L"Test: Sense unix terminal message. n: %i\n", n);
-                                        //?? fwprintf(stdout, L"Test: Sense unix terminal message. *p6 as c: %c\n", *((char*) p6));
-                                        //?? fwprintf(stdout, L"Test: Sense unix terminal message. p6 as s: %s\n", (char*) p6);
+                                        //?? fwprintf(stdout, L"Debug: Sense unix terminal message. n: %i\n", n);
+                                        //?? fwprintf(stdout, L"Debug: Sense unix terminal message. *p6 as c: %c\n", *((char*) p6));
+                                        //?? fwprintf(stdout, L"Debug: Sense unix terminal message. p6 as s: %s\n", (char*) p6);
 
                                         // The comparison result.
                                         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -169,12 +169,12 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                                             // Therefore, proceed normally.
                                             //
 
-                                            //?? fwprintf(stdout, L"Test: Sense unix terminal message. DO process data. r: %i\n", r);
+                                            //?? fwprintf(stdout, L"Debug: Sense unix terminal message. DO process data. r: %i\n", r);
 
                                             // Decode multibyte character into wide character.
                                             decode_utf_8(p0, p6, (void*) &n);
 
-                                            //?? fwprintf(stdout, L"Test: Sense unix terminal message. *ipw: %i\n", *ipw);
+                                            //?? fwprintf(stdout, L"Debug: Sense unix terminal message. *ipw: %i\n", *ipw);
 
                                             // Lock interrupt mutex.
                                             mtx_lock(im);
@@ -217,7 +217,7 @@ void sense_unix_terminal_message(void* p0, void* p1, void* p2, void* p3, void* p
                                             // Reallocation may happen above, in call of function "decode_utf_8".
                                             //
 
-                                            //?? fwprintf(stdout, L"Test: Sense unix terminal message. Do NOT process data. r: %i\n", r);
+                                            //?? fwprintf(stdout, L"Debug: Sense unix terminal message. Do NOT process data. r: %i\n", r);
                                         }
 
                                         // Unlock terminal mutex.

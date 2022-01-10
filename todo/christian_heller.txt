@@ -17,6 +17,8 @@ ____
         * Test cybol applications socket_server and socket_client
         * Uncomment (reactivate) adding of client to client list by call of function "modify_item" in file "request_socket_acceptor.c"
         * Remove client socket from client list and timeout list when thread has been exited
+        * Remove superfluous files in directory "executor/sensor/socket/"
+        * Sort constants in file "input_output_state_cyboi_name.c"
         * Close client socket on server side if exit flag was set, e.g. in file "socket_sensor.c"
         * Call shutdown before close for socket?
             shutdown(fd, SHUT_RDWR);
@@ -27,13 +29,7 @@ ____
             --> that means, that output should be sendable to socket as well via "ioctl"
             --> this could possibly be used for exiting the sensing thread !
 
-        * ?? Remove superfluous files in directory "executor/sensor/socket/"
-
-        * Replace "Test: " with "Debug: "
-        * Replace "TEST" with ...
-        * Clean up superfluous constants in file "input_output_state_cyboi_name.c"
-
-        * Overwrite variable with received data instead of appending, to thereby eliminate the need for emptying variables before receiving new data
+        * Overwrite variable with received data instead of appending in all deserialisers, to thereby eliminate the need for emptying variables in cybol before receiving new data
 
         * Reflect about handling of filters in directory "executor/communicator/"
             * Is it not too complex?

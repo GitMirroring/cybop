@@ -222,7 +222,7 @@ void serialise_xcb_context(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                     //
                     xcb_font_t f = xcb_generate_id(c);
 
-                    //?? fwprintf(stdout, L"Test: Serialise xcb context. generated id f: %i\n", f);
+                    //?? fwprintf(stdout, L"Debug: Serialise xcb context. generated id f: %i\n", f);
 
                     //
                     // Get font name item data, count.
@@ -254,8 +254,8 @@ void serialise_xcb_context(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                             //
                             xcb_open_font(c, f, *fnct, fndt);
 
-                            //?? fwprintf(stdout, L"Test: Serialise xcb context. *fnct: %i\n", *fnct);
-                            //?? fwprintf(stdout, L"Test: Serialise xcb context. fndt: %s\n", fndt);
+                            //?? fwprintf(stdout, L"Debug: Serialise xcb context. *fnct: %i\n", *fnct);
+                            //?? fwprintf(stdout, L"Debug: Serialise xcb context. fndt: %s\n", fndt);
 
                         } else {
 

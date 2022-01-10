@@ -58,7 +58,7 @@
 void startup_unix_fifo_create(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix fifo create.");
-    fwprintf(stdout, L"Test: Startup unix fifo create. p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Startup unix fifo create. p1: %i\n", p1);
 
     // The terminated file name item.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -123,27 +123,27 @@ void startup_unix_fifo_create(void* p0, void* p1) {
         if (errno == EACCES) {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix fifo create. The process does not have search permission for a directory component of the file name.");
-            fwprintf(stdout, L"Could not startup unix fifo create. The process does not have search permission for a directory component of the file name. error EACCES: %i\n", errno);
+            fwprintf(stdout, L"Error: Could not startup unix fifo create. The process does not have search permission for a directory component of the file name. error EACCES: %i\n", errno);
 
         } else if (errno == ENAMETOOLONG) {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix fifo create. This error is used when either the total length of a file name is greater than PATH_MAX, or when an individual file name component has a length greater than NAME_MAX.");
-            fwprintf(stdout, L"Could not startup unix fifo create. This error is used when either the total length of a file name is greater than PATH_MAX, or when an individual file name component has a length greater than NAME_MAX. error ENAMETOOLONG: %i\n", errno);
+            fwprintf(stdout, L"Error: Could not startup unix fifo create. This error is used when either the total length of a file name is greater than PATH_MAX, or when an individual file name component has a length greater than NAME_MAX. error ENAMETOOLONG: %i\n", errno);
 
         } else if (errno == ENOENT) {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix fifo create. This error is reported when a file referenced as a directory component in the file name doesn’t exist, or when a component is a symbolic link whose target file does not exist.");
-            fwprintf(stdout, L"Could not startup unix fifo create. This error is reported when a file referenced as a directory component in the file name doesn’t exist, or when a component is a symbolic link whose target file does not exist. error ENOENT: %i\n", errno);
+            fwprintf(stdout, L"Error: Could not startup unix fifo create. This error is reported when a file referenced as a directory component in the file name doesn’t exist, or when a component is a symbolic link whose target file does not exist. error ENOENT: %i\n", errno);
 
         } else if (errno == ENOTDIR) {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix fifo create. A file that is referenced as a directory component in the file name exists, but it isn’t a directory.");
-            fwprintf(stdout, L"Could not startup unix fifo create. A file that is referenced as a directory component in the file name exists, but it isn’t a directory. error ENOTDIR: %i\n", errno);
+            fwprintf(stdout, L"Error: Could not startup unix fifo create. A file that is referenced as a directory component in the file name exists, but it isn’t a directory. error ENOTDIR: %i\n", errno);
 
         } else if (errno == ELOOP) {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix fifo create. Too many symbolic links were resolved while trying to look up the file name. The system has an arbitrary limit on the number of symbolic links that may be resolved in looking up a single file name, as a primitive way to detect loops.");
-            fwprintf(stdout, L"Could not startup unix fifo create. Too many symbolic links were resolved while trying to look up the file name. The system has an arbitrary limit on the number of symbolic links that may be resolved in looking up a single file name, as a primitive way to detect loops. error ELOOP: %i\n", errno);
+            fwprintf(stdout, L"Error: Could not startup unix fifo create. Too many symbolic links were resolved while trying to look up the file name. The system has an arbitrary limit on the number of symbolic links that may be resolved in looking up a single file name, as a primitive way to detect loops. error ELOOP: %i\n", errno);
 
         //
         // The error conditions defined for this function.
@@ -167,7 +167,7 @@ void startup_unix_fifo_create(void* p0, void* p1) {
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix fifo create. An unknown error occured.");
-            fwprintf(stdout, L"Could not startup unix fifo create. An unknown error occured. errno: %i file: %s\n", errno, (char*) td);
+            fwprintf(stdout, L"Error: Could not startup unix fifo create. An unknown error occured. errno: %i file: %s\n", errno, (char*) td);
         }
     }
 

@@ -48,7 +48,7 @@
 void shutdown_xcb(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown xcb.");
-    fwprintf(stdout, L"Test: Shutdown xcb. p0: %i\n", p0);
+    fwprintf(stdout, L"Debug: Shutdown xcb. p0: %i\n", p0);
 
     //
     // Declaration.
@@ -84,11 +84,11 @@ void shutdown_xcb(void* p0) {
     // Get event buffer item from input/output entry.
     copy_array_forward((void*) &b, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-    fwprintf(stdout, L"Test: Shutdown xcb. c: %i\n", c);
+    fwprintf(stdout, L"Debug: Shutdown xcb. c: %i\n", c);
 
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        fwprintf(stdout, L"Test: Shutdown xcb. inside c: %i\n", c);
+        fwprintf(stdout, L"Debug: Shutdown xcb. inside c: %i\n", c);
 
         // Cast connexion to correct type.
         xcb_connection_t* ct = (xcb_connection_t*) c;
@@ -209,7 +209,7 @@ void shutdown_xcb(void* p0) {
 
         if (gc != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            fwprintf(stdout, L"Test: Shutdown xcb. inside gc: %i\n", gc);
+            fwprintf(stdout, L"Debug: Shutdown xcb. inside gc: %i\n", gc);
 
             //
             // Cast graphic context to integer.
@@ -226,14 +226,14 @@ void shutdown_xcb(void* p0) {
             // ... *gct ...
             //
             uint32_t* gci = (uint32_t*) gc;
-            fwprintf(stdout, L"Test: Shutdown xcb. gci: %i\n", gci);
-            fwprintf(stdout, L"Test: Shutdown xcb. *gci: %i\n", *gci);
+            fwprintf(stdout, L"Debug: Shutdown xcb. gci: %i\n", gci);
+            fwprintf(stdout, L"Debug: Shutdown xcb. *gci: %i\n", *gci);
             // Cast graphic context to correct type.
             xcb_gcontext_t gct = (xcb_gcontext_t) *gci;
-            fwprintf(stdout, L"Test: Shutdown xcb. free gct: %i\n", gct);
+            fwprintf(stdout, L"Debug: Shutdown xcb. free gct: %i\n", gct);
             // Free graphic context.
             xcb_free_gc(ct, gct);
-            fwprintf(stdout, L"Test: Shutdown xcb. post free gct: %i\n", gct);
+            fwprintf(stdout, L"Debug: Shutdown xcb. post free gct: %i\n", gct);
 
         } else {
 
@@ -258,7 +258,7 @@ void shutdown_xcb(void* p0) {
         // deallocated automatically via the connexion below.
         //
 
-        fwprintf(stdout, L"Test: Shutdown xcb. disconnect ct: %i\n", ct);
+        fwprintf(stdout, L"Debug: Shutdown xcb. disconnect ct: %i\n", ct);
 
         //
         // Close connexion.
@@ -270,7 +270,7 @@ void shutdown_xcb(void* p0) {
         //
         xcb_disconnect(ct);
 
-        fwprintf(stdout, L"Test: Shutdown xcb. post disconnect ct: %i\n", ct);
+        fwprintf(stdout, L"Debug: Shutdown xcb. post disconnect ct: %i\n", ct);
 
         //
         // CAUTION! Resetting the values is not necessary,
