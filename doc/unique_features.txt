@@ -1,0 +1,19 @@
+
+Unique Features
+===============
+
+CYBOP - An alternative Approach to Software Development
+
+Alleinstellungsmerkmale:
+- Baumstruktur: wie in XML, aber mit einheitlichem Wortschatz/Vokabular für Zustände und Abläufe = Raum + Zeit
+- Meta-Eigenschaften: Doppelhierarchie zu jedem Knoten wie CSS in HTML-Knoten, aber nicht nur für WUI (Web), sondern auch GUI, TUI, Funktionen
+- Universelle Behälterstruktur: macht Klassen-Typ-Gerüste und Container-Frameworks obsolet
+- Einheitliche Kommunikation: über alle Kanäle mittels simplen "send" und "receive"
+- Dynamische Programmierung: CYBOL kann seinen eigenen Code zur Laufzeit ändern
+- No-Code-Programmierung: Grafisches Modellierungswerkzeug denkbar, eventuell in CYBOL geschrieben
+
+Öffentlichkeitsarbeit:
+- Vortrag auf Open Source Konferenz
+- Video im Web (2malschauen)
+- Crowd Funding
+
