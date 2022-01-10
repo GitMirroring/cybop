@@ -103,6 +103,9 @@ void spin(void* p0, void* p1, void* p2) {
                 //
                 // Create thread.
                 //
+                // CAUTION! A new child thread can be created by ANY thread,
+                // not only the main programme thread, at any time.
+                //
                 // CAUTION! Do NOT allocate any resources within the thread function!
                 // The reason is that this main process thread gets forked when executing
                 // external programs. A "fork" duplicates ALL resources of the parent process,

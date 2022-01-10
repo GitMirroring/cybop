@@ -14,8 +14,8 @@
 Pipe
 ____
 
-        * Test cybol applications socket_server and socket_client
         * Uncomment (reactivate) adding of client to client list by call of function "modify_item" in file "request_socket_acceptor.c"
+        * Test with cybol applications "www_server_dynamic" or "socket_server" and "socket_client"
         * Remove client socket from client list and timeout list when thread has been exited
         * Remove superfluous files in directory "executor/sensor/socket/"
         * Sort constants in file "input_output_state_cyboi_name.c"

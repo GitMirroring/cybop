@@ -42,10 +42,7 @@
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/maintainer/client_starter.c"
 #include "../../../executor/modifier/item_modifier.c"
-//?? #include "../../../executor/sensor/serial_port/serial_port_sensor.c"
 #include "../../../executor/sensor/socket/socket_sensor.c"
-//?? #include "../../../executor/sensor/unix_terminal/unix_terminal_sensor.c"
-//?? #include "../../../executor/sensor/xcb/xcb_sensor.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -79,6 +76,8 @@ int accept_socket_request(void* p0, void* p1, void* p2, void* p3, void* p4, void
                 // in order to avoid race conditions and other conflicts.
                 //
                 // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Accept socket request.");
+                fwprintf(stdout, L"Debug: Accept socket request. server socket p1: %i\n", p1);
+                fwprintf(stdout, L"Debug: Accept socket request. server socket *p1: %i\n", *((int*) p1));
 
                 // The client socket.
                 int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
@@ -86,10 +85,7 @@ int accept_socket_request(void* p0, void* p1, void* p2, void* p3, void* p4, void
                 int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
                 // Accept client request on server socket.
-                fwprintf(stdout, L"Debug: Accept socket request. p1: %i\n", p1);
-                fwprintf(stdout, L"Debug: Accept socket request. *p1: %i\n", *((int*) p1));
                 fwprintf(stdout, L"Debug: Accept socket request. pre c: %i\n", c);
-                fwprintf(stdout, L"Waiting for requesting clients on server socket: %i\n", *((int*) p1));
                 accept_socket_client((void*) &c, p1);
                 fwprintf(stdout, L"Debug: Accept socket request. post c: %i\n", c);
 
@@ -109,6 +105,9 @@ int accept_socket_request(void* p0, void* p1, void* p2, void* p3, void* p4, void
                 // - the sensing child thread possibly reallocates the (non-existing) destination buffer
                 // - this leads to memory errors such as "corrupted double-linked list"
                 //
+                // The reallocation of a non-existing buffer would lead to the error
+                // "realloc(): invalid pointer".
+                //
                 mtx_lock(m);
 
                 compare_integer_equal((void*) &r, ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -119,8 +118,6 @@ int accept_socket_request(void* p0, void* p1, void* p2, void* p3, void* p4, void
                     // The exit flag was NOT set in the main thread.
                     // Therefore, proceed normally.
                     //
-
-                    fwprintf(stdout, L"Debug: Accept socket request. DO process data. r: %i\n", r);
 
                     // The client entry.
                     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -136,7 +133,7 @@ int accept_socket_request(void* p0, void* p1, void* p2, void* p3, void* p4, void
                     // be negative or zero, but have at least a value of ONE.
                     //
                     allocate_array((void*) &e, (void*) CLIENT_ENTRY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
-                    fwprintf(stdout, L"Debug: Accept socket request. startup client e: %i\n", e);
+                    fwprintf(stdout, L"Debug: Accept socket request. client entry e: %i\n", e);
 
                     // Startup client entry.
                     startup_client(e, p3, p4, p5, p6, (void*) &c, (void*) &f, (void*) &e);
@@ -200,22 +197,6 @@ int accept_socket_request(void* p0, void* p1, void* p2, void* p3, void* p4, void
                     // not only the main programme thread, at any time.
                     //
                     enable_channel_client(e);
-
-                } else {
-
-                    //
-                    // The exit flag WAS SET in the main thread.
-                    // Therefore, do NOT process data here any longer.
-                    //
-                    // The reason is that data processing might require
-                    // reallocation of some destination arrays, which may
-                    // not exist anymore if the main thread deallocated them,
-                    // leading to the error "realloc(): invalid pointer".
-                    //
-                    // Reallocation may happen above, when adding a number to the client list item.
-                    //
-
-                    fwprintf(stdout, L"Debug: Accept socket request. Do NOT process data. r: %i\n", r);
                 }
 
                 // Unlock client list mutex.

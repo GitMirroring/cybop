@@ -139,7 +139,7 @@ void sense_socket_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                                 // Therefore, proceed normally.
                                 //
 
-                                fwprintf(stdout, L"Debug: Sense socket fragment. Copy local buffer. p3 as s: %s\n", (char*) p3);
+                                fwprintf(stdout, L"Debug: Sense socket fragment. append local buffer p3: %s\n", (char*) p3);
 
                                 // Copy local buffer content into destination buffer item.
                                 modify_item(p0, p3, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &n, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
