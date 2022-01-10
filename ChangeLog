@@ -18,10 +18,18 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-01-10  Christian Heller  <christian.heller@cybop.org>
+
+        * Test cybol application "www_server_dynamic" with language (protocol) "http_request" and "http_response"
+        * Hand over language (protocol) "message/http-request" to cybol operation "activate/enable"
+        * Add blank line termination deserialiser and -selector
+        * Make sure both, http message header and attachment count are added, in order to retrieve the correct message length
+        * Test cybol application "www_server_dynamic" with buffer size smaller than 1024
+
 2022-01-09  Christian Heller  <christian.heller@cybop.org>
 
         * Uncomment all parts of cybol application "socket_client" and make it work with both sending and receiving data
-        * Transfer unicode data- instead of image file, since binary language (protocol) breaks at cr + lf
+        * Replace png image with unicode data file to be transferred, since crlf is contained in image and interpreted as end of binary language (protocol) message
 
 2022-01-06  Christian Heller  <christian.heller@cybop.org>
 

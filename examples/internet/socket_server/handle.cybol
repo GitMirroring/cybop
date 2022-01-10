@@ -29,11 +29,6 @@
 
     <node name="receive_request" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
-<!--
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
--->
         <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".request"/>
         <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/>

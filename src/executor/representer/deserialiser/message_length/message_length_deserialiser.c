@@ -35,6 +35,7 @@
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/representer/deserialiser/binary_crlf_termination/binary_crlf_termination_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/blank_line_termination/blank_line_termination_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/ftp_line_end/ftp_line_end_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/http_request_content_length/http_request_content_length_deserialiser.c"
 #include "../../../../logger/logger.c"
@@ -59,10 +60,10 @@ void deserialise_message_length(void* p0, void* p1, void* p2, void* p3) {
     // in order to avoid race conditions and other conflicts.
     //
     //?? log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise message length.");
-    fwprintf(stdout, L"Debug: Deserialise message length. p0: %i\n", p0);
-    fwprintf(stdout, L"Debug: Deserialise message length. *p0: %i\n", *((int*) p0));
-    fwprintf(stdout, L"Debug: Deserialise message length. p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Deserialise message length. *p3: %i\n", *((int*) p3));
+    fwprintf(stdout, L"Debug: Deserialise message length. destination message length p0: %i\n", p0);
+    fwprintf(stdout, L"Debug: Deserialise message length. destination message length *p0: %i\n", *((int*) p0));
+    fwprintf(stdout, L"Debug: Deserialise message length. language (protocol) p3: %i\n", p3);
+    fwprintf(stdout, L"Debug: Deserialise message length. language (protocol) *p3: %i\n", *((int*) p3));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -93,7 +94,7 @@ void deserialise_message_length(void* p0, void* p1, void* p2, void* p3) {
 
             //
             // CAUTION! An http message (request or response) HEADER section
-            // is terminated by TWICE the suffix <cr> + <lf>.
+            // is terminated by a blank line, that is TWICE the suffix <cr> + <lf>.
             //
             // Additionally, the "Content-Length:" header MAY be given,
             // if the message contains a payload (appended data).
@@ -101,7 +102,7 @@ void deserialise_message_length(void* p0, void* p1, void* p2, void* p3) {
             // The SUM of both equals the size of the complete message.
             //
             // CAUTION! Whilst a GET request contains just the header section,
-            // a POST request will contain payload data, just as a response.
+            // a POST request will contain payload data, just like a response.
             //
 
             // The header length.
@@ -110,7 +111,7 @@ void deserialise_message_length(void* p0, void* p1, void* p2, void* p3) {
             int p = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
             // Determine header length.
-            deserialise_binary_crlf_termination((void*) &h, p1, p2);
+            deserialise_blank_line_termination((void*) &h, p1, p2);
             // Determine payload length.
             deserialise_http_request_content_length((void*) &p, p1, p2);
 
@@ -120,7 +121,7 @@ void deserialise_message_length(void* p0, void* p1, void* p2, void* p3) {
             //
             // Add header- and payload length.
             //
-            // CAUTION! Do NOT add them if they have not been found before,
+            // CAUTION! Do NOT add header length if it has not been found before,
             // since adding the default value of -1 would falsify the result.
             //
             if (h >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
@@ -128,17 +129,20 @@ void deserialise_message_length(void* p0, void* p1, void* p2, void* p3) {
                 //
                 // Copy header length.
                 //
-                // CAUTION! Do NOT add but rather copy header length,
+                // CAUTION! Do NOT add but rather COPY header length,
                 // since the destination message length is -1 by default
                 // and adding a value would falsify the result.
                 //
                 copy_integer(p0, (void*) &h);
-                // Add double <cr> + <lf> separator length.
-                calculate_integer_add(p0, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL);
 
                 if (p >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
+                    //
                     // Add payload length.
+                    //
+                    // CAUTION! Do NOT add payload length if it has not been found before,
+                    // since adding the default value of -1 would falsify the result.
+                    //
                     calculate_integer_add(p0, (void*) &p);
                 }
             }

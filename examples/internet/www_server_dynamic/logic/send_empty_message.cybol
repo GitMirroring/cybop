@@ -9,7 +9,7 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    <!-- Send text encapsulated as http-response. -->
+    <!-- Send empty text encapsulated as http-response. -->
     <node name="send_empty_message" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-response"/>

@@ -14,14 +14,20 @@
 Pipe
 ____
 
-        * Replace png image with other ascii data to be transferred, since crlf is contained in image and interpreted as end of message
-        * Test cybol applications "socket_server" and "socket_client" with both sending AND receiving data
+        * Test cybol applications socket_server and socket_client
+        * Uncomment (reactivate) adding of client to client list by call of function "modify_item" in file "request_socket_acceptor.c"
+        * Remove client socket from client list and timeout list when thread has been exited
+        * Close client socket on server side if exit flag was set, e.g. in file "socket_sensor.c"
+        * Call shutdown before close for socket?
+            shutdown(fd, SHUT_RDWR);
+            close(fd);
+        * Set timeout to zero so that the thread can detect it and exit? Or is it vice-versa and the thread shall reset the timeout within the exit process?
+        * Reflect about how to implement file "socket_awakener.c" called within exit process
+        * Think: the call of function "read_device" (using "ioctl" internally) was used in file "socket_sensor.c", to detect input on socket
+            --> that means, that output should be sendable to socket as well via "ioctl"
+            --> this could possibly be used for exiting the sensing thread !
 
-        * Make sure http message header AND attachment count are added, in order to retrieve the correct message length
-        * Test code changes that were done to hand over the language (protocol) to cybol operation "activate/enable", in cybol applications "socket_server" and "socket_client"
-
-        * Close client socket on server side if exit flag was set in file "socket_sensor.c"
-        * Remove client socket from client list and timeout list when having been closed
+        * ?? Remove superfluous files in directory "executor/sensor/socket/"
 
         * Replace "Test: " with "Debug: "
         * Replace "TEST" with ...
@@ -32,23 +38,12 @@ ____
         * Reflect about handling of filters in directory "executor/communicator/"
             * Is it not too complex?
             * Wouldn't it be more flexible to allow any number of filters (compression, enocding etc.)?
-            * In this case, the buffers used in communicator would be to static and inflexible
+            * In this case, the buffers used in communicator would be too static and inflexible
 
         * ?? [probably NOT necessary] ??
             Consider exit flag in file "interrupt_socket_sensor.c" and do NOT set irq if exit flag is set,
             since irq pipe might have been deallocated by main thread already
             therefore, lock pipe mutex AND socket mutex ??
-
-        * Hand over "http" to cybol operation "activator/enable" and to "communicate/receive"
-            cybol operation "receive" does not only hand over a property "channel", but also a "language" and "format"
-            these have to be used as protocol, e.g. "http", and can be handed over as argument inside cyboi
-
-        * Test cybol applications socket_server and socket_client
-        * Uncomment (reactivate) adding of client to client list by call of function "modify_item" in file "request_socket_acceptor.c"
-        * Set timeout to zero so that the thread can detect it and exit? Or is it vice-versa and the thread shall reset the timeout within the exit process?
-        * Reflect about how to implement file "socket_awakener.c" called within exit process
-        * Reactivate "exit" socket request in cybol application "socket_client" (as soon as socket thread exit works on socket server shutdown)
-
         * Check if deadlocks may occur when nesting the two mutexes in file "message_socket_sensor.c"
 
         * Filter out parametres with value "null" in file "inside_remove_modifier.c"
@@ -56,11 +51,8 @@ ____
         - hand over flag as cybol property for (not) considering the reference on "remove" ??
         - where are the inside parts like "uri" etc. allocated and added to the .request part ?? -- in the http deserialiser (parser) ?? how to handle the references then ??
 
-        * Adapt call of function "modify_item" so that count does not get considered
-            true and false are not working --> find another solution for using array like a random access file
-            ==> NO, better reallocate array itself at the place where needed, count does not matter, only size is important
-
-        * ?? Remove superfluous files in directory "executor/sensor/socket/"
+        * Find solution for using array like a random access file
+        * Use it as replacement for function "modify_item" when count and size do not have to be considered, since true and false are not working
 
         * Add description of working solution for input/output handling to design document in "doc/development/cyboi/design_decisions.txt"
         * Read client socket (id) from pipe in main thread, write it into io entry, so that next signal loop cycle calling handler with cybol receive can use the client socket id
@@ -71,22 +63,11 @@ ____
             startup is ok, now investigate activator/enabler.c --> where to place the input/output entry, one for EACH client?
             --> 3 threads are needed for: accept + read + timeout handling (sleep 1 s in between checking timeout)
 
-        * Call shutdown before close for socket?
-            shutdown(fd, SHUT_RDWR);
-            close(fd);
-
-        * Set exit flag (?? CAUTION! conflict or mutex with main thread) in child thread (in else branch) if one of the args is null?
-            --> use local break flag instead (additionally to exit flag)
-
         * Encapsulate function "read" with proper error handling and use it in sensors for serial port, terminal, socket
         * Temporarily for testing: Use terminal read function also for socket in "reader.c", since both are identical
         * Check and adapt includes for all channels
         * Make sensor for terminal, socket, display platform-independent
         * Reactivate file "sensor.c", in order to avoid redundant initialisation code in channel-specific sensors ??
-
-        * Think: the call of function "read_device" (using "ioctl" internally) was used in file "socket_sensor.c", to detect input on socket
-            --> that means, that output should be sendable to socket as well via "ioctl"
-            --> this could possibly be used for exiting the sensing thread !
 
         * Clean up further errors reported by valgrind
             error "uninitialised value" and call stack: shutdown_service --> disable_channel --> cut --> fwprintf

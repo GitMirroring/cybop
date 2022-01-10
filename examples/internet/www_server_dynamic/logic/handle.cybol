@@ -22,7 +22,6 @@
         <node name="destination" channel="inline" format="text/cybol-path" model=".request"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
-
     <node name="reset_request_properties" channel="inline" format="modify/empty" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".request"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -35,11 +34,11 @@
 
     <node name="receive_request" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <node name="port" channel="inline" format="number/integer" model="1971"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-request"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".request"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
         <node name="client" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
@@ -59,7 +58,6 @@
     </node>
 
     <!-- Write knowledge tree into file. -->
-<!--
     <node name="test_request" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -68,7 +66,6 @@
         <node name="message" channel="inline" format="text/cybol-path" model="."/>
         <node name="receiver" channel="inline" format="text/plain" model="test_www_server_dynamic_request.txt"/>
     </node>
--->
 
     <node name="evaluate_query" channel="inline" format="flow/branch" model="">
         <node name="criterion" channel="inline" format="text/cybol-path" model=".query_exists"/>
