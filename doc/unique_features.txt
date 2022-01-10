@@ -11,6 +11,7 @@ Alleinstellungsmerkmale:
 - Einheitliche Kommunikation: über alle Kanäle mittels simplen "send" und "receive"
 - Dynamische Programmierung: CYBOL kann seinen eigenen Code zur Laufzeit ändern
 - No-Code-Programmierung: Grafisches Modellierungswerkzeug denkbar, eventuell in CYBOL geschrieben
+- Schlüssel-Wert-Paare: vergleichbar Datenbank
 
 Öffentlichkeitsarbeit:
 - Vortrag auf Open Source Konferenz
