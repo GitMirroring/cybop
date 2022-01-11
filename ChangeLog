@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-01-11  Christian Heller  <christian.heller@cybop.org>
+
+        * Clean up file "request_socket_acceptor.c"
+
 2022-01-10  Christian Heller  <christian.heller@cybop.org>
 
         * Test cybol application "www_server_dynamic" with language (protocol) "http_request" and "http_response"

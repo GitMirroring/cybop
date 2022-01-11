@@ -140,9 +140,9 @@ void modify_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             //
             // The index is outside the array boundaries,
             // NOT before, but BEHIND the array.
-            // Therefore, NO elements are overwritten
-            // and oc may thus be set to zero here,
-            // in order to avoid errors below,
+            // Therefore, NO elements are overwritten and the
+            // overwritten elements count oc may thus be set
+            // to zero here, in order to avoid errors below,
             // due to the negative value.
             //
             oc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -173,26 +173,27 @@ void modify_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
                 calculate_integer_multiply((void*) &ns, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL);
 
                 // Make sure allocation size is at least one.
-                if (ns < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                if (ns > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                    fwprintf(stdout, L"Error: Could not modify overwrite. The new size is negative ns: %i\n", ns);
+                    //
+                    // Enlarge array using new destination size.
+                    //
+                    // CAUTION! Due to memory allocation handling, the size MUST NOT
+                    // be negative or zero, but have at least a value of ONE.
+                    //
+                    reallocate_array(p0, p7, (void*) &ns, p2);
+
+                    // Set new size.
+                    copy_integer(p8, (void*) &ns);
 
                 } else if (ns == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     fwprintf(stdout, L"Error: Could not modify overwrite. The new size is zero ns: %i\n", ns);
-//??                    ns = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+
+                } else if (ns < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                    fwprintf(stdout, L"Error: Could not modify overwrite. The new size is negative ns: %i\n", ns);
                 }
-
-                //
-                // Enlarge array using new destination size.
-                //
-                // CAUTION! Due to memory allocation handling, the size MUST NOT
-                // be negative or zero, but have at least a value of ONE.
-                //
-                reallocate_array(p0, p7, (void*) &ns, p2);
-
-                // Set new size.
-                copy_integer(p8, (void*) &ns);
             }
 
             //

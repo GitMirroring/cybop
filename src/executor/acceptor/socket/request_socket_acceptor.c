@@ -83,6 +83,15 @@ int accept_socket_request(void* p0, void* p1, void* p2, void* p3, void* p4, void
                 int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
                 // The comparison result.
                 int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+                // The client entry.
+                void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+                // The thread function.
+                void* f = (void*) &sense_socket;
+                // The identification.
+                //?? void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
+                // The destination data, size.
+                void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+                void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
                 // Accept client request on server socket.
                 fwprintf(stdout, L"Debug: Accept socket request. pre c: %i\n", c);
@@ -119,13 +128,6 @@ int accept_socket_request(void* p0, void* p1, void* p2, void* p3, void* p4, void
                     // Therefore, proceed normally.
                     //
 
-                    // The client entry.
-                    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-                    // The thread function.
-                    void* f = (void*) &sense_socket;
-                    // The identification.
-                    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
-
                     //
                     // Allocate client entry.
                     //
@@ -133,62 +135,73 @@ int accept_socket_request(void* p0, void* p1, void* p2, void* p3, void* p4, void
                     // be negative or zero, but have at least a value of ONE.
                     //
                     allocate_array((void*) &e, (void*) CLIENT_ENTRY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
-                    fwprintf(stdout, L"Debug: Accept socket request. client entry e: %i\n", e);
 
                     // Startup client entry.
                     startup_client(e, p3, p4, p5, p6, (void*) &c, (void*) &f, (void*) &e);
 
-                    // Get identification from client entry.
-                    copy_array_forward((void*) &id, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_CLIENT_STATE_CYBOI_NAME);
-                    // Copy client socket to become the client identification.
-                    copy_integer(id, (void*) &c);
+                    //
+                    // Get destination item data, size.
+                    //
+                    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+                    // Inside the structure, arrays may have been reallocated,
+                    // with elements pointing to different memory areas now.
+                    //
+                    copy_array_forward((void*) &d, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+                    copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
                     //
-                    // Set client entry into client list of input/output entry.
+                    // Why use function "modify_array" and NOT "modify_item" here?
                     //
-                    // CAUTION! Hand over the CLIENT SOCKET as DESTINATION INDEX.
+                    // CAUTION! Do NOT use the function "modify_item" with "append",
+                    // since it is far more efficient to store and access entries by index
+                    // than having to loop through and compare client identifications.
+                    //
+                    // CAUTION! Do NOT use the function "modify_item" with "overwrite", since it:
+                    // - either adjusts the count, so that client entries following behind get lost
+                    // - or does not adjust the count but then cannot grow in size for new entries.
+                    //
+                    // CAUTION! The destination array count does not really matter,
+                    // since the client list is used like a random access file.
+                    //
+                    // CAUTION! It suffices to store the client entry here, since the
+                    // client socket as identification is stored within the client entry.
+                    //
+
+                    //
+                    // Store client entry in client list of input/output entry.
+                    //
+                    // CAUTION! Hand over the CLIENT SOCKET c as DESTINATION INDEX.
                     // The client socket numbers are unique, so that they may be
                     // used as destination item array index, which is very efficient.
                     //
-                    // The unefficient alternative would be to loop through all
-                    // client entries and compare their identification with the
-                    // client socket, in order to get the correct client entry.
-                    // This is needed in read functions that have to access
-                    // the client entry's buffer.
-                    //
-                    // CAUTION! Do NOT adjust count of the destination array
-                    // when writing the client entry, since there may be
-                    // other client entries further behind.
-                    // However, the destination array count does not really matter,
-                    // since the client list is used like a random access file.
-                    //
-                    fwprintf(stdout, L"Debug: Accept socket request. modify_item e: %i\n", e);
-                    fwprintf(stdout, L"Debug: Accept socket request. modify_item c: %i\n", c);
-                    //?? modify_item(p0, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &c, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-                    // The destination data, size.
-                    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-                    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-                    // Get destination data, count, size.
-                    copy_array_forward((void*) &d, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-                    copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
-                    //
-                    // Modify destination data.
-                    //
-                    // CAUTION! Use s for both arguments: count AND size.
+                    // CAUTION! Use s for both arguments, count AND size.
                     //
                     modify_array((void*) &d, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &c, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, s, s, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+                    //
                     // Set data array as destination item element.
+                    //
+                    // CAUTION! This is necessary since the array may have been
+                    // reallocated above, so that the pointer now has a different address.
+                    //
                     copy_array_forward(p0, (void*) &d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DATA_ITEM_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
+/*??
             // The client list item data.
             void* test_cld = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The client entry.
             void* test_e = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The client socket id.
+            void* test_id = *NULL_POINTER_STATE_CYBOI_MODEL;
             copy_array_forward((void*) &test_cld, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
             fwprintf(stdout, L"Debug: Accept socket request. test_cld: %i\n", test_cld);
             // Get client entry using client socket number as source client list index.
             copy_array_forward((void*) &test_e, test_cld, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &c);
             fwprintf(stdout, L"Debug: Accept socket request. test_e: %i\n", test_e);
+            // Get client socket id.
+            copy_array_forward((void*) &test_id, test_e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_CLIENT_STATE_CYBOI_NAME);
+            fwprintf(stdout, L"Debug: Accept socket request. test_id: %i\n", test_id);
+            fwprintf(stdout, L"Debug: Accept socket request. *test_id: %i\n", *((int*) test_id));
+*/
 
                     //
                     // Create thread for new client socket.

@@ -14,27 +14,29 @@
 Pipe
 ____
 
-        * Uncomment (reactivate) adding of client to client list by call of function "modify_item" in file "request_socket_acceptor.c"
-        * Test with cybol applications "www_server_dynamic" or "socket_server" and "socket_client"
-        * Remove client socket from client list and timeout list when thread has been exited
+        * Unify handling of all channels in maintainer using server plus client list
+        * Clean up constants in file "input_output_state_cyboi_name.c"
         * Remove superfluous files in directory "executor/sensor/socket/"
-        * Sort constants in file "input_output_state_cyboi_name.c"
+
+        * Reactivate timeout handling for socket client requests
+        * Test with cybol applications "www_server_dynamic"
+        * Remove client socket from client list and timeout list when thread has been exited
         * Close client socket on server side if exit flag was set, e.g. in file "socket_sensor.c"
         * Call shutdown before close for socket?
             shutdown(fd, SHUT_RDWR);
             close(fd);
-        * Set timeout to zero so that the thread can detect it and exit? Or is it vice-versa and the thread shall reset the timeout within the exit process?
+        * Set timeout to zero so that the thread can detect it and exit?
+            Or is it vice-versa and the thread shall reset the timeout within the exit process?
         * Reflect about how to implement file "socket_awakener.c" called within exit process
-        * Think: the call of function "read_device" (using "ioctl" internally) was used in file "socket_sensor.c", to detect input on socket
+            --> best let cyboi send a message to itself via socket in order to exit
+        * alternative thought: the call of function "read_device" (using "ioctl" internally) was used in file "socket_sensor.c", to detect input on socket
             --> that means, that output should be sendable to socket as well via "ioctl"
             --> this could possibly be used for exiting the sensing thread !
+        * Problem: distinguish between sensing thread + accept thread
+            --> exiting sensing thread should be possible via sending a message to itself
+            --> how to exit the accept thread --> search or ask stackoverflow
 
-        * Overwrite variable with received data instead of appending in all deserialisers, to thereby eliminate the need for emptying variables in cybol before receiving new data
-
-        * Reflect about handling of filters in directory "executor/communicator/"
-            * Is it not too complex?
-            * Wouldn't it be more flexible to allow any number of filters (compression, enocding etc.)?
-            * In this case, the buffers used in communicator would be too static and inflexible
+        * Adapt all de-/serialisers in order to overwrite variable with received data instead of appending, to thereby eliminate the need for emptying variables in cybol before receiving new data
 
         * ?? [probably NOT necessary] ??
             Consider exit flag in file "interrupt_socket_sensor.c" and do NOT set irq if exit flag is set,
@@ -70,15 +72,6 @@ ____
             error "4 bytes in 1 blocks are definitely lost" and call stack: apply_startup --> startup_service --> startup_io --> allocate_array --> malloc
 
         * Eliminate superfluous signal loop and call processing directly after getting handler (signal) in file "empty_checker.c" ??
-
-        * Catch events properly in cybol application "user_interface/gui/"
-            events get identified correctly when being a property of the window
-            they do not get identified when belonging to an embedded area
-            check identification hierarchy along window tree
-        * See also file "gui_event_deserialiser.c"
-        * Loop reading display events, until array is empty
-        * Clear up: Is display_reader really needed or is gui_*_deserialiser sufficient?
-        * Adapt display input handling to new buffer and interrupt pipe
 
         * Loop reading terminal events, until array is empty
         * Move stdout and stdin to correct places for terminal-related files
@@ -367,6 +360,14 @@ _______
         * Store pipe file descriptors in input/output entry in file "io_starter.c", since it is more efficient than having to determine them with each pipe access
         * Use local arrays on stack in local context of functions instead of allocated arrays on heap, wherever possible
 
+Communication
+_____________
+
+        * Reflect about handling of filters in directory "executor/communicator/"
+            * Is it not too complex?
+            * Wouldn't it be more flexible to allow any number of filters (compression, enocding etc.)?
+            * In this case, the buffers used in communicator would be too static and inflexible
+
 WUI and Socket
 ______________
 
@@ -491,6 +492,15 @@ ___
 
 GUI
 ___
+
+        * Catch events properly in cybol application "user_interface/gui/"
+            events get identified correctly when being a property of the window
+            they do not get identified when belonging to an embedded area
+            check identification hierarchy along window tree
+        * See also file "gui_event_deserialiser.c"
+        * Loop reading display events, until array is empty
+        * Clear up: Is display_reader really needed or is gui_*_deserialiser sufficient?
+        * Adapt display input handling to new buffer and interrupt pipe
 
         CONTINUE:
         * Ignore parent coordinates of root window when calculating coordinates of inner elements since otherwise, these are wrongly indented

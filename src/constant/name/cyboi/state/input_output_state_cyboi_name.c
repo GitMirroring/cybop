@@ -33,7 +33,7 @@
 //
 
 //
-//?? THINK: Move to read/write client entry ??
+//?? THINK: Delete later and use those constants of the read/write client entry in order to unify handling for all channels ??
 //
 static int* BUFFER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_70_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 static int* MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_71_INTEGER_STATE_CYBOI_MODEL_ARRAY;
