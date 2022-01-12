@@ -14,20 +14,29 @@
 2022-01-11  Christian Heller  <christian.heller@cybop.org>
 
         * Unify handling of client requests for all channels, now consisting of accept and sense
-        * Add files "function_enabler.c", "startup_client_entry.c", "store_client_starter.c"
+        * Add files "function_enabler.c"
         * Add files "general_acceptor.c", "channel_acceptor.c", "loop_acceptor.c", "request_acceptor.c"
-        * Rewrite file "startup_client.c" as wrapper and move its content into "startup_client_entry.c"
         * Delete files "socket_acceptor.c", "request_socket_acceptor.c"
+        * Add files "entry_client_starter.c", "store_client_starter.c"
+        * Rewrite file "startup_client.c" as wrapper and move its content into "startup_client_entry.c"
+        * Add files "general_sensor.c", "channel_sensor.c", "loop_sensor.c", "request_sensor.c"
 
 Pipe
 ____
 
+        DONE:
+        * channel is already stored in io entry AND in client entry
+        HINT:
+        * "client_starter.c" calls "client_channel_enabler.c" (see there for thread spinner)
+        CONTINUE:
+        * Unify sense-functions similar to acceptor files --> distinguish by channel in order to define the correct thread sense function locally and hand it over to thread spinner
         * Replace thread function pointer "sense_socket" in file "request_acceptor.c"
         * Introduce function "accept_channel" used for all channels
         * Assign it as function pointer at startup in file "channel_starter.c" or better uniform for all channels "io_starter.c"
         * Call it in file "function_enabler.c"
         * Merge all sensing functions to just one (where function pointers are assigned at startup)
         * Delete: as result, neither accept- nor sense functions have to be stored in io/client entries anymore but can be used locally as function directly if the same for all channels ??
+        * Delete file "sensor.c"
 
         * Avoid allocating channel resources a second time if "startup" gets called a second time from cybol application
             --> check by if-clause
