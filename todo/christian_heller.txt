@@ -21,6 +21,11 @@
         * Rewrite file "startup_client.c" as wrapper and move its content into "startup_client_entry.c"
         * Add files "general_sensor.c", "channel_sensor.c", "loop_sensor.c", "request_sensor.c"
 
+Usability
+_________
+
+        * Entwickeln kleiner Anwendung in Java und CYBOL, zur Gegenüberstellung
+
 Pipe
 ____
 
