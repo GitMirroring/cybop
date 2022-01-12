@@ -45,6 +45,12 @@
         <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <!--
+            For the http response, the following headers are recommended:
+            - Date
+            - Server
+            - Content-Length
+            - Content-Type
+
             CAUTION! An "encoding" is NOT given when using the language "message/http-response",
             since it would cause the WHOLE http message to get encoded.
             But the http header should be ASCII (single-byte characters) only.
