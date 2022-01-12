@@ -44,6 +44,12 @@ _____________
 - Web-Anwendungen
 - Datenspeicher (Schlüssel-Wert-Paar-Prinzip)
 
+Produkt
+_______
+
+Unternehmensverwaltung (ERP-System)
+Entwurfswerkzeug (Baumstruktur)
+
 Öffentlichkeitsarbeit
 _____________________
 
@@ -61,4 +67,11 @@ _____________________
 - Aspektorientierte Programmierung (AOP) für Querschnittsaufgaben wie Logging
 - unflexible, starre, unveränderliche Klassengerüste
 - weitere Komplexität durch Meta Programming (Reflexion) für Änderungen am Typgerüst
+
+Doppelhierarchie
+________________
+
+- Ganzes-Teil-Struktur: WAS? (has-a)
+- Zusatzangaben: WIE? (is-of)
+--> Kategorie möglich über Teil in Zusatzangaben der WIE-Hierarchie (is-a)
 
