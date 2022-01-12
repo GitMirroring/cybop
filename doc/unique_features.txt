@@ -4,7 +4,28 @@ Unique Features
 
 CYBOP - An alternative Approach to Software Development
 
-Alleinstellungsmerkmale:
+Einführung
+__________
+
+Computer sind Rechenmaschinen, die wir Menschen für die unterschiedlichsten Zwecke einsetzen.
+
+Sie enthalten einen Teil ihrer Logik in Integrierten Schaltkreisen, auch genannt "Hardware",
+und einen anderen Teil ihrer Logik in Programmen, auch genannt "Software".
+
+Ein Hauptproblem heutiger Software ist ihre hohe Komplexität.
+Ich habe mit CYBOP eine universelle und flexible Datenstruktur entwickelt, um Wissen zu speichern.
+Sie ermöglicht es außerdem, auf einfache Weise über alle Kanäle zu kommunizieren.
+
+Diese Datenstruktur liegt als Konzept und funktionierender Prototyp in Form von Software vor.
+Sie könnte aber auch als Hardware realisiert werden, um jede Maschine universell programmierbar zu machen.
+
+Der Unterschied zu heutigen Programmiersprachen ist das Wissensmodell von CYBOP,
+welches auf einer simplen Hierarchie basiert und verwendet werden kann,
+um Raum und Zeit, also Zustände und Abläufe, zu speichern.
+
+Alleinstellungsmerkmale
+_______________________
+
 - Baumstruktur: wie in XML, aber mit einheitlichem Wortschatz/Vokabular für Zustände und Abläufe = Raum + Zeit
 - Meta-Eigenschaften: Doppelhierarchie zu jedem Knoten wie CSS in HTML-Knoten, aber nicht nur für WUI (Web), sondern auch GUI, TUI, Funktionen
 - Universelle Behälterstruktur: macht Klassen-Typ-Gerüste und Container-Frameworks obsolet
@@ -14,12 +35,16 @@ Alleinstellungsmerkmale:
 - No-Code-Programmierung: Grafisches Modellierungswerkzeug denkbar, eventuell in CYBOL geschrieben
 - Schlüssel-Wert-Paare: vergleichbar Datenbank
 
-Öffentlichkeitsarbeit:
+Öffentlichkeitsarbeit
+_____________________
+
 - Vortrag auf Open Source Konferenz
 - Video im Web (2malschauen)
 - Crowd Funding
 
-Herkömmliche Sprachen:
+Herkömmliche Sprachen
+_____________________
+
 - zu viel Durcheinander
 - verschiedene Syntax für Datenstrukturen und Funktionen
 - zusätzliche Syntax wie z. B. Annotationen
