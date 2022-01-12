@@ -35,6 +35,15 @@ _______________________
 - No-Code-Programmierung: Grafisches Modellierungswerkzeug denkbar, eventuell in CYBOL geschrieben
 - Schlüssel-Wert-Paare: vergleichbar Datenbank
 
+Anwendbarkeit
+_____________
+
+- Skriptsprache
+- Systemprogrammiersprache
+- Anwendungsentwicklung
+- Web-Anwendungen
+- Datenspeicher (Schlüssel-Wert-Paar-Prinzip)
+
 Öffentlichkeitsarbeit
 _____________________
 
