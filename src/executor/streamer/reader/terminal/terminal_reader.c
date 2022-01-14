@@ -26,8 +26,6 @@
 #ifndef TERMINAL_READER_SOURCE
 #define TERMINAL_READER_SOURCE
 
-#include <threads.h> // mtx_lock, mtx_unlock
-
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -38,6 +36,8 @@
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/locker/locker.c"
+#include "../../../../executor/locker/unlocker.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 
@@ -56,13 +56,14 @@ void read_terminal(void* p0, void* p1) {
     // The source wide character buffer item data, count.
     void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The mutex.
+    // The buffer mutex.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get source wide character buffer item from input/output entry.
     copy_array_forward((void*) &b, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get mutex from input/output entry.
+    // Get buffer mutex from input/output entry.
     copy_array_forward((void*) &m, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
     //
     // Get source wide character buffer item data, count.
     //
@@ -77,10 +78,13 @@ void read_terminal(void* p0, void* p1) {
     fwprintf(stdout, L"Debug: Read terminal. *bc: %i\n", *((int*) bc));
 
     // Lock mutex.
-    mtx_lock(m);
+    lock(m);
 
     // Append source wide character buffer data to destination item.
-    modify_item(p0, bd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, bc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    //?? modify_item(p0, bd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, bc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    // Decode multibyte character into wide character.
+    decode_utf_8(p0, bd, bc);
 
     //
     // CAUTION! Removing or emptying the source wide character buffer
@@ -90,7 +94,7 @@ void read_terminal(void* p0, void* p1) {
     //
 
     // Unlock mutex.
-    mtx_unlock(m);
+    unlock(m);
 }
 
 /* TERMINAL_READER_SOURCE */

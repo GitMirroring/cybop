@@ -11,11 +11,13 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-        //?? TODO: for terminal input (not socket):
-        // Decode multibyte character into wide character.
-        decode_utf_8(p0, p6, (void*) &n);
-        --> actually not necessary in sensor, possibly do this in reader or deserialiser
-
+        * Channel does not arrive in file "channel_opener.c", even though it has been assigned to io_entry --> check steps using log messages
+        * Make terminal input work again by implementing in reader file "terminal_reader.c":
+            // Decode multibyte character into wide character.
+            decode_utf_8(p0, p6, (void*) &n);
+            actually not necessary in sensor, but deserialiser already expects wide characters
+        * Make gui work again
+        * Make socket work again
         * Reactivate call of function "close_client" in file "fragment_socket_sensor.c"
 
         * Merge porter (file handling) into dispatcher
