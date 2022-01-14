@@ -26,61 +26,45 @@
 #ifndef SERIAL_PORT_SENSOR_SOURCE
 #define SERIAL_PORT_SENSOR_SOURCE
 
-#include <wchar.h>
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../logger/logger.c"
 
-#include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/sensor/serial_port/message_serial_port_sensor.c"
+#if defined(__linux__) || defined(__unix__)
+    #include "../../../executor/streamer/reader/basic/basic_reader.c"
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../../executor/streamer/reader/basic/basic_reader.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    //?? #include "../../../executor/sensor/win32_console/win32_console_sensor.c"
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
 
 /**
- * Senses serial port messages.
+ * Senses serial port message.
  *
- * @param p0 the internal memory data
+ * @param p0 the destination item
+ * @param p1 the source file descriptor (client socket number)
+ * @param p2 the character buffer data
+ * @param p3 the character buffer size
+ * @param p4 the destination item mutex
+ * @param p5 the exit flag
  */
-int sense_serial_port(void* p0) {
+void sense_serial_port(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    // CAUTION! DO NOT log this function call!
-    // This function is executed within a thread, but the
-    // logging is not guaranteed to be thread-safe and might
-    // cause unpredictable programme behaviour.
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense serial port.");
 
-/*??
-    // The file descriptor item.
-    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The file descriptor item data.
-    void* fd = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Get file descriptor item.
-//??    copy_array_forward((void*) &f, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FILE_DESCRIPTOR_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-
-    //
-    // Get file descriptor item data.
-    //
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    //
-    copy_array_forward((void*) &fd, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        //
-        // A break condition does not exist here because the loop
-        // is running neverendingly while sensing messages.
-        //
-        // The loop and this thread can only be exited by an external signal
-        // which is sent in the corresponding interrupt service function
-        // (situated in the applicator/interrupt/ directory)
-        // and processed in the system signal handler procedure
-        // (situated in the controller/checker.c module).
-        //
-
-        sense_serial_port_message(fd);
-    }
-*/
+    // Read data from terminal.
+#if defined(__linux__) || defined(__unix__)
+    read_basic(p0, p1, p2, p3, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL);
+#elif defined(__APPLE__) && defined(__MACH__)
+    read_basic(p0, p1, p2, p3, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    //?? sense_win32_console(p0, p1, p2, p3);
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
 }
 
 /* SERIAL_PORT_SENSOR_SOURCE */

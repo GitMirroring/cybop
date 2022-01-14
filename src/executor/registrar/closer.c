@@ -23,15 +23,14 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLOSER_SOURCE
-#define CLOSER_SOURCE
+#ifndef OLD_CLOSER_SOURCE
+#define OLD_CLOSER_SOURCE
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/maintainer/shutter/socket/close_socket_shutter.c"
 #include "../../executor/registrar/closer/display/io_display_closer.c"
 #include "../../logger/logger.c"
 
@@ -47,9 +46,9 @@
  * @param p1 the internal memory data
  * @param p2 the channel
  */
-void close_client(void* p0, void* p1, void* p2) {
+void close_client_old(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close old.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -66,19 +65,9 @@ void close_client(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) SOCKET_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            shutdown_socket_close(p0);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close. The channel is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close old. The channel is unknown.");
     }
 }
 
-/* CLOSER_SOURCE */
+/* OLD_CLOSER_SOURCE */
 #endif

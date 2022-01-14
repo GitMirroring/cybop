@@ -34,10 +34,14 @@ _______________________
 - Einheitliche Kommunikation: über alle Kanäle mittels simplen "send" und "receive"
 - No-Code-Programmierung: Grafisches Modellierungswerkzeug denkbar, eventuell in CYBOL geschrieben
 - Schlüssel-Wert-Paare: vergleichbar Datenbank
+- Betriebssystem: unabhängig von der Plattform
 
 Anwendbarkeit
 _____________
 
+CYBOP ist Grundlagenforschung zur Programmierung.
+
+Mögliche Einsatzgebiete sind:
 - Skriptsprache
 - Systemprogrammiersprache
 - Anwendungsentwicklung

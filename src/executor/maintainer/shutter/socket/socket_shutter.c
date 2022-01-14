@@ -32,8 +32,8 @@
 #include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/copier/array_copier.c"
-#include "../../../../executor/maintainer/shutter/socket/server/list_server_socket_shutter.c"
-#include "../../../../executor/maintainer/shutter/socket/close_socket_shutter.c"
+#include "../../../../executor/dispatcher/closer/socket/socket_closer.c"
+#include "../../../../executor/maintainer/shutter/socket/list_server_socket_shutter.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../logger/logger.c"
 
@@ -97,7 +97,7 @@ void shutdown_socket(void* p0) {
     // Shutdown client list.
     shutdown_socket_server_list(c, a);
     // Close server socket.
-    shutdown_socket_close(s);
+    close_socket(s);
 
     //
     // Finalisation.

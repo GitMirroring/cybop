@@ -11,29 +11,30 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-2022-01-11  Christian Heller  <christian.heller@cybop.org>
+        //?? TODO: for terminal input (not socket):
+        // Decode multibyte character into wide character.
+        decode_utf_8(p0, p6, (void*) &n);
+        --> actually not necessary in sensor, possibly do this in reader or deserialiser
 
-        * Unify handling of client requests for all channels, now consisting of accept and sense
-        * Add files "function_enabler.c"
-        * Add files "general_acceptor.c", "channel_acceptor.c", "loop_acceptor.c", "request_acceptor.c"
-        * Delete files "socket_acceptor.c", "request_socket_acceptor.c"
-        * Add files "entry_client_starter.c", "store_client_starter.c"
-        * Rewrite file "startup_client.c" as wrapper and move its content into "startup_client_entry.c"
-        * Add files "general_sensor.c", "channel_sensor.c", "loop_sensor.c", "request_sensor.c"
+        * Reactivate call of function "close_client" in file "fragment_socket_sensor.c"
 
-Usability
-_________
+        * Merge porter (file handling) into dispatcher
+        * Merge maintainer serial port opener into dispatcher
+        * Merge registrar (gui window handling) into dispatcher
 
-        * Entwickeln kleiner Anwendung in Java und CYBOL, zur Gegenüberstellung
+        * Add basic writer with proper error handling to directory "executor/streamer/writer/"
+        * Use wrapper function "write_basic" as replacement for existing calls of glibc function "write", e.g. in file "interrupt_sensor.c"
+
+        * Think about how to avoid creating a second thread with identical function, if e.g. cybol operation "activator/enable" is called twice
+        * Investigate line with default thread id (is it initialised at startup?) in file "spinner.c":
+            int r = thrd_equal(DEFAULT_THREAD_IDENTIFICATION, *t);
+        * Eliminate or keep global variables like "DEFAULT_THREAD_IDENTIFICATION" in files "variable/thread_identification.c" and "controller/globaliser/thread_identification_globaliser.c"
+        * Initialise thread with correct value in file "io_starter.c" where currently zero is assigned:
+            copy_integer(t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
 Pipe
 ____
 
-        DONE:
-        * channel is already stored in io entry AND in client entry
-        HINT:
-        * "client_starter.c" calls "client_channel_enabler.c" (see there for thread spinner)
-        CONTINUE:
         * Unify sense-functions similar to acceptor files --> distinguish by channel in order to define the correct thread sense function locally and hand it over to thread spinner
         * Replace thread function pointer "sense_socket" in file "request_acceptor.c"
         * Introduce function "accept_channel" used for all channels
@@ -50,7 +51,7 @@ ____
         * Clean up constants in file "input_output_state_cyboi_name.c"
         * Remove superfluous files in directory "executor/sensor/socket/"
 
-        * Reactivate timeout handling for socket client requests
+        * Reactivate timeout handling for socket client requests -- see files "timeout_socket_sensor.c", "check_timeout_socket_sensor.c"
         * Test with cybol applications "www_server_dynamic"
         * Remove client socket from client list and timeout list when thread has been exited
         * Close client socket on server side if exit flag was set, e.g. in file "socket_sensor.c"
@@ -92,12 +93,6 @@ ____
             1 service port - n clients
             startup is ok, now investigate activator/enabler.c --> where to place the input/output entry, one for EACH client?
             --> 3 threads are needed for: accept + read + timeout handling (sleep 1 s in between checking timeout)
-
-        * Encapsulate function "read" with proper error handling and use it in sensors for serial port, terminal, socket
-        * Temporarily for testing: Use terminal read function also for socket in "reader.c", since both are identical
-        * Check and adapt includes for all channels
-        * Make sensor for terminal, socket, display platform-independent
-        * Reactivate file "sensor.c", in order to avoid redundant initialisation code in channel-specific sensors ??
 
         * Clean up further errors reported by valgrind
             error "uninitialised value" and call stack: shutdown_service --> disable_channel --> cut --> fwprintf
@@ -284,6 +279,7 @@ ____________
         * Point out basic design principles (hierarchy)
         * Propose mime type extension for operations to w3c (see cyboi format constants)
         * Show various possible syntax representations of cybol (xml, json, no markers at all with just space, table)
+        * Entwickeln kleiner Anwendung in Java und CYBOL, zur Gegenüberstellung
 
 FIFO (Named Pipe)
 _________________

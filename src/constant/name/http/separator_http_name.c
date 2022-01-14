@@ -27,11 +27,14 @@
 #define SEPARATOR_HTTP_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
+//
 // CAUTION! Use Carriage Return (CR) AND Line Feed (LF) characters to break lines!
 // This is defined so by the Hypertext Transfer Protocol (HTTP).
+//
 
 //
 // Request response line.

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SOCKET_OPENER_SOURCE
-#define SOCKET_OPENER_SOURCE
+#ifndef OLD_SOCKET_OPENER_SOURCE
+#define OLD_SOCKET_OPENER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -57,9 +57,9 @@
  * @param p10 the host address count
  * @param p11 the port
  */
-void open_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void open_socket_old(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket old.");
 
     // The protocol family (socket namespace).
     int pf = *UNSPEC_PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME;
@@ -95,5 +95,5 @@ void open_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     free(ad);
 }
 
-/* SOCKET_OPENER_SOURCE */
+/* OLD_SOCKET_OPENER_SOURCE */
 #endif

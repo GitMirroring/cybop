@@ -28,26 +28,13 @@
 
 #include <stdio.h>
 
-/*??
-#if defined(__linux__) || defined(__unix__)
-    #include <termios.h>
-#elif defined(__APPLE__) && defined(__MACH__)
-    #include <termios.h>
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-    // Not needed
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
-*/
-
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/dispatcher/closer/basic/basic_closer.c"
 #include "../../../../executor/maintainer/shutter/serial_port/attributes_serial_port_shutter.c"
-#include "../../../../executor/maintainer/shutter/serial_port/close_serial_port_shutter.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -114,7 +101,7 @@ void shutdown_serial_port(void* p0) {
             log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port. The serial port file descriptor is zero or negative.");
         }
 
-        shutdown_serial_port_close(spd);
+        close_basic(spd);
 
         // Deallocate serial port file descriptor item.
         deallocate_item((void*) &sp, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);

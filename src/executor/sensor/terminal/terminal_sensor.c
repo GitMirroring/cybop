@@ -30,9 +30,9 @@
 #include "../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../executor/sensor/unix_terminal/unix_terminal_sensor.c"
+    #include "../../../executor/streamer/reader/basic/basic_reader.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../executor/sensor/unix_terminal/unix_terminal_sensor.c"
+    #include "../../../executor/streamer/reader/basic/basic_reader.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../../executor/sensor/win32_console/win32_console_sensor.c"
@@ -41,33 +41,24 @@
 #endif
 
 /**
- * Senses terminal messages.
+ * Senses terminal message.
  *
- * @param p0 the data available flag
- * @param p1 the interrupt request
- * @param p2 the mutex
- * @param p3 the input/output entry
+ * @param p0 the destination item
+ * @param p1 the source file descriptor (client socket number)
+ * @param p2 the character buffer data
+ * @param p3 the character buffer size
+ * @param p4 the destination item mutex
+ * @param p5 the exit flag
  */
-void sense_terminal(void* p0, void* p1, void* p2, void* p3) {
+void sense_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense terminal.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense terminal.");
 
+    // Read data from terminal.
 #if defined(__linux__) || defined(__unix__)
-    //
-    // CAUTION! Do NOTHING here.
-    //
-    // Data input detection (sensing) gets activated in file
-    // "channel_enabler.c" using the following function "spin".
-    // The corresponding thread function is determined in file "starter.c".
-    //
+    read_basic(p0, p1, p2, p3, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL);
 #elif defined(__APPLE__) && defined(__MACH__)
-    //
-    // CAUTION! Do NOTHING here.
-    //
-    // Data input detection (sensing) gets activated in file
-    // "channel_enabler.c" using the following function "spin".
-    // The corresponding thread function is determined in file "starter.c".
-    //
+    read_basic(p0, p1, p2, p3, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
     sense_win32_console(p0, p1, p2, p3);

@@ -30,14 +30,8 @@
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../executor/acceptor/socket/socket_acceptor.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/copier/integer_copier.c"
-#include "../../executor/copier/pointer_copier.c"
-#include "../../executor/sensor/serial_port/serial_port_sensor.c"
-//?? #include "../../executor/sensor/socket/socket_sensor.c"
-#include "../../executor/sensor/unix_terminal/unix_terminal_sensor.c"
-#include "../../executor/sensor/xcb/xcb_sensor.c"
 #include "../../logger/logger.c"
 
 /**
@@ -71,10 +65,10 @@ void startup_channel(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            void* f = (void*) &sense_xcb;
+            //?? void* f = (void*) &sense_xcb;
 
             copy_integer(p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            copy_pointer(p1, (void*) &f);
+            //?? copy_pointer(p1, (void*) &f);
         }
     }
 
@@ -84,10 +78,10 @@ void startup_channel(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            void* f = (void*) &sense_serial_port;
+            //?? void* f = (void*) &sense_serial_port;
 
             copy_integer(p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            copy_pointer(p1, (void*) &f);
+            //?? copy_pointer(p1, (void*) &f);
         }
     }
 
@@ -98,10 +92,10 @@ void startup_channel(void* p0, void* p1, void* p2) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //?? void* f = (void*) &sense_socket;
-            void* f = (void*) &accept_socket;
+            //?? void* f = (void*) &accept_socket;
 
             copy_integer(p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            copy_pointer(p1, (void*) &f);
+            //?? copy_pointer(p1, (void*) &f);
         }
     }
 
@@ -111,10 +105,10 @@ void startup_channel(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            void* f = (void*) &sense_unix_terminal;
+            //?? void* f = (void*) &sense_unix_terminal;
 
             copy_integer(p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            copy_pointer(p1, (void*) &f);
+            //?? copy_pointer(p1, (void*) &f);
         }
     }
 

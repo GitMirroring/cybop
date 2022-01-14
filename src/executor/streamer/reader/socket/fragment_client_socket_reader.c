@@ -36,7 +36,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/maintainer/shutter/socket/close_socket_shutter.c"
+#include "../../../../executor/dispatcher/closer/socket/socket_closer.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 
@@ -110,7 +110,7 @@ void read_socket_client_fragment(void* p0, void* p1, void* p2, void* p3) {
                         // Close the server socket on this client side,
                         // since the server side has closed its connexion.
                         //
-                        shutdown_socket_close(p1);
+                        close_socket(p1);
                     }
 
                     // Copy local buffer content into destination buffer item.

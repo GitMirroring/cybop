@@ -26,180 +26,82 @@
 #ifndef FRAGMENT_SOCKET_SENSOR_SOURCE
 #define FRAGMENT_SOCKET_SENSOR_SOURCE
 
-#include <stddef.h> // size_t
-#include <threads.h> // mtx_t, mtx_lock, mtx_unlock
-#include <unistd.h> // read
-
-#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../executor/modifier/item_modifier.c"
+#include "../../../executor/dispatcher/closer/socket/socket_closer.c"
+#include "../../../executor/dispatcher/closer/client_closer.c"
+#include "../../../executor/sensor/socket/server_socket_sensor.c"
+#include "../../../executor/streamer/reader/basic/basic_reader.c"
 #include "../../../logger/logger.c"
+
+//
+// Maximum Size of Transferable Data:
+//
+// 1 Stream sockets:
+//
+// One can send (by definition) an unlimited amount of data.
+// If it cannot all be buffered or sent at once or if the
+// receiver cannot receive it all at once, the send will:
+//
+// - for blocking sockets: block or return a partial count of bytes written
+// - for nonblocking sockets: return the EAGAIN error
+//
+// 2 Datagram sockets:
+//
+// - UDPv4: supports only 65536 bytes per datagram
+// - UDPv6: supports much more
+// - UNIX domain sockets: probably support still more
+//
+// https://unix.stackexchange.com/questions/38043/size-of-data-that-can-be-written-to-read-from-sockets
+//
+
+//
+// CAUTION! Considering byte order conversion from/to network byte order
+// is NOT necessary here, since the message data already have been
+// serialised properly into single characters before.
+//
 
 /**
  * Senses a socket message fragment.
  *
- * @param p0 the destination buffer item
- * @param p1 the source identification (client socket number)
- * @param p2 the client socket mutex (destination buffer item)
- * @param p3 the local character buffer data
- * @param p4 the local character buffer count
+ * @param p0 the destination item
+ * @param p1 the source file descriptor (client socket number)
+ * @param p2 the character buffer data
+ * @param p3 the character buffer size
+ * @param p4 the destination item mutex
  * @param p5 the exit flag
+ * @param p6 the client mode (true if reading as client from server socket; false otherwise)
  */
-void sense_socket_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void sense_socket_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket fragment.");
+    fwprintf(stdout, L"Debug: Sense socket fragment. p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Sense socket fragment. *p1: %i\n", *((int*) p1));
 
-        int* bc = (int*) p4;
+    // The close flag.
+    int c = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // Read data from socket.
+    read_basic(p0, p1, p2, p3, p4, p5, (void*) &c);
 
-            if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (c != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                mtx_t* m = (mtx_t*) p2;
+        //
+        // The close flag was set.
+        //
 
-                if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        // Cleanup resources.
+        //?? close_client(p0, p1, p2, p3, p4, p5, p6, p7, p8);
 
-                    int* s = (int*) p1;
+        //
+        // Close the client socket on this server side,
+        // since the client side has closed its connexion.
+        //
+        close_socket(p1);
 
-                    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                        //
-                        // CAUTION! Do NOT log messages within thread,
-                        // in order to avoid race conditions and other conflicts.
-                        //
-                        // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket fragment.");
-                        fwprintf(stdout, L"Debug: Sense socket fragment. s: %i\n", s);
-                        fwprintf(stdout, L"Debug: Sense socket fragment. *s: %i\n", *((int*) s));
-
-                        // Cast buffer size to correct type.
-                        size_t bct = (size_t) *bc;
-
-                        //
-                        // Read data from socket.
-                        //
-                        // CAUTION! Using the function "recv" is NOT necessary,
-                        // since its flags argument (fourth one) would be zero,
-                        // because no special options are needed.
-                        // Therefore, the function "read" suffices here.
-                        //
-                        // The function "read" is BLOCKING by default.
-                        // So, there is NO reason to set the blocking mode
-                        // manually using the functions "ioctl" or "setsockopt".
-                        //
-                        // Do NOT set the option MSG_WAITALL, which requests
-                        // the operation to block until all data have been received.
-                        // It is impossible to predict the size of the incoming data,
-                        // so that it is not clear how big the buffer array shall be.
-                        // Therefore, call "read" in a loop until no more data are available.
-                        //
-                        fwprintf(stdout, L"Debug: Sense socket fragment. bct: %i\n", bct);
-                        fwprintf(stdout, L"Debug: Sense socket fragment. Waiting for input/output on client socket: %i\n", *s);
-                        int n = read(*s, p3, bct);
-                        fwprintf(stdout, L"Debug: Sense socket fragment. n: %i\n", n);
-
-                        if (n > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                            // The comparison result.
-                            int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-                            //
-                            // Lock socket mutex.
-                            //
-                            // CAUTION! Set this lock BEFORE comparing with the exit flag below
-                            // since otherwise, a race condition might occur.
-                            //
-                            // Example:
-                            // - the exit flag is not set
-                            // - the sensing child thread enters the block with r != 0
-                            // - the main thread receives some shutdown cybol operation
-                            // - the main thread sets the exit flag only now
-                            // - the main thread shuts down and deallocates the destination buffer
-                            // - the sensing child thread decodes characters
-                            // - the sensing child thread possibly reallocates the (non-existing) destination buffer
-                            // - this leads to memory errors such as "corrupted double-linked list"
-                            //
-                            // The reallocation of a non-existing buffer would lead to the error
-                            // "realloc(): invalid pointer".
-                            //
-                            mtx_lock(m);
-
-                            compare_integer_equal((void*) &r, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-                            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                                //
-                                // The exit flag was NOT set in the main thread.
-                                // Therefore, proceed normally.
-                                //
-
-                                fwprintf(stdout, L"Debug: Sense socket fragment. append local buffer p3: %s\n", (char*) p3);
-
-                                // Copy local buffer content into destination buffer item.
-                                modify_item(p0, p3, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &n, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-                            }
-
-                            // Unlock socket mutex.
-                            mtx_unlock(m);
-
-                        } else if (n == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                            //
-                            // A return value of ZERO means the other end (peer, client)
-                            // CLOSED the socket connexion. It never means there was no data.
-                            // - blocking mode: "read" will block
-                            // - non-blocking mode: it will return -1 if there is no data
-                            //   with errno set to EAGAIN or EWOULDBLOCK, depending on the platform
-                            //
-                            // https://stackoverflow.com/questions/12773509/read-is-not-blocking-in-socket-programming
-                            //
-
-                            //
-                            // Close the client socket on this server side,
-                            // since the client side has closed its connexion.
-                            //
-                            copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-                        } else {
-
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket fragment. The return value of function read is negative.");
-                            fwprintf(stdout, L"Error: Could not sense socket fragment. The return value of function read is negative. n: %i\n", n);
-                        }
-
-                    } else {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket fragment. The destination buffer item is null.");
-                        fwprintf(stdout, L"Error: Could not sense socket fragment. The destination buffer item is null. p0: %i\n", p0);
-                    }
-
-                } else {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket fragment. The source identification is null.");
-                    fwprintf(stdout, L"Error: Could not sense socket fragment. The source identification is null. p1: %i\n", p1);
-                }
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket fragment. The client socket mutex is null.");
-                fwprintf(stdout, L"Error: Could not sense socket fragment. The client socket mutex is null. p2: %i\n", p2);
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket fragment. The local character buffer data is null.");
-            fwprintf(stdout, L"Error: Could not sense socket fragment. The local character buffer data is null. p3: %i\n", p3);
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense socket fragment. The local character buffer count is null.");
-        fwprintf(stdout, L"Error: Could not sense socket fragment. The local character buffer count is null. p4: %i\n", p4);
+        // Set client thread exit flag if server socket.
+        sense_socket_server(p5, p6);
     }
 }
 

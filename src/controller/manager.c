@@ -42,6 +42,7 @@
 #include "../controller/manager/system_signal_handler_startup_manager.c"
 #include "../controller/initialiser.c"
 #include "../executor/copier/array_copier.c"
+#include "../executor/dispatcher/closer/basic/basic_closer.c"
 #include "../executor/maintainer/shutter/display/display_shutter.c"
 #include "../executor/maintainer/shutter/opengl/opengl_shutter.c"
 #include "../executor/maintainer/shutter/serial_port/serial_port_shutter.c"
@@ -51,7 +52,6 @@
 #include "../executor/memoriser/allocator/array_allocator.c"
 #include "../executor/memoriser/deallocator/array_deallocator.c"
 #include "../executor/modifier/part_modifier.c"
-#include "../executor/porter/file_stream_closer.c"
 #include "../logger/logger.c"
 #include "../variable/type_size/integral_type_size.c"
 #include "../variable/type_size/real_type_size.c"
@@ -302,8 +302,8 @@ void manage(void* p0) {
     copy_array_forward((void*) &wd, p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
     // Close read/write interrupt pipe file descriptors.
-    shutdown_unix_file_descriptor_close((void*) &rd);
-    shutdown_unix_file_descriptor_close((void*) &wd);
+    close_basic((void*) &rd);
+    close_basic((void*) &wd);
 
     //
     // CAUTION! Do NOT REMOVE any internal memory internals!

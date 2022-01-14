@@ -18,6 +18,16 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-01-14  Christian Heller  <christian.heller@cybop.org>
+
+        * Unify handling of communication client requests, now consisting of accept and sense for all channels
+        * Add, move, delete a greater number of communication-related files due to this restructuring
+        * Adapt directories "maintainer", "activator", "acceptor", "sensor"
+        * Add basic reader with proper error handling to directory "executor/streamer/reader/"
+        * Add directory "executor/locker/" for locking and unlocking a mutex
+        * Add directory "dispatcher" summarising opener (former "acceptor") and closer (discarder)
+        * Merge maintainer opener and shutter client-related functions into dispatcher (file, serial port, terminal)
+
 2022-01-10  Christian Heller  <christian.heller@cybop.org>
 
         * Test cybol application "www_server_dynamic" with language (protocol) "http_request" and "http_response"

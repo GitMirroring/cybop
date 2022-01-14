@@ -145,9 +145,9 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // The thread identification.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The thread function.
-    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //?? void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The function argument.
-    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //?? void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The exit flag.
     void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -196,14 +196,14 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     //
-    allocate_array((void*) &f, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
+    //?? allocate_array((void*) &f, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
     //
     // Allocate function argument.
     //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     //
-    allocate_array((void*) &a, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
+    //?? allocate_array((void*) &a, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
     //
     // Allocate exit flag.
     //
@@ -240,13 +240,13 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     //
     // CAUTION! Hand over function as pointer REFERENCE.
     //
-    copy_pointer(f, p4);
+    //?? copy_pointer(f, p4);
     //
     // Initialise function argument.
     //
     // CAUTION! Hand over input/output entry itself, but as pointer REFERENCE.
     //
-    copy_pointer(a, p5);
+    //?? copy_pointer(a, p5);
     // Initialise exit flag.
     copy_integer(ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
@@ -283,9 +283,9 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // Set thread identification into input/output entry.
     copy_array_forward(p0, (void*) &t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set thread function into input/output entry.
-    copy_array_forward(p0, (void*) &f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FUNCTION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    //?? copy_array_forward(p0, (void*) &f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FUNCTION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set function argument into input/output entry.
-    copy_array_forward(p0, (void*) &a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ARGUMENT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    //?? copy_array_forward(p0, (void*) &a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ARGUMENT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set exit flag into input/output entry.
     copy_array_forward(p0, (void*) &ex, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EXIT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }

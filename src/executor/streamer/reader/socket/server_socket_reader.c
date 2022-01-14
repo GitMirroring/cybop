@@ -26,8 +26,6 @@
 #ifndef SERVER_SOCKET_READER_SOURCE
 #define SERVER_SOCKET_READER_SOURCE
 
-#include <threads.h> // mtx_t, mtx_lock, mtx_unlock
-
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -43,8 +41,10 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/getter/internal_memory_getter.c"
 #include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/locker/locker.c"
+#include "../../../../executor/locker/unlocker.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../executor/sensor/socket/completeness_check_socket_sensor.c"
+#include "../../../../executor/sensor/completeness_sensor.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -55,8 +55,9 @@
  * @param p2 the internal memory data
  * @param p3 the socket port
  * @param p4 the language (protocol)
+ * @param p5 the channel
  */
-void read_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void read_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read socket server.");
     fwprintf(stdout, L"Debug: Read socket server. p1: %i\n", p1);
@@ -75,8 +76,8 @@ void read_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* bs = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The mutex.
-    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The buffer mutex.
+    void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
     //
     // The message length.
     //
@@ -99,13 +100,9 @@ void read_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4) {
     fwprintf(stdout, L"Debug: Read socket server. e: %i\n", e);
     // Get buffer item from client entry.
     copy_array_forward((void*) &b, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_MESSAGE_CLIENT_STATE_CYBOI_NAME);
-    // Get mutex from client entry.
-    copy_array_forward((void*) &m, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_MESSAGE_CLIENT_STATE_CYBOI_NAME);
-    fwprintf(stdout, L"Debug: Read socket server. m: %i\n", m);
-    fwprintf(stdout, L"Debug: Read socket server. *m: %i\n", *((int*) m));
+    // Get buffer mutex from client entry.
+    copy_array_forward((void*) &bm, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_MESSAGE_CLIENT_STATE_CYBOI_NAME);
 
-    // The mutex with correct type.
-    mtx_t* mt = (mtx_t*) m;
     // The complete flag.
     int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -117,7 +114,7 @@ void read_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // appends data to the buffer, a new data array with bigger size might get allocated.
     // In order to get the correct data array here, the lock has to be set before.
     //
-    mtx_lock(mt);
+    lock(bm);
 
     //
     // Get buffer item data, count, size.
@@ -137,7 +134,7 @@ void read_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //?? TEST END
 
     // Check for length prefix and end suffix.
-    sense_socket_check_completeness((void*) &f, (void*) &ml, b, p4);
+    sense_completeness((void*) &f, (void*) &ml, b, p4, p5);
 
     fwprintf(stdout, L"Debug: Read socket server. f: %i\n", f);
     fwprintf(stdout, L"Debug: Read socket server. ml: %i\n", ml);
@@ -183,7 +180,7 @@ void read_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4) {
     }
 
     // Unlock mutex.
-    mtx_unlock(mt);
+    unlock(bm);
 }
 
 /* SERVER_SOCKET_READER_SOURCE */

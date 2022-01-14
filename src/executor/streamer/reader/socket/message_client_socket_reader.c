@@ -27,7 +27,7 @@
 #define MESSAGE_CLIENT_SOCKET_READER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../executor/sensor/socket/completeness_check_socket_sensor.c"
+#include "../../../../executor/sensor/socket/completeness_socket_sensor.c"
 #include "../../../../executor/streamer/reader/socket/fragment_client_socket_reader.c"
 #include "../../../../logger/logger.c"
 
@@ -52,7 +52,7 @@ void read_socket_client_message(void* p0, void* p1, void* p2, void* p3, void* p4
     read_socket_client_fragment(p0, p1, p2, p3);
 
     // Check for length prefix and end suffix.
-    sense_socket_check_completeness(p6, p5, p0, p4);
+    sense_socket_completeness(p6, p5, p0, p4);
 }
 
 /* MESSAGE_CLIENT_SOCKET_READER_SOURCE */

@@ -29,11 +29,15 @@
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/internal_memory_getter.c"
+#include "../../executor/activator/function_enabler.c"
 #include "../../executor/copier/array_copier.c"
-#include "../../executor/copier/integer_copier.c"
-#include "../../executor/threader/spinner.c"
+#include "../../executor/copier/pointer_copier.c"
+#include "../../executor/dispatcher/opener/opener.c"
 #include "../../logger/logger.c"
 
 /**
@@ -45,13 +49,13 @@
  * @param p3 the handler part (pointer reference)
  * @param p4 the sender client data (pointer reference, e.g. client socket id, window id, file descriptor)
  * @param p5 the language (pointer reference, protocol)
+ * @param p6 the channel
  */
-void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable channel.");
-    fwprintf(stdout, L"Debug: Enable channel. port p2: %i\n", p2);
-    //?? CAUTION! Uncomment only for socket test since otherwise, the id is null.
-    //?? fwprintf(stdout, L"Debug: Enable channel. port *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Enable channel. language p5: %i\n", p5);
+    fwprintf(stdout, L"Debug: Enable channel. language *p5: %i\n", *((int*) p5));
 
     // The input/output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -71,16 +75,20 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
         // The thread identification.
         void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The thread function.
-        void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
+        //?? void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The function argument.
-        void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+        //?? void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The actual thread function.
+        //?? void* ff = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The actual function argument.
+        //?? void* aa = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get thread identification from input/output entry.
         copy_array_forward((void*) &t, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Get thread function from input/output entry.
-        copy_array_forward((void*) &f, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FUNCTION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        //?? copy_array_forward((void*) &f, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FUNCTION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Get function argument from input/output entry.
-        copy_array_forward((void*) &a, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ARGUMENT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        //?? copy_array_forward((void*) &a, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ARGUMENT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         // Set handler into input/output entry.
         copy_array_forward(io, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
@@ -88,26 +96,20 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
         copy_array_forward(io, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SENDER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Set language (protocol) into input/output entry.
         copy_array_forward(io, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) LANGUAGE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        // Set channel into input/output entry.
+        copy_array_forward(io, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CHANNEL_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-        if (f != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        // Extract actual thread function from pointer array.
+        //?? copy_pointer((void*) &ff, f);
+        // Extract actual function argument from pointer array.
+        //?? copy_pointer((void*) &aa, a);
 
-            //
-            // A sensing function exists.
-            //
+        //?? TODO: Better local function than that from input/output entry?
+        void* f = (void*) &open_general;
 
-            // The actual thread function.
-            void* ff = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The actual function argument.
-            void* aa = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-            // Extract actual thread function from pointer array.
-            copy_pointer((void*) &ff, f);
-            // Extract actual function argument from pointer array.
-            copy_pointer((void*) &aa, a);
-
-            // Create thread and invoke sensing function.
-            spin(t, ff, aa);
-        }
+        // Handle requests arriving via channel.
+        //?? enable_function(t, ff, aa, p6);
+        enable_function(t, f, io, p6);
 
     } else {
 
