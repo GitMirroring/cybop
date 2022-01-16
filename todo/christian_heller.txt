@@ -11,6 +11,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+        * Schreibe in Kommentar im Quelltext: sensor + reader mit Buffer 1024 ok
+            --> completeness funktion kann schon bei 1 empfangenen Byte auf TRUE gesetzt werden, da keine ESCAPE-Sequenz größer als 1024 Byte ist
+        * Prüfe utf-8 Konvertierung: schon in communicator/receiver.c converter?? falls ja, dann nicht nochmal in reader (für Terminal)
+
         * Channel does not arrive in file "channel_opener.c", even though it has been assigned to io_entry --> check steps using log messages
         * Make terminal input work again by implementing in reader file "terminal_reader.c":
             // Decode multibyte character into wide character.
@@ -271,6 +275,14 @@ ____
         * Use anonymous pipe as irq i/o message queue
 
         * Eliminate cybol property "blocking" from startup and shutdown, but only for server socket, NOT client socket
+
+Android
+_______
+
+        * Search in web:
+            - no glibc on Android, but special libc called "Bionic"
+            - Android Native Development Kit (NDK)
+            - how to draw on a canvas ?? windowing system?
 
 Presentation
 ____________
@@ -672,6 +684,10 @@ ______________
 
 Worker Threads
 ______________
+
+        * Add cybol property "asynchronous" for at least "communicate/send" or possibly for ALL cybol operations ??
+            together with property "handler" (see "activate/enable") whose function is called in a separate thread (like a callback in JavaScript);
+            handler may be empty (null) if "send" is to be executed but NO reaction expected
 
         * See: web search for "node.js c++ event-driven" delivered the following, including very useful diagrams:
             http://stackoverflow.com/questions/36491385/how-is-asynchronous-javascript-interpreted-and-executed-in-node-js
