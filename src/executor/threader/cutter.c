@@ -48,6 +48,8 @@ void cut(void* p0) {
         thrd_t* t = (thrd_t*) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cut.");
+        fwprintf(stdout, L"Debug: Cut. t: %i\n", t);
+        fwprintf(stdout, L"Debug: Cut. *t: %i\n", *((int*) t));
 
         // The result code.
         int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;

@@ -40,14 +40,17 @@
  * Starts up the client.
  *
  * @param p0 the destination client list item
- * @param p1 the client identification (socket)
+ * @param p1 the client identification (e.g. client socket)
  * @param p2 the interrupt pipe (pointer reference)
  * @param p3 the interrupt mutex (pointer reference)
  * @param p4 the input/output identification (pointer reference, input/output base + socket port)
  * @param p5 the language (pointer reference, protocol)
  * @param p6 the channel (pointer reference)
+ * @param p7 the serial port file descriptor (pointer reference)
+ * @param p8 the terminal file descriptor (pointer reference)
+ * @param p9 the xcb connexion (pointer reference)
  */
-void startup_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void startup_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup client.");
     fwprintf(stdout, L"Debug: Startup client. p0: %i\n", p0);
@@ -68,7 +71,7 @@ void startup_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     allocate_array((void*) &e, (void*) CLIENT_ENTRY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
 
     // Startup client entry.
-    startup_client_entry(e, p2, p3, p4, p5, p6, p1);
+    startup_client_entry(e, p2, p3, p4, p5, p6, p7, p8, p9, p1);
 
     // Store client entry at index of client socket in client list.
     startup_client_store(p0, (void*) &e, p1);

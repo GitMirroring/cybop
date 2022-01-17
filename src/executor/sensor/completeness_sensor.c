@@ -60,7 +60,19 @@ void sense_completeness(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // Set complete flag.
+            //
+            // CAUTION! Whenever the blocking sensing function is left,
+            // this means that at least one data element has been received.
+            //
+            // The buffer as defined in file "sensor.c" has a size of 1024,
+            // so that many xcb events match in there. However, each event
+            // is complete in itself and just a pointer.
+            //
+            // Therefore, a detection of a length prefix or end suffix
+            // is NOT necessary here and the complete flag can be set right away.
+            //
             copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -71,7 +83,16 @@ void sense_completeness(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // Set complete flag.
+            //
+            // CAUTION! Whenever the blocking sensing function is left,
+            // this means that at least one data element has been received.
+            //
+            // The buffer as defined in file "sensor.c" has a size of 1024.
+            //
+            //?? TODO: Activate detection of length prefix or end suffix later!
+            //
             copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -92,7 +113,18 @@ void sense_completeness(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // Set complete flag.
+            //
+            // CAUTION! Whenever the blocking sensing function is left,
+            // this means that at least one data element has been received.
+            //
+            // The buffer as defined in file "sensor.c" has a size of 1024,
+            // so that all possible ansi escape sequences match in there.
+            //
+            // Therefore, a detection of a length prefix or end suffix
+            // is NOT necessary here and the complete flag can be set right away.
+            //
             copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -102,6 +134,10 @@ void sense_completeness(void* p0, void* p1, void* p2, void* p3, void* p4) {
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense completeness. The channel is unknown.");
         fwprintf(stdout, L"Warning: Could not sense completeness. The channel is unknown. p4: %i\n", p4);
         fwprintf(stdout, L"Warning: Could not sense completeness. The channel is unknown. *p4: %i\n", *((int*) p4));
+
+        //?? TEST:
+        fwprintf(stdout, L"Debug: Could not sense completeness. Exit for test reasons. r: %i\n", r);
+        exit(-1);
     }
 }
 

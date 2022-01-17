@@ -226,7 +226,7 @@ void apply_startup(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &m, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     // Startup service.
-    startup_service(p4, (void*) &p, (void*) &m, serial_fmd, serial_fmc, serial_bmd, socket_nmd, socket_nmc, socket_stmd, socket_stmc, socket_pmd, socket_pmc, socket_fmd, socket_fmc, socket_amd, socket_amc, socket_pomd, socket_comd, socket_tomd, cmd);
+    startup_service(p4, (void*) &p, (void*) &m, serial_fmd, serial_fmc, serial_bmd, socket_nmd, socket_nmc, socket_stmd, socket_stmc, socket_pmd, socket_pmc, socket_fmd, socket_fmc, socket_amd, socket_amc, socket_pomd, socket_comd, socket_tomd, cmd, (void*) &cmd);
 }
 
 /* STARTUP_SOURCE */

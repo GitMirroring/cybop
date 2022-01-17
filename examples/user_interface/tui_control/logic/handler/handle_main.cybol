@@ -2,9 +2,11 @@
 
     <node name="receive_command" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <!-- CAUTION! Do NOT use an encoding here, since terminal input is already in wide characters. -->
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="message" channel="inline" format="text/cybol-path" model="#command"/>
+        <node name="sender" channel="inline" format="number/integer" model="0"/>
+        <node name="port" channel="inline" format="number/integer" model="0"/>
     </node>
 
     <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->

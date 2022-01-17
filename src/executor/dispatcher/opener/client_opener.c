@@ -39,25 +39,27 @@
  * Opens up a client.
  *
  * @param p0 the destination client list item
- * @param p1 the client identification (socket)
+ * @param p1 the client identification (e.g. client socket)
  * @param p2 the client list mutex
  * @param p3 the interrupt pipe (pointer reference)
  * @param p4 the interrupt mutex (pointer reference)
  * @param p5 the input/output identification (pointer reference, input/output base + socket port)
  * @param p6 the language (pointer reference, protocol)
  * @param p7 the channel (pointer reference)
- * @param p8 the exit flag
+ * @param p8 the serial port file descriptor (pointer reference)
+ * @param p9 the terminal file descriptor (pointer reference)
+ * @param p10 the xcb connexion (pointer reference)
+ * @param p11 the exit flag
  */
-void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
-
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open client.");
+void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     //
     // CAUTION! Do NOT log messages within thread,
     // in order to avoid race conditions and other conflicts.
     //
     // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open client.");
-    fwprintf(stdout, L"Debug: Open client. p0: %i\n", p0);
+    fwprintf(stdout, L"Debug: Open client. p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Open client. *p1: %i\n", *((int*) p1));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -83,7 +85,7 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     //
     lock(p2);
 
-    compare_integer_equal((void*) &r, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_equal((void*) &r, p11, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -92,7 +94,7 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         // Therefore, proceed normally.
         //
 
-        startup_client(p0, p1, p3, p4, p5, p6, p7);
+        startup_client(p0, p1, p3, p4, p5, p6, p7, p8, p9, p10);
     }
 
     // Unlock client list mutex.

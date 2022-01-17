@@ -54,8 +54,8 @@
  * as that name is already used for glibc library's input.
  *
  * @param p0 the destination item
- * @param p1 the source model data (e.g. signal memory item, filename, server or client socket number, service identification, gui window)
- * @param p2 the source model count
+ * @param p1 the source client identification data (e.g. signal memory item, filename, server or client socket number, gui window)
+ * @param p2 the source client identification count
  * @param p3 the source properties data (e.g. signal memory index)
  * @param p4 the source properties count
  * @param p5 the knowledge memory part (pointer reference)
@@ -63,7 +63,7 @@
  * @param p7 the internal memory data
  * @param p8 the minimum number of bytes to be received in one call of the read function
  * @param p9 the maximum number of bytes to be received in one call of the read function
- * @param p10 the socket port
+ * @param p10 the service port (e.g. socket port)
  * @param p11 the language (protocol)
  * @param p12 the socket client mode (true if reading as client from server socket; false otherwise)
  * @param p13 the channel
@@ -167,13 +167,7 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // The input/output entry.
-            void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-            // Get input/output entry.
-            get_internal_memory_element((void*) &io, p7, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p10);
-
-            read_terminal(p0, io);
+            read_terminal(p0, p1, p7, p10);
         }
     }
 

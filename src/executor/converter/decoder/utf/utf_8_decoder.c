@@ -181,7 +181,9 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
 
             void* sd = p1;
 
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode utf-8.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode utf-8.");
+            //?? fwprintf(stdout, L"Debug: Decode utf-8. source count p2: %i\n", p2);
+            //?? fwprintf(stdout, L"Debug: Decode utf-8. source count *p2: %i\n", *((int*) p2));
 
             // The destination item data, count, size.
             void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -336,6 +338,10 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
 
                     // Set destination count to the number of WIDE characters converted.
                     copy_integer(dc, (void*) &n);
+
+                    //?? fwprintf(stdout, L"Debug: Decode utf-8. dc: %i\n", dc);
+                    //?? fwprintf(stdout, L"Debug: Decode utf-8. *dc: %i\n", *((int*) dc));
+                    //?? fwprintf(stdout, L"Debug: Decode utf-8. dd: %ls\n", (wchar_t*) dd);
 
                 } else {
 

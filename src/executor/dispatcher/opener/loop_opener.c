@@ -43,11 +43,14 @@
  * @param p4 the input/output identification (pointer reference, input/output base + socket port)
  * @param p5 the language (pointer reference, protocol)
  * @param p6 the channel (pointer reference)
- * @param p7 the exit flag
- * @param p8 the receiver server socket number
- * @param p9 the channel
+ * @param p7 the serial port file descriptor (pointer reference)
+ * @param p8 the terminal file descriptor (pointer reference)
+ * @param p9 the xcb connexion (pointer reference)
+ * @param p10 the server socket file descriptor
+ * @param p11 the exit flag
+ * @param p12 the channel
  */
-void open_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void open_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open loop.");
 
@@ -56,7 +59,7 @@ void open_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_unequal((void*) &r, p7, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        compare_integer_unequal((void*) &r, p11, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -70,7 +73,7 @@ void open_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             break;
         }
 
-        open_channel(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
+        open_channel(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
     }
 }
 

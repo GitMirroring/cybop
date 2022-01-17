@@ -51,9 +51,9 @@
  * Reads as server from client socket.
  *
  * @param p0 the destination message item
- * @param p1 the source client socket number
+ * @param p1 the source client identification (socket number)
  * @param p2 the internal memory data
- * @param p3 the socket port
+ * @param p3 the service port (socket port)
  * @param p4 the language (protocol)
  * @param p5 the channel
  */
@@ -144,6 +144,10 @@ void read_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         //
         // The message is complete, that is all data
         // belonging to it have been received.
+        //
+
+        //
+        //?? TODO: append or better overwrite ??
         //
 
         //

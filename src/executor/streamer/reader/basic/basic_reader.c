@@ -105,7 +105,7 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* bc = (int*) p3;
+        int* bs = (int*) p3;
 
         if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -120,8 +120,8 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
                     fwprintf(stdout, L"Debug: Read basic. *s: %i\n", *((int*) f));
 
                     // Cast buffer size to correct type.
-                    size_t bct = (size_t) *bc;
-                    fwprintf(stdout, L"Debug: Read basic. bct: %i\n", bct);
+                    size_t bst = (size_t) *bs;
+                    fwprintf(stdout, L"Debug: Read basic. bst: %i\n", bst);
 
                     //
                     // Initialise error number.
@@ -152,13 +152,21 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
                     // so that it is not clear how big the buffer array shall be.
                     // Therefore, call "read" in a loop until no more data are available.
                     //
-                    fwprintf(stdout, L"Debug: Read basic. Waiting for input on file descriptor: %i\n", *f);
-                    ssize_t nb = read(*f, p2, bct);
+                    fwprintf(stdout, L"Debug: Read basic. Waiting for input on file descriptor *f: %i\n", *f);
+//?? TEST BEGIN --
+                    int test = fileno(stdin);
+                    fwprintf(stdout, L"Debug: Read basic. Waiting for input on file descriptor test: %i\n", test);
+                    ssize_t nb = read(test, p2, bst);
+//?? TEST END --
 
+                    //?? ssize_t nb = read(*f, p2, bst);
                     // Cast number of bytes actually read to general type.
                     int n = (int) nb;
 
                     fwprintf(stdout, L"Debug: Read basic. n: %i\n", n);
+                    fwprintf(stdout, L"Debug: Read basic. p2 + 0: %i\n", *((char*) (p2 + 0)));
+                    fwprintf(stdout, L"Debug: Read basic. p2 + 1: %i\n", *((char*) (p2 + 1)));
+                    fwprintf(stdout, L"Debug: Read basic. p2 + 2: %i\n", *((char*) (p2 + 2)));
 
                     if (n > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -200,8 +208,27 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 
                             fwprintf(stdout, L"Debug: Read basic. Modify destination item. r: %i\n", r);
 
+                            //
                             // Copy buffer data into destination item.
+                            //
+                            // CAUTION! Use APPEND and NOT overwrite here, since data
+                            // still standing in buffer must not be overwritten.
+                            // This can happen if reading data from terminal in the
+                            // child thread is faster than their processing in the main thread.
+                            //
                             modify_item(p0, p2, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &n, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+                            //?? TEST BEGIN
+                            void* testd = *NULL_POINTER_STATE_CYBOI_MODEL;
+                            void* testc = *NULL_POINTER_STATE_CYBOI_MODEL;
+                            copy_array_forward((void*) &testd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+                            copy_array_forward((void*) &testc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+                            fwprintf(stdout, L"Debug: Read basic. testc: %i\n", testc);
+                            fwprintf(stdout, L"Debug: Read basic. *testc: %i\n", *((int*) testc));
+                            fwprintf(stdout, L"Debug: Read basic. testd + 0: %i\n", *((char*) (testd + 0)));
+                            fwprintf(stdout, L"Debug: Read basic. testd + 1: %i\n", *((char*) (testd + 1)));
+                            fwprintf(stdout, L"Debug: Read basic. testd + 2: %i\n", *((char*) (testd + 2)));
+                            //?? TEST END
                         }
 
                         // Unlock mutex.

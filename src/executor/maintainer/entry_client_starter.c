@@ -52,9 +52,12 @@
  * @param p3 the input/output identification (pointer reference, input/output base + socket port)
  * @param p4 the language (pointer reference, protocol)
  * @param p5 the channel (pointer reference)
- * @param p6 the client identification
+ * @param p6 the serial port file descriptor
+ * @param p7 the terminal file descriptor
+ * @param p8 the xcb connexion
+ * @param p9 the client identification
  */
-void startup_client_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void startup_client_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup client entry.");
     fwprintf(stdout, L"Debug: Startup client entry. p0: %i\n", p0);
@@ -119,7 +122,7 @@ void startup_client_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void
     //
 
     // Initialise identification.
-    copy_integer(id, p6);
+    copy_integer(id, p9);
     // The access mutex with casted type.
     mtx_t* mt = (mtx_t*) m;
     // Initialise access mutex.
@@ -132,7 +135,7 @@ void startup_client_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void
     }
 
     // Initialise thread identification.
-    copy_integer(t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    //?? copy_integer(t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     // Initialise exit flag.
     copy_integer(ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
@@ -195,6 +198,33 @@ void startup_client_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void
     // which does accept only ONE function argument.
     //
     copy_array_forward(p0, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CHANNEL_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    //
+    // Set serial port file descriptor into client entry.
+    //
+    // CAUTION! This reference is actually stored in input/output entry.
+    // However, it gets stored in client entry HERE a SECOND time,
+    // in order to be able to pass it to the corresponding thread,
+    // which does accept only ONE function argument.
+    //
+    copy_array_forward(p0, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SERIAL_PORT_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    //
+    // Set terminal file descriptor into client entry.
+    //
+    // CAUTION! This reference is actually stored in input/output entry.
+    // However, it gets stored in client entry HERE a SECOND time,
+    // in order to be able to pass it to the corresponding thread,
+    // which does accept only ONE function argument.
+    //
+    copy_array_forward(p0, p7, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TERMINAL_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    //
+    // Set xcb connection into client entry.
+    //
+    // CAUTION! This reference is actually stored in input/output entry.
+    // However, it gets stored in client entry HERE a SECOND time,
+    // in order to be able to pass it to the corresponding thread,
+    // which does accept only ONE function argument.
+    //
+    copy_array_forward(p0, p8, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) XCB_CONNEXION_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* ENTRY_CLIENT_STARTER_SOURCE */

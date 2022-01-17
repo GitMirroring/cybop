@@ -49,9 +49,10 @@
  * @param p3 the handler part (pointer reference)
  * @param p4 the sender client data (pointer reference, e.g. client socket id, window id, file descriptor)
  * @param p5 the language (pointer reference, protocol)
- * @param p6 the channel
+ * @param p6 the channel (pointer reference)
+ * @param p7 the channel
  */
-void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable channel.");
     fwprintf(stdout, L"Debug: Enable channel. language p5: %i\n", p5);
@@ -108,8 +109,8 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         void* f = (void*) &open_general;
 
         // Handle requests arriving via channel.
-        //?? enable_function(t, ff, aa, p6);
-        enable_function(t, f, io, p6);
+        //?? enable_function(t, ff, aa, p7);
+        enable_function(t, f, io, p7);
 
     } else {
 

@@ -181,8 +181,29 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // Extract message.
     //?? receive_extract((void*) &bd, (void*) &bc, e, bd, bc, p??);
 
+    fwprintf(stdout, L"Debug: Receive. bc: %i\n", bc);
+    fwprintf(stdout, L"Debug: Receive. *bc: %i\n", *((int*) bc));
+    fwprintf(stdout, L"Debug: Receive. bd + 0: %i\n", *((char*) (bd + 0)));
+    fwprintf(stdout, L"Debug: Receive. bd + 1: %i\n", *((char*) (bd + 1)));
+    fwprintf(stdout, L"Debug: Receive. bd + 2: %i\n", *((char*) (bd + 2)));
+
     // Decode message.
     receive_decode((void*) &bd, (void*) &bc, s, bd, bc, p16);
+
+    //?? TEST BEGIN
+    void* testd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* testc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    copy_array_forward((void*) &testd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &testc, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    fwprintf(stdout, L"Debug: Receive. testc: %i\n", testc);
+    fwprintf(stdout, L"Debug: Receive. *testc: %i\n", *((int*) testc));
+    fwprintf(stdout, L"Debug: Receive. testd + 0 char: %i\n", *((char*) (testd + 0)));
+    fwprintf(stdout, L"Debug: Receive. testd + 1 char: %i\n", *((char*) (testd + 1)));
+    fwprintf(stdout, L"Debug: Receive. testd + 2 char: %i\n", *((char*) (testd + 2)));
+    fwprintf(stdout, L"Debug: Receive. testd + 0: %i\n", *((wchar_t*) (testd + 0)));
+    fwprintf(stdout, L"Debug: Receive. testd + 1: %i\n", *((wchar_t*) (testd + 1)));
+    fwprintf(stdout, L"Debug: Receive. testd + 2: %i\n", *((wchar_t*) (testd + 2)));
+    //?? TEST END
 
 /*??
     if ((p15 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p15) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {

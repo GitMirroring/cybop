@@ -1573,8 +1573,11 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, "Could not handle operation. The operation is unknown.");
         fwprintf(stdout, L"Warning: Could not handle operation. The operation is unknown.\n");
-        fwprintf(stdout, L"Debug: Operation format p7: %i\n", p7);
-        fwprintf(stdout, L"Debug: Operation format *p7: %i\n", *((int*) p7));
+        fwprintf(stdout, L"Debug: Could not handle operation. Operation format p7: %i\n", p7);
+        fwprintf(stdout, L"Debug: Could not handle operation. Operation format *p7: %i\n", *((int*) p7));
+
+        fwprintf(stdout, L"Debug: Could not handle operation. Exit now (possible endless loop). r: %i\n", r);
+        exit(-1);
     }
 }
 

@@ -43,7 +43,7 @@
  *
  * @param p0 the destination client list item
  * @param p1 the client entry (pointer reference)
- * @param p2 the client socket
+ * @param p2 the client identification (e.g. client socket)
  */
 void startup_client_store(void* p0, void* p1, void* p2) {
 
@@ -81,6 +81,13 @@ void startup_client_store(void* p0, void* p1, void* p2) {
     // CAUTION! It suffices to store the client entry here, since the
     // client socket as identification is stored within the client entry.
     //
+
+/*??
+    fwprintf(stdout, L"Debug: Startup client store. client socket p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Startup client store. client socket *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Startup client store. destination size s: %i\n", s);
+    fwprintf(stdout, L"Debug: Startup client store. destination size *s: %i\n", *((int*) s));
+*/
 
     //
     // Store client entry in client list of input/output entry.

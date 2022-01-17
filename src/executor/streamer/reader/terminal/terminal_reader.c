@@ -44,28 +44,63 @@
 /**
  * Reads data via terminal.
  *
- * @param p0 the destination item
- * @param p1 the input/output entry
+ * @param p0 the destination message item
+ * @param p1 the source client identification
+ * @param p2 the internal memory data
+ * @param p3 the service port
  */
-void read_terminal(void* p0, void* p1) {
+void read_terminal(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read terminal.");
+    fwprintf(stdout, L"Debug: Read terminal. source client id p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Read terminal. source client id *p1: %i\n", *((int*) p1));
 
-    // The source wide character buffer item.
+    // The input/output entry.
+    void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The client list item.
+    void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The client list item data.
+    void* cld = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The client entry.
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The buffer item.
     void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The source wide character buffer item data, count.
+    // The buffer item data, count, size.
     void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* bs = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The buffer mutex.
-    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get source wide character buffer item from input/output entry.
-    copy_array_forward((void*) &b, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get buffer mutex from input/output entry.
-    copy_array_forward((void*) &m, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get input/output entry.
+    get_internal_memory_element((void*) &io, p2, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p3);
+    fwprintf(stdout, L"Debug: Read terminal. io: %i\n", io);
+    // Get client list item from input/output entry.
+    copy_array_forward((void*) &cl, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CLIENT_LIST_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    fwprintf(stdout, L"Debug: Read terminal. cl: %i\n", cl);
+    // Get client list item data.
+    copy_array_forward((void*) &cld, cl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    fwprintf(stdout, L"Debug: Read terminal. cld: %i\n", cld);
+    // Get client entry using client socket number as source client list index.
+    copy_array_forward((void*) &e, cld, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1);
+    fwprintf(stdout, L"Debug: Read terminal. e: %i\n", e);
+    // Get buffer item from client entry.
+    copy_array_forward((void*) &b, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_MESSAGE_CLIENT_STATE_CYBOI_NAME);
+    // Get buffer mutex from client entry.
+    copy_array_forward((void*) &bm, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_MESSAGE_CLIENT_STATE_CYBOI_NAME);
 
     //
-    // Get source wide character buffer item data, count.
+    // Lock mutex.
+    //
+    // CAUTION! Set this lock BEFORE retrieving the item data and count below
+    // since otherwise, a race condition might occur, e.g. when the sensing thread
+    // appends data to the buffer, a new data array with bigger size might get allocated.
+    // In order to get the correct data array here, the lock has to be set before.
+    //
+    lock(bm);
+
+    //
+    // Get buffer item data, count, size.
     //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
@@ -73,28 +108,56 @@ void read_terminal(void* p0, void* p1) {
     //
     copy_array_forward((void*) &bd, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &bc, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &bs, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
+    //?? TEST BEGIN
     fwprintf(stdout, L"Debug: Read terminal. bc: %i\n", bc);
     fwprintf(stdout, L"Debug: Read terminal. *bc: %i\n", *((int*) bc));
-
-    // Lock mutex.
-    lock(m);
-
-    // Append source wide character buffer data to destination item.
-    //?? modify_item(p0, bd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, bc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-
-    // Decode multibyte character into wide character.
-    decode_utf_8(p0, bd, bc);
+    fwprintf(stdout, L"Debug: Read terminal. bd + 0: %i\n", *((char*) (bd + 0)));
+    fwprintf(stdout, L"Debug: Read terminal. bd + 1: %i\n", *((char*) (bd + 1)));
+    fwprintf(stdout, L"Debug: Read terminal. bd + 2: %i\n", *((char*) (bd + 2)));
+    //?? TEST END
 
     //
-    // CAUTION! Removing or emptying the source wide character buffer
-    // here is NOT necessary, since the local character buffer gets
-    // overwritten from the beginning in the terminal sensor
-    // (see file "message_unix_terminal_sensor.c").
+    //?? TODO: append or better overwrite ??
     //
+
+    // Append source buffer data to destination item.
+    modify_item(p0, bd, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, bc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    //
+    // Remove data from source buffer.
+    //
+    // CAUTION! This is important since otherwise,
+    // the same data would be processed again and again.
+    //
+    // CAUTION! Do NOT EMPTY the buffer here since new data
+    // might be added continuously within the sensing thread.
+    //
+    // CAUTION! Calling the function "modify_item" would work here,
+    // but "modify_array" is used instead since the buffer item's
+    // data and count have already been determined above.
+    //
+    // CAUTION! Set the adjust count flag to TRUE since otherwise,
+    // the destination item will hold a wrong "count" number
+    // leading to unpredictable errors in further processing.
+    //
+    modify_array((void*) &bd, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, bc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, bc, bs, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    //?? TEST BEGIN
+    void* testd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* testc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    copy_array_forward((void*) &testd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &testc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    fwprintf(stdout, L"Debug: Read terminal. testc: %i\n", testc);
+    fwprintf(stdout, L"Debug: Read terminal. *testc: %i\n", *((int*) testc));
+    fwprintf(stdout, L"Debug: Read terminal. testd + 0: %i\n", *((char*) (testd + 0)));
+    fwprintf(stdout, L"Debug: Read terminal. testd + 1: %i\n", *((char*) (testd + 1)));
+    fwprintf(stdout, L"Debug: Read terminal. testd + 2: %i\n", *((char*) (testd + 2)));
+    //?? TEST END
 
     // Unlock mutex.
-    unlock(m);
+    unlock(bm);
 }
 
 /* TERMINAL_READER_SOURCE */

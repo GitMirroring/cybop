@@ -62,8 +62,9 @@
  * @param p17 the socket connexions (number of possible pending client requests)
  * @param p18 the socket timeout
  * @param p19 the channel
+ * @param p20 the channel (pointer reference)
  */
-void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19) {
+void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup service.");
     fwprintf(stdout, L"Information: Startup service. p19: %i\n", p19);
@@ -76,7 +77,7 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
     // Determine channel-specific values.
     startup_channel((void*) &b, (void*) &f, p19);
     // Execute general startup functions.
-    startup_general(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, (void*) &b, (void*) &f);
+    startup_general(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, (void*) &b, (void*) &f, p20);
 }
 
 /* STARTER_SOURCE */

@@ -62,8 +62,9 @@
  * @param p19 the channel
  * @param p20 the input/output base
  * @param p21 the thread function (pointer reference)
+ * @param p22 the channel (pointer reference)
  */
-void startup_general(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21) {
+void startup_general(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup general.");
     fwprintf(stdout, L"Debug: Startup general. p19: %i\n", p19);
@@ -109,7 +110,7 @@ void startup_general(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
         // Set input/output entry.
         set_internal_memory_element(p0, (void*) &io, p20, p16);
         // Startup input/output entry.
-        startup_io(io, p1, p2, (void*) &id, p21, (void*) &io);
+        startup_io(io, p1, p2, (void*) &id, p21, (void*) &io, p18, p22);
         // Execute channel-specific startup functions.
         startup_specific(io, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19);
 

@@ -33,7 +33,6 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/client_state_cyboi_name.c"
-//?? #include "../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/copier/array_copier.c"
@@ -71,11 +70,11 @@ int sense(void* p0) {
     // The buffer item mutex.
     void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The input file descriptor.
-    int f = STDIN_FILENO;
+    //?? int f = STDIN_FILENO;
     // The identification (client socket number).
     void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The connexion.
-    void* co = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //?? void* co = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The interrupt pipe.
     void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The interrupt mutex.
@@ -92,7 +91,7 @@ int sense(void* p0) {
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
-    // The local character buffer data, count.
+    // The local character buffer data, size.
     //
     // CAUTION! Do NOT declare these variables inside
     // the called function, for two reasons:
@@ -136,7 +135,7 @@ int sense(void* p0) {
     //   So, the value of 1024 used here is probably acceptable.
     //
     char cd[*NUMBER_1024_INTEGER_STATE_CYBOI_MODEL];
-    int cc = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
+    int cs = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
     // The interrupt pipe write file descriptor.
     int ipw = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The comparison result.
@@ -171,14 +170,14 @@ int sense(void* p0) {
     copy_array_forward((void*) &im, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INTERRUPT_CLIENT_STATE_CYBOI_NAME);
     // Get input/output identification (input/output base + socket port) from client entry.
     copy_array_forward((void*) &ioid, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_OUTPUT_IDENTIFICATION_CLIENT_STATE_CYBOI_NAME);
-    // Get language from client entry.
+    // Get language (protocol) from client entry.
     copy_array_forward((void*) &l, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LANGUAGE_CLIENT_STATE_CYBOI_NAME);
     // Get exit flag from client entry.
     copy_array_forward((void*) &ex, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_CLIENT_STATE_CYBOI_NAME);
-
-
-    //?? TODO: client mode + channel
-
+    // Get client mode from client entry.
+    //?? copy_array_forward((void*) &cm, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TODO_CLIENT_STATE_CYBOI_NAME);
+    // Get channel from client entry.
+    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CHANNEL_CLIENT_STATE_CYBOI_NAME);
 
     // Get interrupt pipe write file descriptor.
     copy_array_forward((void*) &ipw, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
@@ -187,9 +186,11 @@ int sense(void* p0) {
     fwprintf(stdout, L"Debug: Sense. *ioid: %i\n", *((int*) ioid));
     fwprintf(stdout, L"Debug: Sense. id: %i\n", id);
     fwprintf(stdout, L"Debug: Sense. *id: %i\n", *((int*) id));
+    fwprintf(stdout, L"Debug: Sense. c: %i\n", c);
+    fwprintf(stdout, L"Debug: Sense. *c: %i\n", *((int*) c));
 
     // Sense messages in loop.
-    sense_loop(b, (void*) &f, c, id, bm, (void*) &ipw, im, cd, (void*) &cc, ioid, l, (void*) &ml, ex);
+    sense_loop(b, id, cd, (void*) &cs, bm, (void*) &ipw, im, ioid, l, (void*) &ml, ex, *NULL_POINTER_STATE_CYBOI_MODEL, c);
 
     //
     // An implicit call to "thrd_exit" is made when this thread

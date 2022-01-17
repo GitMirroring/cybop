@@ -121,11 +121,13 @@
  * @param p0 the input/output entry
  * @param p1 the interrupt pipe (pointer reference)
  * @param p2 the interrupt mutex (pointer reference)
- * @param p3 the identification
+ * @param p3 the input/output identification
  * @param p4 the thread function (pointer reference)
  * @param p5 the function argument (pointer reference)
+ * @param p6 the socket timeout
+ * @param p7 the channel (pointer reference)
  */
-void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup io.");
     fwprintf(stdout, L"Debug: Startup io. p0: %i\n", p0);
@@ -134,12 +136,20 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // Declaration.
     //
 
-    // The identification.
+    // The input/output identification.
     void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The sender identification.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The client list item.
+    void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The accepttime list item.
+    void* al = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The timeout number.
+    void* to = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The language (protocol).
     void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The channel.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The access mutex.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The thread identification.
@@ -170,12 +180,41 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     //
     allocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
     //
+    // Allocate client list item.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_item((void*) &cl, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
+    fwprintf(stdout, L"Debug: Startup io. client list item cl: %i\n", cl);
+    //
+    // Allocate accepttime list item.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_item((void*) &al, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    //
+    // Allocate timeout number.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_array((void*) &to, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    //
     // Allocate language (protocol).
     //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     //
     allocate_array((void*) &l, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    //
+    // Allocate channel.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_array((void*) &c, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
     //
     // Allocate access mutex.
     //
@@ -216,12 +255,23 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // Initialisation.
     //
 
-    // Initialise identification.
+    // Initialise input/output identification.
     copy_integer(id, p3);
     // Initialise sender identification.
     copy_integer(s, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    // Copy timeout.
+    copy_integer(to, p6);
     // Initialise language (protocol).
     copy_integer(l, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
+    //
+    // Initialise channel.
+    //
+    // CAUTION! Assign -1 first, since nothing gets assigned if p7 is null.
+    // The default value would otherwise be 0 and lead to errors,
+    // since that value references a channel constant.
+    //
+    copy_integer(c, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
+    copy_integer(c, p7);
     // The access mutex with casted type.
     mtx_t* mt = (mtx_t*) m;
     // Initialise access mutex.
@@ -234,7 +284,7 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     }
 
     // Initialise thread identification.
-    copy_integer(t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    //?? copy_integer(t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     //
     // Initialise thread function.
     //
@@ -251,7 +301,19 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     copy_integer(ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     //
-    // Storing.
+    // Storage.
+    //
+
+    //
+    // Store various values in input/output entry.
+    //
+    // CAUTION! Do NOT use "overwrite_array" function here,
+    // since it adapts the array count and size.
+    // But the array's count and size are CONSTANT.
+    //
+    // CAUTION! Do NOT hand over input/output entry as pointer reference.
+    //
+    // CAUTION! Hand over value as pointer REFERENCE.
     //
 
     //
@@ -276,8 +338,16 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     copy_array_forward(p0, (void*) &id, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set sender identification into input/output entry.
     copy_array_forward(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SENDER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set client list item into input/output entry.
+    copy_array_forward(p0, (void*) &cl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CLIENT_LIST_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set accepttime list item into input/output entry.
+    copy_array_forward(p0, (void*) &al, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ACCEPTTIME_LIST_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set timeout number into input/output entry.
+    copy_array_forward(p0, (void*) &to, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TIMEOUT_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set language (protocol) into input/output entry.
     copy_array_forward(p0, (void*) &l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) LANGUAGE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set channel into input/output entry.
+    copy_array_forward(p0, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CHANNEL_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set access mutex into input/output entry.
     copy_array_forward(p0, (void*) &m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set thread identification into input/output entry.

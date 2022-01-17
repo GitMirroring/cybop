@@ -44,7 +44,7 @@
  * Senses terminal message.
  *
  * @param p0 the destination item
- * @param p1 the source file descriptor (client socket number)
+ * @param p1 the source file descriptor (terminal standard input file descriptor)
  * @param p2 the character buffer data
  * @param p3 the character buffer size
  * @param p4 the destination item mutex

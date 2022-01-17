@@ -48,94 +48,97 @@
  * @param p4 the input/output identification (pointer reference, input/output base + socket port)
  * @param p5 the language (pointer reference, protocol)
  * @param p6 the channel (pointer reference)
- * @param p7 the exit flag
- * @param p8 the receiver server socket number
- * @param p9 the channel
+ * @param p7 the serial port file descriptor (pointer reference)
+ * @param p8 the terminal file descriptor (pointer reference)
+ * @param p9 the xcb connexion (pointer reference)
+ * @param p10 the server socket file descriptor
+ * @param p11 the exit flag
+ * @param p12 the channel
  */
-void open_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void open_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open channel.");
-    fwprintf(stdout, L"Debug: Open channel. p9: %i\n", p9);
-    fwprintf(stdout, L"Debug: Open channel. *p9: %i\n", *((int*) p9));
-
-    //
-    // CAUTION! Hand over ZERO as client identification
-    // (second parametre) for all channels but the socket.
-    //
-    // CAUTION! Set EXIT flag for all channels but the socket,
-    // since only ONE client gets started there by default
-    // and there is no blocking accept function.
-    //
+    fwprintf(stdout, L"Debug: Open channel. p12: %i\n", p12);
+    fwprintf(stdout, L"Debug: Open channel. *p12: %i\n", *((int*) p12));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p12, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            open_client(p0, (void*) &NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6, p7);
+            // CAUTION! Hand over ZERO as client identification, since there is just one client.
+            open_client(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11);
 
-            // Set exit flag.
-            copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            // CAUTION! Set exit flag, since only ONE client gets started.
+            copy_integer(p11, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) SERIAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p12, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            open_client(p0, (void*) &NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6, p7);
+            // CAUTION! Hand over ZERO as client identification, since there is just one client.
+            open_client(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11);
 
-            // Set exit flag.
-            copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            // CAUTION! Set exit flag, since only ONE client gets started.
+            copy_integer(p11, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p12, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            //?? TODO: Initialise with zero like the other channels or with minus one ?
+            //
 
             // The client socket.
-            int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+            int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            //?? int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
             // Accepts client on server socket.
-            open_socket((void*) &c, p8);
+            open_socket((void*) &c, p10);
             fwprintf(stdout, L"Debug: Open channel. client socket c: %i\n", c);
 
+            // CAUTION! Hand over accepted client socket as client identification.
+            open_client(p0, (void*) &c, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11);
+
             //
-            // Open client.
+            // CAUTION! Do NOT set exit flag here,
+            // since MANY clients may get started in the loop
+            // that this function was called from.
             //
-            // CAUTION! Hand over accepted client socket as
-            // client identification (second parametre).
-            //
-            open_client(p0, (void*) &c, p1, p2, p3, p4, p5, p6, p7);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p12, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            open_client(p0, (void*) &NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6, p7);
+            // CAUTION! Hand over ZERO as client identification, since there is just one client.
+            open_client(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11);
 
-            // Set exit flag.
-            copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            // CAUTION! Set exit flag, since only ONE client gets started.
+            copy_integer(p11, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open channel. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not open channel. The channel is unknown. Channel p9: %i\n", *((int*) p9));
+        fwprintf(stdout, L"Warning: Could not open channel. The channel is unknown. Channel p12: %i\n", *((int*) p12));
     }
 }
 

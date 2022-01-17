@@ -84,6 +84,9 @@
 
     <node name="sense_commands" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="port" channel="inline" format="number/integer" model="0"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="sender" channel="inline" format="number/integer" model="0"/>
         <node name="handler" channel="inline" format="text/cybol-path" model=".handle"/>
     </node>
 

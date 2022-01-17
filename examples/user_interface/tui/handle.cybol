@@ -17,9 +17,11 @@
 
     <node name="receive_command" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <!-- CAUTION! Do NOT use an encoding here, since terminal input is already in wide characters. -->
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".temporary.command"/>
+        <node name="sender" channel="inline" format="number/integer" model="0"/>
+        <node name="port" channel="inline" format="number/integer" model="0"/>
     </node>
 
     <node name="TEST" channel="inline" format="communicate/send" model="">
@@ -57,6 +59,7 @@
         <node name="programme" channel="inline" format="text/plain" model="sleep 0.8"/>
     </node>
 
+<!--
     <node name="send_tui" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -72,5 +75,6 @@
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".tui.cursor"/>
     </node>
+-->
 
 </node>

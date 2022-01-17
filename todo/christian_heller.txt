@@ -11,17 +11,29 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-        * Schreibe in Kommentar im Quelltext: sensor + reader mit Buffer 1024 ok
-            --> completeness funktion kann schon bei 1 empfangenen Byte auf TRUE gesetzt werden, da keine ESCAPE-Sequenz größer als 1024 Byte ist
-        * Prüfe utf-8 Konvertierung: schon in communicator/receiver.c converter?? falls ja, dann nicht nochmal in reader (für Terminal)
+        * Error that only ESC is converted, but not the following two characters of the ansi escape sequence
+            unicode-conversion does not work for control characters --> do it manually?
+            mutex *IS* set correctly, so that whole buffer content is written/read
+
+        * ALL is fine on closing terminal, since there is no separate service thread, just a client thread which is yet to be called and closed at shutdown
+        * Current errors will likely disappear after proper implementation of shutdown functions
 
         * Channel does not arrive in file "channel_opener.c", even though it has been assigned to io_entry --> check steps using log messages
+        * Check utf-8 decoding: already in communicator/receiver.c converter?? if yes, then not again in reader (for terminal)
         * Make terminal input work again by implementing in reader file "terminal_reader.c":
             // Decode multibyte character into wide character.
             decode_utf_8(p0, p6, (void*) &n);
             actually not necessary in sensor, but deserialiser already expects wide characters
+        * Replace standard i/o streams with file descriptor in file "terminal_starter.c"
+
+        * Check whether better to replace "append" with "overwrite" in files "server_socket_reader.c", "character_ansi_escape_code_deserialiser.c" and similar files
+        * Adapt file "completeness_sensor.c" for serial port (unlimited number of input with cr+lf end suffix is possible)
+        * Provide pointer array in addition to character array as destination in file "sensor.c", since xcb events arrive as pointer and not character
+
         * Make gui work again
+
         * Make socket work again
+        * Hand over client mode as parametre in files "sensor.c", "entry_client_starter.c" etc.
         * Reactivate call of function "close_client" in file "fragment_socket_sensor.c"
 
         * Merge porter (file handling) into dispatcher
@@ -68,6 +80,7 @@ ____
             Or is it vice-versa and the thread shall reset the timeout within the exit process?
         * Reflect about how to implement file "socket_awakener.c" called within exit process
             --> best let cyboi send a message to itself via socket in order to exit
+            --> hand over a randomly generated integer which is known only to the system that itself also receives the message
         * alternative thought: the call of function "read_device" (using "ioctl" internally) was used in file "socket_sensor.c", to detect input on socket
             --> that means, that output should be sendable to socket as well via "ioctl"
             --> this could possibly be used for exiting the sensing thread !
