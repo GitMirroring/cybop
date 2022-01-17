@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-01-17  Christian Heller  <christian.heller@cybop.org>
+
+        * Do steps in order to make text user interface (tui) work again
+
 2022-01-14  Christian Heller  <christian.heller@cybop.org>
 
         * Unify handling of communication client requests, now consisting of accept and sense for all channels
