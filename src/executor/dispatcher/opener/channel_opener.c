@@ -33,7 +33,7 @@
 #include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../executor/dispatcher/opener/socket/accept_socket_opener.c"
+#include "../../../executor/activator/enabler/socket/socket_enabler.c"
 #include "../../../executor/dispatcher/opener/locking_opener.c"
 #include "../../../executor/sensor/sensor.c"
 #include "../../../logger/logger.c"
@@ -107,7 +107,7 @@ void open_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
             //?? int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
             // Accepts client on server socket.
-            open_socket_accept((void*) &c, p10);
+            enable_socket((void*) &c, p10);
             fwprintf(stdout, L"Debug: Open channel. client socket c: %i\n", c);
 
             // CAUTION! Hand over accepted client socket as client identification.

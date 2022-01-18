@@ -69,7 +69,7 @@ void close_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            close_client(p0, (void*) &NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6, p7, p8);
+            close_locking(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6, p7, p8);
         }
     }
 
@@ -79,7 +79,7 @@ void close_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            close_client(p0, (void*) &NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6, p7, p8);
+            close_locking(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6, p7, p8);
         }
     }
 
@@ -90,11 +90,11 @@ void close_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Free socket resources.
-            close_client(p0, p1, p2, p3, p4, p5, p6, p7, p8);
+            //?? close_locking(p0, px ??, p1, p2, p3, p4, p5, p6, p7, p8);
 
             // Close socket.
-            close_socket((void*) &c, p1);
-            fwprintf(stdout, L"Debug: Close channel. client socket c: %i\n", c);
+            //?? close_socket((void*) &c, p1);
+            //?? fwprintf(stdout, L"Debug: Close channel. client socket c: %i\n", c);
         }
     }
 
@@ -104,7 +104,7 @@ void close_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            close_client(p0, (void*) &NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6, p7, p8);
+            close_locking(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6, p7, p8);
         }
     }
 

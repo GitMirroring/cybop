@@ -35,15 +35,17 @@
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/dispatcher/opener/display/window_display_opener.c"
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Allocates display-specific resources.
  *
- * @param p0 the client entry
+ * @param p0 the window identification
+ * @param p1 the client entry
  */
-void open_display(void* p0) {
+void open_display(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open display.");
 
@@ -71,7 +73,10 @@ void open_display(void* p0) {
     //
 
     // Copy event buffer to client entry.
-    copy_array_forward(p0, (void*) &b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) BUFFER_MESSAGE_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(p1, (void*) &b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) BUFFER_MESSAGE_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+    // Open client window.
+    open_display_window(p0, p1);
 }
 
 /* DISPLAY_OPENER_SOURCE */

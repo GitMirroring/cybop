@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef REGISTER_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
-#define REGISTER_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
+#ifndef DISPATCH_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
+#define DISPATCH_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
 
@@ -47,32 +47,32 @@
 //
 
 //
-// Register (some operation to be processed over time).
+// Dispatch (some operation to be processed over time).
 //
 // IANA media type: not defined
-// Self-defined media type: register
+// Self-defined media type: dispatch
 // This media type is a CYBOL extension.
 //
 
 /**
- * The register/close logic cybol format.
+ * The dispatch/close logic cybol format.
  *
  * Close down a client that has been used for connecting to a service.
  *
  * This is a CYBOL extension.
  */
-static wchar_t* CLOSE_REGISTER_LOGIC_CYBOL_FORMAT = L"register/close";
-static int* CLOSE_REGISTER_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* CLOSE_DISPATCH_LOGIC_CYBOL_FORMAT = L"dispatch/close";
+static int* CLOSE_DISPATCH_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The register/open logic cybol format.
+ * The dispatch/open logic cybol format.
  *
  * Open up a client for connecting to a service.
  *
  * This is a CYBOL extension.
  */
-static wchar_t* OPEN_REGISTER_LOGIC_CYBOL_FORMAT = L"register/open";
-static int* OPEN_REGISTER_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* OPEN_DISPATCH_LOGIC_CYBOL_FORMAT = L"dispatch/open";
+static int* OPEN_DISPATCH_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* REGISTER_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
+/* DISPATCH_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

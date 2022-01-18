@@ -55,7 +55,7 @@ void open_specific(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            open_display(p0);
+            //?? open_display(p0);
         }
     }
 

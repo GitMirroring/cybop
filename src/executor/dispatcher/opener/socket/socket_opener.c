@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef OLD_SOCKET_OPENER_SOURCE
-#define OLD_SOCKET_OPENER_SOURCE
+#ifndef SOCKET_OPENER_SOURCE
+#define SOCKET_OPENER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -34,7 +34,7 @@
 #include "../../../../executor/maintainer/starter/socket/family_socket_starter.c"
 #include "../../../../executor/maintainer/starter/socket/protocol_socket_starter.c"
 #include "../../../../executor/maintainer/starter/socket/style_socket_starter.c"
-#include "../../../../executor/registrar/opener/socket/connect_socket_opener.c"
+#include "../../../../executor/dispatcher/opener/socket/connexion_socket_opener.c"
 #include "../../../../logger/logger.c"
 #include "../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
 #include "../../../../variable/symbolic_name/protocol_family_socket_symbolic_name.c"
@@ -42,7 +42,7 @@
 #include "../../../../variable/symbolic_name/style_socket_symbolic_name.c"
 
 /**
- * Opens up the given client socket.
+ * Connects the given socket to the server given by the address.
  *
  * @param p0 the client socket
  * @param p1 the family data (namespace)
@@ -57,9 +57,9 @@
  * @param p10 the host address count
  * @param p11 the port
  */
-void open_socket_old(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void open_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket old.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket.");
 
     // The protocol family (socket namespace).
     int pf = *UNSPEC_PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME;
@@ -90,10 +90,10 @@ void open_socket_old(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
     //
     startup_socket_socket_address((void*) &ad, (void*) &as, p7, p8, p9, p10, p11, (void*) &af);
     // Connect via socket with server.
-    open_socket_connect(p0, ad, (void*) &as);
+    open_socket_connexion(p0, ad, (void*) &as);
     // Deallocate socket address.
     free(ad);
 }
 
-/* OLD_SOCKET_OPENER_SOURCE */
+/* SOCKET_OPENER_SOURCE */
 #endif

@@ -42,8 +42,10 @@
 /**
  * Accepts new clients via the given channel.
  *
- * CAUTION! Do NOT rename this function to "open" or "accept",
- * as those names are already used by low-level glibc functionality.
+ * CAUTION! Do NOT rename this function to "open",
+ * as that name is already used by low-level file descriptor functionality:
+ * /usr/include/fcntl.h:168
+ * extern int open (const char *__file, int __oflag, ...) __nonnull ((1));
  *
  * CAUTION! In cyboi, all functions by default have
  * NO return value. In relation with threads, however,

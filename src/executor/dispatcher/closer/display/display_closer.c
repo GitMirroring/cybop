@@ -46,11 +46,14 @@
 /**
  * Deallocates display-specific resources.
  *
- * @param p0 the client entry
+ * @param p0 the window identification
+ * @param p1 the client entry
  */
-void close_display(void* p0) {
+void close_display(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close display.");
+
+    close_display_window(p0, p1);
 
     //
     // Declaration.
@@ -71,7 +74,7 @@ void close_display(void* p0) {
     //
 
     // Get event buffer item from input/output entry.
-    copy_array_forward((void*) &b, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_MESSAGE_CLIENT_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &b, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_MESSAGE_CLIENT_STATE_CYBOI_NAME);
 
     //
     // Deallocation.

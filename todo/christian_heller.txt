@@ -11,11 +11,14 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-        * Move socket accept to activator
-        * Reflect on how to structure maintainer/activator/dispatcher/sensor
-        * Make gui work again
+        * Merge porter (file handling) into dispatcher
+        * Merge maintainer serial port opener into dispatcher
+        * Add basic writer + closer with proper error handling to directory "executor/streamer/writer/"
+        * Use wrapper function "write_basic" as replacement for existing calls of glibc function "write", e.g. in file "interrupt_sensor.c"
 
-        * Make socket work again
+        * Make display (gui) work again
+
+        * Make socket (wui) work again
         * Hand over client mode as parametre in files "sensor.c", "entry_client_starter.c" etc.
         * Reactivate call of function "close_client" in file "fragment_socket_sensor.c"
 
@@ -24,27 +27,16 @@
             unicode-conversion does not work for control characters --> do it manually?
             mutex *IS* set correctly, so that whole buffer content is written/read
 
+        * Make terminal (tui) work again
+        * Replace standard i/o streams with file descriptor in file "terminal_starter.c"
         * ALL is fine on closing terminal, since there is no separate service thread, just a client thread which is yet to be called and closed at shutdown
         * Current errors will likely disappear after proper implementation of shutdown functions
 
-        * Channel does not arrive in file "channel_opener.c", even though it has been assigned to io_entry --> check steps using log messages
-        * Check utf-8 decoding: already in communicator/receiver.c converter?? if yes, then not again in reader (for terminal)
-        * Make terminal input work again by implementing in reader file "terminal_reader.c":
-            // Decode multibyte character into wide character.
-            decode_utf_8(p0, p6, (void*) &n);
-            actually not necessary in sensor, but deserialiser already expects wide characters
-        * Replace standard i/o streams with file descriptor in file "terminal_starter.c"
+        * Split sensor into sensor and suspender
 
         * Check whether better to replace "append" with "overwrite" in files "server_socket_reader.c", "character_ansi_escape_code_deserialiser.c" and similar files
         * Adapt file "completeness_sensor.c" for serial port (unlimited number of input with cr+lf end suffix is possible)
         * Provide pointer array in addition to character array as destination in file "sensor.c", since xcb events arrive as pointer and not character
-
-        * Merge porter (file handling) into dispatcher
-        * Merge maintainer serial port opener into dispatcher
-        * Merge registrar (gui window handling) into dispatcher
-
-        * Add basic writer with proper error handling to directory "executor/streamer/writer/"
-        * Use wrapper function "write_basic" as replacement for existing calls of glibc function "write", e.g. in file "interrupt_sensor.c"
 
         * Think about how to avoid creating a second thread with identical function, if e.g. cybol operation "activator/enable" is called twice
         * Investigate line with default thread id (is it initialised at startup?) in file "spinner.c":

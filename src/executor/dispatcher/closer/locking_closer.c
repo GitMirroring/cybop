@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLIENT_CLOSER_SOURCE
-#define CLIENT_CLOSER_SOURCE
+#ifndef LOCKING_CLOSER_SOURCE
+#define LOCKING_CLOSER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -36,7 +36,7 @@
 #include "../../../logger/logger.c"
 
 /**
- * Closes the given client.
+ * Locks client list access.
  *
  * @param p0 the destination client list item
  * @param p1 the client identification
@@ -49,9 +49,9 @@
  * @param p8 the sense function (pointer reference)
  * @param p9 the exit flag
  */
-void close_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void close_locking(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close client.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close locking.");
 
     //
     // CAUTION! Do NOT log messages within thread,
@@ -100,5 +100,5 @@ void close_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     unlock(p2);
 }
 
-/* CLIENT_CLOSER_SOURCE */
+/* LOCKING_CLOSER_SOURCE */
 #endif

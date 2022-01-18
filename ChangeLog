@@ -24,6 +24,12 @@
         * Move buffer part of xcb_shutter to display closer
         * Rename some files in activator
         * Add new directory "mapper" with first file "channel_to_internal_memory_mapper.c"
+        * Reflect on how to structure maintainer | activator | dispatcher | sensor
+        * Add comparison table document "doc/development/cyboi/service_lifecycle.pdf"
+        * Merge registrar files into dispatcher
+        * Move socket accept from dispatcher to activator
+        * Rename cybol operations "register/open" and "register/close" to "dispatch/open" and "dispatch/close"
+        * Adapt constants, format de-/serialiser, applicator, operation handler
 
 2022-01-17  Christian Heller  <christian.heller@cybop.org>
 

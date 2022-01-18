@@ -84,6 +84,8 @@
 #include "../../applicator/contain/contain.c"
 #include "../../applicator/convert/decode.c"
 #include "../../applicator/convert/encode.c"
+#include "../../applicator/dispatch/close.c"
+#include "../../applicator/dispatch/open.c"
 #include "../../applicator/flow/branch.c"
 #include "../../applicator/flow/loop.c"
 #include "../../applicator/flow/sequence.c"
@@ -96,8 +98,6 @@
 #include "../../applicator/modify/modify.c"
 #include "../../applicator/randomise/retrieve.c"
 #include "../../applicator/randomise/sow.c"
-#include "../../applicator/register/close.c"
-#include "../../applicator/register/open.c"
 #include "../../applicator/represent/deserialise.c"
 #include "../../applicator/represent/serialise.c"
 #include "../../applicator/run/run.c"
@@ -1425,12 +1425,12 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     }
 
     //
-    // register
+    // dispatch
     //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p7, (void*) CLOSE_REGISTER_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p7, (void*) CLOSE_DISPATCH_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -1440,7 +1440,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p7, (void*) OPEN_REGISTER_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p7, (void*) OPEN_DISPATCH_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

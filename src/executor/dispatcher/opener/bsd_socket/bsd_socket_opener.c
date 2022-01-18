@@ -30,111 +30,156 @@
 #include <errno.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Accepts client request on the given bsd socket.
+ * Connects with a server via bsd socket.
  *
- * @param p0 the sender client socket
- * @param p1 the receiver server socket
+ * @param p0 the socket
+ * @param p1 the socket address data
+ * @param p2 the socket address size
  */
-void open_bsd_socket(void* p0, void* p1) {
+void open_bsd_socket(void* p0, void* p1, void* p2) {
 
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* s = (int*) p1;
+        int* as = (int*) p2;
 
-        //
-        // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
-        // Otherwise, it would produce huge log files filled up with useless entries.
-        //
-        // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open bsd socket.");
-        fwprintf(stdout, L"Debug: Open bsd socket *s: %i\n", *s);
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        //
-        // Initialise error number.
-        //
-        // It is a global variable and other operations
-        // may have set some value that is not wanted here.
-        //
-        // CAUTION! Initialise the error number BEFORE calling
-        // the function that might cause an error.
-        //
-        errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            struct sockaddr* ad = (struct sockaddr*) p1;
 
-        //
-        // Accept request and store client socket.
-        //
-        // Accepting a connexion does NOT make the original server socket
-        // part of the connexion. Instead, it creates a new client socket
-        // which becomes connected. The normal return value of
-        // "accept" is the file descriptor for the new client socket.
-        //
-        // After "accept", the original server socket remains open and
-        // unconnected, and continues listening until it gets closed.
-        // One can accept further connexions with the original
-        // server socket by calling "accept" again.
-        //
-        // CAUTION! If addr (second argument) and/or addrlen (third argument)
-        // are equal to NULL, then no information about the remote address
-        // of the accepted client socket is returned.
-        //
-        // Therefore, the following source code is NOT necessary:
-        //     struct sockaddr_in ad;
-        //     socklen_t as = sizeof(ad);
-        //     *c = accept(*s, (struct sockaddr*) &ad, &as);
-        //
-        // CAUTION! The socket was made non-blocking at startup.
-        //
-        int c = accept(*s, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        if (c >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                int* s = (int*) p0;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open bsd socket. success");
-            fwprintf(stdout, L"Debug: Open bsd socket. success. client socket c: %i\n", c);
+                log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open bsd socket.");
 
-            copy_integer(p0, (void*) &c);
+                // Cast int to socklen_t.
+                socklen_t sl = (socklen_t) *as;
 
-        } else {
+                //
+                // Initialise error number.
+                //
+                // It is a global variable/ function and other operations
+                // may have set some value that is not wanted here.
+                //
+                // CAUTION! Initialise the error number BEFORE calling
+                // the function that might cause an error.
+                //
+                errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-            //
-            // An error occured.
-            //
+                //
+                // CAUTION! The "select" function was NOT used to make
+                // this socket non-blocking, because it has some overhead
+                // in that other sockets need to be considered and
+                // their file descriptors handed over as argument.
+                // If nonblocking mode is necessary, then using a worker thread
+                // is considered to be a more simple and clean solution here.
+                //
 
-            if (errno == EBADF) {
+                //?? fwprintf(stdout, L"Debug: Open bsd socket. *as: %i\n", *as);
+                //?? fwprintf(stdout, L"Debug: Open bsd socket. ad: %i\n", ad);
+                //?? fwprintf(stdout, L"Debug: Open bsd socket. *s: %i\n", *s);
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket. The socket argument is not a valid file descriptor.");
-                fwprintf(stdout, L"Error: Could not open bsd socket. The socket argument is not a valid file descriptor. error EBADF: %i\n", errno);
+                //
+                // Make connexion with server.
+                //
+                // This function call waits until the server responds
+                // to the request before it returns.
+                //
+                int r = connect(*s, ad, sl);
 
-            } else if (errno == ENOTSOCK) {
+                //?? fwprintf(stdout, L"Debug: Open bsd socket. r: %i\n", r);
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket. The descriptor socket argument is not a socket.");
-                fwprintf(stdout, L"Error: Could not open bsd socket. The descriptor socket argument is not a socket. error ENOTSOCK: %i\n", errno);
+                if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            } else if (errno == EOPNOTSUPP) {
+                    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open bsd socket. success");
+                    //?? fwprintf(stdout, L"Debug: Open bsd socket. success r: %i\n", r);
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket. The descriptor socket does not support this operation.");
-                fwprintf(stdout, L"Error: Could not open bsd socket. The descriptor socket does not support this operation. error EOPNOTSUPP: %i\n", errno);
+                } else {
 
-            } else if (errno == EWOULDBLOCK) {
+                    //
+                    // An error occured.
+                    //
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket. The socket has nonblocking mode set, and there are no pending connexions immediately available.");
-                fwprintf(stdout, L"Error: Could not open bsd socket. The socket has nonblocking mode set, and there are no pending connexions immediately available. error EWOULDBLOCK: %i\n", errno);
+                    if (errno == EBADF) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket. The argument socket is not a valid file descriptor.");
+                        fwprintf(stdout, L"Debug: Could not open bsd socket. error EBADF: %i\n", errno);
+
+                    } else if (errno == ENOTSOCK) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket. The argument socket is not a socket.");
+                        fwprintf(stdout, L"Debug: Could not open bsd socket. error ENOTSOCK: %i\n", errno);
+
+                    } else if (errno == EADDRNOTAVAIL) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket. The specified address is not available on the remote machine.");
+                        fwprintf(stdout, L"Debug: Could not open bsd socket. error EADDRNOTAVAIL: %i\n", errno);
+
+                    } else if (errno == EAFNOSUPPORT) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket. The namespace of the address is not supported by this socket.");
+                        fwprintf(stdout, L"Debug: Could not open bsd socket. error EAFNOSUPPORT: %i\n", errno);
+
+                    } else if (errno == EISCONN) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket. The socket is already connected.");
+                        fwprintf(stdout, L"Debug: Could not open bsd socket. error EISCONN: %i\n", errno);
+
+                    } else if (errno == ETIMEDOUT) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket. The attempt to establish the connexion timed out.");
+                        fwprintf(stdout, L"Debug: Could not open bsd socket. error ETIMEDOUT: %i\n", errno);
+
+                    } else if (errno == ECONNREFUSED) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket. The server has actively refused to establish the connexion.");
+                        fwprintf(stdout, L"Debug: Could not open bsd socket. error ECONNREFUSED: %i\n", errno);
+
+                    } else if (errno == ENETUNREACH) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket. The network of the given address is not reachable from this host.");
+                        fwprintf(stdout, L"Debug: Could not open bsd socket. error ENETUNREACH: %i\n", errno);
+
+                    } else if (errno == EADDRINUSE) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket. The socket address of the given address is already in use.");
+                        fwprintf(stdout, L"Debug: Could not open bsd socket. error EADDRINUSE: %i\n", errno);
+
+                    } else if (errno == EINPROGRESS) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket. The socket is non-blocking and the connexion could not be established immediately. You can determine when the connexion is completely established with select; see Waiting for I/O. Another connect call on the same socket, before the connexion is completely established, will fail with EALREADY.");
+                        fwprintf(stdout, L"Debug: Could not open bsd socket. error EINPROGRESS: %i\n", errno);
+
+                    } else if (errno == EALREADY) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket. The socket is non-blocking and already has a pending connexion in progress (see EINPROGRESS above).");
+                        fwprintf(stdout, L"Debug: Could not open bsd socket. error EALREADY: %i\n", errno);
+
+                    } else {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket. An unknown error occured while connecting the socket.");
+                        fwprintf(stdout, L"Debug: Could not open bsd socket. error UNKNOWN: %i\n", errno);
+                    }
+                }
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket. An unknown error occured.");
-                fwprintf(stdout, L"Error: Could not open bsd socket. An unknown error occured. error UNKNOWN: %i\n", errno);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket. The socket is null.");
             }
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket. The address data is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket. The server socket is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket. The address size is null.");
     }
 }
 

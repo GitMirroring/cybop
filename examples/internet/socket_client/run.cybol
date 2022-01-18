@@ -15,7 +15,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
 <!--
-    <node name="open_socket" channel="inline" format="register/open" model="">
+    <node name="open_socket" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="namespace" channel="inline" format="text/plain" model="local"/>
         <node name="style" channel="inline" format="text/plain" model="datagram"/>
@@ -24,7 +24,7 @@
         <node name="id" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
 -->
-    <node name="open_socket" channel="inline" format="register/open" model="">
+    <node name="open_socket" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
         <node name="style" channel="inline" format="text/plain" model="stream"/>

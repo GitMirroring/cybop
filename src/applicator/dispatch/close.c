@@ -29,10 +29,10 @@
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/logic/registration/close_registration_logic_cybol_name.c"
+#include "../../constant/name/cybol/logic/dispatching/close_dispatching_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../executor/registrar/closer.c"
+#include "../../executor/dispatcher/closer/closer.c"
 #include "../../logger/logger.c"
 
 /**
@@ -68,9 +68,9 @@ void apply_close(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* idmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get channel part.
-    get_part_name((void*) &c, p0, (void*) CHANNEL_CLOSE_REGISTRATION_LOGIC_CYBOL_NAME, (void*) CHANNEL_CLOSE_REGISTRATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &c, p0, (void*) CHANNEL_CLOSE_DISPATCHING_LOGIC_CYBOL_NAME, (void*) CHANNEL_CLOSE_DISPATCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get id part.
-    get_part_name((void*) &id, p0, (void*) IDENTIFICATION_CLOSE_REGISTRATION_LOGIC_CYBOL_NAME, (void*) IDENTIFICATION_CLOSE_REGISTRATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &id, p0, (void*) IDENTIFICATION_CLOSE_DISPATCHING_LOGIC_CYBOL_NAME, (void*) IDENTIFICATION_CLOSE_DISPATCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get channel part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -83,7 +83,7 @@ void apply_close(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &idmd, idm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Close down client.
-    close_client_old(idmd, p4, cmd);
+    //?? close_client(idmd, p4, cmd);
 }
 
 /* CLOSE_SOURCE */

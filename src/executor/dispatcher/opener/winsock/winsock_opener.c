@@ -34,127 +34,159 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Accepts a client request on the given winsock.
+ * Connects with a server via windows socket.
  *
- * @param p0 the sender client socket
- * @param p1 the receiver server socket
+ * @param p0 the socket
+ * @param p1 the socket address data
+ * @param p2 the socket address size
  */
-void open_winsock(void* p0, void* p1) {
+void open_winsock_connect(void* p0, void* p1, void* p2) {
 
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* s = (int*) p1;
+        int* as = (int*) p2;
 
-        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* c = (int*) p0;
+            struct sockaddr* ad = (struct sockaddr*) p1;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open winsock.");
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            // Cast receiver server socket int to winsock SOCKET.
-            SOCKET ws = (SOCKET) *s;
+                int* s = (int*) p0;
 
-            //
-            // Permit incoming connexion attempt on a socket.
-            //
-            // CAUTION! If addr (second argument) and/or addrlen (third argument)
-            // are equal to NULL, then no information about the remote address
-            // of the accepted client socket is returned.
-            //
-            // http://msdn.microsoft.com/en-us/library/windows/desktop/ms737526%28v=vs.85%29.aspx
-            //
-            SOCKET wc = accept(ws, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+                log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open winsock.");
 
-            fwprintf(stdout, L"Debug: Open winsock. client socket wc: %i\n", (int) wc);
-
-            if (wc != INVALID_SOCKET) {
-
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open winsock. success.");
-
-                // Cast winsock SOCKET to client int.
-                *c = (int) wc;
-
-            } else {
+                // Cast int to winsock SOCKET.
+                SOCKET ws = (SOCKET) *s;
 
                 //
-                // If the return value is INVALID_SOCKET, then an error occured.
+                // Establish connection to specified socket.
                 //
-
+                // CAUTION! This function call WAITS until the server
+                // responds to the request before it returns.
                 //
-                // Get the calling thread's last-error code.
+                // http://msdn.microsoft.com/en-us/library/windows/desktop/ms737625%28v=vs.85%29.aspx
                 //
-                // CAUTION! This function is the winsock substitute
-                // for the Windows "GetLastError" function.
-                //
-                int e = WSAGetLastError();
+                int r = connect(ws, ad, *as);
 
-                if (e == WSANOTINITIALISED) {
+                if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. A successful WSAStartup call must occur before using this function.");
-
-                } else if (e == WSAECONNRESET) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. An incoming connection was indicated, but was subsequently terminated by the remote peer prior to accepting the call.");
-
-                } else if (e == WSAEFAULT) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. The addrlen parameter is too small or addr is not a valid part of the user address space.");
-
-                } else if (e == WSAEINTR) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. A blocking Windows Sockets 1.1 call was canceled through WSACancelBlockingCall.");
-
-                } else if (e == WSAEINVAL) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. The listen function was not invoked prior to accept.");
-
-                } else if (e == WSAEINPROGRESS) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. A blocking Windows Sockets 1.1 call is in progress, or the service provider is still processing a callback function.");
-
-                } else if (e == WSAEMFILE) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. The queue is nonempty upon entry to accept and there are no descriptors available.");
-
-                } else if (e == WSAENETDOWN) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. The network subsystem has failed.");
-
-                } else if (e == WSAENOBUFS) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. No buffer space is available.");
-
-                } else if (e == WSAENOTSOCK) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. The descriptor is not a socket.");
-
-                } else if (e == WSAEOPNOTSUPP) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. The referenced socket is not a type that supports connection-oriented service.");
-
-                } else if (e == WSAEWOULDBLOCK) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. The socket is marked as nonblocking and no connections are present to be accepted.");
+                    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open winsock. success.");
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. An unknown error occured.");
+                    //
+                    // If the return value is NOT zero, then an error occured.
+                    //
+
+                    //
+                    // Get the calling thread's last-error code.
+                    //
+                    // CAUTION! This function is the winsock substitute
+                    // for the Windows "GetLastError" function.
+                    //
+                    int e = WSAGetLastError();
+
+                    if (e == WSANOTINITIALISED) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. A successful WSAStartup call must occur before using this function.");
+
+                    } else if (e == WSAENETDOWN) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. The network subsystem has failed.");
+
+                    } else if (e == WSAEADDRINUSE) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. The socket's local address is already in use and the socket was not marked to allow address reuse with SO_REUSEADDR. This error usually occurs when executing bind, but could be delayed until the connect function if the bind was to a wildcard address (INADDR_ANY or in6addr_any) for the local IP address. A specific address needs to be implicitly bound by the connect function.");
+
+                    } else if (e == WSAEINTR) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. The blocking Windows Socket 1.1 call was canceled through WSACancelBlockingCall.");
+
+                    } else if (e == WSAEINPROGRESS) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. A blocking Windows Sockets 1.1 call is in progress, or the service provider is still processing a callback function.");
+
+                    } else if (e == WSAEALREADY) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. A nonblocking connect call is in progress on the specified socket. In order to preserve backward compatibility, this error is reported as WSAEINVAL to Windows Sockets 1.1 applications that link to either Winsock.dll or Wsock32.dll.");
+
+                    } else if (e == WSAEADDRNOTAVAIL) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. The remote address is not a valid address (such as INADDR_ANY or in6addr_any).");
+
+                    } else if (e == WSAEAFNOSUPPORT) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. Addresses in the specified family cannot be used with this socket.");
+
+                    } else if (e == WSAECONNREFUSED) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. The attempt to connect was forcefully rejected.");
+
+                    } else if (e == WSAEFAULT) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. The sockaddr structure pointed to by the name contains incorrect address format for the associated address family or the namelen parameter is too small. This error is also returned if the sockaddr structure pointed to by the name parameter with a length specified in the namelen parameter is not in a valid part of the user address space.");
+
+                    } else if (e == WSAEINVAL) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. The parameter s is a listening socket.");
+
+                    } else if (e == WSAEISCONN) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. The socket is already connected (connection-oriented sockets only).");
+
+                    } else if (e == WSAENETUNREACH) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. The network cannot be reached from this host at this time.");
+
+                    } else if (e == WSAEHOSTUNREACH) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. A socket operation was attempted to an unreachable host.");
+
+                    } else if (e == WSAENOBUFS) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. No buffer space is available. The socket cannot be connected.");
+
+                    } else if (e == WSAENOTSOCK) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. The descriptor specified in the s parameter is not a socket.");
+
+                    } else if (e == WSAETIMEDOUT) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. An attempt to connect timed out without establishing a connection.");
+
+                    } else if (e == WSAEWOULDBLOCK) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. The socket is marked as nonblocking and the connection cannot be completed immediately.");
+
+                    } else if (e == WSAEACCES) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. An attempt to connect a datagram socket to broadcast address failed because setsockopt option SO_BROADCAST is not enabled.");
+
+                    } else {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. An unknown error occured.");
+                    }
+
+                    // Cast int to DWORD (unsigned int 32-Bit).
+                    DWORD d = (DWORD) e;
+
+                    log_windows_system_error((void*) &d);
                 }
 
-                // Cast int to DWORD (unsigned int 32-Bit).
-                DWORD d = (DWORD) e;
+            } else {
 
-                log_windows_system_error((void*) &d);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. The socket is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. The sender client socket is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. The address data is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. The receiver server socket is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock. The address size is null.");
     }
 }
 

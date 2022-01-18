@@ -354,6 +354,16 @@ static int* DECODE_CONVERT_LOGIC_CYBOI_FORMAT = NUMBER_1600_INTEGER_STATE_CYBOI_
 static int* ENCODE_CONVERT_LOGIC_CYBOI_FORMAT = NUMBER_1601_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
+// dispatch
+//
+
+/** The close dispatch logic cyboi format. */
+static int* CLOSE_DISPATCH_LOGIC_CYBOI_FORMAT = NUMBER_1650_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The open dispatch logic cyboi format. */
+static int* OPEN_DISPATCH_LOGIC_CYBOI_FORMAT = NUMBER_1651_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
 // flow
 //
 
@@ -480,16 +490,6 @@ static int* RETRIEVE_RANDOMISE_LOGIC_CYBOI_FORMAT = NUMBER_2350_INTEGER_STATE_CY
 
 /** The sow randomise logic cyboi format. */
 static int* SOW_RANDOMISE_LOGIC_CYBOI_FORMAT = NUMBER_2351_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
-// register
-//
-
-/** The close register logic cyboi format. */
-static int* CLOSE_REGISTER_LOGIC_CYBOI_FORMAT = NUMBER_2380_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The open register logic cyboi format. */
-static int* OPEN_REGISTER_LOGIC_CYBOI_FORMAT = NUMBER_2381_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // represent

@@ -23,47 +23,46 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONNECT_SOCKET_OPENER_SOURCE
-#define CONNECT_SOCKET_OPENER_SOURCE
+#ifndef WINDOW_DISPLAY_CLOSER_SOURCE
+#define WINDOW_DISPLAY_CLOSER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/registrar/opener/bsd_socket/connect_bsd_socket_opener.c"
+    #include "../../../../executor/dispatcher/closer/xcb/xcb_closer.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../executor/registrar/opener/bsd_socket/connect_bsd_socket_opener.c"
+    // #include "../../../../executor/dispatcher/closer/darwin_display/darwin_display_closer.c"
+    //?? TODO: Add cocoa support for Apple
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../../executor/registrar/opener/winsock/connect_winsock_opener.c"
+    #include "../../../../executor/dispatcher/closer/win32_display/win32_display_closer.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
- * Connects a client socket.
+ * Closes down the window.
  *
- * @param p0 the socket
- * @param p1 the socket address data
- * @param p2 the socket address size
+ * @param p0 the window identification
+ * @param p1 the client entry
  */
-void open_socket_connect(void* p0, void* p1, void* p2) {
+void close_display_window(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket connect.");
-
-    fwprintf(stdout, L"Debug: Open socket connect. Client socket: %i\n", *((int*) p0));
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close display window.");
 
 #if defined(__linux__) || defined(__unix__)
-    open_bsd_socket_connect(p0, p1, p2);
+    close_xcb(p0, p1);
 #elif defined(__APPLE__) && defined(__MACH__)
-    open_bsd_socket_connect(p0, p1, p2);
+    // close_darwin_display(p0, p1);
+    //?? TODO: Add cocoa support for Apple
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    open_winsock_connect(p0, p1, p2);
+    close_win32_display(p0, p1);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 
-/* CONNECT_SOCKET_OPENER_SOURCE */
+/* WINDOW_DISPLAY_CLOSER_SOURCE */
 #endif

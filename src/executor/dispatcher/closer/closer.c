@@ -35,19 +35,24 @@
 #include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/closer/channel_closer.c"
+//?? #include "../../../executor/dispatcher/closer/channel_closer.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../logger/logger.c"
 
 /**
  * Closes clients of the given channel.
  *
+ * CAUTION! Do NOT rename this function to "close",
+ * as that name is already used by low-level functionality:
+ * /usr/include/unistd.h:353:12
+ * extern int close (int __fd);
+ *
  * @param p0 the input/output entry
  */
-void close(void* p0) {
+void close_client(void* p0) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close.");
-    fwprintf(stdout, L"Debug: Close. p0: %i\n", p0);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close client.");
+    fwprintf(stdout, L"Debug: Close client. p0: %i\n", p0);
 
     // The exit flag.
     void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -96,7 +101,7 @@ void close(void* p0) {
     copy_array_forward((void*) &ipw, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
     // Close all clients.
-    close_loop(cl, m, (void*) &ip, (void*) &im, (void*) &id, (void*) &l, (void*) &c, (void*) &f, ex, c);
+    //?? close_loop(cl, m, (void*) &ip, (void*) &im, (void*) &id, (void*) &l, (void*) &c, (void*) &f, ex, c);
 }
 
 /* CLOSER_SOURCE */

@@ -23,19 +23,19 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ACCEPT_SOCKET_OPENER_SOURCE
-#define ACCEPT_SOCKET_OPENER_SOURCE
+#ifndef SOCKET_ENABLER_SOURCE
+#define SOCKET_ENABLER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/dispatcher/opener/bsd_socket/bsd_socket_opener.c"
+    #include "../../../../executor/activator/enabler/bsd_socket/bsd_socket_enabler.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../executor/dispatcher/opener/bsd_socket/bsd_socket_opener.c"
+    #include "../../../../executor/activator/enabler/bsd_socket/bsd_socket_enabler.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../../executor/dispatcher/opener/winsock/winsock_opener.c"
+    #include "../../../../executor/activator/enabler/winsock/winsock_enabler.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
@@ -43,24 +43,27 @@
 /**
  * Accepts a client request via server socket.
  *
+ * CAUTION! Do NOT rename this function to "accept",
+ * as that name is already used by low-level glibc functionality.
+ *
  * @param p0 the sender client socket
  * @param p1 the receiver server socket
  */
-void open_socket_accept(void* p0, void* p1) {
+void enable_socket(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket accept.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable socket.");
 
 #if defined(__linux__) || defined(__unix__)
-    open_bsd_socket(p0, p1);
+    enable_bsd_socket(p0, p1);
 #elif defined(__APPLE__) && defined(__MACH__)
-    open_bsd_socket(p0, p1);
+    enable_bsd_socket(p0, p1);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    open_winsock(p0, p1);
+    enable_winsock(p0, p1);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 
-/* ACCEPT_SOCKET_OPENER_SOURCE */
+/* SOCKET_ENABLER_SOURCE */
 #endif

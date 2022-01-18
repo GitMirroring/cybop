@@ -40,7 +40,7 @@
  * Opens up a window.
  *
  * @param p0 the window identification
- * @param p1 the input/output entry
+ * @param p1 the client entry
  */
 void open_xcb(void* p0, void* p1) {
 

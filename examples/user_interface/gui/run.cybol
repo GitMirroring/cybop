@@ -16,7 +16,7 @@
     <node name="startup_display" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
     </node>
-    <node name="open_window" channel="inline" format="register/open" model="">
+    <node name="open_window" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
         <node name="id" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
     </node>
