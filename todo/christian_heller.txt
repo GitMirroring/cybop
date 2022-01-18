@@ -11,6 +11,8 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+        * Move socket accept to activator
+        * Reflect on how to structure maintainer/activator/dispatcher/sensor
         * Make gui work again
 
         * Make socket work again
