@@ -23,6 +23,7 @@
         * Move client starter files to dispatcher opener
         * Move buffer part of xcb_shutter to display closer
         * Rename some files in activator
+        * Add new directory "mapper" with first file "channel_to_internal_memory_mapper.c"
 
 2022-01-17  Christian Heller  <christian.heller@cybop.org>
 
