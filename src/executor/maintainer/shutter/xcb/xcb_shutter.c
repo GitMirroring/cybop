@@ -58,8 +58,6 @@ void shutdown_xcb(void* p0) {
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The graphic context.
     void* gc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The event buffer item.
-    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // Retrieval.
@@ -81,8 +79,6 @@ void shutdown_xcb(void* p0) {
     copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get graphic context from input/output entry.
     copy_array_forward((void*) &gc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get event buffer item from input/output entry.
-    copy_array_forward((void*) &b, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     fwprintf(stdout, L"Debug: Shutdown xcb. c: %i\n", c);
 
@@ -114,96 +110,6 @@ void shutdown_xcb(void* p0) {
         // CAUTION! Use descending order as compared to startup,
         // for the following deallocations.
         //
-
-        // The event buffer item data, count.
-        void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The comparison result.
-        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-        // The event.
-        void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-        //
-        // Get event buffer item data, count.
-        //
-        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-        // Inside the structure, arrays may have been reallocated,
-        // with elements pointing to different memory areas now.
-        //
-        copy_array_forward((void*) &bd, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &bc, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-        fwprintf(stdout, L"Debug: Shutdown xcb. bc: %i\n", bc);
-        fwprintf(stdout, L"Debug: Shutdown xcb. *bc: %i\n", *((int*) bc));
-
-        //
-        // CAUTION! Locking using a mutex is NOT necessary here anymore,
-        // since the corresponding sensing thread has exited already.
-        //
-
-        // Loop event buffer and deallocate (free) all events.
-        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Reset comparison result.
-            r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-            compare_integer_greater_or_equal((void*) &r, bc, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-            fwprintf(stdout, L"Debug: Shutdown xcb. loop r: %i\n", r);
-
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                //
-                // The buffer contains at least one event.
-                //
-
-                // Get event from event buffer.
-                copy_array_forward((void*) &e, bd, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-                fwprintf(stdout, L"Debug: Shutdown xcb. e: %i\n", e);
-
-                //
-                // Remove event from event buffer item.
-                //
-                // CAUTION! Set the adjust count flag to TRUE since otherwise,
-                // the destination item will hold a wrong "count" number
-                // leading to unpredictable errors in further processing.
-                //
-                modify_item(b, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
-                fwprintf(stdout, L"Debug: Shutdown xcb. after remove *bc: %i\n", *((int*) bc));
-
-                if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                    //
-                    // Deallocate event.
-                    //
-                    // CAUTION! Free memory only if event is NOT null.
-                    //
-                    // CAUTION! It HAS TO BE destroyed manually here, since for:
-                    // - linux: it gets created automatically inside the xcb library
-                    // - win32: it gets created manually as message using the type MSG
-                    //
-                    // However, in BOTH CASES they are just pointers and hence
-                    // NOT platform-specific and therefore may get freed here.
-                    //
-                    free(e);
-                    fwprintf(stdout, L"Debug: Shutdown xcb. after free e: %i\n", e);
-
-                } else {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown xcb. The event is null.");
-                    fwprintf(stdout, L"Error: Could not shutdown xcb. The event is null. e: %i\n", e);
-                }
-
-            } else {
-
-                //
-                // The event buffer is empty.
-                //
-
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown xcb. The event buffer is empty.");
-                fwprintf(stdout, L"Debug: Shutdown xcb. The event buffer is empty. *bc: %i\n", *((int*) bc));
-
-                break;
-            }
-        }
 
         fwprintf(stdout, L"Debug: Shutdown xcb. gc: %i\n", gc);
 
@@ -241,8 +147,6 @@ void shutdown_xcb(void* p0) {
             fwprintf(stdout, L"Warning: Could not shutdown xcb. The graphic context is null. gc: %i\n", gc);
         }
 
-        // Deallocate event buffer item.
-        deallocate_item((void*) &b, (void*) POINTER_STATE_CYBOI_TYPE);
         //
         // Deallocate graphic context.
         //

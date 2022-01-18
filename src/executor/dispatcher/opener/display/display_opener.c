@@ -51,7 +51,7 @@ void open_display(void* p0) {
     // Declaration.
     //
 
-    // The buffer item.
+    // The event buffer item.
     void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
@@ -59,7 +59,7 @@ void open_display(void* p0) {
     //
 
     //
-    // Allocate buffer item.
+    // Allocate event buffer item.
     //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
@@ -70,7 +70,7 @@ void open_display(void* p0) {
     // Storage.
     //
 
-    // Set buffer item into client entry.
+    // Copy event buffer to client entry.
     copy_array_forward(p0, (void*) &b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) BUFFER_MESSAGE_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
