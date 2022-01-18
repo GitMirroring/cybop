@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHANNEL_DISABLER_SOURCE
-#define CHANNEL_DISABLER_SOURCE
+#ifndef SERVICE_DISABLER_SOURCE
+#define SERVICE_DISABLER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -39,19 +39,19 @@
 #include "../../logger/logger.c"
 
 /**
- * Disables the channel with the given input/output base for message sensing.
+ * Disables the service on the given channel.
  *
  * @param p0 the internal memory data
  * @param p1 the input/output base
  * @param p2 the socket port (service identification)
  * @param p3 the channel
  */
-void disable_channel(void* p0, void* p1, void* p2, void* p3) {
+void disable_service(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Disable channel.");
-    fwprintf(stdout, L"Debug: Disable channel. base: %i\n", *((int*) p1));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Disable service.");
+    fwprintf(stdout, L"Debug: Disable service. base: %i\n", *((int*) p1));
     //?? CAUTION! Uncomment only for socket test since otherwise, the id is null.
-    //?? fwprintf(stdout, L"Debug: Disable channel. service id *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Disable service. service id *p2: %i\n", *((int*) p2));
 
     // The input/output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -66,7 +66,7 @@ void disable_channel(void* p0, void* p1, void* p2, void* p3) {
         // at the given service identification.
         //
 
-        fwprintf(stdout, L"Debug: Disable channel. The input/output entry does exist. io: %i\n", io);
+        fwprintf(stdout, L"Debug: Disable service. The input/output entry does exist. io: %i\n", io);
 
         // The thread identification.
         void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -95,7 +95,7 @@ void disable_channel(void* p0, void* p1, void* p2, void* p3) {
         copy_integer(ex, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         //
-        // Awake channel sensing thread so that it can detect the exit flag set above.
+        // Awake thread so that it can detect the exit flag set above.
         //
         // CAUTION! Mind the order. The exit flag has to be set FIRST.
         // Otherwise, the fake input might be processed and be lost,
@@ -108,11 +108,11 @@ void disable_channel(void* p0, void* p1, void* p2, void* p3) {
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not disable channel. There exists no input/output entry at the given service identification.");
-        fwprintf(stdout, L"Error: Could not disable channel. There exists no input/output entry at the given service identification. io: %i\n", io);
-        fwprintf(stdout, L"Error: Could not disable channel. There exists no input/output entry at the given service identification. base: %i\n", *((int*) p1));
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not disable service. There exists no input/output entry at the given service identification.");
+        fwprintf(stdout, L"Error: Could not disable service. There exists no input/output entry at the given service identification. io: %i\n", io);
+        fwprintf(stdout, L"Error: Could not disable service. There exists no input/output entry at the given service identification. base: %i\n", *((int*) p1));
     }
 }
 
-/* CHANNEL_DISABLER_SOURCE */
+/* SERVICE_DISABLER_SOURCE */
 #endif

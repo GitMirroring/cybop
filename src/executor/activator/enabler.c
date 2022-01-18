@@ -30,12 +30,12 @@
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../executor/activator/channel_enabler.c"
+#include "../../executor/activator/service_enabler.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../logger/logger.c"
 
 /**
- * Enables the given channel for message sensing.
+ * Enables the given service.
  *
  * @param p0 the internal memory data
  * @param p1 the socket port (service identification)
@@ -60,7 +60,7 @@ void enable(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            enable_channel(p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2, p3, p4, p5, p6);
+            enable_service(p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2, p3, p4, p5, p6);
         }
     }
 
@@ -70,7 +70,7 @@ void enable(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            enable_channel(p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2, p3, p4, p5, p6);
+            enable_service(p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2, p3, p4, p5, p6);
         }
     }
 
@@ -80,7 +80,7 @@ void enable(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            enable_channel(p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2, p3, p4, p5, p6);
+            enable_service(p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2, p3, p4, p5, p6);
         }
     }
 
@@ -90,7 +90,7 @@ void enable(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            enable_channel(p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2, p3, p4, p5, p6);
+            enable_service(p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2, p3, p4, p5, p6);
         }
     }
 

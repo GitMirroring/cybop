@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHANNEL_ENABLER_SOURCE
-#define CHANNEL_ENABLER_SOURCE
+#ifndef SERVICE_ENABLER_SOURCE
+#define SERVICE_ENABLER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -41,7 +41,7 @@
 #include "../../logger/logger.c"
 
 /**
- * Enables the channel with the given input/output base for message sensing.
+ * Enables the service on the given channel.
  *
  * @param p0 the internal memory data
  * @param p1 the input/output base
@@ -52,11 +52,11 @@
  * @param p6 the channel (pointer reference)
  * @param p7 the channel
  */
-void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void enable_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable channel.");
-    fwprintf(stdout, L"Debug: Enable channel. language p5: %i\n", p5);
-    fwprintf(stdout, L"Debug: Enable channel. language *p5: %i\n", *((int*) p5));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable service.");
+    fwprintf(stdout, L"Debug: Enable service. language p5: %i\n", p5);
+    fwprintf(stdout, L"Debug: Enable service. language *p5: %i\n", *((int*) p5));
 
     // The input/output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -66,7 +66,7 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        //?? fwprintf(stdout, L"Debug: Enable channel. io: %i\n", io);
+        //?? fwprintf(stdout, L"Debug: Enable service. io: %i\n", io);
 
         //
         // An input/output entry DOES exist for the service
@@ -106,7 +106,7 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         //?? copy_pointer((void*) &aa, a);
 
         //?? TODO: Better local function than that from input/output entry?
-        void* f = (void*) &open_general;
+        void* f = (void*) &open_client;
 
         // Handle requests arriving via channel.
         //?? enable_function(t, ff, aa, p7);
@@ -114,10 +114,10 @@ void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable channel. There exists no input/output entry at the given service identification.");
-        fwprintf(stdout, L"Error: Could not enable channel. There exists no input/output entry at the given service identification. io: %i\n", io);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable service. There exists no input/output entry at the given service identification.");
+        fwprintf(stdout, L"Error: Could not enable service. There exists no input/output entry at the given service identification. io: %i\n", io);
     }
 }
 
-/* CHANNEL_ENABLER_SOURCE */
+/* SERVICE_ENABLER_SOURCE */
 #endif

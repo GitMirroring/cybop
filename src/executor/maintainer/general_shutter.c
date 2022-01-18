@@ -32,7 +32,7 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/internal_memory_getter.c"
 #include "../../executor/accessor/setter/internal_memory_setter.c"
-#include "../../executor/activator/channel_disabler.c"
+#include "../../executor/activator/service_disabler.c"
 #include "../../executor/maintainer/io_shutter.c"
 #include "../../executor/maintainer/specific_shutter.c"
 #include "../../executor/memoriser/deallocator/array_deallocator.c"
@@ -93,7 +93,7 @@ void shutdown_general(void* p0, void* p1, void* p2, void* p3) {
         // Therefore, the sensing thread has to be exited FIRST
         // as long as ioctl fake input can be received prompt.
         //
-        disable_channel(p0, p3, p1, p2);
+        disable_service(p0, p3, p1, p2);
         // Execute channel-specific shutdown functions.
         shutdown_specific(io, p2);
         // Shutdown input/output entry.

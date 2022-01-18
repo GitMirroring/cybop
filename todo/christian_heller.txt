@@ -17,6 +17,7 @@
         * Hand over client mode as parametre in files "sensor.c", "entry_client_starter.c" etc.
         * Reactivate call of function "close_client" in file "fragment_socket_sensor.c"
 
+        * Add new encoding "ansi-escape-code" and write converter, in order to filter out ansi escape sequences, and delegate standard characters to converter for "utf-8"
         * Error that only ESC is converted, but not the following two characters of the ansi escape sequence
             unicode-conversion does not work for control characters --> do it manually?
             mutex *IS* set correctly, so that whole buffer content is written/read
