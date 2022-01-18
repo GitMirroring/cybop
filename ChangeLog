@@ -21,6 +21,7 @@
 2022-01-18  Christian Heller  <christian.heller@cybop.org>
 
         * Move client starter files to dispatcher opener
+        * Move buffer part of xcb_shutter to display closer
 
 2022-01-17  Christian Heller  <christian.heller@cybop.org>
 
