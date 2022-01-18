@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-01-18  Christian Heller  <christian.heller@cybop.org>
+
+        * Move client starter files to dispatcher opener
+
 2022-01-17  Christian Heller  <christian.heller@cybop.org>
 
         * Do steps in order to make text user interface (tui) work again

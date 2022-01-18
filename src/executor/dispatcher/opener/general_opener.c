@@ -23,21 +23,22 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLIENT_STARTER_SOURCE
-#define CLIENT_STARTER_SOURCE
+#ifndef GENERAL_OPENER_SOURCE
+#define GENERAL_OPENER_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/maintainer/entry_client_starter.c"
-#include "../../executor/maintainer/store_client_starter.c"
-#include "../../executor/memoriser/allocator/array_allocator.c"
-#include "../../executor/sensor/sensor.c"
-#include "../../executor/threader/spinner.c"
-#include "../../logger/logger.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/dispatcher/opener/entry_opener.c"
+#include "../../../executor/dispatcher/opener/specific_opener.c"
+#include "../../../executor/dispatcher/opener/store_opener.c"
+#include "../../../executor/memoriser/allocator/array_allocator.c"
+#include "../../../executor/sensor/sensor.c"
+#include "../../../executor/threader/spinner.c"
+#include "../../../logger/logger.c"
 
 /**
- * Starts up the client.
+ * Allocates general things of the client being opened.
  *
  * @param p0 the destination client list item
  * @param p1 the client identification (e.g. client socket)
@@ -49,11 +50,12 @@
  * @param p7 the serial port file descriptor (pointer reference)
  * @param p8 the terminal file descriptor (pointer reference)
  * @param p9 the xcb connexion (pointer reference)
+ * @param p10 the channel
  */
-void startup_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void open_general(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup client.");
-    fwprintf(stdout, L"Debug: Startup client. p0: %i\n", p0);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open general.");
+    fwprintf(stdout, L"Debug: Open general. p0: %i\n", p0);
 
     // The client entry.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -69,13 +71,12 @@ void startup_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     // be negative or zero, but have at least a value of ONE.
     //
     allocate_array((void*) &e, (void*) CLIENT_ENTRY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
-
-    // Startup client entry.
-    startup_client_entry(e, p2, p3, p4, p5, p6, p7, p8, p9, p1);
-
+    // Open entry.
+    open_entry(e, p2, p3, p4, p5, p6, p7, p8, p9, p1);
+    // Open channel-specific items.
+    open_specific(e, p10);
     // Store client entry at index of client socket in client list.
-    startup_client_store(p0, (void*) &e, p1);
-
+    open_store(p0, (void*) &e, p1);
     // Get thread identification from client entry.
     copy_array_forward((void*) &t, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_THREAD_CLIENT_STATE_CYBOI_NAME);
 
@@ -88,5 +89,5 @@ void startup_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     spin(t, f, e);
 }
 
-/* CLIENT_STARTER_SOURCE */
+/* GENERAL_OPENER_SOURCE */
 #endif

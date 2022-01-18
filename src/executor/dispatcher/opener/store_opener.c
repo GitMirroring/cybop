@@ -23,20 +23,20 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STORE_CLIENT_STARTER_SOURCE
-#define STORE_CLIENT_STARTER_SOURCE
+#ifndef STORE_OPENER_SOURCE
+#define STORE_OPENER_SOURCE
 
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
-#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/copier/array_copier.c"
-#include "../../executor/modifier/array_modifier.c"
-#include "../../logger/logger.c"
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/modifier/array_modifier.c"
+#include "../../../logger/logger.c"
 
 /**
  * Stores the client entry in the client list.
@@ -45,10 +45,10 @@
  * @param p1 the client entry (pointer reference)
  * @param p2 the client identification (e.g. client socket)
  */
-void startup_client_store(void* p0, void* p1, void* p2) {
+void open_store(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup client store.");
-    fwprintf(stdout, L"Debug: Startup client store. p0: %i\n", p0);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open store.");
+    fwprintf(stdout, L"Debug: Open store. p0: %i\n", p0);
 
     // The destination data, size.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -83,10 +83,10 @@ void startup_client_store(void* p0, void* p1, void* p2) {
     //
 
 /*??
-    fwprintf(stdout, L"Debug: Startup client store. client socket p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Startup client store. client socket *p2: %i\n", *((int*) p2));
-    fwprintf(stdout, L"Debug: Startup client store. destination size s: %i\n", s);
-    fwprintf(stdout, L"Debug: Startup client store. destination size *s: %i\n", *((int*) s));
+    fwprintf(stdout, L"Debug: Open store. client socket p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Open store. client socket *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Open store. destination size s: %i\n", s);
+    fwprintf(stdout, L"Debug: Open store. destination size *s: %i\n", *((int*) s));
 */
 
     //
@@ -108,5 +108,5 @@ void startup_client_store(void* p0, void* p1, void* p2) {
     copy_array_forward(p0, (void*) &d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DATA_ITEM_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
-/* STORE_CLIENT_STARTER_SOURCE */
+/* STORE_OPENER_SOURCE */
 #endif

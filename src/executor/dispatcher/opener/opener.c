@@ -62,14 +62,14 @@
  *
  * @param p0 the input/output entry
  */
-int open_general(void* p0) {
+int open_client(void* p0) {
 
     //
     // CAUTION! Do NOT log messages within thread,
     // in order to avoid race conditions and other conflicts.
     //
     //?? log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open.");
-    fwprintf(stdout, L"Debug: Open. p0: %i\n", p0);
+    fwprintf(stdout, L"Debug: Open client. p0: %i\n", p0);
 
     // The client list item.
     void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -127,8 +127,8 @@ int open_general(void* p0) {
     // Get interrupt pipe write file descriptor.
     copy_array_forward((void*) &ipw, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-    fwprintf(stdout, L"Debug: Open. c: %i\n", c);
-    fwprintf(stdout, L"Debug: Open. *c: %i\n", *((int*) c));
+    fwprintf(stdout, L"Debug: Open client. c: %i\n", c);
+    fwprintf(stdout, L"Debug: Open client. *c: %i\n", *((int*) c));
 
     // Open up clients.
     open_loop(cl, clm, (void*) &ip, (void*) &im, (void*) &id, (void*) &l, (void*) &c, (void*) &sp, (void*) &t, (void*) &co, s, ex, c);

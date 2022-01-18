@@ -11,6 +11,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+        * Make gui work again
+
+        * Make socket work again
+        * Hand over client mode as parametre in files "sensor.c", "entry_client_starter.c" etc.
+        * Reactivate call of function "close_client" in file "fragment_socket_sensor.c"
+
         * Error that only ESC is converted, but not the following two characters of the ansi escape sequence
             unicode-conversion does not work for control characters --> do it manually?
             mutex *IS* set correctly, so that whole buffer content is written/read
@@ -29,12 +35,6 @@
         * Check whether better to replace "append" with "overwrite" in files "server_socket_reader.c", "character_ansi_escape_code_deserialiser.c" and similar files
         * Adapt file "completeness_sensor.c" for serial port (unlimited number of input with cr+lf end suffix is possible)
         * Provide pointer array in addition to character array as destination in file "sensor.c", since xcb events arrive as pointer and not character
-
-        * Make gui work again
-
-        * Make socket work again
-        * Hand over client mode as parametre in files "sensor.c", "entry_client_starter.c" etc.
-        * Reactivate call of function "close_client" in file "fragment_socket_sensor.c"
 
         * Merge porter (file handling) into dispatcher
         * Merge maintainer serial port opener into dispatcher

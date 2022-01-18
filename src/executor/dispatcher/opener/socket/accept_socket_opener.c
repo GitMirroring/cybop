@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SOCKET_OPENER_SOURCE
-#define SOCKET_OPENER_SOURCE
+#ifndef ACCEPT_SOCKET_OPENER_SOURCE
+#define ACCEPT_SOCKET_OPENER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
@@ -46,9 +46,9 @@
  * @param p0 the sender client socket
  * @param p1 the receiver server socket
  */
-void open_socket(void* p0, void* p1) {
+void open_socket_accept(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket accept.");
 
 #if defined(__linux__) || defined(__unix__)
     open_bsd_socket(p0, p1);
@@ -62,5 +62,5 @@ void open_socket(void* p0, void* p1) {
 #endif
 }
 
-/* SOCKET_OPENER_SOURCE */
+/* ACCEPT_SOCKET_OPENER_SOURCE */
 #endif

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DISPLAY_OPENER_SOURCE
-#define DISPLAY_OPENER_SOURCE
+#ifndef DISPLAY_OPENER_OLD_SOURCE
+#define DISPLAY_OPENER_OLD_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
@@ -47,7 +47,7 @@
  * @param p0 the window identification
  * @param p1 the input/output entry
  */
-void open_display(void* p0, void* p1) {
+void open_display_old(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open display.");
 
@@ -64,5 +64,5 @@ void open_display(void* p0, void* p1) {
 #endif
 }
 
-/* DISPLAY_OPENER_SOURCE */
+/* DISPLAY_OPENER_OLD_SOURCE */
 #endif

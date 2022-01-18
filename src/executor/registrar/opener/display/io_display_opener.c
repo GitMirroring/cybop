@@ -27,7 +27,7 @@
 #define IO_DISPLAY_OPENER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../executor/registrar/opener/display/display_opener.c"
+#include "../../../../executor/registrar/opener/display/display_opener_old.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -48,7 +48,7 @@ void open_display_io(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &io, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
     // Open up window.
-    open_display(p0, io);
+    open_display_old(p0, io);
 }
 
 /* IO_DISPLAY_OPENER_SOURCE */

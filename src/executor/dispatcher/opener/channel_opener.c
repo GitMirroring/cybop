@@ -33,8 +33,8 @@
 #include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../executor/dispatcher/opener/socket/socket_opener.c"
-#include "../../../executor/dispatcher/opener/client_opener.c"
+#include "../../../executor/dispatcher/opener/socket/accept_socket_opener.c"
+#include "../../../executor/dispatcher/opener/locking_opener.c"
 #include "../../../executor/sensor/sensor.c"
 #include "../../../logger/logger.c"
 
@@ -71,7 +71,7 @@ void open_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // CAUTION! Hand over ZERO as client identification, since there is just one client.
-            open_client(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11);
+            open_locking(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11, p12);
 
             // CAUTION! Set exit flag, since only ONE client gets started.
             copy_integer(p11, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -85,7 +85,7 @@ void open_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // CAUTION! Hand over ZERO as client identification, since there is just one client.
-            open_client(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11);
+            open_locking(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11, p12);
 
             // CAUTION! Set exit flag, since only ONE client gets started.
             copy_integer(p11, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -107,11 +107,11 @@ void open_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
             //?? int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
             // Accepts client on server socket.
-            open_socket((void*) &c, p10);
+            open_socket_accept((void*) &c, p10);
             fwprintf(stdout, L"Debug: Open channel. client socket c: %i\n", c);
 
             // CAUTION! Hand over accepted client socket as client identification.
-            open_client(p0, (void*) &c, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11);
+            open_locking(p0, (void*) &c, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11, p12);
 
             //
             // CAUTION! Do NOT set exit flag here,
@@ -128,7 +128,7 @@ void open_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // CAUTION! Hand over ZERO as client identification, since there is just one client.
-            open_client(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11);
+            open_locking(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11, p12);
 
             // CAUTION! Set exit flag, since only ONE client gets started.
             copy_integer(p11, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

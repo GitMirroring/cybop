@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLIENT_OPENER_SOURCE
-#define CLIENT_OPENER_SOURCE
+#ifndef LOCKING_OPENER_SOURCE
+#define LOCKING_OPENER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -32,11 +32,11 @@
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/locker/locker.c"
 #include "../../../executor/locker/unlocker.c"
-#include "../../../executor/maintainer/client_starter.c"
+#include "../../../executor/dispatcher/opener/general_opener.c"
 #include "../../../logger/logger.c"
 
 /**
- * Opens up a client.
+ * Locks client list access.
  *
  * @param p0 the destination client list item
  * @param p1 the client identification (e.g. client socket)
@@ -50,16 +50,17 @@
  * @param p9 the terminal file descriptor (pointer reference)
  * @param p10 the xcb connexion (pointer reference)
  * @param p11 the exit flag
+ * @param p12 the channel
  */
-void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void open_locking(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     //
     // CAUTION! Do NOT log messages within thread,
     // in order to avoid race conditions and other conflicts.
     //
-    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open client.");
-    fwprintf(stdout, L"Debug: Open client. p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Open client. *p1: %i\n", *((int*) p1));
+    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open locking.");
+    fwprintf(stdout, L"Debug: Open locking. p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Open locking. *p1: %i\n", *((int*) p1));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -94,12 +95,12 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         // Therefore, proceed normally.
         //
 
-        startup_client(p0, p1, p3, p4, p5, p6, p7, p8, p9, p10);
+        open_general(p0, p1, p3, p4, p5, p6, p7, p8, p9, p10, p12);
     }
 
     // Unlock client list mutex.
     unlock(p2);
 }
 
-/* CLIENT_OPENER_SOURCE */
+/* LOCKING_OPENER_SOURCE */
 #endif

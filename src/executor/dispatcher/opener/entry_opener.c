@@ -23,25 +23,25 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ENTRY_CLIENT_STARTER_SOURCE
-#define ENTRY_CLIENT_STARTER_SOURCE
+#ifndef ENTRY_OPENER_SOURCE
+#define ENTRY_OPENER_SOURCE
 
 #include <threads.h> // mtx_t, mtx_init, thrd_error
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/client_state_cyboi_name.c"
-#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/copier/array_copier.c"
-#include "../../executor/copier/integer_copier.c"
-#include "../../executor/copier/pointer_copier.c"
-#include "../../executor/memoriser/allocator/array_allocator.c"
-#include "../../logger/logger.c"
-#include "../../variable/symbolic_name/mutex_thread_symbolic_name.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/client_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/copier/integer_copier.c"
+#include "../../../executor/copier/pointer_copier.c"
+#include "../../../executor/memoriser/allocator/array_allocator.c"
+#include "../../../logger/logger.c"
+#include "../../../variable/symbolic_name/mutex_thread_symbolic_name.c"
 
 /**
  * Allocates the client entry content.
@@ -57,10 +57,10 @@
  * @param p8 the xcb connexion
  * @param p9 the client identification
  */
-void startup_client_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void open_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup client entry.");
-    fwprintf(stdout, L"Debug: Startup client entry. p0: %i\n", p0);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open entry.");
+    fwprintf(stdout, L"Debug: Open entry. p0: %i\n", p0);
 
     //
     // Declaration.
@@ -68,8 +68,6 @@ void startup_client_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     // The identification.
     void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The buffer item.
-    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The access mutex.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The thread identification.
@@ -88,13 +86,6 @@ void startup_client_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void
     // be negative or zero, but have at least a value of ONE.
     //
     allocate_array((void*) &id, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    //
-    // Allocate buffer item.
-    //
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    //
-    allocate_item((void*) &b, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
     //
     // Allocate access mutex.
     //
@@ -130,8 +121,8 @@ void startup_client_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     if (r == thrd_error) {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup client entry. The mutex object creation failed.");
-        fwprintf(stdout, L"Error: Could not startup client entry. The mutex object creation failed. r: %i\n", r);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open entry. The mutex object creation failed.");
+        fwprintf(stdout, L"Error: Could not open entry. The mutex object creation failed. r: %i\n", r);
     }
 
     // Initialise thread identification.
@@ -140,13 +131,11 @@ void startup_client_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void
     copy_integer(ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     //
-    // Storing.
+    // Storage.
     //
 
     // Set identification into client entry.
     copy_array_forward(p0, (void*) &id, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set buffer item into client entry.
-    copy_array_forward(p0, (void*) &b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) BUFFER_MESSAGE_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set access mutex into client entry.
     copy_array_forward(p0, (void*) &m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_MESSAGE_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set thread identification into client entry.
@@ -227,5 +216,5 @@ void startup_client_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void
     copy_array_forward(p0, p8, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) XCB_CONNEXION_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
-/* ENTRY_CLIENT_STARTER_SOURCE */
+/* ENTRY_OPENER_SOURCE */
 #endif
