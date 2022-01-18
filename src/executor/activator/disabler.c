@@ -26,13 +26,14 @@
 #ifndef DISABLER_SOURCE
 #define DISABLER_SOURCE
 
-#include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../executor/activator/service_disabler.c"
+#include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../logger/logger.c"
+#include "../../mapper/channel_to_internal_memory_mapper.c"
 
 /**
  * Disables the given service.
@@ -44,56 +45,29 @@
 void disable(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Disable.");
-
     fwprintf(stdout, L"Debug: Disable. channel p2: %i\n", *((int*) p2));
 
+    // The internal memory name (input/output base).
+    int n = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    // Get internal memory name.
+    map_channel_to_internal_memory((void*) &n, p2);
 
-        compare_integer_equal((void*) &r, p2, (void*) DISPLAY_CYBOI_CHANNEL);
+    compare_integer_greater_or_equal((void*) &r, (void*) &n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            disable_service(p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2);
-        }
-    }
+        //
+        // The internal memory name (input/output base) is VALID.
+        //
+        // CAUTION! This check is important since otherwise,
+        // the internal memory is accessed with a wrong index,
+        // which may lead to memory errors.
+        //
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p2, (void*) SERIAL_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            disable_service(p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p2, (void*) SOCKET_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            disable_service(p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p2, (void*) TERMINAL_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            disable_service(p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not disable. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not disable. The channel is unknown. Channel p2: %i\n", *((int*) p2));
+        disable_service(p0, (void*) &n, p1, p2);
     }
 }
 

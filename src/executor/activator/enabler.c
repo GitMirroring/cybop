@@ -72,7 +72,6 @@ void enable(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
         // which may lead to memory errors.
         //
 
-        // Enable service.
         enable_service(p0, (void*) &n, p1, p2, p3, p4, p5, p6);
     }
 }
