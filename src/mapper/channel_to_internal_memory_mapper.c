@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHANNEL_INTERNAL_MEMORY_MAPPER_SOURCE
-#define CHANNEL_INTERNAL_MEMORY_MAPPER_SOURCE
+#ifndef CHANNEL_TO_INTERNAL_MEMORY_MAPPER_SOURCE
+#define CHANNEL_TO_INTERNAL_MEMORY_MAPPER_SOURCE
 
 #include "../constant/channel/cyboi/cyboi_channel.c"
 #include "../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -42,9 +42,7 @@
  */
 void map_channel_to_internal_memory(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Map channel to internal memory.");
-    fwprintf(stdout, L"Debug: Map channel to internal memory. channel p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Map channel to internal memory. channel *p1: %i\n", *((int*) p1));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Map channel to internal memory.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -96,5 +94,5 @@ void map_channel_to_internal_memory(void* p0, void* p1) {
     }
 }
 
-/* CHANNEL_INTERNAL_MEMORY_MAPPER_SOURCE */
+/* CHANNEL_TO_INTERNAL_MEMORY_MAPPER_SOURCE */
 #endif

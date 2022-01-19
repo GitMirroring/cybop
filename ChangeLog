@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-01-19  Christian Heller  <christian.heller@cybop.org>
+
+        * Add errno logging with files "error_message_log_cyboi_model.c" and "errno_to_message_mapper.c"
+        * Adapt file "logger.c"
+
 2022-01-18  Christian Heller  <christian.heller@cybop.org>
 
         * Move client starter files to dispatcher opener

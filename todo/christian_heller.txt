@@ -11,6 +11,8 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+        * Add file opener to dispatcher
+
         * Merge porter (file handling) into dispatcher
         * Merge maintainer serial port opener into dispatcher
         * Add basic writer + closer with proper error handling to directory "executor/streamer/writer/"

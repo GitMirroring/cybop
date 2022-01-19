@@ -26,7 +26,8 @@
 #ifndef LOGGER_SOURCE
 #define LOGGER_SOURCE
 
-#include <stdio.h>
+#include <stddef.h> // wchar_t
+#include <stdio.h> // stdout, fwprintf
 #include <stdlib.h>
 #include <string.h>
 #include <wchar.h>
@@ -50,6 +51,7 @@
 #include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../logger/level_name_logger.c"
 #include "../logger/write_logger.c"
+#include "../mapper/errno_to_message_mapper.c"
 #include "../variable/log_setting.c"
 
 //
@@ -204,8 +206,10 @@ void log_message_terminated(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        wchar_t* m = (wchar_t*) p1;
+
         // The message count.
-        int c = wcslen((wchar_t*) p1);
+        int c = wcslen(m);
 
         if (c > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -261,6 +265,42 @@ void log_message_terminated(void* p0, void* p1) {
         // CAUTION! Do NOT call the logger here.
         // It cannot log itself.
         fputws(L"Error: Could not log message terminated. The log message as null terminated string is null.\n", stdout);
+    }
+}
+
+/**
+ * Logs the error.
+ *
+ * @param p0 the errno value
+ */
+void log_errno(void* p0) {
+
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* e = (int*) p0;
+
+        // The message.
+        void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+        // Map errno value to message string.
+        map_errno_to_message((void*) &m, p0);
+
+        // Write message to log file.
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, m);
+
+        // Cast message to correct type.
+        wchar_t* mt = (wchar_t*) m;
+
+        // Print message.
+        fwprintf(stdout, mt);
+        // Print space.
+        fwprintf(stdout, L" ");
+        // Print errno.
+        fwprintf(stdout, L"Errno: %i\n", *e);
+
+    } else {
+
+        fwprintf(stdout, L"Error: Could not log errno. The errno value is null. p0: %i\n", p0);
     }
 }
 
