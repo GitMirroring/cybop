@@ -26,13 +26,13 @@
 #ifndef FRAGMENT_SOCKET_SENSOR_SOURCE
 #define FRAGMENT_SOCKET_SENSOR_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../executor/copier/integer_copier.c"
-#include "../../../executor/dispatcher/closer/socket/socket_closer.c"
-#include "../../../executor/sensor/socket/server_socket_sensor.c"
-#include "../../../executor/streamer/reader/basic/basic_reader.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../executor/copier/integer_copier.c"
+#include "../../../../executor/dispatcher/closer/socket/socket_closer.c"
+#include "../../../../executor/sensor/socket/server_socket_sensor.c"
+#include "../../../../executor/streamer/reader/basic/basic_reader.c"
+#include "../../../../logger/logger.c"
 
 //
 // Maximum Size of Transferable Data:
@@ -66,10 +66,10 @@
  *
  * @param p0 the destination item
  * @param p1 the source file descriptor (client socket number)
- * @param p2 the character buffer data
- * @param p3 the character buffer size
+ * @param p2 the input memory data
+ * @param p3 the input memory size
  * @param p4 the destination item mutex
- * @param p5 the exit flag
+ * @param p5 the sense thread exit flag
  * @param p6 the client mode (true if reading as client from server socket; false otherwise)
  */
 void sense_socket_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {

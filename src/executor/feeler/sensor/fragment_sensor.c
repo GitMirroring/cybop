@@ -26,23 +26,23 @@
 #ifndef FRAGMENT_SENSOR_SOURCE
 #define FRAGMENT_SENSOR_SOURCE
 
-#include "../../constant/channel/cyboi/cyboi_channel.c"
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../executor/comparator/integer/equal_integer_comparator.c"
-//?? #include "../../executor/sensor/display/display_sensor.c"
-#include "../../executor/sensor/serial_port/serial_port_sensor.c"
-#include "../../executor/sensor/socket/fragment_socket_sensor.c"
-#include "../../executor/sensor/terminal/terminal_sensor.c"
-#include "../../logger/logger.c"
+#include "../../../constant/channel/cyboi/cyboi_channel.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../executor/comparator/integer/equal_integer_comparator.c"
+//?? #include "../../../executor/sensor/display/display_sensor.c"
+#include "../../../executor/sensor/serial_port/serial_port_sensor.c"
+#include "../../../executor/sensor/socket/fragment_socket_sensor.c"
+#include "../../../executor/sensor/terminal/terminal_sensor.c"
+#include "../../../logger/logger.c"
 
 /**
  * Senses a message fragment.
  *
  * @param p0 the destination item
  * @param p1 the source identification (e.g. client socket number)
- * @param p2 the character buffer data
- * @param p3 the character buffer size
+ * @param p2 the input memory data
+ * @param p3 the input memory size
  * @param p4 the destination item mutex
  * @param p5 the exit flag
  * @param p6 the client mode (true if reading as client from server socket; false otherwise)

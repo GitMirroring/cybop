@@ -27,44 +27,45 @@
 #define ENABLER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../logger/logger.c"
---
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../../../executor/activator/service_enabler.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/accessor/getter/internal_memory_getter.c"
+#include "../../../executor/activator/enabler/entry_enabler.c"
+#include "../../../executor/activator/enabler/thread_enabler.c"
 #include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
+#include "../../../logger/logger.c"
 #include "../../../mapper/channel_to_internal_memory_mapper.c"
 
 /**
  * Enables the given service.
  *
  * @param p0 the internal memory data
- * @param p1 the server base
- * @param p2 the service port
- * @param p2 the handler part (pointer reference)
- * @param p3 the sender client data (pointer reference, e.g. client socket id, window id, file descriptor)
- * @param p4 the language (pointer reference, protocol)
- * @param p5 the channel (pointer reference)
- * @param p6 the channel
+ * @param p1 the service port
+ * @param p2 the client mode (pointer reference)
+ * @param p3 the handler part (pointer reference)
+ * @param p4 the sender client (pointer reference)
+ * @param p5 the language (pointer reference)
+ * @param p6 the channel (pointer reference)
+ * @param p7 the channel
  */
-void enable(void* p0) {
+void enable(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable.");
-    fwprintf(stdout, L"Debug: Enable. channel p6: %i\n", p6);
-    fwprintf(stdout, L"Debug: Enable. channel *p6: %i\n", *((int*) p6));
+    fwprintf(stdout, L"Debug: Enable. p0: %i\n", p0);
 
-    // The internal memory name (server base).
-    int n = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The server base.
+    int b = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The server entry.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get internal memory name.
-    map_channel_to_internal_memory((void*) &n, p6);
+    // Get server base by channel.
+    map_channel_to_internal_memory((void*) &b, p7);
 
-    compare_integer_greater_or_equal((void*) &r, (void*) &n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    compare_integer_greater_or_equal((void*) &r, (void*) &b, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -76,11 +77,31 @@ void enable(void* p0) {
         // which may lead to memory errors.
         //
 
-        // Assign data handed over from cybol application to server entry.
-        enable_entry(e, (void*) &n, p1, p2, p3, p4, p5, p6);
+        // Get server entry.
+        get_internal_memory_element((void*) &e, p0, b, p1);
 
-        // Invoke enable function WITHIN a new thread.
-        enable_thread(e);
+        if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            //
+            // A server entry exists.
+            //
+
+            // Assign parametres to server entry.
+            enable_entry(e, p2, p3, p4, p5, p6);
+
+            // Invoke enable function WITHIN a new thread.
+            enable_thread(e);
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable. There exists no server entry at the given server base.");
+            fwprintf(stdout, L"Error: Could not enable. There exists no server entry at the given server base. se: %i\n", se);
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable. The server base is invalid.");
+        fwprintf(stdout, L"Error: Could not enable. The server base is invalid. base: %i\n", b);
     }
 }
 

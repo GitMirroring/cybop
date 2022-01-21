@@ -26,9 +26,9 @@
 #ifndef TIMEOUT_SOCKET_SENSOR_SOURCE
 #define TIMEOUT_SOCKET_SENSOR_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../executor/sensor/socket/request_accept_socket_sensor.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../executor/sensor/socket/request_accept_socket_sensor.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Senses server socket client timeouts.

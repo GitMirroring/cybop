@@ -26,15 +26,15 @@
 #ifndef COMPLETENESS_SENSOR_SOURCE
 #define COMPLETENESS_SENSOR_SOURCE
 
-#include "../../constant/channel/cyboi/cyboi_channel.c"
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../executor/comparator/integer/equal_integer_comparator.c"
-//?? #include "../../executor/sensor/display/completeness_display_sensor.c"
-//?? #include "../../executor/sensor/serial/completeness_serial_sensor.c"
-#include "../../executor/sensor/socket/completeness_socket_sensor.c"
-//?? #include "../../executor/sensor/terminal/completeness_terminal_sensor.c"
-#include "../../logger/logger.c"
+#include "../../../constant/channel/cyboi/cyboi_channel.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../executor/comparator/integer/equal_integer_comparator.c"
+//?? #include "../../../executor/sensor/display/completeness_display_sensor.c"
+//?? #include "../../../executor/sensor/serial/completeness_serial_sensor.c"
+#include "../../../executor/sensor/socket/completeness_socket_sensor.c"
+//?? #include "../../../executor/sensor/terminal/completeness_terminal_sensor.c"
+#include "../../../logger/logger.c"
 
 /**
  * Checks if the message is complete.

@@ -26,16 +26,16 @@
 #ifndef SERIAL_PORT_SENSOR_SOURCE
 #define SERIAL_PORT_SENSOR_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../executor/streamer/reader/basic/basic_reader.c"
+    #include "../../../../executor/streamer/reader/basic/basic_reader.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../executor/streamer/reader/basic/basic_reader.c"
+    #include "../../../../executor/streamer/reader/basic/basic_reader.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    //?? #include "../../../executor/sensor/win32_console/win32_console_sensor.c"
+    //?? #include "../../../../executor/sensor/win32_console/win32_console_sensor.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
@@ -45,8 +45,8 @@
  *
  * @param p0 the destination item
  * @param p1 the source file descriptor (client socket number)
- * @param p2 the character buffer data
- * @param p3 the character buffer size
+ * @param p2 the input memory data
+ * @param p3 the input memory size
  * @param p4 the destination item mutex
  * @param p5 the exit flag
  */

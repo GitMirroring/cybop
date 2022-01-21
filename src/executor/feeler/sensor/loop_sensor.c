@@ -26,24 +26,24 @@
 #ifndef LOOP_SENSOR_SOURCE
 #define LOOP_SENSOR_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../executor/comparator/integer/unequal_integer_comparator.c"
-#include "../../executor/sensor/message_sensor.c"
-#include "../../logger/logger.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../executor/comparator/integer/unequal_integer_comparator.c"
+#include "../../../executor/sensor/message_sensor.c"
+#include "../../../logger/logger.c"
 
 /**
  * Senses client requests via an endless loop.
  *
  * @param p0 the destination item
- * @param p1 the source identification (e.g. client socket number)
- * @param p2 the character buffer data
- * @param p3 the character buffer size
+ * @param p1 the source client identification
+ * @param p2 the input memory data
+ * @param p3 the input memory size
  * @param p4 the destination item mutex
  * @param p5 the interrupt pipe write file descriptor
  * @param p6 the interrupt mutex
- * @param p7 the server identification (server base + service port)
- * @param p8 the language (protocol)
+ * @param p7 the server identification
+ * @param p8 the language
  * @param p9 the message length (possibly detected previously; should be initialised with a value < 0, e.g. with -1)
  * @param p10 the exit flag
  * @param p11 the client mode (true if reading as client from server socket; false otherwise)

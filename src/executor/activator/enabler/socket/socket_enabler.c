@@ -95,7 +95,7 @@ void enable_socket(void* p0, void* p1, void* p2, void* p3) {
         maintain_client_list_add(p0, p1, (void*) &ce, (void*) &c);
 
         // Sense client data input.
-        sense(TODO ??);
+        sense(*NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, c);
 
     } else {
 

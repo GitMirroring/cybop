@@ -26,11 +26,11 @@
 #ifndef SERVER_SOCKET_SENSOR_SOURCE
 #define SERVER_SOCKET_SENSOR_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/copier/integer_copier.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../../executor/copier/integer_copier.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Senses server socket in order to set client thread exit flag.

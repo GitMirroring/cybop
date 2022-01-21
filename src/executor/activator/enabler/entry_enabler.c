@@ -27,95 +27,43 @@
 #define ENTRY_ENABLER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../logger/logger.c"
---
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/server_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/accessor/getter/internal_memory_getter.c"
-#include "../../../executor/activator/function_enabler.c"
 #include "../../../executor/copier/array_copier.c"
-#include "../../../executor/copier/pointer_copier.c"
-#include "../../../executor/dispatcher/opener/opener.c"
+#include "../../../logger/logger.c"
 
 /**
  * Assigns data handed over from cybol application to server entry.
  *
  * @param p0 the server entry
- * @param p3 the handler part (pointer reference)
- * @param p4 the sender client data (pointer reference, e.g. client socket id, window id, file descriptor)
- * @param p5 the language (pointer reference, protocol)
- * @param p6 the channel (pointer reference)
- * @param p7 the channel
+ * @param p1 the client mode (pointer reference)
+ * @param p2 the handler part (pointer reference)
+ * @param p3 the sender client (pointer reference)
+ * @param p4 the language (pointer reference)
+ * @param p5 the channel (pointer reference)
  */
-void enable_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void enable_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable entry.");
-    fwprintf(stdout, L"Debug: Enable entry. language p5: %i\n", p5);
-    fwprintf(stdout, L"Debug: Enable entry. language *p5: %i\n", *((int*) p5));
+    fwprintf(stdout, L"Debug: Enable entry. p0: %i\n", p0);
 
-    // The server entry.
-    void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //
+    // Storage.
+    //
 
-    // Get server entry.
-    get_internal_memory_element((void*) &io, p0, p1, p2);
-
-    if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        //?? fwprintf(stdout, L"Debug: Enable entry. io: %i\n", io);
-
-        //
-        // An server entry DOES exist for the service
-        // at the given service identification.
-        //
-
-        //
-        // Declaration.
-        //
-
-        // The thread identification.
-        void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The thread function.
-        //?? void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The function argument.
-        //?? void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The actual thread function.
-        //?? void* ff = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The actual function argument.
-        //?? void* aa = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-        //
-        // Retrieval.
-        //
-
-        // Get thread identification from server entry.
-        copy_array_forward((void*) &t, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Get thread function from server entry.
-        //?? copy_array_forward((void*) &f, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FUNCTION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Get function argument from server entry.
-        //?? copy_array_forward((void*) &a, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ARGUMENT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-        //
-        // Storage.
-        //
-
-        // Set handler into server entry.
-        copy_array_forward(io, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        // Set sender client into server entry.
-        copy_array_forward(io, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SENDER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        // Set language (protocol) into server entry.
-        copy_array_forward(io, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) LANGUAGE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        // Set channel into server entry.
-        copy_array_forward(io, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CHANNEL_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable entry. There exists no server entry at the given service identification.");
-        fwprintf(stdout, L"Error: Could not enable entry. There exists no server entry at the given service identification. io: %i\n", io);
-    }
+    // Set client mode into server entry.
+    copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CLIENT_MODE_GENERAL_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set handler into server entry.
+    copy_array_forward(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_GENERAL_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set handler into server entry.
+    copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SENDER_GENERAL_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set handler into server entry.
+    copy_array_forward(p0, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) LANGUAGE_GENERAL_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set handler into server entry.
+    copy_array_forward(p0, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CHANNEL_GENERAL_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* ENTRY_ENABLER_SOURCE */

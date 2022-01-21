@@ -26,22 +26,22 @@
 #ifndef MESSAGE_SENSOR_SOURCE
 #define MESSAGE_SENSOR_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../../executor/copier/integer_copier.c"
-#include "../../executor/sensor/completeness_sensor.c"
-#include "../../executor/sensor/fragment_sensor.c"
-#include "../../executor/streamer/writer/interrupt_pipe/interrupt_pipe_writer.c"
-#include "../../logger/logger.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
+#include "../../../executor/copier/integer_copier.c"
+#include "../../../executor/sensor/completeness_sensor.c"
+#include "../../../executor/sensor/fragment_sensor.c"
+#include "../../../executor/streamer/writer/interrupt_pipe/interrupt_pipe_writer.c"
+#include "../../../logger/logger.c"
 
 /**
  * Senses a message.
  *
  * @param p0 the destination item
  * @param p1 the source client identification (e.g. socket number, window id)
- * @param p2 the character buffer data
- * @param p3 the character buffer size
+ * @param p2 the input memory data
+ * @param p3 the input memory size
  * @param p4 the destination item mutex
  * @param p5 the interrupt pipe write file descriptor
  * @param p6 the interrupt mutex

@@ -22,7 +22,7 @@
 
         * Adapt file "xcb_enabler.c" to new client list maintainer
         * Complete directory "executor/activator/enabler/"
-        * Restructure dispatcher opener
+        * Restructure directory "dispatcher/opener/"
         * Remove checking of exit flag since conflicts can be avoided by thread join waiting until the thread has finished before deallocating resources in main thread
         * Move directory "sensor" to new directory "feeler" and also add subdirectory "suspender"
 

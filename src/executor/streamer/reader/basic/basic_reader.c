@@ -95,8 +95,8 @@
  *
  * @param p0 the destination item
  * @param p1 the source file descriptor (possibly a file, serial port, terminal, socket)
- * @param p2 the character buffer data
- * @param p3 the character buffer size
+ * @param p2 the input memory data
+ * @param p3 the input memory size
  * @param p4 the destination item mutex
  * @param p5 the exit flag
  * @param p6 the close flag
@@ -105,7 +105,7 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* bs = (int*) p3;
+        int* ms = (int*) p3;
 
         if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -119,9 +119,9 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
                     fwprintf(stdout, L"Debug: Read basic. s: %i\n", f);
                     fwprintf(stdout, L"Debug: Read basic. *s: %i\n", *((int*) f));
 
-                    // Cast buffer size to correct type.
-                    size_t bst = (size_t) *bs;
-                    fwprintf(stdout, L"Debug: Read basic. bst: %i\n", bst);
+                    // Cast memory size to correct type.
+                    size_t mst = (size_t) *ms;
+                    fwprintf(stdout, L"Debug: Read basic. mst: %i\n", mst);
 
                     //
                     // Initialise error number.
@@ -156,7 +156,7 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 //?? TEST BEGIN --
                     int test = fileno(stdin);
                     fwprintf(stdout, L"Debug: Read basic. Waiting for input on file descriptor test: %i\n", test);
-                    ssize_t nb = read(test, p2, bst);
+                    ssize_t nb = read(test, p2, mst);
 //?? TEST END --
 
                     //?? ssize_t nb = read(*f, p2, bst);
@@ -170,8 +170,8 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 
                     if (n > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read basic. Copy buffer data into destination item.");
-                        fwprintf(stdout, L"Debug: Read basic. Copy buffer data into destination item. p2: %s\n", (char*) p2);
+                        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read basic. Copy input memory data into destination item.");
+                        fwprintf(stdout, L"Debug: Read basic. Copy input memory data into destination item. p2: %s\n", (char*) p2);
 
                         // The comparison result.
                         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -187,9 +187,9 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
                         // - the sensing child thread enters the block with r != 0
                         // - the main thread receives some shutdown cybol operation
                         // - the main thread sets the exit flag only now
-                        // - the main thread shuts down and deallocates the destination buffer
+                        // - the main thread shuts down and deallocates the destination input memory
                         // - the sensing child thread decodes characters
-                        // - the sensing child thread possibly reallocates the (non-existing) destination buffer
+                        // - the sensing child thread possibly reallocates the (non-existing) destination input memory
                         // - this leads to memory errors such as "corrupted double-linked list"
                         //
                         // The reallocation of a non-existing array would lead to the error
@@ -209,10 +209,10 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
                             fwprintf(stdout, L"Debug: Read basic. Modify destination item. r: %i\n", r);
 
                             //
-                            // Copy buffer data into destination item.
+                            // Copy input memory data into destination item.
                             //
                             // CAUTION! Use APPEND and NOT overwrite here, since data
-                            // still standing in buffer must not be overwritten.
+                            // still standing in input memory must not be overwritten.
                             // This can happen if reading data from terminal in the
                             // child thread is faster than their processing in the main thread.
                             //
@@ -238,7 +238,7 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 
                         //
                         // A return value of zero indicates end-of-file
-                        // (except if the buffer size is also zero).
+                        // (except if the input memory size is also zero).
                         // This is NOT considered an error.
                         //
 
@@ -317,14 +317,14 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read basic. The character buffer data is null.");
-            fwprintf(stdout, L"Error: Could not read basic. The character buffer data is null. p2: %i\n", p2);
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read basic. The input memory data is null.");
+            fwprintf(stdout, L"Error: Could not read basic. The input memory data is null. p2: %i\n", p2);
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read basic. The character buffer size is null.");
-        fwprintf(stdout, L"Error: Could not read basic. The character buffer size is null. p3: %i\n", p3);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read basic. The input memory size is null.");
+        fwprintf(stdout, L"Error: Could not read basic. The input memory size is null. p3: %i\n", p3);
     }
 }
 
