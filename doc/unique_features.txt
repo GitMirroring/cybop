@@ -48,6 +48,10 @@ Mögliche Einsatzgebiete sind:
 - Web-Anwendungen
 - Datenspeicher (Schlüssel-Wert-Paar-Prinzip)
 
+Low Code Platform
+No Code Platform
+Graphical System Designer
+
 Produkt
 _______
 

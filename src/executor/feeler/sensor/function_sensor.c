@@ -23,24 +23,23 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SENSOR_SOURCE
-#define SENSOR_SOURCE
+#ifndef FUNCTION_SENSOR_SOURCE
+#define FUNCTION_SENSOR_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/client_state_cyboi_name.c"
-#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/copier/array_copier.c"
-#include "../../executor/sensor/loop_sensor.c"
-#include "../../logger/logger.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/client_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/feeler/sensor/loop_sensor.c"
+#include "../../../logger/logger.c"
 
 /**
- * Senses data on the given channel.
+ * Runs the sense function in its own thread.
  *
  * CAUTION! In cyboi, all functions by default have
  * NO return value. In relation with threads, however,
@@ -59,36 +58,37 @@
  *
  * @param p0 the client entry
  */
-int sense(void* p0) {
+int sense_function(void* p0) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense.");
-    //?? fwprintf(stdout, L"Debug: Sense. p0: %i\n", p0);
-    //?? fwprintf(stdout, L"Debug: Sense. *p0: %i\n", *((int*) p0));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense function.");
+    fwprintf(stdout, L"Debug: Sense function. p0: %i\n", p0);
 
-    // The buffer item.
-    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The buffer item mutex.
-    void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The input file descriptor.
-    //?? int f = STDIN_FILENO;
-    // The identification (client socket number).
+    //
+    // Declaration.
+    //
+
+    // The client identification.
     void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The connexion.
-    //?? void* co = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The client mode.
+    //?? void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The handler.
+    void* h = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The sender.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The language.
+    void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The channel.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The buffer item.
+    void* bi = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The buffer mutex.
+    void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The sense thread exit flag.
+    void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The interrupt pipe.
     void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The interrupt mutex.
     void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The input/output identification (input/output base + socket port).
-    void* ioid = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The language (protocol).
-    void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The exit flag.
-    void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The client mode.
-    void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The channel.
-    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // The local character buffer data, size.
@@ -154,42 +154,46 @@ int sense(void* p0) {
     //
     int ml = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval.
+    //
+
+    // Get client identification from client entry.
+    copy_array_forward((void*) &id, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
+    // Get client mode from client entry.
+    //?? copy_array_forward((void*) &m, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TODO_CLIENT_STATE_CYBOI_NAME);
+    // Get handler from client entry.
+    copy_array_forward((void*) &h, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LANGUAGE_CLIENT_STATE_CYBOI_NAME);
+    // Get sender from client entry.
+    copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LANGUAGE_CLIENT_STATE_CYBOI_NAME);
+    // Get language from client entry.
+    copy_array_forward((void*) &l, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LANGUAGE_CLIENT_STATE_CYBOI_NAME);
+    // Get channel from client entry.
+    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CHANNEL_GENERAL_CLIENT_STATE_CYBOI_NAME);
     // Get buffer item from client entry.
-    copy_array_forward((void*) &b, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_MESSAGE_CLIENT_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &bi, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BUFFER_MESSAGE_CLIENT_STATE_CYBOI_NAME);
     // Get buffer item mutex from client entry.
     copy_array_forward((void*) &bm, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_MESSAGE_CLIENT_STATE_CYBOI_NAME);
-    // Get input file descriptor from input/output entry.
-    //?? copy_array_forward((void*) &f, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_FILE_DESCRIPTOR_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get identification (client socket number) from client entry.
-    copy_array_forward((void*) &id, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_CLIENT_STATE_CYBOI_NAME);
-    // Get connexion from input/output entry.
-    //?? copy_array_forward((void*) &co, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get sense thread exit flag from client entry.
+    copy_array_forward((void*) &ex, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_CLIENT_STATE_CYBOI_NAME);
     // Get interrupt pipe from client entry.
     copy_array_forward((void*) &ip, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PIPE_INTERRUPT_CLIENT_STATE_CYBOI_NAME);
     // Get interrupt mutex from client entry.
     copy_array_forward((void*) &im, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INTERRUPT_CLIENT_STATE_CYBOI_NAME);
-    // Get input/output identification (input/output base + socket port) from client entry.
-    copy_array_forward((void*) &ioid, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_OUTPUT_IDENTIFICATION_CLIENT_STATE_CYBOI_NAME);
-    // Get language (protocol) from client entry.
-    copy_array_forward((void*) &l, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LANGUAGE_CLIENT_STATE_CYBOI_NAME);
-    // Get exit flag from client entry.
-    copy_array_forward((void*) &ex, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_CLIENT_STATE_CYBOI_NAME);
-    // Get client mode from client entry.
-    //?? copy_array_forward((void*) &cm, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TODO_CLIENT_STATE_CYBOI_NAME);
-    // Get channel from client entry.
-    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CHANNEL_CLIENT_STATE_CYBOI_NAME);
 
-    // Get interrupt pipe write file descriptor.
+    // Get interrupt pipe write file descriptor from interrupt pipe.
     copy_array_forward((void*) &ipw, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-    fwprintf(stdout, L"Debug: Sense. ioid: %i\n", ioid);
-    fwprintf(stdout, L"Debug: Sense. *ioid: %i\n", *((int*) ioid));
-    fwprintf(stdout, L"Debug: Sense. id: %i\n", id);
-    fwprintf(stdout, L"Debug: Sense. *id: %i\n", *((int*) id));
-    fwprintf(stdout, L"Debug: Sense. c: %i\n", c);
-    fwprintf(stdout, L"Debug: Sense. *c: %i\n", *((int*) c));
+    fwprintf(stdout, L"Debug: Sense function. id: %i\n", id);
+    fwprintf(stdout, L"Debug: Sense function. *id: %i\n", *((int*) id));
+    fwprintf(stdout, L"Debug: Sense function. c: %i\n", c);
+    fwprintf(stdout, L"Debug: Sense function. *c: %i\n", *((int*) c));
 
-    // Sense messages in loop.
+    //
+    // Functionality.
+    //
+
+    // Call endless loop waiting for data input.
     sense_loop(b, id, cd, (void*) &cs, bm, (void*) &ipw, im, ioid, l, (void*) &ml, ex, *NULL_POINTER_STATE_CYBOI_MODEL, c);
 
     //
@@ -199,11 +203,11 @@ int sense(void* p0) {
     // The "thrd_exit" function does therefore NOT have to be called here.
     //
 
-    fwprintf(stdout, L"Debug: Sense. Exit thread now. ex: %i\n", ex);
-    fwprintf(stdout, L"Debug: Sense. Exit thread now. *ex: %i\n", *((int*) ex));
+    fwprintf(stdout, L"Debug: Sense function. Exit thread now. ex: %i\n", ex);
+    fwprintf(stdout, L"Debug: Sense function. Exit thread now. *ex: %i\n", *((int*) ex));
 
     return *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 }
 
-/* SENSOR_SOURCE */
+/* FUNCTION_SENSOR_SOURCE */
 #endif

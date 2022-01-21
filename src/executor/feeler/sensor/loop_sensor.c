@@ -42,7 +42,7 @@
  * @param p4 the destination item mutex
  * @param p5 the interrupt pipe write file descriptor
  * @param p6 the interrupt mutex
- * @param p7 the input/output identification (input/output base + socket port)
+ * @param p7 the server identification (server base + service port)
  * @param p8 the language (protocol)
  * @param p9 the message length (possibly detected previously; should be initialised with a value < 0, e.g. with -1)
  * @param p10 the exit flag

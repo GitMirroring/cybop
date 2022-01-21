@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ITEM_GETTER_SOURCE
-#define ITEM_GETTER_SOURCE
+#ifndef ITEM_SETTER_SOURCE
+#define ITEM_SETTER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -42,24 +42,24 @@
 #include "../../../logger/logger.c"
 
 /**
- * Copies a source item array to the destination array.
+ * Copies the source array to a destination item array.
  *
  * Example:
  *
- * void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
- * get_item((void*) &a, item, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+ * void* a = ...
+ * set_item(item, (void*) &a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &j, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
  *
- * @param p0 the destination array
- * @param p1 the source item
+ * @param p0 the destination item
+ * @param p1 the source array
  * @param p2 the type
  * @param p3 the count
- * @param p4 the destination array index
- * @param p5 the source item index
- * @param p6 the source item metadata index
+ * @param p4 the destination item index
+ * @param p5 the source array index
+ * @param p6 the destination item metadata index
  */
-void get_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void set_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get item.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Set item.");
 
     //
     // CAUTION! Do NOT simplify the lines below to one line like:
@@ -71,8 +71,8 @@ void get_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* 
     // The source item array.
     void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get source item array.
-    copy_array_forward((void*) &a, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
+    // Get destination item array.
+    copy_array_forward((void*) &a, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -88,19 +88,19 @@ void get_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* 
         // The count is only needed if the item array is "data".
         void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        // Get source item array count.
-        copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+        // Get destination item array count.
+        copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
         // Reset comparison result.
         copy_integer((void*) &r, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         //
-        // CAUTION! The given source item index HAS TO BE
-        // less than the source item data array count.
+        // CAUTION! The given destination item index HAS TO BE
+        // less than the destination item data array count.
         // Otherwise, array boundaries might get crossed
         // and false pointer values returned.
         //
-        compare_integer_less((void*) &r, p5, c);
+        compare_integer_less((void*) &r, p4, c);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -108,25 +108,25 @@ void get_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* 
             copy_integer((void*) &r, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
             //
-            // CAUTION! The given source item index MUST NOT be negative.
+            // CAUTION! The given destination item index MUST NOT be negative.
             // Otherwise, array boundaries might get crossed
             // and false pointer values returned.
             //
-            compare_integer_greater_or_equal((void*) &r, p5, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            compare_integer_greater_or_equal((void*) &r, p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                // Copy source item data array to destination array.
-                copy_array_forward(p0, a, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4, p5);
+                // Copy source array to destination item data array.
+                copy_array_forward(a, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4, p5);
 
             } else {
 
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get item. The source index is smaller than zero.");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set item. The destination index is smaller than zero.");
             }
 
         } else {
 
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get item. The source index is greater than or equal to the source item count.");
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set item. The destination index is greater than or equal to the destination item count.");
         }
 
     } else {
@@ -142,10 +142,10 @@ void get_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* 
         // Therefore, nothing has to be checked here.
         //
 
-        // Copy source item count or size array to destination array.
-        copy_array_forward(p0, a, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4, p5);
+        // Copy source array to destination item count or size array.
+        copy_array_forward(a, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4, p5);
     }
 }
 
-/* ITEM_GETTER_SOURCE */
+/* ITEM_SETTER_SOURCE */
 #endif

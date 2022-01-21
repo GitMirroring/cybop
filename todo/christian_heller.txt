@@ -11,12 +11,13 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-        * Add file opener to dispatcher
+        * Implement sensor, which is called from file "socket_enabler.c"
+        * Adapt activator socket enabler
 
-        * Merge porter (file handling) into dispatcher
-        * Merge maintainer serial port opener into dispatcher
-        * Add basic writer + closer with proper error handling to directory "executor/streamer/writer/"
-        * Use wrapper function "write_basic" as replacement for existing calls of glibc function "write", e.g. in file "interrupt_sensor.c"
+        * Debug errors caused by cleaning up constants in files "server_state_cyboi_name.c" and "client_state_cyboi_name.c"
+
+        * Add mutex to server entry for accessing client list (just ONE mutex together, for client identification + client entry)
+            use in function "maintain_client_list_add" etc.
 
         * Make display (gui) work again
 
@@ -24,7 +25,13 @@
         * Hand over client mode as parametre in files "sensor.c", "entry_client_starter.c" etc.
         * Reactivate call of function "close_client" in file "fragment_socket_sensor.c"
 
-        * Add new encoding "ansi-escape-code" and write converter, in order to filter out ansi escape sequences, and delegate standard characters to converter for "utf-8"
+        * Continue file opener and add file closer to dispatcher
+        * Merge porter (file handling) into dispatcher
+        * Merge maintainer serial port opener into dispatcher
+        * Add basic writer with proper error handling to directory "executor/streamer/writer/"
+        * Use wrapper function "write_basic" as replacement for existing calls of glibc function "write", e.g. in file "interrupt_sensor.c"
+
+        * Add new encoding "ansi-escape-code" and write converter, in order to filter out terminal ansi escape sequences, and delegate standard characters to converter for "utf-8"
         * Error that only ESC is converted, but not the following two characters of the ansi escape sequence
             unicode-conversion does not work for control characters --> do it manually?
             mutex *IS* set correctly, so that whole buffer content is written/read
@@ -46,6 +53,47 @@
         * Eliminate or keep global variables like "DEFAULT_THREAD_IDENTIFICATION" in files "variable/thread_identification.c" and "controller/globaliser/thread_identification_globaliser.c"
         * Initialise thread with correct value in file "io_starter.c" where currently zero is assigned:
             copy_integer(t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+--
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    //
+    // Lock client list mutex.
+    //
+    // CAUTION! Set this lock BEFORE comparing with the exit flag below
+    // since otherwise, a race condition might occur.
+    //
+    // Example:
+    // - the exit flag is not set
+    // - the sensing child thread enters the block with r != 0
+    // - the main thread receives some shutdown cybol operation
+    // - the main thread sets the exit flag only now
+    // - the main thread shuts down and deallocates the destination buffer
+    // - the sensing child thread decodes characters
+    // - the sensing child thread possibly reallocates the (non-existing) destination buffer
+    // - this leads to memory errors such as "corrupted double-linked list"
+    //
+    // The reallocation of a non-existing buffer would lead to the error
+    // "realloc(): invalid pointer".
+    //
+    lock(p2);
+
+    compare_integer_equal((void*) &r, p11, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        //
+        // The exit flag was NOT set in the main thread.
+        // Therefore, proceed normally.
+        //
+
+        open_general(p0, p1, p3, p4, p5, p6, p7, p8, p9, p10, p12);
+    }
+
+    // Unlock client list mutex.
+    unlock(p2);
+--
 
 Pipe
 ____
@@ -77,7 +125,8 @@ ____
             Or is it vice-versa and the thread shall reset the timeout within the exit process?
         * Reflect about how to implement file "socket_awakener.c" called within exit process
             --> best let cyboi send a message to itself via socket in order to exit
-            --> hand over a randomly generated integer which is known only to the system that itself also receives the message
+            --> hand over a randomly generated integer via io_entry or client_entry, which is known only to the system that itself also receives the message
+            --> this works for dispatch/open but also for activate/enable, since it is enough to leave the blocking function, so that the flag (plus random number) may be checked
         * alternative thought: the call of function "read_device" (using "ioctl" internally) was used in file "socket_sensor.c", to detect input on socket
             --> that means, that output should be sendable to socket as well via "ioctl"
             --> this could possibly be used for exiting the sensing thread !

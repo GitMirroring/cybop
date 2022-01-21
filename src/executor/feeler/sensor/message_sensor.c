@@ -32,20 +32,20 @@
 #include "../../executor/copier/integer_copier.c"
 #include "../../executor/sensor/completeness_sensor.c"
 #include "../../executor/sensor/fragment_sensor.c"
-#include "../../executor/sensor/interrupt_sensor.c"
+#include "../../executor/streamer/writer/interrupt_pipe/interrupt_pipe_writer.c"
 #include "../../logger/logger.c"
 
 /**
  * Senses a message.
  *
  * @param p0 the destination item
- * @param p1 the source identification (e.g. client socket number)
+ * @param p1 the source client identification (e.g. socket number, window id)
  * @param p2 the character buffer data
  * @param p3 the character buffer size
  * @param p4 the destination item mutex
  * @param p5 the interrupt pipe write file descriptor
  * @param p6 the interrupt mutex
- * @param p7 the input/output identification (input/output base + socket port)
+ * @param p7 the server identification (server base + service port)
  * @param p8 the language (protocol)
  * @param p9 the message length (possibly detected previously; should be initialised with a value < 0, e.g. with -1)
  * @param p10 the exit flag
@@ -107,7 +107,7 @@ void sense_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
         copy_integer(p9, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
 
         // Inform interrupt pipe that a message was sensed in complete.
-        sense_interrupt(p5, p6, p7, p1);
+        write_interrupt_pipe(p5, p7, p1, p6);
     }
 }
 

@@ -23,49 +23,42 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_GETTER_SOURCE
-#define PART_GETTER_SOURCE
+#ifndef THREAD_ENABLER_SOURCE
+#define THREAD_ENABLER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/server_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/accessor/getter/item_getter.c"
+#include "../../../executor/activator/enabler/function_enabler.c"
 #include "../../../executor/copier/array_copier.c"
+#include "../../../executor/threader/spinner.c"
 #include "../../../logger/logger.c"
 
 /**
- * Copies a source part item data array to the destination array.
+ * Prepares the enable thread.
  *
- * Example:
- *
- * void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
- * get_part((void*) &a, part, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j, (void*) MODEL_PART_STATE_CYBOI_NAME);
- *
- * @param p0 the destination array
- * @param p1 the source part
- * @param p2 the type
- * @param p3 the count
- * @param p4 the destination array index
- * @param p5 the source part index
- * @param p6 the source part metadata index
+ * @param p0 the server entry
  */
-void get_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void enable_thread(void* p0) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get part.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable thread.");
+    fwprintf(stdout, L"Debug: Enable thread. channel p0: %i\n", p0);
 
-    // The source part metadata item.
-    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The server entry thread identification.
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The enable function.
+    void* f = (void*) &enable_function;
 
-    // Get source part metadata item.
-    copy_array_forward((void*) &i, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
+    // Get server entry thread identification from server entry.
+    copy_array_forward((void*) &t, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_THREAD_SERVER_STATE_CYBOI_NAME);
 
-    // Copy source part metadata item data array to destination array.
-    get_item(p0, i, p2, p3, p4, p5, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Invoke enable function WITHIN a new thread.
+    spin(t, f, p0);
 }
 
-/* PART_GETTER_SOURCE */
+/* THREAD_ENABLER_SOURCE */
 #endif

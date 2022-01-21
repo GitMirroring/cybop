@@ -29,116 +29,72 @@
 #include "../../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/copier/integer_copier.c"
-#include "../../../executor/activator/enabler/socket/socket_enabler.c"
-#include "../../../executor/dispatcher/opener/locking_opener.c"
-#include "../../../executor/sensor/sensor.c"
+#include "../../../executor/dispatcher/opener/display/display_opener.c"
+#include "../../../executor/dispatcher/opener/serial_port/serial_port_opener.c"
 #include "../../../logger/logger.c"
 
 /**
- * Opens up a client via the given channel.
+ * Allocates channel-specific data.
  *
- * @param p0 the destination client list item
- * @param p1 the client list mutex
- * @param p2 the interrupt pipe (pointer reference)
- * @param p3 the interrupt mutex (pointer reference)
- * @param p4 the input/output identification (pointer reference, input/output base + socket port)
- * @param p5 the language (pointer reference, protocol)
- * @param p6 the channel (pointer reference)
- * @param p7 the serial port file descriptor (pointer reference)
- * @param p8 the terminal file descriptor (pointer reference)
- * @param p9 the xcb connexion (pointer reference)
- * @param p10 the server socket file descriptor
- * @param p11 the exit flag
- * @param p12 the channel
+ * @param p0 the client entry
+ * @param p1 the channel
  */
-void open_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void open_channel(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open channel.");
-    fwprintf(stdout, L"Debug: Open channel. p12: %i\n", p12);
-    fwprintf(stdout, L"Debug: Open channel. *p12: %i\n", *((int*) p12));
+    fwprintf(stdout, L"Debug: Open channel. p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Open channel. *p1: %i\n", *((int*) p1));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p12, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p1, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // CAUTION! Hand over ZERO as client identification, since there is just one client.
-            open_locking(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11, p12);
-
-            // CAUTION! Set exit flag, since only ONE client gets started.
-            copy_integer(p11, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            open_display(p0);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p12, (void*) SERIAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p1, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // CAUTION! Hand over ZERO as client identification, since there is just one client.
-            open_locking(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11, p12);
-
-            // CAUTION! Set exit flag, since only ONE client gets started.
-            copy_integer(p11, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            open_serial_port(p0);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p12, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p1, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //
-            //?? TODO: Initialise with zero like the other channels or with minus one ?
-            //
-
-            // The client socket.
-            int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            //?? int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-
-            // Accepts client on server socket.
-            enable_socket((void*) &c, p10);
-            fwprintf(stdout, L"Debug: Open channel. client socket c: %i\n", c);
-
-            // CAUTION! Hand over accepted client socket as client identification.
-            open_locking(p0, (void*) &c, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11, p12);
-
-            //
-            // CAUTION! Do NOT set exit flag here,
-            // since MANY clients may get started in the loop
-            // that this function was called from.
-            //
+            // CAUTION! Reuse serial port here, since it has the same kind of buffer.
+            open_serial_port(p0);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p12, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p1, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // CAUTION! Hand over ZERO as client identification, since there is just one client.
-            open_locking(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, p3, p4, p5, p6, p7, p8, p9, p11, p12);
-
-            // CAUTION! Set exit flag, since only ONE client gets started.
-            copy_integer(p11, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            // CAUTION! Reuse serial port here, since it has the same kind of buffer.
+            open_serial_port(p0);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open channel. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not open channel. The channel is unknown. Channel p12: %i\n", *((int*) p12));
+        fwprintf(stdout, L"Warning: Could not open channel. The channel is unknown. Channel p1: %i\n", *((int*) p1));
     }
 }
 

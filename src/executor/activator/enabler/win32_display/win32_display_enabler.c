@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WIN32_DISPLAY_SENSOR_SOURCE
-#define WIN32_DISPLAY_SENSOR_SOURCE
+#ifndef WIN32_DISPLAY_ENABLER_SOURCE
+#define WIN32_DISPLAY_ENABLER_SOURCE
 
 #include <windows.h>
 
@@ -32,7 +32,7 @@
 #include "../../../logger/logger.c"
 
 /**
- * Senses win32 display messages.
+ * Enables win32 display event delivery.
  *
  * Remark concerning thread usage:
  *
@@ -49,9 +49,9 @@
  * @param p0 the data available flag
  * @param p1 the input/output entry (containing e.g. event)
  */
-void sense_win32_display(void* p0, void* p1) {
+void enable_win32_display(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense win32 display.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable win32 display.");
 
     //
     // The event message.
@@ -130,5 +130,5 @@ void sense_win32_display(void* p0, void* p1) {
     }
 }
 
-/* WIN32_DISPLAY_SENSOR_SOURCE */
+/* WIN32_DISPLAY_ENABLER_SOURCE */
 #endif

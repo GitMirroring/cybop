@@ -40,7 +40,7 @@ static int* CLIENT_ENTRY_STATE_CYBOI_MODEL_COUNT = NUMBER_100_INTEGER_STATE_CYBO
  * It is currently set to the power of two 98304 = 65536 + 32768,
  * for easier memory allocation handling.
  *
- * Also, before the socket base, there are some other input/output values,
+ * Also, before the socket base, there are some other server values,
  * e.g. for serial port, terminal, display etc. which have to be taken into account.
  * See internal memory indices in file "internal_memory_state_cyboi_name.c"!
  *
@@ -48,9 +48,6 @@ static int* CLIENT_ENTRY_STATE_CYBOI_MODEL_COUNT = NUMBER_100_INTEGER_STATE_CYBO
  * has a value around 256 in its interrupt descriptor table (idt).
  */
 static int* INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT = NUMBER_98304_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The input/output entry state cyboi model count. */
-static int* IO_ENTRY_STATE_CYBOI_MODEL_COUNT = NUMBER_100_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The item state cyboi model count. */
 static int* ITEM_STATE_CYBOI_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -60,6 +57,9 @@ static int* PART_STATE_CYBOI_MODEL_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_AR
 
 /** The primitive state cyboi model count. */
 static int* PRIMITIVE_STATE_CYBOI_MODEL_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The server entry state cyboi model count. */
+static int* SERVER_ENTRY_STATE_CYBOI_MODEL_COUNT = NUMBER_100_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The vector state cyboi model count. */
 static int* VECTOR_STATE_CYBOI_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;

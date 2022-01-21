@@ -23,59 +23,53 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LOOP_OPENER_SOURCE
-#define LOOP_OPENER_SOURCE
+#ifndef LOOP_ENABLER_SOURCE
+#define LOOP_ENABLER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../../../executor/dispatcher/opener/channel_opener.c"
+#include "../../../executor/activator/enabler/channel_enabler.c"
 #include "../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../logger/logger.c"
 
 /**
- * Opens up clients via an endless loop.
+ * Enables request/event delivery via endless loop.
  *
- * @param p0 the destination client list item
- * @param p1 the client list mutex
- * @param p2 the interrupt pipe (pointer reference)
- * @param p3 the interrupt mutex (pointer reference)
- * @param p4 the input/output identification (pointer reference, input/output base + socket port)
- * @param p5 the language (pointer reference, protocol)
- * @param p6 the channel (pointer reference)
- * @param p7 the serial port file descriptor (pointer reference)
- * @param p8 the terminal file descriptor (pointer reference)
- * @param p9 the xcb connexion (pointer reference)
- * @param p10 the server socket file descriptor
- * @param p11 the exit flag
- * @param p12 the channel
+ * @param p0 the client entry list item
+ * @param p1 the client identification list item
+ * @param p2 the server entry
+ * @param p3 the server identification
+ * @param p4 the interrupt pipe write file descriptor
+ * @param p5 the interrupt mutex
+ * @param p6 the channel
+ * @param p7 the enable thread exit flag
  */
-void open_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void enable_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open loop.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable loop.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_unequal((void*) &r, p11, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        compare_integer_unequal((void*) &r, p7, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
             // The exit flag was set in the main thread.
             // Therefore, leave this endless loop now.
-            // If a child thread exists, then it gets exited
-            // when this and its calling functions return.
+            // This child thread gets exited when this
+            // and its calling functions return.
             //
 
             break;
         }
 
-        open_channel(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+        enable_channel(p0, p1, p2, p3, p4, p5, p6);
     }
 }
 
-/* LOOP_OPENER_SOURCE */
+/* LOOP_ENABLER_SOURCE */
 #endif

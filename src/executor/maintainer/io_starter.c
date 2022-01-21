@@ -116,9 +116,9 @@
 //
 
 /**
- * Allocates the input/output entry content.
+ * Allocates the server entry content.
  *
- * @param p0 the input/output entry
+ * @param p0 the server entry
  * @param p1 the interrupt pipe (pointer reference)
  * @param p2 the interrupt mutex (pointer reference)
  * @param p3 the input/output identification
@@ -140,10 +140,12 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The sender identification.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The client list item.
-    void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The accepttime list item.
-    void* al = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The client identification list item.
+    void* ci = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The client entry list item.
+    void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The client accepttime list item.
+    void* ca = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The timeout number.
     void* to = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The language (protocol).
@@ -180,20 +182,26 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     //
     allocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
     //
-    // Allocate client list item.
+    // Allocate client identification list item.
     //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     //
-    allocate_item((void*) &cl, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
-    fwprintf(stdout, L"Debug: Startup io. client list item cl: %i\n", cl);
+    allocate_item((void*) &ci, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    //
+    // Allocate client entry list item.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_item((void*) &ce, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
     //
     // Allocate accepttime list item.
     //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     //
-    allocate_item((void*) &al, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    allocate_item((void*) &ca, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
     //
     // Allocate timeout number.
     //
@@ -285,18 +293,7 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 
     // Initialise thread identification.
     //?? copy_integer(t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-    //
-    // Initialise thread function.
-    //
-    // CAUTION! Hand over function as pointer REFERENCE.
-    //
-    //?? copy_pointer(f, p4);
-    //
-    // Initialise function argument.
-    //
-    // CAUTION! Hand over input/output entry itself, but as pointer REFERENCE.
-    //
-    //?? copy_pointer(a, p5);
+
     // Initialise exit flag.
     copy_integer(ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
@@ -305,59 +302,61 @@ void startup_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     //
 
     //
-    // Store various values in input/output entry.
+    // Store various values in server entry.
     //
     // CAUTION! Do NOT use "overwrite_array" function here,
     // since it adapts the array count and size.
     // But the array's count and size are CONSTANT.
     //
-    // CAUTION! Do NOT hand over input/output entry as pointer reference.
+    // CAUTION! Do NOT hand over server entry as pointer reference.
     //
     // CAUTION! Hand over value as pointer REFERENCE.
     //
 
     //
-    // Set interrupt pipe into input/output entry.
+    // Set interrupt pipe into server entry.
     //
     // CAUTION! This reference is actually stored in internal memory.
-    // However, it gets stored in input/output entry HERE a SECOND time,
+    // However, it gets stored in server entry HERE a SECOND time,
     // in order to be able to pass it to the corresponding sensing thread,
     // which does accept only ONE function argument.
     //
-    copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_PIPE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_PIPE_GENERAL_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     //
-    // Set interrupt mutex into input/output entry.
+    // Set interrupt mutex into server entry.
     //
     // CAUTION! This reference is actually stored in internal memory.
-    // However, it gets stored in input/output entry HERE a SECOND time,
+    // However, it gets stored in server entry HERE a SECOND time,
     // in order to be able to pass it to the corresponding sensing thread,
     // which does accept only ONE function argument.
     //
-    copy_array_forward(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set identification into input/output entry.
-    copy_array_forward(p0, (void*) &id, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set sender identification into input/output entry.
-    copy_array_forward(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SENDER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set client list item into input/output entry.
-    copy_array_forward(p0, (void*) &cl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CLIENT_LIST_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set accepttime list item into input/output entry.
-    copy_array_forward(p0, (void*) &al, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ACCEPTTIME_LIST_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set timeout number into input/output entry.
-    copy_array_forward(p0, (void*) &to, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TIMEOUT_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set language (protocol) into input/output entry.
-    copy_array_forward(p0, (void*) &l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) LANGUAGE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set channel into input/output entry.
-    copy_array_forward(p0, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CHANNEL_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set access mutex into input/output entry.
-    copy_array_forward(p0, (void*) &m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set thread identification into input/output entry.
-    copy_array_forward(p0, (void*) &t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set thread function into input/output entry.
-    //?? copy_array_forward(p0, (void*) &f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FUNCTION_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set function argument into input/output entry.
-    //?? copy_array_forward(p0, (void*) &a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ARGUMENT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set exit flag into input/output entry.
-    copy_array_forward(p0, (void*) &ex, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EXIT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_MUTEX_GENERAL_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set identification into server entry.
+    copy_array_forward(p0, (void*) &id, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set sender identification into server entry.
+    copy_array_forward(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SENDER_GENERAL_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set client identification list item into server entry.
+    copy_array_forward(p0, (void*) &ci, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_CLIENT_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set client entry list item into server entry.
+    copy_array_forward(p0, (void*) &ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ENTRY_CLIENT_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set client accepttime list item into server entry.
+    copy_array_forward(p0, (void*) &ca, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ACCEPTTIME_CLIENT_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set timeout number into server entry.
+    copy_array_forward(p0, (void*) &to, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TIMEOUT_SOCKET_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set language (protocol) into server entry.
+    copy_array_forward(p0, (void*) &l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) LANGUAGE_GENERAL_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set channel into server entry.
+    copy_array_forward(p0, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CHANNEL_GENERAL_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set access mutex into server entry.
+    copy_array_forward(p0, (void*) &m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_GENERAL_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set thread identification into server entry.
+    copy_array_forward(p0, (void*) &t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_THREAD_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set thread function into server entry.
+    //?? copy_array_forward(p0, (void*) &f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FUNCTION_THREAD_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set function argument into server entry.
+    //?? copy_array_forward(p0, (void*) &a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ARGUMENT_THREAD_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set exit flag into server entry.
+    copy_array_forward(p0, (void*) &ex, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EXIT_THREAD_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* IO_STARTER_SOURCE */

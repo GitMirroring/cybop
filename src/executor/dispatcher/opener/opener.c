@@ -27,16 +27,13 @@
 #define OPENER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
-#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/dispatcher/opener/loop_opener.c"
-#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/dispatcher/opener/channel_opener.c"
+#include "../../../executor/dispatcher/opener/entry_opener.c"
+#include "../../../executor/dispatcher/opener/forwarder_opener.c"
+#include "../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -47,102 +44,36 @@
  * /usr/include/fcntl.h:168
  * extern int open (const char *__file, int __oflag, ...) __nonnull ((1));
  *
- * CAUTION! In cyboi, all functions by default have
- * NO return value. In relation with threads, however,
- * iso c defines the data type "thrd_start_t" as:
- *
- * int (*) (void*)
- *
- * with the following meaning:
- *
- * int      - the integer return type
- * *        - the function pointer with arbitrary name
- * void*    - the function argument
- *
- * Therefore, this function exceptionally has the return type "int",
- * since it may be used within a thread.
- *
- * @param p0 the input/output entry
+ * @param p0 the client entry (pointer reference)
+ * @param p1 the server entry
+ * @param p2 the channel
  */
-int open_client(void* p0) {
+void open_client(void* p0, void* p1, void* p2) {
 
     //
     // CAUTION! Do NOT log messages within thread,
     // in order to avoid race conditions and other conflicts.
     //
-    //?? log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open.");
-    fwprintf(stdout, L"Debug: Open client. p0: %i\n", p0);
+    //?? log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open client.");
+    fwprintf(stdout, L"Debug: Open client. p2: %i\n", p2);
 
-    // The client list item.
-    void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The client list mutex.
-    void* clm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The interrupt pipe.
-    void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The interrupt mutex.
-    void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The identification (input/output base + socket port).
-    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The language (protocol).
-    void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The channel.
-    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The exit flag.
-    void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The receiver serial port file descriptor.
-    void* sp = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The receiver terminal file descriptor.
-    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The receiver server socket file descriptor.
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The receiver xcb connexion.
-    void* co = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // The interrupt pipe write file descriptor.
-    int ipw = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-
-    // Get client list item from input/output entry.
-    copy_array_forward((void*) &cl, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CLIENT_LIST_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get client list mutex from input/output entry.
-    copy_array_forward((void*) &clm, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get interrupt pipe from input/output entry.
-    copy_array_forward((void*) &ip, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_PIPE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get interrupt mutex from input/output entry.
-    copy_array_forward((void*) &im, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_MUTEX_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get identification from input/output entry.
-    copy_array_forward((void*) &id, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get language from input/output entry.
-    copy_array_forward((void*) &l, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LANGUAGE_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get channel from input/output entry.
-    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CHANNEL_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get exit flag from input/output entry.
-    copy_array_forward((void*) &ex, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get receiver serial port file descriptor from input/output entry.
-    copy_array_forward((void*) &sp, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FILE_STREAM_SERIAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get receiver terminal file descriptor from input/output entry.
-    copy_array_forward((void*) &t, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get receiver server socket file descriptor from input/output entry.
-    copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get receiver xcb connexion from input/output entry.
-    copy_array_forward((void*) &co, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-    // Get interrupt pipe write file descriptor.
-    copy_array_forward((void*) &ipw, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-
-    fwprintf(stdout, L"Debug: Open client. c: %i\n", c);
-    fwprintf(stdout, L"Debug: Open client. *c: %i\n", *((int*) c));
-
-    // Open up clients.
-    open_loop(cl, clm, (void*) &ip, (void*) &im, (void*) &id, (void*) &l, (void*) &c, (void*) &sp, (void*) &t, (void*) &co, s, ex, c);
+    // The client entry.
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
-    // An implicit call to "thrd_exit" is made when this thread
-    // (other than the thread in which "main" was first invoked)
-    // returns from the function that was used to create it (this function).
-    // The "thrd_exit" function does therefore NOT have to be called here.
+    // Allocate client entry.
     //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_array((void*) &e, (void*) CLIENT_ENTRY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
 
-    return *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // Allocate client entry data.
+    open_entry(e);
+    // Forward server entry data to client entry.
+    open_forwarder(e, p1);
+    // Allocate channel-specific data.
+    open_channel(e, p2);
 }
 
 /* OPENER_SOURCE */

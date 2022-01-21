@@ -34,6 +34,7 @@
 #include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/modifier/item_modifier.c"
+#include "../../executor/streamer/reader/interrupt_pipe/interrupt_pipe_reader.c"
 #include "../../logger/logger.c"
 
 /**
@@ -52,7 +53,7 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
 
     // The read interrupt request pipe file descriptor.
     int rd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The input/output entry identification.
+    // The server identification (server base + service port).
     int id = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The client identification.
     int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
@@ -63,65 +64,27 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &rd, p3, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"Debug: Check empty. rd: %i\n", rd);
 
-    //
-    // CAUTION! Using a mutex would do no harm, but is
-    // NOT necessary here, for the following reasons:
-    //
-    // 1 The values are only read but nothing is written.
-    //
-    // 2 The order of the values in the pipe is unchanged.
-    //   If new values are written to the pipe in one
-    //   of the threads, then they are added at the end.
-    //   A mutex is used for writing, so that all values
-    //   belonging together are placed at once.
-    //   Therefore, one can always be sure that the values
-    //   being read in a sequence here really do belong together,
-    //   to the same interrupt (event).
-    //
-
-    //
-    // Read from interrupt request pipe.
-    //
-    // CAUTION! The safe way is to use the functions "snprintf" and "strtol".
-    // However, if both processes were created using the same compiler version,
-    // one can take advantage of the fact that anything in C can be
-    // read or written as an array of char (byte).
-    //
-    // Example:
-    //
-    // int n = something();
-    // write(pipe_w, &n, sizeof(n));
-    // int n;
-    // read(pipe_r, &n, sizeof(n));
-    //
-    // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
-    //
-
-    int n1 = read(rd, (void*) &id, sizeof(int));
-    fwprintf(stdout, L"Debug: Check empty. found irq pipe input/output id n1: %i\n", n1);
-    fwprintf(stdout, L"Debug: Check empty. found id: %i\n", id);
-    int n2 = read(rd, (void*) &c, sizeof(int));
-    fwprintf(stdout, L"Debug: Check empty. found irq pipe client socket n2: %i\n", n2);
-    fwprintf(stdout, L"Debug: Check empty. found c: %i\n", c);
+    // Read from interrupt pipe.
+    read_interrupt_pipe((void*) &id, (void*) &c, (void*) &rd, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     if (id != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
-        // The input/output entry.
+        // The server entry.
         void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        // Get input/output entry from internal memory.
+        // Get server entry from internal memory.
         copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &id);
 
         if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             //
-            // An input/output entry exists for the service.
+            // A server entry exists for the service.
             //
 
-            // The input/output entry sender.
+            // The sender.
             void* sender = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-            // Get sender from input/output entry.
+            // Get sender from server entry.
             copy_array_forward((void*) &sender, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SENDER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             //
@@ -133,7 +96,7 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
             copy_integer(sender, (void*) &c);
 
             //
-            // Get handler from input/output entry.
+            // Get handler from server entry.
             //
             // It is comparable to the irq service routine in an operating system.
             //
@@ -163,14 +126,14 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check empty. The input/output entry is null.");
-            fwprintf(stdout, L"Error: Could not check empty. The input/output entry is null. id: %i\n", io);
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check empty. The server entry is null.");
+            fwprintf(stdout, L"Error: Could not check empty. The server entry is null. id: %i\n", io);
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check empty. The input/output entry identification is invalid.");
-        fwprintf(stdout, L"Error: Could not check empty. The input/output entry identification is invalid. id: %i\n", id);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check empty. The server entry identification is invalid.");
+        fwprintf(stdout, L"Error: Could not check empty. The server entry identification is invalid. id: %i\n", id);
     }
 }
 

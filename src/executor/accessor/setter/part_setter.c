@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_GETTER_SOURCE
-#define PART_GETTER_SOURCE
+#ifndef PART_SETTER_SOURCE
+#define PART_SETTER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -33,39 +33,39 @@
 #include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/accessor/getter/item_getter.c"
+#include "../../../executor/accessor/setter/item_setter.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../logger/logger.c"
 
 /**
- * Copies a source part item data array to the destination array.
+ * Copies the source array to a destination part item data array.
  *
  * Example:
  *
- * void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
- * get_part((void*) &a, part, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j, (void*) MODEL_PART_STATE_CYBOI_NAME);
+ * void* a = ...
+ * set_part(part, (void*) &a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &j, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
  *
- * @param p0 the destination array
- * @param p1 the source part
+ * @param p0 the destination part
+ * @param p1 the source array
  * @param p2 the type
  * @param p3 the count
- * @param p4 the destination array index
- * @param p5 the source part index
- * @param p6 the source part metadata index
+ * @param p4 the destination part index
+ * @param p5 the source array index
+ * @param p6 the destination part metadata index
  */
-void get_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void set_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get part.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Set part.");
 
-    // The source part metadata item.
+    // The destination part metadata item.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get source part metadata item.
-    copy_array_forward((void*) &i, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
+    // Get destination part metadata item.
+    copy_array_forward((void*) &i, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
 
-    // Copy source part metadata item data array to destination array.
-    get_item(p0, i, p2, p3, p4, p5, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Copy source array to destination part metadata item data array.
+    set_item(i, p1, p2, p3, p4, p5, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 }
 
-/* PART_GETTER_SOURCE */
+/* PART_SETTER_SOURCE */
 #endif

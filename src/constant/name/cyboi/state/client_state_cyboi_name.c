@@ -35,39 +35,27 @@
 //
 // General
 //
-// This is the client socket number that was assigned
-// automatically by the system when accepting the client request.
+
+static int* IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+//?? static int* CLIENT_MODE_GENERAL_CLIENT_STATE_CYBOI_NAME = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* HANDLER_GENERAL_CLIENT_STATE_CYBOI_NAME = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* SENDER_GENERAL_CLIENT_STATE_CYBOI_NAME = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* LANGUAGE_GENERAL_CLIENT_STATE_CYBOI_NAME = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* CHANNEL_GENERAL_CLIENT_STATE_CYBOI_NAME = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// Buffer
 //
 
-static int* IDENTIFICATION_CLIENT_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-static int* LANGUAGE_CLIENT_STATE_CYBOI_NAME = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-static int* CHANNEL_CLIENT_STATE_CYBOI_NAME = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
-// Message
-//
-// The buffer stores input data read from the client.
-//
-// It can be of different types, depending on the channel:
-// - display: event array of void*
-// - serial port: character array of char
-// - socket: character array of char
-// - terminal: wide character array of wchar_t
-//
-
-static int* BUFFER_MESSAGE_CLIENT_STATE_CYBOI_NAME = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-static int* MUTEX_MESSAGE_CLIENT_STATE_CYBOI_NAME = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* ITEM_BUFFER_CLIENT_STATE_CYBOI_NAME = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* MUTEX_BUFFER_CLIENT_STATE_CYBOI_NAME = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // Thread
 //
-// The thread runs the function "sense" in order
-// to detect new input on the client.
-//
+
 static int* IDENTIFICATION_THREAD_CLIENT_STATE_CYBOI_NAME = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-//?? static int* FUNCTION_THREAD_CLIENT_STATE_CYBOI_NAME = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-//?? static int* ARGUMENT_THREAD_CLIENT_STATE_CYBOI_NAME = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-static int* EXIT_THREAD_CLIENT_STATE_CYBOI_NAME = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* EXIT_THREAD_CLIENT_STATE_CYBOI_NAME = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // Interrupt
@@ -77,18 +65,67 @@ static int* PIPE_INTERRUPT_CLIENT_STATE_CYBOI_NAME = NUMBER_30_INTEGER_STATE_CYB
 static int* MUTEX_INTERRUPT_CLIENT_STATE_CYBOI_NAME = NUMBER_31_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// Input/Output
+// Server
 //
 
-static int* INPUT_OUTPUT_IDENTIFICATION_CLIENT_STATE_CYBOI_NAME = NUMBER_40_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* IDENTIFICATION_SERVER_CLIENT_STATE_CYBOI_NAME = NUMBER_40_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // Channel
 //
 
-static int* SERIAL_PORT_CLIENT_STATE_CYBOI_NAME = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-static int* TERMINAL_CLIENT_STATE_CYBOI_NAME = NUMBER_51_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-static int* XCB_CONNEXION_CLIENT_STATE_CYBOI_NAME = NUMBER_52_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+//?? static int* SERIAL_PORT_CLIENT_STATE_CYBOI_NAME = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+//?? static int* TERMINAL_CLIENT_STATE_CYBOI_NAME = NUMBER_51_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+//?? static int* XCB_CONNEXION_CLIENT_STATE_CYBOI_NAME = NUMBER_52_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// Serial port
+//
+// CAUTION! Store file STREAM instead of file descriptor, since:
+// - stream is a more complex structure containing the descriptor
+// - the c standard defines only file streams of type FILE*
+//
+// Special types used by various platforms are NOT stored here,
+// since they may be retrieved from the FILE structure, e.g.:
+// - POSIX: "file descriptor" (int) used in direct file access functions, retrieved via "int fileno(FILE* stream)"
+// - Win32: "file handle" (DWORD) used in alternative input/output functions, retrieved via "int _fileno(FILE* stream)"
+//          the returned int may be casted to file handle: (HANDLE) _fileno(_file)
+//
+
+//?? static int* FILE_STREAM_SERIAL_CLIENT_STATE_CYBOI_NAME = NUMBER_60_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+//?? static int* ORIGINAL_MODE_SERIAL_CLIENT_STATE_CYBOI_NAME = NUMBER_61_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// Terminal
+//
+// CAUTION! Store file STREAM instead of file descriptor, since:
+// - stream is a more complex structure containing the descriptor
+// - the c standard defines only file streams of type FILE*
+//
+// Special types used by various platforms are NOT stored here,
+// since they may be retrieved from the FILE structure, e.g.:
+// - POSIX: "file descriptor" (int) used in direct file access functions, retrieved via "int fileno(FILE* stream)"
+// - Win32: "file handle" (DWORD) used in alternative input/output functions, retrieved via "int _fileno(FILE* stream)"
+//          the returned int may be casted to file handle: (HANDLE) _fileno(_file)
+//
+
+//?? static int* OUTPUT_FILE_STREAM_TERMINAL_CLIENT_STATE_CYBOI_NAME = NUMBER_70_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+//?? static int* INPUT_FILE_STREAM_TERMINAL_CLIENT_STATE_CYBOI_NAME = NUMBER_71_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+//?? static int* OUTPUT_ORIGINAL_MODE_TERMINAL_CLIENT_STATE_CYBOI_NAME = NUMBER_72_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+//?? static int* INPUT_ORIGINAL_MODE_TERMINAL_CLIENT_STATE_CYBOI_NAME = NUMBER_73_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//?? static int* BLOCKING_TERMINAL_CLIENT_STATE_CYBOI_NAME = NUMBER_75_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+//?? static int* CANONICAL_TERMINAL_CLIENT_STATE_CYBOI_NAME = NUMBER_76_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+//?? static int* ECHO_TERMINAL_CLIENT_STATE_CYBOI_NAME = NUMBER_77_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// Display
+//
+
+//?? static int* CONNEXION_XCB_DISPLAY_CLIENT_STATE_CYBOI_NAME = NUMBER_80_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+//?? static int* SCREEN_XCB_DISPLAY_CLIENT_STATE_CYBOI_NAME = NUMBER_81_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+//?? static int* GRAPHIC_CONTEXT_XCB_DISPLAY_CLIENT_STATE_CYBOI_NAME = NUMBER_82_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+//?? static int* DEVICE_CONTEXT_WIN32_DISPLAY_CLIENT_STATE_CYBOI_NAME = NUMBER_83_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* CLIENT_STATE_CYBOI_NAME_CONSTANT_SOURCE */
 #endif

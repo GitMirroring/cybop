@@ -18,10 +18,30 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-01-21  Christian Heller  <christian.heller@cybop.org>
+
+        * Adapt file "xcb_enabler.c" to new client list maintainer
+        * Complete directory "executor/activator/enabler/"
+        * Restructure dispatcher opener
+        * Remove checking of exit flag since conflicts can be avoided by thread join waiting until the thread has finished before deallocating resources in main thread
+        * Move directory "sensor" to new directory "feeler" and also add subdirectory "suspender"
+
+2022-01-20  Christian Heller  <christian.heller@cybop.org>
+
+        * Move display sensor files to activator enabler and disabler
+        * Restructure xcb enabler
+        * Restructure socket enabler
+        * Add file "item_setter.c" as pendant to "item_getter.c"
+        * Add file "part_setter.c" as pendant to "part_getter.c"
+        * Add directory "maintainer/client_list/" for managing client entry resources
+
 2022-01-19  Christian Heller  <christian.heller@cybop.org>
 
         * Add errno logging with files "error_message_log_cyboi_model.c" and "errno_to_message_mapper.c"
         * Adapt file "logger.c"
+        * Rename file "input_output_state_cyboi_name.c" into "server_state_cyboi_name.c"
+        * Clean up constants in files "server_state_cyboi_name.c" and "client_state_cyboi_name.c"
+        * Add interrupt pipe reader and writer to directory "executor/streamer/"
 
 2022-01-18  Christian Heller  <christian.heller@cybop.org>
 

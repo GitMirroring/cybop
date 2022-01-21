@@ -1,0 +1,39 @@
+
+    //
+    // Cast back parametre to correct function-pointer type.
+    //
+    // Signature of the original function in file "opener.c":
+    // int open_general(void* p0)
+    //
+    // Definition of the function pointer in file "channel_enabler.c":
+    // void* f = (void*) &open_general;
+    //
+    // CAUTION! There are TWO possible ways of calling the thread function,
+    // which are exactly equivalent in every way by definition:
+    //
+    // (*f)(arg);
+    // f(arg);
+    //
+    // See also discussion at:
+    // https://stackoverflow.com/questions/1952175/how-can-i-call-a-function-using-a-function-pointer
+    //
+    // CAUTION! One may use void (*)() as kind of a void pointer for function pointers.
+    // It is thus safe to store a pointer to a function inside of: void (*f)()
+    // But one must ALWAYS back-cast to the correct function-pointer type before calling it.
+    //
+    // Otherwise, the following compiler messages will occur:
+    // warning: dereferencing ‘void *’ pointer
+    // error: called object is not a function or function pointer
+    //
+    // The following cast will NOT work:
+    // int (*f)(void* p0) = (int (*f)(void* p0)) p1;
+    //
+    // Therefore, just assign the void pointer without any cast.
+    //
+
+    // Cast void pointer back to correct function-pointer type.
+    int (*f)(void* p0) = p1;
+
+    // Invoke function.
+    (*f)(p2);
+

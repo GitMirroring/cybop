@@ -23,45 +23,45 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INTERRUPT_SENSOR_SOURCE
-#define INTERRUPT_SENSOR_SOURCE
+#ifndef INTERRUPT_PIPE_WRITER_SOURCE
+#define INTERRUPT_PIPE_WRITER_SOURCE
 
 #include <unistd.h> // write
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../executor/locker/locker.c"
-#include "../../logger/logger.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/locker/locker.c"
+#include "../../../../logger/logger.c"
 
 /**
- * Informs interrupt pipe that a message was sensed.
+ * Writes message to interrupt pipe.
  *
- * @param p0 the interrupt pipe write file descriptor
- * @param p1 the interrupt mutex
- * @param p2 the input/output identification (input/output base + socket port)
- * @param p3 the source identification (client socket number)
+ * @param p0 the destination interrupt pipe write file descriptor
+ * @param p1 the source server identification (server base + service port)
+ * @param p2 the source client identification (e.g. socket number, window id)
+ * @param p3 the interrupt mutex
  */
-void sense_interrupt(void* p0, void* p1, void* p2, void* p3) {
+void write_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* ipw = (int*) p0;
+        int* f = (int*) p0;
 
         //
         // CAUTION! Do NOT log messages within thread,
         // in order to avoid race conditions and other conflicts.
         //
-        // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense interrupt.");
-        fwprintf(stdout, L"Debug: Sense interrupt. ipw p0: %i\n", p0);
-        fwprintf(stdout, L"Debug: Sense interrupt. ipw *p0: %i\n", *((int*) p0));
+        // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write interrupt pipe.");
+        fwprintf(stdout, L"Debug: Write interrupt pipe. f: %i\n", f);
+        fwprintf(stdout, L"Debug: Write interrupt pipe. *f: %i\n", *f);
 
-        // Lock interrupt mutex.
-        lock(p1);
+        // Lock mutex.
+        lock(p3);
 
         //
         // Write to interrupt pipe.
         //
-        // - input/output entry identification (base + port)
+        // - server identification (server base + service port)
         // - client identification
         //
         // CAUTION! The safe way is to use the functions "snprintf" and "strtol".
@@ -78,18 +78,18 @@ void sense_interrupt(void* p0, void* p1, void* p2, void* p3) {
         //
         // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
         //
-        write(*ipw, p2, sizeof(int));
-        write(*ipw, p3, sizeof(int));
+        write(*f, p1, sizeof(int));
+        write(*f, p2, sizeof(int));
 
-        // Unlock interrupt mutex.
-        unlock(p1);
+        // Unlock mutex.
+        unlock(p3);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense interrupt. The interrupt pipe write file descriptor is null.");
-        fwprintf(stdout, L"Error: Could not sense interrupt. The interrupt pipe write file descriptor is null. p0: %i\n", p0);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write interrupt pipe. The destination interrupt pipe write file descriptor is null.");
+        fwprintf(stdout, L"Error: Could not write interrupt pipe. The destination interrupt pipe write file descriptor is null. p0: %i\n", p0);
     }
 }
 
-/* INTERRUPT_SENSOR_SOURCE */
+/* INTERRUPT_PIPE_WRITER_SOURCE */
 #endif
