@@ -54,28 +54,27 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
     // The read interrupt request pipe file descriptor.
     int rd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The server identification (server base + service port).
-    int id = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    int s = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The client identification.
     int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The signal part representing the interrupt request handler.
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The handler (signal part representing the interrupt request handler).
+    void* h = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The server entry.
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get read interrupt request pipe file descriptor.
     copy_array_forward((void*) &rd, p3, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"Debug: Check empty. rd: %i\n", rd);
 
     // Read from interrupt pipe.
-    read_interrupt_pipe((void*) &id, (void*) &c, (void*) &rd, *NULL_POINTER_STATE_CYBOI_MODEL);
+    read_interrupt_pipe((void*) &s, (void*) &c, (void*) &rd, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-    if (id != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
-
-        // The server entry.
-        void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
+    if (s >= *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
         // Get server entry from internal memory.
-        copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &id);
+        copy_array_forward((void*) &e, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &s);
 
-        if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             //
             // A server entry exists for the service.
@@ -85,7 +84,7 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
             void* sender = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Get sender from server entry.
-            copy_array_forward((void*) &sender, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SENDER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &sender, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SENDER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             //
             // Copy client identification to sender.
@@ -100,7 +99,7 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
             //
             // It is comparable to the irq service routine in an operating system.
             //
-            copy_array_forward((void*) &s, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &h, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             //
             // Add part model (signal) to signal memory.
@@ -122,18 +121,18 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
             // Hence, rubbish (garbage) collection would only disturb here
             // and should be left to the knowledge memory.
             //
-            modify_item(p1, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+            modify_item(p1, (void*) &h, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check empty. The server entry is null.");
-            fwprintf(stdout, L"Error: Could not check empty. The server entry is null. id: %i\n", io);
+            fwprintf(stdout, L"Error: Could not check empty. The server entry is null. id: %i\n", e);
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check empty. The server entry identification is invalid.");
-        fwprintf(stdout, L"Error: Could not check empty. The server entry identification is invalid. id: %i\n", id);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check empty. The server identification is invalid.");
+        fwprintf(stdout, L"Error: Could not check empty. The server identification is invalid. id: %i\n", s);
     }
 }
 

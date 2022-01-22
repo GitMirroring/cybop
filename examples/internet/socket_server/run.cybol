@@ -50,11 +50,11 @@
 -->
     <node name="startup_socket" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
         <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
         <node name="style" channel="inline" format="text/plain" model="stream"/>
         <node name="protocol" channel="inline" format="text/plain" model="tcp"/>
         <node name="address" channel="inline" format="text/plain" model="127.0.0.1"/>
-        <node name="port" channel="inline" format="number/integer" model="1971"/>
         <node name="mode" channel="inline" format="text/plain" model="server"/>
         <node name="connexions" channel="inline" format="number/integer" model="10"/>
         <node name="timeout" channel="inline" format="number/integer" model="5"/>

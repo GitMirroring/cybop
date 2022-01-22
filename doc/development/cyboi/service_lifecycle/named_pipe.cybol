@@ -1,7 +1,7 @@
 <node>
 
     <node name="startup_server" channel="inline" format="maintain/startup" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="channel" channel="inline" format="meta/channel" model="pipe"/>
     </node>
 
     <!--
@@ -10,17 +10,17 @@
     -->
 
     <node name="open_client" channel="inline" format="dispatch/open" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="canonical" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="channel" channel="inline" format="meta/channel" model="pipe"/>
+        <node name="filename" channel="inline" format="text/plain" model="application/named_pipe"/>
     </node>
 
     <node name="sense_client" channel="inline" format="feel/sense" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="channel" channel="inline" format="meta/channel" model="pipe"/>
         <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle"/>
     </node>
 
     <node name="send_client" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="channel" channel="inline" format="meta/channel" model="pipe"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
@@ -29,7 +29,7 @@
     </node>
 
     <node name="receive_client" channel="inline" format="communicate/receive" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="channel" channel="inline" format="meta/channel" model="pipe"/>
         <node name="port" channel="inline" format="number/integer" model="0"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>

@@ -12,6 +12,11 @@
         <node name="timeout" channel="inline" format="number/integer" model="5"/>
     </node>
 
+    <!--
+        The name="enable_server" with operation "activate/enable" is NOT necessary,
+        since clients get opened MANUALLY using "dispatch/open".
+    -->
+
     <node name="enable_server" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="port" channel="inline" format="number/integer" model="1971"/>
