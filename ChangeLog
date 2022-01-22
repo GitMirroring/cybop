@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-01-22  Christian Heller  <christian.heller@cybop.org>
+
+        * Add service lifecycle cybol examples in directory "doc/development/cyboi/service_lifecycle/"
+
 2022-01-21  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt file "xcb_enabler.c" to new client list maintainer

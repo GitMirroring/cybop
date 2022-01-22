@@ -1383,3 +1383,9 @@ ___
 
         * Store handler operations as interrupt request handler routine in cpu?
 
+CYBOI
+_____
+
+        * Remove as properties from cyboi-internal allocated structure "part": channel, encoding, language, format
+            (they are only needed for communication and when needed by "send" or "receive", they are given as properties)
+

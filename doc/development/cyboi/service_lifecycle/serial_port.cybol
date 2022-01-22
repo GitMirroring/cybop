@@ -1,0 +1,40 @@
+<node>
+
+    <node name="startup_server" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="serial"/>
+        <node name="filename" channel="inline" format="text/plain" model="/dev/ttyACM0"/>
+        <node name="baudrate" channel="inline" format="number/integer" model="115200"/>
+    </node>
+
+    <!--
+        The name="enable_server" with operation "activate/enable" is NOT necessary,
+        since EACH client has its own "feel/sense" thread.
+    -->
+
+    <node name="open_client" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="serial"/>
+        <node name="port" channel="inline" format="number/integer" model="0"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="sender" channel="inline" format="number/integer" model="0"/>
+        <node name="handler" channel="inline" format="text/cybol-path" model=".handle"/>
+    </node>
+
+    <!--
+        The name="sense_client" with operation "feel/sense" is NOT necessary,
+        since it is called AUTOMATICALLY by "dispatch/open" within cyboi.
+    -->
+
+    <node name="send_client" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="serial"/>
+        <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
+        <node name="message" channel="inline" format="text/ascii" model="c01"/>
+    </node>
+
+    <node name="receive_client" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="serial"/>
+        <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".serial.data"/>
+        <node name="minimum" channel="inline" format="number/integer" model="3"/>
+    </node>
+
+</node>
