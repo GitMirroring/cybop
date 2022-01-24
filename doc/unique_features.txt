@@ -75,6 +75,7 @@ _____________________
 - Aspektorientierte Programmierung (AOP) für Querschnittsaufgaben wie Logging
 - unflexible, starre, unveränderliche Klassengerüste
 - weitere Komplexität durch Meta Programming (Reflexion) für Änderungen am Typgerüst
+- DSL may allow for shorter programmes, but CYBOL as GPL is universal, simple and possibly implementable in hardware
 
 Doppelhierarchie
 ________________

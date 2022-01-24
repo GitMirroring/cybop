@@ -11,10 +11,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+        * Stepwise implement and verify functions of table in file "doc/development/cyboi/service_lifecycle.pdf"
+
         * Change file "socket_enabler.c" so that irq pipe gets informed and open + sense NOT called anymore in cyboi (done by cybol handler now)
         * Complete call of sensor in file "socket_enabler.c" (see line 98) Which parametres are to be handed over? Or better take them from server entry?
-        * Does "feel/sense" has to be used in display, for handing over an individual handler for each window ??
-        * How to handle the lifecycle of client socket versus server socket ??
 
         * Debug errors caused by cleaning up constants in files "server_state_cyboi_name.c" and "client_state_cyboi_name.c"
 
