@@ -1,13 +1,19 @@
 <node>
 
+    <node name="create_id" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="id"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+
     <!--
         The name="startup_server" with operation "maintain/startup" is NOT necessary,
         since the operating system accesses the file system.
     -->
 
-    <node name="startup_client" channel="inline" format="maintain/startup" model="">
+    <node name="open_client" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="filename" channel="inline" format="text/plain" model="application/filename.txt"/>
+        <node name="device" channel="inline" format="text/plain" model="communication/file/filename.txt"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
     <node name="send_client" channel="inline" format="communicate/send" model="">
@@ -16,16 +22,21 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Hello World!"/>
-        <node name="receiver" channel="inline" format="text/plain" model="application/filename.txt"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
     <node name="receive_client" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".test"/>
-        <node name="sender" channel="inline" format="text/plain" model="application/filename.cybol"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+    <node name="close_client" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
 </node>

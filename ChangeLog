@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-01-27  Christian Heller  <christian.heller@cybop.org>
+
+        * Update files related to file opener
+
 2022-01-26  Christian Heller  <christian.heller@cybop.org>
 
         * Add service lifecycle cybol examples in directory "examples/communication/"

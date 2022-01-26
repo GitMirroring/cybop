@@ -26,53 +26,37 @@
 #ifndef OPEN_DISPATCHING_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
 #define OPEN_DISPATCHING_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
 
-#include <stddef.h>
+#include <stddef.h> // wchar_t
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-
-//
-// General
-//
 
 /** The channel open dispatching logic cybol name. */
 static wchar_t* CHANNEL_OPEN_DISPATCHING_LOGIC_CYBOL_NAME = L"channel";
 static int* CHANNEL_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The device open dispatching logic cybol name. */
+static wchar_t* DEVICE_OPEN_DISPATCHING_LOGIC_CYBOL_NAME = L"device";
+static int* DEVICE_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The namespace (family) open dispatching logic cybol name. */
+static wchar_t* NAMESPACE_OPEN_DISPATCHING_LOGIC_CYBOL_NAME = L"namespace";
+static int* NAMESPACE_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The port open dispatching logic cybol name. */
+static wchar_t* PORT_OPEN_DISPATCHING_LOGIC_CYBOL_NAME = L"port";
+static int* PORT_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The protocol open dispatching logic cybol name. */
+static wchar_t* PROTOCOL_OPEN_DISPATCHING_LOGIC_CYBOL_NAME = L"protocol";
+static int* PROTOCOL_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The style (communication type) open dispatching logic cybol name. */
+static wchar_t* STYLE_OPEN_DISPATCHING_LOGIC_CYBOL_NAME = L"style";
+static int* STYLE_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The identification (id) open dispatching logic cybol name. */
-static wchar_t* IDENTIFICATION_OPEN_DISPATCHING_LOGIC_CYBOL_NAME = L"id";
-static int* IDENTIFICATION_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
-// Socket
-//
-
-/** The address socket open dispatching logic cybol name. */
-static wchar_t* ADDRESS_SOCKET_OPEN_DISPATCHING_LOGIC_CYBOL_NAME = L"address";
-static int* ADDRESS_SOCKET_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The blocking socket open dispatching logic cybol name. */
-static wchar_t* BLOCKING_SOCKET_OPEN_DISPATCHING_LOGIC_CYBOL_NAME = L"blocking";
-static int* BLOCKING_SOCKET_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The filename socket open dispatching logic cybol name. */
-static wchar_t* FILENAME_SOCKET_OPEN_DISPATCHING_LOGIC_CYBOL_NAME = L"filename";
-static int* FILENAME_SOCKET_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The namespace (family) socket open dispatching logic cybol name. */
-static wchar_t* NAMESPACE_SOCKET_OPEN_DISPATCHING_LOGIC_CYBOL_NAME = L"namespace";
-static int* NAMESPACE_SOCKET_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The port socket open dispatching logic cybol name. */
-static wchar_t* PORT_SOCKET_OPEN_DISPATCHING_LOGIC_CYBOL_NAME = L"port";
-static int* PORT_SOCKET_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The protocol socket open dispatching logic cybol name. */
-static wchar_t* PROTOCOL_SOCKET_OPEN_DISPATCHING_LOGIC_CYBOL_NAME = L"protocol";
-static int* PROTOCOL_SOCKET_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The style (communication type) socket open dispatching logic cybol name. */
-static wchar_t* STYLE_SOCKET_OPEN_DISPATCHING_LOGIC_CYBOL_NAME = L"style";
-static int* STYLE_SOCKET_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* IDENTIFICATION_OPEN_DISPATCHING_LOGIC_CYBOL_NAME = L"identification";
+static int* IDENTIFICATION_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* OPEN_DISPATCHING_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

@@ -67,6 +67,24 @@ void convert_descriptor_to_stream(void* p0, void* p1, void* p2) {
                 //
                 errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+                // CAUTION! The mode string can also include the letter 'b'
+                // either as a last character or as a character between.
+                // This is strictly for compatibility with C89 and has no effect;
+                // the 'b' is ignored on all POSIX conforming systems, including Linux.
+                // Other systems may treat text files and binary files differently.
+                // Since cyboi is also compiled for windows using "mingw",
+                // and mingw replaces "carriage return" when opening a file in text mode,
+                // the 'b' character is added to the mode here.
+                //
+                // http://man7.org/linux/man-pages/man3/fopen.3.html
+                //
+                // Example:
+                //
+                // This problem became obvious when opening xDT German medical data files.
+                // Following the xDT standard, they are to use CR+LF as end of line.
+                // Parsing would not work anymore, if CR characters got replaced
+                // on opening the file.
+                //
                 *s = (void*) fdopen(*d, t);
 
                 if (*s != *NULL_POINTER_STATE_CYBOI_MODEL) {
