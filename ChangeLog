@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-01-26  Christian Heller  <christian.heller@cybop.org>
+
+        * Add service lifecycle cybol examples in directory "examples/communication/"
+        * Delete directory "doc/development/cyboi/service_lifecycle/"
+
 2022-01-22  Christian Heller  <christian.heller@cybop.org>
 
         * Add service lifecycle cybol examples in directory "doc/development/cyboi/service_lifecycle/"
