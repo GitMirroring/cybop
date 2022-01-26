@@ -11,9 +11,25 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-        * Stepwise implement and verify functions of table in file "doc/development/cyboi/service_lifecycle.pdf"
+        * Keep "device" list (containing e.g. filenames, client socket numbers, client window identifications) in parallel to client list and timeout list etc. in service entry
 
-        * Change file "socket_enabler.c" so that irq pipe gets informed and open + sense NOT called anymore in cyboi (done by cybol handler now)
+        * Stepwise implement and verify functions of table in file "doc/development/cyboi/service_lifecycle.pdf"
+        * See service lifecycle cybol examples in directory "examples/communication/"
+
+        DONE:
+        DOING:
+        * file
+        TODO:
+        * serial_port
+        * terminal
+        * named_pipeline
+        * client_socket
+        * server_socket
+        * display_xcb
+        * display_win32
+        * mobile_app
+
+        * Change file "socket_enabler.c" so that irq pipe gets informed and open + sense NOT called anymore in cyboi (done by separate cybol handler now)
         * Complete call of sensor in file "socket_enabler.c" (see line 98) Which parametres are to be handed over? Or better take them from server entry?
 
         * Debug errors caused by cleaning up constants in files "server_state_cyboi_name.c" and "client_state_cyboi_name.c"
