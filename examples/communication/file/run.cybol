@@ -1,0 +1,31 @@
+<node>
+
+    <!--
+        The name="startup_server" with operation "maintain/startup" is NOT necessary,
+        since the operating system accesses the file system.
+    -->
+
+    <node name="startup_client" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="filename" channel="inline" format="text/plain" model="application/filename.txt"/>
+    </node>
+
+    <node name="send_client" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Hello World!"/>
+        <node name="receiver" channel="inline" format="text/plain" model="application/filename.txt"/>
+    </node>
+
+    <node name="receive_client" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".test"/>
+        <node name="sender" channel="inline" format="text/plain" model="application/filename.cybol"/>
+    </node>
+
+</node>
