@@ -28,12 +28,9 @@
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/dispatcher/opener/channel_opener.c"
-#include "../../../executor/dispatcher/opener/entry_opener.c"
-#include "../../../executor/dispatcher/opener/forwarder_opener.c"
-#include "../../../executor/memoriser/allocator/array_allocator.c"
+//?? #include "../../../executor/dispatcher/opener/forwarder_opener.c"
+#include "../../../executor/memoriser/allocator/client_entry_allocator.c"
+#include "../../../executor/memoriser/allocator/server_entry_allocator.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -44,9 +41,11 @@
  * /usr/include/fcntl.h:168
  * extern int open (const char *__file, int __oflag, ...) __nonnull ((1));
  *
- * @param p0 the client entry (pointer reference)
- * @param p1 the server entry
- * @param p2 the channel
+ * @param p0 the client identification (e.g. file descriptor, socket number)
+ * @param p1 the device name data
+ * @param p2 the device name count
+ * @param px the ...
+ * @param p3 the channel
  */
 void open_client(void* p0, void* p1, void* p2) {
 
@@ -57,23 +56,43 @@ void open_client(void* p0, void* p1, void* p2) {
     //?? log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open client.");
     fwprintf(stdout, L"Debug: Open client. p2: %i\n", p2);
 
+    //
+    // Declaration.
+    //
+
+    // The server entry.
+    void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The client entry.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The device identification.
+    int id = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     //
+    // Allocation.
+    //
+
+    // Get server entry from internal memory.
+    get_server_entry((void*) &se);
+
+    if (se == *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        // Allocate server entry.
+        allocate_server_entry((void*) &se);
+    }
+
     // Allocate client entry.
-    //
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    //
-    allocate_array((void*) &e, (void*) CLIENT_ENTRY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
+    allocate_client_entry((void*) &ce);
 
-    // Allocate client entry data.
-    open_entry(e);
+    //
+    // Initialisation.
+    //
+
     // Forward server entry data to client entry.
     open_forwarder(e, p1);
-    // Allocate channel-specific data.
-    open_channel(e, p2);
+    // Open device.
+    open_device((void*) &id, p1, p2);
+    // Copy client identification to destination.
+    copy_integer(p0, (void*) &id);
 }
 
 /* OPENER_SOURCE */

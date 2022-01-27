@@ -26,26 +26,11 @@
 #ifndef FILE_OPENER_SOURCE
 #define FILE_OPENER_SOURCE
 
-#include <errno.h> // errno
-#include <fcntl.h> // open
+#include <fcntl.h> // O_RDWR, O_NOCTTY
 #include <sys/stat.h> // mode_t, S_IRWXU
 
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
-#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/converter/encoder/utf/utf_8_encoder.c"
-#include "../../executor/copier/array_copier.c"
-#include "../../executor/copier/integer_copier.c"
-#include "../../executor/memoriser/allocator/item_allocator.c"
-#include "../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../executor/modifier/item_modifier.c"
+#include "../../executor/opener/basic_opener.c"
 #include "../../logger/logger.c"
 
 /**
@@ -59,41 +44,8 @@ void open_file(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open file.");
 
-    // The terminated filename item.
-    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The terminated filename item data.
-    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
-
     //
-    // Allocate terminated filename item.
-    //
-    // CAUTION! Do NOT use wide characters here.
-    //
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    //
-    allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-    // Encode wide character name into multibyte character array.
-    encode_utf_8(t, p1, p2);
-
-    // Add null termination character.
-    modify_item(t, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-
-    //
-    // Get terminated filename item data.
-    //
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    //
-    copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-    // Cast terminated filename item data to correct type.
-    void* tdt = (char*) td;
-
-    //
-    // Initialise flags.
+    // The open flags.
     //
     // Default settings:
     // O_RDWR - open file for both reading and writing
@@ -104,55 +56,21 @@ void open_file(void* p0, void* p1, void* p2) {
     int f = O_RDWR | O_NOCTTY;
 
     //
-    // Initialise mode bits for access permission.
+    // The open mode (access permission bits).
     //
-    // S_IRWXU is equivalent to (S_IRUSR | S_IWUSR | S_IXUSR).
-    // It assigns the rights to read/write/execute
-    // for the owner of the file.
+    // CAUTION! S_IRWXU is equivalent to (S_IRUSR | S_IWUSR | S_IXUSR).
+    // It assigns the rights to read/write/execute for the owner of the file.
+    //
+    // CAUTION! This mode is used only when a file is CREATED,
+    // but it doesn't hurt to supply the argument in any case.
     //
     mode_t m = S_IRWXU;
 
-    //
-    // Initialise error number.
-    //
-    // It is a global variable and other operations
-    // may have set some value that is not wanted here.
-    //
-    // CAUTION! Initialise the error number BEFORE calling
-    // the function that might cause an error.
-    //
-    errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // Cast to parametre type.
+    int mt = (int) m;
 
-    //
-    // Open file.
-    //
-    // CAUTION! The filename CANNOT be handed over as is.
-    // CYBOI strings are NOT terminated with the null character '\0'.
-    // Since 'fopen' expects a null terminated string, the termination character
-    // must be added to the string before that is used to open the file.
-    //
-    // The last argument (mode) is used only when a file is created,
-    // but it doesn't hurt to supply the argument in any case.
-    //
-    int r = open(tdt, f, m);
-
-    if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open file. Success.");
-        fwprintf(stdout, L"Debug: Open file. Success. r: %i\n", r);
-
-        // Copy file descriptor to destination.
-        copy_integer(p0, (void*) &r);
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open file. An error occured.");
-        fwprintf(stdout, L"Error: Could not open file. An error occured. %i\n", r);
-        log_errno((void*) &errno);
-    }
-
-    // Deallocate terminated filename item.
-    deallocate_item((void*) &t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Open device.
+    open_basic(p0, p1, p2, (void*) &f, (void*) &mt);
 }
 
 /* FILE_OPENER_SOURCE */

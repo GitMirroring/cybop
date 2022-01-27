@@ -40,7 +40,7 @@
  * CAUTION! Do NOT rename this function to "close",
  * as that name is already used by low-level glibc functionality.
  *
- * @param p0 the file descriptor (possibly a file, serial port, terminal, socket)
+ * @param p0 the file descriptor (of a file, serial port, terminal, socket)
  */
 void close_basic(void* p0) {
 
@@ -86,51 +86,9 @@ void close_basic(void* p0) {
 
         } else {
 
-            //
-            // An error occured.
-            //
-
-            if (errno == EBADF) {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close basic. The filedes argument is not a valid file descriptor.");
-                //?? fwprintf(stdout, L"Error: Could not close basic. The filedes argument is not a valid file descriptor. error EBADF: %i\n", errno);
-
-            } else if (errno == EINTR) {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close basic. The close call was interrupted by a signal.");
-                fwprintf(stdout, L"Error: Could not close basic. The close call was interrupted by a signal. error EINTR: %i\n", errno);
-
-            } else if (errno == ENOSPC) {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close basic. Error: ENOSPC. NO ERROR CONDITION DEFINED IN GLIBC.");
-                fwprintf(stdout, L"Error: Could not close basic. Error: ENOSPC. NO ERROR CONDITION DEFINED IN GLIBC. error ENOSPC: %i\n", errno);
-
-            } else if (errno == EIO) {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close basic. Error: EIO. NO ERROR CONDITION DEFINED IN GLIBC.");
-                fwprintf(stdout, L"Error: Could not close basic. Error: EIO. NO ERROR CONDITION DEFINED IN GLIBC. error EIO: %i\n", errno);
-
-#if defined(__linux__) || defined(__unix__)
-            } else if (errno == EDQUOT) {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close basic. When the file is accessed by NFS, these errors from write can sometimes not be detected until close.");
-                fwprintf(stdout, L"Error: Could not close basic. When the file is accessed by NFS, these errors from write can sometimes not be detected until close. error EDQUOT: %i\n", errno);
-#elif defined(__APPLE__) && defined(__MACH__)
-            } else if (errno == EDQUOT) {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close basic. When the file is accessed by NFS, these errors from write can sometimes not be detected until close.");
-                fwprintf(stdout, L"Error: Could not close basic. When the file is accessed by NFS, these errors from write can sometimes not be detected until close. error EDQUOT: %i\n", errno);
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-                //?? Add Win32 support
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close basic. An unknown error occured.");
-                fwprintf(stdout, L"Error: Could not close basic. An unknown error occured. UNKNOWN: %i\n", errno);
-            }
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close file. An error occured.");
+            fwprintf(stdout, L"Error: Could not close file. An error occured. %i\n", r);
+            log_errno((void*) &errno);
         }
 
     } else {

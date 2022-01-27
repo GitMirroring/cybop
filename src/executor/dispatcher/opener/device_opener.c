@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHANNEL_OPENER_SOURCE
-#define CHANNEL_OPENER_SOURCE
+#ifndef DEVICE_OPENER_SOURCE
+#define DEVICE_OPENER_SOURCE
 
 #include "../../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -35,23 +35,35 @@
 #include "../../../logger/logger.c"
 
 /**
- * Allocates channel-specific data.
+ * Opens the device belonging to the given channel.
  *
- * @param p0 the client entry
- * @param p1 the channel
+ * @param p0 the client identification (e.g. file descriptor, socket number)
+ * @param p1 the device data
+ * @param p2 the device count
+ * @param p3 the channel
  */
-void open_channel(void* p0, void* p1) {
+void open_device(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open channel.");
-    fwprintf(stdout, L"Debug: Open channel. p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Open channel. *p1: %i\n", *((int*) p1));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open device.");
+    fwprintf(stdout, L"Debug: Open device. p3: %i\n", p3);
+    fwprintf(stdout, L"Debug: Open device. *p3: %i\n", *((int*) p3));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p3, (void*) CLIENT_SOCKET_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            open_socket(p0);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p3, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -61,42 +73,57 @@ void open_channel(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) SERIAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p3, (void*) FILE_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            open_serial_port(p0);
+            open_file(p0, p1, p2);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p3, (void*) SERIAL_PORT_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // CAUTION! Reuse serial port here, since it has the same kind of buffer.
-            open_serial_port(p0);
+            open_serial_port(p0, p1, p2);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p3, (void*) SERVER_SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // CAUTION! Reuse serial port here, since it has the same kind of buffer.
-            open_serial_port(p0);
+            //
+            // CAUTION! Do NOTHING here!
+            //
+            // When a server socket receives a client request,
+            // then that request is stored as client socket number.
+            // It is pre-configured by the server socket
+            // and thus does NOT need to be configured here again.
+            //
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open channel. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not open channel. The channel is unknown. Channel p1: %i\n", *((int*) p1));
+        compare_integer_equal((void*) &r, p3, (void*) TERMINAL_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            open_terminal(p0);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open device. The channel is unknown.");
+        fwprintf(stdout, L"Warning: Could not open device. The channel is unknown. Channel p3: %i\n", *((int*) p3));
     }
 }
 
-/* CHANNEL_OPENER_SOURCE */
+/* DEVICE_OPENER_SOURCE */
 #endif

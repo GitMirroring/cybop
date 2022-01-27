@@ -337,9 +337,20 @@ void map_errno_to_message(void* p0, void* p1) {
 
             copy_pointer(p0, (void*) &EUSERS_ERROR_MESSAGE_LOG_CYBOI_MODEL);
 
+#if defined(__linux__) || defined(__unix__)
         } else if (*e == EDQUOT) {
 
             copy_pointer(p0, (void*) &EDQUOT_ERROR_MESSAGE_LOG_CYBOI_MODEL);
+#elif defined(__APPLE__) && defined(__MACH__)
+        } else if (*e == EDQUOT) {
+
+            copy_pointer(p0, (void*) &EDQUOT_ERROR_MESSAGE_LOG_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+            //?? Add Win32 support
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
 
         } else if (*e == ESTALE) {
 
