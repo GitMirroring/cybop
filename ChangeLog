@@ -24,6 +24,8 @@
         * Add internal memory server entry by channel getter to directory "executor/accessor/"
         * Add internal memory server entry by channel setter to directory "executor/accessor/"
         * Add file "client_list_finder.c" to directory "executor/finder/"
+        * Delete directory "executor/porter/" with file stream handling, since low-level read and write are used instead now
+        * Restructure files in directory "streamer/reader/" by taking over parts of directory "feeler/sensor/"
 
 2022-01-27  Christian Heller  <christian.heller@cybop.org>
 

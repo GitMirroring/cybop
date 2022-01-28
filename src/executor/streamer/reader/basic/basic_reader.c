@@ -94,10 +94,10 @@
  * as that name is already used by low-level glibc functionality.
  *
  * @param p0 the destination item
- * @param p1 the source file descriptor (possibly a file, serial port, terminal, socket)
- * @param p2 the input memory data
- * @param p3 the input memory size
- * @param p4 the destination item mutex
+ * @param p1 the source file descriptor (a file, serial port, terminal, socket)
+ * @param p2 the fragment data
+ * @param p3 the fragment size
+ * @param p4 the destination mutex
  * @param p5 the exit flag
  * @param p6 the close flag
  */
@@ -119,7 +119,7 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
                     fwprintf(stdout, L"Debug: Read basic. s: %i\n", f);
                     fwprintf(stdout, L"Debug: Read basic. *s: %i\n", *((int*) f));
 
-                    // Cast memory size to correct type.
+                    // Cast fragment size to correct type.
                     size_t mst = (size_t) *ms;
                     fwprintf(stdout, L"Debug: Read basic. mst: %i\n", mst);
 
@@ -153,13 +153,14 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
                     // Therefore, call "read" in a loop until no more data are available.
                     //
                     fwprintf(stdout, L"Debug: Read basic. Waiting for input on file descriptor *f: %i\n", *f);
+                    ssize_t nb = read(*f, p2, mst);
+
 //?? TEST BEGIN --
-                    int test = fileno(stdin);
-                    fwprintf(stdout, L"Debug: Read basic. Waiting for input on file descriptor test: %i\n", test);
-                    ssize_t nb = read(test, p2, mst);
+                    //?? int test = fileno(stdin);
+                    //?? fwprintf(stdout, L"Debug: Read basic. Waiting for input on file descriptor test: %i\n", test);
+                    //?? ssize_t nb = read(test, p2, mst);
 //?? TEST END --
 
-                    //?? ssize_t nb = read(*f, p2, bst);
                     // Cast number of bytes actually read to general type.
                     int n = (int) nb;
 
@@ -170,8 +171,8 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 
                     if (n > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read basic. Copy input memory data into destination item.");
-                        fwprintf(stdout, L"Debug: Read basic. Copy input memory data into destination item. p2: %s\n", (char*) p2);
+                        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read basic. Copy fragment data into destination item.");
+                        fwprintf(stdout, L"Debug: Read basic. Copy fragment data into destination item. p2: %s\n", (char*) p2);
 
                         // The comparison result.
                         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -187,9 +188,9 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
                         // - the sensing child thread enters the block with r != 0
                         // - the main thread receives some shutdown cybol operation
                         // - the main thread sets the exit flag only now
-                        // - the main thread shuts down and deallocates the destination input memory
+                        // - the main thread shuts down and deallocates the destination item
                         // - the sensing child thread decodes characters
-                        // - the sensing child thread possibly reallocates the (non-existing) destination input memory
+                        // - the sensing child thread possibly reallocates the (non-existing) destination item
                         // - this leads to memory errors such as "corrupted double-linked list"
                         //
                         // The reallocation of a non-existing array would lead to the error
@@ -209,10 +210,10 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
                             fwprintf(stdout, L"Debug: Read basic. Modify destination item. r: %i\n", r);
 
                             //
-                            // Copy input memory data into destination item.
+                            // Copy fragment data into destination item.
                             //
                             // CAUTION! Use APPEND and NOT overwrite here, since data
-                            // still standing in input memory must not be overwritten.
+                            // still standing in the destination item must not be overwritten.
                             // This can happen if reading data from terminal in the
                             // child thread is faster than their processing in the main thread.
                             //
@@ -238,7 +239,7 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 
                         //
                         // A return value of zero indicates end-of-file
-                        // (except if the input memory size is also zero).
+                        // (except if the fragment size is also zero).
                         // This is NOT considered an error.
                         //
 
@@ -266,41 +267,9 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 
                     } else {
 
-                        //
-                        // An error occured.
-                        //
-
-                        // In glibc, EAGAIN and EWOULDBLOCK are identical.
-                        if (errno == EAGAIN) {
-
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read basic. The function returned immediately without reading any data. This can happen when the file descriptor (device) was opened in non-blocking mode.");
-                            fwprintf(stdout, L"Error: Could not read basic. The function returned immediately without reading any data. This can happen when the file descriptor (device) was opened in non-blocking mode. errno EAGAIN: %i\n", errno);
-
-                        } else if (errno == EBADF) {
-
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read basic. The file descriptor is not valid or is not open for reading.");
-                            fwprintf(stdout, L"Error: Could not read basic. The file descriptor is not valid or is not open for reading. errno EBADF: %i\n", errno);
-
-                        } else if (errno == EINTR) {
-
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read basic. The function was interrupted by a signal while it was waiting for input.");
-                            fwprintf(stdout, L"Error: Could not read basic. The function was interrupted by a signal while it was waiting for input. errno EINTR: %i\n", errno);
-
-                        } else if (errno == EIO) {
-
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read basic. A hardware error occured.");
-                            fwprintf(stdout, L"Error: Could not read basic. A hardware error occured. errno EIO: %i\n", errno);
-
-                        } else if (errno == EINVAL) {
-
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read basic. The position and size offsets were not properly aligned to a particular block size when reading from a character or block device.");
-                            fwprintf(stdout, L"Error: Could not read basic. The position and size offsets were not properly aligned to a particular block size when reading from a character or block device. errno EINVAL: %i\n", errno);
-
-                        } else {
-
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read basic. An unknown error occured.");
-                            fwprintf(stdout, L"Error: Could not read basic. An unknown error occured. UNKNOWN: %i\n", errno);
-                        }
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read basic. An error occured.");
+                        fwprintf(stdout, L"Error: Could not read basic. An error occured. %i\n", r);
+                        log_errno((void*) &errno);
                     }
 
                 } else {
@@ -317,8 +286,8 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read basic. The input memory data is null.");
-            fwprintf(stdout, L"Error: Could not read basic. The input memory data is null. p2: %i\n", p2);
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read basic. The fragment data is null.");
+            fwprintf(stdout, L"Error: Could not read basic. The fragment data is null. p2: %i\n", p2);
         }
 
     } else {

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef READER_SOURCE
-#define READER_SOURCE
+#ifndef FRAGMENT_READER_SOURCE
+#define FRAGMENT_READER_SOURCE
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -54,7 +54,7 @@
  * as that name is already used for glibc library's input.
  *
  * @param p0 the destination item
- * @param p1 the source client identification data (e.g. signal memory item, filename, server or client socket number, gui window)
+ * @param p1 the source client identification data (e.g. file descriptor, socket number)
  * @param p2 the source client identification count
  * @param p3 the source properties data (e.g. signal memory index)
  * @param p4 the source properties count
@@ -78,6 +78,17 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p13, (void*) CLIENT_SOCKET_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            read_socket(p0, p1, p7, p10, p11, p12, p13);
+        }
+    }
+
+/*??
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         compare_integer_equal((void*) &r, p13, (void*) DIRECTORY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -85,9 +96,9 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             read_directory(p0, p1, p2, p3, p4, p5, p6, p7);
         }
     }
+*/
 
 /*?? currently not needed, since the deserialiser does it all ...
-
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p13, (void*) DISPLAY_CYBOI_CHANNEL);
@@ -111,7 +122,14 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            read_file(p0, p1, p2);
+ * @param p0 the destination item
+ * @param p1 the source file descriptor (a file, serial port, terminal, socket)
+ * @param p2 the fragment data
+ * @param p3 the fragment size
+ * @param p4 the destination mutex
+ * @param p5 the exit flag
+ * @param p6 the close flag
+            read_basic(p0, p1, p2);
         }
     }
 
@@ -127,7 +145,7 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p13, (void*) SERIAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p13, (void*) SERIAL_PORT_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -135,7 +153,7 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Get input/output entry.
-            get_internal_memory_element((void*) &io, p7, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, p10);
+            get_internal_memory_element((void*) &io, p7, (void*) SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, p10);
 
             read_serial_port(p0, p8, p9, p7);
         }
@@ -148,16 +166,6 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             read_signal(p0, p1, p3);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p13, (void*) SOCKET_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            read_socket(p0, p1, p7, p10, p11, p12, p13);
         }
     }
 
@@ -177,5 +185,5 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     }
 }
 
-/* READER_SOURCE */
+/* FRAGMENT_READER_SOURCE */
 #endif

@@ -20,7 +20,14 @@
         * file opener
         * file closer
         DOING:
+        - reader copies to destination, no matter if to cybol node (sync) or client entry buffer (async)
+        - sensor (async) uses reader and hands over buffer as destination parametre
+        - reader (async) reads from buffer
+        - reader (sync) uses standard reader
+        * add reader for new channel "buffer" (asynchronous communication)
+        * file read
         TODO:
+        * file write
         * serial_port
         * terminal
         * named_pipeline
@@ -29,6 +36,22 @@
         * display_xcb
         * display_win32
         * mobile_app
+
+    //
+    //?? TODO: Consider this hint when parsing for the END character of a sequence.
+    //?? It cannot be tested as char, but has to be an int like EOF.
+    //
+    // CAUTION! It is important to store the result in a variable of
+    // type int INSTEAD OF char, even when it is used as character only!
+    // Storing EOF in a char variable TRUNCATES its value to the size
+    // of a character, so that it is no longer distinguishable from
+    // the valid character '(char) -1'.
+    //
+    // Therefore, ALWAYS use an int for the result of getc and
+    // check for EOF after the call; once you've verified that
+    // the result is not EOF, you can be sure that it will fit
+    // in a 'char' variable without loss of information.
+    //
 
         * Change file "socket_enabler.c" so that irq pipe gets informed and open + sense NOT called anymore in cyboi (done by separate cybol handler now)
         * Complete call of sensor in file "socket_enabler.c" (see line 98) Which parametres are to be handed over? Or better take them from server entry?
@@ -45,7 +68,6 @@
         * Reactivate call of function "close_client" in file "fragment_socket_sensor.c"
 
         * Continue file opener and add file closer to dispatcher
-        * Merge porter (file handling) into dispatcher
         * Merge maintainer serial port opener into dispatcher
         * Add basic writer with proper error handling to directory "executor/streamer/writer/"
         * Use wrapper function "write_basic" as replacement for existing calls of glibc function "write", e.g. in file "interrupt_sensor.c"
@@ -72,6 +94,8 @@
         * Eliminate or keep global variables like "DEFAULT_THREAD_IDENTIFICATION" in files "variable/thread_identification.c" and "controller/globaliser/thread_identification_globaliser.c"
         * Initialise thread with correct value in file "io_starter.c" where currently zero is assigned:
             copy_integer(t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+        * Reflect about whether a channel for internal "signal" is still necessary
 
 --
     // The comparison result.
