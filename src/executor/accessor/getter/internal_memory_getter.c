@@ -38,14 +38,12 @@
 #include "../../../logger/logger.c"
 
 /**
- * Gets the internal memory's element at the given base and id.
+ * Gets the server entry from internal memory at the given base and port.
  *
- * Retrieves the input/output entry from internal memory.
- *
- * @param p0 the input/output entry (pointer reference)
+ * @param p0 the server entry (pointer reference)
  * @param p1 the internal memory data
- * @param p2 the input/output base
- * @param p3 the service identification (e.g. socket port)
+ * @param p2 the server base
+ * @param p3 the service port
  */
 void get_internal_memory_element(void* p0, void* p1, void* p2, void* p3) {
 
@@ -64,15 +62,15 @@ void get_internal_memory_element(void* p0, void* p1, void* p2, void* p3) {
     //
     // Calculate internal memory index.
     //
-    // - add input/output base
-    // - add service identification (input/output entry index)
+    // - add server base
+    // - add service port
     //
-    // CAUTION! If the service identification is NULL, then it is NOT copied here.
+    // CAUTION! If the service port is NULL, then it is NOT copied here.
     // This is tested inside the "calculate_integer_add" function.
-    // In this case, the input/output base added before remains AS IS,
-    // which is the same as a service identification of ZERO.
+    // In this case, the server base added before remains AS IS,
+    // which is the same as a service port of ZERO.
     //
-    // In other words, the service identification is ZERO BY DEFAULT.
+    // In other words, the service port is ZERO BY DEFAULT.
     // Only for the socket channel, it gets replaced by the PORT number.
     //
     calculate_integer_add((void*) &i, p2);
@@ -80,7 +78,7 @@ void get_internal_memory_element(void* p0, void* p1, void* p2, void* p3) {
 
     //
     // CAUTION! Use greater-or-EQUAL operator >=,
-    // since the first service has the identification zero.
+    // since the first service has the port zero.
     //
     compare_integer_greater_or_equal((void*) &r, (void*) &i, p2);
 
@@ -90,7 +88,7 @@ void get_internal_memory_element(void* p0, void* p1, void* p2, void* p3) {
         // The internal memory index is valid.
         //
 
-        // Get input/output entry from internal memory.
+        // Get server entry from internal memory.
         copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
     } else {

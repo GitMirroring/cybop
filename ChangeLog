@@ -18,6 +18,13 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-01-28  Christian Heller  <christian.heller@cybop.org>
+
+        * Complete opener and closer for channel "file"
+        * Add internal memory server entry by channel getter to directory "executor/accessor/"
+        * Add internal memory server entry by channel setter to directory "executor/accessor/"
+        * Add file "client_list_finder.c" to directory "executor/finder/"
+
 2022-01-27  Christian Heller  <christian.heller@cybop.org>
 
         * Continue opener and closer files

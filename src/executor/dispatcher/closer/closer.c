@@ -27,6 +27,8 @@
 #define CLOSER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../logger/logger.c"
+--
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
@@ -37,23 +39,58 @@
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 //?? #include "../../../executor/dispatcher/closer/channel_closer.c"
 #include "../../../executor/copier/array_copier.c"
-#include "../../../logger/logger.c"
 
 /**
- * Closes clients of the given channel.
+ * Closes the client with the given identification on the given channel.
  *
  * CAUTION! Do NOT rename this function to "close",
  * as that name is already used by low-level functionality:
  * /usr/include/unistd.h:353:12
  * extern int close (int __fd);
  *
- * @param p0 the input/output entry
+ * @param p0 the client identification (e.g. file descriptor, socket number)
+ * @param p1 the internal memory
+ * @param p2 the channel
+ * @param p3 the port
  */
-void close_client(void* p0) {
+void close_client(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close client.");
     fwprintf(stdout, L"Debug: Close client. p0: %i\n", p0);
 
+    // The server entry.
+    void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The client entry.
+    void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Get server entry from internal memory.
+    get_internal_memory_channel((void*) &se, p1, p2, p3);
+
+    if (se != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        // Get client entry from server entry by device identification.
+        find_server_entry((void*) &ce, se, p0);
+
+        // Close device.
+        close_device(p0, p2);
+
+        // Deallocate client entry.
+        deallocate_client_entry((void*) &ce);
+
+        //
+        // CAUTION! Do NOT deallocate server entry here.
+        // It might still contain other clients.
+        // Therefore, the server entry should only be
+        // deallocated when the server is shut down.
+        // If this is forgotten, then cyboi cares about
+        // deallocation on system exit.
+        //
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close client. The server entry is null.");
+        fwprintf(stdout, L"Error: Could not close client. The server entry is null. se: %i\n", se);
+    }
 }
 
 /* CLOSER_SOURCE */

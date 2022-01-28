@@ -30,7 +30,8 @@
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/dispatcher/opener/display/display_opener.c"
+//?? #include "../../../executor/dispatcher/opener/display/display_opener.c"
+#include "../../../executor/dispatcher/opener/serial_port/file_opener.c"
 #include "../../../executor/dispatcher/opener/serial_port/serial_port_opener.c"
 #include "../../../logger/logger.c"
 
@@ -38,8 +39,8 @@
  * Opens the device belonging to the given channel.
  *
  * @param p0 the client identification (e.g. file descriptor, socket number)
- * @param p1 the device data
- * @param p2 the device count
+ * @param p1 the device name data
+ * @param p2 the device name count
  * @param p3 the channel
  */
 void open_device(void* p0, void* p1, void* p2, void* p3) {
@@ -57,7 +58,7 @@ void open_device(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            open_socket(p0);
+            //?? open_socket(p0);
         }
     }
 
@@ -67,7 +68,7 @@ void open_device(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            open_display(p0);
+            //?? open_display(p0);
         }
     }
 
@@ -114,7 +115,7 @@ void open_device(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            open_terminal(p0);
+            //?? open_terminal(p0);
         }
     }
 

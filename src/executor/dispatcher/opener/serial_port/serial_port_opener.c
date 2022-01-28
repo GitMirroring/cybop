@@ -26,52 +26,51 @@
 #ifndef SERIAL_PORT_OPENER_SOURCE
 #define SERIAL_PORT_OPENER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/client_state_cyboi_name.c"
-#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/copier/array_copier.c"
-#include "../../../../executor/memoriser/allocator/item_allocator.c"
-#include "../../../../logger/logger.c"
+#include <fcntl.h> // O_RDWR, O_NOCTTY
+#include <sys/stat.h> // mode_t, S_IRWXU
+
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../executor/opener/basic_opener.c"
+#include "../../logger/logger.c"
 
 /**
- * Allocates serial port-specific resources.
+ * Opens the serial port with the given filename.
  *
- * @param p0 the client entry
+ * @param p0 the file descriptor
+ * @param p1 the filename data
+ * @param p2 the filename count
  */
-void open_serial_port(void* p0) {
+void open_serial_port(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open serial port.");
 
     //
-    // Declaration.
+    // The open flags.
     //
-
-    // The buffer item.
-    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
-
+    // Default settings:
+    // O_RDWR - open file for both reading and writing
+    // O_NOCTTY - don't make the terminal device referenced by
+    //      the filename the controlling terminal for the process
+    //      (possibly important for compatibility with GNU/Hurd systems and 4.4 BSD)
     //
-    // Allocation.
-    //
-
-    //
-    // Allocate buffer item.
-    //
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    //
-    allocate_item((void*) &b, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    int f = O_RDWR | O_NOCTTY;
 
     //
-    // Storage.
+    // The open mode (access permission bits).
     //
+    // CAUTION! S_IRWXU is equivalent to (S_IRUSR | S_IWUSR | S_IXUSR).
+    // It assigns the rights to read/write/execute for the owner of the file.
+    //
+    // CAUTION! This mode is used only when a file is CREATED,
+    // but it doesn't hurt to supply the argument in any case.
+    //
+    mode_t m = S_IRWXU;
 
-    // Set buffer item into client entry.
-    copy_array_forward(p0, (void*) &b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) BUFFER_MESSAGE_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Cast to parametre type.
+    int mt = (int) m;
+
+    // Open device.
+    open_basic(p0, p1, p2, (void*) &f, (void*) &mt);
 }
 
 /* SERIAL_PORT_OPENER_SOURCE */

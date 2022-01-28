@@ -23,52 +23,53 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FIND_CLIENT_LIST_MAINTAINER_SOURCE
-#define FIND_CLIENT_LIST_MAINTAINER_SOURCE
+#ifndef CLIENT_LIST_FINDER_SOURCE
+#define CLIENT_LIST_FINDER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/client_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../executor/copier/array_copier.c"
-#include "../../../executor/copier/integer_copier.c"
+#include "../../../executor/copier/pointer_copier.c"
 #include "../../../logger/logger.c"
 
 /**
- * Finds the index of the given source client identification
- * within the client identification list item.
+ * Finds the client entry with the given identification from the client list.
  *
- * @param p0 the destination index
- * @param p1 the source client identification list item
- * @param p2 the source client identification (e.g. client socket, window id)
+ * @param p0 the destination client entry (pointer reference)
+ * @param p1 the source client list item
+ * @param p2 the identification (e.g. client socket, window id)
  */
-void maintain_client_list_find(void* p0, void* p1, void* p2) {
+void find_client_list(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Maintain client list find.");
-    fwprintf(stdout, L"Debug: Maintain client list find. p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Maintain client list find. *p2: %i\n", *((int*) p2));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find client list.");
+    fwprintf(stdout, L"Debug: Find client list. p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Find client list. *p2: %i\n", *((int*) p2));
 
-    // The client identification list item data, count.
+    // The client list item data, count.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The client entry.
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The client identification.
-    int id = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
-    // Get client identification list item data, count.
+    // Get client list item data, count.
     //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
@@ -101,14 +102,22 @@ void maintain_client_list_find(void* p0, void* p1, void* p2) {
             break;
         }
 
-        // Get client identification from list at index.
-        copy_array_forward((void*) &id, d, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j);
+        // Get client entry from client list at index.
+        copy_array_forward((void*) &e, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j);
+        // Get client identification from client entry.
+        copy_array_forward((void*) &id, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
 
-        compare_integer_equal((void*) &r, (void*) &id, p2);
+        compare_integer_equal((void*) &r, id, p2);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) &j);
+            //
+            // The client entry with the searched identification
+            // has been found.
+            //
+
+            // Copy client entry to destination.
+            copy_pointer(p0, (void*) &e);
 
             break;
         }
@@ -117,5 +126,5 @@ void maintain_client_list_find(void* p0, void* p1, void* p2) {
     }
 }
 
-/* FIND_CLIENT_LIST_MAINTAINER_SOURCE */
+/* CLIENT_LIST_FINDER_SOURCE */
 #endif

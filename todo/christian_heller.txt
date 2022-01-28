@@ -17,9 +17,9 @@
         * See service lifecycle cybol examples in directory "examples/communication/"
 
         DONE:
-        DOING:
         * file opener
         * file closer
+        DOING:
         TODO:
         * serial_port
         * terminal
