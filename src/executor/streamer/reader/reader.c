@@ -27,6 +27,8 @@
 #define READER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../logger/logger.c"
+--
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
@@ -36,32 +38,21 @@
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/feeler/sensor/loop_sensor.c"
-#include "../../../logger/logger.c"
 
 /**
- * Runs the sense function in its own thread.
+ * Reads data via the given channel into the destination.
  *
- * CAUTION! In cyboi, all functions by default have
- * NO return value. In relation with threads, however,
- * iso c defines the data type "thrd_start_t" as:
- *
- * int (*) (void*)
- *
- * with the following meaning:
- *
- * int      - the integer return type
- * *        - the function pointer with arbitrary name
- * void*    - the function argument
- *
- * Therefore, this function exceptionally has the return type "int",
- * since it may be used within a thread.
+ * CAUTION! Do NOT rename this function to "read",
+ * since that name is already used by low-level glibc
+ * functionality in header file unistd.h.
+ * Function: ssize_t read (int filedes, void *buffer, size_t size)
  *
  * @param p0 the client entry
  */
-int sense_function(void* p0) {
+void read_data(void* p0) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense function.");
-    fwprintf(stdout, L"Debug: Sense function. p0: %i\n", p0);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read data.");
+    fwprintf(stdout, L"Debug: Read data. p0: %i\n", p0);
 
     //
     // Declaration.
@@ -188,29 +179,12 @@ int sense_function(void* p0) {
     // Get interrupt pipe write file descriptor from interrupt pipe.
     copy_array_forward((void*) &ipw, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-    fwprintf(stdout, L"Debug: Sense function. id: %i\n", id);
-    fwprintf(stdout, L"Debug: Sense function. *id: %i\n", *((int*) id));
-    fwprintf(stdout, L"Debug: Sense function. c: %i\n", c);
-    fwprintf(stdout, L"Debug: Sense function. *c: %i\n", *((int*) c));
-
     //
     // Functionality.
     //
 
     // Call endless loop waiting for data input.
-    sense_loop(mi, cid, bd, (void*) &bs, mm, (void*) &ipw, im, sid, l, (void*) &ml, ex, *NULL_POINTER_STATE_CYBOI_MODEL, c);
-
-    //
-    // An implicit call to "thrd_exit" is made when this thread
-    // (other than the thread in which "main" was first invoked)
-    // returns from the function that was used to create it (this function).
-    // The "thrd_exit" function does therefore NOT have to be called here.
-    //
-
-    fwprintf(stdout, L"Debug: Sense function. Exit thread now. ex: %i\n", ex);
-    fwprintf(stdout, L"Debug: Sense function. Exit thread now. *ex: %i\n", *((int*) ex));
-
-    return *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    read_loop(mi, cid, bd, (void*) &bs, mm, (void*) &ipw, im, sid, l, (void*) &ml, ex, *NULL_POINTER_STATE_CYBOI_MODEL, c);
 }
 
 /* READER_SOURCE */

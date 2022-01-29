@@ -27,13 +27,14 @@
 #define LOOP_READER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../logger/logger.c"
+--
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../executor/sensor/message_sensor.c"
-#include "../../../logger/logger.c"
 
 /**
- * Senses client requests via an endless loop.
+ * Reads data via an endless loop.
  *
  * @param p0 the destination item
  * @param p1 the source client identification
@@ -49,29 +50,38 @@
  * @param p11 the client mode (true if reading as client from server socket; false otherwise)
  * @param p12 the channel
  */
-void sense_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void read_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense loop.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read loop.");
+    fwprintf(stdout, L"Debug: Read loop. p0: %i\n", p0);
 
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_unequal((void*) &r, p10, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        //
+        // CAUTION! If data are read in synchronous mode,
+        // then there is NO thread and the exit flag NULL.
+        // However, a null value is just IGNORED inside this
+        // comparison and leaves the resulting break flag untouched.
+        //
+        compare_integer_unequal((void*) &b, exit-flag, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // The exit flag was set in the main thread.
-            // Therefore, leave this endless loop now.
-            // The child thread exits when this function returns.
+            // The break flag has been set.
+            //
+            // This can happen in two ways:
+            // - synchronous mode: directly
+            // - asynchronous mode: thread exit flag
             //
 
             break;
         }
 
-        sense_message(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+        read_message(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
     }
 }
 

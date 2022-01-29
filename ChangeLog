@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-01-29  Christian Heller  <christian.heller@cybop.org>
+
+        * Continue streamer reader
+        * Clean up feeler sensor
+
 2022-01-28  Christian Heller  <christian.heller@cybop.org>
 
         * Complete opener and closer for channel "file"

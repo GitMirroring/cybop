@@ -11,8 +11,6 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-        * Keep "device" list (containing e.g. filenames, client socket numbers, client window identifications) in parallel to client list and timeout list etc. in service entry
-
         * Stepwise implement and verify functions of table in file "doc/development/cyboi/service_lifecycle.pdf"
         * See service lifecycle cybol examples in directory "examples/communication/"
 
@@ -20,12 +18,13 @@
         * file opener
         * file closer
         DOING:
+        * file read
+        * add reader for new channel "buffer" (asynchronous communication)
         - reader copies to destination, no matter if to cybol node (sync) or client entry buffer (async)
         - sensor (async) uses reader and hands over buffer as destination parametre
         - reader (async) reads from buffer
         - reader (sync) uses standard reader
-        * add reader for new channel "buffer" (asynchronous communication)
-        * file read
+        - really necessary or not ?? - give cybol property "asynchronous" to distinguish between sync and async (sync is default if cybol flag is missing)
         TODO:
         * file write
         * serial_port

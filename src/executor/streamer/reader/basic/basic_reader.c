@@ -95,11 +95,11 @@
  *
  * @param p0 the destination item
  * @param p1 the source file descriptor (a file, serial port, terminal, socket)
- * @param p2 the fragment data
- * @param p3 the fragment size
+ * @param p2 the message fragment data
+ * @param p3 the message fragment size
  * @param p4 the destination mutex
- * @param p5 the exit flag
- * @param p6 the close flag
+ * @param p5 the thread exit flag
+ * @param p6 the socket close flag
  */
 void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
@@ -262,6 +262,11 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
                         //
                         // Therefore, the socket on this side may be closed,
                         // since the other side has closed its connexion.
+                        //
+                        // CAUTION! Do NOT close socket directly here.
+                        // If this is a client socket, then its client entry
+                        // resources have to be freed as well,
+                        // which is done in the calling function.
                         //
                         copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 

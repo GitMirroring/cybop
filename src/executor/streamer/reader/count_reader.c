@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COUNT_SENSOR_SOURCE
-#define COUNT_SENSOR_SOURCE
+#ifndef COUNT_READER_SOURCE
+#define COUNT_READER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -40,17 +40,17 @@
  * @param p1 the message length
  * @param p2 the buffer count
  */
-void sense_count(void* p0, void* p1, void* p2) {
+void read_count(void* p0, void* p1, void* p2) {
 
     //
     // CAUTION! Do NOT log messages within thread,
     // in order to avoid race conditions and other conflicts.
     //
-    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket check count.");
-    fwprintf(stdout, L"Debug: Sense socket check count. buffer count p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Sense socket check count. buffer count *p2: %i\n", *((int*) p2));
-    fwprintf(stdout, L"Debug: Sense socket check count. message length p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Sense socket check count. message length *p1: %i\n", *((int*) p1));
+    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read count.");
+    fwprintf(stdout, L"Debug: Read count. buffer count p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Read count. buffer count *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Read count. message length p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Read count. message length *p1: %i\n", *((int*) p1));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -69,5 +69,5 @@ void sense_count(void* p0, void* p1, void* p2) {
     }
 }
 
-/* COUNT_SENSOR_SOURCE */
+/* COUNT_READER_SOURCE */
 #endif

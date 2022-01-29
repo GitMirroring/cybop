@@ -26,8 +26,10 @@
 #ifndef FRAGMENT_READER_SOURCE
 #define FRAGMENT_READER_SOURCE
 
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../logger/logger.c"
+--
 #include "../../constant/channel/cyboi/cyboi_channel.c"
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/state_cyboi_model.c"
@@ -45,33 +47,24 @@
 #include "../../executor/streamer/reader/signal/signal_reader.c"
 #include "../../executor/streamer/reader/socket/socket_reader.c"
 #include "../../executor/streamer/reader/terminal/terminal_reader.c"
-#include "../../logger/logger.c"
 
 /**
- * Reads via the given channel into the destination.
- *
- * CAUTION! Do NOT rename this function to "read",
- * as that name is already used for glibc library's input.
+ * Reads a message fragment via the given channel.
  *
  * @param p0 the destination item
- * @param p1 the source client identification data (e.g. file descriptor, socket number)
- * @param p2 the source client identification count
- * @param p3 the source properties data (e.g. signal memory index)
- * @param p4 the source properties count
- * @param p5 the knowledge memory part (pointer reference)
- * @param p6 the stack memory item
- * @param p7 the internal memory data
- * @param p8 the minimum number of bytes to be received in one call of the read function
- * @param p9 the maximum number of bytes to be received in one call of the read function
- * @param p10 the service port (e.g. socket port)
- * @param p11 the language (protocol)
- * @param p12 the socket client mode (true if reading as client from server socket; false otherwise)
+ * @param p1 the source client identification (e.g. file descriptor for a file, serial port, terminal, socket)
+ * @param p2 the message fragment data
+ * @param p2 the message fragment size
+ * @param p4 the destination mutex
+ * @param p5 the thread exit flag
+ * @param p6 the socket close flag
  * @param p13 the channel
  */
-void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
+void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read.");
-    //?? fwprintf(stdout, L"Debug: Read. p13: %i\n", p13);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read fragment.");
+    fwprintf(stdout, L"Debug: Read fragment. p13: %i\n", p13);
+    fwprintf(stdout, L"Debug: Read fragment. *p12: %i\n", *((int*) p12));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -122,14 +115,7 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
- * @param p0 the destination item
- * @param p1 the source file descriptor (a file, serial port, terminal, socket)
- * @param p2 the fragment data
- * @param p3 the fragment size
- * @param p4 the destination mutex
- * @param p5 the exit flag
- * @param p6 the close flag
-            read_basic(p0, p1, p2);
+            read_basic(destination-item, source-file-descriptor, fragment-data, fragment-size, destination-mutex, exit-flag, close-flag);
         }
     }
 

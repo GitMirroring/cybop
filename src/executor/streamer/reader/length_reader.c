@@ -23,10 +23,12 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMPLETENESS_SOCKET_SENSOR_SOURCE
-#define COMPLETENESS_SOCKET_SENSOR_SOURCE
+#ifndef LENGTH_READER_SOURCE
+#define LENGTH_READER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../logger/logger.c"
+--
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -38,7 +40,6 @@
 #include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/representer/deserialiser/message_length/message_length_deserialiser.c"
 #include "../../../../executor/sensor/count_sensor.c"
-#include "../../../../logger/logger.c"
 
 //
 // Message Boundaries:
@@ -57,23 +58,19 @@
 //
 
 /**
- * Checks if the message is complete, that is if
- * all data belonging to it have been received.
+ * Checks the data length to find out if the message is complete,
+ * that is if all data belonging to it have been received.
  *
  * @param p0 the complete flag
  * @param p1 the message length (possibly detected previously; should be initialised with a value < 0, e.g. with -1)
  * @param p2 the message item
  * @param p3 the language (protocol)
  */
-void sense_socket_completeness(void* p0, void* p1, void* p2, void* p3) {
+void read_length(void* p0, void* p1, void* p2, void* p3) {
 
-    //
-    // CAUTION! Do NOT log messages within thread,
-    // in order to avoid race conditions and other conflicts.
-    //
-    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket completeness.");
-    fwprintf(stdout, L"Debug: Sense socket completeness. message length p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Sense socket completeness. message length *p1: %i\n", *((int*) p1));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read length.");
+    fwprintf(stdout, L"Debug: Read length. message length p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Read length. message length *p1: %i\n", *((int*) p1));
 
     // The buffer item data, count.
     void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -131,8 +128,8 @@ void sense_socket_completeness(void* p0, void* p1, void* p2, void* p3) {
 
         deserialise_message_length(p1, bd, bc, p3);
 
-        fwprintf(stdout, L"Debug: Sense socket completeness. post deserialise message length p1: %i\n", p1);
-        fwprintf(stdout, L"Debug: Sense socket completeness. post deserialise message length *p1: %i\n", *((int*) p1));
+        fwprintf(stdout, L"Debug: Read length. post deserialise message length p1: %i\n", p1);
+        fwprintf(stdout, L"Debug: Read length. post deserialise message length *p1: %i\n", *((int*) p1));
 
         //
         // CAUTION! The length was initialised with -1.
@@ -167,5 +164,5 @@ void sense_socket_completeness(void* p0, void* p1, void* p2, void* p3) {
     }
 }
 
-/* COMPLETENESS_SOCKET_SENSOR_SOURCE */
+/* LENGTH_READER_SOURCE */
 #endif

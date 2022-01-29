@@ -26,18 +26,20 @@
 #ifndef COMPLETENESS_READER_SOURCE
 #define COMPLETENESS_READER_SOURCE
 
-#include "../../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../logger/logger.c"
+--
+#include "../../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 //?? #include "../../../executor/sensor/display/completeness_display_sensor.c"
 //?? #include "../../../executor/sensor/serial/completeness_serial_sensor.c"
 #include "../../../executor/sensor/socket/completeness_socket_sensor.c"
 //?? #include "../../../executor/sensor/terminal/completeness_terminal_sensor.c"
-#include "../../../logger/logger.c"
 
 /**
- * Checks if the message is complete.
+ * Checks if the message is complete, with prefix or suffix
+ * depending upon the given channel.
  *
  * @param p0 the complete flag
  * @param p1 the message length (possibly detected previously; should be initialised with a value < 0, e.g. with -1)
@@ -45,11 +47,11 @@
  * @param p3 the language (protocol)
  * @param p4 the channel
  */
-void sense_completeness(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense completeness.");
-    //?? fwprintf(stdout, L"Debug: Sense completeness. p3: %i\n", p3);
-    //?? fwprintf(stdout, L"Debug: Sense completeness. *p3: %i\n", *((int*) p3));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read completeness.");
+    //?? fwprintf(stdout, L"Debug: Read completeness. p3: %i\n", p3);
+    //?? fwprintf(stdout, L"Debug: Read completeness. *p3: %i\n", *((int*) p3));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -103,7 +105,7 @@ void sense_completeness(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            sense_socket_completeness(p0, p1, p2, p3);
+            read_length(p0, p1, p2, p3);
         }
     }
 
@@ -131,13 +133,9 @@ void sense_completeness(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense completeness. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not sense completeness. The channel is unknown. p4: %i\n", p4);
-        fwprintf(stdout, L"Warning: Could not sense completeness. The channel is unknown. *p4: %i\n", *((int*) p4));
-
-        //?? TEST:
-        fwprintf(stdout, L"Debug: Could not sense completeness. Exit for test reasons. r: %i\n", r);
-        exit(-1);
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read completeness. The channel is unknown.");
+        fwprintf(stdout, L"Warning: Could not read completeness. The channel is unknown. p4: %i\n", p4);
+        fwprintf(stdout, L"Warning: Could not read completeness. The channel is unknown. *p4: %i\n", *((int*) p4));
     }
 }
 
