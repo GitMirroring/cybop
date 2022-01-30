@@ -28,7 +28,6 @@
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"
@@ -42,11 +41,7 @@
  */
 void read_count(void* p0, void* p1, void* p2) {
 
-    //
-    // CAUTION! Do NOT log messages within thread,
-    // in order to avoid race conditions and other conflicts.
-    //
-    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read count.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read count.");
     fwprintf(stdout, L"Debug: Read count. buffer count p2: %i\n", p2);
     fwprintf(stdout, L"Debug: Read count. buffer count *p2: %i\n", *((int*) p2));
     fwprintf(stdout, L"Debug: Read count. message length p1: %i\n", p1);

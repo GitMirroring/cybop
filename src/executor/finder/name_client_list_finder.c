@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLIENT_LIST_FINDER_SOURCE
-#define CLIENT_LIST_FINDER_SOURCE
+#ifndef NAME_CLIENT_LIST_FINDER_SOURCE
+#define NAME_CLIENT_LIST_FINDER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -42,17 +42,18 @@
 #include "../../../logger/logger.c"
 
 /**
- * Finds the client entry with the given identification from the client list.
+ * Finds the client entry with the given device name from the client list.
  *
  * @param p0 the destination client entry (pointer reference)
  * @param p1 the source client list item
- * @param p2 the identification (e.g. client socket, window id)
+ * @param p2 the device name data (e.g. a file system path pointing to some device)
+ * @param p3 the device name count
  */
-void find_client_list(void* p0, void* p1, void* p2) {
+void find_client_list_name(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find client list.");
-    fwprintf(stdout, L"Debug: Find client list. p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Find client list. *p2: %i\n", *((int*) p2));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find client list name.");
+    fwprintf(stdout, L"Debug: Find client list name. p3: %i\n", p3);
+    fwprintf(stdout, L"Debug: Find client list name. *p3: %i\n", *((int*) p3));
 
     // The client list item data, count.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -63,8 +64,11 @@ void find_client_list(void* p0, void* p1, void* p2) {
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The client entry.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The client identification.
-    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The client name item.
+    void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The client name item data, count.
+    void* nd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* nc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -104,10 +108,20 @@ void find_client_list(void* p0, void* p1, void* p2) {
 
         // Get client entry from client list at index.
         copy_array_forward((void*) &e, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j);
-        // Get client identification from client entry.
-        copy_array_forward((void*) &id, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
+        // Get client device name item from client entry.
+        copy_array_forward((void*) &n, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_GENERAL_CLIENT_STATE_CYBOI_NAME);
 
-        compare_integer_equal((void*) &r, id, p2);
+        //
+        // Get client name item data, count.
+        //
+        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+        // Inside the structure, arrays may have been reallocated,
+        // with elements pointing to different memory areas now.
+        //
+        copy_array_forward((void*) &nd, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &nc, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+        check_operation((void*) &r, nd, p2, nc, p3, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -126,5 +140,5 @@ void find_client_list(void* p0, void* p1, void* p2) {
     }
 }
 
-/* CLIENT_LIST_FINDER_SOURCE */
+/* NAME_CLIENT_LIST_FINDER_SOURCE */
 #endif

@@ -1,0 +1,31 @@
+<node>
+
+    <node name="create_id" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="test"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+    </node>
+
+    <node name="open_client" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="device" channel="inline" format="text/plain" model="communication/file/test.txt"/>
+    </node>
+
+    <node name="receive_client" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".test"/>
+        <node name="sender" channel="inline" format="text/plain" model="communication/file/test.txt"/>
+        ALTERNATIVE (if asynchronous true then NO sender, since data are read from internal buffer, which has been filled in sense thread before)
+        <node name="asynchronous" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+    <node name="close_client" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="device" channel="inline" format="text/plain" model="communication/file/test.txt"/>
+    </node>
+
+    <node name="exit_programme" channel="inline" format="live/exit" model=""/>
+
+</node>

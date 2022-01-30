@@ -99,7 +99,7 @@
  * @param p3 the message fragment size
  * @param p4 the destination mutex
  * @param p5 the thread exit flag
- * @param p6 the socket close flag
+ * @param p6 the eof or close flag
  */
 void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
@@ -219,6 +219,7 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
                             //
                             modify_item(p0, p2, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &n, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
+/*??
                             //?? TEST BEGIN
                             void* testd = *NULL_POINTER_STATE_CYBOI_MODEL;
                             void* testc = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -230,6 +231,7 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
                             fwprintf(stdout, L"Debug: Read basic. testd + 1: %i\n", *((char*) (testd + 1)));
                             fwprintf(stdout, L"Debug: Read basic. testd + 2: %i\n", *((char*) (testd + 2)));
                             //?? TEST END
+*/
                         }
 
                         // Unlock mutex.
@@ -238,18 +240,14 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
                     } else if (n == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                         //
-                        // A return value of zero indicates end-of-file
-                        // (except if the fragment size is also zero).
+                        // File communication:
+                        //
+                        // A return value of zero indicates end-of-file (EOF),
+                        // except if the fragment size is also zero.
                         // This is NOT considered an error.
                         //
-
-                        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read basic. Set close flag.");
-                        fwprintf(stdout, L"Debug: Read basic. Set close flag. n: %i\n", n);
-
+                        // Socket communication:
                         //
-                        // Set close flag.
-                        //
-                        // CAUTION! This is relevant for socket communication.
                         // A return value of ZERO means the other end (peer, server)
                         // CLOSED the socket connexion. It never means there was no data.
                         //
@@ -268,6 +266,11 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
                         // resources have to be freed as well,
                         // which is done in the calling function.
                         //
+
+                        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read basic. Set eof-or-close flag.");
+                        fwprintf(stdout, L"Debug: Read basic. Set eof-or-close flag. n: %i\n", n);
+
+                        // Set eof-or-close flag.
                         copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                     } else {

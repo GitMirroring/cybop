@@ -47,144 +47,79 @@
  * functionality in header file unistd.h.
  * Function: ssize_t read (int filedes, void *buffer, size_t size)
  *
- * @param p0 the client entry
+--
+DEVICE READER:
+ * @param p0 the destination item
+ * @param p1 the source data (mostly a client identification file descriptor for a file, serial port, terminal, socket OR input text for inline channel)
+ * @param p2 the source count
+ * @param p3 the destination mutex
+ * @param p4 the client entry
+ * @param p5 the server identification (server base + service port)
+ * @param p6 the client identification
+ * @param p7 the language (protocol)
+ * @param p8 the channel
+ * @param p9 the asynchronous mode
+--
+BUFFER_READER:
+ * @param p0 the destination item
+ * @param p1 the client entry
+ * @param p2 the language (protocol)
+ * @param p3 the channel
  */
 void read_data(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read data.");
     fwprintf(stdout, L"Debug: Read data. p0: %i\n", p0);
 
-    //
-    // Declaration.
-    //
+    // The server entry.
+    void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The client entry.
+    void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The client device identification.
+    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The client identification.
-    void* cid = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The client mode.
-    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The handler.
-    void* h = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The sender.
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The language.
-    void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The channel.
-    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The memory item.
-    void* mi = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The memory mutex.
-    void* mm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The sense thread exit flag.
-    void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The interrupt pipe.
-    void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The interrupt mutex.
-    void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The server identification.
-    void* sid = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // Get server entry from internal memory.
+    get_internal_memory_channel((void*) &se, p1, p2, p3);
 
-    //
-    // The local character buffer data, size.
-    //
-    // CAUTION! Do NOT declare these variables inside
-    // the called function, for two reasons:
-    //
-    // 1 It is more EFFICIENT not to have to reserve
-    //   the buffer on stack with each loop cycle.
-    //
-    // 2 The buffer does NOT have to be emptied, since only
-    //   the number of data received is processed further.
-    //
-    // Purpose of this local buffer:
-    //
-    // Received data are to be stored in the buffer item.
-    // However, this buffer item CANNOT be used directly
-    // for reading data, since read calls are BLOCKING.
-    // Since the main thread needs to have access to
-    // the buffer as well, a mutex has to be used.
-    //
-    // It could thus happen that the mutex is set,
-    // in order to protect access to the buffer item,
-    // while the sensing child thread waits for input.
-    // In this case, the main thread would be blocked
-    // while waiting for the mutex to be reset.
-    //
-    // Therefore, this additional LOCAL BUFFER needs to be used
-    // for reading data in a blocking manner. The data received
-    // are then copied to the actual destination buffer item,
-    // whilst the mutex is set only for a short time.
-    //
-    // One more argument for this local buffer:
-    //
-    // The characters received have to be converted to wide characters,
-    // so that this additional local buffer is needed anyway.
-    //
-    // Size of this local buffer:
-    //
-    // 1 It has to be GREATER than zero, so that there is place
-    //   for the data to be read.
-    //
-    // 2 A peek into the APACHE http server showed values like 512 or 2048.
-    //   So, the value of 1024 used here is probably acceptable.
-    //
-    char bd[*NUMBER_1024_INTEGER_STATE_CYBOI_MODEL];
-    int bs = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
-    // The interrupt pipe write file descriptor.
-    int ipw = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    //
-    // The message length.
-    //
-    // CAUTION! This variable is NOT read from client entry.
-    // It serves just as a value-holder across many loop cycles,
-    // so that a "message length" header found in the data
-    // (e.g. "Content-Length: " in http) can be compared with
-    // the actual number of bytes that have been read, in each loop cycle.
-    //
-    // Since it gets compared inside, it should be initialised
-    // with a value < 0, e.g. with -1.
-    //
-    int ml = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    if (se != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    //
-    // Retrieval.
-    //
+        // Get client identification from client entry.
+        copy_array_forward((void*) &cid, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
 
-    // Get client identification from client entry.
-    copy_array_forward((void*) &cid, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
-    // Get client mode from client entry.
-    copy_array_forward((void*) &m, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CLIENT_MODE_GENERAL_CLIENT_STATE_CYBOI_NAME);
-    // Get handler from client entry.
-    copy_array_forward((void*) &h, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLER_GENERAL_CLIENT_STATE_CYBOI_NAME);
-    // Get sender from client entry.
-    copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SENDER_GENERAL_CLIENT_STATE_CYBOI_NAME);
-    // Get language from client entry.
-    copy_array_forward((void*) &l, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LANGUAGE_GENERAL_CLIENT_STATE_CYBOI_NAME);
-    // Get channel from client entry.
-    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CHANNEL_GENERAL_CLIENT_STATE_CYBOI_NAME);
-    // Get memory item from client entry.
-    copy_array_forward((void*) &mi, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_MEMORY_CLIENT_STATE_CYBOI_NAME);
-    // Get memory mutex from client entry.
-    copy_array_forward((void*) &mm, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_MEMORY_CLIENT_STATE_CYBOI_NAME);
-    // Get sense thread exit flag from client entry.
-    copy_array_forward((void*) &ex, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_CLIENT_STATE_CYBOI_NAME);
-    // Get interrupt pipe from client entry.
-    copy_array_forward((void*) &ip, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PIPE_INTERRUPT_CLIENT_STATE_CYBOI_NAME);
-    // Get interrupt mutex from client entry.
-    copy_array_forward((void*) &im, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INTERRUPT_CLIENT_STATE_CYBOI_NAME);
-    // Get server identification from client entry.
-    copy_array_forward((void*) &sid, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_SERVER_CLIENT_STATE_CYBOI_NAME);
+        get_server_entry();
 
-    // Get interrupt pipe write file descriptor from interrupt pipe.
-    copy_array_forward((void*) &ipw, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        get_client_entry();
+        find_client_list_name();
 
-    //
-    // Functionality.
-    //
+        if (asynchronous == false) {
 
-    // Call endless loop waiting for data input.
-    read_loop(mi, cid, bd, (void*) &bs, mm, (void*) &ipw, im, sid, l, (void*) &ml, ex, *NULL_POINTER_STATE_CYBOI_MODEL, c);
+            //
+            // This is SYNCHRONOUS mode.
+            //
+
+            // Read directly from device.
+            read_device(px);
+
+        } else {
+
+            //
+            // This is ASYNCHRONOUS mode.
+            //
+
+            //
+            // Read indirectly from buffer.
+            //
+            // The data have been read and stored in the buffer
+            // in a separate sensing thread before.
+            //
+            read_buffer(destination-item, client-entry, language, channel);
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read data. The server entry is null.");
+        fwprintf(stdout, L"Error: Could not read data. The server entry is null. se: %i\n", se);
+    }
 }
 
 /* READER_SOURCE */

@@ -26,20 +26,19 @@
 #ifndef LENGTH_READER_SOURCE
 #define LENGTH_READER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../logger/logger.c"
---
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
-#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
-#include "../../../../executor/copier/array_copier.c"
-#include "../../../../executor/representer/deserialiser/message_length/message_length_deserialiser.c"
-#include "../../../../executor/sensor/count_sensor.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
+#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/representer/deserialiser/message_length/message_length_deserialiser.c"
+#include "../../../executor/streamer/reader/count_reader.c"
+#include "../../../logger/logger.c"
 
 //
 // Message Boundaries:
@@ -112,7 +111,7 @@ void read_length(void* p0, void* p1, void* p2, void* p3) {
         //
 
         // Check if expected number of characters has been received.
-        sense_count(p0, p1, bc);
+        read_count(p0, p1, bc);
 
     } else {
 
@@ -159,7 +158,7 @@ void read_length(void* p0, void* p1, void* p2, void* p3) {
             //
 
             // Check if expected number of characters has been received.
-            sense_count(p0, p1, bc);
+            read_count(p0, p1, bc);
         }
     }
 }

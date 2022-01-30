@@ -1,0 +1,18 @@
+<node>
+
+    <node name="create_test" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="test"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+
+    <node name="receive_client" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="inline"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="sender" channel="inline" format="text/plain" model="1,1,1"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".test"/>
+    </node>
+
+    <node name="exit_programme" channel="inline" format="live/exit" model=""/>
+
+</node>

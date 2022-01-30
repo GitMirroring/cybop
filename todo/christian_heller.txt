@@ -18,13 +18,9 @@
         * file opener
         * file closer
         DOING:
+        * complete server/client entry finder by name --> needed by closer and similar by reader
+        * complete reader (includes etc.)
         * file read
-        * add reader for new channel "buffer" (asynchronous communication)
-        - reader copies to destination, no matter if to cybol node (sync) or client entry buffer (async)
-        - sensor (async) uses reader and hands over buffer as destination parametre
-        - reader (async) reads from buffer
-        - reader (sync) uses standard reader
-        - really necessary or not ?? - give cybol property "asynchronous" to distinguish between sync and async (sync is default if cybol flag is missing)
         TODO:
         * file write
         * serial_port

@@ -26,16 +26,13 @@
 #ifndef COMPLETENESS_READER_SOURCE
 #define COMPLETENESS_READER_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../logger/logger.c"
---
 #include "../../../constant/channel/cyboi/cyboi_channel.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
-//?? #include "../../../executor/sensor/display/completeness_display_sensor.c"
-//?? #include "../../../executor/sensor/serial/completeness_serial_sensor.c"
-#include "../../../executor/sensor/socket/completeness_socket_sensor.c"
-//?? #include "../../../executor/sensor/terminal/completeness_terminal_sensor.c"
+#include "../../../executor/copier/integer/integer_copier.c"
+#include "../../../executor/streamer/reader/length_reader.c"
+#include "../../../logger/logger.c"
 
 /**
  * Checks if the message is complete, with prefix or suffix
@@ -50,8 +47,8 @@
 void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read completeness.");
-    //?? fwprintf(stdout, L"Debug: Read completeness. p3: %i\n", p3);
-    //?? fwprintf(stdout, L"Debug: Read completeness. *p3: %i\n", *((int*) p3));
+    fwprintf(stdout, L"Debug: Read completeness. channel p4: %i\n", p4);
+    fwprintf(stdout, L"Debug: Read completeness. channel *p4: %i\n", *((int*) p4));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -79,23 +76,20 @@ void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4) {
         }
     }
 
+    //
+    // FILE_CYBOI_CHANNEL
+    //
+    // The EOF is already filtered out in message reader,
+    // so that checking for it here is not necessary.
+    //
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //
-            // Set complete flag.
-            //
-            // CAUTION! Whenever the blocking sensing function is left,
-            // this means that at least one data element has been received.
-            //
-            // The buffer as defined in file "sensor.c" has a size of 1024.
-            //
-            //?? TODO: Activate detection of length prefix or end suffix later!
-            //
-            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            read_length(p0, p1, p2, p3);
         }
     }
 

@@ -428,7 +428,7 @@ void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* 
                         //
                         // Since inline models are available as wchar_t, decoding them is NOT necessary.
                         // Data read from a utf-8-encoded cybol file, on the other hand, NEED to be converted.
-                        // Set default encoding  ONLY if channel is "file"!
+                        // Set default encoding ONLY if channel is "file"!
                         // Otherwise, wrong conversions will occur in "communicator/receiver/"
                         // and cybol applications not run.
                         //

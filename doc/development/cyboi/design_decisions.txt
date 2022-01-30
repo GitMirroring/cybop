@@ -1152,6 +1152,15 @@ that had sent the request (event).
 Asynchronous Input/Output
 _________________________
 
+* Synchronous Mode: The data are read DIRECTLY from device into the destination item (a given cybol node).
+    The cybol operation "stream/read" or "communicate/receive" needs NO special property,
+    since synchronous mode is the default.
+* Asynchronous Mode: The data are read INDIRECTLY.
+    The cybol operation "feel/sense" calls "read" internally and hands over
+    the buffer as destination item, which it has retrieved from the client entry.
+    In the cybol handler, the cybol operation "stream/read" or "communicate/receive"
+    is called and the cybol property "asynchronous" has to be set to TRUE.
+
 Reflexion on event handling:
 * Pipe cannot be used, since it might block, when read out to be empty before but an irq was set in a thread only later (filling pipe and setting irq are not atomic)
 * Array is good, disadvantage of having to move all entries with each "read+remove"

@@ -86,20 +86,34 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (se != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // Allocate client entry.
-        allocate_client_entry((void*) &ce);
+        // Test if a client entry for the given device already exists in the client list of the server entry.
+        ?? TODO
 
-        // Forward server entry data to client entry.
-        //?? open_forwarder(e, p1);
-        // Open device.
-        open_device((void*) &id, p4, p5, p2);
+        if (ce == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // Get device identification element from client entry.
-        copy_array_forward((void*) &ide, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
-        // Copy client identification to client entry device identification element.
-        copy_integer(ide, (void*) &id);
-        // Copy client identification to cybol destination.
-        copy_integer(p0, (void*) &id);
+            // Allocate client entry.
+            allocate_client_entry((void*) &ce);
+
+            // Forward server entry data to client entry.
+            //?? open_forwarder(e, p1);
+            // Open device.
+            open_device((void*) &id, p4, p5, p2);
+
+            // Get device identification element from client entry.
+            copy_array_forward((void*) &ide, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
+            // Copy client identification to client entry device identification element.
+            copy_integer(ide, (void*) &id);
+            // Copy client identification to cybol destination.
+            copy_integer(p0, (void*) &id);
+
+            // Add client entry to client list of server entry.
+            ?? TODO copy_array_forward(se, (void*) &ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open client. A client entry already exists for the given device.");
+            fwprintf(stdout, L"Error: Could not open client. A client entry already exists for the given device. se: %i\n", se);
+        }
 
     } else {
 

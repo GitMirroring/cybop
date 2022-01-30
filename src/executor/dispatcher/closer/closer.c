@@ -71,6 +71,22 @@ void close_client(void* p0, void* p1, void* p2, void* p3) {
         // Get client entry from server entry by device identification.
         find_server_entry((void*) &ce, se, p0);
 
+        if (ce == *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            //
+            // The client entry could not be found.
+            //
+            // Possibly, the given client identification was null.
+            // Therefore, search client entry by device name now.
+            //
+            // Example: A file is to be closed from cybol, but the
+            // file path and name given instead of a file descriptor.
+            //
+
+            // Get client entry from server entry by device identification.
+            find_server_entry_name((void*) &ce, se, device-name);
+        }
+
         // Close device.
         close_device(p0, p2);
 

@@ -18,10 +18,19 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-01-30  Christian Heller  <christian.heller@cybop.org>
+
+        * Rename directory "executor/locker/" into "executor/porter/"
+        * Distinguish synchronous- and asynchronous mode in reader
+        * Add device reader for synchronous mode and buffer reader for asynchronous mode
+        * Add file "channel_to_data_type_mapper.c"
+        * Split client list finder in two files, searching by device identification or device name
+
 2022-01-29  Christian Heller  <christian.heller@cybop.org>
 
         * Continue streamer reader
         * Clean up feeler sensor
+        * Add cybol examples for "signal" and "inline" to directory "examples/communication/"
 
 2022-01-28  Christian Heller  <christian.heller@cybop.org>
 

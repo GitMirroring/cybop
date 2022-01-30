@@ -1,0 +1,24 @@
+<node>
+
+    <node name="open_client" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="device" channel="inline" format="text/plain" model="communication/file/test.txt"/>
+    </node>
+
+    <node name="send_client" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Hello World!"/>
+        <node name="receiver" channel="inline" format="text/plain" model="communication/file/test.txt"/>
+    </node>
+
+    <node name="close_client" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="device" channel="inline" format="text/plain" model="communication/file/test.txt"/>
+    </node>
+
+    <node name="exit_programme" channel="inline" format="live/exit" model=""/>
+
+</node>

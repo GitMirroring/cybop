@@ -26,41 +26,32 @@
 #ifndef FRAGMENT_READER_SOURCE
 #define FRAGMENT_READER_SOURCE
 
+#include "../../../constant/channel/cyboi/cyboi_channel.c"
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../executor/modifier/item_modifier.c"
+#include "../../../executor/streamer/reader/basic/basic_reader.c"
 #include "../../../logger/logger.c"
---
-#include "../../constant/channel/cyboi/cyboi_channel.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
-#include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/accessor/getter/internal_memory_getter.c"
-#include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/copier/array_copier.c"
-#include "../../executor/streamer/reader/directory/directory_reader.c"
-#include "../../executor/streamer/reader/file/file_reader.c"
-#include "../../executor/streamer/reader/inline/inline_reader.c"
-#include "../../executor/streamer/reader/serial_port/serial_port_reader.c"
-#include "../../executor/streamer/reader/signal/signal_reader.c"
-#include "../../executor/streamer/reader/socket/socket_reader.c"
-#include "../../executor/streamer/reader/terminal/terminal_reader.c"
 
 /**
  * Reads a message fragment via the given channel.
  *
  * @param p0 the destination item
- * @param p1 the source client identification (e.g. file descriptor for a file, serial port, terminal, socket)
- * @param p2 the message fragment data
- * @param p2 the message fragment size
- * @param p4 the destination mutex
- * @param p5 the thread exit flag
- * @param p6 the socket close flag
- * @param p13 the channel
+ * @param p1 the source data (mostly a client identification file descriptor for a file, serial port, terminal, socket OR input text for inline channel)
+ * @param p2 the source count
+ * @param p3 the message fragment data
+ * @param p4 the message fragment size
+ * @param p5 the destination mutex
+ * @param p6 the thread exit flag
+ * @param p7 the eof or close flag
+ * @param p8 the channel
  */
-void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
+void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read fragment.");
     fwprintf(stdout, L"Debug: Read fragment. p13: %i\n", p13);
@@ -75,7 +66,7 @@ void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            read_socket(p0, p1, p7, p10, p11, p12, p13);
+            //?? read_socket(p0, p1, p7, p10, p11, p12, p13);
         }
     }
 
@@ -115,7 +106,7 @@ void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            read_basic(destination-item, source-file-descriptor, fragment-data, fragment-size, destination-mutex, exit-flag, close-flag);
+            read_basic(p0, p1, p3, p4, p5, p6, p7);
         }
     }
 
@@ -125,7 +116,8 @@ void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            read_inline(p0, p1, p2);
+            // Copy source to destination.
+            modify_item(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
         }
     }
 
@@ -135,13 +127,8 @@ void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // The input/output entry.
-            void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-            // Get input/output entry.
-            get_internal_memory_element((void*) &io, p7, (void*) SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, p10);
-
-            read_serial_port(p0, p8, p9, p7);
+            //?? read_serial_port(p0, p8, p9, p7);
+            //?? read_basic(destination-item, source-file-descriptor, fragment-data, fragment-size, destination-mutex, exit-flag, eof-or-close-flag);
         }
     }
 
@@ -151,7 +138,7 @@ void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            read_signal(p0, p1, p3);
+            //?? read_signal(p0, p1, p3);
         }
     }
 
@@ -161,7 +148,7 @@ void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            read_terminal(p0, p1, p7, p10);
+            //?? read_terminal(p0, p1, p7, p10);
         }
     }
 
