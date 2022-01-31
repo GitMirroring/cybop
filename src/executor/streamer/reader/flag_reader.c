@@ -63,7 +63,16 @@ void read_flag(void* p0) {
         //
 
         // Read directly from device.
-        read_device(px);
+        read_device( * @param p0 the destination item
+ * @param p1 the source data (mostly a client identification file descriptor for a file, serial port, terminal, socket OR input text for inline channel)
+ * @param p2 the source count
+ * @param p3 the destination mutex
+ * @param p4 the client entry
+ * @param p5 the server identification (server base + service port)
+ * @param p6 the client identification
+ * @param p7 the language (protocol)
+ * @param p8 the channel
+ * @param p9 the asynchronous mode);
 
     } else {
 

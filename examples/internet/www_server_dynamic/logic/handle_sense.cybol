@@ -13,7 +13,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".client_socket"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#client"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
@@ -38,7 +38,7 @@
         <node name="language" channel="inline" format="meta/language" model="message/http-request"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".request"/>
-        <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model="#client"/>
         <node name="client" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 

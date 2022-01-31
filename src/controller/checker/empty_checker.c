@@ -54,52 +54,59 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
     // The read interrupt request pipe file descriptor.
     int rd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The server identification (server base + service port).
-    int s = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    int sid = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The client identification.
-    int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    int cid = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The server entry.
+    void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The client entry.
+    void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The handler (signal part representing the interrupt request handler).
     void* h = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The server entry.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The handler properties item.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The handler properties item data, count.
+    void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pc= *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The client property.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get read interrupt request pipe file descriptor.
     copy_array_forward((void*) &rd, p3, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"Debug: Check empty. rd: %i\n", rd);
 
     // Read from interrupt pipe.
-    read_interrupt_pipe((void*) &s, (void*) &c, (void*) &rd, *NULL_POINTER_STATE_CYBOI_MODEL);
+    read_interrupt_pipe((void*) &sid, (void*) &cid, (void*) &rd, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-    if (s >= *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
+    if (sid >= *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
         // Get server entry from internal memory.
-        copy_array_forward((void*) &e, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &s);
+        copy_array_forward((void*) &se, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &sid);
 
-        if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (se != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             //
             // A server entry exists for the service.
             //
 
-            // The sender.
-            void* sender = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-            // Get sender from server entry.
-            copy_array_forward((void*) &sender, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SENDER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
+            // Get client entry from server entry client list by identification.
+            find_server_entry((void*) &ce, se, (void*) &cid, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            // Get handler part from client entry.
+            copy_array_forward((void*) &h, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLER_GENERAL_CLIENT_STATE_CYBOI_NAME);
+            // Get handler properties item from handler part.
+            copy_array_forward((void*) &p, h, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
+            // Get handler properties item data, count.
+            copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+            // Get client identification from handler properties.
+            get_part_name((void*) &c, pd, (void*) CLIENT_HANDLER_STATE_CYBOL_NAME, (void*) CLIENT_HANDLER_STATE_CYBOL_NAME_COUNT, pc, knowledge memory part (pointer reference), stack memory item, internal memory data);
             //
-            // Copy client identification to sender.
+            // Copy client identification.
             //
-            // CAUTION! This is important, since the cybol application
-            // relies on it when sending its response to the requesting client.
+            // CAUTION! This is IMPORTANT, since the cybol application relies
+            // on it when sending its response to the requesting client.
             //
-            copy_integer(sender, (void*) &c);
-
-            //
-            // Get handler from server entry.
-            //
-            // It is comparable to the irq service routine in an operating system.
-            //
-            copy_array_forward((void*) &h, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            copy_integer(c, (void*) &cid);
 
             //
             // Add part model (signal) to signal memory.

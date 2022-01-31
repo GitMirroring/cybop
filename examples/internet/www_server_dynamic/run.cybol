@@ -35,14 +35,14 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    <node name="sense_requests" channel="inline" format="activate/enable" model="">
+    <node name="enable_requests" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="port" channel="inline" format="number/integer" model="1971"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-request"/>
         <!-- The requesting client gets stored in this variable. -->
-        <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/>
+        <!-- <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/> -->
         <!-- This is the call-back function executed whenever a client sends a request. -->
-        <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle"/>
+        <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle_enable"/>
     </node>
 
 </node>

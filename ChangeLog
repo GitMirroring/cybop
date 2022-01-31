@@ -23,6 +23,10 @@
         * Complete client list finder
         * Add file "channel_to_identification_or_name_flag_mapper.c"
         * Continue reader
+        * Add file "handler_state_cybol_name.c"
+        * Use stack variable "#client" being a property of the handler
+        * Adapt cybol application "www_server_dynamic" to using "enable_handler" and "sense_handler"
+        * Adapt file "empty_checker.c" assigning client identification to new handler property "client", so that it can be used in the cybol application for sending its response back to the requesting client
 
 2022-01-30  Christian Heller  <christian.heller@cybop.org>
 
