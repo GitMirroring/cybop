@@ -43,9 +43,11 @@
  *
  * @param p0 the destination client entry (pointer reference)
  * @param p1 the source server entry
- * @param p2 the identification (e.g. client socket, window id)
+ * @param p2 the device data (identification e.g. file descriptor of a file, serial port, client socket, window id OR name e.g. a file system path pointing to some device)
+ * @param p3 the device count
+ * @param p4 the name flag (if true, then search by name, otherwise by identification)
  */
-void find_server_entry(void* p0, void* p1, void* p2) {
+void find_server_entry(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find server entry.");
     fwprintf(stdout, L"Debug: Find server entry. p2: %i\n", p2);
@@ -58,7 +60,7 @@ void find_server_entry(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &cl, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_LIST_SERVER_STATE_CYBOI_NAME);
 
     // Get client entry from client list.
-    find_client_list(p0, cl, p2);
+    find_client_list(p0, cl, p2, p3, p4);
 }
 
 /* SERVER_ENTRY_FINDER_SOURCE */

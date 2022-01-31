@@ -17,8 +17,8 @@
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".test"/>
         <node name="sender" channel="inline" format="text/plain" model="communication/file/test.txt"/>
-        ALTERNATIVE (if asynchronous true then NO sender, since data are read from internal buffer, which has been filled in sense thread before)
-        <node name="asynchronous" channel="inline" format="logicvalue/boolean" model="false"/>
+        ALTERNATIVE (e.g. in handler, if asynchronous true then NO sender, since data are read from internal buffer, which has been filled in sense thread before)
+        <node name="asynchronous" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="close_client" channel="inline" format="dispatch/close" model="">

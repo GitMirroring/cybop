@@ -47,26 +47,17 @@
  * functionality in header file unistd.h.
  * Function: ssize_t read (int filedes, void *buffer, size_t size)
  *
---
-DEVICE READER:
  * @param p0 the destination item
- * @param p1 the source data (mostly a client identification file descriptor for a file, serial port, terminal, socket OR input text for inline channel)
- * @param p2 the source count
- * @param p3 the destination mutex
- * @param p4 the client entry
- * @param p5 the server identification (server base + service port)
- * @param p6 the client identification
- * @param p7 the language (protocol)
- * @param p8 the channel
- * @param p9 the asynchronous mode
---
-BUFFER_READER:
- * @param p0 the destination item
- * @param p1 the client entry
- * @param p2 the language (protocol)
- * @param p3 the channel
+ * @param p1 the source device data (identification e.g. file descriptor of a file, serial port, client socket, window id OR name e.g. a file system path pointing to some device)
+ * @param p2 the source device count
+ * @param p3 the destination mutex (only relevant, if destination is the internal buffer, which is shared with the sensing thread)
+ * @param p4 the language (protocol)
+ * @param p5 the internal memory
+ * @param p6 the channel
+ * @param p7 the port
+ * @param p8 the asynchronous mode
  */
-void read_data(void* p0) {
+void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read data.");
     fwprintf(stdout, L"Debug: Read data. p0: %i\n", p0);
@@ -75,45 +66,28 @@ void read_data(void* p0) {
     void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The client entry.
     void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The server identification (server base + service port).
+    ??
     // The client device identification.
     void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The name flag (if true, then device is given by name, otherwise by identification).
+    int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Get server entry from internal memory.
-    get_internal_memory_channel((void*) &se, p1, p2, p3);
+    get_internal_memory_channel((void*) &se, p5, p6, p7);
 
     if (se != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        // Get name flag corresponding to the given channel.
+        map_channel_to_identification_or_name_flag((void*) &f, p6);
+
+        // Get client entry from server entry client list by given device identification or -name.
+        find_server_entry((void*) &ce, se, p1, p2, (void*) &f);
 
         // Get client identification from client entry.
         copy_array_forward((void*) &cid, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
 
-        get_server_entry();
-
-        get_client_entry();
-        find_client_list_name();
-
-        if (asynchronous == false) {
-
-            //
-            // This is SYNCHRONOUS mode.
-            //
-
-            // Read directly from device.
-            read_device(px);
-
-        } else {
-
-            //
-            // This is ASYNCHRONOUS mode.
-            //
-
-            //
-            // Read indirectly from buffer.
-            //
-            // The data have been read and stored in the buffer
-            // in a separate sensing thread before.
-            //
-            read_buffer(destination-item, client-entry, language, channel);
-        }
+        read_flag(destination-item, client-entry, language, channel);
 
     } else {
 
