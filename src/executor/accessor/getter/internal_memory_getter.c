@@ -29,10 +29,11 @@
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/calculator/integer/add_integer_calculator.c"
+#include "../../../executor/calculator/server_identification_calculator.c"
 #include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../logger/logger.c"
@@ -47,54 +48,27 @@
  */
 void get_internal_memory_element(void* p0, void* p1, void* p2, void* p3) {
 
-    //
-    // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
-    // Otherwise, it would produce huge log files filled up with useless entries.
-    //
-    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get internal memory element.");
-    //
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get internal memory element.");
+    fwprintf(stdout, L"Debug: Get internal memory element. p0: %i\n", p0);
 
-    // The internal memory index.
-    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The server identification (server base + service port).
+    int id = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    //
-    // Calculate internal memory index.
-    //
-    // - add server base
-    // - add service port
-    //
-    // CAUTION! If the service port is NULL, then it is NOT copied here.
-    // This is tested inside the "calculate_integer_add" function.
-    // In this case, the server base added before remains AS IS,
-    // which is the same as a service port of ZERO.
-    //
-    // In other words, the service port is ZERO BY DEFAULT.
-    // Only for the socket channel, it gets replaced by the PORT number.
-    //
-    calculate_integer_add((void*) &i, p2);
-    calculate_integer_add((void*) &i, p3);
+    calculate_server_identification((void*) &id, p2, p3);
 
-    //
-    // CAUTION! Use greater-or-EQUAL operator >=,
-    // since the first service has the port zero.
-    //
-    compare_integer_greater_or_equal((void*) &r, (void*) &i, p2);
+    compare_integer_greater_or_equal((void*) &r, (void*) &id, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        //
-        // The internal memory index is valid.
-        //
-
         // Get server entry from internal memory.
-        copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+        copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &id);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get internal memory element. The internal memory index is negative and hence invalid.");
-        fwprintf(stdout, L"Error: Could not get internal memory element. The internal memory index is negative and hence invalid. i: %i\n", i);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get internal memory element. The server identification is invalid.");
+        fwprintf(stdout, L"Error: Could not get internal memory element. The server identification is invalid. i: %i\n", i);
     }
 }
 

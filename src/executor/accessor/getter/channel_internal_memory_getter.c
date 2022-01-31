@@ -30,10 +30,12 @@
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../../../executor/accessor/getter/internal_memory_getter.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/calculator/server_identification/channel_server_identification_calculator.c"
 #include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../logger/logger.c"
-#include "../../../mapper/channel_to_internal_memory_mapper.c"
 
 /**
  * Gets the server entry from internal memory by channel.
@@ -45,36 +47,22 @@
  */
 void get_internal_memory_channel(void* p0, void* p1, void* p2, void* p3) {
 
-    //
-    // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
-    // Otherwise, it would produce huge log files filled up with useless entries.
-    //
-    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get internal memory channel.");
-    // fwprintf(stdout, L"Debug: Get internal memory channel. p2: %i\n", p2);
-    //
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get internal memory channel.");
+    fwprintf(stdout, L"Debug: Get internal memory channel. p2: %i\n", p2);
 
-    // The server base.
-    int b = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The server identification.
+    int id = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Get server base by channel.
-    map_channel_to_internal_memory((void*) &b, p2);
+    calculate_server_identification_channel((void*) &id, p2, p3);
 
-    compare_integer_greater_or_equal((void*) &r, (void*) &b, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    compare_integer_greater_or_equal((void*) &r, (void*) &id, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        //
-        // The internal memory name (server base) is VALID.
-        //
-        // CAUTION! This check is IMPORTANT since otherwise,
-        // the internal memory might be accessed with a
-        // wrong index, which would lead to memory errors.
-        //
-
         // Get server entry from internal memory.
-        get_internal_memory_element(p0, p1, (void*) &b, p3);
+        copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &id);
 
     } else {
 

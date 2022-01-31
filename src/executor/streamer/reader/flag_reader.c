@@ -27,13 +27,10 @@
 #define FLAG_READER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../logger/logger.c"
---
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/finder/identification_client_list_finder.c"
-#include "../../../executor/finder/name_client_list_finder.c"
+#include "../../../executor/streamer/reader/buffer_reader.c"
+#include "../../../executor/streamer/reader/device_reader.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -44,9 +41,17 @@
  * functionality in header file unistd.h.
  * Function: ssize_t read (int filedes, void *buffer, size_t size)
  *
- * @param p9 the asynchronous mode
+ * @param p0 the destination item
+ * @param p1 the source data (mostly a client identification file descriptor for a file, serial port, terminal, socket OR input text for inline channel)
+ * @param p2 the source count
+ * @param p3 the destination mutex
+ * @param p4 the client entry
+ * @param p5 the server identification (server base + service port)
+ * @param p6 the language (protocol)
+ * @param p7 the channel
+ * @param p8 the asynchronous mode
  */
-void read_flag(void* p0) {
+void read_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read flag.");
     fwprintf(stdout, L"Debug: Read flag. p0: %i\n", p0);
@@ -54,7 +59,7 @@ void read_flag(void* p0) {
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, px-asynchronous-mode, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_equal((void*) &r, p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -63,16 +68,7 @@ void read_flag(void* p0) {
         //
 
         // Read directly from device.
-        read_device( * @param p0 the destination item
- * @param p1 the source data (mostly a client identification file descriptor for a file, serial port, terminal, socket OR input text for inline channel)
- * @param p2 the source count
- * @param p3 the destination mutex
- * @param p4 the client entry
- * @param p5 the server identification (server base + service port)
- * @param p6 the client identification
- * @param p7 the language (protocol)
- * @param p8 the channel
- * @param p9 the asynchronous mode);
+        read_device(p0, p1, p2, p3, p4, p5, p6, p7, p8);
 
     } else {
 
@@ -86,7 +82,7 @@ void read_flag(void* p0) {
         // The data have been read and stored in the buffer
         // in a separate sensing thread before.
         //
-        read_buffer(destination-item, client-entry, language, channel);
+        read_buffer(p0, p4, p6, p7);
     }
 }
 

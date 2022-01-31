@@ -79,7 +79,16 @@ void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //
     // FILE_CYBOI_CHANNEL
     //
-    // The EOF is already filtered out in message reader,
+    // The eof-or-close flag is set inside the fragment reader
+    // and filtered out in message reader,
+    // so that checking for it here is not necessary.
+    //
+
+    //
+    // INLINE_CYBOI_CHANNEL
+    //
+    // The eof-or-close flag is set inside the fragment reader
+    // and filtered out in message reader,
     // so that checking for it here is not necessary.
     //
 

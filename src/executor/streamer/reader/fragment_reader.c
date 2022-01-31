@@ -27,15 +27,11 @@
 #define FRAGMENT_READER_SOURCE
 
 #include "../../../constant/channel/cyboi/cyboi_channel.c"
-#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/modifier/item_modifier.c"
 #include "../../../executor/streamer/reader/basic/basic_reader.c"
+#include "../../../executor/streamer/reader/basic/inline_reader.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -116,8 +112,7 @@ void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Copy source to destination.
-            modify_item(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+            read_inline(p0, p1, p2, p7);
         }
     }
 

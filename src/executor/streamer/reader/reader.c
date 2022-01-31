@@ -27,17 +27,14 @@
 #define READER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../logger/logger.c"
---
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/client_state_cyboi_name.c"
-#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/feeler/sensor/loop_sensor.c"
+#include "../../../executor/accessor/getter/channel_internal_memory_getter.c"
+#include "../../../executor/calculator/server_identification/channel_server_identification_calculator.c"
+#include "../../../executor/finder/server_entry_finder.c"
+#include "../../../executor/streamer/reader/flag_reader.c"
+#include "../../../logger/logger.c"
 
 /**
  * Reads data via the given channel into the destination.
@@ -62,38 +59,29 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read data.");
     fwprintf(stdout, L"Debug: Read data. p0: %i\n", p0);
 
+    // The server identification (server base + service port).
+    int id = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The server entry.
     void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The client entry.
     void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The server identification (server base + service port).
-    ??
-    // The client device identification.
-    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The name flag (if true, then device is given by name, otherwise by identification).
-    int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    // Calculate server identification.
+    calculate_server_identification_channel((void*) &id, p6, p7);
     // Get server entry from internal memory.
     get_internal_memory_channel((void*) &se, p5, p6, p7);
 
-    if (se != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    //
+    // CAUTION! Do NOT check server entry or client entry for NULL here,
+    // since the INLINE_CYBOI_CHANNEL does have NEITHER a server entry
+    // NOR a client entry. Otherwise, it would not be processed.
+    //
 
-        // Get name flag corresponding to the given channel.
-        map_channel_to_identification_or_name_flag((void*) &f, p6);
+    // Get client entry from server entry client list by given device identification or -name.
+    find_server_entry((void*) &ce, se, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        // Get client entry from server entry client list by given device identification or -name.
-        find_server_entry((void*) &ce, se, p1, p2, (void*) &f);
-
-        // Get client identification from client entry.
-        copy_array_forward((void*) &cid, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
-
-        read_flag(destination-item, client-entry, language, channel);
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read data. The server entry is null.");
-        fwprintf(stdout, L"Error: Could not read data. The server entry is null. se: %i\n", se);
-    }
+    // Read data via the given channel into the destination.
+    read_flag(p0, p1, p2, p3, ce, (void*) &id, p4, p6, p8);
 }
 
 /* READER_SOURCE */

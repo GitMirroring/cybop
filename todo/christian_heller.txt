@@ -18,10 +18,11 @@
         * file opener
         * file closer
         DOING:
-        * Make handler client-specific (add to client entry and delete in server entry), needed may be not for socket requests, but for windows and dialogues that may require specific handling
-        * complete server/client entry finder by name --> needed by closer and similar by reader
-        * complete reader (includes etc.)
         * file read
+        * Adapt applicator read to code changes
+        * Check file opener and closer once more
+        * Make compilable
+        * Test file read functionality
         TODO:
         * file write
         * serial_port

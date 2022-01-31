@@ -27,6 +27,16 @@
 #define DEVICE_READER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/client_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/streamer/reader/loop_reader.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -38,12 +48,11 @@
  * @param p3 the destination mutex
  * @param p4 the client entry
  * @param p5 the server identification (server base + service port)
- * @param p6 the client identification
- * @param p7 the language (protocol)
- * @param p8 the channel
- * @param p9 the asynchronous mode
+ * @param p6 the language (protocol)
+ * @param p7 the channel
+ * @param p8 the asynchronous mode
  */
-void read_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void read_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read device.");
     fwprintf(stdout, L"Debug: Read device. p0: %i\n", p0);
@@ -52,6 +61,8 @@ void read_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // Declaration.
     //
 
+    // The client device identification.
+    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The interrupt pipe.
     void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The interrupt mutex.
@@ -120,6 +131,8 @@ void read_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // Retrieval.
     //
 
+    // Get device identification from client entry.
+    copy_array_forward((void*) &id, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
     // Get interrupt pipe from client entry.
     copy_array_forward((void*) &ip, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PIPE_INTERRUPT_CLIENT_STATE_CYBOI_NAME);
     // Get interrupt mutex from client entry.
@@ -135,7 +148,7 @@ void read_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     //
 
     // Call endless loop waiting for data input.
-    read_loop(p0, p1, p2, fd, (void*) &fs, p3, (void*) &ipw, im, ex, p5, p6, p7, (void*) &ml, p8, p9);
+    read_loop(p0, p1, p2, fd, (void*) &fs, p3, (void*) &ipw, im, ex, p5, id, p6, (void*) &ml, p7, p8);
 }
 
 /* DEVICE_READER_SOURCE */
