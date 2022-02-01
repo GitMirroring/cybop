@@ -18,6 +18,7 @@
         * file opener
         * file closer
         DOING:
+        * IMPORTANT for sensor and perhaps reader: allocate in "open": buffer item, buffer mutex, sense thread exit flag, internal memory, interrupt pipe, interrupt mutex
         * file read
         * Check file opener and closer once more
         * Make compilable

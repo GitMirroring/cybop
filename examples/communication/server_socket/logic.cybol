@@ -1,0 +1,15 @@
+<node>
+
+    <node name="handle_enable" channel="file" format="element/part" model="path/to/application/logic/handle_enable.cybol">
+        <node name="client" channel="inline" format="number/integer" model="-1"/>
+    </node>
+
+    <node name="handle_sense" channel="file" format="element/part" model="path/to/application/logic/handle_sense.cybol"/>
+
+<!-- The stack variable "#client" of "handle_enable" can probably be used in "handle_sense" as well, so that a second stack variable of the same name is not needed.
+    <node name="handle_sense" channel="file" format="element/part" model="path/to/application/logic/handle_sense.cybol">
+        <node name="client" channel="inline" format="number/integer" model="-1"/>
+    </node>
+-->
+
+</node>

@@ -21,6 +21,7 @@
 2022-02-01  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt applicator communicate receive and communicator receiver to code changes
+        * Adapt feeler sensor to code changes
 
 2022-01-31  Christian Heller  <christian.heller@cybop.org>
 

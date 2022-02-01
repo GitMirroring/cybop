@@ -45,7 +45,7 @@
  * Function: ssize_t read (int filedes, void *buffer, size_t size)
  *
  * @param p0 the destination item
- * @param p1 the source device data (identification e.g. file descriptor of a file, serial port, client socket, window id OR name e.g. a file system path pointing to some device)
+ * @param p1 the source device data (identification e.g. file descriptor of a file, serial port, client socket, window id OR input text for inline channel)
  * @param p2 the source device count
  * @param p3 the destination mutex (only relevant, if destination is the internal buffer, which is shared with the sensing thread)
  * @param p4 the language (protocol)

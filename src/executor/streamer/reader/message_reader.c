@@ -40,7 +40,7 @@
  * Reads a message in certain steps.
  *
  * @param p0 the destination item
- * @param p1 the source data (mostly a client identification file descriptor for a file, serial port, terminal, socket OR input text for inline channel)
+ * @param p1 the source data (identification e.g. file descriptor of a file, serial port, client socket, window id OR input text for inline channel)
  * @param p2 the source count
  * @param p3 the message fragment data
  * @param p4 the message fragment size

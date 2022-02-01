@@ -12,42 +12,13 @@
         <node name="timeout" channel="inline" format="number/integer" model="5"/>
     </node>
 
+    <!-- The requesting client gets stored in the stack variable "#client". -->
     <node name="enable_server" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="port" channel="inline" format="number/integer" model="1971"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-request"/>
-        <!-- The requesting client gets stored in this variable. -->
-        <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/>
         <!-- This is the call-back function executed whenever a client sends a request. -->
-        <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle"/>
-    </node>
-
-    <!--
-        The name="open_client" with operation "dispatch/open" is NOT necessary,
-        since it is called AUTOMATICALLY by "activate/enable" within cyboi.
-    -->
-
-    <!--
-        The name="sense_client" with operation "feel/sense" is NOT necessary,
-        since it is called AUTOMATICALLY by "activate/enable" within cyboi.
-    -->
-
-    <node name="receive_client" channel="inline" format="communicate/receive" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <node name="port" channel="inline" format="number/integer" model="1971"/>
-        <node name="language" channel="inline" format="meta/language" model="message/http-request"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".request"/>
-        <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/>
-        <node name="client" channel="inline" format="logicvalue/boolean" model="false"/>
-    </node>
-
-    <node name="send_client" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".webpage"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
+        <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle_enable"/>
     </node>
 
 </node>

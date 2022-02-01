@@ -27,6 +27,8 @@
 #define SENSOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../logger/logger.c"
+--
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
@@ -41,89 +43,40 @@
 #include "../../../executor/feeler/sensor/entry_sensor.c"
 #include "../../../executor/feeler/sensor/thread_sensor.c"
 #include "../../../executor/maintainer/client_list/get_client_list_maintainer.c"
-#include "../../../logger/logger.c"
 #include "../../../mapper/channel_to_internal_memory_mapper.c"
 
 /**
  * Senses data on the given channel.
  *
- * @param p0 the internal memory data
- * @param p1 the service port
- * @param p2 the client identification
- * @param p3 the client mode (pointer reference)
- * @param p4 the handler part (pointer reference)
- * @param p5 the sender client (pointer reference)
- * @param p6 the language (pointer reference)
- * @param p7 the channel (pointer reference)
- * @param p8 the channel
+ * @param p0 the client entry
+ * @param p1 the channel (pointer reference)
+ * @param p2 the port (pointer reference)
+ * @param p3 the language (pointer reference)
+ * @param p4 the sender client identification (pointer reference)
+ * @param p5 the handler (pointer reference)
+ * @param p6 the internal memory
  */
-void sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense.");
     fwprintf(stdout, L"Debug: Sense. p0: %i\n", p0);
 
-    // The server base.
-    int b = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The server entry.
     void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The client entry list item.
-    int ce = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The client identification list item.
-    int ci = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The client entry.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get server base by channel.
-    map_channel_to_internal_memory((void*) &b, p8);
+    // Get server entry from internal memory.
+    get_internal_memory_channel((void*) &se, p6, p1, p2);
 
-    compare_integer_greater_or_equal((void*) &r, (void*) &b, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    // Get client entry from server entry client list by given device identification or -name.
+    find_server_entry((void*) &ce, se, p4, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    // Assign parametres to client entry.
+    sense_entry(ce, p1, p2, p3, p4, p5);
 
-        //
-        // The internal memory name (server base) is VALID.
-        //
-        // CAUTION! This check is important since otherwise,
-        // the internal memory is accessed with a wrong index,
-        // which may lead to memory errors.
-        //
-
-        // Get server entry.
-        get_internal_memory_element((void*) &se, p0, b, p1);
-
-        if (se != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            //
-            // A server entry exists.
-            //
-
-            // Get client entry list item from server entry.
-            copy_array_forward((void*) &ce, se, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENTRY_CLIENT_SERVER_STATE_CYBOI_NAME);
-            // Get client identification list item from server entry.
-            copy_array_forward((void*) &ci, se, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_CLIENT_SERVER_STATE_CYBOI_NAME);
-
-            // Get client entry from client list item by client identification.
-            maintain_client_list_get((void*) &e, ce, ci, p2);
-
-            // Assign parametres to client entry.
-            sense_entry(e, p3, p4, p5, p6, p7);
-
-            // Invoke sense function WITHIN a new thread.
-            sense_thread(e);
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense. There exists no server entry at the given server base.");
-            fwprintf(stdout, L"Error: Could not sense. There exists no server entry at the given server base. se: %i\n", se);
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense. The server base is invalid.");
-        fwprintf(stdout, L"Error: Could not sense. The server base is invalid. base: %i\n", b);
-    }
+    // Invoke sense function within a new thread.
+    sense_thread(e);
 }
 
 /* SENSOR_SOURCE */
