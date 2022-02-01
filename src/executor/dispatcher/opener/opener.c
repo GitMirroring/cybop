@@ -26,20 +26,24 @@
 #ifndef OPENER_SOURCE
 #define OPENER_SOURCE
 
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/client_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/server_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/accessor/getter/internal_memory_getter_channel.c"
-#include "../../../executor/dispatcher/opener/device_opener.c"
-//?? #include "../../../executor/dispatcher/opener/forwarder_opener.c"
-#include "../../../executor/memoriser/allocator/client_entry_allocator.c"
-#include "../../../executor/memoriser/allocator/server_entry_allocator.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
+#include "../../../executor/dispatcher/opener/device_opener.c"
+#include "../../../executor/dispatcher/opener/entry_opener.c"
+#include "../../../executor/finder/server_entry_finder.c"
+#include "../../../executor/memoriser/allocator/client_entry_allocator.c"
+#include "../../../executor/memoriser/allocator/server_entry_allocator.c"
+#include "../../../executor/modifier/item_modifier.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -66,10 +70,10 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The client entry.
     void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The client list.
+    void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The device identification.
     int id = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The client entry device identification element.
-    void* ide = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get server entry from internal memory.
     get_internal_memory_channel((void*) &se, p1, p2, p3);
@@ -84,41 +88,33 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
         allocate_server_entry((void*) &se);
     }
 
-    if (se != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // Get client entry from server entry client list by given device identification.
+    find_server_entry((void*) &ce, se, p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        // Test if a client entry for the given device already exists in the client list of the server entry.
-        ?? TODO
+    // Get client list from server entry.
+    copy_array_forward((void*) &cl, se, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_LIST_SERVER_STATE_CYBOI_NAME);
 
-        if (ce == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (ce == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            // Allocate client entry.
-            allocate_client_entry((void*) &ce);
+        // Allocate client entry.
+        allocate_client_entry((void*) &ce, p2);
 
-            // Forward server entry data to client entry.
-            //?? open_forwarder(e, p1);
-            // Open device.
-            open_device((void*) &id, p4, p5, p2);
+        // Open device.
+        open_device((void*) &id, p4, p5, p2);
 
-            // Get device identification element from client entry.
-            copy_array_forward((void*) &ide, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
-            // Copy client identification to client entry device identification element.
-            copy_integer(ide, (void*) &id);
-            // Copy client identification to cybol destination.
-            copy_integer(p0, (void*) &id);
+        // Initialise client entry.
+        open_entry(ce, (void*) &id, (void*) &se);
 
-            // Add client entry to client list of server entry.
-            ?? TODO copy_array_forward(se, (void*) &ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
+        // Copy client device identification to cybol destination.
+        copy_integer(p0, (void*) &id);
 
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open client. A client entry already exists for the given device.");
-            fwprintf(stdout, L"Error: Could not open client. A client entry already exists for the given device. se: %i\n", se);
-        }
+        // Add client entry to client list of server entry.
+        modify_item(cl, (void*) &ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open client. The server entry is null.");
-        fwprintf(stdout, L"Error: Could not open client. The server entry is null. se: %i\n", se);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open client. A client entry already exists for the given device.");
+        fwprintf(stdout, L"Error: Could not open client. A client entry already exists for the given device. se: %i\n", se);
     }
 }
 

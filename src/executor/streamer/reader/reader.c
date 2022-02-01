@@ -77,7 +77,7 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // NOR a client entry. Otherwise, it would not be processed.
     //
 
-    // Get client entry from server entry client list by given device identification or -name.
+    // Get client entry from server entry client list by given device identification.
     find_server_entry((void*) &ce, se, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     // Read data via the given channel into the destination.

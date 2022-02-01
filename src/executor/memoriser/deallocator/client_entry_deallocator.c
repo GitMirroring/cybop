@@ -38,18 +38,15 @@
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../logger/logger.c"
+#include "../../../mapper/channel_to_data_type_mapper.c"
 
 /**
  * Deallocates the client entry.
  *
- * CAUTION! Do NOT rename this function to "close",
- * as that name is already used by low-level functionality:
- * /usr/include/unistd.h:353:12
- * extern int close (int __fd);
- *
- * @param p0 the client entry
+ * @param p0 the client entry (pointer reference)
+ * @param p1 the channel
  */
-void deallocate_client_entry(void* p0) {
+void deallocate_client_entry(void* p0, void* p1) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -64,36 +61,47 @@ void deallocate_client_entry(void* p0) {
 
         // The client identification.
         void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
-        //
+        // The client device name item.
+        void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The buffer item.
-        //
-        // It is a character buffer for file, serial port, terminal, socket,
-        // but a pointer buffer for display events.
-        // Therefore, see device-specific files.
-        //
+        void* bi = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The buffer mutex.
-        void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The thread identification.
-        void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* ti = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The thread exit flag.
-        void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* te = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+        // The data type.
+        int t = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+
+        //
+        // Mapping.
+        //
+
+        // Map channel to datatype.
+        map_channel_to_data_type((void*) &t, p1);
 
         //
         // Retrieval.
         //
 
-        // Get identification from client entry.
+        // Get client device identification from client entry.
         copy_array_forward((void*) &id, *e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
-        // Get mutex from client entry.
-        copy_array_forward((void*) &m, *e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_BUFFER_CLIENT_STATE_CYBOI_NAME);
-        // Get mutex from client entry.
-        copy_array_forward((void*) &t, *e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_THREAD_CLIENT_STATE_CYBOI_NAME);
-        // Get exit flag from client entry.
-        copy_array_forward((void*) &ex, *e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_CLIENT_STATE_CYBOI_NAME);
+        // Get client device name item from client entry.
+        copy_array_forward((void*) &n, *e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_GENERAL_CLIENT_STATE_CYBOI_NAME);
+        // Get buffer item from client entry.
+        copy_array_forward((void*) &bi, *e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_BUFFER_CLIENT_STATE_CYBOI_NAME);
+        // Get buffer mutex from client entry.
+        copy_array_forward((void*) &bm, *e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_BUFFER_CLIENT_STATE_CYBOI_NAME);
+        // Get thread identification from client entry.
+        copy_array_forward((void*) &ti, *e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_THREAD_CLIENT_STATE_CYBOI_NAME);
+        // Get thread exit flag from client entry.
+        copy_array_forward((void*) &te, *e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_CLIENT_STATE_CYBOI_NAME);
 
         //
         // CAUTION! Resetting the values is not necessary,
-        // since the server entry gets deallocated anyway.
+        // since the entry gets deallocated anyway.
         //
 
         //
@@ -110,7 +118,7 @@ void deallocate_client_entry(void* p0) {
         //
 
         //
-        // Deallocate identification.
+        // Deallocate client device identification.
         //
         // CAUTION! The second argument "count" is NULL,
         // since it is only needed for looping elements of type PART,
@@ -118,13 +126,29 @@ void deallocate_client_entry(void* p0) {
         //
         deallocate_array((void*) &id, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         //
+        // Deallocate client device name item.
+        //
+        // CAUTION! The second argument "count" is NULL,
+        // since it is only needed for looping elements of type PART,
+        // in order to decrement the rubbish (garbage) collection counter.
+        //
+        deallocate_item((void*) &n, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        //
+        // Deallocate buffer item.
+        //
+        // CAUTION! The second argument "count" is NULL,
+        // since it is only needed for looping elements of type PART,
+        // in order to decrement the rubbish (garbage) collection counter.
+        //
+        deallocate_array((void*) &bi, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &t);
+        //
         // Deallocate buffer mutex.
         //
         // CAUTION! The second argument "count" is NULL,
         // since it is only needed for looping elements of type PART,
         // in order to decrement the rubbish (garbage) collection counter.
         //
-        deallocate_array((void*) &m, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
+        deallocate_array((void*) &bm, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
         //
         // Deallocate thread identification.
         //
@@ -132,7 +156,7 @@ void deallocate_client_entry(void* p0) {
         // since it is only needed for looping elements of type PART,
         // in order to decrement the rubbish (garbage) collection counter.
         //
-        deallocate_array((void*) &t, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_THREAD_STATE_CYBOI_TYPE);
+        deallocate_array((void*) &ti, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_THREAD_STATE_CYBOI_TYPE);
         //
         // Deallocate thread exit flag.
         //
@@ -140,7 +164,7 @@ void deallocate_client_entry(void* p0) {
         // since it is only needed for looping elements of type PART,
         // in order to decrement the rubbish (garbage) collection counter.
         //
-        deallocate_array((void*) &ex, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        deallocate_array((void*) &te, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         //
         // Deallocate client entry.

@@ -27,23 +27,13 @@
 #define SENSOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../logger/logger.c"
---
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../constant/name/cyboi/state/server_state_cyboi_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/accessor/getter/internal_memory_getter.c"
-#include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
-#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/accessor/getter/channel_internal_memory_getter.c"
 #include "../../../executor/feeler/sensor/entry_sensor.c"
 #include "../../../executor/feeler/sensor/thread_sensor.c"
-#include "../../../executor/maintainer/client_list/get_client_list_maintainer.c"
-#include "../../../mapper/channel_to_internal_memory_mapper.c"
+#include "../../../executor/finder/server_entry_finder.c"
+#include "../../../logger/logger.c"
 
 /**
  * Senses data on the given channel.

@@ -91,7 +91,7 @@ void close_client(void* p0, void* p1, void* p2, void* p3) {
         close_device(p0, p2);
 
         // Deallocate client entry.
-        deallocate_client_entry((void*) &ce);
+        deallocate_client_entry((void*) &ce, channel);
 
         //
         // CAUTION! Do NOT deallocate server entry here.

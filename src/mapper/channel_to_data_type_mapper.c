@@ -87,6 +87,16 @@ void map_channel_to_data_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p1, (void*) TERMINAL_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not map channel to data type. The channel is unknown.");
         fwprintf(stdout, L"Warning: Could not map channel to data type. The channel is unknown. Channel p1: %i\n", *((int*) p1));
     }

@@ -22,6 +22,8 @@
 
         * Adapt applicator communicate receive and communicator receiver to code changes
         * Adapt feeler sensor to code changes
+        * Update client entry allocator
+        * Update dispatcher opener
 
 2022-01-31  Christian Heller  <christian.heller@cybop.org>
 

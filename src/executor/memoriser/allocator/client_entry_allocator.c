@@ -40,14 +40,22 @@
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../logger/logger.c"
+#include "../../../mapper/channel_to_data_type_mapper.c"
 #include "../../../variable/symbolic_name/mutex_thread_symbolic_name.c"
 
 /**
  * Allocates the client entry.
  *
+ * The buffer allocation is channel-specific,
+ * since buffer types differ between devices.
+ *
+ * - CHARACTER buffer for serial port, terminal, socket
+ * - POINTER buffer for display events
+ *
  * @param p0 the client entry (pointer reference)
+ * @param p1 the channel
  */
-void allocate_client_entry(void* p0) {
+void allocate_client_entry(void* p0, void* p1) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -60,21 +68,28 @@ void allocate_client_entry(void* p0) {
         // Declaration.
         //
 
-        // The client identification.
+        // The client device identification.
         void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
-        //
+        // The client device name item.
+        void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The buffer item.
-        //
-        // It is a character buffer for file, serial port, terminal, socket,
-        // but a pointer buffer for display events.
-        // Therefore, see device-specific files.
-        //
+        void* bi = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The buffer mutex.
-        void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The thread identification.
-        void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* ti = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The thread exit flag.
-        void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* te = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+        // The data type.
+        int t = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+
+        //
+        // Mapping.
+        //
+
+        // Map channel to datatype.
+        map_channel_to_data_type((void*) &t, p1);
 
         //
         // Allocation.
@@ -96,26 +111,40 @@ void allocate_client_entry(void* p0) {
         //
         allocate_array((void*) &id, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         //
+        // Allocate client device name item.
+        //
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        //
+        allocate_item((void*) &n, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        //
+        // Allocate buffer item.
+        //
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        //
+        allocate_array((void*) &bi, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &t);
+        //
         // Allocate buffer mutex.
         //
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
         //
-        allocate_array((void*) &m, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
+        allocate_array((void*) &bm, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
         //
         // Allocate thread identification.
         //
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
         //
-        allocate_array((void*) &t, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_THREAD_STATE_CYBOI_TYPE);
+        allocate_array((void*) &ti, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_THREAD_STATE_CYBOI_TYPE);
         //
         // Allocate thread exit flag.
         //
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
         //
-        allocate_array((void*) &ex, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        allocate_array((void*) &te, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         //
         // Initialisation.
@@ -124,9 +153,9 @@ void allocate_client_entry(void* p0) {
         // Initialise client identification.
         copy_integer(id, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
         // Cast buffer mutex to correct type.
-        mtx_t* mt = (mtx_t*) m;
+        mtx_t* bmt = (mtx_t*) bm;
         // Initialise buffer mutex.
-        int r = mtx_init(mt, *PLAIN_MUTEX_TYPE_THREAD_SYMBOLIC_NAME);
+        int r = mtx_init(bmt, *PLAIN_MUTEX_TYPE_THREAD_SYMBOLIC_NAME);
 
         if (r == thrd_error) {
 
@@ -135,9 +164,9 @@ void allocate_client_entry(void* p0) {
         }
 
         // Initialise thread identification.
-        copy_integer(t, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
+        copy_integer(ti, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
         // Initialise exit flag.
-        copy_integer(ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        copy_integer(te, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         //
         // Storage.
@@ -155,12 +184,16 @@ void allocate_client_entry(void* p0) {
 
         // Set client identification into client entry.
         copy_array_forward(*e, (void*) &id, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        // Set client device name item into client entry.
+        copy_array_forward(*e, (void*) &n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NAME_GENERAL_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        // Set buffer item into client entry.
+        copy_array_forward(*e, (void*) &bi, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ITEM_BUFFER_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Set buffer mutex into client entry.
-        copy_array_forward(*e, (void*) &m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_BUFFER_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        copy_array_forward(*e, (void*) &bm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_BUFFER_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Set thread identification into client entry.
-        copy_array_forward(*e, (void*) &t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_THREAD_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        copy_array_forward(*e, (void*) &ti, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_THREAD_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Set thread exit flag into client entry.
-        copy_array_forward(*e, (void*) &ex, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EXIT_THREAD_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        copy_array_forward(*e, (void*) &te, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EXIT_THREAD_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     } else {
 

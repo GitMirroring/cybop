@@ -49,56 +49,57 @@
 // may have to be added in the future.
 //
 
-/** The knowledge memory. */
+//
+// Memory
+//
+
 static int* KNOWLEDGE_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The stack memory. */
 static int* STACK_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The signal memory. */
 static int* SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-static int* SLEEP_TIME_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+//?? static int* SLEEP_TIME_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The interrupt pipe. */
-static int* INTERRUPT_PIPE_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+//
+// Interrupt pipe
+//
 
-/** The interrupt mutex. */
-static int* INTERRUPT_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* PIPE_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* MUTEX_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/**
- * The serial port.
- *
- * The total number of possible serial port services (ports) is: 1
- */
-static int* SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_100_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+//
+// Serial port
+//
 
-/**
- * The terminal.
- *
- * The total number of possible terminal services (ports) is: 1
- */
+static int* SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_100_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// Terminal
+//
+
 static int* TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_200_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/**
- * The display.
- *
- * The total number of possible display services (ports) is: 1
- */
+//
+// Display
+//
+
 static int* DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_300_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/**
- * The socket base.
- *
- * The PORT NUMBER is used as offset to this base number,
- * so that each network service has its own memory space.
- *
- * CAUTION! Only SERVER SOCKETS are stored here.
- * If this CYBOI interpreter acts as client asking
- * another service, then that socket number has to be
- * stored in the corresponding CYBOL application.
- *
- * The total number of possible socket services (ports) is: 65536
- */
+//
+// Socket
+//
+
+//
+// This is the socket base.
+//
+// The PORT NUMBER is used as offset to this base number,
+// so that each network service has its own memory space.
+//
+// CAUTION! Only SERVER SOCKETS are stored here.
+// If this CYBOI interpreter acts as client asking
+// another service, then that socket number has to be
+// stored in the corresponding CYBOL application.
+//
+// The total number of possible socket services (ports) is: 65536
+//
 static int* SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_400_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* INTERNAL_MEMORY_STATE_CYBOI_NAME_CONSTANT_SOURCE */
