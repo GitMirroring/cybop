@@ -30,17 +30,13 @@
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-//
-// Properties.
-//
+/** The asynchronous receive communication logic cybol name. */
+static wchar_t* ASYNCHRONOUS_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME = L"asynchronous";
+static int* ASYNCHRONOUS_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The channel receive communication logic cybol name. */
 static wchar_t* CHANNEL_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME = L"channel";
 static int* CHANNEL_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The client mode receive communication logic cybol name. */
-static wchar_t* CLIENT_MODE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME = L"client";
-static int* CLIENT_MODE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The encoding receive communication logic cybol name. */
 static wchar_t* ENCODING_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME = L"encoding";
@@ -61,10 +57,6 @@ static int* MAXIMUM_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTE
 /** The message receive communication logic cybol name. */
 static wchar_t* MESSAGE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME = L"message";
 static int* MESSAGE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The metadata receive communication logic cybol name. */
-static wchar_t* METADATA_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME = L"metadata";
-static int* METADATA_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The minimum receive communication logic cybol name. */
 static wchar_t* MINIMUM_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME = L"minimum";

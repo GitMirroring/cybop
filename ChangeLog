@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-02-01  Christian Heller  <christian.heller@cybop.org>
+
+        * Adapt applicator communicate receive and communicator receiver to code changes
+
 2022-01-31  Christian Heller  <christian.heller@cybop.org>
 
         * Complete client list finder

@@ -19,7 +19,6 @@
         * file closer
         DOING:
         * file read
-        * Adapt applicator read to code changes
         * Check file opener and closer once more
         * Make compilable
         * Test file read functionality

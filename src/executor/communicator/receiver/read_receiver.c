@@ -40,32 +40,32 @@
  *
  * @param p0 the destination item data (pointer reference)
  * @param p1 the destination item count (pointer reference)
- * @param p2 the destination buffer item
- * @param p3 the source model data (e.g. signal memory item, filename, client socket number, service identification, gui window)
+ * @param p2 the destination item
+ * @param p3 the source model data (identification e.g. file descriptor of a file, serial port, client socket, window id OR name e.g. a file system path pointing to some device)
  * @param p4 the source model count
- * @param p5 the source properties data
- * @param p6 the source properties count
- * @param p7 the knowledge memory part (pointer reference)
- * @param p8 the stack memory item
- * @param p9 the internal memory data
+ * @param p5 the language (protocol)
+ * @param p6 the internal memory data
+ * @param p7 the channel
+ * @param p8 the service port
+ * @param p9 the asynchronous mode (true if reading indirectly from buffer; false or null if reading directly from device)
  * @param p10 the minimum number of bytes to be received in one call of the read function
  * @param p11 the maximum number of bytes to be received in one call of the read function
- * @param p12 the socket port
- * @param p13 the language (protocol)
- * @param p14 the socket client mode (true if reading as client from server socket; false otherwise)
- * @param p15 the channel
  */
-void receive_read(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
+void receive_read(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     if (p15 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive read.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive read.");
+        fwprintf(stdout, L"Debug: Receive read. p4: %i\n", p4);
 
-        //?? fwprintf(stdout, L"Debug: receive read p4: %i\n", p4);
-        //?? fwprintf(stdout, L"Debug: receive read p3: %i\n", p3);
-
+        //
         // Read message from device.
-        read_data(p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15);
+        //
+        // CAUTION! Hand over NULL as destination mutex, since that is
+        // used only when calling this function from a "sense" thread,
+        // in order to write data into an internal client buffer.
+        //
+        read_data(p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, p5, p6, p7, p8, p9);
 
         //
         // Get item data, count.
