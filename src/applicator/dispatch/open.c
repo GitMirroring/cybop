@@ -49,6 +49,7 @@
  * - style (optional): the communication style, e.g. stream or datagram
  * - protocol (optional): the protocol, e.g. tcp or udp
  * - identification (required): the file descriptor or client socket number or window id returned from cyboi (except for channel "server_socket", where accept returns a ready client id)
+ * - stub (optional): the flag indicating if the client socket is a stub (server-side placeholder for a standalone client)
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -74,6 +75,8 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* pr = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The identification part.
     void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The stub flag part.
+    void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -89,6 +92,8 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* prm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The identification part model item.
     void* idm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The stub flag part model item.
+    void* stm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model item data.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -108,6 +113,8 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* prmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The identification part model item data.
     void* idmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The stub flag part model item data.
+    void* stmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get channel part.
     get_part_name((void*) &c, p0, (void*) CHANNEL_OPEN_DISPATCHING_LOGIC_CYBOL_NAME, (void*) CHANNEL_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
@@ -123,6 +130,8 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4) {
     get_part_name((void*) &pr, p0, (void*) PROTOCOL_OPEN_DISPATCHING_LOGIC_CYBOL_NAME, (void*) PROTOCOL_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get identification part.
     get_part_name((void*) &id, p0, (void*) IDENTIFICATION_OPEN_DISPATCHING_LOGIC_CYBOL_NAME, (void*) IDENTIFICATION_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get stub flag part.
+    get_part_name((void*) &st, p0, (void*) STUB_OPEN_DISPATCHING_LOGIC_CYBOL_NAME, (void*) STUB_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get channel part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -138,6 +147,8 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &prm, pr, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get identification part model item.
     copy_array_forward((void*) &idm, id, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get stub flag part model item.
+    copy_array_forward((void*) &stm, st, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Get channel part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -157,9 +168,11 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &prmc, prm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get identification part model item data.
     copy_array_forward((void*) &idmd, idm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get stub flag part model item data.
+    copy_array_forward((void*) &stmd, stm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Open up client.
-    open_client(idmd, p4, cmd, pmd, dmd, dmc/*??, nmd, nmc, smd, smc, prmd, prmc*/);
+    open_client(idmd, p4, cmd, pmd, dmd, dmc/*??, nmd, nmc, smd, smc, prmd, prmc*/, stmd);
 }
 
 /* OPEN_SOURCE */

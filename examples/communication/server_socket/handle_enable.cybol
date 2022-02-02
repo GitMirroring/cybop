@@ -3,6 +3,7 @@
     <node name="open_client" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="identification" channel="inline" format="text/cybol-path" model="#client"/>
+        <node name="stub" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <!-- Fill internal buffer with data received internally. -->

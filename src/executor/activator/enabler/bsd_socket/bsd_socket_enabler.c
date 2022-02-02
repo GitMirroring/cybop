@@ -39,9 +39,6 @@
 /**
  * Accepts client request on the given bsd socket.
  *
- * CAUTION! Do NOT rename this function to "accept",
- * as that name is already used by low-level glibc functionality.
- *
  * @param p0 the sender client socket
  * @param p1 the receiver server socket
  */
@@ -87,8 +84,6 @@ void enable_bsd_socket(void* p0, void* p1) {
         //     struct sockaddr_in ad;
         //     socklen_t as = sizeof(ad);
         //     *c = accept(*s, (struct sockaddr*) &ad, &as);
-        //
-        // CAUTION! The socket was made non-blocking at startup.
         //
         int c = accept(*s, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 

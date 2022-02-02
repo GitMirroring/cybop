@@ -30,13 +30,9 @@
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The anonymous_pipeline cybol channel. */
-//?? static wchar_t* ANONYMOUS_PIPELINE_CYBOL_CHANNEL = L"anonymous_pipeline";
+/** The anonymous-pipeline cybol channel. */
+//?? static wchar_t* ANONYMOUS_PIPELINE_CYBOL_CHANNEL = L"anonymous-pipeline";
 //?? static int* ANONYMOUS_PIPELINE_CYBOL_CHANNEL_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The client socket cybol channel. */
-static wchar_t* CLIENT_SOCKET_CYBOL_CHANNEL = L"client_socket";
-static int* CLIENT_SOCKET_CYBOL_CHANNEL_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The clock cybol channel. */
 static wchar_t* CLOCK_CYBOL_CHANNEL = L"clock";
@@ -58,25 +54,25 @@ static int* FILE_CYBOL_CHANNEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 static wchar_t* INLINE_CYBOL_CHANNEL = L"inline";
 static int* INLINE_CYBOL_CHANNEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The named pipeline cybol channel. */
-static wchar_t* NAMED_PIPELINE_CYBOL_CHANNEL = L"named_pipeline";
+/** The named-pipeline cybol channel. */
+static wchar_t* NAMED_PIPELINE_CYBOL_CHANNEL = L"named-pipeline";
 static int* NAMED_PIPELINE_CYBOL_CHANNEL_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The randomiser cybol channel. */
 static wchar_t* RANDOMISER_CYBOL_CHANNEL = L"randomiser";
 static int* RANDOMISER_CYBOL_CHANNEL_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The serial port cybol channel. */
-static wchar_t* SERIAL_PORT_CYBOL_CHANNEL = L"serial_port";
+/** The serial-port cybol channel. */
+static wchar_t* SERIAL_PORT_CYBOL_CHANNEL = L"serial-port";
 static int* SERIAL_PORT_CYBOL_CHANNEL_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The server socket cybol channel. */
-static wchar_t* SERVER_SOCKET_CYBOL_CHANNEL = L"server_socket";
-static int* SERVER_SOCKET_CYBOL_CHANNEL_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The signal cybol channel. */
 static wchar_t* SIGNAL_CYBOL_CHANNEL = L"signal";
 static int* SIGNAL_CYBOL_CHANNEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The socket cybol channel. */
+static wchar_t* SOCKET_CYBOL_CHANNEL = L"socket";
+static int* SOCKET_CYBOL_CHANNEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The terminal cybol channel. */
 static wchar_t* TERMINAL_CYBOL_CHANNEL = L"terminal";

@@ -43,9 +43,6 @@
 /**
  * Accepts a client request via server socket.
  *
- * CAUTION! Do NOT rename this function to "accept",
- * as that name is already used by low-level glibc functionality.
- *
  * @param p0 the sender client socket
  * @param p1 the receiver server socket
  */

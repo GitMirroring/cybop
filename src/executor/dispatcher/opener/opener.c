@@ -38,8 +38,8 @@
 #include "../../../executor/accessor/getter/internal_memory_getter_channel.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../executor/dispatcher/opener/device_opener.c"
 #include "../../../executor/dispatcher/opener/entry_opener.c"
+#include "../../../executor/dispatcher/opener/flag_opener.c"
 #include "../../../executor/finder/server_entry_finder.c"
 #include "../../../executor/memoriser/allocator/client_entry_allocator.c"
 #include "../../../executor/memoriser/allocator/server_entry_allocator.c"
@@ -60,8 +60,9 @@
  * @param p3 the port
  * @param p4 the device name data
  * @param p5 the device name count
+ * @param p6 the stub flag
  */
-void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open client.");
     fwprintf(stdout, L"Debug: Open client. channel p2: %i\n", p2);
@@ -94,11 +95,11 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (ce == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        // Open device depending on stub flag.
+        open_flag(p0, p4, p5, p2, p6);
+
         // Allocate client entry.
         allocate_client_entry((void*) &ce, p2);
-
-        // Open device.
-        open_device(p0, p4, p5, p2);
 
         // Initialise client entry.
         open_entry(ce, p0, p4, p5, (void*) &se);

@@ -47,6 +47,9 @@
 /**
  * Enables server socket to accept client socket requests.
  *
+ * CAUTION! Do NOT rename this function to "accept",
+ * as that name is already used by low-level glibc functionality.
+ *
  * @param p0 the client entry list item
  * @param p1 the client identification list item
  * @param p2 the server entry
@@ -66,7 +69,7 @@ void enable_socket(void* p0, void* p1, void* p2, void* p3) {
     // Get server socket from server entry.
     copy_array_forward((void*) &s, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_SOCKET_SERVER_STATE_CYBOI_NAME);
 
-    // Accept client request on server socket and get client identification.
+    // Accept client request on server socket.
     enable_socket_request((void*) &c, s);
 
     if (c >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {

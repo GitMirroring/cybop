@@ -54,16 +54,6 @@ void open_device(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) CLIENT_SOCKET_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //?? open_socket(p0, config-params);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
         compare_integer_equal((void*) &r, p3, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -94,18 +84,11 @@ void open_device(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) SERVER_SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p3, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //
-            // CAUTION! Do NOTHING here!
-            //
-            // When a server socket receives a client request,
-            // then that request is stored as client socket number.
-            // It is pre-configured by the server socket
-            // and thus does NOT need to be configured here again.
-            //
+            //?? open_socket(p0, config-params);
         }
     }
 
