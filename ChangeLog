@@ -22,6 +22,9 @@
 
         * Introduce cybol property "stub" for operation "dispatch/open"
         * Adapt dispatcher opener, so that client identification does not get assigned if stub
+        * Update channel constants
+        * Add new cybol formats "feel/sense" and "feel/suspend"
+        * Provide applicator for cybol operations "feel/sense" and "feel/suspend"
 
 2022-02-01  Christian Heller  <christian.heller@cybop.org>
 

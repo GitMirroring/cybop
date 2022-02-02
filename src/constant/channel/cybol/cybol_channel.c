@@ -30,17 +30,9 @@
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The anonymous-pipeline cybol channel. */
-//?? static wchar_t* ANONYMOUS_PIPELINE_CYBOL_CHANNEL = L"anonymous-pipeline";
-//?? static int* ANONYMOUS_PIPELINE_CYBOL_CHANNEL_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The clock cybol channel. */
 static wchar_t* CLOCK_CYBOL_CHANNEL = L"clock";
 static int* CLOCK_CYBOL_CHANNEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The directory cybol channel. */
-//?? static wchar_t* DIRECTORY_CYBOL_CHANNEL = L"directory";
-//?? static int* DIRECTORY_CYBOL_CHANNEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The display cybol channel. */
 static wchar_t* DISPLAY_CYBOL_CHANNEL = L"display";
@@ -54,9 +46,9 @@ static int* FILE_CYBOL_CHANNEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 static wchar_t* INLINE_CYBOL_CHANNEL = L"inline";
 static int* INLINE_CYBOL_CHANNEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The named-pipeline cybol channel. */
-static wchar_t* NAMED_PIPELINE_CYBOL_CHANNEL = L"named-pipeline";
-static int* NAMED_PIPELINE_CYBOL_CHANNEL_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The pipeline cybol channel. */
+static wchar_t* PIPELINE_CYBOL_CHANNEL = L"pipeline";
+static int* PIPELINE_CYBOL_CHANNEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The randomiser cybol channel. */
 static wchar_t* RANDOMISER_CYBOL_CHANNEL = L"randomiser";

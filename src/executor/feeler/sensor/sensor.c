@@ -38,35 +38,64 @@
 /**
  * Senses data on the given channel.
  *
- * @param p0 the client entry
- * @param p1 the channel (pointer reference)
- * @param p2 the port (pointer reference)
- * @param p3 the language (pointer reference)
- * @param p4 the sender client identification (pointer reference)
- * @param p5 the handler (pointer reference)
- * @param p6 the internal memory
+ * @param p0 the channel (pointer reference)
+ * @param p1 the port (pointer reference)
+ * @param p2 the language (pointer reference)
+ * @param p3 the sender client identification (pointer reference)
+ * @param p4 the handler (pointer reference)
+ * @param p5 the internal memory
  */
-void sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense.");
-    fwprintf(stdout, L"Debug: Sense. p0: %i\n", p0);
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // The server entry.
-    void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The client entry.
-    void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void** id = (void**) p3;
 
-    // Get server entry from internal memory.
-    get_internal_memory_channel((void*) &se, p6, p1, p2);
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // Get client entry from server entry client list by given device identification or -name.
-    find_server_entry((void*) &ce, se, p4, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            void** p = (void**) p1;
 
-    // Assign parametres to client entry.
-    sense_entry(ce, p1, p2, p3, p4, p5);
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // Invoke sense function within a new thread.
-    sense_thread(e);
+                void** c = (void**) p0;
+
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense.");
+                fwprintf(stdout, L"Debug: Sense. p0: %i\n", p0);
+
+                // The server entry.
+                void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
+                // The client entry.
+                void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+                // Get server entry from internal memory.
+                get_internal_memory_channel((void*) &se, p5, *c, *p);
+
+                // Get client entry from server entry client list by given device identification or -name.
+                find_server_entry((void*) &ce, se, *id, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+                // Assign parametres to client entry.
+                sense_entry(ce, p0, p1, p2, p3, p4);
+
+                // Invoke sense function within a new thread.
+                sense_thread(ce);
+
+            } else {
+
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense. The sender client identification is null.");
+                fwprintf(stdout, L"Debug: Sense. p0: %i\n", p0);
+            }
+
+        } else {
+
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense. The sender client identification is null.");
+            fwprintf(stdout, L"Debug: Sense. p0: %i\n", p0);
+        }
+
+    } else {
+
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense. The sender client identification is null.");
+        fwprintf(stdout, L"Debug: Sense. p0: %i\n", p0);
+    }
 }
 
 /* SENSOR_SOURCE */

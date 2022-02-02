@@ -42,66 +42,37 @@
  * Enables the given service.
  *
  * @param p0 the internal memory data
- * @param p1 the service port
- * @param p2 the client mode (pointer reference)
  * @param p3 the handler part (pointer reference)
- * @param p4 the sender client (pointer reference)
- * @param p5 the language (pointer reference)
  * @param p6 the channel (pointer reference)
- * @param p7 the channel
+ * @param p6 the port (pointer reference)
  */
 void enable(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable.");
     fwprintf(stdout, L"Debug: Enable. p0: %i\n", p0);
 
-    // The server base.
-    int b = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The server entry.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get server base by channel.
-    map_channel_to_internal_memory((void*) &b, p7);
+    // Get server entry from internal memory.
+    get_internal_memory_channel((void*) &e, internal-memory, channel, port);
 
-    compare_integer_greater_or_equal((void*) &r, (void*) &b, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
-        // The internal memory name (server base) is VALID.
-        //
-        // CAUTION! This check is important since otherwise,
-        // the internal memory is accessed with a wrong index,
-        // which may lead to memory errors.
+        // A server entry exists.
         //
 
-        // Get server entry.
-        get_internal_memory_element((void*) &e, p0, b, p1);
+        // Assign parametres to server entry.
+        enable_entry(e, p2, p3, p4, p5, p6);
 
-        if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            //
-            // A server entry exists.
-            //
-
-            // Assign parametres to server entry.
-            enable_entry(e, p2, p3, p4, p5, p6);
-
-            // Invoke enable function WITHIN a new thread.
-            enable_thread(e);
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable. There exists no server entry at the given server base.");
-            fwprintf(stdout, L"Error: Could not enable. There exists no server entry at the given server base. se: %i\n", se);
-        }
+        // Invoke enable function within a new thread.
+        enable_thread(e);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable. The server base is invalid.");
-        fwprintf(stdout, L"Error: Could not enable. The server base is invalid. base: %i\n", b);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable. There exists no server entry at the given server base.");
+        fwprintf(stdout, L"Error: Could not enable. There exists no server entry at the given server base. se: %i\n", se);
     }
 }
 

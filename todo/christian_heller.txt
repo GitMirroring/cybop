@@ -21,7 +21,7 @@
         * file opener
         * file closer
         DOING:
-        * attend/enable
+        * activate/enable
         * maintain/startup
         * file read
         * Make compilable

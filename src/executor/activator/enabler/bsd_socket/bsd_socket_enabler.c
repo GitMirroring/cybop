@@ -26,11 +26,10 @@
 #ifndef BSD_SOCKET_ENABLER_SOURCE
 #define BSD_SOCKET_ENABLER_SOURCE
 
-#include <sys/socket.h>
-#include <errno.h>
+#include <sys/socket.h> // accept
+#include <errno.h> // errno
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/copier/integer_copier.c"

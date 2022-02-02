@@ -23,10 +23,10 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ACTIVATE_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
-#define ACTIVATE_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
+#ifndef FEEL_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
+#define FEEL_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE
 
-#include <stddef.h>
+#include <stddef.h> // wchar_t
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
@@ -47,32 +47,32 @@
 //
 
 //
-// Activate (some operation to be processed over time).
+// Feel (some operation to be processed over time).
 //
 // IANA media type: not defined
-// Self-defined media type: activate
+// Self-defined media type: feel
 // This media type is a CYBOL extension.
 //
 
 /**
- * The activate/disable logic cybol format.
+ * The feel/sense logic cybol format.
  *
- * Disable a communication channel.
+ * Sense input data within a thread.
  *
  * This is a CYBOL extension.
  */
-static wchar_t* DISABLE_ACTIVATE_LOGIC_CYBOL_FORMAT = L"activate/disable";
-static int* DISABLE_ACTIVATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* SENSE_FEEL_LOGIC_CYBOL_FORMAT = L"feel/sense";
+static int* SENSE_FEEL_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The activate/enable logic cybol format.
+ * The feel/suspend logic cybol format.
  *
- * Enable a communication channel.
+ * Suspend a sensing thread.
  *
  * This is a CYBOL extension.
  */
-static wchar_t* ENABLE_ACTIVATE_LOGIC_CYBOL_FORMAT = L"activate/enable";
-static int* ENABLE_ACTIVATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* SUSPEND_FEEL_LOGIC_CYBOL_FORMAT = L"feel/suspend";
+static int* SUSPEND_FEEL_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* ACTIVATE_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
+/* FEEL_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

@@ -75,6 +75,11 @@ void open_flag(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // It is pre-configured by the server socket and
         // thus does NOT need to be configured here again.
         //
+        // Whilst for the display channel, a client window has to be
+        // opened MANUALLY by the developer through calling the
+        // cybol operation "dispatch/open", the socket connexions
+        // are managed AUTOMATICALLY via client stubs inside cyboi.
+        //
     }
 }
 
