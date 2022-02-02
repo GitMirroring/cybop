@@ -48,12 +48,12 @@ void sense_thread(void* p0) {
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense thread.");
     fwprintf(stdout, L"Debug: Sense thread. channel p0: %i\n", p0);
 
-    // The client entry thread identification.
+    // The thread identification.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The sense function.
+    // The thread function.
     void* f = (void*) &sense_function;
 
-    // Get client entry thread identification from client entry.
+    // Get thread identification from client entry.
     copy_array_forward((void*) &t, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_THREAD_CLIENT_STATE_CYBOI_NAME);
 
     // Invoke sense function WITHIN a new thread.

@@ -104,7 +104,13 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         // Initialise client entry.
         open_entry(ce, p0, p4, p5, (void*) &se);
 
+        //
         // Add client entry to client list of server entry.
+        //
+        // CAUTION! The client identification is NOT used as client list index
+        // due to security concerns. Otherwise, a cybol developer might assign
+        // an astronomic number leading to severe system errors.
+        //
         modify_item(cl, (void*) &ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
     } else {

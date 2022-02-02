@@ -33,30 +33,24 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/client_state_cyboi_name.c"
-#include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/server_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/accessor/getter/item_getter.c"
 #include "../../../../executor/activator/enabler/xcb/buffer_xcb_enabler.c"
 #include "../../../../executor/activator/enabler/xcb/client_xcb_enabler.c"
 #include "../../../../executor/activator/enabler/xcb/event_xcb_enabler.c"
 #include "../../../../executor/copier/array_copier.c"
-#include "../../../../executor/maintainer/client_list/get_client_list_maintainer.c"
-#include "../../../../executor/streamer/writer/interrupt_pipe/interrupt_pipe_writer.c"
+#include "../../../../executor/copier/integer_copier.c"
+#include "../../../../executor/finder/server_entry_finder.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Enables x window system event delivery via xcb.
  *
- * @param p0 the client entry list item
- * @param p1 the client identification list item
- * @param p2 the server entry
- * @param p3 the server identification (server base + service port)
- * @param p4 the interrupt pipe write file descriptor
- * @param p5 the interrupt mutex
+ * @param p0 the sender client window identification
+ * @param p1 the server entry
  */
-void enable_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void enable_xcb(void* p0, void* p1) {
 
     // The x window system connexion.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -71,7 +65,7 @@ void enable_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get x window system connexion from server entry.
-    copy_array_forward((void*) &c, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_SERVER_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_SERVER_STATE_CYBOI_NAME);
 
     // Get next event from x window system via xcb connexion.
     enable_xcb_event((void*) &e, c);
@@ -83,8 +77,8 @@ void enable_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
         if (w >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            // Get client entry from client list item by window identification.
-            maintain_client_list_get((void*) &ce, p0, p1, (void*) &w);
+            // Get client entry from server entry client list by given device identification.
+            find_server_entry((void*) &ce, se, (void*) &w, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // Get buffer item, mutex from client entry.
             copy_array_forward((void*) &bi, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_BUFFER_CLIENT_STATE_CYBOI_NAME);
@@ -97,8 +91,8 @@ void enable_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
             //
             enable_xcb_buffer(bi, (void*) &e, bm);
 
-            // Inform interrupt pipe about event.
-            write_interrupt_pipe(p4, p3, (void*) &w, p5);
+            // Copy window identification to sender client identification.
+            copy_integer(p0, (void*) &w);
 
         } else {
 

@@ -26,7 +26,7 @@
 #ifndef CLIENT_XCB_ENABLER_SOURCE
 #define CLIENT_XCB_ENABLER_SOURCE
 
-#include <xcb/xcb.h>
+#include <xcb/xcb.h> // xcb_generic_event_t etc.
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -42,13 +42,13 @@
 void enable_xcb_client(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable xcb client.");
-    fwprintf(stdout, L"Debug: Enable xcb client.");
+    fwprintf(stdout, L"Debug: Enable xcb client. p1: %i\n", p1);
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         xcb_generic_event_t* e = (xcb_generic_event_t*) p1;
 
-        // Get response type.
+        // Get event response type.
         uint8_t t = (*e).response_type;
 
         fwprintf(stdout, L"Debug: Enable xcb client. t: %i\n", t);
@@ -265,6 +265,10 @@ void enable_xcb_client(void* p0, void* p1) {
         } else if (t == XCB_VISIBILITY_NOTIFY) {
 
             fwprintf(stdout, L"Debug: Enable xcb client. TODO ?? XCB_VISIBILITY_NOTIFY t: %i\n", t);
+
+        } else {
+
+            fwprintf(stdout, L"Warning: Could not enable xcb client. The event response type is unknown. t: %i\n", t);
         }
 
     } else {

@@ -33,8 +33,8 @@
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/server_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/activator/enabler/function_enabler.c"
 #include "../../../executor/copier/array_copier.c"
+#include "../../../executor/activator/enabler/function_enabler.c"
 #include "../../../executor/threader/spinner.c"
 #include "../../../logger/logger.c"
 
@@ -48,12 +48,12 @@ void enable_thread(void* p0) {
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable thread.");
     fwprintf(stdout, L"Debug: Enable thread. channel p0: %i\n", p0);
 
-    // The server entry thread identification.
+    // The thread identification.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The enable function.
+    // The thread function.
     void* f = (void*) &enable_function;
 
-    // Get server entry thread identification from server entry.
+    // Get thread identification from server entry.
     copy_array_forward((void*) &t, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_THREAD_SERVER_STATE_CYBOI_NAME);
 
     // Invoke enable function WITHIN a new thread.

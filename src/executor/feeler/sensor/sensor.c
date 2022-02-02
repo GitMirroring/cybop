@@ -38,29 +38,31 @@
 /**
  * Senses data on the given channel.
  *
- * @param p0 the channel (pointer reference)
- * @param p1 the port (pointer reference)
- * @param p2 the language (pointer reference)
- * @param p3 the sender client identification (pointer reference)
- * @param p4 the handler (pointer reference)
- * @param p5 the internal memory
+ * @param p0 the internal memory
+ * @param p1 the channel (pointer reference)
+ * @param p2 the port (pointer reference)
+ * @param p3 the language (pointer reference)
+ * @param p4 the sender client identification (pointer reference)
+ * @param p5 the handler (pointer reference)
  */
 void sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        void** id = (void**) p3;
+        void** id = (void**) p4;
 
-        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            void** p = (void**) p1;
+            void** p = (void**) p2;
 
-            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                void** c = (void**) p0;
+                void** c = (void**) p1;
 
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense.");
-                fwprintf(stdout, L"Debug: Sense. p0: %i\n", p0);
+                log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense.");
+                fwprintf(stdout, L"Information: Sense. p1: %i\n", p1);
+                fwprintf(stdout, L"Information: Sense. *p1: %i\n", *((void**) p1));
+                fwprintf(stdout, L"Information: Sense. **p1: %i\n", *((int*) *((void**) p1)));
 
                 // The server entry.
                 void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -68,33 +70,33 @@ void sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
                 void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
 
                 // Get server entry from internal memory.
-                get_internal_memory_channel((void*) &se, p5, *c, *p);
+                get_internal_memory_channel((void*) &se, p0, *c, *p);
 
                 // Get client entry from server entry client list by given device identification or -name.
                 find_server_entry((void*) &ce, se, *id, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
                 // Assign parametres to client entry.
-                sense_entry(ce, p0, p1, p2, p3, p4);
+                sense_entry(ce, p1, p2, p3, p4, p5);
 
                 // Invoke sense function within a new thread.
                 sense_thread(ce);
 
             } else {
 
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense. The sender client identification is null.");
-                fwprintf(stdout, L"Debug: Sense. p0: %i\n", p0);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense. The channel is null.");
+                fwprintf(stdout, L"Error: Could not sense. The channel is null. p1: %i\n", p1);
             }
 
         } else {
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense. The sender client identification is null.");
-            fwprintf(stdout, L"Debug: Sense. p0: %i\n", p0);
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense. The port is null.");
+            fwprintf(stdout, L"Error: Could not sense. The port is null. p2: %i\n", p2);
         }
 
     } else {
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense. The sender client identification is null.");
-        fwprintf(stdout, L"Debug: Sense. p0: %i\n", p0);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense. The sender client identification is null.");
+        fwprintf(stdout, L"Error: Could not sense. The sender client identification is null. p4: %i\n", p4);
     }
 }
 

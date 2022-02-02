@@ -25,6 +25,7 @@
         * Update channel constants
         * Add new cybol formats "feel/sense" and "feel/suspend"
         * Provide applicator for cybol operations "feel/sense" and "feel/suspend"
+        * Update activator enabler
 
 2022-02-01  Christian Heller  <christian.heller@cybop.org>
 

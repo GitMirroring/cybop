@@ -26,16 +26,16 @@
 #ifndef DISPLAY_ENABLER_SOURCE
 #define DISPLAY_ENABLER_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../executor/activator/enabler/xcb/xcb_enabler.c"
+    #include "../../../../executor/activator/enabler/xcb/xcb_enabler.c"
 #elif defined(__APPLE__) && defined(__MACH__)
     //?? TODO: Add cocoa support for apple
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../executor/activator/enabler/win32_display/win32_display_enabler.c"
+    #include "../../../../executor/activator/enabler/win32_display/win32_display_enabler.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
@@ -43,14 +43,10 @@
 /**
  * Enables display event delivery.
  *
- * @param p0 the client entry list item
- * @param p1 the client identification list item
- * @param p2 the server entry
- * @param p3 the server identification (server base + service port)
- * @param p4 the interrupt pipe write file descriptor
- * @param p5 the interrupt mutex
+ * @param p0 the sender client window identification
+ * @param p1 the server entry
  */
-void enable_display(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void enable_display(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable display.");
 

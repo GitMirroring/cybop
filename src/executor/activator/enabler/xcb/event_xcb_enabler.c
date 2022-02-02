@@ -26,7 +26,10 @@
 #ifndef EVENT_XCB_ENABLER_SOURCE
 #define EVENT_XCB_ENABLER_SOURCE
 
+#include <xcb/xcb.h> // xcb_connection_t, xcb_wait_for_event
+
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -70,7 +73,7 @@ void enable_xcb_event(void* p0, void* p1) {
             // HAS TO BE STORED, in order to be able to process it later on.
             //
             *e = (void*) xcb_wait_for_event(c);
-            fwprintf(stdout, L"Debug: Enable xcb event. *e: %i\n", *e);
+            fwprintf(stdout, L"Debug: Enable xcb event. received event *e: %i\n", *e);
 
         } else {
 

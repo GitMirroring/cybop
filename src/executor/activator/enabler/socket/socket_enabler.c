@@ -27,6 +27,14 @@
 #define SOCKET_ENABLER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/server_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/activator/enabler/socket/request_socket_enabler.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -35,25 +43,21 @@
  * CAUTION! Do NOT rename this function to "accept",
  * as that name is already used by low-level glibc functionality.
  *
- * @param p0 the client list item
- * @param p2 the server entry
+ * @param p0 the sender client socket
+ * @param p1 the server entry
  */
-void enable_socket(void* p0, void* p1, void* p2, void* p3) {
+void enable_socket(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable socket.");
 
     // The server socket.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The client socket.
-    int c = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Get server socket from server entry.
-    copy_array_forward((void*) &s, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_SOCKET_SERVER_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_SOCKET_SERVER_STATE_CYBOI_NAME);
 
     // Accept client request on server socket.
-    enable_socket_request((void*) &c, s);
-
-    // Store client socket stub in cybol property "client".
+    enable_socket_request(p0, s);
 }
 
 /* SOCKET_ENABLER_SOURCE */

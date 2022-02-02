@@ -23,67 +23,60 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHANNEL_ENABLER_SOURCE
-#define CHANNEL_ENABLER_SOURCE
+#ifndef CLIENT_ENABLER_SOURCE
+#define CLIENT_ENABLER_SOURCE
 
 #include "../../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/copier/integer_copier.c"
+#include "../../../executor/activator/enabler/display/display_enabler.c"
 #include "../../../executor/activator/enabler/socket/socket_enabler.c"
-#include "../../../executor/dispatcher/opener/locking_opener.c"
-#include "../../../executor/sensor/sensor.c"
+#include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../logger/logger.c"
 
 /**
- * Enables request/event delivery via the given channel.
+ * Determine sender client identification.
  *
- * @param p0 the client entry list item
- * @param p1 the client identification list item
- * @param p2 the server entry
- * @param p3 the server identification
- * @param p4 the interrupt pipe write file descriptor
- * @param p5 the interrupt mutex
- * @param p6 the channel
+ * @param p0 the sender client identification (e.g. socket number, window id)
+ * @param p1 the server entry
+ * @param p2 the channel
  */
-void enable_channel(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void enable_client(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable channel.");
-    fwprintf(stdout, L"Debug: Enable channel. p12: %i\n", p12);
-    fwprintf(stdout, L"Debug: Enable channel. *p12: %i\n", *((int*) p12));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable client.");
+    fwprintf(stdout, L"Debug: Enable client. p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Enable client. *p2: %i\n", *((int*) p2));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p12, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            enable_display(p0, p1, p2, p3, p4, p5);
+            enable_display(p0, p1);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p12, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            enable_socket(p0, p1, p2, p6);
+            enable_socket(p0, p1);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable channel. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not enable channel. The channel is unknown. Channel p12: %i\n", *((int*) p12));
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable client. The channel is unknown.");
+        fwprintf(stdout, L"Warning: Could not enable client. The channel is unknown. Channel p2: %i\n", p2);
+        fwprintf(stdout, L"Warning: Could not enable client. The channel is unknown. Channel *p2: %i\n", *((int*) p2));
     }
 }
 
-/* CHANNEL_ENABLER_SOURCE */
+/* CLIENT_ENABLER_SOURCE */
 #endif

@@ -26,11 +26,19 @@
 #ifndef BUFFER_XCB_ENABLER_SOURCE
 #define BUFFER_XCB_ENABLER_SOURCE
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/porter/locker.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Writes event to correct client buffer.
+ * Writes window event to correct client buffer.
  *
  * @param p0 the buffer item
  * @param p1 the event (pointer reference)
@@ -39,38 +47,13 @@
 void enable_xcb_buffer(void* p0, void* p1, void* p2) {
 
     //
-    // CAUTION! Do NOT log messages within thread,
-    // in order to avoid race conditions and other conflicts.
+    // CAUTION! Do NOT log messages, since there are too many.
     //
-    // CAUTION! Do NOT log messages since there are too many.
-    //
-    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable xcb buffer.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable xcb buffer.");
     fwprintf(stdout, L"Debug: Enable xcb buffer. p0: %i\n", p0);
 
-    //
     // Lock mutex.
-    //
-    // CAUTION! Set this lock BEFORE comparing with the exit flag below
-    // since otherwise, a race condition might occur.
-    //
-    // Example:
-    // - the exit flag is not set
-    // - the sensing child thread enters the block with r != 0
-    // - the main thread receives some shutdown cybol operation
-    // - the main thread sets the exit flag only now
-    // - the main thread shuts down and deallocates the destination buffer
-    // - the sensing child thread decodes characters
-    // - the sensing child thread possibly reallocates the (non-existing) destination buffer
-    // - this leads to memory errors such as "corrupted double-linked list"
-    //
     lock(p2);
-
-    //
-    // The exit flag was NOT set in the main thread.
-    // Therefore, proceed normally.
-    //
-
-    fwprintf(stdout, L"Debug: Enable xcb buffer. Store event in buffer. r: %i\n", r);
 
     //
     // Store event in buffer.

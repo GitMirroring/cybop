@@ -32,10 +32,13 @@
 #include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/server_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/activator/enabler/loop_enabler.c"
+#include "../../../executor/calculator/server_identification/channel_server_identification_calculator.c"
+#include "../../../executor/copier/array_copier.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -61,49 +64,52 @@
 int enable_function(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable function.");
-    fwprintf(stdout, L"Debug: Enable function. language p5: %i\n", p5);
-    fwprintf(stdout, L"Debug: Enable function. language *p5: %i\n", *((int*) p5));
+    fwprintf(stdout, L"Debug: Enable function. p0: %i\n", p0);
 
     //
     // Declaration.
     //
 
-    // The client entry list item.
-    void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The client identification list item.
-    void* ci = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The server identification.
-    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The channel.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The port.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The sender client identification.
+    void* cid = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The enable thread exit flag.
+    void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The internal memory.
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+
     // The interrupt pipe.
     void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The interrupt mutex.
     void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The channel.
-    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The enable thread exit flag.
-    void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The interrupt pipe write file descriptor.
     int ipw = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The server identification (server base + service port).
+    int sid = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     //
     // Retrieval.
     //
 
-    // Get client entry list item from server entry.
-    copy_array_forward((void*) &ce, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENTRY_CLIENT_SERVER_STATE_CYBOI_NAME);
-    // Get client identification list item from server entry.
-    copy_array_forward((void*) &ci, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_CLIENT_SERVER_STATE_CYBOI_NAME);
-    // Get server identification from server entry.
-    copy_array_forward((void*) &id, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME);
-    // Get interrupt pipe from server entry.
-    copy_array_forward((void*) &ip, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PIPE_INTERRUPT_SERVER_STATE_CYBOI_NAME);
-    // Get interrupt mutex from server entry.
-    copy_array_forward((void*) &im, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INTERRUPT_SERVER_STATE_CYBOI_NAME);
     // Get channel from server entry.
-    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CHANNEL_GENERAL_SERVER_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CHANNEL_REQUEST_SERVER_STATE_CYBOI_NAME);
+    // Get port from server entry.
+    copy_array_forward((void*) &p, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PORT_REQUEST_SERVER_STATE_CYBOI_NAME);
+    // Get sender client identification from server entry.
+    copy_array_forward((void*) &cid, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SENDER_REQUEST_SERVER_STATE_CYBOI_NAME);
     // Get enable thread exit flag from server entry.
     copy_array_forward((void*) &ex, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_SERVER_STATE_CYBOI_NAME);
+    // Get internal memory from server entry.
+    copy_array_forward((void*) &i, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERNAL_MEMORY_BACKLINK_SERVER_STATE_CYBOI_NAME);
+
+    // Get interrupt pipe from internal memory.
+    copy_array_forward((void*) &ip, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PIPE_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Get interrupt mutex from internal memory.
+    copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     // Get interrupt pipe write file descriptor from interrupt pipe.
     copy_array_forward((void*) &ipw, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
@@ -112,8 +118,11 @@ int enable_function(void* p0) {
     // Functionality.
     //
 
-    // Call endless loop waiting for requests/events.
-    enable_loop(ce, ci, p0, id, ip, im, c, ex);
+    // Calculate server identification.
+    calculate_server_identification_channel((void*) &sid, c, p);
+
+    // Enable client requests or events via endless loop.
+    enable_loop(cid, p0, c, ipw, im, (void*) &sid, ex);
 
     //
     // An implicit call to "thrd_exit" is made when this thread

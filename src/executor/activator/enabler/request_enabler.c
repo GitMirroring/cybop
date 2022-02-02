@@ -23,17 +23,16 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LOOP_ENABLER_SOURCE
-#define LOOP_ENABLER_SOURCE
+#ifndef REQUEST_ENABLER_SOURCE
+#define REQUEST_ENABLER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../executor/activator/enabler/request_enabler.c"
-#include "../../../executor/comparator/integer/unequal_integer_comparator.c"
+#include "../../../executor/activator/enabler/client_enabler.c"
+#include "../../../executor/streamer/writer/interrupt_pipe/interrupt_pipe_writer.c"
 #include "../../../logger/logger.c"
 
 /**
- * Enables client requests or events via endless loop.
+ * Send request client identification to interrupt pipe.
  *
  * @param p0 the sender client identification (e.g. socket number, window id)
  * @param p1 the server entry
@@ -41,34 +40,26 @@
  * @param p3 the interrupt pipe write file descriptor
  * @param p4 the interrupt mutex
  * @param p5 the server identification (server base + service port)
- * @param p6 the enable thread exit flag
  */
-void enable_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void enable_request(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable loop.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable request.");
+    fwprintf(stdout, L"Debug: Enable request. p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Enable request. *p2: %i\n", *((int*) p2));
 
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // Receive next request.
+    enable_client(p0, p1, p2);
 
-    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+    // Inform interrupt pipe of main threaad.
+    write_interrupt_pipe(p3, p5, p0, p4);
 
-        compare_integer_unequal((void*) &r, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //
-            // The exit flag was set in the main thread.
-            // Therefore, leave this endless loop now.
-            // This child thread gets exited when this
-            // and its calling functions return.
-            //
-
-            break;
-        }
-
-        enable_request(p0, p1, p2, p3, p4, p5);
-    }
+    //
+    // CAUTION! The request sender client identification
+    // is NOT added to the server entry client list here,
+    // since that is done in the dispatcher opener,
+    // which is called from a cybol application handler.
+    //
 }
 
-/* LOOP_ENABLER_SOURCE */
+/* REQUEST_ENABLER_SOURCE */
 #endif
