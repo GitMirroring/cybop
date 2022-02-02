@@ -58,7 +58,7 @@ void open_device(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? open_socket(p0);
+            //?? open_socket(p0, config-params);
         }
     }
 

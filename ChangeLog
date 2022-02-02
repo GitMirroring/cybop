@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-02-02  Christian Heller  <christian.heller@cybop.org>
+
+        * Update dispatcher opener so that client identification does not get assigned for channel "server_socket"
+
 2022-02-01  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt applicator communicate receive and communicator receiver to code changes

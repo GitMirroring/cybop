@@ -72,8 +72,6 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The client list.
     void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The device identification.
-    int id = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Get server entry from internal memory.
     get_internal_memory_channel((void*) &se, p1, p2, p3);
@@ -88,11 +86,11 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
         allocate_server_entry((void*) &se);
     }
 
-    // Get client entry from server entry client list by given device identification.
-    find_server_entry((void*) &ce, se, p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
     // Get client list from server entry.
     copy_array_forward((void*) &cl, se, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_LIST_SERVER_STATE_CYBOI_NAME);
+
+    // Get client entry from server entry client list by given device identification.
+    find_server_entry((void*) &ce, se, p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (ce == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -100,13 +98,10 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
         allocate_client_entry((void*) &ce, p2);
 
         // Open device.
-        open_device((void*) &id, p4, p5, p2);
+        open_device(p0, p4, p5, p2);
 
         // Initialise client entry.
-        open_entry(ce, (void*) &id, (void*) &se);
-
-        // Copy client device identification to cybol destination.
-        copy_integer(p0, (void*) &id);
+        open_entry(ce, p0, p4, p5, (void*) &se);
 
         // Add client entry to client list of server entry.
         modify_item(cl, (void*) &ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);

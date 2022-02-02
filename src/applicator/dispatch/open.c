@@ -39,7 +39,7 @@
  * Opens up a client on the given channel.
  *
  * Parametres:
- * - channel (required): the channel on which to open a client, e.g. file, socket, display
+ * - channel (required): the channel on which to open a client, e.g. file, serial_port, socket, display
  * - device (required):
  *      = filename for channel "file" or "serialport" or "terminal" or "pipeline"
  *      = filename for channel "socket" with namespace "local" (unix domain socket)
@@ -48,7 +48,7 @@
  * - namespace (optional): the address family, e.g. ipv4 or ipv6
  * - style (optional): the communication style, e.g. stream or datagram
  * - protocol (optional): the protocol, e.g. tcp or udp
- * - identification (required): the file descriptor or client socket number or window id
+ * - identification (required): the file descriptor or client socket number or window id returned from cyboi (except for channel "server_socket", where accept returns a ready client id)
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

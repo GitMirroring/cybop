@@ -51,12 +51,9 @@ void enable_bsd_socket(void* p0, void* p1) {
 
         int* s = (int*) p1;
 
-        //
-        // CAUTION! Do NOT log messages here, since this function is called in an endless loop.
-        // Otherwise, it would produce huge log files filled up with useless entries.
-        //
-        // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable bsd socket.");
-        fwprintf(stdout, L"Debug: Enable bsd socket *s: %i\n", *s);
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable bsd socket.");
+        fwprintf(stdout, L"Debug: Enable bsd socket p1: %i\n", p1);
+        fwprintf(stdout, L"Debug: Enable bsd socket *p1: %i\n", *((int*) p1));
 
         //
         // Initialise error number.
@@ -104,35 +101,9 @@ void enable_bsd_socket(void* p0, void* p1) {
 
         } else {
 
-            //
-            // An error occured.
-            //
-
-            if (errno == EBADF) {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable bsd socket. The socket argument is not a valid file descriptor.");
-                fwprintf(stdout, L"Error: Could not enable bsd socket. The socket argument is not a valid file descriptor. error EBADF: %i\n", errno);
-
-            } else if (errno == ENOTSOCK) {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable bsd socket. The descriptor socket argument is not a socket.");
-                fwprintf(stdout, L"Error: Could not enable bsd socket. The descriptor socket argument is not a socket. error ENOTSOCK: %i\n", errno);
-
-            } else if (errno == EOPNOTSUPP) {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable bsd socket. The descriptor socket does not support this operation.");
-                fwprintf(stdout, L"Error: Could not enable bsd socket. The descriptor socket does not support this operation. error EOPNOTSUPP: %i\n", errno);
-
-            } else if (errno == EWOULDBLOCK) {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable bsd socket. The socket has nonblocking mode set, and there are no pending connexions immediately available.");
-                fwprintf(stdout, L"Error: Could not enable bsd socket. The socket has nonblocking mode set, and there are no pending connexions immediately available. error EWOULDBLOCK: %i\n", errno);
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable bsd socket. An unknown error occured.");
-                fwprintf(stdout, L"Error: Could not enable bsd socket. An unknown error occured. error UNKNOWN: %i\n", errno);
-            }
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable bsd socket. An error occured.");
+            fwprintf(stdout, L"Error: Could not enable bsd socket. An error occured. c: %i\n", c);
+            log_errno((void*) &errno);
         }
 
     } else {

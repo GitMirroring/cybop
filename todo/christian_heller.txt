@@ -15,9 +15,14 @@
         * See service lifecycle cybol examples in directory "examples/communication/"
 
         DONE:
+        * dispatch/open
+        * feel/sense
+        * stream/read
         * file opener
         * file closer
         DOING:
+        * attend/enable
+        * maintain/startup
         * file read
         * Make compilable
         * Test file read functionality

@@ -26,8 +26,10 @@
 #ifndef ENTRY_OPENER_SOURCE
 #define ENTRY_OPENER_SOURCE
 
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/client_state_cyboi_name.c"
@@ -35,6 +37,7 @@
 #include "../../../constant/name/cyboi/state/server_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/copier/array_copier.c"
+#include "../../../executor/modifier/item_modifier.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -42,9 +45,11 @@
  *
  * @param p0 the client entry
  * @param p1 the client device identification
- * @param p2 the server entry (pointer reference)
+ * @param p2 the device name data
+ * @param p3 the device name count
+ * @param p4 the server entry (pointer reference)
  */
-void open_entry(void* p0, void* p1, void* p2) {
+void open_entry(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open entry.");
     fwprintf(stdout, L"Debug: Open entry. p0: %i\n", p0);
@@ -55,6 +60,8 @@ void open_entry(void* p0, void* p1, void* p2) {
 
     // The client device identification.
     void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The client device name item.
+    void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // Retrieval.
@@ -62,6 +69,8 @@ void open_entry(void* p0, void* p1, void* p2) {
 
     // Get client device identification from client entry.
     copy_array_forward((void*) &id, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
+    // Get client device name item from client entry.
+    copy_array_forward((void*) &n, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_GENERAL_CLIENT_STATE_CYBOI_NAME);
 
     //
     // Initialisation.
@@ -69,13 +78,15 @@ void open_entry(void* p0, void* p1, void* p2) {
 
     // Copy client device identification.
     copy_integer(id, p1);
+    // Copy client device name item.
+    modify_item(n, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
     //
     // Storage.
     //
 
     // Set server entry into client entry.
-    copy_array_forward(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SERVER_ENTRY_BACKLINK_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(p0, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SERVER_ENTRY_BACKLINK_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* ENTRY_OPENER_SOURCE */
