@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TERMINAL_STARTER_SOURCE
-#define TERMINAL_STARTER_SOURCE
+#ifndef TERMINAL_OPENER_SOURCE
+#define TERMINAL_OPENER_SOURCE
 
 #include <stdio.h>
 
@@ -228,5 +228,5 @@ void startup_terminal(void* p0) {
 #endif
 }
 
-/* TERMINAL_STARTER_SOURCE */
+/* TERMINAL_OPENER_SOURCE */
 #endif

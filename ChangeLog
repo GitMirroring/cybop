@@ -26,6 +26,7 @@
         * Delete opengl files in maintainer, since they are empty
         * Move anonymous pipeline (pipe) files from maintainer to dispatcher opener
         * Move named pipeline (fifo) files from maintainer to dispatcher opener
+        * Move terminal files from maintainer to dispatcher opener
 
 2022-02-02  Christian Heller  <christian.heller@cybop.org>
 

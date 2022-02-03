@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STREAM_TERMINAL_STARTER_SOURCE
-#define STREAM_TERMINAL_STARTER_SOURCE
+#ifndef STREAM_TERMINAL_OPENER_SOURCE
+#define STREAM_TERMINAL_OPENER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -82,5 +82,5 @@ void startup_terminal_stream(void* p0, void* p1, void* p2, void* p3) {
     }
 }
 
-/* STREAM_TERMINAL_STARTER_SOURCE */
+/* STREAM_TERMINAL_OPENER_SOURCE */
 #endif

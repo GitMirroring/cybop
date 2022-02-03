@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MODE_TERMINAL_STARTER_SOURCE
-#define MODE_TERMINAL_STARTER_SOURCE
+#ifndef MODE_TERMINAL_OPENER_SOURCE
+#define MODE_TERMINAL_OPENER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -72,5 +72,5 @@ void startup_terminal_mode(void* p0, void* p1, void* p2) {
     edit_terminal_mode_store(p1, (void*) &o, p2);
 }
 
-/* MODE_TERMINAL_STARTER_SOURCE */
+/* MODE_TERMINAL_OPENER_SOURCE */
 #endif

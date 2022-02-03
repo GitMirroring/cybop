@@ -36,6 +36,7 @@
         * display_xcb
         * display_win32
         * mobile_app
+        * Update terminal files in dispatcher opener
         * Update or delete directory "executor/dispatcher/editor/"
         * Update or delete "OLD" files for setting attributes and status in directory "executor/dispatcher/opener/serial_port/"
 
