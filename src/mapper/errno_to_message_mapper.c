@@ -26,7 +26,7 @@
 #ifndef ERRNO_TO_MESSAGE_MAPPER_SOURCE
 #define ERRNO_TO_MESSAGE_MAPPER_SOURCE
 
-#include <errno.h> // errno
+#include <errno.h> // EPERM, ENOENT etc.
 
 #include "../constant/model/cyboi/log/error_message_log_cyboi_model.c"
 #include "../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -35,6 +35,17 @@
 #include "../executor/copier/pointer_copier.c"
 // CAUTION! Do NOT include this file due to circular dependencies.
 // #include "../logger/logger.c"
+
+#if defined(__linux__) || defined(__unix__)
+    #include "../../../../mapper/linux_errno_to_message_mapper.c"
+#elif defined(__APPLE__) && defined(__MACH__)
+//??    #include "../../../../mapper/linux_errno_to_message_mapper.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    #include "../../../../mapper/windows_errno_to_message_mapper.c"
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
 
 //
 // Forward declarations.
@@ -488,196 +499,18 @@ void map_errno_to_message(void* p0, void* p1) {
 
             copy_pointer(p0, (void*) &ENOTRECOVERABLE_ERROR_MESSAGE_LOG_CYBOI_MODEL);
 
-//
-// The following error codes are defined by the Linux/i386 kernel.
-// They are not yet documented.
-//
-
-        } else if (*e == ERESTART) {
-
-            copy_pointer(p0, (void*) &ERESTART_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == ECHRNG) {
-
-            copy_pointer(p0, (void*) &ECHRNG_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == EL2NSYNC) {
-
-            copy_pointer(p0, (void*) &EL2NSYNC_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == EL3HLT) {
-
-            copy_pointer(p0, (void*) &EL3HLT_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == EL3RST) {
-
-            copy_pointer(p0, (void*) &EL3RST_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == ELNRNG) {
-
-            copy_pointer(p0, (void*) &ELNRNG_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == EUNATCH) {
-
-            copy_pointer(p0, (void*) &EUNATCH_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == ENOCSI) {
-
-            copy_pointer(p0, (void*) &ENOCSI_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == EL2HLT) {
-
-            copy_pointer(p0, (void*) &EL2HLT_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == EBADE) {
-
-            copy_pointer(p0, (void*) &EBADE_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == EBADR) {
-
-            copy_pointer(p0, (void*) &EBADR_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == EXFULL) {
-
-            copy_pointer(p0, (void*) &EXFULL_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == ENOANO) {
-
-            copy_pointer(p0, (void*) &ENOANO_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == EBADRQC) {
-
-            copy_pointer(p0, (void*) &EBADRQC_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == EBADSLT) {
-
-            copy_pointer(p0, (void*) &EBADSLT_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == EDEADLOCK) {
-
-            copy_pointer(p0, (void*) &EDEADLOCK_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == EBFONT) {
-
-            copy_pointer(p0, (void*) &EBFONT_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == ENONET) {
-
-            copy_pointer(p0, (void*) &ENONET_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == ENOPKG) {
-
-            copy_pointer(p0, (void*) &ENOPKG_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == EADV) {
-
-            copy_pointer(p0, (void*) &EADV_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == ESRMNT) {
-
-            copy_pointer(p0, (void*) &ESRMNT_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == ECOMM) {
-
-            copy_pointer(p0, (void*) &ECOMM_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == EDOTDOT) {
-
-            copy_pointer(p0, (void*) &EDOTDOT_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == ENOTUNIQ) {
-
-            copy_pointer(p0, (void*) &ENOTUNIQ_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == EBADFD) {
-
-            copy_pointer(p0, (void*) &EBADFD_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == EREMCHG) {
-
-            copy_pointer(p0, (void*) &EREMCHG_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == ELIBACC) {
-
-            copy_pointer(p0, (void*) &ELIBACC_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == ELIBBAD) {
-
-            copy_pointer(p0, (void*) &ELIBBAD_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == ELIBSCN) {
-
-            copy_pointer(p0, (void*) &ELIBSCN_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == ELIBMAX) {
-
-            copy_pointer(p0, (void*) &ELIBMAX_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == ELIBEXEC) {
-
-            copy_pointer(p0, (void*) &ELIBEXEC_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == ESTRPIPE) {
-
-            copy_pointer(p0, (void*) &ESTRPIPE_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == EUCLEAN) {
-
-            copy_pointer(p0, (void*) &EUCLEAN_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == ENOTNAM) {
-
-            copy_pointer(p0, (void*) &ENOTNAM_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == ENAVAIL) {
-
-            copy_pointer(p0, (void*) &ENAVAIL_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == EISNAM) {
-
-            copy_pointer(p0, (void*) &EISNAM_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == EREMOTEIO) {
-
-            copy_pointer(p0, (void*) &EREMOTEIO_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == ENOMEDIUM) {
-
-            copy_pointer(p0, (void*) &ENOMEDIUM_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == EMEDIUMTYPE) {
-
-            copy_pointer(p0, (void*) &EMEDIUMTYPE_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == ENOKEY) {
-
-            copy_pointer(p0, (void*) &ENOKEY_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == EKEYEXPIRED) {
-
-            copy_pointer(p0, (void*) &EKEYEXPIRED_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == EKEYREVOKED) {
-
-            copy_pointer(p0, (void*) &EKEYREVOKED_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == EKEYREJECTED) {
-
-            copy_pointer(p0, (void*) &EKEYREJECTED_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == ERFKILL) {
-
-            copy_pointer(p0, (void*) &ERFKILL_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
-        } else if (*e == EHWPOISON) {
-
-            copy_pointer(p0, (void*) &EHWPOISON_ERROR_MESSAGE_LOG_CYBOI_MODEL);
-
         } else {
 
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not map errno to message. The errno value is unknown.");
-            fwprintf(stdout, L"Warning: Could not map errno to message. The errno value is unknown. p1: %i\n", p1);
-            fwprintf(stdout, L"Warning: Could not map errno to message. The errno value is unknown. *p1: %i\n", *((int*) p1));
+#if defined(__linux__) || defined(__unix__)
+            map_errno_to_message_linux(p0, p1);
+#elif defined(__APPLE__) && defined(__MACH__)
+            map_errno_to_message_linux(p0, p1);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+            map_errno_to_message_windows(p0, p1);
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
         }
 
     } else {

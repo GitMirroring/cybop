@@ -32,14 +32,6 @@
 #include <string.h>
 #include <wchar.h>
 
-#ifdef WIN32
-    #include <windows.h>
-#endif
-
-#ifndef _MSC_VER
-    #include <unistd.h>
-#endif
-
 #include "../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../constant/model/cyboi/log/level_name_log_cyboi_model.c"
@@ -53,6 +45,17 @@
 #include "../logger/write_logger.c"
 #include "../mapper/errno_to_message_mapper.c"
 #include "../variable/log_setting.c"
+
+#if defined(__linux__) || defined(__unix__)
+    // empty
+#elif defined(__APPLE__) && defined(__MACH__)
+    // empty
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    #include "../logger/windows_system_error_logger.c"
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
 
 //
 // CAUTION! This logger uses some CYBOI functions so that
@@ -298,53 +301,21 @@ void log_errno(void* p0) {
         // Print errno.
         fwprintf(stdout, L"Errno: %i\n", *e);
 
+#if defined(__linux__) || defined(__unix__)
+        // empty
+#elif defined(__APPLE__) && defined(__MACH__)
+        // empty
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+        log_windows_system_error(p0);
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
+
     } else {
 
         fwprintf(stdout, L"Error: Could not log errno. The errno value is null. p0: %i\n", p0);
     }
-}
-
-/**
- * Logs a windows system error.
- *
- * @param p0 the error code
- */
-void log_windows_system_error(void* p0) {
-
-#ifdef WIN32
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        DWORD* e = (DWORD*) p0;
-
-        // The local handle.
-        HLOCAL l = (HLOCAL) *NULL_POINTER_STATE_CYBOI_MODEL;
-
-        // Convert error code into message.
-        BOOL b = FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_ALLOCATE_BUFFER, (LPCVOID) *NULL_POINTER_STATE_CYBOI_MODEL, *e, MAKELANGID(LANG_NEUTRAL, SUBLANG_SYS_DEFAULT), (PTSTR) &l, 0, (va_list*) *NULL_POINTER_STATE_CYBOI_MODEL);
-
-        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // A network-related error.
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not log windows system error. The FormatMessage function failed.");
-
-            // Load dynamic link library.
-            HMODULE dll = LoadLibraryEx(TEXT("netmsg.dll"), (HANDLE) *NULL_POINTER_STATE_CYBOI_MODEL, DONT_RESOLVE_DLL_REFERENCES);
-
-            if (((void*) dll) != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                FormatMessage(FORMAT_MESSAGE_FROM_HMODULE | FORMAT_MESSAGE_FROM_SYSTEM, dll, (DWORD) p0, MAKELANGID(LANG_NEUTRAL, SUBLANG_SYS_DEFAULT), (PTSTR) &l, 0, (va_list*) *NULL_POINTER_STATE_CYBOI_MODEL);
-                FreeLibrary(dll);
-            }
-        }
-
-        if (((void*) l) != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            MessageBox((HWND) *NULL_POINTER_STATE_CYBOI_MODEL, (LPCTSTR) LocalLock(l), TEXT("Windows Error in CYBOI"), MB_ICONERROR);
-            LocalFree(l);
-        }
-    }
-#endif
 }
 
 /* LOGGER_SOURCE */

@@ -30,36 +30,36 @@
 #include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/dispatcher/opener/bsd_socket/bsd_socket_opener.c"
+    #include "../../../../executor/dispatcher/opener/bsd_socket/connexion_bsd_socket_opener.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../executor/dispatcher/opener/bsd_socket/bsd_socket_opener.c"
+    #include "../../../../executor/dispatcher/opener/bsd_socket/connexion_bsd_socket_opener.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../../executor/dispatcher/opener/winsock/winsock_opener.c"
+    #include "../../../../executor/dispatcher/opener/winsock/connexion_winsock_opener.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
- * Connects the given socket to the server given by the address.
+ * Connects the socket to the server given by the address.
  *
  * @param p0 the socket
- * @param p1 the socket address data
- * @param p2 the socket address size
+ * @param p1 the server address data
+ * @param p2 the server address size
  */
 void open_socket_connexion(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket connexion.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket connexion.");
     fwprintf(stdout, L"Debug: Open socket connexion. socket p0: %i\n", p0);
     fwprintf(stdout, L"Debug: Open socket connexion. socket *p0: %i\n", *((int*) p0));
 
 #if defined(__linux__) || defined(__unix__)
-    open_bsd_socket(p0, p1, p2);
+    open_bsd_socket_connexion(p0, p1, p2);
 #elif defined(__APPLE__) && defined(__MACH__)
-    open_bsd_socket(p0, p1, p2);
+    open_bsd_socket_connexion(p0, p1, p2);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    open_winsock(p0, p1, p2);
+    open_winsock_connexion(p0, p1, p2);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif

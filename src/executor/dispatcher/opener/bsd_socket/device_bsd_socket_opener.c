@@ -23,12 +23,11 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CREATE_BSD_SOCKET_STARTER_SOURCE
-#define CREATE_BSD_SOCKET_STARTER_SOURCE
+#ifndef DEVICE_BSD_SOCKET_OPENER_SOURCE
+#define DEVICE_BSD_SOCKET_OPENER_SOURCE
 
-#include <netinet/tcp.h> // SOL_TCP, TCP_NODELAY
-#include <sys/socket.h> // setsockopt
-#include <errno.h>
+#include <sys/socket.h> // socket
+#include <errno.h> // errno
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -36,7 +35,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Create socket.
+ * Open bsd socket device.
  *
  * The socket is blocking by default.
  * There is no need to assign an option for this.
@@ -46,7 +45,7 @@
  * @param p2 the communication style
  * @param p3 the protocol
  */
-void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3) {
+void open_bsd_socket_device(void* p0, void* p1, void* p2, void* p3) {
 
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -60,125 +59,79 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3) {
 
                 int* pf = (int*) p1;
 
-                if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open bsd socket device.");
+                fwprintf(stdout, L"Debug: Open bsd socket device p0: %i\n", p0);
+                fwprintf(stdout, L"Debug: Open bsd socket device *p0: %i\n", *((int*) p0));
+                fwprintf(stdout, L"Debug: Open bsd socket device *pf: %i\n", *pf);
+                fwprintf(stdout, L"Debug: Open bsd socket device *st: %i\n", *st);
+                fwprintf(stdout, L"Debug: Open bsd socket device *pr: %i\n", *pr);
 
-                    int* s = (int*) p0;
+                //
+                // Initialise error number.
+                //
+                // It is a global variable and other operations
+                // may have set some value that is not wanted here.
+                //
+                // CAUTION! Initialise the error number BEFORE calling
+                // the function that might cause an error.
+                //
+                errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket create.");
+                //
+                // Create socket.
+                //
+                // param 0: protocol family (namespace)
+                // param 1: communication style
+                // param 2: protocol (zero is usually right)
+                //
+                // CAUTION! Use prefix "PF_" here and NOT "AF_"!
+                // The latter is to be used for address family assignment.
+                // See further below!
+                //
+                // CAUTION! When using the protocol "tcp" and an ipv4 stream socket,
+                // then everything just works fine. However, for some unknown reason,
+                // the protocol "udp" does NOT work with a local datagram udp socket.
+                // *s = socket(*pf, *st, *pr);
+                // In order to avoid problems, the third parametre is set to ZERO here.
+                // This decision follows the recommendation of the glibc documentation:
+                // "zero is usually right for protocol".
+                // *s = socket(PF_LOCAL, SOCK_DGRAM, 0);
+                //
+                int r = socket(*pf, *st, 0);
 
-                    //
-                    // Initialise error number.
-                    // It is a global variable/function and other operations
-                    // may have set some value that is not wanted here.
-                    //
-                    // CAUTION! Initialise the error number BEFORE calling the
-                    // function that might cause an error.
-                    //
-                    errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                    fwprintf(stdout, L"Debug: Startup bsd socket create *pf: %i\n", *pf);
-                    fwprintf(stdout, L"Debug: Startup bsd socket create *st: %i\n", *st);
-                    fwprintf(stdout, L"Debug: Startup bsd socket create *pr: %i\n", *pr);
+                    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open bsd socket device. Success.");
+                    fwprintf(stdout, L"Debug: Open bsd socket device. Success. r: %i\n", r);
 
-                    //?? fwprintf(stdout, L"Debug: Startup bsd socket create PF_LOCAL: %i\n", PF_LOCAL);
-                    //?? fwprintf(stdout, L"Debug: Startup bsd socket create SOCK_DGRAM: %i\n", SOCK_DGRAM);
-                    //?? fwprintf(stdout, L"Debug: Startup bsd socket create 0: %i\n", 0);
+                    // Configure socket.
+                    open_bsd_socket_options(p0);
 
-                    //
-                    // Initialise server socket.
-                    //
-                    // param 0: protocol family (namespace)
-                    // param 1: communication style
-                    // param 2: protocol (zero is usually right)
-                    //
-                    // CAUTION! Use prefix "PF_" here and NOT "AF_"!
-                    // The latter is to be used for address family assignment.
-                    // See further below!
-                    //
-                    // CAUTION! When using the protocol "tcp" and an ipv4 stream socket,
-                    // then everything just works fine. However, for some unknown reason,
-                    // the protocol "udp" does NOT work with a local datagram udp socket.
-                    // *s = socket(*pf, *st, *pr);
-                    // In order to avoid problems, the third parametre is set to ZERO here.
-                    // This decision follows the recommendation of the glibc documentation:
-                    // "zero is usually right for protocol".
-                    // *s = socket(PF_LOCAL, SOCK_DGRAM, 0);
-                    //
-                    *s = socket(*pf, *st, 0);
-
-                    fwprintf(stdout, L"Debug: Startup bsd socket create return value. *s: %i\n", *s);
-
-                    // The socket options.
-                    void* od = (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-                    socklen_t os = (socklen_t) sizeof(od);
-
-                    //
-                    // Disable nagle algorithm delay.
-                    //
-                    // SOL_TCP:
-                    // - constant handed over to indicate tcp-level options
-                    //
-                    // TCP_NODELAY:
-                    // - specifies whether or not to use the nagle algorithm (delay)
-                    //   for deciding when to send data
-                    // - only supported by stream sockets (tcp)
-                    // - should be used for applications using the request/response paradigm
-                    // - a non-zero value sets the option forcing tcp to always
-                    //   send data immediately (disabled nagle algorithm)
-                    //
-                    // https://stackoverflow.com/questions/1525050/non-blocking-socket
-                    // https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_72/apis/ssocko.htm
-                    //
-                    setsockopt(*s, SOL_TCP, TCP_NODELAY, od, os);
-
-                    //
-                    // Set socket reusable after execution.
-                    //
-                    // SOL_SOCKET:
-                    // - constant handed over to indicate socket-level options
-                    //
-                    // SO_REUSEADDR:
-                    // - avoid error message "address already in use"
-                    // - should always be set for a tcp server before it calls "bind"
-                    //
-                    setsockopt(*s, SOL_SOCKET, SO_REUSEADDR, od, os);
-
-                    //
-                    // The SO_KEEPALIVE option may be used for sending
-                    // "heartbeats" through a persistent connection.
-                    //
-                    // It has two end purposes:
-                    // - back-end application: detect an absent client,
-                    //   so as to drop a connection and release the associated resources
-                    // - client: prevent connection resources stored within intermediate nodes
-                    //   (such as a nat router) being released, so as to keep the connection alive
-                    //
-                    // https://holmeshe.me/network-essentials-setsockopt-SO_KEEPALIVE/
-                    //
-                    // Neither of these two is needed in cyboi,
-                    // which is why the SO_KEEPALIVE option is NOT set here.
-                    //
+                    // Copy socket file descriptor to destination socket.
+                    copy_integer(p0, (void*) &r);
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket create. The socket is null.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket device. An error occured.");
+                    fwprintf(stdout, L"Error: Could not open bsd socket device. An error occured. %i\n", r);
+                    log_errno((void*) &errno);
                 }
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket create. The protocol family is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket device. The protocol family is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket create. The communication style is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket device. The communication style is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket create. The protocol is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket device. The protocol is null.");
     }
 }
 
-/* CREATE_BSD_SOCKET_STARTER_SOURCE */
+/* DEVICE_BSD_SOCKET_OPENER_SOURCE */
 #endif

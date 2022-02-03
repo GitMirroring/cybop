@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BSD_SOCKET_OPENER_SOURCE
-#define BSD_SOCKET_OPENER_SOURCE
+#ifndef CONNEXION_BSD_SOCKET_OPENER_SOURCE
+#define CONNEXION_BSD_SOCKET_OPENER_SOURCE
 
 #include <sys/socket.h> // connect
 #include <errno.h> // errno
@@ -35,13 +35,13 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Connects with a server via bsd socket.
+ * Connects the bsd socket to the server given by the address.
  *
  * @param p0 the socket
- * @param p1 the address data
- * @param p2 the address size
+ * @param p1 the server address data
+ * @param p2 the server address size
  */
-void open_bsd_socket(void* p0, void* p1, void* p2) {
+void open_bsd_socket_connexion(void* p0, void* p1, void* p2) {
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -55,9 +55,9 @@ void open_bsd_socket(void* p0, void* p1, void* p2) {
 
                 int* s = (int*) p0;
 
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open bsd socket.");
-                fwprintf(stdout, L"Debug: Open bsd socket. s: %i\n", s);
-                fwprintf(stdout, L"Debug: Open bsd socket. *s: %i\n", *s);
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open bsd socket connexion.");
+                fwprintf(stdout, L"Debug: Open bsd socket connexion. s: %i\n", s);
+                fwprintf(stdout, L"Debug: Open bsd socket connexion. *s: %i\n", *s);
 
                 // Cast address size to correct type.
                 socklen_t sl = (socklen_t) *as;
@@ -73,45 +73,41 @@ void open_bsd_socket(void* p0, void* p1, void* p2) {
                 //
                 errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                //?? fwprintf(stdout, L"Debug: Open bsd socket. *as: %i\n", *as);
-                //?? fwprintf(stdout, L"Debug: Open bsd socket. ad: %i\n", ad);
-                //?? fwprintf(stdout, L"Debug: Open bsd socket. *s: %i\n", *s);
-
                 //
                 // Make connexion with server.
                 //
-                // This function call waits until the server responds
-                // to the request before it returns.
+                // CAUTION! This function call waits until the server
+                // responds to the request before it returns.
                 //
                 int r = connect(*s, ad, sl);
 
                 if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open bsd socket. success");
-                    fwprintf(stdout, L"Debug: Open bsd socket. success r: %i\n", r);
+                    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open bsd socket connexion. success");
+                    fwprintf(stdout, L"Debug: Open bsd socket connexion. success r: %i\n", r);
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket. An error occured.");
-                    fwprintf(stdout, L"Error: Could not open bsd socket. An error occured. %i\n", r);
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket connexion. An error occured.");
+                    fwprintf(stdout, L"Error: Could not open bsd socket connexion. An error occured. %i\n", r);
                     log_errno((void*) &errno);
                 }
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket. The socket is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket connexion. The socket is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket. The address data is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket connexion. The address data is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket. The address size is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket connexion. The address size is null.");
     }
 }
 
-/* BSD_SOCKET_OPENER_SOURCE */
+/* CONNEXION_BSD_SOCKET_OPENER_SOURCE */
 #endif
