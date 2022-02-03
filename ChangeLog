@@ -20,8 +20,10 @@
 
 2022-02-03  Christian Heller  <christian.heller@cybop.org>
 
-        * Update maintainer starter
-        * Move directory "executor/dispatcher/editor/" from maintainer to dispatcher
+        * Update maintainer starter display
+        * Move files from maintainer to directory "executor/dispatcher/editor/"
+        * Update maintainer starter serial port
+        * Move files from maintainer to directory "executor/dispatcher/opener/serial_port/"
 
 2022-02-02  Christian Heller  <christian.heller@cybop.org>
 
