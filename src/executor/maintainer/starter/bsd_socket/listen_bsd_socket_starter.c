@@ -26,8 +26,8 @@
 #ifndef LISTEN_BSD_SOCKET_STARTER_SOURCE
 #define LISTEN_BSD_SOCKET_STARTER_SOURCE
 
-#include <sys/socket.h>
-#include <errno.h>
+#include <sys/socket.h> // listen
+#include <errno.h> // errno
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -54,11 +54,12 @@ void startup_bsd_socket_listen(void* p0, void* p1) {
 
             //
             // Initialise error number.
-            // It is a global variable/ function and other operations
+            //
+            // It is a global variable and other operations
             // may have set some value that is not wanted here.
             //
-            // CAUTION! Initialise the error number BEFORE calling the procedure
-            // that might cause an error.
+            // CAUTION! Initialise the error number BEFORE calling
+            // the function that might cause an error.
             //
             errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
@@ -71,38 +72,15 @@ void startup_bsd_socket_listen(void* p0, void* p1) {
 
             if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully startup bsd socket listen.");
-                //?? fwprintf(stdout, L"Debug: Startup bsd socket listen. successful *s: %i\n", *s);
-                //?? fwprintf(stdout, L"Debug: Startup bsd socket listen. successful *c: %i\n", *c);
+                log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket listen. success");
+                fwprintf(stdout, L"Debug: Startup bsd socket listen. success *s: %i\n", *s);
+                fwprintf(stdout, L"Debug: Startup bsd socket listen. success *c: %i\n", *c);
 
             } else {
 
-                //
-                // An error occured.
-                //
-
-                fwprintf(stdout, L"Debug: Startup bsd socket listen error errno: %i\n", errno);
-
-                if (errno == EBADF) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket listen. The argument socket is not a valid file descriptor.");
-                    fwprintf(stdout, L"Debug: Startup bsd socket listen error EBADF: %i\n", errno);
-
-                } else if (errno == ENOTSOCK) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket listen. The argument socket is not a socket.");
-                    fwprintf(stdout, L"Debug: Startup bsd socket listen error ENOTSOCK: %i\n", errno);
-
-                } else if (errno == EOPNOTSUPP) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket listen. The socket does not support this operation.");
-                    fwprintf(stdout, L"Debug: Startup bsd socket listen error EOPNOTSUPP: %i\n", errno);
-
-                } else {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket listen. An unknown error occured while listening at the socket.");
-                    fwprintf(stdout, L"Debug: Startup bsd socket listen error UNKNOWN: %i\n", errno);
-                }
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket listen. An error occured.");
+                fwprintf(stdout, L"Error: Could not startup bsd socket listen. An error occured. %i\n", r);
+                log_errno((void*) &errno);
             }
 
         } else {

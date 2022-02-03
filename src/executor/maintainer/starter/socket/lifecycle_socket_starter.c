@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LIFECYCLE_SERVER_SOCKET_STARTER_SOURCE
-#define LIFECYCLE_SERVER_SOCKET_STARTER_SOURCE
+#ifndef LIFECYCLE_SOCKET_STARTER_SOURCE
+#define LIFECYCLE_SOCKET_STARTER_SOURCE
 
 #if defined(__linux__) || defined(__unix__)
     #include <sys/socket.h>
@@ -37,23 +37,23 @@
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../../../executor/maintainer/starter/socket/server/bind_server_socket_starter.c"
-#include "../../../../../executor/maintainer/starter/socket/server/listen_server_socket_starter.c"
-#include "../../../../../executor/maintainer/starter/socket/socket_address/socket_address_socket_starter.c"
-#include "../../../../../executor/maintainer/starter/socket/create_socket_starter.c"
-#include "../../../../../executor/maintainer/starter/socket/family_socket_starter.c"
-#include "../../../../../executor/maintainer/starter/socket/protocol_socket_starter.c"
-#include "../../../../../executor/maintainer/starter/socket/style_socket_starter.c"
-#include "../../../../../logger/logger.c"
-#include "../../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
-#include "../../../../../variable/symbolic_name/protocol_family_socket_symbolic_name.c"
-#include "../../../../../variable/symbolic_name/protocol_socket_symbolic_name.c"
-#include "../../../../../variable/symbolic_name/style_socket_symbolic_name.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../../executor/dispatcher/opener/socket/socket_address/socket_address_socket_opener.c"
+#include "../../../../executor/dispatcher/opener/socket/device_socket_opener.c"
+#include "../../../../executor/dispatcher/opener/socket/family_socket_opener.c"
+#include "../../../../executor/dispatcher/opener/socket/protocol_socket_opener.c"
+#include "../../../../executor/dispatcher/opener/socket/style_socket_opener.c"
+#include "../../../../executor/maintainer/starter/socket/bind_socket_starter.c"
+#include "../../../../executor/maintainer/starter/socket/listen_socket_starter.c"
+#include "../../../../logger/logger.c"
+#include "../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
+#include "../../../../variable/symbolic_name/protocol_family_socket_symbolic_name.c"
+#include "../../../../variable/symbolic_name/protocol_socket_symbolic_name.c"
+#include "../../../../variable/symbolic_name/style_socket_symbolic_name.c"
 
 /**
  * Starts up server socket lifecycle.
@@ -72,9 +72,9 @@
  * @param p11 the port
  * @param p12 the connexions (number of possible pending client requests)
  */
-void startup_socket_server_lifecycle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void startup_socket_lifecycle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket server lifecycle.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket lifecycle.");
 
     // The protocol family (socket namespace).
     int pf = *UNSPEC_PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME;
@@ -89,17 +89,17 @@ void startup_socket_server_lifecycle(void* p0, void* p1, void* p2, void* p3, voi
     int as = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get protocol- and address family.
-    startup_socket_family((void*) &pf, (void*) &af, p1, p2);
+    open_socket_family((void*) &pf, (void*) &af, p1, p2);
     // Get communication style.
-    startup_socket_style((void*) &st, p3, p4);
+    open_socket_style((void*) &st, p3, p4);
     // Get protocol.
-    startup_socket_protocol((void*) &p, p5, p6);
+    open_socket_protocol((void*) &p, p5, p6);
     //
     // Create socket.
     //
     // CAUTION! A value of ZERO is usually right for the "protocol".
     //
-    startup_socket_create(p0, (void*) &pf, (void*) &st, (void*) &p);
+    open_socket_device(p0, (void*) &pf, (void*) &st, (void*) &p);
     //
     // Allocate and initialise socket address depending on family.
     //
@@ -107,12 +107,10 @@ void startup_socket_server_lifecycle(void* p0, void* p1, void* p2, void* p3, voi
     // since it gets allocated inside the function and
     // has to be preserved as return value.
     //
-    startup_socket_socket_address((void*) &ad, (void*) &as, p7, p8, p9, p10, p11, (void*) &af);
-
-    //?? fwprintf(stdout, L"Debug: startup socket server lifecycle bind s: %i\n", *((int*) p0));
+    open_socket_socket_address((void*) &ad, (void*) &as, p7, p8, p9, p10, p11, (void*) &af);
 
     // Bind address to socket.
-    startup_socket_server_bind(p0, ad, (void*) &as);
+    startup_socket_bind(p0, ad, (void*) &as);
 
     // Deallocate socket address.
     free(ad);
@@ -123,8 +121,6 @@ void startup_socket_server_lifecycle(void* p0, void* p1, void* p2, void* p3, voi
     compare_integer_equal((void*) &r, (void*) &st, (void*) STREAM_STYLE_SOCKET_SYMBOLIC_NAME);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        //?? fwprintf(stdout, L"Debug: startup socket server lifecycle listen s: %i\n", *((int*) p0));
 
         //
         // This is a stream socket.
@@ -143,9 +139,9 @@ void startup_socket_server_lifecycle(void* p0, void* p1, void* p2, void* p3, voi
         // fail with ECONNREFUSED until the server calls accept
         // to accept a connexion from the queue.
         //
-        startup_socket_server_listen(p0, p12);
+        startup_socket_listen(p0, p12);
     }
 }
 
-/* LIFECYCLE_SERVER_SOCKET_STARTER_SOURCE */
+/* LIFECYCLE_SOCKET_STARTER_SOURCE */
 #endif

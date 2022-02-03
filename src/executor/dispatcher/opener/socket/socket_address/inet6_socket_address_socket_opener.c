@@ -42,16 +42,15 @@
 #endif
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../executor/maintainer/starter/socket/host_address/inet6_host_address_socket_starter.c"
-#include "../../../../../executor/maintainer/starter/socket/socket_address/initialise_inet6_socket_address_socket_starter.c"
+#include "../../../../../executor/dispatcher/opener/socket/host_address/inet6_host_address_socket_starter.c"
+#include "../../../../../executor/dispatcher/opener/socket/socket_address/initialise_inet6_socket_address_socket_starter.c"
 #include "../../../../../logger/logger.c"
 #include "../../../../../variable/type_size/socket_type_size.c"
 
 /**
- * Startup inet6 socket address.
+ * Create inet6 socket address.
  *
  * @param p0 the socket address data (pointer reference)
  * @param p1 the socket address size
@@ -59,16 +58,17 @@
  * @param p3 the host address count
  * @param p4 the port
  */
-void startup_socket_socket_address_inet6(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void open_socket_socket_address_inet6(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         void** ad = (void**) p0;
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket socket address inet6.");
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket socket address inet6.");
 
         // The host address.
         struct in6_addr ha;
+        //
         // The host address size.
         //
         // CAUTION! It IS NECESSARY because on 64 Bit machines,
@@ -83,7 +83,9 @@ void startup_socket_socket_address_inet6(void* p0, void* p1, void* p2, void* p3,
         //
         // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
         // because values are casted to int* internally again.
+        //
         size_t has = (size_t) *IPV6_HOST_ADDRESS_SOCKET_TYPE_SIZE;
+        //
         // Initialise array elements.
         //
         // CAUTION! Initialising with zero values is essential,
@@ -94,32 +96,43 @@ void startup_socket_socket_address_inet6(void* p0, void* p1, void* p2, void* p3,
         // zero integer or zero float or null pointer or
         // something else, depends on the programming
         // context, i.e. where the array got allocated.
+        //
         memset((void*) &ha, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, has);
+        //
         // Get host address.
+        //
         // CAUTION! The returned host address
         // is already in network byte order.
-        startup_socket_host_address_inet6((void*) &ha, p2, p3);
+        //
+        open_socket_host_address_inet6((void*) &ha, p2, p3);
 
+        //
         // Allocate socket address.
         //
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
+        //
         allocate_array(p0, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IPV6_SOCKET_ADDRESS_STATE_CYBOI_TYPE);
+        //
         // Initialise socket address size.
         //
         // CAUTION! For the allocation above, the size gets determined inside
         // the "allocate_array" function, so that it is not needed as argument.
         // However, socket functions DO REQUIRE the socket address size
         // as argument, so that it has to be assigned here explicitly.
+        //
         copy_integer(p1, (void*) IPV6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
+        //
         // Initialise socket address.
+        //
         // CAUTION! The forwarded host address
         // is already in network byte order.
-        startup_socket_socket_address_inet6_initialise(*ad, (void*) &ha, p4);
+        //
+        open_socket_socket_address_inet6_initialise(*ad, (void*) &ha, p4);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address inet6. The address data is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open socket socket address inet6. The address data is null.");
     }
 }
 

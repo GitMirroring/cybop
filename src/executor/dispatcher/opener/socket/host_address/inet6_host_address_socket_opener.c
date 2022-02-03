@@ -48,10 +48,10 @@
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/checker/operation_checker.c"
 #include "../../../../../executor/converter/encoder/utf/utf_8_encoder.c"
+#include "../../../../../executor/copier/array_copier.c"
 #include "../../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../../executor/modifier/item_modifier.c"
-#include "../../../../../executor/copier/array_copier.c"
 #include "../../../../../logger/logger.c"
 #include "../../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
 
@@ -74,18 +74,20 @@
  * @param p1 the host address data
  * @param p2 the host address count
  */
-void startup_socket_host_address_inet6(void* p0, void* p1, void* p2) {
+void open_socket_host_address_inet6(void* p0, void* p1, void* p2) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
 //?? TODO: This ifndef can be removed as soon as the mingw compiler supports ipv6.
 #ifndef _WIN32
+        //
         // This data type is used to store an IPv6 address.
         // It stores 128 bits of data, which can be
         // accessed via a union in a variety of ways.
+        //
         struct in6_addr* a = (struct in6_addr*) p0;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket host address inet6.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket host address inet6.");
 
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -96,6 +98,7 @@ void startup_socket_host_address_inet6(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+                //
                 // Assign address.
                 //
                 // One can use the in6addr_loopback constant
@@ -113,6 +116,7 @@ void startup_socket_host_address_inet6(void* p0, void* p1, void* p2) {
                 // the ipv6 constants are already defined in NETWORK byte order,
                 // so that a conversion is NOT necessary here:
                 // http://www.questionscompiled.com/ipv6-socket-api.html
+                //
                 *a = in6addr_loopback;
             }
         }
@@ -123,6 +127,7 @@ void startup_socket_host_address_inet6(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+                //
                 // Assign address.
                 //
                 // One can use the in6addr_any constant to stand
@@ -136,19 +141,23 @@ void startup_socket_host_address_inet6(void* p0, void* p1, void* p2) {
                 // the ipv6 constants are already defined in NETWORK byte order,
                 // so that a conversion is NOT necessary here:
                 // http://www.questionscompiled.com/ipv6-socket-api.html
+                //
                 *a = in6addr_any;
             }
         }
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // If none of the above address models was found, then the given
             // address is supposed to be the host address directly.
+            //
 
             // The terminated address item.
             void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The terminated address item data.
             void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+            //
             // The internet address in network (binary) format.
             //
             // CAUTION! While ipv4 constants are all defined in host byte order,
@@ -157,11 +166,15 @@ void startup_socket_host_address_inet6(void* p0, void* p1, void* p2) {
             // http://www.questionscompiled.com/ipv6-socket-api.html
             //
             // CAUTION! The loopback is used as default here.
+            //
             struct in6_addr n = in6addr_loopback;
 
+            //
             // Allocate terminated address item.
+            //
             // CAUTION! Due to memory allocation handling, the size MUST NOT
             // be negative or zero, but have at least a value of ONE.
+            //
             allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             // Encode wide character name into multibyte character array.
@@ -170,16 +183,21 @@ void startup_socket_host_address_inet6(void* p0, void* p1, void* p2) {
             // Add null termination character.
             modify_item(t, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
+            //
             // Get terminated address item data.
+            //
             // CAUTION! Retrieve data ONLY AFTER having called desired functions!
             // Inside the structure, arrays may have been reallocated,
             // with elements pointing to different memory areas now.
+            //
             copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+            //
             // Convert internet address from presentation (textual)
             // to network (binary) format, the latter being an integer.
             //
             // CAUTION! The returned value is already in NETWORK byte order.
+            //
             inet_pton(*INET6_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME, (char*) td, (void*) &n);
 
             // Assign address.
@@ -192,7 +210,7 @@ void startup_socket_host_address_inet6(void* p0, void* p1, void* p2) {
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket host address inet6. The inet6 host address is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open socket host address inet6. The inet6 host address is null.");
     }
 }
 

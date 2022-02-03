@@ -49,7 +49,7 @@
  * @param p1 the host address (in network byte order)
  * @param p2 the port (in host byte order)
  */
-void startup_socket_socket_address_inet_initialise(void* p0, void* p1, void* p2) {
+void open_socket_socket_address_inet_initialise(void* p0, void* p1, void* p2) {
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -63,8 +63,9 @@ void startup_socket_socket_address_inet_initialise(void* p0, void* p1, void* p2)
 
                 struct sockaddr_in* a = (struct sockaddr_in*) p0;
 
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket socket address inet initialise.");
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket socket address inet initialise.");
 
+                //
                 // Set address family (namespace).
                 //
                 // CAUTION! Use the prefix "AF_" here and NOT "PF_"!
@@ -73,8 +74,10 @@ void startup_socket_socket_address_inet_initialise(void* p0, void* p1, void* p2)
                 // CAUTION! The "sin_family" field is of type
                 // "sa_family_t", which is actually an "integer",
                 // as well as the "AF_INET" constant.
+                //
                 (*a).sin_family = *INET_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME;
 
+                //
                 // Set host address.
                 //
                 // The "a.sin_addr" field is of type "struct in_addr".
@@ -83,26 +86,29 @@ void startup_socket_socket_address_inet_initialise(void* p0, void* p1, void* p2)
                 // "s_addr", which records the host address number as an "uint32_t".
                 //
                 // CAUTION! The host address has to be in NETWORK byte order.
+                //
                 (*a).sin_addr.s_addr = *h;
 
+                //
                 // Set socket port.
                 //
                 // CAUTION! The port has to be in NETWORK byte order.
+                //
                 (*a).sin_port = htons(*p);
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address inet initialise. The socket address is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open socket socket address inet initialise. The socket address is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address inet initialise. The host address is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open socket socket address inet initialise. The host address is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address inet initialise. The socket port is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open socket socket address inet initialise. The socket port is null.");
     }
 }
 

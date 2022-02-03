@@ -30,18 +30,18 @@
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../../../executor/maintainer/starter/socket/socket_address/inet_socket_address_socket_starter.c"
+#include "../../../../../executor/dispatcher/opener/socket/socket_address/inet_socket_address_socket_starter.c"
 //?? TODO: This ifndef can be removed as soon as the mingw compiler supports ipv6.
 #ifndef _WIN32
-    #include "../../../../../executor/maintainer/starter/socket/socket_address/inet6_socket_address_socket_starter.c"
+    #include "../../../../../executor/dispatcher/opener/socket/socket_address/inet6_socket_address_socket_starter.c"
 #endif
 #include "../../../../../logger/logger.c"
 #include "../../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../../../executor/maintainer/starter/socket/socket_address/local_socket_address_socket_starter.c"
+    #include "../../../../../executor/dispatcher/opener/socket/socket_address/local_socket_address_socket_starter.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../../executor/maintainer/starter/socket/socket_address/local_socket_address_socket_starter.c"
+    #include "../../../../../executor/dispatcher/opener/socket/socket_address/local_socket_address_socket_starter.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
     // CAUTION! The local or unix domain sockets are
@@ -51,7 +51,7 @@
 #endif
 
 /**
- * Startup socket address depending on the given address family.
+ * Create socket address depending on the given address family.
  *
  * A socket address is handed over as argument of type
  * "struct sockaddr" to functions like: bind, connect, sendto.
@@ -84,7 +84,7 @@
  * @param p6 the port
  * @param p7 the address family (namespace)
  */
-void startup_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void open_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -94,7 +94,7 @@ void startup_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void*
 
             void** ad = (void**) p0;
 
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket socket address.");
+            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket socket address.");
 
             // The comparison result.
             int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -115,7 +115,7 @@ void startup_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void*
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                    startup_socket_socket_address_inet(p0, p1, p4, p5, p6);
+                    open_socket_socket_address_inet(p0, p1, p4, p5, p6);
                 }
             }
 
@@ -127,7 +127,7 @@ void startup_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void*
 
 //?? TODO: This ifndef can be removed as soon as the mingw compiler supports ipv6.
 #ifndef _WIN32
-                    startup_socket_socket_address_inet6(p0, p1, p4, p5, p6);
+                    open_socket_socket_address_inet6(p0, p1, p4, p5, p6);
 #endif
                 }
             }
@@ -149,9 +149,9 @@ void startup_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void*
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 #if defined(__linux__) || defined(__unix__)
-                    startup_socket_socket_address_local(p0, p1, p2, p3);
+                    open_socket_socket_address_local(p0, p1, p2, p3);
 #elif defined(__APPLE__) && defined(__MACH__)
-                    startup_socket_socket_address_local(p0, p1, p2, p3);
+                    open_socket_socket_address_local(p0, p1, p2, p3);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
                     // CAUTION! The local or unix domain sockets are
@@ -164,17 +164,17 @@ void startup_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void*
 
             if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address. The address family is unknown.");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open socket socket address. The address family is unknown.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address. The address data is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open socket socket address. The address data is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address. The address size is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open socket socket address. The address size is null.");
     }
 }
 

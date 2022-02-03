@@ -30,13 +30,13 @@
 #include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../../../executor/copier/array_copier.c"
-#include "../../../../executor/maintainer/starter/socket/server/lifecycle_server_socket_starter.c"
+#include "../../../../executor/maintainer/starter/socket/lifecycle_socket_starter.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Starts up server socket.
  *
- * @param p0 the input/output entry
+ * @param p0 the server entry
  * @param p1 the family data (namespace)
  * @param p2 the family count
  * @param p3 the style data (communication type)
@@ -47,7 +47,7 @@
  * @param p8 the filename count
  * @param p9 the host address data
  * @param p10 the host address count
- * @param p11 the port
+ * @param p11 the port (service identification)
  * @param p12 the connexions (number of possible pending client requests)
  * @param p13 the timeout
  */
@@ -61,9 +61,6 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     // The socket number.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    //?? TODO: Delete this buffer item, since the buffer now belongs to the client?
-    // The buffer item.
-    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // Allocation.
@@ -76,44 +73,20 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     // be negative or zero, but have at least a value of ONE.
     //
     allocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    //
-    // Allocate buffer item.
-    //
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    //
-    // Size of this local buffer:
-    // See comment in file "socket_sensor.c"!
-    //
-    allocate_item((void*) &b, (void*) NUMBER_1024_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     //
     // Opening.
     //
 
     // Startup server socket.
-    startup_socket_server_lifecycle(s, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+    startup_socket_lifecycle(s, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
 
     //
     // Storage.
     //
 
-    //
-    // Store various values in input/output entry.
-    //
-    // CAUTION! Do NOT use "overwrite_array" function here,
-    // since it adapts the array count and size.
-    // But the array's count and size are CONSTANT.
-    //
-    // CAUTION! Do NOT hand over input/output entry as pointer reference.
-    //
-    // CAUTION! Hand over value as pointer REFERENCE.
-    //
-
-    // Set socket number into input/output entry.
-    copy_array_forward(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set buffer item into input/output entry.
-    copy_array_forward(p0, (void*) &b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) BUFFER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set socket number into server entry.
+    copy_array_forward(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_SOCKET_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* SOCKET_STARTER_SOURCE */

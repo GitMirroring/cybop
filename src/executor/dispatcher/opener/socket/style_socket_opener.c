@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STYLE_SOCKET_STARTER_SOURCE
-#define STYLE_SOCKET_STARTER_SOURCE
+#ifndef STYLE_SOCKET_OPENER_SOURCE
+#define STYLE_SOCKET_OPENER_SOURCE
 
 #if defined(__linux__) || defined(__unix__)
     #include <sys/socket.h>
@@ -53,9 +53,9 @@
  * @param p1 the style data
  * @param p2 the style count
  */
-void startup_socket_style(void* p0, void* p1, void* p2) {
+void open_socket_style(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket style.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket style.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -132,9 +132,9 @@ void startup_socket_style(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket style. The style is not known.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open socket style. The style is not known.");
     }
 }
 
-/* STYLE_SOCKET_STARTER_SOURCE */
+/* STYLE_SOCKET_OPENER_SOURCE */
 #endif

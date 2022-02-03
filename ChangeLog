@@ -31,6 +31,7 @@
         * Move terminal files from maintainer to dispatcher closer
         * Move host address-, socket address- and some general socket files from maintainer to dispatcher opener
         * Add additional error codes and mapper for linux and windows
+        * Update maintainer starter
 
 2022-02-02  Christian Heller  <christian.heller@cybop.org>
 

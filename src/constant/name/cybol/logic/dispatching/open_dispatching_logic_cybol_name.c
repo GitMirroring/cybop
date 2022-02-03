@@ -30,6 +30,10 @@
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
+/** The baudrate serial interface startup maintenance logic cybol name. */
+//?? static wchar_t* BAUDRATE_SERIAL_INTERFACE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME = L"baudrate";
+//?? static int* BAUDRATE_SERIAL_INTERFACE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The channel open dispatching logic cybol name. */
 static wchar_t* CHANNEL_OPEN_DISPATCHING_LOGIC_CYBOL_NAME = L"channel";
 static int* CHANNEL_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;

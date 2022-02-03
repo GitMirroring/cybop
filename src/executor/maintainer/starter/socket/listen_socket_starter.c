@@ -23,19 +23,19 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LISTEN_SERVER_SOCKET_STARTER_SOURCE
-#define LISTEN_SERVER_SOCKET_STARTER_SOURCE
+#ifndef LISTEN_SOCKET_STARTER_SOURCE
+#define LISTEN_SOCKET_STARTER_SOURCE
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../logger/logger.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../../../executor/maintainer/starter/bsd_socket/listen_bsd_socket_starter.c"
+    #include "../../../../executor/maintainer/starter/bsd_socket/listen_bsd_socket_starter.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../../executor/maintainer/starter/bsd_socket/listen_bsd_socket_starter.c"
+    #include "../../../../executor/maintainer/starter/bsd_socket/listen_bsd_socket_starter.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../../../executor/maintainer/starter/winsock/listen_winsock_starter.c"
+    #include "../../../../executor/maintainer/starter/winsock/listen_winsock_starter.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
@@ -46,9 +46,9 @@
  * @param p0 the socket
  * @param p1 the connexions (number of possible pending client requests)
  */
-void startup_socket_server_listen(void* p0, void* p1) {
+void startup_socket_listen(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket server listen.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket listen.");
 
 #if defined(__linux__) || defined(__unix__)
     startup_bsd_socket_listen(p0, p1);
@@ -62,5 +62,5 @@ void startup_socket_server_listen(void* p0, void* p1) {
 #endif
 }
 
-/* LISTEN_SERVER_SOCKET_STARTER_SOURCE */
+/* LISTEN_SOCKET_STARTER_SOURCE */
 #endif

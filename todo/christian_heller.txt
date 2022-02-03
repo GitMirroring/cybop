@@ -15,6 +15,7 @@
         * See service lifecycle cybol examples in directory "examples/communication/"
 
         DONE:
+        * maintain/startup
         * activate/enable
         * dispatch/open
         * feel/sense
@@ -22,7 +23,9 @@
         * file opener
         * file closer
         DOING:
-        * maintain/startup (done: display; todo: socket)
+        * Update terminal files in dispatcher opener
+        * Update or delete directory "executor/dispatcher/editor/"
+        * Update or delete "OLD" files for setting attributes and status in directory "executor/dispatcher/opener/serial_port/"
         * Make compilable
         * Test file read functionality
         * file read
@@ -36,9 +39,6 @@
         * display_xcb
         * display_win32
         * mobile_app
-        * Update terminal files in dispatcher opener
-        * Update or delete directory "executor/dispatcher/editor/"
-        * Update or delete "OLD" files for setting attributes and status in directory "executor/dispatcher/opener/serial_port/"
 
     //
     //?? TODO: Consider this hint when parsing for the END character of a sequence.
@@ -259,8 +259,21 @@ ____
         * Increment and store number of bytes written to pipe in global variable, in child thread?
         * Increment a second counter variable in main thread and compare with the one from child thread?
 
+        * Use keyword "volatile" for flags within an endless loop or thread, in order to avoid the compiler optimising the reading of the value away
         * Use mutex and volatile variables when accessing pipes?
         * Check flag "enable" in terminal sensor and write data to pipe only if activated
+        * Make all flags atomic by using the integer data type "sig_atomic_t", in order to avoid the operating system signal handler interfering variable access (it can take more than one instruction to read or write a single object)
+        * Add comment:
+
+            //
+            // The type "sig_atomic_t" is always an integer data type, but which one it is,
+            // and how many bits it contains, may vary from machine to machine.
+            // In practice, one can assume that int and other integer types no longer than
+            // int are atomic, that is objects of this type are always accessed atomically.
+            // One can also assume that pointer types are atomic; that is very convenient.
+            // Both of these assumptions are true on all of the machines that the GNU C
+            // library supports and on all known POSIX systems.
+            //
 
         * Store standard input/output/error file descriptors and streams in terminal input/output entry
 

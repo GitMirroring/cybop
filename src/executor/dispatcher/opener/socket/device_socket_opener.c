@@ -23,20 +23,20 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CREATE_SOCKET_STARTER_SOURCE
-#define CREATE_SOCKET_STARTER_SOURCE
+#ifndef DEVICE_SOCKET_OPENER_SOURCE
+#define DEVICE_SOCKET_OPENER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/maintainer/starter/bsd_socket/create_bsd_socket_starter.c"
+    #include "../../../../executor/dispatcher/opener/bsd_socket/device_bsd_socket_opener.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../executor/maintainer/starter/bsd_socket/create_bsd_socket_starter.c"
+    #include "../../../../executor/dispatcher/opener/bsd_socket/device_bsd_socket_opener.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../../executor/maintainer/starter/winsock/create_winsock_starter.c"
-    #include "../../../../executor/maintainer/starter/winsock/initialise_winsock_starter.c"
+    #include "../../../../executor/dispatcher/opener/winsock/device_winsock_opener.c"
+    #include "../../../../executor/dispatcher/opener/winsock/initialise_winsock_opener.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
@@ -49,9 +49,9 @@
  * @param p2 the communication style
  * @param p3 the protocol
  */
-void startup_socket_create(void* p0, void* p1, void* p2, void* p3) {
+void open_socket_device(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket create.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket device.");
 
 #if defined(__linux__) || defined(__unix__)
     // Nothing to be done here.
@@ -59,22 +59,22 @@ void startup_socket_create(void* p0, void* p1, void* p2, void* p3) {
     // Nothing to be done here.
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    startup_winsock_initialise();
+    open_winsock_initialise();
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 #if defined(__linux__) || defined(__unix__)
-    startup_bsd_socket_create(p0, p1, p2, p3);
+    open_bsd_socket_device(p0, p1, p2, p3);
 #elif defined(__APPLE__) && defined(__MACH__)
-    startup_bsd_socket_create(p0, p1, p2, p3);
+    open_bsd_socket_device(p0, p1, p2, p3);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    startup_winsock_create(p0, p1, p2, p3);
+    open_winsock_device(p0, p1, p2, p3);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 
-/* CREATE_SOCKET_STARTER_SOURCE */
+/* DEVICE_SOCKET_OPENER_SOURCE */
 #endif
