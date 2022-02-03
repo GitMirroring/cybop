@@ -30,6 +30,12 @@
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
+//
+// There are two kinds of a pipeline:
+// - anonymous: called "pipe" in glibc
+// - named: called "fifo" in glibc
+//
+
 /** The clock cybol channel. */
 static wchar_t* CLOCK_CYBOL_CHANNEL = L"clock";
 static int* CLOCK_CYBOL_CHANNEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;

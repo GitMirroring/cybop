@@ -23,47 +23,59 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CREATE_FIFO_STARTER_SOURCE
-#define CREATE_FIFO_STARTER_SOURCE
+#ifndef FIFO_OPENER_SOURCE
+#define FIFO_OPENER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/maintainer/starter/unix_fifo/create_unix_fifo_starter.c"
+    #include "../../../../executor/dispatcher/opener/unix_fifo/unix_fifo_opener.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../executor/maintainer/starter/unix_fifo/create_unix_fifo_starter.c"
+    #include "../../../../executor/dispatcher/opener/unix_fifo/unix_fifo_opener.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../../executor/maintainer/starter/win32_fifo/create_win32_fifo_starter.c"
+    #include "../../../../executor/dispatcher/opener/win32_fifo/win32_fifo_opener.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
- * Creates a fifo, also called "named pipe".
+ * Opens up a first-in-first-out (fifo), also called "named pipeline" (named pipe).
  *
- * The reading and writing ends of the pipe are stored in the array.
- * An easy way to remember that the input end comes first is that
- * file descriptor 0 is standard input, and file descriptor 1 is standard output.
+ * A fifo special file is similar to a pipe,
+ * except that it is created in a different way.
+ * Instead of being an anonymous communications channel,
+ * a fifo special file is entered into the file system.
  *
- * @param p0 the file descriptors array (pointer reference)
+ * Once created, any process can open the fifo special file
+ * for reading or writing, in the same way as an ordinary file.
+ *
+ * However, it has to be open at both ends simultaneously before
+ * one can proceed to do any input or output operations on it.
+ * Opening a fifo for reading normally blocks until some other
+ * process opens the same fifo for writing, and vice versa.
+ *
+ * https://www.gnu.org/software/libc/manual/html_mono/libc.html#FIFO-Special-Files
+ *
+ * @param p0 the filename data
+ * @param p1 the filename count
  */
-void startup_fifo_create(void* p0) {
+void open_fifo(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup fifo create.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open fifo.");
 
 #if defined(__linux__) || defined(__unix__)
-    startup_unix_fifo_create(p0, p1, p2, p3, p4);
+    open_unix_fifo(p0, p1);
 #elif defined(__APPLE__) && defined(__MACH__)
-    startup_unix_fifo_create(p0, p1, p2, p3, p4);
+    open_unix_fifo(p0, p1);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    startup_win32_fifo_create(p0, p1, p2, p3, p4);
+    open_win32_fifo(p0, p1);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 
-/* CREATE_FIFO_STARTER_SOURCE */
+/* FIFO_OPENER_SOURCE */
 #endif

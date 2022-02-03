@@ -51,11 +51,12 @@ void open_unix_pipe(void* p0) {
 
         //
         // Initialise error number.
-        // It is a global variable/function and other operations
+        //
+        // It is a global variable and other operations
         // may have set some value that is not wanted here.
         //
-        // CAUTION! Initialise the error number BEFORE calling the
-        // function that might cause an error.
+        // CAUTION! Initialise the error number BEFORE calling
+        // the function that might cause an error.
         //
         errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
