@@ -27,6 +27,7 @@
         * Move anonymous pipeline (pipe) files from maintainer to dispatcher opener
         * Move named pipeline (fifo) files from maintainer to dispatcher opener
         * Move terminal files from maintainer to dispatcher opener
+        * Move serial port files from maintainer to dispatcher closer
 
 2022-02-02  Christian Heller  <christian.heller@cybop.org>
 

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ATTRIBUTES_SERIAL_PORT_SHUTTER_SOURCE
-#define ATTRIBUTES_SERIAL_PORT_SHUTTER_SOURCE
+#ifndef ATTRIBUTES_SERIAL_PORT_CLOSER_SOURCE
+#define ATTRIBUTES_SERIAL_PORT_CLOSER_SOURCE
 
 #include <errno.h>
 #include <stdio.h>
@@ -145,5 +145,5 @@ void shutdown_serial_port_attributes(void* p0, void* p1) {
     }
 }
 
-/* ATTRIBUTES_SERIAL_PORT_SHUTTER_SOURCE */
+/* ATTRIBUTES_SERIAL_PORT_CLOSER_SOURCE */
 #endif
