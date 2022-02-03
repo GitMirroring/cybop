@@ -26,23 +26,28 @@
 #ifndef XCB_STARTER_SOURCE
 #define XCB_STARTER_SOURCE
 
-#include <xcb/xcb.h>
+#include <xcb/xcb.h> // xcb_connect, xcb_connection_t etc.
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/server_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Starts up the x window system.
+ * Starts up the x window system connexion.
  *
- * @param p0 the input/output entry
+ * @param p0 the server entry
  */
 void startup_xcb(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup xcb.");
-    //?? fwprintf(stdout, L"Debug: Startup xcb. p0: %i\n", p0);
+    fwprintf(stdout, L"Debug: Startup xcb. p0: %i\n", p0);
 
     //
     // Allocate and open connexion.
@@ -76,7 +81,43 @@ void startup_xcb(void* p0) {
             // It gets allocated through the connexion above.
             //
             void* s = (void*) iter.data;
+            //
             // The graphic context.
+            //
+            // It is used to store general drawing parameters,
+            // e.g. colour, line width, font.
+            //
+            // In order to be able to use a font, one has to create a
+            // graphic context that will contain the information about
+            // the color of the foreground and the background used
+            // when a text is drawn in a drawable.
+            //
+            // An x11 graphic context does not contain the memory buffer.
+            // Both the drawable and the graphic context are passed in
+            // to all the drawing operations.
+            //
+            // In some drawing libraries, the context references a
+            // current drawable (target surface), which may be changed.
+            // OpenGL also has a "current target" kind of concept.
+            //
+            // https://stackoverflow.com/questions/6818468/what-exactly-is-a-graphic-context
+            //
+            // Relation between graphic context and drawable (e.g. window):
+            // 1:n One graphic context can be used with all "like" drawables
+            //     of the same screen root window and the same bit depth.
+            // n:1 Many graphic contexts can be assigned to one drawable,
+            //     e.g. to draw in multiple styles.
+            //
+            // CAUTION! By default, only ONE graphic context is used in cyboi,
+            // in order to save memory resources and be more efficient.
+            // However, EACH window can appear in a different look, since
+            // the styles of the graphic context can be updated as needed
+            // in the serialiser, with each new send gui function call.
+            //
+            // CAUTION! Therefore, the graphic context is NOT stored in
+            // the client entry per window, but rather in the SERVER ENTRY
+            // being usable by ALL windows.
+            //
             void* gc = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The xcb screen with correct type.
             xcb_screen_t* st = (xcb_screen_t*) s;
@@ -181,34 +222,6 @@ void startup_xcb(void* p0) {
             //
             // Create graphic context.
             //
-            // It is used to store general drawing parameters,
-            // e.g. colour, line width, font.
-            //
-            // Relation between graphic context and drawable:
-            // 1:n One graphic context can be used with all "like" drawables
-            //     of the same screen root window and the same bit depth.
-            // n:1 Many graphic contexts can be assigned to one drawable,
-            //     e.g. to draw in multiple styles.
-            //
-            // An x11 graphic context does not contain the memory buffer.
-            // Both the drawable and the graphic context are passed in
-            // to all the drawing operations.
-            //
-            // In some drawing libraries, the context references a
-            // current drawable (target surface), which may be changed.
-            // OpenGL also has a "current target" kind of concept.
-            //
-            // https://stackoverflow.com/questions/6818468/what-exactly-is-a-graphic-context
-            //
-            // CAUTION! Only ONE graphic context is used in cyboi,
-            // since its styles get updated as needed in the serialiser,
-            // with each new send gui function call.
-            //
-            // In order to be able to use a font, one has to create a
-            // graphic context that will contain the information about
-            // the color of the foreground and the background used
-            // when a text is drawn in a drawable.
-            //
             // Parametres:
             // - the screen root window drawable is used inside to get the bit depth
             // - the last parametre has to be a pointer, and it already IS one, since it is an array
@@ -219,24 +232,12 @@ void startup_xcb(void* p0) {
             // Storage.
             //
 
-            //
-            // Store various values in input/output entry.
-            //
-            // CAUTION! Do NOT use "overwrite_array" function here,
-            // since it adapts the array count and size.
-            // But the array's count and size are CONSTANT.
-            //
-            // CAUTION! Do NOT hand over input/output entry as pointer reference.
-            //
-            // CAUTION! Hand over values as pointer REFERENCE.
-            //
-
-            // Store connexion in input/output entry.
-            copy_array_forward(p0, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            // Store screen in input/output entry.
-            copy_array_forward(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SCREEN_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            // Store default graphic context in input/output entry.
-            copy_array_forward(p0, (void*) &gc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            // Store connexion in server entry.
+            copy_array_forward(p0, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CONNEXION_XCB_DISPLAY_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            // Store screen in server entry.
+            copy_array_forward(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SCREEN_XCB_DISPLAY_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            // Store default graphic context in server entry.
+            copy_array_forward(p0, (void*) &gc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         } else {
 

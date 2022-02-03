@@ -6,19 +6,20 @@
 
     <node name="enable_server" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
-        <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle"/>
-        <!-- <node name="root" channel="inline" format="text/cybol-path" model=".gui.window"/> -->
     </node>
 
     <node name="open_client" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
-        <node name="id" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
     </node>
 
-    <!--
-        The name="sense_client" with operation "feel/sense" is NOT necessary,
-        since "activate/enable" catches the events of ALL client windows.
-    -->
+    <!-- Fill internal buffer with data received internally. -->
+    <node name="sense_client_data" channel="inline" format="feel/sense" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
+        <!-- This is the call-back function executed when an event arrives on the window. -->
+        <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle"/>
+        <!-- <node name="root" channel="inline" format="text/cybol-path" model=".gui.root_window"/> -->
+    </node>
 
     <node name="receive_client" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>

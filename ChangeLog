@@ -21,6 +21,7 @@
 2022-02-03  Christian Heller  <christian.heller@cybop.org>
 
         * Update maintainer starter
+        * Move directory "executor/dispatcher/editor/" from maintainer to dispatcher
 
 2022-02-02  Christian Heller  <christian.heller@cybop.org>
 

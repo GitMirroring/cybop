@@ -31,19 +31,13 @@
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../executor/maintainer/starter/display/display_starter.c"
-#include "../../executor/maintainer/starter/serial_port/serial_port_starter.c"
 #include "../../executor/maintainer/starter/socket/socket_starter.c"
-#include "../../executor/maintainer/starter/terminal/terminal_starter.c"
-#include "../../executor/maintainer/editor.c"
 #include "../../logger/logger.c"
 
 /**
- * Calls functions specific to the given service.
+ * Startup service on the given channel.
  *
- * @param p0 the input/output entry
- * @param p1 the serial filename data
- * @param p2 the serial filename count
- * @param p3 the serial baudrate
+ * @param p0 the server entry
  * @param p4 the socket family data (namespace)
  * @param p5 the socket family count
  * @param p6 the socket style data (communication type)
@@ -59,10 +53,10 @@
  * @param p16 the socket timeout
  * @param p17 the channel
  */
-void startup_specific(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
+void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup specific.");
-    fwprintf(stdout, L"Debug: Startup specific. p17: %i\n", p17);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup service.");
+    fwprintf(stdout, L"Debug: Startup service. p17: %i\n", p17);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -79,42 +73,19 @@ void startup_specific(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p17, (void*) SERIAL_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //?? startup_serial_port(p0, p1, p2, p3);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
         compare_integer_equal((void*) &r, p17, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_socket(p0, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16);
+            startup_socket(p0);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p17, (void*) TERMINAL_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            startup_terminal(p0);
-
-            // Configure service.
-            edit_service(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TERMINAL_CYBOI_CHANNEL);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup specific. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not startup specific. The channel is unknown. p17: %i\n", p17);
-        fwprintf(stdout, L"Warning: Could not startup specific. The channel is unknown. *p17: %i\n", *((int*) p17));
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup service. The channel is unknown.");
+        fwprintf(stdout, L"Warning: Could not startup service. The channel is unknown. p17: %i\n", p17);
+        fwprintf(stdout, L"Warning: Could not startup service. The channel is unknown. *p17: %i\n", *((int*) p17));
     }
 }
 

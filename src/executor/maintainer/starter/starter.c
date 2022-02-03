@@ -34,10 +34,10 @@
 #include "../../logger/logger.c"
 
 /**
- * Starts up the given service.
+ * Starts up the given server.
  *
  * CAUTION! Do NOT rename this function to "startup",
- * since it should be consistent with "shutdown_service",
+ * since it should be consistent with "shutdown_server",
  * which cannot be renamed to "shutdown",
  * as that name is already used by low-level socket functionality:
  * /usr/include/i386-linux-gnu/sys/socket.h:232:12
@@ -66,10 +66,10 @@
  * @param p18 the socket timeout
  * @param p19 the channel
  */
-void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20) {
+void startup_server(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup service.");
-    fwprintf(stdout, L"Information: Startup service. p19: %i\n", p19);
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup server.");
+    fwprintf(stdout, L"Information: Startup server. p19: %i\n", p19);
 
     // The server entry.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -91,8 +91,8 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup service. A server entry does already exist.");
-        fwprintf(stdout, L"Warning: Could not startup service. A server entry does already exist. p19: %i\n", p19);
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup server. A server entry does already exist.");
+        fwprintf(stdout, L"Warning: Could not startup server. A server entry does already exist. p19: %i\n", p19);
     }
 }
 

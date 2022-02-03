@@ -36,6 +36,7 @@
         * display_xcb
         * display_win32
         * mobile_app
+        * Update or delete directory "executor/dispatcher/editor/"
 
     //
     //?? TODO: Consider this hint when parsing for the END character of a sequence.

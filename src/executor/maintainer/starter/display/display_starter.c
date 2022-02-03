@@ -44,13 +44,14 @@
 #endif
 
 /**
- * Starts up the display server.
+ * Starts up the display server connexion.
  *
- * @param p0 the input/output entry
+ * @param p0 the server entry
  */
 void startup_display(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup display.");
+    fwprintf(stdout, L"Information: Startup display. p0: %i\n", p0);
 
 #if defined(__linux__) || defined(__unix__)
     startup_xcb(p0);
