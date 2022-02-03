@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CREATE_UNIX_PIPE_STARTER_SOURCE
-#define CREATE_UNIX_PIPE_STARTER_SOURCE
+#ifndef UNIX_PIPE_OPENER_SOURCE
+#define UNIX_PIPE_OPENER_SOURCE
 
 #include <unistd.h> // pipe
 #include <errno.h> // errno
@@ -35,23 +35,19 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Creates a unix pipe, also called "anonymous pipe".
- *
- * The reading and writing ends of the pipe are stored in the array.
- * An easy way to remember that the input end comes first is that
- * file descriptor 0 is standard input, and file descriptor 1 is standard output.
+ * Opens up a unix pipeline (pipe), also called "anonymous pipe".
  *
  * @param p0 the file descriptor array
  */
-void startup_unix_pipe_create(void* p0) {
+void open_unix_pipe(void* p0) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* f = (int*) p0;
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix pipe create.");
-
-        fwprintf(stdout, L"Debug: Startup unix pipe create. *f: %i\n", f);
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open unix pipe.");
+        fwprintf(stdout, L"Debug: Open unix pipe. f: %i\n", f);
+        fwprintf(stdout, L"Debug: Open unix pipe. *f: %i\n", *f);
 
         //
         // Initialise error number.
@@ -66,40 +62,27 @@ void startup_unix_pipe_create(void* p0) {
         // Create pipe.
         int r = pipe(f);
 
-        fwprintf(stdout, L"Debug: Startup unix pipe create. r: %i\n", r);
-        fwprintf(stdout, L"Debug: Startup unix pipe create. f[0]: %i\n", f[0]);
-        fwprintf(stdout, L"Debug: Startup unix pipe create. f[1]: %i\n", f[1]);
+        fwprintf(stdout, L"Debug: Open unix pipe. r: %i\n", r);
+        fwprintf(stdout, L"Debug: Open unix pipe. f[0]: %i\n", f[0]);
+        fwprintf(stdout, L"Debug: Open unix pipe. f[1]: %i\n", f[1]);
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup unix pipe create success.");
-            fwprintf(stdout, L"Information: Startup unix pipe create success. r: %i\n", r);
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open unix pipe. success.");
+            fwprintf(stdout, L"Debug: Open unix pipe. success. r: %i\n", r);
 
         } else {
 
-            //
-            // An error occured.
-            //
-
-            fwprintf(stdout, L"Error: Could not startup unix pipe create. errno: %i\n", errno);
-
-            if (errno == EMFILE) {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix pipe create. The process has too many files open.");
-                fwprintf(stdout, L"Error: Could not startup unix pipe create. The process has too many files open. EMFILE: %i\n", errno);
-
-            } else if (errno == ENFILE) {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix pipe create. There are too many open files in the entire system.");
-                fwprintf(stdout, L"Error: Could not startup unix pipe create. There are too many open files in the entire system. ENFILE: %i\n", errno);
-            }
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open unix pipe. An error occured.");
+            fwprintf(stdout, L"Error: Could not open unix pipe. An error occured. %i\n", r);
+            log_errno((void*) &errno);
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup unix pipe create. The file descriptor array is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open unix pipe. The file descriptor array is null.");
     }
 }
 
-/* CREATE_UNIX_PIPE_STARTER_SOURCE */
+/* UNIX_PIPE_OPENER_SOURCE */
 #endif

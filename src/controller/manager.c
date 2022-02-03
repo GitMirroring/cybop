@@ -43,12 +43,12 @@
 #include "../controller/initialiser.c"
 #include "../executor/copier/array_copier.c"
 #include "../executor/dispatcher/closer/basic/basic_closer.c"
+#include "../executor/dispatcher/opener/pipe/pipe_opener.c"
 #include "../executor/maintainer/shutter/display/display_shutter.c"
 #include "../executor/maintainer/shutter/opengl/opengl_shutter.c"
 #include "../executor/maintainer/shutter/serial_port/serial_port_shutter.c"
 #include "../executor/maintainer/shutter/socket/socket_shutter.c"
 #include "../executor/maintainer/shutter/terminal/terminal_shutter.c"
-#include "../executor/maintainer/starter/pipe/create_pipe_starter.c"
 #include "../executor/memoriser/allocator/array_allocator.c"
 #include "../executor/memoriser/deallocator/array_deallocator.c"
 #include "../executor/modifier/part_modifier.c"
@@ -211,7 +211,7 @@ void manage(void* p0) {
     copy_integer((void*) signal_memory_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
 
     // Initialise interrupt pipe.
-    startup_pipe_create(p);
+    open_pipe(p);
     // The interrupt mutex with casted type.
     mtx_t* mt = (mtx_t*) m;
     // Initialise interrupt mutex.
@@ -260,9 +260,9 @@ void manage(void* p0) {
     // Set signal memory sleep time.
     copy_array_forward(i, (void*) &signal_memory_sleep_time, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SLEEP_TIME_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set interrupt pipe.
-    copy_array_forward(i, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_PIPE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(i, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PIPE_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set interrupt mutex.
-    copy_array_forward(i, (void*) &m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_MUTEX_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(i, (void*) &m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Startup system signal handler.
     manage_startup_system_signal_handler();
