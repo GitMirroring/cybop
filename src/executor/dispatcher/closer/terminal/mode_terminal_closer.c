@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MODE_TERMINAL_SHUTTER_SOURCE
-#define MODE_TERMINAL_SHUTTER_SOURCE
+#ifndef MODE_TERMINAL_CLOSER_SOURCE
+#define MODE_TERMINAL_CLOSER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -69,5 +69,5 @@ void shutdown_terminal_mode(void* p0, void* p1, void* p2) {
     edit_terminal_mode_deallocate((void*) &o);
 }
 
-/* MODE_TERMINAL_SHUTTER_SOURCE */
+/* MODE_TERMINAL_CLOSER_SOURCE */
 #endif

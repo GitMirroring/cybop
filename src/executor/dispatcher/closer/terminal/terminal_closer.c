@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TERMINAL_SHUTTER_SOURCE
-#define TERMINAL_SHUTTER_SOURCE
+#ifndef TERMINAL_CLOSER_SOURCE
+#define TERMINAL_CLOSER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -154,5 +154,5 @@ void shutdown_terminal(void* p0) {
 #endif
 }
 
-/* TERMINAL_SHUTTER_SOURCE */
+/* TERMINAL_CLOSER_SOURCE */
 #endif
