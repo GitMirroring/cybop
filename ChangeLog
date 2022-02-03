@@ -21,9 +21,10 @@
 2022-02-03  Christian Heller  <christian.heller@cybop.org>
 
         * Update maintainer starter display
-        * Move files from maintainer to directory "executor/dispatcher/editor/"
-        * Update maintainer starter serial port
-        * Move files from maintainer to directory "executor/dispatcher/opener/serial_port/"
+        * Move terminal editor files from maintainer to dispatcher editor
+        * Move serial port files from maintainer to dispatcher opener
+        * Delete opengl files in maintainer, since they are empty
+        * Move pipeline files from maintainer to dispatcher opener
 
 2022-02-02  Christian Heller  <christian.heller@cybop.org>
 
