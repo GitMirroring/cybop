@@ -74,13 +74,13 @@ void open_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     int as = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get protocol- and address family.
-    startup_socket_family((void*) &pf, (void*) &af, p1, p2);
+    open_socket_family((void*) &pf, (void*) &af, p1, p2);
     // Get socket communication style.
-    startup_socket_style((void*) &st, p3, p4);
+    open_socket_style((void*) &st, p3, p4);
     // Get socket protocol.
-    startup_socket_protocol((void*) &p, p5, p6);
+    open_socket_protocol((void*) &p, p5, p6);
     // Create socket.
-    startup_socket_create(p0, (void*) &pf, (void*) &st, (void*) &p);
+    open_socket_device(p0, (void*) &pf, (void*) &st, (void*) &p);
     //
     // Allocate and initialise socket address depending on family.
     //
@@ -88,7 +88,7 @@ void open_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // since it gets allocated inside the function and
     // has to be preserved as return value.
     //
-    startup_socket_socket_address((void*) &ad, (void*) &as, p7, p8, p9, p10, p11, (void*) &af);
+    open_socket_socket_address((void*) &ad, (void*) &as, p7, p8, p9, p10, p11, (void*) &af);
     // Connect via socket with server.
     open_socket_connexion(p0, ad, (void*) &as);
     // Deallocate socket address.

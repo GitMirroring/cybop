@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LOCAL_SOCKET_ADDRESS_SOCKET_STARTER_SOURCE
-#define LOCAL_SOCKET_ADDRESS_SOCKET_STARTER_SOURCE
+#ifndef LOCAL_SOCKET_ADDRESS_SOCKET_OPENER_SOURCE
+#define LOCAL_SOCKET_ADDRESS_SOCKET_OPENER_SOURCE
 
 #include <sys/socket.h>
 #include <stddef.h> // size_t
@@ -82,5 +82,5 @@ void startup_socket_socket_address_local(void* p0, void* p1, void* p2, void* p3)
     }
 }
 
-/* LOCAL_SOCKET_ADDRESS_SOCKET_STARTER_SOURCE */
+/* LOCAL_SOCKET_ADDRESS_SOCKET_OPENER_SOURCE */
 #endif

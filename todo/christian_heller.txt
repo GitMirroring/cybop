@@ -22,7 +22,7 @@
         * file opener
         * file closer
         DOING:
-        * maintain/startup
+        * maintain/startup (done: display; todo: socket)
         * Make compilable
         * Test file read functionality
         * file read

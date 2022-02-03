@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INET6_SOCKET_ADDRESS_SOCKET_STARTER_SOURCE
-#define INET6_SOCKET_ADDRESS_SOCKET_STARTER_SOURCE
+#ifndef INET6_SOCKET_ADDRESS_SOCKET_OPENER_SOURCE
+#define INET6_SOCKET_ADDRESS_SOCKET_OPENER_SOURCE
 
 #include <stddef.h> // size_t
 #include <stdlib.h> // malloc
@@ -42,7 +42,7 @@
 #endif
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
+
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../executor/maintainer/starter/socket/host_address/inet6_host_address_socket_starter.c"
@@ -123,5 +123,5 @@ void startup_socket_socket_address_inet6(void* p0, void* p1, void* p2, void* p3,
     }
 }
 
-/* INET6_SOCKET_ADDRESS_SOCKET_STARTER_SOURCE */
+/* INET6_SOCKET_ADDRESS_SOCKET_OPENER_SOURCE */
 #endif

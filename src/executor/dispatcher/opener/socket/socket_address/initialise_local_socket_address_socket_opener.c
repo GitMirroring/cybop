@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INITIALISE_LOCAL_SOCKET_ADDRESS_SOCKET_STARTER_SOURCE
-#define INITIALISE_LOCAL_SOCKET_ADDRESS_SOCKET_STARTER_SOURCE
+#ifndef INITIALISE_LOCAL_SOCKET_ADDRESS_SOCKET_OPENER_SOURCE
+#define INITIALISE_LOCAL_SOCKET_ADDRESS_SOCKET_OPENER_SOURCE
 
 #if defined(__linux__) || defined(__unix__)
     #include <sys/socket.h>
@@ -197,5 +197,5 @@ void startup_socket_socket_address_local_initialise(void* p0, void* p1, void* p2
     }
 }
 
-/* INITIALISE_LOCAL_SOCKET_ADDRESS_SOCKET_STARTER_SOURCE */
+/* INITIALISE_LOCAL_SOCKET_ADDRESS_SOCKET_OPENER_SOURCE */
 #endif

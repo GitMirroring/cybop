@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INET_SOCKET_ADDRESS_SOCKET_STARTER_SOURCE
-#define INET_SOCKET_ADDRESS_SOCKET_STARTER_SOURCE
+#ifndef INET_SOCKET_ADDRESS_SOCKET_OPENER_SOURCE
+#define INET_SOCKET_ADDRESS_SOCKET_OPENER_SOURCE
 
 #include <stddef.h> // size_t
 #include <stdlib.h> // malloc
@@ -122,5 +122,5 @@ void startup_socket_socket_address_inet(void* p0, void* p1, void* p2, void* p3, 
     }
 }
 
-/* INET_SOCKET_ADDRESS_SOCKET_STARTER_SOURCE */
+/* INET_SOCKET_ADDRESS_SOCKET_OPENER_SOURCE */
 #endif

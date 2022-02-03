@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SOCKET_ADDRESS_SOCKET_STARTER_SOURCE
-#define SOCKET_ADDRESS_SOCKET_STARTER_SOURCE
+#ifndef SOCKET_ADDRESS_SOCKET_OPENER_SOURCE
+#define SOCKET_ADDRESS_SOCKET_OPENER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -178,5 +178,5 @@ void startup_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void*
     }
 }
 
-/* SOCKET_ADDRESS_SOCKET_STARTER_SOURCE */
+/* SOCKET_ADDRESS_SOCKET_OPENER_SOURCE */
 #endif
