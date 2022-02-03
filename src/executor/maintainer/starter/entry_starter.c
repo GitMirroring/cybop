@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef GENERAL_STARTER_SOURCE
-#define GENERAL_STARTER_SOURCE
+#ifndef ENTRY_STARTER_SOURCE
+#define ENTRY_STARTER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -121,5 +121,5 @@ void startup_general(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
     }
 }
 
-/* GENERAL_STARTER_SOURCE */
+/* ENTRY_STARTER_SOURCE */
 #endif

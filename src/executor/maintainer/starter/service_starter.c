@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SPECIFIC_STARTER_SOURCE
-#define SPECIFIC_STARTER_SOURCE
+#ifndef SERVICE_STARTER_SOURCE
+#define SERVICE_STARTER_SOURCE
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -118,5 +118,5 @@ void startup_specific(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     }
 }
 
-/* SPECIFIC_STARTER_SOURCE */
+/* SERVICE_STARTER_SOURCE */
 #endif

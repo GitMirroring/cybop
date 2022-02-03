@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-02-03  Christian Heller  <christian.heller@cybop.org>
+
+        * Update maintainer starter
+
 2022-02-02  Christian Heller  <christian.heller@cybop.org>
 
         * Introduce cybol property "stub" for operation "dispatch/open"
