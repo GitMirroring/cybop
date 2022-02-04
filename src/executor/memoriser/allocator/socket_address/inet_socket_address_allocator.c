@@ -26,17 +26,15 @@
 #ifndef INET_SOCKET_ADDRESS_ALLOCATOR_SOURCE
 #define INET_SOCKET_ADDRESS_ALLOCATOR_SOURCE
 
-#include <stddef.h> // size_t
-#include <stdlib.h> // malloc
 #include <string.h> // memset
 
 #if defined(__linux__) || defined(__unix__)
-    #include <netinet/in.h>
+    #include <netinet/in.h> // struct in_addr
 #elif defined(__APPLE__) && defined(__MACH__)
-    #include <netinet/in.h>
+    #include <netinet/in.h> // struct in_addr
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include <winsock.h>
+    #include <winsock.h> // struct in_addr
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
@@ -44,8 +42,12 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/accessor/setter/socket_address/inet_socket_address_setter.c"
+#include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/dispatcher/opener/socket/host_address/inet_host_address_socket_starter.c"
-#include "../../../../executor/dispatcher/opener/socket/socket_address/initialise_inet_socket_address_socket_starter.c"
+#include "../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../logger/logger.c"
 #include "../../../../variable/type_size/socket_type_size.c"
 
@@ -128,7 +130,7 @@ void allocate_socket_address_inet(void* p0, void* p1, void* p2, void* p3, void* 
         // CAUTION! The forwarded host address
         // is already in NETWORK byte order.
         //
-        open_socket_address_inet_initialise(*ad, (void*) &ha, p4);
+        set_socket_address_inet(*ad, (void*) &ha, p4);
 
     } else {
 

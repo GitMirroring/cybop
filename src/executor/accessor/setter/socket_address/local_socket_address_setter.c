@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INITIALISE_LOCAL_SOCKET_ADDRESS_SOCKET_OPENER_SOURCE
-#define INITIALISE_LOCAL_SOCKET_ADDRESS_SOCKET_OPENER_SOURCE
+#ifndef LOCAL_SOCKET_ADDRESS_SETTER_SOURCE
+#define LOCAL_SOCKET_ADDRESS_SETTER_SOURCE
 
 #if defined(__linux__) || defined(__unix__)
     #include <sys/socket.h>
@@ -37,26 +37,26 @@
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../executor/copier/array_copier.c"
-#include "../../../../../executor/converter/encoder/utf/utf_8_encoder.c"
-#include "../../../../../executor/memoriser/allocator/item_allocator.c"
-#include "../../../../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../../../../logger/logger.c"
-#include "../../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/converter/encoder/utf/utf_8_encoder.c"
+#include "../../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../../../logger/logger.c"
+#include "../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
 
 /**
- * Initialise local socket address.
+ * Sets the local socket address.
  *
  * @param p0 the local socket address data
  * @param p1 the filename data
  * @param p2 the filename count
  */
-void open_socket_socket_address_local_initialise(void* p0, void* p1, void* p2) {
+void set_socket_address_local(void* p0, void* p1, void* p2) {
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -73,7 +73,7 @@ void open_socket_socket_address_local_initialise(void* p0, void* p1, void* p2) {
                 //
                 void* a = (void*) p0;
 
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket socket address local initialise.");
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Set socket address local.");
 
                 //
                 // CAUTION! For some strange reason, the socket file name length
@@ -136,8 +136,8 @@ void open_socket_socket_address_local_initialise(void* p0, void* p1, void* p2) {
                     copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
                     copy_array_forward((void*) &tc, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-                    fwprintf(stdout, L"Debug: Open socket socket address local initialise. td: %s\n", td);
-                    fwprintf(stdout, L"Debug: Open socket socket address local initialise. tc: %i\n", *((int*) tc));
+                    fwprintf(stdout, L"Debug: Set socket address local. td: %s\n", td);
+                    fwprintf(stdout, L"Debug: Set socket address local. tc: %i\n", *((int*) tc));
 
                     //
                     // Set namespace (address format/family).
@@ -167,35 +167,35 @@ void open_socket_socket_address_local_initialise(void* p0, void* p1, void* p2) {
                     copy_array_forward(path, td, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, tc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
                     copy_array_forward(path, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, tc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-                    fwprintf(stdout, L"Debug: Open socket socket address local initialise. path: %s\n", path);
+                    fwprintf(stdout, L"Debug: Set socket address local. path: %s\n", path);
 
                     // Deallocate terminated file name item.
                     deallocate_item((void*) &t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open socket socket address local initialise. The socket file name is longer than the limit 108, as set by the gnu c library.");
-                    fwprintf(stdout, L"Error: Could not open socket socket address local initialise. The socket file name is longer than the limit 108, as set by the gnu c library. *fc: %i\n", *fc);
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set socket address local. The socket file name is longer than the limit 108, as set by the gnu c library.");
+                    fwprintf(stdout, L"Error: Could not set socket address local. The socket file name is longer than the limit 108, as set by the gnu c library. *fc: %i\n", *fc);
                 }
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open socket socket address local initialise. The socket address is null.");
-                fwprintf(stdout, L"Error: Could not open socket socket address local initialise. The socket address is null. p0: %i\n", p0);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set socket address local. The socket address is null.");
+                fwprintf(stdout, L"Error: Could not set socket address local. The socket address is null. p0: %i\n", p0);
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open socket socket address local initialise. The file name is null.");
-            fwprintf(stdout, L"Error: Could not open socket socket address local initialise. The file name is null. p1: %i\n", p1);
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set socket address local. The file name is null.");
+            fwprintf(stdout, L"Error: Could not set socket address local. The file name is null. p1: %i\n", p1);
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open socket socket address local initialise. The file name count is null.");
-        fwprintf(stdout, L"Error: Could not open socket socket address local initialise. The file name count is null. p2: %i\n", p2);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set socket address local. The file name count is null.");
+        fwprintf(stdout, L"Error: Could not set socket address local. The file name count is null. p2: %i\n", p2);
     }
 }
 
-/* INITIALISE_LOCAL_SOCKET_ADDRESS_SOCKET_OPENER_SOURCE */
+/* LOCAL_SOCKET_ADDRESS_SETTER_SOURCE */
 #endif

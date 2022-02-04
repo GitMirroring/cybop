@@ -29,9 +29,10 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/dispatcher/opener/socket/socket_address/socket_address_socket_starter.c"
-#include "../../../../executor/dispatcher/opener/socket/create_socket_starter.c"
 #include "../../../../executor/dispatcher/opener/socket/connexion_socket_opener.c"
+#include "../../../../executor/dispatcher/opener/socket/device_socket_opener.c"
+#include "../../../../executor/memoriser/allocator/socket_address/socket_address_allocator.c"
+#include "../../../../executor/memoriser/deallocator/socket_address/socket_address_deallocator.c"
 #include "../../../../executor/representer/deserialiser/cybol/socket/address_family_socket_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/socket/protocol_family_socket_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/socket/protocol_socket_cybol_deserialiser.c"
@@ -82,8 +83,10 @@ void open_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     deserialise_cybol_socket_style((void*) &st, p3, p4);
     // Get protocol.
     deserialise_cybol_socket_protocol((void*) &p, p5, p6);
+
     // Create socket.
     open_socket_device(p0, (void*) &pf, (void*) &st, (void*) &p);
+
     //
     // Allocate and initialise socket address depending on family.
     //
@@ -91,11 +94,13 @@ void open_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // since it gets allocated inside the function and
     // has to be preserved as return value.
     //
-    open_socket_socket_address((void*) &ad, (void*) &as, p7, p8, p9, p10, p11, (void*) &af);
+    allocate_socket_address((void*) &ad, (void*) &as, p7, p8, p9, p10, p11, (void*) &af);
+
     // Connect via socket with server.
     open_socket_connexion(p0, ad, (void*) &as);
+
     // Deallocate socket address.
-    free(ad);
+    deallocate_socket_address((void*) &ad, (void*) &as, (void*) &af);
 }
 
 /* SOCKET_OPENER_SOURCE */

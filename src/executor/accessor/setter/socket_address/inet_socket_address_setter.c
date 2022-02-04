@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INITIALISE_INET_SOCKET_ADDRESS_SOCKET_OPENER_SOURCE
-#define INITIALISE_INET_SOCKET_ADDRESS_SOCKET_OPENER_SOURCE
+#ifndef INET_SOCKET_ADDRESS_SETTER_SOURCE
+#define INET_SOCKET_ADDRESS_SETTER_SOURCE
 
 #if defined(__linux__) || defined(__unix__)
     #include <sys/socket.h>
@@ -37,19 +37,19 @@
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../logger/logger.c"
-#include "../../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../logger/logger.c"
+#include "../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
 
 /**
- * Initialise inet socket address.
+ * Sets the inet socket address.
  *
  * @param p0 the inet socket address
  * @param p1 the host address (in network byte order)
  * @param p2 the port (in host byte order)
  */
-void open_socket_socket_address_inet_initialise(void* p0, void* p1, void* p2) {
+void set_socket_address_inet(void* p0, void* p1, void* p2) {
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -63,7 +63,7 @@ void open_socket_socket_address_inet_initialise(void* p0, void* p1, void* p2) {
 
                 struct sockaddr_in* a = (struct sockaddr_in*) p0;
 
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket socket address inet initialise.");
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Set socket address inet.");
 
                 //
                 // Set address family (namespace).
@@ -98,19 +98,19 @@ void open_socket_socket_address_inet_initialise(void* p0, void* p1, void* p2) {
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open socket socket address inet initialise. The socket address is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set socket address inet. The socket address is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open socket socket address inet initialise. The host address is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set socket address inet. The host address is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open socket socket address inet initialise. The socket port is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set socket address inet. The socket port is null.");
     }
 }
 
-/* INITIALISE_INET_SOCKET_ADDRESS_SOCKET_OPENER_SOURCE */
+/* INET_SOCKET_ADDRESS_SETTER_SOURCE */
 #endif
