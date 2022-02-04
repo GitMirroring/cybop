@@ -23,6 +23,7 @@
         * Move socket-related files for family (namespace), protocol, style to directory "executor/representer/deserialiser/cybol/socket/"
         * Move socket address creation files to directory "executor/memoriser/allocator/socket_address/"
         * Move socket address initialisation files to directory "executor/accessor/setter/socket_address/"
+        * Move host address conversion files to directory "executor/representer/deserialiser/host_address/"
 
 2022-02-03  Christian Heller  <christian.heller@cybop.org>
 

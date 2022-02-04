@@ -23,40 +23,46 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INET6_HOST_ADDRESS_SOCKET_OPENER_SOURCE
-#define INET6_HOST_ADDRESS_SOCKET_OPENER_SOURCE
+#ifndef INET_HOST_ADDRESS_DESERIALISER_SOURCE
+#define INET_HOST_ADDRESS_DESERIALISER_SOURCE
 
-#include <stdint.h> // for uint32_t
+#include <stdint.h> // uint32_t
 
 #if defined(__linux__) || defined(__unix__)
+    #include <arpa/inet.h>
     #include <netinet/in.h>
 #elif defined(__APPLE__) && defined(__MACH__)
+    #include <arpa/inet.h>
     #include <netinet/in.h>
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
     #include <winsock.h>
+//??    #include <Winsock2.h>
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
-#include "../../../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../constant/model/cybol/socket/address_socket_cybol_model.c"
-#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../executor/checker/operation_checker.c"
-#include "../../../../../executor/converter/encoder/utf/utf_8_encoder.c"
-#include "../../../../../executor/copier/array_copier.c"
-#include "../../../../../executor/memoriser/allocator/item_allocator.c"
-#include "../../../../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../../../../executor/modifier/item_modifier.c"
-#include "../../../../../logger/logger.c"
-#include "../../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cybol/socket/address_socket_cybol_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/checker/operation_checker.c"
+#include "../../../../executor/converter/encoder/utf/utf_8_encoder.c"
+#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../logger/logger.c"
+#include "../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
 
 /**
- * Determines inet6 host address.
+ * Deserialises inet host address.
+ *
+ * The internet (host) address is converted from
+ * textual (presentation) to binary (network) format.
  *
  * CAUTION! It has to be made sure that the host address is
  * represented in a canonical format called "NETWORK BYTE ORDER".
@@ -70,24 +76,23 @@
  * directly input addresses returns its address in
  * NETWORK byte order, that was used for local and any as well.
  *
- * @param p0 the inet6 host address (in network byte order)
+ * @param p0 the inet host address (in network byte order)
  * @param p1 the host address data
  * @param p2 the host address count
  */
-void open_socket_host_address_inet6(void* p0, void* p1, void* p2) {
+void deserialise_host_address_inet(void* p0, void* p1, void* p2) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-//?? TODO: This ifndef can be removed as soon as the mingw compiler supports ipv6.
-#ifndef _WIN32
         //
-        // This data type is used to store an IPv6 address.
-        // It stores 128 bits of data, which can be
-        // accessed via a union in a variety of ways.
+        // This data type is used in certain contexts
+        // to contain an IPv4 Internet host address.
+        // It has just one field, named s_addr, which
+        // records the host address number as an uint32_t.
         //
-        struct in6_addr* a = (struct in6_addr*) p0;
+        struct in_addr* a = (struct in_addr*) p0;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket host address inet6.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise host address inet.");
 
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -101,10 +106,10 @@ void open_socket_host_address_inet6(void* p0, void* p1, void* p2) {
                 //
                 // Assign address.
                 //
-                // One can use the in6addr_loopback constant
+                // One can use the INADDR_LOOPBACK constant (127.0.0.1)
                 // to stand for the address of this machine,
                 // instead of finding its actual address.
-                // It is the IPv6 Internet address '::1',
+                // It is the IPv4 Internet address '127.0.0.1',
                 // which is usually called 'localhost'.
                 // This special constant saves the trouble of
                 // looking up the address of one's own machine.
@@ -112,12 +117,9 @@ void open_socket_host_address_inet6(void* p0, void* p1, void* p2) {
                 // avoiding any network traffic for the case
                 // of one machine talking to itself.
                 //
-                // CAUTION! While ipv4 constants are all defined in host byte order,
-                // the ipv6 constants are already defined in NETWORK byte order,
-                // so that a conversion is NOT necessary here:
-                // http://www.questionscompiled.com/ipv6-socket-api.html
+                // CAUTION! Convert to NETWORK byte order.
                 //
-                *a = in6addr_loopback;
+                (*a).s_addr = htonl(INADDR_LOOPBACK);
             }
         }
 
@@ -130,19 +132,16 @@ void open_socket_host_address_inet6(void* p0, void* p1, void* p2) {
                 //
                 // Assign address.
                 //
-                // One can use the in6addr_any constant to stand
-                // for any incoming address, when binding to an address.
-                // It is the IPv6 address '::', the unspecified address.
+                // One can use the INADDR_ANY constant (0.0.0.0)
+                // to stand for any incoming address,
+                // when binding to an address.
                 // This is the usual address to give in
                 // the sin_addr member of struct sockaddr_in
                 // when you want to accept Internet connections.
                 //
-                // CAUTION! While ipv4 constants are all defined in host byte order,
-                // the ipv6 constants are already defined in NETWORK byte order,
-                // so that a conversion is NOT necessary here:
-                // http://www.questionscompiled.com/ipv6-socket-api.html
+                // CAUTION! Convert to NETWORK byte order.
                 //
-                *a = in6addr_any;
+                (*a).s_addr = htonl(INADDR_ANY);
             }
         }
 
@@ -160,14 +159,11 @@ void open_socket_host_address_inet6(void* p0, void* p1, void* p2) {
             //
             // The internet address in network (binary) format.
             //
-            // CAUTION! While ipv4 constants are all defined in host byte order,
-            // the ipv6 constants are already defined in NETWORK byte order,
-            // so that a conversion is NOT necessary here:
-            // http://www.questionscompiled.com/ipv6-socket-api.html
+            // CAUTION! Convert to NETWORK byte order.
             //
             // CAUTION! The loopback is used as default here.
             //
-            struct in6_addr n = in6addr_loopback;
+            uint32_t n = htonl(INADDR_LOOPBACK);
 
             //
             // Allocate terminated address item.
@@ -192,27 +188,29 @@ void open_socket_host_address_inet6(void* p0, void* p1, void* p2) {
             //
             copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+//?? TODO: This ifndef can be removed as soon as the mingw compiler supports "Winsock2.h".
+#ifndef _WIN32
             //
             // Convert internet address from presentation (textual)
             // to network (binary) format, the latter being an integer.
             //
             // CAUTION! The returned value is already in NETWORK byte order.
             //
-            inet_pton(*INET6_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME, (char*) td, (void*) &n);
+            inet_pton(*INET_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME, (char*) td, (void*) &n);
+#endif
 
             // Assign address.
-            *a = n;
+            (*a).s_addr = n;
 
             // Deallocate terminated address item.
             deallocate_item((void*) &t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
         }
-#endif
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open socket host address inet6. The inet6 host address is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise host address inet. The inet host address is null.");
     }
 }
 
-/* INET6_HOST_ADDRESS_SOCKET_OPENER_SOURCE */
+/* INET_HOST_ADDRESS_DESERIALISER_SOURCE */
 #endif
