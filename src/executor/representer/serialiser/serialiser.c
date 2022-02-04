@@ -26,14 +26,14 @@
 #ifndef SERIALISER_SOURCE
 #define SERIALISER_SOURCE
 
-#include "../../constant/language/cyboi/state_cyboi_language.c"
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/model/html/document_type_html_model.c"
-#include "../../executor/modifier/item_modifier.c"
-#include "../../executor/representer/serialiser/binary_crlf/binary_crlf_serialiser.c"
+#include "../../../constant/language/cyboi/state_cyboi_language.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/html/document_type_html_model.c"
+#include "../../../executor/modifier/item_modifier.c"
+#include "../../../executor/representer/serialiser/binary_crlf/binary_crlf_serialiser.c"
 //
 // CAUTION! Do NOT include the "content_element_part_cybol_serialiser.c" module.
 // It is true, the "serialise_cybol_part_element_content" function is called from here,
@@ -42,8 +42,8 @@
 //
 // Therefore, the "cybol_serialiser.c" module is included here.
 //
-#include "../../executor/representer/serialiser/cybol/cybol_serialiser.c"
-#include "../../executor/representer/serialiser/gui/initial_gui_serialiser.c"
+#include "../../../executor/representer/serialiser/cybol/cybol_serialiser.c"
+#include "../../../executor/representer/serialiser/gui/initial_gui_serialiser.c"
 //
 // CAUTION! Do NOT include the "content_element_part_html_serialiser.c" module.
 // It is true, the "serialise_html_part_element_content" function is called from here,
@@ -52,10 +52,10 @@
 //
 // Therefore, the "html_serialiser.c" module is included here.
 //
-#include "../../executor/representer/serialiser/html/html_serialiser.c"
-#include "../../executor/representer/serialiser/http_request/http_request_serialiser.c"
-#include "../../executor/representer/serialiser/http_response/http_response_serialiser.c"
-#include "../../executor/representer/serialiser/latex/latex_serialiser.c"
+#include "../../../executor/representer/serialiser/html/html_serialiser.c"
+#include "../../../executor/representer/serialiser/http_request/http_request_serialiser.c"
+#include "../../../executor/representer/serialiser/http_response/http_response_serialiser.c"
+#include "../../../executor/representer/serialiser/latex/latex_serialiser.c"
 //
 // CAUTION! Do NOT include the "content_element_part_model_diagram_serialiser.c" module.
 // It is true, the "serialise_model_diagram_part_element_content" function is called from here,
@@ -64,11 +64,11 @@
 //
 // Therefore, the "model_diagram_serialiser.c" module is included here.
 //
-#include "../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
-#include "../../executor/representer/serialiser/terminal_mode/terminal_mode_serialiser.c"
-#include "../../executor/representer/serialiser/tui/initial_tui_serialiser.c"
-//?? #include "../../executor/representer/serialiser/xdt_field_description/xdt_field_description_serialiser.c"
-#include "../../executor/representer/serialiser/xdt/xdt_serialiser.c"
+#include "../../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
+#include "../../../executor/representer/serialiser/terminal_mode/terminal_mode_serialiser.c"
+#include "../../../executor/representer/serialiser/tui/initial_tui_serialiser.c"
+//?? #include "../../../executor/representer/serialiser/xdt_field_description/xdt_field_description_serialiser.c"
+#include "../../../executor/representer/serialiser/xdt/xdt_serialiser.c"
 //
 // CAUTION! Do NOT include the "content_element_part_xml_serialiser.c" module.
 // It is true, the "serialise_xml_part_element_content" function is called from here,
@@ -82,7 +82,7 @@
 // Therefore, do NOT delete this include, even if the xml serialiser
 // is possibly not called directly below.
 //
-#include "../../executor/representer/serialiser/xml/xml_serialiser.c"
+#include "../../../executor/representer/serialiser/xml/xml_serialiser.c"
 
 /**
  * Serialises the source into the destination, according to the given language.
