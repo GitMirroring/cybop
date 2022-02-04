@@ -47,19 +47,17 @@
  * Connects the given socket to the server given by the address.
  *
  * @param p0 the client socket
- * @param p1 the family data (namespace)
- * @param p2 the family count
- * @param p3 the style data (communication type)
- * @param p4 the style count
- * @param p5 the protocol data
- * @param p6 the protocol count
- * @param p7 the filename data
- * @param p8 the filename count
- * @param p9 the host address data
- * @param p10 the host address count
- * @param p11 the port
+ * @param p1 the port
+ * @param p2 the host address data (network communication) OR filename data (local unix domain socket)
+ * @param p3 the host address count (network communication) OR filename count (local unix domain socket)
+ * @param p4 the family data (namespace)
+ * @param p5 the family count
+ * @param p6 the style data (communication type)
+ * @param p7 the style count
+ * @param p8 the protocol data
+ * @param p9 the protocol count
  */
-void open_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void open_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket.");
 
@@ -76,13 +74,13 @@ void open_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     int as = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get protocol family.
-    deserialise_cybol_socket_family_protocol((void*) &pf, p1, p2);
+    deserialise_cybol_socket_family_protocol((void*) &pf, p4, p5);
     // Get address family.
-    deserialise_cybol_socket_family_address((void*) &af, p1, p2);
+    deserialise_cybol_socket_family_address((void*) &af, p4, p5);
     // Get communication style.
-    deserialise_cybol_socket_style((void*) &st, p3, p4);
+    deserialise_cybol_socket_style((void*) &st, p6, p7);
     // Get protocol.
-    deserialise_cybol_socket_protocol((void*) &p, p5, p6);
+    deserialise_cybol_socket_protocol((void*) &p, p8, p9);
 
     // Create socket.
     open_socket_device(p0, (void*) &pf, (void*) &st, (void*) &p);
@@ -94,9 +92,9 @@ void open_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // since it gets allocated inside the function and
     // has to be preserved as return value.
     //
-    allocate_socket_address((void*) &ad, (void*) &as, p7, p8, p9, p10, p11, (void*) &af);
+    allocate_socket_address((void*) &ad, (void*) &as, p1, p2, p3, (void*) &af);
 
-    // Connect via socket with server.
+    // Connect via socket with server whose address is given.
     open_socket_connexion(p0, ad, (void*) &as);
 
     // Deallocate socket address.

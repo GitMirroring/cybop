@@ -27,56 +27,41 @@
 #define DISPLAY_OPENER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/client_state_cyboi_name.c"
-#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/copier/array_copier.c"
-#include "../../../../executor/dispatcher/opener/display/window_display_opener.c"
-#include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../logger/logger.c"
 
+#if defined(__linux__) || defined(__unix__)
+    #include "../../../../executor/dispatcher/opener/xcb/xcb_opener.c"
+#elif defined(__APPLE__) && defined(__MACH__)
+    //?? #include "../../../../executor/dispatcher/opener/darwin_display/darwin_display_opener.c"
+    //?? TODO: Add cocoa support for apple.
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    #include "../../../../executor/dispatcher/opener/win32_display/win32_display_opener.c"
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
+
 /**
- * Allocates display-specific resources.
+ * Opens up a client window on the display.
  *
  * @param p0 the window identification
  * @param p1 the client entry
  */
 void open_display(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open display.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open display.");
 
-    //
-    // Declaration.
-    //
-
-    // The event buffer item.
-    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    //
-    // Allocation.
-    //
-
-    //
-    // Allocate event buffer item.
-    //
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    //
-    allocate_item((void*) &b, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
-
-    //
-    // Storage.
-    //
-
-    // Copy event buffer to client entry.
-    copy_array_forward(p1, (void*) &b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ITEM_BUFFER_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-    // Open client window.
-    open_display_window(p0, p1);
+#if defined(__linux__) || defined(__unix__)
+    open_xcb(p0, p1);
+#elif defined(__APPLE__) && defined(__MACH__)
+    //?? open_darwin_display(p0, p1);
+    // Add cocoa support for apple
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    open_win32_display(p0, p1);
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
 }
 
 /* DISPLAY_OPENER_SOURCE */

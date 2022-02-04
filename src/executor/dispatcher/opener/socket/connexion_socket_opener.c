@@ -44,8 +44,8 @@
  * Connects the socket to the server given by the address.
  *
  * @param p0 the socket
- * @param p1 the server address data
- * @param p2 the server address size
+ * @param p1 the host (server) address data
+ * @param p2 the host (server) address size
  */
 void open_socket_connexion(void* p0, void* p1, void* p2) {
 

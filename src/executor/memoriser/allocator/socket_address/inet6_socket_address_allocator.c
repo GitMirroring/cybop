@@ -56,9 +56,9 @@
  *
  * @param p0 the socket address data (pointer reference)
  * @param p1 the socket address size
- * @param p2 the host address data
- * @param p3 the host address count
- * @param p4 the port
+ * @param p2 the port
+ * @param p3 the host address data
+ * @param p4 the host address count
  */
 void allocate_socket_address_inet6(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
@@ -106,7 +106,7 @@ void allocate_socket_address_inet6(void* p0, void* p1, void* p2, void* p3, void*
         // CAUTION! The returned host address
         // is already in network byte order.
         //
-        open_socket_host_address_inet6((void*) &ha, p2, p3);
+        open_socket_host_address_inet6((void*) &ha, p3, p4);
 
         //
         // Allocate socket address.
@@ -130,7 +130,7 @@ void allocate_socket_address_inet6(void* p0, void* p1, void* p2, void* p3, void*
         // CAUTION! The forwarded host address
         // is already in network byte order.
         //
-        set_socket_address_inet6(*ad, (void*) &ha, p4);
+        set_socket_address_inet6(*ad, (void*) &ha, p2);
 
     } else {
 

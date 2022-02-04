@@ -79,14 +79,12 @@
  *
  * @param p0 the socket address data (pointer reference)
  * @param p1 the socket address size
- * @param p2 the filename data
- * @param p3 the filename count
- * @param p4 the host address data
- * @param p5 the host address count
- * @param p6 the port
- * @param p7 the address family (namespace)
+ * @param p2 the port
+ * @param p3 the host address data (network communication) OR filename data (local unix domain socket)
+ * @param p4 the host address count (network communication) OR filename count (local unix domain socket)
+ * @param p5 the address family (namespace)
  */
-void allocate_socket_address(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void allocate_socket_address(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -103,7 +101,7 @@ void allocate_socket_address(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                compare_integer_equal((void*) &r, p7, (void*) BLUETOOTH_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME);
+                compare_integer_equal((void*) &r, p5, (void*) BLUETOOTH_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME);
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -113,30 +111,30 @@ void allocate_socket_address(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                compare_integer_equal((void*) &r, p7, (void*) INET_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME);
+                compare_integer_equal((void*) &r, p5, (void*) INET_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME);
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                    allocate_socket_address_inet(p0, p1, p4, p5, p6);
+                    allocate_socket_address_inet(p0, p1, p2, p3, p4);
                 }
             }
 
             if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                compare_integer_equal((void*) &r, p7, (void*) INET6_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME);
+                compare_integer_equal((void*) &r, p5, (void*) INET6_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME);
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 //?? TODO: This ifndef can be removed as soon as the mingw compiler supports ipv6.
 #ifndef _WIN32
-                    allocate_socket_address_inet6(p0, p1, p4, p5, p6);
+                    allocate_socket_address_inet6(p0, p1, p2, p3, p4);
 #endif
                 }
             }
 
             if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                compare_integer_equal((void*) &r, p7, (void*) IRDA_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME);
+                compare_integer_equal((void*) &r, p5, (void*) IRDA_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME);
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -146,14 +144,14 @@ void allocate_socket_address(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                compare_integer_equal((void*) &r, p7, (void*) LOCAL_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME);
+                compare_integer_equal((void*) &r, p5, (void*) LOCAL_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME);
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 #if defined(__linux__) || defined(__unix__)
-                    allocate_socket_address_local(p0, p1, p2, p3);
+                    allocate_socket_address_local(p0, p1, p3, p4);
 #elif defined(__APPLE__) && defined(__MACH__)
-                    allocate_socket_address_local(p0, p1, p2, p3);
+                    allocate_socket_address_local(p0, p1, p3, p4);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
                     // CAUTION! The local or unix domain sockets are

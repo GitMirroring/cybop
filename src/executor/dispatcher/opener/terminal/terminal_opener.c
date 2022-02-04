@@ -42,14 +42,14 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Starts up the terminal.
+ * Opens up a terminal.
  *
- * @param p0 the input/output entry
+ * @param p0 the server entry
  */
-void startup_terminal(void* p0) {
+void open_terminal(void* p0) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal.");
-    fwprintf(stdout, L"Debug: Startup terminal. p0: %i\n", p0);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open terminal.");
+    fwprintf(stdout, L"Debug: Open terminal. p0: %i\n", p0);
 
     //
     // Declaration.
@@ -116,30 +116,30 @@ void startup_terminal(void* p0) {
     //
 
     //
-    // Store various values in input/output entry.
+    // Store various values in server entry.
     //
     // CAUTION! Do NOT use "overwrite_array" function here,
     // since it adapts the array count and size.
     // But the array's count and size are CONSTANT.
     //
-    // CAUTION! Do NOT hand over input/output entry as pointer reference.
+    // CAUTION! Do NOT hand over server entry as pointer reference.
     //
     // CAUTION! Hand over value as pointer REFERENCE.
     //
 
-    // Set blocking mode into input/output entry.
+    // Set blocking mode into server entry.
     copy_array_forward(p0, (void*) &b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) BLOCKING_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set canonical mode into input/output entry.
+    // Set canonical mode into server entry.
     copy_array_forward(p0, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CANONICAL_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set echo mode into input/output entry.
+    // Set echo mode into server entry.
     copy_array_forward(p0, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ECHO_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set wide character buffer item into input/output entry.
+    // Set wide character buffer item into server entry.
     copy_array_forward(p0, (void*) &w, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) BUFFER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     //
     // The output- and input file streams.
     //
-    // CAUTION! The standard input/output streams "stdin"
+    // CAUTION! The standard server streams "stdin"
     // and "stdout" exist on posix as well as on win32.
     //
     void* os = (void*) stdout;
@@ -174,7 +174,7 @@ void startup_terminal(void* p0) {
     // A redundant storage of mode settings does not make sense.
     //
     // However, output- AND input stream have to be stored here in
-    // the input/output entry. It is true that both streams have
+    // the server entry. It is true that both streams have
     // identical terminal settings. But if only the output stream was stored,
     // then the missing input stream would cause read errors.
     //
@@ -214,15 +214,15 @@ void startup_terminal(void* p0) {
     //
 
 #if defined(__linux__) || defined(__unix__)
-    startup_terminal_stream(p0, (void*) &os, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    startup_terminal_stream(p0, (void*) &is, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    open_terminal_stream(p0, (void*) &os, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    open_terminal_stream(p0, (void*) &is, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 #elif defined(__APPLE__) && defined(__MACH__)
-    startup_terminal_stream(p0, (void*) &os, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    startup_terminal_stream(p0, (void*) &is, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    open_terminal_stream(p0, (void*) &os, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    open_terminal_stream(p0, (void*) &is, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    startup_terminal_stream(p0, (void*) &os, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    startup_terminal_stream(p0, (void*) &is, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    open_terminal_stream(p0, (void*) &os, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    open_terminal_stream(p0, (void*) &is, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif

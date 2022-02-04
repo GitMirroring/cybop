@@ -24,6 +24,9 @@
         * Move socket address creation files to directory "executor/memoriser/allocator/socket_address/"
         * Move socket address initialisation files to directory "executor/accessor/setter/socket_address/"
         * Move host address conversion files to directory "executor/representer/deserialiser/host_address/"
+        * Update display opener
+        * Update socket opener
+        * Update applicator for cybol operation "dispatch/open"
 
 2022-02-03  Christian Heller  <christian.heller@cybop.org>
 

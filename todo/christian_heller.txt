@@ -15,6 +15,8 @@
         * See service lifecycle cybol examples in directory "examples/communication/"
 
         DONE:
+        * dispatcher opener socket
+        * dispatcher opener display
         * maintain/startup
         * activate/enable
         * dispatch/open
@@ -23,6 +25,7 @@
         * file opener
         * file closer
         DOING:
+        * dispatcher opener terminal
         * Update terminal files in dispatcher opener
         * Update or delete directory "executor/dispatcher/editor/"
         * Update or delete "OLD" files for setting attributes and status in directory "executor/dispatcher/opener/serial_port/"
@@ -39,6 +42,8 @@
         * display_xcb
         * display_win32
         * mobile_app
+
+        * Provide cybol format "meta/model" to deserialise e.g. socket address etc. into an integer for more efficient processing ?? (equivalent of compilation)
 
     //
     //?? TODO: Consider this hint when parsing for the END character of a sequence.

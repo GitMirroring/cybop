@@ -45,14 +45,15 @@
  *
  * @param p0 the client entry
  * @param p1 the client device identification
- * @param p2 the device name data
- * @param p3 the device name count
+ * @param p2 the host address data (network communication) OR filename data (device, file, local unix domain socket)
+ * @param p3 the host address count (network communication) OR filename count (device, file, local unix domain socket)
  * @param p4 the server entry (pointer reference)
  */
 void open_entry(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open entry.");
-    fwprintf(stdout, L"Debug: Open entry. p0: %i\n", p0);
+    fwprintf(stdout, L"Debug: Open entry. p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Open entry. *p1: %i\n", *((int*) p1));
 
     //
     // Declaration.

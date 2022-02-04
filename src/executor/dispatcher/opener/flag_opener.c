@@ -37,21 +37,30 @@
  *
  * If this is a client stub socket, then do NOT open a new device.
  *
- * @param p0 the client identification (e.g. file descriptor, socket number)
- * @param p1 the device name data
- * @param p2 the device name count
- * @param p3 the channel
- * @param p4 the stub flag
+ * @param p0 the client identification (e.g. file descriptor, socket number, window id)
+ * @param p1 the port
+ * @param p2 the host address data (network communication) OR filename data (device, file, local unix domain socket)
+ * @param p3 the host address count (network communication) OR filename count (device, file, local unix domain socket)
+ * @param p4 the family data (namespace)
+ * @param p5 the family count
+ * @param p6 the style data (communication type)
+ * @param p7 the style count
+ * @param p8 the protocol data
+ * @param p9 the protocol count
+ * @param p10 the client entry
+ * @param p11 the channel
+ * @param p12 the stub flag
  */
-void open_flag(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void open_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open flag.");
-    fwprintf(stdout, L"Debug: Open flag. channel p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Open flag. stub flag p12: %i\n", p12);
+    fwprintf(stdout, L"Debug: Open flag. stub flag *p12: %i\n", *((int*) p12));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_unequal((void*) &r, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, p12, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -61,7 +70,7 @@ void open_flag(void* p0, void* p1, void* p2, void* p3, void* p4) {
         //
 
         // Open device.
-        open_device(p0, p1, p2, p3);
+        open_device(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
 
     } else {
 

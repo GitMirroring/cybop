@@ -26,18 +26,24 @@
 #ifndef XCB_OPENER_SOURCE
 #define XCB_OPENER_SOURCE
 
-#include <xcb/xcb.h>
+#include <xcb/xcb.h> // xcb_connection_t etc.
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/client_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/server_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Opens up a window.
+ * Opens up a client window on the x window system display.
  *
  * @param p0 the window identification
  * @param p1 the client entry
@@ -45,9 +51,11 @@
 void open_xcb(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open xcb.");
+    fwprintf(stdout, L"Debug: Open xcb. p0: %i\n", p0);
+    fwprintf(stdout, L"Debug: Open xcb. *p0: %i\n", *((int*) p0));
 
-    //?? fwprintf(stdout, L"Debug: Open xcb. p0: %i\n", p0);
-
+    // The server entry.
+    void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The connexion.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The screen.
@@ -57,40 +65,26 @@ void open_xcb(void* p0, void* p1) {
     // The delete window cookie.
     void* dwc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    //
-    // Retrieve connexion from input/output entry.
-    //
-    // CAUTION! Do NOT use "overwrite_array" function here,
-    // since it adapts the array count and size.
-    // But the array's count and size are CONSTANT.
-    //
-    // CAUTION! Hand over values as pointer REFERENCE.
-    //
-    // CAUTION! Do NOT hand over input/output entry as pointer reference.
-    //
-    copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    //
-    // Retrieve screen from input/output entry.
-    //
-    // CAUTION! Do NOT use "overwrite_array" function here,
-    // since it adapts the array count and size.
-    // But the array's count and size are CONSTANT.
-    //
-    // CAUTION! Hand over values as pointer REFERENCE.
-    //
-    // CAUTION! Do NOT hand over input/output entry as pointer reference.
-    //
-    copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SCREEN_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get server entry from client entry.
+    copy_array_forward((void*) &se, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SERVER_ENTRY_BACKLINK_CLIENT_STATE_CYBOI_NAME);
+
+    // Get connexion from server entry.
+    copy_array_forward((void*) &c, se, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_SERVER_STATE_CYBOI_NAME);
+    // Get screen from server entry.
+    copy_array_forward((void*) &s, se, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SCREEN_XCB_DISPLAY_SERVER_STATE_CYBOI_NAME);
 
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
-        // A display DOES exist in input/output entry.
+        // A display DOES exist in server entry.
         //
+
+        // Cast connexion to correct type.
+        xcb_connection_t* ct = (xcb_connection_t*) c;
 
         if (s != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            // The xcb screen type value.
+            // Cast screen to correct type.
             xcb_screen_t* st = (xcb_screen_t*) s;
 
             //
@@ -232,14 +226,16 @@ void open_xcb(void* p0, void* p1) {
                 | XCB_EVENT_MASK_OWNER_GRAB_BUTTON;
 
             // Allocate xid for window.
-            w = (int) xcb_generate_id((xcb_connection_t*) c);
+            w = (int) xcb_generate_id(ct);
+            // Cast window id to correct type.
+            xcb_window_t wt = (xcb_window_t) w;
 
             fwprintf(stdout, L"Debug: Open xcb. w: %i\n", w);
 
             // Create window.
-            xcb_create_window((xcb_connection_t*) c, // connexion
+            xcb_create_window(ct, // connexion
                 XCB_COPY_FROM_PARENT, // depth (same as root)
-                (xcb_window_t) w, // window id
+                wt, // window id
                 (*st).root, // parent window
                 0, 0, // x, y
                 150, 150, // width, height
@@ -253,12 +249,12 @@ void open_xcb(void* p0, void* p1) {
             //
 
             // Send notification when window is destroyed.
-            xcb_intern_atom_cookie_t protocols_cookie = xcb_intern_atom((xcb_connection_t*) c, (uint8_t) *NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (uint16_t) strlen("WM_PROTOCOLS"), "WM_PROTOCOLS");
+            xcb_intern_atom_cookie_t protocols_cookie = xcb_intern_atom(ct, (uint8_t) *NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (uint16_t) strlen("WM_PROTOCOLS"), "WM_PROTOCOLS");
             // CAUTION! The last argument is a pointer reference of type void**
-            xcb_intern_atom_reply_t* protocols_reply = xcb_intern_atom_reply((xcb_connection_t*) c, protocols_cookie, (xcb_generic_error_t**) NULL_POINTER_STATE_CYBOI_MODEL);
-            xcb_intern_atom_cookie_t delete_cookie = xcb_intern_atom((xcb_connection_t*) c, (uint8_t) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (uint16_t) strlen("WM_DELETE_WINDOW"), "WM_DELETE_WINDOW");
+            xcb_intern_atom_reply_t* protocols_reply = xcb_intern_atom_reply(ct, protocols_cookie, (xcb_generic_error_t**) NULL_POINTER_STATE_CYBOI_MODEL);
+            xcb_intern_atom_cookie_t delete_cookie = xcb_intern_atom(ct, (uint8_t) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (uint16_t) strlen("WM_DELETE_WINDOW"), "WM_DELETE_WINDOW");
             // CAUTION! The last argument is a pointer reference of type void**
-            xcb_intern_atom_reply_t* delete_reply = xcb_intern_atom_reply((xcb_connection_t*) c, delete_cookie, (xcb_generic_error_t**) NULL_POINTER_STATE_CYBOI_MODEL);
+            xcb_intern_atom_reply_t* delete_reply = xcb_intern_atom_reply(ct, delete_cookie, (xcb_generic_error_t**) NULL_POINTER_STATE_CYBOI_MODEL);
 
             dwc = (void*) delete_reply;
 
@@ -269,7 +265,7 @@ void open_xcb(void* p0, void* p1) {
             // with either XCB_ATOM_INTEGER or (*protocols_reply).atom,
             // since it will not function then.
             //
-            xcb_change_property((xcb_connection_t*) c, XCB_PROP_MODE_REPLACE, (xcb_window_t) w, (*protocols_reply).atom, 4, 32, 1, &((*delete_reply).atom));
+            xcb_change_property(ct, XCB_PROP_MODE_REPLACE, wt, (*protocols_reply).atom, 4, 32, 1, &((*delete_reply).atom));
 
             // Free internal protocols cookie structure.
             free(protocols_reply);
@@ -286,9 +282,10 @@ void open_xcb(void* p0, void* p1) {
             // Copy window identification to corresponding parametre.
             copy_integer(p0, (void*) &w);
 
-            //?? fwprintf(stdout, L"Debug: Open xcb. *p0: %i\n", *((int*) p0));
+            fwprintf(stdout, L"Debug: Open xcb. copied window id p0: %i\n", p0);
+            fwprintf(stdout, L"Debug: Open xcb. copied window id *p0: %i\n", *((int*) p0));
 
-            // Store delete window cookie in input/output entry.
+            // Store delete window cookie in server entry.
             //?? copy_array_forward(p1, (void*) &dwc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         } else {

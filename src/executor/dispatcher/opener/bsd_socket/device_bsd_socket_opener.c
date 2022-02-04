@@ -82,7 +82,7 @@ void open_bsd_socket_device(void* p0, void* p1, void* p2, void* p3) {
                 //
                 // param 0: protocol family (namespace)
                 // param 1: communication style
-                // param 2: protocol (zero is usually right)
+                // param 2: protocol (zero is usually right, following the glibc manual)
                 //
                 // CAUTION! Use prefix "PF_" here and NOT "AF_"!
                 // The latter is to be used for address family assignment.
@@ -97,7 +97,7 @@ void open_bsd_socket_device(void* p0, void* p1, void* p2, void* p3) {
                 // "zero is usually right for protocol".
                 // *s = socket(PF_LOCAL, SOCK_DGRAM, 0);
                 //
-                int r = socket(*pf, *st, 0);
+                int r = socket(*pf, *st, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
                 if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

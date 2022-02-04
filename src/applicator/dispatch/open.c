@@ -40,11 +40,11 @@
  *
  * Parametres:
  * - channel (required): the channel on which to open a client, e.g. file, serial_port, socket, display
- * - device (required):
- *      = filename for channel "file" or "serialport" or "terminal" or "pipeline"
- *      = filename for channel "socket" with namespace "local" (unix domain socket)
- *      = host address for channel "socket" with namespace "ipv4" or "ipv6"
  * - port (optional): the port for channel "socket" with namespace "ipv4" or "ipv6"
+ * - device (required):
+ *      = filename for channel "file" or "serialport" or "terminal" or "pipeline", e.g. /path/to/file.txt or /dev/ttyS0
+ *      = filename for channel "socket" with namespace "local" (unix domain socket), e.g. localbuffer.socket
+ *      = host address for channel "socket" with namespace "ipv4" or "ipv6", e.g. localhost or 127.0.0.1
  * - namespace (optional): the address family, e.g. ipv4 or ipv6
  * - style (optional): the communication style, e.g. stream or datagram
  * - protocol (optional): the protocol, e.g. tcp or udp
@@ -63,11 +63,11 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // The channel part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The device part.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The port part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The namespace part.
+    // The device part.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The namespace (family) part.
     void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The style part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -80,11 +80,11 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // The channel part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The device part model item.
-    void* dm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The port part model item.
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The namespace part model item.
+    // The device part model item.
+    void* dm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The namespace (family) part model item.
     void* nm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The style part model item.
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -97,12 +97,12 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // The channel part model item data.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The port part model item data.
+    void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The device part model item data, count.
     void* dmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* dmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The port part model item data.
-    void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The namespace part model item data, count.
+    // The namespace (family) part model item data, count.
     void* nmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* nmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The style part model item data, count.
@@ -118,11 +118,11 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // Get channel part.
     get_part_name((void*) &c, p0, (void*) CHANNEL_OPEN_DISPATCHING_LOGIC_CYBOL_NAME, (void*) CHANNEL_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get device part.
-    get_part_name((void*) &d, p0, (void*) DEVICE_OPEN_DISPATCHING_LOGIC_CYBOL_NAME, (void*) DEVICE_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get port part.
     get_part_name((void*) &p, p0, (void*) PORT_OPEN_DISPATCHING_LOGIC_CYBOL_NAME, (void*) PORT_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get namespace part.
+    // Get device part.
+    get_part_name((void*) &d, p0, (void*) DEVICE_OPEN_DISPATCHING_LOGIC_CYBOL_NAME, (void*) DEVICE_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get namespace (family) part.
     get_part_name((void*) &n, p0, (void*) NAMESPACE_OPEN_DISPATCHING_LOGIC_CYBOL_NAME, (void*) NAMESPACE_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get style part.
     get_part_name((void*) &s, p0, (void*) STYLE_OPEN_DISPATCHING_LOGIC_CYBOL_NAME, (void*) STYLE_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
@@ -135,11 +135,11 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // Get channel part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get device part model item.
-    copy_array_forward((void*) &dm, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get port part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get namespace part model item.
+    // Get device part model item.
+    copy_array_forward((void*) &dm, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get namespace (family) part model item.
     copy_array_forward((void*) &nm, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get style part model item.
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -152,12 +152,12 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // Get channel part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get port part model item data.
+    copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get device part model item data, count.
     copy_array_forward((void*) &dmd, dm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &dmc, dm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get port part model item data.
-    copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get namespace part model item data, count.
+    // Get namespace (family) part model item data, count.
     copy_array_forward((void*) &nmd, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &nmc, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get style part model item data, count.
@@ -172,7 +172,7 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &stmd, stm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Open up client.
-    open_client(idmd, p4, cmd, pmd, dmd, dmc/*??, nmd, nmc, smd, smc, prmd, prmc*/, stmd);
+    open_client(idmd, pmd, dmd, dmc, nmd, nmc, smd, smc, prmd, prmc, cmd, stmd, p4);
 }
 
 /* OPEN_SOURCE */

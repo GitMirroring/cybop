@@ -54,28 +54,35 @@
  * /usr/include/fcntl.h:168
  * extern int open (const char *__file, int __oflag, ...) __nonnull ((1));
  *
- * @param p0 the client identification (e.g. file descriptor, socket number)
- * @param p1 the internal memory
- * @param p2 the channel
- * @param p3 the port
- * @param p4 the device name data
- * @param p5 the device name count
- * @param p6 the stub flag
+ * @param p0 the client identification (e.g. file descriptor, socket number, window id)
+ * @param p1 the port
+ * @param p2 the host address data (network communication) OR filename data (device, file, local unix domain socket)
+ * @param p3 the host address count (network communication) OR filename count (device, file, local unix domain socket)
+ * @param p4 the family data (namespace)
+ * @param p5 the family count
+ * @param p6 the style data (communication type)
+ * @param p7 the style count
+ * @param p8 the protocol data
+ * @param p9 the protocol count
+ * @param p10 the channel
+ * @param p11 the stub flag
+ * @param p12 the internal memory
  */
-void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open client.");
-    fwprintf(stdout, L"Debug: Open client. channel p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Open client. channel p10: %i\n", p10);
+    fwprintf(stdout, L"Debug: Open client. channel *p10: %i\n", *((int*) p10));
 
     // The server entry.
     void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The client entry.
-    void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The client list.
     void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The client entry.
+    void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get server entry from internal memory.
-    get_internal_memory_channel((void*) &se, p1, p2, p3);
+    get_internal_memory_channel((void*) &se, p12, p10, p1);
 
     if (se == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -90,19 +97,19 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // Get client list from server entry.
     copy_array_forward((void*) &cl, se, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_LIST_SERVER_STATE_CYBOI_NAME);
 
-    // Get client entry from server entry client list by given device identification.
+    // Get client entry from server entry client list by given client device identification.
     find_server_entry((void*) &ce, se, p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (ce == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // Open device depending on stub flag.
-        open_flag(p0, p4, p5, p2, p6);
-
         // Allocate client entry.
-        allocate_client_entry((void*) &ce, p2);
+        allocate_client_entry((void*) &ce, p10);
+
+        // Open device depending on stub flag.
+        open_flag(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, ce, p10, p11);
 
         // Initialise client entry.
-        open_entry(ce, p0, p4, p5, (void*) &se);
+        open_entry(ce, p0, p2, p3, (void*) &se);
 
         //
         // Add client entry to client list of server entry.

@@ -41,13 +41,13 @@
  * Opens up a win32 display window.
  *
  * @param p0 the window identification
- * @param p1 the input/output entry
+ * @param p1 the client entry
  */
 void open_win32_display(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open win32 display.");
-
     fwprintf(stdout, L"Debug: Open win32 display. p0: %i\n", p0);
+    fwprintf(stdout, L"Debug: Open win32 display. *p0: %i\n", *((int*) p0));
 
     // The extended style.
     DWORD e = (DWORD) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL; // WS_EX_CLIENTEDGE;
