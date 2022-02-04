@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PROTOCOL_SOCKET_OPENER_SOURCE
-#define PROTOCOL_SOCKET_OPENER_SOURCE
+#ifndef PROTOCOL_SOCKET_CYBOL_DESERIALISER_SOURCE
+#define PROTOCOL_SOCKET_CYBOL_DESERIALISER_SOURCE
 
 #if defined(__linux__) || defined(__unix__)
     #include <sys/socket.h>
@@ -37,13 +37,13 @@
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cybol/socket/protocol_socket_cybol_model.c"
-#include "../../../../executor/checker/operation_checker.c"
-#include "../../../../executor/copier/integer_copier.c"
-#include "../../../../logger/logger.c"
+#include "../../../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../../constant/model/cybol/socket/protocol_socket_cybol_model.c"
+#include "../../../../../executor/checker/operation_checker.c"
+#include "../../../../../executor/copier/integer_copier.c"
+#include "../../../../../logger/logger.c"
 
 /**
  * Converts protocol string into integer.
@@ -52,9 +52,9 @@
  * @param p1 the protocol data
  * @param p2 the protocol count
  */
-void open_socket_protocol(void* p0, void* p1, void* p2) {
+void deserialise_cybol_socket_protocol(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket protocol.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol socket protocol.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -165,12 +165,12 @@ void open_socket_protocol(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open socket protocol. The protocol is not known.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol socket protocol. The protocol is not known.");
     }
 
     // Assign protocol.
     copy_integer(p0, (void*) &p);
 }
 
-/* PROTOCOL_SOCKET_OPENER_SOURCE */
+/* PROTOCOL_SOCKET_CYBOL_DESERIALISER_SOURCE */
 #endif

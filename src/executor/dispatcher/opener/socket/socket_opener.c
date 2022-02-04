@@ -31,10 +31,11 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/dispatcher/opener/socket/socket_address/socket_address_socket_starter.c"
 #include "../../../../executor/dispatcher/opener/socket/create_socket_starter.c"
-#include "../../../../executor/dispatcher/opener/socket/family_socket_starter.c"
-#include "../../../../executor/dispatcher/opener/socket/protocol_socket_starter.c"
-#include "../../../../executor/dispatcher/opener/socket/style_socket_starter.c"
 #include "../../../../executor/dispatcher/opener/socket/connexion_socket_opener.c"
+#include "../../../../executor/representer/deserialiser/cybol/socket/address_family_socket_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/socket/protocol_family_socket_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/socket/protocol_socket_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/socket/style_socket_cybol_deserialiser.c"
 #include "../../../../logger/logger.c"
 #include "../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
 #include "../../../../variable/symbolic_name/protocol_family_socket_symbolic_name.c"
@@ -73,12 +74,14 @@ void open_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
     int as = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Get protocol- and address family.
-    open_socket_family((void*) &pf, (void*) &af, p1, p2);
-    // Get socket communication style.
-    open_socket_style((void*) &st, p3, p4);
-    // Get socket protocol.
-    open_socket_protocol((void*) &p, p5, p6);
+    // Get protocol family.
+    deserialise_cybol_socket_family_protocol((void*) &pf, p1, p2);
+    // Get address family.
+    deserialise_cybol_socket_family_address((void*) &af, p1, p2);
+    // Get communication style.
+    deserialise_cybol_socket_style((void*) &st, p3, p4);
+    // Get protocol.
+    deserialise_cybol_socket_protocol((void*) &p, p5, p6);
     // Create socket.
     open_socket_device(p0, (void*) &pf, (void*) &st, (void*) &p);
     //

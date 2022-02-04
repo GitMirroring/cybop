@@ -23,6 +23,9 @@
         * file opener
         * file closer
         DOING:
+        * Move socket address creation files like "inet_socket_address_socket_opener.c" to memoriser allocator
+        * Move socket address initialisation files like "initialise_inet_socket_address_socket_opener.c" to accessor setter
+        * Move host address conversion files like "inet_host_address_socket_opener.c" to ??
         * Update terminal files in dispatcher opener
         * Update or delete directory "executor/dispatcher/editor/"
         * Update or delete "OLD" files for setting attributes and status in directory "executor/dispatcher/opener/serial_port/"

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FAMILY_SOCKET_OPENER_SOURCE
-#define FAMILY_SOCKET_OPENER_SOURCE
+#ifndef PROTOCOL_FAMILY_SOCKET_CYBOL_DESERIALISER_SOURCE
+#define PROTOCOL_FAMILY_SOCKET_CYBOL_DESERIALISER_SOURCE
 
 #if defined(__linux__) || defined(__unix__)
     #include <sys/socket.h>
@@ -37,15 +37,15 @@
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cybol/socket/namespace_socket_cybol_model.c"
-#include "../../../../executor/checker/operation_checker.c"
-#include "../../../../executor/copier/integer_copier.c"
-#include "../../../../logger/logger.c"
-#include "../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
-#include "../../../../variable/symbolic_name/protocol_family_socket_symbolic_name.c"
+#include "../../../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../../constant/model/cybol/socket/namespace_socket_cybol_model.c"
+#include "../../../../../executor/checker/operation_checker.c"
+#include "../../../../../executor/copier/integer_copier.c"
+#include "../../../../../logger/logger.c"
+#include "../../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
+#include "../../../../../variable/symbolic_name/protocol_family_socket_symbolic_name.c"
 
 //
 // On the difference between prefix AF_ and PF_:
@@ -76,114 +76,105 @@
 //
 
 /**
- * Converts family string into socket- and address integer.
+ * Converts namespace (family) string into protocol integer.
  *
  * @param p0 the protocol family
- * @param p1 the address family
- * @param p2 the family data
- * @param p3 the family count
+ * @param p1 the family data
+ * @param p2 the family count
  */
-void open_socket_family(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_cybol_socket_family_protocol(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket family.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol socket family protocol.");
 
     // The comparison result.
     int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p2, (void*) APPLETALK_NAMESPACE_SOCKET_CYBOL_MODEL, p3, (void*) APPLETALK_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) APPLETALK_NAMESPACE_SOCKET_CYBOL_MODEL, p2, (void*) APPLETALK_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             copy_integer(p0, (void*) APPLETALK_PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME);
-            copy_integer(p1, (void*) APPLETALK_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME);
         }
     }
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p2, (void*) BLUETOOTH_NAMESPACE_SOCKET_CYBOL_MODEL, p3, (void*) BLUETOOTH_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) BLUETOOTH_NAMESPACE_SOCKET_CYBOL_MODEL, p2, (void*) BLUETOOTH_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             copy_integer(p0, (void*) BLUETOOTH_PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME);
-            copy_integer(p1, (void*) BLUETOOTH_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME);
         }
     }
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p2, (void*) INET_NAMESPACE_SOCKET_CYBOL_MODEL, p3, (void*) INET_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) INET_NAMESPACE_SOCKET_CYBOL_MODEL, p2, (void*) INET_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             copy_integer(p0, (void*) INET_PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME);
-            copy_integer(p1, (void*) INET_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME);
         }
     }
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p2, (void*) INET6_NAMESPACE_SOCKET_CYBOL_MODEL, p3, (void*) INET6_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) INET6_NAMESPACE_SOCKET_CYBOL_MODEL, p2, (void*) INET6_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             copy_integer(p0, (void*) INET6_PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME);
-            copy_integer(p1, (void*) INET6_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME);
         }
     }
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p2, (void*) IPX_NAMESPACE_SOCKET_CYBOL_MODEL, p3, (void*) IPX_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) IPX_NAMESPACE_SOCKET_CYBOL_MODEL, p2, (void*) IPX_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             copy_integer(p0, (void*) IPX_PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME);
-            copy_integer(p1, (void*) IPX_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME);
         }
     }
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p2, (void*) IRDA_NAMESPACE_SOCKET_CYBOL_MODEL, p3, (void*) IRDA_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) IRDA_NAMESPACE_SOCKET_CYBOL_MODEL, p2, (void*) IRDA_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             copy_integer(p0, (void*) IRDA_PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME);
-            copy_integer(p1, (void*) IRDA_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME);
         }
     }
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p2, (void*) LOCAL_NAMESPACE_SOCKET_CYBOL_MODEL, p3, (void*) LOCAL_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) LOCAL_NAMESPACE_SOCKET_CYBOL_MODEL, p2, (void*) LOCAL_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             // Alternatives: PF_LOCAL, PF_UNIX, PF_FILE
             copy_integer(p0, (void*) LOCAL_PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME);
-            copy_integer(p1, (void*) LOCAL_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME);
         }
     }
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        check_operation((void*) &r, p2, (void*) NETBIOS_NAMESPACE_SOCKET_CYBOL_MODEL, p3, (void*) NETBIOS_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        check_operation((void*) &r, p1, (void*) NETBIOS_NAMESPACE_SOCKET_CYBOL_MODEL, p2, (void*) NETBIOS_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             copy_integer(p0, (void*) NETBIOS_PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME);
-            copy_integer(p1, (void*) NETBIOS_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME);
         }
     }
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open socket family. The family is not known.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol socket family protocol. The family is not known.");
     }
 }
 
-/* FAMILY_SOCKET_OPENER_SOURCE */
+/* PROTOCOL_FAMILY_SOCKET_CYBOL_DESERIALISER_SOURCE */
 #endif
