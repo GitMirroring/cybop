@@ -23,37 +23,37 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LOCAL_SOCKET_ADDRESS_SOCKET_OPENER_SOURCE
-#define LOCAL_SOCKET_ADDRESS_SOCKET_OPENER_SOURCE
+#ifndef LOCAL_SOCKET_ADDRESS_ALLOCATOR_SOURCE
+#define LOCAL_SOCKET_ADDRESS_ALLOCATOR_SOURCE
 
 #include <sys/socket.h>
 #include <stddef.h> // size_t
 #include <stdlib.h> // malloc
 #include <string.h> // memset
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../executor/copier/integer_copier.c"
-#include "../../../../../executor/dispatcher/opener/socket/socket_address/initialise_local_socket_address_socket_starter.c"
-#include "../../../../../logger/logger.c"
-#include "../../../../../variable/type_size/integral_type_size.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/copier/integer_copier.c"
+#include "../../../../executor/dispatcher/opener/socket/socket_address/initialise_local_socket_address_socket_starter.c"
+#include "../../../../logger/logger.c"
+#include "../../../../variable/type_size/integral_type_size.c"
 
 /**
- * Create local socket address.
+ * Allocate local socket address.
  *
  * @param p0 the socket address data (pointer reference)
  * @param p1 the socket address size
  * @param p2 the filename data
  * @param p3 the filename count
  */
-void open_socket_socket_address_local(void* p0, void* p1, void* p2, void* p3) {
+void allocate_socket_address_local(void* p0, void* p1, void* p2, void* p3) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         void** ad = (void**) p0;
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket socket address local.");
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate socket address local.");
 
         //
         // Allocate socket address.
@@ -74,13 +74,13 @@ void open_socket_socket_address_local(void* p0, void* p1, void* p2, void* p3) {
         copy_integer(p1, (void*) LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
 
         // Initialise address.
-        open_socket_socket_address_local_initialise(*ad, p2, p3);
+        open_socket_address_local_initialise(*ad, p2, p3);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open socket socket address local. The address data is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate socket address local. The address data is null.");
     }
 }
 
-/* LOCAL_SOCKET_ADDRESS_SOCKET_OPENER_SOURCE */
+/* LOCAL_SOCKET_ADDRESS_ALLOCATOR_SOURCE */
 #endif

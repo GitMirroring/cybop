@@ -21,6 +21,7 @@
 2022-02-04  Christian Heller  <christian.heller@cybop.org>
 
         * Move socket-related files for family (namespace), protocol, style to directory "executor/representer/deserialiser/cybol/socket/"
+        * Move socket address creation files to memoriser allocator
 
 2022-02-03  Christian Heller  <christian.heller@cybop.org>
 

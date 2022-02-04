@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INET6_SOCKET_ADDRESS_SOCKET_OPENER_SOURCE
-#define INET6_SOCKET_ADDRESS_SOCKET_OPENER_SOURCE
+#ifndef INET_SOCKET_ADDRESS_ALLOCATOR_SOURCE
+#define INET_SOCKET_ADDRESS_ALLOCATOR_SOURCE
 
 #include <stddef.h> // size_t
 #include <stdlib.h> // malloc
@@ -41,16 +41,16 @@
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../executor/dispatcher/opener/socket/host_address/inet6_host_address_socket_starter.c"
-#include "../../../../../executor/dispatcher/opener/socket/socket_address/initialise_inet6_socket_address_socket_starter.c"
-#include "../../../../../logger/logger.c"
-#include "../../../../../variable/type_size/socket_type_size.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/dispatcher/opener/socket/host_address/inet_host_address_socket_starter.c"
+#include "../../../../executor/dispatcher/opener/socket/socket_address/initialise_inet_socket_address_socket_starter.c"
+#include "../../../../logger/logger.c"
+#include "../../../../variable/type_size/socket_type_size.c"
 
 /**
- * Create inet6 socket address.
+ * Allocate inet socket address.
  *
  * @param p0 the socket address data (pointer reference)
  * @param p1 the socket address size
@@ -58,16 +58,16 @@
  * @param p3 the host address count
  * @param p4 the port
  */
-void open_socket_socket_address_inet6(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void allocate_socket_address_inet(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         void** ad = (void**) p0;
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open socket socket address inet6.");
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate socket address inet.");
 
         // The host address.
-        struct in6_addr ha;
+        struct in_addr ha;
         //
         // The host address size.
         //
@@ -84,7 +84,7 @@ void open_socket_socket_address_inet6(void* p0, void* p1, void* p2, void* p3, vo
         // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
         // because values are casted to int* internally again.
         //
-        size_t has = (size_t) *IPV6_HOST_ADDRESS_SOCKET_TYPE_SIZE;
+        size_t has = (size_t) *IPV4_HOST_ADDRESS_SOCKET_TYPE_SIZE;
         //
         // Initialise array elements.
         //
@@ -104,7 +104,7 @@ void open_socket_socket_address_inet6(void* p0, void* p1, void* p2, void* p3, vo
         // CAUTION! The returned host address
         // is already in network byte order.
         //
-        open_socket_host_address_inet6((void*) &ha, p2, p3);
+        open_socket_host_address_inet((void*) &ha, p2, p3);
 
         //
         // Allocate socket address.
@@ -112,7 +112,7 @@ void open_socket_socket_address_inet6(void* p0, void* p1, void* p2, void* p3, vo
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
         //
-        allocate_array(p0, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IPV6_SOCKET_ADDRESS_STATE_CYBOI_TYPE);
+        allocate_array(p0, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IPV4_SOCKET_ADDRESS_STATE_CYBOI_TYPE);
         //
         // Initialise socket address size.
         //
@@ -121,20 +121,20 @@ void open_socket_socket_address_inet6(void* p0, void* p1, void* p2, void* p3, vo
         // However, socket functions DO REQUIRE the socket address size
         // as argument, so that it has to be assigned here explicitly.
         //
-        copy_integer(p1, (void*) IPV6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
+        copy_integer(p1, (void*) IPV4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
         //
         // Initialise socket address.
         //
         // CAUTION! The forwarded host address
-        // is already in network byte order.
+        // is already in NETWORK byte order.
         //
-        open_socket_socket_address_inet6_initialise(*ad, (void*) &ha, p4);
+        open_socket_address_inet_initialise(*ad, (void*) &ha, p4);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open socket socket address inet6. The address data is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate socket address inet. The address data is null.");
     }
 }
 
-/* INET6_SOCKET_ADDRESS_SOCKET_OPENER_SOURCE */
+/* INET_SOCKET_ADDRESS_ALLOCATOR_SOURCE */
 #endif
