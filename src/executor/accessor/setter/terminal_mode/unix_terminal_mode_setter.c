@@ -29,14 +29,16 @@
 #include <errno.h> // errno
 #include <termios.h> // struct termios, tcsetattr
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../logger/logger.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../logger/logger.c"
 
 /**
- * Sets unix terminal mode attributes.
+ * Sets the unix terminal mode into the device pointed to by the file descriptor.
  *
- * @param p0 the file descriptor
- * @param p1 the terminal mode
+ * @param p0 the destination file descriptor
+ * @param p1 the source terminal mode
  */
 void set_unix_terminal_mode(void* p0, void* p1) {
 
@@ -62,7 +64,7 @@ void set_unix_terminal_mode(void* p0, void* p1) {
             errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
             //
-            // Set terminal mode (attributes).
+            // Set terminal mode.
             //
             // The second argument specifies how to deal with
             // input and output already queued.
@@ -81,18 +83,18 @@ void set_unix_terminal_mode(void* p0, void* p1) {
             if (r < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set unix terminal mode. An error occured.");
-                fwprintf(stdout, L"Error: Could not set unix terminal mode. An error occured. %i\n", r);
+                fwprintf(stdout, L"Error: Could not set unix terminal mode. An error occured. r: %i\n", r);
                 log_errno((void*) &errno);
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set unix terminal mode. The file descriptor is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set unix terminal mode. The destination file descriptor is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set unix terminal mode. The terminal mode is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set unix terminal mode. The source terminal mode is null.");
     }
 }
 

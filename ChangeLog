@@ -20,8 +20,8 @@
 
 2022-02-05  Christian Heller  <christian.heller@cybop.org>
 
-        * Add allocator and deallocator for unix terminal mode / win32 console mode
-        * Add file "unix_terminal_mode_setter.c"
+        * Add memoriser allocator and deallocator for unix terminal mode / win32 console mode
+        * Add accessor getter and setter for unix terminal mode / win32 console mode
 
 2022-02-04  Christian Heller  <christian.heller@cybop.org>
 

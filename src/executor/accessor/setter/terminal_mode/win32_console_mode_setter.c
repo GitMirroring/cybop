@@ -23,23 +23,23 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SET_MODE_WIN32_CONSOLE_STARTER_SOURCE
-#define SET_MODE_WIN32_CONSOLE_STARTER_SOURCE
+#ifndef WIN32_CONSOLE_MODE_SETTER_SOURCE
+#define WIN32_CONSOLE_MODE_SETTER_SOURCE
 
 #include <windows.h>
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../logger/logger.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../logger/logger.c"
 
 /**
- * Sets the win32 console mode.
+ * Sets the win32 console mode into the device pointed to by the file descriptor.
  *
- * @param p0 the file descriptor
- * @param p1 the terminal mode
+ * @param p0 the destination file descriptor
+ * @param p1 the source console mode
  */
-void startup_win32_console_mode_set(void* p0, void* p1) {
+void set_win32_console_mode(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -50,7 +50,7 @@ void startup_win32_console_mode_set(void* p0, void* p1) {
             // The file descriptor is an integer and may be casted to a windows handle.
             HANDLE* h = (HANDLE*) p0;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup win32 console mode set.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Set win32 console mode.");
 
             // Set console mode.
             BOOL b = SetConsoleMode(*h, *m);
@@ -58,28 +58,24 @@ void startup_win32_console_mode_set(void* p0, void* p1) {
             // If the return value is zero, then an error occured.
             if (b == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                //
-                // CAUTION! Do NOT close win32 console on error,
-                // since stdin and stdout were used and have to remain open.
-                //
-
                 // Get the calling thread's last-error code.
                 DWORD e = GetLastError();
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console mode set. The SetConsoleMode function failed.");
-                log_windows_system_error((void*) &e);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set win32 console mode. The SetConsoleMode function failed.");
+                fwprintf(stdout, L"Error: Could not set win32 console mode. The SetConsoleMode function failed. b: %i\n", b);
+                log_errno((void*) &e);
             }
 
         } else {
 
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console mode set. The file descriptor is null.");
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set win32 console mode. The destination file descriptor is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console mode set. The terminal mode is null.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set win32 console mode. The source console mode is null.");
     }
 }
 
-/* SET_MODE_WIN32_CONSOLE_STARTER_SOURCE */
+/* WIN32_CONSOLE_MODE_SETTER_SOURCE */
 #endif

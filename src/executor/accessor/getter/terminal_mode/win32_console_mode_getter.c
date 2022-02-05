@@ -23,23 +23,23 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef GET_MODE_WIN32_CONSOLE_STARTER_SOURCE
-#define GET_MODE_WIN32_CONSOLE_STARTER_SOURCE
+#ifndef WIN32_CONSOLE_MODE_GETTER_SOURCE
+#define WIN32_CONSOLE_MODE_GETTER_SOURCE
 
 #include <windows.h>
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../logger/logger.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../logger/logger.c"
 
 /**
- * Gets the win32 console mode.
+ * Gets the win32 console mode from the device pointed to by the file descriptor.
  *
- * @param p0 the terminal mode
- * @param p1 the file descriptor
+ * @param p0 the destination console mode
+ * @param p1 the source file descriptor
  */
-void startup_win32_console_mode_get(void* p0, void* p1) {
+void get_win32_console_mode(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -50,36 +50,32 @@ void startup_win32_console_mode_get(void* p0, void* p1) {
 
             DWORD* m = (DWORD*) p0;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup win32 console mode get.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get win32 console mode.");
 
-            // Get current console mode.
+            // Get console mode.
             BOOL b = GetConsoleMode(*h, m);
 
             // If the return value is zero, then an error occured.
             if (b == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                //
-                // CAUTION! Do NOT close win32 console on error,
-                // since stdin and stdout were used and have to remain open.
-                //
-
                 // Get the calling thread's last-error code.
                 DWORD e = GetLastError();
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console mode get. The GetConsoleMode function failed.");
-                log_windows_system_error((void*) &e);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get win32 console mode. The GetConsoleMode function failed.");
+                fwprintf(stdout, L"Error: Could not get win32 console mode. The GetConsoleMode function failed. b: %i\n", b);
+                log_errno((void*) &e);
             }
 
         } else {
 
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console mode get. The terminal mode is null.");
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get win32 console mode. The destination console mode is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console mode get. The file descriptor is null.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get win32 console mode. The source file descriptor is null.");
     }
 }
 
-/* GET_MODE_WIN32_CONSOLE_STARTER_SOURCE */
+/* WIN32_CONSOLE_MODE_GETTER_SOURCE */
 #endif
