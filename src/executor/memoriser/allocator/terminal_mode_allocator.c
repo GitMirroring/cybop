@@ -26,8 +26,11 @@
 #ifndef TERMINAL_MODE_ALLOCATOR_SOURCE
 #define TERMINAL_MODE_ALLOCATOR_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../logger/logger.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/memoriser/allocator/array_allocator.c"
+#include "../../../logger/logger.c"
 
 //
 // Unix terminal mode:

@@ -45,6 +45,7 @@
 
         * Rename file "size_determiner.c" into "type_to_size_mapper.c" and move into directory "mapper/"
         * Provide cybol format "meta/model" to deserialise e.g. socket address etc. into an integer for more efficient processing ?? (equivalent of compilation)
+        * Change TCSANOW into TCSADRAIN ?? (file "unix_terminal_mode_setter.c")
 
     //
     //?? TODO: Consider this hint when parsing for the END character of a sequence.
