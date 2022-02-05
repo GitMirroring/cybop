@@ -4,15 +4,15 @@
         <node name="name" channel="inline" format="text/plain" model="id"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>
-    <node name="create_test" channel="inline" format="memorise/create" model="">
-        <node name="name" channel="inline" format="text/plain" model="test"/>
+    <node name="create_data" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="data"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
     </node>
 
     <node name="open_client" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/plain" model="communication/file/test.txt"/>
+        <node name="device" channel="inline" format="text/plain" model="communication/file/data.txt"/>
     </node>
 
     <node name="receive_client" channel="inline" format="communicate/receive" model="">
@@ -20,7 +20,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".test"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".data"/>
         <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
         ALTERNATIVE (if missing, the default is async=false; e.g. in handler, if asynchronous true then NO sender, since data are read from internal buffer, which has been filled in sense thread before)
         <node name="asynchronous" channel="inline" format="logicvalue/boolean" model="true"/>

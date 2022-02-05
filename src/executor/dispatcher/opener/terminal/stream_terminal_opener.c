@@ -41,10 +41,10 @@
 /**
  * Starts up the terminal stream.
  *
- * @param p0 the input/output entry
+ * @param p0 the server entry
  * @param p1 the file stream (pointer reference)
  * @param p2 the flag indicating input (true) or output (false)
- * @param p3 the input/output entry source index
+ * @param p3 the server entry source index
  */
 void startup_terminal_stream(void* p0, void* p1, void* p2, void* p3) {
 
@@ -64,13 +64,13 @@ void startup_terminal_stream(void* p0, void* p1, void* p2, void* p3) {
         startup_terminal_mode((void*) &d, p0, p2);
 
         //
-        // Store terminal file stream in input/output entry.
+        // Store terminal file stream in server entry.
         //
         // CAUTION! Do NOT use "overwrite_array" function here,
         // since it adapts the array count and size.
         // But the array's count and size are CONSTANT.
         //
-        // CAUTION! Do NOT hand over input/output entry as pointer reference.
+        // CAUTION! Do NOT hand over server entry as pointer reference.
         //
         // CAUTION! Hand over file stream (second argument) as pointer REFERENCE.
         //

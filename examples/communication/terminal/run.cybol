@@ -1,22 +1,26 @@
 <node>
 
-    <node name="startup_server" channel="inline" format="maintain/startup" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    <node name="create_id" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="id"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>
-
-    <!--
-        The name="enable_server" with operation "activate/enable" is NOT necessary,
-        since clients get opened MANUALLY using "dispatch/open".
-    -->
+    <node name="create_test" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="command"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+    </node>
 
     <node name="open_client" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="canonical" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="standard_input"/>
     </node>
 
-    <node name="sense_client" channel="inline" format="feel/sense" model="">
+    <node name="receive_client" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".command"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
     <node name="send_client" channel="inline" format="communicate/send" model="">
@@ -26,15 +30,14 @@
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Hello World!"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
-    <node name="receive_client" channel="inline" format="communicate/receive" model="">
+    <node name="close_client" channel="inline" format="dispatch/close" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="port" channel="inline" format="number/integer" model="0"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".tui.command"/>
-        <node name="sender" channel="inline" format="number/integer" model=".tui.terminal_id"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
+
+    <node name="exit_programme" channel="inline" format="live/exit" model=""/>
 
 </node>
