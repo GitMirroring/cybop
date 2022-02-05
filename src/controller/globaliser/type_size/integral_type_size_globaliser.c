@@ -26,6 +26,15 @@
 #ifndef INTEGRAL_TYPE_SIZE_GLOBALISER_SOURCE
 #define INTEGRAL_TYPE_SIZE_GLOBALISER_SOURCE
 
+#if defined(__linux__) || defined(__unix__)
+#elif defined(__APPLE__) && defined(__MACH__)
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    #include <windows.h> // DWORD
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
+
 #include "../../../variable/type_size/integral_type_size.c"
 
 /**
@@ -68,8 +77,13 @@ void globalise_type_size_integral() {
 //??    *UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (unsigned long long int);
     *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE = sizeof (wchar_t);
 
-#ifdef WIN32
+#if defined(__linux__) || defined(__unix__)
+#elif defined(__APPLE__) && defined(__MACH__)
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     *DOUBLE_WORD_INTEGRAL_TYPE_SIZE = sizeof (DWORD);
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 

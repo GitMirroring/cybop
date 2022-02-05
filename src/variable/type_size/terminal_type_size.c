@@ -33,9 +33,17 @@
 // Initialisation happens in directory "controller/globaliser/".
 //
 
-/** The termios terminal type size. */
-static int TERMIOS_TERMINAL_TYPE_SIZE_ARRAY[1];
-static int* TERMIOS_TERMINAL_TYPE_SIZE = TERMIOS_TERMINAL_TYPE_SIZE_ARRAY;
+//
+// Terminal mode.
+//
+
+/** The unix terminal mode type size. */
+static int UNIX_TERMINAL_MODE_TYPE_SIZE_ARRAY[1];
+static int* UNIX_TERMINAL_MODE_TYPE_SIZE = UNIX_TERMINAL_MODE_TYPE_SIZE_ARRAY;
+
+/** The win32 console mode type size. */
+static int WIN32_CONSOLE_MODE_TYPE_SIZE_ARRAY[1];
+static int* WIN32_CONSOLE_MODE_TYPE_SIZE = WIN32_CONSOLE_MODE_TYPE_SIZE_ARRAY;
 
 /* TERMINAL_TYPE_SIZE_SOURCE */
 #endif

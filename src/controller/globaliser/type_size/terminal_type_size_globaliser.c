@@ -32,10 +32,12 @@
     #include <termios.h>
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
+    #include <windows.h> // DWORD
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
+#include "../../../variable/type_size/integral_type_size.c"
 #include "../../../variable/type_size/terminal_type_size.c"
 
 /**
@@ -44,11 +46,12 @@
 void globalise_type_size_terminal() {
 
 #if defined(__linux__) || defined(__unix__)
-    *TERMIOS_TERMINAL_TYPE_SIZE = sizeof (struct termios);
+    *UNIX_TERMINAL_MODE_TYPE_SIZE = sizeof (struct termios);
 #elif defined(__APPLE__) && defined(__MACH__)
-    *TERMIOS_TERMINAL_TYPE_SIZE = sizeof (struct termios);
+    *UNIX_TERMINAL_MODE_TYPE_SIZE = sizeof (struct termios);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
+    *WIN32_CONSOLE_MODE_TYPE_SIZE = *DOUBLE_WORD_INTEGRAL_TYPE_SIZE;
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif

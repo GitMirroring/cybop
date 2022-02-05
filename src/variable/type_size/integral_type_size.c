@@ -249,21 +249,24 @@ static int* SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = SIGNED_LONG_LONG_INTEG
 static int WIDE_CHARACTER_INTEGRAL_TYPE_SIZE_ARRAY[1];
 static int* WIDE_CHARACTER_INTEGRAL_TYPE_SIZE = WIDE_CHARACTER_INTEGRAL_TYPE_SIZE_ARRAY;
 
-#ifdef WIN32
-
-/**
- * The double word integral type size.
- *
- * It is a 32-bit unsigned integer. See comment at "unsigned long int".
- *
- * This type is declared in IntSafe.h as follows:
- * typedef unsigned long DWORD;
- *
- * http://msdn.microsoft.com/en-us/library/windows/desktop/aa383751%28v=vs.85%29.aspx
- */
-static int DOUBLE_WORD_INTEGRAL_TYPE_SIZE_ARRAY[1];
-static int* DOUBLE_WORD_INTEGRAL_TYPE_SIZE = DOUBLE_WORD_INTEGRAL_TYPE_SIZE_ARRAY;
-
+#if defined(__linux__) || defined(__unix__)
+#elif defined(__APPLE__) && defined(__MACH__)
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    /**
+     * The double word integral type size.
+     *
+     * It is a 32-bit unsigned integer. See comment at "unsigned long int".
+     *
+     * This type is declared in IntSafe.h as follows:
+     * typedef unsigned long DWORD;
+     *
+     * http://msdn.microsoft.com/en-us/library/windows/desktop/aa383751%28v=vs.85%29.aspx
+     */
+    static int DOUBLE_WORD_INTEGRAL_TYPE_SIZE_ARRAY[1];
+    static int* DOUBLE_WORD_INTEGRAL_TYPE_SIZE = DOUBLE_WORD_INTEGRAL_TYPE_SIZE_ARRAY;
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /* INTEGRAL_TYPE_SIZE_SOURCE */

@@ -158,6 +158,18 @@ void determine_size(void* p0, void* p1) {
             copy_integer(p0, (void*) LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
 
         //
+        // terminal mode
+        //
+
+        } else if (*t == *UNIX_TERMINAL_MODE_STATE_CYBOI_TYPE) {
+
+            copy_integer(p0, (void*) UNIX_TERMINAL_MODE_TYPE_SIZE);
+
+        } else if (*t == *WIN32_CONSOLE_MODE_STATE_CYBOI_TYPE) {
+
+            copy_integer(p0, (void*) WIN32_CONSOLE_MODE_TYPE_SIZE);
+
+        //
         // text
         //
 
@@ -183,10 +195,6 @@ void determine_size(void* p0, void* p1) {
 
             copy_integer(p0, (void*) IDENTIFICATION_THREAD_TYPE_SIZE);
 
-        } else if (*t == *FUNCTION_THREAD_STATE_CYBOI_TYPE) {
-
-            copy_integer(p0, (void*) FUNCTION_THREAD_TYPE_SIZE);
-
         } else if (*t == *MUTEX_THREAD_STATE_CYBOI_TYPE) {
 
             copy_integer(p0, (void*) MUTEX_THREAD_TYPE_SIZE);
@@ -202,6 +210,7 @@ void determine_size(void* p0, void* p1) {
             // It uses functions causing circular references.
             //
             // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not determine size. The type is unknown.");
+            fwprintf(stdout, L"Warning: Could not determine size. The type is unknown. *t: %i\n", *t);
         }
 
     } else {
@@ -211,6 +220,7 @@ void determine_size(void* p0, void* p1) {
         // It uses functions causing circular references.
         //
         // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not determine size. The type is null.");
+        fwprintf(stdout, L"Warning: Could not determine size. The type is null. p1: %i\n", p1);
     }
 }
 

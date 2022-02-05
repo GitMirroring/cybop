@@ -23,43 +23,47 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DEALLOCATE_MODE_TERMINAL_EDITOR_SOURCE
-#define DEALLOCATE_MODE_TERMINAL_EDITOR_SOURCE
+#ifndef TERMINAL_MODE_DEALLOCATOR_SOURCE
+#define TERMINAL_MODE_DEALLOCATOR_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
-#if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/maintainer/editor/unix_terminal/deallocate_mode_unix_terminal_editor.c"
-#elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../executor/maintainer/editor/unix_terminal/deallocate_mode_unix_terminal_editor.c"
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../../executor/maintainer/editor/win32_console/deallocate_mode_win32_console_editor.c"
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
-
 /**
- * Deallocates the terminal mode.
+ * Deallocates the terminal mode structure.
  *
  * @param p0 the terminal mode (pointer reference)
  */
-void edit_terminal_mode_deallocate(void* p0) {
+void deallocate_terminal_mode(void* p0) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Edit terminal mode deallocate.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate terminal mode.");
 
 #if defined(__linux__) || defined(__unix__)
-    edit_unix_terminal_mode_deallocate(p0);
+    //
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    //
+    deallocate_array(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) UNIX_TERMINAL_MODE_STATE_CYBOI_TYPE);
 #elif defined(__APPLE__) && defined(__MACH__)
-    edit_unix_terminal_mode_deallocate(p0);
+    //
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    //
+    deallocate_array(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) UNIX_TERMINAL_MODE_STATE_CYBOI_TYPE);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    edit_win32_console_mode_deallocate(p0);
+    //
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    //
+    deallocate_array(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) WIN32_CONSOLE_MODE_STATE_CYBOI_TYPE);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 
-/* DEALLOCATE_MODE_TERMINAL_EDITOR_SOURCE */
+/* TERMINAL_MODE_DEALLOCATOR_SOURCE */
 #endif
