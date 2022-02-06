@@ -71,48 +71,21 @@ static int* EXIT_THREAD_CLIENT_STATE_CYBOI_NAME = NUMBER_31_INTEGER_STATE_CYBOI_
 //
 // Serial port
 //
-// CAUTION! Store file STREAM instead of file descriptor, since:
-// - stream is a more complex structure containing the descriptor
-// - the c standard defines only file streams of type FILE*
-//
-// Special types used by various platforms are NOT stored here,
-// since they may be retrieved from the FILE structure, e.g.:
-// - POSIX: "file descriptor" (int) used in direct file access functions, retrieved via "int fileno(FILE* stream)"
-// - Win32: "file handle" (DWORD) used in alternative input/output functions, retrieved via "int _fileno(FILE* stream)"
-//          the returned int may be casted to file handle: (HANDLE) _fileno(_file)
-//
 
-//?? static int* FILE_STREAM_SERIAL_CLIENT_STATE_CYBOI_NAME = NUMBER_60_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-//?? static int* ORIGINAL_MODE_SERIAL_CLIENT_STATE_CYBOI_NAME = NUMBER_61_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* ORIGINAL_MODE_SERIAL_PORT_CLIENT_STATE_CYBOI_NAME = NUMBER_40_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // Terminal
 //
-// CAUTION! Store file STREAM instead of file descriptor, since:
-// - stream is a more complex structure containing the descriptor
-// - the c standard defines only file streams of type FILE*
-//
-// Special types used by various platforms are NOT stored here,
-// since they may be retrieved from the FILE structure, e.g.:
-// - POSIX: "file descriptor" (int) used in direct file access functions, retrieved via "int fileno(FILE* stream)"
-// - Win32: "file handle" (DWORD) used in alternative input/output functions, retrieved via "int _fileno(FILE* stream)"
-//          the returned int may be casted to file handle: (HANDLE) _fileno(_file)
-//
 
-//?? static int* OUTPUT_FILE_STREAM_TERMINAL_CLIENT_STATE_CYBOI_NAME = NUMBER_70_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-//?? static int* INPUT_FILE_STREAM_TERMINAL_CLIENT_STATE_CYBOI_NAME = NUMBER_71_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-//?? static int* OUTPUT_ORIGINAL_MODE_TERMINAL_CLIENT_STATE_CYBOI_NAME = NUMBER_72_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-//?? static int* INPUT_ORIGINAL_MODE_TERMINAL_CLIENT_STATE_CYBOI_NAME = NUMBER_73_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//?? static int* BLOCKING_TERMINAL_CLIENT_STATE_CYBOI_NAME = NUMBER_75_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-//?? static int* CANONICAL_TERMINAL_CLIENT_STATE_CYBOI_NAME = NUMBER_76_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-//?? static int* ECHO_TERMINAL_CLIENT_STATE_CYBOI_NAME = NUMBER_77_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* INPUT_ORIGINAL_MODE_TERMINAL_CLIENT_STATE_CYBOI_NAME = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* OUTPUT_ORIGINAL_MODE_TERMINAL_CLIENT_STATE_CYBOI_NAME = NUMBER_51_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // Socket
 //
 
-//?? static int* TIMEOUT_SOCKET_CLIENT_STATE_CYBOI_NAME = NUMBER_40_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+//?? static int* TIMEOUT_SOCKET_CLIENT_STATE_CYBOI_NAME = NUMBER_60_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // Backlink

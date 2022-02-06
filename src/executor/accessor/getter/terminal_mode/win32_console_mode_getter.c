@@ -28,10 +28,10 @@
 
 #include <windows.h>
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Gets the win32 console mode from the device pointed to by the file descriptor.
@@ -39,7 +39,7 @@
  * @param p0 the destination console mode
  * @param p1 the source file descriptor
  */
-void get_win32_console_mode(void* p0, void* p1) {
+void get_console_mode_win32(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -50,7 +50,7 @@ void get_win32_console_mode(void* p0, void* p1) {
 
             DWORD* m = (DWORD*) p0;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get win32 console mode.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get console mode win32.");
 
             // Get console mode.
             BOOL b = GetConsoleMode(*h, m);
@@ -61,19 +61,19 @@ void get_win32_console_mode(void* p0, void* p1) {
                 // Get the calling thread's last-error code.
                 DWORD e = GetLastError();
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get win32 console mode. The GetConsoleMode function failed.");
-                fwprintf(stdout, L"Error: Could not get win32 console mode. The GetConsoleMode function failed. b: %i\n", b);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get console mode win32. The GetConsoleMode function failed.");
+                fwprintf(stdout, L"Error: Could not get console mode win32. The GetConsoleMode function failed. b: %i\n", b);
                 log_errno((void*) &e);
             }
 
         } else {
 
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get win32 console mode. The destination console mode is null.");
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get console mode win32. The destination console mode is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get win32 console mode. The source file descriptor is null.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get console mode win32. The source file descriptor is null.");
     }
 }
 

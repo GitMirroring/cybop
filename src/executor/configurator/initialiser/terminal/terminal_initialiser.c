@@ -27,14 +27,20 @@
 #define TERMINAL_INITIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../logger/logger.c"
---
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/maintainer/editor/terminal/allocate_mode_terminal_editor.c"
-#include "../../../../executor/maintainer/editor/terminal/deallocate_mode_terminal_editor.c"
-#include "../../../../executor/maintainer/editor/terminal/edit_mode_terminal_editor.c"
-#include "../../../../executor/maintainer/editor/terminal/get_mode_terminal_editor.c"
-#include "../../../../executor/maintainer/editor/terminal/set_mode_terminal_editor.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/client_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/accessor/getter/terminal_mode/terminal_mode_getter.c"
+#include "../../../../executor/accessor/setter/terminal_mode/terminal_mode_setter.c"
+#include "../../../../executor/configurator/initialiser/terminal/mode_terminal_initialiser.c"
+#include "../../../../executor/copier/terminal_mode/terminal_mode_copier.c"
+#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/memoriser/allocator/terminal_mode_allocator.c"
+#include "../../../../executor/memoriser/deallocator/terminal_mode_deallocator.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Initialises the terminal.
@@ -46,29 +52,30 @@ void initialise_terminal(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initialise terminal.");
 
-    //
-    //?? TODO:
-    //
-    // Is it necessary to use the file "win32_console_mode_copier.c"?
-    // Why was it introduced in an older version of cyboi?
-    //
-
     // The terminal mode.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The terminal mode copy for storage.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate terminal mode.
     allocate_terminal_mode((void*) &m);
+    // Allocate terminal mode copy for storage.
+    allocate_terminal_mode((void*) &c);
 
-    // Read current terminal mode.
+    // Get current terminal mode.
     get_terminal_mode(m, p0);
 
-    // Store current terminal mode in client entry.
-    copy_array_forward(p0, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SERVER_ENTRY_BACKLINK_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Copy current terminal mode for storage.
+    copy_terminal_mode(c, m);
 
-    // Edit terminal mode.
+    // Store terminal mode copy in client entry.
+    copy_array_forward(p1, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INPUT_ORIGINAL_MODE_TERMINAL_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    //?? TODO: For win32, store separate output original mode.
+
+    // Edit current terminal mode.
     initialise_terminal_mode(m);
 
-    // Write new terminal mode.
+    // Set edited terminal mode.
     set_terminal_mode(p0, m);
 
     // Deallocate terminal mode.

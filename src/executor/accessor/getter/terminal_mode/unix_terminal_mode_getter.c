@@ -29,10 +29,10 @@
 #include <errno.h> // errno
 #include <termios.h> // struct termios, tcgetattr
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Gets the unix terminal mode from the device pointed to by the file descriptor.
@@ -40,7 +40,7 @@
  * @param p0 the destination terminal mode
  * @param p1 the source file descriptor
  */
-void get_unix_terminal_mode(void* p0, void* p1) {
+void get_terminal_mode_unix(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -50,7 +50,7 @@ void get_unix_terminal_mode(void* p0, void* p1) {
 
             struct termios* m = (struct termios*) p0;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get unix terminal mode.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get terminal mode unix.");
 
             //
             // Initialise error number.
@@ -68,19 +68,19 @@ void get_unix_terminal_mode(void* p0, void* p1) {
 
             if (r < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get unix terminal mode. An error occured.");
-                fwprintf(stdout, L"Error: Could not get unix terminal mode. An error occured. r: %i\n", r);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get terminal mode unix. An error occured.");
+                fwprintf(stdout, L"Error: Could not get terminal mode unix. An error occured. r: %i\n", r);
                 log_errno((void*) &errno);
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get unix terminal mode. The destination terminal mode is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get terminal mode unix. The destination terminal mode is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get unix terminal mode. The source file descriptor is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get terminal mode unix. The source file descriptor is null.");
     }
 }
 

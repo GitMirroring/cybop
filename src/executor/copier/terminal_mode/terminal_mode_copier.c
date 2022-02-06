@@ -23,44 +23,44 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TERMINAL_MODE_GETTER_SOURCE
-#define TERMINAL_MODE_GETTER_SOURCE
+#ifndef TERMINAL_MODE_COPIER_SOURCE
+#define TERMINAL_MODE_COPIER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../logger/logger.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/accessor/getter/unix_terminal_mode_getter.c"
+    #include "../../../executor/copier/terminal_mode/unix_terminal_mode_copier.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../executor/accessor/getter/unix_terminal_mode_getter.c"
+    #include "../../../executor/copier/terminal_mode/unix_terminal_mode_copier.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../../executor/accessor/getter/win32_console_mode_getter.c"
+    #include "../../../executor/copier/terminal_mode/win32_console_mode_copier.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
- * Gets the terminal mode from the device pointed to by the file descriptor.
+ * Copies the terminal mode.
  *
  * @param p0 the destination terminal mode
- * @param p1 the source file descriptor
+ * @param p1 the source terminal mode
  */
-void get_terminal_mode(void* p0, void* p1) {
+void copy_terminal_mode(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get terminal mode.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy terminal mode.");
 
 #if defined(__linux__) || defined(__unix__)
-    get_terminal_mode_unix(p0, p1);
+    copy_terminal_mode_unix(p0, p1);
 #elif defined(__APPLE__) && defined(__MACH__)
-    get_terminal_mode_unix(p0, p1);
+    copy_terminal_mode_unix(p0, p1);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    get_console_mode_win32(p0, p1);
+    copy_console_mode_win32(p0, p1);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 
-/* TERMINAL_MODE_GETTER_SOURCE */
+/* TERMINAL_MODE_COPIER_SOURCE */
 #endif
