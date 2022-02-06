@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-02-06  Christian Heller  <christian.heller@cybop.org>
+
+        * Add directory "executor/configurator/" wrapping up function "ioctl"
+        * Move device control files using "ioctl" from streamer reader to new directory "executor/configurator/"
+
 2022-02-05  Christian Heller  <christian.heller@cybop.org>
 
         * Add memoriser allocator and deallocator for unix terminal mode / win32 console mode

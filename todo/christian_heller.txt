@@ -25,6 +25,8 @@
         * file opener
         * file closer
         DOING:
+        * Add accessor getter and setter for "device_status" --> call WRAPPER of ioctl, e.g. "executor/configurator/"
+        * Make executor awakener use new ioctl directory "??"
         * dispatcher opener terminal
         * Update terminal files in dispatcher opener
         * Update or delete directory "executor/dispatcher/editor/"
@@ -32,6 +34,7 @@
         * Make compilable
         * Test file read functionality
         * file read
+        * Clean up file "executor/streamer/reader/device_reader/"
         TODO:
         * file write
         * serial_port
