@@ -67,7 +67,8 @@ void open_basic(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             int* f = (int*) p3;
 
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open basic.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open basic.");
+            fwprintf(stdout, L"Debug: Open basic. p0: %i\n", p0);
 
             // The terminated filename item.
             void* t = *NULL_POINTER_STATE_CYBOI_MODEL;

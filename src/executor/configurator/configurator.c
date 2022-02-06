@@ -26,16 +26,16 @@
 #ifndef CONFIGURATOR_SOURCE
 #define CONFIGURATOR_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../logger/logger.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/configurator/unix_configurator.c"
+    #include "../../../executor/configurator/unix_configurator.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../executor/configurator/unix_configurator.c"
+    #include "../../../executor/configurator/unix_configurator.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../../executor/configurator/win32_configurator.c"
+    #include "../../../executor/configurator/win32_configurator.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif

@@ -25,7 +25,6 @@
         * file opener
         * file closer
         DOING:
-        * Add accessor getter and setter for "device_status" --> call WRAPPER of ioctl, e.g. "executor/configurator/"
         * Make executor awakener use new ioctl directory "??"
         * dispatcher opener terminal
         * Update terminal files in dispatcher opener

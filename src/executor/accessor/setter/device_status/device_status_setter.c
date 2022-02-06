@@ -23,27 +23,29 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SET_STATUS_SERIAL_PORT_STARTER_SOURCE
-#define SET_STATUS_SERIAL_PORT_STARTER_SOURCE
+#ifndef DEVICE_STATUS_SETTER_SOURCE
+#define DEVICE_STATUS_SETTER_SOURCE
 
+#include <sys/ioctl.h> // TIOCMSET
+
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../executor/configurator/configurator.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Starts up the serial port status setter.
+ * Sets the device status.
  *
- * @param p0 the file descriptor data
- * @param p1 the status
+ * @param p0 the destination device file descriptor
+ * @param p1 the source status
  */
-void startup_serial_port_status_set(void* p0, void* p1) {
+void set_device_status(void* p0, void* p1) {
 
-            // Turn on DTR.
-            *s |= TIOCM_DTR;
-            // Turn on RTS.
-            *s |= TIOCM_RTS;
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Set device status.");
+    fwprintf(stdout, L"Debug: Set device status. p0: %i\n", p0);
 
-            // Set serial port status.
-            int e = ioctl(*d, TIOCMSET, s);
+    // Set device status.
+    configure(p0, TIOCMSET, p1);
 }
 
-/* SET_STATUS_SERIAL_PORT_STARTER_SOURCE */
+/* DEVICE_STATUS_SETTER_SOURCE */
 #endif
