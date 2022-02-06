@@ -26,7 +26,6 @@
         * file opener
         * file closer
         DOING:
-        * Clean up files "mode_terminal_opener.c" and "stream_terminal_opener.c"
         * Provide close and shutdown counterparts to open and startup
         * Make compilable
         * Test file read functionality
