@@ -26,12 +26,12 @@
 #ifndef SHUTTER_SOURCE
 #define SHUTTER_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../executor/maintainer/channel_shutter.c"
-#include "../../executor/maintainer/general_shutter.c"
-#include "../../logger/logger.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/maintainer/specific_shutter.c"
+#include "../../../executor/maintainer/general_shutter.c"
+#include "../../../logger/logger.c"
 
 /**
  * Shuts down the given service.
@@ -58,7 +58,7 @@ void shutdown_service(void* p0, void* p1, void* p2) {
     int b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Determine channel-specific values.
-    shutdown_channel((void*) &b, p2);
+    shutdown_specific((void*) &b, p2);
     // Execute general shutdown functions.
     shutdown_general(p0, p1, p2, (void*) &b);
 }
