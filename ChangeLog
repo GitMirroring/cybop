@@ -31,6 +31,7 @@
         * Add directory "executor/copier/terminal_mode/"
         * Move ioctl files from "executor/configurator/" back to directory "executor/streamer/writer/device/"
         * Remove directories "executor/accessor/getter/device_status/" and "executor/accessor/setter/device_status/"
+        * Add bsd socket and winsock to configurator initialiser
 
 2022-02-05  Christian Heller  <christian.heller@cybop.org>
 

@@ -105,7 +105,7 @@ void open_bsd_socket_device(void* p0, void* p1, void* p2, void* p3) {
                     fwprintf(stdout, L"Debug: Open bsd socket device. Success. r: %i\n", r);
 
                     // Configure socket.
-                    open_bsd_socket_options(p0);
+                    initialise_bsd_socket((void*) &r);
 
                     // Copy socket file descriptor to destination socket.
                     copy_integer(p0, (void*) &r);

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef OPTIONS_BSD_SOCKET_OPENER_SOURCE
-#define OPTIONS_BSD_SOCKET_OPENER_SOURCE
+#ifndef BSD_SOCKET_INITIALISER_SOURCE
+#define BSD_SOCKET_INITIALISER_SOURCE
 
 #include <netinet/tcp.h> // SOL_TCP, TCP_NODELAY
 #include <sys/socket.h> // setsockopt
@@ -37,17 +37,17 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Configures the bsd socket device.
+ * Initialises the bsd socket device.
  *
  * @param p0 the socket
  */
-void open_bsd_socket_options(void* p0) {
+void initialise_bsd_socket(void* p0) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* s = (int*) p0;
 
-        // The socket options.
+        // The socket options data, size.
         void* od = (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
         socklen_t os = (socklen_t) sizeof(od);
         // The return value.
@@ -90,8 +90,8 @@ void open_bsd_socket_options(void* p0) {
 
         if (r < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket options. An error occured.");
-            fwprintf(stdout, L"Error: Could not open bsd socket options. An error occured. %i\n", r);
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise bsd socket. An error occured.");
+            fwprintf(stdout, L"Error: Could not initialise bsd socket. An error occured. %i\n", r);
             log_errno((void*) &errno);
         }
 
@@ -120,8 +120,8 @@ void open_bsd_socket_options(void* p0) {
 
         if (r < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket options. An error occured.");
-            fwprintf(stdout, L"Error: Could not open bsd socket options. An error occured. %i\n", r);
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise bsd socket. An error occured.");
+            fwprintf(stdout, L"Error: Could not initialise bsd socket. An error occured. %i\n", r);
             log_errno((void*) &errno);
         }
 
@@ -143,9 +143,9 @@ void open_bsd_socket_options(void* p0) {
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open bsd socket options. The socket is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise bsd socket. The socket is null.");
     }
 }
 
-/* OPTIONS_BSD_SOCKET_OPENER_SOURCE */
+/* BSD_SOCKET_INITIALISER_SOURCE */
 #endif

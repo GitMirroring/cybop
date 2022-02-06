@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INITIALISE_WINSOCK_STARTER_SOURCE
-#define INITIALISE_WINSOCK_STARTER_SOURCE
+#ifndef WINSOCK_INITIALISER_SOURCE
+#define WINSOCK_INITIALISER_SOURCE
 
 #include <winsock.h>
 
@@ -35,9 +35,9 @@
 /**
  * Initialises the winsock.
  */
-void startup_winsock_initialise() {
+void initialise_winsock() {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup winsock initialise.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initialise winsock.");
 
     //
     // The winsock version.
@@ -71,52 +71,23 @@ void startup_winsock_initialise() {
 
     if (e == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully startup winsock initialise.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initialise winsock.");
 
     } else {
 
         //
-        // An error occured, since the return value is NOT zero.
+        // Get the calling thread's last-error code.
         //
-
+        // CAUTION! This function is the winsock substitute
+        // for the Windows "GetLastError" function.
         //
-        // CAUTION! The WSAStartup function directly returns the
-        // extended error code in the return value for this function.
-        // A call to the WSAGetLastError function is NOT needed
-        // and should NOT be used.
-        //
+        int e = WSAGetLastError();
 
-        if (e == WSASYSNOTREADY) {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock initialise. The underlying network subsystem is not ready for network communication.");
-
-        } else if (e == WSAVERNOTSUPPORTED) {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock initialise. The version of Windows Sockets support requested is not provided by this particular Windows Sockets implementation.");
-
-        } else if (e == WSAEINPROGRESS) {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock initialise. A blocking Windows Sockets 1.1 operation is in progress.");
-
-        } else if (e == WSAEPROCLIM) {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock initialise. A limit on the number of tasks supported by the Windows Sockets implementation has been reached.");
-
-        } else if (e == WSAEFAULT) {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock initialise. The lpWSAData parameter is not a valid pointer.");
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock initialise. An unknown error occured.");
-        }
-
-        // Cast int to DWORD (unsigned int 32-Bit).
-        DWORD d = (DWORD) e;
-
-        log_windows_system_error((void*) &d);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise winsock. An error occured.");
+        fwprintf(stdout, L"Error: Could not initialise winsock. An error occured. %i\n", r);
+        log_errno((void*) &e);
     }
 }
 
-/* INITIALISE_WINSOCK_STARTER_SOURCE */
+/* WINSOCK_INITIALISER_SOURCE */
 #endif
