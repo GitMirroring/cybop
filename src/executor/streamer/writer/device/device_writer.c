@@ -23,46 +23,47 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CONFIGURATOR_SOURCE
-#define CONFIGURATOR_SOURCE
+#ifndef DEVICE_WRITER_SOURCE
+#define DEVICE_WRITER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../executor/configurator/unix_configurator.c"
+    #include "../../../executor/streamer/writer/unix_device/unix_device_writer.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../executor/configurator/unix_configurator.c"
+    #include "../../../executor/streamer/writer/unix_device/unix_device_writer.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../executor/configurator/win32_configurator.c"
+    #include "../../../executor/streamer/writer/win32_device/win32_device_writer.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
- * Configures the device.
+ * Sends a command to the device given by the file descriptor.
  *
  * @param p0 the destination device file descriptor
  * @param p1 the source command (device-dependent request code)
  * @param p2 the argument (either a single number or a pointer to a structure, depending upon the command used)
  */
-void configure(void* p0, void* p1, void* p2) {
+void write_device(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Configure.");
-    fwprintf(stdout, L"Information: Configure. p0: %i\n", p0);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write device.");
+    fwprintf(stdout, L"Debug: Write device. p0: %i\n", p0);
+    fwprintf(stdout, L"Debug: Write device. *p0: %i\n", *((int*) p0));
 
 #if defined(__linux__) || defined(__unix__)
-    configure_unix_device(p0, p1, p2);
+    write_unix_device(p0, p1, p2);
 #elif defined(__APPLE__) && defined(__MACH__)
-    configure_unix_device(p0, p1, p2);
+    write_unix_device(p0, p1, p2);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    configure_win32_device(p0, p1, p2);
+    write_win32_device(p0, p1, p2);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 
-/* CONFIGURATOR_SOURCE */
+/* DEVICE_WRITER_SOURCE */
 #endif

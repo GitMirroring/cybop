@@ -40,6 +40,58 @@
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
+//
+// Linux:
+//
+// Although some functions specify the terminal device with a file descriptor,
+// the attributes are those of the terminal device itself and NOT of the file descriptor.
+// This means that the effects of changing terminal attributes are persistent;
+// if another process opens the same terminal file later on, it will see
+// the CHANGED attributes even though it doesn't have anything to do with
+// the open file descriptor originally specified in changing the attributes.
+//
+// Similarly, if a single process has multiple or duplicated file descriptors
+// for the same terminal device, changing the terminal attributes affects
+// INPUT AND OUTPUT to ALL of these file descriptors.
+//
+// This means, for example, that one can't open one file descriptor or stream
+// to read from a terminal in the normal line-buffered, echoed mode;
+// and simultaneously have another file descriptor for the same terminal
+// that one uses to read from it in single-character, non-echoed mode.
+// Instead, one has to EXPLICITLY SWITCH the terminal back and forth between the two modes.
+//
+// Reference:
+// https://www.gnu.org/software/libc/manual/html_mono/libc.html#Mode-Functions
+//
+// Since linux terminal modes are valid for input AND output,
+// it does NOT matter whether the input- or output file descriptor
+// is handed over as argument here. Either may be used.
+// A redundant storage of mode settings does not make sense.
+//
+
+//
+// Windows:
+//
+// A console consists of an input buffer and one or more output (screen) buffers.
+// The mode of a console buffer determines how the console behaves
+// during input and output (I/O) operations.
+// ONE SET OF FLAG CONSTANTS is used with INPUT handles,
+// and ANOTHER SET is used with screen buffer (OUTPUT) handles.
+// Setting the output modes of one screen buffer does not affect
+// the output modes of other screen buffers.
+//
+// Reference:
+// https://docs.microsoft.com/en-us/windows/console/setconsolemode
+//
+// The sets of flag constants are definitely different, to be verified here:
+// https://docs.microsoft.com/en-us/windows/console/setconsolemode
+// The input- and output constants have OVERLAPPING VALUES (identification),
+// so that both MUST NOT be combined or set together.
+//
+// Since windows distinguishes between the input and output mode settings
+// and uses a DIFFERENT SET OF FLAGS for each, both are treated SEPARATELY here.
+//
+
 /**
  * Initialises the terminal mode.
  *

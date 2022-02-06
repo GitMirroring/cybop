@@ -23,85 +23,93 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SET_ATTRIBUTES_SERIAL_PORT_STARTER_SOURCE
-#define SET_ATTRIBUTES_SERIAL_PORT_STARTER_SOURCE
+#ifndef SERIAL_PORT_INITIALISER_SOURCE
+#define SERIAL_PORT_INITIALISER_SOURCE
 
-#include <stdio.h>
-
-#if defined(__linux__) || defined(__unix__)
-    #include <sys/ioctl.h>
-    #include <termios.h>
-#elif defined(__APPLE__) && defined(__MACH__)
-    #include <sys/ioctl.h>
-    #include <termios.h>
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-    #include <windows.h>
-    // source: sys/termios.h
-    #define IGNPAR          0000004
-    #define CS8             0000060
-    #define CLOCAL          0004000
-    #define CREAD           0000200
-    #define VMIN            6
-    #define VTIME           5
-    #define TCSANOW         0
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
+#include <termios.h> // struct termios, ISTRIP etc.
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/maintainer/starter/serial_port/get_status_serial_port_starter.c"
 #include "../../../../logger/logger.c"
 
+//
+// Manipulate termios mode (attributes).
+//
+// A good documentation of possible flags may be found at:
+// http://www.unixguide.net/unix/programming/3.6.2.shtml
+//
+// c_iflag: input mode flags; always needed, only not if using software flow control (ick)
+// c_oflag: output mode flags; mostly hacks to make output to slow serial ports work,
+//          newer systems have dropped almost all of them as obsolete
+// c_cflag: control mode flags; set character size, generate even parity, enabling hardware flow control
+// c_lflag: local mode flags; most applications will probably want to turn off ICANON
+//          (canonical, i.e. line-based, input processing), ECHO and ISIG
+// c_cc: an array of characters that have special meanings on input;
+//       these characters are given names like VINTR, VSTOP etc.
+//       the names are indexes into the array
+//       two of these "characters" are not really characters at all,
+//       but control the behaviour of function "read" when ICANON is disabled;
+//       these are VMIN and VTIME
+//
+// VTIME: the time to wait before function "read" will return;
+//        its value is (if not 0) always interpreted as a timer in tenths of seconds
+// VMIN: the number of bytes of input to be available, before function "read" will return
+//
+
 /**
- * Sets the serial port attributes.
+ * Initialises the serial port mode.
  *
- * @param p0 the file descriptor data
- * @param p1 the original attributes
- * @param p2 the baudrate
+ * @param p0 the terminal mode
  */
-void startup_serial_port_attributes_set(void* p0, void* p1, void* p2) {
+void initialise_serial_port(void* p0) {
 
-    //
-    // Manipulate termios attributes.
-    //
-    // A good documentation of possible flags may be found at:
-    // http://www.unixguide.net/unix/programming/3.6.2.shtml
-    //
-    // c_iflag: input mode flags; always needed, only not if using software flow control (ick)
-    // c_oflag: output mode flags; mostly hacks to make output to slow serial ports work,
-    //          newer systems have dropped almost all of them as obsolete
-    // c_cflag: control mode flags; set character size, generate even parity, enabling hardware flow control
-    // c_lflag: local mode flags; most applications will probably want to turn off ICANON
-    //          (canonical, i.e. line-based, input processing), ECHO and ISIG
-    // c_cc: an array of characters that have special meanings on input;
-    //       these characters are given names like VINTR, VSTOP etc.
-    //       the names are indexes into the array
-    //       two of these "characters" are not really characters at all,
-    //       but control the behaviour of read() when ICANON is disabled;
-    //       these are VMIN and VTIME
-    //
-    // VTIME: the time to wait before read() will return;
-    //        its value is (if not 0) always interpreted as a timer in tenths of seconds
-    // VMIN: the number of bytes of input to be available, before read() will return
-    //
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // Ignore parity.
-    a.c_iflag = IGNPAR;
-    a.c_oflag = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    a.c_cflag = *bdi | CS8 | CLOCAL | CREAD;
-    a.c_lflag = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // Set number of input characters to be available, before read() will return.
-    // If set to zero, one character gets processed right away,
-    // without waiting for yet another character input.
-    a.c_cc[VMIN] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // Set time to wait before read() will return.
-    a.c_cc[VTIME] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        struct termios* m = (struct termios*) p0;
+
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initialise serial port.");
+
+        // Ignore parity.
+        (*m).c_iflag = IGNPAR;
+
+        (*m).c_oflag = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+        (*m).c_cflag = *bdi | CS8 | CLOCAL | CREAD;
+
+        (*m).c_lflag = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+        //
+        // Set unblocking mode.
+        //
+        // Set number of input characters to be available, before "read" will return.
+        //
+        // If set to zero, a character gets processed right away,
+        // without waiting for yet another character input.
+        //
+        (*m).c_cc[VMIN] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+        // Set time to wait before "read" will return.
+        (*m).c_cc[VTIME] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+/*?? TODO:
+
+        // The serial port status.
+        int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+        // Turn on DTR.
+        s |= TIOCM_DTR;
+        // Turn on RTS.
+        s |= TIOCM_RTS;
+
+        // Set serial port status.
+        write_device(file-descriptor, TIOCMSET, (void*) &s);
+*/
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise serial port. The terminal mode is null.");
+    }
 }
 
-/* SET_ATTRIBUTES_SERIAL_PORT_STARTER_SOURCE */
+/* SERIAL_PORT_INITIALISER_SOURCE */
 #endif

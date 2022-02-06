@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef UNIX_DEVICE_CONFIGURATOR_SOURCE
-#define UNIX_DEVICE_CONFIGURATOR_SOURCE
+#ifndef UNIX_DEVICE_WRITER_SOURCE
+#define UNIX_DEVICE_WRITER_SOURCE
 
 #include <sys/ioctl.h> // ioctl
 #include <errno.h> // errno
@@ -35,13 +35,13 @@
 #include "../../logger/logger.c"
 
 /**
- * Configures the unix device given by the file descriptor.
+ * Sends a command to the unix device given by the file descriptor.
  *
  * @param p0 the destination device file descriptor
  * @param p1 the source command (device-dependent request code)
  * @param p2 the argument (either a single number or a pointer to a structure, depending upon the command used)
  */
-void configure_unix_device(void* p0, void* p1, void* p2) {
+void write_unix_device(void* p0, void* p1, void* p2) {
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -53,11 +53,11 @@ void configure_unix_device(void* p0, void* p1, void* p2) {
 
                 int* d = (int*) p0;
 
-                log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Configure unix device.");
-                fwprintf(stdout, L"Debug: Configure unix device. f: %i\n", f);
-                fwprintf(stdout, L"Debug: Configure unix device. *f: %i\n", *f);
-                fwprintf(stdout, L"Debug: Configure unix device. c: %i\n", c);
-                fwprintf(stdout, L"Debug: Configure unix device. *c: %i\n", *c);
+                log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write unix device.");
+                fwprintf(stdout, L"Debug: Write unix device. f: %i\n", f);
+                fwprintf(stdout, L"Debug: Write unix device. *f: %i\n", *f);
+                fwprintf(stdout, L"Debug: Write unix device. c: %i\n", c);
+                fwprintf(stdout, L"Debug: Write unix device. *c: %i\n", *c);
 
                 //
                 // Initialise error number.
@@ -111,30 +111,30 @@ void configure_unix_device(void* p0, void* p1, void* p2) {
 
                 if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                    fwprintf(stdout, L"Debug: Configure unix device. success r: %i\n", r);
+                    fwprintf(stdout, L"Debug: Write unix device. success r: %i\n", r);
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not configure unix device. An error occured.");
-                    fwprintf(stdout, L"Error: Could not configure unix device. An error occured. %i\n", r);
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write unix device. An error occured.");
+                    fwprintf(stdout, L"Error: Could not write unix device. An error occured. %i\n", r);
                     log_errno((void*) &errno);
                 }
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not configure unix device. The destination device file descriptor is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write unix device. The destination device file descriptor is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not configure unix device. The source command is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write unix device. The source command is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not configure unix device. The argument is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write unix device. The argument is null.");
     }
 }
 
-/* UNIX_DEVICE_CONFIGURATOR_SOURCE */
+/* UNIX_DEVICE_WRITER_SOURCE */
 #endif

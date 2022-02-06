@@ -15,6 +15,7 @@
         * See service lifecycle cybol examples in directory "examples/communication/"
 
         DONE:
+        * dispatcher opener terminal
         * dispatcher opener socket
         * dispatcher opener display
         * maintain/startup
@@ -25,11 +26,9 @@
         * file opener
         * file closer
         DOING:
-        * dispatcher opener terminal
         * Make compilable
         * Test file read functionality
         * file read
-        * Clean up file "executor/streamer/reader/device_reader/"
         TODO:
         * file write
         * serial_port

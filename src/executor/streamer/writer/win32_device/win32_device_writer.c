@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WIN32_DEVICE_CONFIGURATOR_SOURCE
-#define WIN32_DEVICE_CONFIGURATOR_SOURCE
+#ifndef WIN32_DEVICE_WRITER_SOURCE
+#define WIN32_DEVICE_WRITER_SOURCE
 
 //?? #include <sys/ioctl.h>
 #include <errno.h>
@@ -36,13 +36,13 @@
 #include "../../logger/logger.c"
 
 /**
- * Configures the win32 device given by the file descriptor.
+ * Sends a command to the win32 device given by the file descriptor.
  *
  * @param p0 the destination data
  * @param p1 the source device file descriptor (e.g. filename, socket number)
  * @param p2 the command (device-dependent request code)
  */
-void configure_win32_device(void* p0, void* p1, void* p2) {
+void write_win32_device(void* p0, void* p1, void* p2) {
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -54,7 +54,7 @@ void configure_win32_device(void* p0, void* p1, void* p2) {
 
             if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read win32 device.");
+                log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write win32 device.");
 
                 //
                 // The data to be returned.
@@ -64,9 +64,9 @@ void configure_win32_device(void* p0, void* p1, void* p2) {
                 //
                 int d = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                fwprintf(stdout, L"Debug: Read win32 device. Command *c: %i\n", *c);
-                fwprintf(stdout, L"Debug: Read win32 device. File descriptor *f: %i\n", *f);
-                fwprintf(stdout, L"Debug: Read win32 device. errno: %i\n", errno);
+                fwprintf(stdout, L"Debug: Write win32 device. Command *c: %i\n", *c);
+                fwprintf(stdout, L"Debug: Write win32 device. File descriptor *f: %i\n", *f);
+                fwprintf(stdout, L"Debug: Write win32 device. errno: %i\n", errno);
 
                 //
                 // Perform a generic input/output operation on
@@ -89,12 +89,12 @@ void configure_win32_device(void* p0, void* p1, void* p2) {
                 //
                 //?? int r = ioctl(*f, *c, (void*) &d);
 
-                fwprintf(stdout, L"Debug: Read win32 device. ioctl r: %i\n", r);
+                fwprintf(stdout, L"Debug: Write win32 device. ioctl r: %i\n", r);
 
                 if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully configure win32 device.");
-                    fwprintf(stdout, L"Debug: Read win32 device. success r: %i\n", r);
+                    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully write win32 device.");
+                    fwprintf(stdout, L"Debug: Write win32 device. success r: %i\n", r);
 
                     // Copy destination data.
                     copy_integer(p0, (void*) &d);
@@ -108,19 +108,19 @@ void configure_win32_device(void* p0, void* p1, void* p2) {
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not configure win32 device. The destination data is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write win32 device. The destination data is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not configure win32 device. The source device file descriptor is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write win32 device. The source device file descriptor is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not configure win32 device. The command is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write win32 device. The command is null.");
     }
 }
 
-/* WIN32_DEVICE_CONFIGURATOR_SOURCE */
+/* WIN32_DEVICE_WRITER_SOURCE */
 #endif

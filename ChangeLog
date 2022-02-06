@@ -29,6 +29,8 @@
         * Delete directory "executor/dispatcher/editor/"
         * Add initialiser files to directory "executor/configurator/"
         * Add directory "executor/copier/terminal_mode/"
+        * Move ioctl files from "executor/configurator/" back to directory "executor/streamer/writer/device/"
+        * Remove directories "executor/accessor/getter/device_status/" and "executor/accessor/setter/device_status/"
 
 2022-02-05  Christian Heller  <christian.heller@cybop.org>
 
