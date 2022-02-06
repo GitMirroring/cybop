@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COPY_MODE_WIN32_CONSOLE_STARTER_SOURCE
-#define COPY_MODE_WIN32_CONSOLE_STARTER_SOURCE
+#ifndef WIN32_CONSOLE_MODE_COPIER_SOURCE
+#define WIN32_CONSOLE_MODE_COPIER_SOURCE
 
 #include <windows.h>
 
@@ -33,35 +33,35 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Copies the terminal mode.
+ * Copies the win32 console mode.
  *
- * @param p0 the new terminal mode
- * @param p1 the original terminal mode
+ * @param p0 the destination console mode
+ * @param p1 the source console mode
  */
-void startup_win32_console_mode_copy(void* p0, void* p1) {
+void copy_console_mode_win32(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        DWORD* o = (DWORD*) p1;
+        DWORD* s = (DWORD*) p1;
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            DWORD* n = (DWORD*) p0;
+            DWORD* d = (DWORD*) p0;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup win32 console mode copy.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy console mode win32.");
 
-            *n = *o;
+            *d = *s;
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console mode copy. The new terminal mode is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy console mode win32. The destination console mode is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console mode copy. The original terminal mode is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy console mode win32. The source console mode is null.");
     }
 }
 
-/* COPY_MODE_WIN32_CONSOLE_STARTER_SOURCE */
+/* WIN32_CONSOLE_MODE_COPIER_SOURCE */
 #endif

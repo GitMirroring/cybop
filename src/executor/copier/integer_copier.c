@@ -40,30 +40,23 @@ void copy_integer(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* se = (int*) p1;
+        int* s = (int*) p1;
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* de = (int*) p0;
+            int* d = (int*) p0;
 
-            // CAUTION! Do NOT call the logger here.
-            // This function is used in threads for sensing data input.
             // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy integer.");
 
-            // Assign source- to destination.
-            *de = *se;
+            *d = *s;
 
         } else {
 
-            // CAUTION! Do NOT call the logger here.
-            // This function is used in threads for sensing data input.
             // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy integer. The destination is null.");
         }
 
     } else {
 
-        // CAUTION! Do NOT call the logger here.
-        // This function is used in threads for sensing data input.
         // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy integer. The source is null.");
     }
 }

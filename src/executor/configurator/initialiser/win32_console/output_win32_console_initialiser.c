@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef OUTPUT_EDIT_MODE_WIN32_CONSOLE_STARTER_SOURCE
-#define OUTPUT_EDIT_MODE_WIN32_CONSOLE_STARTER_SOURCE
+#ifndef OUTPUT_WIN32_CONSOLE_INITIALISER_SOURCE
+#define OUTPUT_WIN32_CONSOLE_INITIALISER_SOURCE
 
 #include <windows.h>
 
@@ -33,17 +33,17 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Edits the win32 console output mode.
+ * Initialises the win32 console output mode.
  *
- * @param p0 the terminal mode
+ * @param p0 the console mode
  */
-void startup_win32_console_mode_edit_output(void* p0, void* p1) {
+void initialise_win32_console_output(void* p0) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         DWORD* m = (DWORD*) p0;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup win32 console mode edit output.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initialise win32 console output.");
 
         //
         // Configure output events.
@@ -62,9 +62,9 @@ void startup_win32_console_mode_edit_output(void* p0, void* p1) {
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup win32 console mode edit output. The terminal mode is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise win32 console output. The console mode is null.");
     }
 }
 
-/* OUTPUT_EDIT_MODE_WIN32_CONSOLE_STARTER_SOURCE */
+/* OUTPUT_WIN32_CONSOLE_INITIALISER_SOURCE */
 #endif

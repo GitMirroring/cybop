@@ -23,70 +23,57 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MODE_TERMINAL_EDITOR_SOURCE
-#define MODE_TERMINAL_EDITOR_SOURCE
+#ifndef TERMINAL_INITIALISER_SOURCE
+#define TERMINAL_INITIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../logger/logger.c"
+--
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/maintainer/editor/terminal/allocate_mode_terminal_editor.c"
 #include "../../../../executor/maintainer/editor/terminal/deallocate_mode_terminal_editor.c"
 #include "../../../../executor/maintainer/editor/terminal/edit_mode_terminal_editor.c"
 #include "../../../../executor/maintainer/editor/terminal/get_mode_terminal_editor.c"
 #include "../../../../executor/maintainer/editor/terminal/set_mode_terminal_editor.c"
-#include "../../../../logger/logger.c"
 
 /**
- * Edits the terminal mode.
+ * Initialises the terminal.
  *
  * @param p0 the file descriptor
- * @param p1 the input/output entry
+ * @param p1 the client entry
  */
-void edit_terminal_mode(void* p0, void* p1) {
+void initialise_terminal(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Edit terminal mode.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initialise terminal.");
 
-    // The terminal mode (attributes).
+    //
+    //?? TODO:
+    //
+    // Is it necessary to use the file "win32_console_mode_copier.c"?
+    // Why was it introduced in an older version of cyboi?
+    //
+
+    // The terminal mode.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    //
     // Allocate terminal mode.
-    //
-    // CAUTION! Hand over pointer REFERENCE.
-    //
-    edit_terminal_mode_allocate((void*) &m);
+    allocate_terminal_mode((void*) &m);
 
-    //
     // Read current terminal mode.
-    //
-    // CAUTION! Do NOT hand over pointer reference.
-    //
-    edit_terminal_mode_get(m, p0);
+    get_terminal_mode(m, p0);
 
-    //
+    // Store current terminal mode in client entry.
+    copy_array_forward(p0, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SERVER_ENTRY_BACKLINK_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
     // Edit terminal mode.
-    //
-    // CAUTION! Do NOT hand over pointer reference,
-    // since only the CONTENT, but not pointer is to be edited.
-    //
-    edit_terminal_mode_edit(m, p1);
+    initialise_terminal_mode(m);
 
-    //
     // Write new terminal mode.
-    //
-    // CAUTION! Do NOT hand over pointer reference.
-    //
-    edit_terminal_mode_set(p0, m);
+    set_terminal_mode(p0, m);
 
-    //
     // Deallocate terminal mode.
-    //
-    // CAUTION! It is not stored in input/output memory and
-    // used as TEMPORARY variable only.
-    //
-    // CAUTION! Hand over pointer REFERENCE.
-    //
-    edit_terminal_mode_deallocate((void*) &m);
+    deallocate_terminal_mode((void*) &m);
 }
 
-/* MODE_TERMINAL_EDITOR_SOURCE */
+/* TERMINAL_INITIALISER_SOURCE */
 #endif

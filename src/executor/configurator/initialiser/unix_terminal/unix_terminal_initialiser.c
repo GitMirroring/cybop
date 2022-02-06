@@ -23,55 +23,27 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef EDIT_MODE_UNIX_TERMINAL_EDITOR_SOURCE
-#define EDIT_MODE_UNIX_TERMINAL_EDITOR_SOURCE
+#ifndef UNIX_TERMINAL_INITIALISER_SOURCE
+#define UNIX_TERMINAL_INITIALISER_SOURCE
 
-#include <termios.h> // struct termios
+#include <termios.h> // struct termios, ISTRIP etc.
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
-#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/copier/array_copier.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Edits the unix terminal mode.
+ * Initialises the unix terminal mode.
  *
  * @param p0 the terminal mode
- * @param p1 the input/output entry
  */
-void edit_unix_terminal_mode_edit(void* p0, void* p1) {
+void initialise_unix_terminal(void* p0) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         struct termios* m = (struct termios*) p0;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Edit unix terminal mode edit.");
-
-        // The terminal blocking mode.
-        void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The terminal canonical mode.
-        void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The terminal echo mode.
-        void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-        // Get terminal blocking mode from input/output entry.
-        copy_array_forward((void*) &b, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) BLOCKING_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Get terminal canonical mode from input/output entry.
-        copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CANONICAL_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Get terminal echo mode from input/output entry.
-        copy_array_forward((void*) &e, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ECHO_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-        /*??
-        fwprintf(stdout, L"Debug: Edit unix terminal mode edit. *b: %i\n", *((int*) b));
-        fwprintf(stdout, L"Debug: Edit unix terminal mode edit. *c: %i\n", *((int*) c));
-        fwprintf(stdout, L"Debug: Edit unix terminal mode edit. *e: %i\n", *((int*) e));
-        */
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initialise unix terminal.");
 
         //
         // Manipulate termios mode (attributes).
@@ -104,9 +76,9 @@ void edit_unix_terminal_mode_edit(void* p0, void* p1) {
         (*m).c_iflag &= ~ISTRIP;
 
         //
-        // Edit input processing mode.
+        // Set noncanonical mode.
         //
-        // POSIX systems support two basic modes of input: canonical and noncanonical.
+        // POSIX systems support two basic modes of input processing: canonical and noncanonical.
         //
         // canonical:
         // - terminal input is processed in lines terminated by newline ('\n'), EOF, or EOL characters
@@ -129,55 +101,13 @@ void edit_unix_terminal_mode_edit(void* p0, void* p1) {
         // The usual reason to use noncanonical mode is when the program accepts
         // single-character commands or provides its own editing facilities.
         //
+        (*m).c_lflag &= ~ICANON;
 
-        if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            int* ct = (int*) c;
-
-            if (*ct == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // Set noncanonical mode.
-                (*m).c_lflag &= ~ICANON;
-
-            } else {
-
-                // Set canonical mode.
-                (*m).c_lflag |= ICANON;
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not edit unix terminal mode set. The terminal canonical mode is null.");
-            fwprintf(stdout, L"Error: Could not edit unix terminal mode set. The terminal canonical mode is null. c: %i\n", c);
-        }
+        // Switch off echo.
+        (*m).c_lflag &= ~ECHO;
 
         //
-        // Edit echo.
-        //
-
-        if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            int* et = (int*) e;
-
-            if (*et == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // Switch off echo.
-                (*m).c_lflag &= ~ECHO;
-
-            } else {
-
-                // Switch on echo.
-                (*m).c_lflag |= ECHO;
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not edit unix terminal mode set. The terminal echo mode is null.");
-            fwprintf(stdout, L"Error: Could not edit unix terminal mode set. The terminal echo mode is null. e: %i\n", e);
-        }
-
-        //
-        // Edit blocking behaviour.
+        // Set unblocking mode.
         //
         // Set number of input characters to be available, before "read" will return.
         //
@@ -185,38 +115,16 @@ void edit_unix_terminal_mode_edit(void* p0, void* p1) {
         // This means that "read" will block until at least one byte is available
         // and maintains best compatibility with normal behaviour of terminals.
         //
+        (*m).c_cc[VMIN] = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
-        if (b != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            int* bt = (int*) b;
-
-            if (*bt == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // Set unblocking mode.
-                (*m).c_cc[VMIN] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-            } else {
-
-                // Set blocking mode.
-                (*m).c_cc[VMIN] = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not edit unix terminal mode set. The terminal blocking mode is null.");
-            fwprintf(stdout, L"Error: Could not edit unix terminal mode set. The terminal blocking mode is null. b: %i\n", b);
-        }
-
-        //
         // Set time to wait before "read" will return.
-        //
         (*m).c_cc[VTIME] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not edit unix terminal mode set. The original terminal mode is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise unix terminal. The terminal mode is null.");
     }
 }
 
-/* EDIT_MODE_UNIX_TERMINAL_EDITOR_SOURCE */
+/* UNIX_TERMINAL_INITIALISER_SOURCE */
 #endif

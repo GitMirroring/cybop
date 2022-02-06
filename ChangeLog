@@ -26,6 +26,9 @@
         * Add serial port awakener
         * Add directory "constant/model/cybol/device/" with terminal file descriptor constants
         * Update terminal files in dispatcher opener
+        * Delete directory "executor/dispatcher/editor/"
+        * Add initialiser files to directory "executor/configurator/"
+        * Add file "win32_console_mode_copier.c" to directory "executor/copier/"
 
 2022-02-05  Christian Heller  <christian.heller@cybop.org>
 
