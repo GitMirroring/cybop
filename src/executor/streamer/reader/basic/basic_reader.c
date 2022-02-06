@@ -155,12 +155,6 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
                     fwprintf(stdout, L"Debug: Read basic. Waiting for input on file descriptor *f: %i\n", *f);
                     ssize_t nb = read(*f, p2, mst);
 
-//?? TEST BEGIN --
-                    //?? int test = fileno(stdin);
-                    //?? fwprintf(stdout, L"Debug: Read basic. Waiting for input on file descriptor test: %i\n", test);
-                    //?? ssize_t nb = read(test, p2, mst);
-//?? TEST END --
-
                     // Cast number of bytes actually read to general type.
                     int n = (int) nb;
 

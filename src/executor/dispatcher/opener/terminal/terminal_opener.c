@@ -26,124 +26,99 @@
 #ifndef TERMINAL_OPENER_SOURCE
 #define TERMINAL_OPENER_SOURCE
 
-#include <stdio.h>
+#include <unistd.h> // STDIN_FILENO, STDOUT_FILENO, STDERR_FILENO
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
-#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/copier/array_copier.c"
-#include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/maintainer/starter/terminal/stream_terminal_starter.c"
-#include "../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Opens up a terminal.
+ * Opens the terminal with the given filename.
  *
- * @param p0 the server entry
+ * @param p0 the file descriptor
+ * @param p1 the filename data
+ * @param p2 the filename count
  */
-void open_terminal(void* p0) {
+void open_terminal(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open terminal.");
     fwprintf(stdout, L"Debug: Open terminal. p0: %i\n", p0);
 
-    //
-    // Declaration.
-    //
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // The blocking mode.
-    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The canonical mode.
-    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The echo mode.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The wide character buffer item.
-    void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    //
-    // Allocation.
-    //
+        check_operation((void*) &r, p1, (void*) STANDARD_ERROR_OUTPUT_TERMINAL_DEVICE_CYBOL_MODEL, p2, (void*) STANDARD_ERROR_OUTPUT_TERMINAL_DEVICE_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    //
-    // Allocate blocking mode.
-    //
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    //
-    allocate_array((void*) &b, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    //
-    // Allocate canonical mode.
-    //
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    //
-    allocate_array((void*) &c, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    //
-    // Allocate echo mode.
-    //
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    //
-    allocate_array((void*) &e, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    //
-    // Allocate wide character buffer item.
-    //
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    //
-    // Size of this local buffer:
-    // See comment in file "unix_terminal_sensor.c"!
-    //
-    allocate_item((void*) &w, (void*) NUMBER_64_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    //
-    // Initialisation.
-    //
+            //
+            // The standard file descriptor.
+            //
+            // CAUTION! Use the symbolic constant of the file DESCRIPTOR
+            // STDERR_FILENO and NOT the standard stream stderr.
+            //
+            // CAUTION! The standard streams "stdin" and "stdout"
+            // exist on posix as well as on win32.
+            //
+            int f = STDERR_FILENO;
 
-    // Initialise blocking mode.
-    copy_integer(b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Initialise canonical mode.
-    copy_integer(c, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Initialise echo mode.
-    copy_integer(e, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            // Copy standard file descriptor to destination file descriptor.
+            copy_integer(p0, (void*) &f);
+        }
+    }
 
-    //
-    // Storage.
-    //
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    //
-    // Store various values in server entry.
-    //
-    // CAUTION! Do NOT use "overwrite_array" function here,
-    // since it adapts the array count and size.
-    // But the array's count and size are CONSTANT.
-    //
-    // CAUTION! Do NOT hand over server entry as pointer reference.
-    //
-    // CAUTION! Hand over value as pointer REFERENCE.
-    //
+        check_operation((void*) &r, p1, (void*) STANDARD_INPUT_TERMINAL_DEVICE_CYBOL_MODEL, p2, (void*) STANDARD_INPUT_TERMINAL_DEVICE_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // Set blocking mode into server entry.
-    copy_array_forward(p0, (void*) &b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) BLOCKING_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set canonical mode into server entry.
-    copy_array_forward(p0, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CANONICAL_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set echo mode into server entry.
-    copy_array_forward(p0, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ECHO_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set wide character buffer item into server entry.
-    copy_array_forward(p0, (void*) &w, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) BUFFER_GENERAL_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    //
-    // The output- and input file streams.
-    //
-    // CAUTION! The standard server streams "stdin"
-    // and "stdout" exist on posix as well as on win32.
-    //
-    void* os = (void*) stdout;
-    void* is = (void*) stdin;
+            //
+            // The standard file descriptor.
+            //
+            // CAUTION! Use the symbolic constant of the file DESCRIPTOR
+            // STDIN_FILENO and NOT the standard stream stdin.
+            //
+            // CAUTION! The standard streams "stdin" and "stdout"
+            // exist on posix as well as on win32.
+            //
+            int f = STDIN_FILENO;
+
+            // Copy standard file descriptor to destination file descriptor.
+            copy_integer(p0, (void*) &f);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        check_operation((void*) &r, p1, (void*) STANDARD_OUTPUT_TERMINAL_DEVICE_CYBOL_MODEL, p2, (void*) STANDARD_OUTPUT_TERMINAL_DEVICE_CYBOL_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // The standard file descriptor.
+            //
+            // CAUTION! Use the symbolic constant of the file DESCRIPTOR
+            // STDOUT_FILENO and NOT the standard stream stdout.
+            //
+            // CAUTION! The standard streams "stdin" and "stdout"
+            // exist on posix as well as on win32.
+            //
+            int f = STDOUT_FILENO;
+
+            // Copy standard file descriptor to destination file descriptor.
+            copy_integer(p0, (void*) &f);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open terminal. The filename is unknown.");
+        fwprintf(stdout, L"Warning: Could not open terminal. The filename is unknown. p0: %i\n", p0);
+    }
+
+--
 
     //
     // Linux:
@@ -212,20 +187,6 @@ void open_terminal(void* p0) {
     // since it is evaluated not only for the windows operating system
     // but also in function "startup_terminal_mode_store".
     //
-
-#if defined(__linux__) || defined(__unix__)
-    open_terminal_stream(p0, (void*) &os, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    open_terminal_stream(p0, (void*) &is, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-#elif defined(__APPLE__) && defined(__MACH__)
-    open_terminal_stream(p0, (void*) &os, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    open_terminal_stream(p0, (void*) &is, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
-#elif defined(_WIN32) || defined(__CYGWIN__)
-    open_terminal_stream(p0, (void*) &os, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OUTPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    open_terminal_stream(p0, (void*) &is, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INPUT_FILE_STREAM_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME);
-#else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
-#endif
 }
 
 /* TERMINAL_OPENER_SOURCE */

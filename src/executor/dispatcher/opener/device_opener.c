@@ -33,6 +33,8 @@
 #include "../../../executor/dispatcher/opener/display/display_opener.c"
 #include "../../../executor/dispatcher/opener/file/file_opener.c"
 #include "../../../executor/dispatcher/opener/serial_port/serial_port_opener.c"
+#include "../../../executor/dispatcher/opener/socket/socket_opener.c"
+#include "../../../executor/dispatcher/opener/terminal/terminal_opener.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -106,7 +108,7 @@ void open_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? open_terminal(p0);
+            open_terminal(p0, p2, p3);
         }
     }
 

@@ -26,7 +26,7 @@
 #ifndef INET6_HOST_ADDRESS_DESERIALISER_SOURCE
 #define INET6_HOST_ADDRESS_DESERIALISER_SOURCE
 
-#include <stdint.h> // for uint32_t
+#include <stdint.h> // uint32_t
 
 #if defined(__linux__) || defined(__unix__)
     #include <netinet/in.h>
