@@ -23,6 +23,7 @@
         * Add directory "executor/configurator/" wrapping up function "ioctl"
         * Move device control files using "ioctl" from streamer reader to new directory "executor/configurator/"
         * Add accessor getter and setter for "device_status", that call the configurator (ioctl wrapper)
+        * Add serial port awakener
 
 2022-02-05  Christian Heller  <christian.heller@cybop.org>
 

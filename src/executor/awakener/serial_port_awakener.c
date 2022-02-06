@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef TERMINAL_AWAKENER_SOURCE
-#define TERMINAL_AWAKENER_SOURCE
+#ifndef SERIAL_PORT_AWAKENER_SOURCE
+#define SERIAL_PORT_AWAKENER_SOURCE
 
 #include <sys/ioctl.h> // ioctl
 #include <errno.h> // errno
@@ -35,14 +35,14 @@
 #include "../../logger/logger.c"
 
 /**
- * Let the system send an input to itself over terminal.
+ * Let the system send an input to itself over serial port.
  *
  * @param p0 the device file descriptor
  */
-void awake_terminal(void* p0) {
+void awake_serial_port(void* p0) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Awake terminal.");
-    fwprintf(stdout, L"Debug: Awake terminal. p0: %i\n", p0);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Awake serial port.");
+    fwprintf(stdout, L"Debug: Awake serial port. p0: %i\n", p0);
 
     //
     // Initialise error number.
@@ -56,22 +56,11 @@ void awake_terminal(void* p0) {
     errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     //
-    // Write (push back) character to terminal input buffer,
-    // so that it can be detected by the sensing thread function.
+    //?? TODO: Read in web how to do this.
+    //?? See also wake up of "terminal"!
     //
-    // The TIOCSTI command is known to at least Linux and BSD.
-    // The characters handed over are limited to 4096 on Linux.
-    //
-    // Example:
-    // char* text = "text";
-    // ioctl(STDIN_FILENO, TIOCSTI, text);
-    //
-    // CAUTION! Calling the function "write" does NOT work here.
-    // It writes the characters to the terminal screen,
-    // no matter if sent to STDIN_FILENO or STDOUT_FILENO.
-    // But it is NOT recognised by the sensing thread.
-    //
-    int r = ioctl(p0, TIOCSTI, LINE_FEED_ASCII_CHARACTER_CODE_MODEL);
+    int r = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    //?? int r = ioctl(p0, TIOCSTI, LINE_FEED_ASCII_CHARACTER_CODE_MODEL);
 
     //
     // The meaning of the returned value depends upon the command used.
@@ -83,16 +72,16 @@ void awake_terminal(void* p0) {
     //
     if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Awake terminal. Success.");
-        fwprintf(stdout, L"Debug: Awake terminal. Success. r: %i\n", r);
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Awake serial port. Success.");
+        fwprintf(stdout, L"Debug: Awake serial port. Success. r: %i\n", r);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not awake terminal. An error occured.");
-        fwprintf(stdout, L"Error: Could not awake terminal. An error occured. %i\n", r);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not awake serial port. An error occured.");
+        fwprintf(stdout, L"Error: Could not awake serial port. An error occured. %i\n", r);
         log_errno((void*) &errno);
     }
 }
 
-/* TERMINAL_AWAKENER_SOURCE */
+/* SERIAL_PORT_AWAKENER_SOURCE */
 #endif
