@@ -52,10 +52,10 @@
 
     <node name="receive_client" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
         <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".response"/>
         <node name="sender" channel="inline" format="text/cybol-path" model=".server_socket"/>
-        <node name="client" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
 </node>

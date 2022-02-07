@@ -30,9 +30,20 @@
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/streamer/reader/basic/basic_reader.c"
 #include "../../../executor/streamer/reader/basic/inline_reader.c"
 #include "../../../logger/logger.c"
+
+#if defined(__linux__) || defined(__unix__)
+    #include "../../../executor/streamer/reader/basic/basic_reader.c"
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../../executor/streamer/reader/basic/basic_reader.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    #include "../../../executor/streamer/reader/win32_console/win32_console_reader.c"
+    #include "../../../executor/streamer/reader/winsock/winsock_reader.c"
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
 
 /**
  * Reads a message fragment via the given channel.
@@ -132,7 +143,16 @@ void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            read_socket(p0, p1, p7, p10, p11, p12, p13);
+#if defined(__linux__) || defined(__unix__)
+            read_basic(p0, p1, p3, p4, p5, p6, p7);
+#elif defined(__APPLE__) && defined(__MACH__)
+            read_basic(p0, p1, p3, p4, p5, p6, p7);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+            read_winsock(p0, p1, p3, p4, p5, p6, p7);
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
         }
     }
 
@@ -142,7 +162,16 @@ void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+#if defined(__linux__) || defined(__unix__)
             read_basic(p0, p1, p3, p4, p5, p6, p7);
+#elif defined(__APPLE__) && defined(__MACH__)
+            read_basic(p0, p1, p3, p4, p5, p6, p7);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+            read_win32_console(p0, p1, p3, p4, p5, p6, p7);
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
         }
     }
 

@@ -26,10 +26,12 @@
         * file opener
         * file closer
         DOING:
+        * Provide streamer writer as counterpart to read
         * Provide close and shutdown counterparts to open and startup
         * Make compilable
         * Test file read functionality
         * file read
+        * Remove stack variable in cybol example "server_socket"
         TODO:
         * file write
         * serial_port
