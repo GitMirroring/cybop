@@ -402,6 +402,11 @@ ____
 Android
 _______
 
+        * Use "NativeActivity" to render the whole screen in C
+            https://stackoverflow.com/questions/13188898/how-to-draw-on-the-android-canvas-from-the-native-code
+            https://developer.android.com/reference/android/app/NativeActivity.html
+            https://github.com/android/ndk-samples/tree/master/native-activity
+
         * Search in web:
             - no glibc on Android, but special libc called "Bionic"
             - Android Native Development Kit (NDK)

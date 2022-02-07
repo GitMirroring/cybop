@@ -212,20 +212,6 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
                             // child thread is faster than their processing in the main thread.
                             //
                             modify_item(p0, p2, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &n, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-
-/*??
-                            //?? TEST BEGIN
-                            void* testd = *NULL_POINTER_STATE_CYBOI_MODEL;
-                            void* testc = *NULL_POINTER_STATE_CYBOI_MODEL;
-                            copy_array_forward((void*) &testd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-                            copy_array_forward((void*) &testc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-                            fwprintf(stdout, L"Debug: Read basic. testc: %i\n", testc);
-                            fwprintf(stdout, L"Debug: Read basic. *testc: %i\n", *((int*) testc));
-                            fwprintf(stdout, L"Debug: Read basic. testd + 0: %i\n", *((char*) (testd + 0)));
-                            fwprintf(stdout, L"Debug: Read basic. testd + 1: %i\n", *((char*) (testd + 1)));
-                            fwprintf(stdout, L"Debug: Read basic. testd + 2: %i\n", *((char*) (testd + 2)));
-                            //?? TEST END
-*/
                         }
 
                         // Unlock mutex.

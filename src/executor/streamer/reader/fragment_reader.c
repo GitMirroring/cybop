@@ -56,16 +56,6 @@ void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p13, (void*) CLIENT_SOCKET_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //?? read_socket(p0, p1, p7, p10, p11, p12, p13);
-        }
-    }
-
 /*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -122,8 +112,7 @@ void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? read_serial_port(p0, p8, p9, p7);
-            //?? read_basic(destination-item, source-file-descriptor, fragment-data, fragment-size, destination-mutex, exit-flag, eof-or-close-flag);
+            read_basic(p0, p1, p3, p4, p5, p6, p7);
         }
     }
 
@@ -139,11 +128,21 @@ void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p13, (void*) SOCKET_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            read_socket(p0, p1, p7, p10, p11, p12, p13);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         compare_integer_equal((void*) &r, p13, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? read_terminal(p0, p1, p7, p10);
+            read_basic(p0, p1, p3, p4, p5, p6, p7);
         }
     }
 

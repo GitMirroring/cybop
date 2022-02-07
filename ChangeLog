@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-02-07  Christian Heller  <christian.heller@cybop.org>
+
+        * Remove streamer reader for channels "serial_port" and "terminal" and use file "basic_reader.c" instead
+
 2022-02-06  Christian Heller  <christian.heller@cybop.org>
 
         * Add directory "executor/configurator/" wrapping up function "ioctl"
