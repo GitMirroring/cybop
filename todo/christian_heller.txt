@@ -21,7 +21,6 @@
         * Test file read functionality
         * Replace stack variable "#client" in cybol example "server_socket" with heap variable ".sender" or ".client"
 
-        * Rename file "size_determiner.c" into "type_to_size_mapper.c" and move into directory "mapper/"
         * Provide cybol format "meta/model" to deserialise e.g. socket address etc. into an integer for more efficient processing ?? (equivalent of compilation)
         * Change TCSANOW into TCSADRAIN ?? (file "unix_terminal_mode_setter.c")
         * Implement worker thread with cybol operations "work/move" and "work/break", for asynchronically sending message data

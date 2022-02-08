@@ -34,6 +34,7 @@
 #include "../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../executor/calculator/pointer/add_pointer_calculator.c"
 #include "../../logger/logger.c"
+#include "../../mapper/type_to_size_mapper.c"
 #include "../../variable/type_size/integral_type_size.c"
 
 /**
@@ -56,7 +57,7 @@ void move(void* p0, void* p1, void* p2, void* p3, void* p4) {
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Determine type size.
-    determine_size((void*) &m, p2);
+    map_type_to_size((void*) &m, p2);
     // Calculate memory area.
     calculate_integer_multiply((void*) &m, p3);
 

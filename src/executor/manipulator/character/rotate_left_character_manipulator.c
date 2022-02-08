@@ -36,8 +36,8 @@
 #include "../../../executor/manipulator/character/clear_character_manipulator.c"
 #include "../../../executor/manipulator/character/set_character_manipulator.c"
 #include "../../../executor/manipulator/character/shift_left_character_manipulator.c"
-#include "../../../executor/memoriser/size_determiner.c"
 #include "../../../logger/logger.c"
+#include "../../../mapper/type_to_size_mapper.c"
 
 /**
  * Rotates all bits of value to the left by position.
@@ -65,7 +65,7 @@ void manipulate_character_rotate_left(void* p0, void* p1) {
     unsigned char b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Get type size.
-    determine_size((void*) &i, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    map_type_to_size((void*) &i, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
     // Calculate type size in bit units.
     // CAUTION! A byte is assumed to have 8 bit.
     calculate_integer_multiply((void*) &i, (void*) NUMBER_8_INTEGER_STATE_CYBOI_MODEL);

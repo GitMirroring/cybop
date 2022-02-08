@@ -33,7 +33,7 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/calculator/integer/multiply_integer_calculator.c"
 #include "../../executor/calculator/pointer/add_pointer_calculator.c"
-#include "../../executor/memoriser/size_determiner.c"
+#include "../../mapper/type_to_size_mapper.c"
 
 /**
  * Adds an offset to the given pointer.
@@ -52,7 +52,7 @@ void add_offset(void* p0, void* p1, void* p2) {
     int o = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Determine type size.
-    determine_size((void*) &o, p1);
+    map_type_to_size((void*) &o, p1);
 
     // Calculate offset.
     // CAUTION! The integer type is needed here, since o

@@ -80,7 +80,7 @@ void deallocate_client_entry(void* p0, void* p1) {
         //
 
         // Map channel to datatype.
-        map_channel_to_data_type((void*) &t, p1);
+        map_channel_to_type((void*) &t, p1);
 
         //
         // Retrieval.

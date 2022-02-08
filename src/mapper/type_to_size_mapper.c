@@ -23,16 +23,24 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SIZE_DETERMINER_SOURCE
-#define SIZE_DETERMINER_SOURCE
+#ifndef TYPE_TO_SIZE_MAPPER_SOURCE
+#define TYPE_TO_SIZE_MAPPER_SOURCE
 
+#include "../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../logger/logger.c"
+
+--
 #include <stdlib.h>
 #include <string.h>
 
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../executor/copier/integer_copier.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../constant/channel/cyboi/cyboi_channel.c"
+#include "../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../constant/type/cyboi/state_cyboi_type.c"
+#include "../executor/comparator/integer/equal_integer_comparator.c"
+#include "../executor/copier/integer_copier.c"
+#include "../logger/logger.c"
+
 #include "../../variable/type_size/compound_type_size.c"
 #include "../../variable/type_size/integral_type_size.c"
 #include "../../variable/type_size/pointer_type_size.c"
@@ -45,7 +53,7 @@
  * @param p0 the size
  * @param p1 the type
  */
-void determine_size(void* p0, void* p1) {
+void map_type_to_size(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -224,5 +232,5 @@ void determine_size(void* p0, void* p1) {
     }
 }
 
-/* SIZE_DETERMINER_SOURCE */
+/* TYPE_TO_SIZE_MAPPER_SOURCE */
 #endif

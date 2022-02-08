@@ -33,8 +33,8 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/calculator/integer/multiply_integer_calculator.c"
-#include "../../../executor/memoriser/size_determiner.c"
 #include "../../../logger/logger.c"
+#include "../../../mapper/type_to_size_mapper.c"
 #include "../../../variable/reference_counter.c"
 
 /**
@@ -56,7 +56,7 @@ void allocate_array(void* p0, void* p1, void* p2) {
         int ma = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // Determine type (type) size.
-        determine_size((void*) &ma, p2);
+        map_type_to_size((void*) &ma, p2);
         // Calculate memory area.
         calculate_integer_multiply((void*) &ma, p1);
 

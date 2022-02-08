@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHANNEL_TO_DATA_TYPE_MAPPER_SOURCE
-#define CHANNEL_TO_DATA_TYPE_MAPPER_SOURCE
+#ifndef CHANNEL_TO_TYPE_MAPPER_SOURCE
+#define CHANNEL_TO_TYPE_MAPPER_SOURCE
 
 #include "../constant/channel/cyboi/cyboi_channel.c"
 #include "../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -43,9 +43,9 @@
  * @param p0 the data type
  * @param p1 the channel
  */
-void map_channel_to_data_type(void* p0, void* p1) {
+void map_channel_to_type(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Map channel to data type.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Map channel to type.");
 
     //
     // CAUTION! The channels NOT listed here are NOT used
@@ -97,10 +97,10 @@ void map_channel_to_data_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not map channel to data type. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not map channel to data type. The channel is unknown. Channel p1: %i\n", *((int*) p1));
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not map channel to type. The channel is unknown.");
+        fwprintf(stdout, L"Warning: Could not map channel to type. The channel is unknown. Channel p1: %i\n", *((int*) p1));
     }
 }
 
-/* CHANNEL_TO_DATA_TYPE_MAPPER_SOURCE */
+/* CHANNEL_TO_TYPE_MAPPER_SOURCE */
 #endif
