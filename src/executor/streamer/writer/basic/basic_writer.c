@@ -55,7 +55,7 @@
  * @param p4 the source message type
  * @param p5 the destination mutex
  * @param p6 the asynchronous mode
- * @param p7 the close flag
+ * @param p7 the complete flag
  */
 void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
@@ -142,18 +142,18 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write basic. Success.");
                     fwprintf(stdout, L"Debug: Write basic. Success. n: %i\n", n);
 
-                    // The comparison result.
-                    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+                    // The comparison result for asynchronous mode.
+                    int ra = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                    compare_integer_unequal((void*) &r, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+                    compare_integer_unequal((void*) &ra, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-                    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+                    if (ra != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                         //
                         // This is ASYNCHRONOUS mode.
                         //
 
-                        fwprintf(stdout, L"Debug: Write basic. Remove written data from buffer. r: %i\n", r);
+                        fwprintf(stdout, L"Debug: Write basic. Remove written data from buffer. r: %i\n", ra);
 
                         //
                         // Remove written data from source message buffer.
@@ -180,7 +180,7 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
                     } else {
 
                         //
-                        // This is ASYNCHRONOUS mode.
+                        // This is SYNCHRONOUS mode.
                         //
 
                         //
@@ -190,6 +190,23 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
                         // The cybol application has created the message data
                         // and is therefore responsible for deleting it as well.
                         //
+                    }
+
+                    // The comparison result for complete transmission.
+                    int rc = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                    compare_integer_less_or_equal((void*) &rc, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+                    if (rc != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                        //
+                        // The buffer is empty.
+                        // All data have been transmitted,
+                        // so that the loop may be left now.
+                        //
+
+                        // Set complete flag.
+                        copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                     }
 
                 } else if (n == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
@@ -212,7 +229,7 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write basic. Set close flag.");
                     fwprintf(stdout, L"Debug: Could not write basic. Set close flag. n: %i\n", n);
 
-                    // Set close flag.
+                    // Set complete flag.
                     copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                 } else {
@@ -220,6 +237,9 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write basic. An error occured.");
                     fwprintf(stdout, L"Error: Could not write basic. An error occured. %i\n", r);
                     log_errno((void*) &errno);
+
+                    // Set complete flag.
+                    copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                 }
 
             } else {

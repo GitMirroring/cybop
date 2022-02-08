@@ -23,61 +23,41 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LOOP_READER_SOURCE
-#define LOOP_READER_SOURCE
+#ifndef LOOP_WRITER_SOURCE
+#define LOOP_WRITER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/unequal_integer_comparator.c"
-#include "../../../executor/streamer/reader/message_reader.c"
+#include "../../../executor/streamer/writer/message_writer.c"
 #include "../../../logger/logger.c"
 
 /**
- * Reads data via an endless loop.
+ * Writes data via an endless loop.
  *
- * @param p0 the destination item
- * @param p1 the source data (identification e.g. file descriptor of a file, serial port, client socket, window id OR input text for inline channel)
- * @param p2 the source count
- * @param p3 the message fragment data
- * @param p4 the message fragment size
- * @param p5 the destination mutex
- * @param p6 the interrupt pipe write file descriptor
- * @param p7 the interrupt mutex
- * @param p8 the thread exit flag
- * @param p9 the server identification (server base + service port)
- * @param p10 the client identification
- * @param p11 the language (protocol)
- * @param p12 the message length (possibly detected previously; should be initialised with a value < 0, e.g. with -1)
- * @param p13 the channel
- * @param p14 the asynchronous mode
+ * @param p0 the destination device file descriptor (a file, serial port, terminal, socket) OR window id OR item (for inline channel)
+ * @param p1 the source message data (pointer reference)
+ * @param p2 the source message count
+ * @param p3 the source message size
+ * @param p4 the source message type
+ * @param p5 the source part (pointer reference), e.g. a signal
+ * @param p6 the destination mutex
+ * @param p7 the client entry
+ * @param p8 the asynchronous mode
+ * @param p9 the complete flag
+ * @param p10 the channel
  */
-void read_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
+void write_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read loop.");
-    fwprintf(stdout, L"Debug: Read loop. p0: %i\n", p0);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write loop.");
+    fwprintf(stdout, L"Debug: Write loop. p0: %i\n", p0);
 
     // The loop break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        //
-        // CAUTION! If data are read in synchronous mode,
-        // then there is NO thread and the thread exit flag NULL.
-        // However, a null value is just IGNORED inside this
-        // comparison and leaves the resulting break flag untouched.
-        //
-        compare_integer_unequal((void*) &b, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //
-            // The break flag has been set.
-            //
-            // This can happen in two ways:
-            // - synchronous mode: directly
-            // - asynchronous mode: via thread exit flag (see comparison above)
-            //
 
             break;
         }
@@ -86,5 +66,5 @@ void read_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     }
 }
 
-/* LOOP_READER_SOURCE */
+/* LOOP_WRITER_SOURCE */
 #endif

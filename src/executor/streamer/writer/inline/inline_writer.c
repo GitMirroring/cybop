@@ -34,15 +34,25 @@
  * Writes source data into inline destination item.
  *
  * @param p0 the destination item
- * @param p1 the source data
+ * @param p1 the source data (pointer reference)
  * @param p2 the source count
  */
 void write_inline(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write inline.");
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // Copy source to destination.
-    modify_item(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+        void** d = (void**) p1;
+
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write inline.");
+
+        // Copy source to destination.
+        modify_item(p0, *d, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write inline. The source data is null.");
+        fwprintf(stdout, L"Error: Could not write inline. The source data is null. p1: %i\n", p1);
+    }
 }
 
 /* INLINE_WRITER_SOURCE */

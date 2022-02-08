@@ -23,193 +23,215 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WRITER_SOURCE
-#define WRITER_SOURCE
+#ifndef MESSAGE_WRITER_SOURCE
+#define MESSAGE_WRITER_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../logger/logger.c"
---
-#include "../../constant/channel/cyboi/cyboi_channel.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/streamer/writer/directory/directory_writer.c"
-#include "../../executor/streamer/writer/display/display_writer.c"
-#include "../../executor/streamer/writer/inline/inline_writer.c"
-#include "../../executor/streamer/writer/signal/signal_writer.c"
+#include "../../../constant/channel/cyboi/cyboi_channel.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../executor/streamer/writer/display/display_writer.c"
+#include "../../../executor/streamer/writer/inline/inline_writer.c"
+#include "../../../executor/streamer/writer/signal/signal_writer.c"
+#include "../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../executor/streamer/writer/basic/basic_writer.c"
+    #include "../../../../executor/streamer/writer/basic/basic_writer.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../executor/streamer/writer/basic/basic_writer.c"
+    #include "../../../../executor/streamer/writer/basic/basic_writer.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../executor/streamer/writer/win32_console/win32_console_writer.c"
-    #include "../../../executor/streamer/writer/winsock/winsock_writer.c"
+    #include "../../../../executor/streamer/writer/win32_console/win32_console_writer.c"
+    #include "../../../../executor/streamer/writer/winsock/winsock_writer.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
- * Writes the source via the given channel.
+ * Writes the source message to the destination device.
  *
  * CAUTION! Do NOT rename this function to "write",
  * as that name is already used for glibc library's output.
  *
- * @param p0 the destination file descriptor (a file, serial port, terminal, socket)
+ * @param p0 the destination device file descriptor (a file, serial port, terminal, socket) OR window id OR item (for inline channel)
  * @param p1 the source message data (pointer reference)
  * @param p2 the source message count
  * @param p3 the source message size
  * @param p4 the source message type
- * @param p8 the source part (pointer reference), e.g. a signal
- * @param p5 the destination mutex
- * @param p6 the asynchronous mode
- * @param p7 the close flag
- * @param p9 the channel
+ * @param p5 the source part (pointer reference), e.g. a signal
+ * @param p6 the destination mutex
+ * @param p7 the client entry
+ * @param p8 the asynchronous mode
+ * @param p9 the complete flag
+ * @param p10 the channel
  */
-void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void write_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write message.");
+    fwprintf(stdout, L"Information: Write message. p10: %i\n", p10);
+    fwprintf(stdout, L"Information: Write message. *p10: %i\n", *((int*) p10));
 
-        void** d = (void**) p1;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write.");
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // The comparison result.
-        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        compare_integer_equal((void*) &r, p10, (void*) DISPLAY_CYBOI_CHANNEL);
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p9, (void*) DISPLAY_CYBOI_CHANNEL);
+            write_display(p0, p7);
 
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // The destination window identification item data.
-                void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-                // Get destination window identification item data.
-                copy_array_forward((void*) &w, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-                write_display(w, p7);
-            }
+            //
+            // Set complete flag.
+            //
+            // The window has been mapped to screen and all
+            // pending requests flushed to the x server.
+            // Therefore, further loop cycles are not necessary.
+            //
+            copy_integer(p9, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
+    }
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p9, (void*) FILE_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p10, (void*) FILE_CYBOI_CHANNEL);
 
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                write_basic(p0, *d, p2);
-            }
+            write_basic(p0, p1, p2, p3, p4, p6, p8, p9);
+
+            // The complete flag is adjusted inside the "write_basic" function.
         }
+    }
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p9, (void*) INLINE_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p10, (void*) INLINE_CYBOI_CHANNEL);
 
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                write_inline(p0, *d, p2);
-            }
+            write_inline(p0, *d, p2);
+
+            //
+            // Set complete flag.
+            //
+            // The message data have been copied within cyboi, all at once.
+            // Therefore, further loop cycles are not necessary.
+            //
+            copy_integer(p9, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
+    }
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p9, (void*) SERIAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p10, (void*) SERIAL_CYBOI_CHANNEL);
 
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                //
-                // CAUTION! Locking for exclusive read or write is NOT necessary.
-                //
-                // The serial RS-232 interface has two independent data wires,
-                // one for input and another one for output.
-                // In case a sensing thread is running for serial input detection,
-                // there is NO problem in sending data here,
-                // since input and output may be accessed in parallel
-                // without having to fear conflicts.
-                //
+            //
+            // CAUTION! Locking for exclusive read or write is NOT necessary.
+            //
+            // The serial RS-232 interface has two independent data wires,
+            // one for input and another one for output.
+            // In case a sensing thread is running for serial input detection,
+            // there is NO problem in sending data here,
+            // since input and output may be accessed in parallel
+            // without having to fear conflicts.
+            //
 
-                write_basic(p0, *d, p2);
-            }
+            write_basic(p0, p1, p2, p3, p4, p6, p8, p9);
+
+            // The complete flag is adjusted inside the "write_basic" function.
         }
+    }
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p9, (void*) SIGNAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p10, (void*) SIGNAL_CYBOI_CHANNEL);
 
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                write_signal(p7, p8);
-            }
+            write_signal(p5, p7);
+
+            //
+            // Set complete flag.
+            //
+            // The source signal has been placed into the signal memory.
+            // Therefore, further loop cycles are not necessary.
+            //
+            copy_integer(p9, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
+    }
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p9, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p10, (void*) SOCKET_CYBOI_CHANNEL);
 
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 #if defined(__linux__) || defined(__unix__)
-                write_basic(p0, *d, p2);
+            write_basic(p0, p1, p2, p3, p4, p6, p8, p9);
 #elif defined(__APPLE__) && defined(__MACH__)
-                write_basic(p0, *d, p2);
+            write_basic(p0, p1, p2, p3, p4, p6, p8, p9);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-                write_winsock(p0, *d, p2);
+            write_winsock(p0, p1, p2, p3, p4, p6, p8, p9);
 #else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
-            }
+
+            // The complete flag is adjusted inside the "write_basic" function.
         }
+    }
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p9, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p10, (void*) TERMINAL_CYBOI_CHANNEL);
 
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                //
-                //?? TODO: Reflect on this if something does NOT work correctly.
-                //?? DELETE this comment later.
-                //
-                // CAUTION! The character data are printed out using "fwprintf",
-                // so that the ansi escape codes are interpreted correctly.
-                //
-                // CAUTION! The placeholder %s is used, since the data are given
-                // as utf-8 multibyte character sequence of type "char".
-                // The placeholder %ls would be WRONG here as it expects data
-                // of type "wchar_t".
-                //
-                // CAUTION! The data ought to be null-terminated.
-                //
-                // int e = fwprintf(f, L"%s", d);
-                // int e = fwprintf(stdout, L"%s", d);
-                //
+            //
+            // Comment from an earlier version of cyboi -- DELETE LATER:
+            //
+            //?? TODO: Reflect on this if something does NOT work correctly.
+            //?? DELETE this comment later.
+            //
+            // CAUTION! The character data are printed out using "fwprintf",
+            // so that the ansi escape codes are interpreted correctly.
+            //
+            // CAUTION! The placeholder %s is used, since the data are given
+            // as utf-8 multibyte character sequence of type "char".
+            // The placeholder %ls would be WRONG here as it expects data
+            // of type "wchar_t".
+            //
+            // CAUTION! The data ought to be null-terminated.
+            //
+            // int e = fwprintf(f, L"%s", d);
+            // int e = fwprintf(stdout, L"%s", d);
+            //
 
 #if defined(__linux__) || defined(__unix__)
-                write_basic(p0, *d, p2);
+            write_basic(p0, p1, p2, p3, p4, p6, p8, p9);
 #elif defined(__APPLE__) && defined(__MACH__)
-                write_basic(p0, *d, p2);
+            write_basic(p0, p1, p2, p3, p4, p6, p8, p9);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-                write_win32_console(p0, *d, p2);
+            write_win32_console(p0, p1, p2, p3, p4, p6, p8, p9);
 #else
-    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
-            }
+
+            // The complete flag is adjusted inside the "write_basic" function.
         }
+    }
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write. The channel is unknown.");
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write. The source data is null.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write message. The channel is unknown.");
+        fwprintf(stdout, L"Warning: Could not write message. The channel is unknown. p10: %i\n", p10);
     }
 }
 
-/* WRITER_SOURCE */
+/* MESSAGE_WRITER_SOURCE */
 #endif

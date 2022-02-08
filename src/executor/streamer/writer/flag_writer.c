@@ -76,20 +76,7 @@ void read_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         // This is ASYNCHRONOUS mode.
         //
 
-        //
-        // Write indirectly into buffer.
-        //
-        // The data have been read and stored in the buffer
-        // in a separate sensing thread before.
-        //
-        write_buffer(p0, p4, p6, p7);
-
-        //
         // Invoke write function within a new thread.
-        //
-        // CAUTION! It is called in SYNCHRONOUS mode, in order to
-        // write data from BUFFER to device.
-        //
         write_thread(ce);
     }
 }

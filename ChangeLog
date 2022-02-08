@@ -24,6 +24,7 @@
         * Remove streamer writer for channels "file", "serial_port", "socket", "terminal" and use file "basic_writer.c" instead
         * Remove reader and writer for unused channel "directory"
         * Move file "size_determiner.c" renamed to "type_to_size_mapper.c" into directory "mapper/"
+        * Update streamer writer as counterpart to reader
 
 2022-02-07  Christian Heller  <christian.heller@cybop.org>
 

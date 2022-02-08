@@ -26,36 +26,48 @@
 #ifndef SIGNAL_WRITER_SOURCE
 #define SIGNAL_WRITER_SOURCE
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/client_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/server_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Writes a message as signal to the cyboi system (this system itself).
  *
- * @param p0 the internal memory data
- * @param p1 the source part (pointer reference)
+ * @param p0 the source part (pointer reference)
+ * @param p1 the client entry
  */
 void write_signal(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write signal.");
+    fwprintf(stdout, L"Debug: Write signal. p0: %i\n", p0);
 
+    // The server entry.
+    void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The internal memory.
+    void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The signal memory part.
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The signal memory part model item.
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The signal memory part model item.
+    void* smm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get signal memory part.
-    copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Get server entry from client entry.
+    copy_array_forward((void*) &se, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SERVER_ENTRY_BACKLINK_CLIENT_STATE_CYBOI_NAME);
+    // Get internal memory from server entry.
+    copy_array_forward((void*) &im, se, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERNAL_MEMORY_BACKLINK_SERVER_STATE_CYBOI_NAME);
+    // Get signal memory part from internal memory.
+    copy_array_forward((void*) &sm, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get signal memory part model item.
-    copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &smm, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     //
     // Add signal part to signal memory.
@@ -81,7 +93,7 @@ void write_signal(void* p0, void* p1) {
     // Hence, rubbish (garbage) collection would only disturb here
     // and should be left to the knowledge memory.
     //
-    modify_item(sm, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    modify_item(smm, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 }
 
 /* SIGNAL_WRITER_SOURCE */

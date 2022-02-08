@@ -27,31 +27,22 @@
 #define TYPE_TO_SIZE_MAPPER_SOURCE
 
 #include "../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../logger/logger.c"
-
---
-#include <stdlib.h>
-#include <string.h>
-
-#include "../constant/channel/cyboi/cyboi_channel.c"
-#include "../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../constant/type/cyboi/state_cyboi_type.c"
-#include "../executor/comparator/integer/equal_integer_comparator.c"
 #include "../executor/copier/integer_copier.c"
 #include "../logger/logger.c"
-
-#include "../../variable/type_size/compound_type_size.c"
-#include "../../variable/type_size/integral_type_size.c"
-#include "../../variable/type_size/pointer_type_size.c"
-#include "../../variable/type_size/real_type_size.c"
-#include "../../variable/type_size/socket_type_size.c"
+#include "../variable/type_size/compound_type_size.c"
+#include "../variable/type_size/integral_type_size.c"
+#include "../variable/type_size/pointer_type_size.c"
+#include "../variable/type_size/real_type_size.c"
+#include "../variable/type_size/socket_type_size.c"
+#include "../variable/type_size/terminal_mode_type_size.c"
+#include "../variable/type_size/thread_type_size.c"
 
 /**
- * Determines the size of the given type.
+ * Maps the data type to a size.
  *
  * @param p0 the size
- * @param p1 the type
+ * @param p1 the data type
  */
 void map_type_to_size(void* p0, void* p1) {
 
@@ -63,7 +54,8 @@ void map_type_to_size(void* p0, void* p1) {
         // CAUTION! Do NOT call the logger here.
         // It uses functions causing circular references.
         //
-        // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Determine size.");
+        // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Map type to size.");
+        //
 
         //
         // datetime

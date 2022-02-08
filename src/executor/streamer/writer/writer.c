@@ -80,6 +80,20 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     // Get client entry from server entry client list by given device identification.
     find_server_entry((void*) &ce, se, p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
+    //
+    // Write source message into buffer.
+    //
+    // CAUTION! This has to be done in ANY CASE, not only
+    // in asynchronous mode, but also in synchronous mode.
+    // The reason is UNIFORM processing.
+    //
+    // Within basic write functionality, the successfully
+    // transmitted data are REMOVED from the buffer.
+    // If it is empty, then the "complete flag" is set,
+    // so that the loop can be left.
+    //
+    write_buffer(p0, p4, p6, p7);
+
     // Write data via the given channel.
     write_flag(p0, p1, p2, p3, ce, (void*) &id, p4, p6, p8);
 }

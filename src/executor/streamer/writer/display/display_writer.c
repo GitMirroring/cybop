@@ -43,8 +43,8 @@
 /**
  * Writes the source to the display.
  *
- * @param p0 the destination data (gui window id)
- * @param p1 the internal memory data
+ * @param p0 the destination window id
+ * @param p1 the client entry
  */
 void write_display(void* p0, void* p1) {
 

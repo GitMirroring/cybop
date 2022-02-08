@@ -58,7 +58,7 @@
  *
  * @param p0 the client entry
  */
-int sense_function(void* p0) {
+int write_function(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense function.");
     fwprintf(stdout, L"Debug: Sense function. p0: %i\n", p0);
@@ -116,9 +116,7 @@ int sense_function(void* p0) {
     // since data are NOT to be read from internal buffer,
     // but DIRECTLY from client device INTO the internal buffer.
     //
-    WITH ASYNCHRONOUS-FLAG SET TO "FALSE":
-    write_data(bi, id, bm, l, i, c, p, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, ex);
-    OR DIRECTLY:
+    WITH ASYNCHRONOUS-FLAG SET TO "FALSE" (!):
     write_device(bi, id, bm, l, i, c, p, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, ex);
 
     //

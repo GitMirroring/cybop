@@ -51,9 +51,11 @@
  */
 void copy_array_elements_forward(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
+    //
     // CAUTION! Do NOT call the logger here.
     // It uses functions causing circular references.
     // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy array elements forward.");
+    //
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -62,6 +64,7 @@ void copy_array_elements_forward(void* p0, void* p1, void* p2, void* p3, void* p
 
     if (p4 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
@@ -69,6 +72,7 @@ void copy_array_elements_forward(void* p0, void* p1, void* p2, void* p3, void* p
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
+        //
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
@@ -109,6 +113,7 @@ void copy_array_elements_backward(void* p0, void* p1, void* p2, void* p3, void* 
 
     if (p4 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
@@ -116,6 +121,7 @@ void copy_array_elements_backward(void* p0, void* p1, void* p2, void* p3, void* 
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
+        //
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
@@ -155,22 +161,28 @@ void copy_array_elements_backward(void* p0, void* p1, void* p2, void* p3, void* 
  */
 void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
+    //
     // CAUTION! These null pointer comparisons are IMPORTANT, in order to
     // avoid a system crash if source- or destination array are null!
     // All other modifier functions are based on this copier function,
     // so that checking for null pointer right here suffices.
+    //
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+            //
             // CAUTION! Do NOT call the logger here.
             // It uses functions causing circular references.
             // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy array forward.");
+            //
 
+            //
             // The destination array, source array.
             // CAUTION! They HAVE TO BE initialised with p0 and p1,
             // since an offset is added below.
+            //
             void* d = p0;
             void* s = p1;
 
@@ -181,16 +193,20 @@ void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
         } else {
 
+            //
             // CAUTION! Do NOT call the logger here.
             // It uses functions causing circular references.
             // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy array forward. The destination array is null.");
+            //
         }
 
     } else {
 
+        //
         // CAUTION! Do NOT call the logger here.
         // It uses functions causing circular references.
         // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy array forward. The source array is null.");
+        //
     }
 }
 
@@ -210,10 +226,12 @@ void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
  */
 void copy_array_backward(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
+    //
     // CAUTION! These null pointer comparisons are IMPORTANT, in order to
     // avoid a system crash if one or both of the two arrays are null!
     // All other copying functions are based on this copier function,
     // so that checking for null pointer right here suffices.
+    //
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -221,9 +239,12 @@ void copy_array_backward(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy array backward.");
 
+            //
             // The destination array, source array.
+            //
             // CAUTION! They HAVE TO BE initialised with p0 and p1,
             // since an offset is added below.
+            //
             void* d = p0;
             void* s = p1;
 
