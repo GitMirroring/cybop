@@ -31,7 +31,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Writes source into destination via channel "inline".
+ * Writes source data into inline destination item.
  *
  * @param p0 the destination item
  * @param p1 the source data

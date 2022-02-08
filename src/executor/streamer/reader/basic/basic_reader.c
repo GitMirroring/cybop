@@ -119,7 +119,16 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
                     fwprintf(stdout, L"Debug: Read basic. s: %i\n", f);
                     fwprintf(stdout, L"Debug: Read basic. *s: %i\n", *((int*) f));
 
+                    //
                     // Cast fragment size to correct type.
+                    //
+                    // CAUTION! It IS NECESSARY because on 64 Bit machines,
+                    // the "size_t" type has a size of 8 Byte,
+                    // whereas the "int" type has the usual size of 4 Byte.
+                    // When trying to cast between the two, memory errors
+                    // will occur and the valgrind memcheck tool report:
+                    // "Invalid read of size 8".
+                    //
                     size_t mst = (size_t) *ms;
                     fwprintf(stdout, L"Debug: Read basic. mst: %i\n", mst);
 
@@ -228,7 +237,7 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
                         //
                         // Socket communication:
                         //
-                        // A return value of ZERO means the other end (peer, server)
+                        // A return value of ZERO means the other end (peer)
                         // CLOSED the socket connexion. It never means there was no data.
                         //
                         // Standard behaviour:
@@ -247,8 +256,8 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
                         // which is done in the calling function.
                         //
 
-                        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read basic. Set eof-or-close flag.");
-                        fwprintf(stdout, L"Debug: Read basic. Set eof-or-close flag. n: %i\n", n);
+                        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read basic. Set eof-or-close flag.");
+                        fwprintf(stdout, L"Debug: Could not read basic. Set eof-or-close flag. n: %i\n", n);
 
                         // Set eof-or-close flag.
                         copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

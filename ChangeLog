@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-02-08  Christian Heller  <christian.heller@cybop.org>
+
+        * Add file "basic_reader.c"
+        * Remove streamer writer for channels "file", "serial_port", "socket", "terminal" and use file "basic_writer.c" instead
+
 2022-02-07  Christian Heller  <christian.heller@cybop.org>
 
         * Remove streamer reader for channels "serial_port" and "terminal" and use file "basic_reader.c" instead
