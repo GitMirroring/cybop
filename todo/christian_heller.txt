@@ -11,38 +11,15 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-        * Stepwise implement and verify functions of table in file "doc/development/cyboi/service_lifecycle.pdf"
+        * Complete implementation of communication functions listed in table "doc/development/cyboi/service_lifecycle.pdf
         * See service lifecycle cybol examples in directory "examples/communication/"
 
-        DONE:
-        * dispatcher opener terminal
-        * dispatcher opener socket
-        * dispatcher opener display
-        * maintain/startup
-        * activate/enable
-        * dispatch/open
-        * feel/sense
-        * stream/read
-        * file opener
-        * file closer
-        DOING:
-        * Clean up streamer writer for channels "file" etc.
-        * Provide streamer writer as counterpart to read
-        * Provide close and shutdown counterparts to open and startup
+        * Provide streamer writer as counterpart to reader
+        * Provide closer counterparts to opener
+        * Provide shutter counterparts to starter
         * Make compilable
         * Test file read functionality
-        * file read
-        * Remove stack variable in cybol example "server_socket"
-        TODO:
-        * file write
-        * serial_port
-        * terminal
-        * named_pipeline
-        * client_socket
-        * server_socket
-        * display_xcb
-        * display_win32
-        * mobile_app
+        * Replace stack variable "#client" in cybol example "server_socket" with heap variable ".sender" or ".client"
 
         * Rename file "size_determiner.c" into "type_to_size_mapper.c" and move into directory "mapper/"
         * Provide cybol format "meta/model" to deserialise e.g. socket address etc. into an integer for more efficient processing ?? (equivalent of compilation)
@@ -1486,4 +1463,9 @@ _____
 
         * Remove as properties from cyboi-internal allocated structure "part": channel, encoding, language, format
             (they are only needed for communication and when needed by "send" or "receive", they are given as properties)
+
+        * Reintroduce channel "directory" used for reading the files of a directory
+        * See example cybol application "repertoire" in file "db.cybol"
+            <node name="song" channel="directory" format="element/part" model="application/repertoire/db/song/"/>
+        * The advantage would be not to have to list all files additionally in an index file "application/repertoire/db/song.cybol"
 

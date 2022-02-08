@@ -55,15 +55,15 @@
  * CAUTION! Do NOT rename this function to "write",
  * as that name is already used for glibc library's output.
  *
- * @param p0 the destination item (e.g. filename, client socket number, service identification, gui window id)
- * @param p1 the source model data (pointer reference)
- * @param p2 the source model count
- * @param p3 the source properties data (e.g. signal memory index)
- * @param p4 the source properties count
- * @param p5 the knowledge memory part (pointer reference)
- * @param p6 the stack memory item
- * @param p7 the internal memory data
+ * @param p0 the destination file descriptor (a file, serial port, terminal, socket)
+ * @param p1 the source message data (pointer reference)
+ * @param p2 the source message count
+ * @param p3 the source message size
+ * @param p4 the source message type
  * @param p8 the source part (pointer reference), e.g. a signal
+ * @param p5 the destination mutex
+ * @param p6 the asynchronous mode
+ * @param p7 the close flag
  * @param p9 the channel
  */
 void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
@@ -76,16 +76,6 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            compare_integer_equal((void*) &r, p9, (void*) DIRECTORY_CYBOI_CHANNEL);
-
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                write_directory(p0, *d, p2);
-            }
-        }
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -147,8 +147,8 @@ void read_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // Functionality.
     //
 
-    // Call endless loop waiting for data input.
-    write_message(p0, p1, p2, fd, (void*) &fs, p3, (void*) &ipw, im, ex, p5, id, p6, (void*) &ml, p7, p8);
+    // Call endless loop writing output data.
+    write_loop(p0, p1, p2, fd, (void*) &fs, p3, (void*) &ipw, im, ex, p5, id, p6, (void*) &ml, p7, p8);
 }
 
 /* DEVICE_READER_SOURCE */

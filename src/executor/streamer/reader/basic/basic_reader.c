@@ -39,8 +39,8 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/locker/locker.c"
-#include "../../../../executor/locker/unlocker.c"
+#include "../../../../executor/porter/locker.c"
+#include "../../../../executor/porter/unlocker.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 
