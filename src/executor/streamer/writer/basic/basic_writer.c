@@ -54,10 +54,9 @@
  * @param p3 the source message size
  * @param p4 the source message type
  * @param p5 the destination mutex
- * @param p6 the asynchronous mode
- * @param p7 the complete flag
+ * @param p6 the loop break flag
  */
-void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -142,71 +141,51 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write basic. Success.");
                     fwprintf(stdout, L"Debug: Write basic. Success. n: %i\n", n);
 
-                    // The comparison result for asynchronous mode.
-                    int ra = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+                    // The comparison result.
+                    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                    compare_integer_unequal((void*) &ra, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+                    compare_integer_greater_or_equal((void*) &r, (void*) &n, p2);
 
-                    if (ra != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+                    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                         //
-                        // This is ASYNCHRONOUS mode.
+                        // ALL message data have been transmitted.
                         //
 
-                        fwprintf(stdout, L"Debug: Write basic. Remove written data from buffer. r: %i\n", ra);
+                        fwprintf(stdout, L"Debug: Write basic. All message data have been transmitted. r: %i\n", r);
+
+                        // Set loop break flag.
+                        copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+                    } else {
+
+                        //
+                        // Only SOME message data have been transmitted.
+                        //
+
+                        fwprintf(stdout, L"Debug: Write basic. Only SOME message data have been transmitted. r: %i\n", r);
 
                         //
                         // Remove written data from source message buffer.
                         //
-                        // CAUTION! This is important since otherwise,
-                        // the same data would be processed again and again.
+                        // CAUTION! This is IMPORTANT, so that in the next loop cycle,
+                        // only the REMAINING data are transmitted.
                         //
                         // CAUTION! Calling the function "modify_item" would work here,
-                        // but "modify_array" is used instead since the buffer item's
+                        // but "modify_array" is used instead since the message buffer item's
                         // data and count have been handed over as parametre above.
                         //
                         // CAUTION! Do NOT hand over the buffer count but rather
-                        // the number of bytes actually written for specifying
-                        // the number of characters to be removed.
+                        // the number of bytes ACTUALLY WRITTEN for specifying
+                        // the number of elements to be removed.
                         //
                         // CAUTION! Set the adjust count flag to TRUE since otherwise,
                         // the buffer item will hold a wrong "count" number
                         // leading to unpredictable errors in further processing.
                         //
-                        // CAUTION! Hand over destination array as POINTER REFERENCE!
+                        // CAUTION! Hand over destination array as pointer REFERENCE!
                         //
                         modify_array(p1, *NULL_POINTER_STATE_CYBOI_MODEL, p4, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
-
-                    } else {
-
-                        //
-                        // This is SYNCHRONOUS mode.
-                        //
-
-                        //
-                        // Do NOT remove data from source message here.
-                        // It is part of the cybol application and thus
-                        // stored in the cyboi knowledge tree.
-                        // The cybol application has created the message data
-                        // and is therefore responsible for deleting it as well.
-                        //
-                    }
-
-                    // The comparison result for complete transmission.
-                    int rc = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-                    compare_integer_less_or_equal((void*) &rc, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-                    if (rc != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                        //
-                        // The buffer is empty.
-                        // All data have been transmitted,
-                        // so that the loop may be left now.
-                        //
-
-                        // Set complete flag.
-                        copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                     }
 
                 } else if (n == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
@@ -230,7 +209,7 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
                     fwprintf(stdout, L"Debug: Could not write basic. Set close flag. n: %i\n", n);
 
                     // Set complete flag.
-                    copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                    copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                 } else {
 
@@ -239,7 +218,7 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
                     log_errno((void*) &errno);
 
                     // Set complete flag.
-                    copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                    copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                 }
 
             } else {

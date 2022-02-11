@@ -147,6 +147,15 @@ void read_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // Functionality.
     //
 
+ * @param p0 the destination device file descriptor (a file, serial port, terminal, socket) OR window id OR item (for inline channel)
+ * @param p1 the source message data (pointer reference)
+ * @param p2 the source message count
+ * @param p3 the source message size
+ * @param p4 the source message type
+ * @param p5 the source part (pointer reference), e.g. a signal
+ * @param p6 the destination mutex
+ * @param p7 the client entry
+ * @param p8 the channel
     // Call endless loop writing output data.
     write_loop(p0, p1, p2, fd, (void*) &fs, p3, (void*) &ipw, im, ex, p5, id, p6, (void*) &ml, p7, p8);
 }

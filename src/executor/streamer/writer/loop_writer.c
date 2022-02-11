@@ -43,11 +43,9 @@
  * @param p5 the source part (pointer reference), e.g. a signal
  * @param p6 the destination mutex
  * @param p7 the client entry
- * @param p8 the asynchronous mode
- * @param p9 the complete flag
- * @param p10 the channel
+ * @param p8 the channel
  */
-void write_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void write_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write loop.");
     fwprintf(stdout, L"Debug: Write loop. p0: %i\n", p0);
@@ -62,7 +60,7 @@ void write_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
             break;
         }
 
-        write_message(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, (void*) &b);
+        write_message(p0, p1, p2, p3, p4, p5, p6, p7, (void*) &b, p8);
     }
 }
 

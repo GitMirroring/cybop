@@ -126,30 +126,7 @@ void read_buffer(void* p0, void* p1, void* p2, void* p3) {
         // the message length determined above for specifying
         // the number of characters to be appended.
         //
-        modify_item(p0, bd, (void*) &t, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &ml, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-
-        //
-        // Remove data from buffer.
-        //
-        // CAUTION! This is important since otherwise,
-        // the same data would be processed again and again.
-        //
-        // CAUTION! Do NOT EMPTY the buffer here since new data
-        // might be added continuously within the sensing thread.
-        //
-        // CAUTION! Calling the function "modify_item" would work here,
-        // but "modify_array" is used instead since the buffer item's
-        // data and count have already been determined above.
-        //
-        // CAUTION! Do NOT hand over the buffer count but rather
-        // the message length determined above for specifying
-        // the number of characters to be removed.
-        //
-        // CAUTION! Set the adjust count flag to TRUE since otherwise,
-        // the destination item will hold a wrong "count" number
-        // leading to unpredictable errors in further processing.
-        //
-        modify_array((void*) &bd, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &t, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &ml, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, bc, bs, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
+        modify_item(p0, bd, (void*) &t, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &ml, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
     }
 
     // Unlock mutex.

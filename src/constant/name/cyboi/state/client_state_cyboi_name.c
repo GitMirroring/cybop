@@ -36,7 +36,7 @@
 // General
 //
 
-// The client device identification (e.g. file descriptor, client socket number).
+// The client device identification (e.g. file descriptor, client socket number, window id).
 static int* IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 // The client device name item (e.g. a file system path pointing to some device).
 static int* NAME_GENERAL_CLIENT_STATE_CYBOI_NAME = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -51,31 +51,56 @@ static int* LANGUAGE_REQUEST_CLIENT_STATE_CYBOI_NAME = NUMBER_12_INTEGER_STATE_C
 static int* HANDLER_REQUEST_CLIENT_STATE_CYBOI_NAME = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// Buffer
+// Input
 //
-// CAUTION! It serves as temporary INPUT STORE between sensor and reader.
+// CAUTION! The buffer is used only for ASYNCHRONOUS reading.
+// Synchronous reading, on the other hand, accesses the blocking device
+// directly and waits until input is available.
+//
+// CAUTION! The buffer serves as temporary INPUT STORE between sensor and reader.
 // The sensor reads input data first and stores them in this buffer item.
 // A handler given in cybol then calls the reader which uses the data from this buffer.
 //
-
-static int* ITEM_BUFFER_CLIENT_STATE_CYBOI_NAME = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-static int* MUTEX_BUFFER_CLIENT_STATE_CYBOI_NAME = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
-// Thread
+// CAUTION! The thread is used by ASYNCHRONOUS input only.
+// Since it runs an endless loop, an EXIT flag is necessary
+// in order to be able to leave the loop and corresponding thread.
 //
 
-static int* IDENTIFICATION_THREAD_CLIENT_STATE_CYBOI_NAME = NUMBER_30_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-static int* EXIT_THREAD_CLIENT_STATE_CYBOI_NAME = NUMBER_31_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* ITEM_BUFFER_INPUT_CLIENT_STATE_CYBOI_NAME = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* MUTEX_BUFFER_INPUT_CLIENT_STATE_CYBOI_NAME = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* IDENTIFICATION_THREAD_INPUT_CLIENT_STATE_CYBOI_NAME = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* EXIT_THREAD_INPUT_CLIENT_STATE_CYBOI_NAME = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// Output
+//
+// CAUTION! The buffer is used for BOTH, synchronous AND asynchronous writing.
+//
+// CAUTION! The buffer serves as temporary OUTPUT STORE within the writer.
+// The writing happens in a loop. If not all data could be written,
+// then the already written data get removed from the buffer,
+// so that the next loop cycle writes only the remaining data.
+// For asynchronous writing, this is done in a separate thread.
+//
+// CAUTION! MANY threads may be used by asynchronous output internally.
+// Contrarily to the input, they get exited AUTOMATICALLY if
+// all data has been written. Therefore, neither the thread
+// identification, nor an exit flag have to be stored here.
+//
+
+static int* ITEM_BUFFER_OUTPUT_CLIENT_STATE_CYBOI_NAME = NUMBER_30_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* MUTEX_BUFFER_OUTPUT_CLIENT_STATE_CYBOI_NAME = NUMBER_31_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // Serial port
 //
 
-static int* ORIGINAL_MODE_SERIAL_PORT_CLIENT_STATE_CYBOI_NAME = NUMBER_40_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* ORIGINAL_MODE_SERIAL_CLIENT_STATE_CYBOI_NAME = NUMBER_40_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // Terminal
+//
+// CAUTION! The TWO separate modes are needed for win32 console access.
 //
 
 static int* INPUT_ORIGINAL_MODE_TERMINAL_CLIENT_STATE_CYBOI_NAME = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;

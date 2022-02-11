@@ -31,7 +31,7 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
-// There are two kinds of a pipeline:
+// There are TWO kinds of a pipeline:
 // - anonymous: called "pipe" in glibc
 // - named: called "fifo" in glibc
 //
@@ -52,7 +52,7 @@ static int* FILE_CYBOL_CHANNEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 static wchar_t* INLINE_CYBOL_CHANNEL = L"inline";
 static int* INLINE_CYBOL_CHANNEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The pipeline cybol channel. */
+/** The named pipeline cybol channel. */
 static wchar_t* PIPELINE_CYBOL_CHANNEL = L"pipeline";
 static int* PIPELINE_CYBOL_CHANNEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
@@ -60,9 +60,9 @@ static int* PIPELINE_CYBOL_CHANNEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_AR
 static wchar_t* RANDOMISER_CYBOL_CHANNEL = L"randomiser";
 static int* RANDOMISER_CYBOL_CHANNEL_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The serial-port cybol channel. */
-static wchar_t* SERIAL_PORT_CYBOL_CHANNEL = L"serial-port";
-static int* SERIAL_PORT_CYBOL_CHANNEL_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The serial port cybol channel. */
+static wchar_t* SERIAL_CYBOL_CHANNEL = L"serial";
+static int* SERIAL_CYBOL_CHANNEL_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The signal cybol channel. */
 static wchar_t* SIGNAL_CYBOL_CHANNEL = L"signal";

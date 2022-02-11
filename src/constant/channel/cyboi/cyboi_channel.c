@@ -40,14 +40,14 @@ static int* FILE_CYBOI_CHANNEL = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 /** The inline cyboi channel. */
 static int* INLINE_CYBOI_CHANNEL = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The pipeline cyboi channel. */
+/** The named pipeline cyboi channel. */
 static int* PIPELINE_CYBOI_CHANNEL = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The randomiser cyboi channel. */
 static int* RANDOMISER_CYBOI_CHANNEL = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The serial port cyboi channel. */
-static int* SERIAL_PORT_CYBOI_CHANNEL = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* SERIAL_CYBOI_CHANNEL = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The signal cyboi channel. */
 static int* SIGNAL_CYBOI_CHANNEL = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;

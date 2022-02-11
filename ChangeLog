@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-02-11  Christian Heller  <christian.heller@cybop.org>
+
+        * Use dynamic list for servers and clients in file "internal_memory_state_cyboi_name.c", so that forgotten ones can be deallocated properly at system exit
+        * Optimise constants in file "server_state_cyboi_name.c"
+        * Provide input- and output buffer and thread in file "client_state_cyboi_name.c"
+
 2022-02-08  Christian Heller  <christian.heller@cybop.org>
 
         * Add streamer writer file "basic_writer.c"

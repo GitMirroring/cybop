@@ -14,14 +14,50 @@
         * Complete implementation of communication functions listed in table "doc/development/cyboi/service_lifecycle.pdf
         * See service lifecycle cybol examples in directory "examples/communication/"
 
-        * Reflect setting of complete flag in file "basic_writer.c"
-            ==> done, solution complete in file "writer.c"
-            ==> solution: use buffer and remove written data in each loop cycle for synchronous AND asynchronous mode
-            DELETE the following thoughts:
-            --> is a position pointer with remaining count necessary? NO!
-            --> better remove written data from buffer in each cycle, so that writing can start from the beginning of the buffer with index zero? (inefficient! due to removal of written data from buffer)
-            --> there can be at most one buffer per communication peer, so it can be stored in the client entry (as "output buffer" to distinguish it from "input buffer" of feeler senser)
-            --> do NOT destroy but just empty buffer, since it belongs to client entry and gets allocated at open and deallocated at close of device
+        * Add comments to an appropriate source code file:
+
+            //
+            // CAUTION! It is possible that MANY clients request data
+            // via the same port, which is managed by the operating system.
+            // Therefore, a lock or mutex are NOT needed for this in cyboi.
+            //
+
+            //
+            // Close socket.
+            //
+            // CAUTION! The socket gets closed automatically if all data have been sent.
+            // However, the cybol operation "dispatch/close" still has to be called,
+            // so that the client entry may get deallocated properly.
+            //
+            // Example: An asynchronous Ajax connexion gets
+            // closed automatically e.g. by the webbrowser.
+            //
+
+        * Eliminate automatic allocation of server entry in open client and register open client in internal memory's client list instead
+        * Hand over to irq pipe third number indicating if client- or server irq OR WHAT ELSE (??)
+        * Write a finder file for identifying client- and server entries within dynamic lists of internal memory, by comparing their identification (id) numbers
+            (the operating system returns a unique integer identification number when opening a device, but unique only WITHIN and not across a channel)
+            by the way: filter out and do NOT add handler to signal memory, if NULL (a handler does not always have to be given, e.g. in an asynchronous send operation a feedback is not always wanted or needed)
+
+        * Add comment to an appropriate writer file, e.g. "writer.c":
+            //
+            // The handler handed over is OPTIONAL and may be null.
+            // It gets executed if existing.
+            //
+            // Open device for each new request in cyboi,
+            // as is done in JavaScript XMLHttpRequest (XHR) object.
+            //
+            // The XHR object has an event property "onload" to assign a CALLBACK
+            // function executed when a resource (e.g. file) is loaded fully.
+            //
+            // JavaScript offers an API with callback possibilities
+            // for asynchronous execution: "setTimeout", "setInterval".
+            //
+            // A "promise" in ES6 (or "future" in other environments)
+            // is just asynchronous execution with callback function.
+            //
+
+        * Merge "device_writer.c" and "function_writer.c"
         * Provide streamer writer as counterpart to reader
         * Provide closer counterparts to opener
         * Provide shutter counterparts to starter
