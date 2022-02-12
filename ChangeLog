@@ -18,6 +18,13 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-02-12  Christian Heller  <christian.heller@cybop.org>
+
+        * Add file "input_output_state_cyboi_name.c" to have the following hierarchy: internal memory channel -> input output entry -> client or server list --> entry by id
+        * Simplify interrupt pipe usage by storing handlers in a separate pointer array HANDLERS_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME in internal memory
+        * Make the writer to the interrupt pipe responsible for storing the correct handler and the reader vice versa
+        * Eliminate in that manner the need to hand over server or client identifications or stub flag to the interrupt pipe
+
 2022-02-11  Christian Heller  <christian.heller@cybop.org>
 
         * Use dynamic list for servers and clients in file "internal_memory_state_cyboi_name.c", so that forgotten ones can be deallocated properly at system exit

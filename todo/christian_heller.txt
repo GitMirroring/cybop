@@ -14,32 +14,35 @@
         * Complete implementation of communication functions listed in table "doc/development/cyboi/service_lifecycle.pdf
         * See service lifecycle cybol examples in directory "examples/communication/"
 
-        * Add comments to an appropriate source code file:
+        * Continue file "flag_opener.c" (else branch)
+        * How to hand over the client id from enable to handler via irq pipe?
+            - OK: channel + server flag + port as id for server
+            - how to transfer accepted client id ?? ... as fourth argument of irq pipe ??
+            - compare with client send/receive irq arguments ...
+                handle_sense.cybol weiß, dass Ergebnis von sense aus CLIENT ENTRY INPUT BUFFER in cybol property "message" kopiert wird
+                handle_enable.cybol weiß, dass Ergebnis von enable aus SERVER ENTRY ACCEPTED CLIENT BUFFER in cybol property "identification" kopiert wird
+                --> delete cybol property "sender" from "activate/enable", since it gets assigned to the server entry buffer internally
+                --> provide server entry buffer storing accepted client identifications
+                --> add accepted clients to that buffer using "APPEND"
+                --> remove client from buffer in "dispatch/open" when in "stub" mode --> see file "flag_opener.c"
 
-            //
-            // CAUTION! It is possible that MANY clients request data
-            // via the same port, which is managed by the operating system.
-            // Therefore, a lock or mutex are NOT needed for this in cyboi.
-            //
+        * Think through interrupt pipe:
+            Which cybol property to use for communication between cybol app and "empty_checker.c" via client/server entry ??
+                - variable on stack, e.g. "#client"
+                - variable on heap (knowledge memory), e.g. ".client"
+                - something else ??
+                - sender OR receiver OR identification OR even some other cybol property ??
+                - other operations besides send/receive may be asynchronous as well
 
-            //
-            // Close socket.
-            //
-            // CAUTION! The socket gets closed automatically if all data have been sent.
-            // However, the cybol operation "dispatch/close" still has to be called,
-            // so that the client entry may get deallocated properly.
-            //
-            // Example: An asynchronous Ajax connexion gets
-            // closed automatically e.g. by the webbrowser.
-            //
-
-        * Eliminate automatic allocation of server entry in open client and register open client in internal memory's client list instead
-        * Hand over to irq pipe third number indicating if client- or server irq OR WHAT ELSE (??)
+        * Allocate input output entry at system startup for all channels by default, even if these not used in the cybol application
+        * Adapt usage of irq pipe in all source code
         * Write a finder file for identifying client- and server entries within dynamic lists of internal memory, by comparing their identification (id) numbers
             (the operating system returns a unique integer identification number when opening a device, but unique only WITHIN and not across a channel)
             by the way: filter out and do NOT add handler to signal memory, if NULL (a handler does not always have to be given, e.g. in an asynchronous send operation a feedback is not always wanted or needed)
+        * Eliminate automatic allocation of server entry in open client and register open client in internal memory's client list instead
 
         * Add comment to an appropriate writer file, e.g. "writer.c":
+
             //
             // The handler handed over is OPTIONAL and may be null.
             // It gets executed if existing.
@@ -69,6 +72,19 @@
         * Provide cybol format "meta/model" to deserialise e.g. socket address etc. into an integer for more efficient processing ?? (equivalent of compilation)
         * Change TCSANOW into TCSADRAIN ?? (file "unix_terminal_mode_setter.c")
         * Implement worker thread with cybol operations "work/move" and "work/break", for asynchronically sending message data
+
+        * Add comments to an appropriate source code file:
+
+            //
+            // Close socket.
+            //
+            // CAUTION! The socket gets closed automatically if all data have been sent.
+            // However, the cybol operation "dispatch/close" still has to be called,
+            // so that the client entry may get deallocated properly.
+            //
+            // Example: An asynchronous Ajax connexion gets closed
+            // automatically e.g. by the webbrowser.
+            //
 
     //
     //?? TODO: Consider this hint when parsing for the END character of a sequence.
@@ -240,6 +256,8 @@ ____
             error "4 bytes in 1 blocks are definitely lost" and call stack: apply_startup --> startup_service --> startup_io --> allocate_array --> malloc
 
         * Eliminate superfluous signal loop and call processing directly after getting handler (signal) in file "empty_checker.c" ??
+            OR: better leave signal loop for now, since it -- one day -- might be necessary for real time system features ??
+                (each operation executed in the loop in order to keep special time requirements)
 
         * Loop reading terminal events, until array is empty
         * Move stdout and stdin to correct places for terminal-related files

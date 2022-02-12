@@ -49,98 +49,68 @@
 void check_empty(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check empty.");
-    //?? fwprintf(stdout, L"Debug: Check empty. irq: %i\n", irq);
+    fwprintf(stdout, L"Debug: Check empty. p0: %i\n", p0);
 
     // The read interrupt request pipe file descriptor.
     int rd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The server identification (server base + service port).
-    int sid = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The client identification.
-    int cid = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The server entry.
-    void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The client entry.
-    void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The handler (signal part representing the interrupt request handler).
+    // The interrupt handlers.
+    void* ih = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The interrupt mutex.
+    void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The handler (cybol callback function, signal part representing the interrupt request handler).
     void* h = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The handler properties item.
-    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The handler properties item data, count.
-    void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* pc= *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The client property.
-    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get read interrupt request pipe file descriptor.
     copy_array_forward((void*) &rd, p3, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-    fwprintf(stdout, L"Debug: Check empty. rd: %i\n", rd);
+    // Get interrupt handlers from internal memory.
+    copy_array_forward((void*) &ih, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLERS_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Get interrupt mutex from internal memory.
+    copy_array_forward((void*) &im, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
+    //
     // Read from interrupt pipe.
-    read_interrupt_pipe((void*) &sid, (void*) &cid, (void*) &rd, *NULL_POINTER_STATE_CYBOI_MODEL);
+    //
+    // The interrupt request pipe expects the following integer numbers.
+    //
+    // - channel: for choosing the correct LISTS in internal memory
+    // - server flag: for choosing CLIENT- or SERVER list in internal memory (false == client; true == server)
+    // - identification (id): for choosing the correct client- or server entry WITHIN the list, e.g. a client window id or server port number
+    //
+    // The correct cybol handler (callback function) can then be retrieved
+    // from client- or server entry, in order to be executed in cyboi.
+    // It is MANDATORY for input processing and OPTIONAL for output.
+    //
+    // Since the cybol handler refers to the corresponding device identifiation,
+    // that one has to be set in cyboi YET BEFORE executing the handler.
+    // Therefore, the corresponding SENDER or RECEIVER device identification
+    // has to be set in cyboi.
+    //
+    read_interrupt_pipe((void*) &h, (void*) &rd, ih, im);
 
-    if (sid >= *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
+    fwprintf(stdout, L"Debug: Check empty. rd: %i\n", rd);
+    fwprintf(stdout, L"Debug: Check empty. h: %i\n", h);
 
-        // Get server entry from internal memory.
-        copy_array_forward((void*) &se, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &sid);
-
-        if (se != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            //
-            // A server entry exists for the service.
-            //
-
-            // Get client entry from server entry client list by identification.
-            find_server_entry((void*) &ce, se, (void*) &cid, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-            // Get handler part from client entry.
-            copy_array_forward((void*) &h, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLER_GENERAL_CLIENT_STATE_CYBOI_NAME);
-            // Get handler properties item from handler part.
-            copy_array_forward((void*) &p, h, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
-            // Get handler properties item data, count.
-            copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-            // Get client identification from handler properties.
-            get_part_name((void*) &c, pd, (void*) CLIENT_HANDLER_STATE_CYBOL_NAME, (void*) CLIENT_HANDLER_STATE_CYBOL_NAME_COUNT, pc, knowledge memory part (pointer reference), stack memory item, internal memory data);
-            //
-            // Copy client identification.
-            //
-            // CAUTION! This is IMPORTANT, since the cybol application relies
-            // on it when sending its response to the requesting client.
-            //
-            copy_integer(c, (void*) &cid);
-
-            //
-            // Add part model (signal) to signal memory.
-            //
-            // CAUTION! Use simple POINTER_STATE_CYBOI_TYPE and NOT PART_ELEMENT_STATE_CYBOI_TYPE here.
-            // The signal memory just holds references to knowledge memory parts (signals),
-            // but only the knowledge memory may care about rubbish (garbage) collection.
-            //
-            // Example:
-            // Assume there are two signals in the signal memory.
-            // The second references a logic part that is to be destroyed by the first.
-            // If reference counting from rubbish (garbage) collection were used,
-            // then the logic part serving as second signal could not be deallocated
-            // as long as it is still referenced from the signal memory item.
-            //
-            // But probably, there is a reason the first signal wants to destroy the
-            // second and consequently, the second should not be executed anymore.
-            // After destruction, the second signal just points to null, which is ignored.
-            // Hence, rubbish (garbage) collection would only disturb here
-            // and should be left to the knowledge memory.
-            //
-            modify_item(p1, (void*) &h, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check empty. The server entry is null.");
-            fwprintf(stdout, L"Error: Could not check empty. The server entry is null. id: %i\n", e);
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check empty. The server identification is invalid.");
-        fwprintf(stdout, L"Error: Could not check empty. The server identification is invalid. id: %i\n", s);
-    }
+    //
+    // Add part model (signal) to signal memory.
+    //
+    // CAUTION! Use simple POINTER_STATE_CYBOI_TYPE and NOT PART_ELEMENT_STATE_CYBOI_TYPE here.
+    // The signal memory just holds references to knowledge memory parts (signals),
+    // but only the knowledge memory may care about rubbish (garbage) collection.
+    //
+    // Example:
+    // Assume there are two signals in the signal memory.
+    // The second references a logic part that is to be destroyed by the first.
+    // If reference counting from rubbish (garbage) collection were used,
+    // then the logic part serving as second signal could not be deallocated
+    // as long as it is still referenced from the signal memory item.
+    //
+    // But probably, there is a reason the first signal wants to destroy the
+    // second and consequently, the second should not be executed anymore.
+    // After destruction, the second signal just points to null, which is ignored.
+    // Hence, rubbish (garbage) collection would only disturb here
+    // and should be left to the knowledge memory.
+    //
+    modify_item(p1, (void*) &h, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 }
 
 /* EMPTY_CHECKER_SOURCE */

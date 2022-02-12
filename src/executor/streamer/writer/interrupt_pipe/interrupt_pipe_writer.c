@@ -28,17 +28,24 @@
 
 #include <unistd.h> // write
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/locker/locker.c"
+#include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
+#include "../../../../variable/type_size/integral_type_size.c"
 
 /**
  * Writes message to interrupt pipe.
  *
  * @param p0 the destination interrupt pipe write file descriptor
- * @param p1 the source server identification (server base + service port)
- * @param p2 the source client identification (e.g. socket number, window id)
+ * @param p1 the destination interrupt pipe handlers item
+ * @param p2 the source handler (pointer reference)
  * @param p3 the interrupt mutex
  */
 void write_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
@@ -58,11 +65,14 @@ void write_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
         // Lock mutex.
         lock(p3);
 
+        // Append handler to destination interrupt pipe handlers item.
+        modify_item(p1, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
         //
         // Write to interrupt pipe.
         //
-        // - server identification (server base + service port)
-        // - client identification
+        // It does not matter what is written to inform the main thread.
+        // Therefore, the simple integer value of 1 (true) is put into the pipe.
         //
         // CAUTION! The safe way is to use the functions "snprintf" and "strtol".
         // However, if both processes were created using the same compiler version,
@@ -78,8 +88,7 @@ void write_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
         //
         // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
         //
-        write(*f, p1, sizeof(int));
-        write(*f, p2, sizeof(int));
+        write(*f, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
 
         // Unlock mutex.
         unlock(p3);

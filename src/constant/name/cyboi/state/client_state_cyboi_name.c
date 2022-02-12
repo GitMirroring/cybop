@@ -109,6 +109,10 @@ static int* OUTPUT_ORIGINAL_MODE_TERMINAL_CLIENT_STATE_CYBOI_NAME = NUMBER_51_IN
 //
 // Socket
 //
+// CAUTION! It is possible that MANY clients request data
+// via the same port, which is managed by the operating system.
+// Therefore, a lock or mutex is NOT needed for this in cyboi.
+//
 
 //?? static int* TIMEOUT_SOCKET_CLIENT_STATE_CYBOI_NAME = NUMBER_60_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

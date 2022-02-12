@@ -171,6 +171,10 @@ void read_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
                 // into a cyboi-internal BUFFER.
                 //
 
+ * @param p0 the destination interrupt pipe write file descriptor
+ * @param p1 the destination interrupt pipe handlers item
+ * @param p2 the source handler (pointer reference)
+ * @param p3 the interrupt mutex
                 // Inform interrupt pipe of main threaad.
                 write_interrupt_pipe(p6, p9, p10, p7);
 

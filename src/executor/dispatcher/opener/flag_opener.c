@@ -80,18 +80,26 @@ void open_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         //
         // This is a client stub on the server side.
         //
-        // CAUTION! Do NOTHING here!
+
         //
         // When a server socket receives a client request, then
         // that request is stored as client socket number (stub).
         // It is pre-configured by the server socket and
         // thus does NOT need to be configured here again.
+        // Therefore, the "open_device" function is NOT called here.
         //
         // Whilst for the display channel, a client window has to be
         // opened MANUALLY by the developer through calling the
         // cybol operation "dispatch/open", the socket connexions
         // are managed AUTOMATICALLY via client stubs inside cyboi.
         //
+
+        //?? TODO:
+
+        // Get accepted client socket number from the server entry client socket buffer.
+
+        // Remove client socket from server entry client socket buffer.
+
     }
 }
 

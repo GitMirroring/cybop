@@ -50,6 +50,10 @@ void enable_request(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     // Receive next request.
     enable_client(p0, p1, p2);
 
+ * @param p0 the destination interrupt pipe write file descriptor
+ * @param p1 the destination interrupt pipe handlers item
+ * @param p2 the source handler (pointer reference)
+ * @param p3 the interrupt mutex
     // Inform interrupt pipe of main threaad.
     write_interrupt_pipe(p3, p5, p0, p4);
 

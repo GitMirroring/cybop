@@ -18,6 +18,13 @@
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".webpage"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model="#client"/>
+        <!-- Optionally, use a separate thread for sending asynchronously. -->
+        <node name="asynchronous" channel="inline" format="logicvalue/boolean" model="true"/>
+        <!--
+            This callback function gets executed when all data has been sent in complete.
+            It gets considered only if the ASYNCHRONOUS flag has been set above.
+        -->
+        <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle_send_complete"/>
     </node>
 
 </node>

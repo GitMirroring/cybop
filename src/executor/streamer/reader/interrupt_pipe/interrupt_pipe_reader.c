@@ -28,24 +28,35 @@
 
 #include <unistd.h> // read
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/accessor/getter/item_getter.c"
 #include "../../../../executor/locker/locker.c"
+#include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
+#include "../../../../variable/type_size/integral_type_size.c"
 
 /**
  * Reads message from interrupt pipe.
  *
- * @param p0 the destination server identification (server base + service port)
- * @param p1 the destination client identification (e.g. socket number, window id)
- * @param p2 the source interrupt pipe read file descriptor
- * @param p3 the interrupt mutex (currently unused in this function)
+ * @param p0 the destination handler (pointer reference)
+ * @param p1 the source interrupt pipe read file descriptor
+ * @param p2 the source interrupt pipe handlers item
+ * @param p3 the interrupt mutex
  */
 void read_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* f = (int*) p2;
+        int* f = (int*) p1;
 
         //
         // CAUTION! Do NOT log messages within thread,
@@ -54,6 +65,16 @@ void read_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
         // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read interrupt pipe.");
         fwprintf(stdout, L"Debug: Read interrupt pipe. f: %i\n", f);
         fwprintf(stdout, L"Debug: Read interrupt pipe. *f: %i\n", *f);
+
+        // The pipe value.
+        int v = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+        // The interrupt pipe handlers item data, count, size.
+        //?? void* hd = *NULL_POINTER_STATE_CYBOI_MODEL;
+        //?? void* hc = *NULL_POINTER_STATE_CYBOI_MODEL;
+        //?? void* hs = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+        // Lock mutex.
+        lock(p3);
 
         //
         // CAUTION! Using a mutex would do no harm, but is
@@ -96,15 +117,29 @@ void read_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
         //
         // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
         //
-        int n1 = read(*f, p0, sizeof(int));
-        int n2 = read(*f, p1, sizeof(int));
+        int n = read(*f, (void*) &v, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
 
-        fwprintf(stdout, L"Debug: Read interrupt pipe. n1: %i\n", n1);
-        fwprintf(stdout, L"Debug: Read interrupt pipe. server p0: %i\n", p0);
-        fwprintf(stdout, L"Debug: Read interrupt pipe. server *p0: %i\n", *((int*) p0));
-        fwprintf(stdout, L"Debug: Read interrupt pipe. n2: %i\n", n2);
-        fwprintf(stdout, L"Debug: Read interrupt pipe. client p1: %i\n", p1);
-        fwprintf(stdout, L"Debug: Read interrupt pipe. client *p1: %i\n", *((int*) p1));
+        fwprintf(stdout, L"Debug: Read interrupt pipe. n1: %i\n", n);
+        fwprintf(stdout, L"Debug: Read interrupt pipe. v: %i\n", v);
+
+        //
+        // Get interrupt pipe handlers item data.
+        //
+        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+        // Inside the structure, arrays may have been reallocated,
+        // with elements pointing to different memory areas now.
+        //
+        //?? copy_array_forward((void*) &hd, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        // Get handler from interrupt pipe handlers item data.
+        //?? copy_array_forward(p0, hd, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+        // Get handler from source interrupt pipe handlers item.
+        get_item(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        // Remove handler from source interrupt pipe handlers item.
+        modify_item(p2, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+        // Unlock mutex.
+        unlock(p3);
 
     } else {
 

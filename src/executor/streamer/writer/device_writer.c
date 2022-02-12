@@ -42,11 +42,16 @@
 /**
  * Reads data directly from device (synchronous mode).
  *
- * @param p0 the destination item
- * @param p1 the source data (identification e.g. file descriptor of a file, serial port, client socket, window id OR input text for inline channel)
- * @param p2 the source count
- * @param p3 the destination mutex
- * @param p4 the client entry
+ * @param p0 the destination device file descriptor (a file, serial port, terminal, socket) OR window id OR item (for inline channel)
+ * @param p1 the source message data (pointer reference)
+ * @param p2 the source message count
+ * @param p3 the source message size
+ * @param p4 the source message type
+ * @param p5 the source part (pointer reference), e.g. a signal
+ * @param p6 the destination mutex
+ * @param p7 the client entry
+ * @param p8 the channel
+--
  * @param p5 the server identification (server base + service port)
  * @param p6 the language (protocol)
  * @param p7 the channel
