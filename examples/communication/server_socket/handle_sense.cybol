@@ -7,6 +7,7 @@
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".request"/>
         <node name="sender" channel="inline" format="text/cybol-path" model="#client"/>
+        <node name="stub" channel="inline" format="logicvalue/boolean" model="true"/>
         <!-- Read indirectly from internal buffer into which data have been written by the sensing thread. -->
         <node name="asynchronous" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>

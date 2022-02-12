@@ -42,10 +42,10 @@
  * @param p4 the message fragment size
  * @param p5 the destination mutex
  * @param p6 the interrupt pipe write file descriptor
- * @param p7 the interrupt mutex
- * @param p8 the thread exit flag
- * @param p9 the server identification (server base + service port)
- * @param p10 the client identification
+ * @param p7 the interrupt handlers item
+ * @param p8 the interrupt mutex
+ * @param p9 the source handler (pointer reference)
+ * @param p10 the thread exit flag
  * @param p11 the language (protocol)
  * @param p12 the message length (possibly detected previously; should be initialised with a value < 0, e.g. with -1)
  * @param p13 the channel
@@ -67,7 +67,7 @@ void read_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         // However, a null value is just IGNORED inside this
         // comparison and leaves the resulting break flag untouched.
         //
-        compare_integer_unequal((void*) &b, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        compare_integer_unequal((void*) &b, p10, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

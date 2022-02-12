@@ -15,7 +15,6 @@
     <node name="enable_server" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="port" channel="inline" format="number/integer" model="1971"/>
-        <node name="sender" channel="inline" format="text/cybol-path" model="#client"/>
         <!-- This is the call-back function executed when the server receives a client request. -->
         <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle_enable"/>
     </node>

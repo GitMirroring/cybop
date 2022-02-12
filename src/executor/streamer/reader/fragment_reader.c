@@ -54,15 +54,14 @@
  * @param p3 the message fragment data
  * @param p4 the message fragment size
  * @param p5 the destination mutex
- * @param p6 the thread exit flag
- * @param p7 the eof or close flag
- * @param p8 the channel
+ * @param p6 the eof or close flag
+ * @param p7 the channel
  */
-void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read fragment.");
-    fwprintf(stdout, L"Debug: Read fragment. p13: %i\n", p13);
-    fwprintf(stdout, L"Debug: Read fragment. *p12: %i\n", *((int*) p12));
+    fwprintf(stdout, L"Debug: Read fragment. p7: %i\n", p7);
+    fwprintf(stdout, L"Debug: Read fragment. *p7: %i\n", *((int*) p7));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -70,7 +69,7 @@ void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 /*?? currently not needed, since the deserialiser does it all ...
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p13, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p7, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -87,37 +86,37 @@ void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p13, (void*) FILE_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p7, (void*) FILE_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            read_basic(p0, p1, p3, p4, p5, p6, p7);
+            read_basic(p0, p1, p3, p4, p5, p6);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p13, (void*) INLINE_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p7, (void*) INLINE_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            read_inline(p0, p1, p2, p7);
+            read_inline(p0, p1, p2, p6);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p13, (void*) SERIAL_PORT_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p7, (void*) SERIAL_PORT_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            read_basic(p0, p1, p3, p4, p5, p6, p7);
+            read_basic(p0, p1, p3, p4, p5, p6);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p13, (void*) SIGNAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p7, (void*) SIGNAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -127,17 +126,17 @@ void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p13, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p7, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 #if defined(__linux__) || defined(__unix__)
-            read_basic(p0, p1, p3, p4, p5, p6, p7);
+            read_basic(p0, p1, p3, p4, p5, p6);
 #elif defined(__APPLE__) && defined(__MACH__)
-            read_basic(p0, p1, p3, p4, p5, p6, p7);
+            read_basic(p0, p1, p3, p4, p5, p6);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-            read_winsock(p0, p1, p3, p4, p5, p6, p7);
+            read_winsock(p0, p1, p3, p4, p5, p6);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
@@ -146,17 +145,17 @@ void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p13, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p7, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 #if defined(__linux__) || defined(__unix__)
-            read_basic(p0, p1, p3, p4, p5, p6, p7);
+            read_basic(p0, p1, p3, p4, p5, p6);
 #elif defined(__APPLE__) && defined(__MACH__)
-            read_basic(p0, p1, p3, p4, p5, p6, p7);
+            read_basic(p0, p1, p3, p4, p5, p6);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-            read_win32_console(p0, p1, p3, p4, p5, p6, p7);
+            read_win32_console(p0, p1, p3, p4, p5, p6);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif

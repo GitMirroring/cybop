@@ -44,7 +44,7 @@
  * Writes message to interrupt pipe.
  *
  * @param p0 the destination interrupt pipe write file descriptor
- * @param p1 the destination interrupt pipe handlers item
+ * @param p1 the destination interrupt handlers item
  * @param p2 the source handler (pointer reference)
  * @param p3 the interrupt mutex
  */

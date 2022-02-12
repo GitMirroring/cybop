@@ -46,10 +46,10 @@
  * @param p4 the message fragment size
  * @param p5 the destination mutex
  * @param p6 the interrupt pipe write file descriptor
- * @param p7 the interrupt mutex
- * @param p8 the thread exit flag
- * @param p9 the server identification (server base + service port)
- * @param p10 the client identification
+ * @param p7 the interrupt handlers item
+ * @param p8 the interrupt mutex
+ * @param p9 the source handler (pointer reference)
+ * @param p10 the thread exit flag
  * @param p11 the language (protocol)
  * @param p12 the message length (possibly detected previously; should be initialised with a value < 0, e.g. with -1)
  * @param p13 the channel
@@ -68,7 +68,7 @@ void read_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Receive next message fragment.
-    read_fragment(p0, p1, p2, p3, p4, p5, p8, (void*) &ec, p13);
+    read_fragment(p0, p1, p2, p3, p4, p5, (void*) &ec, p13);
 
     if (ec != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -79,7 +79,7 @@ void read_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         //
 
         // Cleanup resources.
-        //?? deallocate_client_entry(p0, p1, p2, p3, p4, p5, p6, p7, p8);
+        //?? deallocate_client_entry(p0, p1, p2, p3, p4, p5, p6, p7);
 
         //
         // Close socket.
@@ -107,7 +107,7 @@ void read_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         // then there is no thread and the exit flag is NULL,
         // so that it is just ignored here.
         //
-        copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        copy_integer(p10, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     } else {
 
@@ -171,12 +171,8 @@ void read_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
                 // into a cyboi-internal BUFFER.
                 //
 
- * @param p0 the destination interrupt pipe write file descriptor
- * @param p1 the destination interrupt pipe handlers item
- * @param p2 the source handler (pointer reference)
- * @param p3 the interrupt mutex
                 // Inform interrupt pipe of main threaad.
-                write_interrupt_pipe(p6, p9, p10, p7);
+                write_interrupt_pipe(p6, p7, p9, p8);
 
                 //
                 // CAUTION! Do NOT set the loop break flag here,

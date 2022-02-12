@@ -98,10 +98,9 @@
  * @param p2 the message fragment data
  * @param p3 the message fragment size
  * @param p4 the destination mutex
- * @param p5 the thread exit flag
- * @param p6 the eof or close flag
+ * @param p5 the eof or close flag
  */
-void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -180,48 +179,20 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
                         // The comparison result.
                         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                        //
                         // Lock mutex.
-                        //
-                        // CAUTION! Set this lock BEFORE comparing with the exit flag below
-                        // since otherwise, a race condition might occur.
-                        //
-                        // Example:
-                        // - the exit flag is not set
-                        // - the sensing child thread enters the block with r != 0
-                        // - the main thread receives some shutdown cybol operation
-                        // - the main thread sets the exit flag only now
-                        // - the main thread shuts down and deallocates the destination item
-                        // - the sensing child thread decodes characters
-                        // - the sensing child thread possibly reallocates the (non-existing) destination item
-                        // - this leads to memory errors such as "corrupted double-linked list"
-                        //
-                        // The reallocation of a non-existing array would lead to the error
-                        // "realloc(): invalid pointer".
-                        //
                         lock(p4);
 
-                        compare_integer_unequal((void*) &r, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+                        fwprintf(stdout, L"Debug: Read basic. Modify destination item. r: %i\n", r);
 
-                        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                            //
-                            // The exit flag was NOT set in the main thread.
-                            // Therefore, proceed normally.
-                            //
-
-                            fwprintf(stdout, L"Debug: Read basic. Modify destination item. r: %i\n", r);
-
-                            //
-                            // Copy fragment data into destination item.
-                            //
-                            // CAUTION! Use APPEND and NOT overwrite here, since data
-                            // still standing in the destination item must not be overwritten.
-                            // This can happen if reading data from terminal in the
-                            // child thread is faster than their processing in the main thread.
-                            //
-                            modify_item(p0, p2, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &n, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-                        }
+                        //
+                        // Copy fragment data into destination item.
+                        //
+                        // CAUTION! Use APPEND and NOT overwrite here, since data
+                        // still standing in the destination item must not be overwritten.
+                        // This can happen if reading data from terminal in the
+                        // child thread is faster than their processing in the main thread.
+                        //
+                        modify_item(p0, p2, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &n, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
                         // Unlock mutex.
                         unlock(p4);
@@ -260,7 +231,7 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
                         fwprintf(stdout, L"Debug: Could not read basic. Set eof-or-close flag. n: %i\n", n);
 
                         // Set eof-or-close flag.
-                        copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                        copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                     } else {
 

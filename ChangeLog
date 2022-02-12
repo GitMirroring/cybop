@@ -24,6 +24,8 @@
         * Simplify interrupt pipe usage by storing handlers in a separate pointer array HANDLERS_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME in internal memory
         * Make the writer to the interrupt pipe responsible for storing the correct handler and the reader vice versa
         * Eliminate in that manner the need to hand over server or client identifications or stub flag to the interrupt pipe
+        * Remove directory "executor/calculator/server_identification/"
+        * Refactor streamer reader files
 
 2022-02-11  Christian Heller  <christian.heller@cybop.org>
 

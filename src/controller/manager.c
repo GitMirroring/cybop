@@ -287,6 +287,23 @@ void manage(void* p0) {
     // System shutdown.
     //
 
+    //
+    // Exit ALL threads BEFORE deallocating memory resources since otherwise,
+    // memory errors would occur.
+    //
+    // The reallocation of a non-existing array would lead to the error
+    // "realloc(): invalid pointer".
+    //
+    // Example:
+    // - the exit flag is not set
+    // - the sensing child thread enters a source code block
+    // - the main thread receives some shutdown cybol operation
+    // - the main thread sets the exit flag only now
+    // - the main thread shuts down and deallocates the destination item
+    // - the sensing child thread decodes characters
+    // - the sensing child thread possibly reallocates the (now non-existing) destination item
+    // - this leads to memory errors such as "corrupted double-linked list"
+    //
     manage_shutdown(i);
 
     //

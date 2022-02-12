@@ -94,12 +94,11 @@ void open_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         // are managed AUTOMATICALLY via client stubs inside cyboi.
         //
 
+        // Get accepted client socket number from the server entry client socket buffer.
         //?? TODO:
 
-        // Get accepted client socket number from the server entry client socket buffer.
-
         // Remove client socket from server entry client socket buffer.
-
+        //?? TODO:
     }
 }
 

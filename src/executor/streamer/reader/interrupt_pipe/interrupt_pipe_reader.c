@@ -49,7 +49,7 @@
  *
  * @param p0 the destination handler (pointer reference)
  * @param p1 the source interrupt pipe read file descriptor
- * @param p2 the source interrupt pipe handlers item
+ * @param p2 the source interrupt handlers item
  * @param p3 the interrupt mutex
  */
 void read_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {

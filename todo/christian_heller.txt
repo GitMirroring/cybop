@@ -14,32 +14,25 @@
         * Complete implementation of communication functions listed in table "doc/development/cyboi/service_lifecycle.pdf
         * See service lifecycle cybol examples in directory "examples/communication/"
 
-        * Continue file "flag_opener.c" (else branch)
-        * How to hand over the client id from enable to handler via irq pipe?
-            - OK: channel + server flag + port as id for server
-            - how to transfer accepted client id ?? ... as fourth argument of irq pipe ??
-            - compare with client send/receive irq arguments ...
-                handle_sense.cybol weiß, dass Ergebnis von sense aus CLIENT ENTRY INPUT BUFFER in cybol property "message" kopiert wird
-                handle_enable.cybol weiß, dass Ergebnis von enable aus SERVER ENTRY ACCEPTED CLIENT BUFFER in cybol property "identification" kopiert wird
-                --> delete cybol property "sender" from "activate/enable", since it gets assigned to the server entry buffer internally
-                --> provide server entry buffer storing accepted client identifications
-                --> add accepted clients to that buffer using "APPEND"
-                --> remove client from buffer in "dispatch/open" when in "stub" mode --> see file "flag_opener.c"
-
-        * Think through interrupt pipe:
-            Which cybol property to use for communication between cybol app and "empty_checker.c" via client/server entry ??
-                - variable on stack, e.g. "#client"
-                - variable on heap (knowledge memory), e.g. ".client"
-                - something else ??
-                - sender OR receiver OR identification OR even some other cybol property ??
-                - other operations besides send/receive may be asynchronous as well
-
-        * Allocate input output entry at system startup for all channels by default, even if these not used in the cybol application
-        * Adapt usage of irq pipe in all source code
+        * Continue refactoring file "reader.c"
+        * Write an accessor getter for client entry:
+            internal-memory -> (via channel) -> io-entry -> (via "stub" flag) -> either server-list or client-list -> (via port or client id) -> server entry or client entry
         * Write a finder file for identifying client- and server entries within dynamic lists of internal memory, by comparing their identification (id) numbers
             (the operating system returns a unique integer identification number when opening a device, but unique only WITHIN and not across a channel)
-            by the way: filter out and do NOT add handler to signal memory, if NULL (a handler does not always have to be given, e.g. in an asynchronous send operation a feedback is not always wanted or needed)
+            by the way: filter out and do NOT add handler to signal memory, if NULL
+            (a handler does not always have to be given, e.g. in an asynchronous send operation a feedback is not always wanted or needed)
+
+        * Continue file "flag_opener.c" (else branch)
+        * How to hand over the client id from enable to handler via irq pipe?
+            handle_sense.cybol weiß, dass Ergebnis von sense aus CLIENT ENTRY INPUT BUFFER in cybol property "message" kopiert wird
+            handle_enable.cybol weiß, dass Ergebnis von enable aus SERVER ENTRY ACCEPTED CLIENT BUFFER in cybol property "identification" kopiert wird
+            --> delete cybol property "sender" from "activate/enable", since it gets assigned to the server entry buffer internally
+            --> provide server entry buffer storing accepted client identifications
+            --> add accepted clients to that buffer using "APPEND"
+            --> remove client from buffer in "dispatch/open" when in "stub" mode --> see file "flag_opener.c"
         * Eliminate automatic allocation of server entry in open client and register open client in internal memory's client list instead
+
+        * Allocate input output entry at system startup for all channels by default, even if these not used in the cybol application
 
         * Add comment to an appropriate writer file, e.g. "writer.c":
 
