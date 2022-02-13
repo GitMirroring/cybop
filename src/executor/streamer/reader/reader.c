@@ -65,6 +65,10 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     int n = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The input output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The clients list.
+    void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The servers list.
+    void* sl = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The server entry.
     void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The client entry.
@@ -87,9 +91,6 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         // Get clients list from input output entry.
         copy_array_forward((void*) &cl, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CLIENTS_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-        // Get client entry from clients list by identification.
-        //?? TODO
-
     } else {
 
         //
@@ -100,30 +101,32 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         //
 
         // Get servers list from input output entry.
-        copy_array_forward((void*) &sl, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CLIENTS_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &sl, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SERVERS_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         // Get server entry from servers list by port number.
         //?? TODO
 
-        // Get clients list from server entry.
-        //?? TODO
-
-        // Get client entry from clients list by identification.
+        // Get stub clients list from server entry.
+        copy_array_forward((void*) &cl, se, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_CLIENTS_SERVER_STATE_CYBOI_NAME);
     }
 
---
-    // Get server entry from internal memory.
-    get_internal_memory_channel((void*) &se, p5, p6, p7);
+    // Get client entry from stub clients list by identification.
+    find_client_list((void*) &ce, cl, p1);
 
     //
-    // CAUTION! Do NOT check server entry or client entry for NULL here,
-    // since the INLINE_CYBOI_CHANNEL does have NEITHER a server entry
-    // NOR a client entry. Otherwise, it would not be processed.
+    // CAUTION! Do NOT check client entry for NULL here,
+    // since the INLINE_CYBOI_CHANNEL does NOT have one.
+    // Otherwise, it would not be processed.
     //
 
-    // Get client entry from server entry client list by given device identification.
-    find_server_entry((void*) &ce, se, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
+ * @param p0 the destination item
+ * @param p1 the source data (identification e.g. file descriptor of a file, serial port, client socket, window id OR input text for inline channel)
+ * @param p2 the source count
+ * @param p3 the destination mutex
+ * @param p4 the client entry
+ * @param p5 the language (protocol)
+ * @param p6 the channel
+ * @param p7 the asynchronous mode
     // Read data via the given channel into the destination.
     read_flag(p0, p1, p2, p3, ce, p4, p6, p8);
 }

@@ -38,19 +38,17 @@
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/copier/pointer_copier.c"
-#include "../../../executor/finder/flag_client_list_finder.c"
+#include "../../../executor/finder/identification_client_list_finder.c"
 #include "../../../logger/logger.c"
 
 /**
- * Finds the client entry with the given identification or name from the client list.
+ * Finds the client entry with the given identification within the client list.
  *
  * @param p0 the destination client entry (pointer reference)
  * @param p1 the source client list item
- * @param p2 the device data (identification e.g. file descriptor of a file, serial port, client socket, window id OR name e.g. a file system path pointing to some device)
- * @param p3 the device count
- * @param p4 the name flag (if true, then search by name, otherwise by identification)
+ * @param p2 the device data (identification e.g. file descriptor of a file, serial port, client socket, window id)
  */
-void find_client_list(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void find_client_list(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find client list.");
     fwprintf(stdout, L"Debug: Find client list. p2: %i\n", p2);
@@ -105,7 +103,7 @@ void find_client_list(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // Get client entry from client list at index.
         copy_array_forward((void*) &e, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j);
 
-        find_client_list_flag(r, e, p2, p3, p4);
+        find_client_list_identification(r, e, p2);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
