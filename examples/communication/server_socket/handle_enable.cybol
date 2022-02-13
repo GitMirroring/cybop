@@ -4,7 +4,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="identification" channel="inline" format="text/cybol-path" model="#client"/>
         <!-- Open client device in server mode. It was already pre-configured inside by the accepting server socket. -->
-        <node name="stub" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <!-- Fill internal buffer with data received internally. -->

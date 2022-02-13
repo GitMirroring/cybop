@@ -36,11 +36,6 @@
 /**
  * Reads data via the given channel into the destination.
  *
- * CAUTION! Do NOT rename this function to "read",
- * since that name is already used by low-level glibc
- * functionality in header file unistd.h.
- * Function: ssize_t read (int filedes, void *buffer, size_t size)
- *
  * @param p0 the destination item
  * @param p1 the source data (identification e.g. file descriptor of a file, serial port, client socket, window id OR input text for inline channel)
  * @param p2 the source count

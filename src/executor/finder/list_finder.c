@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLIENT_LIST_FINDER_SOURCE
-#define CLIENT_LIST_FINDER_SOURCE
+#ifndef LIST_FINDER_SOURCE
+#define LIST_FINDER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -38,36 +38,37 @@
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/copier/pointer_copier.c"
-#include "../../../executor/finder/identification_client_list_finder.c"
+#include "../../../executor/finder/element_list_finder.c"
 #include "../../../logger/logger.c"
 
 /**
- * Finds the client entry with the given identification within the client list.
+ * Finds the entry with the given element index within the list.
  *
- * @param p0 the destination client entry (pointer reference)
- * @param p1 the source client list item
- * @param p2 the device data (identification e.g. file descriptor of a file, serial port, client socket, window id)
+ * @param p0 the destination entry (pointer reference)
+ * @param p1 the source list item
+ * @param p2 the comparison data
+ * @param p3 the entry element index
  */
-void find_client_list(void* p0, void* p1, void* p2) {
+void find_list(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find client list.");
-    fwprintf(stdout, L"Debug: Find client list. p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Find client list. *p2: %i\n", *((int*) p2));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find list.");
+    fwprintf(stdout, L"Debug: Find list. p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Find list. *p2: %i\n", *((int*) p2));
 
-    // The client list item data, count.
+    // The list item data, count.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The client entry.
+    // The entry.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
-    // Get client list item data, count.
+    // Get list item data, count.
     //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
@@ -100,18 +101,19 @@ void find_client_list(void* p0, void* p1, void* p2) {
             break;
         }
 
-        // Get client entry from client list at index.
+        // Get entry from list at loop variable as index.
         copy_array_forward((void*) &e, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j);
 
-        find_client_list_identification(r, e, p2);
+        // Compare entry element at the given element index with comparison data.
+        find_list_element(r, e, p2, p3);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // The client entry has been found.
+            // The entry has been found.
             //
 
-            // Copy client entry to destination.
+            // Copy entry to destination.
             copy_pointer(p0, (void*) &e);
 
             break;
@@ -121,5 +123,5 @@ void find_client_list(void* p0, void* p1, void* p2) {
     }
 }
 
-/* CLIENT_LIST_FINDER_SOURCE */
+/* LIST_FINDER_SOURCE */
 #endif

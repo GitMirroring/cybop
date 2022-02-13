@@ -24,7 +24,8 @@
         * Add cybol examples for read and write in directory "examples/communication/file/"
         * Clean up directory "executor/finder/"
         * Delete files "internal_memory_getter.c", "channel_internal_memory_getter.c", "internal_memory_setter.c", "channel_internal_memory_setter.c"
-        * Adapt file "reader.c"
+        * Restructure streamer reader
+        * Enable client list finder to search for any element, not just by identification
 
 2022-02-12  Christian Heller  <christian.heller@cybop.org>
 

@@ -2,14 +2,14 @@
 
     <node name="receive_data" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="port" channel="inline" format="number/integer" model="1971"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model="#client"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-request"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".request"/>
-        <node name="sender" channel="inline" format="text/cybol-path" model="#client"/>
-        <node name="stub" channel="inline" format="logicvalue/boolean" model="true"/>
         <!-- Read indirectly from internal buffer into which data have been written by the sensing thread. -->
-        <node name="asynchronous" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="send_data" channel="inline" format="communicate/send" model="">
@@ -20,10 +20,10 @@
         <node name="message" channel="inline" format="text/cybol-path" model=".webpage"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model="#client"/>
         <!-- Optionally, use a separate thread for sending asynchronously. -->
-        <node name="asynchronous" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
         <!--
             This callback function gets executed when all data has been sent in complete.
-            It gets considered only if the ASYNCHRONOUS flag has been set above.
+            It gets considered only if the asynchronicity flag has been set above.
         -->
         <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle_send_complete"/>
     </node>

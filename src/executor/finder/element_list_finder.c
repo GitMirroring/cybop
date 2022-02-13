@@ -23,14 +23,13 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef IDENTIFICATION_CLIENT_LIST_FINDER_SOURCE
-#define IDENTIFICATION_CLIENT_LIST_FINDER_SOURCE
+#ifndef ELEMENT_LIST_FINDER_SOURCE
+#define ELEMENT_LIST_FINDER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/client_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
@@ -38,26 +37,28 @@
 #include "../../../logger/logger.c"
 
 /**
- * Finds the client entry with the given identification from the client list.
+ * Compares entry element at the given element index with comparison data.
  *
  * @param p0 the comparison result
- * @param p1 the client entry
- * @param p2 the device data (identification e.g. file descriptor of a file, serial port, client socket, window id)
+ * @param p1 the entry
+ * @param p2 the comparison data
+ * @param p3 the entry element index
  */
-void find_client_list_identification(void* p0, void* p1, void* p2) {
+void find_list_element(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find client list identification.");
-    fwprintf(stdout, L"Debug: Find client list identification. p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Find client list identification. *p2: %i\n", *((int*) p2));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find list element.");
+    fwprintf(stdout, L"Debug: Find list element. p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Find list element. *p2: %i\n", *((int*) p2));
 
-    // The client identification.
-    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The entry element.
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get client identification from client entry.
-    copy_array_forward((void*) &id, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
+    // Get entry element from entry by given element index.
+    copy_array_forward((void*) &e, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p3);
 
-    compare_integer_equal(p0, id, p2);
+    // Compare entry element with comparison data.
+    compare_integer_equal(p0, e, p2);
 }
 
-/* IDENTIFICATION_CLIENT_LIST_FINDER_SOURCE */
+/* ELEMENT_LIST_FINDER_SOURCE */
 #endif

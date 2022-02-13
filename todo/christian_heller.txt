@@ -14,25 +14,21 @@
         * Complete implementation of communication functions listed in table "doc/development/cyboi/service_lifecycle.pdf
         * See service lifecycle cybol examples in directory "examples/communication/"
 
-        * Continue adapting file "reader.c"
-        * Write an accessor getter for client entry:
-            internal-memory -> (via channel) -> io-entry -> (via "stub" flag) -> either server-list or client-list -> (via port or client id) -> server entry or client entry
-        * Write a finder file for identifying client- and server entries within dynamic lists of internal memory, by comparing their identification (id) numbers
-            (the operating system returns a unique integer identification number when opening a device, but unique only WITHIN and not across a channel)
-            by the way: filter out and do NOT add handler to signal memory, if NULL
+        * Rename cybol property "stub" to "server"
+        * Add missing properties to name constants and applicator stream read
+        * Restructure streamer writer similar to reader
+
+        * Filter out and do NOT add handler to signal memory, if NULL, in file "empty_checker.c"
             (a handler does not always have to be given, e.g. in an asynchronous send operation a feedback is not always wanted or needed)
 
         * Continue file "flag_opener.c" (else branch)
-        * How to hand over the client id from enable to handler via irq pipe?
-            handle_sense.cybol weiß, dass Ergebnis von sense aus CLIENT ENTRY INPUT BUFFER in cybol property "message" kopiert wird
-            handle_enable.cybol weiß, dass Ergebnis von enable aus SERVER ENTRY ACCEPTED CLIENT BUFFER in cybol property "identification" kopiert wird
-            --> delete cybol property "sender" from "activate/enable", since it gets assigned to the server entry buffer internally
-            --> provide server entry buffer storing accepted client identifications
+
+        * Provide server entry buffer storing accepted client identifications, which is important for irq pipe processing accepted clients one by one
             --> add accepted clients to that buffer using "APPEND"
-            --> remove client from buffer in "dispatch/open" when in "stub" mode --> see file "flag_opener.c"
+            --> remove client from buffer in "dispatch/open" when in "server" (stub) mode --> see file "flag_opener.c"
         * Eliminate automatic allocation of server entry in open client and register open client in internal memory's client list instead
 
-        * Allocate input output entry at system startup for all channels by default, even if these not used in the cybol application
+        * Allocate input output entry at system startup for all channels by default, even if these are not used in the cybol application
 
         * Add comment to an appropriate writer file, e.g. "writer.c":
 
