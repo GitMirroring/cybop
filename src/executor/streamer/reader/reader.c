@@ -48,7 +48,7 @@
  * @param p0 the destination item
  * @param p1 the source device data (identification e.g. file descriptor of a file, serial port, client socket, window id OR input text for inline channel)
  * @param p2 the source device count
- * @param p3 the destination mutex (only relevant, if destination is the internal buffer, which is shared with the sensing thread)
+ * @param p3 the destination mutex (only relevant, if destination is the internal buffer, which is shared with the sensing thread, may otherwise be NULL)
  * @param p4 the language (protocol)
  * @param p5 the internal memory
  * @param p6 the channel

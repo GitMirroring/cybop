@@ -525,13 +525,6 @@ static int* NANO_SLEEP_RUN_LOGIC_CYBOI_FORMAT = NUMBER_2501_INTEGER_STATE_CYBOI_
 static int* SECOND_SLEEP_RUN_LOGIC_CYBOI_FORMAT = NUMBER_2502_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// time
-//
-
-/** The current time logic cyboi format. */
-static int* CURRENT_TIME_LOGIC_CYBOI_FORMAT = NUMBER_2550_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
 // sort
 //
 
@@ -546,6 +539,23 @@ static int* QUICK_SORT_LOGIC_CYBOI_FORMAT = NUMBER_2602_INTEGER_STATE_CYBOI_MODE
 
 /** The sort/selection logic cybol format. **/
 static int* SELECTION_SORT_LOGIC_CYBOI_FORMAT = NUMBER_2603_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// stream
+//
+
+/** The read stream logic cyboi format. */
+static int* READ_STREAM_LOGIC_CYBOI_FORMAT = NUMBER_2700_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The write stream logic cyboi format. */
+static int* WRITE_STREAM_LOGIC_CYBOI_FORMAT = NUMBER_2701_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// time
+//
+
+/** The current time logic cyboi format. */
+static int* CURRENT_TIME_LOGIC_CYBOI_FORMAT = NUMBER_2800_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* LOGIC_CYBOI_FORMAT_CONSTANT_SOURCE */
 #endif

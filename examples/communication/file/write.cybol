@@ -1,0 +1,30 @@
+<node>
+
+    <node name="create_id" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="id"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+
+    <node name="open_client" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="communication/file/data.txt"/>
+    </node>
+
+    <node name="write_client" channel="inline" format="stream/write" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="message" channel="inline" format="text/ascii" model="Hello World!"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+        <!-- Optional flag. Default is "false". Write indirectly into internal buffer and then send its content within a thread to the device. -->
+        <!-- <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/> -->
+        <!-- The handler is optional. -->
+    </node>
+
+    <node name="close_client" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+    <node name="exit_programme" channel="inline" format="live/exit" model=""/>
+
+</node>

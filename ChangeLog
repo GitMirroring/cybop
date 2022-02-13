@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-02-13  Christian Heller  <christian.heller@cybop.org>
+
+        * Add cybol operations "stream/read" and "stream/write"
+        * Add cybol examples for read and write in directory "examples/communication/file/"
+
 2022-02-12  Christian Heller  <christian.heller@cybop.org>
 
         * Add file "input_output_state_cyboi_name.c" to have the following hierarchy: internal memory channel -> input output entry -> client or server list --> entry by id

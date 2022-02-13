@@ -103,6 +103,8 @@
 #include "../../applicator/run/run.c"
 #include "../../applicator/run/sleep.c"
 #include "../../applicator/sort/sort.c"
+#include "../../applicator/stream/read.c"
+#include "../../applicator/stream/write.c"
 #include "../../applicator/time/time.c"
 #include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -1551,6 +1553,30 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         }
     }
 */
+
+    //
+    // stream
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) READ_STREAM_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_read(p0, p1, p3, p4, p2);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) WRITE_STREAM_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_write(p0, p1, p3, p4, p2);
+        }
+    }
 
     //
     // time
