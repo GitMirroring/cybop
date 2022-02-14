@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-02-14  Christian Heller  <christian.heller@cybop.org>
+
+        * Replace stack variable "#client" in cybol example "server_socket" with heap variable ".client"
+        * Move client entry finder from reader into directory "executor/finder/"
+
 2022-02-13  Christian Heller  <christian.heller@cybop.org>
 
         * Add cybol operations "stream/read" and "stream/write"

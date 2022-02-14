@@ -117,7 +117,7 @@ int write_function(void* p0) {
     // but DIRECTLY from client device INTO the internal buffer.
     //
     WITH ASYNCHRONOUS-FLAG SET TO "FALSE" (!):
-    write_device(bi, id, bm, l, i, c, p, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, ex);
+    write_loop(bi, id, bm, l, i, c, p, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, ex);
 
     //
     // An implicit call to "thrd_exit" is made when this thread

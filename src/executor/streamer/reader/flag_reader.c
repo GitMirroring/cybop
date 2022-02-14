@@ -28,7 +28,7 @@
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../executor/streamer/reader/buffer_reader.c"
 #include "../../../executor/streamer/reader/device_reader.c"
 #include "../../../logger/logger.c"
@@ -53,9 +53,10 @@ void read_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, p7, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    // CAUTION! Do NOT use "equal" comparison, since synchronous mode has to be the DEFAULT.
+    compare_integer_unequal((void*) &r, p7, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
         // This is SYNCHRONOUS mode.

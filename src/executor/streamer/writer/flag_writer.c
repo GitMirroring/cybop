@@ -23,52 +23,50 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FLAG_READER_SOURCE
-#define FLAG_READER_SOURCE
+#ifndef FLAG_WRITER_SOURCE
+#define FLAG_WRITER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../logger/logger.c"
+--
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/streamer/reader/buffer_reader.c"
 #include "../../../executor/streamer/reader/device_reader.c"
-#include "../../../logger/logger.c"
 
 /**
- * Reads data via the given channel into the destination.
+ * Writes data in synchronous (direct) or asynchronous (indirect) mode.
  *
- * CAUTION! Do NOT rename this function to "read",
- * since that name is already used by low-level glibc
- * functionality in header file unistd.h.
- * Function: ssize_t read (int filedes, void *buffer, size_t size)
- *
- * @param p0 the destination item
- * @param p1 the source data (identification e.g. file descriptor of a file, serial port, client socket, window id OR input text for inline channel)
- * @param p2 the source count
- * @param p3 the destination mutex
- * @param p4 the client entry
- * @param p5 the server identification (server base + service port)
- * @param p6 the language (protocol)
- * @param p7 the channel
- * @param p8 the asynchronous mode
+ * @param p0 the destination device file descriptor (a file, serial port, terminal, socket) OR window id OR item (for inline channel)
+ * @param p1 the source buffer data (pointer reference)
+ * @param p2 the source buffer count
+ * @param p3 the source buffer size
+ * @param p4 the source buffer type
+ * @param p5 the source part (pointer reference), e.g. a signal
+ * @param p6 the source buffer mutex
+ * @param p7 the client entry
+ * @param p8 the channel
+ * @param p9 the asynchronicity flag
  */
-void read_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void write_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read flag.");
-    fwprintf(stdout, L"Debug: Read flag. p0: %i\n", p0);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write flag.");
+    fwprintf(stdout, L"Debug: Write flag. p0: %i\n", p0);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    // CAUTION! Do NOT use "equal" comparison, since synchronous mode has to be the DEFAULT.
+    compare_integer_unequal((void*) &r, p9, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
         // This is SYNCHRONOUS mode.
         //
 
         // Write directly into device.
-        write_device(p0, p1, p2, p3, p4, p5, p6, p7, p8);
+        write_loop(p0, p1, p2, p3, p4, p5, p6, p7, p8);
 
     } else {
 
@@ -76,10 +74,13 @@ void read_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         // This is ASYNCHRONOUS mode.
         //
 
+        // Store data in client entry.
+        write_entry(ce);
+
         // Invoke write function within a new thread.
         write_thread(ce);
     }
 }
 
-/* FLAG_READER_SOURCE */
+/* FLAG_WRITER_SOURCE */
 #endif

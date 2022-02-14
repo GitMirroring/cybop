@@ -23,21 +23,21 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MODE_READER_SOURCE
-#define MODE_READER_SOURCE
+#ifndef MODE_FINDER_SOURCE
+#define MODE_FINDER_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
-#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../constant/name/cyboi/state/server_state_cyboi_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/copier/array_copier.c"
-#include "../../../executor/finder/list_finder.c"
-#include "../../../logger/logger.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/server_state_cyboi_name.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/comparator/integer/unequal_integer_comparator.c"
+#include "../../executor/copier/array_copier.c"
+#include "../../executor/finder/list_finder.c"
+#include "../../logger/logger.c"
 
 /**
  * Gets client list from suitable entry.
@@ -47,10 +47,10 @@
  * @param p2 the server flag
  * @param p3 the port
  */
-void read_mode(void* p0, void* p1, void* p2, void* p3) {
+void find_mode(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read mode.");
-    fwprintf(stdout, L"Debug: Read mode. p0: %i\n", p0);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find mode.");
+    fwprintf(stdout, L"Debug: Find mode. p0: %i\n", p0);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -59,9 +59,10 @@ void read_mode(void* p0, void* p1, void* p2, void* p3) {
     // The server entry.
     void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    // CAUTION! Do NOT use "equal" comparison, since standalone client has to be the DEFAULT.
+    compare_integer_unequal((void*) &r, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
         // This is a standalone client.
@@ -92,5 +93,5 @@ void read_mode(void* p0, void* p1, void* p2, void* p3) {
     }
 }
 
-/* MODE_READER_SOURCE */
+/* MODE_FINDER_SOURCE */
 #endif

@@ -75,7 +75,7 @@ void sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
                 // Get client entry from server entry client list by given device identification or -name.
                 find_server_entry((void*) &ce, se, *id, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-                // Assign parametres to client entry.
+                // Store data in client entry.
                 sense_entry(ce, p1, p2, p3, p4, p5);
 
                 // Invoke sense function within a new thread.

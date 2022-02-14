@@ -23,22 +23,22 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ENTRY_READER_SOURCE
-#define ENTRY_READER_SOURCE
+#ifndef ENTRY_FINDER_SOURCE
+#define ENTRY_FINDER_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/client_state_cyboi_name.c"
-#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/copier/array_copier.c"
-#include "../../../executor/finder/list_finder.c"
-#include "../../../executor/streamer/reader/mode_reader.c"
-#include "../../../logger/logger.c"
-#include "../../../mapper/channel_to_internal_memory_mapper.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/client_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/copier/array_copier.c"
+#include "../../executor/finder/list_finder.c"
+#include "../../executor/finder/mode_finder.c"
+#include "../../logger/logger.c"
+#include "../../mapper/channel_to_internal_memory_mapper.c"
 
 /**
  * Gets client entry belonging to given source device.
@@ -50,10 +50,10 @@
  * @param p4 the port
  * @param p5 the device identification (e.g. file descriptor of a file, serial port, client socket, window id OR input text for inline channel)
  */
-void read_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void find_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read entry.");
-    fwprintf(stdout, L"Debug: Read entry. p0: %i\n", p0);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find entry.");
+    fwprintf(stdout, L"Debug: Find entry. p0: %i\n", p0);
 
     // The internal memory name.
     int n = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
@@ -69,11 +69,11 @@ void read_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     copy_array_forward((void*) &io, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &n);
 
     // Get client list from suitable entry.
-    read_mode((void*) &cl, io, p3, p4);
+    find_mode((void*) &cl, io, p3, p4);
 
     // Get client entry from server clients list by device identification.
     find_list(p0, cl, p5, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
 }
 
-/* ENTRY_READER_SOURCE */
+/* ENTRY_FINDER_SOURCE */
 #endif

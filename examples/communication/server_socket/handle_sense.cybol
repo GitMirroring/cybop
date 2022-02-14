@@ -4,7 +4,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="port" channel="inline" format="number/integer" model="1971"/>
-        <node name="sender" channel="inline" format="text/cybol-path" model="#client"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".client"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-request"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".request"/>
@@ -14,11 +14,12 @@
 
     <node name="send_data" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="port" channel="inline" format="number/integer" model="1971"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".client"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".webpage"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model="#client"/>
         <!-- Optionally, use a separate thread for sending asynchronously. -->
         <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
         <!--

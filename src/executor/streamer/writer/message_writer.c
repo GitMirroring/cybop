@@ -50,16 +50,13 @@
 /**
  * Writes the source message to the destination device.
  *
- * CAUTION! Do NOT rename this function to "write",
- * as that name is already used for glibc library's output.
- *
  * @param p0 the destination device file descriptor (a file, serial port, terminal, socket) OR window id OR item (for inline channel)
- * @param p1 the source message data (pointer reference)
- * @param p2 the source message count
- * @param p3 the source message size
- * @param p4 the source message type
+ * @param p1 the source buffer data (pointer reference)
+ * @param p2 the source buffer count
+ * @param p3 the source buffer size
+ * @param p4 the source buffer type
  * @param p5 the source part (pointer reference), e.g. a signal
- * @param p6 the destination mutex
+ * @param p6 the source buffer mutex
  * @param p7 the client entry
  * @param p8 the loop break flag
  * @param p9 the channel
@@ -114,7 +111,7 @@ void write_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
             //
             // Set loop break flag.
             //
-            // The message data have been copied within cyboi, all at once.
+            // The buffer data have been copied within cyboi, all at once.
             // Therefore, further loop cycles are not necessary.
             //
             copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

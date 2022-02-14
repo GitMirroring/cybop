@@ -1,5 +1,10 @@
 <node>
 
+    <node name="create_client_identification" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="client"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+
     <node name="startup_server" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="port" channel="inline" format="number/integer" model="1971"/>

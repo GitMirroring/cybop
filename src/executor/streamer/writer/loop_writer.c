@@ -36,12 +36,12 @@
  * Writes data via an endless loop.
  *
  * @param p0 the destination device file descriptor (a file, serial port, terminal, socket) OR window id OR item (for inline channel)
- * @param p1 the source message data (pointer reference)
- * @param p2 the source message count
- * @param p3 the source message size
- * @param p4 the source message type
+ * @param p1 the source buffer data (pointer reference)
+ * @param p2 the source buffer count
+ * @param p3 the source buffer size
+ * @param p4 the source buffer type
  * @param p5 the source part (pointer reference), e.g. a signal
- * @param p6 the destination mutex
+ * @param p6 the source buffer mutex
  * @param p7 the client entry
  * @param p8 the channel
  */

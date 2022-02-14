@@ -14,7 +14,9 @@
         * Complete implementation of communication functions listed in table "doc/development/cyboi/service_lifecycle.pdf
         * See service lifecycle cybol examples in directory "examples/communication/"
 
-        * Restructure streamer writer similar to reader
+        * Restructure streamer writer as counterpart to reader
+        * Merge "device_writer.c" and "function_writer.c" ??
+            --> probably not, since the device writer gets all data via parametres, while the function writer is processed in a thread and has to get all data from client entry
 
         * Continue file "flag_opener.c" (else branch)
 
@@ -24,6 +26,12 @@
         * Eliminate automatic allocation of server entry in open client and register open client in internal memory's client list instead
 
         * Allocate input output entry at system startup for all channels by default, even if these are not used in the cybol application
+
+        * Provide closer counterparts to opener
+        * Provide shutter counterparts to starter
+        * Correct determination of client entry / server entry / internal memory in file "device_reader.c"
+        * Make compilable
+        * Test file read functionality
 
         * Add comment to an appropriate writer file, e.g. "writer.c":
 
@@ -43,15 +51,6 @@
             // A "promise" in ES6 (or "future" in other environments)
             // is just asynchronous execution with callback function.
             //
-
-        * Merge "device_writer.c" and "function_writer.c"
-        * Provide streamer writer as counterpart to reader
-        * Provide closer counterparts to opener
-        * Provide shutter counterparts to starter
-        * Correct determination of client entry / server entry / internal memory in file "device_reader.c"
-        * Make compilable
-        * Test file read functionality
-        * Replace stack variable "#client" in cybol example "server_socket" with heap variable ".sender" or ".client"
 
         * Provide cybol format "meta/model" to deserialise e.g. socket address etc. into an integer for more efficient processing ?? (equivalent of compilation)
         * Change TCSANOW into TCSADRAIN ?? (file "unix_terminal_mode_setter.c")

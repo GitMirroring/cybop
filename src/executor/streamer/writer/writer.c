@@ -27,6 +27,7 @@
 #define WRITER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../executor/finder/entry_finder.c"
 #include "../../../logger/logger.c"
 --
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -59,26 +60,21 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write data.");
     fwprintf(stdout, L"Debug: Write data. p0: %i\n", p0);
 
-    // The server identification (server base + service port).
-    int id = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The server entry.
-    void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The client entry.
     void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source message mutex.
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Calculate server identification.
-    calculate_server_identification_channel((void*) &id, p6, p7);
-    // Get server entry from internal memory.
-    get_internal_memory_channel((void*) &se, p5, p6, p7);
+    // Get client entry belonging to given source device.
+    find_entry((void*) &ce, p5, p6, p7, p8, p1);
+    // Get source message mutex.
+    copy_array_forward((void*) &m, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
 
     //
-    // CAUTION! Do NOT check server entry or client entry for NULL here,
-    // since the INLINE_CYBOI_CHANNEL does have NEITHER a server entry
-    // NOR a client entry. Otherwise, it would not be processed.
+    // CAUTION! Do NOT check client entry for NULL here,
+    // since the INLINE_CYBOI_CHANNEL does NOT have one.
+    // Otherwise, it would not be processed.
     //
-
-    // Get client entry from server entry client list by given device identification.
-    find_server_entry((void*) &ce, se, p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     //
     // Write source message into buffer.
@@ -94,8 +90,18 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     //
     write_buffer(p0, p4, p6, p7);
 
-    // Write data via the given channel.
-    write_flag(p0, p1, p2, p3, ce, (void*) &id, p4, p6, p8);
+ * @param p0 the destination device file descriptor (a file, serial port, terminal, socket) OR window id OR item (for inline channel)
+ * @param p1 the source buffer data (pointer reference)
+ * @param p2 the source buffer count
+ * @param p3 the source buffer size
+ * @param p4 the source buffer type
+ * @param p5 the source part (pointer reference), e.g. a signal
+ * @param p6 the source buffer mutex
+ * @param p7 the client entry
+ * @param p8 the channel
+ * @param p9 the asynchronicity flag
+    // Write data via the given channel into the destination.
+    write_flag(p0, p1, p2, p3, ce, p4, p6, p8);
 }
 
 /* WRITER_SOURCE */

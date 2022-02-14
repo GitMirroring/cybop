@@ -28,7 +28,7 @@
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/streamer/reader/entry_reader.c"
+#include "../../../executor/finder/entry_finder.c"
 #include "../../../executor/streamer/reader/flag_reader.c"
 #include "../../../logger/logger.c"
 
@@ -60,7 +60,7 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get client entry belonging to given source device.
-    read_entry((void*) &ce, p5, p6, p7, p8, p1);
+    find_entry((void*) &ce, p5, p6, p7, p8, p1);
 
     //
     // CAUTION! Do NOT check client entry for NULL here,

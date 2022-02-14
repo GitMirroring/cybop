@@ -49,22 +49,22 @@
  * as that name is already used by low-level glibc functionality.
  *
  * @param p0 the destination file descriptor (a file, serial port, terminal, socket)
- * @param p1 the source message data (pointer reference)
- * @param p2 the source message count
- * @param p3 the source message size
- * @param p4 the source message type
- * @param p5 the destination mutex
+ * @param p1 the source buffer data (pointer reference)
+ * @param p2 the source buffer count
+ * @param p3 the source buffer size
+ * @param p4 the source buffer type
+ * @param p5 the source buffer mutex
  * @param p6 the loop break flag
  */
 void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* mc = (int*) p2;
+        int* c = (int*) p2;
 
         if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            void** md = (void**) p1;
+            void** d = (void**) p1;
 
             if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -75,7 +75,7 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
                 fwprintf(stdout, L"Debug: Write basic. *f: %i\n", *((int*) f));
 
                 //
-                // Cast message count to correct type.
+                // Cast buffer count to correct type.
                 //
                 // CAUTION! It IS NECESSARY because on 64 Bit machines,
                 // the "size_t" type has a size of 8 Byte,
@@ -84,8 +84,8 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
                 // will occur and the valgrind memcheck tool report:
                 // "Invalid read of size 8".
                 //
-                size_t mct = (size_t) *mc;
-                fwprintf(stdout, L"Debug: Write basic. mct: %i\n", mct);
+                size_t ct = (size_t) *c;
+                fwprintf(stdout, L"Debug: Write basic. ct: %i\n", ct);
 
                 //
                 // Initialise error number.
@@ -97,14 +97,6 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
                 // the function that might cause an error.
                 //
                 errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-                //
-                // Lock mutex.
-                //
-                // CAUTION! Many worker threads may want to send data
-                // at the same time. Therefore, guarantee exclusive access.
-                //
-                lock(p5);
 
                 //
                 // Write data to device given by the file descriptor.
@@ -126,12 +118,9 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
                 // It then returns the number of handled bytes.
                 //
                 // Therefore, this "write" function has to be called
-                // in a LOOP, until the complete message has been transmitted.
+                // in a LOOP, until all data have been transmitted.
                 //
-                ssize_t nb = write(*f, *md, mct);
-
-                // Unlock mutex.
-                unlock(p5);
+                ssize_t nb = write(*f, *d, ct);
 
                 // Cast number of bytes actually written to general type.
                 int n = (int) nb;
@@ -149,10 +138,10 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
                     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                         //
-                        // ALL message data have been transmitted.
+                        // ALL data have been transmitted.
                         //
 
-                        fwprintf(stdout, L"Debug: Write basic. All message data have been transmitted. r: %i\n", r);
+                        fwprintf(stdout, L"Debug: Write basic. All data have been transmitted. r: %i\n", r);
 
                         // Set loop break flag.
                         copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -160,19 +149,30 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
                     } else {
 
                         //
-                        // Only SOME message data have been transmitted.
+                        // Only SOME data have been transmitted.
                         //
 
-                        fwprintf(stdout, L"Debug: Write basic. Only SOME message data have been transmitted. r: %i\n", r);
+                        fwprintf(stdout, L"Debug: Write basic. Only SOME data have been transmitted. r: %i\n", r);
 
                         //
-                        // Remove written data from source message buffer.
+                        // Lock mutex.
+                        //
+                        // CAUTION! New data may be written into the source buffer in
+                        // the main thread, in case this writer is called asynchronously
+                        // in a thread. But the already written data are removed from
+                        // the source buffer below. Therefore, exclusive access has
+                        // to be guaranteed here using a mutex.
+                        //
+                        lock(p5);
+
+                        //
+                        // Remove written data from source buffer.
                         //
                         // CAUTION! This is IMPORTANT, so that in the next loop cycle,
                         // only the REMAINING data are transmitted.
                         //
                         // CAUTION! Calling the function "modify_item" would work here,
-                        // but "modify_array" is used instead since the message buffer item's
+                        // but "modify_array" is used instead since the buffer item's
                         // data and count have been handed over as parametre above.
                         //
                         // CAUTION! Do NOT hand over the buffer count but rather
@@ -186,6 +186,9 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
                         // CAUTION! Hand over destination array as pointer REFERENCE!
                         //
                         modify_array(p1, *NULL_POINTER_STATE_CYBOI_MODEL, p4, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+                        // Unlock mutex.
+                        unlock(p5);
                     }
 
                 } else if (n == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
@@ -208,7 +211,7 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write basic. Set close flag.");
                     fwprintf(stdout, L"Debug: Could not write basic. Set close flag. n: %i\n", n);
 
-                    // Set complete flag.
+                    // Set loop break flag.
                     copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                 } else {
@@ -217,7 +220,7 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
                     fwprintf(stdout, L"Error: Could not write basic. An error occured. %i\n", r);
                     log_errno((void*) &errno);
 
-                    // Set complete flag.
+                    // Set loop break flag.
                     copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                 }
 
@@ -229,14 +232,14 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write basic. The source message data is null.");
-            fwprintf(stdout, L"Error: Could not write basic. The source message data is null. p1: %i\n", p1);
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write basic. The source buffer data is null.");
+            fwprintf(stdout, L"Error: Could not write basic. The source buffer data is null. p1: %i\n", p1);
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write basic. The source message count is null.");
-        fwprintf(stdout, L"Error: Could not write basic. The source message count is null. p2: %i\n", p2);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write basic. The source buffer count is null.");
+        fwprintf(stdout, L"Error: Could not write basic. The source buffer count is null. p2: %i\n", p2);
     }
 }
 
