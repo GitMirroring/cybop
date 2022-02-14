@@ -37,6 +37,16 @@
 #include "../../../executor/calculator/server_identification/channel_server_identification_calculator.c"
 #include "../../../executor/finder/server_entry_finder.c"
 #include "../../../executor/streamer/reader/flag_reader.c"
+--
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/modifier/array_modifier.c"
+#include "../../../executor/porter/locker.c"
+#include "../../../executor/streamer/reader/completeness_reader.c"
+#include "../../../mapper/channel_to_data_type_mapper.c"
 
 /**
  * Writes source data via the given channel into the destination device.
@@ -45,39 +55,55 @@
  * since that name is already used by low-level glibc
  * functionality in header file unistd.h.
  *
- * @param p0 the destination device data (identification e.g. file descriptor of a file, serial port, client socket, window id OR input text for inline channel)
- * @param p1 the destination device count
- * @param p2 the source item
- * @param p3 the source mutex (only relevant, if destination is the internal buffer, which is shared with the sensing thread)
- * @param p4 the language (protocol)
- * @param p5 the internal memory
- * @param p6 the channel
+ * @param p0 the destination device identification item, e.g. file descriptor (a file, serial port, terminal, socket) OR window id OR knowledge tree element (for inline channel)
+ * @param p1 the source message data
+ * @param p2 the source message count
+ * @param p3 the source part (pointer reference), e.g. a signal
+ * @param p4 the internal memory
+ * @param p5 the channel
+ * @param p6 the server flag
  * @param p7 the port
- * @param p8 the asynchronous mode
+ * @param p8 the asynchronicity flag
  */
 void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write data.");
     fwprintf(stdout, L"Debug: Write data. p0: %i\n", p0);
 
+    //?? CAUTION! Receive destination as ITEM not data and count,
+    // because inline channel writes into an item.
+
+    // The destination device identification item data.
+    void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The client entry.
     void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The source message mutex.
-    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The output buffer item.
+    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The output buffer mutex.
+    void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The output buffer item type.
+    int t = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The output buffer item data, count, size.
+    void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* bs = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Get destination device identification item data.
+    copy_array_forward((void*) &dd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Get client entry belonging to given source device.
-    find_entry((void*) &ce, p5, p6, p7, p8, p1);
-    // Get source message mutex.
-    copy_array_forward((void*) &m, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
+    find_entry((void*) &ce, p4, p5, p6, p7, dd);
+
+    // Get output buffer item from client entry.
+    copy_array_forward((void*) &b, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_BUFFER_OUTPUT_CLIENT_STATE_CYBOI_NAME);
+    // Get output buffer mutex from client entry.
+    copy_array_forward((void*) &bm, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_BUFFER_OUTPUT_CLIENT_STATE_CYBOI_NAME);
+
+    // Map channel to datatype.
+    map_channel_to_type((void*) &t, p5);
 
     //
-    // CAUTION! Do NOT check client entry for NULL here,
-    // since the INLINE_CYBOI_CHANNEL does NOT have one.
-    // Otherwise, it would not be processed.
-    //
-
-    //
-    // Write source message into buffer.
+    // Copy source message into output buffer.
     //
     // CAUTION! This has to be done in ANY CASE, not only
     // in asynchronous mode, but also in synchronous mode.
@@ -85,23 +111,30 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     //
     // Within basic write functionality, the successfully
     // transmitted data are REMOVED from the buffer.
-    // If it is empty, then the "complete flag" is set,
-    // so that the loop can be left.
+    // If it is empty, then the "loop break flag" is set,
+    // so that the writing process finishes.
     //
-    write_buffer(p0, p4, p6, p7);
+    write_buffer(b, p1, p2, (void*) &t, bm);
 
- * @param p0 the destination device file descriptor (a file, serial port, terminal, socket) OR window id OR item (for inline channel)
- * @param p1 the source buffer data (pointer reference)
- * @param p2 the source buffer count
- * @param p3 the source buffer size
- * @param p4 the source buffer type
- * @param p5 the source part (pointer reference), e.g. a signal
- * @param p6 the source buffer mutex
- * @param p7 the client entry
- * @param p8 the channel
- * @param p9 the asynchronicity flag
+    //
+    // Get output buffer item data, count, size.
+    //
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    //
+    copy_array_forward((void*) &bd, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &bc, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &bs, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // CAUTION! Do NOT check client entry for NULL here,
+    // since the INLINE_CYBOI_CHANNEL does NOT have one.
+    // Otherwise, it would not be processed.
+    //
+
     // Write data via the given channel into the destination.
-    write_flag(p0, p1, p2, p3, ce, p4, p6, p8);
+    write_flag(p0, (void*) &bd, bc, bs, (void*) &t, p3, bm, ce, p5, p8);
 }
 
 /* WRITER_SOURCE */

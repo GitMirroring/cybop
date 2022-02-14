@@ -40,7 +40,7 @@
  * functionality in header file unistd.h.
  * Function: ssize_t read (int filedes, void *buffer, size_t size)
  *
- * @param p0 the destination item
+ * @param p0 the destination message item
  * @param p1 the source device identification (e.g. file descriptor of a file, serial port, client socket, window id OR input text for inline channel)
  * @param p2 the source device count
  * @param p3 the destination mutex (only relevant, if destination is the internal buffer, which is shared with the sensing thread, may otherwise be NULL)

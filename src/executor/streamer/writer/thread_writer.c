@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef THREAD_SENSOR_SOURCE
-#define THREAD_SENSOR_SOURCE
+#ifndef THREAD_WRITER_SOURCE
+#define THREAD_WRITER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -34,31 +34,28 @@
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/copier/array_copier.c"
-#include "../../../executor/feeler/sensor/function_sensor.c"
+#include "../../../executor/streamer/writer/function_writer.c"
 #include "../../../executor/threader/spinner.c"
 #include "../../../logger/logger.c"
 
 /**
- * Prepares the sense thread.
+ * Prepares the write thread.
  *
  * @param p0 the client entry
  */
 void write_thread(void* p0) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense thread.");
-    fwprintf(stdout, L"Debug: Sense thread. channel p0: %i\n", p0);
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write thread.");
+    fwprintf(stdout, L"Debug: Write thread. channel p0: %i\n", p0);
 
     // The thread identification.
-    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int t = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The thread function.
-    void* f = (void*) &write_device;
+    void* f = (void*) &write_function;
 
-    // Get thread identification from client entry.
-    copy_array_forward((void*) &t, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_THREAD_CLIENT_STATE_CYBOI_NAME);
-
-    // Invoke sense function WITHIN a new thread.
-    spin(t, f, p0);
+    // Invoke write function WITHIN a new thread.
+    spin((void*) &t, f, p0);
 }
 
-/* THREAD_SENSOR_SOURCE */
+/* THREAD_WRITER_SOURCE */
 #endif

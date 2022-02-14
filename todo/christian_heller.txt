@@ -15,6 +15,11 @@
         * See service lifecycle cybol examples in directory "examples/communication/"
 
         * Restructure streamer writer as counterpart to reader
+            almost ready
+            complete the following files: function_writer, entry_writer, flag_writer, writer
+            adjust client entry constants; replace "request" with general name prefix "communication", since constants are used by read and write
+
+        * Clear up: append or overwrite data in reader ?? (they are read stepwise as fragments) or just "empty" destination in cyboi before appending data ??
 
         * Continue file "flag_opener.c" (else branch)
 

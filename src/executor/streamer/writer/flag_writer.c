@@ -37,7 +37,7 @@
 /**
  * Writes data in synchronous (direct) or asynchronous (indirect) mode.
  *
- * @param p0 the destination device file descriptor (a file, serial port, terminal, socket) OR window id OR item (for inline channel)
+ * @param p0 the destination device identification item, e.g. file descriptor (a file, serial port, terminal, socket) OR window id OR knowledge tree element (for inline channel)
  * @param p1 the source buffer data (pointer reference)
  * @param p2 the source buffer count
  * @param p3 the source buffer size

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ENTRY_SENSOR_SOURCE
-#define ENTRY_SENSOR_SOURCE
+#ifndef ENTRY_WRITER_SOURCE
+#define ENTRY_WRITER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -45,10 +45,10 @@
  * @param p4 the sender client identification (pointer reference)
  * @param p5 the handler (pointer reference)
  */
-void sense_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void write_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense entry.");
-    fwprintf(stdout, L"Debug: Sense entry. p0: %i\n", p0);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write entry.");
+    fwprintf(stdout, L"Debug: Write entry. p0: %i\n", p0);
 
     //
     // Storage.
@@ -66,5 +66,5 @@ void sense_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     copy_array_forward(p0, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_REQUEST_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
-/* ENTRY_SENSOR_SOURCE */
+/* ENTRY_WRITER_SOURCE */
 #endif

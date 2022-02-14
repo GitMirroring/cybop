@@ -23,23 +23,26 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FUNCTION_SENSOR_SOURCE
-#define FUNCTION_SENSOR_SOURCE
+#ifndef FUNCTION_WRITER_SOURCE
+#define FUNCTION_WRITER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/client_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/copier/array_copier.c"
-#include "../../../executor/feeler/sensor/loop_sensor.c"
+#include "../../../executor/streamer/writer/loop_writer.c"
 #include "../../../logger/logger.c"
+#include "../../../mapper/channel_to_type_mapper.c"
 
 /**
- * Runs the sense function in its own thread.
+ * Runs the write function in its own thread.
  *
  * CAUTION! In cyboi, all functions by default have
  * NO return value. In relation with threads, however,
@@ -60,64 +63,65 @@
  */
 int write_function(void* p0) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense function.");
-    fwprintf(stdout, L"Debug: Sense function. p0: %i\n", p0);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write function.");
+    fwprintf(stdout, L"Debug: Write function. p0: %i\n", p0);
 
     //
     // Declaration.
     //
 
-    // The buffer item.
-    void* bi = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The buffer mutex.
+    // The destination device identification item.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The output buffer item.
+    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The output buffer mutex.
     void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The client identification.
-    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The language (protocol).
-    void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The internal memory.
-    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source part (pointer reference).
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The channel.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The port.
-    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The sense thread exit flag.
-    void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The output buffer item type.
+    int t = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The output buffer item data, count, size.
+    void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* bs = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // Retrieval.
     //
 
-    // Get buffer item from client entry.
-    copy_array_forward((void*) &bi, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_BUFFER_CLIENT_STATE_CYBOI_NAME);
-    // Get buffer mutex from client entry.
-    copy_array_forward((void*) &bm, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_BUFFER_CLIENT_STATE_CYBOI_NAME);
-    // Get client identification from client entry.
-    copy_array_forward((void*) &id, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
-    // Get language from client entry.
-    copy_array_forward((void*) &l, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LANGUAGE_REQUEST_CLIENT_STATE_CYBOI_NAME);
-    // Get internal memory from client entry.
-    copy_array_forward((void*) &i, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERNAL_MEMORY_GENERAL_CLIENT_STATE_CYBOI_NAME);
+    // Get destination device identification item from client entry.
+    copy_array_forward((void*) &d, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TODO);
+    // Get output buffer item from client entry.
+    copy_array_forward((void*) &b, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_BUFFER_OUTPUT_CLIENT_STATE_CYBOI_NAME);
+    // Get output buffer mutex from client entry.
+    copy_array_forward((void*) &bm, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_BUFFER_OUTPUT_CLIENT_STATE_CYBOI_NAME);
+    // Get source part from client entry.
+    copy_array_forward((void*) &s, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TODO);
     // Get channel from client entry.
-    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CHANNEL_REQUEST_CLIENT_STATE_CYBOI_NAME);
-    // Get port from client entry.
-    copy_array_forward((void*) &p, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PORT_REQUEST_CLIENT_STATE_CYBOI_NAME);
-    // Get sense thread exit flag from client entry.
-    copy_array_forward((void*) &ex, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_CLIENT_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &c, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TODO);
+
+    // Map channel to datatype.
+    map_channel_to_type((void*) &t, c);
+
+    //
+    // Get output buffer item data, count, size.
+    //
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    //
+    copy_array_forward((void*) &bd, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &bc, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &bs, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
     //
     // Functionality.
     //
 
-    //
-    // Sense input data via endless loop.
-    //
-    // CAUTION! Set asynchronous mode flag to FALSE,
-    // since data are NOT to be read from internal buffer,
-    // but DIRECTLY from client device INTO the internal buffer.
-    //
-    WITH ASYNCHRONOUS-FLAG SET TO "FALSE" (!):
-    write_loop(bi, id, bm, l, i, c, p, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, ex);
+    // Write output data via loop, until all data have been transmitted.
+    write_loop(d, (void*) &bd, bc, bs, (void*) &t, (void*) &s, bm, ce, c);
 
     //
     // An implicit call to "thrd_exit" is made when this thread
@@ -126,11 +130,10 @@ int write_function(void* p0) {
     // The "thrd_exit" function does therefore NOT have to be called here.
     //
 
-    fwprintf(stdout, L"Debug: Sense function. Exit thread now. ex: %i\n", ex);
-    fwprintf(stdout, L"Debug: Sense function. Exit thread now. *ex: %i\n", *((int*) ex));
+    fwprintf(stdout, L"Debug: Write function. Exit thread now. p0: %i\n", p0);
 
     return *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 }
 
-/* FUNCTION_SENSOR_SOURCE */
+/* FUNCTION_WRITER_SOURCE */
 #endif
