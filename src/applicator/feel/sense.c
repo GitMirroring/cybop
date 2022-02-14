@@ -49,7 +49,7 @@
  * - port (optional): the socket port
  * - language: the language
  * - sender: the client identification
- * - handler: the handler
+ * - handler (required): the callback cybol operation being executed when the thread finished reading data
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

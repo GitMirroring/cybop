@@ -110,6 +110,10 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
     // Hence, rubbish (garbage) collection would only disturb here
     // and should be left to the knowledge memory.
     //
+    // CAUTION! If the handler is NULL, then it does NOT get copied inside.
+    // A handler (callback cybol operation) does not always have to be given,
+    // e.g. in an asynchronous send operation, a feedback is not always wanted or needed.
+    //
     modify_item(p1, (void*) &h, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 }
 

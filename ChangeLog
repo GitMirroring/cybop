@@ -26,6 +26,8 @@
         * Delete files "internal_memory_getter.c", "channel_internal_memory_getter.c", "internal_memory_setter.c", "channel_internal_memory_setter.c"
         * Restructure streamer reader
         * Enable client list finder to search for any element, not just by identification
+        * Rename cybol property "stub" to "server"
+        * Add missing properties to name constants and applicator stream read
 
 2022-02-12  Christian Heller  <christian.heller@cybop.org>
 
