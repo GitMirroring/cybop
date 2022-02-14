@@ -15,8 +15,6 @@
         * See service lifecycle cybol examples in directory "examples/communication/"
 
         * Restructure streamer writer as counterpart to reader
-        * Merge "device_writer.c" and "function_writer.c" ??
-            --> probably not, since the device writer gets all data via parametres, while the function writer is processed in a thread and has to get all data from client entry
 
         * Continue file "flag_opener.c" (else branch)
 
