@@ -27,11 +27,16 @@
 #define READ_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/part_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/name/cybol/logic/streaming/read_streaming_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
+#include "../../executor/copier/array_copier.c"
 #include "../../executor/streamer/reader.c"
 #include "../../logger/logger.c"
 
@@ -41,7 +46,7 @@
  * Parametres:
  * - channel (required): the communication channel, e.g. file, serial, socket
  * - server (optional): the flag indicating server mode; if NULL, the default is false (client mode)
- * - port (optional): the service identification
+ * - port (optional): the service identification; only relevant in server mode
  * - sender (required): the device identification, e.g. file descriptor
  * - language (optional): the language defining which prefix or suffix indicates the message length; not needed for file reading since that ends with EOF
  * - message (required): the cybol path to the knowledge tree node storing the received data

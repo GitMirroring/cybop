@@ -27,26 +27,20 @@
 #define WRITER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../executor/finder/entry_finder.c"
-#include "../../../logger/logger.c"
---
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/accessor/getter/channel_internal_memory_getter.c"
-#include "../../../executor/calculator/server_identification/channel_server_identification_calculator.c"
-#include "../../../executor/finder/server_entry_finder.c"
-#include "../../../executor/streamer/reader/flag_reader.c"
---
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/client_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/copier/array_copier.c"
-#include "../../../executor/modifier/array_modifier.c"
-#include "../../../executor/porter/locker.c"
-#include "../../../executor/streamer/reader/completeness_reader.c"
-#include "../../../mapper/channel_to_data_type_mapper.c"
+#include "../../../executor/finder/entry_finder.c"
+#include "../../../executor/streamer/writer/buffer_writer.c"
+#include "../../../executor/streamer/writer/flag_writer.c"
+#include "../../../logger/logger.c"
+#include "../../../mapper/channel_to_type_mapper.c"
 
 /**
  * Writes source data via the given channel into the destination device.
@@ -71,9 +65,6 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write data.");
     fwprintf(stdout, L"Debug: Write data. p0: %i\n", p0);
-
-    //?? CAUTION! Receive destination as ITEM not data and count,
-    // because inline channel writes into an item.
 
     // The destination device identification item data.
     void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;

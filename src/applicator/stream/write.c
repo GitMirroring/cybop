@@ -27,11 +27,16 @@
 #define WRITE_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/part_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/name/cybol/logic/streaming/write_streaming_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
+#include "../../executor/copier/array_copier.c"
 #include "../../executor/streamer/writer.c"
 #include "../../logger/logger.c"
 
@@ -40,9 +45,11 @@
  *
  * Parametres:
  * - channel (required): the communication channel, e.g. file, serial, socket
+ * - server (optional): the flag indicating server mode; if NULL, the default is false (client mode)
+ * - port (optional): the service identification; only relevant in server mode
+ * - receiver (required): the device identification, e.g. file descriptor
  * - message (required): the cybol path to the knowledge tree node storing the read data
- * - receiver (required): the receiver device identification, e.g. file descriptor
- * - asynchronicity (optional): the flag indicating asynchronous reading within a thread; the default is FALSE (if flag is missing)
+ * - asynchronicity (optional): the flag indicating asynchronous writing within a thread; if NULL, the default is false (synchronous write)
  * - handler (optional): the callback cybol operation being executed when the thread finished reading data
  *
  * @param p0 the parametres data
@@ -57,10 +64,14 @@ void apply_write(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // The channel part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The message part.
-    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The server part.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The port part.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The receiver part.
     void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The message part.
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The asynchronicity part.
     void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The handler part.
@@ -68,10 +79,14 @@ void apply_write(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // The channel part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The message part model item.
-    void* mm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The server part model item.
+    void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The port part model item.
+    void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The receiver part model item.
     void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The message part model item.
+    void* mm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The asynchronicity part model item.
     void* am = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The handler part model item.
@@ -79,33 +94,45 @@ void apply_write(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // The channel part model item data.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The server part model item data.
+    void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The port part model item data.
+    void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The receiver part model item data.
+    void* rmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The message part model item data, count.
     void* mmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* mmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The receiver part model item data.
-    void* rmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The asynchronicity part model item data.
     void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The handler part model item data.
     void* hmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get channel part.
-    get_part_name((void*) &c, p0, (void*) CHANNEL_READ_STREAMING_LOGIC_CYBOL_NAME, (void*) CHANNEL_READ_STREAMING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get message part.
-    get_part_name((void*) &m, p0, (void*) MESSAGE_READ_STREAMING_LOGIC_CYBOL_NAME, (void*) MESSAGE_READ_STREAMING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &c, p0, (void*) CHANNEL_WRITE_STREAMING_LOGIC_CYBOL_NAME, (void*) CHANNEL_WRITE_STREAMING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get server part.
+    get_part_name((void*) &s, p0, (void*) SERVER_WRITE_STREAMING_LOGIC_CYBOL_NAME, (void*) SERVER_WRITE_STREAMING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get port part.
+    get_part_name((void*) &p, p0, (void*) PORT_WRITE_STREAMING_LOGIC_CYBOL_NAME, (void*) PORT_WRITE_STREAMING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get receiver part.
-    get_part_name((void*) &r, p0, (void*) RECEIVER_READ_STREAMING_LOGIC_CYBOL_NAME, (void*) RECEIVER_READ_STREAMING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &r, p0, (void*) RECEIVER_WRITE_STREAMING_LOGIC_CYBOL_NAME, (void*) RECEIVER_WRITE_STREAMING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get message part.
+    get_part_name((void*) &m, p0, (void*) MESSAGE_WRITE_STREAMING_LOGIC_CYBOL_NAME, (void*) MESSAGE_WRITE_STREAMING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get asynchronicity part.
-    get_part_name((void*) &a, p0, (void*) ASYNCHRONICITY_READ_STREAMING_LOGIC_CYBOL_NAME, (void*) ASYNCHRONICITY_READ_STREAMING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &a, p0, (void*) ASYNCHRONICITY_WRITE_STREAMING_LOGIC_CYBOL_NAME, (void*) ASYNCHRONICITY_WRITE_STREAMING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get handler part.
-    get_part_name((void*) &h, p0, (void*) HANDLER_READ_STREAMING_LOGIC_CYBOL_NAME, (void*) HANDLER_READ_STREAMING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &h, p0, (void*) HANDLER_WRITE_STREAMING_LOGIC_CYBOL_NAME, (void*) HANDLER_WRITE_STREAMING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get channel part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get message part model item.
-    copy_array_forward((void*) &mm, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get server part model item.
+    copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get port part model item.
+    copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get receiver part model item.
     copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get message part model item.
+    copy_array_forward((void*) &mm, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get asynchronicity part model item.
     copy_array_forward((void*) &am, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get handler part model item.
@@ -113,16 +140,31 @@ void apply_write(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // Get channel part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get server part model item data.
+    copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get port part model item data.
+    copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get receiver part model item data.
+    copy_array_forward((void*) &rmd, rm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get message part model item data, count.
     copy_array_forward((void*) &mmd, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &mmc, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get receiver part model item data.
-    copy_array_forward((void*) &rmd, rm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get asynchronicity part model item data.
     copy_array_forward((void*) &amd, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get handler part model item data.
     copy_array_forward((void*) &hmd, hm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+ * @param p0 the destination device identification item, e.g. file descriptor (a file, serial port, terminal, socket) OR window id OR knowledge tree element (for inline channel)
+ * @param p1 the source message data
+ * @param p2 the source message count
+ * @param p3 the source part (pointer reference), e.g. a signal
+ * @param p4 the internal memory
+ * @param p5 the channel
+ * @param p6 the server flag
+ * @param p7 the port
+ * @param p8 the destination device identification item (pointer reference)
+ * @param p9 the channel (pointer reference)
+ * @param p10 the asynchronicity flag
     // Write data to device.
     write_data(px, TODO);
 }
