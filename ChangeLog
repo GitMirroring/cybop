@@ -20,6 +20,10 @@
 
 2022-02-14  Christian Heller  <christian.heller@cybop.org>
 
+        * Complete writer files "function_writer.c", "entry_writer.c", "flag_writer, writer.c"
+
+2022-02-14  Christian Heller  <christian.heller@cybop.org>
+
         * Replace stack variable "#client" in cybol example "server_socket" with heap variable ".client"
         * Move client entry finder from reader into directory "executor/finder/"
         * Restructure streamer writer as counterpart to reader

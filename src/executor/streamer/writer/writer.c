@@ -63,9 +63,11 @@
  * @param p5 the channel
  * @param p6 the server flag
  * @param p7 the port
- * @param p8 the asynchronicity flag
+ * @param p8 the destination device identification item (pointer reference)
+ * @param p9 the channel (pointer reference)
+ * @param p10 the asynchronicity flag
  */
-void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write data.");
     fwprintf(stdout, L"Debug: Write data. p0: %i\n", p0);
@@ -134,7 +136,7 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     //
 
     // Write data via the given channel into the destination.
-    write_flag(p0, (void*) &bd, bc, bs, (void*) &t, p3, bm, ce, p5, p8);
+    write_flag(p0, (void*) &bd, bc, bs, (void*) &t, p3, bm, ce, p5, p8, (void*) &b, (void*) &bm, p3, p9, p10);
 }
 
 /* WRITER_SOURCE */
