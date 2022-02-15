@@ -42,7 +42,7 @@
 #include "../../../executor/porter/locker.c"
 #include "../../../executor/streamer/reader/completeness_reader.c"
 #include "../../../logger/logger.c"
-#include "../../../mapper/channel_to_data_type_mapper.c"
+#include "../../../mapper/channel_to_type_mapper.c"
 
 /**
  * Reads data indirectly from buffer (asynchronous mode).
@@ -125,6 +125,10 @@ void read_buffer(void* p0, void* p1, void* p2, void* p3) {
         // CAUTION! Do NOT hand over the buffer count but rather
         // the message length determined above for specifying
         // the number of characters to be appended.
+        //
+        // CAUTION! Do NOT use overwrite since data are read stepwise
+        // as fragments and therefore have to be APPENDED to the
+        // already existing data in the destination.
         //
         modify_item(p0, bd, (void*) &t, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &ml, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 

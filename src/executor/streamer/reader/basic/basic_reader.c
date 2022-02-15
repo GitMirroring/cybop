@@ -187,8 +187,11 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
                         //
                         // Copy fragment data into destination item.
                         //
-                        // CAUTION! Use APPEND and NOT overwrite here, since data
-                        // still standing in the destination item must not be overwritten.
+                        // CAUTION! Do NOT use overwrite since data are read stepwise
+                        // as fragments and therefore have to be APPENDED to the
+                        // already existing data in the destination.
+                        //
+                        // Example:
                         // This can happen if reading data from terminal in the
                         // child thread is faster than their processing in the main thread.
                         //

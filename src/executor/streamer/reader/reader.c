@@ -26,11 +26,16 @@
 #ifndef READER_SOURCE
 #define READER_SOURCE
 
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/finder/entry_finder.c"
+#include "../../../executor/modifier/item_modifier.c"
 #include "../../../executor/streamer/reader/flag_reader.c"
 #include "../../../logger/logger.c"
+#include "../../../mapper/channel_to_type_mapper.c"
 
 /**
  * Reads data via the given channel into the destination.
@@ -56,8 +61,16 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read data.");
     fwprintf(stdout, L"Debug: Read data. p0: %i\n", p0);
 
+    // The data type.
+    int t = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The client entry.
     void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Map channel to datatype.
+    map_channel_to_type((void*) &t, p6);
+
+    // Empty destination item before appending data.
+    modify_item(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &t, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) EMPTY_MODIFY_LOGIC_CYBOI_FORMAT);
 
     // Get client entry belonging to given source device.
     find_entry((void*) &ce, p5, p6, p7, p8, p1);

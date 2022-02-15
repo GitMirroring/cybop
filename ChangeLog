@@ -22,6 +22,7 @@
 
         * Complete writer files "function_writer.c", "entry_writer.c", "flag_writer, writer.c"
         * Adapt applicator file "write.c" with function "apply_write"
+        * Empty destination item in streamer reader before appending data
 
 2022-02-14  Christian Heller  <christian.heller@cybop.org>
 

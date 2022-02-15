@@ -39,7 +39,8 @@
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/getter/item_getter.c"
-#include "../../../../executor/locker/locker.c"
+#include "../../../../executor/porter/locker.c"
+#include "../../../../executor/porter/unlocker.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 #include "../../../../variable/type_size/integral_type_size.c"
@@ -68,40 +69,36 @@ void read_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
 
         // The pipe value.
         int v = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-        // The interrupt pipe handlers item data, count, size.
-        //?? void* hd = *NULL_POINTER_STATE_CYBOI_MODEL;
-        //?? void* hc = *NULL_POINTER_STATE_CYBOI_MODEL;
-        //?? void* hs = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+        //
         // Lock mutex.
-        lock(p3);
-
         //
-        // CAUTION! Using a mutex would do no harm, but is
-        // NOT necessary here, for the following reasons:
+        // CAUTION! If only the pipe was accessed, then using a mutex
+        // would NOT be necessary here, for the following reasons:
         //
-        // 1 The values are only read but nothing is written.
+        // 1 The values are only READ but nothing is written.
         //
         // 2 While there may be potentially many threads
-        //   writing to this interrupt pipe, there is just ONE
-        //   function in file "empty_checker.c" reading it.
+        //   WRITING to this interrupt pipe, there is just ONE
+        //   function in the main signal (event) loop reading it.
         //   Therefore, conflicts are impossible.
         //
-        // 3 The order of the values in the pipe is unchanged.
+        // 3 The ORDER of the values in the pipe is UNCHANGED.
         //   If new values are written to the pipe in one
         //   of the threads, then they are added at the end.
-        //   A mutex is used for writing, so that all values
+        //   A MUTEX is used for WRITING, so that all values
         //   belonging together are placed at once.
         //   Therefore, one can always be sure that the values
         //   being read in a sequence here really do belong together,
-        //   to the same interrupt (event).
+        //   to the same interrupt.
         //
+        // CAUTION! However, using a mutex IS NECESSARY due to
+        // the HANDLER ARRAY managed in parallel to the interrupt pipe.
+        //
+        lock(p3);
 
         //
         // Read from interrupt pipe.
-        //
-        // - server identification (server base + service port)
-        // - client identification
         //
         // CAUTION! The safe way is to use the functions "snprintf" and "strtol".
         // However, if both processes were created using the same compiler version,
@@ -129,9 +126,13 @@ void read_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
         // Inside the structure, arrays may have been reallocated,
         // with elements pointing to different memory areas now.
         //
-        //?? copy_array_forward((void*) &hd, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        // Alternative:
+        //
+        // Get interrupt pipe handlers item data.
+        // copy_array_forward((void*) &hd, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         // Get handler from interrupt pipe handlers item data.
-        //?? copy_array_forward(p0, hd, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        // copy_array_forward(p0, hd, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        //
 
         // Get handler from source interrupt pipe handlers item.
         get_item(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);

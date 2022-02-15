@@ -35,7 +35,8 @@
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/locker/locker.c"
+#include "../../../../executor/porter/locker.c"
+#include "../../../../executor/porter/unlocker.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 #include "../../../../variable/type_size/integral_type_size.c"
@@ -65,7 +66,12 @@ void write_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
         // Lock mutex.
         lock(p3);
 
+        //
         // Append handler to destination interrupt pipe handlers item.
+        //
+        // CAUTION! Do NOT use overwrite in order to avoid
+        // deletion of already existing data in the destination.
+        //
         modify_item(p1, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
         //

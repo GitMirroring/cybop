@@ -50,7 +50,19 @@ void read_inline(void* p0, void* p1, void* p2, void* p3) {
     fwprintf(stdout, L"Debug: Read inline. p3: %i\n", p3);
     fwprintf(stdout, L"Debug: Read inline. *p3: %i\n", *((int*) p3));
 
+    //
     // Copy source to destination.
+    //
+    // CAUTION! It does not matter HERE if append OR overwrite is used,
+    // since the destination item has been emptied in the reader before.
+    //
+    // For other channels, append is a must, since data are read stepwise
+    // as fragments and therefore have to be APPENDED to the
+    // already existing data in the destination.
+    //
+    // For the inline channel, however, it does not matter,
+    // since data are read and copied inside AT ONCE.
+    //
     modify_item(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
     // Set eof-or-close flag.

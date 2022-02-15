@@ -66,6 +66,10 @@ void read_signal(void* p0, void* p1, void* p2) {
     //
     // Add signal part to destination item.
     //
+    // CAUTION! Do NOT use overwrite but rather APPENDED instead,
+    // in order to avoid deletion of already existing signals
+    // in the destination.
+    //
     // CAUTION! Use simple POINTER_STATE_CYBOI_TYPE and NOT PART_ELEMENT_STATE_CYBOI_TYPE here.
     // The signal memory just holds references to knowledge memory parts (signals),
     // but only the knowledge memory may care about rubbish (garbage) collection.
