@@ -171,6 +171,20 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get stub flag part model item data.
     copy_array_forward((void*) &stmd, stm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+ * @param p0 the client identification (e.g. file descriptor, socket number, window id)
+ * @param p1 the port
+ * @param p2 the host address data (network communication) OR filename data (device, file, local unix domain socket)
+ * @param p3 the host address count (network communication) OR filename count (device, file, local unix domain socket)
+ * @param p4 the family data (namespace)
+ * @param p5 the family count
+ * @param p6 the style data (communication type)
+ * @param p7 the style count
+ * @param p8 the protocol data
+ * @param p9 the protocol count
+ * @param p10 the channel
+ * @param p11 the server flag
+ * @param p12 the internal memory
+ * @param p13 the internal memory (pointer reference)
     // Open up client.
     open_client(idmd, pmd, dmd, dmc, nmd, nmc, smd, smc, prmd, prmc, cmd, stmd, p4);
 }

@@ -46,7 +46,7 @@ static int* NAME_GENERAL_CLIENT_STATE_CYBOI_NAME = NUMBER_2_INTEGER_STATE_CYBOI_
 //
 // Communication
 //
-// CAUTION! These constants are used by read AND write.
+// CAUTION! These constants are used by: read, write.
 //
 
 static int* CHANNEL_COMMUNICATION_CLIENT_STATE_CYBOI_NAME = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;

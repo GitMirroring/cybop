@@ -20,8 +20,9 @@
 
 2022-02-17  Christian Heller  <christian.heller@cybop.org>
 
-        * Add files "list_opener.c", "stub_opener.c"
+        * Add files "stub_opener.c", "identification_opener.c", "list_opener.c"
         * Rename "flag_opener.c" into "client_opener.c"
+        * Complete opener
 
 2022-02-14  Christian Heller  <christian.heller@cybop.org>
 

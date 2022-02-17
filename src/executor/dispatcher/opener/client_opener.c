@@ -26,12 +26,15 @@
 #ifndef CLIENT_OPENER_SOURCE
 #define CLIENT_OPENER_SOURCE
 
+#include "../../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../executor/configurator/initialiser/initialiser.c"
 #include "../../../executor/dispatcher/opener/device_opener.c"
 #include "../../../executor/dispatcher/opener/stub_opener.c"
+#include "../../../executor/logifier/boolean/and_boolean_logifier.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -59,14 +62,25 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The channel comparison result.
+    int rc = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // CAUTION! Do NOT use "equal" comparison, since standalone client has to be the DEFAULT.
     compare_integer_unequal((void*) &r, p12, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_equal((void*) &rc, p11, (void*) SOCKET_CYBOI_CHANNEL);
+    logify_boolean_and((void*) &r, (void*) &rc);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
-        // This is a STANDALONE client.
+        // This is either a STANDALONE client or a WINDOW.
+        //
+        // CAUTION! The client windows get a special treatment.
+        // They are stored in the corresponding display server entry
+        // and therefore require the server flag to be set to TRUE.
+        // However, the windows have to be opened MANUALLY by the
+        // developer through calling the cybol operation "dispatch/open".
+        // Therefore, the "open_device" function HAS TO BE called.
         //
 
         // Open device.
@@ -78,20 +92,13 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     } else {
 
         //
-        // This is a client STUB on the server side.
-        //
-
+        // This is a client STUB on the server side of a SOCKET channel.
         //
         // When a server socket receives a client request, then
         // that request is stored as client socket number (stub).
         // It is pre-configured by the server socket and thus
         // does NOT need to be configured here again.
-        // Therefore, the "open_device" function is NOT called here.
-        //
-        // Whilst for the display channel, a client window has to be
-        // opened MANUALLY by the developer through calling the
-        // cybol operation "dispatch/open", the socket connexions
-        // are managed AUTOMATICALLY via client stubs inside cyboi.
+        // Therefore, the "open_device" function is NOT called.
         //
 
         // Open client stub.

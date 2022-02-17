@@ -14,7 +14,7 @@
         * Complete implementation of communication functions listed in table "doc/development/cyboi/service_lifecycle.pdf
         * See service lifecycle cybol examples in directory "examples/communication/"
 
-        * Complete opener (entry and includes)
+        * Complete file "open.c" with function "apply_open"
         * Provide closer as counterpart to opener
 
         * Provide server entry buffer storing accepted client identifications, which is important for irq pipe processing accepted clients one by one

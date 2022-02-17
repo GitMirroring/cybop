@@ -63,8 +63,6 @@ void logify_boolean(void* p0, void* p1, void* p2) {
         }
     }
 
-    //NAND
-
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
         compare_integer_equal((void*) &r, p2, (void*) NAND_LOGIFY_LOGIC_CYBOI_FORMAT);
 
@@ -85,8 +83,6 @@ void logify_boolean(void* p0, void* p1, void* p2) {
         }
     }
 
-    //NOR
-    
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NOR_LOGIFY_LOGIC_CYBOI_FORMAT);
@@ -97,18 +93,15 @@ void logify_boolean(void* p0, void* p1, void* p2) {
         }
     }
 
-    //NOT
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
         compare_integer_equal((void*) &r, p2, (void*) NOT_LOGIFY_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-        
+
             // CAUTION! Only ONE parametre is required.
             logify_boolean_not(p0);
         }
     }
-
-    //OR
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -120,8 +113,6 @@ void logify_boolean(void* p0, void* p1, void* p2) {
         }
     }
 
-    //XNOR
-    
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) XNOR_LOGIFY_LOGIC_CYBOI_FORMAT);
@@ -132,8 +123,6 @@ void logify_boolean(void* p0, void* p1, void* p2) {
         }
     }
 
-    //XOR
-    
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) XOR_LOGIFY_LOGIC_CYBOI_FORMAT);

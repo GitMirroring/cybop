@@ -76,7 +76,8 @@ void open_list(void* p0, void* p1) {
     } else {
 
         //
-        // This is a client STUB on the server side.
+        // This is a client STUB on the server side or a
+        // client WINDOW being stored in the display server.
         //
 
         // Get server entry from client entry.
