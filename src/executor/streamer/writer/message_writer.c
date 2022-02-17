@@ -135,6 +135,17 @@ void write_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            compare_integer_equal((void*) &r, p9, (void*) PIPELINE_CYBOI_CHANNEL);
+
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                // The loop break flag is adjusted inside the "write_basic" function.
+                write_basic(*dd, p1, p2, p3, p4, p6, p8);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
             compare_integer_equal((void*) &r, p9, (void*) SERIAL_CYBOI_CHANNEL);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

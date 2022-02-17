@@ -60,7 +60,7 @@ static int* SOURCE_PART_COMMUNICATION_CLIENT_STATE_CYBOI_NAME = NUMBER_14_INTEGE
 //
 // CAUTION! The buffer is used only for ASYNCHRONOUS reading.
 // Synchronous reading, on the other hand, accesses the blocking device
-// directly and waits until input is available.
+// directly and waits until data as input is available.
 //
 // CAUTION! The buffer serves as temporary INPUT STORE between sensor and reader.
 // The sensor reads input data first and stores them in this buffer item.
@@ -125,7 +125,9 @@ static int* OUTPUT_ORIGINAL_MODE_TERMINAL_CLIENT_STATE_CYBOI_NAME = NUMBER_51_IN
 // Backlink
 //
 
-static int* SERVER_ENTRY_BACKLINK_CLIENT_STATE_CYBOI_NAME = NUMBER_99_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* INTERNAL_MEMORY_BACKLINK_CLIENT_STATE_CYBOI_NAME = NUMBER_90_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* INPUT_OUTPUT_BACKLINK_CLIENT_STATE_CYBOI_NAME = NUMBER_91_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* SERVER_ENTRY_BACKLINK_CLIENT_STATE_CYBOI_NAME = NUMBER_92_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* CLIENT_STATE_CYBOI_NAME_CONSTANT_SOURCE */
 #endif

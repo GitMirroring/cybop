@@ -41,11 +41,11 @@
  * @param p1 the client entry
  * @param p2 the channel
  */
-void initialise_device(void* p0, void* p1, void* p2) {
+void initialise(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initialise device.");
-    fwprintf(stdout, L"Debug: Initialise device. p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Initialise device. *p2: %i\n", *((int*) p2));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initialise.");
+    fwprintf(stdout, L"Debug: Initialise. p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Initialise. *p2: %i\n", *((int*) p2));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -72,8 +72,8 @@ void initialise_device(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise device. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not initialise device. The channel is unknown. Channel p2: %i\n", *((int*) p2));
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise. The channel is unknown.");
+        fwprintf(stdout, L"Warning: Could not initialise. The channel is unknown. Channel p2: %i\n", *((int*) p2));
     }
 }
 

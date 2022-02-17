@@ -65,8 +65,13 @@
  * @param p8 the protocol data
  * @param p9 the protocol count
  * @param p10 the channel
- * @param p11 the stub flag
+ * @param p11 the server flag
  * @param p12 the internal memory
+--
+ * @param p4 the internal memory
+ * @param p5 the channel
+ * @param p6 the server flag
+ * @param p7 the port
  */
 void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
@@ -74,50 +79,30 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     fwprintf(stdout, L"Debug: Open client. channel p10: %i\n", p10);
     fwprintf(stdout, L"Debug: Open client. channel *p10: %i\n", *((int*) p10));
 
-    // The server entry.
-    void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The client list.
-    void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The client entry.
     void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The client list.
+    void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get server entry from internal memory.
-    get_internal_memory_channel((void*) &se, p12, p10, p1);
-
-    if (se == *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        //
-        // A server entry does NOT exist yet.
-        //
-
-        // Allocate server entry.
-        allocate_server_entry((void*) &se);
-    }
-
-    // Get client list from server entry.
-    copy_array_forward((void*) &cl, se, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_LIST_SERVER_STATE_CYBOI_NAME);
-
-    // Get client entry from server entry client list by given client device identification.
-    find_server_entry((void*) &ce, se, p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    // Get client entry belonging to given source device.
+    find_entry((void*) &ce, internal-memory, channel, server-flag, port, device-identification);
 
     if (ce == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // Allocate client entry.
-        allocate_client_entry((void*) &ce, p10);
+        allocate_client_entry((void*) &ce, channel);
 
-        // Open device depending on stub flag.
-        open_flag(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, ce, p10, p11);
+        // Open client device depending on stub flag.
+        open_client(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, ce, p10, p11);
 
-        // Initialise client entry.
-        open_entry(ce, p0, p2, p3, (void*) &se);
+        //?? TODO: Assign ALL backlinks inside !
+        // Store data in client entry.
+        open_entry(ce, p0, p2, p3);
 
-        //
-        // Add client entry to client list of server entry.
-        //
-        // CAUTION! The client identification is NOT used as client list index
-        // due to security concerns. Otherwise, a cybol developer might assign
-        // an astronomic number leading to severe system errors.
-        //
+        // Get suitable client list.
+        open_list((void*) &cl, ce, p11);
+
+        // Append client entry to client list.
         modify_item(cl, (void*) &ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
     } else {

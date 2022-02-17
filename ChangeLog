@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-02-17  Christian Heller  <christian.heller@cybop.org>
+
+        * Add files "list_opener.c", "stub_opener.c"
+        * Rename "flag_opener.c" into "client_opener.c"
+
 2022-02-14  Christian Heller  <christian.heller@cybop.org>
 
         * Complete writer files "function_writer.c", "entry_writer.c", "flag_writer, writer.c"

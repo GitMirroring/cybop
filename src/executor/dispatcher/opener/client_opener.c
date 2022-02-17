@@ -23,19 +23,19 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FLAG_OPENER_SOURCE
-#define FLAG_OPENER_SOURCE
+#ifndef CLIENT_OPENER_SOURCE
+#define CLIENT_OPENER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../executor/comparator/integer/unequal_integer_comparator.c"
+#include "../../../executor/configurator/initialiser/initialiser.c"
 #include "../../../executor/dispatcher/opener/device_opener.c"
+#include "../../../executor/dispatcher/opener/stub_opener.c"
 #include "../../../logger/logger.c"
 
 /**
- * Checks the given stub flag.
- *
- * If this is a client stub socket, then do NOT open a new device.
+ * Opens a client either as standalone device or from request buffer, depending on the given server flag.
  *
  * @param p0 the client identification (e.g. file descriptor, socket number, window id)
  * @param p1 the port
@@ -49,24 +49,24 @@
  * @param p9 the protocol count
  * @param p10 the client entry
  * @param p11 the channel
- * @param p12 the stub flag
+ * @param p12 the server flag
  */
-void open_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open flag.");
-    fwprintf(stdout, L"Debug: Open flag. stub flag p12: %i\n", p12);
-    fwprintf(stdout, L"Debug: Open flag. stub flag *p12: %i\n", *((int*) p12));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open client.");
+    fwprintf(stdout, L"Debug: Open client. server client p12: %i\n", p12);
+    fwprintf(stdout, L"Debug: Open client. server client *p12: %i\n", *((int*) p12));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    // CAUTION! Do NOT use "equal" comparison, since standalone client has to be the DEFAULT.
     compare_integer_unequal((void*) &r, p12, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
-        // CAUTION! The stub flag is either FALSE or NULL.
-        // This is the DEFAULT.
+        // This is a STANDALONE client.
         //
 
         // Open device.
@@ -78,14 +78,14 @@ void open_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     } else {
 
         //
-        // This is a client stub on the server side.
+        // This is a client STUB on the server side.
         //
 
         //
         // When a server socket receives a client request, then
         // that request is stored as client socket number (stub).
-        // It is pre-configured by the server socket and
-        // thus does NOT need to be configured here again.
+        // It is pre-configured by the server socket and thus
+        // does NOT need to be configured here again.
         // Therefore, the "open_device" function is NOT called here.
         //
         // Whilst for the display channel, a client window has to be
@@ -94,13 +94,10 @@ void open_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         // are managed AUTOMATICALLY via client stubs inside cyboi.
         //
 
-        // Get accepted client socket number from the server entry client socket buffer.
-        //?? TODO:
-
-        // Remove client socket from server entry client socket buffer.
-        //?? TODO:
+        // Open client stub.
+        open_stub(p0, p10);
     }
 }
 
-/* FLAG_OPENER_SOURCE */
+/* CLIENT_OPENER_SOURCE */
 #endif
