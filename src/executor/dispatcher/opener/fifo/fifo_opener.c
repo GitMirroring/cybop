@@ -58,10 +58,11 @@
  *
  * https://www.gnu.org/software/libc/manual/html_mono/libc.html#FIFO-Special-Files
  *
- * @param p0 the filename data
- * @param p1 the filename count
+ * @param p0 the file descriptor
+ * @param p1 the filename data
+ * @param p2 the filename count
  */
-void open_fifo(void* p0, void* p1) {
+void open_fifo(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open fifo.");
 
@@ -71,7 +72,7 @@ void open_fifo(void* p0, void* p1) {
     open_unix_fifo(p0, p1);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    open_win32_fifo(p0, p1);
+    //?? open_win32_fifo(p0, p1);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif

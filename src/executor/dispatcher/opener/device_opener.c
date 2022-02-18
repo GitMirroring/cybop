@@ -31,6 +31,7 @@
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/dispatcher/opener/display/display_opener.c"
+#include "../../../executor/dispatcher/opener/fifo/fifo_opener.c"
 #include "../../../executor/dispatcher/opener/file/file_opener.c"
 #include "../../../executor/dispatcher/opener/serial_port/serial_port_opener.c"
 #include "../../../executor/dispatcher/opener/socket/socket_opener.c"
@@ -93,7 +94,7 @@ void open_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? TODO: open_fifo(p0, p2, p3);
+            open_fifo(p0, p2, p3);
         }
     }
 

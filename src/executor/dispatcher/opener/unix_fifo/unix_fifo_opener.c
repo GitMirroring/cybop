@@ -26,83 +26,56 @@
 #ifndef UNIX_FIFO_OPENER_SOURCE
 #define UNIX_FIFO_OPENER_SOURCE
 
-#include <sys/stat.h> // mkfifo, S_IRWXU
-#include <errno.h> // errno
+#include <sys/stat.h> // mode_t, S_IRWXU
+#include <fcntl.h> // O_RDWR, O_NOCTTY
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/dispatcher/opener/basic/basic_opener.c"
+#include "../../../../executor/dispatcher/opener/unix_fifo/file_unix_fifo_opener.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Opens up a unix first-in-first-out (fifo), also called "named pipeline" (named pipe).
+ * Makes a unix first-in-first-out (fifo), also called "named pipeline" (named pipe).
  *
- * @param p0 the filename data
- * @param p1 the filename count
+ * @param p0 the file descriptor
+ * @param p1 the filename data
+ * @param p2 the filename count
  */
-void open_unix_fifo(void* p0, void* p1) {
+void open_unix_fifo(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open unix fifo.");
-    fwprintf(stdout, L"Debug: Open unix fifo. p1: %i\n", p1);
-
-    // The terminated file name item.
-    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The terminated file name item data.
-    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open unix fifo.");
+    fwprintf(stdout, L"Debug: Open unix fifo. p0: %i\n", p0);
 
     //
-    // Allocate terminated file name item.
+    // The open mode (access permission bits).
     //
-    // CAUTION! Do NOT use wide characters here.
+    // CAUTION! S_IRWXU is equivalent to (S_IRUSR | S_IWUSR | S_IXUSR).
+    // It assigns the rights to read/write/execute for the owner of the file.
     //
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
+    // CAUTION! This mode is used only when a file is CREATED,
+    // but it doesn't hurt to supply the argument in any case.
     //
-    allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    mode_t m = S_IRWXU;
 
-    // Encode wide character name into multibyte character array.
-    encode_utf_8(t, p0, p1);
+    // Cast to parametre type.
+    int mt = (int) m;
 
-    // Add null termination character.
-    modify_item(t, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-
-    //
-    // Get terminated file name item data.
-    //
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    //
-    copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Create fifo special file in filesystem.
+    open_unix_fifo_file(p1, p2, (void*) &mt);
 
     //
-    // Initialise error number.
+    // The open flags.
     //
-    // It is a global variable and other operations
-    // may have set some value that is not wanted here.
+    // Default settings:
+    // O_RDWR - open file for both reading and writing
+    // O_NOCTTY - don't make the terminal device referenced by
+    //      the filename the controlling terminal for the process
+    //      (possibly important for compatibility with GNU/Hurd systems and 4.4 BSD)
     //
-    // CAUTION! Initialise the error number BEFORE calling
-    // the function that might cause an error.
-    //
-    errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int f = O_RDWR | O_NOCTTY;
 
-    // Create fifo.
-    int r = mkfifo((char*) td, S_IRWXU);
-
-    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open unix fifo. success.");
-        fwprintf(stdout, L"Debug: Open unix fifo. success. r: %i\n", r);
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open unix fifo. An error occured.");
-        fwprintf(stdout, L"Error: Could not open unix fifo. An error occured. %i\n", r);
-        log_errno((void*) &errno);
-    }
-
-    // Deallocate terminated file name item.
-    deallocate_item((void*) &t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Open device.
+    open_basic(p0, p1, p2, (void*) &f, (void*) &mt);
 }
 
 /* UNIX_FIFO_OPENER_SOURCE */

@@ -22,9 +22,10 @@
 
         * Adapt file "open.c" with function "apply_open"
         * Replace usage of file "list_opener.c" with "mode_finder.c" in "opener.c"
-        * Continue closer
         * Extend serial port initialiser to store original terminal settings
         * Add directory "executor/configurator/finaliser/"
+        * Provide closer as counterpart to opener
+        * Cleanup more dispatcher closer files
 
 2022-02-17  Christian Heller  <christian.heller@cybop.org>
 

@@ -82,6 +82,8 @@ void close_device(void* p0, void* p1, void* p2) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             close_basic(p0);
+
+            //?? TODO: Remove (delete) special file in filesystem.
         }
     }
 

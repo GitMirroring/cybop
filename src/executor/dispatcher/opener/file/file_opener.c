@@ -26,11 +26,11 @@
 #ifndef FILE_OPENER_SOURCE
 #define FILE_OPENER_SOURCE
 
-#include <fcntl.h> // O_RDWR, O_NOCTTY
 #include <sys/stat.h> // mode_t, S_IRWXU
+#include <fcntl.h> // O_RDWR, O_NOCTTY
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../executor/opener/basic_opener.c"
+#include "../../executor/dispatcher/opener/basic/basic_opener.c"
 #include "../../logger/logger.c"
 
 /**
@@ -42,7 +42,8 @@
  */
 void open_file(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open file.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open file.");
+    fwprintf(stdout, L"Debug: Open file. p0: %i\n", p0);
 
     //
     // The open flags.

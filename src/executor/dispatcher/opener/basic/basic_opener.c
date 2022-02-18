@@ -26,9 +26,9 @@
 #ifndef BASIC_OPENER_SOURCE
 #define BASIC_OPENER_SOURCE
 
+#include <sys/stat.h> // mode_t
 #include <errno.h> // errno
 #include <fcntl.h> // open
-#include <sys/stat.h> // mode_t
 
 #include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../constant/model/character_code/ascii/ascii_character_code_model.c"
