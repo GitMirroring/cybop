@@ -110,6 +110,8 @@
 
         * Split sensor into sensor and suspender
 
+        * Add named pipeline (fifo) as channel to opener
+
         * Check whether better to replace "append" with "overwrite" in files "server_socket_reader.c", "character_ansi_escape_code_deserialiser.c" and similar files
         * Adapt file "completeness_sensor.c" for serial port (unlimited number of input with cr+lf end suffix is possible)
         * Provide pointer array in addition to character array as destination in file "sensor.c", since xcb events arrive as pointer and not character

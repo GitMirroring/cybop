@@ -88,7 +88,12 @@ void open_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            open_file(p0, p2, p3);
+            //
+            // CAUTION! This is a NAMED PIPELINE, also called FIFO.
+            // It is NOT an anonymous pipeline (pipe).
+            //
+
+            //?? TODO: open_fifo(p0, p2, p3);
         }
     }
 

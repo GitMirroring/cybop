@@ -36,7 +36,7 @@
 #include "../../../executor/dispatcher/opener/entry_opener.c"
 #include "../../../executor/dispatcher/opener/flag_opener.c"
 #include "../../../executor/dispatcher/opener/identification_opener.c"
-#include "../../../executor/dispatcher/opener/list_opener.c"
+#include "../../../executor/finder/mode_finder.c"
 #include "../../../executor/memoriser/allocator/client_entry_allocator.c"
 #include "../../../executor/modifier/item_modifier.c"
 #include "../../../logger/logger.c"
@@ -72,6 +72,8 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
     // The client entry.
     void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The input output entry.
+    void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The client list.
     void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -86,14 +88,17 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     //
     open_entry(ce, p12, p10, p1, p13);
 
-    // Open client device depending on stub flag.
+    // Open client device depending on server flag.
     open_flag(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, ce, p10, p11);
 
     // Assign identification to client entry.
     open_identification(ce, p0, p2, p3);
 
+    // Get input output entry from client entry.
+    copy_array_forward((void*) &io, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_OUTPUT_BACKLINK_CLIENT_STATE_CYBOI_NAME);
+
     // Get suitable client list.
-    open_list((void*) &cl, ce, p11);
+    find_mode((void*) &cl, io, p11, p1);
 
     // Append client entry to client list.
     modify_item(cl, (void*) &ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
