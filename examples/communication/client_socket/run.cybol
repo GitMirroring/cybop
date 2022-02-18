@@ -2,29 +2,29 @@
 
     <node name="open_client" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <!-- Open client device in CLIENT mode. It still has to be configured inside. -->
+        <node name="server" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="port" channel="inline" format="number/integer" model="1971"/>
         <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
         <node name="style" channel="inline" format="text/plain" model="stream"/>
         <node name="protocol" channel="inline" format="text/plain" model="tcp"/>
-        <node name="address" channel="inline" format="text/plain" model="127.0.0.1"/>
+        <node name="device" channel="inline" format="text/plain" model="127.0.0.1"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".server_socket"/>
-        <!-- Open client device in client mode. It still has to be configured inside. -->
-        <node name="stub" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     <node name="send_client" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
         <node name="message" channel="inline" format="text/ascii" model="say-hello"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
 
     <node name="receive_client" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="port" channel="inline" format="number/integer" model="1971"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".server_socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".response"/>
-        <node name="sender" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
 
 </node>

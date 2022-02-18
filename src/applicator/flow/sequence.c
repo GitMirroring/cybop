@@ -38,15 +38,13 @@
 // Forward declarations.
 //
 
-void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
  * Executes the given programme flow as sequence.
  *
- * Expected parametres:
+ * Parametres:
  * - model (required): the logic knowledge model to be executed as sequence
- *
- * Constraints:
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -54,9 +52,10 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  * @param p3 the stack memory item
  * @param p4 the internal memory data
  * @param p5 the signal memory item
- * @param p6 the shutdown flag
+ * @param p6 the internal memory data (pointer reference)
+ * @param p7 the shutdown flag
  */
-void apply_sequence(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void apply_sequence(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sequence.");
@@ -79,7 +78,7 @@ void apply_sequence(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     int x = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Handle model as new operation.
-    handle(m, p4, p2, p3, p5, (void*) &x, p6);
+    handle(m, p4, p2, p3, p5, p6, (void*) &x, p7);
 }
 
 /* SEQUENCE_SOURCE */

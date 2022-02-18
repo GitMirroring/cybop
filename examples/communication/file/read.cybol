@@ -11,14 +11,14 @@
 
     <node name="open_client" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="device" channel="inline" format="text/plain" model="communication/file/data.txt"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
     <node name="read_client" channel="inline" format="stream/read" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".data"/>
         <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".data"/>
         <!-- Optional flag. Default is "false". Read indirectly from device into internal buffer. Does NOT make sense for channel "file"! -->
         <!-- <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="false"/> -->
         <!-- The handler is optional. -->

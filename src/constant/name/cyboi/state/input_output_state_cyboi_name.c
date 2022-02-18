@@ -49,6 +49,8 @@
 //
 // Communication partner lists
 //
+// CAUTION! These are ITEMS, not just pure arrays.
+//
 
 static int* CLIENTS_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 static int* SERVERS_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;

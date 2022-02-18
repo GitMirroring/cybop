@@ -81,6 +81,10 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply modify.");
 
+    //
+    // Declaration
+    //
+
     // The destination part.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source part.
@@ -146,6 +150,10 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // The source properties model item data.
     void* sprmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get destination part.
     get_part_name((void*) &d, p0, (void*) DESTINATION_MODIFICATION_LOGIC_CYBOL_NAME, (void*) DESTINATION_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get source part.
@@ -209,7 +217,10 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // Get source properties model item data.
     copy_array_forward((void*) &sprmd, sprm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    // The default values.
+    //
+    // Default values
+    //
+
     void* source_array_data = smd;
     void* source_array_count = smc;
     int destination_type = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
@@ -238,14 +249,19 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     copy_integer((void*) &count, smc);
     // Use the explicit count that was given as parametre.
     copy_integer((void*) &count, cmd);
+    //
     // Assign destination type to source type.
+    //
     // Otherwise, an error would occur when comparing types in file "type_modify.c",
     // since some operations like "modify/empty" do only have
     // a destination part (and type), but NOT a source part (and type).
+    //
     copy_integer((void*) &source_type, (void*) &destination_type);
-    // Use the actual source part type data, if existent
+    //
+    // Use the actual source part type data, if existent,
     // by overwriting the standard value copied above.
     // If std is null, then nothing is copied and source_type left untouched.
+    //
     copy_integer((void*) &source_type, std);
     // Use the explicit destination index that was given as parametre.
     copy_integer((void*) &destination_index, dimd);
@@ -253,12 +269,18 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     copy_integer((void*) &source_index, simd);
     // Set adjust flag to the value that was given as parametre.
     copy_integer((void*) &adjust, admd);
+    //
     // Set destination- and source part item index depending on
     // the destination- and source properties flag that was given as parametre.
+    //
     apply_modify_index((void*) &destination_part_item_index, dprmd);
     apply_modify_index((void*) &source_part_item_index, sprmd);
     // Get source array.
     apply_modify_array((void*) &source_array_data, (void*) &source_array_count, (void*) &spd, (void*) &spc, sprmd);
+
+    //
+    // Functionality
+    //
 
     // Compare destination- and source type.
     apply_modify_type(d, source_array_data, (void*) &destination_type, mmd, (void*) &count, (void*) &destination_index, (void*) &source_index, (void*) &adjust, p5, (void*) &destination_part_item_index, (void*) &source_part_item_index, s, (void*) &source_type);

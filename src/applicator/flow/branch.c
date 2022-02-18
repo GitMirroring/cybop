@@ -38,17 +38,15 @@
 // Forward declarations.
 //
 
-void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
  * Branches the programme flow, depending on the criterion flag.
  *
- * Expected parametres:
+ * Parametres:
  * - criterion (required): the flag specifying which of the two models to execute
  * - true (optional): the logic knowledge model to be executed if the condition is true
  * - false (optional): the logic knowledge model to be executed if the condition is false
- *
- * Constraints:
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -56,9 +54,10 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  * @param p3 the stack memory item
  * @param p4 the internal memory data
  * @param p5 the signal memory item
- * @param p6 the shutdown flag
+ * @param p6 the internal memory data (pointer reference)
+ * @param p7 the shutdown flag
  */
-void apply_branch(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void apply_branch(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply branch.");
@@ -105,12 +104,12 @@ void apply_branch(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // The criterion is true. Handle true model.
-        handle(t, p4, p2, p3, p5, (void*) &x, p6);
+        handle(t, p4, p2, p3, p5, p6, (void*) &x, p7);
 
     } else {
 
         // The criterion is false. Handle false model.
-        handle(f, p4, p2, p3, p5, (void*) &x, p6);
+        handle(f, p4, p2, p3, p5, p6, (void*) &x, p7);
     }
 }
 

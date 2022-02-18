@@ -51,15 +51,15 @@
  * @param p2 the knowledge memory part (pointer reference)
  * @param p3 the stack memory item
  * @param p4 the signal memory item
- * @param p5 the direct execution flag
- * @param p6 the shutdown flag
+ * @param p5 the internal memory data (pointer reference)
+ * @param p6 the direct execution flag
+ * @param p7 the shutdown flag
  */
-void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle.");
-
-    //?? fwprintf(stdout, L"Debug: Handle. signal p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Information: Handle. signal p0: %i\n", p0);
 
     // The signal part format, model, properties.
     void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -108,7 +108,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
             //?? fwprintf(stdout, L"Debug: Handle. part element: %i\n", *((int*) fd));
 
             // Handle compound part signal.
-            handle_part(md, mc, pd, pc, p1, p2, p3, p4, p5, p6);
+            handle_part(md, mc, pd, pc, p1, p2, p3, p4, p6, p7);
         }
     }
 
@@ -139,7 +139,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
             deserialise_knowledge((void*) &part, p2, (void*) &pathd, (void*) &pathc, p2, p3, p1, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
             // Handle signal.
-            handle(part, p1, p2, p3, p4, p5, p6);
+            handle(part, p1, p2, p3, p4, p5, p6, p7);
         }
     }
 
@@ -156,7 +156,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
             //?? fwprintf(stdout, L"Debug: Handle. operation: %i\n", *((int*) fd));
 
             // Handle primitive operation signal.
-            handle_operation(pd, pc, p1, p2, p3, p4, p6, fd);
+            handle_operation(pd, pc, p1, p2, p3, p4, p5, p7, fd);
         }
     }
 }

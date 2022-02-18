@@ -22,7 +22,9 @@
 
         * Add files "stub_opener.c", "identification_opener.c", "list_opener.c"
         * Rename "flag_opener.c" into "client_opener.c"
+        * Open client windows like other devices, but store them in display server, similar to client socket stubs which are stored in server socket
         * Complete opener
+        * Adapt file "open.c" with function "apply_open"
 
 2022-02-14  Christian Heller  <christian.heller@cybop.org>
 

@@ -44,9 +44,10 @@
  * @param p3 the stack memory item
  * @param p4 the signal memory item
  * @param p5 the signal memory index where the signal was found
- * @param p6 the shutdown flag
+ * @param p6 the internal memory data (pointer reference)
+ * @param p7 the shutdown flag
  */
-void check_found(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void check_found(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check found.");
     //?? fwprintf(stdout, L"Debug: Check found. signal p0: %i\n", p0);
@@ -81,7 +82,7 @@ void check_found(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     modify_item(p4, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p5, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
 
     // Handle signal.
-    handle(p0, p1, p2, p3, p4, (void*) &x, p6);
+    handle(p0, p1, p2, p3, p4, p6, (void*) &x, p7);
 }
 
 /* FOUND_CHECKER_SOURCE */

@@ -2,7 +2,7 @@
 
     <node name="open_client" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <!-- Open client device in server mode. It was already pre-configured inside by the accepting server socket. -->
+        <!-- Open client device in SERVER mode. It was already pre-configured inside by the accepting server socket. -->
         <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="port" channel="inline" format="number/integer" model="1971"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".client"/>

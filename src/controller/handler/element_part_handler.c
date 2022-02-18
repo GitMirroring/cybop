@@ -41,7 +41,7 @@
 // Forward declarations.
 //
 
-void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
  * Handles the part signal element.
@@ -52,10 +52,11 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  * @param p3 the knowledge memory part (pointer reference)
  * @param p4 the stack memory item
  * @param p5 the signal memory item
- * @param p6 the direct execution flag
- * @param p7 the shutdown flag
+ * @param p6 the internal memory data (pointer reference)
+ * @param p7 the direct execution flag
+ * @param p8 the shutdown flag
  */
-void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle part element.");
 
@@ -67,7 +68,7 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     // Get signal part with given index.
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1);
     // Evaluate direct execution flag.
-    compare_integer_unequal((void*) &r, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, p7, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -78,7 +79,7 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         //
 
         // Handle signal.
-        handle(s, p2, p3, p4, p5, p6, p7);
+        handle(s, p2, p3, p4, p5, p6, p7, p8);
 
     } else {
 

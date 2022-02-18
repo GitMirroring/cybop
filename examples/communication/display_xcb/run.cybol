@@ -12,8 +12,6 @@
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
         <!-- Open client window in server mode, so that it gets stored in the display server. -->
         <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
-        <!-- ?? TODO: Make port zero a DEFAULT, so that it can be skipped when opening a window? -->
-        <node name="port" channel="inline" format="number/integer" model="0"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
     </node>
 
@@ -27,18 +25,18 @@
 
     <node name="receive_client" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".gui.window"/>
         <node name="language" channel="inline" format="meta/language" model="event/gui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".gui.action"/>
-        <node name="sender" channel="inline" format="text/cybol-path" model=".gui.window"/>
     </node>
 
     <node name="send_client" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
         <node name="language" channel="inline" format="meta/language" model="message/gui"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".gui.window"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
     </node>
 
 </node>

@@ -38,16 +38,14 @@
 // Forward declarations.
 //
 
-void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
  * Loops the programme flow endlessly, until the break flag is set.
  *
- * Expected parametres:
+ * Parametres:
  * - break (required): the break flag; once set, the loop will be left (exited)
  * - model (required): the logic knowledge model to be executed repeatedly by the loop
- *
- * Constraints:
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -55,9 +53,10 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  * @param p3 the stack memory item
  * @param p4 the internal memory data
  * @param p5 the signal memory item
- * @param p6 the shutdown flag
+ * @param p6 the internal memory data (pointer reference)
+ * @param p7 the shutdown flag
  */
-void apply_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void apply_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply loop.");
@@ -117,7 +116,7 @@ void apply_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
 
             // Handle the model as new operation,
             // as long as the break flag is false (not set).
-            handle(m, p4, p2, p3, p5, (void*) &x, p6);
+            handle(m, p4, p2, p3, p5, p6, (void*) &x, p7);
         }
     }
 }

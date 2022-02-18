@@ -30,10 +30,6 @@
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The baudrate serial interface startup maintenance logic cybol name. */
-//?? static wchar_t* BAUDRATE_SERIAL_INTERFACE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME = L"baudrate";
-//?? static int* BAUDRATE_SERIAL_INTERFACE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The channel open dispatching logic cybol name. */
 static wchar_t* CHANNEL_OPEN_DISPATCHING_LOGIC_CYBOL_NAME = L"channel";
 static int* CHANNEL_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -42,7 +38,7 @@ static int* CHANNEL_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_S
 static wchar_t* DEVICE_OPEN_DISPATCHING_LOGIC_CYBOL_NAME = L"device";
 static int* DEVICE_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The identification (id) open dispatching logic cybol name. */
+/** The identification open dispatching logic cybol name. */
 static wchar_t* IDENTIFICATION_OPEN_DISPATCHING_LOGIC_CYBOL_NAME = L"identification";
 static int* IDENTIFICATION_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
@@ -58,9 +54,9 @@ static int* PORT_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STAT
 static wchar_t* PROTOCOL_OPEN_DISPATCHING_LOGIC_CYBOL_NAME = L"protocol";
 static int* PROTOCOL_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The stub open dispatching logic cybol name. */
-static wchar_t* STUB_OPEN_DISPATCHING_LOGIC_CYBOL_NAME = L"stub";
-static int* STUB_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The server flag open dispatching logic cybol name. */
+static wchar_t* SERVER_OPEN_DISPATCHING_LOGIC_CYBOL_NAME = L"server";
+static int* SERVER_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The style (communication type) open dispatching logic cybol name. */
 static wchar_t* STYLE_OPEN_DISPATCHING_LOGIC_CYBOL_NAME = L"style";
