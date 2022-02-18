@@ -81,7 +81,7 @@ void close_basic(void* p0) {
 
         if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close basic. Success.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close basic. Success.");
             fwprintf(stdout, L"Debug: Close basic. success r: %i\n", r);
 
         } else {
@@ -93,14 +93,8 @@ void close_basic(void* p0) {
 
     } else {
 
-        //
-        // CAUTION! This log message has been commented out
-        // due to the large number of potential calls caused
-        // by the the number of socket services (65536).
-        // See file "shutdown_manager.c".
-        //
-        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close basic. The file descriptor is null.");
-        // fwprintf(stdout, L"Error: Could not close basic. The file descriptor is null. p0: %i\n", p0);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close basic. The file descriptor is null.");
+        fwprintf(stdout, L"Error: Could not close basic. The file descriptor is null. p0: %i\n", p0);
     }
 }
 

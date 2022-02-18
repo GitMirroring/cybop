@@ -33,8 +33,8 @@
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/dispatcher/opener/client_opener.c"
 #include "../../../executor/dispatcher/opener/entry_opener.c"
+#include "../../../executor/dispatcher/opener/flag_opener.c"
 #include "../../../executor/dispatcher/opener/identification_opener.c"
 #include "../../../executor/dispatcher/opener/list_opener.c"
 #include "../../../executor/memoriser/allocator/client_entry_allocator.c"
@@ -87,7 +87,7 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     open_entry(ce, p12, p10, p1, p13);
 
     // Open client device depending on stub flag.
-    open_client(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, ce, p10, p11);
+    open_flag(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, ce, p10, p11);
 
     // Assign identification to client entry.
     open_identification(ce, p0, p2, p3);

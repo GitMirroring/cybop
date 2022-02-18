@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLIENT_OPENER_SOURCE
-#define CLIENT_OPENER_SOURCE
+#ifndef FLAG_OPENER_SOURCE
+#define FLAG_OPENER_SOURCE
 
 #include "../../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -40,6 +40,9 @@
 /**
  * Opens a client either as standalone device or from request buffer, depending on the given server flag.
  *
+ * CAUTION! Do NOT rename this function to "open_client",
+ * as that name is already used by file "opener.c".
+ *
  * @param p0 the client identification (e.g. file descriptor, socket number, window id)
  * @param p1 the port
  * @param p2 the host address data (network communication) OR filename data (device, file, local unix domain socket)
@@ -54,11 +57,11 @@
  * @param p11 the channel
  * @param p12 the server flag
  */
-void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void open_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open client.");
-    fwprintf(stdout, L"Debug: Open client. server client p12: %i\n", p12);
-    fwprintf(stdout, L"Debug: Open client. server client *p12: %i\n", *((int*) p12));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open flag.");
+    fwprintf(stdout, L"Debug: Open flag. server flag p12: %i\n", p12);
+    fwprintf(stdout, L"Debug: Open flag. server flag *p12: %i\n", *((int*) p12));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -106,5 +109,5 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     }
 }
 
-/* CLIENT_OPENER_SOURCE */
+/* FLAG_OPENER_SOURCE */
 #endif
