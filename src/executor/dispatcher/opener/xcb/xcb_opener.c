@@ -285,7 +285,7 @@ void open_xcb(void* p0, void* p1) {
             fwprintf(stdout, L"Debug: Open xcb. copied window id p0: %i\n", p0);
             fwprintf(stdout, L"Debug: Open xcb. copied window id *p0: %i\n", *((int*) p0));
 
-            // Store delete window cookie in server entry.
+            // Set delete window cookie into server entry.
             //?? copy_array_forward(p1, (void*) &dwc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         } else {

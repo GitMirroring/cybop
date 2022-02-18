@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef UNIX_TERMINAL_INITIALISER_SOURCE
-#define UNIX_TERMINAL_INITIALISER_SOURCE
+#ifndef UNIX_SERIAL_PORT_INITIALISER_SOURCE
+#define UNIX_SERIAL_PORT_INITIALISER_SOURCE
 
 #include <termios.h> // struct termios, ISTRIP etc.
 
@@ -57,54 +57,26 @@
 //
 
 /**
- * Initialises the unix terminal mode.
+ * Initialises the unix terminal mode for a serial port.
  *
  * @param p0 the terminal mode
  */
-void initialise_unix_terminal(void* p0) {
+void initialise_unix_serial_port(void* p0) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         struct termios* m = (struct termios*) p0;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initialise unix terminal.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initialise unix serial port.");
 
-        //
-        // Turn off stripping of valid input bytes to seven bits,
-        // so that all eight bits are available for programmes to read.
-        //
-        (*m).c_iflag &= ~ISTRIP;
+        // Ignore parity.
+        (*m).c_iflag = IGNPAR;
 
-        //
-        // Set noncanonical mode.
-        //
-        // POSIX systems support two basic modes of input processing: canonical and noncanonical.
-        //
-        // canonical:
-        // - terminal input is processed in lines terminated by newline ('\n'), EOF, or EOL characters
-        // - no input can be read until an entire line has been typed by the user
-        // - read function returns at most a single line of input, no matter how many bytes are requested
-        // - operating system provides input editing facilities: some characters are interpreted specially
-        //   to perform editing operations within the current line of text, such as ERASE and KILL
-        // - constants _POSIX_MAX_CANON and MAX_CANON parameterize the maximum number of bytes
-        //   which may appear in a single line of canonical input;
-        //   guaranteed is a maximum line length of at least MAX_CANON bytes,
-        //   but the maximum might be larger, and might even dynamically change size
-        //
-        // noncanonical:
-        // - characters are not grouped into lines
-        // - ERASE and KILL processing is not performed
-        // - granularity with which bytes are read is controlled by the MIN and TIME settings
-        //
-        // Most programs use canonical input mode, because this gives the user
-        // a way to edit input line by line.
-        // The usual reason to use noncanonical mode is when the program accepts
-        // single-character commands or provides its own editing facilities.
-        //
-        (*m).c_lflag &= ~ICANON;
+        (*m).c_oflag = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        // Switch off echo.
-        (*m).c_lflag &= ~ECHO;
+        (*m).c_cflag = *bdi | CS8 | CLOCAL | CREAD;
+
+        (*m).c_lflag = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         //
         // Set blocking mode.
@@ -124,11 +96,16 @@ void initialise_unix_terminal(void* p0) {
         // Set time to wait before "read" will return.
         (*m).c_cc[VTIME] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+        // Turn on DTR.
+        //?? s |= TIOCM_DTR;
+        // Turn on RTS.
+        //?? s |= TIOCM_RTS;
+
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise unix terminal. The terminal mode is null.");
     }
 }
 
-/* UNIX_TERMINAL_INITIALISER_SOURCE */
+/* UNIX_SERIAL_PORT_INITIALISER_SOURCE */
 #endif

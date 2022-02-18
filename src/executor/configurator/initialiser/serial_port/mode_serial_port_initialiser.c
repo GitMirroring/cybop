@@ -23,46 +23,43 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DISPLAY_CLOSER_SOURCE
-#define DISPLAY_CLOSER_SOURCE
+#ifndef MODE_SERIAL_PORT_INITIALISER_SOURCE
+#define MODE_SERIAL_PORT_INITIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/dispatcher/closer/xcb/xcb_closer.c"
+    #include "../../../../executor/configurator/initialiser/unix_serial_port/unix_serial_port_initialiser.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    // #include "../../../../executor/dispatcher/closer/darwin_display/darwin_display_closer.c"
-    //?? TODO: Add cocoa support for Apple
+    #include "../../../../executor/configurator/initialiser/unix_serial_port/unix_serial_port_initialiser.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../../executor/dispatcher/closer/win32_display/win32_display_closer.c"
+    #include "../../../../executor/configurator/initialiser/win32_serial_port/win32_serial_port_initialiser.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
- * Closes down the client window given by the identification.
+ * Initialises the serial port mode.
  *
- * @param p0 the window identification
- * @param p1 the client entry
+ * @param p0 the terminal mode
  */
-void close_display(void* p0, void* p1) {
+void initialise_serial_port_mode(void* p0) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close display.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initialise serial port mode.");
 
 #if defined(__linux__) || defined(__unix__)
-    close_xcb(p0, p1);
+    initialise_unix_serial_port(p0);
 #elif defined(__APPLE__) && defined(__MACH__)
-    // close_darwin_display(p0, p1);
-    //?? TODO: Add cocoa support for Apple
+    initialise_unix_serial_port(p0);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    close_win32_display(p0, p1);
+    initialise_win32_serial_port(p0);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 
-/* DISPLAY_CLOSER_SOURCE */
+/* MODE_SERIAL_PORT_INITIALISER_SOURCE */
 #endif

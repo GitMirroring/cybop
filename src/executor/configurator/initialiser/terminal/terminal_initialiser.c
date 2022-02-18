@@ -51,6 +51,8 @@
 void initialise_terminal(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initialise terminal.");
+    fwprintf(stdout, L"Debug: Initialise terminal. p0: %i\n", p0);
+    fwprintf(stdout, L"Debug: Initialise terminal. *p0: %i\n", *((int*) p0));
 
     // The terminal mode.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -68,9 +70,9 @@ void initialise_terminal(void* p0, void* p1) {
     // Copy current terminal mode for storage.
     copy_terminal_mode(c, m);
 
-    // Store terminal mode copy in client entry.
+    // Set terminal mode copy into client entry.
     copy_array_forward(p1, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INPUT_ORIGINAL_MODE_TERMINAL_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    //?? TODO: For win32, store separate output original mode.
+    //?? TODO: For win32, also set separate output original mode.
 
     // Edit current terminal mode.
     initialise_terminal_mode(m);

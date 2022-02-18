@@ -60,15 +60,23 @@ void close_client(void* p0, void* p1, void* p2, void* p3) {
     // Get input output entry from client entry.
     copy_array_forward((void*) &io, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_OUTPUT_BACKLINK_CLIENT_STATE_CYBOI_NAME);
 
-    // Get suitable client list.
+    // Get suitable client list item.
     find_mode((void*) &cl, io, server-flag, port);
 
     // Remove client entry from client list.
-    modify_item(p4, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p5, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
-    //?? TODO: modify_item(cl, (void*) &ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    modify_item(cl, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, destination-index, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
 
-    // Close client device depending on server flag.
-    close_flag(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, ce, p10, p11);
+    // Finalise device.
+    finalise(p0-client-id, ce, channel);
+
+    //
+    // Close client device.
+    //
+    // CAUTION! Contrary to the opening, client socket stubs
+    // do NOT need a special treatment here. Their file descriptor
+    // gets closed in the same way as for the other channels.
+    //
+    close_device(p0, ce, p2);
 
     // Deallocate client entry.
     deallocate_client_entry((void*) &ce, channel);

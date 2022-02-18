@@ -42,53 +42,51 @@
  * Closes down the window with the given identification.
  *
  * @param p0 the window identification
- * @param p1 the input/output entry
+ * @param p1 the client entry
  */
 void close_xcb(void* p0, void* p1) {
-
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close xcb.");
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* w = (int*) p0;
 
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close xcb.");
+        fwprintf(stdout, L"Debug: Close xcb. w: %i\n", w);
+        fwprintf(stdout, L"Debug: Close xcb. *w: %i\n", *w);
+
+        // The server entry.
+        void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The connexion.
         void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The delete window cookie.
         void* dwc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        //
-        // Retrieve various values from input/output entry.
-        //
-        // CAUTION! Do NOT use "overwrite_array" function here,
-        // since it adapts the array count and size.
-        // But the array's count and size are CONSTANT.
-        //
-        // CAUTION! Hand over values as pointer REFERENCE.
-        //
-        // CAUTION! Do NOT hand over input/output entry as pointer reference.
-        //
+        // Get server entry from client entry.
+        copy_array_forward((void*) &se, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SERVER_ENTRY_BACKLINK_CLIENT_STATE_CYBOI_NAME);
 
-        // Retrieve connexion from input/output entry.
-        copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-        // Retrieve delete window cookie from input/output entry.
-        //?? copy_array_forward((void*) &dwc, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-        fwprintf(stdout, L"Debug: Close xcb. c: %i\n", c);
+        // Get connexion from server entry.
+        copy_array_forward((void*) &c, se, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_SERVER_STATE_CYBOI_NAME);
+        // Get delete window cookie from server entry.
+        //?? copy_array_forward((void*) &dwc, se, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_SERVER_STATE_CYBOI_NAME);
 
         if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             //
-            // A display DOES exist in input/output entry.
+            // A display DOES exist in server entry.
             //
+
+            // Cast connexion to correct type.
+            xcb_connection_t* ct = (xcb_connection_t*) c;
+            // Cast window id to correct type.
+            xcb_window_t wt = *w;
 
 /*??
             if (dwc != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                fwprintf(stdout, L"Debug: Close xcb pre dwc: %i\n", dwc);
+                fwprintf(stdout, L"Debug: Close xcb. pre dwc: %i\n", dwc);
                 // Free delete window cookie atom reply that was created at startup.
                 free(dwc);
-                fwprintf(stdout, L"Debug: Close xcb post dwc: %i\n", dwc);
+                fwprintf(stdout, L"Debug: Close xcb. post dwc: %i\n", dwc);
 
             } else {
 
@@ -97,10 +95,8 @@ void close_xcb(void* p0, void* p1) {
             }
 */
 
-            // Use xcb type.
-            xcb_window_t wt = *w;
             // Destroy window.
-            xcb_destroy_window((xcb_connection_t*) c, wt);
+            xcb_destroy_window(ct, wt);
 
         } else {
 

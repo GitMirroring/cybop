@@ -61,10 +61,6 @@ void close_winsock_cleanup() {
     } else {
 
         //
-        // If the return value is NOT zero, then an error occured.
-        //
-
-        //
         // Get the calling thread's last-error code.
         //
         // CAUTION! This function is the winsock substitute
@@ -72,27 +68,9 @@ void close_winsock_cleanup() {
         //
         int e = WSAGetLastError();
 
-        if (e == WSANOTINITIALISED) {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close winsock cleanup. A successful WSAStartup call must occur before using this function.");
-
-        } else if (e == WSAENETDOWN) {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close winsock cleanup. The network subsystem has failed.");
-
-        } else if (e == WSAEINPROGRESS) {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close winsock cleanup. A blocking Windows Sockets 1.1 call is in progress, or the service provider is still processing a callback function.");
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close winsock cleanup. An unknown error occured.");
-        }
-
-        // Cast int to DWORD (unsigned int 32-Bit).
-        DWORD d = (DWORD) e;
-
-        log_windows_system_error((void*) &d);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close winsock cleanup. An error occured.");
+        fwprintf(stdout, L"Error: Could not close winsock cleanup. An error occured. %i\n", r);
+        log_errno((void*) &e);
     }
 }
 

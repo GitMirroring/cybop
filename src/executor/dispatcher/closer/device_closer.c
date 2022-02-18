@@ -31,37 +31,53 @@
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/dispatcher/closer/basic/basic_closer.c"
-//?? #include "../../../executor/dispatcher/closer/display/display_closer.c"
+#include "../../../executor/dispatcher/closer/display/display_closer.c"
 #include "../../../logger/logger.c"
 
 /**
  * Closes the device with the given client identification and belonging to the given channel.
  *
- * @param p0 the client identification (e.g. file descriptor, socket number)
- * @param p1 the channel
+ * @param p0 the client identification (e.g. file descriptor, socket number, window id)
+ * @param p1 the client entry
+ * @param p2 the channel
  */
-void close_device(void* p0, void* p1) {
+void close_device(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close device.");
-    fwprintf(stdout, L"Debug: Close device. p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Close device. *p1: %i\n", *((int*) p1));
+    fwprintf(stdout, L"Debug: Close device. p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Close device. *p2: %i\n", *((int*) p2));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? close_display(p0);
+            close_display(p0, p1);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) FILE_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) FILE_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            close_basic(p0);
+        }
+    }
+
+    //
+    // CAUTION! This is a NAMED PIPELINE, also called FIFO.
+    // It is NOT an anonymous pipeline (pipe).
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p2, (void*) PIPELINE_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -71,7 +87,7 @@ void close_device(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) PIPELINE_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) SERIALPORT_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -81,39 +97,34 @@ void close_device(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) SERIALPORT_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            close_basic(p0);
+            close_socket(p0);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            close_basic(p0);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) TERMINAL_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //?? TODO: If system standard input/output is used, then do NOT close them.
-            //?? close_basic(p0);
+            //
+            // CAUTION! Do NOT close the terminal, since standard input,
+            // standard output and standard error output are used
+            // and have to remain AVAILABLE for other applications.
+            // Therefore, NOTHING is called here.
+            //
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close device. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not close device. The channel is unknown. Channel p1: %i\n", *((int*) p1));
+        fwprintf(stdout, L"Warning: Could not close device. The channel is unknown. channel p2: %i\n", p2);
+        fwprintf(stdout, L"Warning: Could not close device. The channel is unknown. channel *p2: %i\n", *((int*) p2));
     }
 }
 

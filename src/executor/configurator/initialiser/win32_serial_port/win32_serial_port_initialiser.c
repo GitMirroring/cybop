@@ -23,28 +23,36 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WIN32_DISPLAY_CLOSER_SOURCE
-#define WIN32_DISPLAY_CLOSER_SOURCE
+#ifndef WIN32_SERIAL_PORT_INITIALISER_SOURCE
+#define WIN32_SERIAL_PORT_INITIALISER_SOURCE
 
 #include <windows.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Closes down a win32 display window.
+ * Initialises the win32 serial port mode.
  *
- * @param p0 the window identification
- * @param p1 the client entry
+ * @param p0 the serial port mode
  */
-void close_win32_display(void* p0, void* p1) {
+void initialise_win32_serial_port(void* p0) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close win32 display.");
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        DWORD* m = (DWORD*) p0;
+
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initialise win32 serial port.");
+
+        //?? TODO
+        //?? *m = TODO_1 | TODO_2;
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise win32 serial port. The serial port mode is null.");
+    }
 }
 
-/* WIN32_DISPLAY_CLOSER_SOURCE */
+/* WIN32_SERIAL_PORT_INITIALISER_SOURCE */
 #endif

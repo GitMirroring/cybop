@@ -42,12 +42,12 @@
  * Modifies the destination item with the source array.
  *
  * @param p0 the destination item
- * @param p1 the source array
+ * @param p1 the source array (should be null for remove)
  * @param p2 the type
  * @param p3 the deep copying flag
  * @param p4 the count
  * @param p5 the destination index (should be null for append)
- * @param p6 the source index
+ * @param p6 the source index (should be null for remove)
  * @param p7 the adjust count flag
  * @param p8 the operation type
  */

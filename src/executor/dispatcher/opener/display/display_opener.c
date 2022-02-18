@@ -49,7 +49,7 @@
  */
 void open_display(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open display.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open display.");
 
 #if defined(__linux__) || defined(__unix__)
     open_xcb(p0, p1);

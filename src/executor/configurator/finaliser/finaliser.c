@@ -23,29 +23,29 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INITIALISER_SOURCE
-#define INITIALISER_SOURCE
+#ifndef FINALISER_SOURCE
+#define FINALISER_SOURCE
 
 #include "../../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/configurator/initialiser/serial_port/serial_port_initialiser.c"
-#include "../../../executor/configurator/initialiser/terminal/terminal_initialiser.c"
+#include "../../../executor/configurator/finaliser/serial_port/serial_port_finaliser.c"
+#include "../../../executor/configurator/finaliser/terminal/terminal_finaliser.c"
 #include "../../../logger/logger.c"
 
 /**
- * Initialises the device belonging to the given channel.
+ * Finalises the device belonging to the given channel.
  *
  * @param p0 the file descriptor
  * @param p1 the client entry
  * @param p2 the channel
  */
-void initialise(void* p0, void* p1, void* p2) {
+void finalise(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initialise.");
-    fwprintf(stdout, L"Debug: Initialise. p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Initialise. *p2: %i\n", *((int*) p2));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Finalise.");
+    fwprintf(stdout, L"Debug: Finalise. p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Finalise. *p2: %i\n", *((int*) p2));
 
     //
     // CAUTION! The terminal and serial port could be treated ALMOST identically.
@@ -69,7 +69,7 @@ void initialise(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            initialise_serial_port(p0, p1);
+            finalise_serial_port(p0, p1);
         }
     }
 
@@ -79,17 +79,17 @@ void initialise(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            initialise_terminal(p0, p1);
+            finalise_terminal(p0, p1);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not initialise. The channel is unknown. p2: %i\n", p2);
-        fwprintf(stdout, L"Warning: Could not initialise. The channel is unknown. *p2: %i\n", *((int*) p2));
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not finalise. The channel is unknown.");
+        fwprintf(stdout, L"Warning: Could not finalise. The channel is unknown. p2: %i\n", p2);
+        fwprintf(stdout, L"Warning: Could not finalise. The channel is unknown. *p2: %i\n", *((int*) p2));
     }
 }
 
-/* INITIALISER_SOURCE */
+/* FINALISER_SOURCE */
 #endif

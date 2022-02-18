@@ -82,16 +82,16 @@ void open_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         }
     }
 
+    //
+    // CAUTION! This is a NAMED PIPELINE, also called FIFO.
+    // It is NOT an anonymous pipeline (pipe).
+    //
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p11, (void*) PIPELINE_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //
-            // CAUTION! This is a NAMED PIPELINE, also called FIFO.
-            // It is NOT an anonymous pipeline (pipe).
-            //
 
             //?? TODO: open_fifo(p0, p2, p3);
         }
@@ -130,7 +130,8 @@ void open_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open device. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not open device. The channel is unknown. Channel p11: %i\n", *((int*) p11));
+        fwprintf(stdout, L"Warning: Could not open device. The channel is unknown. channel p11: %i\n", p11);
+        fwprintf(stdout, L"Warning: Could not open device. The channel is unknown. channel *p11: %i\n", *((int*) p11));
     }
 }
 

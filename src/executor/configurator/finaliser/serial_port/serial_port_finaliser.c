@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SERIAL_PORT_INITIALISER_SOURCE
-#define SERIAL_PORT_INITIALISER_SOURCE
+#ifndef SERIAL_PORT_FINALISER_SOURCE
+#define SERIAL_PORT_FINALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -33,55 +33,35 @@
 #include "../../../../constant/name/cyboi/state/client_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/accessor/getter/terminal_mode/terminal_mode_getter.c"
 #include "../../../../executor/accessor/setter/terminal_mode/terminal_mode_setter.c"
-#include "../../../../executor/configurator/initialiser/serial_port/mode_serial_port_initialiser.c"
-#include "../../../../executor/copier/terminal_mode/terminal_mode_copier.c"
 #include "../../../../executor/copier/array_copier.c"
-#include "../../../../executor/memoriser/allocator/terminal_mode_allocator.c"
 #include "../../../../executor/memoriser/deallocator/terminal_mode_deallocator.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Initialises the serial port.
+ * Finalises the serial port.
  *
  * @param p0 the file descriptor
  * @param p1 the client entry
  */
-void initialise_serial_port(void* p0, void* p1) {
+void finalise_serial_port(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initialise serial port.");
-    fwprintf(stdout, L"Debug: Initialise serial port. p0: %i\n", p0);
-    fwprintf(stdout, L"Debug: Initialise serial port. *p0: %i\n", *((int*) p0));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Finalise serial port.");
+    fwprintf(stdout, L"Debug: Finalise serial port. p0: %i\n", p0);
+    fwprintf(stdout, L"Debug: Finalise serial port. *p0: %i\n", *((int*) p0));
 
     // The terminal mode.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The terminal mode copy for storage.
-    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Allocate terminal mode.
-    allocate_terminal_mode((void*) &m);
-    // Allocate terminal mode copy for storage.
-    allocate_terminal_mode((void*) &c);
+    // Get original terminal mode from client entry.
+    copy_array_forward((void*) &m, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ORIGINAL_MODE_SERIAL_CLIENT_STATE_CYBOI_NAME);
 
-    // Get current terminal mode.
-    get_terminal_mode(m, p0);
-
-    // Copy current terminal mode for storage.
-    copy_terminal_mode(c, m);
-
-    // Set terminal mode copy into client entry.
-    copy_array_forward(p1, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ORIGINAL_MODE_SERIAL_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-    // Edit current terminal mode for SERIAL PORT.
-    initialise_serial_port_mode(m);
-
-    // Set edited terminal mode.
+    // Set back original terminal mode.
     set_terminal_mode(p0, m);
 
     // Deallocate terminal mode.
     deallocate_terminal_mode((void*) &m);
 }
 
-/* SERIAL_PORT_INITIALISER_SOURCE */
+/* SERIAL_PORT_FINALISER_SOURCE */
 #endif
