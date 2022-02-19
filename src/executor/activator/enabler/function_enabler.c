@@ -118,9 +118,6 @@ int enable_function(void* p0) {
     // Functionality.
     //
 
-    // Calculate server identification.
-    calculate_server_identification_channel((void*) &sid, c, p);
-
     // Enable client requests or events via endless loop.
     enable_loop(cid, p0, c, ipw, im, (void*) &sid, ex);
 

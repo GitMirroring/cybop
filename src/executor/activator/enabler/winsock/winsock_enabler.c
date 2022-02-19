@@ -80,10 +80,6 @@ void enable_winsock(void* p0, void* p1) {
             } else {
 
                 //
-                // If the return value is INVALID_SOCKET, then an error occured.
-                //
-
-                //
                 // Get the calling thread's last-error code.
                 //
                 // CAUTION! This function is the winsock substitute
@@ -91,63 +87,9 @@ void enable_winsock(void* p0, void* p1) {
                 //
                 int e = WSAGetLastError();
 
-                if (e == WSANOTINITIALISED) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable winsock. A successful WSAStartup call must occur before using this function.");
-
-                } else if (e == WSAECONNRESET) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable winsock. An incoming connection was indicated, but was subsequently terminated by the remote peer prior to accepting the call.");
-
-                } else if (e == WSAEFAULT) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable winsock. The addrlen parameter is too small or addr is not a valid part of the user address space.");
-
-                } else if (e == WSAEINTR) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable winsock. A blocking Windows Sockets 1.1 call was canceled through WSACancelBlockingCall.");
-
-                } else if (e == WSAEINVAL) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable winsock. The listen function was not invoked prior to accept.");
-
-                } else if (e == WSAEINPROGRESS) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable winsock. A blocking Windows Sockets 1.1 call is in progress, or the service provider is still processing a callback function.");
-
-                } else if (e == WSAEMFILE) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable winsock. The queue is nonempty upon entry to accept and there are no descriptors available.");
-
-                } else if (e == WSAENETDOWN) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable winsock. The network subsystem has failed.");
-
-                } else if (e == WSAENOBUFS) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable winsock. No buffer space is available.");
-
-                } else if (e == WSAENOTSOCK) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable winsock. The descriptor is not a socket.");
-
-                } else if (e == WSAEOPNOTSUPP) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable winsock. The referenced socket is not a type that supports connection-oriented service.");
-
-                } else if (e == WSAEWOULDBLOCK) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable winsock. The socket is marked as nonblocking and no connections are present to be accepted.");
-
-                } else {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable winsock. An unknown error occured.");
-                }
-
-                // Cast int to DWORD (unsigned int 32-Bit).
-                DWORD d = (DWORD) e;
-
-                log_windows_system_error((void*) &d);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable winsock. An error occured.");
+                fwprintf(stdout, L"Error: Could not enable winsock. An error occured. %i\n", r);
+                log_errno((void*) &e);
             }
 
         } else {

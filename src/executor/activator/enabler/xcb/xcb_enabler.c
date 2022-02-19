@@ -52,12 +52,18 @@
  */
 void enable_xcb(void* p0, void* p1) {
 
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable xcb.");
+    fwprintf(stdout, L"Debug: Enable xcb. window id p0: %i\n", p0);
+    fwprintf(stdout, L"Debug: Enable xcb. window id *p0: %i\n", *((int*) p0));
+
     // The x window system connexion.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The event.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The client window identification.
-    uint32_t w = (uint32_t) *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    int w = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The clients list.
+    void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The client entry.
     void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The buffer item, mutex.
@@ -77,12 +83,15 @@ void enable_xcb(void* p0, void* p1) {
 
         if (w >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            // Get client entry from server entry client list by given device identification.
-            find_server_entry((void*) &ce, se, (void*) &w, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            // Get server clients list from server entry.
+            copy_array_forward((void*) &cl, se, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_CLIENTS_SERVER_STATE_CYBOI_NAME);
 
-            // Get buffer item, mutex from client entry.
-            copy_array_forward((void*) &bi, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_BUFFER_CLIENT_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &bm, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_BUFFER_CLIENT_STATE_CYBOI_NAME);
+            // Get client entry from server clients list by device identification.
+            find_list((void*) &ce, cl, (void*) &w, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
+
+            // Get input buffer item, mutex from client entry.
+            copy_array_forward((void*) &bi, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_BUFFER_INPUT_CLIENT_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &bm, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_BUFFER_INPUT_CLIENT_STATE_CYBOI_NAME);
 
             //
             // Write event to correct client buffer.

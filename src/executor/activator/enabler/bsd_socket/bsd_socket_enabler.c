@@ -102,7 +102,8 @@ void enable_bsd_socket(void* p0, void* p1) {
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable bsd socket. The server socket is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable bsd socket. The receiver server socket is null.");
+        fwprintf(stdout, L"Error: Could not enable bsd socket. The receiver server socket is null. p1: %i\n", p1);
     }
 }
 

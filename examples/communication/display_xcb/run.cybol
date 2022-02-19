@@ -10,7 +10,7 @@
 
     <node name="open_client" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
-        <!-- Open client window in server mode, so that it gets stored in the display server. -->
+        <!-- Open client window in SERVER mode, so that it gets stored in the display server. -->
         <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
     </node>

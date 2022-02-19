@@ -54,10 +54,19 @@ void enable_socket(void* p0, void* p1) {
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get server socket from server entry.
-    copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_SOCKET_SERVER_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME);
 
     // Accept client request on server socket.
     enable_socket_request(p0, s);
+
+    //
+    // CAUTION! The client entry does NOT have to be opened (and allocated) here,
+    // since the corresponding cybol handler calls the operation "dispatch/open".
+    //
+    // For channel "display", a handler is NOT given as property to the cybol
+    // operation "activate/enable", so NOTHING is called. The reason is that the
+    // cybol operation "dispatch/open" has to be called MANUALLY for each window.
+    //
 }
 
 /* SOCKET_ENABLER_SOURCE */

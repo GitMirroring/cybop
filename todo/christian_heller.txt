@@ -14,6 +14,10 @@
         * Complete implementation of communication functions listed in table "doc/development/cyboi/service_lifecycle.pdf
         * See service lifecycle cybol examples in directory "examples/communication/"
 
+        * Work from file "request_enabler.c" backward to calling files (functions)
+
+        * Finish file "closer.c"
+
         * Update activator enabler and disabler
         * Update maintainer starter and shutter
 
@@ -119,9 +123,7 @@
         * ALL is fine on closing terminal, since there is no separate service thread, just a client thread which is yet to be called and closed at shutdown
         * Current errors will likely disappear after proper implementation of shutdown functions
 
-        * Split sensor into sensor and suspender
-
-        * Add named pipeline (fifo) as channel to opener
+        * Implement feeler suspender using small message sent to the system itself, in order to exit the sensing thread
 
         * Check whether better to replace "append" with "overwrite" in files "server_socket_reader.c", "character_ansi_escape_code_deserialiser.c" and similar files
         * Adapt file "completeness_sensor.c" for serial port (unlimited number of input with cr+lf end suffix is possible)
