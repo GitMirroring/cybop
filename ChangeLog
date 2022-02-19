@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-02-19  Christian Heller  <christian.heller@cybop.org>
+
+        * Update feeler sensor files
+
 2022-02-18  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt file "open.c" with function "apply_open"

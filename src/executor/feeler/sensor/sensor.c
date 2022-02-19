@@ -27,77 +27,53 @@
 #define SENSOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/accessor/getter/channel_internal_memory_getter.c"
 #include "../../../executor/feeler/sensor/entry_sensor.c"
 #include "../../../executor/feeler/sensor/thread_sensor.c"
-#include "../../../executor/finder/server_entry_finder.c"
+#include "../../../executor/finder/entry_finder.c"
 #include "../../../logger/logger.c"
+#include "../../../mapper/channel_to_type_mapper.c"
 
 /**
  * Senses data on the given channel.
  *
  * @param p0 the internal memory
- * @param p1 the channel (pointer reference)
- * @param p2 the port (pointer reference)
- * @param p3 the language (pointer reference)
- * @param p4 the sender client identification (pointer reference)
- * @param p5 the handler (pointer reference)
+ * @param p1 the channel
+ * @param p2 the server flag
+ * @param p3 the port
+ * @param p4 the sender device identification (e.g. file descriptor of a file, serial port, client socket, window id)
+ * @param p5 the language
+ * @param p6 the handler (pointer reference)
  */
-void sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense.");
+    fwprintf(stdout, L"Information: Sense. p1: %i\n", p1);
+    fwprintf(stdout, L"Information: Sense. *p1: %i\n", *((int*) p1));
 
-        void** id = (void**) p4;
+    // The data type.
+    int t = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The client entry.
+    void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // Map channel to datatype.
+    map_channel_to_type((void*) &t, p1);
 
-            void** p = (void**) p2;
+    // Get client entry belonging to given source device.
+    find_entry((void*) &ce, p0, p1, p2, p3, p4);
 
-            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    //
+    // CAUTION! Do NOT check client entry for NULL here,
+    // since the INLINE_CYBOI_CHANNEL does NOT have one.
+    // Otherwise, it would not be processed.
+    //
 
-                void** c = (void**) p1;
+    // Store data in client entry.
+    sense_entry(ce, p5, p6);
 
-                log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense.");
-                fwprintf(stdout, L"Information: Sense. p1: %i\n", p1);
-                fwprintf(stdout, L"Information: Sense. *p1: %i\n", *((void**) p1));
-                fwprintf(stdout, L"Information: Sense. **p1: %i\n", *((int*) *((void**) p1)));
-
-                // The server entry.
-                void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
-                // The client entry.
-                void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-                // Get server entry from internal memory.
-                get_internal_memory_channel((void*) &se, p0, *c, *p);
-
-                // Get client entry from server entry client list by given device identification or -name.
-                find_server_entry((void*) &ce, se, *id, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-                // Store data in client entry.
-                sense_entry(ce, p1, p2, p3, p4, p5);
-
-                // Invoke sense function within a new thread.
-                sense_thread(ce);
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense. The channel is null.");
-                fwprintf(stdout, L"Error: Could not sense. The channel is null. p1: %i\n", p1);
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense. The port is null.");
-            fwprintf(stdout, L"Error: Could not sense. The port is null. p2: %i\n", p2);
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense. The sender client identification is null.");
-        fwprintf(stdout, L"Error: Could not sense. The sender client identification is null. p4: %i\n", p4);
-    }
+    // Invoke sense function within a new thread.
+    sense_thread(ce);
 }
 
 /* SENSOR_SOURCE */

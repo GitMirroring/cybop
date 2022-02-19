@@ -52,7 +52,7 @@ static int* FILE_CYBOL_CHANNEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 static wchar_t* INLINE_CYBOL_CHANNEL = L"inline";
 static int* INLINE_CYBOL_CHANNEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The named pipeline cybol channel. */
+/** The named pipeline (fifo) cybol channel. */
 static wchar_t* PIPELINE_CYBOL_CHANNEL = L"pipeline";
 static int* PIPELINE_CYBOL_CHANNEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

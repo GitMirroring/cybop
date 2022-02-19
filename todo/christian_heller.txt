@@ -14,21 +14,26 @@
         * Complete implementation of communication functions listed in table "doc/development/cyboi/service_lifecycle.pdf
         * See service lifecycle cybol examples in directory "examples/communication/"
 
-        * Remove named pipeline special file in filesystem in file "device_closer.c"
-        * Think through usage of pipeline once more
-            - create and open file separately?
-            - open write- and read end of pipe separately with different access rights open mode?
-
         * Provide server entry buffer storing accepted client identifications, which is important for irq pipe processing accepted clients one by one
             --> add accepted clients to that buffer using "APPEND"
             --> remove client from buffer in "dispatch/open" when in "server" (stub) mode --> see file "flag_opener.c"
 
         * Allocate input output entry at system startup for all channels by default, even if these are not used in the cybol application
+        * Make sure all variables of client entry are allocated in file "client_entry_allocator.c"
+        * Check possibility that handing over cybol properties for "dispatch/open" suffices, so that the properties may be deleted for cybol operations read, write, sense
 
         * Provide shutter counterparts to starter
         * Correct determination of client entry / server entry / internal memory in file "device_reader.c"
         * Make compilable
         * Test file read functionality
+
+        * Add "registration" cybol operations "register/make" and "register/delete" for file management
+        * Add directory "executor/registrar/" with "maker" and "deleter"
+
+        * Remove named pipeline special file in filesystem in file "device_closer.c"
+        * Think through usage of pipeline once more
+            - create and open file separately?
+            - open write- and read end of pipe separately with different access rights open mode?
 
         * Add comment to an appropriate writer file, e.g. "writer.c":
 

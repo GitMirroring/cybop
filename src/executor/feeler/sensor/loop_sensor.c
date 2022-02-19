@@ -36,28 +36,29 @@
 /**
  * Senses input data via endless loop.
  *
- * @param p0 the destination item (internal client buffer)
- * @param p1 the source device (identification e.g. file descriptor of a file, serial port, client socket, window id)
+ * @param p0 the destination item (client internal input buffer)
+ * @param p1 the source device identification (e.g. file descriptor of a file, serial port, client socket, window id)
  * @param p2 the destination mutex (only relevant, if destination is the internal buffer, which is shared with the sensing thread)
  * @param p3 the language (protocol)
  * @param p4 the internal memory
  * @param p5 the channel
- * @param p6 the port
- * @param p7 the asynchronous mode
- * @param p8 the sense thread exit flag
+ * @param p6 the server flag
+ * @param p7 the port
+ * @param p8 the asynchronicity flag
+ * @param p9 the sense thread exit flag
  */
-void sense_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void sense_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense loop.");
-    fwprintf(stdout, L"Debug: Sense loop. p8: %i\n", p8);
-    fwprintf(stdout, L"Debug: Sense loop. *p8: %i\n", *((int*) p8));
+    fwprintf(stdout, L"Debug: Sense loop. p9: %i\n", p9);
+    fwprintf(stdout, L"Debug: Sense loop. *p9: %i\n", *((int*) p9));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_unequal((void*) &r, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        compare_integer_unequal((void*) &r, p9, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -71,7 +72,7 @@ void sense_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
             break;
         }
 
-        read_data(p0, p1, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p3, p4, p5, p6, p7);
+        read_data(p0, p1, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p3, p4, p5, p6, p7, p8);
     }
 }
 

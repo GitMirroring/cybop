@@ -1,0 +1,38 @@
+<node>
+
+    <node name="create_input_id" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="input_id"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+    <node name="create_output_id" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="output_id"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+    <node name="create_test" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="command"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+    </node>
+
+    <node name="open_client_input" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="device" channel="inline" format="text/plain" model="standard_input"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".input_id"/>
+    </node>
+    <node name="open_client_output" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="device" channel="inline" format="text/plain" model="standard_output"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".output_id"/>
+    </node>
+
+    <!-- Fill internal input buffer with received data. -->
+    <node name="sense_client_data" channel="inline" format="feel/sense" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".input_id"/>
+        <node name="handler" channel="inline" format="text/cybol-path" model=".handle"/>
+    </node>
+
+    <!-- The standard input and output MUST NOT be closed. -->
+
+    <node name="exit_programme" channel="inline" format="live/exit" model=""/>
+
+</node>

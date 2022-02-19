@@ -33,37 +33,66 @@
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/copier/array_copier.c"
+#include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"
 
 /**
  * Assigns data handed over from cybol application to client entry.
  *
  * @param p0 the client entry
- * @param p1 the channel (pointer reference)
- * @param p2 the port (pointer reference)
- * @param p3 the language (pointer reference)
- * @param p4 the sender client identification (pointer reference)
- * @param p5 the handler (pointer reference)
+ * @param p1 the language (protocol)
+ * @param p2 the handler (pointer reference)
  */
-void sense_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void sense_entry(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense entry.");
     fwprintf(stdout, L"Debug: Sense entry. p0: %i\n", p0);
 
     //
-    // Storage.
+    // Declaration
     //
 
-    // Set channel into client entry.
-    copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CHANNEL_REQUEST_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set port into client entry.
-    copy_array_forward(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PORT_REQUEST_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set language into client entry.
-    copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) LANGUAGE_REQUEST_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set client identification into client entry.
-    copy_array_forward(p0, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // The language (protocol).
+    void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The sense thread exit flag.
+    void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Retrieval
+    //
+
+    // Get language (protocol) from client entry.
+    copy_array_forward(l, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) LANGUAGE_COMMUNICATION_CLIENT_STATE_CYBOI_NAME);
+    // Get sense thread exit flag from client entry.
+    copy_array_forward(ex, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_INPUT_CLIENT_STATE_CYBOI_NAME);
+
+    //
+    // Copying
+    //
+
+    // Copy language (protocol).
+    copy_integer(l);
+    //
+    // Copy sense thread exit flag.
+    //
+    // The exit flag might have been set to true before,
+    // e.g. by a cybol operation "feel/suspend" or in
+    // the main thread when exiting the application.
+    //
+    // Therefore, it gets RESET to FALSE here.
+    //
+    copy_integer(ex, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    //
+    // Storage
+    //
+
+    //
     // Set handler into client entry.
-    copy_array_forward(p0, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_REQUEST_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    //
+    // CAUTION! The handler was given as pointer REFERENCE.
+    //
+    copy_array_forward(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_COMMUNICATION_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* ENTRY_SENSOR_SOURCE */
