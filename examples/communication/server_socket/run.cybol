@@ -16,7 +16,12 @@
         <node name="timeout" channel="inline" format="number/integer" model="5"/>
     </node>
 
-    <!-- The requesting client gets stored in the stack variable "#client". -->
+    <!--
+        The requesting client gets appended to an internal accept buffer list.
+        It can be accessed in operation "dispatch/open" using property "identification".
+        However, this works only, if the "server" flag is set to TRUE,
+        so that the client is read from the accept buffer list.
+    -->
     <node name="enable_server" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="port" channel="inline" format="number/integer" model="1971"/>

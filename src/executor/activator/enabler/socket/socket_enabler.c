@@ -58,15 +58,6 @@ void enable_socket(void* p0, void* p1) {
 
     // Accept client request on server socket.
     enable_socket_request(p0, s);
-
-    //
-    // CAUTION! The client entry does NOT have to be opened (and allocated) here,
-    // since the corresponding cybol handler calls the operation "dispatch/open".
-    //
-    // For channel "display", a handler is NOT given as property to the cybol
-    // operation "activate/enable", so NOTHING is called. The reason is that the
-    // cybol operation "dispatch/open" has to be called MANUALLY for each window.
-    //
 }
 
 /* SOCKET_ENABLER_SOURCE */

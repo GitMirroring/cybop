@@ -81,6 +81,14 @@ int enable_function(void* p0) {
     // The internal memory.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+ * @param p0 the sender client identification (e.g. socket number, window id)
+ * @param p2 the channel
+ * @param p3 the destination interrupt pipe write file descriptor
+ * @param p4 the destination interrupt handlers item
+ * @param p5 the source handler (pointer reference)
+ * @param p6 the interrupt mutex
+ * @param p7 the enable thread exit flag
+
     // The interrupt pipe.
     void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The interrupt mutex.
@@ -118,6 +126,14 @@ int enable_function(void* p0) {
     // Functionality.
     //
 
+ * @param p0 the sender client identification (e.g. socket number, window id)
+ * @param p1 the server entry
+ * @param p2 the channel
+ * @param p3 the destination interrupt pipe write file descriptor
+ * @param p4 the destination interrupt handlers item
+ * @param p5 the source handler (pointer reference)
+ * @param p6 the interrupt mutex
+ * @param p7 the enable thread exit flag
     // Enable client requests or events via endless loop.
     enable_loop(cid, p0, c, ipw, im, (void*) &sid, ex);
 

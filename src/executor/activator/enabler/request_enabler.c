@@ -37,11 +37,12 @@
  * @param p0 the sender client identification (e.g. socket number, window id)
  * @param p1 the server entry
  * @param p2 the channel
- * @param p3 the interrupt pipe write file descriptor
- * @param p4 the interrupt mutex
- * @param p5 the server identification (server base + service port)
+ * @param p3 the destination interrupt pipe write file descriptor
+ * @param p4 the destination interrupt handlers item
+ * @param p5 the source handler (pointer reference)
+ * @param p6 the interrupt mutex
  */
-void enable_request(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void enable_request(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable request.");
     fwprintf(stdout, L"Debug: Enable request. p2: %i\n", p2);
@@ -50,18 +51,28 @@ void enable_request(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     // Receive next request.
     enable_client(p0, p1, p2);
 
- * @param p0 the destination interrupt pipe write file descriptor
- * @param p1 the destination interrupt pipe handlers item
- * @param p2 the source handler (pointer reference)
- * @param p3 the interrupt mutex
     // Inform interrupt pipe of main threaad.
-    write_interrupt_pipe(p3, p5, p0, p4);
+    write_interrupt_pipe(p3, p4, p5, p6);
 
     //
-    // CAUTION! The request sender client identification
-    // is NOT added to the server entry client list here,
-    // since that is done in the dispatcher opener,
-    // which is called from a cybol application handler.
+    // CAUTION! The client entry does NOT have to be opened (and allocated) here.
+    //
+    // Display:
+    //
+    // The cybol operation "dispatch/open" has to be called MANUALLY for each
+    // window, and the corresponding client entry gets allocated within it.
+    // The cybol operation "activate/enable" just distributes events
+    // to the input buffer of the targeted window.
+    // If the event loop of the main threaad does not find a handler
+    // in the interrupt pipe, then NOTHING gets executed.
+    // Thus, a callback handler does NOT necessarily have to be
+    // given as property of the cybol operation "activate/enable".
+    //
+    // Socket:
+    //
+    // A callback handler HAS TO BE given as property of the cybol
+    // operation "activate/enable". It calls the cybol operation
+    // "dispatch/open", so that a client entry gets allocated.
     //
 }
 

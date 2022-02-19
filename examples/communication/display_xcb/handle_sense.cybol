@@ -1,0 +1,19 @@
+<node>
+
+    <node name="receive_data" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".window"/>
+        <node name="language" channel="inline" format="meta/language" model="event/gui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".action"/>
+    </node>
+
+    <node name="send_data" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".window_id"/>
+        <node name="language" channel="inline" format="meta/language" model="message/gui"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".window"/>
+    </node>
+
+</node>
