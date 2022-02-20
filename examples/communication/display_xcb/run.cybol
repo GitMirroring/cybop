@@ -9,10 +9,11 @@
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
     </node>
 
+    <!-- Fill internal input buffer of the corresponding windows with received events. -->
     <node name="enable_server" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
-        <!-- This is the call-back function executed when the display server receives an event on one of the client windows. -->
-        <node name="handler" channel="inline" format="text/cybol-path" model=".handle_enable"/>
+        <!-- This is the callback function executed when an event arrives on the window. -->
+        <node name="handler" channel="inline" format="text/cybol-path" model=".handle_sense"/>
     </node>
 
     <node name="open_client" channel="inline" format="dispatch/open" model="">
@@ -22,18 +23,22 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".window_id"/>
     </node>
 
-    <!-- Fill internal buffer with data received internally. -->
     <node name="sense_client_data" channel="inline" format="feel/sense" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
-        <node name="sender" channel="inline" format="text/cybol-path" model=".window_id"/>
-        <!-- This is the call-back function executed when an event arrives on the window. -->
-        <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle"/>
-        <!-- <node name="root" channel="inline" format="text/cybol-path" model=".root_window"/> -->
+        <!--
+            There is NO callback function here, since it has been given at operation "activate/enable".
+            This operation "feel/sense" for channel "display" does NOT run in a separate thread.
+            It is just used to hand over a specific handler for the window.
+        -->
     </node>
 
     <node name="close_client" channel="inline" format="dispatch/close" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".window_id"/>
+    </node>
+
+    <node name="shutdown_server" channel="inline" format="maintain/shutdown" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
     </node>
 
     <node name="exit_programme" channel="inline" format="live/exit" model=""/>

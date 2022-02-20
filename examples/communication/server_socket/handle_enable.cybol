@@ -8,7 +8,7 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".client"/>
     </node>
 
-    <!-- Fill internal buffer with data received internally. -->
+    <!-- Fill internal input buffer with received data. -->
     <node name="sense_client_data" channel="inline" format="feel/sense" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -16,7 +16,7 @@
         <node name="sender" channel="inline" format="text/cybol-path" model=".client"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-request"/>
         <!-- This is the callback function executed when the client sends data. -->
-        <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle_sense"/>
+        <node name="handler" channel="inline" format="text/cybol-path" model=".handle_sense"/>
     </node>
 
 </node>

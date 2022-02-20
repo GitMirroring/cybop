@@ -24,9 +24,9 @@
         <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
         <!--
             This callback function gets executed when all data has been sent in complete.
-            It gets considered only if the asynchronicity flag has been set above.
+            It gets considered ONLY if the asynchronicity flag has been set above.
         -->
-        <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle_send_complete"/>
+        <node name="handler" channel="inline" format="text/cybol-path" model=".handle_send_complete"/>
     </node>
 
 </node>

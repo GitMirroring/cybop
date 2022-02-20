@@ -208,7 +208,7 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // Otherwise, the destination value remains as is.
     //
 
-    copy_integer((void*) &server, stmd);
+    copy_integer((void*) &server, sfmd);
     copy_integer((void*) &port, pmd);
 
     //
@@ -216,7 +216,7 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     //
 
     // Open up client.
-    open_client(idmd, (void*) &port, dmd, dmc, nmd, nmc, smd, smc, prmd, prmc, cmd, sfmd, p4, p5);
+    open_client(idmd, (void*) &port, dmd, dmc, nmd, nmc, smd, smc, prmd, prmc, cmd, (void*) &server, p4, p5);
 }
 
 /* OPEN_SOURCE */

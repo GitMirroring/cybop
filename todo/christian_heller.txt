@@ -16,7 +16,7 @@
 
         * Figure out handling of server socket and window events in enabler
 
-        * Finish file "closer.c"
+        * Finish file "closer.c" and "apply_close"
 
         * Delete modify EMPTY from file "reader.c", since only relevant for inline channel but must not overwrite buffer content ??
 

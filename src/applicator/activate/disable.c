@@ -27,14 +27,13 @@
 #define DISABLE_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../constant/name/cybol/logic/activation/activation_logic_cybol_name.c"
+#include "../../constant/name/cybol/logic/activation/disable_activation_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/activator/disabler.c"
@@ -44,10 +43,8 @@
 /**
  * Disables the given channel for message sensing.
  *
- * Expected parametres:
+ * Parametres:
  * - channel (required): the channel via which to receive the message (terminal, www, x-window-system etc.)
- *
- * Expected parametres only for channel "socket":
  * - port (required): the service identification, e.g. socket port 80
  *
  * @param p0 the parametres data
@@ -59,6 +56,10 @@
 void apply_disable(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply disable.");
+
+    //
+    // Declaration
+    //
 
     // The channel part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -75,6 +76,10 @@ void apply_disable(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The socket port part model item data.
     void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get channel part.
     get_part_name((void*) &c, p0, (void*) CHANNEL_ACTIVATION_LOGIC_CYBOL_NAME, (void*) CHANNEL_ACTIVATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get socket port part.
@@ -90,7 +95,33 @@ void apply_disable(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get socket port part model item data.
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    disable(p4, pmd, cmd);
+    //
+    // Default values
+    //
+
+    //
+    // Set port to ZERO by default.
+    //
+    // CAUTION! It is necessary when opening a new client WINDOW,
+    // so that it can be appended to the display server,
+    // which was assigned to port ZERO at service startup.
+    //
+    int port = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    //
+    // CAUTION! The following values are ONLY copied,
+    // if the source value is NOT NULL.
+    // This is tested inside the "copy_integer" function.
+    // Otherwise, the destination value remains as is.
+    //
+
+    copy_integer((void*) &port, pmd);
+
+    //
+    // Functionality
+    //
+
+    disable((void*) &port, cmd, p4);
 }
 
 /* DISABLE_SOURCE */
