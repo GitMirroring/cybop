@@ -36,50 +36,40 @@
 /**
  * Enables the service on the given channel.
  *
- * @param p0 the internal memory
- * @param p1 the channel (pointer reference)
- * @param p2 the port (pointer reference)
- * @param p3 the sender client identification (pointer reference)
- * @param p4 the handler (pointer reference)
+ * @param p0 the port
+ * @param p1 the channel
+ * @param p2 the internal memory
+ * @param p3 the handler (pointer reference)
  */
-void enable(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void enable(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable.");
+    fwprintf(stdout, L"Information: Enable. p1: %i\n", p1);
+    fwprintf(stdout, L"Information: Enable. *p1: %i\n", *((int*) p1));
 
-        void** p = (void**) p2;
+    // The internal memory name.
+    int n = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The input output entry.
+    void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The server list.
+    void* sl = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The server entry.
+    void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // Get internal memory name by channel.
+    map_channel_to_internal_memory((void*) &n, p1);
+    // Get input output entry from internal memory.
+    copy_array_forward((void*) &io, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &n);
+    // Get server list from input output entry.
+    copy_array_forward((void*) &sl, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SERVERS_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get server entry from server list by service identification (port number).
+    find_list((void*) &se, sl, p0, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME);
 
-            void** c = (void**) p1;
+    // Assign parametres to server entry.
+    enable_entry(se, p3);
 
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable.");
-            fwprintf(stdout, L"Information: Enable. p1: %i\n", p1);
-            fwprintf(stdout, L"Information: Enable. *p1: %i\n", *((void**) p1));
-            fwprintf(stdout, L"Information: Enable. **p1: %i\n", *((int*) *((void**) p1)));
-
-            // The server entry.
-            void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-            // Get server entry from internal memory.
-            get_internal_memory_channel((void*) &e, p0, *c, *p);
-
-            // Assign parametres to server entry.
-            enable_entry(e, p1, p2, p3, p4);
-
-            // Invoke enable function within a new thread.
-            enable_thread(e);
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable. The channel is null.");
-            fwprintf(stdout, L"Error: Could not enable. The channel is null. p1: %i\n", p1);
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable. The port is null.");
-        fwprintf(stdout, L"Error: Could not enable. The port is null. p2: %i\n", p2);
-    }
+    // Invoke enable function within a new thread.
+    enable_thread(se);
 }
 
 /* ENABLER_SOURCE */

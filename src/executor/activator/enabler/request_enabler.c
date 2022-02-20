@@ -34,25 +34,43 @@
 /**
  * Send request client identification to interrupt pipe.
  *
- * @param p0 the sender client identification (e.g. socket number, window id)
- * @param p1 the server entry
- * @param p2 the channel
- * @param p3 the destination interrupt pipe write file descriptor
- * @param p4 the destination interrupt handlers item
- * @param p5 the source handler (pointer reference)
- * @param p6 the interrupt mutex
+ * @param p0 the destination request input buffer item
+ * @param p1 the destination request input buffer mutex
+ * @param p2 the server entry
+ * @param p3 the channel
+ * @param p4 the interrupt pipe write file descriptor
+ * @param p5 the interrupt handlers item
+ * @param p6 the handler (pointer reference)
+ * @param p7 the interrupt mutex
  */
-void enable_request(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void enable_request(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable request.");
-    fwprintf(stdout, L"Debug: Enable request. p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Enable request. *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Enable request. p3: %i\n", p3);
+    fwprintf(stdout, L"Debug: Enable request. *p3: %i\n", *((int*) p3));
+
+    // The sender client identification (e.g. socket number, window id).
+    int id = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Receive next request.
-    enable_client(p0, p1, p2);
+    enable_client((void*) &id, p2, p3);
+
+    // Lock mutex.
+    lock(p1);
+
+    //
+    // Append sender client identification to request input buffer.
+    //
+    // CAUTION! Do NOT use overwrite but rather APPEND, in order to
+    // avoid deletion of previous client requests still existing in buffer.
+    //
+    modify_item(p0, (void*) &id, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    // Unlock mutex.
+    unlock(p1);
 
     // Inform interrupt pipe of main threaad.
-    write_interrupt_pipe(p3, p4, p5, p6);
+    write_interrupt_pipe(p4, p5, p6, p7);
 
     //
     // CAUTION! The client entry does NOT have to be opened (and allocated) here.

@@ -11,6 +11,8 @@
 
     <node name="enable_server" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
+        <!-- This is the call-back function executed when the display server receives an event on one of the client windows. -->
+        <node name="handler" channel="inline" format="text/cybol-path" model=".handle_enable"/>
     </node>
 
     <node name="open_client" channel="inline" format="dispatch/open" model="">

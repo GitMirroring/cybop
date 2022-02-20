@@ -37,7 +37,7 @@
 /**
  * Determine sender client identification.
  *
- * @param p0 the sender client identification (e.g. socket number, window id)
+ * @param p0 the destination sender client identification (e.g. socket number, window id)
  * @param p1 the server entry
  * @param p2 the channel
  */

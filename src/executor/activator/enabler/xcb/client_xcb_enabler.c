@@ -36,8 +36,8 @@
 /**
  * Gets client window identification from event.
  *
- * @param p0 the client window identification
- * @param p1 the event
+ * @param p0 the destination client window identification
+ * @param p1 the source event
  */
 void enable_xcb_client(void* p0, void* p1) {
 

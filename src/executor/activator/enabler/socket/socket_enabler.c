@@ -43,7 +43,7 @@
  * CAUTION! Do NOT rename this function to "accept",
  * as that name is already used by low-level glibc functionality.
  *
- * @param p0 the sender client socket
+ * @param p0 the destination sender client socket
  * @param p1 the server entry
  */
 void enable_socket(void* p0, void* p1) {

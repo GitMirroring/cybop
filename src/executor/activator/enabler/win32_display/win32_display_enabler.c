@@ -46,7 +46,7 @@
  * (to which all windows belong) would never get recognised.
  * Therefore, this MAIN THREAD has to check for messages.
  *
- * @param p0 the sender client window identification
+ * @param p0 the destination sender client window identification
  * @param p1 the server entry
  */
 void enable_win32_display(void* p0, void* p1) {

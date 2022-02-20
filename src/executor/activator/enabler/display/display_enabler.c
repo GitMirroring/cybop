@@ -43,7 +43,7 @@
 /**
  * Enables display event delivery.
  *
- * @param p0 the sender client window identification
+ * @param p0 the destination sender client window identification
  * @param p1 the server entry
  */
 void enable_display(void* p0, void* p1) {

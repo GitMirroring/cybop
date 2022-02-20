@@ -43,8 +43,8 @@
 /**
  * Accepts a client request via server socket.
  *
- * @param p0 the sender client socket
- * @param p1 the receiver server socket
+ * @param p0 the destination sender client socket
+ * @param p1 the source receiver server socket
  */
 void enable_socket_request(void* p0, void* p1) {
 

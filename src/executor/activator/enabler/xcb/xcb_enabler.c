@@ -47,7 +47,7 @@
 /**
  * Enables x window system event delivery via xcb.
  *
- * @param p0 the sender client window identification
+ * @param p0 the destination sender client window identification
  * @param p1 the server entry
  */
 void enable_xcb(void* p0, void* p1) {

@@ -38,8 +38,8 @@
 /**
  * Accepts client request on the given bsd socket.
  *
- * @param p0 the sender client socket
- * @param p1 the receiver server socket
+ * @param p0 the destination sender client socket
+ * @param p1 the source receiver server socket
  */
 void enable_bsd_socket(void* p0, void* p1) {
 

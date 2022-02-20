@@ -39,8 +39,8 @@
  * CAUTION! Do NOT rename this function to "accept",
  * as that name is already used by low-level win32 functionality.
  *
- * @param p0 the sender client socket
- * @param p1 the receiver server socket
+ * @param p0 the destination sender client socket
+ * @param p1 the source receiver server socket
  */
 void enable_winsock(void* p0, void* p1) {
 

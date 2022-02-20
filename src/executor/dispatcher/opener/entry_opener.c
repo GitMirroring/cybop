@@ -63,7 +63,7 @@ void open_entry(void* p0, void* p1, void* p2, void* p3, void* p4) {
     int n = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The input output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The servers list.
+    // The server list.
     void* sl = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The server entry.
     void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -74,11 +74,11 @@ void open_entry(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // Get internal memory name by channel.
     map_channel_to_internal_memory((void*) &n, p2);
-    // Get channel input output entry from internal memory.
+    // Get input output entry from internal memory.
     copy_array_forward((void*) &io, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &n);
-    // Get servers list from input output entry.
+    // Get server list from input output entry.
     copy_array_forward((void*) &sl, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SERVERS_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get server entry from servers list by service identification (port number).
+    // Get server entry from server list by service identification (port number).
     find_list((void*) &se, sl, p3, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME);
 
     //

@@ -40,8 +40,8 @@
 /**
  * Writes window event to correct client buffer.
  *
- * @param p0 the buffer item
- * @param p1 the event (pointer reference)
+ * @param p0 the destination buffer item
+ * @param p1 the source event (pointer reference)
  * @param p2 the buffer mutex
  */
 void enable_xcb_buffer(void* p0, void* p1, void* p2) {
