@@ -27,31 +27,33 @@
 #define SOCKET_STARTER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/server_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/maintainer/starter/socket/lifecycle_socket_starter.c"
+#include "../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Starts up server socket.
  *
  * @param p0 the server entry
- * @param p1 the family data (namespace)
- * @param p2 the family count
- * @param p3 the style data (communication type)
- * @param p4 the style count
- * @param p5 the protocol data
- * @param p6 the protocol count
- * @param p7 the filename data
- * @param p8 the filename count
- * @param p9 the host address data
- * @param p10 the host address count
- * @param p11 the port (service identification)
- * @param p12 the connexions (number of possible pending client requests)
- * @param p13 the timeout
+ * @param p1 the port
+ * @param p2 the host address data (network communication) OR filename data (local unix domain socket)
+ * @param p3 the host address count (network communication) OR filename count (local unix domain socket)
+ * @param p4 the family data (namespace)
+ * @param p5 the family count
+ * @param p6 the style data (communication type)
+ * @param p7 the style count
+ * @param p8 the protocol data
+ * @param p9 the protocol count
+ * @param p10 the connexions (number of possible pending client requests)
  */
-void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
+void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket.");
 
@@ -79,7 +81,7 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     //
 
     // Startup server socket.
-    startup_socket_lifecycle(s, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+    startup_socket_lifecycle(s, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
 
     //
     // Storage.

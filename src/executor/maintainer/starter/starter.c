@@ -43,53 +43,62 @@
  * as that name is already used by low-level socket functionality:
  * /usr/include/i386-linux-gnu/sys/socket.h:232:12
  *
- * @param p0 the internal memory (pointer reference)
- * @param p1 the channel
- * @param p2 the port (service identification)
- * @param p3 the socket family data (namespace)
- * @param p4 the socket family count
- * @param p5 the socket style data (communication type)
- * @param p6 the socket style count
- * @param p7 the socket protocol data
- * @param p8 the socket protocol count
- * @param p9 the socket filename data
- * @param p10 the socket filename count
- * @param p11 the socket host address data
- * @param p12 the socket host address count
- * @param p13 the socket connexions (number of possible pending client requests)
- * @param p14 the socket timeout
+ * @param p0 the internal memory
+ * @param p1 the port
+ * @param p2 the host address data (network communication) OR filename data (local unix domain socket)
+ * @param p3 the host address count (network communication) OR filename count (local unix domain socket)
+ * @param p4 the family data (namespace)
+ * @param p5 the family count
+ * @param p6 the style data (communication type)
+ * @param p7 the style count
+ * @param p8 the protocol data
+ * @param p9 the protocol count
+ * @param p10 the connexions (number of possible pending client requests)
+ * @param p11 the socket timeout
+ * @param p12 the channel
  */
-void startup_server(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
+void startup_server(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup server.");
     fwprintf(stdout, L"Information: Startup server. p1: %i\n", p1);
     fwprintf(stdout, L"Information: Startup server. *p1: %i\n", *((int*) p1));
 
+    // The internal memory name.
+    int n = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The input output entry.
+    void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The server list.
+    void* sl = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The server entry.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get server entry from internal memory.
-    get_internal_memory_channel((void*) &e, p0, p1, p2);
+    // Get internal memory name by channel.
+    map_channel_to_internal_memory((void*) &n, p12);
+    // Get input output entry from internal memory.
+    copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &n);
+    // Get server list from input output entry.
+    copy_array_forward((void*) &sl, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SERVERS_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get server entry from server list by service identification (port number).
+    find_list((void*) &se, sl, p1, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME);
 
-    if (e == *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        //
-        // A server entry does NOT exist yet.
-        //
+    if (se == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // Allocate server entry.
-        allocate_server_entry((void*) &e);
+        allocate_server_entry((void*) &se);
+
+        // Initialise server entry.
+        //?? TODO
 
         // Startup service.
-        startup_service(e, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p2, p13, p14, p1);
+        startup_service(se, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p12);
 
-        // Set server entry into internal memory.
-        set_internal_memory_channel(p0, (void*) &e, p1, p2);
+        // Append server entry to server list.
+        modify_item(sl, (void*) &se, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup server. A server entry does already exist.");
-        fwprintf(stdout, L"Warning: Could not startup server. A server entry does already exist. p19: %i\n", p19);
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup server. A server entry with the given service identification (port) does already exist.");
+        fwprintf(stdout, L"Warning: Could not startup server. A server entry with the given service identification (port) does already exist. p19: %i\n", p19);
     }
 }
 

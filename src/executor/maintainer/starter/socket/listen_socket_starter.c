@@ -48,7 +48,7 @@
  */
 void startup_socket_listen(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket listen.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket listen.");
 
 #if defined(__linux__) || defined(__unix__)
     startup_bsd_socket_listen(p0, p1);

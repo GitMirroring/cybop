@@ -47,15 +47,9 @@
  * Allocates the server entry.
  *
  * @param p0 the server entry (pointer reference)
- * @param p1 the interrupt pipe (pointer reference)
- * @param p2 the interrupt mutex (pointer reference)
- * @param p3 the input/output identification
- * @param p4 the thread function (pointer reference)
- * @param p5 the function argument (pointer reference)
- * @param p6 the socket timeout
- * @param p7 the channel (pointer reference)
+ * @param p1 the channel
  */
-void allocate_server_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void allocate_server_entry(void* p0, void* p1) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -68,18 +62,19 @@ void allocate_server_entry(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         // Declaration.
         //
 
-        // The input/output identification.
-        //?? void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The service identification.
+        void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The client list item.
+        void* cli = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The client list mutex.
+        void* clm = *NULL_POINTER_STATE_CYBOI_MODEL;
+
         // The sender identification.
         //?? void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The language (protocol).
         //?? void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The channel.
         //?? void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The client list item.
-        void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The client list mutex.
-        void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The client identification list item.
         //?? void* ci = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The client entry list item.

@@ -70,10 +70,6 @@ void startup_winsock_listen(void* p0, void* p1) {
             } else {
 
                 //
-                // An error occured, since the return value is NOT zero.
-                //
-
-                //
                 // Get the calling thread's last-error code.
                 //
                 // CAUTION! This function is the winsock substitute
@@ -81,55 +77,9 @@ void startup_winsock_listen(void* p0, void* p1) {
                 //
                 int e = WSAGetLastError();
 
-                if (e == WSANOTINITIALISED) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock listen. A successful WSAStartup call must occur before using this function.");
-
-                } else if (e == WSAENETDOWN) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock listen. The network subsystem has failed.");
-
-                } else if (e == WSAEADDRINUSE) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock listen. The socket's local address is already in use and the socket was not marked to allow address reuse with SO_REUSEADDR. This error usually occurs during execution of the bind function, but could be delayed until this function if the bind was to a partially wildcard address (involving ADDR_ANY) and if a specific address needs to be committed at the time of this function.");
-
-                } else if (e == WSAEINPROGRESS) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock listen. A blocking Windows Sockets 1.1 call is in progress, or the service provider is still processing a callback function.");
-
-                } else if (e == WSAEINVAL) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock listen. The socket has not been bound with bind.");
-
-                } else if (e == WSAEISCONN) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock listen. The socket is already connected.");
-
-                } else if (e == WSAEMFILE) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock listen. No more socket descriptors are available.");
-
-                } else if (e == WSAENOBUFS) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock listen. No buffer space is available.");
-
-                } else if (e == WSAENOTSOCK) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock listen. The descriptor is not a socket.");
-
-                } else if (e == WSAEOPNOTSUPP) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock listen. The referenced socket is not of a type that supports the listen operation.");
-
-                } else {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock listen. An unknown error occured.");
-                }
-
-                // Cast int to DWORD (unsigned int 32-Bit).
-                DWORD d = (DWORD) e;
-
-                log_windows_system_error((void*) &d);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open winsock connexion. An error occured.");
+                fwprintf(stdout, L"Error: Could not open winsock connexion. An error occured. %i\n", r);
+                log_errno((void*) &e);
             }
 
         } else {

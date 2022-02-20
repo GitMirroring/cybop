@@ -30,41 +30,37 @@
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The address socket startup maintenance logic cybol name. */
-static wchar_t* ADDRESS_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME = L"address";
-static int* ADDRESS_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The channel startup maintenance logic cybol name. */
 static wchar_t* CHANNEL_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME = L"channel";
 static int* CHANNEL_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The connexions socket startup maintenance logic cybol name. */
-static wchar_t* CONNEXIONS_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME = L"connexions";
-static int* CONNEXIONS_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The connexions startup maintenance logic cybol name. */
+static wchar_t* CONNEXIONS_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME = L"connexions";
+static int* CONNEXIONS_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The filename socket startup maintenance logic cybol name. */
-static wchar_t* FILENAME_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME = L"filename";
-static int* FILENAME_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The device startup maintenance logic cybol name. */
+static wchar_t* DEVICE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME = L"device";
+static int* DEVICE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The namespace (family) socket startup maintenance logic cybol name. */
-static wchar_t* NAMESPACE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME = L"namespace";
-static int* NAMESPACE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The namespace (family) startup maintenance logic cybol name. */
+static wchar_t* NAMESPACE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME = L"namespace";
+static int* NAMESPACE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The port socket startup maintenance logic cybol name. */
-static wchar_t* PORT_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME = L"port";
-static int* PORT_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The port startup maintenance logic cybol name. */
+static wchar_t* PORT_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME = L"port";
+static int* PORT_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The protocol socket startup maintenance logic cybol name. */
-static wchar_t* PROTOCOL_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME = L"protocol";
-static int* PROTOCOL_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The protocol startup maintenance logic cybol name. */
+static wchar_t* PROTOCOL_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME = L"protocol";
+static int* PROTOCOL_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The style (communication type) socket startup maintenance logic cybol name. */
-static wchar_t* STYLE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME = L"style";
-static int* STYLE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The style (communication type) startup maintenance logic cybol name. */
+static wchar_t* STYLE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME = L"style";
+static int* STYLE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The timeout socket startup maintenance logic cybol name. */
-static wchar_t* TIMEOUT_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME = L"timeout";
-static int* TIMEOUT_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The timeout startup maintenance logic cybol name. */
+static wchar_t* TIMEOUT_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME = L"timeout";
+static int* TIMEOUT_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

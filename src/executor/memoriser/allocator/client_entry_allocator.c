@@ -49,7 +49,7 @@
  * The buffer allocation is channel-specific,
  * since buffer types differ between devices.
  *
- * - CHARACTER buffer for serial port, terminal, socket
+ * - CHARACTER buffer for file, serial port, terminal, named pipeline, socket
  * - POINTER buffer for display events
  *
  * @param p0 the client entry (pointer reference)

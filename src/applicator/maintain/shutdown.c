@@ -27,22 +27,25 @@
 #define SHUTDOWN_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/part_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/name/cybol/logic/maintenance/shutdown_maintenance_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
+#include "../../executor/copier/array_copier.c"
 #include "../../executor/maintainer/shutter/shutter.c"
 #include "../../logger/logger.c"
 
 /**
  * Shuts down the service running on the given channel.
  *
- * Expected parametres:
- * - channel (required): the channel on which to shutdown a service, e.g. serial, terminal, display, socket
- *
- * Expected parametres only for channel "socket":
- * - port (required): the service identification, e.g. socket port 80
+ * Parametres:
+ * - channel (required): the communication channel, e.g. socket, display
+ * - port (optional): the service identification, e.g. socket port 80
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -54,38 +57,71 @@ void apply_shutdown(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply shutdown.");
 
+    //
+    // Declaration
+    //
+
     // The channel part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket port part.
+    // The port part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket port part model item.
+    // The port part model item.
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model item data.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket port part model item data.
+    // The port part model item data.
     void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Retrieval
+    //
 
     // Get channel part.
     get_part_name((void*) &c, p0, (void*) CHANNEL_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) CHANNEL_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get socket port part.
-    get_part_name((void*) &p, p0, (void*) PORT_SOCKET_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) PORT_SOCKET_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get port part.
+    get_part_name((void*) &p, p0, (void*) PORT_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) PORT_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get channel part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get socket port part model item.
+    // Get port part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Get channel part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get socket port part model item data.
+    // Get port part model item data.
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    //
+    // Default values
+    //
+
+    //
+    // Set port to ZERO by default.
+    //
+    // CAUTION! It is necessary for the display server,
+    // for which a cybol property "port" is not required.
+    //
+    int port = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    //
+    // CAUTION! The following values are ONLY copied,
+    // if the source value is NOT NULL.
+    // This is tested inside the "copy_integer" function.
+    // Otherwise, the destination value remains as is.
+    //
+
+    copy_integer((void*) &port, pmd);
+
+    //
+    // Functionality
+    //
+
     // Shutdown service.
-    shutdown_service(p4, pmd, cmd);
+    shutdown_service(p4, (void*) &port, cmd);
 }
 
 /* SHUTDOWN_SOURCE */

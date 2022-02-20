@@ -60,23 +60,23 @@
 /**
  * Starts up server socket lifecycle.
  *
- * @param p0 the socket
- * @param p1 the family data (namespace)
- * @param p2 the family count
- * @param p3 the style data (communication type)
- * @param p4 the style count
- * @param p5 the protocol data
- * @param p6 the protocol count
- * @param p7 the filename data
- * @param p8 the filename count
- * @param p9 the host address data
- * @param p10 the host address count
- * @param p11 the port
- * @param p12 the connexions (number of possible pending client requests)
+ * @param p0 the destination socket
+ * @param p1 the port
+ * @param p2 the host address data (network communication) OR filename data (local unix domain socket)
+ * @param p3 the host address count (network communication) OR filename count (local unix domain socket)
+ * @param p4 the family data (namespace)
+ * @param p5 the family count
+ * @param p6 the style data (communication type)
+ * @param p7 the style count
+ * @param p8 the protocol data
+ * @param p9 the protocol count
+ * @param p10 the connexions (number of possible pending client requests)
  */
-void startup_socket_lifecycle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void startup_socket_lifecycle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket lifecycle.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket lifecycle.");
+    fwprintf(stdout, L"Debug: Startup socket lifecycle. p0: %i\n", p0);
+    fwprintf(stdout, L"Debug: Startup socket lifecycle. *p0: %i\n", *((int*) p0));
 
     // The protocol family (socket namespace).
     int pf = *UNSPEC_PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME;
@@ -89,26 +89,20 @@ void startup_socket_lifecycle(void* p0, void* p1, void* p2, void* p3, void* p4, 
     // The socket address data, size.
     void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
     int as = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Get protocol family.
-    deserialise_cybol_socket_family_protocol((void*) &pf, p1, p2);
+    deserialise_cybol_socket_family_protocol((void*) &pf, p4, p5);
     // Get address family.
-    deserialise_cybol_socket_family_address((void*) &af, p1, p2);
+    deserialise_cybol_socket_family_address((void*) &af, p4, p5);
     // Get communication style.
-    deserialise_cybol_socket_style((void*) &st, p3, p4);
+    deserialise_cybol_socket_style((void*) &st, p6, p7);
     // Get protocol.
-    deserialise_cybol_socket_protocol((void*) &p, p5, p6);
+    deserialise_cybol_socket_protocol((void*) &p, p8, p9);
 
-    //
     // Create socket.
-    //
-    // CAUTION! A value of ZERO is usually right for the "protocol".
-    //
-    //?? TODO: When specifying the protocol parametre p, an error occured.
-    //?? Check this out later!
-    //
-    //?? open_socket_device(p0, (void*) &pf, (void*) &st, (void*) &p);
-    open_socket_device(p0, (void*) &pf, (void*) &st, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    open_socket_device(p0, (void*) &pf, (void*) &st, (void*) &p);
 
     //
     // Allocate and initialise socket address depending on family.
@@ -117,16 +111,13 @@ void startup_socket_lifecycle(void* p0, void* p1, void* p2, void* p3, void* p4, 
     // since it gets allocated inside the function and
     // has to be preserved as return value.
     //
-    allocate_socket_address((void*) &ad, (void*) &as, p7, p8, p9, p10, p11, (void*) &af);
+    allocate_socket_address((void*) &ad, (void*) &as, p1, p2, p3, (void*) &af);
 
     // Bind address to socket.
     startup_socket_bind(p0, ad, (void*) &as);
 
     // Deallocate socket address.
     deallocate_socket_address((void*) &ad, (void*) &as, (void*) &af);
-
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     compare_integer_equal((void*) &r, (void*) &st, (void*) STREAM_STYLE_SOCKET_SYMBOLIC_NAME);
 
@@ -149,7 +140,13 @@ void startup_socket_lifecycle(void* p0, void* p1, void* p2, void* p3, void* p4, 
         // fail with ECONNREFUSED until the server calls accept
         // to accept a connexion from the queue.
         //
-        startup_socket_listen(p0, p12);
+        startup_socket_listen(p0, p10);
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket lifecycle. The socket communication style is NOT stream socket.");
+        fwprintf(stdout, L"Error: Could not startup socket lifecycle. The socket communication style is NOT stream socket. p0: %i\n", p0);
+        fwprintf(stdout, L"Error: Could not startup socket lifecycle. The socket communication style is NOT stream socket. *p0: %i\n", *((int*) p0));
     }
 }
 

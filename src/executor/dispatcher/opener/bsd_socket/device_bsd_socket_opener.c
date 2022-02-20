@@ -59,7 +59,7 @@ void open_bsd_socket_device(void* p0, void* p1, void* p2, void* p3) {
 
                 int* pf = (int*) p1;
 
-                log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open bsd socket device.");
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open bsd socket device.");
                 fwprintf(stdout, L"Debug: Open bsd socket device p0: %i\n", p0);
                 fwprintf(stdout, L"Debug: Open bsd socket device *p0: %i\n", *((int*) p0));
                 fwprintf(stdout, L"Debug: Open bsd socket device *pf: %i\n", *pf);

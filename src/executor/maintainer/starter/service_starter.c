@@ -38,33 +38,30 @@
  * Startup service on the given channel.
  *
  * @param p0 the server entry
- * @param p1 the socket family data (namespace)
- * @param p2 the socket family count
- * @param p3 the socket style data (communication type)
- * @param p4 the socket style count
- * @param p5 the socket protocol data
- * @param p6 the socket protocol count
- * @param p7 the socket filename data
- * @param p8 the socket filename count
- * @param p9 the socket host address data
- * @param p10 the socket host address count
- * @param p11 the socket port (service identification)
- * @param p12 the socket connexions (number of possible pending client requests)
- * @param p13 the socket timeout
- * @param p14 the channel
+ * @param p1 the port
+ * @param p2 the host address data (network communication) OR filename data (local unix domain socket)
+ * @param p3 the host address count (network communication) OR filename count (local unix domain socket)
+ * @param p4 the family data (namespace)
+ * @param p5 the family count
+ * @param p6 the style data (communication type)
+ * @param p7 the style count
+ * @param p8 the protocol data
+ * @param p9 the protocol count
+ * @param p10 the connexions (number of possible pending client requests)
+ * @param p11 the channel
  */
-void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
+void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup service.");
-    fwprintf(stdout, L"Debug: Startup service. p14: %i\n", p14);
-    fwprintf(stdout, L"Debug: Startup service. *p14: %i\n", *((int*) p14));
+    fwprintf(stdout, L"Debug: Startup service. p11: %i\n", p11);
+    fwprintf(stdout, L"Debug: Startup service. *p11: %i\n", *((int*) p11));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p14, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p11, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -74,19 +71,19 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p14, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p11, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_socket(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
+            startup_socket(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup service. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not startup service. The channel is unknown. p14: %i\n", p14);
-        fwprintf(stdout, L"Warning: Could not startup service. The channel is unknown. *p14: %i\n", *((int*) p14));
+        fwprintf(stdout, L"Warning: Could not startup service. The channel is unknown. p11: %i\n", p11);
+        fwprintf(stdout, L"Warning: Could not startup service. The channel is unknown. *p11: %i\n", *((int*) p11));
     }
 }
 

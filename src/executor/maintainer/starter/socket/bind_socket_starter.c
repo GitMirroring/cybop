@@ -49,7 +49,7 @@
  */
 void startup_socket_bind(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket bind.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket bind.");
 
 #if defined(__linux__) || defined(__unix__)
     startup_bsd_socket_bind(p0, p1, p2);

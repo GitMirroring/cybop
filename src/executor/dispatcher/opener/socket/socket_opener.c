@@ -46,7 +46,7 @@
 /**
  * Connects the given socket to the server given by the address.
  *
- * @param p0 the client socket
+ * @param p0 the destination socket
  * @param p1 the port
  * @param p2 the host address data (network communication) OR filename data (local unix domain socket)
  * @param p3 the host address count (network communication) OR filename count (local unix domain socket)

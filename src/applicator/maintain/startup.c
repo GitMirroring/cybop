@@ -27,11 +27,16 @@
 #define STARTUP_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/part_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/name/cybol/logic/maintenance/startup_maintenance_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
+#include "../../executor/copier/array_copier.c"
 #include "../../executor/maintainer/starter/starter.c"
 #include "../../logger/logger.c"
 
@@ -39,14 +44,16 @@
  * Starts up a service on the given channel.
  *
  * Parametres:
- * - channel (required): the channel on which to startup a service, e.g. display, socket
+ * - channel (required): the communication channel, e.g. socket, display
  * - port (optional): the service identification, e.g. socket port 80
  * - namespace (optional): the address family, e.g. local, ipv4, ipv6
  * - style (optional): the communication style, e.g. stream, datagram, raw
  * - protocol (optional): the protocol, e.g. tcp, udp, rdp
- * - filename (optional): the unix domain socket filename
- * - address (optional): the host address, e.g. localhost or 127.0.0.1
- * - connexions (optional): the number of possible pending client requests, e.g. 10
+ * - device (optional):
+ *      = filename for channel "socket" with namespace "local" (unix domain socket), e.g. localbuffer.socket
+ *      = host address for channel "socket" with namespace "ipv4" or "ipv6", e.g. localhost or 127.0.0.1
+ *      = null for channel "display", since the display server does not need it (therefore it is OPTIONAL)
+ * - connexions (optional): the maximum number of possible pending client requests, e.g. 10
  * - timeout (optional): the timeout in seconds set for each new client, e.g. 300
  *
  * @param p0 the parametres data
@@ -59,132 +66,151 @@ void apply_startup(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply startup.");
 
+    //
+    // Declaration
+    //
+
     // The channel part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket port part.
+    // The port part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket namespace part.
+    // The namespace part.
     void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket style part.
+    // The style part.
     void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket protocol part.
+    // The protocol part.
     void* pr = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket filename part.
-    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket address part.
-    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket connexions part.
+    // The device part.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The connexions part.
     void* co = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket timeout part.
+    // The timeout part.
     void* to = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket port part model item.
+    // The port part model item.
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket namespace part model item.
+    // The namespace part model item.
     void* nm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket style part model item.
+    // The style part model item.
     void* stm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket protocol part model item.
+    // The protocol part model item.
     void* prm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket filename part model item.
-    void* fm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket address part model item.
-    void* am = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket connexions part model item.
+    // The device part model item.
+    void* dm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The connexions part model item.
     void* com = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket timeout part model item.
+    // The timeout part model item.
     void* tom = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model item data.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket port part model item data.
+    // The port part model item data.
     void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket namespace part model item data, count.
+    // The namespace part model item data, count.
     void* nmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* nmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket style part model item data, count.
+    // The style part model item data, count.
     void* stmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* stmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket protocol part model item data, count.
+    // The protocol part model item data, count.
     void* prmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* prmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket filename part model item data, count.
-    void* fmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* fmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket address part model item data, count.
-    void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* amc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket connexions part model item data.
+    // The device part model item data, count.
+    void* dmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* dmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The connexions part model item data.
     void* comd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket timeout part model item data.
+    // The timeout part model item data.
     void* tomd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Retrieval
+    //
 
     // Get channel part.
     get_part_name((void*) &c, p0, (void*) CHANNEL_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) CHANNEL_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get socket port part.
-    get_part_name((void*) &p, p0, (void*) PORT_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) PORT_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get socket namespace part.
-    get_part_name((void*) &n, p0, (void*) NAMESPACE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) NAMESPACE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get socket style part.
-    get_part_name((void*) &st, p0, (void*) STYLE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) STYLE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get socket protocol part.
-    get_part_name((void*) &pr, p0, (void*) PROTOCOL_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) PROTOCOL_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get socket filename part.
-    get_part_name((void*) &f, p0, (void*) FILENAME_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) FILENAME_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get socket address part.
-    get_part_name((void*) &a, p0, (void*) ADDRESS_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) ADDRESS_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get socket connexions part.
-    get_part_name((void*) &co, p0, (void*) CONNEXIONS_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) CONNEXIONS_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get socket timeout part.
-    get_part_name((void*) &to, p0, (void*) TIMEOUT_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) TIMEOUT_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get port part.
+    get_part_name((void*) &p, p0, (void*) PORT_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) PORT_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get namespace part.
+    get_part_name((void*) &n, p0, (void*) NAMESPACE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) NAMESPACE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get style part.
+    get_part_name((void*) &st, p0, (void*) STYLE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) STYLE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get protocol part.
+    get_part_name((void*) &pr, p0, (void*) PROTOCOL_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) PROTOCOL_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get device part.
+    get_part_name((void*) &d, p0, (void*) DEVICE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) DEVICE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get connexions part.
+    get_part_name((void*) &co, p0, (void*) CONNEXIONS_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) CONNEXIONS_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get timeout part.
+    get_part_name((void*) &to, p0, (void*) TIMEOUT_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) TIMEOUT_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get channel part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get socket port part model item.
+    // Get port part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get socket namespace part model item.
+    // Get namespace part model item.
     copy_array_forward((void*) &nm, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get socket style part model item.
+    // Get style part model item.
     copy_array_forward((void*) &stm, st, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get socket protocol part model item.
+    // Get protocol part model item.
     copy_array_forward((void*) &prm, pr, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get socket filename part model item.
-    copy_array_forward((void*) &fm, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get socket address part model item.
-    copy_array_forward((void*) &am, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get socket connexions part model item.
+    // Get device part model item.
+    copy_array_forward((void*) &dm, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get connexions part model item.
     copy_array_forward((void*) &com, co, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get socket timeout part model item.
+    // Get timeout part model item.
     copy_array_forward((void*) &tom, to, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Get channel part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get socket port part model item data, count.
+    // Get port part model item data, count.
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get socket namespace part model item data, count.
+    // Get namespace part model item data, count.
     copy_array_forward((void*) &nmd, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &nmc, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get socket style part model item data, count.
+    // Get style part model item data, count.
     copy_array_forward((void*) &stmd, stm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &stmc, stm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get socket protocol part model item data, count.
+    // Get protocol part model item data, count.
     copy_array_forward((void*) &prmd, prm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &prmc, prm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get socket filename part model item data, count.
-    copy_array_forward((void*) &fmd, fm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &fmc, fm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get socket address part model item data, count.
-    copy_array_forward((void*) &amd, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &amc, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get socket connexions part model item data.
+    // Get device part model item data, count.
+    copy_array_forward((void*) &dmd, dm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &dmc, dm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Get connexions part model item data.
     copy_array_forward((void*) &comd, com, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get socket timeout part model item data.
+    // Get timeout part model item data.
     copy_array_forward((void*) &tomd, tom, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    //
+    // Default values
+    //
+
+    //
+    // Set port to ZERO by default.
+    //
+    // CAUTION! It is necessary for the display server,
+    // for which a cybol property "port" is not required.
+    //
+    int port = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    //
+    // CAUTION! The following values are ONLY copied,
+    // if the source value is NOT NULL.
+    // This is tested inside the "copy_integer" function.
+    // Otherwise, the destination value remains as is.
+    //
+
+    copy_integer((void*) &port, pmd);
+
+    //
+    // Functionality
+    //
+
     // Startup service.
-    startup_server(p4, cmd, pmd, nmd, nmc, stmd, stmc, prmd, prmc, fmd, fmc, amd, amc, comd, tomd);
+    startup_server(p4, (void*) &port, dmd, dmc, nmd, nmc, stmd, stmc, prmd, prmc, comd, tomd, cmd);
 }
 
 /* STARTUP_SOURCE */
