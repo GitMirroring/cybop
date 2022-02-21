@@ -15,8 +15,6 @@
         * See service lifecycle cybol examples in directory "examples/communication/"
 
         * Update maintainer shutter
-        * Update server entry deallocator
-        * Update client entry deallocator
 
         * Figure out handling of window events in enabler and sensor and reader
 

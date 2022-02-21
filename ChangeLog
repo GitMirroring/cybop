@@ -20,8 +20,8 @@
 
 2022-02-21  Christian Heller  <christian.heller@cybop.org>
 
-        * Update server entry allocator
-        * Update client entry allocator
+        * Update server entry allocator and deallocator
+        * Update client entry allocator and deallocator
 
 2022-02-20  Christian Heller  <christian.heller@cybop.org>
 
