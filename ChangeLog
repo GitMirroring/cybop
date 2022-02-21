@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-02-21  Christian Heller  <christian.heller@cybop.org>
+
+        * Update server entry allocator
+        * Update client entry allocator
+
 2022-02-20  Christian Heller  <christian.heller@cybop.org>
 
         * Complete activator enabler
