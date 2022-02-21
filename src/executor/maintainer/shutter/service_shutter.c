@@ -23,34 +23,28 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SPECIFIC_SHUTTER_SOURCE
-#define SPECIFIC_SHUTTER_SOURCE
+#ifndef SERVICE_SHUTTER_SOURCE
+#define SERVICE_SHUTTER_SOURCE
 
 #include "../../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/maintainer/shutter/display/display_shutter.c"
-#include "../../../executor/maintainer/shutter/serial_port/serial_port_shutter.c"
 #include "../../../executor/maintainer/shutter/socket/socket_shutter.c"
-#include "../../../executor/maintainer/shutter/terminal/terminal_shutter.c"
 #include "../../../logger/logger.c"
 
 /**
- * Calls functions specific to the given service.
+ * Shutdown service on the given channel.
  *
- * @param p0 the input/output entry
+ * @param p0 the server entry
  * @param p1 the channel
  */
-void shutdown_specific(void* p0, void* p1) {
+void shutdown_service(void* p0, void* p1) {
 
-    //
-    // CAUTION! Do NOT log messages here, since this function is called 65,536 times
-    // for socket channels in a loop.
-    // Otherwise, it would produce huge log files filled up with useless entries.
-    //
-    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown specific.");
-    //?? fwprintf(stdout, L"Debug: Shutdown specific. p1: %i\n", p1);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown service.");
+    fwprintf(stdout, L"Debug: Shutdown service. p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Shutdown service. *p1: %i\n", *((int*) p1));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -67,16 +61,6 @@ void shutdown_specific(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) SERIAL_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //?? shutdown_serial_port(p0);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
         compare_integer_equal((void*) &r, p1, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -87,21 +71,11 @@ void shutdown_specific(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) TERMINAL_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            shutdown_terminal(p0);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown specific. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not shutdown specific. The channel is unknown. p1: %i\n", p1);
-        fwprintf(stdout, L"Warning: Could not shutdown specific. The channel is unknown. *p1: %i\n", *((int*) p1));
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown service. The channel is unknown.");
+        fwprintf(stdout, L"Warning: Could not shutdown service. The channel is unknown. p1: %i\n", p1);
+        fwprintf(stdout, L"Warning: Could not shutdown service. The channel is unknown. *p1: %i\n", *((int*) p1));
     }
 }
 
-/* SPECIFIC_SHUTTER_SOURCE */
+/* SERVICE_SHUTTER_SOURCE */
 #endif

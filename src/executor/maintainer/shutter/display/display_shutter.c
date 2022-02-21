@@ -46,7 +46,7 @@
 /**
  * Shuts down the display.
  *
- * @param p0 the input/output entry
+ * @param p0 the server entry
  */
 void shutdown_display(void* p0) {
 

@@ -47,27 +47,60 @@ void close_client(void* p0, void* p1, void* p2, void* p3) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close client.");
     fwprintf(stdout, L"Debug: Close client. p0: %i\n", p0);
 
+    //
+    // Declaration
+    //
+
     // The client entry.
     void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The input output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The client list.
     void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The client entry index.
+    int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+
+    //
+    // Retrieval
+    //
 
     // Get client entry belonging to given source device.
     find_entry((void*) &ce, internal-memory, channel, server-flag, port, dev-id);
 
+    //
+    // Suspension
+    //
+
+    //
+    // Suspend input detection and exit sensing thread.
+    //
+    // CAUTION! This has to be done BEFORE deallocating resources below.
+    //
+    //?? TODO
+
+    //
+    // Removal
+    //
+
     // Get input output entry from client entry.
     copy_array_forward((void*) &io, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_OUTPUT_BACKLINK_CLIENT_STATE_CYBOI_NAME);
-
     // Get suitable client list item.
     find_mode((void*) &cl, io, server-flag, port);
-
+    // Get client entry index within server list by client device identification.
+    find_list_index((void*) &i, cl, p0, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
     // Remove client entry from client list.
-    modify_item(cl, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, destination-index, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
+    modify_item(cl, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    //
+    // Finalisation
+    //
 
     // Finalise device.
     finalise(p0-client-id, ce, channel);
+
+    //
+    // Closing
+    //
 
     //
     // Close client device.
@@ -77,6 +110,10 @@ void close_client(void* p0, void* p1, void* p2, void* p3) {
     // gets closed in the same way as for the other channels.
     //
     close_device(p0, ce, p2);
+
+    //
+    // Deallocation
+    //
 
     // Deallocate client entry.
     deallocate_client_entry((void*) &ce, channel);

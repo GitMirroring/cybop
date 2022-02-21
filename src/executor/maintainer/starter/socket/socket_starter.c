@@ -58,14 +58,14 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket.");
 
     //
-    // Declaration.
+    // Declaration
     //
 
     // The socket number.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
-    // Allocation.
+    // Allocation
     //
 
     //
@@ -77,14 +77,14 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     allocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
     //
-    // Opening.
+    // Opening
     //
 
     // Startup server socket.
     startup_socket_lifecycle(s, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
 
     //
-    // Storage.
+    // Storage
     //
 
     // Set socket number into server entry.

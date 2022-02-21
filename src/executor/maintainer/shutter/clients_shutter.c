@@ -23,45 +23,47 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ALL_SERVER_SOCKET_SHUTTER_SOURCE
-#define ALL_SERVER_SOCKET_SHUTTER_SOURCE
+#ifndef CLIENTS_SHUTTER_SOURCE
+#define CLIENTS_SHUTTER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/calculator/integer/subtract_integer_calculator.c"
-#include "../../../../executor/comparator/integer/less_integer_comparator.c"
-#include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/maintainer/shutter/socket/element_server_socket_shutter.c"
-#include "../../../../logger/logger.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../logger/logger.c"
+--
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/calculator/integer/subtract_integer_calculator.c"
+#include "../../../executor/comparator/integer/less_integer_comparator.c"
+#include "../../../executor/copier/integer_copier.c"
+#include "../../../executor/maintainer/shutter/client_shutter.c"
 
 /**
- * Shuts down all clients in the list.
+ * Shuts down all clients of this server.
  *
  * @param p0 the client list data (pointer reference)
  * @param p1 the client list count
  * @param p2 the client list size
- * @param p3 the accepttime list data (pointer reference)
- * @param p4 the accepttime list count
- * @param p5 the accepttime list size
  */
-void shutdown_socket_server_all(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void shutdown_clients(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown socket server all.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown clients.");
+    fwprintf(stdout, L"Debug: Shutdown clients. p0: %i\n", p0);
 
     //
     // CAUTION! The loop is running in REVERSE ORDER,
     // from the last to the first element, since that way,
-    // the function "remove" works much faster inside.
+    // the function "remove" works much FASTER inside,
+    // WITHOUT having to move elements one step forward.
     //
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The client.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Initialise loop variable.
+    // Initialise loop variable with list count.
     copy_integer((void*) &j, p1);
     // Subtract one, since this is an index.
     calculate_integer_subtract((void*) &j, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
@@ -80,8 +82,8 @@ void shutdown_socket_server_all(void* p0, void* p1, void* p2, void* p3, void* p4
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
-    //?? fwprintf(stdout, L"Debug: Shutdown socket server all. The loop is running in reverse order! Loop count p1: %i\n", p1);
-    //?? fwprintf(stdout, L"Debug: Shutdown socket server all. The loop is running in reverse order! Loop count p1: %i\n", *((int*) p1));
+    fwprintf(stdout, L"Debug: Shutdown clients. The loop is running in reverse order! Loop count p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Shutdown clients. The loop is running in reverse order! Loop count p1: %i\n", *((int*) p1));
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -92,12 +94,19 @@ void shutdown_socket_server_all(void* p0, void* p1, void* p2, void* p3, void* p4
             break;
         }
 
-        shutdown_socket_server_element(p0, p1, p2, p3, p4, p5, (void*) &j);
+        // Get client from client list at the given index.
+        copy_array_forward((void*) &c, *d, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
+
+        // Remove client from client list at the given index.
+        modify_remove(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p6, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        // Close client.
+        close_client(c);
 
         // Decrement loop variable.
         j--;
     }
 }
 
-/* ALL_SERVER_SOCKET_SHUTTER_SOURCE */
+/* CLIENTS_SHUTTER_SOURCE */
 #endif

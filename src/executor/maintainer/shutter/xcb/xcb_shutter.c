@@ -26,24 +26,25 @@
 #ifndef XCB_SHUTTER_SOURCE
 #define XCB_SHUTTER_SOURCE
 
-#include <xcb/xcb.h>
+#include <xcb/xcb.h> // xcb_disconnect, xcb_connection_t, xcb_gcontext_t etc.
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
-#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/server_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Shuts down the x window system.
+ * Shuts down the x window system connexion.
  *
  * This is done in the reverse order the service was started up.
  *
- * @param p0 the input/output entry
+ * @param p0 the server entry
  */
 void shutdown_xcb(void* p0) {
 
@@ -51,7 +52,7 @@ void shutdown_xcb(void* p0) {
     fwprintf(stdout, L"Debug: Shutdown xcb. p0: %i\n", p0);
 
     //
-    // Declaration.
+    // Declaration
     //
 
     // The connexion.
@@ -60,58 +61,35 @@ void shutdown_xcb(void* p0) {
     void* gc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
-    // Retrieval.
+    // Retrieval
     //
 
-    //
-    // Retrieve various values from input/output entry.
-    //
-    // CAUTION! Do NOT use "overwrite_array" function here,
-    // since it adapts the array count and size.
-    // But the array's count and size are CONSTANT.
-    //
-    // CAUTION! Hand over values as pointer REFERENCE.
-    //
-    // CAUTION! Do NOT hand over input/output entry as pointer reference.
-    //
-
-    // Get connexion from input/output entry.
-    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    // Get graphic context from input/output entry.
-    copy_array_forward((void*) &gc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-    fwprintf(stdout, L"Debug: Shutdown xcb. c: %i\n", c);
+    // Get connexion from server entry.
+    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_SERVER_STATE_CYBOI_NAME);
+    // Get graphic context from server entry.
+    copy_array_forward((void*) &gc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_SERVER_STATE_CYBOI_NAME);
 
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        fwprintf(stdout, L"Debug: Shutdown xcb. inside c: %i\n", c);
+        //
+        // A display DOES exist in server entry.
+        //
 
         // Cast connexion to correct type.
         xcb_connection_t* ct = (xcb_connection_t*) c;
 
         //
-        // A display DOES exist in input/output entry.
-        //
-
-        //
-        // Finalisation.
-        //
-
+        // Finalisation
         //
         // CAUTION! Resetting the values is not necessary,
-        // since the input/output entry gets deallocated anyway.
+        // since the server entry gets deallocated anyway.
         //
 
         //
-        // Deallocation.
+        // Deallocation
         //
-
+        // CAUTION! Use descending order as compared to startup.
         //
-        // CAUTION! Use descending order as compared to startup,
-        // for the following deallocations.
-        //
-
-        fwprintf(stdout, L"Debug: Shutdown xcb. gc: %i\n", gc);
 
         if (gc != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -162,8 +140,6 @@ void shutdown_xcb(void* p0) {
         // deallocated automatically via the connexion below.
         //
 
-        fwprintf(stdout, L"Debug: Shutdown xcb. disconnect ct: %i\n", ct);
-
         //
         // Close connexion.
         //
@@ -173,13 +149,6 @@ void shutdown_xcb(void* p0) {
         // frees ALL memory associated with the connexion.
         //
         xcb_disconnect(ct);
-
-        fwprintf(stdout, L"Debug: Shutdown xcb. post disconnect ct: %i\n", ct);
-
-        //
-        // CAUTION! Resetting the values is not necessary,
-        // since the input/output entry gets deallocated anyway.
-        //
 
     } else {
 

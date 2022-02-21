@@ -26,7 +26,7 @@
 #ifndef XCB_STARTER_SOURCE
 #define XCB_STARTER_SOURCE
 
-#include <xcb/xcb.h> // xcb_connect, xcb_connection_t etc.
+#include <xcb/xcb.h> // xcb_connect, xcb_connection_t, xcb_gcontext_t etc.
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -60,7 +60,7 @@ void startup_xcb(void* p0) {
 
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // The connexion with correct type.
+        // Cast connexion to correct type.
         xcb_connection_t* ct = (xcb_connection_t*) c;
         // Get setup.
         const xcb_setup_t* setup = xcb_get_setup(ct);
@@ -71,7 +71,7 @@ void startup_xcb(void* p0) {
             xcb_screen_iterator_t iter = xcb_setup_roots_iterator(setup);
 
             //
-            // Declaration.
+            // Declaration
             //
 
             //
@@ -125,7 +125,7 @@ void startup_xcb(void* p0) {
             xcb_drawable_t r = (*st).root;
 
             //
-            // Allocation.
+            // Allocation
             //
 
             //
@@ -137,11 +137,11 @@ void startup_xcb(void* p0) {
             allocate_array((void*) &gc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
             //
-            // Initialisation.
+            // Initialisation
             //
 
             //
-            // The graphic context as integer.
+            // Cast graphic context to integer.
             //
             // CAUTION! The graphic context is defined as:
             // typedef uint32_t xcb_gcontext_t;
@@ -157,7 +157,7 @@ void startup_xcb(void* p0) {
             uint32_t* gci = (uint32_t*) gc;
             // Generate graphic context xid.
             *gci = xcb_generate_id(ct);
-            // Convert graphic context to correct type.
+            // Cast graphic context to correct type.
             xcb_gcontext_t gct = (xcb_gcontext_t) *gci;
 
             //
@@ -229,14 +229,14 @@ void startup_xcb(void* p0) {
             xcb_create_gc(ct, gct, r, gcm, gcv);
 
             //
-            // Storage.
+            // Storage
             //
 
             // Store connexion in server entry.
             copy_array_forward(p0, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CONNEXION_XCB_DISPLAY_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             // Store screen in server entry.
             copy_array_forward(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SCREEN_XCB_DISPLAY_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            // Store default graphic context in server entry.
+            // Store graphic context in server entry.
             copy_array_forward(p0, (void*) &gc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         } else {

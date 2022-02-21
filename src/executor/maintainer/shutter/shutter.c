@@ -44,23 +44,110 @@
  * @param p1 the socket port (service identification)
  * @param p2 the channel
  */
-void shutdown_service(void* p0, void* p1, void* p2) {
+void shutdown_server(void* p0, void* p1, void* p2) {
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown server.");
+    fwprintf(stdout, L"Information: Shutdown server. p1: %i\n", p1);
+    fwprintf(stdout, L"Information: Shutdown server. *p1: %i\n", *((int*) p1));
 
     //
-    // CAUTION! Do NOT log messages here, since this function is called 65,536 times
-    // for socket channels in a loop.
-    // Otherwise, it would produce huge log files filled up with useless entries.
+    // Declaration
     //
-    // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown service.");
-    //?? fwprintf(stdout, L"Information: Shutdown service. p2: %i\n", p2);
 
-    // The input/output base.
-    int b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The internal memory name.
+    int n = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The input output entry.
+    void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The server list.
+    void* sl = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The server entry.
+    void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The server entry index.
+    int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
-    // Determine channel-specific values.
-    shutdown_specific((void*) &b, p2);
-    // Execute general shutdown functions.
-    shutdown_general(p0, p1, p2, (void*) &b);
+    //
+    // Retrieval
+    //
+
+    // Get internal memory name by channel.
+    map_channel_to_internal_memory((void*) &n, channel);
+    // Get input output entry from internal memory.
+    copy_array_forward((void*) &io, internal-memory, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &n);
+    // Get server list from input output entry.
+    copy_array_forward((void*) &sl, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SERVERS_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get server entry from server list by service identification (port number).
+    find_list((void*) &se, sl, port, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME);
+
+    if (se != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        //
+        // Disabling
+        //
+
+        //
+        // Disable service and exit enable (accept) thread.
+        //
+        // CAUTION! This has to be done BEFORE deallocating resources below.
+        //
+        // Display:
+        //
+        // The enable thread writes received events into the client input buffer.
+        // These events got allocated inside the x window system and
+        // have to be deallocated (freed) yet.
+        //
+        // Therefore, the enable thread has to be exited FIRST and
+        // then the main thread can loop the request input buffer and
+        // deallocate ALL events before deallocating the buffer itself.
+        //
+        // Socket:
+        //
+        // The clients having already been accepted by the server socket
+        // are stored in the request buffer. They have to be CLOSED yet.
+        //
+        // Terminal:
+        //
+        // The main thread resets the terminal properties on shutdown, so that
+        // default echoing and canonical input (with <enter> key) are reactivated.
+        // But then, the call of function "ioctl" might not work promptly,
+        // if the terminal is waiting for the <enter> key.
+        //
+        // Therefore, the sensing thread has to be exited FIRST
+        // as long as ioctl fake input can be received prompt.
+        //
+        //?? TODO: disable(p0, p3, p1, p2);
+
+        //
+        // Removal
+        //
+
+        // Get server entry index within server list by service identification (port number).
+        find_list_index((void*) &i, sl, port, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME);
+
+        // Remove server entry from server list.
+        modify_item(sl, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+        //
+        // Shuttingdown
+        //
+
+        // Shutdown clients.
+        shutdown_clients(se, TODO);
+
+        // Shutdown service.
+        shutdown_service(se, channel);
+
+        //
+        // Deallocation
+        //
+
+        // Deallocate server entry.
+        deallocate_server_entry((void*) &se);
+
+    } else {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown server. A server entry with the given service identification (port) does not exist.");
+        fwprintf(stdout, L"Warning: Could not shutdown server. A server entry with the given service identification (port) does not exist. p19: %i\n", p19);
+    }
 }
 
 /* SHUTTER_SOURCE */

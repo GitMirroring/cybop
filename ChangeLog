@@ -23,6 +23,8 @@
         * Update server entry allocator and deallocator
         * Update client entry allocator and deallocator
         * Complete maintainer starter by adding initialisation of server entry
+        * Add file "list_index_finder.c"
+        * Update maintainer shutter
 
 2022-02-20  Christian Heller  <christian.heller@cybop.org>
 
