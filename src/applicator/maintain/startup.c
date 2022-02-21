@@ -61,8 +61,9 @@
  * @param p2 the knowledge memory part (pointer reference)
  * @param p3 the stack memory item
  * @param p4 the internal memory data
+ * @param p5 the internal memory (pointer reference)
  */
-void apply_startup(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void apply_startup(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply startup.");
 
@@ -210,7 +211,7 @@ void apply_startup(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //
 
     // Startup service.
-    startup_server(p4, (void*) &port, dmd, dmc, nmd, nmc, stmd, stmc, prmd, prmc, comd, tomd, cmd);
+    startup_server(p4, (void*) &port, dmd, dmc, nmd, nmc, stmd, stmc, prmd, prmc, comd, tomd, cmd, p5);
 }
 
 /* STARTUP_SOURCE */
