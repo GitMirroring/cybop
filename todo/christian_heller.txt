@@ -11,46 +11,24 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-        * Complete implementation of communication functions listed in table "doc/development/cyboi/service_lifecycle.pdf
-        * See service lifecycle cybol examples in directory "examples/communication/"
+CONTINUE current work:
 
-        * Complete maintainer shutter by closing clients in client list
-        * Update activator disabler
+        * Add memoriser deallocator socket_address
+
+        * Delete modify EMPTY from file "reader.c", since only relevant for inline channel but must not overwrite buffer content ??
 
         * Figure out handling of window events in enabler and sensor and reader
 
         * Finish file "closer.c" (replace temporary parametre "destination-index" in call of remove) and "apply_close"
+        * Update activator disabler
+        * Complete maintainer shutter by closing clients in client list
 
-        * Delete modify EMPTY from file "reader.c", since only relevant for inline channel but must not overwrite buffer content ??
-
-        * Provide server entry buffer storing accepted client identifications, which is important for irq pipe processing accepted clients one by one
-            --> add accepted clients to that buffer using "APPEND"
-            --> remove client from buffer in "dispatch/open" when in "server" (stub) mode --> see file "flag_opener.c"
-
-        OLD timeout:
-        * Remove socket from client list when timeout has been crossed, in file "empty_element_client_checker.c"
-        * Remove corresponding entry from accepttime list when timeout has been crossed, in file "empty_element_client_checker.c"
-        * Close client socket when timeout has been crossed, in file "empty_element_client_checker.c"
-        * Determine current calendar time via function "time" using data type "time_t"
-        * Reset client's accepttime on available data
-        * Debug memory access error by casting timeout value from type "time_t" to "int" before storing it in input/output entry
-
-        * Allocate input output entry at system startup for all channels by default, even if these are not used in the cybol application
-        * Make sure all variables of client entry are allocated in file "client_entry_allocator.c"
-        * Check possibility that handing over cybol properties for "dispatch/open" suffices, so that the properties may be deleted for cybol operations read, write, sense
-
-        * Provide shutter counterparts to starter
-        * Correct determination of client entry / server entry / internal memory in file "device_reader.c"
         * Make compilable
         * Test file read functionality
+        * Use service lifecycle cybol examples in directory "examples/communication/"
 
-        * Add "registration" cybol operations "register/make" and "register/delete" for file management
-        * Add directory "executor/registrar/" with "maker" and "deleter"
-
-        * Remove named pipeline special file in filesystem in file "device_closer.c"
-        * Think through usage of pipeline once more
-            - create and open file separately?
-            - open write- and read end of pipe separately with different access rights open mode?
+Writer
+______
 
         * Add comment to an appropriate writer file, e.g. "writer.c":
 
@@ -71,9 +49,52 @@
             // is just asynchronous execution with callback function.
             //
 
-        * Provide cybol format "meta/model" to deserialise e.g. socket address etc. into an integer for more efficient processing ?? (equivalent of compilation)
-        * Change TCSANOW into TCSADRAIN ?? (file "unix_terminal_mode_setter.c")
-        * Implement worker thread with cybol operations "work/move" and "work/break", for asynchronically sending message data
+Thread
+______
+
+        * Investigate line with default thread id (is it initialised at startup?) in file "spinner.c":
+            int r = thrd_equal(DEFAULT_THREAD_IDENTIFICATION, *t);
+        * Eliminate or keep global variables like "DEFAULT_THREAD_IDENTIFICATION" in files "variable/thread_identification.c" and "controller/globaliser/thread_identification_globaliser.c"
+        * Initialise thread with correct value instead of zero integer in affected files:
+            copy_integer(t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+Android
+_______
+
+        * Use "NativeActivity" to render the whole screen in C
+            https://stackoverflow.com/questions/13188898/how-to-draw-on-the-android-canvas-from-the-native-code
+            https://developer.android.com/reference/android/app/NativeActivity.html
+            https://github.com/android/ndk-samples/tree/master/native-activity
+
+        * Search in web:
+            - no glibc on Android, but special libc called "Bionic"
+            - Android Native Development Kit (NDK)
+            - how to draw on a canvas ??
+            - how to access the windowing system ??
+
+FIFO (Named Pipe)
+_________________
+
+        * Add "registration" cybol operations "register/make" and "register/delete" for file management
+        * Add directory "executor/registrar/" with "maker" and "deleter"
+
+        * Remove named pipeline special file in filesystem in file "device_closer.c"
+
+        * Think through usage of pipeline once more
+            - create and open file separately
+            - open write- and read end of pipe separately with different access rights open mode?
+        * See fifo example at:
+            https://www.ibm.com/docs/en/zos/2.3.0?topic=functions-mkfifo-make-fifo-special-file
+
+Pipe (Anonymous Pipe)
+_____________________
+
+        * Reflect how to exchange data between cyboi and another (previous or following) process via anonymous pipe
+        * Implement anonymous pipe
+        * Use anonymous pipe as irq i/o message queue
+
+WUI and Socket
+______________
 
         * Add comments to an appropriate source code file:
 
@@ -88,503 +109,41 @@
             // automatically e.g. by the webbrowser.
             //
 
-    //
-    //?? TODO: Consider this hint when parsing for the END character of a sequence.
-    //?? It cannot be tested as char, but has to be an int like EOF.
-    //
-    // CAUTION! It is important to store the result in a variable of
-    // type int INSTEAD OF char, even when it is used as character only!
-    // Storing EOF in a char variable TRUNCATES its value to the size
-    // of a character, so that it is no longer distinguishable from
-    // the valid character '(char) -1'.
-    //
-    // Therefore, ALWAYS use an int for the result of getc and
-    // check for EOF after the call; once you've verified that
-    // the result is not EOF, you can be sure that it will fit
-    // in a 'char' variable without loss of information.
-    //
+        * Find a solution for storing local unix domain sockets in server list, since they do not have a port number but just a filename
+        * Test with cybol applications "socket_server/run.cybol" and "socket_client/run.cybol"
 
-        * Change file "socket_enabler.c" so that irq pipe gets informed and open + sense NOT called anymore in cyboi (done by separate cybol handler now)
-        * Complete call of sensor in file "socket_enabler.c" (see line 98) Which parametres are to be handed over? Or better take them from server entry?
+        * Test udp socket
 
-        * Debug errors caused by cleaning up constants in files "server_state_cyboi_name.c" and "client_state_cyboi_name.c"
-
-        * Add mutex to server entry for accessing client list (just ONE mutex together, for client identification + client entry)
-            use in function "maintain_client_list_add" etc.
-
-        * Make display (gui) work again
-
-        * Make socket (wui) work again
-        * Hand over client mode as parametre in files "sensor.c", "entry_client_starter.c" etc.
-        * Reactivate call of function "close_client" in file "fragment_socket_sensor.c"
-
-        * Continue file opener and add file closer to dispatcher
-        * Merge maintainer serial port opener into dispatcher
-        * Add basic writer with proper error handling to directory "executor/streamer/writer/"
-        * Use wrapper function "write_basic" as replacement for existing calls of glibc function "write", e.g. in file "interrupt_sensor.c"
-
-        * Add new encoding "ansi-escape-code" and write converter, in order to filter out terminal ansi escape sequences, and delegate standard characters to converter for "utf-8"
-        * Error that only ESC is converted, but not the following two characters of the ansi escape sequence
-            unicode-conversion does not work for control characters --> do it manually?
-            mutex *IS* set correctly, so that whole buffer content is written/read
-
-        * Make terminal (tui) work again
-        * Replace standard i/o streams with file descriptor in file "terminal_starter.c"
-        * ALL is fine on closing terminal, since there is no separate service thread, just a client thread which is yet to be called and closed at shutdown
-        * Current errors will likely disappear after proper implementation of shutdown functions
-
-        * Implement feeler suspender using small message sent to the system itself, in order to exit the sensing thread
-
-        * Check whether better to replace "append" with "overwrite" in files "server_socket_reader.c", "character_ansi_escape_code_deserialiser.c" and similar files
-        * Adapt file "completeness_sensor.c" for serial port (unlimited number of input with cr+lf end suffix is possible)
-        * Provide pointer array in addition to character array as destination in file "sensor.c", since xcb events arrive as pointer and not character
-
-        * Think about how to avoid creating a second thread with identical function, if e.g. cybol operation "activator/enable" is called twice
-        * Investigate line with default thread id (is it initialised at startup?) in file "spinner.c":
-            int r = thrd_equal(DEFAULT_THREAD_IDENTIFICATION, *t);
-        * Eliminate or keep global variables like "DEFAULT_THREAD_IDENTIFICATION" in files "variable/thread_identification.c" and "controller/globaliser/thread_identification_globaliser.c"
-        * Initialise thread with correct value in file "io_starter.c" where currently zero is assigned:
-            copy_integer(t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-        * Reflect about whether a channel for internal "signal" is still necessary
-
---
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    //
-    // Lock client list mutex.
-    //
-    // CAUTION! Set this lock BEFORE comparing with the exit flag below
-    // since otherwise, a race condition might occur.
-    //
-    // Example:
-    // - the exit flag is not set
-    // - the sensing child thread enters the block with r != 0
-    // - the main thread receives some shutdown cybol operation
-    // - the main thread sets the exit flag only now
-    // - the main thread shuts down and deallocates the destination buffer
-    // - the sensing child thread decodes characters
-    // - the sensing child thread possibly reallocates the (non-existing) destination buffer
-    // - this leads to memory errors such as "corrupted double-linked list"
-    //
-    // The reallocation of a non-existing buffer would lead to the error
-    // "realloc(): invalid pointer".
-    //
-    lock(p2);
-
-    compare_integer_equal((void*) &r, p11, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        //
-        // The exit flag was NOT set in the main thread.
-        // Therefore, proceed normally.
-        //
-
-        open_general(p0, p1, p3, p4, p5, p6, p7, p8, p9, p10, p12);
-    }
-
-    // Unlock client list mutex.
-    unlock(p2);
---
-
-Pipe
-____
-
-        * Unify sense-functions similar to acceptor files --> distinguish by channel in order to define the correct thread sense function locally and hand it over to thread spinner
-        * Replace thread function pointer "sense_socket" in file "request_acceptor.c"
-        * Introduce function "accept_channel" used for all channels
-        * Assign it as function pointer at startup in file "channel_starter.c" or better uniform for all channels "io_starter.c"
-        * Call it in file "function_enabler.c"
-        * Merge all sensing functions to just one (where function pointers are assigned at startup)
-        * Delete: as result, neither accept- nor sense functions have to be stored in io/client entries anymore but can be used locally as function directly if the same for all channels ??
-        * Delete file "sensor.c"
-
-        * Avoid allocating channel resources a second time if "startup" gets called a second time from cybol application
-            --> check by if-clause
-
-        * Unify handling of all channels in maintainer using server plus client list
-        * Clean up constants in file "input_output_state_cyboi_name.c"
-        * Remove superfluous files in directory "executor/sensor/socket/"
-
+        Timeout:
+        * Use three threads: accept + read + timeout handling (sleep 1 s in between checking timeout)
         * Reactivate timeout handling for socket client requests -- see files "timeout_socket_sensor.c", "check_timeout_socket_sensor.c"
-        * Test with cybol applications "www_server_dynamic"
+        * Remove socket from client list when timeout has been crossed, in file "empty_element_client_checker.c"
+        * Determine current calendar time via function "time" using data type "time_t"
         * Remove client socket from client list and timeout list when thread has been exited
-        * Close client socket on server side if exit flag was set, e.g. in file "socket_sensor.c"
-        * Call shutdown before close for socket?
-            shutdown(fd, SHUT_RDWR);
-            close(fd);
-        * Set timeout to zero so that the thread can detect it and exit?
-            Or is it vice-versa and the thread shall reset the timeout within the exit process?
+        * Close client socket stub on server side if exit flag was set
+        * Reset client's accepttime on available data
+        * Debug memory access error by casting timeout value from type "time_t" to "int" before storing it in entry
+        * Test with cybol applications "www_server_dynamic"
+
+        Awakener:
         * Reflect about how to implement file "socket_awakener.c" called within exit process
             --> best let cyboi send a message to itself via socket in order to exit
             --> hand over a randomly generated integer via io_entry or client_entry, which is known only to the system that itself also receives the message
-            --> this works for dispatch/open but also for activate/enable, since it is enough to leave the blocking function, so that the flag (plus random number) may be checked
-        * alternative thought: the call of function "read_device" (using "ioctl" internally) was used in file "socket_sensor.c", to detect input on socket
+            --> this works for feel/sense but also for activate/enable, since it is enough to leave the blocking function, so that the flag (plus random number) may be checked
+        * Alternative thought: the call of function "read_device" (using "ioctl" internally) was used in file "socket_sensor.c", to detect input on socket
             --> that means, that output should be sendable to socket as well via "ioctl"
-            --> this could possibly be used for exiting the sensing thread !
+            --> this could possibly be used for exiting the sensing thread and the enable thread !
         * Problem: distinguish between sensing thread + accept thread
             --> exiting sensing thread should be possible via sending a message to itself
-            --> how to exit the accept thread --> search or ask stackoverflow
-
-        * Adapt all de-/serialisers in order to overwrite variable with received data instead of appending, to thereby eliminate the need for emptying variables in cybol before receiving new data
-
-        * ?? [probably NOT necessary] ??
-            Consider exit flag in file "interrupt_socket_sensor.c" and do NOT set irq if exit flag is set,
-            since irq pipe might have been deallocated by main thread already
-            therefore, lock pipe mutex AND socket mutex ??
-        * Check if deadlocks may occur when nesting the two mutexes in file "message_socket_sensor.c"
-
-        * Filter out parametres with value "null" in file "inside_remove_modifier.c"
-            --> the problem is that the ".request" is of type "part/element", so that on "remove" the references of its parts are considered/decremented ...
-        - hand over flag as cybol property for (not) considering the reference on "remove" ??
-        - where are the inside parts like "uri" etc. allocated and added to the .request part ?? -- in the http deserialiser (parser) ?? how to handle the references then ??
-
-        * Find solution for using array like a random access file
-        * Use it as replacement for function "modify_item" when count and size do not have to be considered, since true and false are not working
-
-        * Add description of working solution for input/output handling to design document in "doc/development/cyboi/design_decisions.txt"
-        * Read client socket (id) from pipe in main thread, write it into io entry, so that next signal loop cycle calling handler with cybol receive can use the client socket id
-            --> there is NO danger of concurrent child threads manipulating the id, since it is only written in function "check_empty.c" of the main thread
-            Architecture:
-            1 socket - n service ports
-            1 service port - n clients
-            startup is ok, now investigate activator/enabler.c --> where to place the input/output entry, one for EACH client?
-            --> 3 threads are needed for: accept + read + timeout handling (sleep 1 s in between checking timeout)
-
-        * Clean up further errors reported by valgrind
-            error "uninitialised value" and call stack: shutdown_service --> disable_channel --> cut --> fwprintf
-            error "4 bytes in 1 blocks are definitely lost" and call stack: apply_startup --> startup_service --> startup_io --> allocate_array --> malloc
-
-        * Eliminate superfluous signal loop and call processing directly after getting handler (signal) in file "empty_checker.c" ??
-            OR: better leave signal loop for now, since it -- one day -- might be necessary for real time system features ??
-                (each operation executed in the loop in order to keep special time requirements)
-
-        * Loop reading terminal events, until array is empty
-        * Move stdout and stdin to correct places for terminal-related files
-        * Rename file "stream" into "descriptor" in terminal-related files
-        * Delete sensor, once all functions have been moved into threads started by activator
-        * Use platform-neutral function "sense" instead of function "sense_unix_terminal" in file "starter.c"
-        * Delete terminal sensor, since platform-specific sensor functions are called within thread in file "starter.c"
-        * Think through sensing threads exit via system signal again (usable or not?) --> clean up source code accordingly
-        * Optimise arrays: one array is filled in sensor and copied once more in reader --> Can this be avoided in a unique way for all channels, including inline, file etc.?
-
-        * IDEA: Store all kinds of buffers of communicator in input/output entry, so that different element types (char, void* for xcb events etc.) can be stored
-            (the communicator currently stores data in a byte array of type char by default)
-
-        * See file "ngx_epoll_module.c" function "event/modules/ngx_epoll_eventfd_handler"
-            a uint64_t with size 8 byte is received in "read"
-            variable "ready" is probably just to count the available bytes
-            while the call of function "io_getevents" (probably) actually reads --> check this out yet
-            consider syscall "io_getevents" in line 216
-
-        Open questions:
-        * Betrachte auch den Fall, dass das Puffer-Array groß genug ist, aber mit einem "read" nur teilweise gefüllt wurde,
-            da der Sender noch nicht alle Daten geschickt hatte.
-            --> Parsing for end of data is obviously always necessary
-        * Im Buch "Linux Sockets" S. 147 wird das lokale Array "empfangen" NICHT dyn. vergrößert (geht nicht, da fixe Größe),
-            sondern nur schrittweise gefüllt, falls der Sender noch nicht alle Daten geschickt hatte.
-        * How to detect real end (not only end of header "\r\n\r\n") of http message?
-            Parse all data?
-        * How to detect end of ansi escape sequence?
-        * What about data of a new message that have already been read into the buffer, behind the end of the current message?
-            Leave them stored in buffer?
-        * Write only one or many messages into pipe?
-        * How to avoid blocking of main thread when reading data input pipe?
-            buffer might be filled just complete and then next byte expected by read but no more data available
-            --> single wide characters are read and compared with WEOF to detect end of message
-            Question: Can WEOF appear in binary file? Probably yes. Is there a wide character pendant to function "feof"?
-
-        * Hand over desired protocol (e.g. http) as property to cybol operation "activate/enable" for sensing input
-        * Detect end of a message header (e.g. "\r\n\r\n" or ansi escape sequence -- how??) by string comparison already in sensor and not only in reader
-        * Detect end of whole message (HOW?? parsing http properties?) by string comparison already in sensor and not only in reader
-            Otherwise, the sensor does not know when to stop reading and might:
-            - set the interrupt even though the data are not complete yet
-            - block while waiting for more data, even though the message was received completely
-        * Use busy waiting loop in sensor thread as long as a "processing flag" has not been reset, before detecting new data
-            this is to ensure that only one message at a time is standing in the receive pipe
-
-        Idea for reading bytes from pipe ??:
-        * Increment and store number of bytes written to pipe in global variable, in child thread?
-        * Increment a second counter variable in main thread and compare with the one from child thread?
-
-        * Use keyword "volatile" for flags within an endless loop or thread, in order to avoid the compiler optimising the reading of the value away
-        * Use mutex and volatile variables when accessing pipes?
-        * Check flag "enable" in terminal sensor and write data to pipe only if activated
-        * Make all flags atomic by using the integer data type "sig_atomic_t", in order to avoid the operating system signal handler interfering variable access (it can take more than one instruction to read or write a single object)
-        * Add comment:
-
-            //
-            // The type "sig_atomic_t" is always an integer data type, but which one it is,
-            // and how many bits it contains, may vary from machine to machine.
-            // In practice, one can assume that int and other integer types no longer than
-            // int are atomic, that is objects of this type are always accessed atomically.
-            // One can also assume that pointer types are atomic; that is very convenient.
-            // Both of these assumptions are true on all of the machines that the GNU C
-            // library supports and on all known POSIX systems.
-            //
-
-        * Store standard input/output/error file descriptors and streams in terminal input/output entry
-
-        * Encapsulate low-level functions "read" and "write" in cyboi, in order to catch possible errors
-        * Provide windows operating system version using function "_read" as described in:
-            https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/read?view=msvc-160
-
-        Alternative idea:
-        * Do NOT write *TERMINAL_CYBOI_CHANNEL to irq_stream in child thread, but rather an incremented terminal_irq_counter
-        * Decrement this counter in main thread
-        * Reason: The writing in the child thread might happen at a different speed than the reading in the main thread
-        * Lock this terminal_irq_counter variable using a mutex
-        * Advantage: the main thread may read multiple characters at once, if the terminal_irq_counter is greater than 1
-        * CAUTION! Without such a terminal_irq_counter the setting of the irq flag might overlap a previous setting --> is this harmful or NOT ??
-
-        * Check flag "enable" in sensing functions before detecting data
-            It is currently not possible to interrupt threads,
-            because system signals cannot be used easily.
-            Therefore, the "enable" flag should be set and
-            evaluated instead, BEFORE setting an interrupt.
-
-        * Delete function "edit_service" ??
-
-        //
-        // A pipe is a mechanism for interprocess communication.
-        // Data written to the pipe by one thread can be read by another thread.
-        // The data is handled in a first-in, first-out (FIFO) order.
-        // The pipe has no name. It is created for one use.
-        //
-        // A pipe has to be open at both ends simultaneously.
-        // If you read from a pipe that doesn’t have any processes
-        // writing to it, the read returns end-of-file (EOF).
-        // Writing to a pipe that doesn’t have a reading process
-        // is treated as an error condition.
-        //
-        // https://www.gnu.org/software/libc/manual/html_mono/libc.html#Pipes-and-FIFOs
-        //
-
-        //
-        // Each input/output thread has TWO PIPES connected to it:
-        // - the interrupt pipe to inform the main thread that data are available
-        // - the data pipe for handing over received data from child- to main thread
-        //
-
-        * Use early prototyping with deep coding to try out pipe idea, e.g. irq pipe and terminal pipe (escape sequences)
-        * Store characters in terminal pipe
-        * Store bytes in socket pipe
-        * Store events in display pipe
-
-        Possible problems (try out behaviour):
-        * The main thread is reading the interrupt pipe
-            --> the pipe is (hopefully) blocking and does NOT return EOF, since other threads are connected to it for writing, even if there are currently no data available
-            --> the blocking read call returns as soon as one of the threads is writing to the pipe (locked with mutex before)
-        * Is libevent (which wraps epoll) necessary for all of this?
-        * Use anonymous pipe or already implemented named pipe (unix fifo) as signal memory (queue) ??
-
-        CONTINUE:
-        * Create one fifo per input/output channel
-        * Create special fifo used as interrupt
-        * Block all channels while waiting for data
-        * Write channel number constant into interrupt fifo when data are available in corresponding child thread
-        * Write data received into the channel's fifo until channel function is blocking again in corresponding child thread
-        * Wake up main thread when special fifo used as interrupt returns from blocking call of "read"
-        * Detect affected channel via returned channel number
-        * Read data from channel's fifo until the end is reached
-        * Detect the end of data NOT via EOF (-1), but rather by using the functions "feof" and  "ferror", since some binary files might contain EOF (-1) as value --> however, the function "feof" works only with streams
-        * Check other channel's fifos as well, once the main thread has been woken up ??
-
-        * How to store input data?
-            no: pipe only to replace irq flag just to detect available input? (but main thread reading input itself from channel --> not possible as it would block at the end of data)
-            no: mix of bytes and signal parts? --> not useful
-            yes: replace signal memory with event queue pipe?
-                child threads would have to do input processing and allocate a cyboi knowledge part at the end, to be stored in the pipe
-                the pipe would hold only cyboi knowledge parts, no other data
-                main process does event processing as is already done
-        * Take the following as guide to implement a pipe:
-            https://stackoverflow.com/questions/5524780/i-want-to-wait-on-both-a-file-descriptor-and-a-mutex-whats-the-recommended-way
-            "I've solved this exact problem using what you mention, pipe() and libevent (which wraps epoll).
-            The worker thread writes a byte to its pipe FD when its output queue goes from empty to non-empty.
-            That wakes up the main IO thread, which can then grab the worker thread's output.
-            This works great is actually very simple to code."
-        * Implement pipe-based irq i/o message handling as suggested by fpiette in comment at:
-            https://stackoverflow.com/questions/68172507/two-threads-and-terminal-does-not-block-even-though-struct-termios-c-ccvmin-1
-            - The child thread is only to detect... This IMO is simply bad design.
-                The child thread should read input, handling escape sequences and
-                signal to the main thread when a ready to use input is available.
-                You should probably create a queue with input items (characters, escape sequence)
-                that the child thread fills and the main thread read. – fpiette Jun 30 at 6:21
-            - Ok, very good idea that I'd like to use. But how can the child thread signal
-                the main thread by setting an integer flag? Once the child thread has read all
-                valid characters, it is "hanging" in the blocking fgetwc function and canNOT set
-                the integer flag anymore. Is there any solution? – Christian Heller Jun 30 at 10:54
-            - The thread can implement the queue as a pipe and simply write the input info to the pipe.
-                The main thread can the wait on the pipe as it does wait on a socket.
-                Probably the answers to this SO question will help you:
-                https://stackoverflow.com/questions/5524780/i-want-to-wait-on-both-a-file-descriptor-and-a-mutex-whats-the-recommended-way
-                If it doesn't please open a new explicit question about the topic. – fpiette Jun 30 at 12:05
-
-        * Use pipe functions "popen" and "pclose" to execute external shell command and process its output within a cybol application
+            --> how to exit the accept thread --> the system itself has to be a new client to itself as server
+        * Implement feeler suspender using small message sent to the system itself, in order to exit the sensing thread
 
         * Find reason for error "EOPNOTSUPP" in server
         * Find reason for error "ECONNREFUSED" in client
             "ioctl" is usable only with internet sockets, but not with local unix domain socket
-            therefore, implement pipe first and use pipe-based signal memory (queue) event handling so that "ioctl" becomes superfluous
             afterwards, test local unix domain socket once more
 
-        * Find a solution for storing many local unix-domain sockets in internal memory
-            the port is used to distinguish tcp and udp sockets in internal memory
-            but what about local unix domain sockets without port number?
-            store the filename instead? but this is not an integer and cannot be calculated
-        * Test with cybol applications "socket_server/run.cybol" and "socket_client/run.cybol"
-
-        * Test udp socket
-        * Test local unix domain socket
-        * Reflect how to exchange data between cyboi and another (previous or following) process via anonymous pipe
-        * Implement anonymous pipe
-        * Use anonymous pipe as irq i/o message queue
-
-        * Eliminate cybol property "blocking" from startup and shutdown, but only for server socket, NOT client socket
-
-Android
-_______
-
-        * Use "NativeActivity" to render the whole screen in C
-            https://stackoverflow.com/questions/13188898/how-to-draw-on-the-android-canvas-from-the-native-code
-            https://developer.android.com/reference/android/app/NativeActivity.html
-            https://github.com/android/ndk-samples/tree/master/native-activity
-
-        * Search in web:
-            - no glibc on Android, but special libc called "Bionic"
-            - Android Native Development Kit (NDK)
-            - how to draw on a canvas ?? windowing system?
-
-Presentation
-____________
-
-        * Make video tutorial
-        * Describe project in general
-        * Show a short cybol demo
-        * Point out basic design principles (hierarchy)
-        * Propose mime type extension for operations to w3c (see cyboi format constants)
-        * Show various possible syntax representations of cybol (xml, json, no markers at all with just space, table)
-        * Entwickeln kleiner Anwendung in Java und CYBOL, zur Gegenüberstellung
-
-FIFO (Named Pipe)
-_________________
-
-        * Complete fifo (named pipe) starter
-        * See fifo example at:
-            https://www.ibm.com/docs/en/zos/2.3.0?topic=functions-mkfifo-make-fifo-special-file
-        * Write cybol application for testing
-
-Input Threads
-_____________
-
-        * Testwise deactivate socket sensing by commenting out function call "check_wait" in file "empty_checker.c"
-
-        * Test again, since I have added "volatile" in file "stream_unix_terminal_reader.c":
-            volatile wint_t c = WEOF;
-
-        * Investigate strange behaviour that terminal sensing in file "message_unix_terminal_sensor.c" does sometimes not block:
-            when pressing e.g. an arrow up (3 characters end loop break set right afterwards), the following sensing thread cycle DOES block
-            when pressing e.g. escape (1 character with following -1 as end), the following sensing thread cycle does NOT block,
-                even though unix terminal is set to blocking (MIN = 1), which was recognised by output (tested just before calling "fgetwc")
-            --> Where else to use "volatile"!
-        * Uncomment function call to "check_wait" in file "empty_checker.c" which was currently temporarily commented out for testing
-            therefore, the main thread (currently, while testing) causes one cpu to run at 100 % due to the missing "sleep_nano"
-
-        * Factor out assigning of new handler from "activate/enable" to new operation e.g. "activate/handle" with cybol property "handler"
-            leave cybol operations "activate/enable" and "activate/disable" to only set "enabled" flag
-
-        * Restore original terminal attributes at shutdown (call "edit"?)
-
-        * Deallocate flags blocking, canonical, echo in file "terminal_shutter.c"
-        * Think through unix terminal shutdown in file "terminal_shutter.c" and related
-        * Consider:
-            termios settings are applied to stdin AND stdout (in linux, NOT in win32)
-            therefore, set only once at startup and restore only once at shutdown
-            ALSO DO deallocate input termios! But do NOT reset original attributes, since this is already done via output termios!
-
-        * Study and copy comments from to-be-deleted files before deleting them
-        * Delete thread-related global variables and files
-            "thread_identification.c", "service_interrupt.c", "thread_identification_globaliser.c", "service_interrupt_globaliser.c",
-            since they are now kept in channel-related input/output entry
-
-        * Search for and replace old "pthread_t" string in all source code
-
-        * Integrate locking and unlocking of mutex in affected input/output channels
-            also for channel display, in order to avoid detection of (already detected) data by the sensor thread while processing an event
-            also for channel socket, in order to avoid detection of (already detected) data by the sensor thread in the midth of receiving them
-        * Implement mutex in terminal sensor + test terminal cybol application
-        * Implement mutex in terminal writer
-        * Implement mutex in socket reader and writer
-        * Implement mutex in display reader and writer
-        * Continue in files "socket_sensor.c" and "bsd_socket_reader.c"
-        * Add cybol property "port" to all cybol operations "communicate/receive" with channel "socket"
-        * Continue files "socket_sensor.c" and "bsd_socket_reader.c"
-
-        CAUTION!
-        * Read data AND reset irq TOGETHER in one block locked by a mutex --> only then race conditions between sensing- and main thread can be avoided
-        * Reset irq where reading/writing occures and NOT in file "element_irq_checker.c"
-
-        * Delete (??) files "system_signal_handler_startup_manager.c", "..."
-
-        * Eliminate blocking flag from terminal and possibly other channels
-
-        * Investigate why stdout cannot be stored in input/output entry successfully in file "stream_terminal_shutter.c"
-            --> possibly solved meanwhile (was caused by wrong pointer handling in input/output entry)
-        * Check all terminal-related files and replace stdin and stdout with local variables
-
-        * Make data input of cybol application "tui" work again
-
-        * Eliminate flickering of window
-        * Process sensed event and remove from input/output entry, before polling for further events
-        * Receive data from input/output
-            currently, tui and gui are only sensed/detected, but that is not enough
-            NO, this is NOT necessary, since the handler (passed from cybol app) is responsible for receiving data
-
-        * Test font using cybol application "gui"
-        * Remove font parametre p4 from file "context_x_window_system_serialiser.c"
-        * Adjust font in graphic context of file "context_x_window_system_serialiser.c"
-        * Test operation "register/close" for window
-            question: Where to store the delete_window cookie, which is specific for one window?
-
-        HINTS for gui (delete later):
-        * Create in display server starter: connexion, screen, default graphic context, device context
-        * Create in display client (window) opener: (only) window
-        * Create in serialiser: font (and potentially colour map)
-        * Keep window_id in cybol application
-
-        * Adapt cybol application "user_interface/ui/"
-        * Fix tui in cybol application "user_interface/ui/"
-        * Use stack variables to avoid cybol operation call of "empty"
-            Is it possible at all?
-            the handle is called by cyboi
-        * Think about how to inform the user about errors (tui, gui, wui, all, message dialog?)
-            e.g. there is an uncritical error when first calling "send" trying to send the wui via socket, because a client socket does not exist yet
-            give the user a possibility to configure error handling in cybol on system startup?
-
-General
-_______
-
-        * Use memset() instead of loop ?? in file "internal_memory_startup_manager.c"
-            https://www.gnu.org/software/libc/manual/html_mono/libc.html#Allocating-Cleared-Space
-        * Delete files "system_signal_handler_startup_manager.c", "service_interrupt.c", since signals are not used anymore to exit threads
-        * Adapt call of function "shutdown_unix_file_descriptor_close" in file "startup.c" to be usable on all operating systems (using preprocessor "if" macro)
-        * Remove all "sleep" times, if not used anymore for signal (event) processing (busy waiting), since the blocking interrupt pipe and blocking input function calls in threads are used now
-        * Use local variable arrays instead of allocating them on heap, in file "manager.c" and everywhere possible
-        * Store pipe file descriptors in input/output entry in file "io_starter.c", since it is more efficient than having to determine them with each pipe access
-        * Use local arrays on stack in local context of functions instead of allocated arrays on heap, wherever possible
-
-Communication
-_____________
-
-        * Reflect about handling of filters in directory "executor/communicator/"
-            * Is it not too complex?
-            * Wouldn't it be more flexible to allow any number of filters (compression, enocding etc.)?
-            * In this case, the buffers used in communicator would be too static and inflexible
-
-WUI and Socket
-______________
+        * Decide what to do with files "network_service_deserialiser.c" and "network_service_serialiser.c" --> keep or delete ??
 
         * Fix error that resource gets interpreted as Stylesheet but transferred with MIME type text/plain
             see file "app.cybol" in cybol applications "socket_client" and "socket_server"
@@ -609,11 +168,6 @@ ______________
 
             s = socket(res->ai_family, res->ai_socktype, res->ai_protocol);
 
-        * Reactivate separate sensing thread with blocking "read" call on socket
-            see thoughts formulated in chapter "Client-Server Communication via TCP Socket" of file "doc/development/cyboi/design_decisions.txt"
-        * Use option "MSG_PEEK" with function "recv" for sensing data
-            see: gnu_-_c_library.html#Socket-Data-Options
-
         * Implement file "win32_device_reader.c"
             see win32 function "DeviceIoControl" in:
                 https://docs.microsoft.com/de-de/windows/win32/api/ioapiset/nf-ioapiset-deviceiocontrol?redirectedfrom=MSDN
@@ -621,15 +175,6 @@ ______________
 
         * Implement web socket
         * Use server push to update wui in web client (browser)
-
-        * Find solution for send/receive arguments. Test e.g. encoding for null OR for a defined integer value?
-            --> Fix bug that encoding IS assigned in file "content_element_part_cybol_deserialiser.c" since new allocated part HAS an encoding item whose data are NOT null
-            --> somehow set NULL for encoding, so that nothing gets converted in files "receiver.c" and "decode_receiver.c", "decode_receiver.c"
-        * Remove "temporary format item" and "temporary type item" parametres and allocate locally in function
-        * Rename cybol attribute "model" into "sender", in order to become consistent with properties of operation "communicate/receive" (in cyboi and cybol examples)
-        * Extend ALL cybol files with attributes "encoding" and "language"; empty value gets interpreted as null; language is necessary for binary data like images
-        * Initialise all variables with null in file "content_element_part_cybol_deserialiser.c"
-        * TODO Later: CAUTION! Do NOT assign any default values in file "content_element_part_cybol_deserialiser.c". These may be given and filled in e.g. an external cybol editor tool.
 
         * Extend uri deserialiser
         * Study "libcurl3" library for URL transfer for new ideas and keywords yet missing in cyboi
@@ -648,26 +193,13 @@ ______________
             Find a list of mime types at:
             https://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types
 
-        * Set non-blocking flag also for accepted client sockets, in order to be able to send/receive in non-blocking mode? See:
-            wolf_-_linux-unix-programmierung/Kap11-019.htm#RxxKap11019040003981F017100
-            done in modern web browsers --> see document "src/design_decisions.txt"
-
-        * Decide what to do with files "network_service_deserialiser.c" and "network_service_serialiser.c"
-            --> Should they be kept in cyboi or rather be key-value-mapped in cybol?
-
-        STDOUT:
-        * Delete temporary solution using "stdout" in file "file_unix_terminal_writer.c" at "fwprintf" and "fflush"
-        * Delete temporary solution using "stdout" in file "stream_terminal_shutter.c" at "startup_terminal_file_number_get"
-        * For some unknown reason, stdout cannot be stored and retrieved successfully from the input/output entry
-        * The FILE* pointer being stored is always different from the one retrieved afterwards
-        * See glibc documentation with STDIN_FILENO, STDOUT_FILENO, STDERR_FILENO:
-            https://www.gnu.org/software/libc/manual/html_mono/libc.html#Descriptors-and-Streams
-
 CYBOL Library
 _____________
 
         * Provide functionality to print standard dialogues in "examples/cybol/"
             see e.g. Java Swing JOptionPane
+
+        * Think about how to inform the user about errors (tui, gui, wui, all, message dialog?)
 
 Logging
 _______
@@ -693,6 +225,12 @@ ___
         * See how Qt handles xcb (mouse button mask etc.):
             https://code.woboq.org/qt5/qtbase/src/plugins/platforms/xcb/qxcbconnection.cpp.html#_ZN14QXcbConnection14handleXcbEventEP19xcb_generic_event_t
 
+        * Test font using cybol application "gui"
+        * Create in serialiser: font (and potentially colour map)
+        * Remove font parametre p4 from file "context_x_window_system_serialiser.c"
+        * Adjust font in graphic context of file "context_x_window_system_serialiser.c"
+
+        * Handle close event of windows -- Where to store the delete_window cookie, which is specific for one window?
         * Debug memory access error in close window event in file "xcb_deserialiser.c"
             uncomment freeing of delete window cookie atom reply in file "x_window_system_shutter.c"
             uncomment comparison (d.data32[0] == (*dwcs).atom) in file "xcb_deserialiser.c"
@@ -702,8 +240,6 @@ ___
             https://stackoverflow.com/questions/47453159/xcb-poll-for-event-does-not-detect-xcb-client-message-event-for-closing-window
             https://stackoverflow.com/questions/53027567/vksurfacekhr-does-not-to-update-when-resizing-xcb-window
             https://marc.info/?l=freedesktop-xcb&m=129381953404497&q=p5
-
-        * Delete files "x_window_system_allocator.c" and "x_window_system_deallocator.c"
 
 GUI
 ___
@@ -756,14 +292,7 @@ ___
             if "stretch" is "horizontal", then use order: north, south, west, east, centre;
             if "stretch" is "vertical", then use order: west, east, north, south, centre
 
-        Event:
-        * Delete (possibly) format constant "event/gui" and all related usages in de-/serialiser again, if not needed anymore and use "message/gui" instead
-        * Use input/output access functions of maintainer in file "element_irq_checker.c" and elsewhere (search)
-        * Think through programme flow in file "checker_and_sensor.png"
-            possibly, the "irq" branch is NOT necessary and can be eliminated,
-            if the "check_io" branch adds a received signal directly to signal_memory, instead of just setting a flag
-
-        * Optimise "xcb_writer.c" and similar files using function "get_io_entry_element"
+        * Delete format constant "event/gui" ?? and all related usages in de-/serialiser again, if not needed anymore and use "message/gui" instead
 
         * Where and how to free colours?
             see file "context_x_window_system_serialiser.c"
@@ -805,6 +334,13 @@ ___
 TUI
 ___
 
+        * Change TCSANOW into TCSADRAIN ?? (file "unix_terminal_mode_setter.c")
+
+        * Add new encoding "ansi-escape-code" and write converter, in order to filter out terminal ansi escape sequences, and delegate standard characters to converter for "utf-8"
+        * Error that only ESC is converted, but not the following two characters of the ansi escape sequence
+            unicode-conversion does not work for control characters --> do it manually?
+            mutex *IS* set correctly, so that whole buffer content is written/read
+
         * Structure files and handle windows tui events similar to gui
         * Deserialise win32 console input (also arrow keys etc.) into command, see:
             http://msdn.microsoft.com/en-us/library/windows/desktop/ms646268(v=vs.85).aspx#displaying_input
@@ -820,44 +356,24 @@ ___
             GNU/Linux kernel source:
             http:www.topology.org/linux/charpath.html
 
-        * Uncomment "fdopen" in file "unix_terminal_sensor.c"
-        * Verify that NON-BLOCKING mode is used for terminal at startup
-        * See comment in file "element_io_checker.c"
-        * Set flag "O_NONBLOCK", e.g. in file "open_unix_terminal_starter.c"
-        * See:
-            https://www.gnu.org/software/libc/manual/html_mono/libc.html#Open_002dtime-Flags
-            https://www.geeksforgeeks.org/non-blocking-io-with-pipes-in-c/
-            https://gamedev.stackexchange.com/questions/146256/how-do-i-get-getchar-to-not-block-the-input
-
-Serial Port
-___________
-
-        * Create io entry array structure for serial port i/o at startup and destroy at shutdown
-
-        * Check if having to use &= or |= instead of just = everywhere flags are set,
-            e.g. in file "set_attributes_serial_port_starter.c",
-            in order to not reset already existing values in termios by accident
-
-        * serial_port: offer "crlf_termination" flag as cybol property; see "adc" example application
-        * serial_port: offer "sync" flag as cybol property in "stream_serial_port_sender"
-
-Input / Output
-______________
-
-        * Add further channel constants, e.g.:
-            anonymous_pipe
-            named_pipe
-            jdbc (send SQL to DBMS; which protocol?)
-            odbc
-            mom / jms (message queue | publish-subscribe-channel)
-            jrmp (RMI)
-
-        * Remember that modal windows in gui are blocking other windows but not the input, since events are catched there anyway
-        * Remember that for channel "file/filesystem" only blocking mode exists
+        * Fix memory bugs reported by valgrind tool when starting cybol applications "tui" and "ui_control"
+            (appears in function call "fwprintf" of file "stream_terminal_sender.c";
+            but in some application this works just fine, e.g. in "helloworld" with terminal output)
+            --> also happens when "sensing" is deactivated in "tui/run.cybol"
+            --> it definitely has to do with sending a tui
+            --> probably, the reason is serialisation into "message/ansi-escape-code",
+                since with sending deactivated, no memory leaks are reported
+                AND sending to terminal works fine without leaks for "shell_output", "helloworld" etc.
+            --> bug causing memory leak is NOT in one of the files like e.g. "character_ansi_escape_code_serialiser.c" etc.,
+                uncommenting lines sporadically delivers leaks, depending on which cybol application gets executed
+            --> all "malloc" function calls were already checked; they are freed correctly for terminal
+            ==> TODO: check function calls of "realloc" and "free", since there MIGHT be the bug
 
 Worker Threads
 ______________
 
+        * Use worker threads for long-lasting operations
+        * Provide cybol operation for this ??
         * Add cybol property "asynchronous" for at least "communicate/send" or possibly for ALL cybol operations ??
             together with property "handler" (see "activate/enable") whose function is called in a separate thread (like a callback in JavaScript);
             handler may be empty (null) if "send" is to be executed but NO reaction expected
@@ -875,16 +391,6 @@ ______________
             http://stackoverflow.com/questions/14795145/how-the-single-threaded-non-blocking-io-model-works-in-node-js
             http://berb.github.io/diploma-thesis/original/055_events.html
             http://garywoodfine.com/event-driven-architecture-node-js/
-
-        * Use worker threads for long-lasting operations
-        * Provide cybol operation for this
-
-        * Set a flag to signal when the worker has finished / is ready
-        * See old implementation in "executor/lifeguard/interrupter/" in svn, for how to use a system signal to inform the main thread
-
-        Possible alternative:
-        * Use something like "Futures" known from Scala functional programming language and Play framework
-        * Keep a "future" as handle to that operation/thread/its results
 
         * Check out Tcl interpreter which claims to handle all i/o channels uniquely
 
@@ -963,16 +469,22 @@ _____
             Kann man natürlich auch für usec anpassen ;-)
             http://www.c-plusplus.de/forum/144938-full
 
-CYBOL Application
-_________________
+Migration
+_________
 
         Hints for migrating cybol application to new knowledge path syntax:
+
         * Rename "path/knowledge" and "path/reference" with "text/cybol-path"
         * Replace OLD property prefix "#" with ":" (CAUTION! for webpage generation the html anchor sign has to REMAIN a #)
         * Adapt stack variables by adding knowledge path prefix "#"
         * Delete operation "create" at beginning of "run.cybol" and initialise to knowledge memory root "." instead
         * Replace all code where knowledge path was assembled manually a la "[index]" --> search for "["
             --> many operations only adding path elements or an index like "[", "index", "]" may get deleted in the future
+
+CYBOL Application
+_________________
+
+        * Use stack variables to avoid cybol operation call of "empty"
 
         * Rewrite cybol application "clean_result_directory"
             - make PIPES work in cyboi (e.g. as named pipes in the background), before continuing, needed for: n=$(ls -a $1 | wc -l);
@@ -984,24 +496,6 @@ _________________
             - ALREADY DONE: make DEEP COPY and SOCKET work in cyboi, before continuing
             - use stack properties instead of duplicate loop indices etc.
             - consider file "tmp/cybop_stack.pdf"
-
-Repertoire
-__________
-
-        * Consider already existing directory "executor/packer/"
-        * Reflect on reading a cybol app as zip file (e.g. with suffix "cyboz" or "cyboa")
-        * Use the same code for reading zip and directory, since both consist of files
-        * Use new cybol channel "directory" for reading in files of directory "repertoire/db/song/" in cybol application "repertoire"
-            SEE file "repertoire/db.cybol"
-
-        * Chaining languages like "cybol | xml | zip" might be necessary for this
-        * Also, if using JSON instead of XML, e.g. "cybol | json | zip"
-
-        * Implement cybol operation "find" in cyboi
-        * Adjust removal of added items from "remain" node in directory "repertoire/logic/translate/round/"
-        * Add "remain" nodes to last section of wui "round"
-            How to reuse file "round.cybol" for last iteration of "remain" songs?
-            Problem: the "#remain_index" is reset in file "song.cybol", which is not wanted when processing ".db.remain"
 
 Searching
 _________
@@ -1151,7 +645,11 @@ ___________
 Compression
 ___________
 
+        * Provide directory "executor/packer/" with "compressor" and "extractor"
+        * Implement these into cybol
+
         * Loop "extract" in input/output pipeline, as long as filters are given, e.g. "tar|gzip|base64", see file "extract_receiver.c"
+
         * Provide filter chaining for "compression" attribute, e.g. encoding="utf-8" compression="tar|gzip|base64" (packing processed left-to-right);
             the HTTP header field "Content-Transfer-Encoding" (7bit, quoted-printable, base64, 8bit, binary)
             binary-to-text encoding scheme should thereby be made usable TOGETHER with the original encoding,
@@ -1168,19 +666,81 @@ ___________
         * Consider multipart messages:
             https://en.wikipedia.org/wiki/MIME#Multipart_messages
 
+Repertoire cybol application:
+
+        * Consider already existing directory "executor/packer/"
+        * Reflect on reading a cybol app as zip file (e.g. with suffix "cyboz" or "cyboa")
+        * Use the same code for reading zip and directory, since both consist of files
+        * Use new cybol channel "directory" for reading in files of directory "repertoire/db/song/" in cybol application "repertoire"
+            SEE file "repertoire/db.cybol"
+
+        * Chaining languages like "cybol | xml | zip" might be necessary for this
+        * Also, if using JSON instead of XML, e.g. "cybol | json | zip"
+
+        * Implement cybol operation "find" in cyboi
+        * Adjust removal of added items from "remain" node in directory "repertoire/logic/translate/round/"
+        * Add "remain" nodes to last section of wui "round"
+            How to reuse file "round.cybol" for last iteration of "remain" songs?
+            Problem: the "#remain_index" is reset in file "song.cybol", which is not wanted when processing ".db.remain"
+
 General CYBOI
 _____________
 
+        * Provide cybol format "meta/model" to deserialise e.g. socket address etc. into an integer for more efficient processing ?? (equivalent of compilation)
+
+        * Implement worker thread with cybol operations "work/move" and "work/break", for asynchronically sending message data
+
+        * Adapt all de-/serialisers in order to overwrite variable with received data instead of appending, to thereby eliminate the need for emptying variables in cybol before receiving new data
+
+        * Eliminate superfluous signal loop and call processing directly after getting handler (signal) in file "empty_checker.c" ??
+            OR: better leave signal loop for now, since it -- one day -- might be necessary for real time system features ??
+                (each operation executed in the loop in order to keep special time requirements)
+
+        * Use keyword "volatile" for flags within an endless loop or thread, in order to avoid the compiler optimising the reading of the value away
+        * Make all flags atomic by using the integer data type "sig_atomic_t", in order to avoid the operating system signal handler interfering variable access (it can take more than one instruction to read or write a single object)
+
+        * Use memset() instead of loop ?? in file "internal_memory_startup_manager.c"
+            https://www.gnu.org/software/libc/manual/html_mono/libc.html#Allocating-Cleared-Space
+
+        * Delete files "system_signal_handler_startup_manager.c", "service_interrupt.c", since signals are not used anymore to exit threads
+
+        * Remove all "sleep" times, if not used anymore for signal (event) processing (busy waiting), since the blocking interrupt pipe and blocking input function calls in threads are used now
+
+        * Use local variable arrays on stack instead of allocating them on heap, in file "manager.c" and everywhere possible
+
         * Change data types to modern version, e.g. "int" to "int32_t", in all source code
-        * Adapt all places where a void* gets casted to some type like for example int* and cast to the type with the largest value range, e.g. "long" for integer values
+        * Adapt all places where a void* gets casted to some type like for example int* and cast to the type with the largest value range ??, e.g. "long" for integer values
             see https://de.wikipedia.org/wiki/Integer_(Datentyp)#Maximaler_Wertebereich_von_Integer
 
         * Eliminate bugs mentioned on project portal bug tracker at gnu savannah
 
-        * Remove cybol properties "channel", "encoding", "language" but NOT "format" from cyboi-internal knowledge model schema
-            the "format" IS NECESSARY, since some are META formats, e.g. LANGUAGE_META_STATE_CYBOI_FORMAT, which would be lost if there was only a pure int "type" value; see e.g. "cybol_serialiser.c"
-            removal was tried but cybol applications did not work anymore -- check this out first
         * Introduce "error" property for cybol operations to be used for exception handling?
+
+        * Rename memories into: system (internal), heap (knowledge), stack ??
+
+        * Use "overwrite" instead of "copy_integer" ?? for setting the result in operations like "calculate" etc.
+            the reason is that the result value might have a count of zero (and not one as expected), if it hadn't been initialised within the corresponding cybol application
+            already done for "apply_compare"; see there
+
+        Comparing two arrays (strings) lexicographically:
+        * Rename file "executor/checker/operation_checker.c" into "lexer.c" (NOT "checker.c", since already used in "controller/") ??
+        * Rename all "checker" into "lexer"
+        * Rename function call of "check_operation" into "lex" in all code and adapt include
+
+        * Update directory "executor/container/"
+
+        * Unify common code of files "handler.c" and "knowledge_part_getter.c"?
+            --> possibly, state and logic models need to be handled differently (at least path/reference)
+
+        * Refactor loops into an own function using function pointers? See "language/loop.c"!
+
+        * Implement some functions in assembly language to accelerate execution, see:
+            http://menuetos.net/
+
+        * Search for comments with "??", "TODO", "TEST", in order to clean them up
+
+Documentation
+_____________
 
         * Simplify "lightning_talk" presentation:
             - motivation: small problem and solution as demonstration --> impression
@@ -1193,21 +753,10 @@ _____________
             - currently written in xml, json (planned) for persistence
             - syntax does not matter, therefore less xml source code on slides (too verbose), use table with columns for xml attributes instead
 
-        * Rename memories into: system (internal), heap (knowledge), stack??
-
-        * Use "overwrite" instead of "copy_integer" for setting the result in operations like "calculate" etc.
-            the reason is that the result value might have a count of zero (and not one as expected), if it hadn't been initialised within the corresponding cybol application
-            already done for "apply_compare"; see there
-
-        Comparing two arrays (strings) lexicographically:
-        * Rename file "executor/checker/operation_checker.c" into "lexer.c" (NOT "checker.c", since already used in "controller/") ??
-        * Rename all "checker" into "lexer"
-        * Rename function call of "check_operation" into "lex" in all code and adapt include
-
-        * Update directory "executor/container/"
-
 Shell Commands
 ______________
+
+        * Use pipe functions "popen" and "pclose" to execute external shell command ?? and process its output within a cybol application
 
         * Delete file "applicator/command/archive_file.c" (already realised by "tape_archiver.c"?)
         * Complete cybol application "shell_script_clean_result_directory" (only file "check_empty_home_directory.cybol"
@@ -1343,13 +892,17 @@ ______
         * Minimise defragmentation, e.g. by using a memory pool with sections marked by boundary tags
         * Optimise memory management, e.g. by searching free memory using the "next fit" instead of "first fit" algorithm
 
-Project
-_______
+Knowledge Schema
+________________
 
-        * Remove unneeded properties from cyboi scheme (part structure): language (at runtime uninteresting), encoding (at runtime always wchar_t);
+        * Remove unneeded properties from cyboi schema (part structure): language (at runtime uninteresting), encoding (at runtime always wchar_t);
             CAUTION! Do NOT remove "format", since "type" is not enough for serialisation into e.g. model_diagram files with runtime tree
-        * Provide directory "executor/packer/" with "compressor" and "extractor"
-        * Implement these into cybol
+        * Remove cybol properties "channel", "encoding", "language" but NOT "format" from cyboi-internal knowledge model schema
+            the "format" IS NECESSARY, since some are META formats, e.g. LANGUAGE_META_STATE_CYBOI_FORMAT, which would be lost if there was only a pure int "type" value; see e.g. "cybol_serialiser.c"
+            removal was tried but cybol applications did not work anymore -- check this out first
+
+Data Types
+__________
 
         * Change datatypes; really ??; CAUTION! some have already been switched to "long long int", e.g. in "datetime_getter.c" etc.
         * Use integer datatype "unsigned char" (8 Bit) for boolean values;
@@ -1360,38 +913,18 @@ _______
         * Use integer datatype "long long int" (64 Bit) wherever useful in cyboi;
             adapt file "executor/memoriser/size_determiner.c" to use "SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE" instead of "SIGNED_INTEGER_INTEGRAL_TYPE_SIZE" for "INTEGER_NUMBER_STATE_CYBOI_TYPE"
 
-        * Fix memory bugs reported by valgrind tool when starting cybol applications "tui" and "ui_control"
-            (appears in function call "fwprintf" of file "stream_terminal_sender.c";
-            but in some application this works just fine, e.g. in "helloworld" with terminal output)
-            --> also happens when "sensing" is deactivated in "tui/run.cybol"
-            --> it definitely has to do with sending a tui
-            --> probably, the reason is serialisation into "message/ansi-escape-code",
-                since with sending deactivated, no memory leaks are reported
-                AND sending to terminal works fine without leaks for "shell_output", "helloworld" etc.
-            --> bug causing memory leak is NOT in one of the files like e.g. "character_ansi_escape_code_serialiser.c" etc.,
-                uncommenting lines sporadically delivers leaks, depending on which cybol application gets executed
-            --> all "malloc" function calls were already checked; they are freed correctly for terminal
-            ==> TODO: check function calls of "realloc" and "free", since there MIGHT be the bug
-
-        * Unify common code of files "handler.c" and "knowledge_part_getter.c"?
-            --> possibly, state and logic models need to be handled differently (at least path/reference)
-
-        * Rename "number/double" into "number/float" in all cybol applications
-
-        * Refactor loops into an own function using function pointers? See "language/loop.c"!
+Constants
+_________
 
         * Check out possible usage of "const" for constants:
             http://www.noxeos.com/2011/07/29/c-const-static-keywords/
         * Check possible simplification of constants definition using:
             int* var = (int[]) { 6 };
 
-        * Implement some functions in assembly language to accelerate execution, see:
-            http://menuetos.net/
-
-        * Search for comments with "??", "TODO", "TEST", in order to clean them up
-
 CYBOL
 _____
+
+        * Rename "number/double" into "number/float" in all cybol applications
 
         * Simplify relative paths in cybol applications not expecting "examples/"
             as parent directory but using that of the application as working directory
@@ -1525,11 +1058,6 @@ ________
             http://www.tildeslash.com/libzdb/#
             https://www.linuxnetworks.de/doc/index.php/OpenDBX
 
-CPU
-___
-
-        * Store handler operations as interrupt request handler routine in cpu?
-
 CYBOI
 _____
 
@@ -1539,5 +1067,5 @@ _____
         * Reintroduce channel "directory" used for reading the files of a directory
         * See example cybol application "repertoire" in file "db.cybol"
             <node name="song" channel="directory" format="element/part" model="application/repertoire/db/song/"/>
-        * The advantage would be not to have to list all files additionally in an index file "application/repertoire/db/song.cybol"
+        * The advantage would be not to have to list all files additionally in an index file like "application/repertoire/db/song.cybol"
 

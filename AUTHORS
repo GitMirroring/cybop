@@ -133,5 +133,6 @@ Help and Support
         * Francois Piette "fpiette" via stackoverflow developer portal (hint on using a pipe that the terminal child thread fills and the main thread reads)
 
 External References (GNU GPL Projects)
+        * Steve Allen <sla@ucolick.org> (website listing "Time Scales" at https://www.ucolick.org/~sla/leapsecs/timescales.html)
         * Dieter Egger <dieter.egger@bv.tum.de> (calendar/date/time conversion Java project http://www.astro-toolbox.com/)
 
