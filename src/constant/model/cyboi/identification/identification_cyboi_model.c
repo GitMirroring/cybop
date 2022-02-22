@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2020. Christian Heller.
+ * Copyright (C) 1999-2022. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.21.0 2020-07-29
+ * @version CYBOP 0.22.0 2022-02-22
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
@@ -43,7 +43,7 @@ static wchar_t* SLOGAN_IDENTIFICATION_CYBOI_MODEL = L"The universal knowledge pr
 static int* SLOGAN_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_42_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The copyright identification cyboi model. */
-static wchar_t* COPYRIGHT_IDENTIFICATION_CYBOI_MODEL = L"Copyright (C) 1999-2020. Christian Heller.";
+static wchar_t* COPYRIGHT_IDENTIFICATION_CYBOI_MODEL = L"Copyright (C) 1999-2022. Christian Heller.";
 static int* COPYRIGHT_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_42_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The licence identification cyboi model. */

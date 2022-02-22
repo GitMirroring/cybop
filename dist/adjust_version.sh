@@ -9,7 +9,7 @@
 # CAUTION! Execute this script from within the dist/ directory,
 # since the path settings rely on it.
 #
-# @author Christian Heller <christian.heller@tuxtax.de>
+# @author Christian Heller <christian.heller@cybop.org>
 #
 
 #
@@ -60,10 +60,10 @@ echo "Adjust version";
 # Define global variables.
 #
 
-YEAR_OLD="Copyright (C) 1999-2018. Christian Heller.";
-YEAR_NEW="Copyright (C) 1999-2020. Christian Heller.";
-VERSION_OLD="CYBOP 0.20.0 2018-06-30";
-VERSION_NEW="CYBOP 0.21.0 2020-07-29";
+YEAR_OLD="Copyright (C) 1999-2020. Christian Heller.";
+YEAR_NEW="Copyright (C) 1999-2022. Christian Heller.";
+VERSION_OLD="CYBOP 0.21.0 2020-07-29";
+VERSION_NEW="CYBOP 0.22.0 2022-02-22";
 
 #
 # CAUTION! Do NOT process directory "dist/",

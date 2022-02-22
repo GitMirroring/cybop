@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2020. Christian Heller.
+ * Copyright (C) 1999-2022. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *

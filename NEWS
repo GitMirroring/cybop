@@ -1,5 +1,5 @@
 #
-# Copyright (C) 1999-2020. Christian Heller.
+# Copyright (C) 1999-2022. Christian Heller.
 #
 # This file represents a record of user-visible changes to cybop.
 #
@@ -9,9 +9,76 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.21.0 2020-07-29
+# @version CYBOP 0.22.0 2022-02-22
 # @author Christian Heller <christian.heller@cybop.org>
 #
+
+CYBOP 0.22.0, 2022-02-22, Christian Heller  <christian.heller@cybop.org>
+
+        * CYBOI:
+            Communication architecture:
+            - Redesign completely to make it yet more uniform, slim and efficient
+            - Store communication values in cascade of pointer arrays for (1) internal memory (2) input output entry (3) server entry (4) client entry
+            - Realise optional asynchronous communication via enable thread and sense thread
+            - Use iso c library "threads.h" being a wrapper for posix "pthread" library
+            - Distinguish between standalone client and server-side client stub
+            - Provide mutex-protected client requst buffer for each server
+            - Provide mutex-protected input buffer and output buffer for each client
+            - Detect length prefix or end suffix using message length deserialiser
+            - Use low-level functions "read" and "write" instead of stream functions
+            - Prepare timeout handling via function "time" and accepttime list
+            Interrupt pipe:
+            - Introduce interrupt pipe to avoid busy waiting with endless loop
+            - Communicate between input threads and main thread via interrupt pipe
+            - Let main thread block while waiting for input from interrupt pipe
+            - Clean up event (signal) handling in controller checker
+            Awakener:
+            - Use blocking input for all channels
+            - Eliminate busy waiting with sleep time variables
+            - Introduce awakener for letting the system send a fake input to itself
+            - Wake up blocking sensing threads, so that they can exit themselves
+            - Implement terminal awakener using function "ioctl"
+            - Implement display awakener using function "xcb_send_event" from "xcb/xproto.h"
+            - Wait for child thread to finish using function "thrd_join"
+            General:
+            - Optimise knowledge path deserialiser
+            - Add threader with spinner and cutter for handling thread functions
+            - Add porter with locker and unlocker for handling mutex
+            - Unify error logging
+        * CYBOL:
+            Lifecycle:
+            - maintain/startup and maintain/shutdown
+            - activate/enable and activate/disable
+            - dispatch/open and dispatch/close
+            - configure/initialise and configure/finalise
+            - feel/sense and feel/suspend
+            - communicate/receive and communicate/send
+            - stream/read and stream/write
+            - convert/decode and convert/encode
+            - represent/deserialise and represent/serialise
+            General:
+            - Eliminate cybol property "network_service" (e.g. "http"), since specifying a unique port (e.g. 80) suffices
+            - Add property "timeout" to operation "maintain/startup"
+            - Store client device identifier in corresponding cybol application (file descriptor, socket number, window id)
+            Application "presence":
+            - Distinguish request between file path and query with key-value-pairs
+            - Make css be transferred as file, since dynamic URL does only work with JavaScript
+            - Make header image and heraldic symbol get transferred as static file and not dynamic byte stream
+            - Remove "close" from http headers, to not always close http connection
+            - Adapt to using stack memory variables
+            Applications:
+            - Add small files to "communication" demonstrating lifecycle operations
+            - Simplify "www_server_dynamic" and delete css
+            - Split socket handler in "ui" into action handler and empty message sender, in order to reply to favicon and other requests
+            - Test language "message/binary-crlf" in "socket_client" and "socket_server"
+            - Make tables that remained empty in "wui" work again
+            - Make cybol application "user_interface/gui" work again
+        * Project:
+            - Move development documentation files and diagrams from "src/" to "doc/development/cyboi/"
+            - Update document "doc/development/cyboi/design_decisions.txt"
+            - Add diagram "doc/development/cyboi/knowledge_deserialiser.xmi"
+            - Create svg images from all diagrams
+            - Add comparison table document "doc/development/cyboi/service_lifecycle.pdf"
 
 CYBOP 0.21.0, 2020-07-29, Christian Heller  <christian.heller@cybop.org>
 
