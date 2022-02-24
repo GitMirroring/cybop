@@ -1069,3 +1069,8 @@ _____
             <node name="song" channel="directory" format="element/part" model="application/repertoire/db/song/"/>
         * The advantage would be not to have to list all files additionally in an index file like "application/repertoire/db/song.cybol"
 
+Tool
+____
+
+        * Develop simple cybol editor tool with tree and table as web application in server-side cybol or partly in javascript
+
