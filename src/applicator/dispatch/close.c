@@ -27,20 +27,29 @@
 #define CLOSE_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/part_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/name/cybol/logic/dispatching/close_dispatching_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
+#include "../../executor/copier/array_copier.c"
+#include "../../executor/copier/integer_copier.c"
 #include "../../executor/dispatcher/closer/closer.c"
 #include "../../logger/logger.c"
 
 /**
  * Closes down the client on the given channel.
  *
- * Expected parametres:
- * - channel (required): the channel on which to close a client (window), e.g. socket or display
- * - id (required): the identification
+ * Parametres:
+ * - channel (required): the communication channel, e.g. file, serial, socket
+ * - server (optional): the flag indicating server mode, e.g. for window or client socket stub; if NULL, the default is false (standalone client mode)
+ * - port (optional): the service identification; only relevant in server mode
+ * - identification (required): the file descriptor or client socket number or window id returned from cyboi (except for channel "server_socket", where accept returns a ready client socket id)
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -52,38 +61,99 @@ void apply_close(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply close.");
 
+    //
+    // Declaration
+    //
+
     // The channel part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The id part.
+    // The server flag part.
+    void* sf = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The port part.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The identification part.
     void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The id part model item.
+    // The server flag part model item.
+    void* sfm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The port part model item.
+    void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The identification part model item.
     void* idm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model item data.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The id part model item data.
+    // The server flag part model item data.
+    void* sfmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The port part model item data.
+    void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The identification part model item data.
     void* idmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get channel part.
-    get_part_name((void*) &c, p0, (void*) CHANNEL_CLOSE_DISPATCHING_LOGIC_CYBOL_NAME, (void*) CHANNEL_CLOSE_DISPATCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get id part.
-    get_part_name((void*) &id, p0, (void*) IDENTIFICATION_CLOSE_DISPATCHING_LOGIC_CYBOL_NAME, (void*) IDENTIFICATION_CLOSE_DISPATCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &c, p0, (void*) CHANNEL_OPEN_DISPATCHING_LOGIC_CYBOL_NAME, (void*) CHANNEL_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get server flag part.
+    get_part_name((void*) &sf, p0, (void*) SERVER_OPEN_DISPATCHING_LOGIC_CYBOL_NAME, (void*) SERVER_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get port part.
+    get_part_name((void*) &p, p0, (void*) PORT_OPEN_DISPATCHING_LOGIC_CYBOL_NAME, (void*) PORT_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get identification part.
+    get_part_name((void*) &id, p0, (void*) IDENTIFICATION_OPEN_DISPATCHING_LOGIC_CYBOL_NAME, (void*) IDENTIFICATION_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get channel part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get id part model item.
+    // Get server flag part model item.
+    copy_array_forward((void*) &sfm, sf, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get port part model item.
+    copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get identification part model item.
     copy_array_forward((void*) &idm, id, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Get channel part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get id part model item data.
+    // Get server flag part model item data.
+    copy_array_forward((void*) &sfmd, sfm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get port part model item data.
+    copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get identification part model item data.
     copy_array_forward((void*) &idmd, idm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    //
+    // Default values
+    //
+
+    // Set server flag to FALSE (client mode) by default.
+    int server = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    //
+    // Set port to ZERO by default.
+    //
+    // CAUTION! It is necessary when opening a new client WINDOW,
+    // so that it can be appended to the display server,
+    // which was assigned to port ZERO at service startup.
+    //
+    int port = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    //
+    // CAUTION! The following values are ONLY copied,
+    // if the source value is NOT NULL.
+    // This is tested inside the "copy_integer" function.
+    // Otherwise, the destination value remains as is.
+    //
+
+    copy_integer((void*) &server, sfmd);
+    copy_integer((void*) &port, pmd);
+
+    //
+    // Functionality
+    //
+
     // Close down client.
-    //?? close_client(idmd, p4, cmd);
+    close_client(idmd, (void*) &port, cmd, (void*) &server, p4);
 }
 
 /* CLOSE_SOURCE */

@@ -13,9 +13,6 @@
 
 CONTINUE current work:
 
-        * Figure out handling of window events in enabler and sensor and reader
-
-        * Finish file "closer.c" (replace temporary parametre "destination-index" in call of remove) and "apply_close"
         * Update activator disabler
         * Complete maintainer shutter by closing clients in client list
 
@@ -23,10 +20,13 @@ CONTINUE current work:
         * Test file read functionality
         * Use service lifecycle cybol examples in directory "examples/communication/"
 
+        * Figure out handling of window events in enabler and sensor and reader
+
 Writer
 ______
 
-        * Add comment to an appropriate writer file, e.g. "writer.c":
+        * Provide asynchronous writing of data using a thread and callback cybol handler
+        * Add the following comment to an appropriate writer file, e.g. "writer.c":
 
             //
             // The handler handed over is OPTIONAL and may be null.

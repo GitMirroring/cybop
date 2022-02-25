@@ -32,6 +32,7 @@
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/dispatcher/closer/basic/basic_closer.c"
 #include "../../../executor/dispatcher/closer/display/display_closer.c"
+#include "../../../executor/dispatcher/closer/socket/socket_closer.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -70,16 +71,16 @@ void close_device(void* p0, void* p1, void* p2) {
         }
     }
 
-    //
-    // CAUTION! This is a NAMED PIPELINE, also called FIFO.
-    // It is NOT an anonymous pipeline (pipe).
-    //
-
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) PIPELINE_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // CAUTION! This is a NAMED PIPELINE, also called FIFO.
+            // It is NOT an anonymous pipeline (pipe).
+            //
 
             close_basic(p0);
 

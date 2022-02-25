@@ -37,12 +37,13 @@
  * /usr/include/unistd.h:353:12
  * extern int close (int __fd);
  *
- * @param p0 the client identification (e.g. file descriptor, socket number)
- * @param p1 the internal memory
+ * @param p0 the client identification (e.g. file descriptor, socket number, window id)
+ * @param p1 the port
  * @param p2 the channel
- * @param p3 the port
+ * @param p3 the server flag
+ * @param p4 the internal memory
  */
-void close_client(void* p0, void* p1, void* p2, void* p3) {
+void close_client(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close client.");
     fwprintf(stdout, L"Debug: Close client. p0: %i\n", p0);
@@ -65,7 +66,7 @@ void close_client(void* p0, void* p1, void* p2, void* p3) {
     //
 
     // Get client entry belonging to given source device.
-    find_entry((void*) &ce, internal-memory, channel, server-flag, port, dev-id);
+    find_entry((void*) &ce, p4, p2, p3, p1, p0);
 
     //
     // Suspension
@@ -85,7 +86,7 @@ void close_client(void* p0, void* p1, void* p2, void* p3) {
     // Get input output entry from client entry.
     copy_array_forward((void*) &io, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_OUTPUT_BACKLINK_CLIENT_STATE_CYBOI_NAME);
     // Get suitable client list item.
-    find_mode((void*) &cl, io, server-flag, port);
+    find_mode((void*) &cl, io, p3, p1);
     // Get client entry index within server list by client device identification.
     find_list_index((void*) &i, cl, p0, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
     // Remove client entry from client list.
@@ -96,7 +97,7 @@ void close_client(void* p0, void* p1, void* p2, void* p3) {
     //
 
     // Finalise device.
-    finalise(p0-client-id, ce, channel);
+    finalise(p0, ce, p2);
 
     //
     // Closing
@@ -116,7 +117,7 @@ void close_client(void* p0, void* p1, void* p2, void* p3) {
     //
 
     // Deallocate client entry.
-    deallocate_client_entry((void*) &ce, channel);
+    deallocate_client_entry((void*) &ce, p2);
 }
 
 /* CLOSER_SOURCE */
