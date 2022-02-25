@@ -46,11 +46,11 @@
  * @param p0 the input/output entry
  * @param p1 the channel
  */
-void awake(void* p0, void* p1) {
+void awaken(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Awake.");
-    fwprintf(stdout, L"Debug: Awake. channel p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Awake. channel *p1: %i\n", *((int*) p1));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Awaken.");
+    fwprintf(stdout, L"Debug: Awaken. channel p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Awaken. channel *p1: %i\n", *((int*) p1));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -61,7 +61,7 @@ void awake(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            awake_display(p0);
+            awaken_display(p0);
         }
     }
 
@@ -71,7 +71,7 @@ void awake(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            awake_serial_port(p0);
+            awaken_serial_port(p0);
         }
     }
 
@@ -81,7 +81,7 @@ void awake(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            awake_socket(p0);
+            awaken_socket(p0);
         }
     }
 
@@ -91,14 +91,14 @@ void awake(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            awake_terminal(p0);
+            awaken_terminal(p0);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not awake. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not awake. The channel is unknown. p1: %i\n", *((int*) p1));
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not awaken. The channel is unknown.");
+        fwprintf(stdout, L"Warning: Could not awaken. The channel is unknown. p1: %i\n", *((int*) p1));
     }
 }
 

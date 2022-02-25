@@ -51,7 +51,9 @@
  */
 void enable_win32_display(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable win32 display.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable win32 display.");
+    fwprintf(stdout, L"Debug: Enable win32 display. p0: %i\n", p0);
+    fwprintf(stdout, L"Debug: Enable win32 display. *p0: %i\n", *((int*) p0));
 
     //
     // The event message.

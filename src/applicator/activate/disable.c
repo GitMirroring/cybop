@@ -44,8 +44,8 @@
  * Disables the given channel for message sensing.
  *
  * Parametres:
- * - channel (required): the channel via which to receive the message (terminal, www, x-window-system etc.)
- * - port (required): the service identification, e.g. socket port 80
+ * - channel (required): the channel, e.g. socket, display
+ * - port (optional): the service identification, e.g. socket port 80, optional for display with default port 0 (zero)
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -63,17 +63,17 @@ void apply_disable(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // The channel part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket port part.
+    // The port part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket port part model item.
+    // The port part model item.
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model item data.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket port part model item data.
+    // The port part model item data.
     void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
@@ -81,18 +81,18 @@ void apply_disable(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //
 
     // Get channel part.
-    get_part_name((void*) &c, p0, (void*) CHANNEL_ACTIVATION_LOGIC_CYBOL_NAME, (void*) CHANNEL_ACTIVATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get socket port part.
-    get_part_name((void*) &p, p0, (void*) PORT_SOCKET_ACTIVATION_LOGIC_CYBOL_NAME, (void*) PORT_SOCKET_ACTIVATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &c, p0, (void*) CHANNEL_DISABLE_ACTIVATION_LOGIC_CYBOL_NAME, (void*) CHANNEL_DISABLE_ACTIVATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get port part.
+    get_part_name((void*) &p, p0, (void*) PORT_DISABLE_ACTIVATION_LOGIC_CYBOL_NAME, (void*) PORT_DISABLE_ACTIVATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get channel part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get socket port part model item.
+    // Get port part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Get channel part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get socket port part model item data.
+    // Get port part model item data.
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     //
@@ -121,7 +121,7 @@ void apply_disable(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Functionality
     //
 
-    disable((void*) &port, cmd, p4);
+    disable(p4, (void*) &port, cmd);
 }
 
 /* DISABLE_SOURCE */

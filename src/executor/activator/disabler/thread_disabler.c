@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef THREAD_ENABLER_SOURCE
-#define THREAD_ENABLER_SOURCE
+#ifndef THREAD_DISABLER_SOURCE
+#define THREAD_DISABLER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -34,31 +34,45 @@
 #include "../../../constant/name/cyboi/state/server_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/copier/array_copier.c"
-#include "../../../executor/activator/enabler/function_enabler.c"
-#include "../../../executor/threader/spinner.c"
+#include "../../../executor/copier/integer_copier.c"
+#include "../../../executor/threader/cutter.c"
 #include "../../../logger/logger.c"
 
 /**
- * Prepares the enable thread.
+ * Sets the thread exit flag and sends an awaken message.
  *
  * @param p0 the server entry
  */
-void enable_thread(void* p0) {
+void disable_thread(void* p0) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable thread.");
-    fwprintf(stdout, L"Debug: Enable thread. channel p0: %i\n", p0);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Disable thread.");
+    fwprintf(stdout, L"Debug: Disable thread. channel p0: %i\n", p0);
 
-    // The thread identification.
+    // The enable thread identification.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The thread function.
-    void* f = (void*) &enable_function;
+    // The enable thread exit flag.
+    void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get thread identification from server entry.
+    // Get enable thread identification from server entry.
     copy_array_forward((void*) &t, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_THREAD_INPUT_SERVER_STATE_CYBOI_NAME);
+    // Get enable thread exit flag from server entry.
+    copy_array_forward((void*) &ex, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_INPUT_SERVER_STATE_CYBOI_NAME);
 
-    // Invoke enable function WITHIN a new thread.
-    spin(t, f, p0);
+    // Set enable thread exit flag.
+    copy_integer(ex, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    //
+    // Awaken thread so that it can detect the exit flag set above.
+    //
+    // CAUTION! Mind the order. The exit flag has to be set FIRST
+    // since otherwise, the fake input might be processed and be LOST,
+    // if the exit flag were not found to be set before.
+    //
+    //?? awaken(io, p0, enable-flag-set[to-distinguish-from-sense-thread]);
+
+    // Wait for thread to exit.
+    cut(t);
 }
 
-/* THREAD_ENABLER_SOURCE */
+/* THREAD_DISABLER_SOURCE */
 #endif

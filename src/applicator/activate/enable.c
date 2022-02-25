@@ -45,7 +45,7 @@
  *
  * Parametres:
  * - channel (required): the channel, e.g. socket, display
- * - port (optional): the service port, required for channel socket, e.g. port 80
+ * - port (optional): the service identification, e.g. socket port 80, optional for display with default port 0 (zero)
  * - handler (optional): the handler
  *
  * @param p0 the parametres data

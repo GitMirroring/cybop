@@ -26,48 +26,79 @@
 #ifndef DISABLER_SOURCE
 #define DISABLER_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../../executor/activator/service_disabler.c"
-#include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
-#include "../../logger/logger.c"
-#include "../../mapper/channel_to_internal_memory_mapper.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/server_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/activator/thread_disabler.c"
+#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/finder/list_finder.c"
+#include "../../../logger/logger.c"
+#include "../../../mapper/channel_to_internal_memory_mapper.c"
 
 /**
- * Disables the given service.
+ * Disables the service on the given channel.
  *
- * @param p0 the internal memory data
- * @param p1 the socket port (service identification)
+ * @param p0 the internal memory
+ * @param p1 the port (service identification)
  * @param p2 the channel
  */
 void disable(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Disable.");
-    fwprintf(stdout, L"Debug: Disable. channel p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Information: Disable. p2: %i\n", p2);
+    fwprintf(stdout, L"Information: Disable. *p2: %i\n", *((int*) p2));
 
-    // The internal memory name (input/output base).
+    //
+    // Declaration
+    //
+
+    // The internal memory name.
     int n = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The input output entry.
+    void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The server list.
+    void* sl = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The server entry.
+    void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get internal memory name.
+    //
+    // Retrieval
+    //
+
+    // Get internal memory name by channel.
     map_channel_to_internal_memory((void*) &n, p2);
+    // Get input output entry from internal memory.
+    copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &n);
+    // Get server list from input output entry.
+    copy_array_forward((void*) &sl, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SERVERS_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    // Get server entry from server list by service identification (port number).
+    find_list((void*) &se, sl, p1, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME);
 
-    compare_integer_greater_or_equal((void*) &r, (void*) &n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    if (se != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        // Disable service by exiting enable thread.
+        disable_thread(se);
 
         //
-        // The internal memory name (input/output base) is VALID.
+        // CAUTION! Do NOT close the clients of this service here.
         //
-        // CAUTION! This check is important since otherwise,
-        // the internal memory is accessed with a wrong index,
-        // which may lead to memory errors.
+        // The enable service is just disabled (suspended),
+        // but it might get enabled (resumed) again later.
+        //
+        // For disabling this service AND closing all clients,
+        // this service has to be SHUT DOWN.
         //
 
-        disable_service(p0, (void*) &n, p1, p2);
+    } else {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not disable. A server entry with the given service identification (port) does not exist.");
+        fwprintf(stdout, L"Warning: Could not disable. A server entry with the given service identification (port) does not exist. p19: %i\n", p19);
     }
 }
 

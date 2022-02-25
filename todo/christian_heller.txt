@@ -13,14 +13,36 @@
 
 CONTINUE current work:
 
-        * Update activator disabler
-        * Complete maintainer shutter by closing clients in client list
+        DONE: ALL in maintainer shutter, including file "service_shutter.c"
+        TODO: only files "shutter.c" and "clients_shutter.c"
+        * Complete maintainer shutter by closing clients
 
         * Make compilable
         * Test file read functionality
-        * Use service lifecycle cybol examples in directory "examples/communication/"
+        * Run service lifecycle cybol examples in directory "examples/communication/"
 
         * Figure out handling of window events in enabler and sensor and reader
+
+Awakener
+________
+
+        * Update awakener
+        * Reflect about how to implement file "socket_awakener.c" called within exit process
+            --> best let cyboi send a message to itself via socket in order to exit
+            --> hand over a randomly generated integer via io_entry or client_entry, which is known only to the system that itself also receives the message
+            --> this works for feel/sense but also for activate/enable, since it is enough to leave the blocking function, so that the flag (plus random number) may be checked
+        * Alternative thought: the call of function "read_device" (using "ioctl" internally) was used in file "socket_sensor.c", to detect input on socket
+            --> that means, that output should be sendable to socket as well via "ioctl"
+            --> this could possibly be used for exiting the sensing thread and the enable thread !
+        * Problem: distinguish between sensing thread + accept thread
+            --> exiting sensing thread should be possible via sending a message to itself
+            --> how to exit the accept thread --> the system itself has to be a new client to itself as server
+        * Implement feeler suspender using small message sent to the system itself, in order to exit the sensing thread
+
+        * Find reason for error "EOPNOTSUPP" in server
+        * Find reason for error "ECONNREFUSED" in client
+            "ioctl" is usable only with internet sockets, but not with local unix domain socket
+            afterwards, test local unix domain socket once more
 
 Writer
 ______
@@ -120,24 +142,6 @@ ______________
         * Reset client's accepttime on available data
         * Debug memory access error by casting timeout value from type "time_t" to "int" before storing it in entry
         * Test with cybol applications "www_server_dynamic"
-
-        Awakener:
-        * Reflect about how to implement file "socket_awakener.c" called within exit process
-            --> best let cyboi send a message to itself via socket in order to exit
-            --> hand over a randomly generated integer via io_entry or client_entry, which is known only to the system that itself also receives the message
-            --> this works for feel/sense but also for activate/enable, since it is enough to leave the blocking function, so that the flag (plus random number) may be checked
-        * Alternative thought: the call of function "read_device" (using "ioctl" internally) was used in file "socket_sensor.c", to detect input on socket
-            --> that means, that output should be sendable to socket as well via "ioctl"
-            --> this could possibly be used for exiting the sensing thread and the enable thread !
-        * Problem: distinguish between sensing thread + accept thread
-            --> exiting sensing thread should be possible via sending a message to itself
-            --> how to exit the accept thread --> the system itself has to be a new client to itself as server
-        * Implement feeler suspender using small message sent to the system itself, in order to exit the sensing thread
-
-        * Find reason for error "EOPNOTSUPP" in server
-        * Find reason for error "ECONNREFUSED" in client
-            "ioctl" is usable only with internet sockets, but not with local unix domain socket
-            afterwards, test local unix domain socket once more
 
         * Decide what to do with files "network_service_deserialiser.c" and "network_service_serialiser.c" --> keep or delete ??
 

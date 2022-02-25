@@ -26,13 +26,24 @@
 #ifndef STARTER_SOURCE
 #define STARTER_SOURCE
 
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/accessor/getter/channel_internal_memory_getter.c"
-#include "../../../executor/accessor/setter/channel_internal_memory_setter.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/server_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/finder/list_finder.c"
+#include "../../../executor/maintainer/starter/entry_starter.c"
 #include "../../../executor/maintainer/starter/service_starter.c"
 #include "../../../executor/memoriser/allocator/server_entry_allocator.c"
+#include "../../../executor/modifier/item_modifier.c"
 #include "../../../logger/logger.c"
+#include "../../../mapper/channel_to_internal_memory_mapper.c"
 
 /**
  * Starts up the given server.
@@ -44,7 +55,7 @@
  * /usr/include/i386-linux-gnu/sys/socket.h:232:12
  *
  * @param p0 the internal memory
- * @param p1 the port
+ * @param p1 the port (service identification)
  * @param p2 the host address data (network communication) OR filename data (local unix domain socket)
  * @param p3 the host address count (network communication) OR filename count (local unix domain socket)
  * @param p4 the family data (namespace)

@@ -26,12 +26,26 @@
 #ifndef SHUTTER_SOURCE
 #define SHUTTER_SOURCE
 
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/maintainer/specific_shutter.c"
-#include "../../../executor/maintainer/general_shutter.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/server_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/activator/disabler.c"
+#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/finder/list_finder.c"
+#include "../../../executor/finder/list_index_finder.c"
+#include "../../../executor/maintainer/shutter/clients_shutter.c"
+#include "../../../executor/maintainer/shutter/service_shutter.c"
+#include "../../../executor/memoriser/deallocator/server_entry_deallocator.c"
+#include "../../../executor/modifier/item_modifier.c"
 #include "../../../logger/logger.c"
+#include "../../../mapper/channel_to_internal_memory_mapper.c"
 
 /**
  * Shuts down the given service.
@@ -41,7 +55,7 @@
  * /usr/include/i386-linux-gnu/sys/socket.h:232:12
  *
  * @param p0 the internal memory data
- * @param p1 the socket port (service identification)
+ * @param p1 the port (service identification)
  * @param p2 the channel
  */
 void shutdown_server(void* p0, void* p1, void* p2) {
@@ -85,17 +99,17 @@ void shutdown_server(void* p0, void* p1, void* p2) {
         //
 
         //
-        // Disable service and exit enable (accept) thread.
+        // Disable service by exiting enable (accept) thread.
         //
         // CAUTION! This has to be done BEFORE deallocating resources below.
         //
         // Display:
         //
         // The enable thread writes received events into the client input buffer.
-        // These events got allocated inside the x window system and
-        // have to be deallocated (freed) yet.
+        // These EVENTS got allocated inside the x window system and
+        // have to be DEALLOCATED (freed) yet.
         //
-        // Therefore, the enable thread has to be exited FIRST and
+        // Therefore, the enable thread has to be exited FIRST and only
         // then the main thread can loop the request input buffer and
         // deallocate ALL events before deallocating the buffer itself.
         //
@@ -114,7 +128,7 @@ void shutdown_server(void* p0, void* p1, void* p2) {
         // Therefore, the sensing thread has to be exited FIRST
         // as long as ioctl fake input can be received prompt.
         //
-        //?? TODO: disable(p0, p3, p1, p2);
+        disable(p0, p1, p2);
 
         //
         // Removal
@@ -122,6 +136,11 @@ void shutdown_server(void* p0, void* p1, void* p2) {
 
         // Get server entry index within server list by service identification (port number).
         find_list_index((void*) &i, sl, port, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME);
+
+        //
+        // CAUTION! Locking a mutex is NOT necessary here,
+        // since only the main thread accesses the server list.
+        //
 
         // Remove server entry from server list.
         modify_item(sl, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
@@ -134,7 +153,7 @@ void shutdown_server(void* p0, void* p1, void* p2) {
         shutdown_clients(se, TODO);
 
         // Shutdown service.
-        shutdown_service(se, channel);
+        shutdown_service(se, p2);
 
         //
         // Deallocation

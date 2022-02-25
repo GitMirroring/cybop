@@ -100,7 +100,7 @@ void enable_xcb(void* p0, void* p1) {
             //
             enable_xcb_buffer(bi, (void*) &e, bm);
 
-            // Copy window identification to sender client identification.
+            // Copy window identification to destination sender client identification.
             copy_integer(p0, (void*) &w);
 
         } else {
