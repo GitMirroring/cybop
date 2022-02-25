@@ -13,10 +13,6 @@
 
 CONTINUE current work:
 
-        * Add memoriser deallocator socket_address
-
-        * Delete modify EMPTY from file "reader.c", since only relevant for inline channel but must not overwrite buffer content ??
-
         * Figure out handling of window events in enabler and sensor and reader
 
         * Finish file "closer.c" (replace temporary parametre "destination-index" in call of remove) and "apply_close"

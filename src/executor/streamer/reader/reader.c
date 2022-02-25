@@ -69,7 +69,19 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // Map channel to datatype.
     map_channel_to_type((void*) &t, p6);
 
-    // Empty destination item before appending data.
+    //
+    // CAUTION! Do NOT empty destination item here.
+    //
+    // When this reader is called from a sensing thread,
+    // then a BUFFER array is provided as destination.
+    // Since the sensing and read run in an ENDLESS LOOP,
+    // chances are that other data have already been stored
+    // in the buffer BEFORE and MUST NOT be deleted here.
+    //
+    // It is the responsibility of the corresponding cybol application
+    // to provide a suitable destination tree node, either empty or not,
+    // to which data are appended by this reader.
+    //
     modify_item(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &t, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) EMPTY_MODIFY_LOGIC_CYBOI_FORMAT);
 
     // Get client entry belonging to given source device.
