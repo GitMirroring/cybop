@@ -30,10 +30,6 @@
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-//
-// General
-//
-
 /** The channel close dispatching logic cybol name. */
 static wchar_t* CHANNEL_CLOSE_DISPATCHING_LOGIC_CYBOL_NAME = L"channel";
 static int* CHANNEL_CLOSE_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -41,6 +37,14 @@ static int* CHANNEL_CLOSE_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_
 /** The identification close dispatching logic cybol name. */
 static wchar_t* IDENTIFICATION_CLOSE_DISPATCHING_LOGIC_CYBOL_NAME = L"identification";
 static int* IDENTIFICATION_CLOSE_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The port close dispatching logic cybol name. */
+static wchar_t* PORT_CLOSE_DISPATCHING_LOGIC_CYBOL_NAME = L"port";
+static int* PORT_CLOSE_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The server flag close dispatching logic cybol name. */
+static wchar_t* SERVER_CLOSE_DISPATCHING_LOGIC_CYBOL_NAME = L"server";
+static int* SERVER_CLOSE_DISPATCHING_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* CLOSE_DISPATCHING_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */
 #endif
