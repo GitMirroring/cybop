@@ -13,7 +13,7 @@
 
 CONTINUE current work:
 
-        * Make compilable
+        * Debug compilation errors
         * Test file read functionality
         * Run service lifecycle cybol examples in directory "examples/communication/"
 

@@ -26,16 +26,16 @@
 #ifndef TERMINAL_MODE_SETTER_SOURCE
 #define TERMINAL_MODE_SETTER_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../executor/accessor/setter/unix_terminal_mode_setter.c"
+    #include "../../../../executor/accessor/setter/terminal_mode/unix_terminal_mode_setter.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../executor/accessor/setter/unix_terminal_mode_setter.c"
+    #include "../../../../executor/accessor/setter/terminal_mode/unix_terminal_mode_setter.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../executor/accessor/setter/win32_console_mode_setter.c"
+    #include "../../../../executor/accessor/setter/terminal_mode/win32_console_mode_setter.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif

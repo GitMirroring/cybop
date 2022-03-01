@@ -21,6 +21,7 @@
 2022-03-01  Christian Heller  <christian.heller@cybop.org>
 
         * Complete maintainer shutter by closing clients
+        * Debug compilation errors
 
 2022-02-25  Christian Heller  <christian.heller@cybop.org>
 

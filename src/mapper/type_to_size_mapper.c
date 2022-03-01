@@ -35,7 +35,7 @@
 #include "../variable/type_size/pointer_type_size.c"
 #include "../variable/type_size/real_type_size.c"
 #include "../variable/type_size/socket_type_size.c"
-#include "../variable/type_size/terminal_mode_type_size.c"
+#include "../variable/type_size/terminal_type_size.c"
 #include "../variable/type_size/thread_type_size.c"
 
 /**

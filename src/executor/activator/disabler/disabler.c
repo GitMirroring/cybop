@@ -35,7 +35,7 @@
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/server_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/activator/thread_disabler.c"
+#include "../../../executor/activator/disabler/thread_disabler.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/finder/list_finder.c"
 #include "../../../logger/logger.c"
@@ -98,7 +98,7 @@ void disable(void* p0, void* p1, void* p2) {
     } else {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not disable. A server entry with the given service identification (port) does not exist.");
-        fwprintf(stdout, L"Warning: Could not disable. A server entry with the given service identification (port) does not exist. p19: %i\n", p19);
+        fwprintf(stdout, L"Warning: Could not disable. A server entry with the given service identification (port) does not exist. p1: %i\n", p1);
     }
 }
 

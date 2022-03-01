@@ -65,8 +65,6 @@ void allocate_server_entry(void* p0) {
         void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The client list item.
         void* cli = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The client list mutex.
-        void* clm = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The channel.
         void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The request input buffer item.
@@ -104,13 +102,6 @@ void allocate_server_entry(void* p0) {
         // be negative or zero, but have at least a value of ONE.
         //
         allocate_item((void*) &cli, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
-        //
-        // Allocate client list mutex.
-        //
-        // CAUTION! Due to memory allocation handling, the size MUST NOT
-        // be negative or zero, but have at least a value of ONE.
-        //
-        allocate_array((void*) &clm, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
         //
         // Allocate channel.
         //
@@ -151,15 +142,11 @@ void allocate_server_entry(void* p0) {
         // Initialisation
         //
 
-        // Cast client list mutex to correct type.
-        mtx_t* clmt = (mtx_t*) clm;
         // Cast request input buffer mutex to correct type.
         mtx_t* bmt = (mtx_t*) bm;
 
         // Initialise service identification (port).
         copy_integer(id, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
-        // Initialise client list mutex.
-        int clmr = mtx_init(clmt, *PLAIN_MUTEX_TYPE_THREAD_SYMBOLIC_NAME);
         // Initialise channel.
         copy_integer(c, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
         // Initialise request input buffer mutex.
@@ -169,12 +156,6 @@ void allocate_server_entry(void* p0) {
         // Initialise request input thread exit flag.
         copy_integer(te, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        // Evaluate client list mutex object creation result.
-        if (clmr == thrd_error) {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate server entry. The client list mutex object creation failed.");
-            fwprintf(stdout, L"Error: Could not allocate server entry. The client list mutex object creation failed. clmr: %i\n", clmr);
-        }
         // Evaluate request input buffer mutex object creation result.
         if (bmr == thrd_error) {
 
@@ -190,8 +171,6 @@ void allocate_server_entry(void* p0) {
         copy_array_forward(*e, (void*) &id, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Set client list item into server entry.
         copy_array_forward(*e, (void*) &cli, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ITEM_CLIENTS_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        // Set client list mutex into server entry.
-        copy_array_forward(*e, (void*) &clm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_CLIENTS_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Set channel into server entry.
         copy_array_forward(*e, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CHANNEL_COMMUNICATION_SERVER_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Set request input buffer item into server entry.

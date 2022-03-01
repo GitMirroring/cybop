@@ -62,8 +62,6 @@ void deallocate_server_entry(void* p0) {
         void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The client list item.
         void* cli = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The client list mutex.
-        void* clm = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The channel.
         void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The request input buffer item.
@@ -83,8 +81,6 @@ void deallocate_server_entry(void* p0) {
         copy_array_forward((void*) &id, *e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME);
         // Get client list item from server entry.
         copy_array_forward((void*) &cli, *e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_CLIENTS_SERVER_STATE_CYBOI_NAME);
-        // Get client list mutex from server entry.
-        copy_array_forward((void*) &clm, *e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_CLIENTS_SERVER_STATE_CYBOI_NAME);
         // Get channel from server entry.
         copy_array_forward((void*) &c, *e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CHANNEL_COMMUNICATION_SERVER_STATE_CYBOI_NAME);
         // Get request input buffer item from server entry.
@@ -100,13 +96,9 @@ void deallocate_server_entry(void* p0) {
         // Finalisation
         //
 
-        // Cast client list mutex to correct type.
-        mtx_t* clmt = (mtx_t*) clm;
         // Cast request input buffer mutex to correct type.
         mtx_t* bmt = (mtx_t*) bm;
 
-        // Finalise client list mutex.
-        mtx_destroy(clmt);
         // Finalise request input buffer mutex.
         mtx_destroy(bmt);
 
@@ -124,14 +116,6 @@ void deallocate_server_entry(void* p0) {
         deallocate_array((void*) &id, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         // Deallocate client list item.
         deallocate_item((void*) &cli, (void*) POINTER_STATE_CYBOI_TYPE);
-        //
-        // Deallocate client list mutex.
-        //
-        // CAUTION! The second argument "count" is NULL,
-        // since it is only needed for looping elements of type PART,
-        // in order to decrement the rubbish (garbage) collection counter.
-        //
-        deallocate_array((void*) &clm, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
         //
         // Deallocate channel.
         //

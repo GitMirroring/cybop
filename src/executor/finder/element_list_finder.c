@@ -26,15 +26,15 @@
 #ifndef ELEMENT_LIST_FINDER_SOURCE
 #define ELEMENT_LIST_FINDER_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/copier/array_copier.c"
-#include "../../../logger/logger.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../executor/copier/array_copier.c"
+#include "../../logger/logger.c"
 
 /**
  * Compares entry element at the given element index with comparison data.
