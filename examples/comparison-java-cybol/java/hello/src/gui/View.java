@@ -34,6 +34,7 @@ public class View extends JFrame {
 		add(this.box, BorderLayout.CENTER);
 		add(this.panel, BorderLayout.SOUTH);
 
+		setTitle("Comparison Java-CYBOL");
 		setLocation(100, 100);
 		setSize(800, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
