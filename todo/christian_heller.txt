@@ -13,13 +13,11 @@
 
 CONTINUE current work:
 
-        DONE: ALL in maintainer shutter, including file "service_shutter.c"
-        TODO: only files "shutter.c" and "clients_shutter.c"
-        * Complete maintainer shutter by closing clients
-
         * Make compilable
         * Test file read functionality
         * Run service lifecycle cybol examples in directory "examples/communication/"
+
+        * Deliver compilable and runnable source code for release CYBOP 0.22.0
 
         * Figure out handling of window events in enabler and sensor and reader
 

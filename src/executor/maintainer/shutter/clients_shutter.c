@@ -26,55 +26,70 @@
 #ifndef CLIENTS_SHUTTER_SOURCE
 #define CLIENTS_SHUTTER_SOURCE
 
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../logger/logger.c"
---
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/client_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/server_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/calculator/integer/subtract_integer_calculator.c"
 #include "../../../executor/comparator/integer/less_integer_comparator.c"
+#include "../../../executor/configurator/finaliser/finaliser.c"
+#include "../../../executor/copier/array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../executor/maintainer/shutter/client_shutter.c"
+#include "../../../executor/dispatcher/closer/device_closer.c"
+#include "../../../executor/modifier/item_modifier.c"
+#include "../../../logger/logger.c"
 
 /**
  * Shuts down all clients of this server.
  *
- * @param p0 the client list data (pointer reference)
- * @param p1 the client list count
- * @param p2 the client list size
+ * @param p0 the server entry
+ * @param p1 the channel
  */
-void shutdown_clients(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void shutdown_clients(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown clients.");
     fwprintf(stdout, L"Debug: Shutdown clients. p0: %i\n", p0);
 
-    //
-    // CAUTION! The loop is running in REVERSE ORDER,
-    // from the last to the first element, since that way,
-    // the function "remove" works much FASTER inside,
-    // WITHOUT having to move elements one step forward.
-    //
-
+    // The client list item.
+    void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The client list item data, count.
+    void* cld = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* clc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The client.
-    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The client entry.
+    void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The client identification.
+    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Initialise loop variable with list count.
-    copy_integer((void*) &j, p1);
+    // Get client list item from server entry.
+    copy_array_forward((void*) &cl, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_CLIENTS_SERVER_STATE_CYBOI_NAME);
+    // Get client list item data, count.
+    copy_array_forward((void*) &cld, cl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &clc, cl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Initialise loop variable with client list count.
+    copy_integer((void*) &j, clc);
     // Subtract one, since this is an index.
     calculate_integer_subtract((void*) &j, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-    if (p1 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (clc == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
-        // CAUTION! If the loop count handed over as parametre is NULL,
-        // then the break flag will NEVER be set to true, because the loop
-        // variable comparison does (correctly) not consider null values.
+        // CAUTION! If the client list count is NULL, then the loop variable
+        // is NOT initialised and still has the value ZERO.
+        // In this case, the break flag will NEVER be set to true,
+        // because the loop variable comparison below uses LESS than zero.
+        //
         // Therefore, in this case, the break flag is set to true already here.
+        //
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
@@ -82,11 +97,17 @@ void shutdown_clients(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
-    fwprintf(stdout, L"Debug: Shutdown clients. The loop is running in reverse order! Loop count p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Shutdown clients. The loop is running in reverse order! Loop count p1: %i\n", *((int*) p1));
+    fwprintf(stdout, L"Debug: Shutdown clients. The loop is running in reverse order! Loop count clc: %i\n", clc);
+    fwprintf(stdout, L"Debug: Shutdown clients. The loop is running in reverse order! Loop count *clc: %i\n", *((int*) clc));
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
+        // CAUTION! The loop is running in REVERSE ORDER,
+        // from the last to the first element, since that way,
+        // the function "remove" works much FASTER inside,
+        // WITHOUT having to move elements one step forward.
+        //
         compare_integer_less((void*) &b, (void*) &j, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -94,14 +115,34 @@ void shutdown_clients(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             break;
         }
 
-        // Get client from client list at the given index.
-        copy_array_forward((void*) &c, *d, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
+        // Get client entry from client list data at the given index.
+        copy_array_forward((void*) &ce, cld, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j);
+        // Remove client entry from client list item at the given index.
+        modify_item(cl, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &j, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
 
-        // Remove client from client list at the given index.
-        modify_remove(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p6, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        // Get client identification from client entry.
+        copy_array_forward((void*) &id, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
 
-        // Close client.
-        close_client(c);
+        //
+        // CAUTION! The function "close_client" is NOT called on purpose.
+        //
+        // Instead, the following function calls are REDUNDANT and were
+        // copied from file "closer.c", in order to increase efficiency
+        // and to avoid searching the client entry,  since it is already
+        // stored in a variable here.
+        //
+
+        // Finalise device.
+        finalise(id, ce, p1);
+
+        //
+        // Close client device.
+        //
+        // CAUTION! Contrary to the opening, client socket stubs
+        // do NOT need a special treatment here. Their file descriptor
+        // gets closed in the same way as for the other channels.
+        //
+        close_device(id, ce, p1);
 
         // Decrement loop variable.
         j--;

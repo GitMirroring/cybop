@@ -18,11 +18,18 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-2022-02-22  Christian Heller  <christian.heller@cybop.org>
+2022-03-01  Christian Heller  <christian.heller@cybop.org>
+
+        * Complete maintainer shutter by closing clients
+
+2022-02-25  Christian Heller  <christian.heller@cybop.org>
 
         * Complete dispatcher closer
         * Complete activator disabler
-        * Release CYBOP 0.22.0
+
+2022-02-22  Christian Heller  <christian.heller@cybop.org>
+
+        * Release CYBOP 0.22.0 (documentation and project files)
 
 2022-02-21  Christian Heller  <christian.heller@cybop.org>
 

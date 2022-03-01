@@ -72,7 +72,7 @@ void shutdown_server(void* p0, void* p1, void* p2) {
     int n = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The input output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The server list.
+    // The server list item.
     void* sl = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The server entry.
     void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -84,13 +84,13 @@ void shutdown_server(void* p0, void* p1, void* p2) {
     //
 
     // Get internal memory name by channel.
-    map_channel_to_internal_memory((void*) &n, channel);
+    map_channel_to_internal_memory((void*) &n, p2);
     // Get input output entry from internal memory.
     copy_array_forward((void*) &io, internal-memory, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &n);
-    // Get server list from input output entry.
+    // Get server list item from input output entry.
     copy_array_forward((void*) &sl, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SERVERS_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get server entry from server list by service identification (port number).
-    find_list((void*) &se, sl, port, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME);
+    find_list((void*) &se, sl, p1, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME);
 
     if (se != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -135,14 +135,14 @@ void shutdown_server(void* p0, void* p1, void* p2) {
         //
 
         // Get server entry index within server list by service identification (port number).
-        find_list_index((void*) &i, sl, port, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME);
+        find_list_index((void*) &i, sl, p1, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME);
 
         //
         // CAUTION! Locking a mutex is NOT necessary here,
         // since only the main thread accesses the server list.
         //
 
-        // Remove server entry from server list.
+        // Remove server entry from server list item.
         modify_item(sl, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
 
         //
@@ -150,7 +150,7 @@ void shutdown_server(void* p0, void* p1, void* p2) {
         //
 
         // Shutdown clients.
-        shutdown_clients(se, TODO);
+        shutdown_clients(se, p2);
 
         // Shutdown service.
         shutdown_service(se, p2);
@@ -165,7 +165,7 @@ void shutdown_server(void* p0, void* p1, void* p2) {
     } else {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown server. A server entry with the given service identification (port) does not exist.");
-        fwprintf(stdout, L"Warning: Could not shutdown server. A server entry with the given service identification (port) does not exist. p19: %i\n", p19);
+        fwprintf(stdout, L"Warning: Could not shutdown server. A server entry with the given service identification (port) does not exist. p1: %i\n", p1);
     }
 }
 
