@@ -30,20 +30,23 @@
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/client_state_cyboi_name.c"
 #include "../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/server_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../controller/manager/clients_shutdown_manager.c"
-#include "../../controller/manager/servers_shutdown_manager.c"
 #include "../../executor/copier/array_copier.c"
+#include "../../executor/maintainer/shutter/list_shutter.c"
 #include "../../logger/logger.c"
 
 /**
  * Shuts down all clients and services of the given input output entry.
  *
  * @param p0 the input output entry
+ * @param p1 the channel
+ * @param p2 the internal memory data
  */
-void manage_shutdown_input_output(void* p0) {
+void manage_shutdown_input_output(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manage shutdown input output.");
     fwprintf(stdout, L"Debug: Manage shutdown input output. p0: %i\n", p0);
@@ -59,9 +62,9 @@ void manage_shutdown_input_output(void* p0) {
     copy_array_forward((void*) &sl, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SERVERS_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     // Shutdown clients.
-    manage_shutdown_clients(cld, clc);
+    shutdown_list(cl, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME, p1, p2);
     // Shutdown servers.
-    manage_shutdown_servers(sld, slc);
+    shutdown_list(sl, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME, p1, p2);
 }
 
 /* INPUT_OUTPUT_SHUTDOWN_MANAGER_SOURCE */

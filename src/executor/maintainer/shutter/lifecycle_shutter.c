@@ -45,19 +45,19 @@
  * @param p0 the internal memory data
  * @param p1 the port (service identification)
  * @param p2 the channel
- * @param p3 the server list item
- * @param p4 the server entry (pointer reference)
+ * @param p3 the server entry (pointer reference)
+ * @param p4 the server list item
  * @param p5 the server list index
  */
 void shutdown_lifecycle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown lifecycle.");
-    fwprintf(stdout, L"Information: Shutdown lifecycle. p1: %i\n", p1);
-    fwprintf(stdout, L"Information: Shutdown lifecycle. *p1: %i\n", *((int*) p1));
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        void** se = (void**) p3;
 
-        void** se = (void**) p4;
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown lifecycle.");
+        fwprintf(stdout, L"Information: Shutdown lifecycle. p1: %i\n", p1);
+        fwprintf(stdout, L"Information: Shutdown lifecycle. *p1: %i\n", *((int*) p1));
 
         //
         // Disabling
@@ -105,14 +105,17 @@ void shutdown_lifecycle(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         //
 
         // Remove server entry from server list item.
-        modify_item(p3, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p5, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
+        modify_item(p4, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p5, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
 
         //
         // Shuttingdown
         //
 
+        // Get client list item from server entry.
+        copy_array_forward((void*) &cl, *se, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_CLIENTS_SERVER_STATE_CYBOI_NAME);
+
         // Shutdown clients.
-        shutdown_clients(*se, p2);
+        shutdown_list(cl, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME, p2, p0);
 
         // Shutdown service.
         shutdown_service(*se, p2);

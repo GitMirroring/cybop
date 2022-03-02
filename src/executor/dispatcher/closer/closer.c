@@ -56,9 +56,9 @@ void close_client(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The input output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The client list.
+    // The client list item.
     void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The client entry index.
+    // The client list index.
     int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     //
@@ -71,11 +71,11 @@ void close_client(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &io, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_OUTPUT_BACKLINK_CLIENT_STATE_CYBOI_NAME);
     // Get suitable client list item.
     find_mode((void*) &cl, io, p3, p1);
-    // Get client entry index within client list by client device identification.
+    // Get client list index within client list by client device identification.
     find_list_index((void*) &i, cl, p0, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
 
     // Execute client close lifecycle.
-    close_lifecycle();
+    close_lifecycle(p0, (void*) &ce, p2, cl, (void*) &i);
 }
 
 /* CLOSER_SOURCE */

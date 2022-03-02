@@ -27,17 +27,19 @@
 #define SHUTTER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../logger/logger.c"
---
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/server_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/finder/list_finder.c"
 #include "../../../executor/finder/list_index_finder.c"
+#include "../../../executor/maintainer/shutter/lifecycle_shutter.c"
+#include "../../../logger/logger.c"
 #include "../../../mapper/channel_to_internal_memory_mapper.c"
 
 /**
@@ -69,7 +71,7 @@ void shutdown_server(void* p0, void* p1, void* p2) {
     void* sl = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The server entry.
     void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The server entry index.
+    // The server list index.
     int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     //
@@ -84,13 +86,13 @@ void shutdown_server(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &sl, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SERVERS_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get server entry from server list by service identification (port number).
     find_list((void*) &se, sl, p1, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME);
-    // Get server entry index within server list by service identification (port number).
+    // Get server list index within server list by service identification (port number).
     find_list_index((void*) &i, sl, p1, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME);
 
     if (se != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // Shutdown lifecycle.
-        shutdown_lifecycle(p0, p1, p2, sl, se, (void*) &i);
+        // Execute service shutdown lifecycle.
+        shutdown_lifecycle(p0, p1, p2, (void*) &se, sl, (void*) &i);
 
     } else {
 

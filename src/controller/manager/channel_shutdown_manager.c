@@ -61,7 +61,7 @@ void manage_shutdown_channel(void* p0, void* p1) {
     copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &n);
 
     // Shutdown input output entry.
-    manage_shutdown_input_output(io);
+    manage_shutdown_input_output(io, p1, p0);
 }
 
 /* CHANNEL_SHUTDOWN_MANAGER_SOURCE */

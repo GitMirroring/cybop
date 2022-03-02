@@ -13,9 +13,6 @@
 
 CONTINUE current work:
 
-        * Complete files "lifecycle_shutter.c" and "lifecycle_closer.c"
-        * Adapt shutdown manager
-
         * Debug compilation errors
         * Test file read functionality
         * Run service lifecycle cybol examples in directory "examples/communication/"
