@@ -26,6 +26,7 @@
 #ifndef INTERRUPT_PIPE_READER_SOURCE
 #define INTERRUPT_PIPE_READER_SOURCE
 
+#include <stddef.h> // size_t
 #include <unistd.h> // read
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
@@ -69,6 +70,17 @@ void read_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
 
         // The pipe value.
         int v = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+        //
+        // Cast size to correct type.
+        //
+        // CAUTION! It IS NECESSARY because on 64 Bit machines,
+        // the "size_t" type has a size of 8 Byte, whereas
+        // the "int" type has the usual size of 4 Byte.
+        // When trying to dereference a pointer that uses the other type,
+        // memory errors will occur and the valgrind memcheck tool report:
+        // "Invalid read of size 8".
+        //
+        size_t s = (size_t) *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE;
 
         //
         // Lock mutex.
@@ -114,7 +126,7 @@ void read_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
         //
         // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
         //
-        int n = read(*f, (void*) &v, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+        int n = read(*f, (void*) &v, s);
 
         fwprintf(stdout, L"Debug: Read interrupt pipe. n1: %i\n", n);
         fwprintf(stdout, L"Debug: Read interrupt pipe. v: %i\n", v);

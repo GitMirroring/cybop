@@ -33,11 +33,20 @@
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/activator/disabler/disabler.c"
-#include "../../../executor/maintainer/shutter/clients_shutter.c"
+// CAUTION! Do NOT include the "list_shutter.c" module here,
+// since it would lead to circular references.
+// Instead, "shutdown_list" is mentioned as forward declaration below.
+// #include "../../../executor/maintainer/shutter/list_shutter.c"
 #include "../../../executor/maintainer/shutter/service_shutter.c"
 #include "../../../executor/memoriser/deallocator/server_entry_deallocator.c"
 #include "../../../executor/modifier/item_modifier.c"
 #include "../../../logger/logger.c"
+
+//
+// Forward declarations.
+//
+
+void shutdown_list(void* p0, void* p1, void* p2, void* p3);
 
 /**
  * Executes the service shutdown lifecycle.
@@ -110,6 +119,9 @@ void shutdown_lifecycle(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         //
         // Shuttingdown
         //
+
+        // The client list item.
+        void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get client list item from server entry.
         copy_array_forward((void*) &cl, *se, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_CLIENTS_SERVER_STATE_CYBOI_NAME);

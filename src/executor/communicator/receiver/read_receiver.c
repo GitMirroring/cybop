@@ -30,9 +30,9 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../executor/streamer/reader.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/copier/pointer_copier.c"
+#include "../../../executor/streamer/reader/reader.c"
 #include "../../../logger/logger.c"
 
 /**

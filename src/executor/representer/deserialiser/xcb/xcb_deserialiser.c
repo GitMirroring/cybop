@@ -53,7 +53,7 @@
  * @param p9 the keycode [detail] (xcb_keycode_t) of the physical key on the keyboard item for keyboard events
  * @param p10 the mask [state] (uint16_t) of the pointer buttons and modifier keys item for mouse and keyboard events
  * @param p11 the mouse button identification [mode] item (uint8_t) for mouse events
- * @param p12 the input/output entry
+ * @param p12 the input/output entry //?? TODO: Rename to server entry OR delete, if unused
  * @param p13 the event
  */
 void deserialise_xcb(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {

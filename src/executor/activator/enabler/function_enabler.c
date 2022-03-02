@@ -37,7 +37,6 @@
 #include "../../../constant/name/cyboi/state/server_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/activator/enabler/loop_enabler.c"
-#include "../../../executor/calculator/server_identification/channel_server_identification_calculator.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../logger/logger.c"
 
@@ -125,7 +124,7 @@ int enable_function(void* p0) {
     //
 
     // Enable client requests or events via endless loop.
-    enable_loop(bi, bm, p0, c, ipw, ih, (void*) &h, im, ex);
+    enable_loop(bi, bm, p0, c, (void*) &ipw, ih, (void*) &h, im, ex);
 
     //
     // An implicit call to "thrd_exit" is made when this thread

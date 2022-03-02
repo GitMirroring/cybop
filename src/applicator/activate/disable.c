@@ -36,7 +36,7 @@
 #include "../../constant/name/cybol/logic/activation/disable_activation_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../executor/activator/disabler.c"
+#include "../../executor/activator/disabler/disabler.c"
 #include "../../executor/copier/array_copier.c"
 #include "../../logger/logger.c"
 

@@ -86,7 +86,7 @@ void select_knowledge_identification(void* p0, void* p1, void* p2, void* p3, voi
             // CAUTION! Do NOT use the "copy_array_forward" function,
             // since it is low-level and does not check array boundaries!
             //
-            get_part_metadata(p0, *s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2, p5);
+            get_part(p0, *s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2, p5);
 
         } else {
 

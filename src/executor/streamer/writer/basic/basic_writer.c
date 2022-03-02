@@ -78,10 +78,10 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
                 // Cast buffer count to correct type.
                 //
                 // CAUTION! It IS NECESSARY because on 64 Bit machines,
-                // the "size_t" type has a size of 8 Byte,
-                // whereas the "int" type has the usual size of 4 Byte.
-                // When trying to cast between the two, memory errors
-                // will occur and the valgrind memcheck tool report:
+                // the "size_t" type has a size of 8 Byte, whereas
+                // the "int" type has the usual size of 4 Byte.
+                // When trying to dereference a pointer that uses the other type,
+                // memory errors will occur and the valgrind memcheck tool report:
                 // "Invalid read of size 8".
                 //
                 size_t ct = (size_t) *c;

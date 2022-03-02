@@ -39,7 +39,7 @@
 #include "../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../logger/logger.c"
-#include "../../../mapper/channel_to_data_type_mapper.c"
+#include "../../../mapper/channel_to_type_mapper.c"
 
 /**
  * Deallocates the client entry.

@@ -37,7 +37,6 @@
 #include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/accessor/getter/internal_memory_getter.c"
 #include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/representer/deserialiser/gui_event/properties_gui_event_deserialiser.c"
 #include "../../../../logger/logger.c"
@@ -65,7 +64,7 @@ void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3) {
     // CAUTION! The last argument is the service identification.
     // If it is null, then zero is assumed and the input/output base is used inside.
     //
-    get_internal_memory_element((void*) &io, p3, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL);
+    //?? get_internal_memory_element((void*) &io, p3, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

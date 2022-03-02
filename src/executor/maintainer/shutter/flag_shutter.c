@@ -56,7 +56,7 @@ void shutdown_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p7, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
+        compare_integer_equal((void*) &r, p6, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -73,7 +73,7 @@ void shutdown_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p7, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME);
+        compare_integer_equal((void*) &r, p6, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

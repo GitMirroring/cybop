@@ -13,6 +13,9 @@
 
 CONTINUE current work:
 
+        * Cleanup signal (event) list checker from outdated io check mechanism which got replaced by enable- and sensing threads
+        * Replace outdated input/output entry with server entry in files "initial_gui_serialiser.c", "gui_event_deserialiser.c", "values_gui_event_deserialiser.c", "properties_gui_event_deserialiser.c"
+
         * Debug compilation errors
         * Test file read functionality
         * Run service lifecycle cybol examples in directory "examples/communication/"

@@ -24,6 +24,7 @@
         * Introduce new lifecycle files for shutter and closer, to be used by shutdown manager
         * Add feeler suspender
         * Add files "flag_shutter.c" and "list_shutter.c", to be used by shutdown manager and also by lifecycle shutter for closing a server's clients
+        * Debug compilation errors
 
 2022-03-01  Christian Heller  <christian.heller@cybop.org>
 

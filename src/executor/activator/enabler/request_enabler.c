@@ -26,8 +26,18 @@
 #ifndef REQUEST_ENABLER_SOURCE
 #define REQUEST_ENABLER_SOURCE
 
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/activator/enabler/client_enabler.c"
+#include "../../../executor/modifier/item_modifier.c"
+#include "../../../executor/porter/locker.c"
+#include "../../../executor/porter/unlocker.c"
 #include "../../../executor/streamer/writer/interrupt_pipe/interrupt_pipe_writer.c"
 #include "../../../logger/logger.c"
 

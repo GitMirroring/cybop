@@ -35,6 +35,7 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/porter/locker.c"
+#include "../../../../executor/porter/unlocker.c"
 #include "../../../../logger/logger.c"
 
 /**

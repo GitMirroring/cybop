@@ -26,6 +26,7 @@
 #ifndef INTERRUPT_PIPE_WRITER_SOURCE
 #define INTERRUPT_PIPE_WRITER_SOURCE
 
+#include <stddef.h> // size_t
 #include <unistd.h> // write
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
@@ -63,6 +64,18 @@ void write_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
         fwprintf(stdout, L"Debug: Write interrupt pipe. f: %i\n", f);
         fwprintf(stdout, L"Debug: Write interrupt pipe. *f: %i\n", *f);
 
+        //
+        // Cast size to correct type.
+        //
+        // CAUTION! It IS NECESSARY because on 64 Bit machines,
+        // the "size_t" type has a size of 8 Byte, whereas
+        // the "int" type has the usual size of 4 Byte.
+        // When trying to dereference a pointer that uses the other type,
+        // memory errors will occur and the valgrind memcheck tool report:
+        // "Invalid read of size 8".
+        //
+        size_t s = (size_t) *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE;
+
         // Lock mutex.
         lock(p3);
 
@@ -94,7 +107,7 @@ void write_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
         //
         // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
         //
-        write(*f, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+        write(*f, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, s);
 
         // Unlock mutex.
         unlock(p3);

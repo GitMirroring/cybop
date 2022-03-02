@@ -27,11 +27,19 @@
 #define ENABLER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/accessor/getter/channel_internal_memory_getter.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/server_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/activator/enabler/entry_enabler.c"
 #include "../../../executor/activator/enabler/thread_enabler.c"
+#include "../../../executor/copier/array_copier.c"
 #include "../../../logger/logger.c"
+#include "../../../mapper/channel_to_internal_memory_mapper.c"
 
 /**
  * Enables the service on the given channel.
