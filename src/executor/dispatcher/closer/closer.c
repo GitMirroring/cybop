@@ -74,50 +74,8 @@ void close_client(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get client entry index within client list by client device identification.
     find_list_index((void*) &i, cl, p0, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
 
-    //
-    // Suspension
-    //
-
-    //
-    // Suspend input detection and exit sensing thread.
-    //
-    // CAUTION! This has to be done BEFORE deallocating resources below.
-    //
-    //?? TODO
-
-    //
-    // Removal
-    //
-
-    // Remove client entry from client list.
-    modify_item(cl, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
-
-    //
-    // Finalisation
-    //
-
-    // Finalise device.
-    finalise(p0, ce, p2);
-
-    //
-    // Closing
-    //
-
-    //
-    // Close client device.
-    //
-    // CAUTION! Contrary to the opening, client socket stubs
-    // do NOT need a special treatment here. Their file descriptor
-    // gets closed in the same way as for the other channels.
-    //
-    close_device(p0, ce, p2);
-
-    //
-    // Deallocation
-    //
-
-    // Deallocate client entry.
-    deallocate_client_entry((void*) &ce, p2);
+    // Execute client close lifecycle.
+    close_lifecycle();
 }
 
 /* CLOSER_SOURCE */

@@ -22,6 +22,7 @@
 
         * Refactor shutdown manager in directory "controller/manager/"
         * Introduce new lifecycle files for shutter and closer, to be used by shutdown manager
+        * Add feeler suspender
 
 2022-03-01  Christian Heller  <christian.heller@cybop.org>
 

@@ -34,7 +34,7 @@
 #include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../constant/name/cybol/logic/activation/activation_logic_cybol_name.c"
+#include "../../constant/name/cybol/logic/feeling/suspend_feeling_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/copier/array_copier.c"
@@ -42,10 +42,13 @@
 #include "../../logger/logger.c"
 
 /**
- * Suspends the input data sensing thread for the given client identification.
+ * Suspends data input sensing thread for the client with the given identification.
  *
  * Parametres:
- * - channel (required): the channel via which to receive the message (terminal, www, x-window-system etc.)
+ * - channel (required): the communication channel, e.g. file, serial, socket
+ * - server (optional): the flag indicating server mode, e.g. for window or client socket stub; if NULL, the default is false (standalone client mode)
+ * - port (optional): the service identification; only relevant in server mode
+ * - sender (required): the client identification, e.g. file descriptor or client socket number or window id
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -59,35 +62,60 @@ void apply_suspend(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // The channel part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket port part.
+    // The server flag part.
+    void* sf = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The port part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The sender part.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket port part model item.
+    // The server flag part model item.
+    void* sfm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The port part model item.
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The sender part model item.
+    void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model item data.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket port part model item data.
+    // The server flag part model item data.
+    void* sfmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The port part model item data.
     void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The sender part model item data.
+    void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get channel part.
-    get_part_name((void*) &c, p0, (void*) CHANNEL_ACTIVATION_LOGIC_CYBOL_NAME, (void*) CHANNEL_ACTIVATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
-    // Get socket port part.
-    get_part_name((void*) &p, p0, (void*) PORT_SOCKET_ACTIVATION_LOGIC_CYBOL_NAME, (void*) PORT_SOCKET_ACTIVATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &c, p0, (void*) CHANNEL_SUSPEND_FEELING_LOGIC_CYBOL_NAME, (void*) CHANNEL_SUSPEND_FEELING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get server flag part.
+    get_part_name((void*) &sf, p0, (void*) SERVER_SUSPEND_FEELING_LOGIC_CYBOL_NAME, (void*) SERVER_SUSPEND_FEELING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get port part.
+    get_part_name((void*) &p, p0, (void*) PORT_SUSPEND_FEELING_LOGIC_CYBOL_NAME, (void*) PORT_SUSPEND_FEELING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get sender part.
+    get_part_name((void*) &s, p0, (void*) SENDER_SUSPEND_FEELING_LOGIC_CYBOL_NAME, (void*) SENDER_SUSPEND_FEELING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get channel part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get socket port part model item.
+    // Get server flag part model item.
+    copy_array_forward((void*) &sfm, sf, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get port part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get sender part model item.
+    copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Get channel part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get socket port part model item data.
+    // Get server flag part model item data.
+    copy_array_forward((void*) &sfmd, sfm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get port part model item data.
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get sender part model item data.
+    copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    suspend(p4, pmd, cmd);
+    // Suspend data input sensing.
+    suspend(p4, cmd, sfmd, pmd, smd);
 }
 
 /* SUSPEND_SOURCE */

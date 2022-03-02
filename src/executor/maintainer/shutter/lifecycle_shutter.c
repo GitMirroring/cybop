@@ -47,7 +47,7 @@
  * @param p2 the channel
  * @param p3 the server list item
  * @param p4 the server entry (pointer reference)
- * @param p5 the index
+ * @param p5 the server list index
  */
 void shutdown_lifecycle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 

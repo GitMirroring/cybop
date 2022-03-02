@@ -26,7 +26,16 @@
 #ifndef LIFECYCLE_CLOSER_SOURCE
 #define LIFECYCLE_CLOSER_SOURCE
 
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/configurator/finaliser/finaliser.c"
+#include "../../../executor/dispatcher/closer/device_closer.c"
+#include "../../../executor/memoriser/deallocator/client_entry_deallocator.c"
+#include "../../../executor/modifier/item_modifier.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -37,12 +46,63 @@
  * @param p2 the channel
  * @param p3 the server flag
  * @param p4 the internal memory
+--
+ * @param p0 the internal memory data
+ * @param p1 the port (service identification)
+ * @param p2 the channel
+ * @param p3 the client list item
+ * @param p4 the server entry (pointer reference)
+ * @param p5 the client list index
  */
 void close_lifecycle(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close lifecycle.");
     fwprintf(stdout, L"Debug: Close lifecycle. p0: %i\n", p0);
 
+    //
+    // Suspension
+    //
+
+    //
+    // Suspend input detection and exit sensing thread.
+    //
+    // CAUTION! This has to be done BEFORE deallocating resources below.
+    //
+    //?? TODO
+
+    //
+    // Removal
+    //
+
+    // Remove client entry from client list.
+    modify_item(cl, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    //
+    // Finalisation
+    //
+
+    // Finalise device.
+    finalise(p0, ce, p2);
+
+    //
+    // Closing
+    //
+
+    //
+    // Close client device.
+    //
+    // CAUTION! Contrary to the opening, client socket stubs
+    // do NOT need a special treatment here. Their file descriptor
+    // gets closed in the same way as for the other channels.
+    //
+    close_device(p0, ce, p2);
+
+    //
+    // Deallocation
+    //
+
+    // Deallocate client entry.
+    deallocate_client_entry((void*) &ce, p2);
 }
 
 /* LIFECYCLE_CLOSER_SOURCE */

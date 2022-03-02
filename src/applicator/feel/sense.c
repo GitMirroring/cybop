@@ -42,14 +42,14 @@
 #include "../../logger/logger.c"
 
 /**
- * Senses input data within a thread on the client with the given identification.
+ * Senses data input within a thread on the client with the given identification.
  *
  * Parametres:
  * - channel (required): the communication channel, e.g. file, serial, socket
  * - server (optional): the flag indicating server mode, e.g. for window or client socket stub; if NULL, the default is false (standalone client mode)
  * - port (optional): the service identification; only relevant in server mode
  * - sender (required): the client identification, e.g. file descriptor or client socket number or window id
- * - language: the language
+ * - language (optional): the language, e.g. crlf or http_request, to detect message length prefix or end suffix
  * - handler (required): the callback cybol operation being executed when the thread finished reading data
  *
  * @param p0 the parametres data
@@ -100,7 +100,7 @@ void apply_sense(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get channel part.
     get_part_name((void*) &c, p0, (void*) CHANNEL_SENSE_FEELING_LOGIC_CYBOL_NAME, (void*) CHANNEL_SENSE_FEELING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get server flag part.
-    get_part_name((void*) &sf, p0, (void*) CHANNEL_SENSE_FEELING_LOGIC_CYBOL_NAME, (void*) CHANNEL_SENSE_FEELING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &sf, p0, (void*) SERVER_SENSE_FEELING_LOGIC_CYBOL_NAME, (void*) SERVER_SENSE_FEELING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get port part.
     get_part_name((void*) &p, p0, (void*) PORT_SOCKET_SENSE_FEELING_LOGIC_CYBOL_NAME, (void*) PORT_SOCKET_SENSE_FEELING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get sender part.
@@ -132,6 +132,7 @@ void apply_sense(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get language part model item data.
     copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    // Sense data input.
     sense(p4, cmd, sfmd, pmd, smd, lmd, (void*) &h);
 }
 
