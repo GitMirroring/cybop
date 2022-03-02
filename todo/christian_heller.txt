@@ -13,6 +13,9 @@
 
 CONTINUE current work:
 
+        * Complete files "lifecycle_shutter.c" and "lifecycle_closer.c"
+        * Adapt shutdown manager
+
         * Debug compilation errors
         * Test file read functionality
         * Run service lifecycle cybol examples in directory "examples/communication/"
@@ -36,6 +39,7 @@ ________
             --> exiting sensing thread should be possible via sending a message to itself
             --> how to exit the accept thread --> the system itself has to be a new client to itself as server
         * Implement feeler suspender using small message sent to the system itself, in order to exit the sensing thread
+        * Verify activator disabler
 
         * Find reason for error "EOPNOTSUPP" in server
         * Find reason for error "ECONNREFUSED" in client

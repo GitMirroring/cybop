@@ -1,0 +1,135 @@
+/*
+ * Copyright (C) 1999-2022. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.22.0 2022-02-22
+ * @author Christian Heller <christian.heller@cybop.org>
+ */
+
+#ifndef LIFECYCLE_SHUTTER_SOURCE
+#define LIFECYCLE_SHUTTER_SOURCE
+
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/activator/disabler/disabler.c"
+#include "../../../executor/maintainer/shutter/clients_shutter.c"
+#include "../../../executor/maintainer/shutter/service_shutter.c"
+#include "../../../executor/memoriser/deallocator/server_entry_deallocator.c"
+#include "../../../executor/modifier/item_modifier.c"
+#include "../../../logger/logger.c"
+
+/**
+ * Executes the service shutdown lifecycle.
+ *
+ * @param p0 the internal memory data
+ * @param p1 the port (service identification)
+ * @param p2 the channel
+ * @param p3 the server list item
+ * @param p4 the server entry (pointer reference)
+ * @param p5 the index
+ */
+void shutdown_lifecycle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown lifecycle.");
+    fwprintf(stdout, L"Information: Shutdown lifecycle. p1: %i\n", p1);
+    fwprintf(stdout, L"Information: Shutdown lifecycle. *p1: %i\n", *((int*) p1));
+
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        void** se = (void**) p4;
+
+        //
+        // Disabling
+        //
+
+        //
+        // Disable service by exiting enable (accept) thread.
+        //
+        // CAUTION! This has to be done BEFORE deallocating resources below.
+        //
+        // Display:
+        //
+        // The enable thread writes received events into the client input buffer.
+        // These EVENTS got allocated inside the x window system and
+        // have to be DEALLOCATED (freed) yet.
+        //
+        // Therefore, the enable thread has to be exited FIRST and only
+        // then the main thread can loop the request input buffer and
+        // deallocate ALL events before deallocating the buffer itself.
+        //
+        // Socket:
+        //
+        // The clients having already been accepted by the server socket
+        // are stored in the request buffer. They have to be CLOSED yet.
+        //
+        // Terminal:
+        //
+        // The main thread resets the terminal properties on shutdown, so that
+        // default echoing and canonical input (with <enter> key) are reactivated.
+        // But then, the call of function "ioctl" might not work promptly,
+        // if the terminal is waiting for the <enter> key.
+        //
+        // Therefore, the sensing thread has to be exited FIRST
+        // as long as ioctl fake input can be received prompt.
+        //
+        disable(p0, p1, p2);
+
+        //
+        // Removal
+        //
+
+        //
+        // CAUTION! Locking a mutex is NOT necessary here,
+        // since only the main thread accesses the server list.
+        //
+
+        // Remove server entry from server list item.
+        modify_item(p3, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p5, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+        //
+        // Shuttingdown
+        //
+
+        // Shutdown clients.
+        shutdown_clients(*se, p2);
+
+        // Shutdown service.
+        shutdown_service(*se, p2);
+
+        //
+        // Deallocation
+        //
+
+        // Deallocate server entry.
+        deallocate_server_entry(p3);
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown lifecycle. The server entry is null.");
+        fwprintf(stdout, L"Error: Could not shutdown lifecycle. The server entry is null. p3: %i\n", p3);
+    }
+}
+
+/* LIFECYCLE_SHUTTER_SOURCE */
+#endif

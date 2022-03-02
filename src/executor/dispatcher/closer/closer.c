@@ -67,6 +67,12 @@ void close_client(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // Get client entry belonging to given source device.
     find_entry((void*) &ce, p4, p2, p3, p1, p0);
+    // Get input output entry from client entry.
+    copy_array_forward((void*) &io, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_OUTPUT_BACKLINK_CLIENT_STATE_CYBOI_NAME);
+    // Get suitable client list item.
+    find_mode((void*) &cl, io, p3, p1);
+    // Get client entry index within client list by client device identification.
+    find_list_index((void*) &i, cl, p0, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
 
     //
     // Suspension
@@ -83,12 +89,6 @@ void close_client(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Removal
     //
 
-    // Get input output entry from client entry.
-    copy_array_forward((void*) &io, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_OUTPUT_BACKLINK_CLIENT_STATE_CYBOI_NAME);
-    // Get suitable client list item.
-    find_mode((void*) &cl, io, p3, p1);
-    // Get client entry index within server list by client device identification.
-    find_list_index((void*) &i, cl, p0, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
     // Remove client entry from client list.
     modify_item(cl, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
 

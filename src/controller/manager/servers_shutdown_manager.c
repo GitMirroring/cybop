@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef SERVICES_SHUTDOWN_MANAGER_SOURCE
-#define SERVICES_SHUTDOWN_MANAGER_SOURCE
+#ifndef SERVERS_SHUTDOWN_MANAGER_SOURCE
+#define SERVERS_SHUTDOWN_MANAGER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -36,15 +36,14 @@
 #include "../../logger/logger.c"
 
 /**
- * Shuts down all services.
+ * Shuts down all servers of the given server list.
  *
- * @param p0 the internal memory data
- * @param p1 the loop count
- * @param p2 the channel
+ * @param p0 the server list item
  */
-void manage_shutdown_services(void* p0, void* p1, void* p2) {
+void manage_shutdown_servers(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manage shutdown services.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manage shutdown servers.");
+    fwprintf(stdout, L"Debug: Manage shutdown servers. p0: %i\n", p0);
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -57,15 +56,15 @@ void manage_shutdown_services(void* p0, void* p1, void* p2) {
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
+        //
         // Therefore, in this case, the break flag is set to true already here.
+        //
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
         //
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
-
-    //?? fwprintf(stdout, L"Debug: manage shutdown services loop count p1: %i\n", *((int*) p1));
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -76,12 +75,19 @@ void manage_shutdown_services(void* p0, void* p1, void* p2) {
             break;
         }
 
-        shutdown_service(p0, (void*) &j, p2);
+ * @param p0 the internal memory data
+ * @param p1 the port (service identification)
+ * @param p2 the channel
+ * @param p3 the server list item
+ * @param p4 the server entry (pointer reference)
+ * @param p5 the index
+        // Shutdown lifecycle.
+        shutdown_lifecycle(p0, p1, p2, sl, se, (void*) &j);
 
         // Increment loop variable.
         j++;
     }
 }
 
-/* SERVICES_SHUTDOWN_MANAGER_SOURCE */
+/* SERVERS_SHUTDOWN_MANAGER_SOURCE */
 #endif

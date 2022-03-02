@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-03-02  Christian Heller  <christian.heller@cybop.org>
+
+        * Refactor shutdown manager in directory "controller/manager/"
+        * Introduce new lifecycle files for shutter and closer, to be used by shutdown manager
+
 2022-03-01  Christian Heller  <christian.heller@cybop.org>
 
         * Complete maintainer shutter by closing clients

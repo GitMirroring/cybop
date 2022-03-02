@@ -28,8 +28,7 @@
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../controller/manager/services_shutdown_manager.c"
+#include "../../controller/manager/channel_shutdown_manager.c"
 #include "../../logger/logger.c"
 
 /**
@@ -39,27 +38,26 @@
  */
 void manage_shutdown(void* p0) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manage shutdown.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manage shutdown.");
+    fwprintf(stdout, L"Debug: Manage shutdown. p0: %i\n", p0);
 
     //
-    // The following calls of "shutdown" procedures are necessary for cleanup,
-    // in case a cybol application developer has forgotten to call the
-    // corresponding service shutdown operations.
+    // The following calls of "shutdown" procedures are necessary
+    // for CLEANUP, in case a cybol application developer forgot it.
     //
 
-    // Shutdown display.
-    manage_shutdown_services(p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DISPLAY_CYBOI_CHANNEL);
-    // Shutdown serial port.
-    manage_shutdown_services(p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) SERIAL_CYBOI_CHANNEL);
-    //
-    // Shutdown socket.
-    //
-    // CAUTION! A small delay is caused by the large number of potential services (65536).
-    // However, speed is more important at system startup than at shutdown.
-    //
-    manage_shutdown_services(p0, (void*) NUMBER_65536_INTEGER_STATE_CYBOI_MODEL, (void*) SOCKET_CYBOI_CHANNEL);
-    // Shutdown terminal.
-    manage_shutdown_services(p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) TERMINAL_CYBOI_CHANNEL);
+    // Shutdown display channel.
+    manage_shutdown_channel(p0, (void*) DISPLAY_CYBOI_CHANNEL);
+    // Shutdown file channel.
+    manage_shutdown_channel(p0, (void*) FILE_CYBOI_CHANNEL);
+    // Shutdown pipeline channel.
+    manage_shutdown_channel(p0, (void*) PIPELINE_CYBOI_CHANNEL);
+    // Shutdown serial channel.
+    manage_shutdown_channel(p0, (void*) SERIAL_CYBOI_CHANNEL);
+    // Shutdown socket channel.
+    manage_shutdown_channel(p0, (void*) SOCKET_CYBOI_CHANNEL);
+    // Shutdown terminal channel.
+    manage_shutdown_channel(p0, (void*) TERMINAL_CYBOI_CHANNEL);
 }
 
 /* SHUTDOWN_MANAGER_SOURCE */

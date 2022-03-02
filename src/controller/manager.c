@@ -288,8 +288,8 @@ void manage(void* p0) {
     //
 
     //
-    // Exit ALL threads BEFORE deallocating memory resources since otherwise,
-    // memory errors would occur.
+    // Exit ALL threads BEFORE deallocating memory resources
+    // since otherwise, memory errors would occur.
     //
     // The reallocation of a non-existing array would lead to the error
     // "realloc(): invalid pointer".

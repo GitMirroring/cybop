@@ -26,25 +26,18 @@
 #ifndef SHUTTER_SOURCE
 #define SHUTTER_SOURCE
 
-#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../logger/logger.c"
+--
 #include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/server_state_cyboi_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/activator/disabler/disabler.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/finder/list_finder.c"
 #include "../../../executor/finder/list_index_finder.c"
-#include "../../../executor/maintainer/shutter/clients_shutter.c"
-#include "../../../executor/maintainer/shutter/service_shutter.c"
-#include "../../../executor/memoriser/deallocator/server_entry_deallocator.c"
-#include "../../../executor/modifier/item_modifier.c"
-#include "../../../logger/logger.c"
 #include "../../../mapper/channel_to_internal_memory_mapper.c"
 
 /**
@@ -86,81 +79,18 @@ void shutdown_server(void* p0, void* p1, void* p2) {
     // Get internal memory name by channel.
     map_channel_to_internal_memory((void*) &n, p2);
     // Get input output entry from internal memory.
-    copy_array_forward((void*) &io, internal-memory, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &n);
+    copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &n);
     // Get server list item from input output entry.
     copy_array_forward((void*) &sl, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SERVERS_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get server entry from server list by service identification (port number).
     find_list((void*) &se, sl, p1, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME);
+    // Get server entry index within server list by service identification (port number).
+    find_list_index((void*) &i, sl, p1, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME);
 
     if (se != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        //
-        // Disabling
-        //
-
-        //
-        // Disable service by exiting enable (accept) thread.
-        //
-        // CAUTION! This has to be done BEFORE deallocating resources below.
-        //
-        // Display:
-        //
-        // The enable thread writes received events into the client input buffer.
-        // These EVENTS got allocated inside the x window system and
-        // have to be DEALLOCATED (freed) yet.
-        //
-        // Therefore, the enable thread has to be exited FIRST and only
-        // then the main thread can loop the request input buffer and
-        // deallocate ALL events before deallocating the buffer itself.
-        //
-        // Socket:
-        //
-        // The clients having already been accepted by the server socket
-        // are stored in the request buffer. They have to be CLOSED yet.
-        //
-        // Terminal:
-        //
-        // The main thread resets the terminal properties on shutdown, so that
-        // default echoing and canonical input (with <enter> key) are reactivated.
-        // But then, the call of function "ioctl" might not work promptly,
-        // if the terminal is waiting for the <enter> key.
-        //
-        // Therefore, the sensing thread has to be exited FIRST
-        // as long as ioctl fake input can be received prompt.
-        //
-        disable(p0, p1, p2);
-
-        //
-        // Removal
-        //
-
-        // Get server entry index within server list by service identification (port number).
-        find_list_index((void*) &i, sl, p1, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME);
-
-        //
-        // CAUTION! Locking a mutex is NOT necessary here,
-        // since only the main thread accesses the server list.
-        //
-
-        // Remove server entry from server list item.
-        modify_item(sl, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
-
-        //
-        // Shuttingdown
-        //
-
-        // Shutdown clients.
-        shutdown_clients(se, p2);
-
-        // Shutdown service.
-        shutdown_service(se, p2);
-
-        //
-        // Deallocation
-        //
-
-        // Deallocate server entry.
-        deallocate_server_entry((void*) &se);
+        // Shutdown lifecycle.
+        shutdown_lifecycle(p0, p1, p2, sl, se, (void*) &i);
 
     } else {
 
