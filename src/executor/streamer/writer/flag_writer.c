@@ -80,10 +80,10 @@ void write_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
         //
 
         // Store data in client entry.
-        write_entry(ce, p9, p10, p11, p12, p13);
+        write_entry(p7, p9, p10, p11, p12, p13);
 
         // Invoke write function within a new thread.
-        write_thread(ce);
+        write_thread(p7);
     }
 }
 

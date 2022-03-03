@@ -29,9 +29,9 @@
 #include <fcntl.h> // O_RDWR, O_NOCTTY
 #include <sys/stat.h> // mode_t, S_IRWXU
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../executor/opener/basic_opener.c"
-#include "../../logger/logger.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../executor/dispatcher/opener/basic/basic_opener.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Opens the serial port with the given filename.

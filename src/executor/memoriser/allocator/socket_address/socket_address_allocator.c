@@ -31,17 +31,26 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/memoriser/allocator/socket_address/inet_socket_address_allocator.c"
+//
 //?? TODO: This ifndef can be removed as soon as the mingw compiler supports ipv6.
-#ifndef _WIN32
-    #include "../../../../memoriser/allocator/socket_address/inet6_socket_address_allocator.c"
+//
+#if defined(__linux__) || defined(__unix__)
+    #include "../../../../executor/memoriser/allocator/socket_address/inet6_socket_address_allocator.c"
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../../../executor/memoriser/allocator/socket_address/inet6_socket_address_allocator.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    // Empty, since the mingw compiler does NOT support ipv6.
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 #include "../../../../logger/logger.c"
 #include "../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../../memoriser/allocator/socket_address/local_socket_address_allocator.c"
+    #include "../../../../executor/memoriser/allocator/socket_address/local_socket_address_allocator.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../memoriser/allocator/socket_address/local_socket_address_allocator.c"
+    #include "../../../../executor/memoriser/allocator/socket_address/local_socket_address_allocator.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
     //

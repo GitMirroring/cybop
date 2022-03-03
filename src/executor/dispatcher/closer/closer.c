@@ -27,6 +27,17 @@
 #define CLOSER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/client_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/dispatcher/closer/lifecycle_closer.c"
+#include "../../../executor/finder/entry_finder.c"
+#include "../../../executor/finder/list_index_finder.c"
+#include "../../../executor/finder/mode_finder.c"
 #include "../../../logger/logger.c"
 
 /**

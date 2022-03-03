@@ -32,7 +32,7 @@
 #include "../../../../executor/dispatcher/opener/socket/connexion_socket_opener.c"
 #include "../../../../executor/dispatcher/opener/socket/device_socket_opener.c"
 #include "../../../../executor/memoriser/allocator/socket_address/socket_address_allocator.c"
-#include "../../../../executor/memoriser/deallocator/socket_address/socket_address_deallocator.c"
+#include "../../../../executor/memoriser/deallocator/socket_address_deallocator.c"
 #include "../../../../executor/representer/deserialiser/cybol/socket/address_family_socket_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/socket/protocol_family_socket_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/socket/protocol_socket_cybol_deserialiser.c"

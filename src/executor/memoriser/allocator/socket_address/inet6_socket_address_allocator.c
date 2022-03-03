@@ -106,7 +106,7 @@ void allocate_socket_address_inet6(void* p0, void* p1, void* p2, void* p3, void*
         // CAUTION! The returned host address
         // is already in network byte order.
         //
-        open_socket_host_address_inet6((void*) &ha, p3, p4);
+        deserialise_host_address_inet6((void*) &ha, p3, p4);
 
         //
         // Allocate socket address.

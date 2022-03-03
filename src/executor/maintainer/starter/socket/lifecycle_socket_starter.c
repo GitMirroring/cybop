@@ -46,7 +46,7 @@
 #include "../../../../executor/maintainer/starter/socket/bind_socket_starter.c"
 #include "../../../../executor/maintainer/starter/socket/listen_socket_starter.c"
 #include "../../../../executor/memoriser/allocator/socket_address/socket_address_allocator.c"
-#include "../../../../executor/memoriser/deallocator/socket_address/socket_address_deallocator.c"
+#include "../../../../executor/memoriser/deallocator/socket_address_deallocator.c"
 #include "../../../../executor/representer/deserialiser/cybol/socket/address_family_socket_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/socket/protocol_family_socket_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/socket/protocol_socket_cybol_deserialiser.c"

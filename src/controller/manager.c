@@ -40,7 +40,7 @@
 #include "../controller/manager/internal_memory_startup_manager.c"
 #include "../controller/manager/shutdown_manager.c"
 #include "../controller/manager/system_signal_handler_startup_manager.c"
-#include "../controller/initialiser.c"
+#include "../controller/initiator.c"
 #include "../executor/copier/array_copier.c"
 #include "../executor/dispatcher/closer/basic/basic_closer.c"
 #include "../executor/dispatcher/opener/pipe/pipe_opener.c"
@@ -248,7 +248,7 @@ void manage(void* p0) {
     manage_startup_internal_memory(i);
 
     //
-    // Set special values.
+    // Storage.
     //
 
     // Set knowledge memory internals.
@@ -280,8 +280,8 @@ void manage(void* p0) {
     //
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Initialise system with an initial signal.
-    initialise(sm, p0, i);
+    // Initiate system with initial signal.
+    initiate(sm, p0, i);
 
     //
     // System shutdown.

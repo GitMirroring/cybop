@@ -41,7 +41,7 @@
 #include "../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../logger/logger.c"
-#include "../../../mapper/channel_to_data_type_mapper.c"
+#include "../../../mapper/channel_to_type_mapper.c"
 #include "../../../variable/symbolic_name/mutex_thread_symbolic_name.c"
 
 /**

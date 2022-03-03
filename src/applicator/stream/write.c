@@ -37,7 +37,7 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/copier/array_copier.c"
-#include "../../executor/streamer/writer.c"
+#include "../../executor/streamer/writer/writer.c"
 #include "../../logger/logger.c"
 
 /**

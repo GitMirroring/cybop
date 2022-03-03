@@ -22,6 +22,7 @@
 
         * Debug compilation errors
         * Update communicator receiver and sender
+        * Rename controller "initialiser.c" into "initiator.c", in order to avoid conflict with configurator initialiser
 
 2022-03-02  Christian Heller  <christian.heller@cybop.org>
 

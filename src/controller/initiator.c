@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INITIALISER_SOURCE
-#define INITIALISER_SOURCE
+#ifndef INITIATOR_SOURCE
+#define INITIATOR_SOURCE
 
 #include "../constant/encoding/cyboi/cyboi_encoding.c"
 #include "../constant/format/cyboi/logic_cyboi_format.c"
@@ -52,10 +52,10 @@
  * @param p1 the run source item
  * @param p2 the internal memory data
  */
-void initialise(void* p0, void* p1, void* p2) {
+void initiate(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initialise.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initiate.");
 
     // The startup signal part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -122,7 +122,7 @@ void initialise(void* p0, void* p1, void* p2) {
 */
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add startup signal to signal memory.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initiate. Add startup signal to signal memory.");
 
     //
     // Add part model (signal) to signal memory.
@@ -158,5 +158,5 @@ void initialise(void* p0, void* p1, void* p2) {
     deallocate_part((void*) &s);
 }
 
-/* INITIALISER_SOURCE */
+/* INITIATOR_SOURCE */
 #endif
