@@ -75,18 +75,19 @@
  * @param p9 the internal memory data
  * @param p10 the minimum number of bytes to be received in one call of the read function
  * @param p11 the maximum number of bytes to be received in one call of the read function
- * @param p12 the asynchronous mode (true if reading indirectly from buffer; false or null if reading directly from device)
+ * @param p12 the asynchronicity flag (true if reading indirectly from buffer; false or null if reading directly from device)
  * @param p13 the format
  * @param p14 the language (protocol)
  * @param p15 the encoding
  * @param p16 the service port
- * @param p17 the channel
+ * @param p17 the server flag
+ * @param p18 the channel
  */
-void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
+void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive data.");
-    fwprintf(stdout, L"Debug: Receive data. channel p17: %i\n", p17);
-    fwprintf(stdout, L"Debug: Receive data. channel *p17: %i\n", *((int*) p17));
+    fwprintf(stdout, L"Debug: Receive data. channel p18: %i\n", p18);
+    fwprintf(stdout, L"Debug: Receive data. channel *p18: %i\n", *((int*) p18));
 
     // The pointer message item, e.g. an xcb display event or win32 input record.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -165,10 +166,10 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     b = c;
 
     // Select buffer.
-    receive_select((void*) &b, (void*) &p0, (void*) &p, (void*) &i, (void*) &s, p17);
+    receive_select((void*) &b, (void*) &p0, (void*) &p, (void*) &i, (void*) &s, p18);
 
     // Read message.
-    receive_read((void*) &bd, (void*) &bc, b, p2, p3, p14, p9, p17, p16, p12, p10, p11);
+    receive_read((void*) &bd, (void*) &bc, b, p2, p3, p14, p9, p18, p17, p16, p12, p10, p11);
 
     // Extract message.
     //?? receive_extract((void*) &bd, (void*) &bc, e, bd, bc, p??);

@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-03-03  Christian Heller  <christian.heller@cybop.org>
+
+        * Debug compilation errors
+        * Update communicator receiver and sender
+
 2022-03-02  Christian Heller  <christian.heller@cybop.org>
 
         * Refactor shutdown manager in directory "controller/manager/"

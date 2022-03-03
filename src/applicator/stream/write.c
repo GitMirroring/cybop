@@ -48,7 +48,7 @@
  * - server (optional): the flag indicating server mode; if NULL, the default is false (client mode)
  * - port (optional): the service identification; only relevant in server mode
  * - receiver (required): the device identification, e.g. file descriptor
- * - message (required): the cybol path to the knowledge tree node storing the read data
+ * - message (required): the data to be written
  * - asynchronicity (optional): the flag indicating asynchronous writing within a thread; if NULL, the default is false (synchronous write)
  * - handler (optional): the callback cybol operation being executed when the thread finished reading data
  *
@@ -154,19 +154,8 @@ void apply_write(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get handler part model item data.
     copy_array_forward((void*) &hmd, hm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
- * @param p0 the destination device identification item, e.g. file descriptor (a file, serial port, terminal, socket) OR window id OR knowledge tree element (for inline channel)
- * @param p1 the source message data
- * @param p2 the source message count
- * @param p3 the source part (pointer reference), e.g. a signal
- * @param p4 the internal memory
- * @param p5 the channel
- * @param p6 the server flag
- * @param p7 the port
- * @param p8 the destination device identification item (pointer reference)
- * @param p9 the channel (pointer reference)
- * @param p10 the asynchronicity flag
     // Write data to device.
-    write_data(px, TODO);
+    write_data(rm, mmd, mmc, (void*) &m, p4, cmd, smd, pmd, (void*) &rm, (void*) &cmd, amd);
 }
 
 /* WRITE_SOURCE */

@@ -53,6 +53,7 @@ void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui event.");
 
+/*??
     // The input/output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The mutex.
@@ -180,6 +181,7 @@ void deserialise_gui_event(void* p0, void* p1, void* p2, void* p3) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui event. The input/output entry (service) is null, i.e. it does not exist in internal memory.");
         fwprintf(stdout, L"Error: Could not deserialise gui event. The input/output entry (service) is null, i.e. it does not exist in internal memory. io: %i\n", io);
     }
+*/
 }
 
 /* GUI_EVENT_DESERIALISER_SOURCE */

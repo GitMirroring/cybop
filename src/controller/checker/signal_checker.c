@@ -80,14 +80,16 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check signal.");
-    //?? fwprintf(stdout, L"Debug: Check signal. p6: %i\n", p6);
+    fwprintf(stdout, L"Debug: Check signal. p6: %i\n", p6);
+    fwprintf(stdout, L"Debug: Check signal. *p6: %i\n", *((int*) p6));
 
     // The signal item.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The signal memory item data, count.
+    void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* smc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The signal item data.
     void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The signal memory index used to search for a signal.
-    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     //
     // Allocate neutral message item.
@@ -97,12 +99,16 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     //
     allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
 
+    // Get signal memory item data, count.
+    copy_array_forward((void*) &smd, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &smc, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
     //
     // Receive signal.
     //
     // It suffices to hand over: destination signal, signal memory item, signal memory index, channel.
     //
-    receive_data(s, *NULL_POINTER_STATE_CYBOI_MODEL, p3, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &i, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) SIGNAL_CYBOI_CHANNEL);
+    receive_data(s, *NULL_POINTER_STATE_CYBOI_MODEL, smd, smc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) SIGNAL_CYBOI_CHANNEL);
 
     //
     // Get signal item data.
@@ -114,9 +120,7 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // CAUTION! Do NOT use the "copy_array_forward" function here,
     // since it returns an array, but not the contained element.
     //
-    get_item_metadata((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-    //?? fwprintf(stdout, L"Debug: check signal sd: %i\n", sd);
+    get_item((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     if (sd != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -125,7 +129,7 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         // Handling a signal has higher priority than checking for new interrupt requests.
         //
 
-        check_found(sd, p0, p1, p2, p3, (void*) &i, p6);
+        check_found(sd, p0, p1, p2, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p6);
 
     } else {
 

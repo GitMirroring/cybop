@@ -26,68 +26,82 @@
 #ifndef SIGNAL_READER_SOURCE
 #define SIGNAL_READER_SOURCE
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/comparator/integere/greater_integer_comparator.c"
 #include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Reads a signal into the destination.
  *
  * @param p0 the destination signal item
- * @param p1 the source signal memory item
- * @param p2 the source signal memory index
+ * @param p1 the source signal memory data
+ * @param p2 the source signal memory count
  */
 void read_signal(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read signal.");
+    fwprintf(stdout, L"Debug: Read signal. p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Read signal. *p2: %i\n\n", *((int*) p2));
 
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The signal part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    //
-    // Get signal part from position index zero.
-    //
-    // CAUTION! The signal memory item's count is checked inside
-    // this function. If it is smaller or equal to the given index
-    // (here: zero), then the signal value s is NOT changed,
-    // i.e. it remains NULL if initialised so before.
-    //
-    get_item_metadata((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    compare_integer_greater((void*) &r, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-    //?? fwprintf(stdout, L"Debug: read signal s: %i\n\n", s);
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    //
-    // Add signal part to destination item.
-    //
-    // CAUTION! Do NOT use overwrite but rather APPENDED instead,
-    // in order to avoid deletion of already existing signals
-    // in the destination.
-    //
-    // CAUTION! Use simple POINTER_STATE_CYBOI_TYPE and NOT PART_ELEMENT_STATE_CYBOI_TYPE here.
-    // The signal memory just holds references to knowledge memory parts (signals),
-    // but only the knowledge memory may care about rubbish (garbage) collection.
-    //
-    // Example:
-    // Assume there are two signals in the signal memory.
-    // The second references a logic part that is to be destroyed by the first.
-    // If reference counting from rubbish (garbage) collection were used,
-    // then the logic part serving as second signal could not be deallocated
-    // as long as it is still referenced from the signal memory item.
-    //
-    // But probably, there is a reason the first signal wants to destroy the
-    // second and consequently, the second should not be executed anymore.
-    // After destruction, the second signal just points to null, which is ignored.
-    // Hence, rubbish (garbage) collection would only disturb here
-    // and should be left to the knowledge memory.
-    //
-    modify_item(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+        //
+        // Get signal part from position index ZERO.
+        //
+        // CAUTION! The signal memory item's count is checked inside.
+        // If it is smaller or equal to the given zero index,
+        // then the signal part is NOT changed and remains NULL.
+        //
+        copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+        //
+        // Add signal part to destination item.
+        //
+        // CAUTION! Do NOT use overwrite but rather APPENDED instead,
+        // in order to avoid deletion of already existing signals
+        // in the destination.
+        //
+        // CAUTION! Use simple POINTER_STATE_CYBOI_TYPE and NOT PART_ELEMENT_STATE_CYBOI_TYPE here.
+        // The signal memory just holds references to knowledge memory parts (signals),
+        // but only the knowledge memory may care about rubbish (garbage) collection.
+        //
+        // Example:
+        // Assume there are two signals in the signal memory.
+        // The second references a logic part that is to be destroyed by the first.
+        // If reference counting from rubbish (garbage) collection were used,
+        // then the logic part serving as second signal could not be deallocated
+        // as long as it is still referenced from the signal memory item.
+        //
+        // But probably, there is a reason the first signal wants to destroy the
+        // second and consequently, the second should not be executed anymore.
+        // After destruction, the second signal just points to null, which is ignored.
+        // Hence, rubbish (garbage) collection would only disturb here
+        // and should be left to the knowledge memory.
+        //
+        modify_item(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    } else {
+
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read signal. The signal memory is empty.");
+        fwprintf(stdout, L"Debug: Could not read signal. The signal memory is empty. p2: %i\n\n", p2);
+        fwprintf(stdout, L"Debug: Could not read signal. The signal memory is empty. *p2: %i\n\n", *((int*) p2));
+    }
 }
 
 /* SIGNAL_READER_SOURCE */

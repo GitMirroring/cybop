@@ -239,7 +239,7 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
                     } else {
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read basic. An error occured.");
-                        fwprintf(stdout, L"Error: Could not read basic. An error occured. %i\n", r);
+                        fwprintf(stdout, L"Error: Could not read basic. An error occured. n: %i\n", n);
                         log_errno((void*) &errno);
                     }
 

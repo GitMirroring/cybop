@@ -45,10 +45,10 @@
  *
  * Parametres:
  * - channel (required): the communication channel, e.g. file, serial, socket
- * - server (optional): the flag indicating server mode; if NULL, the default is false (client mode)
+ * - server (optional): the flag indicating server mode (server-side client stub and NOT standalone client); if NULL, the default is false (client mode)
  * - port (optional): the service identification; only relevant in server mode
  * - sender (required): the device identification, e.g. file descriptor
- * - language (optional): the language defining which prefix or suffix indicates the message length; not needed for file reading since that ends with EOF
+ * - language (optional): the language defining which prefix or suffix indicates the message length, e.g. binary-crlf, http-request, xdt; not needed for file reading since that ends with EOF
  * - message (required): the cybol path to the knowledge tree node storing the received data
  * - asynchronicity (optional): the flag indicating asynchronous reading within a thread; if NULL, the default is false (synchronous read)
  *

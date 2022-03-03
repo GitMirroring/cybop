@@ -47,32 +47,31 @@
  * CAUTION! Do NOT rename this function to "send",
  * as that name is already used by low-level socket functionality.
  *
- * CAUTION! The properties are handed over as well,
- * since the model might also contain meta data.
- *
- * @param p0 the destination item (e.g. filename, client socket number, service identification, gui window id)
- * @param p1 the source name data
- * @param p2 the source name count
- * @param p3 the source channel data
- * @param p4 the source encoding data
- * @param p5 the source language data
- * @param p6 the source language properties data
- * @param p7 the source language properties count
- * @param p8 the source format data
- * @param p9 the source type data
- * @param p10 the source model data
- * @param p11 the source model count
- * @param p12 the source properties data
- * @param p13 the source properties count
- * @param p14 the source part (pointer reference)
- * @param p15 the clear flag
- * @param p16 the newline flag
- * @param p17 the termination flag
- * @param p18 the knowledge memory part (pointer reference)
- * @param p19 the stack memory item
- * @param p20 the internal memory data
+ * @param p0 the destination device identification item, e.g. file descriptor (a file, serial port, terminal, socket) OR window id OR knowledge tree element (for inline channel)
+ * @param p1 the source model data
+ * @param p2 the source model count
+ * @param p3 the source properties data
+ * @param p4 the source properties count
+ * @param p5 the source part (pointer reference), e.g. a signal
+ * @param p6 the source name data
+ * @param p7 the source name count
+ * @param p8 the encoding
+ * @param p9 the language
+ * @param p10 the format
+ * @param p11 the type
+ * @param p12 the clear flag
+ * @param p13 the newline flag
+ * @param p14 the knowledge memory part (pointer reference)
+ * @param p15 the stack memory item
+ * @param p16 the internal memory
+ * @param p17 the channel
+ * @param p18 the server flag
+ * @param p19 the port
+ * @param p20 the destination device identification item (pointer reference)
+ * @param p21 the channel (pointer reference)
+ * @param p22 the asynchronicity flag
  */
-void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20) {
+void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send.");
 
@@ -143,7 +142,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     //?? fwprintf(stdout, L"Debug: Send. b after s: %i\n", b);
 
     // Select buffer.
-    send_select((void*) &b, (void*) &e, p5);
+    send_select((void*) &b, (void*) &e, p9);
 
     //?? fwprintf(stdout, L"Debug: Send. b after e: %i\n", b);
 
@@ -154,26 +153,19 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // type "char" or type "wchar_t", which is IRRELEVANT.
     // This function knows how to handle it, depending on the given language.
     //
-    send_serialise((void*) &ad, (void*) &ac, b, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p15, p16, p18, p19, p20, p0);
+    send_serialise((void*) &ad, (void*) &ac, b, p6, p7, p21, p8, p9, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p10, p11, p1, p2, p3, p4, p12, p13, p14, p15, p16, p0);
 
     //?? fwprintf(stdout, L"Debug: send data serialise *ac: %i\n", *((int*) ac));
     //?? fwprintf(stdout, L"Debug: send data serialise ad: %s\n", (char*) ad);
 
-    //?? TODO: The newline flag causes a newline to be added at the end of each part.
-    //?? The lineending, on the other hand, gets added just once at the end of the whole message.
-    //?? It might be needed for serial port communication.
-
-    // Add lineending character.
-    //?? modify_item(b, (void*) WINDOWS_NEWLINE_TEXT_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) WINDOWS_NEWLINE_TEXT_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-
     // Encode message.
-    send_encode((void*) &ad, (void*) &ac, e, ad, ac, p4);
+    send_encode((void*) &ad, (void*) &ac, e, ad, ac, p8);
 
     //?? fwprintf(stdout, L"Debug: send data encode *ac: %i\n", *((int*) ac));
     //?? fwprintf(stdout, L"Debug: send data encode ad: %s\n", (char*) ad);
 
     // Append termination.
-    send_termination((void*) &ad, (void*) &ac, e, p17, p3);
+    send_termination((void*) &ad, (void*) &ac, e, *NULL_POINTER_STATE_CYBOI_MODEL, p17);
 
     //?? fwprintf(stdout, L"Debug: send data termination *ac: %i\n", *((int*) ac));
     //?? fwprintf(stdout, L"Debug: send data termination ad: %s\n", (char*) ad);
@@ -190,7 +182,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // CAUTION! Hand over message as POINTER REFERENCE, not just pointer.
     // The pointer is used inside to count sent data due to socket buffer limit.
     //
-    send_write(p0, (void*) &ad, ac, p12, p13, p18, p19, p20, p14, p3);
+    send_write(p0, ad, ac, p5, p16, p17, p18, p19, p20, p21, p22);
 
     // Deallocate serialised wide character item.
     deallocate_item((void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

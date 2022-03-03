@@ -30,7 +30,8 @@
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/streamer/reader/basic/inline_reader.c"
+#include "../../../executor/streamer/reader/inline/inline_reader.c"
+#include "../../../executor/streamer/reader/signal/signal_reader.c"
 #include "../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
@@ -124,7 +125,7 @@ void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? read_signal(p0, p1, p3);
+            read_signal(p0, p1, p2);
         }
     }
 

@@ -45,13 +45,13 @@
  * @param p2 the buffer item
  * @param p3 the source name data
  * @param p4 the source name count
- * @param p5 the source channel data
- * @param p6 the source encoding data
- * @param p7 the source language data
- * @param p8 the source language properties data
- * @param p9 the source language properties count
- * @param p10 the source format data
- * @param p11 the source type data
+ * @param p5 the channel data
+ * @param p6 the encoding data
+ * @param p7 the language data
+ * @param p8 the language properties data
+ * @param p9 the language properties count
+ * @param p10 the format data
+ * @param p11 the type data
  * @param p12 the source model data
  * @param p13 the source model count
  * @param p14 the source properties data
@@ -61,7 +61,7 @@
  * @param p18 the knowledge memory part (pointer reference)
  * @param p19 the stack memory item
  * @param p20 the internal memory data
- * @param p21 the destination item (currently only needed for gui window id)
+ * @param p21 the destination device identification item, currently only needed for gui window id
  */
 void send_serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21) {
 

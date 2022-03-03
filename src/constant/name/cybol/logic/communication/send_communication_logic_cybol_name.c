@@ -26,17 +26,13 @@
 #ifndef SEND_COMMUNICATION_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
 #define SEND_COMMUNICATION_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
 
-#include <stddef.h>
+#include <stddef.h> // wchar_t
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-//
-// Properties.
-//
-
-/** The area send communication logic cybol name. */
-static wchar_t* AREA_SEND_COMMUNICATION_LOGIC_CYBOL_NAME = L"area";
-static int* AREA_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The asynchronicity send communication logic cybol name. */
+static wchar_t* ASYNCHRONICITY_SEND_COMMUNICATION_LOGIC_CYBOL_NAME = L"asynchronicity";
+static int* ASYNCHRONICITY_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The channel send communication logic cybol name. */
 static wchar_t* CHANNEL_SEND_COMMUNICATION_LOGIC_CYBOL_NAME = L"channel";
@@ -54,6 +50,10 @@ static int* ENCODING_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_8_INTEGE
 static wchar_t* FORMAT_SEND_COMMUNICATION_LOGIC_CYBOL_NAME = L"format";
 static int* FORMAT_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The handler send communication logic cybol name. */
+static wchar_t* HANDLER_SEND_COMMUNICATION_LOGIC_CYBOL_NAME = L"handler";
+static int* HANDLER_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The language send communication logic cybol name. */
 static wchar_t* LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME = L"language";
 static int* LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -62,33 +62,21 @@ static int* LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_8_INTEGE
 static wchar_t* MESSAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME = L"message";
 static int* MESSAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The metadata send communication logic cybol name. */
-static wchar_t* METADATA_SEND_COMMUNICATION_LOGIC_CYBOL_NAME = L"metadata";
-static int* METADATA_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The newline send communication logic cybol name. */
 static wchar_t* NEWLINE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME = L"newline";
 static int* NEWLINE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The null-termination send communication logic cybol name. */
-static wchar_t* NULL_TERMINATION_SEND_COMMUNICATION_LOGIC_CYBOL_NAME = L"null-termination";
-static int* NULL_TERMINATION_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The port send communication logic cybol name. */
+static wchar_t* PORT_SEND_COMMUNICATION_LOGIC_CYBOL_NAME = L"port";
+static int* PORT_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The receiver send communication logic cybol name. */
 static wchar_t* RECEIVER_SEND_COMMUNICATION_LOGIC_CYBOL_NAME = L"receiver";
 static int* RECEIVER_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The sender send communication logic cybol name. */
-static wchar_t* SENDER_SEND_COMMUNICATION_LOGIC_CYBOL_NAME = L"sender";
-static int* SENDER_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
-// Constraints.
-//
-
-/** The indentation language send communication logic cybol name. */
-static wchar_t* INDENTATION_LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME = L"indentation";
-static int* INDENTATION_LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The server send communication logic cybol name. */
+static wchar_t* SERVER_SEND_COMMUNICATION_LOGIC_CYBOL_NAME = L"server";
+static int* SERVER_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* SEND_COMMUNICATION_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

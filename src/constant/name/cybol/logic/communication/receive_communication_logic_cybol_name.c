@@ -26,13 +26,13 @@
 #ifndef RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
 #define RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
 
-#include <stddef.h>
+#include <stddef.h> // wchar_t
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The asynchronous receive communication logic cybol name. */
-static wchar_t* ASYNCHRONOUS_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME = L"asynchronous";
-static int* ASYNCHRONOUS_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The asynchronicity receive communication logic cybol name. */
+static wchar_t* ASYNCHRONICITY_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME = L"asynchronicity";
+static int* ASYNCHRONICITY_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The channel receive communication logic cybol name. */
 static wchar_t* CHANNEL_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME = L"channel";
@@ -69,6 +69,10 @@ static int* PORT_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER
 /** The sender receive communication logic cybol name. */
 static wchar_t* SENDER_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME = L"sender";
 static int* SENDER_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The server receive communication logic cybol name. */
+static wchar_t* SERVER_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME = L"server";
+static int* SERVER_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

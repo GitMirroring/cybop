@@ -46,17 +46,19 @@
  * @param p5 the language (protocol)
  * @param p6 the internal memory data
  * @param p7 the channel
- * @param p8 the service port
- * @param p9 the asynchronous mode (true if reading indirectly from buffer; false or null if reading directly from device)
- * @param p10 the minimum number of bytes to be received in one call of the read function
- * @param p11 the maximum number of bytes to be received in one call of the read function
+ * @param p8 the server flag
+ * @param p9 the service port
+ * @param p10 the asynchronicity flag (true if reading indirectly from buffer; false or null if reading directly from device)
+ * @param p11 the minimum number of bytes to be received in one call of the read function
+ * @param p12 the maximum number of bytes to be received in one call of the read function
  */
-void receive_read(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void receive_read(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
-    if (p15 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive read.");
-        fwprintf(stdout, L"Debug: Receive read. p4: %i\n", p4);
+        fwprintf(stdout, L"Debug: Receive read. p7: %i\n", p7);
+        fwprintf(stdout, L"Debug: Receive read. *p7: %i\n", *((int*) p7));
 
         //
         // Read message from device.
@@ -65,7 +67,7 @@ void receive_read(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         // used only when calling this function from a "sense" thread,
         // in order to write data into an internal client buffer.
         //
-        read_data(p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, p5, p6, p7, p8, p9);
+        read_data(p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, p5, p6, p7, p8, p9, p10);
 
         //
         // Get item data, count.
