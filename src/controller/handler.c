@@ -108,7 +108,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
             //?? fwprintf(stdout, L"Debug: Handle. part element: %i\n", *((int*) fd));
 
             // Handle compound part signal.
-            handle_part(md, mc, pd, pc, p1, p2, p3, p4, p6, p7);
+            handle_part(md, mc, pd, pc, p1, p2, p3, p4, p5, p6, p7);
         }
     }
 

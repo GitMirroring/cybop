@@ -72,7 +72,7 @@
  * @param p1 the knowledge memory part (pointer reference)
  * @param p2 the stack memory item
  * @param p3 the signal memory item
- * @param p4 the signal memory sleep time
+ * @param p4 the internal memory data (pointer reference)
  * @param p5 the interrupt request pipe
  * @param p6 the shutdown flag
  */
@@ -129,7 +129,7 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         // Handling a signal has higher priority than checking for new interrupt requests.
         //
 
-        check_found(sd, p0, p1, p2, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p6);
+        check_found(sd, p0, p1, p2, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p4, p6);
 
     } else {
 
@@ -138,7 +138,7 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         // Query interrupt flags for requests.
         //
 
-        check_empty(p0, p3, p4, p5);
+        check_empty(p0, p3, p5);
     }
 
     //

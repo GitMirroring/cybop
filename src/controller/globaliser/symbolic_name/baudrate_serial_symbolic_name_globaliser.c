@@ -26,6 +26,8 @@
 #ifndef BAUDRATE_SERIAL_SYMBOLIC_NAME_GLOBALISER_SOURCE
 #define BAUDRATE_SERIAL_SYMBOLIC_NAME_GLOBALISER_SOURCE
 
+#include "../../../variable/symbolic_name/baudrate_serial_symbolic_name.c"
+
 #if defined(__linux__) || defined(__unix__)
     #include <termios.h>
 #elif defined(__APPLE__) && defined(__MACH__)
@@ -40,8 +42,6 @@
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
-
-#include "../../../variable/symbolic_name/baudrate_serial_symbolic_name.c"
 
 //
 // The baudrates below were mostly taken from:
@@ -61,9 +61,10 @@
 // B9600  B19200  B38400  B57600  B115200
 // B230400  B460800
 //
-// BSD defines two additional speed symbols as aliases:
-// EXTA is an alias for B19200 and EXTB is an alias for B38400.
-// These aliases are OBSOLETE.
+// BSD defines two additional speed symbols as aliases,
+// which are are OBSOLETE, however:
+// - EXTA is an alias for B19200
+// - EXTB is an alias for B38400
 //
 
 /**

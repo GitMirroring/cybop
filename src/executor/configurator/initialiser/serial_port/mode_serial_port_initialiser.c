@@ -44,18 +44,19 @@
  * Initialises the serial port mode.
  *
  * @param p0 the terminal mode
+ * @param p1 the baudrate
  */
-void initialise_serial_port_mode(void* p0) {
+void initialise_serial_port_mode(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initialise serial port mode.");
 
 #if defined(__linux__) || defined(__unix__)
-    initialise_unix_serial_port(p0);
+    initialise_unix_serial_port(p0, p1);
 #elif defined(__APPLE__) && defined(__MACH__)
-    initialise_unix_serial_port(p0);
+    initialise_unix_serial_port(p0, p1);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    initialise_win32_serial_port(p0);
+    initialise_win32_serial_port(p0, p1);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif

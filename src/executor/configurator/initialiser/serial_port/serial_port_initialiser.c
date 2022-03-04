@@ -47,8 +47,9 @@
  *
  * @param p0 the file descriptor
  * @param p1 the client entry
+ * @param p2 the baudrate
  */
-void initialise_serial_port(void* p0, void* p1) {
+void initialise_serial_port(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initialise serial port.");
     fwprintf(stdout, L"Debug: Initialise serial port. p0: %i\n", p0);
@@ -74,7 +75,7 @@ void initialise_serial_port(void* p0, void* p1) {
     copy_array_forward(p1, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ORIGINAL_MODE_SERIAL_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Edit current terminal mode for SERIAL PORT.
-    initialise_serial_port_mode(m);
+    initialise_serial_port_mode(m, p2);
 
     // Set edited terminal mode.
     set_terminal_mode(p0, m);

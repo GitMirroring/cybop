@@ -39,13 +39,14 @@
  *
  * @param p0 the file descriptor
  * @param p1 the client entry
- * @param p2 the channel
+ * @param p2 the baudrate
+ * @param p3 the channel
  */
-void initialise(void* p0, void* p1, void* p2) {
+void initialise(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initialise.");
-    fwprintf(stdout, L"Debug: Initialise. p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Initialise. *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Initialise. p3: %i\n", p3);
+    fwprintf(stdout, L"Debug: Initialise. *p3: %i\n", *((int*) p3));
 
     //
     // CAUTION! The terminal and serial port could be treated ALMOST identically.
@@ -65,17 +66,17 @@ void initialise(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) SERIAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p3, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            initialise_serial_port(p0, p1);
+            initialise_serial_port(p0, p1, p2);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p3, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -86,8 +87,8 @@ void initialise(void* p0, void* p1, void* p2) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not initialise. The channel is unknown. p2: %i\n", p2);
-        fwprintf(stdout, L"Warning: Could not initialise. The channel is unknown. *p2: %i\n", *((int*) p2));
+        fwprintf(stdout, L"Warning: Could not initialise. The channel is unknown. p3: %i\n", p3);
+        fwprintf(stdout, L"Warning: Could not initialise. The channel is unknown. *p3: %i\n", *((int*) p3));
     }
 }
 

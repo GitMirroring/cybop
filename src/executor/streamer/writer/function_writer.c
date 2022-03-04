@@ -78,6 +78,8 @@ int write_function(void* p0) {
     void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source part (pointer reference).
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The internal memory.
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The channel.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The output buffer item type.
@@ -99,6 +101,8 @@ int write_function(void* p0) {
     copy_array_forward((void*) &bm, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_BUFFER_OUTPUT_CLIENT_STATE_CYBOI_NAME);
     // Get source part from client entry.
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SOURCE_PART_COMMUNICATION_CLIENT_STATE_CYBOI_NAME);
+    // Get internal memory from client entry.
+    copy_array_forward((void*) &i, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERNAL_MEMORY_BACKLINK_CLIENT_STATE_CYBOI_NAME);
     // Get channel from client entry.
     copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CHANNEL_COMMUNICATION_CLIENT_STATE_CYBOI_NAME);
 
@@ -121,7 +125,7 @@ int write_function(void* p0) {
     //
 
     // Write output data via loop, until all data have been transmitted.
-    write_loop(d, (void*) &bd, bc, bs, (void*) &t, (void*) &s, bm, p0, c);
+    write_loop(d, (void*) &bd, bc, bs, (void*) &t, (void*) &s, bm, p0, i, c);
 
     //
     // An implicit call to "thrd_exit" is made when this thread

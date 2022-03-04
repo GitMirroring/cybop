@@ -121,13 +121,13 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     copy_array_forward((void*) &bs, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
     //
-    // CAUTION! Do NOT check client entry for NULL here,
-    // since the INLINE_CYBOI_CHANNEL does NOT have one.
+    // CAUTION! Do NOT check client entry for NULL here, since the
+    // INLINE_CYBOI_CHANNEL and SIGNAL_CYBOI_CHANNEL do NOT have one.
     // Otherwise, it would not be processed.
     //
 
     // Write data via the given channel into the destination.
-    write_flag(p0, (void*) &bd, bc, bs, (void*) &t, p3, bm, ce, p5, p8, (void*) &b, (void*) &bm, p3, p9, p10);
+    write_flag(p0, (void*) &bd, bc, bs, (void*) &t, p3, bm, ce, p4, p5, p8, (void*) &b, (void*) &bm, p3, p9, p10);
 }
 
 /* WRITER_SOURCE */

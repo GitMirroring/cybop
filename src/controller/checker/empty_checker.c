@@ -43,10 +43,9 @@
  *
  * @param p0 the internal memory data
  * @param p1 the signal memory item
- * @param p2 the signal memory sleep time
- * @param p3 the interrupt request pipe
+ * @param p2 the interrupt request pipe
  */
-void check_empty(void* p0, void* p1, void* p2, void* p3) {
+void check_empty(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check empty.");
     fwprintf(stdout, L"Debug: Check empty. p0: %i\n", p0);
@@ -61,7 +60,7 @@ void check_empty(void* p0, void* p1, void* p2, void* p3) {
     void* h = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get read interrupt request pipe file descriptor.
-    copy_array_forward((void*) &rd, p3, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    copy_array_forward((void*) &rd, p2, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     // Get interrupt handlers from internal memory.
     copy_array_forward((void*) &ih, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLERS_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get interrupt mutex from internal memory.

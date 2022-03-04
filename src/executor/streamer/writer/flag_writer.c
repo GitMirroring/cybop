@@ -45,15 +45,16 @@
  * @param p5 the source part (pointer reference), e.g. a signal
  * @param p6 the source buffer mutex
  * @param p7 the client entry
- * @param p8 the channel
- * @param p9 the destination device identification item (pointer reference)
- * @param p10 the output buffer item (pointer reference)
- * @param p11 the output buffer mutex (pointer reference)
- * @param p12 the source part (pointer reference)
- * @param p13 the channel (pointer reference)
- * @param p14 the asynchronicity flag
+ * @param p8 the internal memory (needed for signal only)
+ * @param p9 the channel
+ * @param p10 the destination device identification item (pointer reference)
+ * @param p11 the output buffer item (pointer reference)
+ * @param p12 the output buffer mutex (pointer reference)
+ * @param p13 the source part (pointer reference)
+ * @param p14 the channel (pointer reference)
+ * @param p15 the asynchronicity flag
  */
-void write_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
+void write_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write flag.");
     fwprintf(stdout, L"Debug: Write flag. p0: %i\n", p0);
@@ -62,7 +63,7 @@ void write_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // CAUTION! Do NOT use "equal" comparison, since synchronous mode has to be the DEFAULT.
-    compare_integer_unequal((void*) &r, p14, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, p15, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -71,7 +72,7 @@ void write_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
         //
 
         // Write directly into device.
-        write_loop(p0, p1, p2, p3, p4, p5, p6, p7, p8);
+        write_loop(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
 
     } else {
 
@@ -80,7 +81,7 @@ void write_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
         //
 
         // Store data in client entry.
-        write_entry(p7, p9, p10, p11, p12, p13);
+        write_entry(p7, p10, p11, p12, p13, p14);
 
         // Invoke write function within a new thread.
         write_thread(p7);

@@ -64,14 +64,15 @@
  * @param p5 the source part (pointer reference), e.g. a signal
  * @param p6 the source buffer mutex
  * @param p7 the client entry
- * @param p8 the loop break flag
- * @param p9 the channel
+ * @param p8 the internal memory (needed for signal only)
+ * @param p9 the loop break flag
+ * @param p10 the channel
  */
-void write_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void write_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write message.");
-    fwprintf(stdout, L"Information: Write message. p9: %i\n", p9);
-    fwprintf(stdout, L"Information: Write message. *p9: %i\n", *((int*) p9));
+    fwprintf(stdout, L"Information: Write message. p10: %i\n", p10);
+    fwprintf(stdout, L"Information: Write message. *p10: %i\n", *((int*) p10));
 
     // The destination device identification item data.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -83,7 +84,7 @@ void write_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p10, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -96,24 +97,24 @@ void write_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
             // pending requests flushed to the x server.
             // Therefore, further loop cycles are not necessary.
             //
-            copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p9, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) FILE_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p10, (void*) FILE_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The loop break flag is adjusted inside the "write_basic" function.
-            write_basic(d, p1, p2, p3, p4, p6, p8);
+            write_basic(d, p1, p2, p3, p4, p6, p9);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) INLINE_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p10, (void*) INLINE_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -125,24 +126,24 @@ void write_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
             // The buffer data have been copied within cyboi, all at once.
             // Therefore, further loop cycles are not necessary.
             //
-            copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p9, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) PIPELINE_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p10, (void*) PIPELINE_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The loop break flag is adjusted inside the "write_basic" function.
-            write_basic(d, p1, p2, p3, p4, p6, p8);
+            write_basic(d, p1, p2, p3, p4, p6, p9);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) SERIAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p10, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -158,17 +159,17 @@ void write_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
             //
 
             // The loop break flag is adjusted inside the "write_basic" function.
-            write_basic(d, p1, p2, p3, p4, p6, p8);
+            write_basic(d, p1, p2, p3, p4, p6, p9);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) SIGNAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p10, (void*) SIGNAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            write_signal(p5, p7);
+            write_signal(p8, p5);
 
             //
             // Set loop break flag.
@@ -176,24 +177,24 @@ void write_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
             // The source signal has been placed into the signal memory.
             // Therefore, further loop cycles are not necessary.
             //
-            copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p9, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p10, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The loop break flag is adjusted inside the "write_basic" function.
 #if defined(__linux__) || defined(__unix__)
-            write_basic(d, p1, p2, p3, p4, p6, p8);
+            write_basic(d, p1, p2, p3, p4, p6, p9);
 #elif defined(__APPLE__) && defined(__MACH__)
-            write_basic(d, p1, p2, p3, p4, p6, p8);
+            write_basic(d, p1, p2, p3, p4, p6, p9);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-            write_winsock(d, p1, p2, p3, p4, p6, p8);
+            write_winsock(d, p1, p2, p3, p4, p6, p9);
 #else
 #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
@@ -202,7 +203,7 @@ void write_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p10, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -228,12 +229,12 @@ void write_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
             // The loop break flag is adjusted inside the "write_basic" function.
 #if defined(__linux__) || defined(__unix__)
-            write_basic(d, p1, p2, p3, p4, p6, p8);
+            write_basic(d, p1, p2, p3, p4, p6, p9);
 #elif defined(__APPLE__) && defined(__MACH__)
-            write_basic(d, p1, p2, p3, p4, p6, p8);
+            write_basic(d, p1, p2, p3, p4, p6, p9);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-            write_win32_console(d, p1, p2, p3, p4, p6, p8);
+            write_win32_console(d, p1, p2, p3, p4, p6, p9);
 #else
 #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
@@ -243,7 +244,7 @@ void write_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write message. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not write message. The channel is unknown. p9: %i\n", p9);
+        fwprintf(stdout, L"Warning: Could not write message. The channel is unknown. p10: %i\n", p10);
     }
 }
 

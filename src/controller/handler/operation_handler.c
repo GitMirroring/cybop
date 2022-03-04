@@ -1083,7 +1083,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_branch(p0, p1, p3, p4, p2, p5, p7);
+            apply_branch(p0, p1, p3, p4, p2, p5, p6, p7);
         }
     }
 
@@ -1093,7 +1093,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_loop(p0, p1, p3, p4, p2, p5, p7);
+            apply_loop(p0, p1, p3, p4, p2, p5, p6, p7);
         }
     }
 
@@ -1103,7 +1103,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_sequence(p0, p1, p3, p4, p2, p5, p7);
+            apply_sequence(p0, p1, p3, p4, p2, p5, p6, p7);
         }
     }
 

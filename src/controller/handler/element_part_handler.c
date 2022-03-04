@@ -74,11 +74,9 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
         //
         // The signal is to be executed DIRECTLY,
-        // i.e. by calling the corresponding function,
-        // WITHOUT adding it to the signal memory.
+        // i.e. by calling the corresponding function.
         //
 
-        // Handle signal.
         handle(s, p2, p3, p4, p5, p6, p7, p8);
 
     } else {

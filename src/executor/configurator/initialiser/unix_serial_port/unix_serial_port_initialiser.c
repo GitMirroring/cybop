@@ -60,50 +60,96 @@
  * Initialises the unix terminal mode for a serial port.
  *
  * @param p0 the terminal mode
+ * @param p1 the baudrate
  */
-void initialise_unix_serial_port(void* p0) {
+void initialise_unix_serial_port(void* p0, void* p1) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         struct termios* m = (struct termios*) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initialise unix serial port.");
+        fwprintf(stdout, L"Debug: Initialise unix serial port. baudrate p1: %i\n", p1);
+        fwprintf(stdout, L"Debug: Initialise unix serial port. baudrate *p1: %i\n", *((int*) p1));
 
-        // Ignore parity.
-        (*m).c_iflag = IGNPAR;
-
-        (*m).c_oflag = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-        (*m).c_cflag = *bdi | CS8 | CLOCAL | CREAD;
-
-        (*m).c_lflag = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The serialised baudrate item.
+        void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The serialised baudrate item data.
+        void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         //
-        // Set blocking mode.
+        // Allocate serialised baudrate item.
         //
-        // Set number of input characters to be AVAILABLE, before "read" will return.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
         //
-        // Some documentations recommend to set TIME = 0 and MIN = 1 in noncanonical mode.
-        // This means that "read" will BLOCK until at least one byte is available
-        // and maintains best compatibility with normal behaviour of terminals.
-        //
-        // If set to ZERO, a character gets processed right away,
-        // WITHOUT waiting for yet another character input, which is
-        // the equivalent of non-blocking mode and NOT wanted here.
-        //
-        (*m).c_cc[VMIN] = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+        allocate_item((void*) &b, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
-        // Set time to wait before "read" will return.
-        (*m).c_cc[VTIME] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // Serialise baudrate integer value.
+        serialise_terminal_mode_line_speed(b, p1);
 
-        // Turn on DTR.
-        //?? s |= TIOCM_DTR;
-        // Turn on RTS.
-        //?? s |= TIOCM_RTS;
+        //
+        // Get serialised wide character item data.
+        //
+        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+        // Inside the structure, arrays may have been reallocated,
+        // with elements pointing to different memory areas now.
+        //
+        copy_array_forward((void*) &bd, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+        if (bd != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            // The serialised baudrate item data as integer.
+            int* bdi = (int*) bd;
+
+            // Ignore parity.
+            (*m).c_iflag = IGNPAR;
+
+            (*m).c_oflag = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+            (*m).c_cflag = *bdi | CS8 | CLOCAL | CREAD;
+
+            (*m).c_lflag = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+            //
+            // Set blocking mode.
+            //
+            // Set number of input characters to be AVAILABLE, before "read" will return.
+            //
+            // Some documentations recommend to set TIME = 0 and MIN = 1 in noncanonical mode.
+            // This means that "read" will BLOCK until at least one byte is available
+            // and maintains best compatibility with normal behaviour of terminals.
+            //
+            // If set to ZERO, a character gets processed right away,
+            // WITHOUT waiting for yet another character input, which is
+            // the equivalent of non-blocking mode and NOT wanted here.
+            //
+            (*m).c_cc[VMIN] = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+
+            // Set time to wait before "read" will return.
+            (*m).c_cc[VTIME] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+            // Turn on DTR.
+            //?? s |= TIOCM_DTR;
+            // Turn on RTS.
+            //?? s |= TIOCM_RTS;
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise unix serial port. The baudrate item data is null.");
+        }
+
+        //
+        // Deallocate serialised baudrate array.
+        //
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        //
+        deallocate_item((void*) &b, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise unix terminal. The terminal mode is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not initialise unix serial port. The terminal mode is null.");
     }
 }
 

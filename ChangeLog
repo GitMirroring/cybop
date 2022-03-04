@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-03-04  Christian Heller  <christian.heller@cybop.org>
+
+        * Make cyboi compilable
+
 2022-03-03  Christian Heller  <christian.heller@cybop.org>
 
         * Debug compilation errors

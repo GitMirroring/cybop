@@ -51,8 +51,9 @@
  * @param p0 the signal memory model item
  * @param p1 the run source item
  * @param p2 the internal memory data
+ * @param p3 the internal memory data (pointer reference)
  */
-void initiate(void* p0, void* p1, void* p2) {
+void initiate(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initiate.");
@@ -152,7 +153,7 @@ void initiate(void* p0, void* p1, void* p2) {
     // which are stored/ found in the signal memory.
     // The loop is left as soon as its shutdown flag is set.
     //
-    check(p2);
+    check(p2, p3);
 
     // Deallocate startup signal part.
     deallocate_part((void*) &s);

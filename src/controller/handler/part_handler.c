@@ -48,10 +48,11 @@
  * @param p5 the knowledge memory part (pointer reference)
  * @param p6 the stack memory item
  * @param p7 the signal memory item
- * @param p8 the direct execution flag
- * @param p9 the shutdown flag
+ * @param p8 the internal memory data (pointer reference)
+ * @param p9 the direct execution flag
+ * @param p10 the shutdown flag
  */
-void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle part.");
 
@@ -127,7 +128,7 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
             break;
         }
 
-        handle_part_element(p0, (void*) &j, p4, p5, p6, p7, p8, p9);
+        handle_part_element(p0, (void*) &j, p4, p5, p6, p7, p8, p9, p10);
 
         // Increment loop variable.
         j++;

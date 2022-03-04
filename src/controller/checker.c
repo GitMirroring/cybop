@@ -40,8 +40,9 @@
  * Checks the signal memory for signals.
  *
  * @param p0 the internal memory data
+ * @param p1 the internal memory data (pointer reference)
  */
-void check(void* p0) {
+void check(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check for signals.");
@@ -65,8 +66,6 @@ void check(void* p0) {
     void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The signal memory part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The signal memory sleep time.
-    void* sl = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The interrupt pipe.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -81,10 +80,8 @@ void check(void* p0) {
     copy_array_forward((void*) &st, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) STACK_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get signal memory part.
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    // Get signal memory sleep time.
-    copy_array_forward((void*) &sl, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SLEEP_TIME_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get interrupt pipe.
-    copy_array_forward((void*) &p, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_PIPE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &p, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PIPE_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     //
     // Get stack memory part model item.
@@ -115,7 +112,7 @@ void check(void* p0) {
             break;
         }
 
-        check_signal(p0, (void*) &k, stm, sm, sl, p, (void*) &f);
+        check_signal(p0, (void*) &k, stm, sm, p1, p, (void*) &f);
     }
 }
 

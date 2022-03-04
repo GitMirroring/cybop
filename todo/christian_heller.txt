@@ -13,7 +13,6 @@
 
 CONTINUE current work:
 
-        * Debug compilation errors
         * Test file read functionality
         * Run service lifecycle cybol examples in directory "examples/communication/"
 
@@ -31,6 +30,9 @@ CONTINUE current work:
 
         * Change constraint "indentation" in file "send.c" to standard property parametre
         * Edit html serialiser accordingly
+
+        * Adapt file "manager.c" to allocate signal memory ITEM instead of part
+        * Adapt file "manager.c" to allocate stack memory ITEM instead of part
 
 Awakener
 ________

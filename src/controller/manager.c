@@ -32,10 +32,13 @@
 #include "../constant/format/cyboi/state_cyboi_format.c"
 #include "../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../constant/model/cyboi/state/double_state_cyboi_model.c"
-#include "../constant/model/cyboi/state/extra_integer_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../constant/name/cyboi/state/part_state_cyboi_name.c"
+#include "../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../controller/manager/internal_memory_startup_manager.c"
 #include "../controller/manager/shutdown_manager.c"
@@ -44,17 +47,13 @@
 #include "../executor/copier/array_copier.c"
 #include "../executor/dispatcher/closer/basic/basic_closer.c"
 #include "../executor/dispatcher/opener/pipe/pipe_opener.c"
-#include "../executor/maintainer/shutter/display/display_shutter.c"
-#include "../executor/maintainer/shutter/opengl/opengl_shutter.c"
-#include "../executor/maintainer/shutter/serial_port/serial_port_shutter.c"
-#include "../executor/maintainer/shutter/socket/socket_shutter.c"
-#include "../executor/maintainer/shutter/terminal/terminal_shutter.c"
 #include "../executor/memoriser/allocator/array_allocator.c"
+#include "../executor/memoriser/allocator/part_allocator.c"
 #include "../executor/memoriser/deallocator/array_deallocator.c"
+#include "../executor/memoriser/deallocator/part_deallocator.c"
 #include "../executor/modifier/part_modifier.c"
 #include "../logger/logger.c"
-#include "../variable/type_size/integral_type_size.c"
-#include "../variable/type_size/real_type_size.c"
+#include "../variable/symbolic_name/mutex_thread_symbolic_name.c"
 
 /**
  * Manages the system.
@@ -98,9 +97,6 @@ void manage(void* p0) {
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The signal memory part model item.
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The signal memory sleep time.
-    int signal_memory_sleep_time_array[1];
-    int* signal_memory_sleep_time = signal_memory_sleep_time_array;
     // The interrupt pipe.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The interrupt mutex.
@@ -202,25 +198,20 @@ void manage(void* p0) {
     modify_part(s, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) FORMAT_PART_STATE_CYBOI_NAME);
     modify_part(s, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) TYPE_PART_STATE_CYBOI_NAME);
 
-    //
-    // Initialise signal memory sleep time.
-    //
-    // Unit: nano second
-    // Current value: 0.1 s == 100 ms == 100,000 us == 100.000.000 ns
-    //
-    copy_integer((void*) signal_memory_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
-
     // Initialise interrupt pipe.
     open_pipe(p);
-    // The interrupt mutex with casted type.
+
+    // Cast interrupt mutex to correct type.
     mtx_t* mt = (mtx_t*) m;
+
     // Initialise interrupt mutex.
     int r = mtx_init(mt, *PLAIN_MUTEX_TYPE_THREAD_SYMBOLIC_NAME);
 
+    // Evaluate interrupt mutex object creation result.
     if (r == thrd_error) {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not manage. The mutex object creation failed.");
-        fwprintf(stdout, L"Error: Could not manage. The mutex object creation failed. r: %i\n", r);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not manage. The interrupt mutex object creation failed.");
+        fwprintf(stdout, L"Error: Could not manage. The interrupt mutex object creation failed. r: %i\n", r);
     }
 
     //
@@ -257,8 +248,6 @@ void manage(void* p0) {
     copy_array_forward(i, (void*) &st, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) STACK_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set signal memory internals.
     copy_array_forward(i, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set signal memory sleep time.
-    copy_array_forward(i, (void*) &signal_memory_sleep_time, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SLEEP_TIME_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set interrupt pipe.
     copy_array_forward(i, (void*) &p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PIPE_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set interrupt mutex.
@@ -281,7 +270,7 @@ void manage(void* p0) {
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Initiate system with initial signal.
-    initiate(sm, p0, i);
+    initiate(sm, p0, i, (void*) &i);
 
     //
     // System shutdown.
