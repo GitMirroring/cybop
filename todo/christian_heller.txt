@@ -13,8 +13,6 @@
 
 CONTINUE current work:
 
-        * Replace call of function "receive_data" in file "signal_checker.c" with function "read_data" (IF possible, try out, to avoid the many null parametres)
-
         * Test file read functionality
         * Run service lifecycle cybol examples in directory "examples/communication/"
 

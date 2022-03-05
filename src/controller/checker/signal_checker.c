@@ -38,9 +38,9 @@
 #include "../../controller/checker/empty_checker.c"
 #include "../../controller/checker/found_checker.c"
 #include "../../executor/accessor/getter/item_getter.c"
-#include "../../executor/communicator/receiver.c"
 #include "../../executor/memoriser/allocator/item_allocator.c"
 #include "../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../executor/streamer/reader/signal/signal_reader.c"
 #include "../../logger/logger.c"
 
 /**
@@ -108,7 +108,7 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     //
     // It suffices to hand over: destination signal, signal memory item data and count, channel.
     //
-    receive_data(s, *NULL_POINTER_STATE_CYBOI_MODEL, smd, smc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) SIGNAL_CYBOI_CHANNEL);
+    read_signal(s, smd, smc);
 
     //
     // Get signal item data.
