@@ -61,12 +61,12 @@
  * The multibyte character sequence is NOT decoded into a wide character array,
  * since serial port data are mostly evaluated bytewise within a cybol application.
  * For the same reason, the byte data are NOT deserialised into a cyboi-internal part.
- * Therefore, these parametres are obsolete for serial port:  encoding, language, format.
+ * Therefore, these parametres are obsolete for serial port: encoding, language, format.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source model data (e.g. signal memory item, filename, client socket number, service identification, gui window)
- * @param p3 the source model count
+ * @param p2 the source device identification (e.g. file descriptor of a file, serial port, client socket, window id OR input text for inline channel)
+ * @param p3 the source device count
  * @param p4 the source properties data (e.g. the signal memory index)
  * @param p5 the source properties count
  * @param p6 the source format

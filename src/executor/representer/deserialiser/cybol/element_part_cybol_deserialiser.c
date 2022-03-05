@@ -34,7 +34,7 @@
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/copier/array_copier.c"
-#include "../../../../executor/representer/deserialiser/cybol/content_element_part_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/content_cybol_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -70,7 +70,7 @@ void deserialise_cybol_part_element(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &ppd, pp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &ppc, pp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    deserialise_cybol_part_element_content(p0, pmd, pmc, ppd, ppc);
+    deserialise_cybol_content(p0, pmd, pmc, ppd, ppc);
 }
 
 /* ELEMENT_PART_CYBOL_DESERIALISER_SOURCE */

@@ -18,9 +18,15 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-03-05  Christian Heller  <christian.heller@cybop.org>
+
+        * Restructure cybol deserialiser file "content_element_part_cybol_deserialiser.c" into many files
+        * Open file before calling function "receive_data" in file "file_cybol_deserialiser.c" and close it again afterwards
+
 2022-03-04  Christian Heller  <christian.heller@cybop.org>
 
         * Make cyboi compilable
+        * Open file before calling function "receive_data" in file "initiator.c" and close it again afterwards
 
 2022-03-03  Christian Heller  <christian.heller@cybop.org>
 

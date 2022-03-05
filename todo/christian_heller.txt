@@ -13,6 +13,8 @@
 
 CONTINUE current work:
 
+        * Replace call of function "receive_data" in file "signal_checker.c" with function "read_data" (IF possible, try out, to avoid the many null parametres)
+
         * Test file read functionality
         * Run service lifecycle cybol examples in directory "examples/communication/"
 
@@ -23,9 +25,6 @@ CONTINUE current work:
         * Figure out handling of window events in enabler and sensor and reader
         * Replace outdated input/output entry with server entry in files "initial_gui_serialiser.c", "gui_event_deserialiser.c", "values_gui_event_deserialiser.c", "properties_gui_event_deserialiser.c"
 
-        * Replace call of function "receive_data" in file "initialiser.c" with function "read_data" (IF possible, try out, to avoid the many null parametres)
-        * Replace call of function "receive_data" in file "content_element_part_cybol_deserialiser.c" with function "read_data" (IF possible, try out, to avoid the many null parametres)
-        * Replace call of function "receive_data" in file "signal_checker.c" with function "read_data" (IF possible, try out, to avoid the many null parametres)
         * Delete file "termination_sender.c" and adapt file "sender.c" accordingly --> where else to place the termination character for terminals?
 
         * Change constraint "indentation" in file "send.c" to standard property parametre

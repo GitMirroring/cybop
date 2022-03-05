@@ -1,0 +1,86 @@
+/*
+ * Copyright (C) 1999-2022. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.22.0 2022-02-22
+ * @author Christian Heller <christian.heller@cybop.org>
+ */
+
+#ifndef TEST_CYBOL_DESERIALISER_SOURCE
+#define TEST_CYBOL_DESERIALISER_SOURCE
+
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/copier/integer_copier.c"
+#include "../../../../logger/logger.c"
+
+/**
+ * Tests if this is a root node.
+ *
+ * @param p0 the root flag
+ * @param p1 the source name part
+ * @param p2 the source channel part
+ * @param p3 the source encoding part
+ * @param p4 the source language part
+ * @param p5 the source format part
+ * @param p6 the source model part
+ */
+void deserialise_cybol_test(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol test.");
+    fwprintf(stdout, L"Debug: Deserialise cybol test. p0: %i\n", p0);
+    fwprintf(stdout, L"Debug: Deserialise cybol test. *p0: %i\n", *((int*) p0));
+
+    //
+    // CAUTION! This test is IMPORTANT!
+    // If a source type attribute is NOT given, then this
+    // is (hopefully) the cybol ROOT NODE and a part is allocated.
+    //
+    // CAUTION! It is true, a root flag was set initially when starting
+    // to deserialise the cybol source, and forwarded as parametre.
+    // However, that flag was only used to call the correct
+    // function, but source data were just forwarded to it.
+    // Another test (guess) for root node IS necessary here.
+    // If no type is given, then this is a root node.
+    //
+    // CAUTION! Do ONLY compare those variables,
+    // for which NO DEFAULT VALUE has been set above.
+    //
+    // CAUTION! If the cybol developer FORGOT to specify a format,
+    // then the "part" type is used here by default, since it
+    // does no real harm to create a node with (possibly) wrong type.
+    // In the end, the CYBOL DEVELOPER has to care about that.
+    //
+    if ((p1 == *NULL_POINTER_STATE_CYBOI_MODEL) && (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) && (p3 == *NULL_POINTER_STATE_CYBOI_MODEL)
+        //
+        // CAUTION! The language is commented out, since a DEFAULT language
+        // got assigned in file "content_cybol_deserialiser.c".
+        //
+        // && (p4 == *NULL_POINTER_STATE_CYBOI_MODEL)
+        //
+        && (p5 == *NULL_POINTER_STATE_CYBOI_MODEL) && (p6 == *NULL_POINTER_STATE_CYBOI_MODEL)) {
+
+        copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    }
+}
+
+/* TEST_CYBOL_DESERIALISER_SOURCE */
+#endif

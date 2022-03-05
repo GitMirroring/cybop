@@ -41,8 +41,8 @@
  * @param p0 the destination item data (pointer reference)
  * @param p1 the destination item count (pointer reference)
  * @param p2 the destination item
- * @param p3 the source model data (identification e.g. file descriptor of a file, serial port, client socket, window id OR name e.g. a file system path pointing to some device)
- * @param p4 the source model count
+ * @param p3 the source device identification (e.g. file descriptor of a file, serial port, client socket, window id OR input text for inline channel)
+ * @param p4 the source device count
  * @param p5 the language (protocol)
  * @param p6 the internal memory data
  * @param p7 the channel

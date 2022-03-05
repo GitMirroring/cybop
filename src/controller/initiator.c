@@ -32,6 +32,7 @@
 #include "../constant/language/cyboi/state_cyboi_language.c"
 #include "../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../controller/checker.c"
 #include "../executor/communicator/receiver.c"
@@ -41,15 +42,15 @@
 #include "../executor/modifier/part_modifier.c"
 #include "../logger/logger.c"
 
-//?? -- TEST ONLY: remove later!
+//?? TEST ONLY: remove later!
 //?? #include "../controller/tester.c"
-//?? -- TEST END
+//?? TEST END
 
 /**
  * Initialises the system with a startup signal.
  *
  * @param p0 the signal memory model item
- * @param p1 the run source item
+ * @param p1 the source run filename item
  * @param p2 the internal memory data
  * @param p3 the internal memory data (pointer reference)
  */
@@ -58,6 +59,8 @@ void initiate(void* p0, void* p1, void* p2, void* p3) {
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initiate.");
 
+    // The file identification (descriptor).
+    int id = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The startup signal part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The startup signal part model, properties.
@@ -100,7 +103,7 @@ void initiate(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sp, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
     //
-    // Get message item data, count.
+    // Get source run filename item data, count.
     //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
@@ -109,17 +112,21 @@ void initiate(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &md, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &mc, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+    // Open file.
+    open_file((void*) &id, md, mc);
     // Receive startup signal model, properties.
-    receive_data(sm, sp, md, mc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, (void*) UTF_8_CYBOI_ENCODING, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FILE_CYBOI_CHANNEL);
+    receive_data(sm, sp, (void*) &id, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, (void*) UTF_8_CYBOI_ENCODING, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FILE_CYBOI_CHANNEL);
+    // Close file.
+    close_basic((void*) &id);
 
 /*??
-    //?? -- TEST ONLY: remove later!
+    //?? TEST ONLY: remove later!
     void* TESTd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* TESTc = *NULL_POINTER_STATE_CYBOI_MODEL;
     copy_array_forward((void*) &TESTd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &TESTc, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     test((void*) L"TEST.txt", *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, TESTd, TESTc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-    //?? -- TEST END
+    //?? TEST END
 */
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
