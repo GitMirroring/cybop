@@ -13,6 +13,8 @@
 
 CONTINUE current work:
 
+        * Make cybol application "exit/cybol_file/" work again
+
         * Test file read functionality
         * Run service lifecycle cybol examples in directory "examples/communication/"
 

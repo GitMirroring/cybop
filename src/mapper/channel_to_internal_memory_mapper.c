@@ -109,8 +109,8 @@ void map_channel_to_internal_memory(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not map channel to internal memory. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not map channel to internal memory. The channel is unknown. Channel p1: %i\n", *((int*) p1));
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not map channel to internal memory. The channel is unknown. This is unproblematic, since e.g. the signal channel is not stored in the internal memory.");
+        // fwprintf(stdout, L"Warning: Could not map channel to internal memory. The channel is unknown. This is unproblematic, since e.g. the signal channel is not stored in the internal memory. channel p1: %i\n", *((int*) p1));
     }
 }
 

@@ -25,6 +25,7 @@
         * Replace call of function "receive_data" in file "signal_checker.c" with function "read_signal"
         * Make cybol application "exit/simple/" work again
         * Move files "sender.c" and "receiver.c" into sub directories
+        * Make cybol application "exit/signal/" work again
 
 2022-03-04  Christian Heller  <christian.heller@cybop.org>
 

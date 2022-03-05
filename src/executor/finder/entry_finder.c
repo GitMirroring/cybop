@@ -65,14 +65,22 @@ void find_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // Get internal memory name by channel.
     map_channel_to_internal_memory((void*) &n, p2);
 
-    // Get channel input output entry from internal memory.
-    copy_array_forward((void*) &io, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &n);
+    if (n != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
-    // Get client list from suitable entry.
-    find_mode((void*) &cl, io, p3, p4);
+        // Get channel input output entry from internal memory.
+        copy_array_forward((void*) &io, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &n);
 
-    // Get client entry from server clients list by device identification.
-    find_list(p0, cl, p5, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
+        // Get client list from suitable entry.
+        find_mode((void*) &cl, io, p3, p4);
+
+        // Get client entry from server clients list by device identification.
+        find_list(p0, cl, p5, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
+
+    } else {
+
+        // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not find entry. The internal memory name is invalid. This is unproblematic, since some channels like e.g. signal are not stored in internal memory.");
+        // fwprintf(stdout, L"Warning: Could not find entry. The internal memory name is invalid. This is unproblematic, since some channels like e.g. signal are not stored in internal memory. p0: %i\n", p0);
+    }
 }
 
 /* ENTRY_FINDER_SOURCE */
