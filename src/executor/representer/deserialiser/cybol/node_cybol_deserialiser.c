@@ -29,8 +29,8 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
-#include "../../../../executor/representer/deserialise/cybol/part_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialise/cybol/standard_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/part_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/standard_cybol_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -56,8 +56,8 @@
 void deserialise_cybol_node(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol node.");
-    fwprintf(stdout, L"Debug: Deserialise cybol node. px: %i\n", px);
-    fwprintf(stdout, L"Debug: Deserialise cybol node. *px: %i\n", *((int*) px));
+    fwprintf(stdout, L"Debug: Deserialise cybol node. p15: %i\n", p15);
+    fwprintf(stdout, L"Debug: Deserialise cybol node. *p15: %i\n", *((int*) p15));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

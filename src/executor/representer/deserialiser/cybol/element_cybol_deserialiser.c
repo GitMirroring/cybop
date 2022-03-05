@@ -39,7 +39,7 @@
 // Forward declarations.
 //
 
-void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4);
+void deserialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4);
 void deserialise_xml(void* p0, void* p1, void* p2, void* p3);
 
 //?? -- TEST ONLY: remove later!
@@ -104,7 +104,7 @@ void deserialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4)
 
             // Deserialise temporary model, properties item into cyboi model using temporary type, format.
             // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
-            deserialise_cybol_part_element_content(p0, md, mc, pd, pc);
+            deserialise_cybol_content(p0, md, mc, pd, pc);
         }
     }
 
@@ -126,7 +126,7 @@ void deserialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4)
 
             // Deserialise temporary model, properties item into cyboi model using temporary type, format.
             // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
-            deserialise_cybol_part_element_content(p1, md, mc, pd, pc);
+            deserialise_cybol_content(p1, md, mc, pd, pc);
         }
     }
 
