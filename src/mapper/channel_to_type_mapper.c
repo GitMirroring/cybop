@@ -49,7 +49,7 @@ void map_channel_to_type(void* p0, void* p1) {
 
     //
     // CAUTION! The channels NOT listed here are NOT used
-    // in asynchronous mode with buffer.
+    // in asynchronous mode with BUFFER.
     //
 
     // The comparison result.
@@ -62,6 +62,16 @@ void map_channel_to_type(void* p0, void* p1) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             copy_integer(p0, (void*) POINTER_STATE_CYBOI_TYPE);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) PIPELINE_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
         }
     }
 
@@ -97,8 +107,8 @@ void map_channel_to_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not map channel to type. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not map channel to type. The channel is unknown. Channel p1: %i\n", *((int*) p1));
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not map channel to type. The channel is unknown. This might not be problematic, since it is only needed for channels with asynchronous communication via buffer.");
+        fwprintf(stdout, L"Warning: Could not map channel to type. The channel is unknown. This might not be problematic, since it is only needed for channels with asynchronous communication via buffer. Channel p1: %i\n", *((int*) p1));
     }
 }
 

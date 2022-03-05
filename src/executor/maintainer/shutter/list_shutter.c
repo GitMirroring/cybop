@@ -98,7 +98,6 @@ void shutdown_list(void* p0, void* p1, void* p2, void* p3) {
     }
 
     fwprintf(stdout, L"Debug: Shutdown list. The loop is running in reverse order! Loop count lc: %i\n", lc);
-    fwprintf(stdout, L"Debug: Shutdown list. The loop is running in reverse order! Loop count *lc: %i\n", *((int*) lc));
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 

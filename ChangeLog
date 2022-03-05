@@ -23,6 +23,7 @@
         * Restructure cybol deserialiser file "content_element_part_cybol_deserialiser.c" into many files
         * Open file before calling function "receive_data" in file "file_cybol_deserialiser.c" and close it again afterwards
         * Replace call of function "receive_data" in file "signal_checker.c" with function "read_signal"
+        * Make cybol application "exit/simple/" work again
 
 2022-03-04  Christian Heller  <christian.heller@cybop.org>
 
