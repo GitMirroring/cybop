@@ -50,7 +50,7 @@
 void find_mode(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find mode.");
-    fwprintf(stdout, L"Debug: Find mode. p0: %i\n", p0);
+    // fwprintf(stdout, L"Debug: Find mode. p0: %i\n", p0);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

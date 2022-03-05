@@ -61,19 +61,14 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read data.");
     fwprintf(stdout, L"Debug: Read data. p0: %i\n", p0);
 
-    // The data type.
-    int t = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The client entry.
     void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Map channel to datatype.
-    map_channel_to_type((void*) &t, p6);
 
     //
     // CAUTION! Do NOT empty destination item here.
     //
     // When this reader is called from a sensing thread,
-    // then a BUFFER array is provided as destination.
+    // then a BUFFER is provided as destination item.
     // Since the sensing and read run in an ENDLESS LOOP,
     // chances are that other data have already been stored
     // in the buffer BEFORE and MUST NOT be deleted here.
@@ -82,7 +77,12 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // to provide a suitable destination tree node, either empty or not,
     // to which data are appended by this reader.
     //
-    modify_item(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &t, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) EMPTY_MODIFY_LOGIC_CYBOI_FORMAT);
+    // Therefore, this function call is commented OUT:
+    //
+    // int t = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // map_channel_to_type((void*) &t, p6);
+    // modify_item(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &t, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) EMPTY_MODIFY_LOGIC_CYBOI_FORMAT);
+    //
 
     // Get client entry belonging to given source device.
     find_entry((void*) &ce, p5, p6, p7, p8, p1);

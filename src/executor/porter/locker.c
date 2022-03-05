@@ -56,7 +56,7 @@ int lock(void* p0) {
         // do NOT use a buffer and hence NO mutex, so that it is null in this case.
         //
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not lock mutex. The mutex is null.");
-        fwprintf(stdout, L"Warning: Could not lock mutex. The mutex is null. p0: %i\n", p0);
+        // fwprintf(stdout, L"Warning: Could not lock mutex. The mutex is null. p0: %i\n", p0);
     }
 }
 

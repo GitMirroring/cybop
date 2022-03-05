@@ -33,7 +33,7 @@
 // CAUTION! Do NOT include file "receiver",
 // since it would cause a circular reference.
 // Mention the function via forward declaration instead (see below).
-// #include "../../../../executor/communicator/receiver.c"
+// #include "../../../../executor/communicator/receiver/receiver.c"
 //
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/representer/deserialiser/cybol/file_cybol_deserialiser.c"
@@ -60,8 +60,8 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 void deserialise_cybol_source(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol source.");
-    fwprintf(stdout, L"Debug: Deserialise cybol source. p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Deserialise cybol source. *p3: %i\n", *((int*) p3));
+    // fwprintf(stdout, L"Debug: Deserialise cybol source. p3: %i\n", p3);
+    // fwprintf(stdout, L"Debug: Deserialise cybol source. *p3: %i\n", *((int*) p3));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

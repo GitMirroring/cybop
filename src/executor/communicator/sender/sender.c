@@ -26,20 +26,20 @@
 #ifndef SENDER_SOURCE
 #define SENDER_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-//?? #include "../../executor/communicator/sender/compress_sender.c"
-#include "../../executor/communicator/sender/encode_sender.c"
-#include "../../executor/communicator/sender/select_sender.c"
-#include "../../executor/communicator/sender/serialise_sender.c"
-#include "../../executor/communicator/sender/termination_sender.c"
-#include "../../executor/communicator/sender/write_sender.c"
-#include "../../executor/memoriser/allocator/item_allocator.c"
-#include "../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../logger/logger.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+//?? #include "../../../executor/communicator/sender/compress_sender.c"
+#include "../../../executor/communicator/sender/encode_sender.c"
+#include "../../../executor/communicator/sender/select_sender.c"
+#include "../../../executor/communicator/sender/serialise_sender.c"
+#include "../../../executor/communicator/sender/termination_sender.c"
+#include "../../../executor/communicator/sender/write_sender.c"
+#include "../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../../logger/logger.c"
 
 /**
  * Sends the source via the given channel.

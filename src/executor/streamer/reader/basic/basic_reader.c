@@ -129,7 +129,6 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
                     // "Invalid read of size 8".
                     //
                     size_t mst = (size_t) *ms;
-                    fwprintf(stdout, L"Debug: Read basic. mst: %i\n", mst);
 
                     //
                     // Initialise error number.
@@ -160,21 +159,18 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
                     // so that it is not clear how big the buffer array shall be.
                     // Therefore, call "read" in a loop until no more data are available.
                     //
-                    fwprintf(stdout, L"Debug: Read basic. Waiting for input on file descriptor *f: %i\n", *f);
+                    fwprintf(stdout, L"Debug: Read basic. Waiting for input. *f: %i\n", *f);
                     ssize_t nb = read(*f, p2, mst);
 
                     // Cast number of bytes actually read to general type.
                     int n = (int) nb;
 
                     fwprintf(stdout, L"Debug: Read basic. n: %i\n", n);
-                    fwprintf(stdout, L"Debug: Read basic. p2 + 0: %i\n", *((char*) (p2 + 0)));
-                    fwprintf(stdout, L"Debug: Read basic. p2 + 1: %i\n", *((char*) (p2 + 1)));
-                    fwprintf(stdout, L"Debug: Read basic. p2 + 2: %i\n", *((char*) (p2 + 2)));
 
                     if (n > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read basic. Copy fragment data into destination item.");
-                        fwprintf(stdout, L"Debug: Read basic. Copy fragment data into destination item. p2: %s\n", (char*) p2);
+                        // fwprintf(stdout, L"Debug: Read basic. Copy fragment data into destination item. p2: %s\n", (char*) p2);
 
                         // The comparison result.
                         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -182,7 +178,7 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
                         // Lock mutex.
                         lock(p4);
 
-                        fwprintf(stdout, L"Debug: Read basic. Modify destination item. r: %i\n", r);
+                        // fwprintf(stdout, L"Debug: Read basic. Modify destination item. r: %i\n", r);
 
                         //
                         // Copy fragment data into destination item.

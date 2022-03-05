@@ -35,7 +35,7 @@
 #include "../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../controller/checker.c"
-#include "../executor/communicator/receiver.c"
+#include "../executor/communicator/receiver/receiver.c"
 #include "../executor/memoriser/allocator/part_allocator.c"
 #include "../executor/memoriser/deallocator/part_deallocator.c"
 #include "../executor/modifier/item_modifier.c"

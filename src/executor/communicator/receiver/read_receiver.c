@@ -57,8 +57,8 @@ void receive_read(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive read.");
-        fwprintf(stdout, L"Debug: Receive read. p7: %i\n", p7);
-        fwprintf(stdout, L"Debug: Receive read. *p7: %i\n", *((int*) p7));
+        // fwprintf(stdout, L"Debug: Receive read. p7: %i\n", p7);
+        // fwprintf(stdout, L"Debug: Receive read. *p7: %i\n", *((int*) p7));
 
         //
         // Read message from device.
@@ -81,7 +81,9 @@ void receive_read(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     } else {
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive read. The channel is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive read. The channel is null.");
+        fwprintf(stdout, L"Error: Could not receive read. The channel is null. p7: %i\n", p7);
+        fwprintf(stdout, L"Error: Could not receive read. The channel is null. *p7: %i\n", *((int*) p7));
     }
 }
 

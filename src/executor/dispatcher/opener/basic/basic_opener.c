@@ -51,7 +51,7 @@
 /**
  * Opens the device pointed to by the given filename.
  *
- * @param p0 the file descriptor
+ * @param p0 the file descriptor, e.g. a file, serial port, terminal, socket
  * @param p1 the filename data
  * @param p2 the filename count
  * @param p3 the open flags

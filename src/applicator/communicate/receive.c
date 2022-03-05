@@ -38,7 +38,7 @@
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/copier/array_copier.c"
 #include "../../executor/copier/integer_copier.c"
-#include "../../executor/communicator/receiver.c"
+#include "../../executor/communicator/receiver/receiver.c"
 #include "../../logger/logger.c"
 
 /**

@@ -42,7 +42,7 @@
 // CAUTION! Do NOT include file "receiver",
 // since it would cause a circular reference.
 // Mention the function via forward declaration instead (see below).
-// #include "../../../../executor/communicator/receiver.c"
+// #include "../../../../executor/communicator/receiver/receiver.c"
 //
 #include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/dispatcher/closer/basic/basic_closer.c"
@@ -51,7 +51,7 @@
 #include "../../../../logger/logger.c"
 
 #ifdef WIN32 // compiler error without this line (but actually forward declaration of "receive_data" below should suffice):
-    #include "../../../../executor/communicator/receiver.c"
+    #include "../../../../executor/communicator/receiver/receiver.c"
 #endif
 
 //

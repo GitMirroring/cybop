@@ -57,8 +57,8 @@
 void shutdown_list(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown list.");
-    fwprintf(stdout, L"Debug: Shutdown list. channel p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Shutdown list. channel *p2: %i\n", *((int*) p2));
+    // fwprintf(stdout, L"Debug: Shutdown list. channel p2: %i\n", p2);
+    // fwprintf(stdout, L"Debug: Shutdown list. channel *p2: %i\n", *((int*) p2));
 
     // The list item data, count.
     void* ld = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -97,7 +97,7 @@ void shutdown_list(void* p0, void* p1, void* p2, void* p3) {
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
-    fwprintf(stdout, L"Debug: Shutdown list. The loop is running in reverse order! Loop count lc: %i\n", lc);
+    // fwprintf(stdout, L"Debug: Shutdown list. The loop is running in reverse order! Loop count lc: %i\n", lc);
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -113,6 +113,8 @@ void shutdown_list(void* p0, void* p1, void* p2, void* p3) {
 
             break;
         }
+
+        fwprintf(stdout, L"Debug: Shutdown list. The loop is running in reverse order! Loop count *lc: %i\n", *((int*) lc));
 
         // Get entry from list data at the given index.
         copy_array_forward((void*) &e, ld, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j);

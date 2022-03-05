@@ -61,8 +61,9 @@
  */
 void manage_startup_internal_memory(void* p0) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup internal memory.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup internal memory.");
+    // fwprintf(stdout, L"Debug: Startup internal memory. p0: %i\n", p0);
 
     //
     // Initialise all values with null.

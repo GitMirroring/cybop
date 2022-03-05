@@ -47,8 +47,8 @@
 void manage_shutdown_channel(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Manage shutdown channel.");
-    fwprintf(stdout, L"Debug: Manage shutdown channel. p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Manage shutdown channel. *p1: %i\n", *((int*) p1));
+    // fwprintf(stdout, L"Debug: Manage shutdown channel. p1: %i\n", p1);
+    // fwprintf(stdout, L"Debug: Manage shutdown channel. *p1: %i\n", *((int*) p1));
 
     // The internal memory name.
     int n = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;

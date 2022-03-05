@@ -89,7 +89,7 @@
 void deserialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol content.");
-    fwprintf(stdout, L"Debug: Deserialise cybol content. p0: %i\n", p0);
+    // fwprintf(stdout, L"Debug: Deserialise cybol content. p0: %i\n", p0);
 
     //
     // Declaration

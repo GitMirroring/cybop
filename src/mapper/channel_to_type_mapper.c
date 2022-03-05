@@ -40,16 +40,21 @@
  * It is used for the data that are read from or written to
  * a device on this channel.
  *
- * @param p0 the data type
- * @param p1 the channel
+ * @param p0 the destination data type
+ * @param p1 the source channel
  */
 void map_channel_to_type(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Map channel to type.");
 
     //
-    // CAUTION! The channels NOT listed here are NOT used
-    // in asynchronous mode with BUFFER.
+    // CAUTION! This mapper is used ONLY by clients
+    // communicating in asynchronous mode with BUFFER.
+    //
+    // The destination data type is needed for buffer allocation.
+    //
+    // The channels NOT listed here are not using
+    // asynchronous communication.
     //
 
     // The comparison result.
@@ -107,8 +112,8 @@ void map_channel_to_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not map channel to type. The channel is unknown. This might not be problematic, since it is only needed for channels with asynchronous communication via buffer.");
-        fwprintf(stdout, L"Warning: Could not map channel to type. The channel is unknown. This might not be problematic, since it is only needed for channels with asynchronous communication via buffer. Channel p1: %i\n", *((int*) p1));
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not map channel to type. The channel is unknown. This is unproblematic, since it is only needed for channels with asynchronous communication via buffer.");
+        fwprintf(stdout, L"Warning: Could not map channel to type. The channel is unknown. This is unproblematic, since it is only needed for channels with asynchronous communication via buffer. channel p1: %i\n", *((int*) p1));
     }
 }
 

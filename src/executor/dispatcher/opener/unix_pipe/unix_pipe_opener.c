@@ -46,8 +46,8 @@ void open_unix_pipe(void* p0) {
         int* f = (int*) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open unix pipe.");
-        fwprintf(stdout, L"Debug: Open unix pipe. f: %i\n", f);
-        fwprintf(stdout, L"Debug: Open unix pipe. *f: %i\n", *f);
+        // fwprintf(stdout, L"Debug: Open unix pipe. f: %i\n", f);
+        // fwprintf(stdout, L"Debug: Open unix pipe. *f: %i\n", *f);
 
         //
         // Initialise error number.
@@ -63,14 +63,13 @@ void open_unix_pipe(void* p0) {
         // Create pipe.
         int r = pipe(f);
 
-        fwprintf(stdout, L"Debug: Open unix pipe. r: %i\n", r);
-        fwprintf(stdout, L"Debug: Open unix pipe. f[0]: %i\n", f[0]);
-        fwprintf(stdout, L"Debug: Open unix pipe. f[1]: %i\n", f[1]);
+        // fwprintf(stdout, L"Debug: Open unix pipe. f[0]: %i\n", f[0]);
+        // fwprintf(stdout, L"Debug: Open unix pipe. f[1]: %i\n", f[1]);
 
         if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open unix pipe. success.");
-            fwprintf(stdout, L"Debug: Open unix pipe. success. r: %i\n", r);
+            // fwprintf(stdout, L"Debug: Open unix pipe. success. r: %i\n", r);
 
         } else {
 

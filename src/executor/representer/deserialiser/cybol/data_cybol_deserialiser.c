@@ -51,8 +51,8 @@
 void deserialise_cybol_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol data.");
-    fwprintf(stdout, L"Debug: Deserialise cybol data. p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Deserialise cybol data. *p3: %i\n", *((int*) p3));
+    // fwprintf(stdout, L"Debug: Deserialise cybol data. p3: %i\n", p3);
+    // fwprintf(stdout, L"Debug: Deserialise cybol data. *p3: %i\n", *((int*) p3));
 
     // The part channel, encoding, language, format data.
     void* pcd = *NULL_POINTER_STATE_CYBOI_MODEL;

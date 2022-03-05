@@ -209,8 +209,8 @@ void map_type_to_size(void* p0, void* p1) {
             // CAUTION! Do NOT call the logger here.
             // It uses functions causing circular references.
             //
-            // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not determine size. The type is unknown.");
-            fwprintf(stdout, L"Warning: Could not determine size. The type is unknown. *t: %i\n", *t);
+            // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not determine size. The type is unknown. This is unproblematic, since the type is set to -1 when not using asynchronous communication with buffer.");
+            // fwprintf(stdout, L"Warning: Could not determine size. The type is unknown. The type is unknown. This is unproblematic, since the type is set to -1 when not using asynchronous communication with buffer. *t: %i\n", *t);
         }
 
     } else {
