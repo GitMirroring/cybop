@@ -13,8 +13,10 @@
 
 CONTINUE current work:
 
-        * Make cybol application "exit/cybol_file/" work again
-
+        * Make compilable
+        * Verify handling of client- and server list in input output entry deallocator
+        * Add memoriser mutex allocator and deallocator, to be used in manager, client entry open and close, server entry startup and shutdown
+        * Make cybol applications "counter" work again
         * Test file read functionality
         * Run service lifecycle cybol examples in directory "examples/communication/"
 
@@ -30,8 +32,16 @@ CONTINUE current work:
         * Change constraint "indentation" in file "send.c" to standard property parametre
         * Edit html serialiser accordingly
 
-        * Adapt file "manager.c" to allocate signal memory ITEM instead of part
-        * Adapt file "manager.c" to allocate stack memory ITEM instead of part
+        * Adapt file "manager.c" to allocate signal memory ITEM instead of part ??
+        * Adapt file "manager.c" to allocate stack memory ITEM instead of part ??
+
+        * Eliminate optionaliser and deoptionaliser by replacing function calls with dispatcher open and close
+        * Summarise globaliser and unglobaliser ??
+
+        * Rename "internal_memory" into "system"
+        * Rename "knowledge_memory" into "heap"
+        * Rename "stack_memory" into "stack"
+        * Rename "signal_memory" into "queue"
 
 Awakener
 ________

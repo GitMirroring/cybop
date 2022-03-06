@@ -36,6 +36,7 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/integer/greater_integer_comparator.c"
 #include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 
@@ -45,8 +46,9 @@
  * @param p0 the destination signal item
  * @param p1 the source signal memory data
  * @param p2 the source signal memory count
+ * @param p3 the eof or close flag
  */
-void read_signal(void* p0, void* p1, void* p2) {
+void read_signal(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read signal.");
     fwprintf(stdout, L"Debug: Read signal. p2: %i\n", p2);
@@ -95,6 +97,9 @@ void read_signal(void* p0, void* p1, void* p2) {
         // and should be left to the knowledge memory.
         //
         modify_item(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+        // Set eof-or-close flag.
+        copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     } else {
 

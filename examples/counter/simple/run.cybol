@@ -1,30 +1,59 @@
 <node>
 
+    <node name="create_file_id" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="id"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="counter/simple/app.cybol"/>
+    </node>
     <node name="initialise_app" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/plain" model="counter/simple/app.cybol"/>
         <node name="message" channel="inline" format="text/cybol-path" model="."/>
     </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
 
     <!-- Write knowledge into file. -->
-    <node name="test_knowledge" channel="inline" format="communicate/send" model="">
-        <node name="receiver" channel="inline" format="text/plain" model="test_counter.txt"/>
+<!--
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="test_counter_simple.txt"/>
+    </node>
+    <node name="send_knowledge" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model="."/>
     </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+-->
 
+<!--
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="id" channel="inline" format="number/integer" model="0"/>
     </node>
+-->
 
     <!-- The break condition has to be GREATER-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
+<!--
     <node name="compare_loop_count" channel="inline" format="compare/greater" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".break"/>
         <node name="left" channel="inline" format="text/cybol-path" model=".index"/>
@@ -34,6 +63,7 @@
         <node name="break" channel="inline" format="text/cybol-path" model=".break"/>
         <node name="model" channel="inline" format="text/cybol-path" model=".model"/>
     </node>
+-->
 
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
 

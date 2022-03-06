@@ -108,7 +108,7 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     //
     // It suffices to hand over: destination signal, signal memory item data and count, channel.
     //
-    read_signal(s, smd, smc);
+    read_signal(s, smd, smc, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     //
     // Get signal item data.

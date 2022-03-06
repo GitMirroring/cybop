@@ -2,7 +2,7 @@
 
     <node name="startup" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="signal"/>
-        <node name="message" channel="file" format="element/part" model="exit/cybol_file/exit.cybol"/>
+        <node name="message" channel="file" format="element/part" model="exit/file/exit.cybol"/>
     </node>
 
 </node>

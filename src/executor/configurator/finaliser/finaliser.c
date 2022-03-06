@@ -85,9 +85,9 @@ void finalise(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not finalise. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not finalise. The channel is unknown. p2: %i\n", p2);
-        fwprintf(stdout, L"Warning: Could not finalise. The channel is unknown. *p2: %i\n", *((int*) p2));
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not finalise. The channel is unknown. This is unproblematic, since most devices do not need an finalisation.");
+        // fwprintf(stdout, L"Warning: Could not finalise. The channel is unknown. This is unproblematic, since most devices do not need an finalisation. p2: %i\n", p2);
+        // fwprintf(stdout, L"Warning: Could not finalise. The channel is unknown. This is unproblematic, since most devices do not need an finalisation. *p2: %i\n", *((int*) p2));
     }
 }
 

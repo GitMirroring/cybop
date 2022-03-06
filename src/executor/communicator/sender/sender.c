@@ -73,7 +73,9 @@
  */
 void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send data.");
+    fwprintf(stdout, L"Information: Send data. channel p17: %i\n", p17);
+    fwprintf(stdout, L"Information: Send data. channel *p17: %i\n", *((int*) p17));
 
     // The serialised wide character item.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;

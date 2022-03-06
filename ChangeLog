@@ -18,6 +18,16 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-03-06  Christian Heller  <christian.heller@cybop.org>
+
+        * Make cybol application "exit/file/" work again
+        * Add memoriser input output entry allocator and deallocator
+        * Add memoriser internal memory allocator and deallocator
+        * Create input output entries for all channels in internal memory allocator
+        * Delete controller manager sub directory, since objects are now managed in memoriser
+        * Call internal memory allocator and deallocator at cyboi system startup
+        * Delete superfluous file "system_signal_handler_startup_manager.c", since threads are exited using an awakener
+
 2022-03-05  Christian Heller  <christian.heller@cybop.org>
 
         * Restructure cybol deserialiser file "content_element_part_cybol_deserialiser.c" into many files

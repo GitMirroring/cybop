@@ -70,9 +70,9 @@
  */
 void write_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write message.");
-    fwprintf(stdout, L"Information: Write message. p10: %i\n", p10);
-    fwprintf(stdout, L"Information: Write message. *p10: %i\n", *((int*) p10));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write message.");
+    fwprintf(stdout, L"Debug: Write message. p10: %i\n", p10);
+    fwprintf(stdout, L"Debug: Write message. *p10: %i\n", *((int*) p10));
 
     // The destination device identification item data.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
