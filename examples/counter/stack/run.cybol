@@ -1,29 +1,73 @@
 <node>
 
+    <node name="create_app" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="app"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+    <node name="create_stack-pre" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="stack-pre"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+    <node name="create_stack-post" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="stack-post"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+    <node name="create_heap" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="heap"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+    <node name="create_stdout" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="stdout"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="whole" channel="inline" format="text/cybol-path" model=".counter"/>
+    </node>
+
+    <node name="open_app" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".app"/>
+        <node name="device" channel="inline" format="text/plain" model="counter/stack/app.cybol"/>
+    </node>
+    <node name="open_stack-pre" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stack-pre"/>
+        <node name="device" channel="inline" format="text/plain" model="test_counter_stack_stack-pre.txt"/>
+    </node>
+    <node name="open_stack-post" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stack-post"/>
+        <node name="device" channel="inline" format="text/plain" model="test_counter_stack_stack-post.txt"/>
+    </node>
+    <node name="open_heap" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".heap"/>
+        <node name="device" channel="inline" format="text/plain" model="test_counter_stack_heap.txt"/>
+    </node>
+    <node name="open_stdout" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="device" channel="inline" format="text/plain" model="standard-output"/>
+    </node>
+
     <node name="initialise_app" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".app"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/plain" model="counter/stack/app.cybol"/>
         <node name="message" channel="inline" format="text/cybol-path" model="."/>
     </node>
 
     <!-- Write knowledge into file. -->
-    <node name="test_knowledge" channel="inline" format="communicate/send" model="">
-        <node name="receiver" channel="inline" format="text/plain" model="test_counter_stack-heap.txt"/>
+    <node name="test_heap" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".heap"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model="."/>
     </node>
 
-    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    </node>
-
-    <!-- Possibility 1: local variables specified directly as properties -->
+    <!-- Possibility 1: local variables specified directly as properties of loop model -->
 <!--
     <node name="execute_logic" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="file" format="element/part" model="counter/stack/logic.cybol">
@@ -35,15 +79,15 @@
     </node>
 -->
 
-    <!-- Possibility 2: local variables specified in knowledge tree -->
+    <!-- Possibility 2: local variables specified in file "logic.cybol" for knowledge tree -->
     <node name="execute_logic" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="text/cybol-path" model=".logic"/>
     </node>
 
-    <!-- Write stack into file. -->
-    <node name="test_stack" channel="inline" format="communicate/send" model="">
-        <node name="receiver" channel="inline" format="text/plain" model="test_counter_stack-stack_post.txt"/>
+    <!-- Write stack into file. If all is fine, then the stack should be empty, since the variables were removed when leaving the file "logic". -->
+    <node name="test_stack-post" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stack-post"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>

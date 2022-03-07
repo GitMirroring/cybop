@@ -13,6 +13,10 @@
 
 CONTINUE current work:
 
+        * Make cybol applications "hello_world" work again
+        * Make cybol application "tui_control" work again
+        * Make further cybol applications work again
+
         * Add memoriser mutex allocator and deallocator, to be used in manager, client entry open and close, server entry startup and shutdown
         * Test service lifecycle cybol examples in directory "examples/communication/"
 

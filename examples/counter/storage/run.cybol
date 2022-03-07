@@ -9,18 +9,35 @@
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="whole" channel="inline" format="text/cybol-path" model=".counter"/>
     </node>
+    <node name="create_stdout" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="stdout"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="whole" channel="inline" format="text/cybol-path" model=".counter"/>
+    </node>
+    <node name="create_store" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="store"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="whole" channel="inline" format="text/cybol-path" model=".counter"/>
+    </node>
 
     <node name="initialise_count" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".counter.count"/>
         <node name="source" channel="file" format="number/integer" model="counter/storage/count.txt"/>
     </node>
-
-    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
+    <node name="open_stdout" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="device" channel="inline" format="text/plain" model="standard-output"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".counter.stdout"/>
+    </node>
+    <node name="open_store" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="device" channel="inline" format="text/plain" model="counter/storage/count.txt"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".counter.store"/>
     </node>
 
     <node name="print_count" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".counter.stdout"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
@@ -33,12 +50,11 @@
     </node>
     <node name="store_count" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".counter.store"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".counter.count"/>
-        <node name="receiver" channel="inline" format="text/plain" model="counter/storage/count.txt"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="exit_application" channel="inline" format="live/exit" model=""/>

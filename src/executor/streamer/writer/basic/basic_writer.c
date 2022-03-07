@@ -235,8 +235,8 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write basic. The source buffer count is null.");
-        fwprintf(stdout, L"Error: Could not write basic. The source buffer count is null. p2: %i\n", p2);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write basic. The source buffer count is null. Did you OPEN the device, e.g. standard terminal or file?");
+        fwprintf(stdout, L"Error: Could not write basic. The source buffer count is null. Did you OPEN the device, e.g. standard terminal or file? p2: %i\n", p2);
     }
 }
 

@@ -21,7 +21,7 @@
 2022-03-07  Christian Heller  <christian.heller@cybop.org>
 
         * Remove written elements from buffer whenever all data have been transmitted in file "basic_writer.c"
-        * Make cybol application "counter/simple/" work again
+        * Make all cybol applications "counter" work again (file storage, stack, deep stack)
 
 2022-03-06  Christian Heller  <christian.heller@cybop.org>
 

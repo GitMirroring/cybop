@@ -1,9 +1,9 @@
 <node>
 
-    <!-- Write stack into file. -->
-    <node name="test_stack" channel="inline" format="communicate/send" model="">
-        <node name="receiver" channel="inline" format="text/plain" model="test_counter_stack-stack_pre.txt"/>
+    <!-- Write stack into file. If all is fine, then the variables of file "logic" should be there. -->
+    <node name="test_stack-pre" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stack-pre"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>

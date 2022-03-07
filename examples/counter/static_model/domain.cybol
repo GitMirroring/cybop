@@ -1,8 +1,0 @@
-<node>
-
-    <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
-    <node name="count" channel="inline" format="number/integer" model="1"/>
-    <node name="maximum" channel="inline" format="number/integer" model="10"/>
-    <node name="model" channel="file" format="element/part" model="counter/static_model/model.cybol"/>
-
-</node>
