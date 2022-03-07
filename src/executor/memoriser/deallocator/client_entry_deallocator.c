@@ -56,8 +56,6 @@ void deallocate_client_entry(void* p0, void* p1) {
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate client entry.");
         fwprintf(stdout, L"Debug: Deallocate client entry. p1: %i\n", p1);
         fwprintf(stdout, L"Debug: Deallocate client entry. *p1: %i\n", *((int*) p1));
-        fwprintf(stdout, L"Debug: Deallocate client entry. p0: %i\n", p0);
-        fwprintf(stdout, L"Debug: Deallocate client entry. *e: %i\n", *e);
 
         //
         // Declaration
@@ -99,16 +97,12 @@ void deallocate_client_entry(void* p0, void* p1) {
         //
         int t = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
-        fwprintf(stdout, L"Debug: Deallocate client entry. test 0: %i\n", p1);
-
         //
         // Mapping
         //
 
         // Map channel to datatype.
         map_channel_to_type((void*) &t, p1);
-
-        fwprintf(stdout, L"Debug: Deallocate client entry. test 1: %i\n", p1);
 
         //
         // Retrieval
@@ -139,8 +133,6 @@ void deallocate_client_entry(void* p0, void* p1) {
         // Get output buffer mutex from client entry.
         copy_array_forward((void*) &obm, *e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_BUFFER_OUTPUT_CLIENT_STATE_CYBOI_NAME);
 
-        fwprintf(stdout, L"Debug: Deallocate client entry. test 2 ibm: %i\n", ibm);
-
         //
         // Finalisation
         //
@@ -150,14 +142,10 @@ void deallocate_client_entry(void* p0, void* p1) {
         // Cast output buffer mutex to correct type.
         mtx_t* obmt = (mtx_t*) obm;
 
-        fwprintf(stdout, L"Debug: Deallocate client entry. test 3 ibmt: %i\n", ibmt);
-
         // Finalise input buffer mutex.
         mtx_destroy(ibmt);
         // Finalise output buffer mutex.
         mtx_destroy(obmt);
-
-        fwprintf(stdout, L"Debug: Deallocate client entry. test 4: %i\n", p1);
 
         //
         // Deallocation
@@ -173,8 +161,6 @@ void deallocate_client_entry(void* p0, void* p1) {
         deallocate_array((void*) &id, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         // Deallocate client device name item.
         deallocate_item((void*) &n, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-        fwprintf(stdout, L"Debug: Deallocate client entry. test 5: %i\n", p1);
 
         //
         // Deallocate channel.
@@ -253,8 +239,6 @@ void deallocate_client_entry(void* p0, void* p1) {
         // in order to decrement the rubbish (garbage) collection counter.
         //
         deallocate_array(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) CLIENT_ENTRY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
-
-        fwprintf(stdout, L"Debug: Deallocate client entry. test 6: %i\n", p1);
 
     } else {
 

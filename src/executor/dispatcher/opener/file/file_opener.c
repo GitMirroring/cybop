@@ -51,11 +51,9 @@ void open_file(void* p0, void* p1, void* p2) {
     //
     // Default settings:
     // O_RDWR - open file for both reading and writing
-    // O_NOCTTY - don't make the terminal device referenced by
-    //      the filename the controlling terminal for the process
-    //      (possibly important for compatibility with GNU/Hurd systems and 4.4 BSD)
+    // O_CREAT - create file if it doesn't already exist
     //
-    int f = O_RDWR | O_NOCTTY;
+    int f = O_RDWR | O_CREAT;
 
     //
     // The open mode (access permission bits).

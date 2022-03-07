@@ -29,9 +29,11 @@
 #include <threads.h> // thrd_t, thrd_join, thrd_error
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../logger/logger.c"
 #include "../../variable/service_interrupt.c"
 #include "../../variable/thread_identification.c"
@@ -51,34 +53,48 @@ void cut(void* p0) {
         fwprintf(stdout, L"Debug: Cut. t: %i\n", t);
         fwprintf(stdout, L"Debug: Cut. *t: %i\n", *((int*) t));
 
-        // The result code.
-        int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // Wait for thread to finish.
-        int e = thrd_join(*t, &c);
+        // The comparison result.
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        if (e != thrd_error) {
+        compare_integer_greater_or_equal((void*) &r, p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cut (exit) thread successfully. The thread join function returned zero.");
-            fwprintf(stdout, L"Debug: Cut (exit) thread successfully. The thread join function returned zero. result code: %i\n", c);
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // The result code.
+            int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            // Wait for thread to finish.
+            int e = thrd_join(*t, &c);
+
+            if (e != thrd_error) {
+
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cut (exit) thread successfully. The thread join function returned zero.");
+                fwprintf(stdout, L"Debug: Cut (exit) thread successfully. The thread join function returned zero. result code: %i\n", c);
+
+            } else {
+
+                //
+                // CAUTION! This error might be harmless and is therefore just a warning.
+                //
+                // Example:
+                // A terminal service was started up to be able to output cybol messages on text console.
+                // But the service sensing thread was not enabled in activator, since input is not needed.
+                // In this case, a thread does not exist and therefore this warning is produced.
+                //
+
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cut. The thread join function returned an error.");
+                fwprintf(stdout, L"Warning: Could not cut. The thread join function returned an error. c: %i\n", c);
+            }
 
         } else {
 
-            //
-            // CAUTION! This error might be harmless and is therefore just a warning.
-            //
-            // Example:
-            // A terminal service was started up to be able to output cybol messages on text console.
-            // But the service sensing thread was not enabled in activator, since input is not needed.
-            // In this case, a thread does not exist and therefore this warning is produced.
-            //
-
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cut. The thread join function returned an error.");
-            fwprintf(stdout, L"Warning: Could not cut. The thread join function returned an error. result code: %i\n", c);
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cut. The thread identification is invalid. This is unproblematic, since synchronous communication does not use threads.");
+            // fwprintf(stdout, L"Warning: Could not cut. The thread identification is invalid. This is unproblematic, since synchronous communication does not use threads. *t: %i\n", *t);
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cut. The thread identification is null.");
+        fwprintf(stdout, L"Error: Could not cut. The thread identification is null. p0: %i\n", p0);
     }
 }
 

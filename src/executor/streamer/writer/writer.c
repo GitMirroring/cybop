@@ -64,22 +64,23 @@
 void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write data.");
-    fwprintf(stdout, L"Information: Write data. p0: %i\n", p0);
+    fwprintf(stdout, L"Information: Write data. message count p2: %i\n", p2);
+    fwprintf(stdout, L"Information: Write data. message count *p2: %i\n", *((int*) p2));
 
     // The destination device identification item data.
     void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The client entry.
     void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The output buffer item.
-    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* bi = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The output buffer mutex.
     void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The output buffer item type.
     int t = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The output buffer item data, count, size.
-    void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* bs = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* bid = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* bic = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* bis = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination device identification item data.
     copy_array_forward((void*) &dd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -88,8 +89,7 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     find_entry((void*) &ce, p4, p5, p6, p7, dd);
 
     // Get output buffer item from client entry.
-    copy_array_forward((void*) &b, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_BUFFER_OUTPUT_CLIENT_STATE_CYBOI_NAME);
-
+    copy_array_forward((void*) &bi, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_BUFFER_OUTPUT_CLIENT_STATE_CYBOI_NAME);
     // Get output buffer mutex from client entry.
     copy_array_forward((void*) &bm, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_BUFFER_OUTPUT_CLIENT_STATE_CYBOI_NAME);
 
@@ -108,7 +108,7 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     // If it is empty, then the "loop break flag" is set,
     // so that the writing process finishes.
     //
-    write_buffer(b, p1, p2, (void*) &t, bm);
+    write_buffer(bi, p1, p2, (void*) &t, bm);
 
     //
     // Get output buffer item data, count, size.
@@ -117,9 +117,9 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
     //
-    copy_array_forward((void*) &bd, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &bc, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &bs, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &bid, bi, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &bic, bi, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &bis, bi, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
     //
     // CAUTION! Do NOT check client entry for NULL here, since the
@@ -128,7 +128,7 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     //
 
     // Write data via the given channel into the destination.
-    write_flag(p0, (void*) &bd, bc, bs, (void*) &t, p3, bm, ce, p4, p5, p8, (void*) &b, (void*) &bm, p3, p9, p10);
+    write_flag(p0, (void*) &bid, bic, bis, (void*) &t, p3, bm, ce, p4, p5, p8, (void*) &bi, (void*) &bm, p3, p9, p10);
 }
 
 /* WRITER_SOURCE */

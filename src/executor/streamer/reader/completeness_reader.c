@@ -65,7 +65,7 @@ void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // CAUTION! Whenever the blocking sensing function is left,
             // this means that at least one data element has been received.
             //
-            // The buffer as defined in file "sensor.c" has a size of 1024,
+            // The input buffer as defined elsewhere has a size of 1024,
             // so that many xcb events match in there. However, each event
             // is complete in itself and just a pointer.
             //
@@ -124,7 +124,7 @@ void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // CAUTION! Whenever the blocking sensing function is left,
             // this means that at least one data element has been received.
             //
-            // The buffer as defined in file "sensor.c" has a size of 1024,
+            // The input buffer as defined elsewhere has a size of 1024,
             // so that all possible ansi escape sequences match in there.
             //
             // Therefore, a detection of a length prefix or end suffix

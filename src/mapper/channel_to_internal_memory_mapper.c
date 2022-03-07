@@ -53,7 +53,7 @@ void map_channel_to_internal_memory(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_integer(p0, (void*) DISPLAY_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 
@@ -63,7 +63,7 @@ void map_channel_to_internal_memory(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) FILE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_integer(p0, (void*) FILE_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 
@@ -73,7 +73,7 @@ void map_channel_to_internal_memory(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) PIPELINE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_integer(p0, (void*) PIPELINE_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 
@@ -83,7 +83,7 @@ void map_channel_to_internal_memory(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_integer(p0, (void*) SERIAL_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 
@@ -93,7 +93,7 @@ void map_channel_to_internal_memory(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_integer(p0, (void*) SOCKET_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 
@@ -103,7 +103,7 @@ void map_channel_to_internal_memory(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_integer(p0, (void*) TERMINAL_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 

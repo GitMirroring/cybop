@@ -56,7 +56,7 @@ void serialise_gui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui initial.");
 
     // The internal memory index.
-    int i = *DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+    int i = *DISPLAY_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME;
     // The display input/output entry.
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 

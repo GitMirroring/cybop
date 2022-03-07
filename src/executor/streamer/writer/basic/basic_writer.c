@@ -130,6 +130,42 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write basic. Success.");
                     fwprintf(stdout, L"Debug: Write basic. Success. n: %i\n", n);
 
+                    //
+                    // Lock mutex.
+                    //
+                    // CAUTION! New data may be written into the source buffer in
+                    // the main thread, in case this writer is called asynchronously
+                    // in a thread. But the already WRITTEN data are removed from
+                    // the source buffer below. Therefore, exclusive access has
+                    // to be guaranteed here using a mutex.
+                    //
+                    lock(p5);
+
+                    //
+                    // Remove written data from source buffer.
+                    //
+                    // CAUTION! This is IMPORTANT, so that in the next loop cycle,
+                    // only the REMAINING data are transmitted.
+                    //
+                    // CAUTION! Calling the function "modify_item" would work here,
+                    // but "modify_array" is used instead since the buffer item's
+                    // data, count and size have been handed over as parametre above.
+                    //
+                    // CAUTION! Do NOT hand over the buffer count but rather
+                    // the number of bytes ACTUALLY WRITTEN for specifying
+                    // the number of elements to be removed.
+                    //
+                    // CAUTION! Set the adjust count flag to TRUE since otherwise,
+                    // the buffer item will hold a wrong "count" number
+                    // leading to unpredictable errors in further processing.
+                    //
+                    // CAUTION! Hand over destination array as pointer REFERENCE!
+                    //
+                    modify_array(p1, *NULL_POINTER_STATE_CYBOI_MODEL, p4, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+                    // Unlock mutex.
+                    unlock(p5);
+
                     // The comparison result.
                     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -141,54 +177,16 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
                         // ALL data have been transmitted.
                         //
 
+                        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write basic. All data have been transmitted.");
                         fwprintf(stdout, L"Debug: Write basic. All data have been transmitted. r: %i\n", r);
 
+                        //
                         // Set loop break flag.
+                        //
+                        // CAUTION! The flag is set ONLY if ALL data
+                        // have been transmitted.
+                        //
                         copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-                    } else {
-
-                        //
-                        // Only SOME data have been transmitted.
-                        //
-
-                        fwprintf(stdout, L"Debug: Write basic. Only SOME data have been transmitted. r: %i\n", r);
-
-                        //
-                        // Lock mutex.
-                        //
-                        // CAUTION! New data may be written into the source buffer in
-                        // the main thread, in case this writer is called asynchronously
-                        // in a thread. But the already written data are removed from
-                        // the source buffer below. Therefore, exclusive access has
-                        // to be guaranteed here using a mutex.
-                        //
-                        lock(p5);
-
-                        //
-                        // Remove written data from source buffer.
-                        //
-                        // CAUTION! This is IMPORTANT, so that in the next loop cycle,
-                        // only the REMAINING data are transmitted.
-                        //
-                        // CAUTION! Calling the function "modify_item" would work here,
-                        // but "modify_array" is used instead since the buffer item's
-                        // data and count have been handed over as parametre above.
-                        //
-                        // CAUTION! Do NOT hand over the buffer count but rather
-                        // the number of bytes ACTUALLY WRITTEN for specifying
-                        // the number of elements to be removed.
-                        //
-                        // CAUTION! Set the adjust count flag to TRUE since otherwise,
-                        // the buffer item will hold a wrong "count" number
-                        // leading to unpredictable errors in further processing.
-                        //
-                        // CAUTION! Hand over destination array as pointer REFERENCE!
-                        //
-                        modify_array(p1, *NULL_POINTER_STATE_CYBOI_MODEL, p4, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
-
-                        // Unlock mutex.
-                        unlock(p5);
                     }
 
                 } else if (n == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
@@ -198,14 +196,13 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
                     //
                     // A return value of ZERO means the other end (peer)
                     // CLOSED the socket connexion.
-                    //
                     // Therefore, the socket on this side may be closed,
                     // since the other side has closed its connexion.
                     //
                     // CAUTION! Do NOT close socket directly here.
                     // If this is a client socket, then its client entry
-                    // resources have to be freed as well,
-                    // which is done in the calling function.
+                    // resources have to be freed as well, which is done
+                    // in the calling function. Therefore, just set the flag.
                     //
 
                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write basic. Set close flag.");

@@ -31,15 +31,15 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The standard_error_output terminal device cybol model. */
-static wchar_t* STANDARD_ERROR_OUTPUT_TERMINAL_DEVICE_CYBOL_MODEL = L"standard_error_output";
+static wchar_t* STANDARD_ERROR_OUTPUT_TERMINAL_DEVICE_CYBOL_MODEL = L"standard-error-output";
 static int* STANDARD_ERROR_OUTPUT_TERMINAL_DEVICE_CYBOL_MODEL_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The standard_input terminal device cybol model. */
-static wchar_t* STANDARD_INPUT_TERMINAL_DEVICE_CYBOL_MODEL = L"standard_input";
+static wchar_t* STANDARD_INPUT_TERMINAL_DEVICE_CYBOL_MODEL = L"standard-input";
 static int* STANDARD_INPUT_TERMINAL_DEVICE_CYBOL_MODEL_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The standard_output terminal device cybol model. */
-static wchar_t* STANDARD_OUTPUT_TERMINAL_DEVICE_CYBOL_MODEL = L"standard_output";
+static wchar_t* STANDARD_OUTPUT_TERMINAL_DEVICE_CYBOL_MODEL = L"standard-output";
 static int* STANDARD_OUTPUT_TERMINAL_DEVICE_CYBOL_MODEL_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* TERMINAL_DEVICE_CYBOL_MODEL_CONSTANT_SOURCE */

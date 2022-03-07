@@ -26,6 +26,9 @@
 #ifndef INTERNAL_MEMORY_DEALLOCATOR_SOURCE
 #define INTERNAL_MEMORY_DEALLOCATOR_SOURCE
 
+#include <threads.h> // mtx_t, mtx_destroy
+
+#include "../../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -88,6 +91,10 @@ void deallocate_internal_memory(void* p0) {
         // The terminal input output entry.
         void* iot = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+        // The read/write interrupt pipe file descriptors.
+        int rd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+        int wd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+
         //
         // Retrieval
         //
@@ -120,68 +127,65 @@ void deallocate_internal_memory(void* p0) {
         copy_array_forward((void*) &iot, *i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TERMINAL_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
         //
-        // Shutdown
+        // Deallocation
         //
 
         //
-        // Shutdown resources (e.g. client- and server lists).
+        // CAUTION! It is ESSENTIAL to deallocate resources in the
+        // REVERSE ORDER as compared to allocation at startup.
         //
-        // CAUTION! Exit ALL threads BEFORE deallocating memory resources
+        // The input/output threads of client- and server entry lists
+        // have to be exited BEFORE deallocating memory resources
         // since otherwise, memory errors would occur.
+        // This is because threads access the interrupt pipe
+        // and also knowledge memory resources.
+        //
+        // Therefore, deallocate resources in this order:
+        // - input output (including threads)
+        // - interrupt
+        // - memory
         //
         // The reallocation of a non-existing array would lead to the error
         // "realloc(): invalid pointer".
         //
-        // Example:
-        // - the exit flag is not set
-        // - the sensing child thread enters a source code block
-        // - the main thread receives some shutdown cybol operation
-        // - the main thread sets the exit flag only now
-        // - the main thread shuts down and deallocates the destination item
-        // - the sensing child thread decodes characters
-        // - the sensing child thread possibly reallocates the (now non-existing) destination item
-        // - this leads to memory errors such as "corrupted double-linked list"
-        //
-        //?? TODO
-        ?? manage_shutdown(i);
+
+        // Deallocate display input output entry.
+        deallocate_input_output_entry((void*) &iod, (void*) DISPLAY_CYBOI_CHANNEL, *i);
+        // Deallocate file input output entry.
+        deallocate_input_output_entry((void*) &iof, (void*) FILE_CYBOI_CHANNEL, *i);
+        // Deallocate pipeline input output entry.
+        deallocate_input_output_entry((void*) &iop, (void*) PIPELINE_CYBOI_CHANNEL, *i);
+        // Deallocate serial input output entry.
+        deallocate_input_output_entry((void*) &ios, (void*) SERIAL_CYBOI_CHANNEL, *i);
+        // Deallocate socket input output entry.
+        deallocate_input_output_entry((void*) &ioso, (void*) SOCKET_CYBOI_CHANNEL, *i);
+        // Deallocate terminal input output entry.
+        deallocate_input_output_entry((void*) &iot, (void*) TERMINAL_CYBOI_CHANNEL, *i);
 
         //
         // Finalisation
         //
 
-        // The read/write interrupt pipe file descriptors.
-        int rd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-        int wd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+        //
+        // CAUTION! Close interrupt pipe file descriptors
+        // only AFTER having exited input output threads above
+        // since otherwise, memory errors would occur.
+        // This is because threads access the interrupt pipe.
+        //
 
         // Get read/write interrupt pipe file descriptors.
-        copy_array_forward((void*) &rd, p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-        copy_array_forward((void*) &wd, p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        copy_array_forward((void*) &rd, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        copy_array_forward((void*) &wd, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
         // Close read/write interrupt pipe file descriptors.
         close_basic((void*) &rd);
         close_basic((void*) &wd);
 
-        ?? mutex destroy
+        // Cast interrupt mutex to correct type.
+        mtx_t* imt = (mtx_t*) im;
 
-        //
-        // Deallocation
-        //
-
-        //
-        // Deallocate knowledge memory part.
-        //
-        // CAUTION! This is the knowledge memory tree root node.
-        // It has to be deallocated MANUALLY here.
-        //
-        // Its REFERENCES COUNT was initially zero and never
-        // got changed during programme execution, so that
-        // this root part is NOT deallocated automatically.
-        //
-        deallocate_part((void*) &mk);
-        // Deallocate stack memory part.
-        deallocate_part((void*) &mst);
-        // Deallocate signal memory part.
-        deallocate_part((void*) &ms);
+        // Finalise interrupt mutex.
+        mtx_destroy(imt);
 
         //
         // Deallocate interrupt pipe.
@@ -204,18 +208,21 @@ void deallocate_internal_memory(void* p0) {
         //
         deallocate_array((void*) &im, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
 
-        // Deallocate display input output entry.
-        deallocate_input_output_entry((void*) &iod);
-        // Deallocate file input output entry.
-        deallocate_input_output_entry((void*) &iof);
-        // Deallocate pipelineinput output entry.
-        deallocate_input_output_entry((void*) &iop);
-        // Deallocate serial input output entry.
-        deallocate_input_output_entry((void*) &ios);
-        // Deallocate socket input output entry.
-        deallocate_input_output_entry((void*) &ioso);
-        // Deallocate terminal input output entry.
-        deallocate_input_output_entry((void*) &iot);
+        //
+        // Deallocate knowledge memory part.
+        //
+        // CAUTION! This is the knowledge memory tree root node.
+        // It has to be deallocated MANUALLY here.
+        //
+        // Its REFERENCES COUNT was initially zero and never
+        // got changed during programme execution, so that
+        // this root part is NOT deallocated automatically.
+        //
+        deallocate_part((void*) &mk);
+        // Deallocate stack memory part.
+        deallocate_part((void*) &mst);
+        // Deallocate signal memory part.
+        deallocate_part((void*) &ms);
 
         //
         // Deallocate internal memory data.

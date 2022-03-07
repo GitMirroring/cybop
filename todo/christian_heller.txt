@@ -13,12 +13,11 @@
 
 CONTINUE current work:
 
-        * Make compilable
-        * Verify handling of client- and server list in input output entry deallocator
         * Add memoriser mutex allocator and deallocator, to be used in manager, client entry open and close, server entry startup and shutdown
-        * Make cybol applications "counter" work again
-        * Test file read functionality
-        * Run service lifecycle cybol examples in directory "examples/communication/"
+        * Test service lifecycle cybol examples in directory "examples/communication/"
+
+        * Remove thread comparison (possibly, if unnecessary) in file "spinner.c":
+            thrd_equal(DEFAULT_THREAD_IDENTIFICATION, *t);
 
         * Deliver compilable and runnable source code for release CYBOP 0.22.0
 

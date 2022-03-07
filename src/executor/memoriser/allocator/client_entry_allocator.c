@@ -173,9 +173,7 @@ void allocate_client_entry(void* p0, void* p1) {
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
         //
-        fwprintf(stdout, L"Debug: Allocate client entry. test ibm pre: %i\n", ibm);
         allocate_array((void*) &ibm, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
-        fwprintf(stdout, L"Debug: Allocate client entry. test ibm post: %i\n", ibm);
         //
         // Allocate input thread identification.
         //
@@ -211,7 +209,6 @@ void allocate_client_entry(void* p0, void* p1) {
 
         // Cast input buffer mutex to correct type.
         mtx_t* ibmt = (mtx_t*) ibm;
-        fwprintf(stdout, L"Debug: Allocate client entry. test ibmt: %i\n", ibmt);
         // Cast output buffer mutex to correct type.
         mtx_t* obmt = (mtx_t*) obm;
 
@@ -227,8 +224,6 @@ void allocate_client_entry(void* p0, void* p1) {
         copy_integer(l, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
         // Initialise input buffer mutex.
         int ibmr = mtx_init(ibmt, *PLAIN_MUTEX_TYPE_THREAD_SYMBOLIC_NAME);
-        fwprintf(stdout, L"Debug: Allocate client entry. test ibmr: %i\n", ibmr);
-        fwprintf(stdout, L"Debug: Allocate client entry. test post init ibmt: %i\n", ibmt);
         // Initialise input thread identification.
         copy_integer(iti, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
         // Initialise input thread exit flag.
@@ -269,10 +264,6 @@ void allocate_client_entry(void* p0, void* p1) {
         copy_array_forward(*e, (void*) &ibi, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ITEM_BUFFER_INPUT_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Set input buffer mutex into client entry.
         copy_array_forward(*e, (void*) &ibm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_BUFFER_INPUT_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    fwprintf(stdout, L"Debug: Allocate client entry. test *e: %i\n", *e);
-    void* test_ibm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    copy_array_forward((void*) &test_ibm, *e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_BUFFER_INPUT_CLIENT_STATE_CYBOI_NAME);
-    fwprintf(stdout, L"Debug: Allocate client entry. test test_ibm: %i\n", test_ibm);
         // Set input thread identification into client entry.
         copy_array_forward(*e, (void*) &iti, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_THREAD_INPUT_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Set input thread exit flag into client entry.
