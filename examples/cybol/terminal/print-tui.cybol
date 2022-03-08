@@ -1,9 +1,5 @@
 <node>
 
-    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    </node>
-
     <!--
         TODO: Get count of text via cybol tree and set it as width of tui window.
         That way, dynamic window sizes become possible.
@@ -11,6 +7,7 @@
 
     <node name="print_tui" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".cybol.terminal.stdout"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>

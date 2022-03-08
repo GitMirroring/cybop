@@ -1,6 +1,8 @@
 <node>
 
-    <node name="print" channel="file" format="element/part" model="cybol/print-tui.cybol">
+    <node name="load_cybol_library" channel="file" format="element/part" model="cybol/load.cybol"/>
+
+    <node name="print" channel="file" format="element/part" model="cybol/terminal/print-tui.cybol">
         <node name="tui" channel="inline" format="text/plain" model="Hello World!">
             <node name="position" channel="inline" format="number/integer" model="0,0"/>
             <node name="size" channel="inline" format="number/integer" model="20,1"/>
@@ -9,7 +11,7 @@
         </node>
     </node>
 
-    <node name="exit" channel="file" format="element/part" model="cybol/exit.cybol"/>
+    <node name="exit" channel="inline" format="live/exit" model=""/>
 
 </node>
 

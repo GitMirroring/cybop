@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-03-08  Christian Heller  <christian.heller@cybop.org>
+
+        * Provide load and unload functionality for cybol library
+        * Make cybol applications "hello_world" work again
+
 2022-03-07  Christian Heller  <christian.heller@cybop.org>
 
         * Remove written elements from buffer whenever all data have been transmitted in file "basic_writer.c"

@@ -13,7 +13,6 @@
 
 CONTINUE current work:
 
-        * Make cybol applications "hello_world" work again
         * Make cybol application "tui_control" work again
         * Make further cybol applications work again
 
@@ -24,6 +23,12 @@ CONTINUE current work:
             thrd_equal(DEFAULT_THREAD_IDENTIFICATION, *t);
 
         * Deliver compilable and runnable source code for release CYBOP 0.22.0
+
+        * Clear up how to provide stack variables in cyboi interpreter for operations which are called via cybol-path ??
+            - see cybol application file "hello_world/simple/run.cybol"
+            - operations use properties as parametres
+            - compound operations (element/part) provide properties as stack variables
+            - BUT: what about operations called via cybol path ??
 
         * Cleanup signal (event) list checker from outdated io check mechanism which got replaced by enable- and sensing threads
 

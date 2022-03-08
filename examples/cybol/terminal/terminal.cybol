@@ -1,0 +1,12 @@
+<node>
+
+    <node name="stdin" channel="inline" format="number/integer" model="-1"/>
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+    <node name="stderr" channel="inline" format="number/integer" model="-1"/>
+
+<!--
+    <node name="print-newline" channel="file" format="element/part" model="cybol/terminal/print-newline.cybol"/>
+    <node name="print-tui" channel="file" format="element/part" model="cybol/terminal/print-tui.cybol"/>
+-->
+
+</node>

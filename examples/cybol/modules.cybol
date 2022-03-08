@@ -1,6 +1,10 @@
 <node>
 
+    <node name="terminal" channel="file" format="element/part" model="cybol/terminal/terminal.cybol"/>
+
+    <!--
     <node name="gui" channel="file" format="element/part" model="cybol/gui.cybol"/>
     <node name="logic" channel="file" format="element/part" model="cybol/logic.cybol"/>
+    -->
 
 </node>

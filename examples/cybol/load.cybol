@@ -1,0 +1,52 @@
+<node>
+
+    <!-- Create cybol knowledge tree node. -->
+    <node name="create_cybol" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+    </node>
+
+    <!-- Receive modules. -->
+    <node name="create_id" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="id"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+    <node name="open_id" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="device" channel="inline" format="text/plain" model="cybol/modules.cybol"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+    <node name="receive_library" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".cybol"/>
+    </node>
+    <node name="close_id" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+    <node name="destroy_id" channel="inline" format="memorise/destroy" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
+    <!-- Open standard input, output, error output. -->
+    <node name="open_stdin" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="device" channel="inline" format="text/plain" model="standard-input"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".cybol.terminal.stdin"/>
+    </node>
+    <node name="open_stdout" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="device" channel="inline" format="text/plain" model="standard-output"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".cybol.terminal.stdout"/>
+    </node>
+    <node name="open_stderr" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="device" channel="inline" format="text/plain" model="standard-error-output"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".cybol.terminal.stderr"/>
+    </node>
+
+</node>

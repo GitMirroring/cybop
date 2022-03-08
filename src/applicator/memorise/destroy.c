@@ -39,9 +39,7 @@
 /**
  * Destroys a part and removes it from the knowledge model.
  *
- * Primitive models need a different creation than compound models.
- *
- * Expected parametres:
+ * Parametres:
  * - part (required): the part to be destroyed
  *
  * @param p0 the parametres data
