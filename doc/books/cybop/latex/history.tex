@@ -328,14 +328,16 @@ on the architecture and implementation of the \emph{CYBOI Interpreter}.
         The array is the basis holding primitive data.
         An item consists of three arrays: data, count, size.
         A part has four items: name, type, model, properties.
-    \item[2011] A part now has nine items: name, channel, encoding, language, format, type, model, properties, references.
+    \item[2011] A part now has nine items: name, channel, encoding, language,
+        format, type, model, properties, references.
         The references item counts the number of other parts which are using the part.
         This is used to implement rubbish (garbage) collection,
         i.e. automatic clean-up (deallocation) of parts that are not used anymore.
     \item[2012] A CYBOL knowledge path is now capable of handling not only part names,
         but also indices.
-    \item[2012] The CYBOL Application Programming Interface (API) specification is now
-        defined in CYBOL syntax itself and generated as HTML page to be published on the website.
+    \item[2012] The CYBOL Application Programming Interface (API) specification
+        is now defined in CYBOL syntax itself and generated as HTML page to be
+        published on the website.
     \item[2013] CYBOI compiles under \emph{Windows} OS so that
         CYBOL applications can use the win32 console and graphical display.
     \item[2013] The German xDT medical data exchange format gets parsed and
@@ -344,16 +346,35 @@ on the architecture and implementation of the \emph{CYBOI Interpreter}.
     \item[2013] Date and time handling turns out to be a complicated subject,
         in whose investigation a lot of time has to be spend.
     \item[2014] Nested knowledge path names are now possible using parentheses.
-    \item[2015] The cybol syntax gets simplified further from four tags to now just one tag called "node".
+    \item[2015] The cybol syntax gets simplified further from four tags
+        to now just one tag called "node".
     \item[2015] Sockets are working fine and may be used to realise web applications.
-    \item[2016] The implemented stack memory is essential for processing data structures with unpredictable tree hierarchy depth.
-    \item[2016] An easy solution based on recursion gets found for cloning functionality (deep copying).
+    \item[2016] The implemented stack memory is essential for processing
+        data structures with unpredictable tree hierarchy depth.
+    \item[2016] An easy solution based on recursion gets found for cloning
+        functionality (deep copying).
     \item[2017] The capabilities of knowledge paths get extended tremendously.
-        They now offer easy access to nodes in heap and stack memory, via name or index or reference.
-        Also, redundant code for processing compound state/logic models gets avoided thereby.
+        They now offer easy access to nodes in heap and stack memory,
+        via name or index or reference. Also, redundant code for processing
+        compound state/logic models gets avoided thereby.
         A new unique mime type "text/cybol-path" is used from now on.
-    \item[2018] A uniform input/output entry structure is used internally for all communication channels.
-    \item[2018] The functionality for deep part comparison, lexicographical comparison and sort operations gets implemented.
+    \item[2018] A uniform input/output entry structure is used internally
+        for all communication channels.
+    \item[2018] The functionality for deep part comparison, lexicographical
+        comparison and sort operations gets implemented.
+    \item[2019] The cybol base library gets started, in order to provide
+        standard functionality.
     \item[2020] The input/output channel handling gets improved.
+    \item[2021] An interrupt pipe is used to communicate between blocking
+        input/output threads and main thread to avoid busy waiting with endless loop.
+    \item[2021] Blocking sensing threads are woken up by an awakener that sends
+        a fake input to the system itself, so that the input/output threads
+        can exit themselves.
+    \item[2021] Any kind of message language (protocol) may be used
+        thanks to length prefix and end suffix detection.
+    \item[2022] The communication architecture gets redesigned using
+        a standard cybol operation lifecycle. It also considers asynchronous
+        input/output using buffers. Standalone clients as well as server-side
+        client stubs are processed in a uniform way.
     \item[20xx] For open issues yet to be implemented, see section \ref{call_for_developers_heading}!
 \end{itemize}

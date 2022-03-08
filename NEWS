@@ -124,7 +124,7 @@ CYBOP 0.21.0, 2020-07-29, Christian Heller  <christian.heller@cybop.org>
             - Introduce new cybol base library "examples/cybol/", in order to provide standard functionality such as "print-newline" or "exit"
             - Improve cybol application "user_interface/ui/" with buttons for handling input in tui, gui, wui
             - Make cybol application "user_interface/gui/" work again with coloured rectangles on window expose event and printed message on mouse release event
-            - Reorganise cybol application directory using sub categories
+            - Reorganise cybol application directory "examples/" using sub categories
             - Replace outdated property name "part" with "destination" in all cybol applications using cybol operation "modify/empty"
             - Adapt all cybol applications to use operation "activate/enable" instead of old "live/sense"
         * Project:
