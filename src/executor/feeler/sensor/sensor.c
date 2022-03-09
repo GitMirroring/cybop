@@ -69,8 +69,6 @@ void sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6)
 
     // Invoke sense function within a new thread.
     sense_thread(ce);
-
-    exit(-24);
 }
 
 /* SENSOR_SOURCE */

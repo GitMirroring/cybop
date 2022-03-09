@@ -13,6 +13,8 @@
 
 CONTINUE current work:
 
+        * Store parametres like channel which are needed in activator enabler already in maintainer starter ??
+
         * Make cybol application "tui" work again
         * Make cybol application "tui_control" work again
         * Make further cybol applications work again

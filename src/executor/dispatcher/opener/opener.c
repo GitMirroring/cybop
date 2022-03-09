@@ -86,7 +86,7 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // CAUTION! It has to get initialised BEFORE opening
     // the client below, since its values are used there.
     //
-    open_entry(ce, p12, p10, p1, p13);
+    open_entry(ce, p12, p10, p11, p1, p13);
 
     // Open client device depending on server flag.
     open_flag(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, ce, p10, p11);

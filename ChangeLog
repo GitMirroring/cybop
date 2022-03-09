@@ -23,6 +23,7 @@
         * Clean up unused global variables
         * Add thread copier, which is needed for thread comparison, to find out if a thread already exists
         * Use DEFAULT_THREAD_IDENTIFICATION for comparison in file "spinner.c", since win32 uses a struct and not an int as thread identification
+        * Store yet missing parametres channel, server flag, port in dispatcher opener client entry, since they are needed by feeler sensor
 
 2022-03-08  Christian Heller  <christian.heller@cybop.org>
 

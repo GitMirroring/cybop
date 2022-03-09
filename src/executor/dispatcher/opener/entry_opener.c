@@ -47,10 +47,11 @@
  * @param p0 the client entry
  * @param p1 the internal memory
  * @param p2 the channel
- * @param p3 the port
- * @param p4 the internal memory (pointer reference)
+ * @param p3 the server flag
+ * @param p4 the port
+ * @param p5 the internal memory (pointer reference)
  */
-void open_entry(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void open_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open entry.");
     fwprintf(stdout, L"Debug: Open entry. p0: %i\n", p0);
@@ -68,6 +69,13 @@ void open_entry(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The server entry.
     void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    // The channel.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The server flag.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The port.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+
     //
     // Retrieval.
     //
@@ -79,14 +87,32 @@ void open_entry(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get server list from input output entry.
     copy_array_forward((void*) &sl, io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SERVERS_INPUT_OUTPUT_STATE_CYBOI_NAME);
     // Get server entry from server list by service identification (port number).
-    find_list((void*) &se, sl, p3, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME);
+    find_list((void*) &se, sl, p4, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME);
+
+    // Get channel from client entry.
+    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CHANNEL_COMMUNICATION_CLIENT_STATE_CYBOI_NAME);
+    // Get server flag from client entry.
+    copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SERVER_COMMUNICATION_CLIENT_STATE_CYBOI_NAME);
+    // Get port from client entry.
+    copy_array_forward((void*) &p, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PORT_COMMUNICATION_CLIENT_STATE_CYBOI_NAME);
+
+    //
+    // Copying
+    //
+
+    // Copy channel.
+    copy_integer(c, p2);
+    // Copy server flag.
+    copy_integer(s, p3);
+    // Copy port.
+    copy_integer(p, p4);
 
     //
     // Storage.
     //
 
     // Set internal memory into client entry.
-    copy_array_forward(p0, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERNAL_MEMORY_BACKLINK_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(p0, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERNAL_MEMORY_BACKLINK_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set input output entry into client entry.
     copy_array_forward(p0, (void*) &io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INPUT_OUTPUT_BACKLINK_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set server entry into client entry.
