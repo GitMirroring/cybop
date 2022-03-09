@@ -26,16 +26,12 @@
 #ifndef CUTTER_SOURCE
 #define CUTTER_SOURCE
 
-#include <threads.h> // thrd_t, thrd_join, thrd_error
+#include <threads.h> // thrd_t, thrd_equal, thrd_join, thrd_error
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../logger/logger.c"
-#include "../../variable/service_interrupt.c"
 #include "../../variable/thread_identification.c"
 
 /**
@@ -50,15 +46,38 @@ void cut(void* p0) {
         thrd_t* t = (thrd_t*) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cut.");
-        fwprintf(stdout, L"Debug: Cut. t: %i\n", t);
-        fwprintf(stdout, L"Debug: Cut. *t: %i\n", *((int*) t));
+        fwprintf(stdout, L"Debug: Cut. thread t: %i\n", t);
+        fwprintf(stdout, L"Debug: Cut. thread *t: %i\n", *t);
 
-        // The comparison result.
-        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        //
+        // Compare thread identifications.
+        //
+        // Returns a non-zero value (true) if they are equal
+        // and ZERO if they are UNEQUAL (false).
+        //
+        // CAUTION! The threads (pthread) implementation under
+        // mingw win32 uses a struct and NOT a scalar value.
+        //
+        int r = thrd_equal(DEFAULT_THREAD_IDENTIFICATION, *t);
 
-        compare_integer_greater_or_equal((void*) &r, p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            //
+            // The thread DOES exist.
+            //
+            // The given thread is unequal to the DEFAULT thread,
+            // with which it was assigned at startup,
+            // which means that it WAS created and EXISTS.
+            // Therefore, the thread CAN be exited now.
+            //
+            // However, the exit is done via an awakener,
+            // so that the thread can exit itself.
+            // This function here just waits for the thread to exit.
+            //
+
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cut. Join thread.");
+            fwprintf(stdout, L"Debug: Cut. Join thread. t: %i\n", t);
+            fwprintf(stdout, L"Debug: Cut. Join thread. +t: %i\n", *t);
 
             // The result code.
             int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -72,17 +91,8 @@ void cut(void* p0) {
 
             } else {
 
-                //
-                // CAUTION! This error might be harmless and is therefore just a warning.
-                //
-                // Example:
-                // A terminal service was started up to be able to output cybol messages on text console.
-                // But the service sensing thread was not enabled in activator, since input is not needed.
-                // In this case, a thread does not exist and therefore this warning is produced.
-                //
-
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cut. The thread join function returned an error.");
-                fwprintf(stdout, L"Warning: Could not cut. The thread join function returned an error. c: %i\n", c);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not cut. The thread join function returned an error.");
+                fwprintf(stdout, L"Error: Could not cut. The thread join function returned an error. c: %i\n", c);
             }
 
         } else {

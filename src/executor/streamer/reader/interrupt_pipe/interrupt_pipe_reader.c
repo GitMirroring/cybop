@@ -68,8 +68,10 @@ void read_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
         fwprintf(stdout, L"Debug: Read interrupt pipe. f: %i\n", f);
         fwprintf(stdout, L"Debug: Read interrupt pipe. *f: %i\n", *f);
 
-        // The pipe value.
-        int v = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+        //?? // The pipe value.
+        //?? int v = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+        // The pipe value (pointer to the handle).
+        //?? void* v = *NULL_POINTER_STATE_CYBOI_MODEL;
         //
         // Cast size to correct type.
         //
@@ -80,13 +82,13 @@ void read_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
         // memory errors will occur and the valgrind memcheck tool report:
         // "Invalid read of size 8".
         //
-        size_t s = (size_t) *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE;
+        //?? size_t s = (size_t) *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE;
+        size_t s = (size_t) *POINTER_TYPE_SIZE;
 
         //
-        // Lock mutex.
+        // CAUTION! Do NOT lock a mutex for reading the pipe.
         //
-        // CAUTION! If only the pipe was accessed, then using a mutex
-        // would NOT be necessary here, for the following reasons:
+        // It is not necessary here, for the following reasons:
         //
         // 1 The values are only READ but nothing is written.
         //
@@ -104,10 +106,11 @@ void read_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
         //   being read in a sequence here really do belong together,
         //   to the same interrupt.
         //
-        // CAUTION! However, using a mutex IS NECESSARY due to
-        // the HANDLER ARRAY managed in parallel to the interrupt pipe.
+        // If a mutex was set here, then the "read" function would
+        // block FOREVER, without any input thread having the chance
+        // to write to it, due to the LOCK.
         //
-        lock(p3);
+        //?? lock(p3);
 
         //
         // Read from interrupt pipe.
@@ -126,10 +129,13 @@ void read_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
         //
         // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
         //
-        int n = read(*f, (void*) &v, s);
+        //?? int n = read(*f, (void*) &v, s);
+        int n = read(*f, p0, s);
 
         fwprintf(stdout, L"Debug: Read interrupt pipe. n1: %i\n", n);
-        fwprintf(stdout, L"Debug: Read interrupt pipe. v: %i\n", v);
+        //?? fwprintf(stdout, L"Debug: Read interrupt pipe. v: %i\n", v);
+        fwprintf(stdout, L"Debug: Read interrupt pipe. handler p0: %i\n", p0);
+        fwprintf(stdout, L"Debug: Read interrupt pipe. handler *p0: %i\n", *((int*) p0));
 
         //
         // Get interrupt pipe handlers item data.
@@ -147,12 +153,12 @@ void read_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
         //
 
         // Get handler from source interrupt pipe handlers item.
-        get_item(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        //?? get_item(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         // Remove handler from source interrupt pipe handlers item.
-        modify_item(p2, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
+        //?? modify_item(p2, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
 
         // Unlock mutex.
-        unlock(p3);
+        //?? unlock(p3);
 
     } else {
 

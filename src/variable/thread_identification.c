@@ -26,39 +26,45 @@
 #ifndef THREAD_IDENTIFICATION_SOURCE
 #define THREAD_IDENTIFICATION_SOURCE
 
-#include <threads.h>
+#include <threads.h> // thrd_t
 
 //
 // The global variables.
-//
-// CAUTION! This is just the variable definition.
-// Initialisation happens in directory "controller/globaliser/".
 //
 
 /**
  * The empty default thread identification.
  *
- * CAUTION! It is used for comparison only,
- * in order to find out whether or not
- * a thread was created already.
+ * CAUTION! The default thread does NOT get initialised.
+ * It is left EMPTY on purpose. It is used for COMPARISON only,
+ * in order to find out whether or not a thread was created already.
+ *
+ * CAUTION! Do NOT assign an integer value here.
+ * The threads (pthread) implementation under mingw win32
+ * uses a struct and NOT a scalar value.
+ *
+ * Otherwise, the compiler reports the error:
+ * incompatible types when assigning to type ‘pthread_t’ from type ‘int’
+ *
+ * And when trying to cast, the compiler reports the error:
+ * conversion to non-scalar type requested
+ *
+ * Originally, pthread_t was defined as a pointer
+ * (to the opaque pthread_t_struct) and later it was
+ * changed to a struct containing the original pointer
+ * plus a sequence counter. This is allowed under both
+ * the original POSIX Threads Standard and the current
+ * Single Unix Specification.
+ *
+ * Other threads (pthreads) implementations, such as Sun's,
+ * use an int as the handle but do guarantee uniqueness
+ * within the process scope. Win32 scalar typed thread
+ * handles also guarantee uniqueness in system scope.
+ *
+ * http://sourceware.org/pthreads-win32/faq.html
+ *
  */
 static thrd_t DEFAULT_THREAD_IDENTIFICATION;
-
-/** The display thread identification. */
-static thrd_t DISPLAY_THREAD_IDENTIFICATION_ARRAY[1];
-static thrd_t* DISPLAY_THREAD_IDENTIFICATION = DISPLAY_THREAD_IDENTIFICATION_ARRAY;
-
-/** The serial thread identification. */
-static thrd_t SERIAL_THREAD_IDENTIFICATION_ARRAY[1];
-static thrd_t* SERIAL_THREAD_IDENTIFICATION = SERIAL_THREAD_IDENTIFICATION_ARRAY;
-
-/** The socket service thread identification. */
-static thrd_t SOCKET_THREAD_IDENTIFICATION_ARRAY[1];
-static thrd_t* SOCKET_THREAD_IDENTIFICATION = SOCKET_THREAD_IDENTIFICATION_ARRAY;
-
-/** The terminal thread identification. */
-static thrd_t TERMINAL_THREAD_IDENTIFICATION_ARRAY[1];
-static thrd_t* TERMINAL_THREAD_IDENTIFICATION = TERMINAL_THREAD_IDENTIFICATION_ARRAY;
 
 /* THREAD_IDENTIFICATION_SOURCE */
 #endif

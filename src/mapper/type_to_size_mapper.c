@@ -134,14 +134,6 @@ void map_type_to_size(void* p0, void* p1) {
             copy_integer(p0, (void*) POINTER_TYPE_SIZE);
 
         //
-        // signal
-        //
-
-        } else if (*t == *ATOMIC_SIGNAL_STATE_CYBOI_TYPE) {
-
-            copy_integer(p0, (void*) ATOMIC_SIGNAL_TYPE_SIZE);
-
-        //
         // socket address
         //
 

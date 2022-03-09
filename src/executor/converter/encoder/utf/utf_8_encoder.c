@@ -26,20 +26,35 @@
 #ifndef UTF_8_ENCODER_SOURCE
 #define UTF_8_ENCODER_SOURCE
 
-#include <errno.h>
-#include <locale.h>
-#include <wchar.h>
+#include <errno.h> // errno
 
-#ifdef WIN32
-    #include <windows.h>
-#endif
-
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/calculator/integer/add_integer_calculator.c"
+#include "../../../../executor/calculator/integer/multiply_integer_calculator.c"
+#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/memoriser/reallocator/item_reallocator.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/type_size/conversion_type_size.c"
+
+#if defined(__linux__) || defined(__unix__)
+    #include <locale.h> // setlocale
+    #include <wchar.h> // wcsnrtombs
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include <locale.h> // setlocale
+    #include <wchar.h> // wcsnrtombs
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    #include <windows.h>
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
 
 //
 // Reflexions on character set conversion.
@@ -351,21 +366,9 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
 
                 } else {
 
-                    if (errno == EILSEQ) {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. An invalid wide character was encountered.");
-                        fwprintf(stdout, L"Error: Could not encode utf-8. An invalid wide character was encountered. EILSEQ errno: %i\n", errno);
-
-                    } else if (errno == EINVAL) {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. The conversion state is invalid.");
-                        fwprintf(stdout, L"Error: Could not encode utf-8. The conversion state is invalid. EINVAL errno: %i\n", errno);
-
-                    } else {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. An unknown error occured.");
-                        fwprintf(stdout, L"Error: Could not encode utf-8. An unknown error occured. UNKNOWN errno: %i\n", errno);
-                    }
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. An error occured.");
+                    fwprintf(stdout, L"Error: Could not encode utf-8. An error occured. n: %i\n", n);
+                    log_errno((void*) &errno);
                 }
 
             } else {

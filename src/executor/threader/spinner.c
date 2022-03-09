@@ -28,17 +28,14 @@
 
 #include <threads.h> // thrd_start_t, thrd_t, thrd_equal, thrd_create
 
-#include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
 
 /**
- * Spins the thread, so that it is created.
+ * Spins the thread, that is create it.
  *
  * @param p0 the thread identification
  * @param p1 the thread function
@@ -66,15 +63,13 @@ void spin(void* p0, void* p1, void* p2) {
             thrd_t* t = (thrd_t*) p0;
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Spin.");
-
             fwprintf(stdout, L"Debug: Spin. empty thread t: %i\n", t);
-            fwprintf(stdout, L"Debug: Spin. empty thread *t: %i\n", *((int*) t));
 
             //
             // Compare thread identifications.
             //
-            // Returns a non-zero value (true) if t1 and t2
-            // are equal and zero if they are unequal (false).
+            // Returns a NON-ZERO value (true) if they are EQUAL
+            // and zero if they are unequal (false).
             //
             // CAUTION! The threads (pthread) implementation under
             // mingw win32 uses a struct and NOT a scalar value.
@@ -85,20 +80,16 @@ void spin(void* p0, void* p1, void* p2) {
 
                 //
                 // The thread does NOT exist yet.
-                // It is equal to the empty default thread.
                 //
-
-                //
-                // The returned value is non-zero, which means
-                // that both threads compared above are EQUAL.
-                // Since one of the two thread variables was
-                // introduced with empty initialisation,
-                // this means that the other is empty, too.
-                // Therefore, the thread has NOT been created
-                // before and CAN be created below now.
+                // The given thread is equal to the DEFAULT thread,
+                // with which it was assigned at startup,
+                // which means that it was not created yet.
+                // Therefore, the thread CAN be created now.
                 //
 
                 log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Spin. Create thread.");
+                fwprintf(stdout, L"Debug: Spin. Create thread. t: %i\n", t);
+                fwprintf(stdout, L"Debug: Spin. Create thread. +t: %i\n", *t);
 
                 //
                 // Create thread.
@@ -122,18 +113,27 @@ void spin(void* p0, void* p1, void* p2) {
                 //
                 thrd_create(t, f, p2);
 
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Spin. Created thread.");
                 fwprintf(stdout, L"Debug: Spin. created thread t: %i\n", t);
-                fwprintf(stdout, L"Debug: Spin. created thread *t: %i\n", *((int*) t));
+                fwprintf(stdout, L"Debug: Spin. created thread +t: %i\n", *t);
+
+            } else {
+
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not spin. The thread does already exist.");
+                fwprintf(stdout, L"Warning: Could not spin. The thread does already exist. p0: %i\n", p0);
+                fwprintf(stdout, L"Warning: Could not spin. The thread does already exist. *t: %i\n", *t);
             }
 
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not spin. The thread identification is null.");
+            fwprintf(stdout, L"Error: Could not spin. The thread identification is null. p0: %i\n", p0);
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not spin. The thread function is null.");
+        fwprintf(stdout, L"Error: Could not spin. The thread function is null. p1: %i\n", p1);
     }
 }
 

@@ -38,6 +38,7 @@
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
+#include "../../../executor/copier/thread_copier.c"
 #include "../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../logger/logger.c"
@@ -225,7 +226,7 @@ void allocate_client_entry(void* p0, void* p1) {
         // Initialise input buffer mutex.
         int ibmr = mtx_init(ibmt, *PLAIN_MUTEX_TYPE_THREAD_SYMBOLIC_NAME);
         // Initialise input thread identification.
-        copy_integer(iti, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
+        copy_thread(iti, (void*) &DEFAULT_THREAD_IDENTIFICATION);
         // Initialise input thread exit flag.
         copy_integer(ite, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
         // Initialise output buffer mutex.

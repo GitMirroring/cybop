@@ -31,7 +31,6 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/memoriser/allocator/item_allocator.c"
-#include "../../variable/reallocation_factor.c"
 
 //
 // CAUTION! The options of many commands are SIMILAR on various platforms.

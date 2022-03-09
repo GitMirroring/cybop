@@ -74,9 +74,15 @@ void write_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
         // memory errors will occur and the valgrind memcheck tool report:
         // "Invalid read of size 8".
         //
-        size_t s = (size_t) *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE;
+        //?? size_t s = (size_t) *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE;
+        size_t s = (size_t) *POINTER_TYPE_SIZE;
 
+        //
         // Lock mutex.
+        //
+        // CAUTION! A mutex HAS TO BE set here, since MANY threads
+        // may want to write to the interrupt pipe concurrently.
+        //
         lock(p3);
 
         //
@@ -85,7 +91,10 @@ void write_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
         // CAUTION! Do NOT use overwrite in order to avoid
         // deletion of already existing data in the destination.
         //
-        modify_item(p1, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+        //?? modify_item(p1, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+        fwprintf(stdout, L"Debug: Write interrupt pipe. handler p2: %i\n", p2);
+        fwprintf(stdout, L"Debug: Write interrupt pipe. handler *p2: %i\n", *((int*) p2));
 
         //
         // Write to interrupt pipe.
@@ -107,7 +116,8 @@ void write_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
         //
         // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
         //
-        write(*f, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, s);
+        //?? write(*f, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, s);
+        write(*f, p2, s);
 
         // Unlock mutex.
         unlock(p3);

@@ -27,13 +27,10 @@
 #define TYPE_SIZE_GLOBALISER_SOURCE
 
 #include "../../controller/globaliser/type_size/compound_type_size_globaliser.c"
-#include "../../controller/globaliser/type_size/conversion_type_size_globaliser.c"
 #include "../../controller/globaliser/type_size/display_type_size_globaliser.c"
 #include "../../controller/globaliser/type_size/integral_type_size_globaliser.c"
 #include "../../controller/globaliser/type_size/pointer_type_size_globaliser.c"
-#include "../../controller/globaliser/type_size/process_type_size_globaliser.c"
 #include "../../controller/globaliser/type_size/real_type_size_globaliser.c"
-#include "../../controller/globaliser/type_size/signal_type_size_globaliser.c"
 #include "../../controller/globaliser/type_size/socket_type_size_globaliser.c"
 #include "../../controller/globaliser/type_size/terminal_type_size_globaliser.c"
 #include "../../controller/globaliser/type_size/thread_type_size_globaliser.c"
@@ -47,17 +44,14 @@ void globalise_type_size() {
     // Terminal.
     //
 
-    globalise_type_size_conversion();
     globalise_type_size_display();
     globalise_type_size_integral();
     globalise_type_size_pointer();
-    globalise_type_size_process();
     globalise_type_size_real();
     //
     // CAUTION! The integral type sizes have to be determined
     // BEFORE those following, since the former are used to calculate sizes.
     //
-    globalise_type_size_signal();
     globalise_type_size_socket();
     globalise_type_size_terminal();
     globalise_type_size_thread();

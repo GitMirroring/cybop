@@ -31,7 +31,6 @@
 #include "../../executor/memoriser/allocator/item_allocator.c"
 #include "../../executor/runner/executor.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../variable/reallocation_factor.c"
 
 //
 // CAUTION! The options of many commands are SIMILAR on various platforms.

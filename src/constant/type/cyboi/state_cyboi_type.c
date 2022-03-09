@@ -157,9 +157,6 @@ static int* WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE = NUMBER_81_INTEGER_STATE_CYBOI
 /** The identification thread state cyboi type. */
 static int* IDENTIFICATION_THREAD_STATE_CYBOI_TYPE = NUMBER_90_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The function thread state cyboi type. */
-static int* FUNCTION_THREAD_STATE_CYBOI_TYPE = NUMBER_91_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The mutex thread state cyboi type. */
 static int* MUTEX_THREAD_STATE_CYBOI_TYPE = NUMBER_92_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

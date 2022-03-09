@@ -40,7 +40,7 @@
  * Assigns data handed over from cybol application to client entry.
  *
  * @param p0 the client entry
- * @param p1 the language (protocol)
+ * @param p1 the language
  * @param p2 the handler (pointer reference)
  */
 void sense_entry(void* p0, void* p1, void* p2) {
@@ -71,7 +71,7 @@ void sense_entry(void* p0, void* p1, void* p2) {
     //
 
     // Copy language (protocol).
-    copy_integer(l);
+    copy_integer(l, p1);
     //
     // Copy sense thread exit flag.
     //

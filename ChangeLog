@@ -18,10 +18,17 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-03-09  Christian Heller  <christian.heller@cybop.org>
+
+        * Clean up unused global variables
+        * Add thread copier, which is needed for thread comparison, to find out if a thread already exists
+        * Use DEFAULT_THREAD_IDENTIFICATION for comparison in file "spinner.c", since win32 uses a struct and not an int as thread identification
+
 2022-03-08  Christian Heller  <christian.heller@cybop.org>
 
         * Provide load and unload functionality for cybol library
         * Make cybol applications "hello_world" work again
+        * Update feeler sensor and suspender, that were forgotten to include
 
 2022-03-07  Christian Heller  <christian.heller@cybop.org>
 
