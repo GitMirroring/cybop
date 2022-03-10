@@ -88,6 +88,24 @@ void deserialise_message_length(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p3, (void*) FTP_RESPONSE_MESSAGE_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // CAUTION! A message length prefix does NOT exist.
+            // Therefore, identify the message termination.
+            //
+
+            deserialise_ftp_line_end(p0, p1, p2);
+
+            fwprintf(stdout, L"Debug: Deserialise message length. ftp response p0: %i\n", p0);
+            fwprintf(stdout, L"Debug: Deserialise message length. ftp response *p0: %i\n", *((int*) p0));
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         compare_integer_equal((void*) &r, p3, (void*) HTTP_REQUEST_MESSAGE_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -154,19 +172,20 @@ void deserialise_message_length(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) FTP_RESPONSE_MESSAGE_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p3, (void*) TUI_MESSAGE_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // CAUTION! A message length prefix does NOT exist.
-            // Therefore, identify the message termination.
+            // CAUTION! The ansi escape sequence ...
+            //
+            //?? TODO
             //
 
-            deserialise_ftp_line_end(p0, p1, p2);
+            //?? TODO
 
-            fwprintf(stdout, L"Debug: Deserialise message length. ftp response p0: %i\n", p0);
-            fwprintf(stdout, L"Debug: Deserialise message length. ftp response *p0: %i\n", *((int*) p0));
+            fwprintf(stdout, L"Debug: Deserialise message length. tui message p0: %i\n", p0);
+            fwprintf(stdout, L"Debug: Deserialise message length. tui message *p0: %i\n", *((int*) p0));
         }
     }
 

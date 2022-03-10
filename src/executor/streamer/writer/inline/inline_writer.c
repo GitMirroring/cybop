@@ -26,33 +26,98 @@
 #ifndef INLINE_WRITER_SOURCE
 #define INLINE_WRITER_SOURCE
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/porter/locker.c"
+#include "../../../../executor/porter/unlocker.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Writes source data into inline destination item.
  *
  * @param p0 the destination item
- * @param p1 the source data (pointer reference)
- * @param p2 the source count
+ * @param p1 the source buffer item
+ * @param p2 the source buffer type
+ * @param p3 the source buffer mutex
+ * @param p4 the loop break flag
  */
-void write_inline(void* p0, void* p1, void* p2) {
+void write_inline(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write inline.");
+    fwprintf(stdout, L"Debug: Write inline. p0: %i\n", p0);
 
-        void** d = (void**) p1;
+    // The buffer item data, count.
+    void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write inline.");
+    //
+    // Lock mutex.
+    //
+    // CAUTION! New data may be written into the source buffer in
+    // the main thread, in case this writer is called asynchronously
+    // in a thread. But the already WRITTEN data are REMOVED from
+    // the source buffer below. Therefore, exclusive access has
+    // to be guaranteed here using a mutex.
+    //
+    // CAUTION! The mutex also has to cover the actual MODIFY function,
+    // since the buffer pointer handed over may otherwise CHANGE,
+    // when the main thread writes new data into the buffer.
+    // For the same reason, the mutex has to cover the
+    // RETRIEVAL of data and count from the item.
+    //
+    lock(p3);
 
-        // Copy source to destination.
-        modify_item(p0, *d, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    //
+    // Get buffer item data, count.
+    //
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    //
+    copy_array_forward((void*) &bd, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &bc, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    } else {
+    // Copy source to destination.
+    modify_item(p0, bd, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, bc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write inline. The source data is null.");
-        fwprintf(stdout, L"Error: Could not write inline. The source data is null. p1: %i\n", p1);
-    }
+    //
+    // Remove written data from source buffer.
+    //
+    // CAUTION! This is IMPORTANT, so that in the next loop
+    // cycle, only the REMAINING data are transmitted.
+    //
+    // CAUTION! Do NOT use the function "modify_array" here,
+    // but "modify_item" instead.
+    //
+    // CAUTION! Hand over the buffer COUNT for specifying
+    // the number of elements to be removed.
+    //
+    // CAUTION! Set the adjust count flag to TRUE since otherwise,
+    // the buffer item will hold a wrong COUNT number leading
+    // to unpredictable errors in further processing.
+    // Do NOT worry about the SIZE which does NOT get changed.
+    //
+    modify_item(p1, *NULL_POINTER_STATE_CYBOI_MODEL, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, bc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    // Unlock mutex.
+    unlock(p3);
+
+    //
+    // Set loop break flag.
+    //
+    // The buffer data have been copied ALL AT ONCE.
+    // Therefore, further loop cycles are not necessary.
+    //
+    copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 }
 
 /* INLINE_WRITER_SOURCE */

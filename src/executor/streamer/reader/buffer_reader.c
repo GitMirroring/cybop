@@ -37,7 +37,6 @@
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/copier/array_copier.c"
-#include "../../../executor/modifier/array_modifier.c"
 #include "../../../executor/modifier/item_modifier.c"
 #include "../../../executor/porter/locker.c"
 #include "../../../executor/streamer/reader/completeness_reader.c"
@@ -64,10 +63,8 @@ void read_buffer(void* p0, void* p1, void* p2, void* p3) {
     void* bi = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The buffer mutex.
     void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The buffer item data, count, size.
+    // The buffer item data, count.
     void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* bs = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The complete flag.
     int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     //
@@ -106,8 +103,6 @@ void read_buffer(void* p0, void* p1, void* p2, void* p3) {
     // with elements pointing to different memory areas now.
     //
     copy_array_forward((void*) &bd, bi, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &bc, bi, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &bs, bi, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
     //
     // Check for completeness by evaluating length prefix and end suffix.
@@ -118,6 +113,8 @@ void read_buffer(void* p0, void* p1, void* p2, void* p3) {
     //
     read_completeness((void*) &f, (void*) &ml, p0, p2, *NULL_POINTER_STATE_CYBOI_MODEL, p3);
 
+    fwprintf(stdout, L"Debug: Read buffer. f: %i\n", f);
+
     if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
@@ -125,11 +122,13 @@ void read_buffer(void* p0, void* p1, void* p2, void* p3) {
         // belonging to it have been received.
         //
 
+        fwprintf(stdout, L"Debug: Read buffer. Append data. ml: %i\n", ml);
+
         //
         // Append buffer data to destination message item.
         //
         // CAUTION! Do NOT hand over the buffer count but rather
-        // the message length determined above for specifying
+        // the message LENGTH determined above for specifying
         // the number of characters to be appended.
         //
         // CAUTION! Do NOT use overwrite since data are read stepwise
@@ -137,6 +136,8 @@ void read_buffer(void* p0, void* p1, void* p2, void* p3) {
         // already existing data in the destination.
         //
         modify_item(p0, bd, (void*) &t, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &ml, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+        fwprintf(stdout, L"Debug: Read buffer. Remove data. ml: %i\n", ml);
 
         //
         // Remove data from buffer.
@@ -147,9 +148,11 @@ void read_buffer(void* p0, void* p1, void* p2, void* p3) {
         // CAUTION! Do NOT EMPTY the buffer here since new data
         // might be added continuously within the sensing thread.
         //
-        // CAUTION! Calling the function "modify_item" would work here,
-        // but "modify_array" is used instead since the buffer item's
-        // data and count have already been determined above.
+        // CAUTION! Do NOT use the function "modify_array" here,
+        // but "modify_item" instead. The destination item data
+        // array pointer has most likely been changed above,
+        // due to reallocation when appending the buffer data.
+        // Using the variable bd as determined above would lead to errors.
         //
         // CAUTION! Do NOT hand over the buffer count but rather
         // the message length determined above for specifying
@@ -159,8 +162,10 @@ void read_buffer(void* p0, void* p1, void* p2, void* p3) {
         // the destination item will hold a wrong "count" number
         // leading to unpredictable errors in further processing.
         //
-        modify_array((void*) &bd, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &t, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &ml, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, bc, bs, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
+        modify_item(bi, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &t, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &ml, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
     }
+
+    fwprintf(stdout, L"Debug: Read buffer. Done. f: %i\n", f);
 
     // Unlock mutex.
     unlock(bm);

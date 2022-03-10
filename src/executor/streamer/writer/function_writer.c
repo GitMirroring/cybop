@@ -110,22 +110,11 @@ int write_function(void* p0) {
     map_channel_to_type((void*) &t, c);
 
     //
-    // Get output buffer item data, count, size.
-    //
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    //
-    copy_array_forward((void*) &bd, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &bc, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &bs, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
-
-    //
     // Functionality.
     //
 
     // Write output data via loop, until all data have been transmitted.
-    write_loop(d, (void*) &bd, bc, bs, (void*) &t, (void*) &s, bm, p0, i, c);
+    write_loop(d, b, (void*) &t, (void*) &s, bm, p0, i, c);
 
     //
     // An implicit call to "thrd_exit" is made when this thread

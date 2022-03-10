@@ -48,7 +48,8 @@ void map_channel_to_type(void* p0, void* p1) {
     // The destination data type is needed for BUFFER allocation.
     //
     // Types are DIFFERENT, since some channels store characters (bytes),
-    // while others work with pointer values (display event object).
+    // while others use wide characters (inline channel wchar_t) and
+    // again others work with pointer values (display event object).
     //
     // CAUTION! This mapper is used by BOTH kinds of clients,
     // for asynchronous AND synchronous communication.
@@ -79,6 +80,16 @@ void map_channel_to_type(void* p0, void* p1) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             copy_integer(p0, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) INLINE_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
         }
     }
 

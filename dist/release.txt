@@ -12,6 +12,7 @@ Analyse code using tools "valgrind" and "cppcheck"
 Administrative Data
 ___________________
 
+Adapt version constant "VERSION_IDENTIFICATION_CYBOI_MODEL" in file "identification_cyboi_model.c"
 Adapt shell script "adjust_version.sh" manually
 Run shell script "adjust_version.sh" in order to replace copyright year as well as version and date
 Adapt directories, files, version in file "build/cmake/packaging.cmake"

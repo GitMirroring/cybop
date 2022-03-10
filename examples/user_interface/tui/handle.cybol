@@ -26,6 +26,7 @@
         <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
+<!--
     <node name="TEST" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
@@ -44,8 +45,10 @@
         <node name="message" channel="inline" format="text/cybol-path" model=".temporary.command"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+-->
 
     <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->
+<!--
     <node name="append_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".temporary.path"/>
         <node name="source" channel="inline" format="text/plain" model=".actions."/>
@@ -55,13 +58,16 @@
         <node name="destination" channel="inline" format="text/cybol-path" model=".temporary.path"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".temporary.command"/>
     </node>
+-->
 
     <!-- CAUTION! The path is NOT a reference. -->
+<!--
     <node name="execute_command" channel="inline" format="text/cybol-path" model=".temporary.path"/>
 
     <node name="sleep_for_some_time_so_that_the_output_can_be_read_by_the_user" channel="inline" format="run/run" model="">
         <node name="programme" channel="inline" format="text/plain" model="sleep 1.8"/>
     </node>
+-->
 
 <!--
     <node name="send_tui" channel="inline" format="communicate/send" model="">

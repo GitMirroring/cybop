@@ -13,8 +13,15 @@
 
 CONTINUE current work:
 
+        * Correct message length value in file "buffer_reader.c" that caused error "Error: Could not modify overwrite. The new destination count is negative nc: -1"
+        * Handle message length for channel "display" in file "completeness_reader.c" (search for TODO)
+        * Provide message length deserialiser for TUI_MESSAGE_STATE_CYBOI_LANGUAGE (ansi escape sequences ??) in file "message_length_deserialiser.c" (search for TODO)
+
         * DONE: thread runs fine
         * TODO: Debug error "unknown operation" ("text/plain")
+
+        * Remove asynchronicity flag from function "read_completion" and its callling functions back to "read_buffer",
+            since it has been replaced by a handler pointer check
 
         * Make cybol application "tui" work again
         * Make cybol application "tui_control" work again

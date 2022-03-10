@@ -61,6 +61,10 @@ void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
+            //?? TODO: How to handle the message length ??
+            //
+
+            //
             // Set complete flag.
             //
             // CAUTION! Whenever the blocking sensing function is left,
@@ -84,6 +88,13 @@ void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
+            // CAUTION! The message length does NOT have to be set here.
+            //
+            // It is used by the buffer reader in asynchronous communication,
+            // but this channel CANNOT be read asynchronously.
+            //
+
+            //
             // Copy eof-or-close flag value.
             //
             // It was possibly set inside the fragment (basic) reader,
@@ -98,6 +109,13 @@ void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         compare_integer_equal((void*) &r, p5, (void*) INLINE_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // CAUTION! The message length does NOT have to be set here.
+            //
+            // It is used by the buffer reader in asynchronous communication,
+            // but this channel CANNOT be read asynchronously.
+            //
 
             //
             // Set complete flag.
@@ -134,6 +152,15 @@ void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         compare_integer_equal((void*) &r, p5, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // Set message length.
+            //
+            // CAUTION! It HAS to be assigned here since otherwise,
+            // data cannot be appended and removed from buffer properly
+            // in the buffer reader, when using asynchronous communication.
+            //
+            read_length(p0, p1, p2, p3);
 
             //
             // Set complete flag.

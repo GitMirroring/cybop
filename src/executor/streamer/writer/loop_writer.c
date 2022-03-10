@@ -36,17 +36,15 @@
  * Writes data via an endless loop.
  *
  * @param p0 the destination device identification item, e.g. file descriptor (a file, serial port, terminal, socket) OR window id OR knowledge tree element (for inline channel)
- * @param p1 the source buffer data (pointer reference)
- * @param p2 the source buffer count
- * @param p3 the source buffer size
- * @param p4 the source buffer type
- * @param p5 the source part (pointer reference), e.g. a signal
- * @param p6 the source buffer mutex
- * @param p7 the client entry
- * @param p8 the internal memory (needed for signal only)
- * @param p9 the channel
+ * @param p1 the source buffer item
+ * @param p2 the source buffer type
+ * @param p3 the source part (pointer reference), e.g. a signal
+ * @param p4 the source buffer mutex
+ * @param p5 the client entry
+ * @param p6 the internal memory (needed for signal only)
+ * @param p7 the channel
  */
-void write_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void write_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write loop.");
     fwprintf(stdout, L"Debug: Write loop. p0: %i\n", p0);
@@ -61,7 +59,7 @@ void write_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
             break;
         }
 
-        write_message(p0, p1, p2, p3, p4, p5, p6, p7, p8, (void*) &b, p9);
+        write_message(p0, p1, p2, p3, p4, p5, p6, (void*) &b, p7);
     }
 }
 
