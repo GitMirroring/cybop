@@ -26,20 +26,18 @@
 #ifndef BUFFER_READER_SOURCE
 #define BUFFER_READER_SOURCE
 
-#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/client_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/copier/array_copier.c"
-#include "../../../executor/modifier/item_modifier.c"
-#include "../../../executor/porter/locker.c"
 #include "../../../executor/streamer/reader/completeness_reader.c"
+#include "../../../executor/streamer/reader/storage_reader.c"
 #include "../../../logger/logger.c"
 #include "../../../mapper/channel_to_type_mapper.c"
 
@@ -63,8 +61,6 @@ void read_buffer(void* p0, void* p1, void* p2, void* p3) {
     void* bi = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The buffer mutex.
     void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The buffer item data, count.
-    void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The complete flag.
     int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     //
@@ -86,25 +82,6 @@ void read_buffer(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &bm, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_BUFFER_INPUT_CLIENT_STATE_CYBOI_NAME);
 
     //
-    // Lock mutex.
-    //
-    // CAUTION! Set this lock BEFORE retrieving the item data and count below
-    // since otherwise, a race condition might occur, e.g. when the sensing thread
-    // appends data to the buffer, a new data array with bigger size might get allocated.
-    // In order to get the correct data array here, the lock has to be set before.
-    //
-    lock(bm);
-
-    //
-    // Get buffer item data, count, size.
-    //
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    //
-    copy_array_forward((void*) &bd, bi, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-    //
     // Check for completeness by evaluating length prefix and end suffix.
     //
     // The value of parametre "eof-or-close flag" may be NULL,
@@ -117,58 +94,22 @@ void read_buffer(void* p0, void* p1, void* p2, void* p3) {
 
     if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        //
-        // The message is complete, that is all data
-        // belonging to it have been received.
-        //
+        if (ml >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        fwprintf(stdout, L"Debug: Read buffer. Append data. ml: %i\n", ml);
+            //
+            // The message is complete, that is all data
+            // belonging to it have been received.
+            //
 
-        //
-        // Append buffer data to destination message item.
-        //
-        // CAUTION! Do NOT hand over the buffer count but rather
-        // the message LENGTH determined above for specifying
-        // the number of characters to be appended.
-        //
-        // CAUTION! Do NOT use overwrite since data are read stepwise
-        // as fragments and therefore have to be APPENDED to the
-        // already existing data in the destination.
-        //
-        modify_item(p0, bd, (void*) &t, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &ml, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+            // Read data indirectly from buffer and store them in destination item.
+            read_storage(p0, bi, bm, (void*) &t, (void*) &ml);
 
-        fwprintf(stdout, L"Debug: Read buffer. Remove data. ml: %i\n", ml);
+        } else {
 
-        //
-        // Remove data from buffer.
-        //
-        // CAUTION! This is important since otherwise,
-        // the same data would be processed again and again.
-        //
-        // CAUTION! Do NOT EMPTY the buffer here since new data
-        // might be added continuously within the sensing thread.
-        //
-        // CAUTION! Do NOT use the function "modify_array" here,
-        // but "modify_item" instead. The destination item data
-        // array pointer has most likely been changed above,
-        // due to reallocation when appending the buffer data.
-        // Using the variable bd as determined above would lead to errors.
-        //
-        // CAUTION! Do NOT hand over the buffer count but rather
-        // the message length determined above for specifying
-        // the number of characters to be removed.
-        //
-        // CAUTION! Set the adjust count flag to TRUE since otherwise,
-        // the destination item will hold a wrong "count" number
-        // leading to unpredictable errors in further processing.
-        //
-        modify_item(bi, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &t, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &ml, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read buffer. The message length is invalid.");
+            fwprintf(stdout, L"Warning: Could not read buffer. The message length is invalid. ml: %i\n", ml);
+        }
     }
-
-    fwprintf(stdout, L"Debug: Read buffer. Done. f: %i\n", f);
-
-    // Unlock mutex.
-    unlock(bm);
 }
 
 /* BUFFER_READER_SOURCE */
