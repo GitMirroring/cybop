@@ -24,6 +24,11 @@
         * Add thread copier, which is needed for thread comparison, to find out if a thread already exists
         * Use DEFAULT_THREAD_IDENTIFICATION for comparison in file "spinner.c", since win32 uses a struct and not an int as thread identification
         * Store yet missing parametres channel, server flag, port in dispatcher opener client entry, since they are needed by feeler sensor
+        * Add files "completion_reader.c", "handler_reader.c"
+        * Evaluate completeness flag rather than eof-or-close flag in file "message_reader.c"
+        * Add client closer handler to sensor and reader
+        * Add client closer handler to cybol example "communication/server_socket/"
+        * Use correct integer copier for return value in many comparator files
 
 2022-03-08  Christian Heller  <christian.heller@cybop.org>
 

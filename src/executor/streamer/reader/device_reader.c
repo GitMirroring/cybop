@@ -49,7 +49,7 @@
  * @param p4 the client entry
  * @param p5 the language (protocol)
  * @param p6 the channel
- * @param p7 the asynchronous mode
+ * @param p7 the asynchronicity flag
  */
 void read_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
@@ -74,6 +74,8 @@ void read_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The handler.
     void* h = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The closer.
+    void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The sense thread exit flag.
     void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -154,6 +156,8 @@ void read_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
     // Get handler from client entry.
     copy_array_forward((void*) &h, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLER_COMMUNICATION_CLIENT_STATE_CYBOI_NAME);
+    // Get closer from client entry.
+    copy_array_forward((void*) &cl, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CLOSER_COMMUNICATION_CLIENT_STATE_CYBOI_NAME);
     // Get thread exit flag from client entry.
     copy_array_forward((void*) &ex, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_INPUT_CLIENT_STATE_CYBOI_NAME);
 
@@ -165,7 +169,7 @@ void read_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     //
 
     // Call endless loop waiting for data input.
-    read_loop(p0, p1, p2, fd, (void*) &fs, p3, (void*) &ipw, ih, im, (void*) &h, ex, p5, (void*) &ml, p6, p7);
+    read_loop(p0, p1, p2, fd, (void*) &fs, p3, (void*) &ipw, ih, im, (void*) &h, (void*) &cl, ex, p5, (void*) &ml, p6, p7);
 }
 
 /* DEVICE_READER_SOURCE */

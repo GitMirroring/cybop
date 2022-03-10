@@ -51,6 +51,7 @@
  * - sender (required): the client identification, e.g. file descriptor or client socket number or window id
  * - language (optional): the language, e.g. crlf or http_request, to detect message length prefix or end suffix
  * - handler (required): the callback cybol operation being executed when the thread finished reading data
+ * - closer (optional): the close handler to be executed when the client does not respond and is to be closed
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -74,6 +75,8 @@ void apply_sense(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The handler part.
     void* h = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The closer part.
+    void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -109,6 +112,8 @@ void apply_sense(void* p0, void* p1, void* p2, void* p3, void* p4) {
     get_part_name((void*) &l, p0, (void*) LANGUAGE_SENSE_FEELING_LOGIC_CYBOL_NAME, (void*) LANGUAGE_SENSE_FEELING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get handler part.
     get_part_name((void*) &h, p0, (void*) HANDLER_SENSE_FEELING_LOGIC_CYBOL_NAME, (void*) HANDLER_SENSE_FEELING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get closer part.
+    get_part_name((void*) &cl, p0, (void*) CLOSER_SENSE_FEELING_LOGIC_CYBOL_NAME, (void*) CLOSER_SENSE_FEELING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get channel part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -133,7 +138,7 @@ void apply_sense(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Sense data input.
-    sense(p4, cmd, sfmd, pmd, smd, lmd, (void*) &h);
+    sense(p4, cmd, sfmd, pmd, smd, lmd, (void*) &h, (void*) &cl);
 }
 
 /* SENSE_SOURCE */

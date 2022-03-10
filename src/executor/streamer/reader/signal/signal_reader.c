@@ -46,7 +46,7 @@
  * @param p0 the destination signal item
  * @param p1 the source signal memory data
  * @param p2 the source signal memory count
- * @param p3 the eof or close flag
+ * @param p3 the eof-or-close flag
  */
 void read_signal(void* p0, void* p1, void* p2, void* p3) {
 

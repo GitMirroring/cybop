@@ -55,13 +55,17 @@ void compare_part_unequal(void* p0, void* p1, void* p2) {
     // Negate result.
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // The parts are EQUAL.
+        //
 
         copy_integer(p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     } else {
 
+        //
         // The parts are NOT equal, i.e. they are UNEQUAL.
+        //
 
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }

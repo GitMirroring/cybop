@@ -13,17 +13,25 @@
 
 CONTINUE current work:
 
+        * DONE: thread runs fine
+        * TODO: Debug error "unknown operation" ("text/plain")
+
         * Make cybol application "tui" work again
         * Make cybol application "tui_control" work again
         * Make further cybol applications work again
 
+        * Think about usage of loop break flag and thread exit flag in file "loop_reader.c" and related reader files
         * Add memoriser mutex allocator and deallocator, to be used in manager, client entry open and close, server entry startup and shutdown
         * Test service lifecycle cybol examples in directory "examples/communication/"
 
-        * Remove thread comparison (possibly, if unnecessary) in file "spinner.c":
-            thrd_equal(DEFAULT_THREAD_IDENTIFICATION, *t);
-
         * Deliver compilable and runnable source code for release CYBOP 0.22.0
+
+        * Think about how to close client socket in section SOCKET_CYBOI_CHANNEL of file "completeness_reader.c"
+            hand over special close-handler from cybol app to be stored in client entry and called on client close
+            alternative 1: function pointer handed over and called ??
+            alternative 2: send internal signal ??
+
+        * Clear up: Is terminal i/o with 2 x init stdout + stdin a problem ?? better only one init ??
 
         * Clear up how to provide stack variables in cyboi interpreter for operations which are called via cybol-path ??
             - see cybol application file "hello_world/simple/run.cybol"
@@ -67,6 +75,7 @@ ________
             --> exiting sensing thread should be possible via sending a message to itself
             --> how to exit the accept thread --> the system itself has to be a new client to itself as server
         * Implement feeler suspender using small message sent to the system itself, in order to exit the sensing thread
+            uncomment call of function "awaken" in file "thread_suspender.c"
         * Verify activator disabler
 
         * Find reason for error "EOPNOTSUPP" in server

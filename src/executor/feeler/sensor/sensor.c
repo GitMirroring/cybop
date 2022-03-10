@@ -45,8 +45,9 @@
  * @param p4 the sender device identification (e.g. file descriptor of a file, serial port, client socket, window id)
  * @param p5 the language
  * @param p6 the handler (pointer reference)
+ * @param p7 the closer (pointer reference)
  */
-void sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense.");
     fwprintf(stdout, L"Information: Sense. channel p1: %i\n", p1);
@@ -65,7 +66,7 @@ void sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6)
     //
 
     // Store data in client entry.
-    sense_entry(ce, p5, p6);
+    sense_entry(ce, p5, p6, p7);
 
     // Invoke sense function within a new thread.
     sense_thread(ce);

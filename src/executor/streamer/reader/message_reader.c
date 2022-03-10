@@ -28,12 +28,9 @@
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/streamer/reader/completeness_reader.c"
+#include "../../../executor/streamer/reader/completion_reader.c"
 #include "../../../executor/streamer/reader/fragment_reader.c"
-#include "../../../executor/streamer/writer/interrupt_pipe/interrupt_pipe_writer.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -48,139 +45,47 @@
  * @param p6 the interrupt pipe write file descriptor
  * @param p7 the interrupt handlers item
  * @param p8 the interrupt mutex
- * @param p9 the source handler (pointer reference)
- * @param p10 the thread exit flag
- * @param p11 the language (protocol)
- * @param p12 the message length (possibly detected previously; should be initialised with a value < 0, e.g. with -1)
- * @param p13 the channel
- * @param p14 the asynchronous mode
- * @param p15 the loop break flag
+ * @param p9 the handler (pointer reference)
+ * @param p10 the closer (pointer reference)
+ * @param p11 the thread exit flag
+ * @param p12 the language (protocol)
+ * @param p13 the message length (possibly detected previously; should be initialised with a value < 0, e.g. with -1)
+ * @param p14 the channel
+ * @param p15 the asynchronicity flag
+ * @param p16 the loop break flag
  */
-void read_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
+void read_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read message.");
-    fwprintf(stdout, L"Debug: Read message. p13: %i\n", p13);
-    fwprintf(stdout, L"Debug: Read message. *p13: %i\n", *((int*) p13));
+    fwprintf(stdout, L"Debug: Read message. p14: %i\n", p14);
+    fwprintf(stdout, L"Debug: Read message. *p14: %i\n", *((int*) p14));
 
-    // The eof or close flag.
+    // The eof-or-close flag.
     int ec = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The complete flag.
     int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Receive next message fragment.
-    read_fragment(p0, p1, p2, p3, p4, p5, (void*) &ec, p13);
+    read_fragment(p0, p1, p2, p3, p4, p5, (void*) &ec, p14);
 
-    if (ec != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    // Check for completeness by evaluating length prefix or end suffix.
+    read_completeness((void*) &f, p13, p0, p12, (void*) &ec, p14);
 
-        //
-        // The eof or close flag was set, which means that either:
-        // - the end of the file has been reached
-        // - the communication partner has closed its connexion
-        //
-
-        // Cleanup resources.
-        //?? deallocate_client_entry(p0, p1, p2, p3, p4, p5, p6, p7);
+    if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
-        // Close socket.
-        //
-        // CAUTION! The socket may be closed in any case,
-        // no matter if this is a client that talked to
-        // a server or this is the client stub of a server.
-        //
-        // There is NO danger of closing the server socket
-        // by accident, since that only accepts client requests
-        // but does NOT communicate directly.
-        //
-        //?? close_socket(file-descriptor);
-
-        // Set loop break flag.
-        copy_integer(p15, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        //
-        // Set client stub thread exit flag.
-        //
-        // This is ONLY relevant if this is a server socket
-        // managing its open client connexions in a client list.
-        //
-        // If this is a client socket that talked to a server,
-        // then there is no thread and the exit flag is NULL,
-        // so that it is just ignored here.
-        //
-        copy_integer(p10, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-    } else {
-
-        //
-        // CAUTION! The exit flag might have been set inside
-        // the function "read_fragment", if the client
-        // closed the connexion. The destination buffer item
-        // remained empty, since no data got copied.
-        //
-        // In this case, further processing is NOT necessary.
-        // It might even lead to errors if the interrupt pipe
-        // of the main thread gets informed below.
-        //
-        // However, the exit flag is not tested here via "if-else"
-        // (it could be done, but is not necessary),
-        // since an empty destination buffer item is just ignored
-        // in function "read_completeness" below,
-        // so that the complete flag is not set.
+        // The message is complete, that is all data
+        // belonging to it have been received.
         //
 
-        // Check for completeness by evaluating length prefix or end suffix.
-        read_completeness((void*) &f, p12, p0, p11, p13);
+        //
+        // CAUTION! The complete flag does NOT have to be reset here,
+        // since it is a local variable on stack and gets freed
+        // automatically when this function is left now.
+        //
 
-        if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //
-            // The message is complete, that is all data
-            // belonging to it have been received.
-            //
-
-            //
-            // CAUTION! The complete flag does NOT have to be reset here,
-            // since it is a local variable on stack and gets freed
-            // automatically when this function is left now.
-            //
-
-            // Reset message length.
-            copy_integer(p12, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
-
-            // The comparison result.
-            int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-            compare_integer_equal((void*) &r, p14, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                //
-                // The message was read in SYNCHRONOUS mode,
-                // that is from the device DIRECTLY
-                // into the cybol destination.
-                //
-
-                // Set loop break flag.
-                copy_integer(p15, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-            } else {
-
-                //
-                // The message was read in ASYNCHRONOUS mode,
-                // that is from the device
-                // into a cyboi-internal BUFFER.
-                //
-
-                // Inform interrupt pipe of main threaad.
-                write_interrupt_pipe(p6, p7, p9, p8);
-
-                //
-                // CAUTION! Do NOT set the loop break flag here,
-                // since the loop has to CONTINUE to run as long as
-                // the sensing thread is active and the exit flag not set.
-                //
-            }
-        }
+        // Inform system about completion of the read process.
+        read_completion(p16, p6, p7, p8, p9, p10, p11, p13, (void*) &ec, p15);
     }
 }
 

@@ -42,20 +42,21 @@
  * @param p1 the message length (possibly detected previously; should be initialised with a value < 0, e.g. with -1)
  * @param p2 the message item
  * @param p3 the language (protocol)
- * @param p4 the channel
+ * @param p4 the eof-or-close flag (that was possibly set inside the fragment-basic reader)
+ * @param p5 the channel
  */
-void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read completeness.");
-    fwprintf(stdout, L"Debug: Read completeness. channel p4: %i\n", p4);
-    fwprintf(stdout, L"Debug: Read completeness. channel *p4: %i\n", *((int*) p4));
+    fwprintf(stdout, L"Debug: Read completeness. channel p5: %i\n", p5);
+    fwprintf(stdout, L"Debug: Read completeness. channel *p5: %i\n", *((int*) p5));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p5, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -76,25 +77,41 @@ void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4) {
         }
     }
 
-    //
-    // FILE_CYBOI_CHANNEL
-    //
-    // The eof-or-close flag is set inside the fragment reader
-    // and filtered out in message reader,
-    // so that checking for it here is not necessary.
-    //
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    //
-    // INLINE_CYBOI_CHANNEL
-    //
-    // The eof-or-close flag is set inside the fragment reader
-    // and filtered out in message reader,
-    // so that checking for it here is not necessary.
-    //
+        compare_integer_equal((void*) &r, p5, (void*) FILE_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // Copy eof-or-close flag value.
+            //
+            // It was possibly set inside the fragment (basic) reader,
+            // if the end-of-file (EOF) was reached.
+            //
+            copy_integer(p0, p4);
+        }
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) SERIAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p5, (void*) INLINE_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // Set complete flag.
+            //
+            // The inline data are always read at ONCE
+            // and do NOT need the loop.
+            //
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p5, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -104,7 +121,7 @@ void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p5, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -114,7 +131,7 @@ void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p5, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -125,10 +142,12 @@ void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // this means that at least one data element has been received.
             //
             // The input buffer as defined elsewhere has a size of 1024,
-            // so that all possible ansi escape sequences match in there.
+            // so that all possible ansi escape sequences match in there
+            // and can be read at ONCE.
             //
             // Therefore, a detection of a length prefix or end suffix
-            // is NOT necessary here and the complete flag can be set right away.
+            // is NOT necessary here and the complete flag can be set
+            // right away, since the reading does NOT need the loop.
             //
             copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
@@ -137,8 +156,8 @@ void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read completeness. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not read completeness. The channel is unknown. p4: %i\n", p4);
-        fwprintf(stdout, L"Warning: Could not read completeness. The channel is unknown. *p4: %i\n", *((int*) p4));
+        fwprintf(stdout, L"Warning: Could not read completeness. The channel is unknown. p5: %i\n", p5);
+        fwprintf(stdout, L"Warning: Could not read completeness. The channel is unknown. *p5: %i\n", *((int*) p5));
     }
 }
 

@@ -17,6 +17,8 @@
         <node name="language" channel="inline" format="meta/language" model="message/http-request"/>
         <!-- This is the callback function executed when the client sends data. -->
         <node name="handler" channel="inline" format="text/cybol-path" model=".handle_sense"/>
+        <!-- This is the callback function executed when the client does not respond and is to be closed. -->
+        <node name="closer" channel="inline" format="text/cybol-path" model=".handle_close"/>
     </node>
 
 </node>

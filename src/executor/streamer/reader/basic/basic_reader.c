@@ -44,49 +44,6 @@
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 
-//
-// Reflexions on reading characters from terminal file descriptor.
-//
-// 1 buffer array to STORE ansi escape codes
-//
-// Some input arrives not as a single character but
-// rather as ansi escape code SEQUENCE of many characters,
-// e.g. the keyboard button "arrow up" as three characters:
-// ESC + [ + A
-//
-// 2 fgetwc reads ONLY ONE character at a time
-//
-// The cyboi interpreter is using wide characters only.
-// When starting up, the standard input/output/error streams
-// are "oriented" to wide character. Therefore, using STREAM
-// functions such as "fgetwc" would be the easy and desirable way.
-//
-// 3 mutex to ensure EXCLUSIVE ACCESS to the pipe
-//
-// An ansi escape code sequence BELONGS TOGETHER and
-// must not be written in single bytes to the pipe
-// since otherwise, the main thread processes them separately.
-//
-// 4 fread to AVOID BLOCKING
-//
-// The function "fgetwc" BLOCKS so that it is impossible
-// to find out whether or not an escape character is standalone
-// or the beginning of an ansi escape code sequence.
-//
-// 5 read to AVOID BUSY WAITING
-//
-// The function "fread" does NOT block, so that an ENDLESS LOOP
-// steadily checking for new input is necessary (busy waiting).
-//
-// 6 decode_utf_8 for CONVERSION to wide characters
-//
-// The function "read" is using a file descriptor and NOT stream.
-// Therefore, wide characters as mentioned above are NOT provided
-// and multibyte character sequences returned instead.
-// These have to be decoded into wide characters yet,
-// before sending them to the pipe further below.
-//
-
 /**
  * Reads data.
  *
@@ -98,7 +55,7 @@
  * @param p2 the message fragment data
  * @param p3 the message fragment size
  * @param p4 the destination mutex
- * @param p5 the eof or close flag
+ * @param p5 the eof-or-close flag
  */
 void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
@@ -209,14 +166,6 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
                         //
                         // A return value of ZERO means the other end (peer)
                         // CLOSED the socket connexion. It never means there was no data.
-                        //
-                        // Standard behaviour:
-                        // - blocking mode: "read" will block
-                        // - non-blocking mode: it will return -1 if there is no data
-                        //   with errno set to EAGAIN or EWOULDBLOCK, depending on the platform
-                        //
-                        // https://stackoverflow.com/questions/12773509/read-is-not-blocking-in-socket-programming
-                        //
                         // Therefore, the socket on this side may be closed,
                         // since the other side has closed its connexion.
                         //
@@ -224,6 +173,7 @@ void read_basic(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
                         // If this is a client socket, then its client entry
                         // resources have to be freed as well,
                         // which is done in the calling function.
+                        // Therefore, only set the eof-or-close flag below.
                         //
 
                         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read basic. Set eof-or-close flag.");

@@ -65,7 +65,7 @@
  * - message (required): the cybol path to the knowledge tree node storing the received data
  * - minimum (optional): the minimum number of bytes to be received in one call of the read function (for serial port)
  * - maximum (optional): the maximum number of bytes to be received in one call of the read function (for serial port)
- * - asynchronicity (optional): the flag indicating asynchronous reading within a thread; if NULL, the default is false (synchronous read)
+ * - asynchronicity (optional): the flag indicating asynchronous reading from buffer in which data got stored by a sensing thread before; if NULL, the default is false (synchronous read)
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

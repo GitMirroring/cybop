@@ -55,7 +55,7 @@
  * @param p3 the message fragment data
  * @param p4 the message fragment size
  * @param p5 the destination mutex
- * @param p6 the eof or close flag
+ * @param p6 the eof-or-close flag
  * @param p7 the channel
  */
 void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
@@ -95,7 +95,7 @@ void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            read_inline(p0, p1, p2, p6);
+            read_inline(p0, p1, p2);
         }
     }
 

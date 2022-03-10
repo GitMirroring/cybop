@@ -42,9 +42,8 @@
  * @param p0 the destination item
  * @param p1 the source data (mostly a client identification file descriptor for a file, serial port, terminal, socket OR input text for inline channel)
  * @param p2 the source count
- * @param p3 the eof or close flag
  */
-void read_inline(void* p0, void* p1, void* p2, void* p3) {
+void read_inline(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read inline.");
     fwprintf(stdout, L"Debug: Read inline. p2: %i\n", p2);
@@ -64,9 +63,6 @@ void read_inline(void* p0, void* p1, void* p2, void* p3) {
     // since data are read and copied inside AT ONCE.
     //
     modify_item(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-
-    // Set eof-or-close flag.
-    copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 }
 
 /* INLINE_READER_SOURCE */

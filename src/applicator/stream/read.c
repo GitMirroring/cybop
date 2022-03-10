@@ -50,7 +50,7 @@
  * - sender (required): the device identification, e.g. file descriptor
  * - language (optional): the language defining which prefix or suffix indicates the message length, e.g. binary-crlf, http-request, xdt; not needed for file reading since that ends with EOF
  * - message (required): the cybol path to the knowledge tree node storing the received data
- * - asynchronicity (optional): the flag indicating asynchronous reading within a thread; if NULL, the default is false (synchronous read)
+ * - asynchronicity (optional): the flag indicating asynchronous reading from buffer in which data got stored by a sensing thread before; if NULL, the default is false (synchronous read)
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

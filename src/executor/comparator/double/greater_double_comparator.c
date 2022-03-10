@@ -28,7 +28,7 @@
 
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/copier/double_copier.c"
+#include "../../../executor/copier/integer_copier.c"
 
 /**
  * Compares the left- with the right double for greaterness.
@@ -52,7 +52,7 @@ void compare_double_greater(void* p0, void* p1, void* p2) {
 
             if (*lv > *rv) {
 
-                copy_double(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
             }
 
         } else {

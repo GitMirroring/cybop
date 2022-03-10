@@ -43,7 +43,7 @@
  * @param p4 the client entry
  * @param p5 the language (protocol)
  * @param p6 the channel
- * @param p7 the asynchronous mode
+ * @param p7 the asynchronicity flag
  */
 void read_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 

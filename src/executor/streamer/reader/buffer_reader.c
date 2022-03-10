@@ -45,7 +45,7 @@
 #include "../../../mapper/channel_to_type_mapper.c"
 
 /**
- * Reads data indirectly from buffer (asynchronous mode).
+ * Reads data indirectly from buffer, since the asynchronicity flag was set.
  *
  * That is, the data are not read from device, but from the client buffer,
  * into which they had been stored by a separate sensing thread before.
@@ -109,8 +109,14 @@ void read_buffer(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &bc, bi, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &bs, bi, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
-    // Check for completeness by evaluating length prefix or end suffix.
-    read_completeness((void*) &f, (void*) &ml, p0, p2, p3);
+    //
+    // Check for completeness by evaluating length prefix and end suffix.
+    //
+    // The value of parametre "eof-or-close flag" may be NULL,
+    // since it is only relevant for channel FILE,
+    // which is not used in asynchronous mode, however.
+    //
+    read_completeness((void*) &f, (void*) &ml, p0, p2, *NULL_POINTER_STATE_CYBOI_MODEL, p3);
 
     if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
