@@ -13,22 +13,15 @@
 
 CONTINUE current work:
 
-        * Handle message length for channel "display" in file "completeness_reader.c" (search for TODO)
         * Add deserialiser "ansi_escape_code_length" used by reader for text user interface data input
-        * Provide message length deserialiser for TUI_MESSAGE_STATE_CYBOI_LANGUAGE (ansi escape sequences ??) in file "message_length_deserialiser.c" (search for TODO)
-        * Remove superfluous interrupt "handlers" array from everywhere
+        * Add to file "message_length_deserialiser.c" (search for TODO)
 
         * DONE: thread runs fine
-        * TODO: Debug error "unknown operation" ("text/plain")
-
-        * Remove asynchronicity flag from function "read_completion" and its callling functions back to "read_buffer",
-            since it has been replaced by a handler pointer check
-
+        * TODO: Debug cybol application "tui" error "unknown operation" ("text/plain")
         * Make cybol application "tui" work again
         * Make cybol application "tui_control" work again
-        * Make further cybol applications work again
 
-        * Think about usage of loop break flag and thread exit flag in file "loop_reader.c" and related reader files
+        * Remove superfluous interrupt "handlers" array from everywhere
         * Add memoriser mutex allocator and deallocator, to be used in manager, client entry open and close, server entry startup and shutdown
         * Test service lifecycle cybol examples in directory "examples/communication/"
 
@@ -49,7 +42,6 @@ CONTINUE current work:
 
         * Cleanup signal (event) list checker from outdated io check mechanism which got replaced by enable- and sensing threads
 
-        * Figure out handling of window events in enabler and sensor and reader
         * Replace outdated input/output entry with server entry in files "initial_gui_serialiser.c", "gui_event_deserialiser.c", "values_gui_event_deserialiser.c", "properties_gui_event_deserialiser.c"
 
         * Delete file "termination_sender.c" and adapt file "sender.c" accordingly --> where else to place the termination character for terminals?
@@ -57,8 +49,8 @@ CONTINUE current work:
         * Change constraint "indentation" in file "send.c" to standard property parametre
         * Edit html serialiser accordingly
 
-        * Adapt file "manager.c" to allocate signal memory ITEM instead of part ??
-        * Adapt file "manager.c" to allocate stack memory ITEM instead of part ??
+        * Adapt file "manager.c" to allocate signal memory ITEM instead of part ?? OR: Is the part necessary for garbage collection?
+        * Adapt file "manager.c" to allocate stack memory ITEM instead of part ?? OR: Is the part necessary for garbage collection?
 
         * Eliminate optionaliser and deoptionaliser by replacing function calls with dispatcher open and close
         * Summarise globaliser and unglobaliser ??
@@ -296,11 +288,7 @@ ___
             they do not get identified when belonging to an embedded area
             check identification hierarchy along window tree
         * See also file "gui_event_deserialiser.c"
-        * Loop reading display events, until array is empty
-        * Clear up: Is display_reader really needed or is gui_*_deserialiser sufficient?
-        * Adapt display input handling to new buffer and interrupt pipe
 
-        CONTINUE:
         * Ignore parent coordinates of root window when calculating coordinates of inner elements since otherwise, these are wrongly indented
         * Change position x of window to 800 in file "gui.cybol"
 

@@ -23,9 +23,10 @@
         * Replace function "modify_array" with "modify_item" in file "buffer_reader.c"
         * Replace function "modify_array" with "modify_item" in file "basic_writer.c"
         * Remove written data from buffer also in file "inline_writer.c"
-        * Remove asynchronicity flag parametre in some reader functions
-        * Inform interrupt pipe when new events have been written into the client input buffer in activator xcb enabler
+        * Remove asynchronicity flag parametre in some reader functions, since it has been replaced by a handler pointer check
+        * Inform interrupt pipe when new events have been written into the client input buffer in activator display xcb enabler
         * Filter out invalid message length value in file "buffer_reader.c" that caused error "Could not modify overwrite. The new destination count is negative nc: -1"
+        * Assign message length for channel "display" in file "completeness_reader.c"
 
 2022-03-09  Christian Heller  <christian.heller@cybop.org>
 

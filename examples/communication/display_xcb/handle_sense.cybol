@@ -11,6 +11,8 @@
         <node name="language" channel="inline" format="meta/language" model="event/gui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".action"/>
+        <!-- Read indirectly from internal buffer into which data have been written by activate/enable. -->
+        <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="send_refresh_window" channel="inline" format="communicate/send" model="">

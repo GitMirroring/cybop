@@ -74,7 +74,12 @@ void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // This is not needed, since the deserialiser does it all.
+            // For linux xcb, this is NOT needed, since the activator
+            // display xcb enabler catches ALL events and distributes
+            // them to the input buffers of the single client windows.
+            //
+            // For win32, it yet has to be figured out how to catch events
+            // (either globally as in xcb, or per window).
             //
         }
     }

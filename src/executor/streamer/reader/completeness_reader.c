@@ -29,6 +29,7 @@
 #include "../../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/streamer/reader/length_reader.c"
@@ -53,7 +54,7 @@ void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
     //
     // CAUTION! Setting the message LENGTH is IMPORTANT for
-    // appending and removing data from the buffer properly,
+    // appending to and removing data from the buffer properly,
     // which is done in buffer reader used in ASYNCHRONOUS communication.
     //
 
@@ -67,19 +68,19 @@ void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            //?? TODO: How to handle the message length ??
+            // Set message length.
             //
+            // CAUTION! Each event is complete in itself and just a pointer.
+            // Therefore, the event message length is ONE.
+            //
+            copy_integer(p1, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
             //
             // Set complete flag.
             //
             // CAUTION! Whenever the blocking sensing function is left,
-            // this means that at least one data element has been received.
-            //
-            // The input buffer as defined elsewhere has a size of 1024,
-            // so that many xcb events match in there. However, each event
-            // is complete in itself and just a pointer.
-            //
+            // this means that at least one event has been received.
+            // Each event is complete in itself and just a pointer.
             // Therefore, a detection of a length prefix or end suffix
             // is NOT necessary here and the complete flag can be set right away.
             //
