@@ -50,9 +50,8 @@
  * @param p12 the language (protocol)
  * @param p13 the message length (possibly detected previously; should be initialised with a value < 0, e.g. with -1)
  * @param p14 the channel
- * @param p15 the asynchronicity flag
  */
-void read_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
+void read_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read loop.");
     fwprintf(stdout, L"Debug: Read loop. p0: %i\n", p0);
@@ -83,7 +82,7 @@ void read_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             break;
         }
 
-        read_message(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, (void*) &b);
+        read_message(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, (void*) &b);
     }
 }
 

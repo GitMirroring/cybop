@@ -49,9 +49,8 @@
  * @param p4 the client entry
  * @param p5 the language (protocol)
  * @param p6 the channel
- * @param p7 the asynchronicity flag
  */
-void read_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void read_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read device.");
     fwprintf(stdout, L"Debug: Read device. p0: %i\n", p0);
@@ -169,7 +168,7 @@ void read_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     //
 
     // Call endless loop waiting for data input.
-    read_loop(p0, p1, p2, fd, (void*) &fs, p3, (void*) &ipw, ih, im, (void*) &h, (void*) &cl, ex, p5, (void*) &ml, p6, p7);
+    read_loop(p0, p1, p2, fd, (void*) &fs, p3, (void*) &ipw, ih, im, (void*) &h, (void*) &cl, ex, p5, (void*) &ml, p6);
 }
 
 /* DEVICE_READER_SOURCE */

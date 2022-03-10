@@ -48,12 +48,11 @@
  * @param p6 the thread exit flag
  * @param p7 the message length (possibly detected previously; should be initialised with a value < 0, e.g. with -1)
  * @param p8 the close flag
- * @param p9 the asynchronicity flag
  */
-void read_completion(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void read_completion(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read completion.");
-    fwprintf(stdout, L"Debug: Read completion. asynchronicity flag p9: %i\n", p9);
+    fwprintf(stdout, L"Debug: Read completion. asynchronicity flag p4: %i\n", p4);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

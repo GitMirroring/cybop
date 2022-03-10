@@ -23,6 +23,7 @@
         * Replace function "modify_array" with "modify_item" in file "buffer_reader.c"
         * Replace function "modify_array" with "modify_item" in file "basic_writer.c"
         * Remove written data from buffer also in file "inline_writer.c"
+        * Remove asynchronicity flag parametre in some reader functions
 
 2022-03-09  Christian Heller  <christian.heller@cybop.org>
 
