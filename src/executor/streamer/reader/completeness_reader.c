@@ -51,6 +51,12 @@ void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     fwprintf(stdout, L"Debug: Read completeness. channel p5: %i\n", p5);
     fwprintf(stdout, L"Debug: Read completeness. channel *p5: %i\n", *((int*) p5));
 
+    //
+    // CAUTION! Setting the message LENGTH is IMPORTANT for
+    // appending and removing data from the buffer properly,
+    // which is done in buffer reader used in ASYNCHRONOUS communication.
+    //
+
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -153,30 +159,7 @@ void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //
-            // Set message length.
-            //
-            // CAUTION! It HAS to be assigned here since otherwise,
-            // data cannot be appended and removed from buffer properly
-            // in the buffer reader, when using asynchronous communication.
-            //
             read_length(p0, p1, p2, p3);
-
-            //
-            // Set complete flag.
-            //
-            // CAUTION! Whenever the blocking sensing function is left,
-            // this means that at least one data element has been received.
-            //
-            // The input buffer as defined elsewhere has a size of 1024,
-            // so that all possible ansi escape sequences match in there
-            // and can be read at ONCE.
-            //
-            // Therefore, a detection of a length prefix or end suffix
-            // is NOT necessary here and the complete flag can be set
-            // right away, since the reading does NOT need the loop.
-            //
-            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 

@@ -37,7 +37,7 @@
 /**
  * Determine sender client identification.
  *
- * @param p0 the destination sender client identification (e.g. socket number, window id)
+ * @param p0 the destination sender client identification (socket number)
  * @param p1 the server entry
  * @param p2 the channel
  */
@@ -56,7 +56,20 @@ void enable_client(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            enable_display(p0, p1);
+            //
+            // CAUTION! The destination sender client identification
+            // is NOT forwarded here ON PURPOSE.
+            //
+            // The window clients have to get created MANUALLY in
+            // the corresponding cybol application, so that returning
+            // a window identification does NOT make sense here.
+            //
+            // Furthermore, the calling function "enable_request" stores the
+            // returned client identifications in a request input buffer item,
+            // and also informs the interrupt pipe via handler,
+            // which is NOT wanted HERE and would only cause errors.
+            //
+            enable_display(p1);
         }
     }
 

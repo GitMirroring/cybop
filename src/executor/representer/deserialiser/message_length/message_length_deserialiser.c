@@ -55,11 +55,7 @@
  */
 void deserialise_message_length(void* p0, void* p1, void* p2, void* p3) {
 
-    //
-    // CAUTION! Do NOT log messages within thread,
-    // in order to avoid race conditions and other conflicts.
-    //
-    //?? log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise message length.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise message length.");
     fwprintf(stdout, L"Debug: Deserialise message length. destination message length p0: %i\n", p0);
     fwprintf(stdout, L"Debug: Deserialise message length. destination message length *p0: %i\n", *((int*) p0));
     fwprintf(stdout, L"Debug: Deserialise message length. language (protocol) p3: %i\n", p3);
@@ -75,7 +71,7 @@ void deserialise_message_length(void* p0, void* p1, void* p2, void* p3) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // CAUTION! A message length prefix does NOT exist.
+            // CAUTION! A message length prefix does NOT exist in the language (protocol).
             // Therefore, identify the message termination.
             //
 
@@ -93,7 +89,7 @@ void deserialise_message_length(void* p0, void* p1, void* p2, void* p3) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // CAUTION! A message length prefix does NOT exist.
+            // CAUTION! A message length prefix does NOT exist in the language (protocol).
             // Therefore, identify the message termination.
             //
 
@@ -182,7 +178,7 @@ void deserialise_message_length(void* p0, void* p1, void* p2, void* p3) {
             //?? TODO
             //
 
-            //?? TODO
+            //?? deserialise_ansi_escape_code_length(p0, p1, p2);
 
             fwprintf(stdout, L"Debug: Deserialise message length. tui message p0: %i\n", p0);
             fwprintf(stdout, L"Debug: Deserialise message length. tui message *p0: %i\n", *((int*) p0));

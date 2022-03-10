@@ -29,6 +29,7 @@
 #include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
@@ -59,49 +60,57 @@ void enable_request(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     fwprintf(stdout, L"Debug: Enable request. p3: %i\n", p3);
     fwprintf(stdout, L"Debug: Enable request. *p3: %i\n", *((int*) p3));
 
-    // The sender client identification (e.g. socket number, window id).
+    // The sender client identification (socket number).
     int id = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Receive next request.
     enable_client((void*) &id, p2, p3);
 
-    // Lock mutex.
-    lock(p1);
+    if (id >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-    //
-    // Append sender client identification to request input buffer.
-    //
-    // CAUTION! Do NOT use overwrite but rather APPEND, in order to
-    // avoid deletion of previous client requests still existing in buffer.
-    //
-    modify_item(p0, (void*) &id, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+        // Lock mutex.
+        lock(p1);
 
-    // Unlock mutex.
-    unlock(p1);
+        //
+        // Append sender client identification to request input buffer.
+        //
+        // CAUTION! Do NOT use overwrite but rather APPEND, in order to
+        // avoid deletion of previous client requests still existing in buffer.
+        //
+        modify_item(p0, (void*) &id, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
-    // Inform interrupt pipe of main threaad.
-    write_interrupt_pipe(p4, p5, p6, p7);
+        // Unlock mutex.
+        unlock(p1);
 
-    //
-    // CAUTION! The client entry does NOT have to be opened (and allocated) here.
-    //
-    // Display:
-    //
-    // The cybol operation "dispatch/open" has to be called MANUALLY for each
-    // window, and the corresponding client entry gets allocated within it.
-    // The cybol operation "activate/enable" just distributes events
-    // to the input buffer of the targeted window.
-    // If the event loop of the main threaad does not find a handler
-    // in the interrupt pipe, then NOTHING gets executed.
-    // Thus, a callback handler does NOT necessarily have to be
-    // given as property of the cybol operation "activate/enable".
-    //
-    // Socket:
-    //
-    // A callback handler HAS TO BE given as property of the cybol
-    // operation "activate/enable". It calls the cybol operation
-    // "dispatch/open", so that a client entry gets allocated.
-    //
+        // Inform interrupt pipe of main threaad.
+        write_interrupt_pipe(p4, p5, p6, p7);
+
+        //
+        // CAUTION! The client entry does NOT have to be opened (and allocated) here.
+        //
+        // Display:
+        //
+        // The cybol operation "dispatch/open" has to be called MANUALLY for each
+        // window, and the corresponding client entry gets allocated within it.
+        // The cybol operation "activate/enable" just distributes events
+        // to the input buffer of the targeted window.
+        // If the event loop of the main threaad does not find a handler
+        // in the interrupt pipe, then NOTHING gets executed.
+        // Thus, a callback handler does NOT necessarily have to be
+        // given as property of the cybol operation "activate/enable".
+        //
+        // Socket:
+        //
+        // A callback handler HAS TO BE given as property of the cybol
+        // operation "activate/enable". It calls the cybol operation
+        // "dispatch/open", so that a client entry gets allocated.
+        //
+
+    } else {
+
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable request. The sender client identification is invalid.");
+        fwprintf(stdout, L"Debug: Could not enable request. The sender client identification is invalid. id: %i\n", id);
+    }
 }
 
 /* REQUEST_ENABLER_SOURCE */

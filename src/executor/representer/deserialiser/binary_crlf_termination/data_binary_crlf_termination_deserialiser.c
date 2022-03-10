@@ -100,7 +100,7 @@ void deserialise_binary_crlf_termination_data(void* p0, void* p1, void* p2) {
             //
             // Add termination count to destination message length.
             //
-            // CAUTION! This is important since without termination characters,
+            // CAUTION! This is IMPORTANT since without termination characters,
             // the message would be incomplete and might lead to errors
             // when deserialising it later.
             //
