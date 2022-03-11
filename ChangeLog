@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-03-11  Christian Heller  <christian.heller@cybop.org>
+
+        * Factor out file "http_request_message_length_deserialiser.c"
+
 2022-03-10  Christian Heller  <christian.heller@cybop.org>
 
         * Replace function "modify_array" with "modify_item" in file "buffer_reader.c"

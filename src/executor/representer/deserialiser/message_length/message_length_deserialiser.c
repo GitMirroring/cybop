@@ -29,15 +29,10 @@
 #include "../../../../constant/language/cyboi/state_cyboi_language.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/representer/deserialiser/binary_crlf_termination/binary_crlf_termination_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/blank_line_termination/blank_line_termination_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/ftp_line_end/ftp_line_end_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/http_request_content_length/http_request_content_length_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/http_request_message_length/http_request_message_length_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -106,60 +101,7 @@ void deserialise_message_length(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //
-            // CAUTION! An http message (request or response) HEADER section
-            // is terminated by a blank line, that is TWICE the suffix <cr> + <lf>.
-            //
-            // Additionally, the "Content-Length:" header MAY be given,
-            // if the message contains a payload (appended data).
-            //
-            // The SUM of both equals the size of the complete message.
-            //
-            // CAUTION! Whilst a GET request contains just the header section,
-            // a POST request will contain payload data, just like a response.
-            //
-
-            // The header length.
-            int h = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-            // The payload length.
-            int p = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-
-            // Determine header length.
-            deserialise_blank_line_termination((void*) &h, p1, p2);
-            // Determine payload length.
-            deserialise_http_request_content_length((void*) &p, p1, p2);
-
-            fwprintf(stdout, L"Debug: Deserialise message length. http request h: %i\n", h);
-            fwprintf(stdout, L"Debug: Deserialise message length. http request p: %i\n", p);
-
-            //
-            // Add header- and payload length.
-            //
-            // CAUTION! Do NOT add header length if it has not been found before,
-            // since adding the default value of -1 would falsify the result.
-            //
-            if (h >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                //
-                // Copy header length.
-                //
-                // CAUTION! Do NOT add but rather COPY header length,
-                // since the destination message length is -1 by default
-                // and adding a value would falsify the result.
-                //
-                copy_integer(p0, (void*) &h);
-
-                if (p >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                    //
-                    // Add payload length.
-                    //
-                    // CAUTION! Do NOT add payload length if it has not been found before,
-                    // since adding the default value of -1 would falsify the result.
-                    //
-                    calculate_integer_add(p0, (void*) &p);
-                }
-            }
+            deserialise_http_request_message_length(p0, p1, p2);
 
             fwprintf(stdout, L"Debug: Deserialise message length. http request p0: %i\n", p0);
             fwprintf(stdout, L"Debug: Deserialise message length. http request *p0: %i\n", *((int*) p0));
