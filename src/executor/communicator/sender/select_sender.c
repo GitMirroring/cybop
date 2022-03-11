@@ -97,6 +97,17 @@ void send_select(void* p0, void* p1, void* p2) {
             copy_pointer(p0, p1);
         }
     }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p2, (void*) TUI_MESSAGE_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Use "char" buffer due to ansi escape sequences.
+            copy_pointer(p0, p1);
+        }
+    }
 }
 
 /* SELECT_SENDER_SOURCE */

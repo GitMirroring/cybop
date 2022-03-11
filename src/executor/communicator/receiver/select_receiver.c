@@ -34,7 +34,7 @@
 #include "../../../logger/logger.c"
 
 /**
- * Selects a suitable source buffer into destination.
+ * Selects a suitable source buffer and stores it in the destination.
  *
  * This is important since buffers differ for the various channels.
  *

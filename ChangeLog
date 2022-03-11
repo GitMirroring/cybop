@@ -22,6 +22,8 @@
 
         * Factor out file "http_request_message_length_deserialiser.c"
         * Add deserialiser and selector for "ansi_escape_code_length" used by reader for text user interface (tui) data input
+        * Remove property "encoding" with value "utf-8" from all send and receive operations in cybol application "tui", since the de-/serialiser of language "message/tui" does the conversion, as with http
+        * Change type of all ansi escape code constants from "wchar_t" to "char"
 
 2022-03-10  Christian Heller  <christian.heller@cybop.org>
 

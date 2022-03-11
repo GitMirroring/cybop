@@ -26,34 +26,40 @@
 #ifndef INPUT_ANSI_ESCAPE_CODE_MODEL_CONSTANT_SOURCE
 #define INPUT_ANSI_ESCAPE_CODE_MODEL_CONSTANT_SOURCE
 
-#include <stddef.h>
+#include <stddef.h> // char
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-//
-// Terminal input.
-//
-// Example: The "arrow up" key delivers: ESC[A
-//
-
-/** The down arrow input ansi escape code model. */
-static wchar_t DOWN_ARROW_INPUT_ANSI_ESCAPE_CODE_MODEL_ARRAY[] = {0x0042};
-static wchar_t* DOWN_ARROW_INPUT_ANSI_ESCAPE_CODE_MODEL = DOWN_ARROW_INPUT_ANSI_ESCAPE_CODE_MODEL_ARRAY;
+/**
+ * The down arrow input ansi escape code model.
+ *
+ * ESC[B
+ */
+static char* DOWN_ARROW_INPUT_ANSI_ESCAPE_CODE_MODEL = LATIN_CAPITAL_LETTER_B_ASCII_CHARACTER_CODE_MODEL_ARRAY;
 static int* DOWN_ARROW_INPUT_ANSI_ESCAPE_CODE_MODEL_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The left arrow input ansi escape code model. */
-static wchar_t LEFT_ARROW_INPUT_ANSI_ESCAPE_CODE_MODEL_ARRAY[] = {0x0044};
-static wchar_t* LEFT_ARROW_INPUT_ANSI_ESCAPE_CODE_MODEL = LEFT_ARROW_INPUT_ANSI_ESCAPE_CODE_MODEL_ARRAY;
+/**
+ * The left arrow input ansi escape code model.
+ *
+ * ESC[D
+ */
+static char* LEFT_ARROW_INPUT_ANSI_ESCAPE_CODE_MODEL = LATIN_CAPITAL_LETTER_D_ASCII_CHARACTER_CODE_MODEL_ARRAY;
 static int* LEFT_ARROW_INPUT_ANSI_ESCAPE_CODE_MODEL_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The right arrow input ansi escape code model. */
-static wchar_t RIGHT_ARROW_INPUT_ANSI_ESCAPE_CODE_MODEL_ARRAY[] = {0x0043};
-static wchar_t* RIGHT_ARROW_INPUT_ANSI_ESCAPE_CODE_MODEL = RIGHT_ARROW_INPUT_ANSI_ESCAPE_CODE_MODEL_ARRAY;
+/**
+ * The right arrow input ansi escape code model.
+ *
+ * ESC[C
+ */
+static char* RIGHT_ARROW_INPUT_ANSI_ESCAPE_CODE_MODEL = LATIN_CAPITAL_LETTER_C_ASCII_CHARACTER_CODE_MODEL_ARRAY;
 static int* RIGHT_ARROW_INPUT_ANSI_ESCAPE_CODE_MODEL_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The up arrow input ansi escape code model. */
-static wchar_t UP_ARROW_INPUT_ANSI_ESCAPE_CODE_MODEL_ARRAY[] = {0x0041};
-static wchar_t* UP_ARROW_INPUT_ANSI_ESCAPE_CODE_MODEL = UP_ARROW_INPUT_ANSI_ESCAPE_CODE_MODEL_ARRAY;
+/**
+ * The up arrow input ansi escape code model.
+ *
+ * ESC[A
+ */
+static char* UP_ARROW_INPUT_ANSI_ESCAPE_CODE_MODEL = LATIN_CAPITAL_LETTER_A_ASCII_CHARACTER_CODE_MODEL_ARRAY;
 static int* UP_ARROW_INPUT_ANSI_ESCAPE_CODE_MODEL_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* INPUT_ANSI_ESCAPE_CODE_MODEL_CONSTANT_SOURCE */

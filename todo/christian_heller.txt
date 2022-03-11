@@ -13,8 +13,12 @@
 
 CONTINUE current work:
 
-        * Comment out terminal orientation to wide character in file "cyboi.c", since it only affects streams but not low-level input output as used in cyboi
-        * Adapt command line constants and processing accordingly
+        * Adapt ansi escape code serialiser and deserialiser to use char instead of wchar_t (similar to http)
+            since message length needs to be detected after raw reading, yet before utf8-decoding
+        HINT: Send MULTIBYTE and NOT wchar_t to terminal, since this goes to the "write" function which processes single bytes
+        * Adapt file "select_receiver.c" for terminal (char), socket (char), e.g. for http_request
+
+        * Remove property "encoding" with value "utf-8" from send and receive operations of all cybol applications, since the de-/serialiser of language "message/tui" does the conversion, as with http
 
         * Debug cybol application "tui" error "unknown operation" ("text/plain")
         * Make cybol application "tui" work again
@@ -25,6 +29,17 @@ CONTINUE current work:
         * Test service lifecycle cybol examples in directory "examples/communication/"
 
         * Deliver compilable and runnable source code for release CYBOP 0.22.0
+
+        * Rename and distinguish between:
+
+            ESC - sequence starting with ESC (\x1B)
+            CSI - Control Sequence Introducer: sequence starting with ESC [ or CSI (\x9B)
+            DCS - Device Control String: sequence starting with ESC P or DCS (\x90)
+            OSC - Operating System Command: sequence starting with ESC ] or OSC (\x9D)
+            see:
+            https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797
+
+        * Let logger use cyboi-internal streamer file writer
 
         * Think about how to close client socket in section SOCKET_CYBOI_CHANNEL of file "completeness_reader.c"
             hand over special close-handler from cybol app to be stored in client entry and called on client close

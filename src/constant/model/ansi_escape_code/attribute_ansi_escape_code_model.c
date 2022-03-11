@@ -26,32 +26,56 @@
 #ifndef ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL_CONSTANT_SOURCE
 #define ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL_CONSTANT_SOURCE
 
-#include <stddef.h>
+#include <stddef.h> // char
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The blink attribute ansi escape code model. */
-static wchar_t* BLINK_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL = DIGIT_FIVE_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+/**
+ * The blink attribute ansi escape code model.
+ *
+ * 5
+ */
+static char* BLINK_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL = DIGIT_FIVE_ASCII_CHARACTER_CODE_MODEL_ARRAY;
 static int* BLINK_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The bold attribute ansi escape code model. */
-static wchar_t* BOLD_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL = DIGIT_ONE_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+/**
+ * The bold attribute ansi escape code model.
+ *
+ * 1
+ */
+static char* BOLD_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL = DIGIT_ONE_ASCII_CHARACTER_CODE_MODEL_ARRAY;
 static int* BOLD_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The hidden attribute ansi escape code model. */
-static wchar_t* HIDDEN_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL = DIGIT_EIGHT_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+/**
+ * The hidden attribute ansi escape code model.
+ *
+ * 8
+ */
+static char* HIDDEN_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL = DIGIT_EIGHT_ASCII_CHARACTER_CODE_MODEL_ARRAY;
 static int* HIDDEN_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The inverse attribute ansi escape code model. */
-static wchar_t* INVERSE_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL = DIGIT_SEVEN_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+/**
+ * The inverse attribute ansi escape code model.
+ *
+ * 7
+ */
+static char* INVERSE_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL = DIGIT_SEVEN_ASCII_CHARACTER_CODE_MODEL_ARRAY;
 static int* INVERSE_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The off attribute ansi escape code model. */
-static wchar_t* OFF_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL = DIGIT_ZERO_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+/**
+ * The off attribute ansi escape code model.
+ *
+ * 0
+ */
+static char* OFF_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL = DIGIT_ZERO_ASCII_CHARACTER_CODE_MODEL_ARRAY;
 static int* OFF_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The underline attribute ansi escape code model. */
-static wchar_t* UNDERLINE_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL = DIGIT_FOUR_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
+/**
+ * The underline attribute ansi escape code model.
+ *
+ * 4
+ */
+static char* UNDERLINE_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL = DIGIT_FOUR_ASCII_CHARACTER_CODE_MODEL_ARRAY;
 static int* UNDERLINE_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL_CONSTANT_SOURCE */

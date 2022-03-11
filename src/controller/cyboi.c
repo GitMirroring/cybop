@@ -169,9 +169,9 @@ int main(int p0, char** p1) {
         // read from the standard input stream in function "optionalise" further below.
         // They will also get converted into wide characters of type "wchar_t" there.
         //
-        //?? orient((void*) stdin, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-        //?? orient((void*) stdout, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-        //?? orient((void*) stderr, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        orient((void*) stdin, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        orient((void*) stdout, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        orient((void*) stderr, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
 /*??
         fwprintf(stdout, L"Debug: ARRAY_REFERENCE_COUNTER BEGIN: %i\n", *ARRAY_REFERENCE_COUNTER);
