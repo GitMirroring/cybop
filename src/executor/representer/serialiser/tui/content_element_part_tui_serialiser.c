@@ -38,14 +38,20 @@
 #include "../../../../executor/representer/serialiser/tui/properties_tui_serialiser.c"
 #include "../../../../logger/logger.c"
 
-#ifdef WIN32
+#if defined(__linux__) || defined(__unix__)
+    #include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
+    #include "../../../../executor/representer/serialiser/ansi_escape_code/reset_ansi_escape_code_serialiser.c"
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
+    #include "../../../../executor/representer/serialiser/ansi_escape_code/reset_ansi_escape_code_serialiser.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include <windows.h>
     #include "../../../../executor/representer/serialiser/win32_console/character_win32_console_serialiser.c"
     #include "../../../../executor/representer/serialiser/win32_console/reset_win32_console_serialiser.c"
     #include "../../../../executor/representer/serialiser/win32_console/state_win32_console_serialiser.c"
 #else
-    #include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
-    #include "../../../../executor/representer/serialiser/ansi_escape_code/reset_ansi_escape_code_serialiser.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 //
@@ -123,7 +129,7 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     //
-    allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Clear terminal screen.
     serialise_tui_clear(p0, p1, p11, p13);
@@ -175,7 +181,7 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
 #endif
 
     // Deallocate serialised item.
-    deallocate_item((void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &s, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* CONTENT_ELEMENT_PART_TUI_SERIALISER_SOURCE */

@@ -28,8 +28,10 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/text/newline_text_model.c"
-#include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../../executor/converter/encoder/utf/append_utf_8_encoder.c"
 #include "../../../../logger/logger.c"
 
 #ifdef _MSC_VER
@@ -55,9 +57,11 @@ void serialise_tui_newline(void* p0, void* p1, void* p2, void* p3) {
 
     compare_integer_equal((void*) &r, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
+    //
     // Check if this is the root tree level,
     // which means that this is the initial
     // (and not a recursive) call of this function.
+    //
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_unequal((void*) &n, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -65,12 +69,12 @@ void serialise_tui_newline(void* p0, void* p1, void* p2, void* p3) {
         if (n != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 #if defined(__linux__) || defined(__unix__)
-            modify_item(p0, (void*) UNIX_NEWLINE_TEXT_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) UNIX_NEWLINE_TEXT_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+            // Encode wide character and append it to the destination.
+            encode_utf_8_append(p0, (void*) UNIX_NEWLINE_TEXT_MODEL, (void*) UNIX_NEWLINE_TEXT_MODEL_COUNT);
 #elif defined(__APPLE__) && defined(__MACH__)
             // CR (carriage return) is only used until mac os x version 9
             // unfortunately there was no easy way to determine the major version without linking special libraries
-            //modify_item(p0, (void*) MACINTOSH_NEWLINE_TEXT_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MACINTOSH_NEWLINE_TEXT_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-            modify_item(p0, (void*) UNIX_NEWLINE_TEXT_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) UNIX_NEWLINE_TEXT_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+            encode_utf_8_append(p0, (void*) MACINTOSH_NEWLINE_TEXT_MODEL, (void*) MACINTOSH_NEWLINE_TEXT_MODEL_COUNT);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
             // CAUTION! Do NOT use the following source code here:

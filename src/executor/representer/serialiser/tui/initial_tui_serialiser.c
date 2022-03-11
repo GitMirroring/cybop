@@ -81,15 +81,25 @@ void serialise_tui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // CAUTION! Do NOT forward the NUMBER_0_INTEGER_STATE_CYBOI_MODEL
     // constant directly, since the value gets changed in the functions!
     //
-#ifdef WIN32
-    WORD a = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-#else
+#if defined(__linux__) || defined(__unix__)
     //
     // CAUTION! This is just a placeholder variable, since
     // something HAS to be forwarded as parametre below.
     // It has no meaning outside win32.
     //
     int a = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+#elif defined(__APPLE__) && defined(__MACH__)
+    //
+    // CAUTION! This is just a placeholder variable, since
+    // something HAS to be forwarded as parametre below.
+    // It has no meaning outside win32.
+    //
+    int a = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    WORD a = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
     // Get output.

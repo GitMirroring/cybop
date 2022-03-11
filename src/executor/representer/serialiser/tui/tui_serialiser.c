@@ -29,11 +29,9 @@
 #include "../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/cybol/cybol_serialiser.c"
+#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/representer/serialiser/tui/part_tui_serialiser.c"
+#include "../../../../executor/representer/serialiser/tui/primitive_tui_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -82,8 +80,7 @@ void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Leave processing of other formats to cybol serialiser.
-        serialise_cybol(p0, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p14, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p3, p4, p5);
+        serialise_tui_primitive(p0, p1, p2, p3, p4, p5, p14);
     }
 }
 

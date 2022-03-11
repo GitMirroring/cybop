@@ -15,8 +15,10 @@ CONTINUE current work:
 
         * Adapt ansi escape code serialiser and deserialiser to use char instead of wchar_t (similar to http)
             since message length needs to be detected after raw reading, yet before utf8-decoding
+            DONE: executor/representer/serialiser/tui/
+            TODO: executor/representer/serialiser/ansi_escape_code/
         HINT: Send MULTIBYTE and NOT wchar_t to terminal, since this goes to the "write" function which processes single bytes
-        * Adapt file "select_receiver.c" for terminal (char), socket (char), e.g. for http_request
+        * Adapt file "select_receiver.c" for terminal (char ??), socket (char), e.g. for http_request
 
         * Remove property "encoding" with value "utf-8" from send and receive operations of all cybol applications, since the de-/serialiser of language "message/tui" does the conversion, as with http
 

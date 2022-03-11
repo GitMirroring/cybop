@@ -59,9 +59,11 @@ void serialise_tui_origo(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     compare_integer_equal((void*) &r, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
+    //
     // Only reset cursor position to origo if
     // command line interface (cli) flag is FALSE,
     // since cursor positioning is NOT wanted for cli.
+    //
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 #if defined(__linux__) || defined(__unix__)
