@@ -80,7 +80,7 @@ void read_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
-    // The message fragment data, size.
+    // The message fragment array data, size.
     //
     // CAUTION! Do NOT declare these variables inside
     // the called function, for two reasons:
@@ -91,7 +91,7 @@ void read_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // 2 The buffer does NOT have to be emptied, since only
     //   the number of data received is processed further.
     //
-    // Purpose of this message fragment character array:
+    // Purpose:
     //
     // Received data are to be stored in the buffer item.
     // However, this buffer item CANNOT be used directly
@@ -105,18 +105,26 @@ void read_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // In this case, the main thread would be blocked
     // while waiting for the mutex to be reset.
     //
-    // Therefore, this LOCAL message fragment character array
+    // Therefore, this LOCAL message fragment array
     // needs to be used for reading data in a blocking manner.
     // The data received are then copied to the actual destination
     // buffer item, whilst the mutex is set only for a short time.
     //
-    // Size of this local message fragment character array:
+    // Size:
     //
     // 1 It has to be GREATER than zero, so that there is place
     //   for the data to be read.
     //
     // 2 A peek into the APACHE http server showed values like 512 or 2048.
     //   So, the value of 1024 used here is probably acceptable.
+    //
+    // Type:
+    //
+    // The character type "char" is used here, since it
+    // covers ALL channels using the function "read_basic".
+    // Other types are NOT necessary here, since channels
+    // like "display", "inline" or "signal" do NOT use
+    // this local message fragment buffer array.
     //
     char fd[*NUMBER_1024_INTEGER_STATE_CYBOI_MODEL];
     int fs = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;

@@ -23,51 +23,52 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ANSI_ESCAPE_CODE_SELECTOR_SOURCE
-#define ANSI_ESCAPE_CODE_SELECTOR_SOURCE
+#ifndef ANSI_ESCAPE_CODE_LENGTH_SELECTOR_SOURCE
+#define ANSI_ESCAPE_CODE_LENGTH_SELECTOR_SOURCE
 
 #include "../../../constant/model/ansi_escape_code/ansi_escape_code_model.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/detector/detector.c"
-#include "../../../executor/selector/ansi_escape_code/character_ansi_escape_code_selector.c"
-#include "../../../executor/selector/ansi_escape_code/command_ansi_escape_code_selector.c"
+#include "../../../executor/selector/ansi_escape_code_length/command_ansi_escape_code_length_selector.c"
 #include "../../../logger/logger.c"
 
 /**
- * Selects the ansi escape code begin.
+ * Selects the ansi escape code length begin.
  *
- * @param p0 the destination item
+ * @param p0 the destination content length
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
  */
-void select_ansi_escape_code(void* p0, void* p1, void* p2) {
+void select_ansi_escape_code_length(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select ansi escape code.");
-    fwprintf(stdout, L"Debug: Select ansi escape code. count remaining p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Select ansi escape code. count remaining *p2: %i\n", *((int*) p2));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select ansi escape code length.");
+    fwprintf(stdout, L"Debug: Select ansi escape code length. count remaining p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Select ansi escape code length. count remaining *p2: %i\n", *((int*) p2));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        //?? fwprintf(stdout, L"Debug: Select ansi escape code. data position p1 as ls: %ls\n", (wchar_t*) *((void**) p1));
-        fwprintf(stdout, L"Debug: Select ansi escape code. data position p1 + 0: %i\n", *((int*) *((void**) p1) + 0));
-        fwprintf(stdout, L"Debug: Select ansi escape code. data position p1 + 1: %i\n", *((int*) *((void**) p1) + 1));
-        fwprintf(stdout, L"Debug: Select ansi escape code. data position p1 + 2: %i\n", *((int*) *((void**) p1) + 2));
+        void** test = (void**) p1;
+        fwprintf(stdout, L"Debug: Select ansi escape code. data position p1 + 0: %i\n", *test + 0);
+        fwprintf(stdout, L"Debug: Select ansi escape code. data position p1 + 1: %i\n", *test + 1);
+        fwprintf(stdout, L"Debug: Select ansi escape code. data position p1 + 2: %i\n", *test + 2);
+        fwprintf(stdout, L"Debug: Select ansi escape code. data position p1 + 0: %i\n", *((char*) (*test + 0)));
+        fwprintf(stdout, L"Debug: Select ansi escape code. data position p1 + 1: %i\n", *((char*) (*test + 1)));
+        fwprintf(stdout, L"Debug: Select ansi escape code. data position p1 + 2: %i\n", *((char*) (*test + 2)));
 
         // ESC[
         detect((void*) &r, p1, p2, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //
             // If ESC was pressed, then try to detect control button.
-            // Otherwise, just add escape character as is.
-            //
-            select_ansi_escape_code_command(p0, p1, p2);
+            select_ansi_escape_code_length_command(p0, p1, p2);
         }
     }
 
@@ -75,11 +76,11 @@ void select_ansi_escape_code(void* p0, void* p1, void* p2) {
 
         //
         // No ESC character found, that is no control key was pressed.
-        // Therefore, just add escape character as is.
+        // Therefore, just add standard character size.
         //
-        select_ansi_escape_code_character(p0, p1, p2);
+        copy_integer(p0, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
     }
 }
 
-/* ANSI_ESCAPE_CODE_SELECTOR_SOURCE */
+/* ANSI_ESCAPE_CODE_LENGTH_SELECTOR_SOURCE */
 #endif

@@ -26,10 +26,12 @@
 #ifndef CHARACTER_ANSI_ESCAPE_CODE_DESERIALISER_SOURCE
 #define CHARACTER_ANSI_ESCAPE_CODE_DESERIALISER_SOURCE
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/state/keyboard/keyboard_state_cybol_name.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
@@ -48,6 +50,8 @@ void deserialise_ansi_escape_code_character(void* p0, void* p1, void* p2) {
         void** d = (void**) p1;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise ansi escape code character.");
+        fwprintf(stdout, L"Debug: Deserialise ansi escape code character. count remaining p2: %i\n", p2);
+        fwprintf(stdout, L"Debug: Deserialise ansi escape code character. count remaining *p2: %i\n", *((int*) p2));
 
         modify_item(p0, *d, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 

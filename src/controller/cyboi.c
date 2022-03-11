@@ -169,9 +169,9 @@ int main(int p0, char** p1) {
         // read from the standard input stream in function "optionalise" further below.
         // They will also get converted into wide characters of type "wchar_t" there.
         //
-        orient((void*) stdin, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-        orient((void*) stdout, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-        orient((void*) stderr, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        //?? orient((void*) stdin, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        //?? orient((void*) stdout, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        //?? orient((void*) stderr, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
 /*??
         fwprintf(stdout, L"Debug: ARRAY_REFERENCE_COUNTER BEGIN: %i\n", *ARRAY_REFERENCE_COUNTER);
@@ -192,9 +192,12 @@ int main(int p0, char** p1) {
         // The test unit.
         int t = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
+        //
         // Allocate cybol knowledge file path item.
+        //
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
+        //
         allocate_item((void*) &k, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         // Optionalise command line argument options.

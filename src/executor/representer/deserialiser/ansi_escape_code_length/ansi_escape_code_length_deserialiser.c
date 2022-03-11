@@ -23,28 +23,30 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ANSI_ESCAPE_CODE_DESERIALISER_SOURCE
-#define ANSI_ESCAPE_CODE_DESERIALISER_SOURCE
+#ifndef ANSI_ESCAPE_CODE_LENGTH_DESERIALISER_SOURCE
+#define ANSI_ESCAPE_CODE_LENGTH_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
-#include "../../../../executor/selector/ansi_escape_code/ansi_escape_code_selector.c"
+#include "../../../../executor/selector/ansi_escape_code_length/ansi_escape_code_length_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the ansi escape code character data into a command.
+ * Deserialises the ansi escape code length.
  *
- * @param p0 the destination item
- * @param p1 the source data
- * @param p2 the source count
+ * @param p0 the destination content length
+ * @param p1 the source message data
+ * @param p2 the source message count
  */
-void deserialise_ansi_escape_code(void* p0, void* p1, void* p2) {
+void deserialise_ansi_escape_code_length(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise ansi escape code.");
-    fwprintf(stdout, L"Information: Deserialise ansi escape code.\n");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise ansi escape code length.");
+    fwprintf(stdout, L"Debug: Deserialise ansi escape code length. p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Deserialise ansi escape code length. *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Deserialise ansi escape code length. p1: %s\n", (char*) p1);
 
     // The source data position.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -57,16 +59,16 @@ void deserialise_ansi_escape_code(void* p0, void* p1, void* p2) {
     copy_integer((void*) &c, p2);
 
     //
-    // CAUTION! A copy of source count remaining is forwarded here,
-    // so that the original source value does not get changed.
+    // CAUTION! A COPY of source count remaining is forwarded here,
+    // so that the original source value does NOT get changed.
     //
     // CAUTION! The source data position does NOT have to be copied,
     // since the parametre that was handed over is already a copy.
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
     //
-    select_ansi_escape_code(p0, (void*) &d, (void*) &c);
+    select_ansi_escape_code_length(p0, (void*) &d, (void*) &c);
 }
 
-/* ANSI_ESCAPE_CODE_DESERIALISER_SOURCE */
+/* ANSI_ESCAPE_CODE_LENGTH_DESERIALISER_SOURCE */
 #endif

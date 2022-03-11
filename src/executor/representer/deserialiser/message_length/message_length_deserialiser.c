@@ -30,6 +30,7 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../../executor/representer/deserialiser/ansi_escape_code_length/ansi_escape_code_length_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/binary_crlf_termination/binary_crlf_termination_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/ftp_line_end/ftp_line_end_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/http_request_message_length/http_request_message_length_deserialiser.c"
@@ -51,8 +52,6 @@
 void deserialise_message_length(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise message length.");
-    fwprintf(stdout, L"Debug: Deserialise message length. destination message length p0: %i\n", p0);
-    fwprintf(stdout, L"Debug: Deserialise message length. destination message length *p0: %i\n", *((int*) p0));
     fwprintf(stdout, L"Debug: Deserialise message length. language (protocol) p3: %i\n", p3);
     fwprintf(stdout, L"Debug: Deserialise message length. language (protocol) *p3: %i\n", *((int*) p3));
 
@@ -71,9 +70,6 @@ void deserialise_message_length(void* p0, void* p1, void* p2, void* p3) {
             //
 
             deserialise_binary_crlf_termination(p0, p1, p2);
-
-            fwprintf(stdout, L"Debug: Deserialise message length. binary crlf p0: %i\n", p0);
-            fwprintf(stdout, L"Debug: Deserialise message length. binary crlf *p0: %i\n", *((int*) p0));
         }
     }
 
@@ -89,9 +85,6 @@ void deserialise_message_length(void* p0, void* p1, void* p2, void* p3) {
             //
 
             deserialise_ftp_line_end(p0, p1, p2);
-
-            fwprintf(stdout, L"Debug: Deserialise message length. ftp response p0: %i\n", p0);
-            fwprintf(stdout, L"Debug: Deserialise message length. ftp response *p0: %i\n", *((int*) p0));
         }
     }
 
@@ -102,9 +95,6 @@ void deserialise_message_length(void* p0, void* p1, void* p2, void* p3) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             deserialise_http_request_message_length(p0, p1, p2);
-
-            fwprintf(stdout, L"Debug: Deserialise message length. http request p0: %i\n", p0);
-            fwprintf(stdout, L"Debug: Deserialise message length. http request *p0: %i\n", *((int*) p0));
         }
     }
 
@@ -114,24 +104,15 @@ void deserialise_message_length(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //
-            // CAUTION! The ansi escape sequence ...
-            //
-            //?? TODO
-            //
-
-            //?? deserialise_ansi_escape_code_length(p0, p1, p2);
-
-            fwprintf(stdout, L"Debug: Deserialise message length. tui message p0: %i\n", p0);
-            fwprintf(stdout, L"Debug: Deserialise message length. tui message *p0: %i\n", *((int*) p0));
+            deserialise_ansi_escape_code_length(p0, p1, p2);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise message length. The language (protocol) is not known.");
-        fwprintf(stdout, L"Debug: Deserialise message length. The language (protocol) is not known. p3: %i\n", p3);
-        fwprintf(stdout, L"Debug: Deserialise message length. The language (protocol) is not known. *p3: %i\n", *((int*) p3));
+        fwprintf(stdout, L"Warning: Deserialise message length. The language (protocol) is not known. p3: %i\n", p3);
+        fwprintf(stdout, L"Warning: Deserialise message length. The language (protocol) is not known. *p3: %i\n", *((int*) p3));
     }
 }
 

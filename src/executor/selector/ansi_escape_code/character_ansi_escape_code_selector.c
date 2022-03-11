@@ -26,25 +26,29 @@
 #ifndef CHARACTER_ANSI_ESCAPE_CODE_SELECTOR_SOURCE
 #define CHARACTER_ANSI_ESCAPE_CODE_SELECTOR_SOURCE
 
-#include <stdio.h>
-#include <wchar.h>
-
 #include "../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/ansi_escape_code/ansi_escape_code_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/name/cybol/state/keyboard/keyboard_state_cybol_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/detector/detector.c"
 #include "../../../executor/modifier/item_modifier.c"
 #include "../../../executor/representer/deserialiser/ansi_escape_code/character_ansi_escape_code_deserialiser.c"
-#include "../../../executor/detector/detector.c"
 #include "../../../logger/logger.c"
 
 /**
  * Selects the ansi escape code character.
  *
  * This function changes the key codes into real names as defined by CYBOL.
- * Example: The LINE_FEED_UNICODE_CHARACTER_CODE_MODEL (<enter> key) gets converted into the
- * constant ENTER_KEYBOARD_STATE_CYBOL_NAME with the value "enter", which is used so in CYBOL files.
+ *
+ * Example:
+ *
+ * The LINE_FEED_UNICODE_CHARACTER_CODE_MODEL (<enter> key) gets converted into the constant
+ * ENTER_KEYBOARD_STATE_CYBOL_NAME with the value "enter", which is used so in CYBOL files.
  *
  * @param p0 the destination item
  * @param p1 the source data position (pointer reference)
@@ -53,6 +57,8 @@
 void select_ansi_escape_code_character(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select ansi escape code character.");
+    fwprintf(stdout, L"Debug: Select ansi escape code character. count remaining p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Select ansi escape code character. count remaining *p2: %i\n", *((int*) p2));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

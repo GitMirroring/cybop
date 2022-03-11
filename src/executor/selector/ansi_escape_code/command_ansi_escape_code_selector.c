@@ -26,24 +26,28 @@
 #ifndef COMMAND_ANSI_ESCAPE_CODE_SELECTOR_SOURCE
 #define COMMAND_ANSI_ESCAPE_CODE_SELECTOR_SOURCE
 
-#include <stdio.h>
-#include <wchar.h>
-
 #include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/ansi_escape_code/input_ansi_escape_code_model.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cybol/state/keyboard/keyboard_state_cybol_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/modifier/item_modifier.c"
+#include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/detector/detector.c"
+#include "../../../executor/modifier/item_modifier.c"
 #include "../../../logger/logger.c"
 
 /**
- * Select ansi escape code command and deserialises it into a cyboi-internal keyboard constant.
+ * Selects ansi escape code command and deserialises it into a cyboi-internal keyboard constant.
  *
  * This function changes the ansi escape codes into real names as defined by CYBOL.
- * Example: The UP_ARROW_INPUT_ANSI_ESCAPE_CODE_MODEL (ESC[A sequence) gets converted into the
- * constant ARROW_UP_KEYBOARD_STATE_CYBOL_NAME with the value "arrow_up", which is used so in CYBOL files.
+ *
+ * Example:
+ *
+ * The UP_ARROW_INPUT_ANSI_ESCAPE_CODE_MODEL (ESC[A sequence) gets converted into the constant
+ * ARROW_UP_KEYBOARD_STATE_CYBOL_NAME with the value "arrow_up", which is used so in CYBOL files.
  *
  * @param p0 the destination item
  * @param p1 the source data position (pointer reference)
@@ -52,6 +56,8 @@
 void select_ansi_escape_code_command(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select ansi escape code command.");
+    fwprintf(stdout, L"Debug: Select ansi escape code command. count remaining p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Select ansi escape code command. count remaining *p2: %i\n", *((int*) p2));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -96,12 +102,12 @@ void select_ansi_escape_code_command(void* p0, void* p1, void* p2) {
         }
     }
 
-    //
-    // CAUTION! Just don't do anything here, if none of the ansi escape codes above matched.
-    // This was to be an ansi escape code, as it started with the corresponding prefix.
-    // If the sequence's values are not recognised, they probably do not make sense anyway.
-    // So, just ignore this and wait for other, proper sequences and characters to be converted.
-    //
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select ansi escape code command. The ansi escape code is unknown.");
+        fwprintf(stdout, L"Warning: Could not select ansi escape code command. The ansi escape code is unknown. count remaining p2: %i\n", p2);
+        fwprintf(stdout, L"Warning: Could not select ansi escape code command. The ansi escape code is unknown. count remaining *p2: %i\n", *((int*) p2));
+    }
 }
 
 /* COMMAND_ANSI_ESCAPE_CODE_SELECTOR_SOURCE */

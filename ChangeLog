@@ -21,6 +21,7 @@
 2022-03-11  Christian Heller  <christian.heller@cybop.org>
 
         * Factor out file "http_request_message_length_deserialiser.c"
+        * Add deserialiser and selector for "ansi_escape_code_length" used by reader for text user interface (tui) data input
 
 2022-03-10  Christian Heller  <christian.heller@cybop.org>
 

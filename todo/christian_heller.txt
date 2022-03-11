@@ -13,11 +13,10 @@
 
 CONTINUE current work:
 
-        * Add deserialiser "ansi_escape_code_length" used by reader for text user interface data input
-        * Add to file "message_length_deserialiser.c" (search for TODO)
+        * Comment out terminal orientation to wide character in file "cyboi.c", since it only affects streams but not low-level input output as used in cyboi
+        * Adapt command line constants and processing accordingly
 
-        * DONE: thread runs fine
-        * TODO: Debug cybol application "tui" error "unknown operation" ("text/plain")
+        * Debug cybol application "tui" error "unknown operation" ("text/plain")
         * Make cybol application "tui" work again
         * Make cybol application "tui_control" work again
 
