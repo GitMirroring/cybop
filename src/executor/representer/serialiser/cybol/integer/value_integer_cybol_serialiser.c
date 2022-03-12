@@ -38,9 +38,9 @@
 /**
  * Serialises the integer value into wide character data.
  *
- * @param p0 the destination item
- * @param p1 the source data
- * @param p2 the source index
+ * @param p0 the destination wide character item
+ * @param p1 the source integer data
+ * @param p2 the source integer index
  * @param p3 the number base:
  *           0 - tries to automatically identify the correct number base
  *           8 - octal, e.g. 083
@@ -51,10 +51,10 @@ void serialise_cybol_integer_value(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol integer value.");
 
-    // The value.
+    // The integer value.
     int v = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Get value from vector at index.
+    // Get integer value from vector at index.
     copy_array_forward((void*) &v, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
     //

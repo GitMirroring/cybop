@@ -42,10 +42,10 @@
 /**
  * Serialises integer value according to the given base.
  *
- * @param p0 the destination data
- * @param p1 the destination count
- * @param p2 the destination size
- * @param p3 the source value
+ * @param p0 the destination wide character data
+ * @param p1 the destination wide character count
+ * @param p2 the destination wide character size
+ * @param p3 the source integer value
  * @param p4 the number base:
  *           8 - octal, e.g. 083
  *           10 - decimal, e.g. 1234

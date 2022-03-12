@@ -36,7 +36,7 @@
 /**
  * Serialises the integer separator.
  *
- * @param p0 the destination item
+ * @param p0 the destination wide character item
  * @param p1 the source index
  */
 void serialise_cybol_integer_separator(void* p0, void* p1) {

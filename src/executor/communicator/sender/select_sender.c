@@ -34,7 +34,7 @@
 #include "../../../logger/logger.c"
 
 /**
- * Selects a suitable source buffer into destination.
+ * Selects a suitable source buffer and stores it in the destination.
  *
  * This is important since buffers differ for the various channels.
  *
@@ -60,7 +60,6 @@ void send_select(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Use "char" buffer for arbitrary binary data.
             copy_pointer(p0, p1);
         }
     }
@@ -71,7 +70,16 @@ void send_select(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Use "char" buffer for crlf terminated binary data.
+            copy_pointer(p0, p1);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p2, (void*) CLI_MESSAGE_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
             copy_pointer(p0, p1);
         }
     }
@@ -82,7 +90,6 @@ void send_select(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Use "char" buffer due to possible attachments.
             copy_pointer(p0, p1);
         }
     }
@@ -93,7 +100,6 @@ void send_select(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Use "char" buffer due to possible attachments.
             copy_pointer(p0, p1);
         }
     }
@@ -104,7 +110,6 @@ void send_select(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Use "char" buffer due to ansi escape sequences.
             copy_pointer(p0, p1);
         }
     }

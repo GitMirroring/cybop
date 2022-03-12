@@ -33,6 +33,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
 #include "../../../../executor/representer/serialiser/ansi_escape_code/effect_ansi_escape_code_serialiser.c"
 #include "../../../../executor/representer/serialiser/ansi_escape_code/background_ansi_escape_code_serialiser.c"
 #include "../../../../executor/representer/serialiser/ansi_escape_code/colour_ansi_escape_code_serialiser.c"
@@ -101,7 +102,7 @@ void serialise_ansi_escape_code_attributes(void* p0, void* p1, void* p2, void* p
         // Therefore, add the suffix here.
         //
 
-        modify_item(p0, (void*) ATTRIBUTE_SUFFIX_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ATTRIBUTE_SUFFIX_ANSI_ESCAPE_CODE_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+        serialise_ansi_escape_code_character(p0, (void*) ATTRIBUTE_SUFFIX_ANSI_ESCAPE_CODE_MODEL, (void*) ATTRIBUTE_SUFFIX_ANSI_ESCAPE_CODE_MODEL_COUNT);
     }
 }
 

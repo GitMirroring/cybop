@@ -32,8 +32,10 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
-#include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/converter/encoder/utf/append_utf_8_encoder.c"
 #include "../../../../executor/copier/integer_copier.c"
+#include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -43,8 +45,8 @@
  * printf("\033[1mbold \033[0mswitched off.")
  *
  * @param p0 the destination ansi escape code item
- * @param p1 the source data
- * @param p2 the source count
+ * @param p1 the source attribute character data
+ * @param p2 the source attribute character count
  * @param p3 the prefix flag
  */
 void serialise_ansi_escape_code_attribute(void* p0, void* p1, void* p2, void* p3) {
@@ -64,7 +66,7 @@ void serialise_ansi_escape_code_attribute(void* p0, void* p1, void* p2, void* p3
         // Therefore, add the attribute separator here instead.
         //
 
-        modify_item(p0, (void*) ATTRIBUTE_SEPARATOR_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ATTRIBUTE_SEPARATOR_ANSI_ESCAPE_CODE_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+        serialise_ansi_escape_code_character(p0, (void*) ATTRIBUTE_SEPARATOR_ANSI_ESCAPE_CODE_MODEL, (void*) ATTRIBUTE_SEPARATOR_ANSI_ESCAPE_CODE_MODEL_COUNT);
 
     } else {
 
@@ -73,13 +75,14 @@ void serialise_ansi_escape_code_attribute(void* p0, void* p1, void* p2, void* p3
         // Therefore, add it here.
         //
 
-        modify_item(p0, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+        serialise_ansi_escape_code_character(p0, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL_COUNT);
 
         // Set prefix flag.
         copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
-    modify_item(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    // Append source attribute character to destination.
+    serialise_ansi_escape_code_character(p0, p1, p2);
 }
 
 /* ATTRIBUTE_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */

@@ -35,7 +35,6 @@
 #include "../../../executor/communicator/sender/encode_sender.c"
 #include "../../../executor/communicator/sender/select_sender.c"
 #include "../../../executor/communicator/sender/serialise_sender.c"
-#include "../../../executor/communicator/sender/termination_sender.c"
 #include "../../../executor/communicator/sender/write_sender.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../executor/memoriser/deallocator/item_deallocator.c"
@@ -143,7 +142,14 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     //?? fwprintf(stdout, L"Debug: Send. b after s: %i\n", b);
 
+    //
     // Select buffer.
+    //
+    // CAUTION! Hand over the ENCODED character item and NOT the
+    // compressed character item, if wide characters are not wanted.
+    // In this case, the encoding is SKIPPED, since it is either
+    // not necessary, or the serialisation does it inside.
+    //
     send_select((void*) &b, (void*) &e, p9);
 
     //?? fwprintf(stdout, L"Debug: Send. b after e: %i\n", b);
@@ -165,12 +171,6 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     //?? fwprintf(stdout, L"Debug: send data encode *ac: %i\n", *((int*) ac));
     //?? fwprintf(stdout, L"Debug: send data encode ad: %s\n", (char*) ad);
-
-    // Append termination.
-    send_termination((void*) &ad, (void*) &ac, e, *NULL_POINTER_STATE_CYBOI_MODEL, p17);
-
-    //?? fwprintf(stdout, L"Debug: send data termination *ac: %i\n", *((int*) ac));
-    //?? fwprintf(stdout, L"Debug: send data termination ad: %s\n", (char*) ad);
 
     // Compress message.
     //?? send_compress((void*) &ad, (void*) &ac, c, ad, ac, p??);

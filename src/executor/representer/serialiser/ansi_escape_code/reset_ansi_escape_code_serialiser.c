@@ -32,6 +32,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/integer/value_integer_cybol_serialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -47,9 +48,9 @@ void serialise_ansi_escape_code_reset(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code reset.");
 
-    modify_item(p0, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-    modify_item(p0, (void*) OFF_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OFF_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-    modify_item(p0, (void*) ATTRIBUTE_SUFFIX_ANSI_ESCAPE_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ATTRIBUTE_SUFFIX_ANSI_ESCAPE_CODE_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    serialise_ansi_escape_code_character(p0, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL_COUNT);
+    serialise_ansi_escape_code_character(p0, (void*) OFF_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL, (void*) OFF_ATTRIBUTE_ANSI_ESCAPE_CODE_MODEL_COUNT);
+    serialise_ansi_escape_code_character(p0, (void*) ATTRIBUTE_SUFFIX_ANSI_ESCAPE_CODE_MODEL, (void*) ATTRIBUTE_SUFFIX_ANSI_ESCAPE_CODE_MODEL_COUNT);
 }
 
 /* RESET_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */

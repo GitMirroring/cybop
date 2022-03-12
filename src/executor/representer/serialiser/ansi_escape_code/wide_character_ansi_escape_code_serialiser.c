@@ -23,31 +23,27 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CLEAR_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
-#define CLEAR_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+#ifndef WIDE_CHARACTER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
+#define WIDE_CHARACTER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 
-#include "../../../../constant/model/ansi_escape_code/ansi_escape_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
+#include "../../../../executor/converter/encoder/utf/append_utf_8_encoder.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Clears the terminal.
+ * Serialises the wide character into an ansi escape code.
  *
- * Example:
- * printf("\033[2J")
- *
- * @param p0 the destination item
+ * @param p0 the destination ansi escape code item
+ * @param p1 the source wide character data
+ * @param p2 the source wide character count
  */
-void serialise_ansi_escape_code_clear(void* p0) {
+void serialise_ansi_escape_code_wide_character(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code clear.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code wide character.");
 
-    serialise_ansi_escape_code_character(p0, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL_COUNT);
-    serialise_ansi_escape_code_character(p0, (void*) ERASE_DISPLAY_ANSI_ESCAPE_CODE_MODEL, (void*) ERASE_DISPLAY_ANSI_ESCAPE_CODE_MODEL_COUNT);
+    // Encode wide character and append it to the destination.
+    encode_utf_8_append(p0, p1, p2);
 }
 
-/* CLEAR_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
+/* WIDE_CHARACTER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */
 #endif

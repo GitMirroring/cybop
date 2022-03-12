@@ -13,18 +13,14 @@
 
 CONTINUE current work:
 
-        * Adapt ansi escape code serialiser and deserialiser to use char instead of wchar_t (similar to http)
-            since message length needs to be detected after raw reading, yet before utf8-decoding
-            DONE: executor/representer/serialiser/tui/
-            TODO: executor/representer/serialiser/ansi_escape_code/
-        HINT: Send MULTIBYTE and NOT wchar_t to terminal, since this goes to the "write" function which processes single bytes
+        * Make cybol application "tui" work again
+
+        * Adapt ansi escape code deserialiser to use char instead of wchar_t (similar to http), since message length needs to be detected after raw reading, yet before utf8-decoding
         * Adapt file "select_receiver.c" for terminal (char ??), socket (char), e.g. for http_request
+        * Debug cybol application "tui" error "unknown operation" ("text/plain")
+        * Make cybol application "tui_control" work again
 
         * Remove property "encoding" with value "utf-8" from send and receive operations of all cybol applications, since the de-/serialiser of language "message/tui" does the conversion, as with http
-
-        * Debug cybol application "tui" error "unknown operation" ("text/plain")
-        * Make cybol application "tui" work again
-        * Make cybol application "tui_control" work again
 
         * Remove superfluous interrupt "handlers" array from everywhere
         * Add memoriser mutex allocator and deallocator, to be used in manager, client entry open and close, server entry startup and shutdown

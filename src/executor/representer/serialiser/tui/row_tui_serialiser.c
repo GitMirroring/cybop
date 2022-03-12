@@ -26,6 +26,7 @@
 #ifndef ROW_TUI_SERIALISER_SOURCE
 #define ROW_TUI_SERIALISER_SOURCE
 
+#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -36,10 +37,10 @@
 #include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
+    #include "../../../../executor/representer/serialiser/ansi_escape_code/wide_character_ansi_escape_code_serialiser.c"
     #include "../../../../executor/representer/serialiser/ansi_escape_code/position_ansi_escape_code_serialiser.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
+    #include "../../../../executor/representer/serialiser/ansi_escape_code/wide_character_ansi_escape_code_serialiser.c"
     #include "../../../../executor/representer/serialiser/ansi_escape_code/position_ansi_escape_code_serialiser.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
@@ -85,13 +86,17 @@ void serialise_tui_row(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     int lp = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     int cp = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     int rp = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    //
     // The character to be written.
+    //
     // CAUTION! Initialise with space character,
     // which is used everywhere else aside the border.
-    // CAUTION! The properties like colour etc. become only visible,
-    // if some character is actually printed on screen.
+    //
+    // CAUTION! The properties like colour etc. become visible
+    // ONLY if some character is actually printed on screen.
     // Therefore, initialising with the space character
-    // IS NECESSARY here.
+    // is NECESSARY here.
+    //
     wchar_t ch = *SPACE_UNICODE_CHARACTER_CODE_MODEL;
 
     // Initialise loop count.
@@ -130,9 +135,9 @@ void serialise_tui_row(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         serialise_tui_character((void*) &ch, p2, p3, p4, p5, p6, p7, (void*) &lp, (void*) &cp, (void*) &rp, p11, p12, p13);
 
 #if defined(__linux__) || defined(__unix__)
-        serialise_ansi_escape_code_character(p0, (void*) &ch, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+        serialise_ansi_escape_code_wide_character(p0, (void*) &ch, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 #elif defined(__APPLE__) && defined(__MACH__)
-        serialise_ansi_escape_code_character(p0, (void*) &ch, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+        serialise_ansi_escape_code_wide_character(p0, (void*) &ch, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
         serialise_win32_console_character(p1, (void*) &ch, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);

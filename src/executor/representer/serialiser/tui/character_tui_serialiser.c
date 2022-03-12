@@ -37,12 +37,12 @@
  * Serialises the character into tui.
  *
  * @param p0 the destination character
- * @param p1 the horizontal border character
- * @param p2 the vertical border character
- * @param p3 the left top border character
- * @param p4 the right top border character
- * @param p5 the left bottom border character
- * @param p6 the right bottom border character
+ * @param p1 the source horizontal border character
+ * @param p2 the source vertical border character
+ * @param p3 the source left top border character
+ * @param p4 the source right top border character
+ * @param p5 the source left bottom border character
+ * @param p6 the source right bottom border character
  * @param p7 the left horizontal position flag
  * @param p8 the centre horizontal position flag
  * @param p9 the right horizontal position flag

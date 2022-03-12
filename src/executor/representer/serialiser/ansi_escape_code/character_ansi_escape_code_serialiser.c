@@ -26,12 +26,7 @@
 #ifndef CHARACTER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 #define CHARACTER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE
 
-#include "../../../../constant/model/ansi_escape_code/ansi_escape_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/cybol/integer/value_integer_cybol_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -45,7 +40,8 @@ void serialise_ansi_escape_code_character(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise ansi escape code character.");
 
-    modify_item(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    // Append character to the destination.
+    modify_item(p0, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 }
 
 /* CHARACTER_ANSI_ESCAPE_CODE_SERIALISER_SOURCE */

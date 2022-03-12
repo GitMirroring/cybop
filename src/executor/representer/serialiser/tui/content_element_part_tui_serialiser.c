@@ -79,11 +79,17 @@ void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
  * @param p13 the tree level
  * @param p14 the cli flag
  * @param p15 the original attributes
- * @param p16 the format data
+ * @param p16 the format
  */
 void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui part element content.");
+    fwprintf(stdout, L"Debug: Serialise tui part element content. format p16: %i\n", p16);
+    fwprintf(stdout, L"Debug: Serialise tui part element content. format *p16: %i\n", *((int*) p16));
+
+    //
+    // Declaration
+    //
 
     //
     // The serialised item.
@@ -124,25 +130,55 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
 #endif
 
     //
+    // Serialisation
+    //
+
+    // Clear terminal screen.
+    serialise_tui_clear(p0, p1, p11, p13);
+
+    fwprintf(stdout, L"Debug: Serialise tui part element content. test 0: %i\n", p16);
+
+    // Append properties.
+    serialise_tui_properties(p0, p1, p4, p5, p6, p7, p8, p9, p10, p14);
+
+    fwprintf(stdout, L"Debug: Serialise tui part element content. test 1: %i\n", p16);
+
+    //
+    // Allocation
+    //
+
+    //
     // Allocate serialised item.
     //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     //
+    // CAUTION! This is the ansi escape code array, which is of
+    // type CHARACTER and NOT wide character.
+    //
     allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // Clear terminal screen.
-    serialise_tui_clear(p0, p1, p11, p13);
-
-    // Append properties.
-    serialise_tui_properties(p0, p1, p4, p5, p6, p7, p8, p9, p10, p14);
+    //
+    // Embedding
+    //
 
     // Increment tree level.
     calculate_integer_add(p13, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-    // Append embedded model.
+
+    //
+    // Append EMBEDDED model.
+    //
+    // CAUTION! Hand over the local serisalised item s
+    // and NOT the destination ansi escape code item p0.
+    //
     serialise_tui(s, p1, p2, p3, p4, p5, p8, p9, p10, p11, p12, p13, p14, p15, p16);
+
     // Decrement tree level.
     calculate_integer_subtract(p13, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+
+    //
+    // Retrieval
+    //
 
     //
     // Get serialised item data, count.
@@ -179,6 +215,10 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
 #else
     serialise_ansi_escape_code_reset(p0);
 #endif
+
+    //
+    // Deallocation
+    //
 
     // Deallocate serialised item.
     deallocate_item((void*) &s, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);

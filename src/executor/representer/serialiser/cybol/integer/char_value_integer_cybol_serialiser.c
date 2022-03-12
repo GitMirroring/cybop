@@ -38,9 +38,9 @@
 /**
  * Serialises the integer value into character data.
  *
- * @param p0 the destination item
- * @param p1 the source data
- * @param p2 the source index
+ * @param p0 the destination character item
+ * @param p1 the source integer data
+ * @param p2 the source integer index
  * @param p3 the number base:
  *           0 - tries to automatically identify the correct number base
  *           8 - octal, e.g. 083
@@ -73,41 +73,53 @@ void serialise_cybol_integer_value_char(void* p0, void* p1, void* p2, void* p3) 
     int tc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int ts = *NUMBER_256_INTEGER_STATE_CYBOI_MODEL;
 
+    //
     // Allocate temporary array.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_array((void*) &td, (void*) &ts, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // Get value from vector at index.
+    // Get value from integer vector at index.
     copy_array_forward((void*) &v, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
     // Serialise value according to given number base.
     serialise_cybol_integer_base_char(td, (void*) &tc, (void*) &ts, (void*) &v, p3);
 
     if (tc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
+        //
         // The value was converted successfully.
+        //
 
         modify_item(p0, td, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &tc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
     } else {
 
-        // The value returned by the conversion function is negative,
-        // which means that the value was NOT converted successfully.
+        //
+        // The conversion failed.
+        //
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol integer value char.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol integer value char. The conversion failed.");
+        fwprintf(stdout, L"Error: Could not serialise cybol integer value char. The conversion failed. tc: %i\n", tc);
 
+        //
         // CAUTION! A more flexible approach would be to stepwise enlarge
         // the destination array, until the provided source value matches.
         // In order to do this, call this function itself recursively.
         // This is done every time again, until the value
         // gets finally converted successfully.
         // The only argument that grows then is the destination size.
+        //
     }
 
+    //
     // Deallocate temporary array.
+    //
     // CAUTION! The second argument "count" is NULL,
     // since it is only needed for looping elements of type PART,
     // in order to decrement the rubbish (garbage) collection counter.
+    //
     deallocate_array((void*) &td, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &ts, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
