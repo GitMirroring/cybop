@@ -27,7 +27,7 @@
 #define CHARACTER_ANSI_ESCAPE_CODE_SELECTOR_SOURCE
 
 #include "../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -50,9 +50,9 @@
  * The LINE_FEED_UNICODE_CHARACTER_CODE_MODEL (<enter> key) gets converted into the constant
  * ENTER_KEYBOARD_STATE_CYBOL_NAME with the value "enter", which is used so in CYBOL files.
  *
- * @param p0 the destination item
- * @param p1 the source data position (pointer reference)
- * @param p2 the source count remaining
+ * @param p0 the destination wide character item
+ * @param p1 the source character data position (pointer reference)
+ * @param p2 the source character count remaining
  */
 void select_ansi_escape_code_character(void* p0, void* p1, void* p2) {
 
@@ -65,7 +65,7 @@ void select_ansi_escape_code_character(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p1, p2, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p1, p2, (void*) LINE_FEED_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -75,7 +75,7 @@ void select_ansi_escape_code_character(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p1, p2, (void*) ESCAPE_UNICODE_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p1, p2, (void*) ESCAPE_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

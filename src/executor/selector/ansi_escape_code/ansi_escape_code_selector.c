@@ -38,9 +38,9 @@
 /**
  * Selects the ansi escape code begin.
  *
- * @param p0 the destination item
- * @param p1 the source data position (pointer reference)
- * @param p2 the source count remaining
+ * @param p0 the destination wide character item
+ * @param p1 the source character data position (pointer reference)
+ * @param p2 the source character count remaining
  */
 void select_ansi_escape_code(void* p0, void* p1, void* p2) {
 

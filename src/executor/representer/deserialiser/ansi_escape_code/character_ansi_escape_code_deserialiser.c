@@ -26,22 +26,17 @@
 #ifndef CHARACTER_ANSI_ESCAPE_CODE_DESERIALISER_SOURCE
 #define CHARACTER_ANSI_ESCAPE_CODE_DESERIALISER_SOURCE
 
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cybol/state/keyboard/keyboard_state_cybol_name.c"
-#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/converter/decoder/utf/append_utf_8_decoder.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Deserialises the ansi escape code character data into a command.
  *
- * @param p0 the destination item
- * @param p1 the source data position (pointer reference)
- * @param p2 the source count remaining
+ * @param p0 the destination wide character item
+ * @param p1 the source character data position (pointer reference)
+ * @param p2 the source character count remaining
  */
 void deserialise_ansi_escape_code_character(void* p0, void* p1, void* p2) {
 
@@ -54,7 +49,7 @@ void deserialise_ansi_escape_code_character(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Debug: Deserialise ansi escape code character. count remaining *p2: %i\n", *((int*) p2));
 
         // Decode multibyte character array into wide character item.
-        decode_utf_8(p0, *d, p2);
+        decode_utf_8_append(p0, *d, p2);
 
     } else {
 

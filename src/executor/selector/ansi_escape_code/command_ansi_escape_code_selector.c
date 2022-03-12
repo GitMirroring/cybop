@@ -49,9 +49,9 @@
  * The UP_ARROW_INPUT_ANSI_ESCAPE_CODE_MODEL (ESC[A sequence) gets converted into the constant
  * ARROW_UP_KEYBOARD_STATE_CYBOL_NAME with the value "arrow_up", which is used so in CYBOL files.
  *
- * @param p0 the destination item
- * @param p1 the source data position (pointer reference)
- * @param p2 the source count remaining
+ * @param p0 the destination wide character item
+ * @param p1 the source character data position (pointer reference)
+ * @param p2 the source character count remaining
  */
 void select_ansi_escape_code_command(void* p0, void* p1, void* p2) {
 
