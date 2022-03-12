@@ -37,9 +37,9 @@
 /**
  * Deserialises the ansi escape code length.
  *
- * @param p0 the destination content length
- * @param p1 the source message data
- * @param p2 the source message count
+ * @param p0 the destination message length
+ * @param p1 the source character data
+ * @param p2 the source character count
  */
 void deserialise_ansi_escape_code_length(void* p0, void* p1, void* p2) {
 

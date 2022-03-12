@@ -174,7 +174,9 @@ void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read. The channel is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read fragment. The channel is unknown.");
+        fwprintf(stdout, L"Warning: Could not read fragment. The channel is unknown. p7: %i\n", p7);
+        fwprintf(stdout, L"Warning: Could not read fragment. The channel is unknown. *p7: %i\n", *((int*) p7));
     }
 }
 

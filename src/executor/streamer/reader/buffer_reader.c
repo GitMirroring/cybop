@@ -88,11 +88,13 @@ void read_buffer(void* p0, void* p1, void* p2, void* p3) {
     // since it is only relevant for channel FILE,
     // which is not used in asynchronous mode, however.
     //
-    read_completeness((void*) &f, (void*) &ml, p0, p2, *NULL_POINTER_STATE_CYBOI_MODEL, p3);
+    read_completeness((void*) &f, (void*) &ml, bi, p2, *NULL_POINTER_STATE_CYBOI_MODEL, p3);
 
-    fwprintf(stdout, L"Debug: Read buffer. f: %i\n", f);
+    fwprintf(stdout, L"Debug: Read buffer. complete flag f: %i\n", f);
 
     if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        fwprintf(stdout, L"Debug: Read buffer. complete flag ml: %i\n", ml);
 
         if (ml >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

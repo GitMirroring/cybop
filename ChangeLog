@@ -23,7 +23,9 @@
         * Adapt ansi escape code serialiser to using "char" instead of "wchar_t", since multibyte characters are sent via "write" to terminal
         * Delete now superfluous file "termination_sender.c", since the tui or cli serialiser does it
         * Adapt file "select_receiver.c" so that char buffer is used for terminal
-        * Adapt ansi escape code deserialiser to using "char" instead of "wchar_t", since message length needs to be detected after raw reading, yet before utf8-decoding
+        * Adapt ansi escape code length deserialiser to using "char" instead of "wchar_t", since message length needs to be detected after raw reading, yet before utf8-decoding
+        * Adapt ansi escape code deserialiser to using "char" instead of "wchar_t"
+        * Make cybol application "tui" work again
 
 2022-03-11  Christian Heller  <christian.heller@cybop.org>
 

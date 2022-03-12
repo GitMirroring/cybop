@@ -13,13 +13,11 @@
 
 CONTINUE current work:
 
-        * Debug cybol application "tui" error "unknown operation" ("text/plain")
-        * Make cybol application "tui" work again
         * Make cybol application "tui_control" work again
 
         * Remove property "encoding" with value "utf-8" from send and receive operations of all cybol applications, since the de-/serialiser of language "message/tui" does the conversion, as with http
 
-        * Remove superfluous interrupt "handlers" array from everywhere
+        * Remove superfluous interrupt "handlers" array from everywhere, since handler is added to the interrupt pipe directly
         * Add memoriser mutex allocator and deallocator, to be used in manager, client entry open and close, server entry startup and shutdown
         * Test service lifecycle cybol examples in directory "examples/communication/"
 
