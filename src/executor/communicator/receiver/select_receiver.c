@@ -155,9 +155,13 @@ void receive_select(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
             //
 
 #if defined(__linux__) || defined(__unix__)
-            copy_pointer(p0, p4);
+            // Use the CHARACTER buffer, which was assigned
+            // as default in file "receiver.c" already.
+            // Therefore, do NOTHING here.
 #elif defined(__APPLE__) && defined(__MACH__)
-            copy_pointer(p0, p4);
+            // Use the CHARACTER buffer, which was assigned
+            // as default in file "receiver.c" already.
+            // Therefore, do NOTHING here.
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
             copy_pointer(p0, p2);
