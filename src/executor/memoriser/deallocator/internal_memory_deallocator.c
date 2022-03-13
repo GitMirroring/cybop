@@ -30,14 +30,13 @@
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/copier/array_copier.c"
-#include "../../../executor/dispatcher/closer/basic/basic_closer.c"
+#include "../../../executor/dispatcher/closer/pipe/pipe_closer.c"
 #include "../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../executor/memoriser/deallocator/input_output_entry_deallocator.c"
 #include "../../../executor/memoriser/deallocator/item_deallocator.c"
@@ -89,10 +88,6 @@ void deallocate_internal_memory(void* p0) {
         void* ioso = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The terminal input output entry.
         void* iot = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-        // The read/write interrupt pipe file descriptors.
-        int rd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-        int wd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
         //
         // Retrieval
@@ -166,19 +161,18 @@ void deallocate_internal_memory(void* p0) {
         //
 
         //
-        // CAUTION! Close interrupt pipe file descriptors
-        // only AFTER having exited input output threads above
-        // since otherwise, memory errors would occur.
-        // This is because threads access the interrupt pipe.
+        // Close interrupt pipe.
         //
-
-        // Get read/write interrupt pipe file descriptors.
-        copy_array_forward((void*) &rd, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-        copy_array_forward((void*) &wd, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-
-        // Close read/write interrupt pipe file descriptors.
-        close_basic((void*) &rd);
-        close_basic((void*) &wd);
+        // CAUTION! Normally, this pipe finalisation and closing
+        // would be done before deallocation. However, as an exception,
+        // the input output entries of all CHANNELS have to get
+        // deallocated yet BEFORE closing this interrupt pipe.
+        //
+        // The input output THREADS access the interrupt pipe,
+        // so that they have to EXIT first since otherwise,
+        // memory errors would occur.
+        //
+        close_pipe(ip);
 
         //
         // Deallocate interrupt pipe.

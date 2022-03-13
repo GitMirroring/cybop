@@ -46,8 +46,7 @@ void open_unix_pipe(void* p0) {
         int* f = (int*) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open unix pipe.");
-        // fwprintf(stdout, L"Debug: Open unix pipe. f: %i\n", f);
-        // fwprintf(stdout, L"Debug: Open unix pipe. *f: %i\n", *f);
+        // fwprintf(stdout, L"Debug: Open unix pipe. p0: %i\n", p0);
 
         //
         // Initialise error number.

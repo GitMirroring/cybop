@@ -22,6 +22,7 @@
 
         * Add memoriser mutex allocator and deallocator, to be used for internal memory/server/client entry
         * Rename "thread_copier.c" into "thread_identification_copier.c"
+        * Add dispatcher pipe closer, to be used in internal memory deallocator
 
 2022-03-12  Christian Heller  <christian.heller@cybop.org>
 
