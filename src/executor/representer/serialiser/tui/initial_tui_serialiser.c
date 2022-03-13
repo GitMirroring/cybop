@@ -52,14 +52,13 @@
  * @param p7 the internal memory data
  * @param p8 the clear flag
  * @param p9 the newline flag
- * @param p10 the cli flag
- * @param p11 the format
+ * @param p10 the format
  */
-void serialise_tui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void serialise_tui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui initial.");
-    //?? fwprintf(stdout, L"Debug: Serialise tui initial. format p11: %i\n", p11);
-    //?? fwprintf(stdout, L"Debug: Serialise tui initial. format *p11: %i\n", *((int*) p11));
+    //?? fwprintf(stdout, L"Debug: Serialise tui initial. format p10: %i\n", p10);
+    //?? fwprintf(stdout, L"Debug: Serialise tui initial. format *p10: %i\n", *((int*) p10));
 
     // The output.
     void* op = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -122,7 +121,7 @@ void serialise_tui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // which is used to avoid cursor positioning,
     // since that is NOT wanted for cli.
     //
-    serialise_tui_part_element_content(p0, op, p1, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, p6, p7, p8, p9, (void*) &l, p10, (void*) &a, p11);
+    serialise_tui_part_element_content(p0, op, p1, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, p6, p7, p8, p9, (void*) &l, (void*) &a, p10);
 }
 
 /* INITIAL_TUI_SERIALISER_SOURCE */

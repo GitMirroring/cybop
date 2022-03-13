@@ -23,48 +23,46 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ORIGO_TUI_SERIALISER_SOURCE
-#define ORIGO_TUI_SERIALISER_SOURCE
+#ifndef WIDE_CHARACTER_TUI_SERIALISER_SOURCE
+#define WIDE_CHARACTER_TUI_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)
-    #include "../../../../executor/representer/serialiser/ansi_escape_code/position_ansi_escape_code_serialiser.c"
+    #include "../../../../executor/representer/serialiser/ansi_escape_code/wide_character_ansi_escape_code_serialiser.c"
 #elif defined(__APPLE__) && defined(__MACH__)
-    #include "../../../../executor/representer/serialiser/ansi_escape_code/position_ansi_escape_code_serialiser.c"
+    #include "../../../../executor/representer/serialiser/ansi_escape_code/wide_character_ansi_escape_code_serialiser.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../../../executor/representer/serialiser/win32_console/position_win32_console_serialiser.c"
+    #include "../../../../executor/representer/serialiser/win32_console/wide_character_win32_console_serialiser.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
- * Reset cursor position to origo.
+ * Serialises the wide character into the tui.
  *
  * @param p0 the destination ansi escape code item
  * @param p1 the destination win32 console output data
- * @param p2 the x coordinate
- * @param p3 the y coordinate
+ * @param p2 the source wide character data
+ * @param p3 the source wide character count
  */
-void serialise_tui_origo(void* p0, void* p1, void* p2, void* p3) {
+void serialise_tui_wide_character(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui origo.");
-    fwprintf(stdout, L"Debug: Serialise tui origo. p0: %i\n", p0);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui wide character.");
 
 #if defined(__linux__) || defined(__unix__)
-    serialise_ansi_escape_code_position(p0, p2, p3);
+    serialise_ansi_escape_code_wide_character(p0, p2, p3);
 #elif defined(__APPLE__) && defined(__MACH__)
-    serialise_ansi_escape_code_position(p0, p2, p3);
+    serialise_ansi_escape_code_wide_character(p0, p2, p3);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    serialise_win32_console_position(p1, p2, p3);
+    serialise_win32_console_wide_character(p1, p2, p3);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 
-/* ORIGO_TUI_SERIALISER_SOURCE */
+/* WIDE_CHARACTER_TUI_SERIALISER_SOURCE */
 #endif

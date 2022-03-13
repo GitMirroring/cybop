@@ -67,6 +67,7 @@
 #include "../../../executor/representer/serialiser/model_diagram/model_diagram_serialiser.c"
 #include "../../../executor/representer/serialiser/terminal_mode/terminal_mode_serialiser.c"
 #include "../../../executor/representer/serialiser/tui/initial_tui_serialiser.c"
+#include "../../../executor/representer/serialiser/tui/primitive_tui_serialiser.c"
 //?? #include "../../../executor/representer/serialiser/xdt_field_description/xdt_field_description_serialiser.c"
 #include "../../../executor/representer/serialiser/xdt/xdt_serialiser.c"
 //
@@ -90,13 +91,13 @@
  * @param p0 the destination item
  * @param p1 the source name data
  * @param p2 the source name count
- * @param p3 the source channel data
- * @param p4 the source encoding data
- * @param p5 the source language data
+ * @param p3 the source channel
+ * @param p4 the source encoding
+ * @param p5 the source language model data
  * @param p6 the source language properties data
  * @param p7 the source language properties count
- * @param p8 the source format data
- * @param p9 the source type data
+ * @param p8 the source format
+ * @param p9 the source type
  * @param p10 the source model data
  * @param p11 the source model count
  * @param p12 the source properties data
@@ -159,7 +160,11 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_tui_initial(p0, p10, p11, p12, p13, p16, p17, p18, p14, p15, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p8);
+            // Serialise data and encode them as utf-8 multibyte character sequence.
+            serialise_tui_primitive(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p10, p11, p12, p13, p8);
+
+            // Append newline.
+            serialise_tui_newline(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p15, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 
@@ -205,7 +210,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_tui_initial(p0, p10, p11, p12, p13, p16, p17, p18, p14, p15, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p8);
+            serialise_tui_initial(p0, p10, p11, p12, p13, p16, p17, p18, p14, p15, p8);
         }
     }
 

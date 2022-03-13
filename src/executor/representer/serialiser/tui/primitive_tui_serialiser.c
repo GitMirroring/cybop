@@ -39,6 +39,7 @@
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/representer/serialiser/cybol/cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/tui/wide_character_tui_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -54,7 +55,9 @@
  */
 void serialise_tui_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui primitive.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui primitive.");
+    fwprintf(stdout, L"Debug: Serialise tui primitive. format p6: %i\n", p6);
+    fwprintf(stdout, L"Debug: Serialise tui primitive. format *p6: %i\n", *((int*) p6));
 
     // The wide character item.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -84,7 +87,7 @@ void serialise_tui_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, v
     copy_array_forward((void*) &ic, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Encode wide character and append it to the destination.
-    serialise_ansi_escape_code_wide_character(p0, id, ic);
+    serialise_tui_wide_character(p0, p1, id, ic);
 
     // Deallocate wide character item.
     deallocate_item((void*) &i, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

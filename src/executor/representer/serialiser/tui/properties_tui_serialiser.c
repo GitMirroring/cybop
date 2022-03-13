@@ -60,13 +60,11 @@
  * @param p6 the knowledge memory part (pointer reference)
  * @param p7 the stack memory item
  * @param p8 the internal memory data
- * @param p9 the cli flag
  */
-void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui properties.");
-    fwprintf(stdout, L"Debug: Serialise tui properties. cli flag p9: %i\n", p9);
-    fwprintf(stdout, L"Debug: Serialise tui properties. cli flag *p9: %i\n", *((int*) p9));
+    fwprintf(stdout, L"Debug: Serialise tui properties. p0: %i\n", p0);
 
     // The super part.
     void* super = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -345,7 +343,7 @@ void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
     //   The "serialise_*_character" functions are NOT
     //   achieving this, since loops won't run with zero count.
     //
-    serialise_tui_origo(p0, p1, (void*) &pmdx, (void*) &pmdy, p9);
+    serialise_tui_origo(p0, p1, (void*) &pmdx, (void*) &pmdy);
 }
 
 /* PROPERTIES_TUI_SERIALISER_SOURCE */

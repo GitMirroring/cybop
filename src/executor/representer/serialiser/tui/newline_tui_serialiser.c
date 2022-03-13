@@ -31,12 +31,8 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/text/newline_text_model.c"
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../../executor/representer/serialiser/ansi_escape_code/wide_character_ansi_escape_code_serialiser.c"
+#include "../../../../executor/representer/serialiser/tui/wide_character_tui_serialiser.c"
 #include "../../../../logger/logger.c"
-
-#ifdef _MSC_VER
-    #include "../../../../executor/representer/serialiser/win32_console/character_win32_console_serialiser.c"
-#endif
 
 /**
  * Appends a newline to the data.
@@ -69,11 +65,11 @@ void serialise_tui_newline(void* p0, void* p1, void* p2, void* p3) {
         if (n != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 #if defined(__linux__) || defined(__unix__)
-            serialise_ansi_escape_code_wide_character(p0, (void*) UNIX_NEWLINE_TEXT_MODEL, (void*) UNIX_NEWLINE_TEXT_MODEL_COUNT);
+            serialise_tui_wide_character(p0, p1, (void*) UNIX_NEWLINE_TEXT_MODEL, (void*) UNIX_NEWLINE_TEXT_MODEL_COUNT);
 #elif defined(__APPLE__) && defined(__MACH__)
             // CR (carriage return) is only used until mac os x version 9
             // unfortunately there was no easy way to determine the major version without linking special libraries
-            serialise_ansi_escape_code_wide_character(p0, (void*) MACINTOSH_NEWLINE_TEXT_MODEL, (void*) MACINTOSH_NEWLINE_TEXT_MODEL_COUNT);
+            serialise_tui_wide_character(p0, p1, (void*) MACINTOSH_NEWLINE_TEXT_MODEL, (void*) MACINTOSH_NEWLINE_TEXT_MODEL_COUNT);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
             //
@@ -85,7 +81,7 @@ void serialise_tui_newline(void* p0, void* p1, void* p2, void* p3) {
             // but NOT the destination item (encapsulating a wide character array).
             // Therefore, delegate newline generation to a function.
             //
-            serialise_win32_console_character(p1, (void*) WINDOWS_NEWLINE_TEXT_MODEL, (void*) WINDOWS_NEWLINE_TEXT_MODEL_COUNT);
+            serialise_tui_wide_character(p0, p1, (void*) WINDOWS_NEWLINE_TEXT_MODEL, (void*) WINDOWS_NEWLINE_TEXT_MODEL_COUNT);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif

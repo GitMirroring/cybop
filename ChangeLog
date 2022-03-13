@@ -25,6 +25,9 @@
         * Add dispatcher pipe closer, to be used in internal memory deallocator
         * Rename channel "pipeline" into "fifo" and add new channel "pipe"
         * Remove superfluous interrupt handlers item, since handler as pointer is added to the interrupt pipe directly
+        * Optimise character handling in tui serialiser using files "character_tui_serialiser.c" and "wide_character_tui_serialiser.c"
+        * Call functions "serialise_tui_primitive" and "serialise_tui_newline" for channel "cli" in serialiser, in order to avoid ansi escape code sequences in simple text output
+        * Delete cli flag from functions of tui serialiser
 
 2022-03-12  Christian Heller  <christian.heller@cybop.org>
 

@@ -26,159 +26,42 @@
 #ifndef CHARACTER_TUI_SERIALISER_SOURCE
 #define CHARACTER_TUI_SERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/logifier/boolean/and_boolean_logifier.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
+#if defined(__linux__) || defined(__unix__)
+    #include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    #include "../../../../executor/representer/serialiser/win32_console/character_win32_console_serialiser.c"
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
+
 /**
- * Serialises the character into tui.
+ * Serialises the character into the tui.
  *
- * @param p0 the destination character
- * @param p1 the source horizontal border character
- * @param p2 the source vertical border character
- * @param p3 the source left top border character
- * @param p4 the source right top border character
- * @param p5 the source left bottom border character
- * @param p6 the source right bottom border character
- * @param p7 the left horizontal position flag
- * @param p8 the centre horizontal position flag
- * @param p9 the right horizontal position flag
- * @param p10 the top vertical position flag
- * @param p11 the middle vertical position flag
- * @param p12 the bottom vertical position flag
+ * @param p0 the destination ansi escape code item
+ * @param p1 the destination win32 console output data
+ * @param p2 the source character data
+ * @param p3 the source character count
  */
-void serialise_tui_character(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void serialise_tui_character(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui character.");
 
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        logify_boolean_or((void*) &r, p7);
-        logify_boolean_and((void*) &r, p10);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            copy_wide_character(p0, p3);
-        }
-    }
-
-    // Reset comparison result.
-    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        logify_boolean_or((void*) &r, p9);
-        logify_boolean_and((void*) &r, p10);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            copy_wide_character(p0, p4);
-        }
-    }
-
-    // Reset comparison result.
-    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        logify_boolean_or((void*) &r, p8);
-        logify_boolean_and((void*) &r, p10);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            copy_wide_character(p0, p1);
-        }
-    }
-
-    // Reset comparison result.
-    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        logify_boolean_or((void*) &r, p7);
-        logify_boolean_and((void*) &r, p12);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            copy_wide_character(p0, p5);
-        }
-    }
-
-    // Reset comparison result.
-    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        logify_boolean_or((void*) &r, p9);
-        logify_boolean_and((void*) &r, p12);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            copy_wide_character(p0, p6);
-        }
-    }
-
-    // Reset comparison result.
-    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        logify_boolean_or((void*) &r, p8);
-        logify_boolean_and((void*) &r, p12);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            copy_wide_character(p0, p1);
-        }
-    }
-
-    // Reset comparison result.
-    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        logify_boolean_or((void*) &r, p7);
-        logify_boolean_and((void*) &r, p11);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            copy_wide_character(p0, p2);
-        }
-    }
-
-    // Reset comparison result.
-    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        logify_boolean_or((void*) &r, p9);
-        logify_boolean_and((void*) &r, p11);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            copy_wide_character(p0, p2);
-        }
-    }
-
-    // Reset comparison result.
-    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        logify_boolean_or((void*) &r, p8);
-        logify_boolean_and((void*) &r, p11);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            copy_wide_character(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL);
-        }
-    }
+#if defined(__linux__) || defined(__unix__)
+    serialise_ansi_escape_code_character(p0, p2, p3);
+#elif defined(__APPLE__) && defined(__MACH__)
+    serialise_ansi_escape_code_character(p0, p2, p3);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    serialise_win32_console_character(p1, p2, p3);
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
 }
 
 /* CHARACTER_TUI_SERIALISER_SOURCE */

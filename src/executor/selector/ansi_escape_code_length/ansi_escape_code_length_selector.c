@@ -54,6 +54,7 @@ void select_ansi_escape_code_length(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+/*??
         void** test = (void**) p1;
         fwprintf(stdout, L"Debug: Select ansi escape code length. data position p1 + 0: %i\n", *test + 0);
         fwprintf(stdout, L"Debug: Select ansi escape code length. data position p1 + 1: %i\n", *test + 1);
@@ -61,6 +62,7 @@ void select_ansi_escape_code_length(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Debug: Select ansi escape code length. data position p1 + 0: %i\n", *((char*) (*test + 0)));
         fwprintf(stdout, L"Debug: Select ansi escape code length. data position p1 + 1: %i\n", *((char*) (*test + 1)));
         fwprintf(stdout, L"Debug: Select ansi escape code length. data position p1 + 2: %i\n", *((char*) (*test + 2)));
+*/
 
         // ESC[
         detect((void*) &r, p1, p2, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

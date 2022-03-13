@@ -64,7 +64,7 @@
 // Forward declarations
 //
 
-void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14);
+void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13);
 
 /**
  * Serialises the part element content into tui.
@@ -83,15 +83,14 @@ void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
  * @param p11 the clear flag
  * @param p12 the newline flag
  * @param p13 the tree level
- * @param p14 the cli flag
- * @param p15 the original attributes
- * @param p16 the format
+ * @param p14 the original attributes
+ * @param p15 the format
  */
-void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16) {
+void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui part element content.");
-    fwprintf(stdout, L"Debug: Serialise tui part element content. format p16: %i\n", p16);
-    fwprintf(stdout, L"Debug: Serialise tui part element content. format *p16: %i\n", *((int*) p16));
+    //?? fwprintf(stdout, L"Debug: Serialise tui part element content. format p15: %i\n", p15);
+    //?? fwprintf(stdout, L"Debug: Serialise tui part element content. format *p15: %i\n", *((int*) p15));
 
     //
     // Declaration
@@ -122,7 +121,7 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
         // If this is the first tui element being processed (tree level zero),
         // then store the current original win32 console attributes.
         //
-        serialise_win32_console_state(p15, p1);
+        serialise_win32_console_state(p14, p1);
 
     } else {
 
@@ -131,7 +130,7 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
         // then reset console to original attributes
         // before actually manipulating them below.
         //
-        serialise_win32_console_reset(p1, p15);
+        serialise_win32_console_reset(p1, p14);
     }
 #endif
 
@@ -142,12 +141,12 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     // Clear terminal screen.
     serialise_tui_clear(p0, p1, p11, p13);
 
-    fwprintf(stdout, L"Debug: Serialise tui part element content. destination count 0: %i\n", *((int*) ((void**) p0)[1]));
+    //?? fwprintf(stdout, L"Debug: Serialise tui part element content. destination count 0: %i\n", *((int*) ((void**) p0)[1]));
 
     // Append properties.
-    serialise_tui_properties(p0, p1, p4, p5, p6, p7, p8, p9, p10, p14);
+    serialise_tui_properties(p0, p1, p4, p5, p6, p7, p8, p9, p10);
 
-    fwprintf(stdout, L"Debug: Serialise tui part element content. destination count 1: %i\n", *((int*) ((void**) p0)[1]));
+    //?? fwprintf(stdout, L"Debug: Serialise tui part element content. destination count 1: %i\n", *((int*) ((void**) p0)[1]));
 
     //
     // Allocation
@@ -177,9 +176,9 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     // CAUTION! Hand over the local serisalised item s
     // and NOT the destination ansi escape code item p0.
     //
-    serialise_tui(s, p1, p2, p3, p4, p5, p8, p9, p10, p11, p12, p13, p14, p15, p16);
+    serialise_tui(s, p1, p2, p3, p4, p5, p8, p9, p10, p11, p12, p13, p14, p15);
 
-    fwprintf(stdout, L"Debug: Serialise tui part element content. sub sequence s count: %i\n", *((int*) s));
+    //?? fwprintf(stdout, L"Debug: Serialise tui part element content. sub sequence s count: %i\n", *((int*) ((void**) s)[1]));
 
     // Decrement tree level.
     calculate_integer_subtract(p13, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
@@ -204,12 +203,12 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     serialise_ansi_escape_code_character(p0, sd, sc);
 #endif
 
-    fwprintf(stdout, L"Debug: Serialise tui part element content. destination count 2: %i\n", *((int*) ((void**) p0)[1]));
+    //?? fwprintf(stdout, L"Debug: Serialise tui part element content. destination count 2: %i\n", *((int*) ((void**) p0)[1]));
 
     // Append newline.
     serialise_tui_newline(p0, p1, p12, p13);
 
-    fwprintf(stdout, L"Debug: Serialise tui part element content. destination count 3: %i\n", *((int*) ((void**) p0)[1]));
+    //?? fwprintf(stdout, L"Debug: Serialise tui part element content. destination count 3: %i\n", *((int*) ((void**) p0)[1]));
 
     //
     // Reset terminal attributes in order to have
@@ -223,12 +222,12 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     // after having painted a part here.
     //
 #ifdef WIN32
-    serialise_win32_console_reset(p1, p15);
+    serialise_win32_console_reset(p1, p14);
 #else
     serialise_ansi_escape_code_reset(p0);
 #endif
 
-    fwprintf(stdout, L"Debug: Serialise tui part element content. destination count 4: %i\n", *((int*) ((void**) p0)[1]));
+    //?? fwprintf(stdout, L"Debug: Serialise tui part element content. destination count 4: %i\n", *((int*) ((void**) p0)[1]));
 
     //
     // Deallocation
