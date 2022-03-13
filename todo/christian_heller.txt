@@ -13,10 +13,6 @@
 
 CONTINUE current work:
 
-        * Add new cybol property as second file descriptor for anonymous pipe and assign both, source and destination file descriptor
-
-        * Remove superfluous interrupt "handlers" array from everywhere, since handler is added to the interrupt pipe directly
-
         * Make cybol application "tui_control" work again
         * Remove property "encoding" with value "utf-8" from send and receive operations of all cybol applications, since the de-/serialiser of language "message/tui" does the conversion, as with http
         * Test service lifecycle cybol examples in directory "examples/communication/"
@@ -167,9 +163,8 @@ _________________
 Pipe (Anonymous Pipe)
 _____________________
 
+        * Add new cybol property as second file descriptor for anonymous pipeline (pipe) and assign both, source and destination file descriptor
         * Reflect how to exchange data between cyboi and another (previous or following) process via anonymous pipe
-        * Implement anonymous pipe
-        * Use anonymous pipe as irq i/o message queue
 
 WUI and Socket
 ______________

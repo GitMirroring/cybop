@@ -71,8 +71,6 @@ void deallocate_internal_memory(void* p0) {
 
         // The interrupt pipe.
         void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The interrupt handler list item.
-        void* ih = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The interrupt mutex.
         void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -102,8 +100,6 @@ void deallocate_internal_memory(void* p0) {
 
         // Get interrupt pipe from internal memory.
         copy_array_forward((void*) &ip, *i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PIPE_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        // Get interrupt handler list item from internal memory.
-        copy_array_forward((void*) &ih, *i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLERS_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         // Get interrupt mutex from internal memory.
         copy_array_forward((void*) &im, *i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
@@ -184,8 +180,6 @@ void deallocate_internal_memory(void* p0) {
         // CAUTION! The size is TWO, since the pipe contains two file descriptors.
         //
         deallocate_array((void*) &ip, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        // Deallocate interrupt handler list item.
-        deallocate_item((void*) &ih, (void*) POINTER_STATE_CYBOI_TYPE);
         // Deallocate interrupt mutex.
         deallocate_mutex((void*) &im);
 

@@ -40,12 +40,11 @@
  * @param p2 the server entry
  * @param p3 the channel
  * @param p4 the interrupt pipe write file descriptor
- * @param p5 the interrupt handlers item
- * @param p6 the handler (pointer reference)
- * @param p7 the interrupt mutex
- * @param p8 the enable thread exit flag
+ * @param p5 the handler (pointer reference)
+ * @param p6 the interrupt mutex
+ * @param p7 the enable thread exit flag
  */
-void enable_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void enable_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable loop.");
 
@@ -54,7 +53,7 @@ void enable_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_unequal((void*) &r, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        compare_integer_unequal((void*) &r, p7, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -68,7 +67,7 @@ void enable_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
             break;
         }
 
-        enable_request(p0, p1, p2, p3, p4, p5, p6, p7);
+        enable_request(p0, p1, p2, p3, p4, p5, p6);
     }
 }
 

@@ -48,12 +48,6 @@ void enable_xcb_event(void* p0, void* p1) {
 
             void** e = (void**) p0;
 
-            //
-            // CAUTION! Do NOT log messages within thread,
-            // in order to avoid race conditions and other conflicts.
-            //
-            // CAUTION! Do NOT log messages since there are too many.
-            //
             // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable xcb event.");
             fwprintf(stdout, L"Debug: Enable xcb event. c: %i\n", c);
 

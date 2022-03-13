@@ -29,49 +29,27 @@
 #include <stddef.h> // size_t
 #include <unistd.h> // read
 
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
-#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/accessor/getter/item_getter.c"
-#include "../../../../executor/porter/locker.c"
-#include "../../../../executor/porter/unlocker.c"
-#include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/type_size/integral_type_size.c"
+#include "../../../../variable/type_size/pointer_type_size.c"
 
 /**
  * Reads message from interrupt pipe.
  *
  * @param p0 the destination handler (pointer reference)
  * @param p1 the source interrupt pipe read file descriptor
- * @param p2 the source interrupt handlers item
- * @param p3 the interrupt mutex
  */
-void read_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
+void read_interrupt_pipe(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* f = (int*) p1;
 
-        //
-        // CAUTION! Do NOT log messages within thread,
-        // in order to avoid race conditions and other conflicts.
-        //
         // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read interrupt pipe.");
         fwprintf(stdout, L"Debug: Read interrupt pipe. f: %i\n", f);
         fwprintf(stdout, L"Debug: Read interrupt pipe. *f: %i\n", *f);
 
-        //?? // The pipe value.
-        //?? int v = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-        // The pipe value (pointer to the handle).
-        //?? void* v = *NULL_POINTER_STATE_CYBOI_MODEL;
         //
         // Cast size to correct type.
         //
@@ -82,7 +60,6 @@ void read_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
         // memory errors will occur and the valgrind memcheck tool report:
         // "Invalid read of size 8".
         //
-        //?? size_t s = (size_t) *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE;
         size_t s = (size_t) *POINTER_TYPE_SIZE;
 
         //
@@ -106,11 +83,10 @@ void read_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
         //   being read in a sequence here really do belong together,
         //   to the same interrupt.
         //
-        // If a mutex was set here, then the "read" function would
-        // block FOREVER, without any input thread having the chance
-        // to write to it, due to the LOCK.
+        // CAUTION! If a mutex was set here, then the "read" function
+        // would block FOREVER, without any input thread having
+        // the chance to write to it, due to the LOCK.
         //
-        //?? lock(p3);
 
         //
         // Read from interrupt pipe.
@@ -129,41 +105,16 @@ void read_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
         //
         // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
         //
-        //?? int n = read(*f, (void*) &v, s);
         int n = read(*f, p0, s);
 
-        fwprintf(stdout, L"Debug: Read interrupt pipe. n1: %i\n", n);
-        //?? fwprintf(stdout, L"Debug: Read interrupt pipe. v: %i\n", v);
+        fwprintf(stdout, L"Debug: Read interrupt pipe. n: %i\n", n);
         fwprintf(stdout, L"Debug: Read interrupt pipe. handler p0: %i\n", p0);
         fwprintf(stdout, L"Debug: Read interrupt pipe. handler *p0: %i\n", *((int*) p0));
-
-        //
-        // Get interrupt pipe handlers item data.
-        //
-        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-        // Inside the structure, arrays may have been reallocated,
-        // with elements pointing to different memory areas now.
-        //
-        // Alternative:
-        //
-        // Get interrupt pipe handlers item data.
-        // copy_array_forward((void*) &hd, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        // Get handler from interrupt pipe handlers item data.
-        // copy_array_forward(p0, hd, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-        //
-
-        // Get handler from source interrupt pipe handlers item.
-        //?? get_item(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        // Remove handler from source interrupt pipe handlers item.
-        //?? modify_item(p2, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
-
-        // Unlock mutex.
-        //?? unlock(p3);
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read interrupt pipe. The source interrupt pipe read file descriptor is null.");
-        fwprintf(stdout, L"Error: Could not read interrupt pipe. The source interrupt pipe read file descriptor is null. p2: %i\n", p2);
+        fwprintf(stdout, L"Error: Could not read interrupt pipe. The source interrupt pipe read file descriptor is null. p1: %i\n", p1);
     }
 }
 

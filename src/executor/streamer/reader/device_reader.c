@@ -68,8 +68,6 @@ void read_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The interrupt pipe.
     void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The interrupt handlers item.
-    void* ih = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The interrupt mutex.
     void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The handler.
@@ -157,8 +155,6 @@ void read_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
     // Get interrupt pipe from internal memory.
     copy_array_forward((void*) &ip, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PIPE_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    // Get interrupt handlers item from internal memory.
-    copy_array_forward((void*) &ih, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLERS_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get interrupt mutex from internal memory.
     copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
@@ -177,7 +173,7 @@ void read_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     //
 
     // Call endless loop waiting for data input.
-    read_loop(p0, p1, p2, fd, (void*) &fs, p3, (void*) &ipw, ih, im, (void*) &h, (void*) &cl, ex, p5, (void*) &ml, p6);
+    read_loop(p0, p1, p2, fd, (void*) &fs, p3, (void*) &ipw, im, (void*) &h, (void*) &cl, ex, p5, (void*) &ml, p6);
 }
 
 /* DEVICE_READER_SOURCE */

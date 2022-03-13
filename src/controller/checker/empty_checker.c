@@ -41,30 +41,21 @@
  * Handles the situation that no signal is available in the signal memory
  * and queries interrupt requests instead.
  *
- * @param p0 the internal memory data
- * @param p1 the signal memory item
- * @param p2 the interrupt request pipe
+ * @param p0 the signal memory item
+ * @param p1 the interrupt pipe
  */
-void check_empty(void* p0, void* p1, void* p2) {
+void check_empty(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check empty.");
     fwprintf(stdout, L"Debug: Check empty. p0: %i\n", p0);
 
     // The read interrupt request pipe file descriptor.
     int rd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The interrupt handlers.
-    void* ih = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The interrupt mutex.
-    void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The handler (cybol callback function, signal part representing the interrupt request handler).
+    // The handler (cybol callback function, signal event part representing the interrupt request handler).
     void* h = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get read interrupt request pipe file descriptor.
-    copy_array_forward((void*) &rd, p2, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-    // Get interrupt handlers from internal memory.
-    copy_array_forward((void*) &ih, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLERS_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    // Get interrupt mutex from internal memory.
-    copy_array_forward((void*) &im, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &rd, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     //
     // Read from interrupt pipe.
@@ -84,7 +75,7 @@ void check_empty(void* p0, void* p1, void* p2) {
     // Therefore, the corresponding SENDER or RECEIVER device identification
     // has to be set in cyboi.
     //
-    read_interrupt_pipe((void*) &h, (void*) &rd, ih, im);
+    read_interrupt_pipe((void*) &h, (void*) &rd);
 
     fwprintf(stdout, L"Debug: Check empty. rd: %i\n", rd);
     fwprintf(stdout, L"Debug: Check empty. h: %i\n", h);
@@ -113,7 +104,7 @@ void check_empty(void* p0, void* p1, void* p2) {
     // A handler (callback cybol operation) does not always have to be given,
     // e.g. in an asynchronous send operation, a feedback is not always wanted or needed.
     //
-    modify_item(p1, (void*) &h, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    modify_item(p0, (void*) &h, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 }
 
 /* EMPTY_CHECKER_SOURCE */

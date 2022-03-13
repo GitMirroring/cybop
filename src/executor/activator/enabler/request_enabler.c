@@ -50,11 +50,10 @@
  * @param p2 the server entry
  * @param p3 the channel
  * @param p4 the interrupt pipe write file descriptor
- * @param p5 the interrupt handlers item
- * @param p6 the handler (pointer reference)
- * @param p7 the interrupt mutex
+ * @param p5 the handler (pointer reference)
+ * @param p6 the interrupt mutex
  */
-void enable_request(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void enable_request(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable request.");
     fwprintf(stdout, L"Debug: Enable request. p3: %i\n", p3);
@@ -83,7 +82,7 @@ void enable_request(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         unlock(p1);
 
         // Inform interrupt pipe of main threaad.
-        write_interrupt_pipe(p4, p5, p6, p7);
+        write_interrupt_pipe(p4, p5, p6);
 
         //
         // CAUTION! The client entry does NOT have to be opened (and allocated) here.

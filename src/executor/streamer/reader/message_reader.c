@@ -43,21 +43,20 @@
  * @param p4 the message fragment size
  * @param p5 the destination mutex
  * @param p6 the interrupt pipe write file descriptor
- * @param p7 the interrupt handlers item
- * @param p8 the interrupt mutex
- * @param p9 the handler (pointer reference)
- * @param p10 the closer (pointer reference)
- * @param p11 the thread exit flag
- * @param p12 the language (protocol)
- * @param p13 the message length (possibly detected previously; should be initialised with a value < 0, e.g. with -1)
- * @param p14 the channel
- * @param p15 the loop break flag
+ * @param p7 the interrupt mutex
+ * @param p8 the handler (pointer reference)
+ * @param p9 the closer (pointer reference)
+ * @param p10 the thread exit flag
+ * @param p11 the language (protocol)
+ * @param p12 the message length (possibly detected previously; should be initialised with a value < 0, e.g. with -1)
+ * @param p13 the channel
+ * @param p14 the loop break flag
  */
-void read_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
+void read_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read message.");
-    fwprintf(stdout, L"Debug: Read message. p14: %i\n", p14);
-    fwprintf(stdout, L"Debug: Read message. *p14: %i\n", *((int*) p14));
+    fwprintf(stdout, L"Debug: Read message. p13: %i\n", p13);
+    fwprintf(stdout, L"Debug: Read message. *p13: %i\n", *((int*) p13));
 
     // The eof-or-close flag.
     int ec = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -65,10 +64,10 @@ void read_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Receive next message fragment.
-    read_fragment(p0, p1, p2, p3, p4, p5, (void*) &ec, p14);
+    read_fragment(p0, p1, p2, p3, p4, p5, (void*) &ec, p13);
 
     // Check for completeness by evaluating length prefix or end suffix.
-    read_completeness((void*) &f, p13, p0, p12, (void*) &ec, p14);
+    read_completeness((void*) &f, p12, p0, p11, (void*) &ec, p13);
 
     if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -84,7 +83,7 @@ void read_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         //
 
         // Inform system about completion of the read process.
-        read_completion(p15, p6, p7, p8, p9, p10, p11, p13, (void*) &ec);
+        read_completion(p14, p6, p7, p8, p9, p10, p12, (void*) &ec);
     }
 }
 

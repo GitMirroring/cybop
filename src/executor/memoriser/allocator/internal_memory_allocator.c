@@ -74,8 +74,6 @@ void allocate_internal_memory(void* p0) {
 
         // The interrupt pipe.
         void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The interrupt handler list item.
-        void* ih = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The interrupt mutex.
         void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -138,13 +136,6 @@ void allocate_internal_memory(void* p0) {
         // CAUTION! The size is TWO, since the pipe contains two file descriptors.
         //
         allocate_array((void*) &ip, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        //
-        // Allocate interrupt handler list item.
-        //
-        // CAUTION! Due to memory allocation handling, the size MUST NOT
-        // be negative or zero, but have at least a value of ONE.
-        //
-        allocate_item((void*) &ih, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
         // Allocate interrupt mutex.
         allocate_mutex((void*) &im);
 
@@ -217,8 +208,6 @@ void allocate_internal_memory(void* p0) {
 
         // Set interrupt pipe into internal memory.
         copy_array_forward(*i, (void*) &ip, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PIPE_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        // Set interrupt handler list item into internal memory.
-        copy_array_forward(*i, (void*) &ih, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLERS_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Set interrupt mutex into internal memory.
         copy_array_forward(*i, (void*) &im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 

@@ -24,6 +24,7 @@
         * Rename "thread_copier.c" into "thread_identification_copier.c"
         * Add dispatcher pipe closer, to be used in internal memory deallocator
         * Rename channel "pipeline" into "fifo" and add new channel "pipe"
+        * Remove superfluous interrupt handlers item, since handler as pointer is added to the interrupt pipe directly
 
 2022-03-12  Christian Heller  <christian.heller@cybop.org>
 

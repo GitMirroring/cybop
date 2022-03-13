@@ -29,40 +29,28 @@
 #include <stddef.h> // size_t
 #include <unistd.h> // write
 
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/porter/locker.c"
 #include "../../../../executor/porter/unlocker.c"
-#include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/type_size/integral_type_size.c"
+#include "../../../../variable/type_size/pointer_type_size.c"
 
 /**
  * Writes message to interrupt pipe.
  *
  * @param p0 the destination interrupt pipe write file descriptor
- * @param p1 the destination interrupt handlers item
- * @param p2 the source handler (pointer reference)
- * @param p3 the interrupt mutex
+ * @param p1 the source handler (pointer reference)
+ * @param p2 the interrupt mutex
  */
-void write_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
+void write_interrupt_pipe(void* p0, void* p1, void* p2) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* f = (int*) p0;
 
-        //
-        // CAUTION! Do NOT log messages within thread,
-        // in order to avoid race conditions and other conflicts.
-        //
         // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write interrupt pipe.");
-        fwprintf(stdout, L"Debug: Write interrupt pipe. f: %i\n", f);
-        fwprintf(stdout, L"Debug: Write interrupt pipe. *f: %i\n", *f);
+        fwprintf(stdout, L"Debug: Write interrupt pipe. handler p1: %i\n", p1);
+        fwprintf(stdout, L"Debug: Write interrupt pipe. handler *p1: %i\n", *((int*) p1));
 
         //
         // Cast size to correct type.
@@ -74,7 +62,6 @@ void write_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
         // memory errors will occur and the valgrind memcheck tool report:
         // "Invalid read of size 8".
         //
-        //?? size_t s = (size_t) *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE;
         size_t s = (size_t) *POINTER_TYPE_SIZE;
 
         //
@@ -83,18 +70,7 @@ void write_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
         // CAUTION! A mutex HAS TO BE set here, since MANY threads
         // may want to write to the interrupt pipe concurrently.
         //
-        lock(p3);
-
-        //
-        // Append handler to destination interrupt pipe handlers item.
-        //
-        // CAUTION! Do NOT use overwrite in order to avoid
-        // deletion of already existing data in the destination.
-        //
-        //?? modify_item(p1, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-
-        fwprintf(stdout, L"Debug: Write interrupt pipe. handler p2: %i\n", p2);
-        fwprintf(stdout, L"Debug: Write interrupt pipe. handler *p2: %i\n", *((int*) p2));
+        lock(p2);
 
         //
         // Write to interrupt pipe.
@@ -117,10 +93,10 @@ void write_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
         // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
         //
         //?? write(*f, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, s);
-        write(*f, p2, s);
+        write(*f, p1, s);
 
         // Unlock mutex.
-        unlock(p3);
+        unlock(p2);
 
     } else {
 

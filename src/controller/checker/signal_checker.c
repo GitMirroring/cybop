@@ -138,7 +138,7 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         // Query interrupt flags for requests.
         //
 
-        check_empty(p0, p3, p5);
+        check_empty(p3, p5);
     }
 
     //

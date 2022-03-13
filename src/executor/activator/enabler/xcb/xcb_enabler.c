@@ -79,8 +79,6 @@ void enable_xcb(void* p0) {
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The interrupt pipe.
     void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The interrupt handlers.
-    void* ih = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The interrupt mutex.
     void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -122,8 +120,6 @@ void enable_xcb(void* p0) {
 
             // Get interrupt pipe from internal memory.
             copy_array_forward((void*) &ip, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PIPE_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            // Get interrupt handlers from internal memory.
-            copy_array_forward((void*) &ih, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLERS_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
             // Get interrupt mutex from internal memory.
             copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
@@ -146,7 +142,7 @@ void enable_xcb(void* p0) {
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 // Hand over sensing handler to interrupt pipe of main threaad.
-                write_interrupt_pipe((void*) &ipw, ih, (void*) &h, im);
+                write_interrupt_pipe((void*) &ipw, (void*) &h, im);
 
             } else {
 
