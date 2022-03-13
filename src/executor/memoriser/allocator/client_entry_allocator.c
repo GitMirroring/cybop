@@ -36,7 +36,7 @@
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../executor/copier/thread_copier.c"
+#include "../../../executor/copier/thread_identification_copier.c"
 #include "../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../executor/memoriser/allocator/mutex_allocator.c"
@@ -207,7 +207,7 @@ void allocate_client_entry(void* p0, void* p1) {
         // Initialise language.
         copy_integer(l, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
         // Initialise input thread identification.
-        copy_thread(iti, (void*) &DEFAULT_THREAD_IDENTIFICATION);
+        copy_thread_identification(iti, (void*) &DEFAULT_THREAD_IDENTIFICATION);
         // Initialise input thread exit flag.
         copy_integer(ite, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 

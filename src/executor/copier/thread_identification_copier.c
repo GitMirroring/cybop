@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef THREAD_COPIER_SOURCE
-#define THREAD_COPIER_SOURCE
+#ifndef THREAD_IDENTIFICATION_COPIER_SOURCE
+#define THREAD_IDENTIFICATION_COPIER_SOURCE
 
 #include <threads.h> // thrd_t
 
@@ -38,7 +38,7 @@
  * @param p0 the destination
  * @param p1 the source
  */
-void copy_thread(void* p0, void* p1) {
+void copy_thread_identification(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -48,20 +48,23 @@ void copy_thread(void* p0, void* p1) {
 
             thrd_t* d = (thrd_t*) p0;
 
-            // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy thread.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy thread identification.");
+            fwprintf(stdout, L"Debug: Copy thread identification. p0: %i\n", p0);
 
             *d = *s;
 
         } else {
 
-            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy thread. The destination is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy thread identification. The destination is null.");
+            fwprintf(stdout, L"Error: Could not copy thread identification. The destination is null. p0: %i\n", p0);
         }
 
     } else {
 
-        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy thread. The source is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy thread identification. The source is null.");
+        fwprintf(stdout, L"Error: Could not copy thread identification. The source is null. p1: %i\n", p1);
     }
 }
 
-/* THREAD_COPIER_SOURCE */
+/* THREAD_IDENTIFICATION_COPIER_SOURCE */
 #endif

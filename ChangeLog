@@ -21,6 +21,7 @@
 2022-03-13  Christian Heller  <christian.heller@cybop.org>
 
         * Add memoriser mutex allocator and deallocator, to be used for internal memory/server/client entry
+        * Rename "thread_copier.c" into "thread_identification_copier.c"
 
 2022-03-12  Christian Heller  <christian.heller@cybop.org>
 
