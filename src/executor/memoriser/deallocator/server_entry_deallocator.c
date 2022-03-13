@@ -26,8 +26,6 @@
 #ifndef SERVER_ENTRY_DEALLOCATOR_SOURCE
 #define SERVER_ENTRY_DEALLOCATOR_SOURCE
 
-#include <threads.h> // mtx_t, mtx_destroy
-
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -38,6 +36,7 @@
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../../executor/memoriser/deallocator/mutex_deallocator.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -93,16 +92,6 @@ void deallocate_server_entry(void* p0) {
         copy_array_forward((void*) &te, *e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_INPUT_SERVER_STATE_CYBOI_NAME);
 
         //
-        // Finalisation
-        //
-
-        // Cast request input buffer mutex to correct type.
-        mtx_t* bmt = (mtx_t*) bm;
-
-        // Finalise request input buffer mutex.
-        mtx_destroy(bmt);
-
-        //
         // Deallocation
         //
 
@@ -126,14 +115,8 @@ void deallocate_server_entry(void* p0) {
         deallocate_array((void*) &c, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         // Deallocate request input buffer item.
         deallocate_item((void*) &bi, (void*) POINTER_STATE_CYBOI_TYPE);
-        //
         // Deallocate request input buffer mutex.
-        //
-        // CAUTION! The second argument "count" is NULL,
-        // since it is only needed for looping elements of type PART,
-        // in order to decrement the rubbish (garbage) collection counter.
-        //
-        deallocate_array((void*) &bm, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
+        deallocate_mutex((void*) &bm);
         //
         // Deallocate request input thread identification.
         //

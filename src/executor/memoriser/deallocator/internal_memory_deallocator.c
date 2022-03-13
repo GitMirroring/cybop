@@ -26,8 +26,6 @@
 #ifndef INTERNAL_MEMORY_DEALLOCATOR_SOURCE
 #define INTERNAL_MEMORY_DEALLOCATOR_SOURCE
 
-#include <threads.h> // mtx_t, mtx_destroy
-
 #include "../../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -43,6 +41,7 @@
 #include "../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../executor/memoriser/deallocator/input_output_entry_deallocator.c"
 #include "../../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../../executor/memoriser/deallocator/mutex_deallocator.c"
 #include "../../../executor/memoriser/deallocator/part_deallocator.c"
 #include "../../../logger/logger.c"
 
@@ -181,12 +180,6 @@ void deallocate_internal_memory(void* p0) {
         close_basic((void*) &rd);
         close_basic((void*) &wd);
 
-        // Cast interrupt mutex to correct type.
-        mtx_t* imt = (mtx_t*) im;
-
-        // Finalise interrupt mutex.
-        mtx_destroy(imt);
-
         //
         // Deallocate interrupt pipe.
         //
@@ -199,14 +192,8 @@ void deallocate_internal_memory(void* p0) {
         deallocate_array((void*) &ip, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         // Deallocate interrupt handler list item.
         deallocate_item((void*) &ih, (void*) POINTER_STATE_CYBOI_TYPE);
-        //
         // Deallocate interrupt mutex.
-        //
-        // CAUTION! The second argument "count" is NULL,
-        // since it is only needed for looping elements of type PART,
-        // in order to decrement the rubbish (garbage) collection counter.
-        //
-        deallocate_array((void*) &im, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
+        deallocate_mutex((void*) &im);
 
         //
         // Deallocate knowledge memory part.

@@ -26,8 +26,6 @@
 #ifndef CLIENT_ENTRY_DEALLOCATOR_SOURCE
 #define CLIENT_ENTRY_DEALLOCATOR_SOURCE
 
-#include <threads.h> // mtx_t, mtx_destroy
-
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -38,6 +36,7 @@
 #include "../../../executor/copier/array_copier.c"
 #include "../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../../executor/memoriser/deallocator/mutex_deallocator.c"
 #include "../../../logger/logger.c"
 #include "../../../mapper/channel_to_type_mapper.c"
 
@@ -134,20 +133,6 @@ void deallocate_client_entry(void* p0, void* p1) {
         copy_array_forward((void*) &obm, *e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_BUFFER_OUTPUT_CLIENT_STATE_CYBOI_NAME);
 
         //
-        // Finalisation
-        //
-
-        // Cast input buffer mutex to correct type.
-        mtx_t* ibmt = (mtx_t*) ibm;
-        // Cast output buffer mutex to correct type.
-        mtx_t* obmt = (mtx_t*) obm;
-
-        // Finalise input buffer mutex.
-        mtx_destroy(ibmt);
-        // Finalise output buffer mutex.
-        mtx_destroy(obmt);
-
-        //
         // Deallocation
         //
 
@@ -196,14 +181,8 @@ void deallocate_client_entry(void* p0, void* p1) {
         deallocate_array((void*) &l, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         // Deallocate input buffer item.
         deallocate_item((void*) &ibi, (void*) &t);
-        //
         // Deallocate input buffer mutex.
-        //
-        // CAUTION! The second argument "count" is NULL,
-        // since it is only needed for looping elements of type PART,
-        // in order to decrement the rubbish (garbage) collection counter.
-        //
-        deallocate_array((void*) &ibm, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
+        deallocate_mutex((void*) &ibm);
         //
         // Deallocate input thread identification.
         //
@@ -222,14 +201,8 @@ void deallocate_client_entry(void* p0, void* p1) {
         deallocate_array((void*) &ite, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         // Deallocate output buffer item.
         deallocate_item((void*) &obi, (void*) &t);
-        //
         // Deallocate output buffer mutex.
-        //
-        // CAUTION! The second argument "count" is NULL,
-        // since it is only needed for looping elements of type PART,
-        // in order to decrement the rubbish (garbage) collection counter.
-        //
-        deallocate_array((void*) &obm, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
+        deallocate_mutex((void*) &obm);
 
         //
         // Deallocate client entry.

@@ -26,8 +26,6 @@
 #ifndef INTERNAL_MEMORY_ALLOCATOR_SOURCE
 #define INTERNAL_MEMORY_ALLOCATOR_SOURCE
 
-#include <threads.h> // mtx_t, mtx_init, thrd_error
-
 #include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -44,10 +42,10 @@
 #include "../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../executor/memoriser/allocator/input_output_entry_allocator.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../executor/memoriser/allocator/mutex_allocator.c"
 #include "../../../executor/memoriser/allocator/part_allocator.c"
 #include "../../../executor/modifier/part_modifier.c"
 #include "../../../logger/logger.c"
-#include "../../../variable/symbolic_name/mutex_thread_symbolic_name.c"
 
 /**
  * Allocates the internal memory.
@@ -147,13 +145,8 @@ void allocate_internal_memory(void* p0) {
         // be negative or zero, but have at least a value of ONE.
         //
         allocate_item((void*) &ih, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
-        //
         // Allocate interrupt mutex.
-        //
-        // CAUTION! Due to memory allocation handling, the size MUST NOT
-        // be negative or zero, but have at least a value of ONE.
-        //
-        allocate_array((void*) &im, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
+        allocate_mutex((void*) &im);
 
         // Allocate display input output entry.
         allocate_input_output_entry((void*) &iod);
@@ -210,19 +203,6 @@ void allocate_internal_memory(void* p0) {
 
         // Initialise interrupt pipe.
         open_pipe(ip);
-
-        // Cast interrupt mutex to correct type.
-        mtx_t* imt = (mtx_t*) im;
-
-        // Initialise interrupt mutex.
-        int r = mtx_init(imt, *PLAIN_MUTEX_TYPE_THREAD_SYMBOLIC_NAME);
-
-        // Evaluate interrupt mutex object creation result.
-        if (r == thrd_error) {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not manage. The interrupt mutex object creation failed.");
-            fwprintf(stdout, L"Error: Could not manage. The interrupt mutex object creation failed. r: %i\n", r);
-        }
 
         //
         // Storage

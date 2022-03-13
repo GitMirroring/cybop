@@ -26,8 +26,6 @@
 #ifndef CLIENT_ENTRY_ALLOCATOR_SOURCE
 #define CLIENT_ENTRY_ALLOCATOR_SOURCE
 
-#include <threads.h> // mtx_t, mtx_init, thrd_error
-
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
@@ -41,9 +39,9 @@
 #include "../../../executor/copier/thread_copier.c"
 #include "../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../executor/memoriser/allocator/mutex_allocator.c"
 #include "../../../logger/logger.c"
 #include "../../../mapper/channel_to_type_mapper.c"
-#include "../../../variable/symbolic_name/mutex_thread_symbolic_name.c"
 
 /**
  * Allocates the client entry.
@@ -168,13 +166,8 @@ void allocate_client_entry(void* p0, void* p1) {
         // be negative or zero, but have at least a value of ONE.
         //
         allocate_item((void*) &ibi, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) &t);
-        //
         // Allocate input buffer mutex.
-        //
-        // CAUTION! Due to memory allocation handling, the size MUST NOT
-        // be negative or zero, but have at least a value of ONE.
-        //
-        allocate_array((void*) &ibm, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
+        allocate_mutex((void*) &ibm);
         //
         // Allocate input thread identification.
         //
@@ -196,22 +189,12 @@ void allocate_client_entry(void* p0, void* p1) {
         // be negative or zero, but have at least a value of ONE.
         //
         allocate_item((void*) &obi, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) &t);
-        //
         // Allocate output buffer mutex.
-        //
-        // CAUTION! Due to memory allocation handling, the size MUST NOT
-        // be negative or zero, but have at least a value of ONE.
-        //
-        allocate_array((void*) &obm, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
+        allocate_mutex((void*) &obm);
 
         //
         // Initialisation
         //
-
-        // Cast input buffer mutex to correct type.
-        mtx_t* ibmt = (mtx_t*) ibm;
-        // Cast output buffer mutex to correct type.
-        mtx_t* obmt = (mtx_t*) obm;
 
         // Initialise client device identification.
         copy_integer(id, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
@@ -223,27 +206,10 @@ void allocate_client_entry(void* p0, void* p1) {
         copy_integer(p, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
         // Initialise language.
         copy_integer(l, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
-        // Initialise input buffer mutex.
-        int ibmr = mtx_init(ibmt, *PLAIN_MUTEX_TYPE_THREAD_SYMBOLIC_NAME);
         // Initialise input thread identification.
         copy_thread(iti, (void*) &DEFAULT_THREAD_IDENTIFICATION);
         // Initialise input thread exit flag.
         copy_integer(ite, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-        // Initialise output buffer mutex.
-        int obmr = mtx_init(obmt, *PLAIN_MUTEX_TYPE_THREAD_SYMBOLIC_NAME);
-
-        // Evaluate input buffer mutex object creation result.
-        if (ibmr == thrd_error) {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate client entry. The input buffer mutex object creation failed.");
-            fwprintf(stdout, L"Error: Could not allocate client entry. The input buffer mutex object creation failed. ibmr: %i\n", ibmr);
-        }
-        // Evaluate output buffer mutex object creation result.
-        if (obmr == thrd_error) {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate client entry. The output buffer mutex object creation failed.");
-            fwprintf(stdout, L"Error: Could not allocate client entry. The output buffer mutex object creation failed. obmr: %i\n", obmr);
-        }
 
         //
         // Storage

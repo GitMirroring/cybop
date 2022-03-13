@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-03-13  Christian Heller  <christian.heller@cybop.org>
+
+        * Add memoriser mutex allocator and deallocator, to be used for internal memory/server/client entry
+
 2022-03-12  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt ansi escape code serialiser to using "char" instead of "wchar_t", since multibyte characters are sent via "write" to terminal

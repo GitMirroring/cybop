@@ -26,8 +26,6 @@
 #ifndef SERVER_ENTRY_ALLOCATOR_SOURCE
 #define SERVER_ENTRY_ALLOCATOR_SOURCE
 
-#include <threads.h> // mtx_t, mtx_init, thrd_error
-
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
@@ -41,8 +39,8 @@
 #include "../../../executor/copier/thread_copier.c"
 #include "../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../executor/memoriser/allocator/mutex_allocator.c"
 #include "../../../logger/logger.c"
-#include "../../../variable/symbolic_name/mutex_thread_symbolic_name.c"
 
 /**
  * Allocates the server entry.
@@ -117,13 +115,8 @@ void allocate_server_entry(void* p0) {
         // be negative or zero, but have at least a value of ONE.
         //
         allocate_item((void*) &bi, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
-        //
         // Allocate request input buffer mutex.
-        //
-        // CAUTION! Due to memory allocation handling, the size MUST NOT
-        // be negative or zero, but have at least a value of ONE.
-        //
-        allocate_array((void*) &bm, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_THREAD_STATE_CYBOI_TYPE);
+        allocate_mutex((void*) &bm);
         //
         // Allocate request input thread identification.
         //
@@ -143,26 +136,14 @@ void allocate_server_entry(void* p0) {
         // Initialisation
         //
 
-        // Cast request input buffer mutex to correct type.
-        mtx_t* bmt = (mtx_t*) bm;
-
         // Initialise service identification (port).
         copy_integer(id, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
         // Initialise channel.
         copy_integer(c, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
-        // Initialise request input buffer mutex.
-        int bmr = mtx_init(bmt, *PLAIN_MUTEX_TYPE_THREAD_SYMBOLIC_NAME);
         // Initialise request input thread identification.
         copy_thread(ti, (void*) &DEFAULT_THREAD_IDENTIFICATION);
         // Initialise request input thread exit flag.
         copy_integer(te, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        // Evaluate request input buffer mutex object creation result.
-        if (bmr == thrd_error) {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not allocate server entry. The request input buffer mutex object creation failed.");
-            fwprintf(stdout, L"Error: Could not allocate server entry. The request input buffer mutex object creation failed. bmr: %i\n", bmr);
-        }
 
         //
         // Storage

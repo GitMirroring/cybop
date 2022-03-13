@@ -13,15 +13,29 @@
 
 CONTINUE current work:
 
-        * Make cybol application "tui_control" work again
-
-        * Remove property "encoding" with value "utf-8" from send and receive operations of all cybol applications, since the de-/serialiser of language "message/tui" does the conversion, as with http
-
+        * Add memoriser thread identification allocator and deallocator, since posix uses an integer but win32 uses a struct
+        * Add dispatcher pipe opener and closer, since both of its file descriptors have to be closed
         * Remove superfluous interrupt "handlers" array from everywhere, since handler is added to the interrupt pipe directly
-        * Add memoriser mutex allocator and deallocator, to be used in manager, client entry open and close, server entry startup and shutdown
+
+        * Make cybol application "tui_control" work again
+        * Remove property "encoding" with value "utf-8" from send and receive operations of all cybol applications, since the de-/serialiser of language "message/tui" does the conversion, as with http
         * Test service lifecycle cybol examples in directory "examples/communication/"
 
         * Deliver compilable and runnable source code for release CYBOP 0.22.0
+
+        Problem:
+        * What if many bytes arrive from the terminal's input buffer, since the user holds/repeats a key for longer time ??
+        Solutions:
+        * Replace "decode_utf_8_append" with standard modify append in ansi escape code deserialiser
+            NO unicode conversion, since the length of characters is unclear
+            the ansi escape sequences are also added as single char, therefore do the same with standard characters
+        OR:
+        * Detect following bytes as delimiter or previous one, in order to get the correct length
+        OR:
+        * Detect following bytes on bit level with utf-8 bit pattern 1ßßß0000 for following bytes etc.
+
+        * Adapt includes of tui de-/serialiser
+        * Adapt includes of ansi escape code de-/serialiser
 
         * Rename and distinguish between:
 
