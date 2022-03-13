@@ -26,13 +26,19 @@
 #ifndef CONTENT_ELEMENT_PART_TUI_SERIALISER_SOURCE
 #define CONTENT_ELEMENT_PART_TUI_SERIALISER_SOURCE
 
-#include "../../../../constant/model/ansi_escape_code/ansi_escape_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/calculator/integer/add_integer_calculator.c"
+#include "../../../../executor/calculator/integer/subtract_integer_calculator.c"
+#include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../executor/representer/serialiser/tui/clear_tui_serialiser.c"
 #include "../../../../executor/representer/serialiser/tui/newline_tui_serialiser.c"
 #include "../../../../executor/representer/serialiser/tui/properties_tui_serialiser.c"
@@ -55,7 +61,7 @@
 #endif
 
 //
-// Forward declarations.
+// Forward declarations
 //
 
 void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14);
@@ -136,12 +142,12 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     // Clear terminal screen.
     serialise_tui_clear(p0, p1, p11, p13);
 
-    fwprintf(stdout, L"Debug: Serialise tui part element content. test 0: %i\n", p16);
+    fwprintf(stdout, L"Debug: Serialise tui part element content. destination count 0: %i\n", *((int*) ((void**) p0)[1]));
 
     // Append properties.
     serialise_tui_properties(p0, p1, p4, p5, p6, p7, p8, p9, p10, p14);
 
-    fwprintf(stdout, L"Debug: Serialise tui part element content. test 1: %i\n", p16);
+    fwprintf(stdout, L"Debug: Serialise tui part element content. destination count 1: %i\n", *((int*) ((void**) p0)[1]));
 
     //
     // Allocation
@@ -173,6 +179,8 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     //
     serialise_tui(s, p1, p2, p3, p4, p5, p8, p9, p10, p11, p12, p13, p14, p15, p16);
 
+    fwprintf(stdout, L"Debug: Serialise tui part element content. sub sequence s count: %i\n", *((int*) s));
+
     // Decrement tree level.
     calculate_integer_subtract(p13, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
@@ -196,8 +204,12 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     serialise_ansi_escape_code_character(p0, sd, sc);
 #endif
 
+    fwprintf(stdout, L"Debug: Serialise tui part element content. destination count 2: %i\n", *((int*) ((void**) p0)[1]));
+
     // Append newline.
     serialise_tui_newline(p0, p1, p12, p13);
+
+    fwprintf(stdout, L"Debug: Serialise tui part element content. destination count 3: %i\n", *((int*) ((void**) p0)[1]));
 
     //
     // Reset terminal attributes in order to have
@@ -215,6 +227,8 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
 #else
     serialise_ansi_escape_code_reset(p0);
 #endif
+
+    fwprintf(stdout, L"Debug: Serialise tui part element content. destination count 4: %i\n", *((int*) ((void**) p0)[1]));
 
     //
     // Deallocation

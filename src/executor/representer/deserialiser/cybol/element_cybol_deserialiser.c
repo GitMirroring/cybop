@@ -36,7 +36,7 @@
 #include "../../../../executor/representer/deserialiser/xml/xml_deserialiser.c"
 
 //
-// Forward declarations.
+// Forward declarations
 //
 
 void deserialise_cybol_content(void* p0, void* p1, void* p2, void* p3, void* p4);

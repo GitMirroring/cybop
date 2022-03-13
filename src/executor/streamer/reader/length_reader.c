@@ -116,13 +116,13 @@ void read_length(void* p0, void* p1, void* p2, void* p3) {
     } else {
 
         //
-        // The message length was NOT detected as prefix within the message before.
-        // Therefore, parse the message and SEARCH for either a PREFIX message length
-        // or SUFFIX sequence marking the end of the message.
+        // The message length was NOT detected as prefix within the message
+        // before. Therefore, parse the message and SEARCH for either a
+        // PREFIX message length or SUFFIX sequence marking the end of the message.
         //
         // Examples:
-        // - http has a "Content-Length:" header entry as prefix
-        // - some binary protocols have a crlf termination
+        // - prefix: http has a "Content-Length:" header entry
+        // - suffix: some binary protocols have a crlf termination
         //
 
         deserialise_message_length(p1, bd, bc, p3);

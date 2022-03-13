@@ -36,7 +36,7 @@
 // #include "../logger/logger.c"
 
 //
-// Forward declarations.
+// Forward declarations
 //
 
 void log_message_terminated(void* p0, void* p1);

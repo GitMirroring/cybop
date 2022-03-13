@@ -35,7 +35,7 @@
 #include "../../../logger/logger.c"
 
 //
-// Forward declarations.
+// Forward declarations
 //
 
 void deserialise_cybol_integer_vector(void* p0, void* p1, void* p2);

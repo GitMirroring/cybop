@@ -94,7 +94,7 @@ void read_buffer(void* p0, void* p1, void* p2, void* p3) {
 
     if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        fwprintf(stdout, L"Debug: Read buffer. complete flag ml: %i\n", ml);
+        fwprintf(stdout, L"Debug: Read buffer. message length ml: %i\n", ml);
 
         if (ml >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

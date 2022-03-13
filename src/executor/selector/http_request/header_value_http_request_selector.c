@@ -37,7 +37,7 @@
 #include "../../../variable/type_size/integral_type_size.c"
 
 //
-// Forward declarations.
+// Forward declarations
 //
 
 void deserialise_http_request_header_argument(void* p0, void* p1, void* p2, void* p3);

@@ -99,7 +99,7 @@
 //
 
 //
-// Forward declarations.
+// Forward declarations
 //
 
 void calculate_integer_add(void* p0, void* p1);

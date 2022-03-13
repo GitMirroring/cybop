@@ -40,7 +40,7 @@
 //
 
 //
-// Forward declarations.
+// Forward declarations
 //
 
 void compare_integer_equal(void* p0, void* p1, void* p2);

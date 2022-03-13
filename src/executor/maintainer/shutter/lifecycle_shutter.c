@@ -43,7 +43,7 @@
 #include "../../../logger/logger.c"
 
 //
-// Forward declarations.
+// Forward declarations
 //
 
 void shutdown_list(void* p0, void* p1, void* p2, void* p3);

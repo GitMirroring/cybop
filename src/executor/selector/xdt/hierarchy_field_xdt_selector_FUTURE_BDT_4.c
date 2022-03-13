@@ -40,7 +40,7 @@
 #include "../../../logger/logger.c"
 
 //
-// Forward declarations.
+// Forward declarations
 //
 
 void deserialise_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);

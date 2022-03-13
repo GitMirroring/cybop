@@ -40,7 +40,7 @@
 #include "../../../logger/logger.c"
 
 //
-// Forward declarations.
+// Forward declarations
 //
 
 void deserialise_cybol_boolean_vector(void* p0, void* p1, void* p2);

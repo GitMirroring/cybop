@@ -38,7 +38,7 @@
 #include "../../../../logger/logger.c"
 
 //
-// Forward declarations.
+// Forward declarations
 //
 
 void deserialise_http_uri_query_parametre(void* p0, void* p1, void* p2, void* p3);
