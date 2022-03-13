@@ -53,7 +53,7 @@
  * - style (optional): the communication style, e.g. stream or datagram
  * - protocol (optional): the protocol, e.g. tcp or udp
  * - device (optional):
- *      = filename for channel "file" or "serialport" or "terminal" or "pipeline", e.g. /path/to/file.txt or /dev/ttyS0
+ *      = filename for channel "file" or "serialport" or "terminal" or "fifo", e.g. /path/to/file.txt or /dev/ttyS0
  *      = filename for channel "socket" with namespace "local" (unix domain socket), e.g. localbuffer.socket
  *      = host address for channel "socket" with namespace "ipv4" or "ipv6", e.g. localhost or 127.0.0.1
  *      = null for channel "display", since a client window does not need it (therefore it is OPTIONAL)

@@ -83,7 +83,7 @@ void allocate_internal_memory(void* p0) {
         void* iod = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The file input output entry.
         void* iof = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The pipeline input output entry.
+        // The fifo pipeline input output entry.
         void* iop = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The serial input output entry.
         void* ios = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -152,7 +152,7 @@ void allocate_internal_memory(void* p0) {
         allocate_input_output_entry((void*) &iod);
         // Allocate file input output entry.
         allocate_input_output_entry((void*) &iof);
-        // Allocate pipeline input output entry.
+        // Allocate fifo pipeline input output entry.
         allocate_input_output_entry((void*) &iop);
         // Allocate serial input output entry.
         allocate_input_output_entry((void*) &ios);
@@ -226,8 +226,8 @@ void allocate_internal_memory(void* p0) {
         copy_array_forward(*i, (void*) &iod, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DISPLAY_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Set file input output entry into internal memory.
         copy_array_forward(*i, (void*) &iof, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FILE_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        // Set pipeline input output entry into internal memory.
-        copy_array_forward(*i, (void*) &iop, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PIPELINE_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        // Set fifo pipeline input output entry into internal memory.
+        copy_array_forward(*i, (void*) &iop, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FIFO_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Set serial input output entry into internal memory.
         copy_array_forward(*i, (void*) &ios, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SERIAL_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Set socket input output entry into internal memory.

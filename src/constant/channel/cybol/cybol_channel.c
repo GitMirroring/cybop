@@ -30,12 +30,6 @@
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-//
-// There are TWO kinds of a pipeline:
-// - anonymous: called "pipe" in glibc
-// - named: called "fifo" in glibc
-//
-
 /** The clock cybol channel. */
 static wchar_t* CLOCK_CYBOL_CHANNEL = L"clock";
 static int* CLOCK_CYBOL_CHANNEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -43,6 +37,19 @@ static int* CLOCK_CYBOL_CHANNEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY
 /** The display cybol channel. */
 static wchar_t* DISPLAY_CYBOL_CHANNEL = L"display";
 static int* DISPLAY_CYBOL_CHANNEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The fifo cybol channel.
+ *
+ * There are TWO kinds of a pipeline:
+ * - anonymous: called "pipe" in glibc
+ * - named: called "fifo" in glibc
+ *
+ * The abbreviation FIFO stands for first-in-first-out,
+ * following the principle of a data queue.
+ */
+static wchar_t* FIFO_CYBOL_CHANNEL = L"fifo";
+static int* FIFO_CYBOL_CHANNEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The file cybol channel. */
 static wchar_t* FILE_CYBOL_CHANNEL = L"file";
@@ -52,9 +59,15 @@ static int* FILE_CYBOL_CHANNEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 static wchar_t* INLINE_CYBOL_CHANNEL = L"inline";
 static int* INLINE_CYBOL_CHANNEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The named pipeline (fifo) cybol channel. */
-static wchar_t* PIPELINE_CYBOL_CHANNEL = L"pipeline";
-static int* PIPELINE_CYBOL_CHANNEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/**
+ * The pipe cybol channel.
+ *
+ * There are TWO kinds of a pipeline:
+ * - anonymous: called "pipe" in glibc
+ * - named: called "fifo" in glibc
+ */
+static wchar_t* PIPE_CYBOL_CHANNEL = L"pipe";
+static int* PIPE_CYBOL_CHANNEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The randomiser cybol channel. */
 static wchar_t* RANDOMISER_CYBOL_CHANNEL = L"randomiser";

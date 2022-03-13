@@ -59,21 +59,21 @@ void map_channel_to_internal_memory(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) FILE_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p1, (void*) FIFO_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) FILE_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_integer(p0, (void*) FIFO_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) PIPELINE_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p1, (void*) FILE_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) PIPELINE_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_integer(p0, (void*) FILE_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 

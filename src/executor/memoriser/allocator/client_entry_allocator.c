@@ -93,7 +93,7 @@ void allocate_client_entry(void* p0, void* p1) {
         // CAUTION! The buffer allocation is CHANNEL-SPECIFIC,
         // since buffer types differ between devices.
         //
-        // - CHARACTER buffer for file, serial port, terminal, named pipeline, socket
+        // - CHARACTER buffer for file, serial port, terminal, fifo, socket
         // - POINTER buffer for display events
         //
         int t = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;

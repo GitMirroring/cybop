@@ -13,9 +13,7 @@
 
 CONTINUE current work:
 
-        * Rename channel "pipeline" into "fifo"
-        * Add new channel "pipe"
-        * Add new cybol property as second file descriptor for anonymous pipe and assign both file descriptors (source and destination) inside
+        * Add new cybol property as second file descriptor for anonymous pipe and assign both, source and destination file descriptor
 
         * Remove superfluous interrupt "handlers" array from everywhere, since handler is added to the interrupt pipe directly
 

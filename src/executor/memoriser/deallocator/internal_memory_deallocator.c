@@ -80,7 +80,7 @@ void deallocate_internal_memory(void* p0) {
         void* iod = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The file input output entry.
         void* iof = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The pipeline input output entry.
+        // The fifo pipeline input output entry.
         void* iop = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The serial input output entry.
         void* ios = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -111,8 +111,8 @@ void deallocate_internal_memory(void* p0) {
         copy_array_forward((void*) &iod, *i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DISPLAY_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         // Get file input output entry from internal memory.
         copy_array_forward((void*) &iof, *i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FILE_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        // Get pipeline input output entry from internal memory.
-        copy_array_forward((void*) &iop, *i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PIPELINE_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+        // Get fifo pipeline input output entry from internal memory.
+        copy_array_forward((void*) &iop, *i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FIFO_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         // Get serial input output entry from internal memory.
         copy_array_forward((void*) &ios, *i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SERIAL_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         // Get socket input output entry from internal memory.
@@ -147,8 +147,8 @@ void deallocate_internal_memory(void* p0) {
         deallocate_input_output_entry((void*) &iod, (void*) DISPLAY_CYBOI_CHANNEL, *i);
         // Deallocate file input output entry.
         deallocate_input_output_entry((void*) &iof, (void*) FILE_CYBOI_CHANNEL, *i);
-        // Deallocate pipeline input output entry.
-        deallocate_input_output_entry((void*) &iop, (void*) PIPELINE_CYBOI_CHANNEL, *i);
+        // Deallocate fifo pipeline input output entry.
+        deallocate_input_output_entry((void*) &iop, (void*) FIFO_CYBOI_CHANNEL, *i);
         // Deallocate serial input output entry.
         deallocate_input_output_entry((void*) &ios, (void*) SERIAL_CYBOI_CHANNEL, *i);
         // Deallocate socket input output entry.

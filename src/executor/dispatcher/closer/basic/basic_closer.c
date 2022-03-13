@@ -70,7 +70,7 @@ void close_basic(void* p0) {
         // - The file descriptor is deallocated.
         // - Any record locks owned by the process on the file are unlocked.
         // - When all file descriptors associated with a pipe or fifo
-        //   have been closed, any unread data is closeed.
+        //   have been closed, any unread data is closed.
         //
         // If there is still data waiting to be transmitted over the
         // connexion, normally close tries to complete this transmission.

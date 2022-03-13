@@ -45,7 +45,7 @@
  * CAUTION! Do NOT rename this function to "receive",
  * as that name is already used by low-level socket functionality.
  *
- * Use the "receive" filter pipeline in the following order:
+ * Use the "receive" filter processing pipeline in the following order:
  * - read: mandatory, in order to have some data
  * - extract: optional, if compression is given
  * - decode: optional, if encoding is given

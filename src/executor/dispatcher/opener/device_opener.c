@@ -75,25 +75,26 @@ void open_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p11, (void*) FIFO_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // CAUTION! This is a NAMED PIPELINE, also called FIFO.
+            // It is NOT an anonymous pipeline (pipe).
+            //
+
+            open_fifo(p0, p2, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         compare_integer_equal((void*) &r, p11, (void*) FILE_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             open_file(p0, p2, p3);
-        }
-    }
-
-    //
-    // CAUTION! This is a NAMED PIPELINE, also called FIFO.
-    // It is NOT an anonymous pipeline (pipe).
-    //
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p11, (void*) PIPELINE_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            open_fifo(p0, p2, p3);
         }
     }
 
