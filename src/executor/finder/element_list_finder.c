@@ -47,8 +47,8 @@
 void find_list_element(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find list element.");
-    fwprintf(stdout, L"Debug: Find list element. p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Find list element. *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Find list element. p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Find list element. *p2: %i\n", *((int*) p2));
 
     // The entry element.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;

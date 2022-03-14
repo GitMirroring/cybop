@@ -56,7 +56,7 @@ void deallocate_internal_memory(void* p0) {
         void** i = (void**) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate internal memory.");
-        fwprintf(stdout, L"Debug: Deallocate internal memory. p0: %i\n", p0);
+        //?? fwprintf(stdout, L"Debug: Deallocate internal memory. p0: %i\n", p0);
 
         //
         // Declaration

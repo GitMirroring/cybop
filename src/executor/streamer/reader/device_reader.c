@@ -54,7 +54,7 @@
 void read_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read device.");
-    fwprintf(stdout, L"Debug: Read device. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Read device. p0: %i\n", p0);
 
     //
     // Declaration.
@@ -66,13 +66,15 @@ void read_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The internal memory.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+
     // The interrupt pipe.
     void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The interrupt mutex.
     void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The handler.
+
+    // The sensor handler.
     void* h = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The closer.
+    // The closer handler.
     void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The sense thread exit flag.
     void* ex = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -158,10 +160,10 @@ void read_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // Get interrupt mutex from internal memory.
     copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-    // Get handler from client entry.
-    copy_array_forward((void*) &h, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLER_COMMUNICATION_CLIENT_STATE_CYBOI_NAME);
-    // Get closer from client entry.
-    copy_array_forward((void*) &cl, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CLOSER_COMMUNICATION_CLIENT_STATE_CYBOI_NAME);
+    // Get sensor handler from client entry.
+    copy_array_forward((void*) &h, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SENSOR_HANDLER_INPUT_CLIENT_STATE_CYBOI_NAME);
+    // Get closer handler from client entry.
+    copy_array_forward((void*) &cl, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CLOSER_HANDLER_INPUT_CLIENT_STATE_CYBOI_NAME);
     // Get thread exit flag from client entry.
     copy_array_forward((void*) &ex, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EXIT_THREAD_INPUT_CLIENT_STATE_CYBOI_NAME);
 

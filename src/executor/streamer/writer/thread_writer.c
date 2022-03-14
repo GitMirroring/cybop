@@ -26,17 +26,13 @@
 #ifndef THREAD_WRITER_SOURCE
 #define THREAD_WRITER_SOURCE
 
+#include <threads.h> // thrd_t
+
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/client_state_cyboi_name.c"
-#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/copier/array_copier.c"
 #include "../../../executor/streamer/writer/function_writer.c"
 #include "../../../executor/threader/spinner.c"
 #include "../../../logger/logger.c"
+#include "../../../variable/thread_identification.c"
 
 /**
  * Prepares the write thread.
@@ -45,13 +41,20 @@
  */
 void write_thread(void* p0) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write thread.");
-    fwprintf(stdout, L"Debug: Write thread. channel p0: %i\n", p0);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write thread.");
+    fwprintf(stdout, L"Debug: Write thread. client entry p0: %i\n", p0);
 
     // The thread identification.
-    int t = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    thrd_t t = DEFAULT_THREAD_IDENTIFICATION;
     // The thread function.
     void* f = (void*) &write_function;
+
+    //
+    // CAUTION! Do NOT get thread identification from client entry.
+    // Contrarily to the input, the output thread gets exited AUTOMATICALLY
+    // if all data has been written. Therefore, neither the thread
+    // identification, nor an exit flag have to be stored in client entry.
+    //
 
     // Invoke write function WITHIN a new thread.
     spin((void*) &t, f, p0);

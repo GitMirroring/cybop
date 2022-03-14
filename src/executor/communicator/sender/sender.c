@@ -66,11 +66,10 @@
  * @param p17 the channel
  * @param p18 the server flag
  * @param p19 the port
- * @param p20 the destination device identification item (pointer reference)
- * @param p21 the channel (pointer reference)
- * @param p22 the asynchronicity flag
+ * @param p20 the output writer handler (pointer reference)
+ * @param p21 the asynchronicity flag
  */
-void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22) {
+void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send data.");
     fwprintf(stdout, L"Information: Send data. channel p17: %i\n", p17);
@@ -161,7 +160,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // type "char" or type "wchar_t", which is IRRELEVANT.
     // This function knows how to handle it, depending on the given language.
     //
-    send_serialise((void*) &ad, (void*) &ac, b, p6, p7, p21, p8, p9, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p10, p11, p1, p2, p3, p4, p12, p13, p14, p15, p16, p0);
+    send_serialise((void*) &ad, (void*) &ac, b, p6, p7, p17, p8, p9, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p10, p11, p1, p2, p3, p4, p12, p13, p14, p15, p16, p0);
 
     //?? fwprintf(stdout, L"Debug: send data serialise *ac: %i\n", *((int*) ac));
     //?? fwprintf(stdout, L"Debug: send data serialise ad: %s\n", (char*) ad);
@@ -184,7 +183,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // CAUTION! Hand over message as POINTER REFERENCE, not just pointer.
     // The pointer is used inside to count sent data due to socket buffer limit.
     //
-    send_write(p0, ad, ac, p5, p16, p17, p18, p19, p20, p21, p22);
+    send_write(p0, ad, ac, p5, p16, p17, p18, p19, p20, p21);
 
     // Deallocate serialised wide character item.
     deallocate_item((void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

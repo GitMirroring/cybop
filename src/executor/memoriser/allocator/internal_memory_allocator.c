@@ -59,7 +59,7 @@ void allocate_internal_memory(void* p0) {
         void** i = (void**) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate internal memory.");
-        fwprintf(stdout, L"Debug: Allocate internal memory. p0: %i\n", p0);
+        //?? fwprintf(stdout, L"Debug: Allocate internal memory. p0: %i\n", p0);
 
         //
         // Declaration

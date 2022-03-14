@@ -51,8 +51,8 @@
 void initialise_terminal(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initialise terminal.");
-    fwprintf(stdout, L"Debug: Initialise terminal. p0: %i\n", p0);
-    fwprintf(stdout, L"Debug: Initialise terminal. *p0: %i\n", *((int*) p0));
+    //?? fwprintf(stdout, L"Debug: Initialise terminal. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Initialise terminal. *p0: %i\n", *((int*) p0));
 
     // The terminal mode.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;

@@ -52,8 +52,8 @@
 void write_buffer(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write buffer.");
-    fwprintf(stdout, L"Debug: Write buffer. data type p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Write buffer. data type *p3: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"Debug: Write buffer. data type p3: %i\n", p3);
+    //?? fwprintf(stdout, L"Debug: Write buffer. data type *p3: %i\n", *((int*) p3));
 
     // Lock mutex.
     lock(p4);

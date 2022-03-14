@@ -53,8 +53,8 @@ void deallocate_client_entry(void* p0, void* p1) {
         void** e = (void**) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate client entry.");
-        fwprintf(stdout, L"Debug: Deallocate client entry. p1: %i\n", p1);
-        fwprintf(stdout, L"Debug: Deallocate client entry. *p1: %i\n", *((int*) p1));
+        //?? fwprintf(stdout, L"Debug: Deallocate client entry. p1: %i\n", p1);
+        //?? fwprintf(stdout, L"Debug: Deallocate client entry. *p1: %i\n", *((int*) p1));
 
         //
         // Declaration

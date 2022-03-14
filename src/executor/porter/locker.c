@@ -44,8 +44,8 @@ int lock(void* p0) {
         mtx_t* m = (mtx_t*) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Lock.");
-        fwprintf(stdout, L"Debug: Lock. p0: %i\n", p0);
-        fwprintf(stdout, L"Debug: Lock. *p0: %i\n", *((int*) p0));
+        //?? fwprintf(stdout, L"Debug: Lock. p0: %i\n", p0);
+        //?? fwprintf(stdout, L"Debug: Lock. *p0: %i\n", *((int*) p0));
 
         mtx_lock(m);
 

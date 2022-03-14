@@ -4,16 +4,16 @@
 
     <node name="send" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".tui.about"/>
         <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    <node name="sense" channel="inline" format="activate/enable" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handler.handle_about"/>
+    <node name="set_active_window" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".tui.active"/>
+        <node name="source" channel="inline" format="text/plain" model="about"/>
     </node>
 
 </node>

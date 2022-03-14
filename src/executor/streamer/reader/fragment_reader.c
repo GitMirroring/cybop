@@ -61,8 +61,8 @@
 void read_fragment(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read fragment.");
-    fwprintf(stdout, L"Debug: Read fragment. p7: %i\n", p7);
-    fwprintf(stdout, L"Debug: Read fragment. *p7: %i\n", *((int*) p7));
+    //?? fwprintf(stdout, L"Debug: Read fragment. p7: %i\n", p7);
+    //?? fwprintf(stdout, L"Debug: Read fragment. *p7: %i\n", *((int*) p7));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

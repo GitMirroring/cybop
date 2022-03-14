@@ -10,7 +10,7 @@
 
     <node name="enter" channel="file" format="element/part" model="user_interface/tui_control/logic/user_interface/enter.cybol"/>
 
+    <node name="show_main" channel="file" format="element/part" model="user_interface/tui_control/logic/user_interface/show_main.cybol"/>
     <node name="show_about" channel="file" format="element/part" model="user_interface/tui_control/logic/user_interface/show_about.cybol"/>
-    <node name="hide_about" channel="file" format="element/part" model="user_interface/tui_control/logic/user_interface/hide_about.cybol"/>
 
 </node>

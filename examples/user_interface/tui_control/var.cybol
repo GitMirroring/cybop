@@ -7,8 +7,10 @@
         A cybol-path is treated like a character array anyway.
     -->
     <node name="character" channel="inline" format="text/cybol-path" model=""/>
-
     <node name="integer" channel="inline" format="number/integer" model=""/>
+
+    <node name="stdout" channel="inline" format="number/integer" model=""/>
+    <node name="stdin" channel="inline" format="number/integer" model=""/>
 
     <!--
         CAUTION! The format is "text/cybol-path" and NOT "text/plain".

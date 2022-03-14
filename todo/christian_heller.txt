@@ -13,29 +13,16 @@
 
 CONTINUE current work:
 
-        * Make cybol application "tui_control" work again
-        * Remove property "encoding" with value "utf-8" from send and receive operations of all cybol applications, since the de-/serialiser of language "message/tui" does the conversion, as with http
-        * Test service lifecycle cybol examples in directory "examples/communication/"
+        * Verify that awake works, since cybol application "tui" does exit after escape only if pressing one more button
+
+        * Make cybol applications with socket and http work again
 
         * Deliver compilable and runnable source code for release CYBOP 0.22.0
-
-        * Rename and distinguish between:
-
-            ESC - sequence starting with ESC (\x1B)
-            CSI - Control Sequence Introducer: sequence starting with ESC [ or CSI (\x9B)
-            DCS - Device Control String: sequence starting with ESC P or DCS (\x90)
-            OSC - Operating System Command: sequence starting with ESC ] or OSC (\x9D)
-            see:
-            https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797
-
-        * Let logger use cyboi-internal streamer file writer
 
         * Think about how to close client socket in section SOCKET_CYBOI_CHANNEL of file "completeness_reader.c"
             hand over special close-handler from cybol app to be stored in client entry and called on client close
             alternative 1: function pointer handed over and called ??
             alternative 2: send internal signal ??
-
-        * Clear up: Is terminal i/o with 2 x init stdout + stdin a problem ?? better only one init ??
 
         * Clear up how to provide stack variables in cyboi interpreter for operations which are called via cybol-path ??
             - see cybol application file "hello_world/simple/run.cybol"
@@ -86,38 +73,6 @@ ________
             "ioctl" is usable only with internet sockets, but not with local unix domain socket
             afterwards, test local unix domain socket once more
 
-Writer
-______
-
-        * Provide asynchronous writing of data using a thread and callback cybol handler
-        * Add the following comment to an appropriate writer file, e.g. "writer.c":
-
-            //
-            // The handler handed over is OPTIONAL and may be null.
-            // It gets executed if existing.
-            //
-            // Open device for each new request in cyboi,
-            // as is done in JavaScript XMLHttpRequest (XHR) object.
-            //
-            // The XHR object has an event property "onload" to assign a CALLBACK
-            // function executed when a resource (e.g. file) is loaded fully.
-            //
-            // JavaScript offers an API with callback possibilities
-            // for asynchronous execution: "setTimeout", "setInterval".
-            //
-            // A "promise" in ES6 (or "future" in other environments)
-            // is just asynchronous execution with callback function.
-            //
-
-Thread
-______
-
-        * Investigate line with default thread id (is it initialised at startup?) in file "spinner.c":
-            int r = thrd_equal(DEFAULT_THREAD_IDENTIFICATION, *t);
-        * Eliminate or keep global variables like "DEFAULT_THREAD_IDENTIFICATION" in files "variable/thread_identification.c" and "controller/globaliser/thread_identification_globaliser.c"
-        * Initialise thread with correct value instead of zero integer in affected files:
-            copy_integer(t, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
 Android
 _______
 
@@ -152,8 +107,8 @@ _____________________
         * Add new cybol property as second file descriptor for anonymous pipeline (pipe) and assign both, source and destination file descriptor
         * Reflect how to exchange data between cyboi and another (previous or following) process via anonymous pipe
 
-WUI and Socket
-______________
+Socket / WUI
+____________
 
         * Add comments to an appropriate source code file:
 
@@ -234,6 +189,20 @@ ______________
             Find a list of mime types at:
             https://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types
 
+        //
+        // Open device for each new request in cyboi,
+        // as is done in JavaScript XMLHttpRequest (XHR) object.
+        //
+        // The XHR object has an event property "onload" to assign a CALLBACK
+        // function executed when a resource (e.g. file) is loaded fully.
+        //
+        // JavaScript offers an API with callback possibilities
+        // for asynchronous execution: "setTimeout", "setInterval".
+        //
+        // A "promise" in ES6 (or "future" in other environments)
+        // is just asynchronous execution with callback function.
+        //
+
 CYBOL Library
 _____________
 
@@ -245,13 +214,15 @@ _____________
 Logging
 _______
 
+        * Let logger use cyboi-internal streamer file writer
+
         * Provide backtrace function in logger, see:
             https://stackoverflow.com/questions/105659/how-can-one-grab-a-stack-trace-in-c
             https://see-programming.blogspot.com/2013/02/backtracesymbolsfd.html
         * Call it by default in file "index_count_verifier.c"
 
-XCB
-___
+Display / XCB
+_____________
 
         * Send close event to invisible (hidden) window in xcb, in order to properly shutdown:
             https://stackoverflow.com/questions/30387126/how-do-i-interrupt-xcb-wait-for-event
@@ -282,8 +253,8 @@ ___
             https://stackoverflow.com/questions/53027567/vksurfacekhr-does-not-to-update-when-resizing-xcb-window
             https://marc.info/?l=freedesktop-xcb&m=129381953404497&q=p5
 
-GUI
-___
+Display / GUI
+_____________
 
         * Catch events properly in cybol application "user_interface/gui/"
             events get identified correctly when being a property of the window
@@ -368,15 +339,21 @@ ___
 
         * Remove directory "src/windows/"
 
-TUI
-___
+Terminal / TUI / CLI
+____________________
 
-        * Change TCSANOW into TCSADRAIN ?? (file "unix_terminal_mode_setter.c")
+        * Rename and distinguish between:
 
-        * Add new encoding "ansi-escape-code" and write converter, in order to filter out terminal ansi escape sequences, and delegate standard characters to converter for "utf-8"
-        * Error that only ESC is converted, but not the following two characters of the ansi escape sequence
-            unicode-conversion does not work for control characters --> do it manually?
-            mutex *IS* set correctly, so that whole buffer content is written/read
+            ESC - sequence starting with ESC (\x1B)
+            CSI - Control Sequence Introducer: sequence starting with ESC [ or CSI (\x9B)
+            DCS - Device Control String: sequence starting with ESC P or DCS (\x90)
+            OSC - Operating System Command: sequence starting with ESC ] or OSC (\x9D)
+            see:
+            https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797
+
+        * Clear up: Is terminal i/o with 2 x init stdout + stdin a problem ?? better only one init ??
+
+        * Reset terminal attributes to original settings when and BEFORE calling external programme like mc and set them back later
 
         * Structure files and handle windows tui events similar to gui
         * Deserialise win32 console input (also arrow keys etc.) into command, see:
@@ -393,18 +370,8 @@ ___
             GNU/Linux kernel source:
             http:www.topology.org/linux/charpath.html
 
-        * Fix memory bugs reported by valgrind tool when starting cybol applications "tui" and "ui_control"
-            (appears in function call "fwprintf" of file "stream_terminal_sender.c";
-            but in some application this works just fine, e.g. in "helloworld" with terminal output)
-            --> also happens when "sensing" is deactivated in "tui/run.cybol"
-            --> it definitely has to do with sending a tui
-            --> probably, the reason is serialisation into "message/ansi-escape-code",
-                since with sending deactivated, no memory leaks are reported
-                AND sending to terminal works fine without leaks for "shell_output", "helloworld" etc.
-            --> bug causing memory leak is NOT in one of the files like e.g. "character_ansi_escape_code_serialiser.c" etc.,
-                uncommenting lines sporadically delivers leaks, depending on which cybol application gets executed
-            --> all "malloc" function calls were already checked; they are freed correctly for terminal
-            ==> TODO: check function calls of "realloc" and "free", since there MIGHT be the bug
+        * Fix memory bugs reported by valgrind tool when starting cybol application "tui_control"
+            see file "test_ui_tui_control_memcheck.log"
 
 Worker Threads
 ______________

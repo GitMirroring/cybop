@@ -54,7 +54,7 @@
 void open_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open entry.");
-    fwprintf(stdout, L"Debug: Open entry. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Open entry. p0: %i\n", p0);
 
     //
     // Declaration.

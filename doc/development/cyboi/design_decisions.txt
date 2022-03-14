@@ -53,6 +53,7 @@ Handling of windows events versus socket client requests
 Asynchronous Input/Output
 Sensing Threads
 Blocking and Non-blocking Mode
+Sending / Writing Data
 
 Terminology
 ___________
@@ -1215,4 +1216,19 @@ Open questions:
 2 Is it really necessary to provide blocking terminal communication
   in a dialogue-manner, without a "handling" cybol file?
   This would probably only be needed by beginner developers.
+
+Sending / Writing Data
+______________________
+
+Open device for each new request in cyboi,
+as is done in JavaScript XMLHttpRequest (XHR) object.
+
+The XHR object has an event property "onload" to assign a CALLBACK
+function executed when a resource (e.g. file) is loaded fully.
+
+JavaScript offers an API with callback possibilities
+for asynchronous execution: "setTimeout", "setInterval".
+
+A "promise" in ES6 (or "future" in other environments)
+is just asynchronous execution with callback function.
 

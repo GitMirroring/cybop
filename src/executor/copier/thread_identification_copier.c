@@ -49,7 +49,7 @@ void copy_thread_identification(void* p0, void* p1) {
             thrd_t* d = (thrd_t*) p0;
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy thread identification.");
-            fwprintf(stdout, L"Debug: Copy thread identification. p0: %i\n", p0);
+            //?? fwprintf(stdout, L"Debug: Copy thread identification. p0: %i\n", p0);
 
             *d = *s;
 

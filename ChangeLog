@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-03-14  Christian Heller  <christian.heller@cybop.org>
+
+        * Make cybol application "tui_control" work again
+        * Provide callback cybol handler for asynchronous writing
+
 2022-03-13  Christian Heller  <christian.heller@cybop.org>
 
         * Add memoriser mutex allocator and deallocator, to be used for internal memory/server/client entry

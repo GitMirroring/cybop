@@ -47,8 +47,8 @@ void deallocate_mutex(void* p0) {
         void** m = (void**) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate mutex.");
-        fwprintf(stdout, L"Debug: Deallocate mutex. p0: %i\n", p0);
-        fwprintf(stdout, L"Debug: Deallocate mutex. *p0: %i\n", *((int*) p0));
+        //?? fwprintf(stdout, L"Debug: Deallocate mutex. p0: %i\n", p0);
+        //?? fwprintf(stdout, L"Debug: Deallocate mutex. *p0: %i\n", *((int*) p0));
 
         // Cast mutex to correct type.
         mtx_t* t = (mtx_t*) *m;

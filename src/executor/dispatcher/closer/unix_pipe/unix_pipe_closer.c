@@ -50,7 +50,7 @@ void close_unix_pipe(void* p0) {
         int* f = (int*) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close unix pipe.");
-        fwprintf(stdout, L"Debug: Close unix pipe. p0: %i\n", p0);
+        //?? fwprintf(stdout, L"Debug: Close unix pipe. p0: %i\n", p0);
 
         // The read file descriptor.
         int r = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
@@ -62,8 +62,8 @@ void close_unix_pipe(void* p0) {
         // Get write file descriptor.
         copy_array_forward((void*) &w, p0, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-        fwprintf(stdout, L"Debug: Close unix pipe. r: %i\n", r);
-        fwprintf(stdout, L"Debug: Close unix pipe. w: %i\n", w);
+        //?? fwprintf(stdout, L"Debug: Close unix pipe. r: %i\n", r);
+        //?? fwprintf(stdout, L"Debug: Close unix pipe. w: %i\n", w);
 
         // Close read file descriptor.
         close_basic((void*) &r);

@@ -51,8 +51,8 @@
 void find_list_index(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find list index.");
-    fwprintf(stdout, L"Debug: Find list index. p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Find list index. *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Find list index. p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Find list index. *p2: %i\n", *((int*) p2));
 
     // The list item data, count.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;

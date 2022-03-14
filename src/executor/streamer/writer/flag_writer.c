@@ -45,23 +45,19 @@
  * @param p5 the client entry
  * @param p6 the internal memory (needed for signal only)
  * @param p7 the channel
- * @param p8 the destination device identification item (pointer reference)
- * @param p9 the output buffer item (pointer reference)
- * @param p10 the output buffer mutex (pointer reference)
- * @param p11 the source part (pointer reference)
- * @param p12 the channel (pointer reference)
- * @param p13 the asynchronicity flag
+ * @param p8 the output writer handler (pointer reference)
+ * @param p9 the asynchronicity flag
  */
-void write_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
+void write_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write flag.");
-    fwprintf(stdout, L"Debug: Write flag. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Write flag. p0: %i\n", p0);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // CAUTION! Do NOT use "equal" comparison, since synchronous mode has to be the DEFAULT.
-    compare_integer_unequal((void*) &r, p13, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, p9, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -79,7 +75,7 @@ void write_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
         //
 
         // Store data in client entry.
-        write_entry(p5, p8, p9, p10, p11, p12);
+        write_entry(p5, p8, p3);
 
         // Invoke write function within a new thread.
         write_thread(p5);

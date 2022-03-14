@@ -26,17 +26,15 @@
 #ifndef INTERRUPT_PIPE_WRITER_SOURCE
 #define INTERRUPT_PIPE_WRITER_SOURCE
 
-#include <stddef.h> // size_t
-#include <unistd.h> // write
-
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../executor/porter/locker.c"
-#include "../../../../executor/porter/unlocker.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/comparator/pointer/unequal_pointer_comparator.c"
+#include "../../../../executor/streamer/writer/interrupt_pipe/exclusive_interrupt_pipe_writer.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/type_size/pointer_type_size.c"
 
 /**
- * Writes message to interrupt pipe.
+ * Tests if the handler exists and writes it to the interrupt pipe.
  *
  * @param p0 the destination interrupt pipe write file descriptor
  * @param p1 the source handler (pointer reference)
@@ -44,64 +42,27 @@
  */
 void write_interrupt_pipe(void* p0, void* p1, void* p2) {
 
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write interrupt pipe.");
+    fwprintf(stdout, L"Debug: Write interrupt pipe. handler p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Write interrupt pipe. handler *p1: %i\n", *((int*) p1));
 
-        int* f = (int*) p0;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write interrupt pipe.");
-        fwprintf(stdout, L"Debug: Write interrupt pipe. handler p1: %i\n", p1);
-        fwprintf(stdout, L"Debug: Write interrupt pipe. handler *p1: %i\n", *((int*) p1));
+    // Check handler for existence.
+    compare_pointer_unequal((void*) &r, p1, NULL_POINTER_STATE_CYBOI_MODEL);
 
-        //
-        // Cast size to correct type.
-        //
-        // CAUTION! It IS NECESSARY because on 64 Bit machines,
-        // the "size_t" type has a size of 8 Byte, whereas
-        // the "int" type has the usual size of 4 Byte.
-        // When trying to dereference a pointer that uses the other type,
-        // memory errors will occur and the valgrind memcheck tool report:
-        // "Invalid read of size 8".
-        //
-        size_t s = (size_t) *POINTER_TYPE_SIZE;
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
-        // Lock mutex.
+        // A handler exists.
         //
-        // CAUTION! A mutex HAS TO BE set here, since MANY threads
-        // may want to write to the interrupt pipe concurrently.
+        // The handler is OPTIONAL and may be null.
+        // It gets added to the interrupt pipe only if existing.
         //
-        lock(p2);
 
-        //
-        // Write to interrupt pipe.
-        //
-        // It does not matter what is written to inform the main thread.
-        // Therefore, the simple integer value of 1 (true) is put into the pipe.
-        //
-        // CAUTION! The safe way is to use the functions "snprintf" and "strtol".
-        // However, if both processes were created using the same compiler version,
-        // one can take advantage of the fact that anything in C can be
-        // read or written as an array of char (byte).
-        //
-        // Example:
-        //
-        // int n = something();
-        // write(pipe_w, &n, sizeof(n));
-        // int n;
-        // read(pipe_r, &n, sizeof(n));
-        //
-        // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
-        //
-        //?? write(*f, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, s);
-        write(*f, p1, s);
-
-        // Unlock mutex.
-        unlock(p2);
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write interrupt pipe. The destination interrupt pipe write file descriptor is null.");
-        fwprintf(stdout, L"Error: Could not write interrupt pipe. The destination interrupt pipe write file descriptor is null. p0: %i\n", p0);
+        // Lock mutex and write handler to interrupt pipe.
+        write_interrupt_pipe_exclusive(p0, p1, p2);
     }
 }
 

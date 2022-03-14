@@ -37,6 +37,7 @@
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/copier/array_copier.c"
+#include "../../../executor/streamer/writer/interrupt_pipe/interrupt_pipe_writer.c"
 #include "../../../executor/streamer/writer/loop_writer.c"
 #include "../../../logger/logger.c"
 #include "../../../mapper/channel_to_type_mapper.c"
@@ -76,18 +77,24 @@ int write_function(void* p0) {
     void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The output buffer mutex.
     void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The output writer handler.
+    void* h = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source part (pointer reference).
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The internal memory.
-    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The channel.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The internal memory.
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // The interrupt pipe.
+    void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The interrupt mutex.
+    void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // The interrupt pipe write file descriptor.
+    int ipw = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The output buffer item type.
     int t = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The output buffer item data, count, size.
-    void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* bs = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //
     // Retrieval.
@@ -99,12 +106,22 @@ int write_function(void* p0) {
     copy_array_forward((void*) &b, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_BUFFER_OUTPUT_CLIENT_STATE_CYBOI_NAME);
     // Get output buffer mutex from client entry.
     copy_array_forward((void*) &bm, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_BUFFER_OUTPUT_CLIENT_STATE_CYBOI_NAME);
+    // Get output handler writer from client entry.
+    copy_array_forward((void*) &h, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) WRITER_HANDLER_OUTPUT_CLIENT_STATE_CYBOI_NAME);
     // Get source part from client entry.
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SOURCE_PART_COMMUNICATION_CLIENT_STATE_CYBOI_NAME);
-    // Get internal memory from client entry.
-    copy_array_forward((void*) &i, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERNAL_MEMORY_BACKLINK_CLIENT_STATE_CYBOI_NAME);
     // Get channel from client entry.
     copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CHANNEL_COMMUNICATION_CLIENT_STATE_CYBOI_NAME);
+    // Get internal memory from client entry.
+    copy_array_forward((void*) &i, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERNAL_MEMORY_BACKLINK_CLIENT_STATE_CYBOI_NAME);
+
+    // Get interrupt pipe from internal memory.
+    copy_array_forward((void*) &ip, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PIPE_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Get interrupt mutex from internal memory.
+    copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+
+    // Get interrupt pipe write file descriptor from interrupt pipe.
+    copy_array_forward((void*) &ipw, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
     // Map channel to datatype.
     map_channel_to_type((void*) &t, c);
@@ -115,6 +132,9 @@ int write_function(void* p0) {
 
     // Write output data via loop, until all data have been transmitted.
     write_loop(d, b, (void*) &t, (void*) &s, bm, p0, i, c);
+
+    // Write output finished handler into interrupt pipe.
+    write_interrupt_pipe((void*) &ipw, (void*) &h, im);
 
     //
     // An implicit call to "thrd_exit" is made when this thread

@@ -1,9 +1,12 @@
 <node>
 
     <node name="functionality" channel="file" format="element/part" model="user_interface/tui_control/logic/functionality.cybol"/>
-    <node name="handler" channel="file" format="element/part" model="user_interface/tui_control/logic/handler.cybol"/>
     <node name="lifecycle" channel="file" format="element/part" model="user_interface/tui_control/logic/lifecycle.cybol"/>
     <node name="translation" channel="file" format="element/part" model="user_interface/tui_control/logic/translation.cybol"/>
     <node name="user_interface" channel="file" format="element/part" model="user_interface/tui_control/logic/user_interface.cybol"/>
+
+    <node name="handle" channel="file" format="element/part" model="user_interface/tui_control/logic/handle.cybol">
+        <node name="command" channel="inline" format="text/plain" model=""/>
+    </node>
 
 </node>

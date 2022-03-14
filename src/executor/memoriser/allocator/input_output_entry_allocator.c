@@ -51,7 +51,7 @@ void allocate_input_output_entry(void* p0) {
         void** e = (void**) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Allocate input output entry.");
-        fwprintf(stdout, L"Debug: Allocate input output entry. p0: %i\n", p0);
+        //?? fwprintf(stdout, L"Debug: Allocate input output entry. p0: %i\n", p0);
 
         //
         // Declaration

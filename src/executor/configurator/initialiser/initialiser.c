@@ -45,8 +45,8 @@
 void initialise(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Initialise.");
-    fwprintf(stdout, L"Debug: Initialise. p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Initialise. *p3: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"Debug: Initialise. p3: %i\n", p3);
+    //?? fwprintf(stdout, L"Debug: Initialise. *p3: %i\n", *((int*) p3));
 
     //
     // CAUTION! The terminal and serial port could be treated ALMOST identically.

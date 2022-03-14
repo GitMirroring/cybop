@@ -42,16 +42,15 @@
  * @param p5 the channel
  * @param p6 the server flag
  * @param p7 the port
- * @param p8 the destination device identification item (pointer reference)
- * @param p9 the channel (pointer reference)
- * @param p10 the asynchronicity flag
+ * @param p8 the output writer handler (pointer reference)
+ * @param p9 the asynchronicity flag
  */
-void send_write(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void send_write(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send write.");
 
     // Write message.
-    write_data(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
+    write_data(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
 }
 
 /* WRITE_SENDER_SOURCE */

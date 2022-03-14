@@ -73,7 +73,7 @@ void enable_xcb(void* p0) {
     // The buffer item, mutex.
     void* bi = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The handler.
+    // The sensor handler.
     void* h = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The internal memory.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -113,8 +113,8 @@ void enable_xcb(void* p0) {
             // Get input buffer item, mutex from client entry.
             copy_array_forward((void*) &bi, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_BUFFER_INPUT_CLIENT_STATE_CYBOI_NAME);
             copy_array_forward((void*) &bm, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_BUFFER_INPUT_CLIENT_STATE_CYBOI_NAME);
-            // Get handler from client entry.
-            copy_array_forward((void*) &h, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLER_COMMUNICATION_CLIENT_STATE_CYBOI_NAME);
+            // Get sensor handler from client entry.
+            copy_array_forward((void*) &h, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SENSOR_HANDLER_INPUT_CLIENT_STATE_CYBOI_NAME);
             // Get internal memory from client entry.
             copy_array_forward((void*) &i, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERNAL_MEMORY_BACKLINK_CLIENT_STATE_CYBOI_NAME);
 
@@ -141,7 +141,7 @@ void enable_xcb(void* p0) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                // Hand over sensing handler to interrupt pipe of main threaad.
+                // Hand over sensor handler to interrupt pipe of main threaad.
                 write_interrupt_pipe((void*) &ipw, (void*) &h, im);
 
             } else {

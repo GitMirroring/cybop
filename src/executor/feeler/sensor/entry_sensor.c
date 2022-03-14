@@ -41,8 +41,8 @@
  *
  * @param p0 the client entry
  * @param p1 the language
- * @param p2 the handler (pointer reference)
- * @param p3 the closer (pointer reference)
+ * @param p2 the sensor handler (pointer reference)
+ * @param p3 the closer handler (pointer reference)
  */
 void sense_entry(void* p0, void* p1, void* p2, void* p3) {
 
@@ -89,17 +89,17 @@ void sense_entry(void* p0, void* p1, void* p2, void* p3) {
     //
 
     //
-    // Set handler into client entry.
+    // Set sensor handler into client entry.
     //
     // CAUTION! It was given as pointer REFERENCE.
     //
-    copy_array_forward(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_COMMUNICATION_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SENSOR_HANDLER_INPUT_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     //
-    // Set closer into client entry.
+    // Set closer handler into client entry.
     //
     // CAUTION! It was given as pointer REFERENCE.
     //
-    copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CLOSER_COMMUNICATION_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CLOSER_HANDLER_INPUT_CLIENT_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* ENTRY_SENSOR_SOURCE */

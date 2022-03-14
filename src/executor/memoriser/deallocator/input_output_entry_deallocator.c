@@ -55,7 +55,7 @@ void deallocate_input_output_entry(void* p0, void* p1, void* p2) {
         void** e = (void**) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate input output entry.");
-        fwprintf(stdout, L"Debug: Deallocate input output entry. p0: %i\n", p0);
+        //?? fwprintf(stdout, L"Debug: Deallocate input output entry. p0: %i\n", p0);
 
         //
         // Declaration
