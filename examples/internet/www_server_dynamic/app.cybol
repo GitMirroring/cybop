@@ -1,5 +1,8 @@
 <node>
 
+    <!-- The terminal. -->
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+
     <!-- The logical layers. -->
     <node name="wui" channel="file" format="element/part" model="internet/www_server_dynamic/wui.cybol"/>
 

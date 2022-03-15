@@ -24,6 +24,7 @@
         * Consider eof-or-close flag in socket channel section of file "completeness_reader.c"
         * Introduce extra server flag in file "list_shutter.c", since the identification name is not always different between client- and server entry
         * Make cybol applications "socket_server" and "socket_client" work again
+        * Make cybol application "www_server_dynamic" work again
 
 2022-03-14  Christian Heller  <christian.heller@cybop.org>
 

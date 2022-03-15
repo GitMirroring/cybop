@@ -28,20 +28,30 @@
     </node>
 
     <!-- Write html into file. -->
-<!--
+    <node name="open_treefile" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="test_www_server_dynamic_wui.html"/>
+    </node>
     <node name="test_html" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".webpage"/>
-        <node name="receiver" channel="inline" format="text/plain" model="test_www_server_dynamic_wui.html"/>
     </node>
--->
+    <node name="close_treefile" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
 
     <!-- Send html encapsulated as http-response. -->
     <node name="send" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <!--
@@ -65,13 +75,15 @@
             Therefore, the necessary "encoding" is added at the part ".webpage" DIRECTLY.
         -->
         <node name="message" channel="inline" format="text/cybol-path" model=".webpage"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
     </node>
 
     <!-- Send text encapsulated as http-response. -->
 <!--
     <node name="send" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Hello, World!">
@@ -84,7 +96,6 @@
 <!--
             <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         </node>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
     </node>
 -->
 
@@ -92,10 +103,12 @@
 <!--
     <node name="send" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Hello, World!"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
     </node>
 -->
 

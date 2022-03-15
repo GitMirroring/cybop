@@ -1,6 +1,6 @@
 <node>
 
-    <!-- Startup system -->
+    <!-- Build up knowledge tree -->
 
     <node name="create_file_id" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="id"/>

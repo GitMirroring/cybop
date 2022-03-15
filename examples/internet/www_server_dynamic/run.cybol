@@ -1,34 +1,53 @@
 <node>
 
+    <!-- Build up knowledge tree -->
+
+    <node name="create_file_id" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="id"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+    <node name="open_appfile" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="internet/www_server_dynamic/app.cybol"/>
+    </node>
     <node name="initialise_app" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/plain" model="internet/www_server_dynamic/app.cybol"/>
         <node name="message" channel="inline" format="text/cybol-path" model="."/>
     </node>
-
-    <!-- This is needed for printing messages on terminal. -->
-    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    <node name="close_appfile" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
+
+    <node name="open_stdout" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="device" channel="inline" format="text/plain" model="standard-output"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
+    </node>
+
+    <!-- Startup socket -->
 
     <node name="startup_socket" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
         <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
         <node name="style" channel="inline" format="text/plain" model="stream"/>
         <node name="protocol" channel="inline" format="text/plain" model="tcp"/>
-        <node name="address" channel="inline" format="text/plain" model="127.0.0.1"/>
-        <node name="port" channel="inline" format="number/integer" model="1971"/>
-        <node name="mode" channel="inline" format="text/plain" model="server"/>
+        <node name="device" channel="inline" format="text/plain" model="127.0.0.1"/>
         <node name="connexions" channel="inline" format="number/integer" model="10"/>
         <node name="timeout" channel="inline" format="number/integer" model="5"/>
     </node>
 
+    <!-- Wait for client requests -->
+
     <node name="print_message" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Wait for client requests."/>
@@ -38,10 +57,6 @@
     <node name="enable_requests" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="port" channel="inline" format="number/integer" model="1971"/>
-        <node name="language" channel="inline" format="meta/language" model="message/http-request"/>
-        <!-- The requesting client gets stored in this variable. -->
-        <!-- <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/> -->
-        <!-- This is the call-back function executed whenever a client sends a request. -->
         <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle_enable"/>
     </node>
 

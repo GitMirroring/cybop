@@ -27,7 +27,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="port" channel="inline" format="number/integer" model="1971"/>
-        <node name="identification" channel="inline" format="text/cybol-path" model=".client"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".client_socket"/>
     </node>
 
 </node>
