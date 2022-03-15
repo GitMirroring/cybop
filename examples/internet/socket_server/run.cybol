@@ -1,6 +1,6 @@
 <node>
 
-    <!-- Startup system -->
+    <!-- Build up knowledge tree -->
 
     <node name="create_file_id" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="id"/>
@@ -58,7 +58,7 @@
 
     <!-- Startup socket -->
 
-    <node name="TEST" channel="inline" format="communicate/send" model="">
+    <node name="print_message" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
