@@ -11,47 +11,24 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-CONTINUE current work:
-
-        * Verify that awake works, since cybol application "tui" does exit after escape only if pressing one more button
+Event / Signal Handling
+_______________________
 
         * Make cybol applications with socket and http work again
-
+        * Cleanup signal (event) list checker from outdated io check mechanism which got replaced by enable- and sensing threads
         * Deliver compilable and runnable source code for release CYBOP 0.22.0
+
+Awakener
+________
+
+        * Verify that terminal awaken works, since cybol application "tui" does exit after escape only if pressing one more button
 
         * Think about how to close client socket in section SOCKET_CYBOI_CHANNEL of file "completeness_reader.c"
             hand over special close-handler from cybol app to be stored in client entry and called on client close
             alternative 1: function pointer handed over and called ??
             alternative 2: send internal signal ??
-
-        * Clear up how to provide stack variables in cyboi interpreter for operations which are called via cybol-path ??
-            - see cybol application file "hello_world/simple/run.cybol"
-            - operations use properties as parametres
-            - compound operations (element/part) provide properties as stack variables
-            - BUT: what about operations called via cybol path ??
-
-        * Cleanup signal (event) list checker from outdated io check mechanism which got replaced by enable- and sensing threads
-
-        * Replace outdated input/output entry with server entry in files "initial_gui_serialiser.c", "gui_event_deserialiser.c", "values_gui_event_deserialiser.c", "properties_gui_event_deserialiser.c"
-
-        * Delete file "termination_sender.c" and adapt file "sender.c" accordingly --> where else to place the termination character for terminals?
-
-        * Change constraint "indentation" in file "send.c" to standard property parametre
-        * Edit html serialiser accordingly
-
-        * Adapt file "manager.c" to allocate signal memory ITEM instead of part ?? OR: Is the part necessary for garbage collection?
-        * Adapt file "manager.c" to allocate stack memory ITEM instead of part ?? OR: Is the part necessary for garbage collection?
-
-        * Eliminate optionaliser and deoptionaliser by replacing function calls with dispatcher open and close
-        * Summarise globaliser and unglobaliser ??
-
-        * Rename "internal_memory" into "system"
-        * Rename "knowledge_memory" into "heap"
-        * Rename "stack_memory" into "stack"
-        * Rename "signal_memory" into "queue"
-
-Awakener
-________
+            see: closer handler in sensor and reader
+            see: closer handler in cybol example "communication/server_socket/"
 
         * Update awakener
         * Reflect about how to implement file "socket_awakener.c" called within exit process
@@ -109,6 +86,28 @@ _____________________
 
 Socket / WUI
 ____________
+
+        //
+        // Open device for each new request in cyboi,
+        // as is done in JavaScript XMLHttpRequest (XHR) object.
+        //
+        // The XHR object has an event property "onload" to assign a CALLBACK
+        // function executed when a resource (e.g. file) is loaded fully.
+        //
+        // JavaScript offers an API with callback possibilities
+        // for asynchronous execution: "setTimeout", "setInterval".
+        //
+        // A "promise" in ES6 (or "future" in other environments)
+        // is just asynchronous execution with callback function.
+        //
+
+        * Think through closing of a connexion:
+            in file "handler_reader.c" the thread exit flag is set
+            but the closer handler has to be and IS called additionally and tries to awaken the thread so that it can realise the exit flag is set
+            CHECK for an error on closing with awakener since the thread has exited before
+
+        * Change constraint "indentation" in file "send.c" to standard property parametre
+        * Edit html serialiser accordingly
 
         * Add comments to an appropriate source code file:
 
@@ -189,22 +188,18 @@ ____________
             Find a list of mime types at:
             https://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types
 
-        //
-        // Open device for each new request in cyboi,
-        // as is done in JavaScript XMLHttpRequest (XHR) object.
-        //
-        // The XHR object has an event property "onload" to assign a CALLBACK
-        // function executed when a resource (e.g. file) is loaded fully.
-        //
-        // JavaScript offers an API with callback possibilities
-        // for asynchronous execution: "setTimeout", "setInterval".
-        //
-        // A "promise" in ES6 (or "future" in other environments)
-        // is just asynchronous execution with callback function.
-        //
-
 CYBOL Library
 _____________
+
+        * Clear up how to provide stack variables in cyboi interpreter for operations which are called via cybol-path ??
+            - see cybol application file "hello_world/simple/run.cybol"
+            - operations use properties as parametres
+            - compound operations (element/part) provide properties as stack variables
+            - BUT: what about operations called via cybol path ??
+
+        * Add input output module "io" with load/save file functionality to cybol library, so that just the filename but no id is required as cybol property
+            load: create_id, open_file, read, close_file, destroy_id
+            save: create_id, open_file, write, close_file, destroy_id
 
         * Provide functionality to print standard dialogues in "examples/cybol/"
             see e.g. Java Swing JOptionPane
@@ -255,6 +250,8 @@ _____________
 
 Display / GUI
 _____________
+
+        * Replace outdated input/output entry with server entry in files "initial_gui_serialiser.c", "gui_event_deserialiser.c", "values_gui_event_deserialiser.c", "properties_gui_event_deserialiser.c"
 
         * Catch events properly in cybol application "user_interface/gui/"
             events get identified correctly when being a property of the window
@@ -689,6 +686,20 @@ Repertoire cybol application:
 
 General CYBOI
 _____________
+
+        * Assign pointer to INTERNAL_MEMORY_SELFLINK_INTERNAL_MEMORY_STATE_CYBOI_NAME constant at internal memory allocation,
+            so that its reference does not have to be passed as argument through all functions for usage in input output communication
+
+        * Eliminate optionaliser and deoptionaliser by replacing function calls with dispatcher open and close
+        * Summarise globaliser and unglobaliser ??
+
+        * Adapt file "manager.c" to allocate signal memory ITEM instead of part ?? OR: Is the part necessary for garbage collection?
+        * Adapt file "manager.c" to allocate stack memory ITEM instead of part ?? OR: Is the part necessary for garbage collection?
+
+        * Rename "internal_memory" into "system"
+        * Rename "knowledge_memory" into "heap"
+        * Rename "stack_memory" into "stack"
+        * Rename "signal_memory" into "queue"
 
         * Provide cybol format "meta/model" to deserialise e.g. socket address etc. into an integer for more efficient processing ?? (equivalent of compilation)
 

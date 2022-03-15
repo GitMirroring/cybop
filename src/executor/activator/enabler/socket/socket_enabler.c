@@ -54,7 +54,10 @@ void enable_socket(void* p0, void* p1) {
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get server socket from server entry.
-    copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_SOCKET_SERVER_STATE_CYBOI_NAME);
+
+    //?? fwprintf(stdout, L"Debug: Enable socket. server socket s: %i\n", s);
+    //?? fwprintf(stdout, L"Debug: Enable socket. server socket *s: %i\n", *((int*) s));
 
     // Accept client request on server socket.
     enable_socket_request(p0, s);

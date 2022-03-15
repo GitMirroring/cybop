@@ -60,6 +60,8 @@ void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The close comparison result.
+    int cr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -150,7 +152,36 @@ void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            read_length(p0, p1, p2, p3);
+            compare_integer_unequal((void*) &cr, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            if (cr != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                //
+                // The client socket peer closed the connexion.
+                //
+                // Therefore, the close flag was set inside
+                // the fragment (basic) reader.
+                //
+                // CAUTION! There is NO use in detecting the
+                // message length afterwards, since it is EMPTY.
+                //
+
+                // Copy eof-or-close flag value.
+                copy_integer(p0, p4);
+
+            } else {
+
+                //
+                // The client is still open for communication.
+                //
+                // CAUTION! Do NOT assign the eof-or-close flag
+                // value afterwards since if doing so, it would
+                // OVERWRITE the complete flag that was returned
+                // from function "read_length".
+                //
+
+                read_length(p0, p1, p2, p3);
+            }
         }
     }
 

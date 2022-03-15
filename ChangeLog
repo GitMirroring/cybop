@@ -18,6 +18,13 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-03-15  Christian Heller  <christian.heller@cybop.org>
+
+        * Correct bug caused by using wrong server socket number constant in activator enabler
+        * Consider eof-or-close flag in socket channel section of file "completeness_reader.c"
+        * Introduce extra server flag in file "list_shutter.c", since the identification name is not always different between client- and server entry
+        * Make cybol applications "socket_server" and "socket_client" work again
+
 2022-03-14  Christian Heller  <christian.heller@cybop.org>
 
         * Make cybol application "tui_control" work again

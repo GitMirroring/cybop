@@ -56,6 +56,7 @@
 void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket.");
+    fwprintf(stdout, L"Debug: Startup socket. p0: %i\n", p0);
 
     //
     // Declaration
@@ -82,6 +83,9 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     // Startup server socket.
     startup_socket_lifecycle(s, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
+
+    fwprintf(stdout, L"Debug: Startup socket. s: %i\n", s);
+    fwprintf(stdout, L"Debug: Startup socket. *s: %i\n", *((int*) s));
 
     //
     // Storage

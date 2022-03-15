@@ -46,7 +46,7 @@
 // Forward declarations
 //
 
-void shutdown_list(void* p0, void* p1, void* p2, void* p3);
+void shutdown_list(void* p0, void* p1, void* p2, void* p3, void* p4);
 
 /**
  * Executes the service shutdown lifecycle.
@@ -65,8 +65,8 @@ void shutdown_lifecycle(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         void** se = (void**) p3;
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown lifecycle.");
-        fwprintf(stdout, L"Information: Shutdown lifecycle. p1: %i\n", p1);
-        fwprintf(stdout, L"Information: Shutdown lifecycle. *p1: %i\n", *((int*) p1));
+        //?? fwprintf(stdout, L"Information: Shutdown lifecycle. p1: %i\n", p1);
+        //?? fwprintf(stdout, L"Information: Shutdown lifecycle. *p1: %i\n", *((int*) p1));
 
         //
         // Disabling
@@ -127,7 +127,7 @@ void shutdown_lifecycle(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         copy_array_forward((void*) &cl, *se, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_CLIENTS_SERVER_STATE_CYBOI_NAME);
 
         // Shutdown clients.
-        shutdown_list(cl, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME, p2, p0);
+        shutdown_list(cl, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME, p2, p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         // Shutdown service.
         shutdown_service(*se, p2);

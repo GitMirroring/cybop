@@ -53,7 +53,8 @@
 void open_stub(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open stub.");
-    fwprintf(stdout, L"Debug: Open stub. p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Open stub. p0: %i\n", p0);
+    fwprintf(stdout, L"Debug: Open stub. *p0: %i\n", *((int*) p0));
 
     // The server entry.
     void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -74,6 +75,9 @@ void open_stub(void* p0, void* p1) {
 
     // Get client socket number from client request input buffer item at index zero.
     get_item(p0, bi, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    //?? fwprintf(stdout, L"Debug: Open stub. get p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Open stub. get *p0: %i\n", *((int*) p0));
 
     // Remove client socket number from client request input buffer item.
     modify_item(bi, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);

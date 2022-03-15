@@ -55,7 +55,7 @@ void deallocate_input_output_entry(void* p0, void* p1, void* p2) {
         void** e = (void**) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deallocate input output entry.");
-        //?? fwprintf(stdout, L"Debug: Deallocate input output entry. p0: %i\n", p0);
+        fwprintf(stdout, L"Debug: Deallocate input output entry. p0: %i\n", p0);
 
         //
         // Declaration
@@ -79,10 +79,15 @@ void deallocate_input_output_entry(void* p0, void* p1, void* p2) {
         // Finalisation
         //
 
-        // Shutdown clients.
-        shutdown_list(c, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME, p1, p2);
+        //?? fwprintf(stdout, L"Debug: Deallocate input output entry. shutdown server list s: %i\n", s);
+
         // Shutdown servers.
-        shutdown_list(s, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME, p1, p2);
+        shutdown_list(s, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        //?? fwprintf(stdout, L"Debug: Deallocate input output entry. shutdown client list c: %i\n", c);
+
+        // Shutdown clients.
+        shutdown_list(c, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         //
         // Deallocation

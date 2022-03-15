@@ -43,54 +43,39 @@
  * @param p3 the list item
  * @param p4 the list index
  * @param p5 the internal memory data
- * @param p6 the identification name
+ * @param p6 the server flag
  */
 void shutdown_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown flag.");
-    fwprintf(stdout, L"Debug: Shutdown flag. identification name p0: %i\n", p0);
-    fwprintf(stdout, L"Debug: Shutdown flag. identification name *p0: %i\n", *((int*) p0));
+    fwprintf(stdout, L"Debug: Shutdown flag. identification name p6: %i\n", p6);
+    fwprintf(stdout, L"Debug: Shutdown flag. identification name *p6: %i\n", *((int*) p6));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p6, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //
-            // This is a standalone client entry
-            // OR
-            // a client stub entry of a server's client list.
-            //
-
-            // Execute client close lifecycle.
-            close_lifecycle(p0, p1, p2, p3, p4);
-        }
-    }
+    // CAUTION! Do NOT use "equal" comparison, since client has to be the DEFAULT.
+    compare_integer_unequal((void*) &r, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) IDENTIFICATION_GENERAL_SERVER_STATE_CYBOI_NAME);
+        //
+        // This is a standalone client entry
+        // OR
+        // a client stub entry of a server's client list.
+        //
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        // Execute client close lifecycle.
+        close_lifecycle(p0, p1, p2, p3, p4);
 
-            //
-            // This is a server entry.
-            //
+    } else {
 
-            // Execute service shutdown lifecycle.
-            shutdown_lifecycle(p5, p0, p2, p1, p3, p4);
-        }
-    }
+        //
+        // This is a server entry.
+        //
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown flag. The given identification name is unknown.");
-        fwprintf(stdout, L"Warning: Could not shutdown flag. The given identification name is unknown. p6: %i\n", p6);
-        fwprintf(stdout, L"Warning: Could not shutdown flag. The given identification name is unknown.*p6: %i\n", *((int*) p6));
+        // Execute service shutdown lifecycle.
+        shutdown_lifecycle(p5, p0, p2, p1, p3, p4);
     }
 }
 

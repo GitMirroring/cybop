@@ -49,6 +49,8 @@
 void enable_socket_request(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable socket request.");
+    //?? fwprintf(stdout, L"Debug: Enable socket request. p1: %i\n", p1);
+    //?? fwprintf(stdout, L"Debug: Enable socket request. *p1: %i\n", *((int*) p1));
 
 #if defined(__linux__) || defined(__unix__)
     enable_bsd_socket(p0, p1);

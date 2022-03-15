@@ -70,7 +70,7 @@ void find_mode(void* p0, void* p1, void* p2, void* p3) {
         // It may send requests to a server.
         //
 
-        // Get clients list from input output entry.
+        // Get client list from input output entry.
         copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CLIENTS_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
     } else {
@@ -82,7 +82,7 @@ void find_mode(void* p0, void* p1, void* p2, void* p3) {
         // in the server's client list.
         //
 
-        // Get servers list from input output entry.
+        // Get server list from input output entry.
         copy_array_forward((void*) &sl, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SERVERS_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         // Get server entry from servers list by service identification (port number).

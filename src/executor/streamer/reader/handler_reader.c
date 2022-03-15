@@ -87,7 +87,13 @@ void read_handler(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         // has closed its connexion.
         //
 
-        // Hand over client closer handler to interrupt pipe of main threaad.
+        //
+        // Hand over client closer handler to interrupt pipe of main thread.
+        //
+        // The closer handler IS NECESSARY for deallocating
+        // the client entry and its resources. Just setting
+        // the thread exit flag is NOT sufficient.
+        //
         write_interrupt_pipe(p1, p4, p2);
 
         //
@@ -95,8 +101,8 @@ void read_handler(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         //
         // CAUTION! The exit flag might be set in the close handler
         // as well, but requires a thread awakener to be called.
-        // Therefore, setting the flag right here is more efficient,
-        // since the thread can exit itself when leaving the sensing loop
+        // Therefore, setting the flag right here is more EFFICIENT,
+        // since the thread can exit ITSELF when leaving the sensing loop
         // (which is calling this read function).
         //
         copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -104,7 +110,7 @@ void read_handler(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         //
         // Set read loop break flag.
         //
-        // CAUTION! This is important, so that the calling
+        // CAUTION! This is IMPORTANT, so that the calling
         // sensing function can be reached and the exit flag
         // be detected there.
         //

@@ -86,8 +86,8 @@ void verify_double_index_count(void* p0, void* p1, void* p2, void* p3, void* p4,
         // does no harm, since the compiler will remove it anyway.
         //
 
-        //?? log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not verify double index count. The sum of one of the indices and element count is greater than the first or second data count.");
-        //?? fwprintf(stdout, L"Warning: Could not verify double index count. The sum of one of the indices and element count is greater than the first or second data count.\n");
+        // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not verify double index count. The sum of one of the indices and element count is greater than the first or second data count.");
+        // fwprintf(stdout, L"Warning: Could not verify double index count. The sum of one of the indices and element count is greater than the first or second data count.\n");
     }
 }
 

@@ -76,12 +76,6 @@ void read_message(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         // belonging to it have been received.
         //
 
-        //
-        // CAUTION! The complete flag does NOT have to be reset here,
-        // since it is a local variable on stack and gets freed
-        // automatically when this function is left now.
-        //
-
         // Inform system about completion of the read process.
         read_completion(p14, p6, p7, p8, p9, p10, p12, (void*) &ec);
     }

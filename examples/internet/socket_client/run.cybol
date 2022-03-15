@@ -1,43 +1,60 @@
 <node>
 
     <!-- Startup system -->
+
+    <node name="create_file_id" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="id"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+    <node name="open_appfile" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="internet/socket_client/app.cybol"/>
+    </node>
     <node name="initialise_app" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/plain" model="internet/socket_client/app.cybol"/>
         <node name="message" channel="inline" format="text/cybol-path" model="."/>
     </node>
-
-    <!-- Startup services -->
-    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    <node name="close_appfile" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
+
+    <node name="open_stdout" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="device" channel="inline" format="text/plain" model="standard-output"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
+    </node>
+
 <!--
     <node name="open_socket" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <node name="device" channel="inline" format="text/plain" model="cyboi.socket"/>
         <node name="namespace" channel="inline" format="text/plain" model="local"/>
         <node name="style" channel="inline" format="text/plain" model="datagram"/>
         <node name="protocol" channel="inline" format="text/plain" model="udp"/>
+        <node name="device" channel="inline" format="text/plain" model="cyboi.socket"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
 -->
     <node name="open_socket" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <node name="device" channel="inline" format="text/plain" model="127.0.0.1"/>
         <node name="port" channel="inline" format="number/integer" model="1971"/>
         <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
         <node name="style" channel="inline" format="text/plain" model="stream"/>
         <node name="protocol" channel="inline" format="text/plain" model="tcp"/>
+        <node name="device" channel="inline" format="text/plain" model="127.0.0.1"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
 
     <!-- Send hello request -->
+
     <node name="print_request" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Sending hello request ..."/>
@@ -45,22 +62,22 @@
     </node>
     <node name="send_request" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
         <node name="message" channel="inline" format="text/ascii" model="say-hello"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
 
     <!-- Receive hello response -->
+
     <node name="receive_response" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".server_socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".response"/>
-        <node name="sender" channel="inline" format="text/cybol-path" model=".server_socket"/>
-        <node name="client" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="print_response" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/ascii"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".response"/>
@@ -73,9 +90,10 @@
     </node>
 
     <!-- Send data request -->
+
     <node name="print_request" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Sending data request ..."/>
@@ -83,30 +101,40 @@
     </node>
     <node name="send_request" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
         <node name="message" channel="inline" format="text/ascii" model="load-data"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
 
     <!-- Receive data response -->
+
     <node name="receive_response" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".server_socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".response"/>
-        <node name="sender" channel="inline" format="text/cybol-path" model=".server_socket"/>
-        <node name="client" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-    <node name="write_response" channel="inline" format="communicate/send" model="">
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".datafile"/>
+        <node name="device" channel="inline" format="text/plain" model="internet/socket_client/received_data.dat"/>
+    </node>
+    <node name="write_response_to_file" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".datafile"/>
         <node name="language" channel="inline" format="meta/language" model="message/binary"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".response"/>
-        <node name="receiver" channel="inline" format="text/plain" model="internet/socket_client/received_data.dat"/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".datafile"/>
     </node>
 
     <!-- Send exit request -->
+
     <node name="print_request_exit" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Sending exit request ..."/>
@@ -114,12 +142,13 @@
     </node>
     <node name="send_request_exit" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
         <node name="message" channel="inline" format="text/ascii" model="exit"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".server_socket"/>
     </node>
 
     <!-- Exit programme -->
+
     <node name="exit_programme" channel="inline" format="live/exit" model=""/>
 
 </node>

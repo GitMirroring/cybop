@@ -1,0 +1,25 @@
+<node>
+
+    <!-- The opening is necessary so that a client entry gets allocated inside cyboi. -->
+    <node name="open_client" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <!-- Open client device in SERVER mode. It was already pre-configured inside by the accepting server socket. -->
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".client_socket"/>
+    </node>
+
+    <!-- Fill internal input buffer with received data. -->
+    <node name="sense_client_data" channel="inline" format="feel/sense" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
+        <!-- This is the callback function executed when the client sends data. -->
+        <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle_sense"/>
+        <!-- This is the callback function executed when the client does not respond and is to be closed. -->
+        <node name="closer" channel="inline" format="text/cybol-path" model=".logic.handle_close"/>
+    </node>
+
+</node>

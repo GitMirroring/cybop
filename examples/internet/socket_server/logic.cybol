@@ -2,20 +2,32 @@
 
     <node name="send_hello" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
         <node name="message" channel="inline" format="text/ascii" model="Hello World!"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
     </node>
 
     <node name="send_data" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/binary-crlf"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".data"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
     </node>
 
     <node name="exit_programme" channel="inline" format="live/exit" model=""/>
 
-    <node name="handle" channel="file" format="element/part" model="internet/socket_server/handle.cybol"/>
+    <node name="handle_enable" channel="file" format="element/part" model="internet/socket_server/handle_enable.cybol"/>
+    <node name="handle_sense" channel="file" format="element/part" model="internet/socket_server/handle_sense.cybol"/>
+
+    <node name="handle_close" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".client"/>
+    </node>
 
 </node>

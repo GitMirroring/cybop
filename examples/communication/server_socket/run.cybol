@@ -11,7 +11,7 @@
         <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
         <node name="style" channel="inline" format="text/plain" model="stream"/>
         <node name="protocol" channel="inline" format="text/plain" model="tcp"/>
-        <node name="address" channel="inline" format="text/plain" model="127.0.0.1"/>
+        <node name="device" channel="inline" format="text/plain" model="127.0.0.1"/>
         <node name="connexions" channel="inline" format="number/integer" model="10"/>
         <node name="timeout" channel="inline" format="number/integer" model="5"/>
     </node>
