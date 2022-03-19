@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-03-18  Christian Heller  <christian.heller@cybop.org>
+
+        * Make cybol application "presence" work again
+
 2022-03-15  Christian Heller  <christian.heller@cybop.org>
 
         * Correct bug caused by using wrong server socket number constant in activator enabler
