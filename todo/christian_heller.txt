@@ -14,10 +14,33 @@
 Event / Signal Handling
 _______________________
 
+        * Fix bug that client entry gets deallocated when socket connexion is closed, but buffer still contains data (bc > 0)
+            * Ist close-Operation selbst die Ursache?
+            * WANN wird der client_entry gelöscht (vor oder nach thread exit)?
+            * Change back and delete "sleep_second" from file "handler_reader.c" ??
+            * Comment out set thread exit flag in file "handler_reader.c"
+            * Add "sleep_reader.c" to let thread sleep on closing until the buffer is empty since otherwise, the main thread ...
+            * Open AND close socket connexions
+
+        * Debug missing css and image file transfer in cybol application "www_server_dynamic"
+            see working solution of standard url file path in cybol application "www_server_static"
+
+        * Debug missing css and image file transfer in cybol application "presence"
+        * Replace header and logo in cybol application "presence"
+        * Add favicon to cybol application "presence"
+        * Update cybol application "presence" to use responsive bootstrap-based user interface
+        * Make cybol application "presence" work again
+
+        * Fix tui bug that exit button "e" or "esc" (doesn't matter) gets detected only if button gets pressed twice
+        * Check if exit flag is set also if remaining count is zero and no message length delimiter could be detected (probably yes)
+        * Füge testweise zu cybol app "tui" output (send terminal) hinzu:
+            <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+            vgl. mit send to socket using http_response language in cybol app "presence"
+            Is it converted from wchar_t to char in the serialiser with language or only with format?
+
         * Make cybol application "www_server_static" work again
         * Make cybol application "project_overview" work again
         * Make cybol application "repertoire" work again
-        * Make cybol application "presence" work again
 
         * Deliver compilable and runnable source code for release CYBOP 0.22.0
 
@@ -25,6 +48,9 @@ Awakener
 ________
 
         * Verify that terminal awaken works, since cybol application "tui" does exit after escape only if pressing one more button
+        * Is last char detected only if another char is following or also if "remaining count" is zero?
+            --> check this in tui_message_length_deserialiser
+            --> Is the handler written to the irq pipe?
 
         * Think about how to close client socket in section SOCKET_CYBOI_CHANNEL of file "completeness_reader.c"
             hand over special close-handler from cybol app to be stored in client entry and called on client close
@@ -387,11 +413,12 @@ ____________________
 Worker Threads
 ______________
 
-        * Use worker threads for long-lasting operations
-        * Provide cybol operation for this ??
-        * Add cybol property "asynchronous" for at least "communicate/send" or possibly for ALL cybol operations ??
-            together with property "handler" (see "activate/enable") whose function is called in a separate thread (like a callback in JavaScript);
-            handler may be empty (null) if "send" is to be executed but NO reaction expected
+        * Add properties "asynchronicity" and "handler" to cybol operation "flow/sequence",
+            so that ANY logic model, also primitive operations, can be executed in a thread
+            with OPTIONAL callback function being called at the end
+        * Take solution from "streamer/writer" and implement into "flow/sequence"
+        * Eliminate corresponding source code from "streamer/writer"
+        * Think through if this is a viable solution offering "worker threads" for long-lasting operations
 
         * Comparison with JavaScript:
             - JavaScript itself is synchronous and single-threaded
@@ -701,6 +728,8 @@ Repertoire cybol application:
 General CYBOI
 _____________
 
+        * Merge cyboi message/event/signal queue into interrupt pipe ?? Store handler only
+
         * Cleanup signal (event) list checker from outdated io check mechanism which got replaced by enable- and sensing threads
 
         * Assign pointer to INTERNAL_MEMORY_SELFLINK_INTERNAL_MEMORY_STATE_CYBOI_NAME constant at internal memory allocation,
@@ -711,6 +740,10 @@ _____________
 
         * Adapt file "manager.c" to allocate signal memory ITEM instead of part ?? OR: Is the part necessary for garbage collection?
         * Adapt file "manager.c" to allocate stack memory ITEM instead of part ?? OR: Is the part necessary for garbage collection?
+
+        * Introduce cyboi command line argument "terminal=true" if standard terminal stdout and stdin are wanted by default
+        * Create parts (knowledge tree nodes) ".stdout" and ".stdin" as identifications
+        * Call open function to allocate a client entry
 
         * Rename "internal_memory" into "system"
         * Rename "knowledge_memory" into "heap"
