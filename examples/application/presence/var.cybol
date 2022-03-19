@@ -1,5 +1,9 @@
 <node>
 
+    <!-- The terminal. -->
+
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+
     <!-- The db model. -->
 
     <node name="directory" channel="inline" format="text/plain" model=""/>

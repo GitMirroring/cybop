@@ -11,19 +11,37 @@
 
     <node name="log_filename" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Read from dbfile lecturer:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="log_filename" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+
+    <node name="open_appfile" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
+    </node>
     <node name="receive_db_from_file" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".var.db"/>
+    </node>
+    <node name="close_appfile" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
     <node name="translate_row" channel="inline" format="text/cybol-path" model=".logic.translate.db_to_wui.row"/>

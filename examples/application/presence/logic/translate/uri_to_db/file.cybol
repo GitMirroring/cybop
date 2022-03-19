@@ -6,7 +6,7 @@
 <!--
     <node name="TEST_directory_path" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".var.directory"/>
@@ -14,7 +14,7 @@
     </node>
     <node name="TEST_file_path" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
@@ -31,11 +31,11 @@
     <node name="create_directory_and_file" channel="inline" format="communicate/send" model="">
     TODO: filesystem OR file ??
         <node name="channel" channel="inline" format="meta/channel" model="filesystem"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="create"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
     </node>
 --
     File d = new File("file/blu/bla/testdir");
@@ -69,13 +69,22 @@ if (stat("/dir1/my_dir", &st) == -1) {
 Read more here: stat, mkdir
 -->
 
+    <node name="open_appfile" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
+    </node>
     <node name="send_db" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".db"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.dbfile"/>
+    </node>
+    <node name="close_appfile" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
 </node>

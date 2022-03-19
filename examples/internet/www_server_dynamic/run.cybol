@@ -6,6 +6,7 @@
         <node name="name" channel="inline" format="text/plain" model="id"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>
+
     <node name="open_appfile" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>

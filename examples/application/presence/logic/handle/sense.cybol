@@ -2,7 +2,7 @@
 
     <node name="print_socket_label" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Received client request at socket:"/>
@@ -10,7 +10,7 @@
     </node>
     <node name="print_socket" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
@@ -41,22 +41,34 @@
 
     <node name="receive_request" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-request"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".var.request"/>
-        <node name="sender" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
-        <node name="port" channel="inline" format="number/integer" model="1971"/>
-        <node name="client" channel="inline" format="logicvalue/boolean" model="false"/>
+        <!-- Read indirectly from internal buffer into which data have been written by the sensing thread. -->
+        <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <!-- Write knowledge tree into file. -->
+
+    <node name="open_appfile" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="test_presence_request.txt"/>
+    </node>
     <node name="TEST_knowledge_tree" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".var.request"/>
-        <node name="receiver" channel="inline" format="text/plain" model="test_presence_request.txt"/>
+    </node>
+    <node name="close_appfile" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
     <node name="test_query" channel="inline" format="text/cybol-path" model=".logic.handle.querytest"/>
