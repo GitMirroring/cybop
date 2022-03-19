@@ -3,7 +3,7 @@
     <!-- TODO -->
 
 <!--
-    <form action="http://www.ba-leipzig.de/?action=office" method="post" name="loginform" id="headlogin">
+    <form action="http://www.cybop.org/?action=office" method="post" name="loginform" id="headlogin">
         <fieldset>
             <input type="hidden" name="op" value="login">
             <input type="hidden" name="dest" value="/de/">

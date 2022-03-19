@@ -1,6 +1,6 @@
 <node>
 
-    <node name="lecturer" channel="inline" format="text/plain" model="Dozent">
+    <node name="lecturer" channel="inline" format="text/plain" model="Mitarbeiter">
         <node name="tag" channel="inline" format="text/plain" model="th"/>
     </node>
     <node name="monday" channel="inline" format="text/plain" model="Montag">

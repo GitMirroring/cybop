@@ -41,7 +41,7 @@
 -->
         <node name="href" channel="inline" format="text/plain" model="page/favicon.png"/>
     </node>
-    <node name="title" channel="inline" format="text/plain" model="Anwesenheit Hauptberufliche Dozenten">
+    <node name="title" channel="inline" format="text/plain" model="Anwesenheit Mitarbeiter">
         <node name="tag" channel="inline" format="text/plain" model="title"/>
     </node>
 

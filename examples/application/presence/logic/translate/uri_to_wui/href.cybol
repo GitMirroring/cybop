@@ -2,7 +2,7 @@
 
     <!--
         Example uri:
-        http://presence.ba-leipzig.de/?year=2015&week=11&lecturer=heller&day=monday&choice=holiday&action=update
+        http://presence.cybop.org/?year=2015&week=11&lecturer=heller&day=monday&choice=holiday&action=update
     -->
 
     <!-- The standard parts. -->
