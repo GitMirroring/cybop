@@ -18,6 +18,16 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-03-21  Christian Heller  <christian.heller@cybop.org>
+
+        * Make cybol application "repertoire" work again
+        * Fix bug that generated html files have double content due to missing language properties parametre with "indentation" constraint in files "send.c" and "sender.c"
+
+2022-03-20  Christian Heller  <christian.heller@cybop.org>
+
+        * Reactivate indentation in html serialiser
+        * Make cybol application "project_overview" work again
+
 2022-03-18  Christian Heller  <christian.heller@cybop.org>
 
         * Make cybol application "presence" work again
