@@ -26,6 +26,10 @@
 
     <node name="overwrite_page_file_name" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model="#page_file"/>
+        <node name="source" channel="inline" format="text/plain" model="application/project_overview/file/"/>
+    </node>
+    <node name="overwrite_page_file_name" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#page_file"/>
         <node name="source" channel="inline" format="text/cybol-path" model="#page_name"/>
     </node>
     <node name="append_page_file_suffix" channel="inline" format="modify/append" model="">
