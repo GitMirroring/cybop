@@ -103,9 +103,9 @@ void read_signal(void* p0, void* p1, void* p2, void* p3) {
 
     } else {
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read signal. The signal memory is empty.");
-        fwprintf(stdout, L"Debug: Could not read signal. The signal memory is empty. p2: %i\n\n", p2);
-        fwprintf(stdout, L"Debug: Could not read signal. The signal memory is empty. *p2: %i\n\n", *((int*) p2));
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read signal. The signal memory is empty.");
+        fwprintf(stdout, L"Warning: Could not read signal. The signal memory is empty. p2: %i\n\n", p2);
+        fwprintf(stdout, L"Warning: Could not read signal. The signal memory is empty. *p2: %i\n\n", *((int*) p2));
     }
 }
 

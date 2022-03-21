@@ -44,6 +44,12 @@ void awake_socket(void* p0) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Awake socket.");
     fwprintf(stdout, L"Debug: Awake socket. p0: %i\n", p0);
 
+    //
+    //?? TODO: The function "awake" is NOT necessary for client STUB socket on server side
+    // since zero is returned automatically by "read" if the connexion has been closed,
+    // so that the thread can exit and client entry deallocated.
+    //
+
     // The server socket.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -76,6 +82,8 @@ void awake_socket(void* p0) {
     // Write data to sensing thread of each existing client,
     // so that it can be detected by the SENSING thread function
     // and ALL the sensing threads be exited.
+    //
+    // If not possible, then sadly use operating system signal SIGUSR1.
     //
     //?? TODO: Loop through client list.
 

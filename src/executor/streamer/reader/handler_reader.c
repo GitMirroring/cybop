@@ -31,7 +31,6 @@
 #include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
-#include "../../../executor/runner/sleeper.c"
 #include "../../../executor/streamer/writer/interrupt_pipe/interrupt_pipe_writer.c"
 #include "../../../logger/logger.c"
 
@@ -93,47 +92,41 @@ void read_handler(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         //
         // Set client stub sensing thread exit flag.
         //
-        // CAUTION! The exit flag might be set in the close handler
-        // as well, but requires a thread awakener to be called.
-        // Therefore, setting the flag right here is more EFFICIENT,
-        // since the thread can exit ITSELF when leaving the sensing loop
-        // (which is calling this read function).
+        // CAUTION! The thread exit flag has to be set HERE and
+        // NOT only in the close handler since otherwise:
+        // - the thread sensing loop would run on and
+        // - the "read" function continue to return zero and
+        // - THIS source code right here be executed repeatedly and
+        // - another (redundant) close handler be put into the interrupt pipe
         //
-        //?? copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        //?? TODO: Test if uncommenting flag above is possible!
+        // ... until the first of these close handlers would finally
+        // be executed in the main thread and exit this sensing flag.
+        //
+        // CAUTION! However, a close handler HAS TO BE added to the interrupt pipe
+        // below anyway, in order to properly deallocate the client entry.
+        //
+        // When the close handler is executed in the main thread,
+        // it tries to exit this (then already exited) sensing thread.
+        // But this call will be just IGNORED if the thread is NULL.
+        //
+        copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         //
         // Set read loop break flag.
         //
-        // CAUTION! This is IMPORTANT, so that the calling
-        // sensing function can be reached and the exit flag
-        // be detected there.
+        // CAUTION! This is IMPORTANT, so that the calling sensing function
+        // can be reached and the thread EXIT flag be detected THERE.
         //
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         //
-        // Wait until all messages of the buffer have been processed,
-        // so that the buffer count is ZERO.
-        //
-        // CAUTION! This is IMPORTANT since otherwise, the closer
-        // handler will be processed and DEALLOCATE the client entry.
-        // But that is still needed in the following asynchronous
-        // READ function calls, until the buffer is EMPTY.
-        //
-        // while (buffer_count > 0) {
-
-            //?? sleep_second((void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL);
-        // }
-
-        //
         // Hand over client closer handler to interrupt pipe of main thread.
         //
-        // The closer handler IS NECESSARY for deallocating
-        // the client entry and its resources. Just setting
-        // the thread exit flag is NOT sufficient.
+        // CAUTION! The closer handler IS NECESSARY for deallocating
+        // the client entry and its resources. Just setting the
+        // thread exit flag further above is NOT sufficient.
         //
-        //?? write_interrupt_pipe(p1, p4, p2);
+        write_interrupt_pipe(p1, p4, p2);
     }
 }
 

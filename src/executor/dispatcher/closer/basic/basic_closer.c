@@ -86,15 +86,15 @@ void close_basic(void* p0) {
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close file. An error occured.");
-            fwprintf(stdout, L"Error: Could not close file. An error occured. %i\n", r);
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close basic. An error occured.");
+            fwprintf(stdout, L"Error: Could not close basic. An error occured. %i\n", r);
             log_errno((void*) &errno);
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close basic. The file descriptor is null.");
-        fwprintf(stdout, L"Error: Could not close basic. The file descriptor is null. p0: %i\n", p0);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not close basic. The basic descriptor is null.");
+        fwprintf(stdout, L"Error: Could not close basic. The basic descriptor is null. p0: %i\n", p0);
     }
 }
 

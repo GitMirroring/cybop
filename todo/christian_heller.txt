@@ -14,13 +14,33 @@
 Event / Signal Handling
 _______________________
 
+        * Make cybol application "www_server_static" work again
+            --> client_id is invalid (-1) --> closed ?? --> why ??
+
+        possibly:
+            test in different web browsers, in parallel
+            webbrowser possibly requests different files (css, images) in parallel,
+                so that requests arrive at the server at different times for each test and leads to different behaviour,
+                since only html request is understood, but css and image requests are not yet understood
+                and an EMPTY message is sent which leads to close and repeated close leads to an error if ID is negative
+
+        REASON:
+            probably, the css and image requests are not understood ("misundersood query action")
+            then an empty message is sent to inform the client
+            the client then closes the connexion
+            then the error appears in cyboi due to a non-existing client_id
+            WHY ??
+
+        * Read article "cybop/tmp/gourley_-_http_-_the_definitive_guide_-_4.7_the_mysteries_of_connection_close.pdf"
+        * Adapt file "index.cybol" with line:
+            <node name="Connection" channel="inline" format="text/plain" model="close"/>
+        * Adapt file "query.cybol" by either calling "dispatch/close" or not
+            --> the client may want to send further requests
         * Fix bug that client entry gets deallocated when socket connexion is closed, but buffer still contains data (bc > 0)
             * Ist close-Operation selbst die Ursache?
-            * WANN wird der client_entry gelöscht (vor oder nach thread exit)?
-            * Change back and delete "sleep_second" from file "handler_reader.c" ??
-            * Comment out set thread exit flag in file "handler_reader.c"
-            * Add "sleep_reader.c" to let thread sleep on closing until the buffer is empty since otherwise, the main thread ...
-            * Open AND close socket connexions
+        * Clear up why the webbrowser is loading neverendingly
+            --> perhaps because of the missing css and image files
+            --> correct this and see below "www_server_dynamic"
 
         * Debug missing css and image file transfer in cybol application "www_server_dynamic"
             see working solution of standard url file path in cybol application "www_server_static"
@@ -30,17 +50,44 @@ _______________________
         * Add favicon to cybol application "presence"
         * Update cybol application "presence" to use responsive bootstrap-based user interface
         * Make cybol application "presence" work again
+        * Empty request variables (AND properties) OR use stack variables in cybol application "presence", since request contains old data of previous request, e.g.:
+            [selected_node] | element/part |
+            :-referer | text/plain | http://localhost:1971/?year=2015&week=12&lecturer=meier&day=wednesday&choice=homeoffice&action=update
+            :-connection | text/plain | keep-alive
+            :-accept-encoding | text/plain | gzip, deflate
+            :-accept-language | text/plain | de,en-US;q=0.7,en;q=0.3
+            :-accept | text/plain | text/css,*/*;q=0.1
+            :-user-agent | text/plain | Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0
+            :-host | text/plain | localhost:1971
+            :-protocol | text/plain | HTTP/1.1
+            :-uri | text/plain | /page/presence.css
+            | :-scheme | text/plain | http
+            | :-path | text/plain | /page/presence.css
+            :-method | text/plain | GETffice&action=update
+            | :-scheme | text/plain | http
+            | :-query | element/part |
+            | | +-action | text/plain | update
+            | | +-choice | text/plain | homeoffice
+            | | +-day | text/plain | wednesday
+            | | +-lecturer | text/plain | meier
+            | | +-week | text/plain | 12
+            | | +-year | text/plain | 2015
+            | :-path | text/plain | /
+            :-method | text/plain | GETET| GET
+
+        * Check why generated file contains many body end tags, e.g.:
+            ...<a href="http://localhost:1971/?action=exit" class="button">Exit Programme</a><br/></body></html>/a><br/></body></html>xit Programme</a><br/></body></html>
+            Is "append" the reason? If yes, then empty variable before each request OR use a stack variable
 
         * Fix tui bug that exit button "e" or "esc" (doesn't matter) gets detected only if button gets pressed twice
+            --> this appears also in http where the "exit" link has to be clicked TWICE in cybol application "www_server_dynamic"
         * Check if exit flag is set also if remaining count is zero and no message length delimiter could be detected (probably yes)
         * Füge testweise zu cybol app "tui" output (send terminal) hinzu:
             <node name="format" channel="inline" format="meta/format" model="text/plain"/>
             vgl. mit send to socket using http_response language in cybol app "presence"
             Is it converted from wchar_t to char in the serialiser with language or only with format?
 
-        * Make cybol application "www_server_static" work again
-        * Make cybol application "project_overview" work again
-        * Make cybol application "repertoire" work again
+        * Reactivate awakener in file ""
 
         * Deliver compilable and runnable source code for release CYBOP 0.22.0
 
