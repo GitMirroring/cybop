@@ -34,7 +34,7 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    <node name="open_appfile" channel="inline" format="dispatch/open" model="">
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="device" channel="inline" format="text/cybol-path" model=".var.path"/>
@@ -45,14 +45,14 @@
         <node name="language" channel="inline" format="meta/language" model="message/binary"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".var.file"/>
     </node>
-    <node name="close_appfile" channel="inline" format="dispatch/close" model="">
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
     <!-- Write data into test file. -->
 <!--
-    <node name="open_appfile" channel="inline" format="dispatch/open" model="">
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="device" channel="inline" format="text/plain" model="test_presence_file.txt"/>
@@ -63,7 +63,7 @@
         <node name="language" channel="inline" format="meta/language" model="message/binary"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".var.file"/>
     </node>
-    <node name="close_appfile" channel="inline" format="dispatch/close" model="">
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>

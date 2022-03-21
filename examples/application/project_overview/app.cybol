@@ -1,5 +1,7 @@
 <node>
 
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+
     <node name="list" channel="file" format="element/part" model="application/project_overview/list.cybol"/>
 
     <!-- This node gets created and IS NEEDED in the programme, even if the file does not exist. -->

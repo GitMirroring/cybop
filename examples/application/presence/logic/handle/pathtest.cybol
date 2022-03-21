@@ -29,7 +29,7 @@
         <!--
             CAUTION! Sending a response is important, even if the query was empty or not understood,
             since some browsers request a "/favicon.ico" or other things and if no response was sent,
-            the browser would wait forever and block requests from other clients.
+            the browser would wait forever.
         -->
         <node name="false" channel="inline" format="text/cybol-path" model=".logic.send.empty_message"/>
     </node>

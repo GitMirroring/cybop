@@ -11,7 +11,7 @@
         <node name="whole" channel="inline" format="text/cybol-path" model=".wui.index.body.lecturers.table"/>
     </node>
 
-    <node name="open_appfile" channel="inline" format="dispatch/open" model="">
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="device" channel="inline" format="text/plain" model="application/presence/wui/lecturers/row.cybol"/>
@@ -24,12 +24,12 @@
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".wui.index.body.lecturers.table.(#name)"/>
     </node>
-    <node name="close_appfile" channel="inline" format="dispatch/close" model="">
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
-    <node name="open_appfile" channel="inline" format="dispatch/open" model="">
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="device" channel="inline" format="text/plain" model="application/presence/wui/lecturers/row_properties.cybol"/>
@@ -42,7 +42,7 @@
         <node name="format" channel="inline" format="meta/format" model="element/property"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".wui.index.body.lecturers.table.(#name)"/>
     </node>
-    <node name="close_appfile" channel="inline" format="dispatch/close" model="">
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>

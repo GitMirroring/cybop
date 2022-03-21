@@ -9,7 +9,7 @@
 
     <!-- Initialise application -->
 
-    <node name="open_appfile" channel="inline" format="dispatch/open" model="">
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="device" channel="inline" format="text/plain" model="application/presence/app.cybol"/>
@@ -22,7 +22,7 @@
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model="."/>
     </node>
-    <node name="close_appfile" channel="inline" format="dispatch/close" model="">
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
@@ -91,7 +91,7 @@
 
     <!-- Write knowledge tree into file. -->
 
-    <node name="open_treefile" channel="inline" format="dispatch/open" model="">
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="device" channel="inline" format="text/plain" model="test_presence.txt"/>
@@ -104,7 +104,7 @@
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model="."/>
     </node>
-    <node name="close_treefile" channel="inline" format="dispatch/close" model="">
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>

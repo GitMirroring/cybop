@@ -1,10 +1,6 @@
 <node>
 
     <!-- Database with all details -->
-<!--
-    <node name="song" channel="file" format="element/part" model="application/repertoire/db/song.cybol"/>
-    <node name="song" channel="directory" format="element/part" model="application/repertoire/db/song/"/>
--->
     <node name="song" channel="file" format="element/part" model="application/repertoire/db/song.cybol"/>
     <node name="idea" channel="file" format="element/part" model="application/repertoire/db/idea.cybol"/>
 
