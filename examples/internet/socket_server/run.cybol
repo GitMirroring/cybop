@@ -1,12 +1,13 @@
 <node>
 
-    <!-- Build up knowledge tree -->
-
     <node name="create_file_id" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="id"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>
-    <node name="open_appfile" channel="inline" format="dispatch/open" model="">
+
+    <!-- Build up knowledge tree -->
+
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="device" channel="inline" format="text/plain" model="internet/socket_server/app.cybol"/>
@@ -19,7 +20,7 @@
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model="."/>
     </node>
-    <node name="close_appfile" channel="inline" format="dispatch/close" model="">
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>

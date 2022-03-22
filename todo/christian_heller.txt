@@ -14,9 +14,6 @@
 Event / Signal Handling
 _______________________
 
-        * Make cybol application "www_server_static" work again
-            --> client_id is invalid (-1) --> closed ?? --> why ??
-
         possibly:
             test in different web browsers, in parallel
             webbrowser possibly requests different files (css, images) in parallel,
@@ -774,6 +771,8 @@ Repertoire cybol application:
 
 General CYBOI
 _____________
+
+        * Write style guide for cyboi programming in c
 
         * Merge cyboi message/event/signal queue into interrupt pipe ?? Store handler only
 

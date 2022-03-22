@@ -8,7 +8,7 @@
         Inside cyboi, it gets filled with the correct server socket number,
         which gets created by the operating system through a low-level function call.
     -->
-    <node name="server_socket" channel="inline" format="number/integer" model="0"/>
+    <node name="server_socket" channel="inline" format="number/integer" model="-1"/>
 
     <node name="response" channel="inline" format="text/ascii" model=""/>
 

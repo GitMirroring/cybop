@@ -1,7 +1,7 @@
 <node>
 
     <node name="stdout" channel="inline" format="number/integer" model="-1"/>
-    <node name="client_socket" channel="inline" format="number/integer" model="0"/>
+    <node name="client_socket" channel="inline" format="number/integer" model="-1"/>
 
     <node name="request" channel="inline" format="element/part" model=""/>
 

@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-03-22  Christian Heller  <christian.heller@cybop.org>
+
+        * Set eof-or-close flag in file "basic_reader.c" upon error since otherwise, sensing would run into an endless loop in server mode
+        * Make cybol application "www_server_static" work again
+
 2022-03-21  Christian Heller  <christian.heller@cybop.org>
 
         * Make cybol application "repertoire" work again

@@ -9,7 +9,7 @@
     <node name="request" channel="inline" format="text/ascii" model=""/>
     <node name="action" channel="inline" format="text/plain" model=""/>
 
-    <node name="client_socket" channel="inline" format="number/integer" model="0"/>
+    <node name="client_socket" channel="inline" format="number/integer" model="-1"/>
 
     <node name="path" channel="inline" format="text/plain" model=""/>
 
