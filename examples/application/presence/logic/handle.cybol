@@ -2,13 +2,7 @@
 
     <node name="enable" channel="file" format="element/part" model="application/presence/logic/handle/enable.cybol"/>
     <node name="sense" channel="file" format="element/part" model="application/presence/logic/handle/sense.cybol"/>
-
-    <node name="close" channel="inline" format="dispatch/close" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
-        <node name="port" channel="inline" format="number/integer" model="1971"/>
-        <node name="identification" channel="inline" format="text/cybol-path" model=".var.client_socket"/>
-    </node>
+    <node name="close" channel="file" format="element/part" model="application/presence/logic/handle/close.cybol"/>
 
     <node name="pathtest" channel="file" format="element/part" model="application/presence/logic/handle/pathtest.cybol"/>
     <node name="querytest" channel="file" format="element/part" model="application/presence/logic/handle/querytest.cybol"/>

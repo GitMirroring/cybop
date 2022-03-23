@@ -1,5 +1,10 @@
 <node>
 
+    <!-- Get client belonging to the handler that was placed into the interrupt pipe. -->
+    <node name="get_client_id" channel="inline" format="communicate/identify" model="">
+        <node name="identification" channel="inline" format="text/cybol-path" model=".client_socket"/>
+    </node>
+
     <node name="print_accept" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>

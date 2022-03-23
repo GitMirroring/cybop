@@ -14,24 +14,6 @@
 Event / Signal Handling
 _______________________
 
-        * Use cybol operation "communicate/identify" in cybol handlers of "activate/enable" and "feel/sense" and "dispatch/close"
-
-        * Add accepted client requests to interrupt pipe directly and delete special client list buffer
-
-        possibly:
-            test in different web browsers, in parallel
-            webbrowser possibly requests different files (css, images) in parallel,
-                so that requests arrive at the server at different times for each test and leads to different behaviour,
-                since only html request is understood, but css and image requests are not yet understood
-                and an EMPTY message is sent which leads to close and repeated close leads to an error if ID is negative
-
-        REASON:
-            probably, the css and image requests are not understood ("misundersood query action")
-            then an empty message is sent to inform the client
-            the client then closes the connexion
-            then the error appears in cyboi due to a non-existing client_id
-            WHY ??
-
         * Read article "cybop/tmp/gourley_-_http_-_the_definitive_guide_-_4.7_the_mysteries_of_connection_close.pdf"
         * Adapt file "index.cybol" with line:
             <node name="Connection" channel="inline" format="text/plain" model="close"/>
@@ -99,7 +81,8 @@ _____________
         * Write style guide for cyboi programming in c
 
         * Merge enable client input buffer item into interrupt pipe ?? use global variable IDENTIFICATION_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME as is done with sensing thread
-        * Delete ITEM_CLIENTS_SERVER_STATE_CYBOI_NAME
+        * Delete special client list buffer ITEM_CLIENTS_SERVER_STATE_CYBOI_NAME
+        * Use cybol operation "communicate/identify" in cybol handlers of "activate/enable" (see "feel/sense" and "dispatch/close")
 
         * Merge cyboi message/event/signal queue into interrupt pipe ?? Store handler only
         * Delete signal memory
