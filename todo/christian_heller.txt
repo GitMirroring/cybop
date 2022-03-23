@@ -14,6 +14,10 @@
 Event / Signal Handling
 _______________________
 
+        * Use cybol operation "communicate/identify" in cybol handlers of "activate/enable" and "feel/sense" and "dispatch/close"
+
+        * Add accepted client requests to interrupt pipe directly and delete special client list buffer
+
         possibly:
             test in different web browsers, in parallel
             webbrowser possibly requests different files (css, images) in parallel,
@@ -75,6 +79,7 @@ _______________________
         * Check why generated file contains many body end tags, e.g.:
             ...<a href="http://localhost:1971/?action=exit" class="button">Exit Programme</a><br/></body></html>/a><br/></body></html>xit Programme</a><br/></body></html>
             Is "append" the reason? If yes, then empty variable before each request OR use a stack variable
+            ==> probably already FIXED; see ChangeLog from 2022-03-21
 
         * Fix tui bug that exit button "e" or "esc" (doesn't matter) gets detected only if button gets pressed twice
             --> this appears also in http where the "exit" link has to be clicked TWICE in cybol application "www_server_dynamic"
@@ -87,6 +92,90 @@ _______________________
         * Reactivate awakener in file ""
 
         * Deliver compilable and runnable source code for release CYBOP 0.22.0
+
+General CYBOI
+_____________
+
+        * Write style guide for cyboi programming in c
+
+        * Merge enable client input buffer item into interrupt pipe ?? use global variable IDENTIFICATION_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME as is done with sensing thread
+        * Delete ITEM_CLIENTS_SERVER_STATE_CYBOI_NAME
+
+        * Merge cyboi message/event/signal queue into interrupt pipe ?? Store handler only
+        * Delete signal memory
+
+        * Cleanup signal (event) list checker from outdated io check mechanism which got replaced by enable- and sensing threads
+
+        * Assign pointer to INTERNAL_MEMORY_SELFLINK_INTERNAL_MEMORY_STATE_CYBOI_NAME constant at internal memory allocation,
+            so that its reference does not have to be passed as argument through all functions for usage in input output communication
+
+        * Eliminate optionaliser and deoptionaliser by replacing function calls with dispatcher open and close
+        * Summarise globaliser and unglobaliser ??
+
+        * Adapt file "manager.c" to allocate signal memory ITEM instead of part ?? OR: Is the part necessary for garbage collection?
+        * Adapt file "manager.c" to allocate stack memory ITEM instead of part ?? OR: Is the part necessary for garbage collection?
+
+        * Introduce cyboi command line argument "terminal=true" if standard terminal stdout and stdin are wanted by default
+        * Create parts (knowledge tree nodes) ".stdout" and ".stdin" as identifications
+        * Call open function to allocate a client entry
+
+        * Rename "internal_memory" into "system"
+        * Rename "knowledge_memory" into "heap"
+        * Rename "stack_memory" into "stack"
+        * Rename "signal_memory" into "queue"
+
+        * Provide cybol format "meta/model" to deserialise e.g. socket address etc. into an integer for more efficient processing ?? (equivalent of compilation)
+
+        * Implement worker thread with cybol operations "work/move" and "work/break", for asynchronically sending message data
+
+        * Adapt all de-/serialisers in order to overwrite variable with received data instead of appending, to thereby eliminate the need for emptying variables in cybol before receiving new data
+
+        * Eliminate superfluous signal loop and call processing directly after getting handler (signal) in file "empty_checker.c" ??
+            OR: better leave signal loop for now, since it -- one day -- might be necessary for real time system features ??
+                (each operation executed in the loop in order to keep special time requirements)
+
+        * Use keyword "volatile" for flags within an endless loop or thread, in order to avoid the compiler optimising the reading of the value away
+        * Make all flags atomic by using the integer data type "sig_atomic_t", in order to avoid the operating system signal handler interfering variable access (it can take more than one instruction to read or write a single object)
+
+        * Use memset() instead of loop ?? in file "internal_memory_startup_manager.c"
+            https://www.gnu.org/software/libc/manual/html_mono/libc.html#Allocating-Cleared-Space
+
+        * Delete files "system_signal_handler_startup_manager.c", "service_interrupt.c", since signals are not used anymore to exit threads
+
+        * Remove all "sleep" times, if not used anymore for signal (event) processing (busy waiting), since the blocking interrupt pipe and blocking input function calls in threads are used now
+
+        * Use local variable arrays on stack instead of allocating them on heap, in file "manager.c" and everywhere possible
+
+        * Change data types to modern version, e.g. "int" to "int32_t", in all source code
+        * Adapt all places where a void* gets casted to some type like for example int* and cast to the type with the largest value range ??, e.g. "long" for integer values
+            see https://de.wikipedia.org/wiki/Integer_(Datentyp)#Maximaler_Wertebereich_von_Integer
+
+        * Eliminate bugs mentioned on project portal bug tracker at gnu savannah
+
+        * Introduce "error" property for cybol operations to be used for exception handling?
+
+        * Rename memories into: system (internal), heap (knowledge), stack ??
+
+        * Use "overwrite" instead of "copy_integer" ?? for setting the result in operations like "calculate" etc.
+            the reason is that the result value might have a count of zero (and not one as expected), if it hadn't been initialised within the corresponding cybol application
+            already done for "apply_compare"; see there
+
+        Comparing two arrays (strings) lexicographically:
+        * Rename file "executor/checker/operation_checker.c" into "lexer.c" (NOT "checker.c", since already used in "controller/") ??
+        * Rename all "checker" into "lexer"
+        * Rename function call of "check_operation" into "lex" in all code and adapt include
+
+        * Update directory "executor/container/"
+
+        * Unify common code of files "handler.c" and "knowledge_part_getter.c"?
+            --> possibly, state and logic models need to be handled differently (at least path/reference)
+
+        * Refactor loops into an own function using function pointers? See "language/loop.c"!
+
+        * Implement some functions in assembly language to accelerate execution, see:
+            http://menuetos.net/
+
+        * Search for comments with "??", "TODO", "TEST", in order to clean them up
 
 Awakener
 ________
@@ -768,86 +857,6 @@ Repertoire cybol application:
         * Add "remain" nodes to last section of wui "round"
             How to reuse file "round.cybol" for last iteration of "remain" songs?
             Problem: the "#remain_index" is reset in file "song.cybol", which is not wanted when processing ".db.remain"
-
-General CYBOI
-_____________
-
-        * Write style guide for cyboi programming in c
-
-        * Merge cyboi message/event/signal queue into interrupt pipe ?? Store handler only
-
-        * Cleanup signal (event) list checker from outdated io check mechanism which got replaced by enable- and sensing threads
-
-        * Assign pointer to INTERNAL_MEMORY_SELFLINK_INTERNAL_MEMORY_STATE_CYBOI_NAME constant at internal memory allocation,
-            so that its reference does not have to be passed as argument through all functions for usage in input output communication
-
-        * Eliminate optionaliser and deoptionaliser by replacing function calls with dispatcher open and close
-        * Summarise globaliser and unglobaliser ??
-
-        * Adapt file "manager.c" to allocate signal memory ITEM instead of part ?? OR: Is the part necessary for garbage collection?
-        * Adapt file "manager.c" to allocate stack memory ITEM instead of part ?? OR: Is the part necessary for garbage collection?
-
-        * Introduce cyboi command line argument "terminal=true" if standard terminal stdout and stdin are wanted by default
-        * Create parts (knowledge tree nodes) ".stdout" and ".stdin" as identifications
-        * Call open function to allocate a client entry
-
-        * Rename "internal_memory" into "system"
-        * Rename "knowledge_memory" into "heap"
-        * Rename "stack_memory" into "stack"
-        * Rename "signal_memory" into "queue"
-
-        * Provide cybol format "meta/model" to deserialise e.g. socket address etc. into an integer for more efficient processing ?? (equivalent of compilation)
-
-        * Implement worker thread with cybol operations "work/move" and "work/break", for asynchronically sending message data
-
-        * Adapt all de-/serialisers in order to overwrite variable with received data instead of appending, to thereby eliminate the need for emptying variables in cybol before receiving new data
-
-        * Eliminate superfluous signal loop and call processing directly after getting handler (signal) in file "empty_checker.c" ??
-            OR: better leave signal loop for now, since it -- one day -- might be necessary for real time system features ??
-                (each operation executed in the loop in order to keep special time requirements)
-
-        * Use keyword "volatile" for flags within an endless loop or thread, in order to avoid the compiler optimising the reading of the value away
-        * Make all flags atomic by using the integer data type "sig_atomic_t", in order to avoid the operating system signal handler interfering variable access (it can take more than one instruction to read or write a single object)
-
-        * Use memset() instead of loop ?? in file "internal_memory_startup_manager.c"
-            https://www.gnu.org/software/libc/manual/html_mono/libc.html#Allocating-Cleared-Space
-
-        * Delete files "system_signal_handler_startup_manager.c", "service_interrupt.c", since signals are not used anymore to exit threads
-
-        * Remove all "sleep" times, if not used anymore for signal (event) processing (busy waiting), since the blocking interrupt pipe and blocking input function calls in threads are used now
-
-        * Use local variable arrays on stack instead of allocating them on heap, in file "manager.c" and everywhere possible
-
-        * Change data types to modern version, e.g. "int" to "int32_t", in all source code
-        * Adapt all places where a void* gets casted to some type like for example int* and cast to the type with the largest value range ??, e.g. "long" for integer values
-            see https://de.wikipedia.org/wiki/Integer_(Datentyp)#Maximaler_Wertebereich_von_Integer
-
-        * Eliminate bugs mentioned on project portal bug tracker at gnu savannah
-
-        * Introduce "error" property for cybol operations to be used for exception handling?
-
-        * Rename memories into: system (internal), heap (knowledge), stack ??
-
-        * Use "overwrite" instead of "copy_integer" ?? for setting the result in operations like "calculate" etc.
-            the reason is that the result value might have a count of zero (and not one as expected), if it hadn't been initialised within the corresponding cybol application
-            already done for "apply_compare"; see there
-
-        Comparing two arrays (strings) lexicographically:
-        * Rename file "executor/checker/operation_checker.c" into "lexer.c" (NOT "checker.c", since already used in "controller/") ??
-        * Rename all "checker" into "lexer"
-        * Rename function call of "check_operation" into "lex" in all code and adapt include
-
-        * Update directory "executor/container/"
-
-        * Unify common code of files "handler.c" and "knowledge_part_getter.c"?
-            --> possibly, state and logic models need to be handled differently (at least path/reference)
-
-        * Refactor loops into an own function using function pointers? See "language/loop.c"!
-
-        * Implement some functions in assembly language to accelerate execution, see:
-            http://menuetos.net/
-
-        * Search for comments with "??", "TODO", "TEST", in order to clean them up
 
 Documentation
 _____________

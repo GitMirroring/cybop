@@ -55,6 +55,16 @@
 //
 
 /**
+ * The communicate/identify logic cybol format.
+ *
+ * Identify the device or client having sent/placed a request in the interrupt pipe.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* IDENTIFY_COMMUNICATE_LOGIC_CYBOL_FORMAT = L"communicate/identify";
+static int* IDENTIFY_COMMUNICATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The communicate/receive logic cybol format.
  *
  * Receive data via a communication channel.

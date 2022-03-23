@@ -31,6 +31,7 @@
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
@@ -76,6 +77,8 @@ void allocate_internal_memory(void* p0) {
         void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The interrupt mutex.
         void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The interrupt identification.
+        void* ii = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // The display input output entry.
         void* iod = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -138,6 +141,8 @@ void allocate_internal_memory(void* p0) {
         allocate_array((void*) &ip, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         // Allocate interrupt mutex.
         allocate_mutex((void*) &im);
+        // Allocate interrupt identification.
+        allocate_array((void*) &ii, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         // Allocate display input output entry.
         allocate_input_output_entry((void*) &iod);
@@ -194,6 +199,8 @@ void allocate_internal_memory(void* p0) {
 
         // Open interrupt pipe.
         open_pipe(ip);
+        // Initialise interrupt identification.
+        copy_integer(ii, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
 
         //
         // Storage
@@ -210,6 +217,8 @@ void allocate_internal_memory(void* p0) {
         copy_array_forward(*i, (void*) &ip, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PIPE_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Set interrupt mutex into internal memory.
         copy_array_forward(*i, (void*) &im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        // Set interrupt identification into internal memory.
+        copy_array_forward(*i, (void*) &ii, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IDENTIFICATION_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         // Set display input output entry into internal memory.
         copy_array_forward(*i, (void*) &iod, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DISPLAY_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);

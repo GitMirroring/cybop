@@ -30,9 +30,11 @@
 #include <unistd.h> // write
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/porter/locker.c"
 #include "../../../../executor/porter/unlocker.c"
 #include "../../../../logger/logger.c"
+#include "../../../../variable/type_size/integral_type_size.c"
 #include "../../../../variable/type_size/pointer_type_size.c"
 
 /**
@@ -40,17 +42,18 @@
  *
  * @param p0 the destination interrupt pipe write file descriptor
  * @param p1 the source handler (pointer reference)
- * @param p2 the interrupt mutex
+ * @param p2 the source client identification
+ * @param p3 the interrupt mutex
  */
-void write_interrupt_pipe_exclusive(void* p0, void* p1, void* p2) {
+void write_interrupt_pipe_exclusive(void* p0, void* p1, void* p2, void* p3) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* f = (int*) p0;
 
         // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write interrupt pipe exclusive.");
-        fwprintf(stdout, L"Debug: Write interrupt pipe exclusive. mutex p2: %i\n", p2);
-        fwprintf(stdout, L"Debug: Write interrupt pipe exclusive. mutex *p2: %i\n", *((int*) p2));
+        fwprintf(stdout, L"Debug: Write interrupt pipe exclusive. mutex p3: %i\n", p3);
+        fwprintf(stdout, L"Debug: Write interrupt pipe exclusive. mutex *p3: %i\n", *((int*) p3));
 
         //
         // Cast size to correct type.
@@ -62,7 +65,8 @@ void write_interrupt_pipe_exclusive(void* p0, void* p1, void* p2) {
         // memory errors will occur and the valgrind memcheck tool report:
         // "Invalid read of size 8".
         //
-        size_t s = (size_t) *POINTER_TYPE_SIZE;
+        size_t sp = (size_t) *POINTER_TYPE_SIZE;
+        size_t si = (size_t) *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE;
 
         //
         // Lock mutex.
@@ -70,18 +74,26 @@ void write_interrupt_pipe_exclusive(void* p0, void* p1, void* p2) {
         // CAUTION! A mutex HAS TO BE set here, since MANY threads
         // may want to write to the interrupt pipe concurrently.
         //
-        lock(p2);
+        lock(p3);
 
         //
         // Write to interrupt pipe.
         //
-        // It does not matter what is written to inform the main thread.
-        // Therefore, the simple integer value of 1 (true) is put into the pipe.
+        // CAUTION! Do NOT write the client identification as
+        // pointer value, also NOT as null pointer, for TWO reasons:
+        //
+        // 1 The actual VALUE that the pointer points to might get
+        // CHANGED by other threads before having processed the value
+        // in the main thread (race condition).
+        //
+        // 2 The reading side of the pipe expects an INTEGER value,
+        // which has a SIZE of 4 Byte, while type pointer has a size
+        // of 8 Byte on 64 bit platforms.
         //
         // CAUTION! The safe way is to use the functions "snprintf" and "strtol".
         // However, if both processes were created using the same compiler version,
-        // one can take advantage of the fact that anything in C can be
-        // read or written as an array of char (byte).
+        // one can take advantage of the fact that ANYTHING in C can be
+        // read or written as an array of CHAR (byte).
         //
         // Example:
         //
@@ -92,11 +104,11 @@ void write_interrupt_pipe_exclusive(void* p0, void* p1, void* p2) {
         //
         // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
         //
-        //?? write(*f, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, s);
-        write(*f, p1, s);
+        write(*f, p1, sp);
+        write(*f, p2, si);
 
         // Unlock mutex.
-        unlock(p2);
+        unlock(p3);
 
     } else {
 

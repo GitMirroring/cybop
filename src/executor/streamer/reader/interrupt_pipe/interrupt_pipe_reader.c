@@ -32,89 +32,114 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
+#include "../../../../variable/type_size/integral_type_size.c"
 #include "../../../../variable/type_size/pointer_type_size.c"
 
 /**
  * Reads message from interrupt pipe.
  *
  * @param p0 the destination handler (pointer reference)
- * @param p1 the source interrupt pipe read file descriptor
+ * @param p1 the destination client identification
+ * @param p2 the source interrupt pipe read file descriptor
  */
-void read_interrupt_pipe(void* p0, void* p1) {
+void read_interrupt_pipe(void* p0, void* p1, void* p2) {
 
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* f = (int*) p1;
+        int* f = (int*) p2;
 
-        // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read interrupt pipe.");
-        fwprintf(stdout, L"Debug: Read interrupt pipe. f: %i\n", f);
-        fwprintf(stdout, L"Debug: Read interrupt pipe. *f: %i\n", *f);
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        //
-        // Cast size to correct type.
-        //
-        // CAUTION! It IS NECESSARY because on 64 Bit machines,
-        // the "size_t" type has a size of 8 Byte, whereas
-        // the "int" type has the usual size of 4 Byte.
-        // When trying to dereference a pointer that uses the other type,
-        // memory errors will occur and the valgrind memcheck tool report:
-        // "Invalid read of size 8".
-        //
-        size_t s = (size_t) *POINTER_TYPE_SIZE;
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        //
-        // CAUTION! Do NOT lock a mutex for reading the pipe.
-        //
-        // It is not necessary here, for the following reasons:
-        //
-        // 1 The values are only READ but nothing is written.
-        //
-        // 2 While there may be potentially many threads
-        //   WRITING to this interrupt pipe, there is just ONE
-        //   function in the main signal (event) loop reading it.
-        //   Therefore, conflicts are impossible.
-        //
-        // 3 The ORDER of the values in the pipe is UNCHANGED.
-        //   If new values are written to the pipe in one
-        //   of the threads, then they are added at the end.
-        //   A MUTEX is used for WRITING, so that all values
-        //   belonging together are placed at once.
-        //   Therefore, one can always be sure that the values
-        //   being read in a sequence here really do belong together,
-        //   to the same interrupt.
-        //
-        // CAUTION! If a mutex was set here, then the "read" function
-        // would block FOREVER, without any input thread having
-        // the chance to write to it, due to the LOCK.
-        //
+                // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read interrupt pipe.");
+                fwprintf(stdout, L"Debug: Read interrupt pipe. f: %i\n", f);
+                fwprintf(stdout, L"Debug: Read interrupt pipe. *f: %i\n", *f);
 
-        //
-        // Read from interrupt pipe.
-        //
-        // CAUTION! The safe way is to use the functions "snprintf" and "strtol".
-        // However, if both processes were created using the same compiler version,
-        // one can take advantage of the fact that anything in C can be
-        // read or written as an array of char (byte).
-        //
-        // Example:
-        //
-        // int n = something();
-        // write(pipe_w, &n, sizeof(n));
-        // int n;
-        // read(pipe_r, &n, sizeof(n));
-        //
-        // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
-        //
-        int n = read(*f, p0, s);
+                //
+                // Cast size to correct type.
+                //
+                // CAUTION! It IS NECESSARY because on 64 Bit machines,
+                // the "size_t" type has a size of 8 Byte, whereas
+                // the "int" type has the usual size of 4 Byte.
+                // When trying to dereference a pointer that uses the other type,
+                // memory errors will occur and the valgrind memcheck tool report:
+                // "Invalid read of size 8".
+                //
+                size_t sp = (size_t) *POINTER_TYPE_SIZE;
+                size_t si = (size_t) *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE;
 
-        fwprintf(stdout, L"Debug: Read interrupt pipe. n: %i\n", n);
-        fwprintf(stdout, L"Debug: Read interrupt pipe. handler p0: %i\n", p0);
-        fwprintf(stdout, L"Debug: Read interrupt pipe. handler *p0: %i\n", *((int*) p0));
+                //
+                // CAUTION! Do NOT lock a MUTEX for reading the pipe.
+                //
+                // It is not necessary here, for the following reasons:
+                //
+                // 1 The values are only READ but nothing is written.
+                //
+                // 2 While there may be potentially many threads
+                //   WRITING to this interrupt pipe, there is just ONE
+                //   function in the main signal (event) loop reading it.
+                //   Therefore, conflicts are impossible.
+                //
+                // 3 The ORDER of the values in the pipe is UNCHANGED.
+                //   If new values are written to the pipe in one
+                //   of the threads, then they are added at the end.
+                //   A MUTEX is used for WRITING, so that all values
+                //   belonging together are placed at once.
+                //   Therefore, one can always be sure that the values
+                //   being read in a sequence here really do belong together,
+                //   to the same interrupt.
+                //
+                // CAUTION! If a mutex was set here, then the "read" function
+                // would block FOREVER, without any input thread having
+                // the chance to write to it, due to the LOCK.
+                //
+
+                //
+                // Read from interrupt pipe.
+                //
+                // CAUTION! The safe way is to use the functions "snprintf" and "strtol".
+                // However, if both processes were created using the same compiler version,
+                // one can take advantage of the fact that anything in C can be
+                // read or written as an array of char (byte).
+                //
+                // Example:
+                //
+                // int n = something();
+                // write(pipe_w, &n, sizeof(n));
+                // int n;
+                // read(pipe_r, &n, sizeof(n));
+                //
+                // https://stackoverflow.com/questions/5237041/how-to-send-integer-with-pipe-between-two-processes
+                //
+                int np = read(*f, p0, sp);
+                int ni = read(*f, p1, si);
+
+                fwprintf(stdout, L"Debug: Read interrupt pipe. np: %i\n", np);
+                fwprintf(stdout, L"Debug: Read interrupt pipe. ni: %i\n", ni);
+
+                fwprintf(stdout, L"Debug: Read interrupt pipe. handler p0: %i\n", p0);
+                fwprintf(stdout, L"Debug: Read interrupt pipe. handler *p0: %i\n", *((int*) p0));
+
+                fwprintf(stdout, L"Debug: Read interrupt pipe. handler p1: %i\n", p1);
+                fwprintf(stdout, L"Debug: Read interrupt pipe. handler *p1: %i\n", *((int*) p1));
+
+            } else {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read interrupt pipe. The destination handler is null.");
+                fwprintf(stdout, L"Error: Could not read interrupt pipe. The destination handler is null. p0: %i\n", p0);
+            }
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read interrupt pipe. The destination client identification is null.");
+            fwprintf(stdout, L"Error: Could not read interrupt pipe. The destination client identification is null. p1: %i\n", p1);
+        }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read interrupt pipe. The source interrupt pipe read file descriptor is null.");
-        fwprintf(stdout, L"Error: Could not read interrupt pipe. The source interrupt pipe read file descriptor is null. p1: %i\n", p1);
+        fwprintf(stdout, L"Error: Could not read interrupt pipe. The source interrupt pipe read file descriptor is null. p2: %i\n", p2);
     }
 }
 

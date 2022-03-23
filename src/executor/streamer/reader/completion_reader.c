@@ -44,11 +44,12 @@
  * @param p2 the interrupt mutex
  * @param p3 the handler (pointer reference)
  * @param p4 the closer (pointer reference)
- * @param p5 the thread exit flag
- * @param p6 the message length (possibly detected previously; should be initialised with a value < 0, e.g. with -1)
- * @param p7 the close flag
+ * @param p5 the client identification
+ * @param p6 the thread exit flag
+ * @param p7 the message length (possibly detected previously; should be initialised with a value < 0, e.g. with -1)
+ * @param p8 the close flag
  */
-void read_completion(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void read_completion(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read completion.");
     //?? fwprintf(stdout, L"Debug: Read completion. handler p3: %i\n", p3);
@@ -101,7 +102,7 @@ void read_completion(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
         fwprintf(stdout, L"Debug: Read completion. Asynchronous mode. Add handler to interrupt pipe. p0: %i\n", p0);
 
         // Write handler into interrupt pipe.
-        read_handler(p0, p1, p2, p3, p4, p5, p6, p7);
+        read_handler(p0, p1, p2, p3, p4, p5, p6, p7, p8);
     }
 }
 

@@ -82,7 +82,7 @@ void enable_request(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         unlock(p1);
 
         // Inform interrupt pipe of main threaad.
-        write_interrupt_pipe(p4, p5, p6);
+        write_interrupt_pipe(p4, p5, (void*) &id, p6);
 
         //
         // CAUTION! The client entry does NOT have to be opened (and allocated) here.

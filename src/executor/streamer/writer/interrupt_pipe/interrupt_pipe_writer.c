@@ -27,42 +27,56 @@
 #define INTERRUPT_PIPE_WRITER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/comparator/pointer/unequal_pointer_comparator.c"
 #include "../../../../executor/streamer/writer/interrupt_pipe/exclusive_interrupt_pipe_writer.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Tests if the handler exists and writes it to the interrupt pipe.
+ * Writes handler and client identification to the interrupt pipe.
  *
  * @param p0 the destination interrupt pipe write file descriptor
  * @param p1 the source handler (pointer reference)
- * @param p2 the interrupt mutex
+ * @param p2 the source client identification
+ * @param p3 the interrupt mutex
  */
-void write_interrupt_pipe(void* p0, void* p1, void* p2) {
+void write_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
 
-    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write interrupt pipe.");
-    fwprintf(stdout, L"Debug: Write interrupt pipe. handler p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Write interrupt pipe. handler *p1: %i\n", *((int*) p1));
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        int* id = (int*) p2;
 
-    // Check handler for existence.
-    compare_pointer_unequal((void*) &r, p1, NULL_POINTER_STATE_CYBOI_MODEL);
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            void** h = (void**) p1;
 
-        //
-        // A handler exists.
-        //
-        // The handler is OPTIONAL and may be null.
-        // It gets added to the interrupt pipe only if existing.
-        //
+            // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write interrupt pipe.");
+            fwprintf(stdout, L"Debug: Write interrupt pipe. handler p1: %i\n", p1);
+            fwprintf(stdout, L"Debug: Write interrupt pipe. handler *p1: %i\n", *((int*) p1));
 
-        // Lock mutex and write handler to interrupt pipe.
-        write_interrupt_pipe_exclusive(p0, p1, p2);
+            // Check handler for existence.
+            if (*h != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                //
+                // A handler exists.
+                //
+                // The handler is OPTIONAL for some cybol operations and MAY be null.
+                // It gets added to the interrupt pipe only if existing.
+                //
+
+                // Lock mutex and write handler and client identification to interrupt pipe.
+                write_interrupt_pipe_exclusive(p0, p1, p2, p3);
+            }
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write interrupt pipe. The source handler is null.");
+            fwprintf(stdout, L"Error: Could not write interrupt pipe. The source handler is null. p1: %i\n", p1);
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write interrupt pipe. The source client identification is null.");
+        fwprintf(stdout, L"Error: Could not write interrupt pipe. The source client identification is null. p2: %i\n", p2);
     }
 }
 

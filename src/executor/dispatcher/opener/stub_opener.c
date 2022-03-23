@@ -73,13 +73,13 @@ void open_stub(void* p0, void* p1) {
     // Lock mutex.
     lock(bm);
 
-    // Get client socket number from client request input buffer item at index zero.
+    // Get client socket number from client request input buffer item at index ZERO.
     get_item(p0, bi, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     //?? fwprintf(stdout, L"Debug: Open stub. get p0: %i\n", p0);
     //?? fwprintf(stdout, L"Debug: Open stub. get *p0: %i\n", *((int*) p0));
 
-    // Remove client socket number from client request input buffer item.
+    // Remove client socket number from client request input buffer item at index ZERO.
     modify_item(bi, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
 
     // Unlock mutex.

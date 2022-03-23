@@ -45,20 +45,21 @@
  * @param p2 the interrupt mutex
  * @param p3 the handler (pointer reference)
  * @param p4 the closer (pointer reference)
- * @param p5 the thread exit flag
- * @param p6 the message length (possibly detected previously; should be initialised with a value < 0, e.g. with -1)
- * @param p7 the close flag
+ * @param p5 the client identification
+ * @param p6 the thread exit flag
+ * @param p7 the message length (possibly detected previously; should be initialised with a value < 0, e.g. with -1)
+ * @param p8 the close flag
  */
-void read_handler(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void read_handler(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read handler.");
-    fwprintf(stdout, L"Debug: Read handler. close flag p7: %i\n", p7);
-    fwprintf(stdout, L"Debug: Read handler. close flag *p7: %i\n", *((int*) p7));
+    fwprintf(stdout, L"Debug: Read handler. close flag p8: %i\n", p8);
+    fwprintf(stdout, L"Debug: Read handler. close flag *p8: %i\n", *((int*) p8));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_unequal((void*) &r, p7, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -67,10 +68,10 @@ void read_handler(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         //
 
         // Reset message length.
-        copy_integer(p6, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
+        copy_integer(p7, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
 
         // Hand over sensing handler to interrupt pipe of main threaad.
-        write_interrupt_pipe(p1, p3, p2);
+        write_interrupt_pipe(p1, p3, p5, p2);
 
         //
         // CAUTION! Do NOT set the loop break flag here,
@@ -87,7 +88,7 @@ void read_handler(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         // has closed its connexion.
         //
 
-        fwprintf(stdout, L"\n\n\nDebug: Read handler. close flag *p7: %i\n\n\n", *((int*) p7));
+        fwprintf(stdout, L"\n\n\nDebug: Read handler. close flag *p8: %i\n\n\n", *((int*) p8));
 
         //
         // Set client stub sensing thread exit flag.
@@ -109,7 +110,7 @@ void read_handler(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         // it tries to exit this (then already exited) sensing thread.
         // But this call will be just IGNORED if the thread is NULL.
         //
-        copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         //
         // Set read loop break flag.
@@ -126,7 +127,7 @@ void read_handler(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         // the client entry and its resources. Just setting the
         // thread exit flag further above is NOT sufficient.
         //
-        write_interrupt_pipe(p1, p4, p2);
+        write_interrupt_pipe(p1, p4, p5, p2);
     }
 }
 

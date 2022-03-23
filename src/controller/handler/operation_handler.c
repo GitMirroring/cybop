@@ -78,6 +78,7 @@
 #include "../../applicator/command/who.c"
 #include "../../applicator/command/who_am_i.c"
 #include "../../applicator/command/word_count.c"
+#include "../../applicator/communicate/identify.c"
 #include "../../applicator/communicate/receive.c"
 #include "../../applicator/communicate/send.c"
 #include "../../applicator/compare/compare.c"
@@ -920,6 +921,16 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     //
     // communicate
     //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p8, (void*) IDENTIFY_COMMUNICATE_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_identify(p0, p1, p3, p4, p2);
+        }
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

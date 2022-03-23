@@ -142,7 +142,7 @@ void enable_xcb(void* p0) {
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 // Hand over sensor handler to interrupt pipe of main threaad.
-                write_interrupt_pipe((void*) &ipw, (void*) &h, im);
+                write_interrupt_pipe((void*) &ipw, (void*) &h, (void*) &w, im);
 
             } else {
 

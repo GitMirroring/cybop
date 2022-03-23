@@ -18,10 +18,18 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-03-23  Christian Heller  <christian.heller@cybop.org>
+
+        * Introduce cybol operation "communicate/identify", for getting the current device/client identification used in asynchronous input, using IDENTIFICATION_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME
+        * Adapt close handler in cybol application "www_server_static"
+        * Add forgotten allocation and deallocation of IDENTIFICATION_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME
+
 2022-03-22  Christian Heller  <christian.heller@cybop.org>
 
         * Set eof-or-close flag in file "basic_reader.c" upon error since otherwise, sensing would run into an endless loop in server mode
         * Make cybol application "www_server_static" work again
+        * Avoid race conditions in cybol caused by sensing threads running in parallel which, if closed by one thread, leads to errors in another, by introducing global variable IDENTIFICATION_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME
+        * Hand over not only a handler, but also a client identification via interrupt pipe writer and reader
 
 2022-03-21  Christian Heller  <christian.heller@cybop.org>
 

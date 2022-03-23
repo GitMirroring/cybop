@@ -91,6 +91,9 @@ int write_function(void* p0) {
     // The interrupt mutex.
     void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    // The destination device identification item data.
+    void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
     // The interrupt pipe write file descriptor.
     int ipw = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     // The output buffer item type.
@@ -120,6 +123,9 @@ int write_function(void* p0) {
     // Get interrupt mutex from internal memory.
     copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
+    // Get destination device identification item data.
+    copy_array_forward((void*) &dd, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
     // Get interrupt pipe write file descriptor from interrupt pipe.
     copy_array_forward((void*) &ipw, ip, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
@@ -134,7 +140,7 @@ int write_function(void* p0) {
     write_loop(d, b, (void*) &t, (void*) &s, bm, p0, i, c);
 
     // Write output finished handler into interrupt pipe.
-    write_interrupt_pipe((void*) &ipw, (void*) &h, im);
+    write_interrupt_pipe((void*) &ipw, (void*) &h, dd, im);
 
     //
     // An implicit call to "thrd_exit" is made when this thread

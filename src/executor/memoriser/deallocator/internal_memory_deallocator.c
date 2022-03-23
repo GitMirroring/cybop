@@ -73,6 +73,8 @@ void deallocate_internal_memory(void* p0) {
         void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The interrupt mutex.
         void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The interrupt identification.
+        void* ii = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // The display input output entry.
         void* iod = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -102,6 +104,8 @@ void deallocate_internal_memory(void* p0) {
         copy_array_forward((void*) &ip, *i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PIPE_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         // Get interrupt mutex from internal memory.
         copy_array_forward((void*) &im, *i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+        // Get interrupt identification from internal memory.
+        copy_array_forward((void*) &ii, *i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
         // Get display input output entry from internal memory.
         copy_array_forward((void*) &iod, *i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DISPLAY_INPUT_OUTPUT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
@@ -182,6 +186,14 @@ void deallocate_internal_memory(void* p0) {
         deallocate_array((void*) &ip, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         // Deallocate interrupt mutex.
         deallocate_mutex((void*) &im);
+        //
+        // Deallocate interrupt identification.
+        //
+        // CAUTION! The second argument "count" is NULL,
+        // since it is only needed for looping elements of type PART,
+        // in order to decrement the rubbish (garbage) collection counter.
+        //
+        deallocate_array((void*) &ii, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         //
         // Deallocate knowledge memory part.
