@@ -52,31 +52,32 @@ void serialise_html_part_element_empty(void* p0, void* p1, void* p2, void* p3, v
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    //
+    // If this element is ALLOWED to be void, following the
+    // html specification, then NOTHING is to be done here.
+    // It may be represented as EMPTY (also called VOID) tag.
+    //
+    // Example:
+    // <img/>
+    //
     compare_integer_unequal((void*) &r, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // This element IS allowed to be void, following the html specification.
-        // It may therefore be represented as empty tag.
         //
-        // Example:
-        // <img/>
-
-        // NOTHING is to be done here.
-        // The compiler will remove this block, since it is empty.
-        // So, no need to worry about memory or bad performance.
-
-    } else {
-
-        // This element is NOT allowed to be void, following the html specification.
+        // This element is NOT allowed to be void, since it contains content.
         // It therefore has to be represented with opening and closing tag.
         //
         // Example:
         // <div>
         // </div>
+        //
 
+        //
         // Serialise indentation.
+        //
         // CAUTION! Use original indentation that was handed over as parametre.
+        //
         serialise_html_indentation(p0, p3, p4);
         // Append end tag.
         serialise_html_end_tag(p0, p1, p2);

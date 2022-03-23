@@ -2,15 +2,14 @@
 
     <node name="startup" channel="file" format="element/part" model="user_interface/ui/logic/startup.cybol"/>
 
-    <node name="greet-world" channel="file" format="element/part" model="user_interface/ui/logic/greet-world.cybol"/>
-    <node name="greet-cybop" channel="file" format="element/part" model="user_interface/ui/logic/greet-cybop.cybol"/>
-
     <node name="translate" channel="file" format="element/part" model="user_interface/ui/logic/translate.cybol"/>
     <node name="send" channel="file" format="element/part" model="user_interface/ui/logic/send.cybol"/>
 
     <node name="sense" channel="file" format="element/part" model="user_interface/ui/logic/sense.cybol"/>
     <node name="handle" channel="file" format="element/part" model="user_interface/ui/logic/handle.cybol"/>
 
+    <node name="greet-world" channel="file" format="element/part" model="user_interface/ui/logic/greet-world.cybol"/>
+    <node name="greet-cybop" channel="file" format="element/part" model="user_interface/ui/logic/greet-cybop.cybol"/>
     <node name="exit" channel="inline" format="live/exit" model=""/>
 
 </node>

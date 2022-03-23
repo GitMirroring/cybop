@@ -61,16 +61,20 @@ void serialise_html_part_element_filled(void* p0, void* p1, void* p2, void* p3, 
 
     // The compound flag.
     int c = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    //
     // The new indentation level.
     //
     // CAUTION! Do NOT manipulate the original indentation level
     // that was handed over as parametre! Otherwise, it would never
-    // get decremented anymore leading to wrong indentation.
+    // get DECREMENTED anymore leading to wrong indentation.
+    //
     int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+    //
     // Test if this part is of type "element/part".
-    // In this case, it is a compound part containing child parts
+    // In this case, it is a COMPOUND part containing child parts
     // and not just primitive data like text or a number.
+    //
     compare_integer_equal((void*) &c, p8, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
     // Initialise new indentation level with current one.
     copy_integer((void*) &l, p7);
@@ -86,8 +90,11 @@ void serialise_html_part_element_filled(void* p0, void* p1, void* p2, void* p3, 
         serialise_html(p0, p1, p2, p6, (void*) &l, p8);
     }
 
+    //
     // Serialise indentation.
-    // CAUTION! Use original indentation that was handed over as parametre.
+    //
+    // CAUTION! Use ORIGINAL indentation that was handed over as parametre.
+    //
     serialise_html_indentation(p0, p6, p7);
     // Append end tag.
     serialise_html_end_tag(p0, p3, p4);

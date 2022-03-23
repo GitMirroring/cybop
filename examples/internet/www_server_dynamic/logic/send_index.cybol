@@ -18,17 +18,36 @@
     </node>
 
     <node name="serialise_html" channel="inline" format="represent/serialise" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".webpage"/>
         <!-- A beautification with indentation and newline is actually not useful for pure data transfer, but used here for demonstration. -->
         <node name="language" channel="inline" format="meta/language" model="text/html">
             <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
         </node>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="destination" channel="inline" format="text/cybol-path" model=".webpage"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".wui.index"/>
     </node>
 
+    <!-- Write wui tree into file. -->
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="test_www_server_dynamic_wui.txt"/>
+    </node>
+    <node name="test_html" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui"/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
+
     <!-- Write html into file. -->
-    <node name="open_treefile" channel="inline" format="dispatch/open" model="">
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="device" channel="inline" format="text/plain" model="test_www_server_dynamic_wui.html"/>
@@ -41,7 +60,7 @@
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".webpage"/>
     </node>
-    <node name="close_treefile" channel="inline" format="dispatch/close" model="">
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>

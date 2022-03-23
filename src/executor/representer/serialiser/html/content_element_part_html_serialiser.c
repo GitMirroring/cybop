@@ -115,8 +115,10 @@ void serialise_html_part_element_content(void* p0, void* p1, void* p2, void* p3,
         serialise_html_document_type(p0, dtmd, dtmc, p5);
     }
 
+    //
     // TEST: This block is NOT necessary and for testing only.
     // The generated html file will contain an error message for each nameless tag.
+    //
     if ((tmd == *NULL_POINTER_STATE_CYBOI_MODEL) || (tmc == *NULL_POINTER_STATE_CYBOI_MODEL)) {
 
         tmd = (void*) L"ERROR_MISSING_TAG_NAME";

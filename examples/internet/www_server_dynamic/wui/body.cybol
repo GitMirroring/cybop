@@ -24,7 +24,6 @@
 
     <node name="content" channel="inline" format="text/plain" model="Click on the links below to change the content.">
         <node name="tag" channel="inline" format="text/plain" model="p"/>
-        <node name="id" channel="inline" format="text/plain" model="content"/>
     </node>
 
     <node name="world_link" channel="inline" format="text/plain" model="Greet World">

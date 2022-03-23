@@ -25,6 +25,7 @@
         * Add forgotten allocation and deallocation of IDENTIFICATION_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME
         * Use cybol operation "communicate/identify" in cybol handlers of "feel/sense" and "dispatch/close" of affected cybol applications
         * Test cybol applications with many web browsers in parallel
+        * Make cybol application "ui" work partly (wui and tui)
 
 2022-03-22  Christian Heller  <christian.heller@cybop.org>
 

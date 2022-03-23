@@ -29,7 +29,6 @@
     <node name="actions" channel="file" format="element/part" model="user_interface/ui/wui/actions.cybol"/>
 
     <node name="request" channel="inline" format="element/part" model=""/>
-    <node name="client_socket" channel="inline" format="number/integer" model="0"/>
     <node name="action_exists" channel="inline" format="logicvalue/boolean" model="false"/>
     <node name="path" channel="inline" format="text/cybol-path" model=""/>
 

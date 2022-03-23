@@ -1,5 +1,4 @@
-<node name="add" channel="inline" encoding="utf-8" language="text/cybol" format="calculate/add" model="">
-    <node name="result" channel="inline" encoding="utf-8" language="text/cybol" format="path/knowledge" model=".result"/>
-    <node name="operand" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model="1,2,3"/>
-    <node name="type" channel="inline" encoding="utf-8" language="text/cybol" format="meta/type" model="number/integer"/>
+<node name="add" channel="inline" format="calculate/add" model="">
+    <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+    <node name="operand" channel="inline" format="number/integer" model="1,2,3"/>
 </node>

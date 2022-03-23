@@ -1,28 +1,34 @@
 <node>
 
-    <node name="sense_terminal" channel="inline" format="activate/enable" model="">
+    <node name="sense_terminal" channel="inline" format="feel/sense" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".stdin"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle.terminal"/>
     </node>
 
-    <node name="sense_display" channel="inline" format="activate/enable" model="">
+<!--
+    <node name="enable_display" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
         <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle.display"/>
-        <node name="root" channel="inline" format="text/cybol-path" model=".gui.window"/>
-    </node>
-
-<!--
-    <node name="sense_opengl" channel="inline" format="activate/enable" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="opengl"/>
-        <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle.opengl"/>
     </node>
 -->
 
-    <node name="sense_socket" channel="inline" format="activate/enable" model="">
+    <!--
+        There is NO callback function here, since it has been given at operation "activate/enable".
+        This operation "feel/sense" for channel "display" does NOT run in a separate thread.
+        It is just used to hand over a specific handler for the window.
+    -->
+<!--
+    <node name="sense_window" channel="inline" format="feel/sense" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
+    </node>
+-->
+
+    <node name="enable_socket" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="port" channel="inline" format="number/integer" model="1971"/>
-        <node name="sender" channel="inline" format="text/cybol-path" model=".wui.client_socket"/>
-        <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle.socket"/>
+        <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handle.socket_enable"/>
     </node>
 
 </node>

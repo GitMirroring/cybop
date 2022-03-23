@@ -1,23 +1,39 @@
 <node>
 
-    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
+    <node name="open_stdout" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="device" channel="inline" format="text/plain" model="standard-output"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
+    </node>
+    <node name="open_stdin" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="device" channel="inline" format="text/plain" model="standard-input"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stdin"/>
     </node>
 
+<!--
     <node name="startup_display" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
     </node>
+    <node name="open_window" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
+-->
+        <!-- Open client window in SERVER mode, so that it gets stored in the display server. -->
+<!--
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".window_id"/>
+    </node>
+-->
 
     <node name="startup_socket" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
         <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
         <node name="style" channel="inline" format="text/plain" model="stream"/>
         <node name="protocol" channel="inline" format="text/plain" model="tcp"/>
-        <node name="address" channel="inline" format="text/plain" model="127.0.0.1"/>
-        <node name="port" channel="inline" format="number/integer" model="1971"/>
-        <node name="mode" channel="inline" format="text/plain" model="server"/>
-        <node name="connexions" channel="inline" format="number/integer" model="1"/>
-        <node name="timeout" channel="inline" format="number/integer" model="300"/>
+        <node name="device" channel="inline" format="text/plain" model="127.0.0.1"/>
+        <node name="connexions" channel="inline" format="number/integer" model="10"/>
+        <node name="timeout" channel="inline" format="number/integer" model="5"/>
     </node>
 
 </node>

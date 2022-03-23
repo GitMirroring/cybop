@@ -1,14 +1,17 @@
 <node>
-    <node name="table_heading" channel="file" format="element/part" model="wui/table_heading.cybol">
+
+    <node name="table_heading" channel="file" format="element/part" model="user_interface/wui/table_heading.cybol">
         <node name="tag" channel="inline" format="text/plain" model="tr"/>
     </node>
-    <node name="row_0" channel="file" format="element/part" model="wui/table_row.cybol">
+
+    <node name="row_0" channel="file" format="element/part" model="user_interface/wui/table_row.cybol">
         <node name="tag" channel="inline" format="text/plain" model="tr"/>
     </node>
-    <node name="row_1" channel="file" format="element/part" model="wui/table_row.cybol">
+    <node name="row_1" channel="file" format="element/part" model="user_interface/wui/table_row.cybol">
         <node name="tag" channel="inline" format="text/plain" model="tr"/>
     </node>
-    <node name="row_2" channel="file" format="element/part" model="wui/table_row.cybol">
+    <node name="row_2" channel="file" format="element/part" model="user_interface/wui/table_row.cybol">
         <node name="tag" channel="inline" format="text/plain" model="tr"/>
     </node>
+
 </node>

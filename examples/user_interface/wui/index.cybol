@@ -1,8 +1,11 @@
 <node>
-    <node name="head" channel="file" format="element/part" model="wui/head.cybol">
+
+    <node name="head" channel="file" format="element/part" model="user_interface/wui/head.cybol">
         <node name="tag" channel="inline" format="text/plain" model="head"/>
     </node>
-    <node name="body" channel="file" format="element/part" model="wui/body.cybol">
+
+    <node name="body" channel="file" format="element/part" model="user_interface/wui/body.cybol">
         <node name="tag" channel="inline" format="text/plain" model="body"/>
     </node>
+
 </node>

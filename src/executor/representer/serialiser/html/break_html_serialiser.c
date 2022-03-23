@@ -38,7 +38,7 @@
  * Serialises the html line break.
  *
  * @param p0 the destination item
- * @param p1 the formatting flag
+ * @param p1 the indentation flag
  */
 void serialise_html_break(void* p0, void* p1) {
 
@@ -49,7 +49,9 @@ void serialise_html_break(void* p0, void* p1) {
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // The formatting flag IS set, i.e. line breaks ARE WANTED.
+        //
+        // The indentation flag IS set, i.e. line breaks are WANTED.
+        //
 
         // Append line feed character.
         modify_item(p0, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);

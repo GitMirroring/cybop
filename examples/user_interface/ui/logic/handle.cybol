@@ -1,8 +1,12 @@
 <node>
 
     <node name="terminal" channel="file" format="element/part" model="user_interface/ui/logic/handle/terminal.cybol"/>
+
     <node name="display" channel="file" format="element/part" model="user_interface/ui/logic/handle/display.cybol"/>
-    <node name="socket" channel="file" format="element/part" model="user_interface/ui/logic/handle/socket.cybol"/>
+
+    <node name="socket_enable" channel="file" format="element/part" model="user_interface/ui/logic/handle/socket_enable.cybol"/>
+    <node name="socket_sense" channel="file" format="element/part" model="user_interface/ui/logic/handle/socket_sense.cybol"/>
+    <node name="socket_close" channel="file" format="element/part" model="user_interface/ui/logic/handle/socket_close.cybol"/>
     <node name="socket_action" channel="file" format="element/part" model="user_interface/ui/logic/handle/socket_action.cybol"/>
 
 </node>

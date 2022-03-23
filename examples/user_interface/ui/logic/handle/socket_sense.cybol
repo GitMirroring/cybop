@@ -1,19 +1,24 @@
 <node>
 
+    <!-- Get client belonging to the handler that was placed into the interrupt pipe. -->
+    <node name="get_client_id" channel="inline" format="communicate/identify" model="">
+        <node name="identification" channel="inline" format="text/cybol-path" model=".client_socket"/>
+    </node>
+
     <node name="print_accept" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="Received client request at socket:"/>
+        <node name="message" channel="inline" format="text/plain" model="Received client request on socket:"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="print_socket" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".wui.client_socket"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".client_socket"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
@@ -33,33 +38,48 @@
 
     <node name="receive_request" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="port" channel="inline" format="number/integer" model="1971"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".client_socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-request"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".wui.request"/>
-        <node name="sender" channel="inline" format="text/cybol-path" model=".wui.client_socket"/>
+        <!-- Read indirectly from internal buffer into which data have been written by the sensing thread. -->
+        <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
+    <!--
+        Verify that uri query is NOT empty.
+
+        CAUTION! This is necessary to filter out uri data which are not understood,
+        e.g. a browser request for "favicon.ico" would result in the non-existing action path:
+        .logic.actions./favicon.ico
+
+        A really complete webserver would have to test for all of these cases.
+        But for this small example application, one short test is sufficient.
+    -->
     <node name="test_action" channel="inline" format="access/indicate-exists" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".wui.action_exists"/>
         <node name="part" channel="inline" format="text/cybol-path" model=".wui.request:uri:query.action"/>
     </node>
 
-    <node name="handle_action" channel="inline" format="flow/branch" model="">
+    <node name="evaluate_action" channel="inline" format="flow/branch" model="">
         <node name="criterion" channel="inline" format="text/cybol-path" model=".wui.action_exists"/>
         <node name="true" channel="inline" format="text/cybol-path" model=".logic.handle.socket_action"/>
         <!--
-            Send an empty text encapsulated as http-response. -->
-
+            Send an empty text encapsulated as http-response.
             CAUTION! Sending a response is important, even if the query was empty or not understood,
             since some browsers request a "/favicon.ico" or other things and if no response was sent,
             the browser would wait forever and block requests from other clients.
         -->
         <node name="false" channel="inline" format="communicate/send" model="">
             <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+            <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+            <node name="port" channel="inline" format="number/integer" model="1971"/>
+            <node name="receiver" channel="inline" format="text/cybol-path" model=".client_socket"/>
             <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
             <node name="format" channel="inline" format="meta/format" model="text/plain"/>
             <node name="message" channel="inline" format="text/plain" model=""/>
-            <node name="receiver" channel="inline" format="text/cybol-path" model=".wui.client_socket"/>
         </node>
     </node>
 
