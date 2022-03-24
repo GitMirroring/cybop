@@ -68,9 +68,10 @@ void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 void serialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui part element content.");
-
-    //?? fwprintf(stdout, L"Debug: Serialise gui part element content. model count: %i\n", *((int*) p7));
-    //?? fwprintf(stdout, L"Debug: Serialise gui part element content. properties count: %i\n", *((int*) p9));
+    fwprintf(stdout, L"Debug: Serialise gui part element content. source model count p7: %i\n", p7);
+    fwprintf(stdout, L"Debug: Serialise gui part element content. source model count *p7: %i\n", *((int*) p7));
+    fwprintf(stdout, L"Debug: Serialise gui part element content. source properties count p9: %i\n", p9);
+    fwprintf(stdout, L"Debug: Serialise gui part element content. source properties count *p9: %i\n", *((int*) p9));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

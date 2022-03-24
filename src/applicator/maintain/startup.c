@@ -192,8 +192,9 @@ void apply_startup(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     //
     // Set port to ZERO by default.
     //
-    // CAUTION! It is necessary for the display server,
-    // for which a cybol property "port" is not required.
+    // CAUTION! It IS necessary so that the correct client entry
+    // can be found in the DISPLAY server list, which was
+    // assigned to port ZERO at service startup.
     //
     int port = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 

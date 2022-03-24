@@ -57,6 +57,10 @@ void apply_identify(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply identify.");
 
+    //
+    // Declaration
+    //
+
     // The identification part.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The identification part model item.
@@ -67,6 +71,10 @@ void apply_identify(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The internal memory client identification.
     void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get identification part.
     get_part_name((void*) &i, p0, (void*) IDENTIFICATION_IDENTIFY_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) IDENTIFICATION_IDENTIFY_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get identification part model item.
@@ -76,6 +84,10 @@ void apply_identify(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // Get identification from internal memory.
     copy_array_forward((void*) &id, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IDENTIFICATION_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+
+    //
+    // Functionality
+    //
 
     // Copy identification.
     copy_integer(imd, id);

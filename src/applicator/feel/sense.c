@@ -27,10 +27,10 @@
 #define SENSE_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
@@ -38,6 +38,7 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/copier/array_copier.c"
+#include "../../executor/copier/integer_copier.c"
 #include "../../executor/feeler/sensor/sensor.c"
 #include "../../logger/logger.c"
 
@@ -62,6 +63,10 @@
 void apply_sense(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense.");
+
+    //
+    // Declaration
+    //
 
     // The channel part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -100,6 +105,10 @@ void apply_sense(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The language part model item data.
     void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
+    // Retrieval
+    //
+
     // Get channel part.
     get_part_name((void*) &c, p0, (void*) CHANNEL_SENSE_FEELING_LOGIC_CYBOL_NAME, (void*) CHANNEL_SENSE_FEELING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get server flag part.
@@ -137,8 +146,36 @@ void apply_sense(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get language part model item data.
     copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    //
+    // Default values
+    //
+
+    // Set server flag to FALSE (client mode) by default.
+    int server = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    //
+    // Set port to ZERO by default.
+    //
+    // CAUTION! It IS necessary so that the correct client entry
+    // can be found in the DISPLAY server list, which was
+    // assigned to port ZERO at service startup.
+    //
+    int port = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    //
+    // CAUTION! The following values are ONLY copied,
+    // if the source value is NOT NULL.
+    // This is tested inside the "copy_integer" function.
+    // Otherwise, the destination value remains as is.
+    //
+    copy_integer((void*) &server, sfmd);
+    copy_integer((void*) &port, pmd);
+
+    //
+    // Functionality
+    //
+
     // Sense data input.
-    sense(p4, cmd, sfmd, pmd, smd, lmd, (void*) &h, (void*) &cl);
+    sense(p4, cmd, (void*) &server, (void*) &port, smd, lmd, (void*) &h, (void*) &cl);
 }
 
 /* SENSE_SOURCE */

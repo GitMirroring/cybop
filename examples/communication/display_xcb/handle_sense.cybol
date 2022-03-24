@@ -1,13 +1,19 @@
 <node>
 
+    <!-- Get window client belonging to the handler that was placed into the interrupt pipe. -->
+    <node name="get_window_id" channel="inline" format="communicate/identify" model="">
+        <node name="identification" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
+    </node>
+
+    <!-- ?? TODO: Is this comment still correct and up-to-date?? Delete it ??
+        CAUTION! Do NOT use ".window_id" here, but rather ".window".
+        The correct action needs to be read from the window element hierarchy.
+        So, the window id related to a windowing system (xcb) does not help here.
+    -->
     <node name="receive_event" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
-        <!--
-            CAUTION! Do NOT use ".window_id" here, but rather ".window".
-            The correct action needs to be read from the window element hierarchy.
-            So, the window id related to a windowing system (xcb) does not help here.
-        -->
-        <node name="sender" channel="inline" format="text/cybol-path" model=".window"/>
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".window_id"/>
         <node name="language" channel="inline" format="meta/language" model="event/gui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".action"/>
@@ -17,6 +23,8 @@
 
     <node name="send_refresh_window" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
+        <!-- This flag is IMPORTANT for finding the correct client entry in the server list. -->
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".window_id"/>
         <node name="language" channel="inline" format="meta/language" model="message/gui"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>

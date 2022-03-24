@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-03-24  Christian Heller  <christian.heller@cybop.org>
+
+        * Prepare cybol application "gui"
+        * Add default values for server flag and port to files "send.c", "receive.c", "sense.c" since otherwise, the correct window client entry cannot be found in the display server list
+
 2022-03-23  Christian Heller  <christian.heller@cybop.org>
 
         * Introduce cybol operation "communicate/identify", for getting the current device/client identification used in asynchronous input, using IDENTIFICATION_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME

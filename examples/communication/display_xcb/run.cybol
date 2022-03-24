@@ -12,8 +12,14 @@
     <!-- Fill internal input buffer of the corresponding windows with received events. -->
     <node name="enable_server" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
-        <!-- This is the callback function executed when an event arrives on the window. -->
-        <node name="handler" channel="inline" format="text/cybol-path" model=".handle_sense"/>
+        <!--
+            For standard window event processing, use operation "feel/sense"
+            which allows to hand over a SPECIFIC handler for each window.
+            However, it is possible to assign another callback function here,
+            which is OPTIONAL and would be executed upon arrival of EACH event,
+            independently of any window.
+        -->
+        <node name="handler" channel="inline" format="text/cybol-path" model=".handle_each_event"/>
     </node>
 
     <node name="open_client" channel="inline" format="dispatch/open" model="">
@@ -23,13 +29,15 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".window_id"/>
     </node>
 
+    <!--
+        This operation "feel/sense" for channel "display" does NOT run in a separate thread.
+        It is just used to hand over a specific event handler for each window.
+    -->
     <node name="sense_client_data" channel="inline" format="feel/sense" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
-        <!--
-            There is NO callback function here, since it has been given at operation "activate/enable".
-            This operation "feel/sense" for channel "display" does NOT run in a separate thread.
-            It is just used to hand over a specific handler for the window.
-        -->
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
+        <node name="handler" channel="inline" format="text/cybol-path" model=".handle_window_event"/>
     </node>
 
     <node name="close_client" channel="inline" format="dispatch/close" model="">

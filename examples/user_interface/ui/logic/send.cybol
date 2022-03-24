@@ -12,6 +12,8 @@
 <!--
     <node name="send_gui" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
+        <!-- This flag is IMPORTANT for finding the correct client entry in the server list. -->
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".window_id"/>
         <node name="language" channel="inline" format="meta/language" model="message/gui"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>

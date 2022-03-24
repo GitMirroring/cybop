@@ -9,19 +9,15 @@
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
-    <!--
-        CAUTION! Do NOT empty (remove) but rather RESET action properties since otherwise,
-        they would not exist anymore and values would not be assignable to them anymore.
-    -->
-
-    <!--
-        CAUTION! Assigning an empty string with "modify/overwrite" does NOT work.
-        Instead, the operation "modify/empty" has to be used here.
-    -->
     <node name="reset_event_model" channel="inline" format="modify/empty" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".gui.action:event"/>
         <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
+
+    <!--
+        CAUTION! Do NOT empty (remove) but rather RESET action properties since otherwise,
+        they would not exist anymore and values would not be assignable to them anymore.
+    -->
 
     <node name="reset_window" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".gui.action:window"/>

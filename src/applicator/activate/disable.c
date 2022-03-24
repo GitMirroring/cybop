@@ -102,9 +102,9 @@ void apply_disable(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //
     // Set port to ZERO by default.
     //
-    // CAUTION! It is necessary when opening a new client WINDOW,
-    // so that it can be appended to the display server,
-    // which was assigned to port ZERO at service startup.
+    // CAUTION! It IS necessary so that the correct client entry
+    // can be found in the DISPLAY server list, which was
+    // assigned to port ZERO at service startup.
     //
     int port = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 

@@ -66,6 +66,18 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     fwprintf(stdout, L"Information: Write data. message count p2: %i\n", p2);
     fwprintf(stdout, L"Information: Write data. message count *p2: %i\n", *((int*) p2));
 
+/*??
+    fwprintf(stdout, L"Information: Write data. internal memory p4: %i\n", p4);
+    fwprintf(stdout, L"Information: Write data. channel p5: %i\n", p5);
+    fwprintf(stdout, L"Information: Write data. channel *p5: %i\n", *((int*) p5));
+    fwprintf(stdout, L"Information: Write data. server flag p6: %i\n", p6);
+    if (p6 != 0)
+        fwprintf(stdout, L"Information: Write data. server flag *p6: %i\n", *((int*) p6));
+    fwprintf(stdout, L"Information: Write data. port p7: %i\n", p7);
+    if (p7 != 0)
+        fwprintf(stdout, L"Information: Write data. port *p7: %i\n", *((int*) p7));
+*/
+
     //
     // Declaration
     //
@@ -88,8 +100,13 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
     // Get destination device identification item data.
     copy_array_forward((void*) &dd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    //?? fwprintf(stdout, L"Information: Write data. device id dd: %i\n", dd);
+    //?? fwprintf(stdout, L"Information: Write data. device id *dd: %i\n", *((int*) dd));
+
     // Get client entry belonging to given source device.
     find_entry((void*) &ce, p4, p5, p6, p7, dd);
+
+    //?? fwprintf(stdout, L"Information: Write data. client entry ce: %i\n", ce);
 
     // Get output buffer item from client entry.
     copy_array_forward((void*) &bi, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_BUFFER_OUTPUT_CLIENT_STATE_CYBOI_NAME);

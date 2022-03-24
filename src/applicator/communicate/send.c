@@ -78,6 +78,10 @@ void apply_send(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply send.");
 
+    //
+    // Declaration
+    //
+
     // The channel part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The server part.
@@ -155,6 +159,10 @@ void apply_send(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* nlmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The asynchronicity part model item data.
     void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Retrieval
+    //
 
     // Get channel part.
     get_part_name((void*) &c, p0, (void*) CHANNEL_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) CHANNEL_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
@@ -234,10 +242,24 @@ void apply_send(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get asynchronicity part model item data.
     copy_array_forward((void*) &amd, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    //
+    // Default values
+    //
+
     // The type item.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The type item data.
     void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // Set server flag to FALSE (client mode) by default.
+    int server = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    //
+    // Set port to ZERO by default.
+    //
+    // CAUTION! It IS necessary so that the correct client entry
+    // can be found in the DISPLAY server list, which was
+    // assigned to port ZERO at service startup.
+    //
+    int port = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     //
     // Allocate type item.
@@ -267,8 +289,20 @@ void apply_send(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // with elements pointing to different memory areas now.
     //
     copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    //
+    // CAUTION! The following values are ONLY copied,
+    // if the source value is NOT NULL.
+    // This is tested inside the "copy_integer" function.
+    // Otherwise, the destination value remains as is.
+    //
+    copy_integer((void*) &server, smd);
+    copy_integer((void*) &port, pmd);
 
-    send_data(rm, mmd, mmc, mpd, mpc, (void*) &m, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, emd, lmd, lpd, lpc, fmd, td, clmd, nlmd, p2, p3, p4, cmd, smd, pmd, (void*) &h, amd);
+    //
+    // Functionality
+    //
+
+    send_data(rm, mmd, mmc, mpd, mpc, (void*) &m, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, emd, lmd, lpd, lpc, fmd, td, clmd, nlmd, p2, p3, p4, cmd, (void*) &server, (void*) &port, (void*) &h, amd);
 
     // Deallocate type item.
     deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);

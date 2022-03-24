@@ -1,8 +1,13 @@
 <node>
 
+    <!-- Get window client belonging to the handler that was placed into the interrupt pipe. -->
+    <node name="get_window_id" channel="inline" format="communicate/identify" model="">
+        <node name="identification" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
+    </node>
+
     <node name="TEST" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="TEST handle"/>
@@ -15,22 +20,26 @@
     -->
     <node name="reset_action" channel="inline" format="text/cybol-path" model=".logic.reset_action"/>
 
+    <!--
+        ?? TODO: Is this comment still ok or OUTDATED ?? If yes, then remove it!
+        CAUTION! Do NOT use ".gui.window_id" here, but rather ".gui.window".
+        The correct action needs to be read from the window element hierarchy.
+        So, the window id related to a windowing system (xcb) does not help here.
+    -->
     <node name="receive_event" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
         <node name="language" channel="inline" format="meta/language" model="event/gui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".gui.action"/>
-        <!--
-            CAUTION! Do NOT use ".gui.window_id" here, but rather ".gui.window".
-            The correct action needs to be read from the window element hierarchy.
-            So, the window id related to a windowing system (xcb) does not help here.
-        -->
-        <node name="sender" channel="inline" format="text/cybol-path" model=".gui.window"/>
+        <!-- Read indirectly from internal buffer into which data have been written by activate/enable. -->
+        <node name="asynchronicity" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="TEST" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="TEST handle .gui.action"/>
@@ -38,7 +47,7 @@
     </node>
     <node name="TEST" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".gui.action"/>

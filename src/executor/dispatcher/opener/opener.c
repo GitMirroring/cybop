@@ -70,6 +70,9 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     fwprintf(stdout, L"Information: Open client. channel p10: %i\n", p10);
     fwprintf(stdout, L"Information: Open client. channel *p10: %i\n", *((int*) p10));
 
+    fwprintf(stdout, L"Information: Open client. port *p1: %i\n", *((int*) p1));
+    fwprintf(stdout, L"Information: Open client. server flag *p11: %i\n", *((int*) p11));
+
     // The client entry.
     void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The input output entry.

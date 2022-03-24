@@ -29,6 +29,7 @@
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../executor/feeler/sensor/entry_sensor.c"
 #include "../../../executor/feeler/sensor/thread_sensor.c"
 #include "../../../executor/finder/entry_finder.c"
@@ -55,6 +56,8 @@ void sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6,
 
     // The client entry.
     void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Get client entry belonging to given source device.
     find_entry((void*) &ce, p0, p1, p2, p3, p4);
@@ -68,8 +71,25 @@ void sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6,
     // Store data in client entry.
     sense_entry(ce, p5, p6, p7);
 
-    // Invoke sense function within a new thread.
-    sense_thread(ce);
+    compare_integer_unequal((void*) &r, p1, (void*) DISPLAY_CYBOI_CHANNEL);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        //
+        // This is NOT the display channel.
+        //
+        // CAUTION! The DISPLAY events are catched in operation
+        // "activate/enable" and distributed to the single window
+        // input buffers. Therefore, another thread is NOT necessary
+        // here for channel display.
+        //
+        // However, this operation "feel/sense" is important for
+        // assigning a HANDLER to a window of the display channel.
+        //
+
+        // Invoke sense function within a new thread.
+        sense_thread(ce);
+    }
 }
 
 /* SENSOR_SOURCE */

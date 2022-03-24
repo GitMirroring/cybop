@@ -14,25 +14,13 @@
 Event / Signal Handling
 _______________________
 
+        * Think through event handling of windows on channel display
+        DONE: enable and sense
+        TODO: deserialiser: gui_event, gui, gui_action
+        CONTINUE: file "gui/handle.cybol" with "communicate/receive"
+            clear up how to identify the correct gui model belonging to the window the event stems from
         * Make cybol application "gui" work again
-        * Clear up how to hand over specific handler for each window (via "feel/sense" ??)
-        * Clear up how to identify the correct gui model belonging to the window the event stems from
-
         * Make cybol application "ui" work again
-        * Use stack variables in cybol application "ui" in order to delete "modify/empty" operations
-
-        * Search bug that SOME generated files contain too many body end tags or other data, only at the end
-            --> since not only html files are affected, but also css files, the reason is NOT the html serialiser,
-            but rather old data in a cybol node or the file WRITER ...
-            --> Is "append" the reason? If yes, then empty variable before each request OR use a stack variable
-
-        * Fix tui bug that exit button "e" or "esc" (doesn't matter) gets detected only if button gets pressed twice
-            --> this appears also in http where the "exit" link has to be clicked TWICE in cybol application "www_server_dynamic"
-        * Check if exit flag is set also if remaining count is zero and no message length delimiter could be detected (probably yes)
-        * Füge testweise zu cybol app "tui" output (send terminal) hinzu:
-            <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-            vgl. mit send to socket using http_response language in cybol app "presence"
-            Is it converted from wchar_t to char in the serialiser with language or only with format?
 
         * Deliver compilable and runnable source code for release CYBOP 0.22.0
 
@@ -40,6 +28,8 @@ General CYBOI
 _____________
 
         * Write style guide for cyboi programming in c
+        * See template in file "/home/christian/projekt/cybop/doc/development/conventions/index.html"
+        * Avoid redundancy, e.g. there is only one function "copy_array" which should be used everywhere
 
         * Merge enable client input buffer item into interrupt pipe ?? use global variable IDENTIFICATION_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME as is done with sensing thread
         * Delete special client list buffer ITEM_CLIENTS_SERVER_STATE_CYBOI_NAME
@@ -200,6 +190,13 @@ Socket / WUI
 ____________
 
         * Read article "cybop/tmp/gourley_-_http_-_the_definitive_guide_-_4.7_the_mysteries_of_connection_close.pdf"
+
+        * Use stack variables in cybol application "ui" in order to delete "modify/empty" operations
+
+        * Search bug that SOME generated files contain too many body end tags or other data, only at the end
+            --> since not only html files are affected, but also css files, the reason is NOT the html serialiser,
+            but rather old data in a cybol node or the file WRITER ...
+            --> Is "append" the reason? If yes, then empty variable before each request OR use a stack variable
 
         //
         // Open device for each new request in cyboi,
@@ -460,6 +457,14 @@ _____________
 
 Terminal / TUI / CLI
 ____________________
+
+        * Fix tui bug that exit button "e" or "esc" (doesn't matter) gets detected only if button gets pressed twice
+            --> this appears also in http where the "exit" link has to be clicked TWICE in cybol application "www_server_dynamic"
+        * Check if exit flag is set also if remaining count is zero and no message length delimiter could be detected (probably yes)
+        * Füge testweise zu cybol app "tui" output (send terminal) hinzu:
+            <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+            vgl. mit send to socket using http_response language in cybol app "presence"
+            Is it converted from wchar_t to char in the serialiser with language or only with format?
 
         * Rename and distinguish between:
 

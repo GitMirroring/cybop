@@ -2,15 +2,17 @@
 
     <node name="refresh_display" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
+        <!-- This flag is IMPORTANT for finding the correct client entry in the server list. -->
+        <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
         <node name="language" channel="inline" format="meta/language" model="message/gui"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".gui.window"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
     </node>
 
     <node name="print_message" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="TEST GUI MESSAGE"/>
