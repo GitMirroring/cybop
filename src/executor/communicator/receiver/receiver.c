@@ -188,6 +188,9 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     //?? fwprintf(stdout, L"Debug: Receive data. deserialise binary message pre bd: %ls\n", (wchar_t*) bd);
     receive_deserialise(p0, p1, bd, bc, p4, p5, p6, p7, p8, p9, p13, p14);
 
+    // Deallocate any resources that had been allocated by the system, e.g. an event.
+    //?? receive_deallocation((void*) &bd, p4, p3, p5);
+
     // Deallocate pointer message item.
     deallocate_item((void*) &p, (void*) POINTER_STATE_CYBOI_TYPE);
     // Deallocate integer message item.

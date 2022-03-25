@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-03-25  Christian Heller  <christian.heller@cybop.org>
+
+        * Delete file "gui_event_deserialiser.c"
+
 2022-03-24  Christian Heller  <christian.heller@cybop.org>
 
         * Prepare cybol application "gui"

@@ -14,11 +14,33 @@
 Event / Signal Handling
 _______________________
 
+        * Rollback introduction of file "deallocation_reader.c", since the display event MUST NOT be deallocated before having deserialised it
+        * Add file "deallocation_receiver.c" for freeing display event
+            deallocation in "receiver.c" after deserialisation --> yes, possible, since event was COPIED from buffer to destination array
+
+--
+            * @param p0 the destination properties item
+            // The destination properties item data, count.
+            void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+            // Get destination properties item data, count.
+            copy_array_forward((void*) &d, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+            // Process event.
+            deserialise_gui_event_properties(d, c, p1, p2, p3, io, e);
+--
+
+        * Rename "event/gui" into "message/gui-request"
+        * Rename "message/gui" into "message/gui-response"
         * Think through event handling of windows on channel display
         DONE: enable and sense
         TODO: deserialiser: gui_event, gui, gui_action
         CONTINUE: file "gui/handle.cybol" with "communicate/receive"
-            clear up how to identify the correct gui model belonging to the window the event stems from
+        * Read correct action from window element hierarchy
+            --> hand over not only sender="window_id" but also cybol property root="window" ??
+
         * Make cybol application "gui" work again
         * Make cybol application "ui" work again
 
@@ -26,6 +48,8 @@ _______________________
 
 General CYBOI
 _____________
+
+        * Add state structures "http_request" and "gui_action" to api documentation
 
         * Write style guide for cyboi programming in c
         * See template in file "/home/christian/projekt/cybop/doc/development/conventions/index.html"

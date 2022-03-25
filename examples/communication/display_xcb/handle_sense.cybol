@@ -5,11 +5,6 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".gui.window_id"/>
     </node>
 
-    <!-- ?? TODO: Is this comment still correct and up-to-date?? Delete it ??
-        CAUTION! Do NOT use ".window_id" here, but rather ".window".
-        The correct action needs to be read from the window element hierarchy.
-        So, the window id related to a windowing system (xcb) does not help here.
-    -->
     <node name="receive_event" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
         <node name="server" channel="inline" format="logicvalue/boolean" model="true"/>
