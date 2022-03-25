@@ -14,7 +14,8 @@
 Event / Signal Handling
 _______________________
 
-        * Rollback introduction of file "deallocation_reader.c", since the display event MUST NOT be deallocated before having deserialised it
+        * Move file "deallocation_reader.c" to a suitable place, e.g. "deallocation_receiver.c",
+            since the display event MUST NOT be deallocated before having deserialised it
         * Add file "deallocation_receiver.c" for freeing display event
             deallocation in "receiver.c" after deserialisation --> yes, possible, since event was COPIED from buffer to destination array
 
