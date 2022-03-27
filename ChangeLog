@@ -6710,6 +6710,10 @@
         * Start writing or using an existing XML parser (like libxml)
         * Insert first graphics drawing routines (xlibs)
 
+2003-09-18  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Revise project and feature plan for CYBOP and Res Medicinae
+
 2003-09-11  Christian Heller  <christian.heller@tuxtax.de>
 
         * Release cyboi 0.1.0.0
@@ -6721,4 +6725,119 @@
         * Run dynamic loop catching signals from internal signal memory (queue)
         * Create GUI using Java Swing (as temporary workaround)
         * Create CYBOI by renaming and altering the ResMedLib base library of the Res Medicinae project
+
+2003-07-04  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Revise requirements analysis page and change a number of links
+
+2003-05-19  Claudia Neumann  <dr.claudia.neumann@gmx.de>
+
+        * Update manual on how to use Electronic Health Record (EHR) applications in DOSemu under Linux
+
+2003-02-20  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Factor out ResMedLib framework into an own project called Cybernetics Oriented Programming (CYBOP), since it has grown complex and provides a rather general architecture
+
+2002-12-09  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Publish user guide on how to use the german medical practice management system AP Wiegand (APW) in DOSemu under Linux
+
+2002-11-08  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Publish presentation for the OSHCA Conference in Los Angeles, showing ideas on domain-driven development using class ontologies and application lifecycle named Cybernetics Oriented Programming (CYBOP)
+
+2002-10-04  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Release Res Medicinae 0.0.4.0 with graphical installation wizzard IzPack
+
+2002-08-23  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Update Res Medicinae UML diagrams
+
+2002-08-21  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Upload screenshots of modules "Record", "ReForm" and "ResData"
+
+2002-06-13  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Release Res Medicinae 0.0.3.0
+
+2002-05-07  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Publish developer tutorial for Res Medicinae and the ResMedLib framework
+
+2002-04-14  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Factor out common functionality into the new ResMedLib framework
+        * Update presentation on the Res Medicinae architecture
+
+2002-01-28  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Release Res Medicinae 0.0.2.0
+
+2001-12-25  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Publish presentation describing the system architecture
+
+2001-12-21  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Upload design document
+
+2001-11-25  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Start development of first child application module "Record"
+
+2001-10-22  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add first screenshots to homepage
+
+2001-09-29  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Change structure of project directories and homepage to avoid redundancies
+
+2001-06-29  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Release first minor prototype 0.0.1.0 giving a first impression of the user interface
+
+2001-06-11  Karsten Hilbert  <karsten.hilbert@gmx.net>
+
+        * Publish first version of analysis paper
+
+2001-04-06  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Create german-speaking mailing list for interested developers and medical doctors to support open source in health care
+
+2001-01-25  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Set up mailing list "resmedicinae-developers"
+
+2000-12-21  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Hold UML modelling presentation on first OSDEM conference in Brussels
+
+2000-09-30  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Announce project in several news groups
+
+2000-05-31  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Investigate on existing projects
+
+2000-03-20  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Register at developer portal https://sourceforge.net/
+        * Get acquainted with portal services
+
+2000-03-14  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Set up wish list for components to develop
+        * Determine first problems to solve
+
+2000-03-05  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Find name and design homepage for Res Medicinae project
+
+1999-10-01  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Develop first Java application with AWT/Swing Graphical User Interface (GUI)
 
