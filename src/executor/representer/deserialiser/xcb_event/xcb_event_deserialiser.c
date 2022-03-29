@@ -88,12 +88,12 @@ void deserialise_xcb_event(void* p0, void* p1, void* p2) {
         } else if (t == XCB_CIRCULATE_NOTIFY) {
 
             //?? deserialise_xcb_event_circulate_notify(p0, p1, p2);
-            fwprintf(stdout, L"Debug: deserialise xcb XCB_CIRCULATE_NOTIFY t: %i\n", t);
+            fwprintf(stdout, L"Debug: Deserialise xcb event. XCB_CIRCULATE_NOTIFY t: %i\n", t);
 
         } else if (t == XCB_CIRCULATE_REQUEST) {
 
             //?? deserialise_xcb_event_circulate_request(p0, p1, p2);
-            fwprintf(stdout, L"Debug: deserialise xcb XCB_CIRCULATE_REQUEST t: %i\n", t);
+            fwprintf(stdout, L"Debug: Deserialise xcb event. XCB_CIRCULATE_REQUEST t: %i\n", t);
 
         } else if (t == XCB_CLIENT_MESSAGE) {
 
@@ -102,7 +102,7 @@ void deserialise_xcb_event(void* p0, void* p1, void* p2) {
         } else if (t == XCB_COLORMAP_NOTIFY) {
 
             //?? deserialise_xcb_event_colormap_notify(p0, p1, p2);
-            fwprintf(stdout, L"Debug: deserialise xcb XCB_COLORMAP_NOTIFY t: %i\n", t);
+            fwprintf(stdout, L"Debug: Deserialise xcb event. XCB_COLORMAP_NOTIFY t: %i\n", t);
 
         } else if (t == XCB_CONFIGURE_NOTIFY) {
 
@@ -111,17 +111,17 @@ void deserialise_xcb_event(void* p0, void* p1, void* p2) {
         } else if (t == XCB_CONFIGURE_REQUEST) {
 
             //?? deserialise_xcb_event_configure_request(p0, p1, p2);
-            fwprintf(stdout, L"Debug: deserialise xcb XCB_CONFIGURE_REQUEST t: %i\n", t);
+            fwprintf(stdout, L"Debug: Deserialise xcb event. XCB_CONFIGURE_REQUEST t: %i\n", t);
 
         } else if (t == XCB_CREATE_NOTIFY) {
 
             //?? deserialise_xcb_event_create_notify(p0, p1, p2);
-            fwprintf(stdout, L"Debug: deserialise xcb XCB_CREATE_NOTIFY t: %i\n", t);
+            fwprintf(stdout, L"Debug: Deserialise xcb event. XCB_CREATE_NOTIFY t: %i\n", t);
 
         } else if (t == XCB_DESTROY_NOTIFY) {
 
             //?? deserialise_xcb_event_destroy_notify(p0, p1, p2);
-            fwprintf(stdout, L"Debug: deserialise xcb XCB_DESTROY_NOTIFY t: %i\n", t);
+            fwprintf(stdout, L"Debug: Deserialise xcb event. XCB_DESTROY_NOTIFY t: %i\n", t);
 
         } else if (t == XCB_ENTER_NOTIFY) {
 
@@ -134,27 +134,27 @@ void deserialise_xcb_event(void* p0, void* p1, void* p2) {
         } else if (t == XCB_FOCUS_IN) {
 
             //?? deserialise_xcb_event_focus_in(p0, p1, p2);
-            fwprintf(stdout, L"Debug: deserialise xcb XCB_FOCUS_IN t: %i\n", t);
+            fwprintf(stdout, L"Debug: Deserialise xcb event. XCB_FOCUS_IN t: %i\n", t);
 
         } else if (t == XCB_FOCUS_OUT) {
 
             //?? deserialise_xcb_event_focus_out(p0, p1, p2);
-            fwprintf(stdout, L"Debug: deserialise xcb XCB_FOCUS_OUT t: %i\n", t);
+            fwprintf(stdout, L"Debug: Deserialise xcb event. XCB_FOCUS_OUT t: %i\n", t);
 
         } else if (t == XCB_GE_GENERIC) {
 
             //?? deserialise_xcb_event_ge_generic(p0, p1, p2);
-            fwprintf(stdout, L"Debug: deserialise xcb XCB_GE_GENERIC t: %i\n", t);
+            fwprintf(stdout, L"Debug: Deserialise xcb event. XCB_GE_GENERIC t: %i\n", t);
 
         } else if (t == XCB_GRAPHICS_EXPOSURE) {
 
             //?? deserialise_xcb_event_graphics_exposure(p0, p1, p2);
-            fwprintf(stdout, L"Debug: deserialise xcb XCB_GRAPHICS_EXPOSURE t: %i\n", t);
+            fwprintf(stdout, L"Debug: Deserialise xcb event. XCB_GRAPHICS_EXPOSURE t: %i\n", t);
 
         } else if (t == XCB_GRAVITY_NOTIFY) {
 
             //?? deserialise_xcb_event_gravity_notify(p0, p1, p2);
-            fwprintf(stdout, L"Debug: deserialise xcb XCB_GRAVITY_NOTIFY t: %i\n", t);
+            fwprintf(stdout, L"Debug: Deserialise xcb event. XCB_GRAVITY_NOTIFY t: %i\n", t);
 
         } else if (t == XCB_KEY_PRESS) {
 
@@ -167,7 +167,7 @@ void deserialise_xcb_event(void* p0, void* p1, void* p2) {
         } else if (t == XCB_KEYMAP_NOTIFY) {
 
             //?? deserialise_xcb_event_keymap_notify(p0, p1, p2);
-            fwprintf(stdout, L"Debug: deserialise xcb XCB_KEYMAP_NOTIFY t: %i\n", t);
+            fwprintf(stdout, L"Debug: Deserialise xcb event. XCB_KEYMAP_NOTIFY t: %i\n", t);
 
         } else if (t == XCB_LEAVE_NOTIFY) {
 
@@ -176,17 +176,17 @@ void deserialise_xcb_event(void* p0, void* p1, void* p2) {
         } else if (t == XCB_MAP_NOTIFY) {
 
             //?? deserialise_xcb_event_map_notify(p0, p1, p2);
-            fwprintf(stdout, L"Debug: deserialise xcb XCB_MAP_NOTIFY t: %i\n", t);
+            fwprintf(stdout, L"Debug: Deserialise xcb event. XCB_MAP_NOTIFY t: %i\n", t);
 
         } else if (t == XCB_MAP_REQUEST) {
 
             //?? deserialise_xcb_event_map_request(p0, p1, p2);
-            fwprintf(stdout, L"Debug: deserialise xcb XCB_MAP_REQUEST t: %i\n", t);
+            fwprintf(stdout, L"Debug: Deserialise xcb event. XCB_MAP_REQUEST t: %i\n", t);
 
         } else if (t == XCB_MAPPING_NOTIFY) {
 
             //?? deserialise_xcb_event_mapping_notify(p0, p1, p2);
-            fwprintf(stdout, L"Debug: deserialise xcb XCB_MAPPING_NOTIFY t: %i\n", t);
+            fwprintf(stdout, L"Debug: Deserialise xcb event. XCB_MAPPING_NOTIFY t: %i\n", t);
 
         } else if (t == XCB_MOTION_NOTIFY) {
 
@@ -195,7 +195,7 @@ void deserialise_xcb_event(void* p0, void* p1, void* p2) {
         } else if (t == XCB_NO_EXPOSURE) {
 
             //?? deserialise_xcb_event_no_exposure(p0, p1, p2);
-            fwprintf(stdout, L"Debug: deserialise xcb XCB_NO_EXPOSURE t: %i\n", t);
+            fwprintf(stdout, L"Debug: Deserialise xcb event. XCB_NO_EXPOSURE t: %i\n", t);
 
         } else if (t == XCB_PROPERTY_NOTIFY) {
 
@@ -204,42 +204,42 @@ void deserialise_xcb_event(void* p0, void* p1, void* p2) {
             //
             // This is called very often ...
             //
-            //?? fwprintf(stdout, L"Debug: deserialise xcb XCB_PROPERTY_NOTIFY t: %i\n", t);
+            //?? fwprintf(stdout, L"Debug: Deserialise xcb event. XCB_PROPERTY_NOTIFY t: %i\n", t);
 
         } else if (t == XCB_REPARENT_NOTIFY) {
 
             //?? deserialise_xcb_event_reparent_notify(p0, p1, p2);
-            fwprintf(stdout, L"Debug: deserialise xcb XCB_REPARENT_NOTIFY t: %i\n", t);
+            fwprintf(stdout, L"Debug: Deserialise xcb event. XCB_REPARENT_NOTIFY t: %i\n", t);
 
         } else if (t == XCB_RESIZE_REQUEST) {
 
             //?? deserialise_xcb_event_resize_request(p0, p1, p2);
-            fwprintf(stdout, L"Debug: deserialise xcb XCB_RESIZE_REQUEST t: %i\n", t);
+            fwprintf(stdout, L"Debug: Deserialise xcb event. XCB_RESIZE_REQUEST t: %i\n", t);
 
         } else if (t == XCB_SELECTION_CLEAR) {
 
             //?? deserialise_xcb_event_selection_clear(p0, p1, p2);
-            fwprintf(stdout, L"Debug: deserialise xcb XCB_SELECTION_CLEAR t: %i\n", t);
+            fwprintf(stdout, L"Debug: Deserialise xcb event. XCB_SELECTION_CLEAR t: %i\n", t);
 
         } else if (t == XCB_SELECTION_NOTIFY) {
 
             //?? deserialise_xcb_event_selection_notify(p0, p1, p2);
-            fwprintf(stdout, L"Debug: deserialise xcb XCB_SELECTION_NOTIFY t: %i\n", t);
+            fwprintf(stdout, L"Debug: Deserialise xcb event. XCB_SELECTION_NOTIFY t: %i\n", t);
 
         } else if (t == XCB_SELECTION_REQUEST) {
 
             //?? deserialise_xcb_event_selection_request(p0, p1, p2);
-            fwprintf(stdout, L"Debug: deserialise xcb XCB_SELECTION_REQUEST t: %i\n", t);
+            fwprintf(stdout, L"Debug: Deserialise xcb event. XCB_SELECTION_REQUEST t: %i\n", t);
 
         } else if (t == XCB_UNMAP_NOTIFY) {
 
             //?? deserialise_xcb_event_unmap_notify(p0, p1, p2);
-            fwprintf(stdout, L"Debug: deserialise xcb XCB_UNMAP_NOTIFY t: %i\n", t);
+            fwprintf(stdout, L"Debug: Deserialise xcb event. XCB_UNMAP_NOTIFY t: %i\n", t);
 
         } else if (t == XCB_VISIBILITY_NOTIFY) {
 
             //?? deserialise_xcb_event_visibility_notify(p0, p1, p2);
-            fwprintf(stdout, L"Debug: deserialise xcb XCB_VISIBILITY_NOTIFY t: %i\n", t);
+            fwprintf(stdout, L"Debug: Deserialise xcb event. XCB_VISIBILITY_NOTIFY t: %i\n", t);
         }
 
     } else {

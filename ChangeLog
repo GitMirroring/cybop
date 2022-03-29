@@ -27,7 +27,7 @@
 
 2022-03-25  Christian Heller  <christian.heller@cybop.org>
 
-        * Delete file "gui_event_deserialiser.c"
+        * Update gui event deserialiser
 
 2022-03-24  Christian Heller  <christian.heller@cybop.org>
 
@@ -119,7 +119,7 @@
 
 2022-03-09  Christian Heller  <christian.heller@cybop.org>
 
-        * Clean up unused global variables
+        * Clean up unused global variables in directory "variable"
         * Add thread copier, which is needed for thread comparison, to find out if a thread already exists
         * Use DEFAULT_THREAD_IDENTIFICATION for comparison in file "spinner.c", since win32 uses a struct and not an int as thread identification
         * Store yet missing parametres channel, server flag, port in dispatcher opener client entry, since they are needed by feeler sensor
