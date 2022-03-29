@@ -18,6 +18,13 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-03-29  Christian Heller  <christian.heller@cybop.org>
+
+        * Rename xcb deserialiser to "xcb_event" deserialiser
+        * Split "xcb_event" deserialiser into many files, one for each event
+        * Rename constants file "action_gui_state_cybol_name" into "event_gui_state_cybol_name"
+        * Add file "part_item_appender.c"
+
 2022-03-25  Christian Heller  <christian.heller@cybop.org>
 
         * Delete file "gui_event_deserialiser.c"

@@ -1,0 +1,104 @@
+/*
+ * Copyright (C) 1999-2022. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.22.0 2022-02-22
+ * @author Christian Heller <christian.heller@cybop.org>
+ */
+
+#ifndef EXPOSE_XCB_EVENT_DESERIALISER_SOURCE
+#define EXPOSE_XCB_EVENT_DESERIALISER_SOURCE
+
+#include <xcb/xcb.h>
+
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cybol/xcb/event_xcb_cybol_model.c"
+#include "../../../../constant/name/cybol/state/gui/event_gui_state_cybol_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/modifier/appender/item/part_item_appender.c"
+#include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../logger/logger.c"
+
+/**
+ * Deserialises the expose xcb event.
+ *
+ * @param p0 the destination model item
+ * @param p1 the destination properties item
+ * @param p2 the source event
+ */
+void deserialise_xcb_event_expose(void* p0, void* p1, void* p2) {
+
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        xcb_expose_event_t* e = (xcb_expose_event_t*) p2;
+
+        //
+        // Expose events are sensed when a window needs
+        // to be repainted, e.g. when being displayed after
+        // having been covered by another window before.
+        //
+
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise expose xcb event.");
+        fwprintf(stdout, L"Debug: Deserialise expose xcb event. p2: %i\n", p2);
+        fwprintf(stdout, L"Debug: Deserialise expose xcb event. (*e).count: %i\n", (*e).count);
+
+        // Overwrite expose xcb event name.
+        modify_item(p0, (void*) EXPOSE_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) EXPOSE_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+        //
+        // CAUTION! Consider only the LAST in a row of multiple expose
+        // events, in order to avoid flickering of the display.
+        //
+        if ((*e).count == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+            // Get window identification.
+            int wi = (int) (*e).window;
+            // Get expose area position.
+            int x = (int) (*e).x;
+            int y = (int) (*e).y;
+            // Get expose area size.
+            int w = (int) (*e).width;
+            int h = (int) (*e).height;
+
+            // Allocate window identification part and append it to the destination properties item.
+            append_item_part(p1, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &wi, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+            // Allocate x expose area position part and append it to the destination properties item.
+            append_item_part(p1, (void*) EXPOSED_X_EVENT_GUI_STATE_CYBOL_NAME, (void*) EXPOSED_X_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &x, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+            // Allocate y expose area position part and append it to the destination properties item.
+            append_item_part(p1, (void*) EXPOSED_Y_EVENT_GUI_STATE_CYBOL_NAME, (void*) EXPOSED_Y_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &y, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+            // Allocate x expose area size part and append it to the destination properties item.
+            append_item_part(p1, (void*) EXPOSED_WIDTH_EVENT_GUI_STATE_CYBOL_NAME, (void*) EXPOSED_WIDTH_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &w, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+            // Allocate y expose area size part and append it to the destination properties item.
+            append_item_part(p1, (void*) EXPOSED_HEIGHT_EVENT_GUI_STATE_CYBOL_NAME, (void*) EXPOSED_HEIGHT_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &h, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xcb event expose. The source event is null.");
+        fwprintf(stdout, L"Error: Could not deserialise xcb event expose. The source event is null. p2: %i\n", p2);
+    }
+}
+
+/* EXPOSE_XCB_EVENT_DESERIALISER_SOURCE */
+#endif

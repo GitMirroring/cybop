@@ -14,24 +14,12 @@
 Event / Signal Handling
 _______________________
 
+        * Continue xcb event deserialiser
+
         * Move file "deallocation_reader.c" to a suitable place, e.g. "deallocation_receiver.c",
             since the display event MUST NOT be deallocated before having deserialised it
         * Add file "deallocation_receiver.c" for freeing display event
-            deallocation in "receiver.c" after deserialisation --> yes, possible, since event was COPIED from buffer to destination array
-
---
-            * @param p0 the destination properties item
-            // The destination properties item data, count.
-            void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-            void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-            // Get destination properties item data, count.
-            copy_array_forward((void*) &d, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-            // Process event.
-            deserialise_gui_event_properties(d, c, p1, p2, p3, io, e);
---
+            deallocation in "receiver.c" AFTER deserialisation is possible, since the event was COPIED from buffer to destination array
 
         * Rename "event/gui" into "message/gui-request"
         * Rename "message/gui" into "message/gui-response"
@@ -46,6 +34,60 @@ _______________________
         * Make cybol application "ui" work again
 
         * Deliver compilable and runnable source code for release CYBOP 0.22.0
+
+Migration
+_________
+
+        Hints for migrating cybol application to new knowledge path syntax:
+
+        * Rename "path/knowledge" and "path/reference" with "text/cybol-path"
+        * Replace OLD property prefix "#" with ":" (CAUTION! for webpage generation the html anchor sign has to REMAIN a #)
+        * Adapt stack variables by adding knowledge path prefix "#"
+        * Delete operation "create" at beginning of "run.cybol" and initialise to knowledge memory root "." instead
+        * Replace all code where knowledge path was assembled manually a la "[index]" --> search for "["
+            --> many operations only adding path elements or an index like "[", "index", "]" may get deleted in the future
+
+CYBOL
+_____
+
+        * Rename "number/double" into "number/float" in all cybol applications
+
+        * Simplify relative paths in cybol applications not expecting "examples/"
+            as parent directory but using that of the application as working directory
+        * See desktop links of any OS as example
+        * Alternatively, use relative paths from current file as is done in html files
+
+Database
+________
+
+        * Compare cyboi with key-value-database such as Redis
+            https://de.wikipedia.org/wiki/Schl%C3%BCssel-Werte-Datenbank
+
+        * See Apache Derby
+            - database written entirely in Java
+            - http://db.apache.org/derby/
+        * Provide dBASE database interface
+
+        * Connectivity libraries written in C:
+            https://sourceforge.net/projects/libopendbx/
+            http://www.tildeslash.com/libzdb/#
+            https://www.linuxnetworks.de/doc/index.php/OpenDBX
+
+CYBOI
+_____
+
+        * Remove as properties from cyboi-internal allocated structure "part": channel, encoding, language, format
+            (they are only needed for communication and when needed by "send" or "receive", they are given as properties)
+
+        * Reintroduce channel "directory" used for reading the files of a directory
+        * See example cybol application "repertoire" in file "db.cybol"
+            <node name="song" channel="directory" format="element/part" model="application/repertoire/db/song/"/>
+        * The advantage would be not to have to list all files additionally in an index file like "application/repertoire/db/song.cybol"
+
+Tool
+____
+
+        * Develop simple cybol editor tool with tree and table as web application in server-side cybol or partly in javascript
 
 General CYBOI
 _____________
@@ -127,8 +169,6 @@ _____________
         * Rename file "executor/checker/operation_checker.c" into "lexer.c" (NOT "checker.c", since already used in "controller/") ??
         * Rename all "checker" into "lexer"
         * Rename function call of "check_operation" into "lex" in all code and adapt include
-
-        * Update directory "executor/container/"
 
         * Unify common code of files "handler.c" and "knowledge_part_getter.c"?
             --> possibly, state and logic models need to be handled differently (at least path/reference)
@@ -222,6 +262,30 @@ ____________
             --> since not only html files are affected, but also css files, the reason is NOT the html serialiser,
             but rather old data in a cybol node or the file WRITER ...
             --> Is "append" the reason? If yes, then empty variable before each request OR use a stack variable
+        * Empty request variables (AND properties) OR use stack variables in cybol application "presence", since request contains old data of previous request, e.g.:
+            [selected_node] | element/part |
+            :-referer | text/plain | http://localhost:1971/?year=2015&week=12&lecturer=meier&day=wednesday&choice=homeoffice&action=update
+            :-connection | text/plain | keep-alive
+            :-accept-encoding | text/plain | gzip, deflate
+            :-accept-language | text/plain | de,en-US;q=0.7,en;q=0.3
+            :-accept | text/plain | text/css,*/*;q=0.1
+            :-user-agent | text/plain | Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0
+            :-host | text/plain | localhost:1971
+            :-protocol | text/plain | HTTP/1.1
+            :-uri | text/plain | /page/presence.css
+            | :-scheme | text/plain | http
+            | :-path | text/plain | /page/presence.css
+            :-method | text/plain | GETffice&action=update
+            | :-scheme | text/plain | http
+            | :-query | element/part |
+            | | +-action | text/plain | update
+            | | +-choice | text/plain | homeoffice
+            | | +-day | text/plain | wednesday
+            | | +-lecturer | text/plain | meier
+            | | +-week | text/plain | 12
+            | | +-year | text/plain | 2015
+            | :-path | text/plain | /
+            :-method | text/plain | GETET| GET
 
         //
         // Open device for each new request in cyboi,
@@ -354,6 +418,9 @@ Logging
 _______
 
         * Let logger use cyboi-internal streamer file writer
+
+        * Test printing messages on console instead of file
+        * Eliminate additional "fwprintf" test messages in all source code
 
         * Provide backtrace function in logger, see:
             https://stackoverflow.com/questions/105659/how-can-one-grab-a-stack-trace-in-c
@@ -623,46 +690,10 @@ _____
             Kann man natürlich auch für usec anpassen ;-)
             http://www.c-plusplus.de/forum/144938-full
 
-Migration
-_________
-
-        Hints for migrating cybol application to new knowledge path syntax:
-
-        * Rename "path/knowledge" and "path/reference" with "text/cybol-path"
-        * Replace OLD property prefix "#" with ":" (CAUTION! for webpage generation the html anchor sign has to REMAIN a #)
-        * Adapt stack variables by adding knowledge path prefix "#"
-        * Delete operation "create" at beginning of "run.cybol" and initialise to knowledge memory root "." instead
-        * Replace all code where knowledge path was assembled manually a la "[index]" --> search for "["
-            --> many operations only adding path elements or an index like "[", "index", "]" may get deleted in the future
-
 CYBOL Application
 _________________
 
         * Update cybol application "presence" to use responsive bootstrap-based user interface
-        * Empty request variables (AND properties) OR use stack variables in cybol application "presence", since request contains old data of previous request, e.g.:
-            [selected_node] | element/part |
-            :-referer | text/plain | http://localhost:1971/?year=2015&week=12&lecturer=meier&day=wednesday&choice=homeoffice&action=update
-            :-connection | text/plain | keep-alive
-            :-accept-encoding | text/plain | gzip, deflate
-            :-accept-language | text/plain | de,en-US;q=0.7,en;q=0.3
-            :-accept | text/plain | text/css,*/*;q=0.1
-            :-user-agent | text/plain | Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0
-            :-host | text/plain | localhost:1971
-            :-protocol | text/plain | HTTP/1.1
-            :-uri | text/plain | /page/presence.css
-            | :-scheme | text/plain | http
-            | :-path | text/plain | /page/presence.css
-            :-method | text/plain | GETffice&action=update
-            | :-scheme | text/plain | http
-            | :-query | element/part |
-            | | +-action | text/plain | update
-            | | +-choice | text/plain | homeoffice
-            | | +-day | text/plain | wednesday
-            | | +-lecturer | text/plain | meier
-            | | +-week | text/plain | 12
-            | | +-year | text/plain | 2015
-            | :-path | text/plain | /
-            :-method | text/plain | GETET| GET
 
         * Use stack variables to avoid cybol operation call of "empty"
 
@@ -675,7 +706,6 @@ _________________
         * Optimise resmedicinae application "xdt2html"
             - ALREADY DONE: make DEEP COPY and SOCKET work in cyboi, before continuing
             - use stack properties instead of duplicate loop indices etc.
-            - consider file "tmp/cybop_stack.pdf"
 
 Searching
 _________
@@ -863,20 +893,6 @@ Repertoire cybol application:
             How to reuse file "round.cybol" for last iteration of "remain" songs?
             Problem: the "#remain_index" is reset in file "song.cybol", which is not wanted when processing ".db.remain"
 
-Documentation
-_____________
-
-        * Simplify "lightning_talk" presentation:
-            - motivation: small problem and solution as demonstration --> impression
-            - purpose of cybop --> explanation:
-                simplification
-                unification
-                separation of system- and application development (memory allocation etc.)
-                each OS should contain a standard interpreter
-                implement interpreter in hardware chip
-            - currently written in xml, json (planned) for persistence
-            - syntax does not matter, therefore less xml source code on slides (too verbose), use table with columns for xml attributes instead
-
 Shell Commands
 ______________
 
@@ -951,6 +967,27 @@ ______
 
 Container
 _________
+
+        * Reorganise container handling in directory "executor/container/"
+        * Move "executor/copier/" to "modifier/copier/"
+        * Create sub directories:
+            modifier/appender/
+            modifier/inserter/
+            modifier/overwriter/
+            modifier/remover/
+        * Rename and reorganise:
+            overwrite_modifier.c -> overwriter/overwriter.c
+            remove_modifier.c -> remover/remover.c
+            etc. pp. ...
+            array_modifier.c -> overwriter/array_overwriter.c, remover/array_remover.c, appender/array_appender.c, ...
+            item_modifier.c -> overwriter/item_overwriter.c, remover/item_remover.c, appender/item_appender.c, ...
+            part_modifier.c -> overwriter/part_overwriter.c, remover/part_remover.c, appender/part_appender.c, ...
+        * Provide additionally:
+            modifier/appender/part/integer_part_appender.c
+            modifier/appender/part/wide_character_part_appender.c
+        * Call different operations "apply_overwrite", "apply_remove" etc. INSTEAD OF "apply_modify" in file "operation_handler.c"
+        * Replace usage of file "append_http_request_deserialiser.c" with "wide_character_part_appender.c" OR "part_item_appender.c"
+        * Move files "append_utf_8_decoder.c" and "append_utf_8_encoder.c" as "utf_8_decoder_appender.c" and "utf_8_encoder_appender.c", respectively, into "modifier/appender/item/"
 
         * Add a "fill_array" function, useful e.g. in function "startup_internal_memory";
             possibly use function pointer to hand over function to be executed as loop body
@@ -1044,16 +1081,6 @@ _________
             http://www.noxeos.com/2011/07/29/c-const-static-keywords/
         * Check possible simplification of constants definition using:
             int* var = (int[]) { 6 };
-
-CYBOL
-_____
-
-        * Rename "number/double" into "number/float" in all cybol applications
-
-        * Simplify relative paths in cybol applications not expecting "examples/"
-            as parent directory but using that of the application as working directory
-        * See desktop links of any OS as example
-        * Alternatively, use relative paths from current file as is done in html files
 
 Super
 _____
@@ -1165,36 +1192,4 @@ _____
                 this is a kind of "prototype programming"-like approach
             ==> for now, as temporary solution, the properties are stored redundantly (twice) in the template
                 that needs them (for example "menu_item" entries in the resmedicinae-revue menu) and in its super template
-
-Database
-________
-
-        * Compare cyboi with key-value-database such as Redis
-            https://de.wikipedia.org/wiki/Schl%C3%BCssel-Werte-Datenbank
-
-        * See Apache Derby
-            - database written entirely in Java
-            - http://db.apache.org/derby/
-        * Provide dBASE database interface
-
-        * Connectivity libraries written in C:
-            https://sourceforge.net/projects/libopendbx/
-            http://www.tildeslash.com/libzdb/#
-            https://www.linuxnetworks.de/doc/index.php/OpenDBX
-
-CYBOI
-_____
-
-        * Remove as properties from cyboi-internal allocated structure "part": channel, encoding, language, format
-            (they are only needed for communication and when needed by "send" or "receive", they are given as properties)
-
-        * Reintroduce channel "directory" used for reading the files of a directory
-        * See example cybol application "repertoire" in file "db.cybol"
-            <node name="song" channel="directory" format="element/part" model="application/repertoire/db/song/"/>
-        * The advantage would be not to have to list all files additionally in an index file like "application/repertoire/db/song.cybol"
-
-Tool
-____
-
-        * Develop simple cybol editor tool with tree and table as web application in server-side cybol or partly in javascript
 

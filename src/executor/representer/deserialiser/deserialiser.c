@@ -34,6 +34,7 @@
 #include "../../../executor/representer/deserialiser/authority/authority_deserialiser.c"
 #include "../../../executor/representer/deserialiser/binary_crlf/binary_crlf_deserialiser.c"
 #include "../../../executor/representer/deserialiser/cybol/cybol_deserialiser.c"
+#include "../../../executor/representer/deserialiser/gui_event/gui_event_deserialiser.c"
 #include "../../../executor/representer/deserialiser/gui/action_gui_deserialiser.c"
 #include "../../../executor/representer/deserialiser/html/html_deserialiser.c"
 #include "../../../executor/representer/deserialiser/http_request/http_request_deserialiser.c"
@@ -77,7 +78,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? deserialise_gui_event(p1, p7, p8, p9);
+            deserialise_gui_event(p0, p1, p2);
             deserialise_gui_action(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
         }
     }
