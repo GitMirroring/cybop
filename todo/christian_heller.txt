@@ -1193,3 +1193,8 @@ _____
             ==> for now, as temporary solution, the properties are stored redundantly (twice) in the template
                 that needs them (for example "menu_item" entries in the resmedicinae-revue menu) and in its super template
 
+CYBOP
+_____
+
+        * Goldener Schnitt ?
+
