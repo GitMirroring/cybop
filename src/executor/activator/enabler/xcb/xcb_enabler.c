@@ -104,17 +104,17 @@ void enable_xcb(void* p0) {
 
         if (w >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            fwprintf(stdout, L"Debug: Enable xcb. test server entry p0: %i\n", p0);
+            fwprintf(stdout, L"Debug: Enable xcb. client window identification w: %i\n", w);
 
             // Get client list from server entry.
             copy_array_forward((void*) &cl, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_CLIENTS_SERVER_STATE_CYBOI_NAME);
 
-            fwprintf(stdout, L"Debug: Enable xcb. test server entry cl: %i\n", cl);
+            //?? fwprintf(stdout, L"Debug: Enable xcb. test server entry cl: %i\n", cl);
 
             // Get client entry from server clients list by device identification.
             find_list((void*) &ce, cl, (void*) &w, (void*) IDENTIFICATION_GENERAL_CLIENT_STATE_CYBOI_NAME);
 
-            fwprintf(stdout, L"Debug: Enable xcb. test server entry ce: %i\n", ce);
+            //?? fwprintf(stdout, L"Debug: Enable xcb. test server entry ce: %i\n", ce);
 
             // Get input buffer item, mutex from client entry.
             copy_array_forward((void*) &bi, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ITEM_BUFFER_INPUT_CLIENT_STATE_CYBOI_NAME);
@@ -124,8 +124,8 @@ void enable_xcb(void* p0) {
             // Get internal memory from client entry.
             copy_array_forward((void*) &i, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERNAL_MEMORY_BACKLINK_CLIENT_STATE_CYBOI_NAME);
 
-            fwprintf(stdout, L"Debug: Enable xcb. test server entry bi: %i\n", bi);
-            fwprintf(stdout, L"Debug: Enable xcb. test server entry h: %i\n", h);
+            //?? fwprintf(stdout, L"Debug: Enable xcb. test server entry bi: %i\n", bi);
+            //?? fwprintf(stdout, L"Debug: Enable xcb. test server entry h: %i\n", h);
 
             // Get interrupt pipe from internal memory.
             copy_array_forward((void*) &ip, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PIPE_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME);

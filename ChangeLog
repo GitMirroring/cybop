@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-04-01  Christian Heller  <christian.heller@cybop.org>
+
+        * Debug error that event was ok in sensor and buffer reader but not in file "xcb_event_deserialiser.c", since the void** was not dereferenced
+
 2022-03-29  Christian Heller  <christian.heller@cybop.org>
 
         * Rename xcb deserialiser to "xcb_event" deserialiser

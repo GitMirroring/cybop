@@ -48,16 +48,20 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source event
+ * @param p2 the source event (pointer reference)
  */
 void deserialise_xcb_event(void* p0, void* p1, void* p2) {
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        xcb_generic_event_t* e = (xcb_generic_event_t*) p2;
+        void** ep = (void**) p2;
+
+        xcb_generic_event_t* e = (xcb_generic_event_t*) *ep;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xcb event.");
-        fwprintf(stdout, L"Debug: Deserialise xcb event. p2: %i\n", p2);
+        fwprintf(stdout, L"Debug: Deserialise xcb event. source event p2: %i\n", p2);
+        fwprintf(stdout, L"Debug: Deserialise xcb event. source event *p2: %i\n", *((void**) p2));
+        fwprintf(stdout, L"Debug: Deserialise xcb event. source event e: %i\n", e);
 
         // Get response type.
         uint8_t t = (*e).response_type;
@@ -83,6 +87,7 @@ void deserialise_xcb_event(void* p0, void* p1, void* p2) {
 
         } else if (t == XCB_BUTTON_RELEASE) {
 
+            fwprintf(stdout, L"\n\n\n\nDebug: Deserialise xcb event. detected XCB_KEY_RELEASE (should be 3) t: %i\n\n\n\n", t);
             deserialise_xcb_event_button_release(p0, p1, p2);
 
         } else if (t == XCB_CIRCULATE_NOTIFY) {
@@ -240,6 +245,11 @@ void deserialise_xcb_event(void* p0, void* p1, void* p2) {
 
             //?? deserialise_xcb_event_visibility_notify(p0, p1, p2);
             fwprintf(stdout, L"Debug: Deserialise xcb event. XCB_VISIBILITY_NOTIFY t: %i\n", t);
+
+        } else {
+
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xcb event. The source event is unknown.");
+            fwprintf(stdout, L"Warning: Could not deserialise xcb event. The source event is unknown. t: %i\n", t);
         }
 
     } else {

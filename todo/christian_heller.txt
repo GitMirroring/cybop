@@ -15,6 +15,7 @@ Event / Signal Handling
 _______________________
 
         * Continue xcb event deserialiser
+            determine window id via cybol constraint "medium" of property "language" in cybol operation "communicate/receive"
 
         * Move file "deallocation_reader.c" to a suitable place, e.g. "deallocation_receiver.c",
             since the display event MUST NOT be deallocated before having deserialised it

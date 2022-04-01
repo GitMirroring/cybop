@@ -178,27 +178,28 @@ void open_xcb(void* p0, void* p1) {
                 // Nothing.
                 // It actually makes no sense to activate this constant.
                 // However, it does no harm either and is added here to be complete.
-                XCB_EVENT_MASK_NO_EVENT
+                //?? XCB_EVENT_MASK_NO_EVENT
                 // Keyboard press and release (while focus is on window).
-                | XCB_EVENT_MASK_KEY_PRESS
+                //?? |
+                XCB_EVENT_MASK_KEY_PRESS
                 | XCB_EVENT_MASK_KEY_RELEASE
                 // Mouse button press and release.
                 | XCB_EVENT_MASK_BUTTON_PRESS
                 | XCB_EVENT_MASK_BUTTON_RELEASE
                 // Mouse pointer enter and leave.
-                | XCB_EVENT_MASK_ENTER_WINDOW
-                | XCB_EVENT_MASK_LEAVE_WINDOW
+                //?? | XCB_EVENT_MASK_ENTER_WINDOW
+                //?? | XCB_EVENT_MASK_LEAVE_WINDOW
                 // Mouse movement.
-                | XCB_EVENT_MASK_POINTER_MOTION // motion with no mouse button held
-                | XCB_EVENT_MASK_POINTER_MOTION_HINT
-                | XCB_EVENT_MASK_BUTTON_1_MOTION // motion while only 1st mouse button is held
-                | XCB_EVENT_MASK_BUTTON_2_MOTION // and so on ...
-                | XCB_EVENT_MASK_BUTTON_3_MOTION
-                | XCB_EVENT_MASK_BUTTON_4_MOTION
-                | XCB_EVENT_MASK_BUTTON_5_MOTION
-                | XCB_EVENT_MASK_BUTTON_MOTION // motion with one or more of the mouse buttons held
+                //?? | XCB_EVENT_MASK_POINTER_MOTION // motion with no mouse button held
+                //?? | XCB_EVENT_MASK_POINTER_MOTION_HINT
+                //?? | XCB_EVENT_MASK_BUTTON_1_MOTION // motion while only 1st mouse button is held
+                //?? | XCB_EVENT_MASK_BUTTON_2_MOTION // and so on ...
+                //?? | XCB_EVENT_MASK_BUTTON_3_MOTION
+                //?? | XCB_EVENT_MASK_BUTTON_4_MOTION
+                //?? | XCB_EVENT_MASK_BUTTON_5_MOTION
+                //?? | XCB_EVENT_MASK_BUTTON_MOTION // motion with one or more of the mouse buttons held
                 // Keymap.
-                | XCB_EVENT_MASK_KEYMAP_STATE
+                //?? | XCB_EVENT_MASK_KEYMAP_STATE
                 // Expose.
                 // - a window that covered part of the current window has moved away, exposing part (or all) of the current window
                 // - the current window was raised above other windows
@@ -206,8 +207,8 @@ void open_xcb(void* p0, void* p1) {
                 // - the current window was de-iconified (to 'iconify' a window is to minimize it or send it to the tray such that it is not shown at all)
                 | XCB_EVENT_MASK_EXPOSURE
                 // Window.
-                | XCB_EVENT_MASK_VISIBILITY_CHANGE
-                | XCB_EVENT_MASK_STRUCTURE_NOTIFY
+                //?? | XCB_EVENT_MASK_VISIBILITY_CHANGE
+                //?? | XCB_EVENT_MASK_STRUCTURE_NOTIFY
                 //?? TODO:
                 //?? Activating the resize event causes
                 //?? the window NOT to be displayed correctly
@@ -218,12 +219,13 @@ void open_xcb(void* p0, void* p1) {
                 //?? and catching the event XCB_CLIENT_MESSAGE.
                 //??
                 //?? | XCB_EVENT_MASK_RESIZE_REDIRECT
-                | XCB_EVENT_MASK_SUBSTRUCTURE_NOTIFY
-                | XCB_EVENT_MASK_SUBSTRUCTURE_REDIRECT
-                | XCB_EVENT_MASK_FOCUS_CHANGE
-                | XCB_EVENT_MASK_PROPERTY_CHANGE
-                | XCB_EVENT_MASK_COLOR_MAP_CHANGE
-                | XCB_EVENT_MASK_OWNER_GRAB_BUTTON;
+                //?? | XCB_EVENT_MASK_SUBSTRUCTURE_NOTIFY
+                //?? | XCB_EVENT_MASK_SUBSTRUCTURE_REDIRECT
+                //?? | XCB_EVENT_MASK_FOCUS_CHANGE
+                //?? | XCB_EVENT_MASK_PROPERTY_CHANGE
+                //?? | XCB_EVENT_MASK_COLOR_MAP_CHANGE
+                //?? | XCB_EVENT_MASK_OWNER_GRAB_BUTTON
+                ;
 
             // Allocate xid for window.
             w = (int) xcb_generate_id(ct);

@@ -68,11 +68,12 @@
 void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui content.");
+    fwprintf(stdout, L"Debug: Deserialise gui content. event name count p11: %i\n", p11);
+    fwprintf(stdout, L"Debug: Deserialise gui content. event name count *p11: %i\n", *((int*) p11));
+    fwprintf(stdout, L"Debug: Deserialise gui content. event name data p10: %ls\n", (wchar_t*) p10);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    //?? fwprintf(stdout, L"Debug: Deserialise gui content. p10: %ls\n", (wchar_t*) p10);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -412,6 +413,12 @@ void deserialise_gui_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             //?? deserialise_gui_action_visibility_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p17);
         }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise gui content. The event name is unknown.");
+        fwprintf(stdout, L"Warning: Could not deserialise gui content. The event name is unknown. p10: %i\n", p10);
     }
 }
 

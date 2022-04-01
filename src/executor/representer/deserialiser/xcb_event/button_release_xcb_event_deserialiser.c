@@ -54,7 +54,7 @@ void deserialise_xcb_event_button_release(void* p0, void* p1, void* p2) {
         xcb_button_release_event_t* e = (xcb_button_release_event_t*) p2;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise button release xcb event.");
-        fwprintf(stdout, L"Debug: Deserialise button release xcb event. p2: %i\n", p2);
+        fwprintf(stdout, L"\n\n\n\n\nDebug: Deserialise button release xcb event. p2: %i\n\n\n\n\n", p2);
 
         // Overwrite button release xcb event name.
         modify_item(p0, (void*) BUTTON_RELEASE_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) BUTTON_RELEASE_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);

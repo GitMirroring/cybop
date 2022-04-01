@@ -107,8 +107,24 @@ void enable_request(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     } else {
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable request. The sender client identification is invalid.");
-        fwprintf(stdout, L"Debug: Could not enable request. The sender client identification is invalid. id: %i\n", id);
+        //
+        // CAUTION! This warning message is relevant only for SOCKET channel.
+        // The display channel does NOT return the destination sender
+        // client identification ON PURPOSE.
+        //
+        // The window clients have to get created MANUALLY in
+        // the corresponding cybol application, so that returning
+        // a window identification does NOT make sense here.
+        //
+        // Furthermore, this calling function "enable_request" stores the
+        // returned client identifications in a request input buffer item,
+        // and also informs the interrupt pipe via handler,
+        // which is NOT wanted and would only cause errors,
+        // since the window clients have already got created MANUALLY.
+        //
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable request. The sender client identification is invalid. Only relevant for socket channel. NO problem for display channel, since the window was opened and id assigned MANUALLY in cybol.");
+        fwprintf(stdout, L"Warning: Could not enable request. The sender client identification is invalid. Only relevant for socket channel. NO problem for display channel, since the window was opened and id assigned MANUALLY in cybol. id: %i\n", id);
     }
 }
 

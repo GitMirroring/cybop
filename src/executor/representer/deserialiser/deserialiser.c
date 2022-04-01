@@ -50,7 +50,7 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source model data
+ * @param p2 the source model data (pointer reference for display channel, otherwise not)
  * @param p3 the source model count
  * @param p4 the source properties data
  * @param p5 the source properties count
@@ -78,6 +78,19 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            fwprintf(stdout, L"Debug: Read storage. event test_d = p2: %i\n", p2);
+            fwprintf(stdout, L"Debug: Read storage. event *test_d = *p2: %i\n", *((void**) p2));
+            xcb_generic_event_t* test_e = *((void**) p2);
+            uint8_t test_t = (*test_e).response_type;
+            fwprintf(stdout, L"Debug: Read storage. event test_t: %i\n", test_t);
+            test_t = test_t & (~0x80);
+            fwprintf(stdout, L"Debug: Read storage. event converted test_t: %i\n", test_t);
+
+            //
+            // CAUTION! The source model data p2 is a pointer REFERENCE
+            // of type void** for the gui channel, since it stores event objects.
+            // Therefore, it has to be DEREFERENCED yet, inside the called function.
+            //
             deserialise_gui_event(p0, p1, p2);
             deserialise_gui_action(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
         }

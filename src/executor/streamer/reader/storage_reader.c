@@ -45,8 +45,8 @@
  * Reads data indirectly from buffer and stores them in the destination item.
  *
  * @param p0 the destination item
- * @param p1 the buffer item
- * @param p2 the buffer mutex
+ * @param p1 the source buffer item
+ * @param p2 the source buffer mutex
  * @param p3 the type
  * @param p4 the message length
  */
@@ -90,6 +90,16 @@ void read_storage(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // already existing data in the destination.
     //
     modify_item(p0, bd, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p4, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    void* test_d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    copy_array_forward((void*) &test_d, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    fwprintf(stdout, L"Debug: Read storage. event test_d: %i\n", test_d);
+    fwprintf(stdout, L"Debug: Read storage. event *test_d: %i\n", *((void**) test_d));
+    xcb_generic_event_t* test_e = *((void**) test_d);
+    uint8_t test_t = (*test_e).response_type;
+    fwprintf(stdout, L"Debug: Read storage. event test_t: %i\n", test_t);
+    test_t = test_t & (~0x80);
+    fwprintf(stdout, L"Debug: Read storage. event converted test_t: %i\n", test_t);
 
     //
     // Remove data from buffer.

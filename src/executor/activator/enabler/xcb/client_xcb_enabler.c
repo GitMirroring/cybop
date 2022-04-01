@@ -51,7 +51,7 @@ void enable_xcb_client(void* p0, void* p1) {
         // Get event response type.
         uint8_t t = (*e).response_type;
 
-        fwprintf(stdout, L"Debug: Enable xcb client. t: %i\n", t);
+        fwprintf(stdout, L"Debug: Enable xcb client. response type t: %i\n", t);
 
         //
         // Reset highest-level bit to zero.
@@ -66,7 +66,7 @@ void enable_xcb_client(void* p0, void* p1) {
         //
         t = t & (~0x80);
 
-        fwprintf(stdout, L"Debug: Enable xcb client. converted t: %i\n", t);
+        fwprintf(stdout, L"Debug: Enable xcb client. converted response type t: %i\n", t);
 
         if (t == XCB_BUTTON_PRESS) {
 
