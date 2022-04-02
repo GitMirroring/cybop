@@ -30,41 +30,31 @@
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cybol/xcb/event_xcb_cybol_model.c"
 #include "../../../../constant/name/cybol/state/gui/event_gui_state_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/modifier/appender/item/part_item_appender.c"
-#include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Deserialises the expose xcb event.
  *
- * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the source event
+ * Expose events are sensed when a window needs to be repainted,
+ * e.g. when being displayed after having been covered by another window before.
+ *
+ * @param p0 the destination properties item
+ * @param p1 the source event
  */
-void deserialise_xcb_event_expose(void* p0, void* p1, void* p2) {
+void deserialise_xcb_event_expose(void* p0, void* p1) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        xcb_expose_event_t* e = (xcb_expose_event_t*) p2;
-
-        //
-        // Expose events are sensed when a window needs
-        // to be repainted, e.g. when being displayed after
-        // having been covered by another window before.
-        //
+        xcb_expose_event_t* e = (xcb_expose_event_t*) p1;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise expose xcb event.");
-        fwprintf(stdout, L"Debug: Deserialise expose xcb event. p2: %i\n", p2);
+        fwprintf(stdout, L"Debug: Deserialise expose xcb event. p1: %i\n", p1);
         fwprintf(stdout, L"Debug: Deserialise expose xcb event. (*e).count: %i\n", (*e).count);
-
-        // Overwrite expose xcb event name.
-        modify_item(p0, (void*) EXPOSE_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) EXPOSE_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
         //
         // CAUTION! Consider only the LAST in a row of multiple expose
@@ -81,22 +71,24 @@ void deserialise_xcb_event_expose(void* p0, void* p1, void* p2) {
             int w = (int) (*e).width;
             int h = (int) (*e).height;
 
+            // Allocate event name part and append it to the destination properties item.
+            append_item_part(p0, (void*) EVENT_EVENT_GUI_STATE_CYBOL_NAME, (void*) EVENT_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) EXPOSE_EVENT_XCB_CYBOL_MODEL, (void*) EXPOSE_EVENT_XCB_CYBOL_MODEL_COUNT);
             // Allocate window identification part and append it to the destination properties item.
-            append_item_part(p1, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &wi, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+            append_item_part(p0, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &wi, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
             // Allocate x expose area position part and append it to the destination properties item.
-            append_item_part(p1, (void*) EXPOSED_X_EVENT_GUI_STATE_CYBOL_NAME, (void*) EXPOSED_X_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &x, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+            append_item_part(p0, (void*) EXPOSED_X_EVENT_GUI_STATE_CYBOL_NAME, (void*) EXPOSED_X_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &x, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
             // Allocate y expose area position part and append it to the destination properties item.
-            append_item_part(p1, (void*) EXPOSED_Y_EVENT_GUI_STATE_CYBOL_NAME, (void*) EXPOSED_Y_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &y, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+            append_item_part(p0, (void*) EXPOSED_Y_EVENT_GUI_STATE_CYBOL_NAME, (void*) EXPOSED_Y_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &y, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
             // Allocate x expose area size part and append it to the destination properties item.
-            append_item_part(p1, (void*) EXPOSED_WIDTH_EVENT_GUI_STATE_CYBOL_NAME, (void*) EXPOSED_WIDTH_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &w, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+            append_item_part(p0, (void*) EXPOSED_WIDTH_EVENT_GUI_STATE_CYBOL_NAME, (void*) EXPOSED_WIDTH_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &w, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
             // Allocate y expose area size part and append it to the destination properties item.
-            append_item_part(p1, (void*) EXPOSED_HEIGHT_EVENT_GUI_STATE_CYBOL_NAME, (void*) EXPOSED_HEIGHT_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &h, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+            append_item_part(p0, (void*) EXPOSED_HEIGHT_EVENT_GUI_STATE_CYBOL_NAME, (void*) EXPOSED_HEIGHT_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &h, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xcb event expose. The source event is null.");
-        fwprintf(stdout, L"Error: Could not deserialise xcb event expose. The source event is null. p2: %i\n", p2);
+        fwprintf(stdout, L"Error: Could not deserialise xcb event expose. The source event is null. p1: %i\n", p1);
     }
 }
 

@@ -43,21 +43,20 @@
 /**
  * Deserialises the gui event.
  *
- * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the source event
+ * @param p0 the destination properties item
+ * @param p1 the source event
  */
-void deserialise_gui_event(void* p0, void* p1, void* p2) {
+void deserialise_gui_event(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui event.");
 
 #if defined(__linux__) || defined(__unix__)
-    deserialise_xcb_event(p0, p1, p2);
+    deserialise_xcb_event(p0, p1);
 #elif defined(__APPLE__) && defined(__MACH__)
     //?? TODO: Add Cocoa support
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    deserialise_win32_display_event(p0, p1, p2);
+    deserialise_win32_display_event(p0, p1);
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif

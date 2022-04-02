@@ -14,8 +14,10 @@
 Event / Signal Handling
 _______________________
 
+        * Make "Hello World!" in cybol application "ui" work again
         DONE: enable and sense, deserialiser: gui_event, gui, gui_action
         CONTINUE: file "gui/handle.cybol" with "communicate/receive"
+        * Delete p0 from xcb event deserialisers
         * Test gui deserialiser
         * Rename "event/gui" into "message/gui-request"
         * Rename "message/gui" into "message/gui-response"
@@ -26,8 +28,6 @@ _______________________
             since the display event MUST NOT be deallocated before having deserialised it
         * Add file "deallocation_receiver.c" for freeing display event
             deallocation in "receiver.c" AFTER deserialisation is possible, since the event was COPIED from buffer to destination array
-
-        * Make cybol application "ui" work again
 
         * Deliver compilable and runnable source code for release CYBOP 0.22.0
 

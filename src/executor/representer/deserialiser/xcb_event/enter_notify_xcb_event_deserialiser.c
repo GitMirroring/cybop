@@ -30,34 +30,27 @@
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cybol/xcb/event_xcb_cybol_model.c"
 #include "../../../../constant/name/cybol/state/gui/event_gui_state_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/modifier/appender/item/part_item_appender.c"
-#include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Deserialises the enter notify xcb event.
  *
- * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the source event
+ * @param p0 the destination properties item
+ * @param p1 the source event
  */
-void deserialise_xcb_event_enter_notify(void* p0, void* p1, void* p2) {
+void deserialise_xcb_event_enter_notify(void* p0, void* p1) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        xcb_enter_notify_event_t* e = (xcb_enter_notify_event_t*) p2;
+        xcb_enter_notify_event_t* e = (xcb_enter_notify_event_t*) p1;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise enter notify xcb event.");
-        fwprintf(stdout, L"Debug: Deserialise enter notify xcb event. p2: %i\n", p2);
-
-        // Overwrite enter notify xcb event name.
-        modify_item(p0, (void*) ENTER_NOTIFY_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ENTER_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+        fwprintf(stdout, L"Debug: Deserialise enter notify xcb event. p1: %i\n", p1);
 
         // Get window identification.
         int w = (int) (*e).event;
@@ -71,23 +64,25 @@ void deserialise_xcb_event_enter_notify(void* p0, void* p1, void* p2) {
         // Get mouse button identification.
         int mode = (int) (*e).mode;
 
+        // Allocate event name part and append it to the destination properties item.
+        append_item_part(p0, (void*) EVENT_EVENT_GUI_STATE_CYBOL_NAME, (void*) EVENT_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ENTER_NOTIFY_EVENT_XCB_CYBOL_MODEL, (void*) ENTER_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT);
         // Allocate window identification part and append it to the destination properties item.
-        append_item_part(p1, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &w, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+        append_item_part(p0, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &w, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
         // Allocate x mouse coordinate part and append it to the destination properties item.
-        append_item_part(p1, (void*) X_EVENT_GUI_STATE_CYBOL_NAME, (void*) X_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &x, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+        append_item_part(p0, (void*) X_EVENT_GUI_STATE_CYBOL_NAME, (void*) X_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &x, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
         // Allocate y mouse coordinate part and append it to the destination properties item.
-        append_item_part(p1, (void*) Y_EVENT_GUI_STATE_CYBOL_NAME, (void*) Y_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &y, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+        append_item_part(p0, (void*) Y_EVENT_GUI_STATE_CYBOL_NAME, (void*) Y_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &y, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
         // Allocate mouse button or keycode part and append it to the destination properties item.
-        append_item_part(p1, (void*) BUTTON_EVENT_GUI_STATE_CYBOL_NAME, (void*) BUTTON_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &b, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+        append_item_part(p0, (void*) BUTTON_EVENT_GUI_STATE_CYBOL_NAME, (void*) BUTTON_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &b, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
         // Allocate button mask part and append it to the destination properties item.
-        append_item_part(p1, (void*) MASK_EVENT_GUI_STATE_CYBOL_NAME, (void*) MASK_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &mask, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+        append_item_part(p0, (void*) MASK_EVENT_GUI_STATE_CYBOL_NAME, (void*) MASK_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &mask, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
         // Allocate mouse button identification part and append it to the destination properties item.
-        append_item_part(p1, (void*) MODE_EVENT_GUI_STATE_CYBOL_NAME, (void*) MODE_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &mode, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+        append_item_part(p0, (void*) MODE_EVENT_GUI_STATE_CYBOL_NAME, (void*) MODE_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &mode, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xcb event enter notify. The source event is null.");
-        fwprintf(stdout, L"Error: Could not deserialise xcb event enter notify. The source event is null. p2: %i\n", p2);
+        fwprintf(stdout, L"Error: Could not deserialise xcb event enter notify. The source event is null. p1: %i\n", p1);
     }
 }
 

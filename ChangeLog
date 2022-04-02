@@ -24,6 +24,8 @@
         * Adapt affected cybol applications as well as serialiser and sender
         * Hand over window model hierarchy as cybol property "medium" to "represent/deserialise" or "communicate/receive", in order to identify nested components and their action via mouse coordinates
         * Adapt gui deserialiser and receiver
+        * Append event name to destination properties instead of to destination model
+        * Make cybol application "ui" work again
 
 2022-04-01  Christian Heller  <christian.heller@cybop.org>
 

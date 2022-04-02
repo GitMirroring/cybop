@@ -25,21 +25,8 @@
         <node name="button-release" channel="inline" format="text/plain" model=".logic.exit_programme"/>
     </node>
 
-    <!-- The following variable is used in file "handle.cybol". -->
-    <node name="action" channel="inline" format="text/plain" model="">
-        <node name="event" channel="inline" format="text/plain" model=""/>
-        <node name="window" channel="inline" format="number/integer" model="0"/>
-        <node name="exposed_x" channel="inline" format="number/integer" model="0"/>
-        <node name="exposed_y" channel="inline" format="number/integer" model="0"/>
-        <node name="exposed_width" channel="inline" format="number/integer" model="0"/>
-        <node name="exposed_height" channel="inline" format="number/integer" model="0"/>
-        <node name="x" channel="inline" format="number/integer" model="0"/>
-        <node name="y" channel="inline" format="number/integer" model="0"/>
-        <node name="button" channel="inline" format="number/integer" model="0"/>
-        <node name="keycode" channel="inline" format="number/integer" model="0"/>
-        <node name="mask" channel="inline" format="number/integer" model="0"/>
-        <node name="mode" channel="inline" format="number/integer" model="0"/>
-    </node>
+    <!-- This variable is used in file "handle.cybol". -->
+    <node name="action" channel="inline" format="text/plain" model=""/>
 
     <node name="window_id" channel="inline" format="number/integer" model="-1"/>
 

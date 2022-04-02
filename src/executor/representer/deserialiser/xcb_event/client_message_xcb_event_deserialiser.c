@@ -30,31 +30,27 @@
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cybol/xcb/event_xcb_cybol_model.c"
 #include "../../../../constant/name/cybol/state/gui/event_gui_state_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/modifier/appender/item/part_item_appender.c"
-#include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Deserialises the client message xcb event.
  *
- * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the source event
+ * @param p0 the destination properties item
+ * @param p1 the source event
  */
-void deserialise_xcb_event_client_message(void* p0, void* p1, void* p2) {
+void deserialise_xcb_event_client_message(void* p0, void* p1) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        xcb_client_message_event_t* e = (xcb_client_message_event_t*) p2;
+        xcb_client_message_event_t* e = (xcb_client_message_event_t*) p1;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise client message xcb event.");
-        fwprintf(stdout, L"Debug: Deserialise client message xcb event. p2: %i\n", p2);
+        fwprintf(stdout, L"Debug: Deserialise client message xcb event. p1: %i\n", p1);
 
         // Get window identification.
         uint32_t w = (uint32_t) (*e).window;
@@ -67,7 +63,7 @@ void deserialise_xcb_event_client_message(void* p0, void* p1, void* p2) {
         fwprintf(stdout, L"Debug: deserialise xcb XCB_CLIENT_MESSAGE 2 d: %i\n", d);
 
         // Allocate window identification part and append it to the destination properties item.
-        append_item_part(p1, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &w, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+        append_item_part(p0, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME, (void*) WINDOW_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) &w, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
         fwprintf(stdout, L"Debug: deserialise xcb XCB_CLIENT_MESSAGE 3 w: %i\n", w);
 
         // The delete window cookie.
@@ -75,7 +71,7 @@ void deserialise_xcb_event_client_message(void* p0, void* p1, void* p2) {
 
         // Retrieve delete window cookie from input/output entry.
         fwprintf(stdout, L"Debug: deserialise xcb XCB_CLIENT_MESSAGE 4 dwc: %i\n", dwc);
-        //?? copy_array_forward((void*) &dwc, p12, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        //?? copy_array_forward((void*) &dwc, p02, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DELETE_WINDOW_COOKIE_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME);
         fwprintf(stdout, L"Debug: deserialise xcb XCB_CLIENT_MESSAGE 5 dwc: %i\n", dwc);
 
         // The delete window cookie structure.
@@ -92,14 +88,14 @@ void deserialise_xcb_event_client_message(void* p0, void* p1, void* p2) {
         // Find out if window is to be closed.
         //?? if (d.data32[0] == (*dwcs).atom) {
 
-            // Overwrite client message xcb event name.
-            modify_item(p0, (void*) CLOSE_WINDOW_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) CLOSE_WINDOW_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+            // Allocate event name part and append it to the destination properties item.
+            append_item_part(p0, (void*) EVENT_EVENT_GUI_STATE_CYBOL_NAME, (void*) EVENT_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CLOSE_WINDOW_EVENT_XCB_CYBOL_MODEL, (void*) CLOSE_WINDOW_EVENT_XCB_CYBOL_MODEL_COUNT);
         //?? }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xcb event client message. The source event is null.");
-        fwprintf(stdout, L"Error: Could not deserialise xcb event client message. The source event is null. p2: %i\n", p2);
+        fwprintf(stdout, L"Error: Could not deserialise xcb event client message. The source event is null. p1: %i\n", p1);
     }
 }
 

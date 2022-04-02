@@ -30,37 +30,30 @@
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cybol/xcb/event_xcb_cybol_model.c"
 #include "../../../../constant/name/cybol/state/gui/event_gui_state_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/modifier/appender/item/part_item_appender.c"
-#include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Deserialises the configure notify xcb event.
  *
- * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the source event
+ * @param p0 the destination properties item
+ * @param p1 the source event
  */
-void deserialise_xcb_event_configure_notify(void* p0, void* p1, void* p2) {
+void deserialise_xcb_event_configure_notify(void* p0, void* p1) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        xcb_configure_notify_event_t* e = (xcb_configure_notify_event_t*) p2;
+        xcb_configure_notify_event_t* e = (xcb_configure_notify_event_t*) p1;
 
         //
         // CAUTION! Comment out if necessary since this is called very often.
         //
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise configure notify xcb event.");
-        fwprintf(stdout, L"Debug: Deserialise configure notify xcb event. p2: %i\n", p2);
-
-        // Overwrite configure notify xcb event name.
-        modify_item(p0, (void*) CONFIGURE_NOTIFY_EVENT_XCB_CYBOL_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) CONFIGURE_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+        fwprintf(stdout, L"Debug: Deserialise configure notify xcb event. p1: %i\n", p1);
 
         //
         //?? TODO: The "static" keyword does probably NOT work for
@@ -112,10 +105,13 @@ void deserialise_xcb_event_configure_notify(void* p0, void* p1, void* p2) {
             oh = eh;
         }
 
+        // Allocate event name part and append it to the destination properties item.
+        append_item_part(p0, (void*) EVENT_EVENT_GUI_STATE_CYBOL_NAME, (void*) EVENT_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CONFIGURE_NOTIFY_EVENT_XCB_CYBOL_MODEL, (void*) CONFIGURE_NOTIFY_EVENT_XCB_CYBOL_MODEL_COUNT);
+
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xcb event configure notify. The source event is null.");
-        fwprintf(stdout, L"Error: Could not deserialise xcb event configure notify. The source event is null. p2: %i\n", p2);
+        fwprintf(stdout, L"Error: Could not deserialise xcb event configure notify. The source event is null. p1: %i\n", p1);
     }
 }
 

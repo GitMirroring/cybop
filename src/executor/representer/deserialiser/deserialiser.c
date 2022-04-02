@@ -89,10 +89,12 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
                 //
                 // CAUTION! The source model data p2 is a pointer REFERENCE
-                // of type void** for the gui channel, since it stores event objects.
+                // of type void** for the display channel with gui language,
+                // since it stores event objects.
+                //
                 // Therefore, it has to be DEREFERENCED yet.
                 //
-                deserialise_gui_event(p0, p1, *e);
+                deserialise_gui_event(p1, *e);
 
                 //
                 // CAUTION! Hand over cybol window hierarchy model and properties,
