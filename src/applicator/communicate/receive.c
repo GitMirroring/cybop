@@ -28,6 +28,7 @@
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
@@ -61,6 +62,7 @@
  * - sender (required): the device identification, e.g. file descriptor
  * - encoding (required): the encoding, e.g. utf-8, utf-32
  * - language (optional): the language defining which prefix or suffix indicates the message length, e.g. binary-crlf, http-request, xdt; not needed for file reading since that ends with EOF
+ * - medium (optional): the user interface window model hierarchy used to identify nested components and their action via mouse coordinates
  * - format (optional): the format of the data, e.g. logicvalue/boolean, number/integer, text/plain
  * - message (required): the cybol path to the knowledge tree node storing the received data
  * - minimum (optional): the minimum number of bytes to be received in one call of the read function (for serial port)

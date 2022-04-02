@@ -48,11 +48,12 @@
  * CAUTION! The result gets APPENDED to the destination.
  * It does NOT overwrite already existing content in the destination.
  *
- * Expected parametres:
+ * Parametres:
  * - destination (required): the destination part, e.g. an integer number
  * - source (required): the source part, which is always a sequence of wide characters
  * - format (required): the destination part format (type)
  * - language (required): the destination part language (cybol, http_request, xdt etc.)
+ * - medium (optional): the user interface window model hierarchy used to identify nested components and their action via mouse coordinates
  *
  * @param p0 the parametres data
  * @param p1 the parametres count

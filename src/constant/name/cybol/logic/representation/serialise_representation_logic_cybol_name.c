@@ -26,7 +26,7 @@
 #ifndef SERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
 #define SERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
 
-#include <stddef.h>
+#include <stddef.h> // wchar_t
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
@@ -34,21 +34,21 @@
 static wchar_t* DESTINATION_SERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME = L"destination";
 static int* DESTINATION_SERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The source serialise representation logic cybol name. */
-static wchar_t* SOURCE_SERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME = L"source";
-static int* SOURCE_SERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The format serialise representation logic cybol name. */
 static wchar_t* FORMAT_SERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME = L"format";
 static int* FORMAT_SERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The indentation send communication logic cybol name. */
+/** The indentation serialise representation logic cybol name. */
 static wchar_t* INDENTATION_SERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME = L"indentation";
 static int* INDENTATION_SERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The language serialise representation logic cybol name. */
 static wchar_t* LANGUAGE_SERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME = L"language";
 static int* LANGUAGE_SERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The source serialise representation logic cybol name. */
+static wchar_t* SOURCE_SERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME = L"source";
+static int* SOURCE_SERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* SERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

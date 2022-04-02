@@ -32,7 +32,6 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/html/document_type_html_model.c"
-#include "../../../constant/name/cybol/logic/communication/language_send_communication_logic_cybol_name.c"
 #include "../../../executor/modifier/item_modifier.c"
 #include "../../../executor/representer/serialiser/binary_crlf/binary_crlf_serialiser.c"
 //
@@ -94,23 +93,22 @@
  * @param p2 the source name count
  * @param p3 the source channel
  * @param p4 the source encoding
- * @param p5 the source language model data
- * @param p6 the source language properties data
- * @param p7 the source language properties count
- * @param p8 the source format
- * @param p9 the source type
- * @param p10 the source model data
- * @param p11 the source model count
- * @param p12 the source properties data
- * @param p13 the source properties count
- * @param p14 the clear flag
- * @param p15 the newline flag
- * @param p16 the knowledge memory part (pointer reference)
- * @param p17 the stack memory item
- * @param p18 the internal memory data
- * @param p19 the destination device identification item, currently only needed for gui window id
+ * @param p5 the source language
+ * @param p6 the source indentation flag
+ * @param p7 the source format
+ * @param p8 the source type
+ * @param p9 the source model data
+ * @param p10 the source model count
+ * @param p11 the source properties data
+ * @param p12 the source properties count
+ * @param p13 the clear flag
+ * @param p14 the newline flag
+ * @param p15 the knowledge memory part (pointer reference)
+ * @param p16 the stack memory item
+ * @param p17 the internal memory data
+ * @param p18 the destination device identification item, currently only needed for gui window id
  */
-void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19) {
+void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise.");
 
@@ -141,7 +139,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             // The data are forwarded as they are.
             //
 
-            modify_item(p0, p10, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p11, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+            modify_item(p0, p9, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p10, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
         }
     }
 
@@ -151,7 +149,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_binary_crlf(p0, p10, p11);
+            serialise_binary_crlf(p0, p9, p10);
         }
     }
 
@@ -162,10 +160,10 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Serialise data and encode them as utf-8 multibyte character sequence.
-            serialise_tui_primitive(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p10, p11, p12, p13, p8);
+            serialise_tui_primitive(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p9, p10, p11, p12, p7);
 
             // Append newline.
-            serialise_tui_newline(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p15, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            serialise_tui_newline(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p14, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 
@@ -179,9 +177,9 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Get destination window identification item data.
-            copy_array_forward((void*) &w, p19, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &w, p18, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-            serialise_gui_initial(w, p10, p11, p12, p13, p16, p17, p18, p8);
+            serialise_gui_initial(w, p9, p10, p11, p12, p15, p16, p17, p7);
         }
     }
 
@@ -191,7 +189,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_http_request(p0, p10, p11, p12, p13);
+            serialise_http_request(p0, p9, p10, p11, p12);
         }
     }
 
@@ -201,7 +199,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_http_response(p0, p10, p11, p12, p13, p16, p17, p18);
+            serialise_http_response(p0, p9, p10, p11, p12, p15, p16, p17);
         }
     }
 
@@ -211,7 +209,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_tui_initial(p0, p10, p11, p12, p13, p16, p17, p18, p14, p15, p8);
+            serialise_tui_initial(p0, p9, p10, p11, p12, p15, p16, p17, p13, p14, p7);
         }
     }
 
@@ -225,7 +223,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_terminal_mode(p0, p10, p11, p12, p13, p8);
+            serialise_terminal_mode(p0, p9, p10, p11, p12, p7);
         }
     }
 
@@ -239,7 +237,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? serialise_authority(p0, p10, p11, p12);
+            //?? serialise_authority(p0, p9, p10, p11);
         }
     }
 
@@ -249,7 +247,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? serialise_xdt(p0, p10, p11, p12, p13, p7);
+            //?? serialise_xdt(p0, p9, p10, p11, p12, p7);
         }
     }
 
@@ -259,7 +257,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol(p0, p1, p2, p3, p4, p5, p8, p9, p10, p11, p12, p13);
+            serialise_cybol(p0, p1, p2, p3, p4, p5, p7, p8, p9, p10, p11, p12);
         }
     }
 
@@ -269,7 +267,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? serialise_xdt(p0, p10, p11, p12, p13, p7);
+            //?? serialise_xdt(p0, p9, p10, p11, p12, p7);
         }
     }
 
@@ -293,15 +291,8 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             // The indentation flag part model item data.
             void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-            // Get indentation flag part.
-            get_part_name((void*) &i, p6, (void*) INDENTATION_LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) INDENTATION_LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p7, p16, p17, p18);
-            // Get indentation flag part model item.
-            copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-            // Get indentation flag part model item data.
-            copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
             // Append content.
-            serialise_html_part_element_content(p0, p10, p11, p12, p13, imd, (void*) &l, p8);
+            serialise_html_part_element_content(p0, p9, p10, p11, p12, p6, (void*) &l, p7);
         }
     }
 
@@ -311,7 +302,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? serialise_xdt(p0, p10, p11, p12, p13, p7);
+            //?? serialise_xdt(p0, p9, p10, p11, p12, p7);
         }
     }
 
@@ -329,7 +320,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             //
             int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-            serialise_model_diagram_part_element_content(p0, (void*) L"[selected_node]", (void*) NUMBER_15_INTEGER_STATE_CYBOI_MODEL, p8, p10, p11, p12, p13, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l);
+            serialise_model_diagram_part_element_content(p0, (void*) L"[selected_node]", (void*) NUMBER_15_INTEGER_STATE_CYBOI_MODEL, p7, p9, p10, p11, p12, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l);
         }
     }
 
@@ -339,7 +330,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? serialise_uri(p0, p10);
+            //?? serialise_uri(p0, p9);
         }
     }
 
@@ -357,7 +348,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             // The xDT de-/serialisation should be moved
             // into a library in the future.
             //
-            //?? serialise_xdt_field_description(p0, p10);
+            //?? serialise_xdt_field_description(p0, p9);
         }
     }
 

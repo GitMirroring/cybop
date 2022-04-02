@@ -5,9 +5,8 @@
         <node name="source" channel="inline" format="text/cybol-path" model=".app.wui"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <!-- A beautification with indentation and newline is actually NOT useful for pure data transfer. -->
-        <node name="language" channel="inline" format="meta/language" model="text/html">
-            <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
-        </node>
+        <node name="language" channel="inline" format="meta/language" model="text/html"/>
+        <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="send_to_client_socket" channel="inline" format="communicate/send" model="">

@@ -58,15 +58,13 @@
  * - receiver (required): the device identification, e.g. file descriptor
  * - encoding (optional): the encoding to be used, e.g. ascii; the default is utf-8
  * - language (required): the language into which to serialise the message before sending it (e.g. html, model-diagram etc.)
+ * - indentation (optional): the flag indicating whether or not the generated message is to be pretty-formatted (e.g. indented html tags with line breaks)
  * - format (required): the format into which to serialise the message before sending (e.g. element/part, number/integer)
  * - message (required): the data to be sent
  * - clear (optional, only if type is terminal or tui): the flag indicating whether or not to clear the screen before painting a user interface
  * - newline (optional, only if channel is terminal): the flag indicating whether or not to add a new line after having printed the message on screen
  * - asynchronicity (optional): the flag indicating asynchronous writing within a thread; if NULL, the default is false (synchronous write)
  * - handler (optional): the callback cybol operation being executed when the thread finished reading data
- *
- * Constraints for property "language":
- * - indentation (optional): the flag indicating whether or not the generated message is to be pretty-formatted (e.g. indented html tags with line breaks)
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -94,6 +92,8 @@ void apply_send(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The language part.
     void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The indentation part.
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The format part.
     void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The message part.
@@ -117,9 +117,10 @@ void apply_send(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The encoding part model item.
     void* em = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The language part, properties model item.
+    // The language part model item.
     void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* lp = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The indentation part model item.
+    void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The format part model item.
     void* fm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The message part model, properties item.
@@ -142,10 +143,10 @@ void apply_send(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* rmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The encoding part model item data.
     void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The language part model, properties item data, count.
+    // The language part model item data.
     void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* lpd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* lpc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The indentation part model item data.
+    void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The format part model item data.
     void* fmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The message part model, properties item data, count.
@@ -176,6 +177,8 @@ void apply_send(void* p0, void* p1, void* p2, void* p3, void* p4) {
     get_part_name((void*) &e, p0, (void*) ENCODING_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) ENCODING_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get language part.
     get_part_name((void*) &l, p0, (void*) LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get indentation part.
+    get_part_name((void*) &i, p0, (void*) INDENTATION_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) INDENTATION_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get format part.
     get_part_name((void*) &f, p0, (void*) FORMAT_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) FORMAT_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get message part.
@@ -199,9 +202,10 @@ void apply_send(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get encoding part model item.
     copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get language part model, properties item.
+    // Get language part model item.
     copy_array_forward((void*) &lm, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &lp, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
+    // Get indentation part model item.
+    copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get format part model item.
     copy_array_forward((void*) &fm, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get message part model, properties item.
@@ -224,10 +228,10 @@ void apply_send(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &rmd, rm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get encoding part model item data.
     copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get language part model, properties item data, count.
+    // Get language part model item data.
     copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &lpd, lp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &lpc, lp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Get indentation part model item data.
+    copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get format part model item data.
     copy_array_forward((void*) &fmd, fm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get message part model, properties item data, count.
@@ -302,7 +306,7 @@ void apply_send(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Functionality
     //
 
-    send_data(rm, mmd, mmc, mpd, mpc, (void*) &m, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, emd, lmd, lpd, lpc, fmd, td, clmd, nlmd, p2, p3, p4, cmd, (void*) &server, (void*) &port, (void*) &h, amd);
+    send_data(rm, mmd, mmc, mpd, mpc, (void*) &m, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, emd, lmd, imd, fmd, td, clmd, nlmd, p2, p3, p4, cmd, (void*) &server, (void*) &port, (void*) &h, amd);
 
     // Deallocate type item.
     deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);

@@ -26,17 +26,13 @@
 #ifndef DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
 #define DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
 
-#include <stddef.h>
+#include <stddef.h> // wchar_t
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The destination deserialise representation logic cybol name. */
 static wchar_t* DESTINATION_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME = L"destination";
 static int* DESTINATION_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The source deserialise representation logic cybol name. */
-static wchar_t* SOURCE_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME = L"source";
-static int* SOURCE_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The format deserialise representation logic cybol name. */
 static wchar_t* FORMAT_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME = L"format";
@@ -45,6 +41,14 @@ static int* FORMAT_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_
 /** The language deserialise representation logic cybol name. */
 static wchar_t* LANGUAGE_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME = L"language";
 static int* LANGUAGE_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The medium deserialise representation logic cybol name. */
+static wchar_t* MEDIUM_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME = L"medium";
+static int* MEDIUM_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The source deserialise representation logic cybol name. */
+static wchar_t* SOURCE_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME = L"source";
+static int* SOURCE_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */
 #endif
