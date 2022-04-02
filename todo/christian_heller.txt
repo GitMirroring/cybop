@@ -14,13 +14,9 @@
 Event / Signal Handling
 _______________________
 
-        * Hand over window model hierarchy as cybol property "medium" to "represent/deserialise" or "communicate/receive", in order to identify nested components and their action via mouse coordinates
-        * Adapt deserialiser and receiver
-
-        DONE: enable and sense
-        TODO: deserialiser: gui_event, gui, gui_action
+        DONE: enable and sense, deserialiser: gui_event, gui, gui_action
         CONTINUE: file "gui/handle.cybol" with "communicate/receive"
-        * Continue gui deserialiser
+        * Test gui deserialiser
         * Rename "event/gui" into "message/gui-request"
         * Rename "message/gui" into "message/gui-response"
         * Unify reading of correct action from window element hierarchy for all events, see example in file "button_release_gui_action_deserialiser.c"

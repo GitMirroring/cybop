@@ -65,6 +65,10 @@ void apply_serialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply serialise.");
 
+    //
+    // Declaration
+    //
+
     // The destination part.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source part.
@@ -100,6 +104,10 @@ void apply_serialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The indentation part model item data.
     void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Retrieval
+    //
 
     // Get destination part.
     get_part_name((void*) &d, p0, (void*) DESTINATION_SERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME, (void*) DESTINATION_SERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
@@ -137,34 +145,54 @@ void apply_serialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get indentation part model item data.
     copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    //
+    // Default values
+    //
+
     // The type item.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The type item data.
     void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
     // Allocate type item.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     // CAUTION! Initialise integer items with a size of ONE,
     // in order to avoid later reallocation when overwriting
     // the element and to thus increase efficiency.
+    //
     allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    //
     // Decode cyboi-internal type into cyboi runtime type.
+    //
     // CAUTION! Both are not always equal in their meaning.
     // For example, an "xdt" file is converted into a cyboi "part".
     // Therefore, a runtime type has to be figured out here.
     // It is needed for allocating the new part.
+    //
     deserialise_cybol_type(t, fmd);
+    //
     // Get type item data.
+    //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
+    //
     copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    //
+    // Functionality
+    //
+
+    //
     // Serialise the source- into the destination part.
     //
     // CAUTION! Hand over NULL for "clear" and "initial call" flags,
     // since they are only needed when sending data to a terminal.
+    //
     serialise(dm, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, lmd, imd, fmd, td, smd, smc, spd, spc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // Deallocate type item.

@@ -81,9 +81,10 @@ void deserialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
-        // CAUTION! Process child nodes ONLY if the parent is a composed (whole) node.
+        // The parent is a composed (whole) node.
         //
 
+        // Process child nodes.
         deserialise_gui_whole(p0, p1, p2, p3, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14);
     }
 }

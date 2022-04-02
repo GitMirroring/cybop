@@ -41,20 +41,25 @@
  * @param p4 the source properties data
  * @param p5 the source properties count
  * @param p6 the source format
- * @param p7 the knowledge memory part (pointer reference)
- * @param p8 the stack memory item
- * @param p9 the internal memory data
- * @param p10 the format
- * @param p11 the language
+ * @param p7 the medium model data (user interface window model hierarchy used to identify nested components and their action via mouse coordinates)
+ * @param p8 the medium model count
+ * @param p9 the medium properties data
+ * @param p10 the medium properties count
+ * @param p11 the medium format
+ * @param p12 the knowledge memory part (pointer reference)
+ * @param p13 the stack memory item
+ * @param p14 the internal memory data
+ * @param p15 the destination format
+ * @param p16 the language
  */
-void receive_deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void receive_deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16) {
 
-    if (p11 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p16 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive deserialise.");
 
         // Deserialise message.
-        deserialise(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
+        deserialise(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16);
 
     } else {
 
