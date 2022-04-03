@@ -2,7 +2,7 @@
 
     <node name="refresh_display" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
-        <node name="language" channel="inline" format="meta/language" model="message/gui"/>
+        <node name="language" channel="inline" format="meta/language" model="message/gui-response"/>
 <!--
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
 -->

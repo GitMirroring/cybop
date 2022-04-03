@@ -18,7 +18,7 @@
             So, the window id related to a windowing system (xcb) does not help here.
         -->
         <node name="sender" channel="inline" format="text/cybol-path" model=".gui.window"/>
-        <node name="language" channel="inline" format="meta/language" model="event/gui"/>
+        <node name="language" channel="inline" format="meta/language" model="message/gui-request"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".gui.action"/>
         <!-- Read indirectly from internal buffer into which data have been written by activate/enable. -->

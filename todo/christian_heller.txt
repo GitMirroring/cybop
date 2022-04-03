@@ -14,20 +14,21 @@
 Event / Signal Handling
 _______________________
 
-        * Make "Hello World!" in cybol application "ui" work again
-        DONE: enable and sense, deserialiser: gui_event, gui, gui_action
-        CONTINUE: file "gui/handle.cybol" with "communicate/receive"
-        * Delete p0 from xcb event deserialisers
-        * Test gui deserialiser
-        * Rename "event/gui" into "message/gui-request"
-        * Rename "message/gui" into "message/gui-response"
-        * Unify reading of correct action from window element hierarchy for all events, see example in file "button_release_gui_action_deserialiser.c"
-        * Complete gui deserialiser
-        * Make cybol application "gui" work again
+        * Check if garbage collection is activated when knowledge part gets created on event handling (flag ??)
+
+        * Make button "Hello World!" in cybol application "gui" work again
+            - strange double node "exit_programme" appears at end of model diagram file
+            - only "button-press" instead of "button-release" is written into +-action:-event
+            --> solution 1: threading problem ?? but actually only the xcb event is stored, deserialisation happens in main thread
+            --> solution 2: is the reason that the event does not get destroyed (freed) yet before processing the next one ??
         * Move file "deallocation_reader.c" to a suitable place, e.g. "deallocation_receiver.c",
             since the display event MUST NOT be deallocated before having deserialised it
         * Add file "deallocation_receiver.c" for freeing display event
             deallocation in "receiver.c" AFTER deserialisation is possible, since the event was COPIED from buffer to destination array
+
+        * Unify reading of correct action from window element hierarchy for all events, see example in file "button_release_gui_action_deserialiser.c"
+
+        * Make cybol application "ui" work again
 
         * Deliver compilable and runnable source code for release CYBOP 0.22.0
 

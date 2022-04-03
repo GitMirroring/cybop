@@ -18,14 +18,19 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-04-03  Christian Heller  <christian.heller@cybop.org>
+
+        * Rename language "event/gui" into "message/gui-request" and adapt constants, deserialiser as well as cybol applications
+        * Rename language "message/gui" into "message/gui-response" and adapt constants, deserialiser as well as cybol applications
+
 2022-04-02  Christian Heller  <christian.heller@cybop.org>
 
         * Make "indentation" a cybol property parallel to (and not a sub node of) "language"
         * Adapt affected cybol applications as well as serialiser and sender
         * Hand over window model hierarchy as cybol property "medium" to "represent/deserialise" or "communicate/receive", in order to identify nested components and their action via mouse coordinates
         * Adapt gui deserialiser and receiver
-        * Append event name to destination properties instead of to destination model
-        * Make cybol application "ui" work again
+        * Append event name to destination properties instead of to destination model in xcb event deserialisers
+        * Make cybol application "gui" paint again
 
 2022-04-01  Christian Heller  <christian.heller@cybop.org>
 

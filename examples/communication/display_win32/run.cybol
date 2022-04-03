@@ -22,7 +22,7 @@
 
     <node name="receive_client" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
-        <node name="language" channel="inline" format="meta/language" model="event/gui"/>
+        <node name="language" channel="inline" format="meta/language" model="message/gui-request"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".gui.action"/>
         <node name="sender" channel="inline" format="text/cybol-path" model=".gui.window"/>
@@ -30,7 +30,7 @@
 
     <node name="send_client" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
-        <node name="language" channel="inline" format="meta/language" model="message/gui"/>
+        <node name="language" channel="inline" format="meta/language" model="message/gui-response"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".gui.window"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".gui.window_id"/>

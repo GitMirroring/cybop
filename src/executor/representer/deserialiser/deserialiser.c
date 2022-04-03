@@ -74,44 +74,6 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
-    // event
-    //
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p16, (void*) GUI_EVENT_STATE_CYBOI_LANGUAGE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                void** e = (void**) p2;
-
-                //
-                // CAUTION! The source model data p2 is a pointer REFERENCE
-                // of type void** for the display channel with gui language,
-                // since it stores event objects.
-                //
-                // Therefore, it has to be DEREFERENCED yet.
-                //
-                deserialise_gui_event(p1, *e);
-
-                //
-                // CAUTION! Hand over cybol window hierarchy model and properties,
-                // but NOT those of the original event, since its characteristics
-                // have been stored in the destination properties already.
-                //
-                deserialise_gui_action(p0, p1, p7, p8, p9, p10, p11, p12, p13, p14, p15);
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise. The source model data is null.");
-                fwprintf(stdout, L"Error: Could not deserialise. The source model data is null. p2: %i\n", p2);
-            }
-        }
-    }
-
-    //
     // message
     //
 
@@ -147,6 +109,40 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             deserialise_tui(p0, p2, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p16, (void*) GUI_REQUEST_MESSAGE_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                void** e = (void**) p2;
+
+                //
+                // CAUTION! The source model data p2 is a pointer REFERENCE
+                // of type void** for the display channel with gui language,
+                // since it stores event objects.
+                //
+                // Therefore, it has to be DEREFERENCED yet.
+                //
+                deserialise_gui_event(p1, *e);
+
+                //
+                // CAUTION! Hand over cybol window hierarchy model and properties,
+                // but NOT those of the original event, since its characteristics
+                // have been stored in the destination properties already.
+                //
+                deserialise_gui_action(p0, p1, p7, p8, p9, p10, p11, p12, p13, p14, p15);
+
+            } else {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise. The source model data is null.");
+                fwprintf(stdout, L"Error: Could not deserialise. The source model data is null. p2: %i\n", p2);
+            }
         }
     }
 

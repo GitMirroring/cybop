@@ -18,11 +18,6 @@
         <node name="layout" channel="inline" format="text/plain" model="absolute"/>
         <node name="expose" channel="inline" format="text/plain" model=".logic.refresh_display"/>
         <node name="close-window" channel="inline" format="text/plain" model=".logic.exit_programme"/>
-
-        <!-- TEST only. Delete later! -->
-        <node name="keymap-notify" channel="inline" format="text/plain" model=".logic.exit_programme"/>
-        <!-- TEST only. Delete later! -->
-        <node name="button-release" channel="inline" format="text/plain" model=".logic.exit_programme"/>
     </node>
 
     <!-- This variable is used in file "handle.cybol". -->

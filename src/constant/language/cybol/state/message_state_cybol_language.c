@@ -105,14 +105,24 @@ static wchar_t* FTP_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/ftp-respon
 static int* FTP_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The message/gui state cybol language.
+ * The message/gui-request state cybol language.
  *
  * A graphical user interface message.
  *
  * This is a CYBOL extension.
  */
-static wchar_t* GUI_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/gui";
-static int* GUI_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* GUI_REQUEST_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/gui-request";
+static int* GUI_REQUEST_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The message/gui-response state cybol language.
+ *
+ * A graphical user interface message.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* GUI_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/gui-response";
+static int* GUI_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The message/http-request state cybol language.
