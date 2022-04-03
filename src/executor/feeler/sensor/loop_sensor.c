@@ -73,6 +73,19 @@ void sense_loop(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void
         }
 
         read_data(p0, p1, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p3, p4, p5, p6, p7, p8);
+
+        //
+        // CAUTION! Do NOT call function "read_deallocation" here.
+        //
+        // This is currently ONLY relevant for channel DISPLAY where
+        // the x window system (accessed via xcb api) allocates events
+        // that have to get deallocated by CYBOI after having been processed.
+        //
+        // However, the event does NOT have to get destroyed here,
+        // since it gets copied and stored in the input BUFFER of
+        // the client entry by the sense thread, in order to be
+        // processed LATER by the main thread.
+        //
     }
 }
 

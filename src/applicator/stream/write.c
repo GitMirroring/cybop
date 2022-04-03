@@ -43,6 +43,10 @@
 /**
  * Writes data to a device.
  *
+ * CAUTION! Do NOT rename this function to "write",
+ * since that name is already used by low-level glibc
+ * functionality in header file unistd.h.
+ *
  * Parametres:
  * - channel (required): the communication channel, e.g. file, serial, socket
  * - server (optional): the flag indicating server mode; if NULL, the default is false (client mode)

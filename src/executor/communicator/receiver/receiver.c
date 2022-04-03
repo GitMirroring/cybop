@@ -37,6 +37,7 @@
 #include "../../../executor/communicator/receiver/select_receiver.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../../executor/streamer/reader/deallocation_reader.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -189,12 +190,16 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // type "char" or type "wchar_t" or type "void*", which is IRRELEVANT.
     // This function knows how to handle it, depending on the given language.
     //
-    //?? fwprintf(stdout, L"Debug: Receive data. deserialise binary message pre *bc: %i\n", *((int*) bc));
-    //?? fwprintf(stdout, L"Debug: Receive data. deserialise binary message pre bd: %ls\n", (wchar_t*) bd);
     receive_deserialise(p0, p1, bd, bc, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p18, p19);
 
+    //
     // Deallocate any resources that had been allocated by the system, e.g. an event.
-    //?? receive_deallocation((void*) &bd, p4, p3, p5);
+    //
+    // CAUTION! Do NOT deallocate the event within function "read_data",
+    // since it has to be PROCESSED yet afterwards, e.g. deserialised.
+    // Therefore, call function "read_deallocation" ONLY here and not before.
+    //
+    read_deallocation(bd, bc, *NULL_POINTER_STATE_CYBOI_MODEL, p23);
 
     // Deallocate pointer message item.
     deallocate_item((void*) &p, (void*) POINTER_STATE_CYBOI_TYPE);

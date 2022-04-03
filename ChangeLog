@@ -22,6 +22,7 @@
 
         * Rename language "event/gui" into "message/gui-request" and adapt constants, deserialiser as well as cybol applications
         * Rename language "message/gui" into "message/gui-response" and adapt constants, deserialiser as well as cybol applications
+        * Integrate file "deallocation_reader.c" for freeing display event in "receiver.c" and "read.c"
 
 2022-04-02  Christian Heller  <christian.heller@cybop.org>
 

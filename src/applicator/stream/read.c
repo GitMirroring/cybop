@@ -37,11 +37,17 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/copier/array_copier.c"
+#include "../../executor/streamer/reader/deallocation_reader.c"
 #include "../../executor/streamer/reader/reader.c"
 #include "../../logger/logger.c"
 
 /**
  * Reads data from a device.
+ *
+ * CAUTION! Do NOT rename this function to "read",
+ * since that name is already used by low-level glibc
+ * functionality in header file unistd.h.
+ * Function: ssize_t read (int filedes, void *buffer, size_t size)
  *
  * Parametres:
  * - channel (required): the communication channel, e.g. file, serial, socket
@@ -103,8 +109,6 @@ void apply_read(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* srmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The language part model item data.
     void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The message part model item data.
-    void* mmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The asynchronicity part model item data.
     void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -149,8 +153,6 @@ void apply_read(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &srmc, srm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get language part model item data.
     copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get message part model item data.
-    copy_array_forward((void*) &mmd, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get asynchronicity part model item data.
     copy_array_forward((void*) &amd, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
@@ -163,6 +165,29 @@ void apply_read(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // calls this read. Therefore, it is set to NULL here.
     //
     read_data(mm, srmd, srmc, *NULL_POINTER_STATE_CYBOI_MODEL, lmd, p4, cmd, smd, pmd, amd);
+
+    // The message part model item data, count.
+    void* mmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* mmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Get message part model item data, count.
+    //
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    //
+    copy_array_forward((void*) &mmd, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &mmc, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Deallocate any resources that had been allocated by the system, e.g. an event.
+    //
+    // CAUTION! Do NOT deallocate the event within function "read_data",
+    // since it has to be PROCESSED yet afterwards, e.g. deserialised.
+    // Therefore, call function "read_deallocation" ONLY here and not before.
+    //
+    read_deallocation(mmd, mmc, *NULL_POINTER_STATE_CYBOI_MODEL, cmd);
 }
 
 /* READ_SOURCE */

@@ -14,6 +14,7 @@
 Event / Signal Handling
 _______________________
 
+        * Debug valgrind errors
         * Check if garbage collection is activated when knowledge part gets created on event handling (flag ??)
 
         * Make button "Hello World!" in cybol application "gui" work again
@@ -21,10 +22,6 @@ _______________________
             - only "button-press" instead of "button-release" is written into +-action:-event
             --> solution 1: threading problem ?? but actually only the xcb event is stored, deserialisation happens in main thread
             --> solution 2: is the reason that the event does not get destroyed (freed) yet before processing the next one ??
-        * Move file "deallocation_reader.c" to a suitable place, e.g. "deallocation_receiver.c",
-            since the display event MUST NOT be deallocated before having deserialised it
-        * Add file "deallocation_receiver.c" for freeing display event
-            deallocation in "receiver.c" AFTER deserialisation is possible, since the event was COPIED from buffer to destination array
 
         * Unify reading of correct action from window element hierarchy for all events, see example in file "button_release_gui_action_deserialiser.c"
 
