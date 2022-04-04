@@ -15,7 +15,7 @@ Event / Signal Handling
 _______________________
 
         * Debug valgrind errors in cybol application "tui"
-
+        * Debug valgrind errors in cybol application "gui"
         * Check if garbage collection is activated when knowledge part gets allocated and appended on xcb event handling (flag ??)
 
         * Make button "Hello World!" in cybol application "gui" work again
