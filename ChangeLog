@@ -22,7 +22,8 @@
 
         * Deallocate display event on error in file "xcb_enabler.c"
         * Correct file "deallocation_reader.c" where the event is now retrieved properly from array
-        * Debug valgrind errors
+        * Fix valgrind error "Invalid read of size 4" caused by cybol operation "communicate/send" via terminal with encoding, but data are already multibyte characters and must not get utf-8 encoded
+        * Delete name="encoding" from terminal output in all cybol applications, since multibyte characters must not be utf-8 encoded
 
 2022-04-03  Christian Heller  <christian.heller@cybop.org>
 

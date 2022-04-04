@@ -14,7 +14,7 @@
 Event / Signal Handling
 _______________________
 
-        * Debug valgrind errors
+        * Debug valgrind errors in cybol application "tui"
 
         * Check if garbage collection is activated when knowledge part gets allocated and appended on xcb event handling (flag ??)
 

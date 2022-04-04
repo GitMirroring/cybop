@@ -6,7 +6,7 @@
 
     <!--<node name="print_adress_comp" channel="inline" format="communicate/send" model="">-->
     <!--<node name="channel" channel="inline" format="meta/channel" model="terminal"/>-->
-    <!--<node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>-->
+    <!--<node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>-->
     <!--<node name="language" channel="inline" format="meta/language" model="message/cli"/>-->
     <!--<node name="format" channel="inline" format="meta/format" model="number/integer"/>-->
     <!--<node name="message" channel="inline" format="text/cybol-path" model="*.app.var.comp_adress"/>-->
@@ -15,7 +15,7 @@
 
     <!--<node name="print_adress_guess" channel="inline" format="communicate/send" model="">-->
     <!--<node name="channel" channel="inline" format="meta/channel" model="terminal"/>-->
-    <!--<node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>-->
+    <!--<node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>-->
     <!--<node name="language" channel="inline" format="meta/language" model="message/cli"/>-->
     <!--<node name="format" channel="inline" format="meta/format" model="number/integer"/>-->
     <!--<node name="message" channel="inline" format="text/cybol-path" model="*.app.var.guess_adress"/>-->
@@ -24,7 +24,7 @@
 
     <!--<node name="print_adress_help" channel="inline" format="communicate/send" model="">-->
     <!--<node name="channel" channel="inline" format="meta/channel" model="terminal"/>-->
-    <!--<node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>-->
+    <!--<node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>-->
     <!--<node name="language" channel="inline" format="meta/language" model="message/cli"/>-->
     <!--<node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>-->
     <!--<node name="message" channel="inline" format="text/cybol-path" model="*.app.var.help_adress"/>-->

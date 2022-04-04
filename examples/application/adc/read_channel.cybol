@@ -2,7 +2,6 @@
 
     <node name="send_request" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="text/cybol-path" model=".settings.device"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".settings.device_channel"/>

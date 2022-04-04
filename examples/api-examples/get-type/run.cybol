@@ -4,12 +4,12 @@
         <node name="name" channel="inline" format="text/plain" model="part_1"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-         
+
     </node>
     <node name="create_part_2" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="part_2"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-         
+
     </node>
 
     <node name="initialise_part_1" channel="inline" format="modify/overwrite" model="">
@@ -31,7 +31,7 @@
     </node>
     <node name="print_model_of_part_2" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="meta/type"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".part_2"/>

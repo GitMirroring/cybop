@@ -1,9 +1,9 @@
 <node>
 
-//Laenge auswählen
+    <!-- Laenge auswählen -->
     <node name="line0" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Bitte Passwortlaenge wählen [1-9]: "/>
@@ -11,11 +11,10 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-//Auf Eingabe warten und an 10_laenge_check übergeben
+    <!-- Auf Eingabe warten und an 10_laenge_check übergeben -->
     <node name="sense_commands" channel="inline" format="activate/enable" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="handler" channel="inline" format="text/cybol-path" model=".app.10_laenge_check"/>
     </node>
-
 
 </node>
