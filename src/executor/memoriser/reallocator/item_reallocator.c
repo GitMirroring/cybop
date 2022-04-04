@@ -69,13 +69,6 @@ void reallocate_item(void* p0, void* p1, void* p2) {
     if (d != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
-        // Set size.
-        //
-        // CAUTION! The count remains the same.
-        //
-        copy_integer(s, p1);
-
-        //
         // Set data.
         //
         // CAUTION! This IS necessary since the data array
@@ -86,6 +79,13 @@ void reallocate_item(void* p0, void* p1, void* p2) {
         // still point to the same memory area.
         //
         copy_array_forward(p0, (void*) &d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DATA_ITEM_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+        //
+        // Set size.
+        //
+        // CAUTION! The count remains the same.
+        //
+        copy_integer(s, p1);
 
     } else {
 

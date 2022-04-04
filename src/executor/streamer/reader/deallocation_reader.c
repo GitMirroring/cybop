@@ -29,7 +29,9 @@
 #include "../../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../executor/copier/array_copier.c"
 #include "../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../logger/logger.c"
 
@@ -50,7 +52,7 @@
  *
  * 1 executor/feeler/sensor/loop_sensor.c
  *
- * The event does NOT have to get destroyed, since it gets copied
+ * The event does NOT have to get deallocated, since it gets copied
  * and stored in the input BUFFER of the client entry by the
  * sense thread, in order to be processed LATER by the main thread.
  *
@@ -67,14 +69,17 @@
  *
  * 3 applicator/stream/read.c
  *
- * The event DOES have to get destroyed in any case, since it was
+ * The event DOES have to get deallocated in any case, since it was
  * read from buffer and would otherwise be forgotten.
  * However, it can not be processed anymore after having been deallocated.
  * Therefore, it is NOT useful to call "stream/read" directly in a cybol application
  * that uses the x window system display. The event yet has to be processed
  * so that the cybol operation "communicate/receive" should be used INSTEAD.
  *
- * @param p0 the data (pointer reference)
+ * Additionally, the event gets deallocated in file "xcb_enabler.c",
+ * if an error occurs or the handler is null etc.
+ *
+ * @param p0 the data
  * @param p1 the count
  * @param p2 the type
  * @param p3 the channel
@@ -94,6 +99,12 @@ void read_deallocation(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            // The event.
+            void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+            // Get event.
+            copy_array_forward((void*) &e, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
             //
             // Deallocate event.
             //
@@ -106,7 +117,7 @@ void read_deallocation(void* p0, void* p1, void* p2, void* p3) {
             // However, in BOTH CASES they are just pointers and hence
             // NOT platform-specific and therefore may get freed here.
             //
-            deallocate_array(p0, p1, p1, p2);
+            deallocate_array((void*) &e, p1, p1, p2);
         }
     }
 

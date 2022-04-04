@@ -43,6 +43,7 @@
 #include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/finder/list_finder.c"
+#include "../../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../../executor/streamer/writer/interrupt_pipe/interrupt_pipe_writer.c"
 #include "../../../../logger/logger.c"
 
@@ -139,16 +140,16 @@ void enable_xcb(void* p0) {
             // Storage
             //
 
-            //
-            // Write event to correct client buffer.
-            //
-            // CAUTION! Hand over event as pointer REFERENCE.
-            //
-            enable_xcb_buffer(bi, (void*) &e, bm);
-
             compare_pointer_unequal((void*) &r, (void*) &h, NULL_POINTER_STATE_CYBOI_MODEL);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                //
+                // Write event to correct client buffer.
+                //
+                // CAUTION! Hand over event as pointer REFERENCE.
+                //
+                enable_xcb_buffer(bi, (void*) &e, bm);
 
                 // Hand over sensor handler and window id to interrupt pipe of main threaad.
                 write_interrupt_pipe((void*) &ipw, (void*) &h, (void*) &w, im);
@@ -157,12 +158,40 @@ void enable_xcb(void* p0) {
 
                 log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable xcb. The handler is null.");
                 fwprintf(stdout, L"Warning: Could not enable xcb. The handler is null. h: %i\n", h);
+
+                //
+                // Deallocate event.
+                //
+                // CAUTION! Free memory only if event is NOT null.
+                //
+                // CAUTION! It HAS TO BE destroyed manually here, since for:
+                // - linux: it gets created automatically inside the xcb library
+                // - win32: it gets created manually as message using the type MSG
+                //
+                // However, in BOTH CASES they are just pointers and hence
+                // NOT platform-specific and therefore may get freed here.
+                //
+                deallocate_array((void*) &e, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
             }
 
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not enable xcb. The window identification is invalid.");
             fwprintf(stdout, L"Error: Could not enable xcb. The window identification is invalid. w: %i\n", w);
+
+            //
+            // Deallocate event.
+            //
+            // CAUTION! Free memory only if event is NOT null.
+            //
+            // CAUTION! It HAS TO BE destroyed manually here, since for:
+            // - linux: it gets created automatically inside the xcb library
+            // - win32: it gets created manually as message using the type MSG
+            //
+            // However, in BOTH CASES they are just pointers and hence
+            // NOT platform-specific and therefore may get freed here.
+            //
+            deallocate_array((void*) &e, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
         }
 
     } else {

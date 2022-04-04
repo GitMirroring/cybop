@@ -15,7 +15,8 @@ Event / Signal Handling
 _______________________
 
         * Debug valgrind errors
-        * Check if garbage collection is activated when knowledge part gets created on event handling (flag ??)
+
+        * Check if garbage collection is activated when knowledge part gets allocated and appended on xcb event handling (flag ??)
 
         * Make button "Hello World!" in cybol application "gui" work again
             - strange double node "exit_programme" appears at end of model diagram file
@@ -74,7 +75,9 @@ ____
 General CYBOI
 _____________
 
-        * Add state structures "http_request" and "gui_action" to api documentation
+        * Reduce parametres of function "deallocate_array" to just one in all source code
+
+        * Add state structures "http_request" and "gui_action" (or "gui_event" ??) to api documentation
 
         * Write style guide for cyboi programming in c
         * See template in file "/home/christian/projekt/cybop/doc/development/conventions/index.html"
@@ -349,6 +352,7 @@ ____________
 
         * Implement web socket
         * Use server push to update wui in web client (browser)
+        * Test in "Hello World!" cybol application "user_interface/ui/"
 
         * Extend uri deserialiser
         * Study "libcurl3" library for URL transfer for new ideas and keywords yet missing in cyboi

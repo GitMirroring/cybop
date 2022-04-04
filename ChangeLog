@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-04-04  Christian Heller  <christian.heller@cybop.org>
+
+        * Deallocate display event on error in file "xcb_enabler.c"
+        * Correct file "deallocation_reader.c" where the event is now retrieved properly from array
+        * Debug valgrind errors
+
 2022-04-03  Christian Heller  <christian.heller@cybop.org>
 
         * Rename language "event/gui" into "message/gui-request" and adapt constants, deserialiser as well as cybol applications

@@ -61,14 +61,15 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                 log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Reallocate array.");
 
                 // The memory area.
-                int ma = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                int m = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                // Determine type (type) size.
-                map_type_to_size((void*) &ma, p3);
+                // Determine type size.
+                map_type_to_size((void*) &m, p3);
 
                 // Calculate memory area.
-                calculate_integer_multiply((void*) &ma, p2);
+                calculate_integer_multiply((void*) &m, p2);
 
+                //
                 // Test memory area for valid value.
                 //
                 // Quotation from the C standard:
@@ -95,9 +96,11 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                 // CAUTION! Wherever something gets allocated in source code,
                 // it HAS TO HAVE a size of at least one byte.
                 // Otherwise, nothing gets allocated.
-                if (ma > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                //
+                if (m > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                    // The temporary size_t variable.
+                    //
+                    // Cast memory area to correct type.
                     //
                     // CAUTION! It IS NECESSARY because on 64 Bit machines,
                     // the "size_t" type has a size of 8 Byte,
@@ -111,8 +114,10 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                     //
                     // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
                     // because values are casted to int* internally again.
-                    size_t tma = ma;
+                    //
+                    size_t mt = (size_t) m;
 
+                    //
                     // Create a new array with extended size.
                     //
                     // Since the space after the end of the block may be in use,
@@ -128,9 +133,7 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                     // Therefore, assign to a temporary variable
                     // which gets tested for NULL below.
                     //
-                    // CAUTION! The "ma" variable may NOT be casted to "size_t",
-                    // because it is NOT a pointer, but an integer value!
-                    void* tmp = realloc(*a, tma);
+                    void* tmp = realloc(*a, mt);
 
                     if (tmp != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -139,32 +142,40 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
 
                         if (*s > *c) {
 
+                            //
                             // CAUTION! If count and size are equal, then nothing
                             // is to be done.
+                            //
                             // CAUTION! Do NOT change this value if the size is
                             // smaller than the count, because this will result
                             // in a negative value and cause the new array elements
                             // pointer further below to cross the array's boundary!
                             // If the size is smaller than the count, elements
                             // outside the smaller size area are just lost.
+                            //
 
                             // The NEW memory area to be initialised.
-                            int nma = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                            int nm = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+                            //
                             // Calculate extra array size, which is the given array size
                             // reduced by the existing element count.
+                            //
                             int es = *s - *c;
 
-                            // Determine type (type) size.
-                            map_type_to_size((void*) &nma, p3);
+                            // Determine type size.
+                            map_type_to_size((void*) &nm, p3);
 
                             // Calculate new memory area.
-                            calculate_integer_multiply((void*) &nma, (void*) &es);
+                            calculate_integer_multiply((void*) &nm, (void*) &es);
 
+                            // The memory area difference.
+                            int d = m - nm;
                             // The new array elements.
-                            void* na = (void*) ((size_t) *a + (ma - nma));
+                            void* na = (void*) ((size_t) *a + d);
 
-                            // The temporary size_t variable.
+                            //
+                            // Cast new memory area to correct type.
                             //
                             // CAUTION! It IS NECESSARY because on 64 Bit machines,
                             // the "size_t" type has a size of 8 Byte,
@@ -178,8 +189,10 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                             //
                             // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
                             // because values are casted to int* internally again.
-                            size_t tnma = nma;
+                            //
+                            size_t nmt = (size_t) nm;
 
+                            //
                             // Initialise ONLY NEW array elements (new memory area)
                             // with zero. Leave existing elements untouched.
                             //
@@ -188,7 +201,8 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                             //
                             // CAUTION! Do NOT use large values, since the zero value gets
                             // converted to an unsigned char inside the "memset" function.
-                            memset(na, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, tnma);
+                            //
+                            memset(na, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, nmt);
                         }
 
                     } else {
@@ -196,12 +210,14 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate array. The allocated memory area is null.");
                     }
 
-                } else if (ma == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                } else if (m == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
+                    //
                     // CAUTION! The memory area (new array size) MUST NOT be zero.
                     // If it was equal to zero, then the "realloc" function call
                     // would be equivalent to "free" -- an unwanted side effect
                     // that would destroy allocated memory areas and lead to errors.
+                    //
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reallocate array. The memory area to be allocated is zero.");
                     fwprintf(stdout, L"Error: Could not reallocate array. The memory area to be allocated is zero: %i\n", *a);

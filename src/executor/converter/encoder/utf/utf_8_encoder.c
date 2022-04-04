@@ -198,8 +198,6 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
 
         if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            void* sd = p1;
-
             log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Encode utf-8.");
 
             // The destination item data, count, size.
@@ -266,6 +264,7 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
                 } else {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. The new destination size is zero or negative.");
+                    fwprintf(stdout, L"Error: Could not encode utf-8. The new destination size is zero or negative. nds: %i\n", nds);
                 }
             }
 
@@ -283,7 +282,7 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
             // CAUTION! This setting IS NECESSARY for utf-8 character conversion
             // with restartable multibyte conversion functions like "mbsnrtowcs"
             // and "wcsnrtombs" to work correctly.
-            // The return value is not used; this is a global setting.
+            // The return value is not used; this is a GLOBAL setting.
             //
             char* loc = setlocale(LC_CTYPE, "");
 
@@ -320,11 +319,11 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
                 //
                 // Initialise error number.
                 //
-                // It is a global variable/ function and other operations
+                // It is a global variable and other operations
                 // may have set some value that is not wanted here.
                 //
-                // CAUTION! Initialise the error number BEFORE calling the function
-                // that might cause an error.
+                // CAUTION! Initialise the error number BEFORE calling
+                // the function that might cause an error.
                 //
                 errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
@@ -346,15 +345,18 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
                 //
                 int n = -1;
 #if defined(__linux__) || defined(__unix__)
-                n = wcsnrtombs((char*) dd, (const wchar_t**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
+                const wchar_t* sd = (const wchar_t*) p1;
+                n = (int) wcsnrtombs((char*) dd, &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
 #elif defined(__APPLE__) && defined(__MACH__)
-                n = wcsnrtombs((char*) dd, (const wchar_t**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
+                const wchar_t* sd = (const wchar_t*) p1;
+                n = (int) wcsnrtombs((char*) dd, &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-                int len = WideCharToMultiByte (CP_UTF8, 0, (LPCWSTR) sd, *sc, NULL, 0, NULL, NULL);
-                n =  WideCharToMultiByte (CP_UTF8, 0, (LPCWSTR) sd, *sc, (LPSTR) dd, len, NULL, NULL);
+                LPCWSTR sd = (LPCWSTR) p1;
+                int len = WideCharToMultiByte (CP_UTF8, 0, sd, *sc, NULL, 0, NULL, NULL);
+                n =  WideCharToMultiByte (CP_UTF8, 0, sd, *sc, (LPSTR) dd, len, NULL, NULL);
 #else
-#error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
                 if (n >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
@@ -374,16 +376,19 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
             } else {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. The destination size is null.");
+                fwprintf(stdout, L"Error: Could not encode utf-8. The destination size is null. ds: %i\n", ds);
             }
 
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. The source data is null.");
+            fwprintf(stdout, L"Error: Could not encode utf-8. The source data is null. p1: %i\n", p1);
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. The source count is null.");
+        fwprintf(stdout, L"Error: Could not encode utf-8. The source count is null. p2: %i\n", p2);
     }
 }
 

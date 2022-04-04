@@ -197,8 +197,6 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
 
         if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            void* sd = p1;
-
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Decode utf-8.");
             //?? fwprintf(stdout, L"Debug: Decode utf-8. source count p2: %i\n", p2);
             //?? fwprintf(stdout, L"Debug: Decode utf-8. source count *p2: %i\n", *((int*) p2));
@@ -259,6 +257,7 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
                 } else {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8. The new destination size is zero or negative.");
+                    fwprintf(stdout, L"Error: Could not decode utf-8. The new destination size is zero or negative. nds: %i\n", nds);
                 }
             }
 
@@ -313,7 +312,7 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
                 //
                 // Initialise error number.
                 //
-                // It is a global variable/function and other operations
+                // It is a global variable and other operations
                 // may have set some value that is not wanted here.
                 //
                 // CAUTION! Initialise the error number BEFORE calling
@@ -339,15 +338,18 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
                 //
                 int n = -1;
 #if defined(__linux__) || defined(__unix__)
-                n = mbsnrtowcs((wchar_t*) dd, (const char**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
+                const char* sd = (const char*) p1;
+                n = (int) mbsnrtowcs((wchar_t*) dd, &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
 #elif defined(__APPLE__) && defined(__MACH__)
-                n = mbsnrtowcs((wchar_t*) dd, (const char**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
+                const char* sd = (const char*) p1;
+                n = (int) mbsnrtowcs((wchar_t*) dd, &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-                int len = MultiByteToWideChar(65001, 0, (LPCSTR) sd, *sc, (LPWSTR) dd, 0);
-                n =  MultiByteToWideChar(65001, 0, (LPCSTR) sd, *sc, (LPWSTR) dd, len);
+                LPCSTR sd = (LPCSTR) p1;
+                int len = MultiByteToWideChar(65001, 0, sd, *sc, (LPWSTR) dd, 0);
+                n =  MultiByteToWideChar(65001, 0, sd, *sc, (LPWSTR) dd, len);
 #else
-#error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
                 if (n >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
@@ -371,16 +373,19 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
             } else {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8. The destination size is null.");
+                fwprintf(stdout, L"Error: Could not decode utf-8. The destination size is null. ds: %i\n", ds);
             }
 
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8. The source data is null.");
+            fwprintf(stdout, L"Error: Could not decode utf-8. The source data is null. p1: %i\n", p1);
         }
 
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8. The source count is null.");
+        fwprintf(stdout, L"Error: Could not decode utf-8. The source count is null. p2: %i\n", p2);
     }
 }
 
