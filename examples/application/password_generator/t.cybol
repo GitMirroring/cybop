@@ -1,0 +1,147 @@
+
+//Abfrage 5
+    <node name="comparison5" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.flag_1"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".app.var.flag_klein_y"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_5"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+//Abfrage 6
+    <node name="comparison6" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.flag_2"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".app.var.flag_gross_y"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_6"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+//Abfrage 7
+    <node name="comparison7" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.flag_3"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".app.var.flag_zahlen_y"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_7"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+//Abfrage 8
+    <node name="comparison8" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.flag_4"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".app.var.flag_sonder_y"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_8"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+
+//If-Abfrage nix
+    <node name="exit1" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.flag_klein_n"/>
+        <node name="true" channel="inline" format="text/cybol-path" model="exit2"/>
+        <node name="false" channel="inline" format="text/cybol-path" model="if-then-else1"/>
+    </node>
+    <node name="exit2" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.flag_gross_n"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".exit3"/>
+        <node name="false" channel="inline" format="text/cybol-path" model="if-then-else1"/>
+    </node>
+    <node name="exit3" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.flag_zahlen_n"/>
+        <node name="true" channel="inline" format="text/cybol-path" model="exit4"/>
+        <node name="false" channel="inline" format="text/cybol-path" model="if-then-else1"/>
+    </node>
+    <node name="exit4" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.flag_sonder_n"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.exit"/>
+        <node name="false" channel="inline" format="text/cybol-path" model="if-then-else1"/>
+    </node>
+
+//If-Abfrage yes klein
+    <node name="if-then-else1" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.flag_5"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.15_zufall_klein"/>
+        <node name="false" channel="inline" format="text/cybol-path" model="if-then-else2"/>
+    </node>
+
+//If-Abfrage yes gross
+    <node name="if-then-else2" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.flag_6"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.15_zufall_gross"/>
+        <node name="false" channel="inline" format="text/cybol-path" model="if-then-else3"/>
+    </node>
+
+//If-Abfrage yes zahlen
+    <node name="if-then-else3" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.flag_7"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.15_zufall_zahlen"/>
+        <node name="false" channel="inline" format="text/cybol-path" model="if-then-else4"/>
+    </node>
+
+//If-Abfrage yes sonder
+    <node name="if-then-else4" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.flag_8"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.15_zufall_sonder"/>
+        <node name="false" channel="inline" format="text/cybol-path" model=""/>
+    </node>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//gross
+    <node name="create_gross" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="gross"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node>
+
+    <node name="initialise_gross" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".gross"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+//Abfrage 2
+    <node name="comparison2" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="text/cybol-path" model=".number"/>
+        <node name="right" channel="inline" format="number/integer" model="2"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".gross"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+    <node name="comparison2" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="text/cybol-path" model=".gross"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".app.var.flag_gross_n"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".gross"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+//If-Abfrage 2
+    <node name="if-then-else" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".goss"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.15_zufall_gross"/>
+        <node name="false" channel="inline" format="text/cybol-path" model=""/>
+    </node>
+

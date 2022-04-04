@@ -29,18 +29,6 @@ _______________________
 
         * Deliver compilable and runnable source code for release CYBOP 0.22.0
 
-Migration
-_________
-
-        Hints for migrating cybol application to new knowledge path syntax:
-
-        * Rename "path/knowledge" and "path/reference" with "text/cybol-path"
-        * Replace OLD property prefix "#" with ":" (CAUTION! for webpage generation the html anchor sign has to REMAIN a #)
-        * Adapt stack variables by adding knowledge path prefix "#"
-        * Delete operation "create" at beginning of "run.cybol" and initialise to knowledge memory root "." instead
-        * Replace all code where knowledge path was assembled manually a la "[index]" --> search for "["
-            --> many operations only adding path elements or an index like "[", "index", "]" may get deleted in the future
-
 CYBOL
 _____
 
