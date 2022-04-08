@@ -43,8 +43,8 @@
 void shutdown_service(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown service.");
-    fwprintf(stdout, L"Debug: Shutdown service. p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Shutdown service. *p1: %i\n", *((int*) p1));
+    //?? fwprintf(stdout, L"Debug: Shutdown service. p1: %i\n", p1);
+    //?? fwprintf(stdout, L"Debug: Shutdown service. *p1: %i\n", *((int*) p1));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

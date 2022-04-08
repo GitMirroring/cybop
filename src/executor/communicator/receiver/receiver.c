@@ -92,8 +92,8 @@
 void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21, void* p22, void* p23) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive data.");
-    fwprintf(stdout, L"Information: Receive data. channel p23: %i\n", p23);
-    fwprintf(stdout, L"Information: Receive data. channel *p23: %i\n", *((int*) p23));
+    //?? fwprintf(stdout, L"Information: Receive data. channel p23: %i\n", p23);
+    //?? fwprintf(stdout, L"Information: Receive data. channel *p23: %i\n", *((int*) p23));
 
     // The pointer message item, e.g. an xcb display event or win32 input record.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;

@@ -45,8 +45,8 @@
 void close_device(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close device.");
-    fwprintf(stdout, L"Debug: Close device. p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Close device. *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Close device. p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Close device. *p2: %i\n", *((int*) p2));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

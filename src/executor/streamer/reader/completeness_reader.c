@@ -49,8 +49,8 @@
 void read_completeness(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read completeness.");
-    fwprintf(stdout, L"Debug: Read completeness. channel p5: %i\n", p5);
-    fwprintf(stdout, L"Debug: Read completeness. channel *p5: %i\n", *((int*) p5));
+    //?? fwprintf(stdout, L"Debug: Read completeness. channel p5: %i\n", p5);
+    //?? fwprintf(stdout, L"Debug: Read completeness. channel *p5: %i\n", *((int*) p5));
 
     //
     // CAUTION! Setting the message LENGTH is IMPORTANT for

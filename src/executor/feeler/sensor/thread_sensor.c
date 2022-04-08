@@ -46,7 +46,7 @@
 void sense_thread(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense thread.");
-    fwprintf(stdout, L"Debug: Sense thread. client entry p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Sense thread. client entry p0: %i\n", p0);
 
     // The thread identification.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;

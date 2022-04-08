@@ -136,7 +136,7 @@ void map_channel_to_type(void* p0, void* p1) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not map channel to type. The channel is unknown. This is unproblematic, since channels like signal do not use a buffer.");
-        fwprintf(stdout, L"Warning: Could not map channel to type. The channel is unknown. This is unproblematic, since channels like signal do not use a buffer. channel p1: %i\n", *((int*) p1));
+        //?? fwprintf(stdout, L"Warning: Could not map channel to type. The channel is unknown. This is unproblematic, since channels like signal do not use a buffer. channel p1: %i\n", *((int*) p1));
     }
 }
 

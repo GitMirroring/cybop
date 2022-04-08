@@ -47,7 +47,7 @@
 void sense_entry(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense entry.");
-    fwprintf(stdout, L"Debug: Sense entry. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Sense entry. p0: %i\n", p0);
 
     //
     // Declaration

@@ -66,8 +66,8 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4) {
         int* f = (int*) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write basic.");
-        fwprintf(stdout, L"Debug: Write basic. f: %i\n", f);
-        fwprintf(stdout, L"Debug: Write basic. *f: %i\n", *((int*) f));
+        //?? fwprintf(stdout, L"Debug: Write basic. f: %i\n", f);
+        //?? fwprintf(stdout, L"Debug: Write basic. *f: %i\n", *((int*) f));
 
         // The buffer item data, count.
         void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -113,7 +113,7 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4) {
         int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         copy_integer((void*) &s, bc);
         size_t st = (size_t) s;
-        fwprintf(stdout, L"Debug: Write basic. st: %i\n", st);
+        //?? fwprintf(stdout, L"Debug: Write basic. st: %i\n", st);
 
         //
         // Initialise error number.
@@ -156,7 +156,7 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4) {
         if (n > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write basic. Success.");
-            fwprintf(stdout, L"Debug: Write basic. Success. n: %i\n", n);
+            //?? fwprintf(stdout, L"Debug: Write basic. Success. n: %i\n", n);
 
             //
             // Remove written data from source buffer.
@@ -190,7 +190,7 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 //
 
                 log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write basic. All data have been transmitted.");
-                fwprintf(stdout, L"Debug: Write basic. All data have been transmitted. r: %i\n", r);
+                //?? fwprintf(stdout, L"Debug: Write basic. All data have been transmitted. r: %i\n", r);
 
                 //
                 // Set loop break flag.

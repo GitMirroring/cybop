@@ -53,8 +53,8 @@ void read_interrupt_pipe(void* p0, void* p1, void* p2) {
             if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read interrupt pipe.");
-                fwprintf(stdout, L"Debug: Read interrupt pipe. f: %i\n", f);
-                fwprintf(stdout, L"Debug: Read interrupt pipe. *f: %i\n", *f);
+                //?? fwprintf(stdout, L"Debug: Read interrupt pipe. f: %i\n", f);
+                //?? fwprintf(stdout, L"Debug: Read interrupt pipe. *f: %i\n", *f);
 
                 //
                 // Cast size to correct type.
@@ -115,14 +115,14 @@ void read_interrupt_pipe(void* p0, void* p1, void* p2) {
                 int np = read(*f, p0, sp);
                 int ni = read(*f, p1, si);
 
-                fwprintf(stdout, L"Debug: Read interrupt pipe. np: %i\n", np);
-                fwprintf(stdout, L"Debug: Read interrupt pipe. ni: %i\n", ni);
+                //?? fwprintf(stdout, L"Debug: Read interrupt pipe. np: %i\n", np);
+                //?? fwprintf(stdout, L"Debug: Read interrupt pipe. ni: %i\n", ni);
 
-                fwprintf(stdout, L"Debug: Read interrupt pipe. handler p0: %i\n", p0);
-                fwprintf(stdout, L"Debug: Read interrupt pipe. handler *p0: %i\n", *((int*) p0));
+                //?? fwprintf(stdout, L"Debug: Read interrupt pipe. handler p0: %i\n", p0);
+                //?? fwprintf(stdout, L"Debug: Read interrupt pipe. handler *p0: %i\n", *((int*) p0));
 
-                fwprintf(stdout, L"Debug: Read interrupt pipe. handler p1: %i\n", p1);
-                fwprintf(stdout, L"Debug: Read interrupt pipe. handler *p1: %i\n", *((int*) p1));
+                //?? fwprintf(stdout, L"Debug: Read interrupt pipe. handler p1: %i\n", p1);
+                //?? fwprintf(stdout, L"Debug: Read interrupt pipe. handler *p1: %i\n", *((int*) p1));
 
             } else {
 

@@ -55,8 +55,8 @@ void close_lifecycle(void* p0, void* p1, void* p2, void* p3, void* p4) {
         void** ce = (void**) p1;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close lifecycle.");
-        fwprintf(stdout, L"Debug: Close lifecycle. p0: %i\n", p0);
-        fwprintf(stdout, L"Debug: Close lifecycle. *p0: %i\n", *((int*) p0));
+        //?? fwprintf(stdout, L"Debug: Close lifecycle. p0: %i\n", p0);
+        //?? fwprintf(stdout, L"Debug: Close lifecycle. *p0: %i\n", *((int*) p0));
 
         //
         // Suspension

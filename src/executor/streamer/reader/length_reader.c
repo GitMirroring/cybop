@@ -68,8 +68,8 @@
 void read_length(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read length.");
-    fwprintf(stdout, L"Debug: Read length. message length p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Read length. message length *p1: %i\n", *((int*) p1));
+    //?? fwprintf(stdout, L"Debug: Read length. message length p1: %i\n", p1);
+    //?? fwprintf(stdout, L"Debug: Read length. message length *p1: %i\n", *((int*) p1));
 
     // The buffer item data, count.
     void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -127,8 +127,8 @@ void read_length(void* p0, void* p1, void* p2, void* p3) {
 
         deserialise_message_length(p1, bd, bc, p3);
 
-        fwprintf(stdout, L"Debug: Read length. post deserialise message length p1: %i\n", p1);
-        fwprintf(stdout, L"Debug: Read length. post deserialise message length *p1: %i\n", *((int*) p1));
+        //?? fwprintf(stdout, L"Debug: Read length. post deserialise message length p1: %i\n", p1);
+        //?? fwprintf(stdout, L"Debug: Read length. post deserialise message length *p1: %i\n", *((int*) p1));
 
         //
         // CAUTION! The length was initialised with -1.

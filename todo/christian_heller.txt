@@ -14,8 +14,10 @@
 Event / Signal Handling
 _______________________
 
-        * Debug valgrind errors in cybol application "tui"
         * Debug valgrind errors in cybol application "gui"
+        * Is pointer or element/part used internally in empty and remove ??
+        * Do those parts having been added to the properties (NOT model) get deallocated by the GC ??
+        * Check if empty removes parts WITH knowledge part flag set
         * Check if garbage collection is activated when knowledge part gets allocated and appended on xcb event handling (flag ??)
 
         * Make button "Hello World!" in cybol application "gui" work again
@@ -536,6 +538,11 @@ _____________
 Terminal / TUI / CLI
 ____________________
 
+        * Debug valgrind errors in cybol application "tui"
+            see file "examples/memcheck_tui.log"
+            possibly caused by setting terminal to wchar_t in file "cyboi.c" while ansi escape sequences are received as char ??
+                --> but actually, this should not be a problem, since utf-8 is ascii-compatible
+
         * Fix tui bug that exit button "e" or "esc" (doesn't matter) gets detected only if button gets pressed twice
             --> this appears also in http where the "exit" link has to be clicked TWICE in cybol application "www_server_dynamic"
         * Check if exit flag is set also if remaining count is zero and no message length delimiter could be detected (probably yes)
@@ -1004,6 +1011,7 @@ ______________
             - cybol parsing happens in two steps: xml, cybol
             - is the cybol parser REusable when parsing json in the first step?
                 (the tree structure resulting from xml has a root node; the json tree not necessarily)
+        * Provide REST API via JSON exchange
         * See directory "doc/books/cybol/syntax"
         * Encode binary data (e.g. x-ray images in the electronic health record of a patient) into text string using Base64 or base64url
         * Add the following comment into cyboi source code:

@@ -56,8 +56,8 @@
 void enable_request(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Enable request.");
-    fwprintf(stdout, L"Debug: Enable request. p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Enable request. *p3: %i\n", *((int*) p3));
+    //?? fwprintf(stdout, L"Debug: Enable request. p3: %i\n", p3);
+    //?? fwprintf(stdout, L"Debug: Enable request. *p3: %i\n", *((int*) p3));
 
     // The sender client identification (socket number).
     int id = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;

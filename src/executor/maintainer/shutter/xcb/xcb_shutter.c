@@ -49,7 +49,7 @@
 void shutdown_xcb(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown xcb.");
-    fwprintf(stdout, L"Debug: Shutdown xcb. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Shutdown xcb. p0: %i\n", p0);
 
     //
     // Declaration

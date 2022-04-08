@@ -52,7 +52,7 @@
 void check_empty(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check empty.");
-    fwprintf(stdout, L"Debug: Check empty. p1: %i\n", p1);
+    //?? fwprintf(stdout, L"Debug: Check empty. p1: %i\n", p1);
 
     // The read interrupt request pipe file descriptor.
     int rd = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
@@ -86,9 +86,9 @@ void check_empty(void* p0, void* p1, void* p2) {
     //
     read_interrupt_pipe((void*) &h, (void*) &id, (void*) &rd);
 
-    fwprintf(stdout, L"Debug: Check empty. rd: %i\n", rd);
-    fwprintf(stdout, L"Debug: Check empty. h: %i\n", h);
-    fwprintf(stdout, L"Debug: Check empty. id: %i\n", id);
+    //?? fwprintf(stdout, L"Debug: Check empty. rd: %i\n", rd);
+    //?? fwprintf(stdout, L"Debug: Check empty. h: %i\n", h);
+    //?? fwprintf(stdout, L"Debug: Check empty. id: %i\n", id);
 
     //
     // Add part model (signal) to signal memory.

@@ -49,7 +49,7 @@
 void write_signal(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write signal.");
-    fwprintf(stdout, L"Debug: Write signal. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Write signal. p0: %i\n", p0);
 
     // The signal memory part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;

@@ -52,7 +52,7 @@
 void serialise_tui_origo(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui origo.");
-    fwprintf(stdout, L"Debug: Serialise tui origo. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Serialise tui origo. p0: %i\n", p0);
 
 #if defined(__linux__) || defined(__unix__)
     serialise_ansi_escape_code_position(p0, p2, p3);

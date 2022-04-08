@@ -50,8 +50,8 @@ void write_interrupt_pipe(void* p0, void* p1, void* p2, void* p3) {
             void** h = (void**) p1;
 
             // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write interrupt pipe.");
-            fwprintf(stdout, L"Debug: Write interrupt pipe. handler p1: %i\n", p1);
-            fwprintf(stdout, L"Debug: Write interrupt pipe. handler *p1: %i\n", *((int*) p1));
+            //?? fwprintf(stdout, L"Debug: Write interrupt pipe. handler p1: %i\n", p1);
+            //?? fwprintf(stdout, L"Debug: Write interrupt pipe. handler *p1: %i\n", *((int*) p1));
 
             // Check handler for existence.
             if (*h != *NULL_POINTER_STATE_CYBOI_MODEL) {

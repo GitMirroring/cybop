@@ -46,8 +46,8 @@ void cut(void* p0) {
         thrd_t* t = (thrd_t*) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cut.");
-        fwprintf(stdout, L"Debug: Cut. thread t: %i\n", t);
-        fwprintf(stdout, L"Debug: Cut. thread *t: %i\n", *t);
+        //?? fwprintf(stdout, L"Debug: Cut. thread t: %i\n", t);
+        //?? fwprintf(stdout, L"Debug: Cut. thread *t: %i\n", *t);
 
         //
         // Compare thread identifications.
@@ -76,8 +76,8 @@ void cut(void* p0) {
             //
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cut. Join thread.");
-            fwprintf(stdout, L"Debug: Cut. Join thread. t: %i\n", t);
-            fwprintf(stdout, L"Debug: Cut. Join thread. +t: %i\n", *t);
+            //?? fwprintf(stdout, L"Debug: Cut. Join thread. t: %i\n", t);
+            //?? fwprintf(stdout, L"Debug: Cut. Join thread. +t: %i\n", *t);
 
             // The result code.
             int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -87,7 +87,7 @@ void cut(void* p0) {
             if (e != thrd_error) {
 
                 log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Cut (exit) thread successfully. The thread join function returned zero.");
-                fwprintf(stdout, L"Debug: Cut (exit) thread successfully. The thread join function returned zero. result code: %i\n", c);
+                //?? fwprintf(stdout, L"Debug: Cut (exit) thread successfully. The thread join function returned zero. result code: %i\n", c);
 
             } else {
 

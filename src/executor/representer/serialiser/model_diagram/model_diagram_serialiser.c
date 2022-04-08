@@ -53,8 +53,8 @@
 void serialise_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise model diagram.");
-    fwprintf(stdout, L"Debug: Serialise model diagram. format p6: %i\n", p6);
-    fwprintf(stdout, L"Debug: Serialise model diagram. format *p6: %i\n", *((int*) p6));
+    //?? fwprintf(stdout, L"Debug: Serialise model diagram. format p6: %i\n", p6);
+    //?? fwprintf(stdout, L"Debug: Serialise model diagram. format *p6: %i\n", *((int*) p6));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

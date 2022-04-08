@@ -42,10 +42,10 @@
 void read_count(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read count.");
-    fwprintf(stdout, L"Debug: Read count. buffer count p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Read count. buffer count *p2: %i\n", *((int*) p2));
-    fwprintf(stdout, L"Debug: Read count. message length p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Read count. message length *p1: %i\n", *((int*) p1));
+    //?? fwprintf(stdout, L"Debug: Read count. buffer count p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Read count. buffer count *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Read count. message length p1: %i\n", p1);
+    //?? fwprintf(stdout, L"Debug: Read count. message length *p1: %i\n", *((int*) p1));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

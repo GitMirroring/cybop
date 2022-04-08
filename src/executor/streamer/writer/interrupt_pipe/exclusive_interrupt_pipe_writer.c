@@ -52,8 +52,8 @@ void write_interrupt_pipe_exclusive(void* p0, void* p1, void* p2, void* p3) {
         int* f = (int*) p0;
 
         // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write interrupt pipe exclusive.");
-        fwprintf(stdout, L"Debug: Write interrupt pipe exclusive. mutex p3: %i\n", p3);
-        fwprintf(stdout, L"Debug: Write interrupt pipe exclusive. mutex *p3: %i\n", *((int*) p3));
+        //?? fwprintf(stdout, L"Debug: Write interrupt pipe exclusive. mutex p3: %i\n", p3);
+        //?? fwprintf(stdout, L"Debug: Write interrupt pipe exclusive. mutex *p3: %i\n", *((int*) p3));
 
         //
         // Cast size to correct type.

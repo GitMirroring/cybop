@@ -45,18 +45,20 @@
 void select_ansi_escape_code(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select ansi escape code.");
-    fwprintf(stdout, L"Debug: Select ansi escape code. count remaining p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Select ansi escape code. count remaining *p2: %i\n", *((int*) p2));
+    //?? fwprintf(stdout, L"Debug: Select ansi escape code. count remaining p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Select ansi escape code. count remaining *p2: %i\n", *((int*) p2));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+/*??
         //?? fwprintf(stdout, L"Debug: Select ansi escape code. data position p1 as ls: %ls\n", (wchar_t*) *((void**) p1));
         fwprintf(stdout, L"Debug: Select ansi escape code. data position p1 + 0: %i\n", *((int*) *((void**) p1) + 0));
         fwprintf(stdout, L"Debug: Select ansi escape code. data position p1 + 1: %i\n", *((int*) *((void**) p1) + 1));
         fwprintf(stdout, L"Debug: Select ansi escape code. data position p1 + 2: %i\n", *((int*) *((void**) p1) + 2));
+*/
 
         // ESC[
         detect((void*) &r, p1, p2, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PREFIX_ANSI_ESCAPE_CODE_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

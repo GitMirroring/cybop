@@ -64,7 +64,7 @@
 void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui properties.");
-    fwprintf(stdout, L"Debug: Serialise tui properties. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Serialise tui properties. p0: %i\n", p0);
 
     // The super part.
     void* super = *NULL_POINTER_STATE_CYBOI_MODEL;

@@ -80,8 +80,8 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check signal.");
-    fwprintf(stdout, L"Debug: Check signal. shutdown flag p6: %i\n", p6);
-    fwprintf(stdout, L"Debug: Check signal. shutdown flag *p6: %i\n", *((int*) p6));
+    //?? fwprintf(stdout, L"Debug: Check signal. shutdown flag p6: %i\n", p6);
+    //?? fwprintf(stdout, L"Debug: Check signal. shutdown flag *p6: %i\n", *((int*) p6));
 
     // The signal item.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;

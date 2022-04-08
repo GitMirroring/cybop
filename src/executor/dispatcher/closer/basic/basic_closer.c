@@ -49,8 +49,8 @@ void close_basic(void* p0) {
         int* f = (int*) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Close basic.");
-        fwprintf(stdout, L"Debug: Close basic. f: %i\n", f);
-        fwprintf(stdout, L"Debug: Close basic. *f: %i\n", *((int*) f));
+        //?? fwprintf(stdout, L"Debug: Close basic. f: %i\n", f);
+        //?? fwprintf(stdout, L"Debug: Close basic. *f: %i\n", *((int*) f));
 
         //
         // Initialise error number.

@@ -85,7 +85,7 @@ void read_completion(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
         // into the CYBOL destination.
         //
 
-        fwprintf(stdout, L"Debug: Read completion. Synchronous mode. Set loop break flag. p0: %i\n", p0);
+        //?? fwprintf(stdout, L"Debug: Read completion. Synchronous mode. Set loop break flag. p0: %i\n", p0);
 
         // Set loop break flag.
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -99,7 +99,7 @@ void read_completion(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
         // into a cyboi-internal BUFFER.
         //
 
-        fwprintf(stdout, L"Debug: Read completion. Asynchronous mode. Add handler to interrupt pipe. p0: %i\n", p0);
+        //?? fwprintf(stdout, L"Debug: Read completion. Asynchronous mode. Add handler to interrupt pipe. p0: %i\n", p0);
 
         // Write handler into interrupt pipe.
         read_handler(p0, p1, p2, p3, p4, p5, p6, p7, p8);

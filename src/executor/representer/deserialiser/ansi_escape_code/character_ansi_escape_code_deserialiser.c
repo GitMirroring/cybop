@@ -45,8 +45,8 @@ void deserialise_ansi_escape_code_character(void* p0, void* p1, void* p2) {
         void** d = (void**) p1;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise ansi escape code character.");
-        fwprintf(stdout, L"Debug: Deserialise ansi escape code character. count remaining p2: %i\n", p2);
-        fwprintf(stdout, L"Debug: Deserialise ansi escape code character. count remaining *p2: %i\n", *((int*) p2));
+        //?? fwprintf(stdout, L"Debug: Deserialise ansi escape code character. count remaining p2: %i\n", p2);
+        //?? fwprintf(stdout, L"Debug: Deserialise ansi escape code character. count remaining *p2: %i\n", *((int*) p2));
 
         // Decode multibyte character array into wide character item.
         decode_utf_8_append(p0, *d, p2);

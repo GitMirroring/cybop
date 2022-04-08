@@ -61,7 +61,7 @@
 int sense_function(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense function.");
-    fwprintf(stdout, L"Debug: Sense function. client entry p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Sense function. client entry p0: %i\n", p0);
 
     //
     // Declaration.
@@ -129,8 +129,8 @@ int sense_function(void* p0) {
     // The "thrd_exit" function does therefore NOT have to be called here.
     //
 
-    fwprintf(stdout, L"Debug: Sense function. Exit thread now. ex: %i\n", ex);
-    fwprintf(stdout, L"Debug: Sense function. Exit thread now. *ex: %i\n", *((int*) ex));
+    //?? fwprintf(stdout, L"Debug: Sense function. Exit thread now. ex: %i\n", ex);
+    //?? fwprintf(stdout, L"Debug: Sense function. Exit thread now. *ex: %i\n", *((int*) ex));
 
     return *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 }
