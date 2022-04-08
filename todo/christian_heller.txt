@@ -16,7 +16,7 @@ _______________________
 
         * Debug valgrind errors in cybol application "gui"
         * Is pointer or element/part used internally in empty and remove ??
-        * Do those parts having been added to the properties (NOT model) get deallocated by the GC ??
+        * Do those parts having been added to the properties (NOT model) get deallocated by the GC ?? or not because properties of operations must not get deallocated on empty or remove ??
         * Check if empty removes parts WITH knowledge part flag set
         * Check if garbage collection is activated when knowledge part gets allocated and appended on xcb event handling (flag ??)
 
