@@ -6,7 +6,7 @@ Source Code
 ___________
 
 Compile cyboi using "make cyboi"
-Test cybol applications, e.g. "../src/controller/cyboi counter/run.cybol"
+Test cybol applications, e.g. "../src/controller/cyboi counter/simple/run.cybol"
 Analyse code using tools "valgrind" and "cppcheck"
 
 Administrative Data
