@@ -45,7 +45,7 @@ INSTALL(DIRECTORY ${ROOT_DIR}/examples/ DESTINATION examples)
 # The cybop component.
 INSTALL(FILES ${ROOT_DIR}/build/manpage/cybop.7.gz DESTINATION build/manpage)
 INSTALL(FILES ${ROOT_DIR}/doc/books/cybop/cybop.pdf DESTINATION doc/books/cybop)
-INSTALL(FILES ${ROOT_DIR}/doc/lightning_talk/cybop.pdf DESTINATION doc/lightning_talk)
+INSTALL(FILES ${ROOT_DIR}/doc/presentations/lightning_talk/cybop.pdf DESTINATION doc/presentations/lightning_talk)
 #INSTALL(DIRECTORY ${ROOT_DIR}/doc/lightning_talk/ DESTINATION doc/lightning_talk COMPONENT cybop FILES_MATCHING PATTERN "*.pdf")
 INSTALL(FILES ${ROOT_DIR}/doc/manual/manual-de.pdf DESTINATION doc/manual)
 INSTALL(FILES ${ROOT_DIR}/doc/manual/manual-en.pdf DESTINATION doc/manual)
