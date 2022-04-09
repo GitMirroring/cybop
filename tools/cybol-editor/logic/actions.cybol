@@ -1,0 +1,9 @@
+<node>
+
+    <!-- Web page. -->
+    <node name="send-index" channel="inline" format="text/cybol-path" model=".logic.send.index"/>
+
+    <!-- Programme exit. -->
+    <node name="exit" channel="inline" format="live/exit" model=""/>
+
+</node>

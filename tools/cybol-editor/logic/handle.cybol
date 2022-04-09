@@ -1,0 +1,12 @@
+<node>
+
+    <node name="enable" channel="file" format="element/part" model="cybol-editor/logic/handle/enable.cybol"/>
+    <node name="sense" channel="file" format="element/part" model="cybol-editor/logic/handle/sense.cybol"/>
+    <node name="close" channel="file" format="element/part" model="cybol-editor/logic/handle/close.cybol"/>
+
+    <node name="pathtest" channel="file" format="element/part" model="cybol-editor/logic/handle/pathtest.cybol"/>
+    <node name="querytest" channel="file" format="element/part" model="cybol-editor/logic/handle/querytest.cybol"/>
+    <node name="path" channel="file" format="element/part" model="cybol-editor/logic/handle/path.cybol"/>
+    <node name="query" channel="file" format="element/part" model="cybol-editor/logic/handle/query.cybol"/>
+
+</node>

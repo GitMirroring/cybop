@@ -1,0 +1,8 @@
+<node>
+
+    <node name="startup" channel="file" format="element/part" model="cybol-editor/logic/startup.cybol"/>
+    <node name="handle" channel="file" format="element/part" model="cybol-editor/logic/handle.cybol"/>
+    <node name="actions" channel="file" format="element/part" model="cybol-editor/logic/actions.cybol"/>
+    <node name="send" channel="file" format="element/part" model="cybol-editor/logic/send.cybol"/>
+
+</node>

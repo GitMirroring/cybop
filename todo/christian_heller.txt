@@ -11,26 +11,15 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-Event / Signal Handling
-_______________________
+Tool
+____
 
-        * Debug valgrind errors in cybol application "gui"
-        * Is pointer or element/part used internally in empty and remove ??
-        * Do those parts having been added to the properties (NOT model) get deallocated by the GC ?? or not because properties of operations must not get deallocated on empty or remove ??
-        * Check if empty removes parts WITH knowledge part flag set
-        * Check if garbage collection is activated when knowledge part gets allocated and appended on xcb event handling (flag ??)
+        * Add table to "cybol-editor" in directory "tools/cybol-editor/"
+        * Add tree to "cybol-editor" in directory "tools/cybol-editor/"
 
-        * Make button "Hello World!" in cybol application "gui" work again
-            - strange double node "exit_programme" appears at end of model diagram file
-            - only "button-press" instead of "button-release" is written into +-action:-event
-            --> solution 1: threading problem ?? but actually only the xcb event is stored, deserialisation happens in main thread
-            --> solution 2: is the reason that the event does not get destroyed (freed) yet before processing the next one ??
+        * Find out why model-diagram output is wrong when uncommenting entry "file" in "app.cybol" (the same happens in cybol application "presence", where "file" is a sub node of ".var")
 
-        * Unify reading of correct action from window element hierarchy for all events, see example in file "button_release_gui_action_deserialiser.c"
-
-        * Make cybol application "ui" work again
-
-        * Deliver compilable and runnable source code for release CYBOP 0.22.0
+        * Use client-side javascript in addition to server-side cybol, if useful for reasons of efficiency
 
 CYBOL
 _____
@@ -41,6 +30,8 @@ _____
             as parent directory but using that of the application as working directory
         * See desktop links of any OS as example
         * Alternatively, use relative paths from current file as is done in html files
+
+        * Make multi-channel "Hello World!" cybol application "ui" work again
 
 Database
 ________
@@ -68,11 +59,6 @@ _____
         * See example cybol application "repertoire" in file "db.cybol"
             <node name="song" channel="directory" format="element/part" model="application/repertoire/db/song/"/>
         * The advantage would be not to have to list all files additionally in an index file like "application/repertoire/db/song.cybol"
-
-Tool
-____
-
-        * Develop simple cybol editor tool with tree and table as web application in server-side cybol or partly in javascript
 
 General CYBOI
 _____________
@@ -417,6 +403,20 @@ _______
 
 Display / XCB
 _____________
+
+        * Debug valgrind errors in cybol application "gui"
+        * Is pointer or element/part used internally in empty and remove ??
+        * Do those parts having been added to the properties (NOT model) get deallocated by the GC ?? or not because properties of operations must not get deallocated on empty or remove ??
+        * Check if empty removes parts WITH knowledge part flag set
+        * Check if garbage collection is activated when knowledge part gets allocated and appended on xcb event handling (flag ??)
+
+        * Make button "Hello World!" in cybol application "gui" work again
+            - strange double node "exit_programme" appears at end of model diagram file
+            - only "button-press" instead of "button-release" is written into +-action:-event
+            --> solution 1: threading problem ?? but actually only the xcb event is stored, deserialisation happens in main thread
+            --> solution 2: is the reason that the event does not get destroyed (freed) yet before processing the next one ??
+
+        * Unify reading of correct action from window element hierarchy for all events, see example in file "button_release_gui_action_deserialiser.c"
 
         * Send close event to invisible (hidden) window in xcb, in order to properly shutdown:
             https://stackoverflow.com/questions/30387126/how-do-i-interrupt-xcb-wait-for-event

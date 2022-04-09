@@ -1,0 +1,6 @@
+<node>
+
+    <node name="empty_message" channel="file" format="element/part" model="cybol-editor/logic/send/empty_message.cybol"/>
+    <node name="index" channel="file" format="element/part" model="cybol-editor/logic/send/index.cybol"/>
+
+</node>

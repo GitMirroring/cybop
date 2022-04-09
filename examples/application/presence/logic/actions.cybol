@@ -7,10 +7,10 @@
     <node name="navigate-backward" channel="inline" format="text/cybol-path" model=".logic.navigate.backward"/>
     <node name="navigate-forward" channel="inline" format="text/cybol-path" model=".logic.navigate.forward"/>
 
-    <!-- Overview entry choice. -->
+    <!-- User interface update. -->
     <node name="update" channel="inline" format="text/cybol-path" model=".logic.translate.uri_to_all"/>
 
-    <!-- Overview entry choice. -->
+    <!-- Programme exit. -->
     <node name="exit" channel="inline" format="live/exit" model=""/>
 
 </node>
