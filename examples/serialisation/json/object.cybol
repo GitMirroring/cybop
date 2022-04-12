@@ -1,0 +1,6 @@
+<node>
+
+    <node name="string" channel="inline" format="text/plain" model="This is an object"/>
+    <node name="object" channel="file" format="element/part" model="serialisation/json/subobject.cybol"/>
+
+</node>
