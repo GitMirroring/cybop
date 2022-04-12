@@ -18,7 +18,8 @@ ____
             - cybol parsing happens in two steps: xml, cybol
             - is the cybol parser REusable when parsing json in the second step?
                 (the tree structure resulting from xml has a root node; the json tree represents an object)
-        * See directory "doc/books/cybol/syntax"
+        * Compare with json examples in directory "doc/books/cybol/syntax"
+        * Test cybol application "serialisation/json/"
 
 Tool
 ____
