@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-04-12  Christian Heller  <christian.heller@cybop.org>
+
+        * Add files "json_name.c" and "json_model.c" containing json constants
+
 2022-04-09  Christian Heller  <christian.heller@cybop.org>
 
         * Start development of "cybol-editor" as web application in directory "tools/cybol-editor/"

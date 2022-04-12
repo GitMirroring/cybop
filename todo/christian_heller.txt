@@ -11,6 +11,15 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+JSON
+____
+
+        * Implement JSON de-/serialiser, in order to make application trees easier serialisable
+            - cybol parsing happens in two steps: xml, cybol
+            - is the cybol parser REusable when parsing json in the second step?
+                (the tree structure resulting from xml has a root node; the json tree represents an object)
+        * See directory "doc/books/cybol/syntax"
+
 Tool
 ____
 
@@ -1003,16 +1012,8 @@ _________
 De-/Serialiser
 ______________
 
-        * Move de-/serialisers for primitive types out of directory "cybol/" up one level, since they are used not only in cybol, but in many de-/serialisers
-
         * Implement part serialiser called from file "cybol_serialiser.c"
 
-        * Implement JSON de-/serialiser, in order to make application trees easier serialisable
-            - cybol parsing happens in two steps: xml, cybol
-            - is the cybol parser REusable when parsing json in the first step?
-                (the tree structure resulting from xml has a root node; the json tree not necessarily)
-        * Provide REST API via JSON exchange
-        * See directory "doc/books/cybol/syntax"
         * Encode binary data (e.g. x-ray images in the electronic health record of a patient) into text string using Base64 or base64url
         * Add the following comment into cyboi source code:
 
