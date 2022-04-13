@@ -1,6 +1,8 @@
 <node>
 
+
     <!-- TODO: Use stack variable to avoid "empty". Is it possible at all? The handle is called by cyboi ... -->
+
 
     <node name="reset_file_model" channel="inline" format="modify/empty" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".file"/>
@@ -51,7 +53,6 @@
     </node>
 
     <!-- Write data into test file. -->
-<!--
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
@@ -67,7 +68,6 @@
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
--->
 
     <node name="send_file" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>

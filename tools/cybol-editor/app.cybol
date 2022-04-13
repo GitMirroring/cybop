@@ -23,9 +23,7 @@
         CAUTION! The format is "text/ascii" and NOT "text/plain",
         since some data, like images for instance, represent binary data.
     -->
-<!--
     <node name="file" channel="inline" format="text/ascii" model=""/>
--->
 
     <node name="action_path" channel="inline" format="text/cybol-path" model=""/>
 

@@ -14,12 +14,11 @@
 Tool
 ____
 
+        * Use client-side javascript in addition to server-side cybol, if useful for reasons of efficiency
         * Add table to "cybol-editor" in directory "tools/cybol-editor/"
         * Add tree to "cybol-editor" in directory "tools/cybol-editor/"
 
         * Find out why model-diagram output is wrong when uncommenting entry "file" in "app.cybol" (the same happens in cybol application "presence", where "file" is a sub node of ".var")
-
-        * Use client-side javascript in addition to server-side cybol, if useful for reasons of efficiency
 
 JSON
 ____
