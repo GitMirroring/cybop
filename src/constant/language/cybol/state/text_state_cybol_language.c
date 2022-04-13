@@ -135,6 +135,17 @@ static wchar_t* HXP_TEXT_STATE_CYBOL_LANGUAGE = L"text/hxp";
 static int* HXP_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The text/json state cybol language.
+ *
+ * Java Script Object Notation (JSON) format.
+ * Specification:
+ * https://www.json.org/
+ * Suffixes: json
+ */
+static wchar_t* JSON_TEXT_STATE_CYBOL_LANGUAGE = L"text/json";
+static int* JSON_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The text/ldt state cybol language.
  *
  * Labordaten-Transfer (LDT) format.

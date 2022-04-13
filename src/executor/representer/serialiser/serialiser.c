@@ -34,14 +34,6 @@
 #include "../../../constant/model/html/document_type_html_model.c"
 #include "../../../executor/modifier/item_modifier.c"
 #include "../../../executor/representer/serialiser/binary_crlf/binary_crlf_serialiser.c"
-//
-// CAUTION! Do NOT include the "content_element_part_cybol_serialiser.c" module.
-// It is true, the "serialise_cybol_part_element_content" function is called from here,
-// but the module dependency hierarchy slightly differs and just goes top-down
-// by module granularity and NOT by call hierarchy.
-//
-// Therefore, the "cybol_serialiser.c" module is included here.
-//
 #include "../../../executor/representer/serialiser/cybol/cybol_serialiser.c"
 #include "../../../executor/representer/serialiser/gui/initial_gui_serialiser.c"
 //
@@ -55,6 +47,7 @@
 #include "../../../executor/representer/serialiser/html/html_serialiser.c"
 #include "../../../executor/representer/serialiser/http_request/http_request_serialiser.c"
 #include "../../../executor/representer/serialiser/http_response/http_response_serialiser.c"
+#include "../../../executor/representer/serialiser/json/json_serialiser.c"
 #include "../../../executor/representer/serialiser/latex/latex_serialiser.c"
 //
 // CAUTION! Do NOT include the "content_element_part_model_diagram_serialiser.c" module.
@@ -123,6 +116,20 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    //
+    // application
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p5, (void*) JSON_APPLICATION_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_json(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+        }
+    }
 
     //
     // message

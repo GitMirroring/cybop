@@ -39,6 +39,7 @@
 #include "../../../executor/representer/deserialiser/html/html_deserialiser.c"
 #include "../../../executor/representer/deserialiser/http_request/http_request_deserialiser.c"
 #include "../../../executor/representer/deserialiser/http_response/http_response_deserialiser.c"
+#include "../../../executor/representer/deserialiser/json/json_deserialiser.c"
 #include "../../../executor/representer/deserialiser/latex/latex_deserialiser.c"
 #include "../../../executor/representer/deserialiser/tui/tui_deserialiser.c"
 #include "../../../executor/representer/deserialiser/uri/uri_deserialiser.c"
@@ -72,6 +73,20 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    //
+    // application
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p16, (void*) JSON_APPLICATION_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_json(p0, p1, p2, p3, p15);
+        }
+    }
 
     //
     // message

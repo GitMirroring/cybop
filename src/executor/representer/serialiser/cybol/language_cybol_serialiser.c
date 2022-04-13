@@ -27,6 +27,7 @@
 #define LANGUAGE_CYBOL_SERIALISER_SOURCE
 
 #include "../../../../constant/language/cyboi/state_cyboi_language.c"
+#include "../../../../constant/language/cybol/state/application_state_cybol_language.c"
 #include "../../../../constant/language/cybol/state/chronology_state_cybol_language.c"
 #include "../../../../constant/language/cybol/state/interface_state_cybol_language.c"
 #include "../../../../constant/language/cybol/state/message_state_cybol_language.c"
@@ -57,6 +58,20 @@ void serialise_cybol_language(void* p0, void* p1) {
     // State.
     //
     // ======================================================================
+
+    //
+    // application
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) JSON_APPLICATION_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            modify_item(p0, (void*) JSON_APPLICATION_STATE_CYBOL_LANGUAGE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) JSON_APPLICATION_STATE_CYBOL_LANGUAGE_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+        }
+    }
 
     //
     // chronology

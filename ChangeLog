@@ -20,6 +20,7 @@
 
 2022-04-13  Christian Heller  <christian.heller@cybop.org>
 
+        * Add language constants for mime type "application/json"
         * Prepare json serialiser and deserialiser
 
 2022-04-12  Christian Heller  <christian.heller@cybop.org>
