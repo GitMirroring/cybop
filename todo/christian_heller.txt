@@ -11,16 +11,6 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-JSON
-____
-
-        * Implement JSON de-/serialiser, in order to make application trees easier serialisable
-            - cybol parsing happens in two steps: xml, cybol
-            - is the cybol parser REusable when parsing json in the second step?
-                (the tree structure resulting from xml has a root node; the json tree represents an object)
-        * Compare with json examples in directory "doc/books/cybol/syntax"
-        * Test cybol application "serialisation/json/"
-
 Tool
 ____
 
@@ -30,6 +20,17 @@ ____
         * Find out why model-diagram output is wrong when uncommenting entry "file" in "app.cybol" (the same happens in cybol application "presence", where "file" is a sub node of ".var")
 
         * Use client-side javascript in addition to server-side cybol, if useful for reasons of efficiency
+
+JSON
+____
+
+        * Implement json serialiser
+            - cybol parsing happens in two steps: xml, cybol
+            - is the cybol parser REusable when parsing json in the second step?
+                (the tree structure resulting from xml has a root node; the json tree represents an object)
+        * Compare with json examples in directory "doc/books/cybol/syntax"
+        * Test cybol application "serialisation/json/"
+        * Implement json deserialiser
 
 CYBOL
 _____
