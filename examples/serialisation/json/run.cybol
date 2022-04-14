@@ -73,6 +73,8 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
 </node>
 
 <!--

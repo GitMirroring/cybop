@@ -48,6 +48,9 @@ void deserialise_json(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //
     //?? TODO: Call functions of cybol_deserialiser for primitive data types!
     //
+
+    #include "../../../../executor/modifier/appender/item/part_item_appender.c"
+    append_item_part(p0, (void*) L"testname", (void*) NUMBER_8_INTEGER_STATE_CYBOI_MODEL, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) L"TEST TEST", (void*) NUMBER_9_INTEGER_STATE_CYBOI_MODEL);
 }
 
 /* JSON_DESERIALISER_SOURCE */

@@ -56,6 +56,8 @@ void serialise_json(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     //
     //?? TODO: Call functions of cybol_serialiser for primitive data types!
     //
+
+    modify_item(p0, (void*) L"TEST TEST", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NUMBER_9_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 }
 
 /* JSON_SERIALISER_SOURCE */
