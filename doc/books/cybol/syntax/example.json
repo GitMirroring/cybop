@@ -1,18 +1,20 @@
 {
-    "node": { "name": "startup_terminal", "channel": "inline", "format": "maintain/startup", "model": "", "properties": {
-        "node": { "name": "channel", "channel": "inline", "format": "meta/channel", "model": "terminal", "properties": {} }
+    "node": { "name": "open_stdout", "channel": "inline", "format": "dispatch/open", "model": "", "properties": {
+        "node": { "name": "channel", "channel": "inline", "format": "meta/channel", "model": "terminal", "properties": {} },
+        "node": { "name": "device", "channel": "inline", "format": "text/plain", "model": "standard-output", "properties": {} },
+        "node": { "name": "identification", "channel": "inline", "format": "text/cybol-path", "model": ".stdout", "properties": {} }
     } },
 
-    "node": { "name": "print", "channel": "inline", "format": "communicate/send", "model": "", "properties": {
+    "node": { "name": "print_greeting", "channel": "inline", "format": "communicate/send", "model": "", "properties": {
         "node": { "name": "channel", "channel": "inline", "format": "meta/channel", "model": "terminal", "properties": {} },
-        "node": { "name": "encoding", "channel": "inline", "format": "meta/encoding", "model": "utf-8", "properties": {} },
+        "node": { "name": "receiver", "channel": "inline", "format": "text/cybol-path", "model": ".stdout", "properties": {} },
         "node": { "name": "language", "channel": "inline", "format": "meta/language", "model": "message/cli", "properties": {} },
         "node": { "name": "format", "channel": "inline", "format": "meta/format", "model": "text/plain", "properties": {} },
-        "node": { "name": "message", "channel": "inline", "format": "text/plain", "model": "Hello, World!", "properties": {
+        "node": { "name": "message", "channel": "inline", "format": "text/plain", "model": "Hello World!", "properties": {
             "node": { "name": "foreground", "channel": "inline", "format": "colour/terminal", "model": "green", "properties": {} },
         } },
         "node": { "name": "newline", "channel": "inline", "format": "logicvalue/boolean", "model": "true", "properties": {} }
     } },
 
-    "node": { "name": "shutdown", "channel": "inline", "format": "live/exit", "model": "", "properties": {} }
+    "node": { "name": "exit_application", "channel": "inline", "format": "live/exit", "model": "", "properties": {} }
 }

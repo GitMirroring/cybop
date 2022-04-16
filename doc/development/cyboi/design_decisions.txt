@@ -54,6 +54,7 @@ Asynchronous Input/Output
 Sensing Threads
 Blocking and Non-blocking Mode
 Sending / Writing Data
+Storing Models in JSON
 
 Terminology
 ___________
@@ -1231,4 +1232,104 @@ for asynchronous execution: "setTimeout", "setInterval".
 
 A "promise" in ES6 (or "future" in other environments)
 is just asynchronous execution with callback function.
+
+Storing Models in JSON
+______________________
+
+Example in CYBOL (XML):
+
+    <node name="open_stdout" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="device" channel="inline" format="text/plain" model="standard-output"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
+    </node>
+
+    <node name="print_greeting" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Hello World!">
+            <node name="foreground" channel="inline" format="colour/terminal" model="green"/>
+        </node>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
+Idea 1: Standard name-value pairs
+
+Example:
+
+{
+    "open_stdout": {},
+    ...
+}
+
+Problem: The properties belonging to "open_stdout" CANNOT be stored this way.
+
+Idea 2: Additional entries marked with e.g. a prefix "meta_"
+
+Example:
+
+{
+    "open_stdout": {},
+    "meta_channel": "terminal",
+    ...
+}
+
+Problem: It is not clear to which name-value pair the meta-entry belongs.
+
+Idea 3: Object with markup name-value pair for each property
+
+Example:
+
+{
+    "node": { "name": "open_stdout", "channel": "inline", "format": "dispatch/open", "model": "", "properties": {
+        "node": { "name": "channel", "channel": "inline", "format": "meta/channel", "model": "terminal", "properties": {} },
+        "node": { "name": "device", "channel": "inline", "format": "text/plain", "model": "standard-output", "properties": {} },
+        "node": { "name": "identification", "channel": "inline", "format": "text/cybol-path", "model": ".stdout", "properties": {} }
+    } },
+
+    "node": { "name": "print_greeting", "channel": "inline", "format": "communicate/send", "model": "", "properties": {
+        "node": { "name": "channel", "channel": "inline", "format": "meta/channel", "model": "terminal", "properties": {} },
+        "node": { "name": "receiver", "channel": "inline", "format": "text/cybol-path", "model": ".stdout", "properties": {} },
+        "node": { "name": "language", "channel": "inline", "format": "meta/language", "model": "message/cli", "properties": {} },
+        "node": { "name": "format", "channel": "inline", "format": "meta/format", "model": "text/plain", "properties": {} },
+        "node": { "name": "message", "channel": "inline", "format": "text/plain", "model": "Hello World!", "properties": {
+            "node": { "name": "foreground", "channel": "inline", "format": "colour/terminal", "model": "green", "properties": {} },
+        } },
+        "node": { "name": "newline", "channel": "inline", "format": "logicvalue/boolean", "model": "true", "properties": {} }
+    } },
+
+    "node": { "name": "exit_application", "channel": "inline", "format": "live/exit", "model": "", "properties": {} }
+}
+
+Problem: A lot of data (big size overhead).
+
+Idea 4: Multi-dimensional array
+
+It is possible to store an array inside another array, called "array of arrays":
+https://restfulapi.net/json-array/
+https://stackoverflow.com/questions/12694439/storing-array-in-json
+
+JSON is built on two structures:
+1 A collection of name/value pairs. In various languages, this is
+  realized as an object, record, struct, dictionary, hash table,
+  keyed list, or associative array.
+2 An ordered list of values. In most languages, this is realized as an
+  array, vector, list, or sequence.
+
+Example:
+
+[
+    [ "open_stdout", "inline", "dispatch/open", "", [
+        [ "channel", "inline", "meta/channel", "terminal", [] ],
+        [ "device", "inline", "text/plain", "standard-output", [] ],
+        [ "identification", "inline", "text/cybol-path", ".stdout", [] ]
+    ] ],
+    ...
+]
+
+This is the SOLUTION.
 
