@@ -11,6 +11,19 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+JSON
+____
+
+        * Implement json serialiser
+        * Test cybol application "serialisation/json/"
+        * Implement json deserialiser
+            - cybol parsing happens in two steps: xml, cybol
+            - is the cybol parser REusable when parsing json in the second step?
+                (the tree structure resulting from xml has a root node; the json tree represents an object)
+
+        * Implement base64 serialiser and deserialiser, in order to store binary data in cybol (xml) and json
+        * Implement binary json (bson) data interchange format with mime type "application/bson"
+
 Tool
 ____
 
@@ -19,20 +32,6 @@ ____
         * Add tree to "cybol-editor" in directory "tools/cybol-editor/"
 
         * Find out why model-diagram output is wrong when uncommenting entry "file" in "app.cybol" (the same happens in cybol application "presence", where "file" is a sub node of ".var")
-
-JSON
-____
-
-        * Adapt json examples in directory "doc/books/cybol/syntax"
-        * Implement json serialiser
-            - cybol parsing happens in two steps: xml, cybol
-            - is the cybol parser REusable when parsing json in the second step?
-                (the tree structure resulting from xml has a root node; the json tree represents an object)
-        * Test cybol application "serialisation/json/"
-        * Implement json deserialiser
-
-        * Implement base64 serialiser and deserialiser, in order to store binary data in cybol (xml) and json
-        * Implement binary json (bson) data interchange format with mime type "application/bson"
 
 CYBOL
 _____

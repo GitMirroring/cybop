@@ -23,10 +23,10 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENT_PART_MODEL_DIAGRAM_SERIALISER_SOURCE
-#define ELEMENT_PART_MODEL_DIAGRAM_SERIALISER_SOURCE
+#ifndef ELEMENT_JSON_SERIALISER_SOURCE
+#define ELEMENT_JSON_SERIALISER_SOURCE
 
-#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
+//?? #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -36,12 +36,12 @@
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/copier/array_copier.c"
-#include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../executor/representer/serialiser/model_diagram/content_element_part_model_diagram_serialiser.c"
+//?? #include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/representer/serialiser/json/content_json_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the part element into model diagram.
+ * Serialises the part element into json.
  *
  * @param p0 the destination item
  * @param p1 the source model data
@@ -49,10 +49,11 @@
  * @param p3 the properties flag
  * @param p4 the tree level
  */
-void serialise_model_diagram_part_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void serialise_json_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise model diagram part element.");
-    //?? fwprintf(stdout, L"Debug: Serialise model diagram part element. p4: %i\n", p4);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise json element.");
+    fwprintf(stdout, L"Debug: Serialise json element. tree level p4: %i\n", p4);
+    fwprintf(stdout, L"Debug: Serialise json element. tree level *p4: %i\n", *((int*) p4));
 
     // The part.
     void* part = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -90,8 +91,8 @@ void serialise_model_diagram_part_element(void* p0, void* p1, void* p2, void* p3
     modify_item(p0, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
     // Serialise part element content.
-    serialise_model_diagram_part_element_content(p0, nd, nc, fd, md, mc, pd, pc, p3, p4);
+    serialise_json_content(p0, nd, nc, fd, md, mc, pd, pc, p3, p4);
 }
 
-/* ELEMENT_PART_MODEL_DIAGRAM_SERIALISER_SOURCE */
+/* ELEMENT_JSON_SERIALISER_SOURCE */
 #endif

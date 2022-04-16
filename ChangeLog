@@ -21,6 +21,7 @@
 2022-04-16  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt "doc/books/cybol/syntax/example_short.json" using value arrays with [] instead of name-value objects with {}, in order to not to have to store the names
+        * Implement json serialiser
 
 2022-04-13  Christian Heller  <christian.heller@cybop.org>
 

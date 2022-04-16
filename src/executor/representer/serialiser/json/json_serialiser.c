@@ -26,52 +26,81 @@
 #ifndef JSON_SERIALISER_SOURCE
 #define JSON_SERIALISER_SOURCE
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../../executor/representer/serialiser/json/part_json_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the source into the destination json format.
+ * Serialises the source cyboi knowledge tree into the destination json format.
  *
  * @param p0 the destination item
- * @param p1 the source name data
- * @param p2 the source name count
- * @param p3 the source channel
- * @param p4 the source encoding
- * @param p5 the source language
- * @param p6 the source indentation flag
- * @param p7 the source format
- * @param p8 the source type
- * @param p9 the source model data
- * @param p10 the source model count
- * @param p11 the source properties data
- * @param p12 the source properties count
+ * @param p1 the source model data
+ * @param p2 the source model count
+ * @param p3 the source properties data
+ * @param p4 the source properties count
+ * @param p5 the tree level
+ * @param p6 the format
  */
-void serialise_json(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void serialise_json(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise json.");
+    fwprintf(stdout, L"Debug: Serialise json. format p6: %i\n", p6);
+    fwprintf(stdout, L"Debug: Serialise json. format *p6: %i\n", *((int*) p6));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
-    //?? TODO: Call functions of cybol_serialiser for primitive data types!
+    // Element
     //
-
-    modify_item(p0, (void*) L"TEST TEST", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NUMBER_9_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p7, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p6, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_json_string(p9, p10);
+            serialise_json_part(p0, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p5);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol. The format is unknown.");
+        compare_integer_equal((void*) &r, p6, (void*) PROPERTY_ELEMENT_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_json_part(p0, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p5);
+        }
+    }
+
+    //
+    // Other formats
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_json_string(p0, p9, p10);
+            modify_item(p0, (void*) L"TEST TEST", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NUMBER_9_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    //
+    // Unknown format
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise json. The format is unknown.");
+        fwprintf(stdout, L"Warning: Could not serialise json. The format is unknown. format p6: %i\n", p6);
+        fwprintf(stdout, L"Warning: Could not serialise json. The format is unknown. format *p6: %i\n", *((int*) p6));
     }
 }
 

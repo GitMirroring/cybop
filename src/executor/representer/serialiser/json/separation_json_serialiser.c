@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef LINE_MODEL_DIAGRAM_SERIALISER_SOURCE
-#define LINE_MODEL_DIAGRAM_SERIALISER_SOURCE
+#ifndef SEPARATION_JSON_SERIALISER_SOURCE
+#define SEPARATION_JSON_SERIALISER_SOURCE
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
@@ -38,23 +38,20 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the model diagram line.
+ * Serialises the json separation.
  *
- * @param p0 the destination model diagram item
+ * @param p0 the destination item
  */
-void serialise_model_diagram_line(void* p0) {
+void serialise_json_separation(void* p0) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise model diagram line.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise json separation.");
 
-    // Append space character.
-    modify_item(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-
-    // Append pipe character.
-    modify_item(p0, (void*) VERTICAL_LINE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    // Append comma character.
+    modify_item(p0, (void*) COMMA_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
     // Append space character.
     modify_item(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 }
 
-/* LINE_MODEL_DIAGRAM_SERIALISER_SOURCE */
+/* SEPARATION_JSON_SERIALISER_SOURCE */
 #endif

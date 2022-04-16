@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef PART_MODEL_DIAGRAM_SERIALISER_SOURCE
-#define PART_MODEL_DIAGRAM_SERIALISER_SOURCE
+#ifndef PART_JSON_SERIALISER_SOURCE
+#define PART_JSON_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -33,11 +33,11 @@
 #include "../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/representer/serialiser/model_diagram/element_part_model_diagram_serialiser.c"
+#include "../../../../executor/representer/serialiser/json/element_part_json_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the part into model diagram.
+ * Serialises the part into json.
  *
  * @param p0 the destination item
  * @param p1 the source model data
@@ -45,10 +45,11 @@
  * @param p3 the properties flag
  * @param p4 the tree level
  */
-void serialise_model_diagram_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void serialise_json_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise model diagram part.");
-    //?? fwprintf(stdout, L"Debug: Serialise model diagram part. r: %i\n", r);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise json part.");
+    fwprintf(stdout, L"Debug: Serialise json part. tree level p4: %i\n", p4);
+    fwprintf(stdout, L"Debug: Serialise json part. tree level *p4: %i\n", *((int*) p4));
 
     //
     // The new tree level.
@@ -96,13 +97,13 @@ void serialise_model_diagram_part(void* p0, void* p1, void* p2, void* p3, void* 
             break;
         }
 
-        //?? fwprintf(stdout, L"Debug: Serialise model diagram part. j: %i\n", j);
-        serialise_model_diagram_part_element(p0, p1, (void*) &j, p3, (void*) &l);
+        fwprintf(stdout, L"Debug: Serialise json part. j: %i\n", j);
+        serialise_json_part_element(p0, p1, (void*) &j, p3, (void*) &l);
 
         // Increment loop variable.
         j++;
     }
 }
 
-/* PART_MODEL_DIAGRAM_SERIALISER_SOURCE */
+/* PART_JSON_SERIALISER_SOURCE */
 #endif
