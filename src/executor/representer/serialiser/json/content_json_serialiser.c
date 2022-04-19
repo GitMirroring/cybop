@@ -26,16 +26,13 @@
 #ifndef CONTENT_JSON_SERIALISER_SOURCE
 #define CONTENT_JSON_SERIALISER_SOURCE
 
+#include "../../../../constant/channel/cybol/cybol_channel.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../logger/logger.c"
---
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../executor/representer/serialiser/cybol/format_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/json/format_json_serialiser.c"
 #include "../../../../executor/representer/serialiser/json/indentation_json_serialiser.c"
-#include "../../../../executor/representer/serialiser/json/line_json_serialiser.c"
+#include "../../../../executor/representer/serialiser/json/separation_json_serialiser.c"
+#include "../../../../executor/representer/serialiser/json/string_json_serialiser.c"
+#include "../../../../logger/logger.c"
 
 //
 // Forward declarations
@@ -67,22 +64,31 @@ void serialise_json_content(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     // Append indentation.
     serialise_json_indentation(p0, p8, p9);
 
-    // Append part name.
-    modify_item(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    // Append source name.
+    serialise_json_string(p0, p1, p2);
 
     // Append separation.
     serialise_json_separation(p0);
 
-    // Append part format.
-    serialise_cybol_format(p0, p3);
+    // Append inline channel by default.
+    serialise_json_string(p0, (void*) INLINE_CYBOL_CHANNEL, (void*) INLINE_CYBOL_CHANNEL_COUNT);
 
-    // Append line.
-    serialise_json_line(p0);
+    // Append separation.
+    serialise_json_separation(p0);
 
-    // Append part model.
+    // Append source format.
+    serialise_json_format(p0, p3);
+
+    // Append separation.
+    serialise_json_separation(p0);
+
+    // Append source model.
     serialise_json(p0, p4, p5, p6, p7, p9, p3);
 
-    // Append part properties.
+    // Append separation.
+    serialise_json_separation(p0);
+
+    // Append source properties.
     serialise_json_part(p0, p6, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p9);
 }
 

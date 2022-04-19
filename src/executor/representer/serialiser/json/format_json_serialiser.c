@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STRING_JSON_SERIALISER_SOURCE
-#define STRING_JSON_SERIALISER_SOURCE
+#ifndef FORMAT_JSON_SERIALISER_SOURCE
+#define FORMAT_JSON_SERIALISER_SOURCE
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
@@ -35,28 +35,28 @@
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/representer/serialiser/cybol/format_cybol_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the source string into the destination json format.
+ * Serialises the source format into the destination json format.
  *
  * @param p0 the destination item
- * @param p1 the source name data
- * @param p2 the source name count
+ * @param p1 the source format
  */
-void serialise_json_string(void* p0, void* p1, void* p2) {
+void serialise_json_format(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise json string.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise json format.");
 
     // Append quotation mark character.
     modify_item(p0, (void*) STRING_BEGIN_END_JSON_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) STRING_BEGIN_END_JSON_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
-    // Append source name.
-    modify_item(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    // Serialise source format.
+    serialise_cybol_format(p0, p1);
 
     // Append quotation mark character.
     modify_item(p0, (void*) STRING_BEGIN_END_JSON_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) STRING_BEGIN_END_JSON_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 }
 
-/* STRING_JSON_SERIALISER_SOURCE */
+/* FORMAT_JSON_SERIALISER_SOURCE */
 #endif

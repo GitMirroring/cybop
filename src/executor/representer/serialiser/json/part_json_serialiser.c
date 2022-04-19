@@ -33,15 +33,15 @@
 #include "../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/representer/serialiser/json/element_part_json_serialiser.c"
+#include "../../../../executor/representer/serialiser/json/element_json_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Serialises the part into json.
  *
  * @param p0 the destination item
- * @param p1 the source model data
- * @param p2 the source model count
+ * @param p1 the source model or properties data
+ * @param p2 the source model or properties count
  * @param p3 the properties flag
  * @param p4 the tree level
  */
@@ -50,6 +50,9 @@ void serialise_json_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise json part.");
     fwprintf(stdout, L"Debug: Serialise json part. tree level p4: %i\n", p4);
     fwprintf(stdout, L"Debug: Serialise json part. tree level *p4: %i\n", *((int*) p4));
+
+    // Append array begin character.
+    modify_item(p0, (void*) ARRAY_BEGIN_JSON_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ARRAY_BEGIN_JSON_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
     //
     // The new tree level.
@@ -98,7 +101,7 @@ void serialise_json_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
         }
 
         fwprintf(stdout, L"Debug: Serialise json part. j: %i\n", j);
-        serialise_json_part_element(p0, p1, (void*) &j, p3, (void*) &l);
+        serialise_json_element(p0, p1, (void*) &j, p3, (void*) &l);
 
         // Increment loop variable.
         j++;
