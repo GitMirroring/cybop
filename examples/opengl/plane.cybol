@@ -1,17 +1,17 @@
 <node>
 
   <node name="first" channel="inline" format="element/part" model="opengl/triangle.cybol">
-    <node name="position" chanel="inline" format="number/double" model="-0,5f,0.0f,-0.5f" />
-    <node name="scale" chanel="inline" format="number/double" model="1.0f,1.0f,1.0f" />
-    <node name="rotation" chanel="inline" format="number/double" model="90.0f,0.0f,0.0f" />
-    <node name="color" chanel="inline" format="number/double" model="r,g,b" />
+    <node name="position" chanel="inline" format="number/fraction-decimal" model="-0,5,0.0,-0.5"/>
+    <node name="scale" chanel="inline" format="number/fraction-decimal" model="1.0,1.0,1.0"/>
+    <node name="rotation" chanel="inline" format="number/fraction-decimal" model="90.0,0.0,0.0"/>
+    <node name="color" chanel="inline" format="number/fraction-decimal" model="r,g,b"/>
   </node>
 
   <node name="second" channel="inline" format="element/part" model="opengl/triangle.cybol">
-    <node name="position" chanel="inline" format="number/double" model="0,5f,0.0f,0.5f" />
-    <node name="scale" chanel="inline" format="number/double" model="1.0f,1.0f,1.0f" />
-    <node name="rotation" chanel="inline" format="number/double" model="90.0f,0.0f,180.0f" />
-    <node name="color" chanel="inline" format="number/double" model="r,g,b" />
+    <node name="position" chanel="inline" format="number/fraction-decimal" model="0,5,0.0,0.5"/>
+    <node name="scale" chanel="inline" format="number/fraction-decimal" model="1.0,1.0,1.0"/>
+    <node name="rotation" chanel="inline" format="number/fraction-decimal" model="90.0,0.0,180.0"/>
+    <node name="color" chanel="inline" format="number/fraction-decimal" model="r,g,b"/>
   </node>
 
 

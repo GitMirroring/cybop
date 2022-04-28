@@ -153,7 +153,7 @@ void serialise_cybol_type(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p1, (void*) FLOAT_NUMBER_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -109,7 +109,7 @@ void map_type_to_size(void* p0, void* p1) {
 
             copy_integer(p0, (void*) COMPLEX_COMPOUND_TYPE_SIZE);
 
-        } else if (*t == *DOUBLE_NUMBER_STATE_CYBOI_TYPE) {
+        } else if (*t == *FLOAT_NUMBER_STATE_CYBOI_TYPE) {
 
             copy_integer(p0, (void*) DOUBLE_REAL_TYPE_SIZE);
 

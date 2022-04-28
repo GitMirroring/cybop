@@ -93,7 +93,7 @@ void deserialise_xdt_field_type(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
+            copy_integer(p0, (void*) FLOAT_NUMBER_STATE_CYBOI_TYPE);
         }
     }
 

@@ -102,7 +102,7 @@ void calculate(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p3, (void*) FLOAT_NUMBER_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

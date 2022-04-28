@@ -3,7 +3,7 @@
     <node name="string" channel="inline" format="text/plain" model="Hello JSON!"/>
     <node name="path" channel="inline" format="text/cybol-path" model=".non-existing.test.path"/>
     <node name="integer" channel="inline" format="number/integer" model="2"/>
-    <node name="double" channel="inline" format="number/double" model="6.4"/>
+    <node name="float" channel="inline" format="number/fraction-decimal" model="6.4"/>
     <node name="boolean" channel="inline" format="logicvalue/boolean" model="true"/>
     <node name="array" channel="inline" format="number/integer" model="1,2,3"/>
     <node name="object" channel="file" format="element/part" model="serialisation/json/object.cybol"/>

@@ -86,8 +86,8 @@ static int* BYTE_NUMBER_STATE_CYBOI_TYPE = NUMBER_30_INTEGER_STATE_CYBOI_MODEL_A
 /** The complex number state cyboi type. */
 static int* COMPLEX_NUMBER_STATE_CYBOI_TYPE = NUMBER_31_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The double number state cyboi type. */
-static int* DOUBLE_NUMBER_STATE_CYBOI_TYPE = NUMBER_32_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The float number state cyboi type. */
+static int* FLOAT_NUMBER_STATE_CYBOI_TYPE = NUMBER_32_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The fraction number state cyboi type. */
 static int* FRACTION_NUMBER_STATE_CYBOI_TYPE = NUMBER_33_INTEGER_STATE_CYBOI_MODEL_ARRAY;

@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-04-28  Christian Heller  <christian.heller@cybop.org>
+
+        * Debug and test first version of json serialiser
+        * Rename non-existing "number/double" into "number/fraction-decimal" in affected cybol applications
+        * Rename DOUBLE_NUMBER_STATE_CYBOI_TYPE into more general FLOAT_NUMBER_STATE_CYBOI_TYPE
+
 2022-04-16  Christian Heller  <christian.heller@cybop.org>
 
         * Adapt "doc/books/cybol/syntax/example_short.json" using value arrays with [] instead of name-value objects with {}, in order to not to have to store the names

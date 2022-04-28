@@ -1,31 +1,31 @@
  <node>
 
   <node name="front" channel="inline" format="element/part" model="opengl/triangle.cybol">
-    <node name="position" chanel="inline" format="number/double" model="0,0f,0.5f,0.5f" />
-    <node name="scale" chanel="inline" format="number/double" model="0.71f,0.71f,1.0f" />
-    <node name="rotation" chanel="inline" format="number/double" model="0.0f,0.0f,45.0f" />
-    <node name="color" chanel="inline" format="number/double" model="r,g,b" />
+    <node name="position" chanel="inline" format="number/fraction-decimal" model="0,0,0.5,0.5"/>
+    <node name="scale" chanel="inline" format="number/fraction-decimal" model="0.71,0.71,1.0"/>
+    <node name="rotation" chanel="inline" format="number/fraction-decimal" model="0.0,0.0,45.0"/>
+    <node name="color" chanel="inline" format="number/fraction-decimal" model="r,g,b"/>
   </node>
 
   <node name="back" channel="inline" format="element/part" model="opengl/triangle.cybol">
-    <node name="position" chanel="inline" format="number/double" model="0,0f,0.5f,-0.5f" />
-    <node name="scale" chanel="inline" format="number/double" model="0.71f,0.71f,1.0f" />
-    <node name="rotation" chanel="inline" format="number/double" model="0.0f,180.0f,45.0f" />
-    <node name="color" chanel="inline" format="number/double" model="r,g,b" />
+    <node name="position" chanel="inline" format="number/fraction-decimal" model="0,0,0.5,-0.5"/>
+    <node name="scale" chanel="inline" format="number/fraction-decimal" model="0.71,0.71,1.0"/>
+    <node name="rotation" chanel="inline" format="number/fraction-decimal" model="0.0,180.0,45.0"/>
+    <node name="color" chanel="inline" format="number/fraction-decimal" model="r,g,b"/>
   </node>
 
   <node name="left_plane" channel="file" format="element/part" model="opengl/plane.cybol">
-    <node name="position" chanel="inline" format="number/double" model="-0,25f,0.25f,0.0f" />
-    <node name="scale" chanel="inline" format="number/double" model="0.71f,1.0f,1.0f" />
-    <node name="rotation" chanel="inline" format="number/double" model="0.0f,0.0f,315.0f" />
-    <node name="color" chanel="inline" format="number/double" model="r,g,b" />
+    <node name="position" chanel="inline" format="number/fraction-decimal" model="-0,25,0.25,0.0"/>
+    <node name="scale" chanel="inline" format="number/fraction-decimal" model="0.71,1.0,1.0"/>
+    <node name="rotation" chanel="inline" format="number/fraction-decimal" model="0.0,0.0,315.0"/>
+    <node name="color" chanel="inline" format="number/fraction-decimal" model="r,g,b"/>
   </node>
 
   <node name="right_plane" channel="file" format="element/part" model="opengl/plane.cybol">
-    <node name="position" chanel="inline" format="number/double" model="0.25f,0.25f,0.0f" />
-    <node name="scale" chanel="inline" format="number/double" model="0.71f,1.0f,1.0f" />
-    <node name="rotation" chanel="inline" format="number/double" model="0.0f,0.0f,45.0f" />
-    <node name="color" chanel="inline" format="number/double" model="r,g,b" />
+    <node name="position" chanel="inline" format="number/fraction-decimal" model="0.25,0.25,0.0"/>
+    <node name="scale" chanel="inline" format="number/fraction-decimal" model="0.71,1.0,1.0"/>
+    <node name="rotation" chanel="inline" format="number/fraction-decimal" model="0.0,0.0,45.0"/>
+    <node name="color" chanel="inline" format="number/fraction-decimal" model="r,g,b"/>
   </node>
 
 </node>

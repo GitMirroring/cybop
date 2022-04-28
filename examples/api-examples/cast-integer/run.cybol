@@ -9,7 +9,7 @@
         <node name="source" channel="inline" format="number/integer" model="1"/>
     </node>
 
-    <node name="cast_double" channel="inline" format="cast/integer" model="">
+    <node name="cast" channel="inline" format="cast/integer" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".part_2"/>
         <node name="source" channel="inline" format="number/byte" model="12"/>
     </node>

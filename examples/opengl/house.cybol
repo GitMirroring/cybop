@@ -1,24 +1,24 @@
 <node>
 
   <node name="cube" channel="file" format="element/part" model="opengl/cube.cybol">
-    <node name="position" chanel="inline" format="number/double" model="0.0f,0.5f,0.0f" />
-    <node name="scale" chanel="inline" format="number/double" model="1.0f,1.0f,1.0f" />
-    <node name="rotation" chanel="inline" format="number/double" model="0.0f,0.0f,0.0f" />
-    <node name="color" chanel="inline" format="colour/rgb" model="255,255,255" />
+    <node name="position" chanel="inline" format="number/fraction-decimal" model="0.0,0.5,0.0"/>
+    <node name="scale" chanel="inline" format="number/fraction-decimal" model="1.0,1.0,1.0"/>
+    <node name="rotation" chanel="inline" format="number/fraction-decimal" model="0.0,0.0,0.0"/>
+    <node name="color" chanel="inline" format="colour/rgb" model="255,255,255"/>
   </node>
 
   <node name="roof" channel="file" format="element/part" model="opengl/roof.cybol">
-    <node name="position" chanel="inline" format="number/double" model="0.0f,1.0f,0.0f" />
-    <node name="scale" chanel="inline" format="number/double" model="1.0f,0.7f,1.0f" />
-    <node name="rotation" chanel="inline" format="number/double" model="0.0f,0.0f,0.0f" />
-    <node name="color" chanel="inline" format="number/double" model="r,g,b" />
+    <node name="position" chanel="inline" format="number/fraction-decimal" model="0.0,1.0,0.0"/>
+    <node name="scale" chanel="inline" format="number/fraction-decimal" model="1.0,0.7,1.0"/>
+    <node name="rotation" chanel="inline" format="number/fraction-decimal" model="0.0,0.0,0.0"/>
+    <node name="color" chanel="inline" format="number/fraction-decimal" model="r,g,b"/>
   </node>
 
   <node name="chimnay" channel="file" format="element/part" model="opengl/cube.cybol">
-    <node name="position" chanel="inline" format="number/double" model="-0.25f,1.0f,0.0f" />
-    <node name="scale" chanel="inline" format="number/double" model="0.2f,0.5f,0.2f" />
-    <node name="rotation" chanel="inline" format="number/double" model="0.0f,0.0f,0.0f" />
-    <node name="color" chanel="inline" format="number/double" model="r,g,b" />
+    <node name="position" chanel="inline" format="number/fraction-decimal" model="-0.25,1.0,0.0"/>
+    <node name="scale" chanel="inline" format="number/fraction-decimal" model="0.2,0.5,0.2"/>
+    <node name="rotation" chanel="inline" format="number/fraction-decimal" model="0.0,0.0,0.0"/>
+    <node name="color" chanel="inline" format="number/fraction-decimal" model="r,g,b"/>
   </node>
 
 </node>

@@ -62,7 +62,7 @@ void deserialise_cybol_decimal_fraction_value_primitive(void* p0, void* p1, void
     // Allocate temporary item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-    allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
+    allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FLOAT_NUMBER_STATE_CYBOI_TYPE);
 
     // Deserialise source.
     deserialise_cybol_fraction_decimal_value(i, p1, p2, p3, p4);
@@ -77,7 +77,7 @@ void deserialise_cybol_decimal_fraction_value_primitive(void* p0, void* p1, void
     copy_double(p0, id);
 
     // Deallocate temporary item.
-    deallocate_item((void*) &i, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &i, (void*) FLOAT_NUMBER_STATE_CYBOI_TYPE);
 }
 
 /* PRIMITIVE_VALUE_DECIMAL_FRACTION_CYBOL_DESERIALISER_SOURCE */

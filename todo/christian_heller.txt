@@ -36,8 +36,6 @@ ____
 CYBOL
 _____
 
-        * Rename "number/double" into "number/float" in all cybol applications
-
         * Simplify relative paths in cybol applications not expecting "examples/"
             as parent directory but using that of the application as working directory
         * See desktop links of any OS as example

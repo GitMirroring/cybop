@@ -57,7 +57,7 @@ void serialise_cybol_complex_cartesian(void* p0, void* p1, void* p2) {
     // Allocate temporary double item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-    allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
+    allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FLOAT_NUMBER_STATE_CYBOI_TYPE);
 
     // Serialise complex data.
     serialise_cybol_complex_cartesian_vector(t, p1, p2);
@@ -72,7 +72,7 @@ void serialise_cybol_complex_cartesian(void* p0, void* p1, void* p2) {
     serialise_cybol_fraction_decimal(p0, td, tc);
 
     // Deallocate temporary double item.
-    deallocate_item((void*) &t, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
+    deallocate_item((void*) &t, (void*) FLOAT_NUMBER_STATE_CYBOI_TYPE);
 }
 
 /* CARTESIAN_COMPLEX_CYBOL_SERIALISER_SOURCE */

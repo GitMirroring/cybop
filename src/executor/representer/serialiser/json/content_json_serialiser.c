@@ -29,7 +29,7 @@
 #include "../../../../constant/channel/cybol/cybol_channel.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../executor/representer/serialiser/json/format_json_serialiser.c"
-#include "../../../../executor/representer/serialiser/json/indentation_json_serialiser.c"
+//?? #include "../../../../executor/representer/serialiser/json/indentation_json_serialiser.c"
 #include "../../../../executor/representer/serialiser/json/separation_json_serialiser.c"
 #include "../../../../executor/representer/serialiser/json/string_json_serialiser.c"
 #include "../../../../logger/logger.c"
@@ -62,7 +62,7 @@ void serialise_json_content(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     fwprintf(stdout, L"Debug: Serialise json content. tree level p9: %i\n", *((int*) p9));
 
     // Append indentation.
-    serialise_json_indentation(p0, p8, p9);
+    //?? serialise_json_indentation(p0, p8, p9);
 
     // Append source name.
     serialise_json_string(p0, p1, p2);
@@ -83,13 +83,13 @@ void serialise_json_content(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     serialise_json_separation(p0);
 
     // Append source model.
-    serialise_json(p0, p4, p5, p6, p7, p9, p3);
+    //?? serialise_json(p0, p4, p5, p6, p7, p9, p3);
 
     // Append separation.
-    serialise_json_separation(p0);
+    //?? serialise_json_separation(p0);
 
     // Append source properties.
-    serialise_json_part(p0, p6, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p9);
+    //?? serialise_json_part(p0, p6, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p9);
 }
 
 /* CONTENT_JSON_SERIALISER_SOURCE */
