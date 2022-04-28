@@ -14,7 +14,7 @@
 JSON
 ____
 
-        * Implement json serialiser
+        * Complete line feed and indentation in json serialiser
         * Test cybol application "serialisation/json/"
         * Implement json deserialiser
             - cybol parsing happens in two steps: xml, cybol

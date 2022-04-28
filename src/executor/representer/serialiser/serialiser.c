@@ -47,6 +47,14 @@
 #include "../../../executor/representer/serialiser/html/html_serialiser.c"
 #include "../../../executor/representer/serialiser/http_request/http_request_serialiser.c"
 #include "../../../executor/representer/serialiser/http_response/http_response_serialiser.c"
+//
+// CAUTION! Do NOT include the "part_json_serialiser.c" module.
+// It is true, the "serialise_json_part" function is called from here,
+// but the module dependency hierarchy slightly differs and just goes top-down
+// by module granularity and NOT by call hierarchy.
+//
+// Therefore, the "json_serialiser.c" module is included here.
+//
 #include "../../../executor/representer/serialiser/json/json_serialiser.c"
 #include "../../../executor/representer/serialiser/latex/latex_serialiser.c"
 //
@@ -87,7 +95,7 @@
  * @param p3 the source channel
  * @param p4 the source encoding
  * @param p5 the source language
- * @param p6 the source indentation flag
+ * @param p6 the indentation flag
  * @param p7 the source format
  * @param p8 the source type
  * @param p9 the source model data
@@ -135,7 +143,18 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             //
             int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-            serialise_json(p0, p9, p10, p11, p12, (void*) &l, p7);
+            //
+            // CAUTION! Only the part's model gets serialised here.
+            //
+            // For easy handling and storage, the root parts to be serialised
+            // should NOT contain properties.
+            //
+            // However, if a root part's properties are to be serialised anyway,
+            // then they have to be treated as separate part and get stored
+            // in a SEPARATE FILE.
+            //
+
+            serialise_json_part(p0, p9, p10, p6, (void*) &l);
         }
     }
 

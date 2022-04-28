@@ -29,7 +29,7 @@
 #include "../../../../constant/channel/cybol/cybol_channel.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../executor/representer/serialiser/json/format_json_serialiser.c"
-//?? #include "../../../../executor/representer/serialiser/json/indentation_json_serialiser.c"
+#include "../../../../executor/representer/serialiser/json/indentation_json_serialiser.c"
 #include "../../../../executor/representer/serialiser/json/separation_json_serialiser.c"
 #include "../../../../executor/representer/serialiser/json/string_json_serialiser.c"
 #include "../../../../logger/logger.c"
@@ -38,7 +38,7 @@
 // Forward declarations
 //
 
-void serialise_json(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void serialise_json(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 void serialise_json_part(void* p0, void* p1, void* p2, void* p3, void* p4);
 
 /**
@@ -52,7 +52,7 @@ void serialise_json_part(void* p0, void* p1, void* p2, void* p3, void* p4);
  * @param p5 the source model count
  * @param p6 the source properties data
  * @param p7 the source properties count
- * @param p8 the properties flag
+ * @param p8 the indentation flag
  * @param p9 the tree level
  */
 void serialise_json_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
@@ -62,34 +62,31 @@ void serialise_json_content(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     fwprintf(stdout, L"Debug: Serialise json content. tree level p9: %i\n", *((int*) p9));
 
     // Append indentation.
-    //?? serialise_json_indentation(p0, p8, p9);
-
+    serialise_json_indentation(p0, p9, p8);
+    // Append array begin character.
+    modify_item(p0, (void*) ARRAY_BEGIN_JSON_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ARRAY_BEGIN_JSON_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
     // Append source name.
     serialise_json_string(p0, p1, p2);
-
     // Append separation.
     serialise_json_separation(p0);
-
     // Append inline channel by default.
     serialise_json_string(p0, (void*) INLINE_CYBOL_CHANNEL, (void*) INLINE_CYBOL_CHANNEL_COUNT);
-
     // Append separation.
     serialise_json_separation(p0);
-
     // Append source format.
     serialise_json_format(p0, p3);
-
     // Append separation.
     serialise_json_separation(p0);
-
     // Append source model.
-    //?? serialise_json(p0, p4, p5, p6, p7, p9, p3);
-
+    serialise_json(p0, p4, p5, p6, p7, p8, p9, p3);
     // Append separation.
-    //?? serialise_json_separation(p0);
-
+    serialise_json_separation(p0);
     // Append source properties.
-    //?? serialise_json_part(p0, p6, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p9);
+    serialise_json_part(p0, p6, p7, p8, p9);
+    // Append array end character.
+    modify_item(p0, (void*) ARRAY_END_JSON_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ARRAY_END_JSON_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    // Append line feed character.
+    modify_item(p0, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 }
 
 /* CONTENT_JSON_SERIALISER_SOURCE */

@@ -8,4 +8,15 @@
     <node name="array" channel="inline" format="number/integer" model="1,2,3"/>
     <node name="object" channel="file" format="element/part" model="serialisation/json/object.cybol"/>
 
+    <node name="operation" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".index"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="message" channel="inline" format="text/plain" model="The End"/>
+
 </node>

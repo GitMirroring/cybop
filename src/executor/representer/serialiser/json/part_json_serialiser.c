@@ -26,13 +26,19 @@
 #ifndef PART_JSON_SERIALISER_SOURCE
 #define PART_JSON_SERIALISER_SOURCE
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/name/json/json_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
+#include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/representer/serialiser/json/break_json_serialiser.c"
 #include "../../../../executor/representer/serialiser/json/element_json_serialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -42,7 +48,7 @@
  * @param p0 the destination item
  * @param p1 the source model or properties data
  * @param p2 the source model or properties count
- * @param p3 the properties flag
+ * @param p3 the indentation flag
  * @param p4 the tree level
  */
 void serialise_json_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
@@ -53,6 +59,8 @@ void serialise_json_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // Append array begin character.
     modify_item(p0, (void*) ARRAY_BEGIN_JSON_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ARRAY_BEGIN_JSON_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    // Append line feed character if non-empty.
+    serialise_json_break(p0, p2, p3);
 
     //
     // The new tree level.
@@ -97,10 +105,21 @@ void serialise_json_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
+            // The last child part element has been reached.
+            //
+
+            // Append array end character.
+            modify_item(p0, (void*) ARRAY_END_JSON_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ARRAY_END_JSON_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+            // Append comma character.
+            modify_item(p0, (void*) COMMA_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
             break;
         }
 
         fwprintf(stdout, L"Debug: Serialise json part. j: %i\n", j);
+        fwprintf(stdout, L"Debug: Serialise json part. level l: %i\n", l);
+
         serialise_json_element(p0, p1, (void*) &j, p3, (void*) &l);
 
         // Increment loop variable.

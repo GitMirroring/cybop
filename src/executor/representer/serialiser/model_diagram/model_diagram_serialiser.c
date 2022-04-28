@@ -78,6 +78,13 @@ void serialise_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
+            // CAUTION! Using the model data and count p1 and p2 is CORRECT here,
+            // and setting the properties flag to FALSE is correct as well.
+            //
+            // The distinction between model and properties by setting the properties flag
+            // is made in file "content_element_part_model_diagram_serialiser.c".
+            //
             serialise_model_diagram_part(p0, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p5);
         }
     }

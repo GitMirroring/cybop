@@ -23,39 +23,52 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STRING_JSON_SERIALISER_SOURCE
-#define STRING_JSON_SERIALISER_SOURCE
+#ifndef BREAK_JSON_SERIALISER_SOURCE
+#define BREAK_JSON_SERIALISER_SOURCE
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../constant/name/json/json_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/comparator/integer/greater_integer_comparator.c"
+#include "../../../../executor/logifier/boolean/and_boolean_logifier.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the source string into the destination in json format.
+ * Serialises a break (line feed) into the destination.
+ *
+ * This is done only if both:
+ * 1 the indentation flag IS set
+ * 2 the source count handed over is NOT empty
  *
  * @param p0 the destination item
- * @param p1 the source name data
- * @param p2 the source name count
+ * @param p1 the source count
+ * @param p2 the indentation flag
  */
-void serialise_json_string(void* p0, void* p1, void* p2) {
+void serialise_json_break(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise json string.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise json break.");
 
-    // Append quotation mark character.
-    modify_item(p0, (void*) STRING_BEGIN_END_JSON_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) STRING_BEGIN_END_JSON_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-    // Append source name.
-    modify_item(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-    // Append quotation mark character.
-    modify_item(p0, (void*) STRING_BEGIN_END_JSON_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) STRING_BEGIN_END_JSON_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    // Check if source count is not empty.
+    compare_integer_greater((void*) &r, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    // Check if indentation flag is set.
+    logify_boolean_and((void*) &r, p2);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Append line feed character.
+        modify_item(p0, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+    }
 }
 
-/* STRING_JSON_SERIALISER_SOURCE */
+/* BREAK_JSON_SERIALISER_SOURCE */
 #endif
