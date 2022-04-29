@@ -23,52 +23,45 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BREAK_JSON_SERIALISER_SOURCE
-#define BREAK_JSON_SERIALISER_SOURCE
+#ifndef DOUBLE_BREAK_JSON_SERIALISER_SOURCE
+#define DOUBLE_BREAK_JSON_SERIALISER_SOURCE
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/comparator/integer/greater_integer_comparator.c"
-#include "../../../../executor/logifier/boolean/and_boolean_logifier.c"
+#include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises a break (line feed) into the destination.
+ * Appends two breaks (line feeds) to the destination.
  *
- * This is done only if both:
- * 1 the indentation flag IS set
- * 2 the source count handed over is NOT empty
+ * This is done ONLY if the indentation flag is set.
  *
  * @param p0 the destination item
- * @param p1 the source count
- * @param p2 the indentation flag
+ * @param p1 the indentation flag
  */
-void serialise_json_break(void* p0, void* p1, void* p2) {
+void serialise_json_double_break(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise json break.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise json double break.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Check if source count is not empty.
-    compare_integer_greater((void*) &r, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-    // Check if indentation flag is set.
-    logify_boolean_and((void*) &r, p2);
+    compare_integer_unequal((void*) &r, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Append line feed character.
+        // Append TWO line feed characters.
+        modify_item(p0, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
         modify_item(p0, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
     }
 }
 
-/* BREAK_JSON_SERIALISER_SOURCE */
+/* DOUBLE_BREAK_JSON_SERIALISER_SOURCE */
 #endif

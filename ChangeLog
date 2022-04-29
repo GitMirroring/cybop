@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-04-29  Christian Heller  <christian.heller@cybop.org>
+
+        * Complete line feed and indentation in json serialiser
+        * Test cybol application "serialisation/json/"
+
 2022-04-28  Christian Heller  <christian.heller@cybop.org>
 
         * Debug and test first version of json serialiser

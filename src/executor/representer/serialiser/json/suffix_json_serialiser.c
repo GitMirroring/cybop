@@ -23,39 +23,48 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef INDENTATION_JSON_SERIALISER_SOURCE
-#define INDENTATION_JSON_SERIALISER_SOURCE
+#ifndef SUFFIX_JSON_SERIALISER_SOURCE
+#define SUFFIX_JSON_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
-#include "../../../../executor/representer/serialiser/json/level_json_serialiser.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../executor/comparator/integer/greater_integer_comparator.c"
+#include "../../../../executor/logifier/boolean/and_boolean_logifier.c"
+#include "../../../../executor/representer/serialiser/json/indentation_json_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Appends the indentation.
+ * Appends part suffix to the destination item.
+ *
+ * It consists of the indentation spaces.
+ *
+ * This is done ONLY if both:
+ * 1 the indentation flag IS set
+ * 2 the source count handed over is NOT empty
  *
  * @param p0 the destination item
- * @param p1 the tree level
+ * @param p1 the source count
  * @param p2 the indentation flag
+ * @param p3 the tree level
  */
-void serialise_json_indentation(void* p0, void* p1, void* p2) {
+void serialise_json_suffix(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise json indentation.");
-    fwprintf(stdout, L"Debug: Serialise json indentation. indentation flag p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Serialise json indentation. indentation flag *p2: %i\n", *((int*) p2));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise json suffix.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_unequal((void*) &r, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    // Check if source count is not empty.
+    compare_integer_greater((void*) &r, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    // Check if indentation flag is set.
+    logify_boolean_and((void*) &r, p2);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Append indentation level.
-        serialise_json_level(p0, p1);
+        serialise_json_indentation(p0, p3, p2);
     }
 }
 
-/* INDENTATION_JSON_SERIALISER_SOURCE */
+/* SUFFIX_JSON_SERIALISER_SOURCE */
 #endif

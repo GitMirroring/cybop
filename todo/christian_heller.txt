@@ -14,8 +14,6 @@
 JSON
 ____
 
-        * Complete line feed and indentation in json serialiser
-        * Test cybol application "serialisation/json/"
         * Implement json deserialiser
             - cybol parsing happens in two steps: xml, cybol
             - is the cybol parser REusable when parsing json in the second step?

@@ -37,7 +37,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the space characters.
+ * Appends space characters.
  *
  * @param p0 the destination item
  */
