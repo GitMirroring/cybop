@@ -22,6 +22,7 @@
 
         * Complete line feed and indentation in json serialiser
         * Test cybol application "serialisation/json/"
+        * Let data of other types in file "json_serialiser.c" get serialised as string by cybol serialiser
 
 2022-04-28  Christian Heller  <christian.heller@cybop.org>
 

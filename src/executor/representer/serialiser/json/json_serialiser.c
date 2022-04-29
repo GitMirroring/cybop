@@ -26,11 +26,12 @@
 #ifndef JSON_SERIALISER_SOURCE
 #define JSON_SERIALISER_SOURCE
 
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/representer/serialiser/json/part_json_serialiser.c"
+#include "../../../../executor/representer/serialiser/json/string_json_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -55,7 +56,7 @@ void serialise_json(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
-    // Element
+    // element
     //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -86,28 +87,70 @@ void serialise_json(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     }
 
     //
+    // number
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) BYTE_NUMBER_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //?? TODO: Use Base64 encoding for binary data.
+        }
+    }
+
+    //
+    // text
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) ASCII_TEXT_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //?? TODO: Use Base64 encoding for binary data.
+        }
+    }
+
+    //
     // Other formats
     //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p7, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
+        //
+        // Treat other formats as string.
+        //
+        // CAUTION! The boolean values and all kinds of numbers are serialised
+        // as STRING and put in quotation marks on purpose, even though the
+        // json standard recommends them to be serialised without quotation marks.
+        //
+        // The reason is that cyboi manages all data as ARRAY inside,
+        // no matter if a SINGLE or MANY values are stored.
+        // But json makes a difference between a single value
+        // and many values, whereby the latter are treated as array
+        // and have to be put in brackets.
+        //
+        // Examples:
+        //
+        // 1 List of values WITHOUT quotation marks:
+        // ["array", "inline", "number/integer", 1,2,3, []],
+        // Problem: Wrong cybop schema due to the many commas.
+        //
+        // 2 Array BRACKETS as in json:
+        // ["array", "inline", "number/integer", [1,2,3], []],
+        // Problem: Injured cybop schema, since the contained
+        // numbers are NOT parts.
+        //
+        // 3 Values in QUOTATION MARKS:
+        // ["array", "inline", "number/integer", "1,2,3", []],
+        //
+        // The currently implemented solution is number 3.
+        //
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_json_string(p0, p1, p2);
-        }
-    }
-
-    //
-    // Unknown format
-    //
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise json. The format is unknown.");
-        fwprintf(stdout, L"Warning: Could not serialise json. The format is unknown. format p7: %i\n", p7);
-        fwprintf(stdout, L"Warning: Could not serialise json. The format is unknown. format *p7: %i\n", *((int*) p7));
+        serialise_json_string(p0, p1, p2, p3, p4, p7);
     }
 }
 

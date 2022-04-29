@@ -83,15 +83,6 @@ void serialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol.");
 
-    //
-    // The functions below are for STATE models only.
-    //
-    // CAUTION! CYBOL LOGIC operations have an EMPTY model.
-    // Hence, they do NOT have to be considered here.
-    // They are detected via their "format" xml attribute.
-    // Their parametres were converted from cybol properties.
-    //
-
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -436,7 +427,22 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p8);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol. The format is unknown.");
+        //
+        // The functions above are for STATE models only.
+        //
+        // CAUTION! Do NOT log a warning message here,
+        // since logic models do not get serialised above
+        // on purpose and would cause many messages.
+        //
+        // CYBOL logic operations have an EMPTY model.
+        // Hence, they do NOT have to be considered here.
+        // They are detected via their "format" xml attribute.
+        // Their parametres are converted from cybol properties.
+        //
+        // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol. The format is unknown.");
+        // fwprintf(stdout, L"Debug: Could not serialise cybol. The format is unknown. format p6: %i\n", p6);
+        // fwprintf(stdout, L"Debug: Could not serialise cybol. The format is unknown. format *p6: %i\n", *((int*) p6));
+        //
     }
 }
 

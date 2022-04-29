@@ -19,6 +19,8 @@ ____
             - is the cybol parser REusable when parsing json in the second step?
                 (the tree structure resulting from xml has a root node; the json tree represents an object)
 
+        * Reflect on how to handle binary data in files "cybol_serialiser.c" and "json_serialiser.c"
+        * Consider formats "BYTE_NUMBER_STATE_CYBOI_FORMAT" and "ASCII_TEXT_STATE_CYBOI_FORMAT"
         * Implement base64 serialiser and deserialiser, in order to store binary data in cybol (xml) and json
         * Implement binary json (bson) data interchange format with mime type "application/bson"
 
