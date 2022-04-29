@@ -52,8 +52,8 @@
 void serialise_json_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise json element.");
-    fwprintf(stdout, L"Debug: Serialise json element. tree level p4: %i\n", p4);
-    fwprintf(stdout, L"Debug: Serialise json element. tree level *p4: %i\n", *((int*) p4));
+    //?? fwprintf(stdout, L"Debug: Serialise json element. tree level p4: %i\n", p4);
+    //?? fwprintf(stdout, L"Debug: Serialise json element. tree level *p4: %i\n", *((int*) p4));
 
     // The part.
     void* part = *NULL_POINTER_STATE_CYBOI_MODEL;

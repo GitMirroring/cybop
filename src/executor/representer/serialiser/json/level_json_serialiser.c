@@ -32,7 +32,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/representer/serialiser/json/space_json_serialiser.c"
+#include "../../../../executor/representer/serialiser/json/tabulator_json_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -44,8 +44,8 @@
 void serialise_json_level(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise json level.");
-    fwprintf(stdout, L"Debug: Serialise json level. tree level p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Serialise json level. tree level *p1: %i\n", *((int*) p1));
+    //?? fwprintf(stdout, L"Debug: Serialise json level. tree level p1: %i\n", p1);
+    //?? fwprintf(stdout, L"Debug: Serialise json level. tree level *p1: %i\n", *((int*) p1));
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -76,10 +76,10 @@ void serialise_json_level(void* p0, void* p1) {
             break;
         }
 
-        fwprintf(stdout, L"Debug: Serialise json level. j: %i\n", j);
+        //?? fwprintf(stdout, L"Debug: Serialise json level. j: %i\n", j);
 
-        // Append space characters.
-        serialise_json_space(p0);
+        // Append tabulator space.
+        serialise_json_tabulator(p0);
 
         // Increment loop variable.
         j++;

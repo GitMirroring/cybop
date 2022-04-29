@@ -58,8 +58,8 @@ void serialise_json_part(void* p0, void* p1, void* p2, void* p3, void* p4);
 void serialise_json_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise json content.");
-    fwprintf(stdout, L"Debug: Serialise json content. tree level p9: %i\n", p9);
-    fwprintf(stdout, L"Debug: Serialise json content. tree level p9: %i\n", *((int*) p9));
+    //?? fwprintf(stdout, L"Debug: Serialise json content. tree level p9: %i\n", p9);
+    //?? fwprintf(stdout, L"Debug: Serialise json content. tree level p9: %i\n", *((int*) p9));
 
     // Append indentation.
     serialise_json_indentation(p0, p9, p8);
@@ -68,19 +68,19 @@ void serialise_json_content(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     // Append source name.
     serialise_json_string(p0, p1, p2);
     // Append separation.
-    serialise_json_separation(p0);
+    serialise_json_separation(p0, p8);
     // Append inline channel by default.
     serialise_json_string(p0, (void*) INLINE_CYBOL_CHANNEL, (void*) INLINE_CYBOL_CHANNEL_COUNT);
     // Append separation.
-    serialise_json_separation(p0);
+    serialise_json_separation(p0, p8);
     // Append source format.
     serialise_json_format(p0, p3);
     // Append separation.
-    serialise_json_separation(p0);
+    serialise_json_separation(p0, p8);
     // Append source model.
     serialise_json(p0, p4, p5, p6, p7, p8, p9, p3);
     // Append separation.
-    serialise_json_separation(p0);
+    serialise_json_separation(p0, p8);
     // Append source properties.
     serialise_json_part(p0, p6, p7, p8, p9);
     // Append array end character.

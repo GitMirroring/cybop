@@ -36,6 +36,7 @@
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/integer/greater_integer_comparator.c"
+#include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/logifier/boolean/and_boolean_logifier.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
@@ -59,11 +60,21 @@ void serialise_json_prefix(void* p0, void* p1, void* p2) {
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The boolean result.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Check if source count is not empty.
     compare_integer_greater((void*) &r, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    //
+    // Initialise boolean result with indentation flag.
+    //
+    // CAUTION! This IS necessary since the indentation flag
+    // might be NULL, leading to a wrong boolean "true" result
+    // when using it directly below and only one operand is true.
+    //
+    copy_integer((void*) &b, p2);
     // Check if indentation flag is set.
-    logify_boolean_and((void*) &r, p2);
+    logify_boolean_and((void*) &r, (void*) &b);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

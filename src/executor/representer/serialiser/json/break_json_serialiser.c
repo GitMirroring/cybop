@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DOUBLE_BREAK_JSON_SERIALISER_SOURCE
-#define DOUBLE_BREAK_JSON_SERIALISER_SOURCE
+#ifndef BREAK_JSON_SERIALISER_SOURCE
+#define BREAK_JSON_SERIALISER_SOURCE
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
@@ -39,16 +39,18 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Appends two breaks (line feeds) to the destination.
+ * Appends two line breaks.
  *
  * This is done ONLY if the indentation flag is set.
  *
  * @param p0 the destination item
  * @param p1 the indentation flag
  */
-void serialise_json_double_break(void* p0, void* p1) {
+void serialise_json_break(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise json double break.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise json break.");
+    //?? fwprintf(stdout, L"Debug: Serialise json break. indentation flag p1: %i\n", p1);
+    //?? fwprintf(stdout, L"Debug: Serialise json break. indentation flag *p1: %i\n", *((int*) p1));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -59,9 +61,8 @@ void serialise_json_double_break(void* p0, void* p1) {
 
         // Append TWO line feed characters.
         modify_item(p0, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-        modify_item(p0, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
     }
 }
 
-/* DOUBLE_BREAK_JSON_SERIALISER_SOURCE */
+/* BREAK_JSON_SERIALISER_SOURCE */
 #endif
