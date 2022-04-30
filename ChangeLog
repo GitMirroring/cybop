@@ -21,6 +21,8 @@
 2022-04-30  Christian Heller  <christian.heller@cybop.org>
 
         * Collect real-world json example files taken from web for testing
+        * Add json selector
+        * Add cybol application for json deserialisation testing in directory "serialisation/json/examples/"
 
 2022-04-29  Christian Heller  <christian.heller@cybop.org>
 

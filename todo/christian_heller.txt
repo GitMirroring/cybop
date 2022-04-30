@@ -15,15 +15,21 @@ JSON
 ____
 
         * Implement json deserialiser
+        * Implement json selector
             - cybol parsing happens in two steps: xml, cybol
             - is the cybol parser REusable when parsing json in the second step?
                 (the tree structure resulting from xml has a root node; the json tree represents an object)
-        * Test real-world examples "serialisation/json/examples/" using a cybol application
+        * Test real-world json files of directory "serialisation/json/examples/" using a cybol application
 
         * Reflect on how to handle binary data in files "cybol_serialiser.c" and "json_serialiser.c"
         * Consider formats "BYTE_NUMBER_STATE_CYBOI_FORMAT" and "ASCII_TEXT_STATE_CYBOI_FORMAT"
         * Implement base64 serialiser and deserialiser, in order to store binary data in cybol (xml) and json
-        * Implement binary json (bson) data interchange format with mime type "application/bson"
+        * Implement binary json (bson) data interchange format with mime type "application/bson" ??
+
+        * Find out why model-diagram output is wrong when uncommenting entry "file" in "app.cybol" (the same happens in cybol application "presence", where "file" is a sub node of ".var")
+            --> the output is probably NOT wrong, but the existing file just overwritten, leaving the old data at the end if its previous size was larger
+                (the same wrong data appeared at the end of json files when testing the json serialiser)
+            --> therefore, set a special file flag when opening a file to shrink its size when the data are smaller than the already existing file size
 
 Tool
 ____
@@ -31,8 +37,6 @@ ____
         * Use client-side javascript in addition to server-side cybol, if useful for reasons of efficiency
         * Add table to "cybol-editor" in directory "tools/cybol-editor/"
         * Add tree to "cybol-editor" in directory "tools/cybol-editor/"
-
-        * Find out why model-diagram output is wrong when uncommenting entry "file" in "app.cybol" (the same happens in cybol application "presence", where "file" is a sub node of ".var")
 
 CYBOL
 _____
