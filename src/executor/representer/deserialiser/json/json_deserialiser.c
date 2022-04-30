@@ -27,6 +27,11 @@
 #define JSON_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/copier/integer_copier.c"
+#include "../../../../executor/copier/pointer_copier.c"
+//?? #include "../../../../executor/representer/deserialiser/json/content_json_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -41,16 +46,28 @@
 void deserialise_json(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise json.");
+    fwprintf(stdout, L"Debug: Deserialise json. destination item p0: %i\n", p0);
 
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The source data position.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source count remaining.
+    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    // Copy source data position.
+    copy_pointer((void*) &d, (void*) &p2);
+    // Copy source count remaining.
+    copy_integer((void*) &c, p3);
 
     //
-    //?? TODO: Call functions of cybol_deserialiser for primitive data types!
+    // CAUTION! A copy of source count remaining is forwarded here,
+    // so that the original source value does not get changed.
     //
-
-    #include "../../../../executor/modifier/appender/item/part_item_appender.c"
-    append_item_part(p0, (void*) L"testname", (void*) NUMBER_8_INTEGER_STATE_CYBOI_MODEL, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) L"TEST TEST", (void*) NUMBER_9_INTEGER_STATE_CYBOI_MODEL);
+    // CAUTION! The source data position does NOT have to be copied,
+    // since the parametre that was handed over is already a copy.
+    // A local copy was made anyway, not to risk parametre falsification.
+    // Its reference is forwarded, as it gets incremented by sub routines inside.
+    //
+    //?? deserialise_json_content(p0, p1, (void*) &d, (void*) &c);
 }
 
 /* JSON_DESERIALISER_SOURCE */
