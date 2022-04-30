@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-04-30  Christian Heller  <christian.heller@cybop.org>
+
+        * Add real-world json example files taken from web for testing
+
 2022-04-29  Christian Heller  <christian.heller@cybop.org>
 
         * Complete line feed and indentation in json serialiser

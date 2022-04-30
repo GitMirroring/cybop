@@ -1,0 +1,16 @@
+
+References
+==========
+
+The json example files have been collected from the following websites:
+
+basic:
+https://filesamples.com/formats/json
+
+json:
+https://www.json.org/example.html
+
+scenario:
+https://github.com/sitepoint-editors/json-examples
+https://www.sitepoint.com/10-example-json-files/
+
