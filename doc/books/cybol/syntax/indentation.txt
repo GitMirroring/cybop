@@ -1,0 +1,12 @@
+//
+// space and indentation
+//
+
+heading external element/part path/to/file.cybol
+    title internal text/plain some text
+    position internal number/integer 50100
+    size internal number/integer 400150
+    background internal colour/rgb 00255
+    foreground internal colour/rgb 2552550
+    shape internal text/plain rectangle
+    font internal text/plain 7x13

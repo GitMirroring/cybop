@@ -1,12 +1,14 @@
 <node>
 
-    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
+    <node name="open_stdout" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="device" channel="inline" format="text/plain" model="standard-output"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
     </node>
 
-    <node name="print" channel="inline" format="communicate/send" model="">
+    <node name="print_greeting" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="Hello, World!">
@@ -15,6 +17,6 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    <node name="shutdown" channel="inline" format="live/exit" model=""/>
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
 
 </node>
