@@ -29,9 +29,10 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/json/json_cyboi_name.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
-//?? #include "../../../../executor/representer/deserialiser/json/content_json_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/json/value_json_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -67,7 +68,7 @@ void deserialise_json(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
     //
-    //?? deserialise_json_content(p0, p1, (void*) &d, (void*) &c);
+    deserialise_json_value(p0, p1, (void*) &d, (void*) &c, (void*) ROOT_JSON_CYBOI_NAME, (void*) ROOT_JSON_CYBOI_NAME_COUNT);
 }
 
 /* JSON_DESERIALISER_SOURCE */

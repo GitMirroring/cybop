@@ -14,12 +14,18 @@
 JSON
 ____
 
-        * Implement json deserialiser
-        * Implement json selector
+    // Allocate event name part and append it to the destination properties item.
+    append_item_part(p0, (void*) EVENT_EVENT_GUI_STATE_CYBOL_NAME, (void*) EVENT_EVENT_GUI_STATE_CYBOL_NAME_COUNT, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BUTTON_RELEASE_EVENT_XCB_CYBOL_MODEL, (void*) BUTTON_RELEASE_EVENT_XCB_CYBOL_MODEL_COUNT);
+
+        * Append manually new allocated parts in json deserialiser
+        * Continue json deserialiser and selector: array, number
+        * Handle special escaped string characters in files "string_json_deserialiser.c" ??
+        * Use ROOT_JSON_CYBOI_NAME of file "json_cyboi_name" for initial object
             - cybol parsing happens in two steps: xml, cybol
             - is the cybol parser REusable when parsing json in the second step?
                 (the tree structure resulting from xml has a root node; the json tree represents an object)
         * Test real-world json files of directory "serialisation/json/examples/" using a cybol application
+        * Provide cybol deserialiser for numbers in scientific notation (10 to the power of x), to be used in json deserialiser
 
         * Reflect on how to handle binary data in files "cybol_serialiser.c" and "json_serialiser.c"
         * Consider formats "BYTE_NUMBER_STATE_CYBOI_FORMAT" and "ASCII_TEXT_STATE_CYBOI_FORMAT"

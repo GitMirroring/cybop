@@ -18,6 +18,20 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-05-04  Christian Heller  <christian.heller@cybop.org>
+
+        * Continue json deserialiser and selector: string, boolean, null
+
+2022-05-03  Christian Heller  <christian.heller@cybop.org>
+
+        * Rename some json name constants
+        * Add json cyboi constants in file "json_cyboi_name"
+        * Continue json deserialiser and selector: object
+
+2022-05-01  Christian Heller  <christian.heller@cybop.org>
+
+        * Implement json deserialiser and selector
+
 2022-04-30  Christian Heller  <christian.heller@cybop.org>
 
         * Collect real-world json example files taken from web for testing
