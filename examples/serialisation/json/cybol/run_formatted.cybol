@@ -81,5 +81,10 @@
 <!--
     This example translates a cybol model tree in two steps:
     1 serialisation: from cyboi-memory into a json file
-    2 deserialisation: from json file into cyboi-memory
+    2 deserialisation: from json file into cyboi-memory,
+      which gets written into a model diagram file
+
+    The following two applications are almost identical:
+    - "run_formatted.cybol" with property "indentation" set to "true"
+    - "run_unformatted.cybol" with property "indentation" set to "false" or null
 -->

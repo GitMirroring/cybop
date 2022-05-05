@@ -18,9 +18,18 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-05-05  Christian Heller  <christian.heller@cybop.org>
+
+        * Add comparisons for plus/minus sign, digits 0..9, hexadecimal digits A..F and a..f to file "begin_value_json_selector.c"
+        * Add end characters and separators to file "begin_value_json_selector.c"
+        * Conclude that json parser does NOT have to be extended similar to xml parser using a cybol parser as second step
+        * Continue json deserialiser and selector: array
+
 2022-05-04  Christian Heller  <christian.heller@cybop.org>
 
         * Continue json deserialiser and selector: string, boolean, null
+        * Append allocated parts to destination in json deserialiser
+        * Use constant ROOT_JSON_CYBOI_NAME as name for initial object
 
 2022-05-03  Christian Heller  <christian.heller@cybop.org>
 

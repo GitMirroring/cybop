@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef OBJECT_JSON_DESERIALISER_SOURCE
-#define OBJECT_JSON_DESERIALISER_SOURCE
+#ifndef ARRAY_JSON_DESERIALISER_SOURCE
+#define ARRAY_JSON_DESERIALISER_SOURCE
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -39,6 +39,8 @@
 #include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/memoriser/allocator/part_allocator.c"
+#include "../../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/modifier/part_modifier.c"
 //
@@ -55,6 +57,7 @@
 //
 // #include "../../../../executor/selector/json/begin_value_json_selector.c"
 //
+#include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
 #include "../../../../logger/logger.c"
 
 //
@@ -65,7 +68,7 @@
 void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
- * Deserialises the json object.
+ * Deserialises the json array.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
@@ -74,30 +77,44 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
  * @param p4 the name data
  * @param p5 the name count
  */
-void deserialise_json_object(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_json_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise json object.");
-    fwprintf(stdout, L"Debug: Deserialise json object. count remaining p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Deserialise json object. count remaining *p3: %i\n", *((int*) p3));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise json array.");
+    fwprintf(stdout, L"Debug: Deserialise json array. count remaining p3: %i\n", p3);
+    fwprintf(stdout, L"Debug: Deserialise json array. count remaining *p3: %i\n", *((int*) p3));
 
-    // The object part.
+    // The array part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The object part model, properties item.
+    // The array part model, properties item.
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pp = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The index item.
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The index item data, count.
+    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ic = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The loop variable.
+    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     //
-    // Allocate object part.
+    // Allocate array part.
     //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     //
     allocate_part((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    //
+    // Allocate index item.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     //
-    // Fill object part.
+    // Fill array part.
     //
     // CAUTION! Do NOT forget to assign the format and type.
     //
@@ -105,7 +122,7 @@ void deserialise_json_object(void* p0, void* p1, void* p2, void* p3, void* p4, v
     modify_part(p, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) FORMAT_PART_STATE_CYBOI_NAME);
     modify_part(p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) TYPE_PART_STATE_CYBOI_NAME);
 
-    // Get object part model, properties.
+    // Get array part model, properties.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pp, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
@@ -132,28 +149,45 @@ void deserialise_json_object(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             break;
         }
-exit(0);
 
         //
-        // CAUTION! Set object flag to TRUE.
+        // CAUTION! Empty index item in each loop cycle,
+        // since the function "serialise_cybol_integer" appends
+        // the result string instead of overwriting it.
+        //
+        modify_item(i, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) EMPTY_MODIFY_LOGIC_CYBOI_FORMAT);
+        // Serialise loop variable to be used as array index.
+        serialise_cybol_integer(i, (void*) &j, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+        // Get index item data, count.
+        copy_array_forward((void*) &id, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &ic, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+        //
+        // CAUTION! Set object flag to FALSE.
         //
         // It is relevant only if the value to be detected is a STRING.
-        // The flag indicates that the string is to be taken as name
-        // of an object member name-value pair and NOT to be allocated
-        // as standalone value.
+        // The flag indicates that the string is to be allocated as
+        // standalone value and NOT to be taken as name of an
+        // object member name-value pair.
         //
-        //?? deserialise_json_value(pm, pp, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        select_json_value_begin(pm, pp, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &b);
+        //?? deserialise_json_value(pm, pp, p2, p3, id, ic, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        select_json_value_begin(pm, pp, p2, p3, id, ic, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &b);
+
+        // Increment loop variable.
+        j++;
     }
 
     //
-    // Append object part to destination.
+    // Append array part to destination.
     //
     // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
     // This is necessary in order to activate rubbish (garbage) collection.
     //
     modify_item(p0, (void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    // Deallocate index item.
+    deallocate_item((void*) &i, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
-/* OBJECT_JSON_DESERIALISER_SOURCE */
+/* ARRAY_JSON_DESERIALISER_SOURCE */
 #endif

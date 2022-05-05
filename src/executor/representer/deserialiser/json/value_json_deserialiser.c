@@ -44,10 +44,13 @@
  * @param p3 the source count remaining
  * @param p4 the member name data
  * @param p5 the member name count
+ * @param p6 the object flag (true if this is an object; false for array or otherwise the default)
  */
-void deserialise_json_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_json_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise json value.");
+    fwprintf(stdout, L"Debug: Deserialise json value. count remaining p3: %i\n", p3);
+    fwprintf(stdout, L"Debug: Deserialise json value. count remaining *p3: %i\n", *((int*) p3));
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -76,7 +79,7 @@ void deserialise_json_value(void* p0, void* p1, void* p2, void* p3, void* p4, vo
             break;
         }
 
-        select_json_value_begin(p0, p1, p2, p3, p4, p5, (void*) &b);
+        select_json_value_begin(p0, p1, p2, p3, p4, p5, p6, (void*) &b);
     }
 }
 
