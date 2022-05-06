@@ -60,6 +60,9 @@ void deserialise_json_string(void* p0, void* p1, void* p2, void* p3, void* p4, v
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise json string.");
     fwprintf(stdout, L"Debug: Deserialise json string. count remaining p3: %i\n", p3);
     fwprintf(stdout, L"Debug: Deserialise json string. count remaining *p3: %i\n", *((int*) p3));
+    fwprintf(stdout, L"Debug: Deserialise json string. data position *p2 ls: %ls\n", (wchar_t*) *((void**) p2));
+    fwprintf(stdout, L"Debug: Deserialise json string. data position *p2 lc: %lc\n", *((wchar_t*) *((void**) p2)));
+    fwprintf(stdout, L"Debug: Deserialise json string. data position *p2 lc as int: %i\n", *((wchar_t*) *((void**) p2)));
 
     // The string part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -120,10 +123,22 @@ void deserialise_json_string(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         select_json_string_end(p2, p3, (void*) &b);
 
+        fwprintf(stdout, L"Debug: Deserialise json string. END b: %i\n", b);
+
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            fwprintf(stdout, L"Debug: Deserialise json string. ec: %i\n", ec);
+            fwprintf(stdout, L"Debug: Deserialise json string. ed: %ls\n", (wchar_t*) ed);
+
             // Overwrite string part model.
-            modify_item(pm, ed, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &ec, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+            modify_item(pm, ed, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &ec, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+            void* testd = *NULL_POINTER_STATE_CYBOI_MODEL;
+            void* testc = *NULL_POINTER_STATE_CYBOI_MODEL;
+            copy_array_forward((void*) &testd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &testc, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+            fwprintf(stdout, L"Debug: Deserialise json string. testc: %i\n", *((int*) testc));
+            fwprintf(stdout, L"Debug: Deserialise json string. testd: %ls\n", (wchar_t*) testd);
 
             break;
 

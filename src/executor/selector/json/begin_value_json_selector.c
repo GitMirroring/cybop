@@ -66,7 +66,10 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select json value begin.");
     fwprintf(stdout, L"Debug: Select json value begin. count remaining p3: %i\n", p3);
     fwprintf(stdout, L"Debug: Select json value begin. count remaining *p3: %i\n", *((int*) p3));
-    fwprintf(stdout, L"Debug: Select json value begin. data position *p2: %ls\n", (wchar_t*) *((void**) p2));
+    fwprintf(stdout, L"Debug: Select json value begin. data position *p2: %i\n", *((void**) p2));
+    fwprintf(stdout, L"Debug: Select json value begin. data position *p2 ls: %ls\n", (wchar_t*) *((void**) p2));
+    fwprintf(stdout, L"Debug: Select json value begin. data position *p2 lc: %lc\n", *((wchar_t*) *((void**) p2)));
+    fwprintf(stdout, L"Debug: Select json value begin. data position *p2 lc as int: %i\n", *((wchar_t*) *((void**) p2)));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -105,28 +108,32 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         detect((void*) &r, p2, p3, (void*) SEPARATION_JSON_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SEPARATION_JSON_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //
-            // Increment the current position by one primitive count.
-            // The separation character thereby gets SKIPPED.
-            //
-            move(p2, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SEPARATION_JSON_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
+        //
+        // CAUTION! If the searched character sequence was found,
+        // then the function "detect" already MOVED the data position
+        // pointer and decremented the count remaining accordingly,
+        // at least if the last argument move flag is TRUE.
+        //
+        // Therefore, do NOT call function "move" here additionally
+        // since otherwise, some characters would be skipped and
+        // could not be processed later, which is not wanted.
+        //
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         detect((void*) &r, p2, p3, (void*) NAME_VALUE_SEPARATION_JSON_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NAME_VALUE_SEPARATION_JSON_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //
-            // Increment the current position by one primitive count.
-            // The separation character thereby gets SKIPPED.
-            //
-            move(p2, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NAME_VALUE_SEPARATION_JSON_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
+        //
+        // CAUTION! If the searched character sequence was found,
+        // then the function "detect" already MOVED the data position
+        // pointer and decremented the count remaining accordingly,
+        // at least if the last argument move flag is TRUE.
+        //
+        // Therefore, do NOT call function "move" here additionally
+        // since otherwise, some characters would be skipped and
+        // could not be processed later, which is not wanted.
+        //
     }
 
     //
@@ -153,44 +160,64 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         detect((void*) &r, p2, p3, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Increment the current position by one primitive count.
-            move(p2, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
+        //
+        // CAUTION! If the searched character sequence was found,
+        // then the function "detect" already MOVED the data position
+        // pointer and decremented the count remaining accordingly,
+        // at least if the last argument move flag is TRUE.
+        //
+        // Therefore, do NOT call function "move" here additionally
+        // since otherwise, some characters would be skipped and
+        // could not be processed later, which is not wanted.
+        //
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         detect((void*) &r, p2, p3, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Increment the current position by one primitive count.
-            move(p2, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
+        //
+        // CAUTION! If the searched character sequence was found,
+        // then the function "detect" already MOVED the data position
+        // pointer and decremented the count remaining accordingly,
+        // at least if the last argument move flag is TRUE.
+        //
+        // Therefore, do NOT call function "move" here additionally
+        // since otherwise, some characters would be skipped and
+        // could not be processed later, which is not wanted.
+        //
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         detect((void*) &r, p2, p3, (void*) CARRIAGE_RETURN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Increment the current position by one primitive count.
-            move(p2, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
+        //
+        // CAUTION! If the searched character sequence was found,
+        // then the function "detect" already MOVED the data position
+        // pointer and decremented the count remaining accordingly,
+        // at least if the last argument move flag is TRUE.
+        //
+        // Therefore, do NOT call function "move" here additionally
+        // since otherwise, some characters would be skipped and
+        // could not be processed later, which is not wanted.
+        //
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         detect((void*) &r, p2, p3, (void*) CHARACTER_TABULATION_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Increment the current position by one primitive count.
-            move(p2, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
+        //
+        // CAUTION! If the searched character sequence was found,
+        // then the function "detect" already MOVED the data position
+        // pointer and decremented the count remaining accordingly,
+        // at least if the last argument move flag is TRUE.
+        //
+        // Therefore, do NOT call function "move" here additionally
+        // since otherwise, some characters would be skipped and
+        // could not be processed later, which is not wanted.
+        //
     }
 
     //
@@ -548,8 +575,11 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select json value begin. The character is unknown and gets skipped.");
         fwprintf(stdout, L"Warning: Could not select json value begin. The character is unknown and gets skipped. count remaining p3: %i\n", p3);
         fwprintf(stdout, L"Warning: Could not select json value begin. The character is unknown and gets skipped. count remaining *p3: %i\n", *((int*) p3));
-        fwprintf(stdout, L"Warning: Could not select json value begin. The character is unknown and gets skipped. data position *p2: %ls\n", (wchar_t*) *((void**) p2));
+        fwprintf(stdout, L"Warning: Could not select json value begin. The character is unknown and gets skipped. data position *p2: %i\n", *((void**) p2));
+        fwprintf(stdout, L"Warning: Could not select json value begin. The character is unknown and gets skipped. data position *p2 ls: %ls\n", (wchar_t*) *((void**) p2));
+        fwprintf(stdout, L"Warning: Could not select json value begin. The character is unknown and gets skipped. data position *p2 lc: %lc\n", *((wchar_t*) *((void**) p2)));
         fwprintf(stdout, L"Warning: Could not select json value begin. The character is unknown and gets skipped. BEGIN_OBJECT_JSON_NAME: %ls\n", BEGIN_OBJECT_JSON_NAME);
+        fwprintf(stdout, L"Warning: Could not select json value begin. The character is unknown and gets skipped. BEGIN_OBJECT_JSON_NAME_COUNT: %i\n", *BEGIN_OBJECT_JSON_NAME_COUNT);
 
         // Increment the current position by one.
         move(p2, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);

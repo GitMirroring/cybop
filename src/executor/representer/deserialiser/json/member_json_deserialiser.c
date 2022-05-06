@@ -40,6 +40,13 @@
 //
 // #include "../../../executor/representer/deserialiser/json/value_json_deserialiser.c"
 //
+//
+// CAUTION! The file below is NOT included, in order to avoid circular
+// references leading to the warning "conflicting types" due to a previous
+// implicit declaration. Therefore, a forward declaration is used instead.
+//
+// #include "../../../../executor/selector/json/begin_value_json_selector.c"
+//
 #include "../../../../executor/selector/json/end_string_json_selector.c"
 #include "../../../../logger/logger.c"
 
@@ -48,6 +55,7 @@
 //
 
 void deserialise_json_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+//?? void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
  * Deserialises the json member.
@@ -100,16 +108,6 @@ void deserialise_json_member(void* p0, void* p1, void* p2, void* p3) {
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //
-            // CAUTION! Set object flag to FALSE.
-            //
-            // It is relevant only if the value to be detected is a STRING.
-            // The flag indicates that the string is to be allocated as
-            // standalone value and NOT to be taken as name of an
-            // object member name-value pair.
-            //
-            deserialise_json_value(p0, p1, p2, p3, ed, (void*) &ec, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
             break;
 
         } else {
@@ -118,6 +116,23 @@ void deserialise_json_member(void* p0, void* p1, void* p2, void* p3) {
             ec++;
         }
     }
+
+    //
+    // CAUTION! Set object flag to FALSE.
+    //
+    // It is relevant only if the value to be detected is a STRING.
+    // The flag indicates that the string is to be allocated as
+    // standalone value and NOT to be taken as name of an
+    // object member name-value pair.
+    //
+    // CAUTION! Do NOT call function "select_json_value_begin" directly,
+    // but function "deserialise_json_value" instead, since that contains
+    // a loop which is necessary for detecting and skipping unnecessary characters.
+    //
+    deserialise_json_value(p0, p1, p2, p3, ed, (void*) &ec, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    //?? select_json_value_begin(p0, p1, p2, p3, ed, (void*) &ec, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &b);
+
+    fwprintf(stdout, L"Debug: Deserialise json member. FINISHED member ec: %i\n", ec);
 }
 
 /* MEMBER_JSON_DESERIALISER_SOURCE */

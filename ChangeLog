@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-05-06  Christian Heller  <christian.heller@cybop.org>
+
+        * Fix some bugs in json deserialiser and selector
+
 2022-05-05  Christian Heller  <christian.heller@cybop.org>
 
         * Add comparisons for plus/minus sign, digits 0..9, hexadecimal digits A..F and a..f to file "begin_value_json_selector.c"

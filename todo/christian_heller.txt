@@ -14,10 +14,12 @@
 JSON
 ____
 
-        Testing:
-        * Why does { not get recognised ??
-        * Eliminate "exit(0);" in file "object_json_deserialiser.c"
-        * Eliminate log output of BEGIN_OBJECT_JSON_NAME at footer of file "begin_value_json_selector.c"
+        CAUTION! Check call of function "move" in ALL kinds of deserialisers!
+        It could be the reason for ansi escape sequences and others to sporadously NOT work correctly.
+        The reason is that the function "detect" already MOVES the pointer and decrements the remaining count,
+        so that calling "move" JUMPS over some characters, which is NOT wanted. Therefore, DELETE
+        call of function "move" in these cases!
+        See and copy comment in file "begin_value_json_selector.c"!
 
         * Handle special escaped string characters in file "string_json_deserialiser.c"
         * Continue json deserialiser and selector: number
