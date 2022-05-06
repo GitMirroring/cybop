@@ -1,7 +1,8 @@
 //
 // simplified json
 //
-// syntax needs only brackets, no other symbols
+// syntax needs only brackets, no other symbols,
+// i.e. no comma, curly brace, colon
 //
 
 [
