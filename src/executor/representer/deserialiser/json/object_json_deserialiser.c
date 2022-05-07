@@ -46,13 +46,6 @@
 // references leading to the warning "conflicting types" due to a previous
 // implicit declaration. Therefore, a forward declaration is used instead.
 //
-// #include "../../../executor/representer/deserialiser/json/value_json_deserialiser.c"
-//
-//
-// CAUTION! The file below is NOT included, in order to avoid circular
-// references leading to the warning "conflicting types" due to a previous
-// implicit declaration. Therefore, a forward declaration is used instead.
-//
 // #include "../../../../executor/selector/json/begin_value_json_selector.c"
 //
 #include "../../../../logger/logger.c"
@@ -61,7 +54,6 @@
 // Forward declarations
 //
 
-//?? void deserialise_json_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
@@ -143,7 +135,6 @@ void deserialise_json_object(void* p0, void* p1, void* p2, void* p3, void* p4, v
         // of an object member name-value pair and NOT to be allocated
         // as standalone value.
         //
-        //?? deserialise_json_value(pm, pp, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         select_json_value_begin(pm, pp, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &b);
     }
 

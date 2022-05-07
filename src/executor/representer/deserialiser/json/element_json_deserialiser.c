@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef MEMBER_JSON_DESERIALISER_SOURCE
-#define MEMBER_JSON_DESERIALISER_SOURCE
+#ifndef ELEMENT_JSON_DESERIALISER_SOURCE
+#define ELEMENT_JSON_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -50,18 +50,18 @@
 void deserialise_json_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 
 /**
- * Deserialises the json member.
+ * Deserialises the json array element.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
  * @param p2 the source data position (pointer reference)
  * @param p3 the source count remaining
  */
-void deserialise_json_member(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_json_element(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise json member.");
-    fwprintf(stdout, L"Debug: Deserialise json member. count remaining p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Deserialise json member. count remaining *p3: %i\n", *((int*) p3));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise json element.");
+    fwprintf(stdout, L"Debug: Deserialise json element. count remaining p3: %i\n", p3);
+    fwprintf(stdout, L"Debug: Deserialise json element. count remaining *p3: %i\n", *((int*) p3));
 
     // The element data, count.
     void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -104,7 +104,7 @@ void deserialise_json_member(void* p0, void* p1, void* p2, void* p3) {
 
         } else {
 
-            // Increment member count.
+            // Increment element count.
             ec++;
         }
     }
@@ -123,8 +123,8 @@ void deserialise_json_member(void* p0, void* p1, void* p2, void* p3) {
     //
     deserialise_json_value(p0, p1, p2, p3, ed, (void*) &ec, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    fwprintf(stdout, L"Debug: Deserialise json member. FINISHED member ec: %i\n", ec);
+    fwprintf(stdout, L"Debug: Deserialise json element. FINISHED element ec: %i\n", ec);
 }
 
-/* MEMBER_JSON_DESERIALISER_SOURCE */
+/* ELEMENT_JSON_DESERIALISER_SOURCE */
 #endif

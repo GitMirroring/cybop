@@ -48,13 +48,6 @@
 // references leading to the warning "conflicting types" due to a previous
 // implicit declaration. Therefore, a forward declaration is used instead.
 //
-// #include "../../../executor/representer/deserialiser/json/value_json_deserialiser.c"
-//
-//
-// CAUTION! The file below is NOT included, in order to avoid circular
-// references leading to the warning "conflicting types" due to a previous
-// implicit declaration. Therefore, a forward declaration is used instead.
-//
 // #include "../../../../executor/selector/json/begin_value_json_selector.c"
 //
 #include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"

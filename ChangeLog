@@ -21,6 +21,7 @@
 2022-05-06  Christian Heller  <christian.heller@cybop.org>
 
         * Fix some bugs in json deserialiser and selector
+        * Set break flag for each value in file "begin_value_json_selector.c"
 
 2022-05-05  Christian Heller  <christian.heller@cybop.org>
 

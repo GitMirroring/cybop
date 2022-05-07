@@ -21,8 +21,10 @@ ____
         call of function "move" in these cases!
         See and copy comment in file "begin_value_json_selector.c"!
 
-        * Handle special escaped string characters in file "string_json_deserialiser.c"
+        * Add file "element_json_deserialiser.c" to loop through array, similar to file "member_json_deserialiser.c" looping through object
+        * Add file "end_number_json_selector.c"
         * Continue json deserialiser and selector: number
+        * Handle special escaped string characters in file "string_json_deserialiser.c"
         * Provide cybol deserialiser for numbers in scientific notation (10 to the power of x), to be used in json deserialiser
         * Test real-world json files of directory "serialisation/json/examples/" using a cybol application
 
