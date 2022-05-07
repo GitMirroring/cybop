@@ -21,8 +21,8 @@ ____
         call of function "move" in these cases!
         See and copy comment in file "begin_value_json_selector.c"!
 
-        * Add file "element_json_deserialiser.c" to loop through array, similar to file "member_json_deserialiser.c" looping through object
-        * Add file "end_number_json_selector.c"
+        DONE: sample_1 and sample_2 work fine now
+        * Find out if file "element_json_deserialiser.c" is really necessary or should be deleted again
         * Continue json deserialiser and selector: number
         * Handle special escaped string characters in file "string_json_deserialiser.c"
         * Provide cybol deserialiser for numbers in scientific notation (10 to the power of x), to be used in json deserialiser

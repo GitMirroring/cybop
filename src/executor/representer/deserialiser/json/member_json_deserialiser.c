@@ -50,7 +50,7 @@
 void deserialise_json_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 
 /**
- * Deserialises the json member.
+ * Deserialises the json object member.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item

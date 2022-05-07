@@ -57,7 +57,6 @@
 // Forward declarations
 //
 
-//?? void deserialise_json_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
@@ -75,6 +74,8 @@ void deserialise_json_array(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise json array.");
     fwprintf(stdout, L"Debug: Deserialise json array. count remaining p3: %i\n", p3);
     fwprintf(stdout, L"Debug: Deserialise json array. count remaining *p3: %i\n", *((int*) p3));
+    fwprintf(stdout, L"Debug: Deserialise json array. data position *p2 lc: %lc\n", *((wchar_t*) *((void**) p2)));
+    fwprintf(stdout, L"Debug: Deserialise json array. data position *p2 lc as int: %i\n", *((wchar_t*) *((void**) p2)));
 
     // The array part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -163,12 +164,14 @@ void deserialise_json_array(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         // standalone value and NOT to be taken as name of an
         // object member name-value pair.
         //
-        //?? deserialise_json_value(pm, pp, p2, p3, id, ic, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
         select_json_value_begin(pm, pp, p2, p3, id, ic, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &b);
 
         // Increment loop variable.
         j++;
     }
+
+    // Deallocate index item.
+    deallocate_item((void*) &i, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     //
     // Append array part to destination.
@@ -177,9 +180,6 @@ void deserialise_json_array(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     // This is necessary in order to activate rubbish (garbage) collection.
     //
     modify_item(p0, (void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-
-    // Deallocate index item.
-    deallocate_item((void*) &i, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* ARRAY_JSON_DESERIALISER_SOURCE */

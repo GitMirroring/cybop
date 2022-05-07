@@ -35,7 +35,7 @@
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
 //?? #include "../../../../executor/representer/deserialiser/json/number_json_deserialiser.c"
-//?? #include "../../../../executor/selector/json/end_number_json_selector.c"
+#include "../../../../executor/selector/json/end_number_json_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -53,8 +53,10 @@ void deserialise_json_number(void* p0, void* p1, void* p2, void* p3, void* p4, v
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise json number.");
     fwprintf(stdout, L"Debug: Deserialise json number. count remaining p3: %i\n", p3);
     fwprintf(stdout, L"Debug: Deserialise json number. count remaining *p3: %i\n", *((int*) p3));
+    fwprintf(stdout, L"Debug: Deserialise json number. data position *p2 ls: %ls\n", (wchar_t*) *((void**) p2));
+    fwprintf(stdout, L"Debug: Deserialise json number. data position *p2 lc: %lc\n", *((wchar_t*) *((void**) p2)));
+    fwprintf(stdout, L"Debug: Deserialise json number. data position *p2 lc as int: %i\n", *((wchar_t*) *((void**) p2)));
 
-/*??
     // The number part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The number part model item.
@@ -71,7 +73,8 @@ void deserialise_json_number(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     //
-    allocate_part((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) TODO_STATE_CYBOI_TYPE);
+    allocate_part((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    //?? allocate_part((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FLOAT_NUMBER_STATE_CYBOI_TYPE);
 
     //
     // Fill number part.
@@ -79,8 +82,10 @@ void deserialise_json_number(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // CAUTION! Do NOT forget to assign the format and type.
     //
     modify_part(p, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p5, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) NAME_PART_STATE_CYBOI_NAME);
-    modify_part(p, (void*) TODO_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) FORMAT_PART_STATE_CYBOI_NAME);
-    modify_part(p, (void*) TODO_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    modify_part(p, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) FORMAT_PART_STATE_CYBOI_NAME);
+    //?? modify_part(p, (void*) FRACTION_DECIMAL_NUMBER_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) FORMAT_PART_STATE_CYBOI_NAME);
+    modify_part(p, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    //?? modify_part(p, (void*) FLOAT_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) TYPE_PART_STATE_CYBOI_NAME);
 
     // Get number part model.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -114,7 +119,12 @@ void deserialise_json_number(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         select_json_number_end(p2, p3, (void*) &b);
 
+        fwprintf(stdout, L"Debug: Deserialise json number. END b: %i\n", b);
+
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            fwprintf(stdout, L"Debug: Deserialise json number. ec: %i\n", ec);
+            fwprintf(stdout, L"Debug: Deserialise json number. ed: %ls\n", (wchar_t*) ed);
 
             //
             // Find out if this is an integer or a float.
@@ -123,9 +133,9 @@ void deserialise_json_number(void* p0, void* p1, void* p2, void* p3, void* p4, v
             //?? TODO: Call inside:
             //?? deserialise_cybol_fraction_decimal(p0, e, (void*) &ec);
             //?? deserialise_json_number();
-
-            // Overwrite number part model.
-            modify_item(pm, ed, (void*) TODO_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &ec, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+            // TEST only, remove later: Overwrite number part model.
+            int testd = 12345;
+            modify_item(pm, (void*) &testd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
             break;
 
@@ -143,7 +153,6 @@ void deserialise_json_number(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // This is necessary in order to activate rubbish (garbage) collection.
     //
     modify_item(p0, (void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-*/
 }
 
 /* NUMBER_JSON_DESERIALISER_SOURCE */
