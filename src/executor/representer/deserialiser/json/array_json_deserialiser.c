@@ -57,7 +57,7 @@
 // Forward declarations
 //
 
-void deserialise_json_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
+void deserialise_json_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 
 /**
  * Deserialises the json array.
@@ -161,7 +161,7 @@ void deserialise_json_array(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         // but function "deserialise_json_value" instead, since that contains
         // a loop which is necessary for detecting and skipping unnecessary characters.
         //
-        deserialise_json_value(pm, pp, p2, p3, id, ic);
+        deserialise_json_value(pm, pp, p2, p3, id, ic, (void*) &b);
 
         // Increment loop variable.
         j++;

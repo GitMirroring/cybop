@@ -47,7 +47,7 @@
 // Forward declarations
 //
 
-void deserialise_json_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
+void deserialise_json_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 
 /**
  * Deserialises the json object member.
@@ -114,7 +114,7 @@ void deserialise_json_member(void* p0, void* p1, void* p2, void* p3) {
     // but function "deserialise_json_value" instead, since that contains
     // a loop which is necessary for detecting and skipping unnecessary characters.
     //
-    deserialise_json_value(p0, p1, p2, p3, ed, (void*) &ec);
+    deserialise_json_value(p0, p1, p2, p3, ed, (void*) &ec, *NULL_POINTER_STATE_CYBOI_MODEL);
 }
 
 /* MEMBER_JSON_DESERIALISER_SOURCE */

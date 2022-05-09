@@ -23,18 +23,18 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef FLAG_JSON_DESERIALISER_SOURCE
-#define FLAG_JSON_DESERIALISER_SOURCE
+#ifndef TYPE_STRING_JSON_SELECTOR_SOURCE
+#define TYPE_STRING_JSON_SELECTOR_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../../executor/representer/deserialiser/json/member_json_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/json/string_json_deserialiser.c"
-#include "../../../../logger/logger.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../../executor/representer/deserialiser/json/member_json_deserialiser.c"
+#include "../../../executor/representer/deserialiser/json/string_json_deserialiser.c"
+#include "../../../logger/logger.c"
 
 /**
- * Deserialises a string depending on the given mode flag.
+ * Selects the object member or primitive string depending on the given flag.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
@@ -43,13 +43,13 @@
  * @param p4 the member name data
  * @param p5 the member name count
  * @param p6 the break flag
- * @param p7 the mode
+ * @param p7 the object flag (true if this is an object; false for array or otherwise the default)
  */
-void deserialise_json_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void select_json_string_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise json flag.");
-    fwprintf(stdout, L"Debug: Deserialise json flag. count remaining p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Deserialise json flag. count remaining *p3: %i\n", *((int*) p3));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select json string type.");
+    fwprintf(stdout, L"Debug: Select json string type. count remaining p3: %i\n", p3);
+    fwprintf(stdout, L"Debug: Select json string type. count remaining *p3: %i\n", *((int*) p3));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -81,5 +81,5 @@ void deserialise_json_flag(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     }
 }
 
-/* FLAG_JSON_DESERIALISER_SOURCE */
+/* TYPE_STRING_JSON_SELECTOR_SOURCE */
 #endif

@@ -14,6 +14,8 @@
 JSON
 ____
 
+        * Implement handling of array- and object end character
+        * Test json and xml deserialiser and compare results, e.g. with example file "glossary"
         * Continue json deserialiser and selector: number
         * Handle special escaped string characters in file "string_json_deserialiser.c"
         * Provide cybol deserialiser for numbers in scientific notation (10 to the power of x), to be used in json deserialiser

@@ -22,6 +22,7 @@
 
         * Make json arrays get parsed correctly
         * Clean up json deserialiser and selector
+        * Rename file "flag_json_deserialiser.c" into "type_string_json_selector.c"
 
 2022-05-08  Christian Heller  <christian.heller@cybop.org>
 

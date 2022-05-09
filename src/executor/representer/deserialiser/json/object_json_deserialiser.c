@@ -54,7 +54,7 @@
 // Forward declarations
 //
 
-void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
+void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
 
 /**
  * Deserialises the json object.
@@ -135,7 +135,7 @@ void deserialise_json_object(void* p0, void* p1, void* p2, void* p3, void* p4, v
         // of an object member name-value pair and NOT to be allocated
         // as standalone value.
         //
-        select_json_value_begin(pm, pp, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        select_json_value_begin(pm, pp, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &b, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
     //
