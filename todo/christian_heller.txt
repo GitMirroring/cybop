@@ -14,12 +14,11 @@
 JSON
 ____
 
-        * Eliminate file "mode_json_selector.c" again and call functions directly in object/array ??
-        * Find out if file "element_json_deserialiser.c" is really necessary or should be merged with value deserialiser
         * Continue json deserialiser and selector: number
         * Handle special escaped string characters in file "string_json_deserialiser.c"
         * Provide cybol deserialiser for numbers in scientific notation (10 to the power of x), to be used in json deserialiser
         * Test real-world json files of directory "serialisation/json/examples/" using a cybol application
+        * Comment out testing log messages in json deserialiser and selector
 
         CAUTION! Check call of function "move" in ALL kinds of deserialisers!
         It could be the reason for ansi escape sequences and others to sporadously NOT work correctly.

@@ -30,23 +30,10 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/json/mode_json_model.c"
 #include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
-//
-// CAUTION! The file below is NOT included, in order to avoid circular
-// references leading to the warning "conflicting types" due to a previous
-// implicit declaration. Therefore, a forward declaration is used instead.
-//
-// #include "../../../../executor/selector/json/mode_json_selector.c"
-//
+#include "../../../../executor/selector/json/begin_value_json_selector.c"
 #include "../../../../logger/logger.c"
-
-//
-// Forward declarations
-//
-
-void select_json_mode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
  * Deserialises the json value.
@@ -91,7 +78,15 @@ void deserialise_json_value(void* p0, void* p1, void* p2, void* p3, void* p4, vo
             break;
         }
 
-        select_json_mode(p0, p1, p2, p3, p4, p5, (void*) &b, (void*) VALUE_MODE_JSON_MODEL);
+        //
+        // CAUTION! Set object flag to FALSE.
+        //
+        // It is relevant only if the value to be detected is a STRING.
+        // The flag indicates that the string is to be allocated as
+        // standalone value and NOT to be taken as name of an
+        // object member name-value pair.
+        //
+        select_json_value_begin(p0, p1, p2, p3, p4, p5, (void*) &b, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 

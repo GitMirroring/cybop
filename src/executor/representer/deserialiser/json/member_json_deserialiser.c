@@ -115,8 +115,6 @@ void deserialise_json_member(void* p0, void* p1, void* p2, void* p3) {
     // a loop which is necessary for detecting and skipping unnecessary characters.
     //
     deserialise_json_value(p0, p1, p2, p3, ed, (void*) &ec);
-
-    fwprintf(stdout, L"Debug: Deserialise json member. FINISHED member ec: %i\n", ec);
 }
 
 /* MEMBER_JSON_DESERIALISER_SOURCE */

@@ -28,7 +28,6 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/json/mode_json_model.c"
 #include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/representer/deserialiser/json/member_json_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/json/string_json_deserialiser.c"
@@ -55,26 +54,13 @@ void deserialise_json_flag(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p7, (void*) OBJECT_MODE_JSON_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //
-            // This is an object member PAIR containing name and value.
-            //
-
-            deserialise_json_member(p0, p1, p2, p3);
-        }
-    }
+    compare_integer_unequal((void*) &r, p7, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
         // This is a SIMPLE string representing either of:
         // - simple array element
-        // - object member name
         // - object member value
         //
 
@@ -82,6 +68,16 @@ void deserialise_json_flag(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
         // Set break flag.
         copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    } else {
+
+        //
+        // This is an object member PAIR containing:
+        // - object member name
+        // - object member value
+        //
+
+        deserialise_json_member(p0, p1, p2, p3);
     }
 }
 

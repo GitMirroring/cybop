@@ -20,7 +20,8 @@
 
 2022-05-09  Christian Heller  <christian.heller@cybop.org>
 
-        * Make arrays get parsed correctly in json deserialiser and selector
+        * Make json arrays get parsed correctly
+        * Clean up json deserialiser and selector
 
 2022-05-08  Christian Heller  <christian.heller@cybop.org>
 

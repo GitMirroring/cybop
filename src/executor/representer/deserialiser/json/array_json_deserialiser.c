@@ -32,7 +32,6 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../../constant/model/json/mode_json_model.c"
 #include "../../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
@@ -44,21 +43,21 @@
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/modifier/part_modifier.c"
-#include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
 //
 // CAUTION! The file below is NOT included, in order to avoid circular
 // references leading to the warning "conflicting types" due to a previous
 // implicit declaration. Therefore, a forward declaration is used instead.
 //
-// #include "../../../../executor/selector/json/mode_json_selector.c"
+// #include "../../../../executor/representer/deserialiser/json/value_json_deserialiser.c"
 //
+#include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
 #include "../../../../logger/logger.c"
 
 //
 // Forward declarations
 //
 
-void select_json_mode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
+void deserialise_json_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
 
 /**
  * Deserialises the json array.
@@ -158,14 +157,11 @@ void deserialise_json_array(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         copy_array_forward((void*) &ic, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
         //
-        // CAUTION! Set object flag to FALSE.
+        // CAUTION! Do NOT call function "select_json_value_begin" directly,
+        // but function "deserialise_json_value" instead, since that contains
+        // a loop which is necessary for detecting and skipping unnecessary characters.
         //
-        // It is relevant only if the value to be detected is a STRING.
-        // The flag indicates that the string is to be allocated as
-        // standalone value and NOT to be taken as name of an
-        // object member name-value pair.
-        //
-        select_json_mode(pm, pp, p2, p3, id, ic, (void*) &b, (void*) ARRAY_MODE_JSON_MODEL);
+        deserialise_json_value(pm, pp, p2, p3, id, ic);
 
         // Increment loop variable.
         j++;
