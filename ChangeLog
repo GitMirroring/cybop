@@ -24,6 +24,7 @@
         * Clean up json deserialiser and selector
         * Rename file "flag_json_deserialiser.c" into "type_string_json_selector.c"
         * Implement handling of array- and object end character
+        * Add cybol example "serialisation/xml/examples/" for testing xml deserialiser
 
 2022-05-08  Christian Heller  <christian.heller@cybop.org>
 
