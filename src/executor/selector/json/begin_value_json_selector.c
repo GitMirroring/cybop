@@ -55,7 +55,7 @@
  * @param p4 the member name data
  * @param p5 the member name count
  * @param p6 the array or object end flag
- * @param p7 the break flag
+ * @param p7 the value end flag
  * @param p8 the object flag (true if this is an object; false for array or otherwise the default)
  */
 void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
@@ -81,8 +81,16 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Set break flag.
+            //
+            // CAUTION! Set BOTH flags here.
+            // One is for leaving the value deserialisation loop
+            // and the other one is for leaving the array or object loop.
+            //
+
+            // Set array or object end flag.
             copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            // Set value end flag.
+            copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -92,8 +100,16 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Set break flag.
+            //
+            // CAUTION! Set BOTH flags here.
+            // One is for leaving the value deserialisation loop
+            // and the other one is for leaving the array or object loop.
+            //
+
+            // Set array or object end flag.
             copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            // Set value end flag.
+            copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -229,7 +245,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_array(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -242,7 +258,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_object(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -283,7 +299,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
             //
             append_item_part(p0, p4, p5, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -296,7 +312,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             append_item_part(p0, p4, p5, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_FORMAT, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -309,7 +325,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             append_item_part(p0, p4, p5, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_FORMAT, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -335,7 +351,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_number(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -348,7 +364,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_number(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -361,7 +377,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_number(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -374,7 +390,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_number(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -387,7 +403,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_number(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -400,7 +416,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_number(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -413,7 +429,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_number(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -426,7 +442,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_number(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -439,7 +455,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_number(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -452,7 +468,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_number(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -465,7 +481,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_number(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -478,7 +494,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_number(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -492,7 +508,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_number(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -505,7 +521,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_number(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -518,7 +534,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_number(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -531,7 +547,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_number(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -544,7 +560,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_number(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -557,7 +573,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_number(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -570,7 +586,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_number(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -583,7 +599,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_number(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -596,7 +612,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_number(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -609,7 +625,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_number(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -622,7 +638,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_number(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -635,7 +651,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_number(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -648,7 +664,7 @@ void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             deserialise_json_number(p0, p1, p2, p3, p4, p5);
 
-            // Set break flag.
+            // Set value end flag.
             copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }

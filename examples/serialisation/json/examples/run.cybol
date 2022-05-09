@@ -12,7 +12,7 @@
     <!-- Deserialise data -->
 
 <!--
-        Possibly json files that can be used:
+        Possible json files that can be used:
         _____________________________________
 
         <node name="device" channel="inline" format="text/plain" model="serialisation/json/examples/basic/sample_1.json"/>
