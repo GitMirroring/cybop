@@ -14,19 +14,19 @@
 JSON
 ____
 
+        * Eliminate file "mode_json_selector.c" again and call functions directly in object/array ??
+        * Find out if file "element_json_deserialiser.c" is really necessary or should be merged with value deserialiser
+        * Continue json deserialiser and selector: number
+        * Handle special escaped string characters in file "string_json_deserialiser.c"
+        * Provide cybol deserialiser for numbers in scientific notation (10 to the power of x), to be used in json deserialiser
+        * Test real-world json files of directory "serialisation/json/examples/" using a cybol application
+
         CAUTION! Check call of function "move" in ALL kinds of deserialisers!
         It could be the reason for ansi escape sequences and others to sporadously NOT work correctly.
         The reason is that the function "detect" already MOVES the pointer and decrements the remaining count,
         so that calling "move" JUMPS over some characters, which is NOT wanted. Therefore, DELETE
         call of function "move" in these cases!
         See and copy comment in file "begin_value_json_selector.c"!
-
-        DONE: sample_1 and sample_2 work fine now
-        * Find out if file "element_json_deserialiser.c" is really necessary or should be deleted again
-        * Continue json deserialiser and selector: number
-        * Handle special escaped string characters in file "string_json_deserialiser.c"
-        * Provide cybol deserialiser for numbers in scientific notation (10 to the power of x), to be used in json deserialiser
-        * Test real-world json files of directory "serialisation/json/examples/" using a cybol application
 
         * Check all source code if format and type are assigned wherever calling function "allocate_part"
         * Assign default format and type in file "part_allocator.c" ??

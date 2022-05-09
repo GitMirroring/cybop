@@ -32,6 +32,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/model/json/mode_json_model.c"
 #include "../../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
@@ -43,21 +44,21 @@
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/modifier/part_modifier.c"
+#include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
 //
 // CAUTION! The file below is NOT included, in order to avoid circular
 // references leading to the warning "conflicting types" due to a previous
 // implicit declaration. Therefore, a forward declaration is used instead.
 //
-// #include "../../../../executor/selector/json/begin_value_json_selector.c"
+// #include "../../../../executor/selector/json/mode_json_selector.c"
 //
-#include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
 #include "../../../../logger/logger.c"
 
 //
 // Forward declarations
 //
 
-void select_json_value_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
+void select_json_mode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
  * Deserialises the json array.
@@ -164,7 +165,7 @@ void deserialise_json_array(void* p0, void* p1, void* p2, void* p3, void* p4, vo
         // standalone value and NOT to be taken as name of an
         // object member name-value pair.
         //
-        select_json_value_begin(pm, pp, p2, p3, id, ic, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &b);
+        select_json_mode(pm, pp, p2, p3, id, ic, (void*) &b, (void*) ARRAY_MODE_JSON_MODEL);
 
         // Increment loop variable.
         j++;

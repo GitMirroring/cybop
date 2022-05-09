@@ -33,21 +33,9 @@
 #include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
-//
-// CAUTION! The file below is NOT included, in order to avoid circular
-// references leading to the warning "conflicting types" due to a previous
-// implicit declaration. Therefore, a forward declaration is used instead.
-//
-// #include "../../../executor/representer/deserialiser/json/value_json_deserialiser.c"
-//
+#include "../../../../executor/representer/deserialiser/json/value_json_deserialiser.c"
 #include "../../../../executor/selector/json/end_string_json_selector.c"
 #include "../../../../logger/logger.c"
-
-//
-// Forward declarations
-//
-
-void deserialise_json_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 
 /**
  * Deserialises the json array element.
@@ -56,74 +44,21 @@ void deserialise_json_value(void* p0, void* p1, void* p2, void* p3, void* p4, vo
  * @param p1 the destination properties item
  * @param p2 the source data position (pointer reference)
  * @param p3 the source count remaining
+ * @param p4 the member name data
+ * @param p5 the member name count
  */
-void deserialise_json_element(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_json_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise json element.");
     fwprintf(stdout, L"Debug: Deserialise json element. count remaining p3: %i\n", p3);
     fwprintf(stdout, L"Debug: Deserialise json element. count remaining *p3: %i\n", *((int*) p3));
 
-    // The element data, count.
-    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The break flag.
-    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    // Initialise element.
-    copy_pointer((void*) &ed, p2);
-
-    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        //
-        // CAUTION! If the loop count handed over as parametre is NULL,
-        // then the break flag will NEVER be set to true, because the loop
-        // variable comparison does (correctly) not consider null values.
-        // Therefore, in this case, the break flag is set to true already here.
-        //
-        // Initialising the break flag with true will NOT work either, since it:
-        // a) will be left untouched if a comparison operand is null;
-        // b) would have to be reset to true in each loop cycle.
-        //
-        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    }
-
-    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_less_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            break;
-        }
-
-        select_json_string_end(p2, p3, (void*) &b);
-
-        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            break;
-
-        } else {
-
-            // Increment element count.
-            ec++;
-        }
-    }
-
-    //
-    // CAUTION! Set object flag to FALSE.
-    //
-    // It is relevant only if the value to be detected is a STRING.
-    // The flag indicates that the string is to be allocated as
-    // standalone value and NOT to be taken as name of an
-    // object member name-value pair.
     //
     // CAUTION! Do NOT call function "select_json_value_begin" directly,
     // but function "deserialise_json_value" instead, since that contains
     // a loop which is necessary for detecting and skipping unnecessary characters.
     //
-    deserialise_json_value(p0, p1, p2, p3, ed, (void*) &ec, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-    fwprintf(stdout, L"Debug: Deserialise json element. FINISHED element ec: %i\n", ec);
+    deserialise_json_value(p0, p1, p2, p3, p4, p5);
 }
 
 /* ELEMENT_JSON_DESERIALISER_SOURCE */

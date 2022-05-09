@@ -47,7 +47,7 @@
 // Forward declarations
 //
 
-void deserialise_json_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void deserialise_json_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
 
 /**
  * Deserialises the json object member.
@@ -110,18 +110,11 @@ void deserialise_json_member(void* p0, void* p1, void* p2, void* p3) {
     }
 
     //
-    // CAUTION! Set object flag to FALSE.
-    //
-    // It is relevant only if the value to be detected is a STRING.
-    // The flag indicates that the string is to be allocated as
-    // standalone value and NOT to be taken as name of an
-    // object member name-value pair.
-    //
     // CAUTION! Do NOT call function "select_json_value_begin" directly,
     // but function "deserialise_json_value" instead, since that contains
     // a loop which is necessary for detecting and skipping unnecessary characters.
     //
-    deserialise_json_value(p0, p1, p2, p3, ed, (void*) &ec, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    deserialise_json_value(p0, p1, p2, p3, ed, (void*) &ec);
 
     fwprintf(stdout, L"Debug: Deserialise json member. FINISHED member ec: %i\n", ec);
 }

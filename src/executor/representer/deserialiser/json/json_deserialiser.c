@@ -33,7 +33,7 @@
 #include "../../../../constant/name/cyboi/json/json_cyboi_name.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
-#include "../../../../executor/representer/deserialiser/json/value_json_deserialiser.c"
+#include "../../../../executor/selector/json/mode_json_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -69,7 +69,7 @@ void deserialise_json(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
     //
-    deserialise_json_value(p0, p1, (void*) &d, (void*) &c, (void*) ROOT_JSON_CYBOI_NAME, (void*) ROOT_JSON_CYBOI_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    deserialise_json_element(p0, p1, (void*) &d, (void*) &c, (void*) ROOT_JSON_CYBOI_NAME, (void*) ROOT_JSON_CYBOI_NAME_COUNT);
 }
 
 /* JSON_DESERIALISER_SOURCE */

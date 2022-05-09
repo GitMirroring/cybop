@@ -28,13 +28,14 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../executor/comparator/integer/unequal_integer_comparator.c"
+#include "../../../../constant/model/json/mode_json_model.c"
+#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/representer/deserialiser/json/member_json_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/json/string_json_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Evaluates the object flag.
+ * Deserialises a string depending on the given mode flag.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
@@ -42,8 +43,8 @@
  * @param p3 the source count remaining
  * @param p4 the member name data
  * @param p5 the member name count
- * @param p6 the object flag (true if this is an object; false for array or otherwise the default)
- * @param p7 the break flag
+ * @param p6 the break flag
+ * @param p7 the mode
  */
 void deserialise_json_flag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
@@ -54,8 +55,19 @@ void deserialise_json_flag(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Compare object flag.
-    compare_integer_unequal((void*) &r, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) OBJECT_MODE_JSON_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // This is an object member PAIR containing name and value.
+            //
+
+            deserialise_json_member(p0, p1, p2, p3);
+        }
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -69,15 +81,7 @@ void deserialise_json_flag(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         deserialise_json_string(p0, p1, p2, p3, p4, p5);
 
         // Set break flag.
-        copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-    } else {
-
-        //
-        // This is an object member PAIR containing name and value.
-        //
-
-        deserialise_json_member(p0, p1, p2, p3);
+        copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 

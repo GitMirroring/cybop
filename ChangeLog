@@ -18,6 +18,14 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-05-09  Christian Heller  <christian.heller@cybop.org>
+
+        * Make arrays get parsed correctly in json deserialiser and selector
+
+2022-05-08  Christian Heller  <christian.heller@cybop.org>
+
+        * Add file "mode_json_model.c" with deserialiser (parser) mode constants
+
 2022-05-07  Christian Heller  <christian.heller@cybop.org>
 
         * Add file "element_json_deserialiser.c" to loop through array, similar to file "member_json_deserialiser.c" which is looping through an object
