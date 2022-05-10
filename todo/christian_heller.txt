@@ -14,7 +14,9 @@
 JSON
 ____
 
-        * Adapt xml deserialiser so that non-compound nodes get allocated as string by default
+        * Optimise xml deserialiser file names
+        * Adapt includes
+        * Name local loop data variable "data" and "count"
 
         * Test json and xml deserialiser and compare results, e.g. with example file "glossary"
         * Continue json deserialiser and selector: number

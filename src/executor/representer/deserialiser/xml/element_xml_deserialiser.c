@@ -32,6 +32,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/modifier/part_modifier.c"
 #include "../../../../executor/representer/deserialiser/xml/attribute_xml_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/xml/compound_xml_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xml/tag_name_xml_deserialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -39,7 +40,7 @@
 // Forward declarations
 //
 
-void deserialise_xml_element_content(void* p0, void* p1, void* p2, void* p3);
+void deserialise_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4);
 
 /**
  * Deserialises the xml element.
@@ -51,9 +52,13 @@ void deserialise_xml_element_content(void* p0, void* p1, void* p2, void* p3);
 void deserialise_xml_element(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xml element.");
+    //?? fwprintf(stdout, L"Debug: Deserialise xml element. p2: %i\n", p2);
 
     // The compound flag.
     int c = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The part format, type.
+    int f = *PLAIN_TEXT_STATE_CYBOI_FORMAT;
+    int t = *WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE;
     // The part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The part name, model, properties item.
@@ -68,7 +73,29 @@ void deserialise_xml_element(void* p0, void* p1, void* p2) {
     int ie = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Check if this is going to be a compound node.
-    //?? deserialise_xml_compound(pn, (void*) &ha, (void*) &hc, (void*) &ie, p1, p2);
+    deserialise_xml_compound((void*) &c, p1, p2);
+
+    //?? fwprintf(stdout, L"Debug: Deserialise xml element. c: %i\n", c);
+
+    if (c != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        //
+        // CAUTION! The default format is "text/plain".
+        // However, if an xml element contains child elements,
+        // then the compound type "element/part" is used.
+        //
+        // Using the string type by default is IMPORTANT
+        // in order to avoid data loss. If all allocated parts
+        // were compound parts, then deserialised text
+        // situated in between opening and closing xml tag
+        // like for example in: <test>Some text</test>
+        // could NOT be stored, since a compound part
+        // can only store POINTERS to child elements.
+        //
+
+        f = *PART_ELEMENT_STATE_CYBOI_FORMAT;
+        t = *PART_ELEMENT_STATE_CYBOI_TYPE;
+    }
 
     //
     // Allocate part.
@@ -76,17 +103,11 @@ void deserialise_xml_element(void* p0, void* p1, void* p2) {
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     //
-    allocate_part((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    allocate_part((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) &t);
 
-    //
     // Initialise part.
-    //
-    // CAUTION! All xml elements are of the type "part".
-    // If an xml element is empty, the compound part
-    // will just not contain any child parts.
-    //
-    modify_part(p, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) FORMAT_PART_STATE_CYBOI_NAME);
-    modify_part(p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    modify_part(p, (void*) &f, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) FORMAT_PART_STATE_CYBOI_NAME);
+    modify_part(p, (void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) TYPE_PART_STATE_CYBOI_NAME);
     //
     // Get part name, model, properties item.
     //
@@ -113,7 +134,7 @@ void deserialise_xml_element(void* p0, void* p1, void* p2) {
     if (hc != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Deserialise the element's content.
-        deserialise_xml_element_content(pm, pp, p1, p2);
+        deserialise_xml_element_content(pm, pp, p1, p2, (void*) &t);
     }
 
     //

@@ -23,50 +23,60 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef XML_DESERIALISER_SOURCE
-#define XML_DESERIALISER_SOURCE
+#ifndef COMPOUND_XML_DESERIALISER_SOURCE
+#define COMPOUND_XML_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
-#include "../../../../executor/representer/deserialiser/xml/element_content_xml_deserialiser.c"
+#include "../../../../executor/selector/xml/compound_xml_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the xml wide character data into a model and properties.
+ * Check if this is going to be a compound node.
  *
- * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the source data
- * @param p3 the source count
+ * @param p0 the compound flag
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
  */
-void deserialise_xml(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_xml_compound(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xml.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xml compound.");
+    //?? fwprintf(stdout, L"Debug: Deserialise xml compound. p0: %i\n", p0);
 
-    // The source data position.
+    // The source data position COPY.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The source count remaining.
+    // The source count remaining COPY.
     int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Copy source data position.
-    copy_pointer((void*) &d, (void*) &p2);
+    copy_pointer((void*) &d, p1);
     // Copy source count remaining.
-    copy_integer((void*) &c, p3);
+    copy_integer((void*) &c, p2);
 
     //
-    // CAUTION! A copy of source count remaining is forwarded here,
-    // so that the original source value does not get changed.
+    // Checking the loop count for null is NOT necessary here,
+    // since it is NOT a pointer but a local integer variable.
     //
-    // CAUTION! The source data position does NOT have to be copied,
-    // since the parametre that was handed over is already a copy.
-    // A local copy was made anyway, not to risk parametre falsification.
-    // Its reference is forwarded, as it gets incremented by sub routines inside.
-    //
-    deserialise_xml_element_content(p0, p1, (void*) &d, (void*) &c, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_less_or_equal((void*) &b, (void*) &c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            break;
+        }
+
+        select_xml_compound(p0, (void*) &d, (void*) &c, (void*) &b);
+    }
 }
 
-/* XML_DESERIALISER_SOURCE */
+/* COMPOUND_XML_DESERIALISER_SOURCE */
 #endif
