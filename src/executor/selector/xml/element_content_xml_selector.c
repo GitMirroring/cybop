@@ -94,8 +94,10 @@ void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4
 
             deserialise_xml_end_tag(p3, p4);
 
+            //
             // Set break flag, because this xml element's end tag
             // has been reached and its content fully been decoded.
+            //
             copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -146,8 +148,10 @@ void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // None of the comparisons above delivered a positive (r != 0) result.
         // Therefore, increment the current position by one (pointer size).
+        //
 
         move(p3, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }

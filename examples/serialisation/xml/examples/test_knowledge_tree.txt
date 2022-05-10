@@ -1,2 +1,34 @@
 [selected_node] | element/part | 
-+-root | number/integer | 12345
++-node | element/part | 
+| +-node | element/part | 
+| | :- | text/plain | title
+| +-node | element/part | 
+| | +-node | element/part | 
+| | | :- | text/plain | title
+| | +-node | element/part | 
+| | | +-node | element/part | 
+| | | | +-node | element/part | 
+| | | | | :- | text/plain | GlossTerm
+| | | | +-node | element/part | 
+| | | | | :- | text/plain | Acronym
+| | | | +-node | element/part | 
+| | | | | :- | text/plain | Abbrev
+| | | | +-node | element/part | 
+| | | | | +-node | element/part | 
+| | | | | | :- | text/plain | para
+| | | | | +-node | element/part | 
+| | | | | | :- | text/plain | GlossSeeAlso
+| | | | | | :-OtherTerm | text/plain | GML
+| | | | | +-node | element/part | 
+| | | | | | :- | text/plain | GlossSeeAlso
+| | | | | | :-OtherTerm | text/plain | XML
+| | | | | :- | text/plain | GlossDef
+| | | | +-node | element/part | 
+| | | | | :- | text/plain | GlossSee
+| | | | | :-OtherTerm | text/plain | markup
+| | | | :- | text/plain | GlossEntry
+| | | | :-ID | text/plain | SGML
+| | | | :-SortAs | text/plain | SGML
+| | | :- | text/plain | GlossList
+| | :- | text/plain | GlossDiv
+| :- | text/plain | glossary
