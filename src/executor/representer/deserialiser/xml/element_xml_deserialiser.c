@@ -52,12 +52,23 @@ void deserialise_xml_element(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xml element.");
 
+    // The compound flag.
+    int c = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The part name, model, properties item.
     void* pn = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pp = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The has attribute flag.
+    int ha = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The has content flag.
+    int hc = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The is empty flag.
+    int ie = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    // Check if this is going to be a compound node.
+    //?? deserialise_xml_compound(pn, (void*) &ha, (void*) &hc, (void*) &ie, p1, p2);
 
     //
     // Allocate part.
@@ -68,11 +79,7 @@ void deserialise_xml_element(void* p0, void* p1, void* p2) {
     allocate_part((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
     //
-    // Fill part.
-    //
-    // CAUTION! The pre-defined constant "part" is used as name here!
-    //
-    //?? modify_part(p, (void*) NODE_XML_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NODE_XML_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) NAME_PART_STATE_CYBOI_NAME);
+    // Initialise part.
     //
     // CAUTION! All xml elements are of the type "part".
     // If an xml element is empty, the compound part
@@ -91,15 +98,7 @@ void deserialise_xml_element(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pp, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
-    // The has attribute flag.
-    int ha = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The has content flag.
-    int hc = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The is empty flag.
-    int ie = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
     // Deserialise tag name into part name item.
-    //?? deserialise_xml_tag_name(pp, (void*) &ha, (void*) &hc, (void*) &ie, p1, p2);
     deserialise_xml_tag_name(pn, (void*) &ha, (void*) &hc, (void*) &ie, p1, p2);
 
     if (ha != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -122,9 +121,6 @@ void deserialise_xml_element(void* p0, void* p1, void* p2) {
     //
     // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
     // This is necessary in order to activate rubbish (garbage) collection.
-    //
-    // CAUTION! Storing many parts with identical tag name is not a problem,
-    // since the tag name of a part is added to its properties.
     //
     modify_item(p0, (void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 }

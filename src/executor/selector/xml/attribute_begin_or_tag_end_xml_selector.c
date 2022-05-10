@@ -33,7 +33,6 @@
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/mover/mover.c"
 #include "../../../logger/logger.c"
-#include "../../../variable/type_size/integral_type_size.c"
 
 /**
  * Selects the attribute begin or tag end.
@@ -50,18 +49,8 @@ void select_xml_attribute_begin_or_tag_end(void* p0, void* p1, void* p2, void* p
 
     //
     // CAUTION! The ORDER of the following function calls is IMPORTANT!
-    // The empty tag end "/>" has to be searched BEFORE
-    // the simple tag end ">", because of the slash "/" character.
-    //
-    // CAUTION! The comparison result HAS TO BE ZERO, if a detection is to be taking place!
-    // Many "detect" functions are called in a sequence, below.
-    // If the result of one detection function was positive (r == 1),
-    // then that function increments the current position and decrements the remaining count.
-    // In this case, further detection functions following afterwards might detect
-    // further characters and CHANGE the current position and remaining count, and so forth,
-    // which would have the effect of "jumping" over some characters and produce WRONG RESULTS!
-    // Therefore, the checks for (r == 0) below avoid another detection,
-    // if the result already has a value unequal zero.
+    // The empty tag end "/>" and empty tag space end " />" have to be searched
+    // BEFORE the simple tag end ">", because of the slash "/" character.
     //
 
     // The comparison result.
@@ -69,12 +58,28 @@ void select_xml_attribute_begin_or_tag_end(void* p0, void* p1, void* p2, void* p
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        detect((void*) &r, p3, p4, (void*) EMPTY_TAG_SPACE_END_XML_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) EMPTY_TAG_SPACE_END_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // The empty tag space end was found.
+            // Set is empty flag.
+            //
+            copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         detect((void*) &r, p3, p4, (void*) EMPTY_TAG_END_XML_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) EMPTY_TAG_END_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // The empty tag end was found.
             // Set is empty flag.
+            //
             copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -85,8 +90,10 @@ void select_xml_attribute_begin_or_tag_end(void* p0, void* p1, void* p2, void* p
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // The tag end, indicating subsequent element content, was found.
             // Set has content flag.
+            //
             copy_integer(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
@@ -97,8 +104,10 @@ void select_xml_attribute_begin_or_tag_end(void* p0, void* p1, void* p2, void* p
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // The tag name end, indicating subsequent attributes, was found.
             // Set has attribute flag.
+            //
             copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }

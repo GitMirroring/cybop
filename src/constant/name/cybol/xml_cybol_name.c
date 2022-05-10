@@ -26,83 +26,13 @@
 #ifndef XML_CYBOL_NAME_CONSTANT_SOURCE
 #define XML_CYBOL_NAME_CONSTANT_SOURCE
 
-#include <stddef.h>
+#include <stddef.h> // wchar_t
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The node xml cybol name. */
 static wchar_t* NODE_XML_CYBOL_NAME = L"node";
 static int* NODE_XML_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The node name xml cybol name.
- *
- * CAUTION! The node name is intentionally left empty.
- * The cyboi xml parser adds the xml tag name and xml attribute names
- * to a node's properties, all on the same level.
- * But because xml attributes may have arbitrary names,
- * an ambiguous situation could be caused when fixing a node's name.
- *
- * Example:
- *
- * <catalogue>
- *     <article number="01234">
- *         <colour name="red" value="255,0,0" model="rgb"/>
- *         <size width="10" length="5" height="2"/>
- *     </article>
- * </catalogue>
- *
- * The "colour" tag has an attribute "name" with the value "red".
- * After having parsed the xml file, the resulting cyboi model might look as follows:
- *
- *  | compound
- * +-node_$0 | compound
- * | +-node_$0 | compound
- * | | +-node_$0 | compound
- * | | | #-name | wide_character_vector | colour
- * | | | #-name | wide_character_vector | red
- * | | | #-value | wide_character_vector | 255,0,0
- * | | | #-model | wide_character_vector | rgb
- * | | +-node_$1 | compound
- * | | | #-name | wide_character_vector | size
- * | | | #-width | wide_character_vector | 10
- * | | | #-length | wide_character_vector | 5
- * | | | #-height | wide_character_vector | 2
- * | | #-name | wide_character_vector | article
- * | | #-number | wide_character_vector | 01234
- * | #-name | wide_character_vector | catalogue
- *
- * One of the nodes has two sub nodes (for the tag name and attribute name)
- * with identical name:
- *
- * | | | #-name | wide_character_vector | colour
- * | | | #-name | wide_character_vector | red
- *
- * In order to avoid an ambiguous situation of this kind,
- * the node name representing the tag name does NOT receive ANY name.
- * In other words, it is just left EMPTY.
- * For the example above, this would result in the following cyboi model:
- *
- *  | compound
- * +-node_$0 | compound
- * | +-node_$0 | compound
- * | | +-node_$0 | compound
- * | | | #- | wide_character_vector | colour
- * | | | #-name | wide_character_vector | red
- * | | | #-value | wide_character_vector | 255,0,0
- * | | | #-model | wide_character_vector | rgb
- * | | +-node_$1 | compound
- * | | | #- | wide_character_vector | size
- * | | | #-width | wide_character_vector | 10
- * | | | #-length | wide_character_vector | 5
- * | | | #-height | wide_character_vector | 2
- * | | #- | wide_character_vector | article
- * | | #-number | wide_character_vector | 01234
- * | #- | wide_character_vector | catalogue
- */
-
-static wchar_t* NODE_NAME_XML_CYBOL_NAME = L"";
-static int* NODE_NAME_XML_CYBOL_NAME_COUNT = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* XML_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

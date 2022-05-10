@@ -14,7 +14,7 @@
 JSON
 ____
 
-        * Adapt xml deserialiser so that empty nodes get allocated as string (and not compound) part
+        * Adapt xml deserialiser so that non-compound nodes get allocated as string by default
 
         * Test json and xml deserialiser and compare results, e.g. with example file "glossary"
         * Continue json deserialiser and selector: number
