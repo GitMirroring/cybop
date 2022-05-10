@@ -69,7 +69,9 @@
  */
 void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise.");
+    //?? fwprintf(stdout, L"Debug: Deserialise. language p16: %i\n", p16);
+    //?? fwprintf(stdout, L"Debug: Deserialise. language *p16: %i\n", *((int*) p16));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -85,6 +87,16 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             deserialise_json(p0, p1, p2, p3, p15);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p16, (void*) XML_APPLICATION_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_xml(p0, p1, p2, p3);
         }
     }
 
@@ -177,49 +189,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // The temporary model, properties item.
-            void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
-            void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The temporary model, properties item data, count.
-            void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
-            void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
-            void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
-            void* pc = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-            //
-            // Allocate temporary model, properties item.
-            //
-            // CAUTION! Due to memory allocation handling, the size MUST NOT
-            // be negative or zero, but have at least a value of ONE.
-            //
-            // CAUTION! Initialise integer items with a size of ONE,
-            // in order to avoid later reallocation when overwriting
-            // the element and to thus increase efficiency.
-            //
-            allocate_item((void*) &m, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-            allocate_item((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-
-            // Decode source message into temporary model, properties item.
-            deserialise_xml(m, p, p2, p3);
-
-            //
-            // Get temporary model, properties item data, count.
-            //
-            // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-            // Inside the structure, arrays may have been reallocated,
-            // with elements pointing to different memory areas now.
-            //
-            copy_array_forward((void*) &md, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &mc, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-            // Decode temporary model, properties item into cyboi model.
-            deserialise_cybol_content(p0, md, mc, pd, pc);
-
-            // Deallocate temporary model, properties item.
-            deallocate_item((void*) &m, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-            deallocate_item((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+            //?? TODO: Only needed if cyboi is to act as http client, e.g. webbrowser.
         }
     }
 
@@ -310,6 +280,8 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise. The language is unknown or null.");
+        fwprintf(stdout, L"Warning: Could not deserialise. The language is unknown or null. language p16: %i\n", p16);
+        fwprintf(stdout, L"Warning: Could not deserialise. The language is unknown or null. language *p16: %i\n", *((int*) p16));
     }
 }
 

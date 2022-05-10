@@ -57,25 +57,32 @@ void serialise_xml_part_element_filled_primitive(void* p0, void* p1, void* p2, v
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xml part element filled primitive.");
 
+    //
     // This is a primitive value, NOT a compound element.
     // Example:
     // <p>
     //     some text
     // </p>
+    //
 
+    //
     // CAUTION! If this is NOT a preformatted element,
     // then the preformatted property may NOT be given
     // so that the corresponding flag is NULL.
     // Or, the flag IS given, but was set to FALSE.
+    //
     if ((p7 == *NULL_POINTER_STATE_CYBOI_MODEL) || ((p7 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p7) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
+        //
         // This is a primitive value, NOT a compound element.
         // Further, this is NOT a preformatted element.
         // Example:
         // <p>
         //     some text
         // </p>
+        //
 
+        //
         // CAUTION! The content of compound parts gets
         // indented inside the called function stack:
         // - serialise_xml
@@ -89,12 +96,15 @@ void serialise_xml_part_element_filled_primitive(void* p0, void* p1, void* p2, v
         // But for preformatted elements an indentation is NOT wanted,
         // since it represents a block of text in which structure is
         // represented by typographic conventions rather than by elements.
+        //
 
         // Serialise indentation.
         serialise_xml_indentation(p0, p3, p4);
     }
 
+    //
     // Append part model.
+    //
 
     // The numeric character reference item.
     void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -102,37 +112,49 @@ void serialise_xml_part_element_filled_primitive(void* p0, void* p1, void* p2, v
     void* rd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* rc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
     // Allocate numeric character reference item.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     // CAUTION! Use the source count as initial size, since
     // the destination will have at least the same, if not
     // a greater size if numeric character references are inserted.
+    //
     allocate_item((void*) &r, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Serialise primitive value, e.g. a date, number or arbitrary text.
     serialise_xml(r, p1, p2, p3, p4, p5, p6);
 
+    //
     // Get numeric character reference item data, count.
+    //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
+    //
     copy_array_forward((void*) &rd, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &rc, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+    //
     // Replace reserved characters/ predefined entities with
     // their corresponding numeric character reference.
-    serialise_character_reference(p0, rd, rc, (void*) XML_TEXT_STATE_CYBOI_LANGUAGE);
+    //
+    serialise_character_reference(p0, rd, rc, (void*) XML_APPLICATION_STATE_CYBOI_LANGUAGE);
 
     // Deallocate numeric character reference item.
     deallocate_item((void*) &r, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
+    //
     // This is a primitive value, NOT a compound element.
     // Example:
     // <p>
     //     some text
     // </p>
+    //
 
+    //
     // CAUTION! The content of compound parts gets
     // added a line break inside the called function stack:
     // - serialise_xml
@@ -142,6 +164,7 @@ void serialise_xml_part_element_filled_primitive(void* p0, void* p1, void* p2, v
     //
     // However, this is NOT the case for primitive values like a text or number.
     // Therefore, those have to get added a line break right here.
+    //
 
     // Serialise line break.
     serialise_xml_break(p0, p3);

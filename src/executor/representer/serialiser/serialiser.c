@@ -80,7 +80,6 @@
 //
 // Therefore, the "xml_serialiser.c" module is included here.
 //
-//
 // CAUTION! The xml serialiser is used e.g. in the cybol serialiser.
 // Therefore, do NOT delete this include, even if the xml serialiser
 // is possibly not called directly below.

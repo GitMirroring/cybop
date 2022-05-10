@@ -21,6 +21,8 @@ ____
         * Test real-world json files of directory "serialisation/json/examples/" using a cybol application
         * Comment out testing log messages in json deserialiser and selector
 
+        * Make cybol api generator work again
+
         CAUTION! Check call of function "move" in ALL kinds of deserialisers!
         It could be the reason for ansi escape sequences and others to sporadously NOT work correctly.
         The reason is that the function "detect" already MOVES the pointer and decrements the remaining count,

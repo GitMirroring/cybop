@@ -26,10 +26,10 @@
 #ifndef CHARACTER_CHARACTER_REFERENCE_SERIALISER_SOURCE
 #define CHARACTER_CHARACTER_REFERENCE_SERIALISER_SOURCE
 
+#include "../../../../constant/language/cyboi/state_cyboi_language.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/representer/serialiser/character_reference/html_character_reference_serialiser.c"
 #include "../../../../executor/representer/serialiser/character_reference/xml_character_reference_serialiser.c"
 #include "../../../../logger/logger.c"
@@ -70,7 +70,7 @@ void serialise_character_reference_character(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) XML_TEXT_STATE_CYBOI_LANGUAGE);
+        compare_integer_equal((void*) &r, p2, (void*) XML_APPLICATION_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

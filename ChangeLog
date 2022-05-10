@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-05-10  Christian Heller  <christian.heller@cybop.org>
+
+        * Add "application/xml" mime type and cyboi language to constants and cybol de-/serialiser
+
 2022-05-09  Christian Heller  <christian.heller@cybop.org>
 
         * Make json arrays get parsed correctly

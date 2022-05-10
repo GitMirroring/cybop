@@ -51,6 +51,9 @@ static int* JSON_APPLICATION_STATE_CYBOI_LANGUAGE = NUMBER_0_INTEGER_STATE_CYBOI
 /** The pdf application state cyboi format. */
 //?? static int* PDF_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The xml application state cyboi language. */
+static int* XML_APPLICATION_STATE_CYBOI_LANGUAGE = NUMBER_413_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The zip application state cyboi format. */
 //?? static int* ZIP_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
@@ -275,9 +278,6 @@ static int* URI_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_411_INTEGER_STATE_CYBOI_MODEL
 
 /** The xdt-field-description text state cyboi language. */
 static int* XDT_FIELD_DESCRIPTION_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_412_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The xml text state cyboi language. */
-static int* XML_TEXT_STATE_CYBOI_LANGUAGE = NUMBER_413_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // uri

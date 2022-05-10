@@ -55,13 +55,32 @@
 /**
  * The application/json state cybol language.
  *
- * JavaScript Object Notation (JSON) format.
- * Specification:
+ * Java Script Object Notation (JSON)
+ *
+ * Specification: RFC 8259, ECMA-404
  * https://www.json.org/
  * Suffixes: json
+ *
+ * CAUTION! Do NOT use "text/json", since the standard
+ * recommends "application/json".
  */
 static wchar_t* JSON_APPLICATION_STATE_CYBOL_LANGUAGE = L"application/json";
 static int* JSON_APPLICATION_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The application/xml state cybol language.
+ *
+ * Extensible Markup Language (XML)
+ *
+ * Specification: RFC 3023
+ * Suffixes: xml
+ *
+ * The standard defines TWO possible mime types:
+ * application/xml is RECOMMENDED as of RFC 7303
+ * text/xml is still used sometimes
+ */
+static wchar_t* XML_APPLICATION_STATE_CYBOL_LANGUAGE = L"application/xml";
+static int* XML_APPLICATION_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* APPLICATION_STATE_CYBOL_LANGUAGE_CONSTANT_SOURCE */
 #endif
