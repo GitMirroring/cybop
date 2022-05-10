@@ -60,27 +60,17 @@ void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4
     // been processed, in order to be excluded.
     // Also, the comment begin <!-- has to be searched BEFORE the definition begin <!.
     // The very first comparison, however, is to search for the end tag begin "</".
+    //
     // The reason is that all elements begin with a "<" character:
     // - declaration: <?
     // - comment: <!--
     // - definition: <!
     // - element: <
     //
-    // CAUTION! The comparison result HAS TO BE ZERO (r == 0),
-    // if a detection is to be taking place!
-    // Many "detect" functions are called in a sequence, below.
-    // If the result of one detection function was positive (r == 1),
-    // then that function increments the current position and decrements the remaining count.
-    // In this case, further detection functions following afterwards might detect
-    // further characters and CHANGE the current position and remaining count, and so forth,
-    // which would have the effect of "jumping" over some characters and produce WRONG RESULTS!
-    // Therefore, the checks for (r == 0) below avoid another detection,
-    // if the result already has a value unequal zero.
-    //
     // CAUTION! If a detection was successful, then the current position and remaining count
     // were already adapted within the corresponding "detect" function (as called below),
     // so that they now point to the first character following the detected character sequence.
-    // Any "decode" function called afterwards can rely on this and start processing right away.
+    // Any "deserialise" function called afterwards can rely on this and start processing right away.
     //
 
     // The comparison result.
@@ -96,7 +86,7 @@ void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4
 
             //
             // Set break flag, because this xml element's end tag
-            // has been reached and its content fully been decoded.
+            // has been reached and its content fully been deserialised.
             //
             copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }

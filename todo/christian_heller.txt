@@ -14,6 +14,8 @@
 JSON
 ____
 
+        * Adapt xml deserialiser so that empty nodes get allocated as string (and not compound) part
+
         * Test json and xml deserialiser and compare results, e.g. with example file "glossary"
         * Continue json deserialiser and selector: number
         * Handle special escaped string characters in file "string_json_deserialiser.c"

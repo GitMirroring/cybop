@@ -54,7 +54,8 @@ void deserialise_xml_element(void* p0, void* p1, void* p2) {
 
     // The part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The part model, properties.
+    // The part name, model, properties item.
+    void* pn = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pp = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -71,7 +72,7 @@ void deserialise_xml_element(void* p0, void* p1, void* p2) {
     //
     // CAUTION! The pre-defined constant "part" is used as name here!
     //
-    modify_part(p, (void*) NODE_XML_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NODE_XML_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) NAME_PART_STATE_CYBOI_NAME);
+    //?? modify_part(p, (void*) NODE_XML_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NODE_XML_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) NAME_PART_STATE_CYBOI_NAME);
     //
     // CAUTION! All xml elements are of the type "part".
     // If an xml element is empty, the compound part
@@ -80,12 +81,13 @@ void deserialise_xml_element(void* p0, void* p1, void* p2) {
     modify_part(p, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) FORMAT_PART_STATE_CYBOI_NAME);
     modify_part(p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) TYPE_PART_STATE_CYBOI_NAME);
     //
-    // Get part model, properties.
+    // Get part name, model, properties item.
     //
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
     //
+    copy_array_forward((void*) &pn, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pp, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
@@ -96,21 +98,22 @@ void deserialise_xml_element(void* p0, void* p1, void* p2) {
     // The is empty flag.
     int ie = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Decode tag name.
-    deserialise_xml_tag_name(pp, (void*) &ha, (void*) &hc, (void*) &ie, p1, p2);
+    // Deserialise tag name into part name item.
+    //?? deserialise_xml_tag_name(pp, (void*) &ha, (void*) &hc, (void*) &ie, p1, p2);
+    deserialise_xml_tag_name(pn, (void*) &ha, (void*) &hc, (void*) &ie, p1, p2);
 
     if (ha != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Reset has attributes flag.
         ha = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        // Decode attribute.
+        // Deserialise attribute.
         deserialise_xml_attribute(pp, (void*) &hc, (void*) &ie, p1, p2);
     }
 
     if (hc != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Decode the element's content.
+        // Deserialise the element's content.
         deserialise_xml_element_content(pm, pp, p1, p2);
     }
 
