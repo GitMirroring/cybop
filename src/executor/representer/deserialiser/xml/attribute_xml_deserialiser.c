@@ -57,11 +57,11 @@ void deserialise_xml_attribute(void* p0, void* p1, void* p2, void* p3, void* p4)
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xml attribute.");
 
-            // The source attribute name.
-            void* an = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The attribute name data, count.
+            void* and = *NULL_POINTER_STATE_CYBOI_MODEL;
             int anc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            // The source attribute value.
-            void* av = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The attribute value data, count.
+            void* avd = *NULL_POINTER_STATE_CYBOI_MODEL;
             int avc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // The part.
             void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -77,8 +77,8 @@ void deserialise_xml_attribute(void* p0, void* p1, void* p2, void* p3, void* p4)
             // The break flag.
             int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-            deserialise_xml_attribute_name((void*) &an, (void*) &anc, p3, p4);
-            deserialise_xml_attribute_value((void*) &av, (void*) &avc, p3, p4);
+            deserialise_xml_attribute_name((void*) &and, (void*) &anc, p3, p4);
+            deserialise_xml_attribute_value((void*) &avd, (void*) &avc, p3, p4);
 
             //
             // Allocate part.
@@ -89,10 +89,10 @@ void deserialise_xml_attribute(void* p0, void* p1, void* p2, void* p3, void* p4)
             allocate_part((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             // Fill part.
-            modify_part(p, an, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &anc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) NAME_PART_STATE_CYBOI_NAME);
+            modify_part(p, and, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &anc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) NAME_PART_STATE_CYBOI_NAME);
             modify_part(p, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) FORMAT_PART_STATE_CYBOI_NAME);
             modify_part(p, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) TYPE_PART_STATE_CYBOI_NAME);
-            modify_part(p, av, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &avc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) MODEL_PART_STATE_CYBOI_NAME);
+            modify_part(p, avd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &avc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
             //
             // Append part to destination model.

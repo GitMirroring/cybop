@@ -61,9 +61,9 @@ void deserialise_json_number(void* p0, void* p1, void* p2, void* p3, void* p4, v
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The number part model item.
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The element data, count.
-    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The number data, count.
+    void* nd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int nc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -90,8 +90,8 @@ void deserialise_json_number(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // Get number part model.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Initialise element.
-    copy_pointer((void*) &ed, p2);
+    // Initialise number.
+    copy_pointer((void*) &nd, p2);
 
     if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -123,15 +123,15 @@ void deserialise_json_number(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            fwprintf(stdout, L"Debug: Deserialise json number. ec: %i\n", ec);
-            fwprintf(stdout, L"Debug: Deserialise json number. ed: %ls\n", (wchar_t*) ed);
+            fwprintf(stdout, L"Debug: Deserialise json number. nc: %i\n", nc);
+            fwprintf(stdout, L"Debug: Deserialise json number. nd: %ls\n", (wchar_t*) nd);
 
             //
             // Find out if this is an integer or a float.
             // Detect decimal separator.
             //
             //?? TODO: Call inside:
-            //?? deserialise_cybol_fraction_decimal(p0, e, (void*) &ec);
+            //?? deserialise_cybol_fraction_decimal(p0, nd, (void*) &nc);
             //?? deserialise_json_number();
             // TEST only, remove later: Overwrite number part model.
             int testd = 12345;
@@ -142,7 +142,7 @@ void deserialise_json_number(void* p0, void* p1, void* p2, void* p3, void* p4, v
         } else {
 
             // Increment number count.
-            ec++;
+            nc++;
         }
     }
 

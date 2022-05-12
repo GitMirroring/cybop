@@ -75,8 +75,6 @@ void deserialise_xml_element(void* p0, void* p1, void* p2) {
     // Check if this is going to be a compound node.
     deserialise_xml_compound((void*) &c, p1, p2);
 
-    //?? fwprintf(stdout, L"Debug: Deserialise xml element. c: %i\n", c);
-
     if (c != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //

@@ -63,14 +63,14 @@ void deserialise_json_member(void* p0, void* p1, void* p2, void* p3) {
     fwprintf(stdout, L"Debug: Deserialise json member. count remaining p3: %i\n", p3);
     fwprintf(stdout, L"Debug: Deserialise json member. count remaining *p3: %i\n", *((int*) p3));
 
-    // The element data, count.
-    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The member name data, count.
+    void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int mc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Initialise element.
-    copy_pointer((void*) &ed, p2);
+    // Initialise member name.
+    copy_pointer((void*) &md, p2);
 
     if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -105,7 +105,7 @@ void deserialise_json_member(void* p0, void* p1, void* p2, void* p3) {
         } else {
 
             // Increment member count.
-            ec++;
+            mc++;
         }
     }
 
@@ -114,7 +114,7 @@ void deserialise_json_member(void* p0, void* p1, void* p2, void* p3) {
     // but function "deserialise_json_value" instead, since that contains
     // a loop which is necessary for detecting and skipping unnecessary characters.
     //
-    deserialise_json_value(p0, p1, p2, p3, ed, (void*) &ec, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_json_value(p0, p1, p2, p3, md, (void*) &mc, *NULL_POINTER_STATE_CYBOI_MODEL);
 }
 
 /* MEMBER_JSON_DESERIALISER_SOURCE */

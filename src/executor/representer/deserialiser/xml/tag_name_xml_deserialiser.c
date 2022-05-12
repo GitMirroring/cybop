@@ -62,14 +62,14 @@ void deserialise_xml_tag_name(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
                 log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xml tag name.");
 
-                // The source tag name.
-                void* tn = *NULL_POINTER_STATE_CYBOI_MODEL;
+                // The tag name data, count.
+                void* tnd = *NULL_POINTER_STATE_CYBOI_MODEL;
                 int tnc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                 // The break flag.
                 int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                // Initialise element.
-                copy_pointer((void*) &tn, p4);
+                // Initialise tag name data.
+                copy_pointer((void*) &tnd, p4);
 
                 if (p5 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -106,7 +106,7 @@ void deserialise_xml_tag_name(void* p0, void* p1, void* p2, void* p3, void* p4, 
                         //
 
                         // Overwrite part name item.
-                        modify_item(p0, tn, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &tnc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+                        modify_item(p0, tnd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &tnc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
                         break;
 

@@ -37,7 +37,11 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Check if this is going to be a compound node.
+ * Checks if this is going to be a compound node.
+ *
+ * This function peeks ahead into the parsed data in order to
+ * find out if there are any child nodes embedded which
+ * would mean that this is going to be a COMPOUND tree node.
  *
  * @param p0 the compound flag
  * @param p1 the source data position (pointer reference)

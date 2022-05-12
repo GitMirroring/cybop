@@ -68,9 +68,9 @@ void deserialise_json_string(void* p0, void* p1, void* p2, void* p3, void* p4, v
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The string part model item.
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The element data, count.
-    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The string data, count.
+    void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int sc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -94,8 +94,8 @@ void deserialise_json_string(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // Get string part model.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Initialise element.
-    copy_pointer((void*) &ed, p2);
+    // Initialise string.
+    copy_pointer((void*) &sd, p2);
 
     if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -127,25 +127,18 @@ void deserialise_json_string(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            fwprintf(stdout, L"Debug: Deserialise json string. ec: %i\n", ec);
-            fwprintf(stdout, L"Debug: Deserialise json string. ed: %ls\n", (wchar_t*) ed);
+            fwprintf(stdout, L"Debug: Deserialise json string. sc: %i\n", sc);
+            fwprintf(stdout, L"Debug: Deserialise json string. sd: %ls\n", (wchar_t*) sd);
 
             // Overwrite string part model.
-            modify_item(pm, ed, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &ec, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-
-            void* testd = *NULL_POINTER_STATE_CYBOI_MODEL;
-            void* testc = *NULL_POINTER_STATE_CYBOI_MODEL;
-            copy_array_forward((void*) &testd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &testc, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-            fwprintf(stdout, L"Debug: Deserialise json string. testc: %i\n", *((int*) testc));
-            fwprintf(stdout, L"Debug: Deserialise json string. testd: %ls\n", (wchar_t*) testd);
+            modify_item(pm, sd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &sc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
             break;
 
         } else {
 
             // Increment string count.
-            ec++;
+            sc++;
         }
     }
 

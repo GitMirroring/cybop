@@ -63,11 +63,7 @@ void select_xml_declaration(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        //
-        // None of the comparisons above delivered a positive (r != 0) result.
-        // Therefore, increment the current position by one (pointer size).
-        //
-
+        // Increment the current position by one.
         move(p2, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }

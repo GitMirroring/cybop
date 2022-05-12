@@ -57,7 +57,7 @@ void deserialise_xml_element_content(void* p0, void* p1, void* p2, void* p3, voi
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Initialise content data, count.
+    // Initialise content data.
     copy_pointer((void*) &cd, p2);
     // Check if destination model item type is string.
     compare_integer_equal((void*) &r, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
@@ -102,6 +102,12 @@ void deserialise_xml_element_content(void* p0, void* p1, void* p2, void* p3, voi
 
                 // Overwrite destination model item.
                 modify_item(p0, cd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &cc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+                //
+                // Remove leading and trailing spaces.
+                //
+
+                //?? TODO: Call special function.
 
                 break;
 
