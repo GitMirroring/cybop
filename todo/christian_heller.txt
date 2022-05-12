@@ -11,13 +11,47 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-JSON
-____
+String
+______
+
+        * Add cybol operation "modify/strip" removing leading and trailing whitespaces, as well as the variants "modify/strip-leading" and "modify/strip-trailing"
+        * Add cybol operation "modify/normalise" removing leading and trailing whitespaces and additionally replacing all internal sequences of white space with one (useful e.g. when parsing xml or html of a webpage)
+        * Add cybol operation "modify/replace" replacing a searched character sequence with a given new sequence
+        * Add cybol operation "modify/split" splitting a source string into parts which are stored as child nodes of the destination part
+        * Add cybol operation "modify/concatenate" concatenating the strings given as child nodes of the source part into the destination part
+            provide optional cybol property "separator" to be used as such between the concatenated strings
+        * Add cybol operation "modify/repeat" producing a destination string whose value is the concatenation of the source string repeated count times
+        * Add cybol operation "modify/lower" converting a string to lower case letters
+        * Add cybol operation "modify/upper" converting a string to upper case letters
+        * Add cybol operation "modify/reverse" reversing the order of the child nodes of the source part storing them in the destination part
+
+        CONTINUE in directory "applicator/modify/":
+        * Complete cybol operation "modify/strip" removing leading and trailing whitespaces, as well as the variants "modify/strip-leading" and "modify/strip-trailing"
+        * Complete cybol operation "modify/normalise" removing leading and trailing whitespaces and additionally replacing all internal sequences of white space with one (useful e.g. when parsing xml or html of a webpage)
+        * Complete cybol operation "modify/replace" replacing a searched character sequence with a given new sequence
+        * Complete cybol operation "modify/split" splitting a source string into parts which are stored as child nodes of the destination part
+        * Complete cybol operation "modify/concatenate" concatenating the strings given as child nodes of the source part into the destination part
+            provide optional cybol property "separator" to be used as such between the concatenated strings
+        * Complete cybol operation "modify/repeat" producing a destination string whose value is the concatenation of the source string repeated count times
+        * Complete cybol operation "modify/lower" converting a string to lower case letters
+        * Complete cybol operation "modify/upper" converting a string to upper case letters
+        * Complete cybol operation "modify/reverse" reversing the order of the child nodes of the source part storing them in the destination part
+
+        * Adapt de-/serialisers for cybol/json/xml to be able to handle escape codes like "\n" for new line etc.
+            they get converted into an internal control character of the corresponding platform,
+            e.g. "\n" for new line on linux but "\r\n" for carriage return and new line on windows
+        * Eliminate file "newline.txt" in cybol application "webstat"
+
+XML
+___
 
         * Offer property for cybol operation "represent/deserialise" to remove spaces within xml strings when standing between opening and closing tag (not in attribute values)
             Continue from file "element_content_xml_deserialiser.c"
             Do this AFTER having extracted the string and ONLY remove leading and trailing space characters
             Test with "serialisation/xml/examples/xml/web-app.xml"
+
+JSON
+____
 
         * Test json and xml deserialiser and compare results, e.g. with example file "glossary"
         * Continue json deserialiser and selector: number
@@ -47,6 +81,30 @@ ____
             --> the output is probably NOT wrong, but the existing file just overwritten, leaving the old data at the end if its previous size was larger
                 (the same wrong data appeared at the end of json files when testing the json serialiser)
             --> therefore, set a special file flag when opening a file to shrink its size when the data are smaller than the already existing file size
+
+Base64
+______
+
+        * Encode binary data (e.g. x-ray images in the electronic health record of a patient) into text string using Base64 or base64url
+        * Add the following comment into cyboi source code:
+
+        //
+        // Translation to plain text.
+        //
+        // CAUTION! This is necessary to store or send binary data through
+        // certain systems that are designed to deal with textual data only:
+        // https://en.wikipedia.org/wiki/Binary_file
+        //
+        // The Base64 binary-to-text (ASCII format) encoding schemes are used here:
+        // https://en.wikipedia.org/wiki/Base64
+        //
+        // The encoding characters used by Base64 are: A–Z, a–z, 0–9, +, /, =
+        // They also appear in Extended Binary Coded Decimals Interchange Code (EBCDIC)
+        // and may therefore be used for data exchange with non-ASCII platforms as well:
+        // https://de.wikipedia.org/wiki/Base64
+        //
+
+        * Implement part serialiser called from file "cybol_serialiser.c"
 
 Tool
 ____
@@ -754,19 +812,6 @@ _______
             tmp/datetime/plate_-_programmieren_in_c_datumsberechnung.html (8 Ausgewählte Algorithmen (Teil 1) | 8.5 Suchen und Sortieren)
         * Implement cybol operations for calculating statistical things
 
-String
-______
-
-        * Provide newline and other escape characters for cybol operation "modify/append/"
-        * Possibilities:
-            - flag for send/overwrite/append and similar operations
-            - new cybol data type "text/regular-expression" which gets converted to "text/plain" internally
-            - only use datatype "text/regular-expression" as property/argument for operations such as "overwrite",
-                so that regular expression gets evaluated internally before copying the resulting string
-        * Eliminate file "newline.txt" in cybol application "webstat"
-
-        * See ideas for further functions in http://www.w3schools.com/xml/xsl_functions.asp
-
 Datetime
 ________
 
@@ -1031,30 +1076,6 @@ _________
         * Think through Lambda expressions of functional programming languages, which return newly formed collections of elements
         * Provide new container functions returning a collection as extract, following some filter/search criteria
         * Do container search depending on given cybol knowledge path similar to jQuery or XPath?
-
-De-/Serialiser
-______________
-
-        * Implement part serialiser called from file "cybol_serialiser.c"
-
-        * Encode binary data (e.g. x-ray images in the electronic health record of a patient) into text string using Base64 or base64url
-        * Add the following comment into cyboi source code:
-
-        //
-        // Translation to plain text.
-        //
-        // CAUTION! This is necessary to store or send binary data through
-        // certain systems that are designed to deal with textual data only:
-        // https://en.wikipedia.org/wiki/Binary_file
-        //
-        // The Base64 binary-to-text (ASCII format) encoding schemes are used here:
-        // https://en.wikipedia.org/wiki/Base64
-        //
-        // The encoding characters used by Base64 are: A–Z, a–z, 0–9, +, /, =
-        // They also appear in Extended Binary Coded Decimals Interchange Code (EBCDIC)
-        // and may therefore be used for data exchange with non-ASCII platforms as well:
-        // https://de.wikipedia.org/wiki/Base64
-        //
 
 Logifier
 ________

@@ -101,9 +101,12 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The destination properties part.
     void* dpr = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //
     // The source properties part.
+    //
     // CAUTION! Do NOT use the variable name "sp" for this flag,
     // since it gets used for the actual source properties item below.
+    //
     void* spr = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The destination part type item.
@@ -228,12 +231,16 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     int destination_index = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int source_type = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
     int source_index = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    //
     // CAUTION! Set adjust count flag to "true" by default,
     // to avoid memory errors.
+    //
     int adjust = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
     int destination_part_item_index = *MODEL_PART_STATE_CYBOI_NAME;
+    //
     // CAUTION! This variable is needed for the REMOVE function further below,
     // since the destination- and source container might differ.
+    //
     int source_part_item_index = *MODEL_PART_STATE_CYBOI_NAME;
 
     //

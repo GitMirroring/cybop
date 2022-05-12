@@ -26,8 +26,6 @@
 #ifndef LOGIC_CYBOI_FORMAT_CONSTANT_SOURCE
 #define LOGIC_CYBOI_FORMAT_CONSTANT_SOURCE
 
-#include <stddef.h>
-
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
@@ -479,20 +477,53 @@ static int* DESTROY_MEMORISE_LOGIC_CYBOI_FORMAT = NUMBER_2201_INTEGER_STATE_CYBO
 /** The append modify logic cyboi format. */
 static int* APPEND_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2300_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The concatenate modify logic cyboi format. */
+static int* CONCATENATE_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2301_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The empty modify logic cyboi format. */
-static int* EMPTY_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2301_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* EMPTY_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2302_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The fill modify logic cyboi format. */
-static int* FILL_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2302_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* FILL_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2303_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The insert modify logic cyboi format. */
-static int* INSERT_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2303_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* INSERT_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2304_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The lower modify logic cyboi format. */
+static int* LOWER_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2305_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The normalise modify logic cyboi format. */
+static int* NORMALISE_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2306_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The overwrite modify logic cyboi format. */
-static int* OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2304_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2307_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The remove modify logic cyboi format. */
-static int* REMOVE_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2305_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* REMOVE_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2308_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The repeat modify logic cyboi format. */
+static int* REPEAT_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2309_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The replace modify logic cyboi format. */
+static int* REPLACE_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2310_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The reverse modify logic cyboi format. */
+static int* REVERSE_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2311_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The split modify logic cyboi format. */
+static int* SPLIT_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2312_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The strip leading modify logic cyboi format. */
+static int* STRIP_LEADING_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2313_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The strip modify logic cyboi format. */
+static int* STRIP_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2314_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The strip trailing modify logic cyboi format. */
+static int* STRIP_TRAILING_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2315_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The upper modify logic cyboi format. */
+static int* UPPER_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2316_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // randomise

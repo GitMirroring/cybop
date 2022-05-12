@@ -21,6 +21,15 @@
 2022-05-12  Christian Heller  <christian.heller@cybop.org>
 
         * Optimise file names, includes, variable names of xml deserialiser and selector
+        * Add cybol operation "modify/strip" removing leading and trailing whitespaces, as well as the variants "modify/strip-leading" and "modify/strip-trailing"
+        * Add cybol operation "modify/normalise" removing leading and trailing whitespaces and additionally replacing all internal sequences of white space with one (useful e.g. when parsing xml or html of a webpage)
+        * Add cybol operation "modify/replace" replacing a searched character sequence with a given new sequence
+        * Add cybol operation "modify/split" splitting a source string into parts which are stored as child nodes of the destination part
+        * Add cybol operation "modify/concatenate" concatenating the strings given as child nodes of the source part into the destination part and provide an optional cybol property "separator" to be used as such between the concatenated strings
+        * Add cybol operation "modify/repeat" producing a destination string whose value is the concatenation of the source string repeated count times
+        * Add cybol operation "modify/lower" converting a string to lower case letters
+        * Add cybol operation "modify/upper" converting a string to upper case letters
+        * Add cybol operation "modify/reverse" reversing the order of the child nodes of the source part storing them in the destination part
 
 2022-05-10  Christian Heller  <christian.heller@cybop.org>
 
