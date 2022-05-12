@@ -14,9 +14,6 @@
 JSON
 ____
 
-        * Optimise xml deserialiser file names
-        * Adapt includes
-        * Name local loop data variable "data" and "count"
         * Offer property for cybol operation "represent/deserialise" to remove spaces within xml strings when standing between opening and closing tag (not in attribute values)
             Continue from file "element_content_xml_deserialiser.c"
             Do this AFTER having extracted the string and ONLY remove leading and trailing space characters

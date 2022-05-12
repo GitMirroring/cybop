@@ -31,8 +31,11 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cybol/xml_cybol_name.c"
-#include "../../../../executor/modifier/part_modifier.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
+#include "../../../../executor/copier/pointer_copier.c"
+#include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/selector/xml/attribute_begin_or_tag_end_xml_selector.c"
 #include "../../../../logger/logger.c"
 

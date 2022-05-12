@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-05-12  Christian Heller  <christian.heller@cybop.org>
+
+        * Optimise xml deserialiser file names, includes, variable names
+
 2022-05-10  Christian Heller  <christian.heller@cybop.org>
 
         * Add "application/xml" mime type and cyboi language to constants and cybol de-/serialiser
