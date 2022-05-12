@@ -32,7 +32,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/modifier/part_modifier.c"
 #include "../../../../executor/representer/deserialiser/xml/attribute_xml_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/xml/compound_xml_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/xml/compound_check_xml_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xml/tag_name_xml_deserialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -40,7 +40,7 @@
 // Forward declarations
 //
 
-void deserialise_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4);
+void deserialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4);
 
 /**
  * Deserialises the xml element.
@@ -73,7 +73,7 @@ void deserialise_xml_element(void* p0, void* p1, void* p2) {
     int ie = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Check if this is going to be a compound node.
-    deserialise_xml_compound((void*) &c, p1, p2);
+    deserialise_xml_check_compound((void*) &c, p1, p2);
 
     if (c != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -132,7 +132,7 @@ void deserialise_xml_element(void* p0, void* p1, void* p2) {
     if (hc != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Deserialise the element's content.
-        deserialise_xml_element_content(pm, pp, p1, p2, (void*) &t);
+        deserialise_xml_content(pm, pp, p1, p2, (void*) &t);
     }
 
     //

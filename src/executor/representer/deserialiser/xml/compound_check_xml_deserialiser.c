@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMPOUND_XML_DESERIALISER_SOURCE
-#define COMPOUND_XML_DESERIALISER_SOURCE
+#ifndef COMPOUND_CHECK_XML_DESERIALISER_SOURCE
+#define COMPOUND_CHECK_XML_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -33,7 +33,7 @@
 #include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
-#include "../../../../executor/selector/xml/compound_xml_selector.c"
+#include "../../../../executor/selector/xml/compound_check_xml_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -47,10 +47,10 @@
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
  */
-void deserialise_xml_compound(void* p0, void* p1, void* p2) {
+void deserialise_xml_check_compound(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xml compound.");
-    //?? fwprintf(stdout, L"Debug: Deserialise xml compound. p0: %i\n", p0);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xml check compound.");
+    //?? fwprintf(stdout, L"Debug: Deserialise xml check compound. p0: %i\n", p0);
 
     // The source data position COPY.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -78,9 +78,9 @@ void deserialise_xml_compound(void* p0, void* p1, void* p2) {
             break;
         }
 
-        select_xml_compound(p0, (void*) &d, (void*) &c, (void*) &b);
+        select_xml_check_compound(p0, (void*) &d, (void*) &c, (void*) &b);
     }
 }
 
-/* COMPOUND_XML_DESERIALISER_SOURCE */
+/* COMPOUND_CHECK_XML_DESERIALISER_SOURCE */
 #endif

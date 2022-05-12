@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef COMPOUND_XML_SELECTOR_SOURCE
-#define COMPOUND_XML_SELECTOR_SOURCE
+#ifndef CONTENT_CHECK_XML_SELECTOR_SOURCE
+#define CONTENT_CHECK_XML_SELECTOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -34,34 +34,35 @@
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/mover/mover.c"
-#include "../../../executor/representer/deserialiser/xml/content_compound_xml_deserialiser.c"
 #include "../../../logger/logger.c"
 
 /**
- * Selects the character sequences indicating a compound node.
+ * Checks if this element contains a child element, which would make it a compound node.
  *
  * @param p0 the compound flag
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
  * @param p3 the loop break flag
  */
-void select_xml_compound(void* p0, void* p1, void* p2, void* p3) {
+void select_xml_check_content(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xml compound.");
-    //?? fwprintf(stdout, L"Debug: Select xml compound. p0: %i\n", p0);
-    //?? fwprintf(stdout, L"Debug: Select xml compound. *p0: %i\n", *((int*) p0));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xml check content.");
+    //?? fwprintf(stdout, L"Debug: Select xml check content. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Select xml check content. *p0: %i\n", *((int*) p0));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p1, p2, (void*) EMPTY_TAG_SPACE_END_XML_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) EMPTY_TAG_SPACE_END_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p1, p2, (void*) END_TAG_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) END_TAG_BEGIN_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // This is an empty (void) tag and NOT a compound.
+            // This is the end (closing) tag, which means that
+            // this element does NOT contain a child element
+            // and is therefore NOT a compound.
             //
             // CAUTION! The compound flag does NOT have to be set
             // to FALSE here, since this is its DEFAULT value.
@@ -74,29 +75,16 @@ void select_xml_compound(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p1, p2, (void*) EMPTY_TAG_END_XML_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) EMPTY_TAG_END_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p1, p2, (void*) START_TAG_BEGIN_XML_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) START_TAG_BEGIN_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // This is an empty (void) tag and NOT a compound.
-            //
-            // CAUTION! The compound flag does NOT have to be set
-            // to FALSE here, since this is its DEFAULT value.
+            // This element DOES contain a child element.
             //
 
-            // Set loop break flag.
-            copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        detect((void*) &r, p1, p2, (void*) TAG_END_XML_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) TAG_END_XML_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            deserialise_xml_compound_content(p0, p1, p2);
+            // Set the compound flag.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // Set loop break flag.
             copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -110,5 +98,5 @@ void select_xml_compound(void* p0, void* p1, void* p2, void* p3) {
     }
 }
 
-/* COMPOUND_XML_SELECTOR_SOURCE */
+/* CONTENT_CHECK_XML_SELECTOR_SOURCE */
 #endif

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENT_CONTENT_XML_SELECTOR_SOURCE
-#define ELEMENT_CONTENT_XML_SELECTOR_SOURCE
+#ifndef CONTENT_XML_SELECTOR_SOURCE
+#define CONTENT_XML_SELECTOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -49,9 +49,9 @@
  * @param p3 the source data position (pointer reference)
  * @param p4 the source count remaining
  */
-void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void select_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xml element content.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select xml content.");
 
     //
     // CAUTION! The ORDER of the comparisons is IMPORTANT! Do NOT change it easily!
@@ -143,5 +143,5 @@ void select_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4
     }
 }
 
-/* ELEMENT_CONTENT_XML_SELECTOR_SOURCE */
+/* CONTENT_XML_SELECTOR_SOURCE */
 #endif

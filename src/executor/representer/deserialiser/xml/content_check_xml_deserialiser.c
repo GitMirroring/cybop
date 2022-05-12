@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef ELEMENT_CONTENT_XML_DESERIALISER_SOURCE
-#define ELEMENT_CONTENT_XML_DESERIALISER_SOURCE
+#ifndef CONTENT_CHECK_XML_DESERIALISER_SOURCE
+#define CONTENT_CHECK_XML_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -32,37 +32,26 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/copier/pointer_copier.c"
-#include "../../../../executor/selector/xml/element_content_xml_selector.c"
+#include "../../../../executor/selector/xml/content_check_xml_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the xml element content.
+ * Check if element content contains child elements.
  *
- * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the source data position (pointer reference)
- * @param p3 the source count remaining
- * @param p4 the part type
+ * @param p0 the compound flag
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
  */
-void deserialise_xml_element_content(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_xml_check_content(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xml element content.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xml check content.");
+    //?? fwprintf(stdout, L"Debug: Deserialise xml check content. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Deserialise xml check content. *p0: %i\n", *((int*) p0));
 
-    // The content data, count.
-    void* cd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int cc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Initialise content data.
-    copy_pointer((void*) &cd, p2);
-    // Check if destination model item type is string.
-    compare_integer_equal((void*) &r, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
         // CAUTION! If the loop count handed over as parametre is NULL,
@@ -79,46 +68,16 @@ void deserialise_xml_element_content(void* p0, void* p1, void* p2, void* p3, voi
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_less_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_less_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }
 
-        select_xml_element_content(p0, p1, (void*) &b, p2, p3);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //
-            // This is a string xml element.
-            //
-
-            if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                //
-                // The end tag of the xml element has been reached.
-                //
-
-                // Overwrite destination model item.
-                modify_item(p0, cd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &cc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-
-                //
-                // Remove leading and trailing spaces.
-                //
-
-                //?? TODO: Call special function.
-
-                break;
-
-            } else {
-
-                // Increment content count.
-                cc++;
-            }
-        }
+        select_xml_check_content(p0, p1, p2, (void*) &b);
     }
 }
 
-/* ELEMENT_CONTENT_XML_DESERIALISER_SOURCE */
+/* CONTENT_CHECK_XML_DESERIALISER_SOURCE */
 #endif
