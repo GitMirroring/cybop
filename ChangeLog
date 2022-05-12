@@ -20,7 +20,7 @@
 
 2022-05-12  Christian Heller  <christian.heller@cybop.org>
 
-        * Optimise xml deserialiser file names, includes, variable names
+        * Optimise file names, includes, variable names of xml deserialiser and selector
 
 2022-05-10  Christian Heller  <christian.heller@cybop.org>
 
