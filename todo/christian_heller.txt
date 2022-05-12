@@ -14,28 +14,17 @@
 String
 ______
 
-        * Add cybol operation "modify/strip" removing leading and trailing whitespaces, as well as the variants "modify/strip-leading" and "modify/strip-trailing"
-        * Add cybol operation "modify/normalise" removing leading and trailing whitespaces and additionally replacing all internal sequences of white space with one (useful e.g. when parsing xml or html of a webpage)
-        * Add cybol operation "modify/replace" replacing a searched character sequence with a given new sequence
-        * Add cybol operation "modify/split" splitting a source string into parts which are stored as child nodes of the destination part
-        * Add cybol operation "modify/concatenate" concatenating the strings given as child nodes of the source part into the destination part
-            provide optional cybol property "separator" to be used as such between the concatenated strings
-        * Add cybol operation "modify/repeat" producing a destination string whose value is the concatenation of the source string repeated count times
-        * Add cybol operation "modify/lower" converting a string to lower case letters
-        * Add cybol operation "modify/upper" converting a string to upper case letters
-        * Add cybol operation "modify/reverse" reversing the order of the child nodes of the source part storing them in the destination part
-
-        CONTINUE in directory "applicator/modify/":
-        * Complete cybol operation "modify/strip" removing leading and trailing whitespaces, as well as the variants "modify/strip-leading" and "modify/strip-trailing"
-        * Complete cybol operation "modify/normalise" removing leading and trailing whitespaces and additionally replacing all internal sequences of white space with one (useful e.g. when parsing xml or html of a webpage)
-        * Complete cybol operation "modify/replace" replacing a searched character sequence with a given new sequence
-        * Complete cybol operation "modify/split" splitting a source string into parts which are stored as child nodes of the destination part
-        * Complete cybol operation "modify/concatenate" concatenating the strings given as child nodes of the source part into the destination part
-            provide optional cybol property "separator" to be used as such between the concatenated strings
-        * Complete cybol operation "modify/repeat" producing a destination string whose value is the concatenation of the source string repeated count times
-        * Complete cybol operation "modify/lower" converting a string to lower case letters
-        * Complete cybol operation "modify/upper" converting a string to upper case letters
-        * Complete cybol operation "modify/reverse" reversing the order of the child nodes of the source part storing them in the destination part
+        * Continue with file "executor/modifier/stripper.c"
+        * Add file "executor/modifier/stripper.c" providing functionality for cybol operation "modify/strip"
+        * Add file "executor/modifier/normaliser.c" providing functionality for cybol operation "modify/normalise"
+        * Add file "executor/modifier/replacer.c" providing functionality for cybol operation "modify/replace"
+        * Add file "executor/modifier/splitter.c" providing functionality for cybol operation "modify/split"
+        * Add file "executor/modifier/concatenator.c" providing functionality for cybol operation "modify/concatenate"
+        * Add file "executor/modifier/repeater.c" providing functionality for cybol operation "modify/repeat"
+        * Add file "executor/modifier/lowerer.c" providing functionality for cybol operation "modify/lower"
+        * Add file "executor/modifier/upperer.c" providing functionality for cybol operation "modify/upper"
+        * Add file "executor/modifier/reverser.c" providing functionality for cybol operation "modify/reverse"
+        * Adapt directory "applicator/modify/"
 
         * Adapt de-/serialisers for cybol/json/xml to be able to handle escape codes like "\n" for new line etc.
             they get converted into an internal control character of the corresponding platform,
