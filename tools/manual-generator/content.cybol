@@ -1,0 +1,6 @@
+<node>
+
+    <node name="introduction" channel="file" format="element/part" model="manual-generator/content/introduction.cybol"/>
+    <node name="path_syntax" channel="file" format="element/part" model="manual-generator/content/path_syntax.cybol"/>
+
+</node>

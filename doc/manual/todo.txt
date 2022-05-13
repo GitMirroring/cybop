@@ -1,0 +1,12 @@
+
+TODO
+====
+
+Path Syntax
+___________
+
+. Zugriff auf Anwendungsbaum im Heap
+# Zugriff auf Variablen im Stack
+[] Zugriff per Index auf Kindknoten
+() Zugriff per Name auf Kindknoten
+

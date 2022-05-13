@@ -11,21 +11,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-Manual
-______
-
-        * Start writing cybol manual in cybol syntax and generate html page
-        * Add section on cybol path syntax:
-
-            . Zugriff auf Anwendungsbaum im Heap
-            # Zugriff auf Variablen im Stack
-            [] Zugriff per Index auf Kindknoten
-            () Zugriff per Name auf Kindknoten
-
 String
 ______
 
-        * Continue with file "executor/modifier/stripper.c"
+        * Continue with directory "executor/modifier/stripper/
         * Add file "executor/modifier/stripper.c" providing functionality for cybol operation "modify/strip"
         * Add file "executor/modifier/normaliser.c" providing functionality for cybol operation "modify/normalise"
         * Add file "executor/modifier/replacer.c" providing functionality for cybol operation "modify/replace"
