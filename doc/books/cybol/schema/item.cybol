@@ -1,7 +1,0 @@
-<node>
-
-    <node name="data" channel="inline" format="text/ascii" model=""/>
-    <node name="count" channel="inline" format="number/integer" model=""/>
-    <node name="size" channel="inline" format="number/integer" model=""/>
-
-</node>
