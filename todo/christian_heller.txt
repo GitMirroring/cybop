@@ -11,6 +11,17 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+Manual
+______
+
+        * Start writing cybol manual in cybol syntax and generate html page
+        * Add section on cybol path syntax:
+
+            . Zugriff auf Anwendungsbaum im Heap
+            # Zugriff auf Variablen im Stack
+            [] Zugriff per Index auf Kindknoten
+            () Zugriff per Name auf Kindknoten
+
 String
 ______
 
