@@ -1,0 +1,12 @@
+//
+// pascal style with variable and type
+//
+
+heading: element/part = path/to/file.cybol
+    title: text/plain = some text
+    position: number/integer = 50100
+    size: number/integer = 400150
+    background: colour/rgb = 00255
+    foreground: colour/rgb = 2552550
+    shape: text/plain = rectangle
+    font: text/plain = 7x13
