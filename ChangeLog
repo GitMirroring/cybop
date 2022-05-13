@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-05-13  Christian Heller  <christian.heller@cybop.org>
+
+        * Reorganise directories "doc/api/", "doc/schema/", "doc/syntax/", "tools/api-generator/", "examples/resmedicinae/"
+
 2022-05-12  Christian Heller  <christian.heller@cybop.org>
 
         * Optimise file names, includes, variable names of xml deserialiser and selector
