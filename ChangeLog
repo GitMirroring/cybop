@@ -20,7 +20,9 @@
 
 2022-05-13  Christian Heller  <christian.heller@cybop.org>
 
-        * Reorganise directories "doc/api/", "doc/schema/", "doc/syntax/", "tools/api-generator/", "examples/resmedicinae/"
+        * Move directories "api", "schema", "syntax" from "doc/books/cybol/" to "doc/cybol/"
+        * Move generation application files from directory "doc/books/cybol/api/" to "tools/api-generator/"
+        * Copy cybol applications from project "resmedicinae" to "examples/resmedicinae/"
 
 2022-05-12  Christian Heller  <christian.heller@cybop.org>
 
