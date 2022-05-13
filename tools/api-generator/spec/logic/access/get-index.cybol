@@ -1,7 +1,7 @@
 <node>
     <node name="name" channel="inline" format="text/plain" model="get-index"/>
     <node name="description" channel="inline" format="text/plain" model="Get an index."/>
-    <node name="example" channel="file" format="text/plain" model="api/spec/logic/access/get-index/example.txt"/>
+    <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/access/get-index/example.txt"/>
     <node name="format" channel="inline" format="text/plain" model="access/get-index"/>
-    <node name="properties" channel="file" format="element/part" model="api/spec/logic/access/get-index/properties.cybol"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/access/get-index/properties.cybol"/>
 </node>

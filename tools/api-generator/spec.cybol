@@ -1,6 +1,6 @@
 <node>
 
-    <node name="logic" channel="file" format="element/part" model="api/spec/logic.cybol"/>
-    <node name="state" channel="file" format="element/part" model="api/spec/state.cybol"/>
+    <node name="state" channel="file" format="element/part" model="api-generator/spec/state.cybol"/>
+    <node name="logic" channel="file" format="element/part" model="api-generator/spec/logic.cybol"/>
 
 </node>

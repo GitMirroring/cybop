@@ -11,14 +11,12 @@
 
     <!-- Model creation. -->
     <!-- There is NO toc entry for the properties. -->
-    <node name="create_wui_content_properties" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.create.wui_content_properties"/>
-    </node>
+    <node name="create_wui_content_properties" channel="inline" format="text/cybol-path" model=".logic.create.wui_content_properties"/>
 
     <!-- Child translation. -->
     <!-- It is NOT necessary, since there are NO children. -->
 
-    <!-- Loop test. -->
+    <!-- Loop check. -->
     <node name="increment_index" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model="#property_index"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
@@ -28,7 +26,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model="#property_break"/>
         <node name="left" channel="inline" format="text/cybol-path" model="#property_index"/>
         <node name="right" channel="inline" format="text/cybol-path" model="#property_count"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 </node>

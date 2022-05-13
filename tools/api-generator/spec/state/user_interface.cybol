@@ -1,7 +1,7 @@
 <node>
 
-    <node name="graphical" channel="file" format="element/part" model="api/spec/state/user_interface/graphical.cybol"/>
-    <node name="text" channel="file" format="element/part" model="api/spec/state/user_interface/text.cybol"/>
-    <node name="web" channel="file" format="element/part" model="api/spec/state/user_interface/web.cybol"/>
+    <node name="graphical" channel="file" format="element/part" model="api-generator/spec/state/user_interface/graphical.cybol"/>
+    <node name="text" channel="file" format="element/part" model="api-generator/spec/state/user_interface/text.cybol"/>
+    <node name="web" channel="file" format="element/part" model="api-generator/spec/state/user_interface/web.cybol"/>
 
 </node>

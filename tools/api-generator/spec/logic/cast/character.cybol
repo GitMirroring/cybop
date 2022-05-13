@@ -1,7 +1,7 @@
 <node>
     <node name="name" channel="inline" format="text/plain" model="character"/>
     <node name="description" channel="inline" format="text/plain" model="Casts a value from one type to another."/>
-    <node name="example" channel="file" format="text/plain" model="api/spec/logic/cast/character/example.txt"/>
+    <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/cast/character/example.txt"/>
     <node name="format" channel="inline" format="text/plain" model="cast/character"/>
-    <node name="properties" channel="file" format="element/part" model="api/spec/logic/cast/character/properties.cybol"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/cast/character/properties.cybol"/>
 </node>

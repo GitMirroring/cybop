@@ -1,7 +1,7 @@
 <node>
     <node name="name" channel="inline" format="text/plain" model="indicate-empty"/>
     <node name="description" channel="inline" format="text/plain" model="Indicates if data are empty, i.e. the count is zero. The operation is ONLY usable with values of format "text/plain"."/>
-    <node name="example" channel="file" format="text/plain" model="api/spec/logic/access/indicate-empty/example.txt"/>
+    <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/access/indicate-empty/example.txt"/>
     <node name="format" channel="inline" format="text/plain" model="access/indicate-empty"/>
-    <node name="properties" channel="file" format="element/part" model="api/spec/logic/access/indicate-empty/properties.cybol"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/access/indicate-empty/properties.cybol"/>
 </node>

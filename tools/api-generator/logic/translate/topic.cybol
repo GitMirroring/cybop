@@ -25,13 +25,8 @@
     </node>
 
     <!-- Model creation. -->
-    <node name="create_wui_toc_topic" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.create.wui_toc_topic"/>
-    </node>
-
-    <node name="create_wui_content_topic" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.create.wui_content_topic"/>
-    </node>
+    <node name="create_wui_toc_topic" channel="inline" format="text/cybol-path" model=".logic.create.wui_toc_topic"/>
+    <node name="create_wui_content_topic" channel="inline" format="text/cybol-path" model=".logic.create.wui_content_topic"/>
 
     <!-- Child translation. -->
     <node name="count_categories" channel="inline" format="access/count" model="">
@@ -43,14 +38,13 @@
         <node name="result" channel="inline" format="text/cybol-path" model="#category_break"/>
         <node name="left" channel="inline" format="text/cybol-path" model="#category_index"/>
         <node name="right" channel="inline" format="text/cybol-path" model="#category_count"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="loop_categories" channel="inline" format="flow/loop" model="">
         <node name="break" channel="inline" format="text/cybol-path" model="#category_break"/>
         <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.category"/>
     </node>
 
-    <!-- Loop test. -->
+    <!-- Loop check. -->
     <node name="increment_index" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model="#topic_index"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
@@ -60,7 +54,6 @@
         <node name="result" channel="inline" format="text/cybol-path" model="#topic_break"/>
         <node name="left" channel="inline" format="text/cybol-path" model="#topic_index"/>
         <node name="right" channel="inline" format="text/cybol-path" model="#topic_count"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 </node>

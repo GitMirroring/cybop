@@ -1,4 +1,4 @@
 <node>
-    <node name="retrieve" channel="file" format="element/part" model="api/spec/logic/randomise/retrieve.cybol"/>
-    <node name="sow" channel="file" format="element/part" model="api/spec/logic/randomise/sow.cybol"/>
+    <node name="retrieve" channel="file" format="element/part" model="api-generator/spec/logic/randomise/retrieve.cybol"/>
+    <node name="sow" channel="file" format="element/part" model="api-generator/spec/logic/randomise/sow.cybol"/>
 </node>

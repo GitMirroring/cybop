@@ -2,8 +2,8 @@
 
     <node name="name" channel="inline" format="text/plain" model="keyboard"/>
     <node name="description" channel="inline" format="text/plain" model="A keyboard key."/>
-    <node name="example" channel="file" format="text/plain" model="api/spec/state/device/keyboard/example.txt"/>
+    <node name="example" channel="file" format="text/plain" model="api-generator/spec/state/device/keyboard/example.txt"/>
     <node name="format" channel="inline" format="text/plain" model=""/>
-    <node name="properties" channel="file" format="element/part" model="api/spec/state/device/keyboard/properties.cybol"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/state/device/keyboard/properties.cybol"/>
 
 </node>

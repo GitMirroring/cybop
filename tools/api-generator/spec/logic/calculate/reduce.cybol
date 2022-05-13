@@ -1,7 +1,7 @@
 <node>
     <node name="name" channel="inline" format="text/plain" model="reduce"/>
     <node name="description" channel="inline" format="text/plain" model="Not implemented yet. !REVIEW! Can be deleted?"/>
-    <node name="example" channel="file" format="text/plain" model="api/spec/logic/calculate/reduce/example.txt"/>
+    <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/calculate/reduce/example.txt"/>
     <node name="format" channel="inline" format="text/plain" model="calculate/reduce"/>
-    <node name="properties" channel="file" format="element/part" model="api/spec/logic/calculate/reduce/properties.cybol"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/calculate/reduce/properties.cybol"/>
 </node>

@@ -1,7 +1,7 @@
 <node>
     <node name="name" channel="inline" format="text/plain" model="change-permission"/>
     <node name="description" channel="inline" format="text/plain" model="Changes the permission of a file or directory."/>
-    <node name="example" channel="file" format="text/plain" model="api/spec/logic/command/change_permission/example.txt"/>
+    <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/command/change_permission/example.txt"/>
     <node name="format" channel="inline" format="text/plain" model="command/change-permission"/>
-    <node name="properties" channel="file" format="element/part" model="api/spec/logic/command/change_permission/properties.cybol"/>
-</node> 
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/command/change_permission/properties.cybol"/>
+</node>

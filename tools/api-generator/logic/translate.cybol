@@ -1,36 +1,36 @@
 <node>
 
-    <node name="spec" channel="file" format="element/part" model="api/logic/translate/spec.cybol">
+    <node name="spec" channel="file" format="element/part" model="api-generator/logic/translate/spec.cybol">
 
-        <!-- The loop parametres. -->
+        <!-- The loop parametres (stack variables). -->
         <node name="spec_count" channel="inline" format="number/integer" model="0"/>
         <node name="spec_index" channel="inline" format="number/integer" model="0"/>
         <node name="spec_break" channel="inline" format="logicvalue/boolean" model="false"/>
         <!-- The element. -->
         <node name="spec_name" channel="inline" format="text/plain" model=""/>
 
-        <!-- The loop parametres. -->
+        <!-- The loop parametres (stack variables). -->
         <node name="topic_count" channel="inline" format="number/integer" model="0"/>
         <node name="topic_index" channel="inline" format="number/integer" model="0"/>
         <node name="topic_break" channel="inline" format="logicvalue/boolean" model="false"/>
         <!-- The element. -->
         <node name="topic_name" channel="inline" format="text/plain" model=""/>
 
-        <!-- The loop parametres. -->
+        <!-- The loop parametres (stack variables). -->
         <node name="category_count" channel="inline" format="number/integer" model="0"/>
         <node name="category_index" channel="inline" format="number/integer" model="0"/>
         <node name="category_break" channel="inline" format="logicvalue/boolean" model="false"/>
         <!-- The element. -->
         <node name="category_name" channel="inline" format="text/plain" model=""/>
 
-        <!-- The loop parametres. -->
+        <!-- The loop parametres (stack variables). -->
         <node name="part_count" channel="inline" format="number/integer" model="0"/>
         <node name="part_index" channel="inline" format="number/integer" model="0"/>
         <node name="part_break" channel="inline" format="logicvalue/boolean" model="false"/>
         <!-- The element. -->
         <node name="part_name" channel="inline" format="text/plain" model=""/>
 
-        <!-- The loop parametres. -->
+        <!-- The loop parametres (stack variables). -->
         <node name="property_count" channel="inline" format="number/integer" model="0"/>
         <node name="property_index" channel="inline" format="number/integer" model="0"/>
         <node name="property_break" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -39,9 +39,9 @@
 
     </node>
 
-    <node name="topic" channel="file" format="element/part" model="api/logic/translate/topic.cybol"/>
-    <node name="category" channel="file" format="element/part" model="api/logic/translate/category.cybol"/>
-    <node name="part" channel="file" format="element/part" model="api/logic/translate/part.cybol"/>
-    <node name="properties" channel="file" format="element/part" model="api/logic/translate/properties.cybol"/>
+    <node name="topic" channel="file" format="element/part" model="api-generator/logic/translate/topic.cybol"/>
+    <node name="category" channel="file" format="element/part" model="api-generator/logic/translate/category.cybol"/>
+    <node name="part" channel="file" format="element/part" model="api-generator/logic/translate/part.cybol"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/logic/translate/properties.cybol"/>
 
 </node>

@@ -7,22 +7,40 @@
         <node name="whole" channel="inline" format="text/cybol-path" model=".wui.body.content.(#topic_name).(#category_name)"/>
     </node>
 
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="api-generator/wui/content/part.cybol"/>
+    </node>
     <node name="initialise_wui_content_part_part" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/plain" model="api/wui/content/part.cybol"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".wui.body.content.(#topic_name).(#category_name).(#part_name)"/>
     </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+    </node>
 
+    <node name="open_file" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
+        <node name="device" channel="inline" format="text/plain" model="api-generator/wui/content/part/part_properties.cybol"/>
+    </node>
     <node name="initialise_wui_content_part_properties" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/property"/>
-        <node name="sender" channel="inline" format="text/plain" model="api/wui/content/part/part_properties.cybol"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".wui.body.content.(#topic_name).(#category_name).(#part_name)"/>
+    </node>
+    <node name="close_file" channel="inline" format="dispatch/close" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
     <node name="overwrite_heading" channel="inline" format="modify/overwrite" model="">
