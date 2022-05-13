@@ -1,0 +1,66 @@
+<node>
+
+    <node name="get_topic_name" channel="inline" format="access/get-name" model="">
+        <node name="element" channel="inline" format="text/cybol-path" model="#topic_name"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".spec.[#topic_index]"/>
+    </node>
+
+    <!-- Loop reset. -->
+    <!--
+        CAUTION! The count has to be reset even though it gets calculated below.
+        The reason is that calculation might fail for non-existing children,
+        and using an invalid count of a previous child would lead to wrong results.
+    -->
+    <node name="reset_count" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#category_count"/>
+        <node name="source" channel="inline" format="number/integer" model="0"/>
+    </node>
+    <node name="reset_index" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#category_index"/>
+        <node name="source" channel="inline" format="number/integer" model="0"/>
+    </node>
+    <node name="reset_break" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#category_break"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+    <!-- Model creation. -->
+    <node name="create_wui_toc_topic" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="text/cybol-path" model=".logic.create.wui_toc_topic"/>
+    </node>
+
+    <node name="create_wui_content_topic" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="text/cybol-path" model=".logic.create.wui_content_topic"/>
+    </node>
+
+    <!-- Child translation. -->
+    <node name="count_categories" channel="inline" format="access/count" model="">
+        <node name="count" channel="inline" format="text/cybol-path" model="#category_count"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".spec.[#topic_index]"/>
+    </node>
+    <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
+    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#category_break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="#category_index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model="#category_count"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+    <node name="loop_categories" channel="inline" format="flow/loop" model="">
+        <node name="break" channel="inline" format="text/cybol-path" model="#category_break"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.category"/>
+    </node>
+
+    <!-- Loop test. -->
+    <node name="increment_index" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#topic_index"/>
+        <node name="operand" channel="inline" format="number/integer" model="1"/>
+    </node>
+    <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
+    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="#topic_break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="#topic_index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model="#topic_count"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+</node>

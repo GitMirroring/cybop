@@ -1,0 +1,37 @@
+<node>
+    <node name="value" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="value"/>
+        <node name="description" channel="inline" format="text/plain" model="The knowledge model representing the value."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="path/*"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="position" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="position"/>
+        <node name="description" channel="inline" format="text/plain" model="The bit position within the value."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="path/* | number/*"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="type" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="type"/>
+        <node name="description" channel="inline" format="text/plain" model="The value type."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="path/* | meta/type"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="count" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="count"/>
+        <node name="description" channel="inline" format="text/plain" model="The number of values to be manipulated (if null, the value part model count will be used instead)."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="path/* | number/*"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="index" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="index"/>
+        <node name="description" channel="inline" format="text/plain" model="The index from which to start manipulating values (if null, an index of zero will be used instead)."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="path/* | number/*"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+</node>

@@ -1,0 +1,13 @@
+<node name="copy" channel="inline" format="command/copy" model="">
+    <node name="source" channel="inline" format="text/plain"
+      model="./shell_command_copy_file/original.txt"/>
+    <node name="destination" channel="inline" format="text/plain"
+      model="./shell_command_copy_file/copied_and_please_do_not_commit_me.txt"/>
+    <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="preserve-all-attributes" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="preserve-links" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="update" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+</node>

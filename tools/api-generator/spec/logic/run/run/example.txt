@@ -1,0 +1,3 @@
+<node name="execute_shell_script" channel="inline" format="run/run" model="">
+    <node name="programme" channel="file" format="text/plain" model="password_generator/sleep_timer.sh"/>
+</node>

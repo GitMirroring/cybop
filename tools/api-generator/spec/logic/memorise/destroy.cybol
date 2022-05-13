@@ -1,0 +1,7 @@
+<node>
+    <node name="name" channel="inline" format="text/plain" model="destroy"/>
+    <node name="description" channel="inline" format="text/plain" model="Destroys a part and removes it from the knowledge model."/>
+    <node name="example" channel="file" format="text/plain" model="api/spec/logic/memorise/destroy/example.txt"/>
+    <node name="format" channel="inline" format="text/plain" model="memorise/destroy"/>
+    <node name="properties" channel="file" format="element/part" model="api/spec/logic/memorise/destroy/properties.cybol"/>
+</node>

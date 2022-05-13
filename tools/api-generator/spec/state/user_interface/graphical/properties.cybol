@@ -1,0 +1,65 @@
+<node>
+    <node name="position" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="position"/>
+        <node name="description" channel="inline" format="text/plain" model="The position (x, y) in unit [pixel], starting from zero, in relation to the surrounding parent element's origo."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="path/* | number/integer"/>
+        <node name="model" channel="inline" format="text/plain" model="a two-dimensional vector"/>
+    </node>
+    <node name="size" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="size"/>
+        <node name="description" channel="inline" format="text/plain" model="The size (width, height) in unit [pixel], starting from zero."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="path/* | number/integer"/>
+        <node name="model" channel="inline" format="text/plain" model="a two-dimensional vector"/>
+    </node>
+    <node name="background" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="background"/>
+        <node name="description" channel="inline" format="text/plain" model="The background colour."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="path/* | colour/rgb"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="foreground" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="foreground"/>
+        <node name="description" channel="inline" format="text/plain" model="The foreground colour."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="path/* | colour/rgb"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="layout" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="layout"/>
+        <node name="description" channel="inline" format="text/plain" model="The layout of contained child components."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="path/* | text/plain"/>
+        <node name="model" channel="inline" format="text/plain" model="absolute | flow | grid | compass"/>
+    </node>
+    <node name="cell" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="cell"/>
+        <node name="description" channel="inline" format="text/plain" model="The component's cell (position) within the surrounding parent component. Possible values depend on the parent component's layout."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="path/* | text/plain | number/integer"/>
+        <node name="model" channel="inline" format="text/plain" model="x, y (absolute) || row,column (grid) || centre | north | south | west | east (compass)"/>
+    </node>
+    <node name="title" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="title"/>
+        <node name="description" channel="inline" format="text/plain" model="The window title."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="path/* | text/plain"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="icon" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="icon"/>
+        <node name="description" channel="inline" format="text/plain" model="The window icon."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="path/* | image/*"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="expose" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="expose"/>
+        <node name="description" channel="inline" format="text/plain" model="The expose event to redraw the window content."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="path/*"/>
+        <node name="model" channel="inline" format="text/plain" model="a logic model to be executed"/>
+    </node>
+</node>

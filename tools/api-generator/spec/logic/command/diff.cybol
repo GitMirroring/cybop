@@ -1,0 +1,7 @@
+<node>
+    <node name="name" channel="inline" format="text/plain" model="diff"/>
+    <node name="description" channel="inline" format="text/plain" model="Compares two files."/>
+    <node name="example" channel="file" format="text/plain" model="api/spec/logic/command/diff/example.txt"/>
+    <node name="format" channel="inline" format="text/plain" model="command/diff"/>
+    <node name="properties" channel="file" format="element/part" model="api/spec/logic/command/diff/properties.cybol"/>
+</node>

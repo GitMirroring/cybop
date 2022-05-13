@@ -1,0 +1,3 @@
+<node name="remove" channel="inline" format="modify/remove" model="">
+    <node name="part" channel="inline" format="text/cybol-path" model=".summand"/>
+</node>

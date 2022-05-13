@@ -1,0 +1,5 @@
+<node name="archive" channel="inline" format="command/archive" model="">
+    <node name="create" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="update" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="bzip2" channel="inline" format="logicvalue/boolean" model="false"/>
+</node>

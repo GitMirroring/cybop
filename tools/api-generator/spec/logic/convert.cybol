@@ -1,0 +1,4 @@
+<node>
+    <node name="decode (NOT SUPPORTED YET)" channel="file" format="element/part" model="api/spec/logic/convert/decode.cybol"/>
+    <node name="encode (NOT SUPPORTED YET)" channel="file" format="element/part" model="api/spec/logic/convert/encode.cybol"/>
+</node>

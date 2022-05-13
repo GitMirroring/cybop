@@ -1,0 +1,23 @@
+<node>
+    <node name="criterion" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="criterion"/>
+        <node name="description" channel="inline" format="text/plain" model="the flag specifying which of the two models to execute"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="path/* | logicvalue/boolean"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="true" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="true"/>
+        <node name="description" channel="inline" format="text/plain" model="the logic knowledge model to be executed if the condition is true"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="element/part"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="false" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="false"/>
+        <node name="description" channel="inline" format="text/plain" model="the logic knowledge model to be executed if the condition is false"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="element/part"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>    
+</node>

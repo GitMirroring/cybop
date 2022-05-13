@@ -1,0 +1,6 @@
+<node name="create_summand_2" channel="inline" format="memorise/create" model="">
+    <node name="name" channel="inline" format="text/plain" model="summand_2"/>
+    <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    <node name="element" channel="inline" format="text/plain" model="part"/>
+    <node name="whole" channel="inline" format="text/cybol-path" model=".addition_application"/>
+</node>

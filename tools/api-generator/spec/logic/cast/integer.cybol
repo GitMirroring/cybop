@@ -1,0 +1,7 @@
+<node>
+    <node name="name" channel="inline" format="text/plain" model="integer"/>
+    <node name="description" channel="inline" format="text/plain" model="Casts a value from one type to another."/>
+    <node name="example" channel="file" format="text/plain" model="api/spec/logic/cast/integer/example.txt"/>
+    <node name="format" channel="inline" format="text/plain" model="cast/integer"/>
+    <node name="properties" channel="file" format="element/part" model="api/spec/logic/cast/integer/properties.cybol"/>
+</node>

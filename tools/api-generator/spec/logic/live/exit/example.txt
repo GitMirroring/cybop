@@ -1,0 +1,1 @@
+<node name="exit_application" channel="inline" format="live/exit" model=""/>

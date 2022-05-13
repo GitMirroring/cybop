@@ -1,0 +1,7 @@
+<node>
+    <node name="name" channel="inline" format="text/plain" model="tape-archiver"/>
+    <node name="description" channel="inline" format="text/plain" model="Moving files and directories from a path to another.."/>
+    <node name="example" channel="file" format="text/plain" model="api/spec/logic/command/tape_archiver/example.txt"/>
+    <node name="format" channel="inline" format="text/plain" model="command/tape-archiver"/>
+    <node name="properties" channel="file" format="element/part" model="api/spec/logic/command/tape_archiver/properties.cybol"/>
+</node> 

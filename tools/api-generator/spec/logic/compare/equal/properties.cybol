@@ -1,0 +1,37 @@
+<node>
+    <node name="result" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="result"/>
+        <node name="description" channel="inline" format="text/plain" model="the knowledge model, in which the result is stored (of type boolean)"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="path/* | logicvalue/boolean"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="left" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="left"/>
+        <node name="description" channel="inline" format="text/plain" model="the left operand"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="path/* | number/* | text/plain"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="right" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="right"/>
+        <node name="description" channel="inline" format="text/plain" model="the right operand"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="path/* | number/* | text/plain"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="type" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="type"/>
+        <node name="description" channel="inline" format="text/plain" model="the operand type which is equal for both operands"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="path/* | meta/type"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="selection" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="selection"/>
+        <node name="description" channel="inline" format="text/plain" model="the area of two strings or number vectors to be compared"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="path/* | meta/type"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+</node>

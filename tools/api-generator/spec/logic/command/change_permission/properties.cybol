@@ -1,0 +1,51 @@
+<node>
+    <node name="path" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="path"/>
+        <node name="description" channel="inline" format="text/plain" model="The path to the file or directory."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="user" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="user"/>
+        <node name="description" channel="inline" format="text/plain" model="The user rights."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/plain" />
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="group" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="group"/>
+        <node name="description" channel="inline" format="text/plain" model="The group rights."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="other" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="other"/>
+        <node name="description" channel="inline" format="text/plain" model="The rights for anyone."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="recursive" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="recursive"/>
+        <node name="description" channel="inline" format="text/plain" model="change files and directories recursively"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+        <node name="silent" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="silent"/>
+        <node name="description" channel="inline" format="text/plain" model="supress most error messages"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="verbose" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="verbose"/>
+        <node name="description" channel="inline" format="text/plain" model="output a diagnostic for every file processed"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+</node>

@@ -1,0 +1,7 @@
+<node>
+    <node name="name" channel="inline" format="text/plain" model="interrupt"/>
+    <node name="description" channel="inline" format="text/plain" model="Interrupts a service."/>
+    <node name="example" channel="file" format="text/plain" model="api/spec/logic/live/interrupt/example.txt"/>
+    <node name="format" channel="inline" format="text/plain" model="live/interrupt"/>
+    <node name="properties" channel="file" format="element/part" model="api/spec/logic/live/interrupt/properties.cybol"/>
+</node>

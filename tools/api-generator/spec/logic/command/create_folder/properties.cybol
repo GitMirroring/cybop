@@ -1,0 +1,9 @@
+<node>
+    <node name="path" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="path"/>
+        <node name="description" channel="inline" format="text/plain" model="path to the directory"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+</node>

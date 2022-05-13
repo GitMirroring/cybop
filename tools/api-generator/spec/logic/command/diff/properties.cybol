@@ -1,0 +1,16 @@
+<node>
+    <node name="file1" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="file1"/>
+        <node name="description" channel="inline" format="text/plain" model="first file to compare"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="file2" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="file2"/>
+        <node name="description" channel="inline" format="text/plain" model="second file to compare"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+</node>

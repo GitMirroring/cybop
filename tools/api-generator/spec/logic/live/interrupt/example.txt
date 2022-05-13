@@ -1,0 +1,3 @@
+<node name="interrupt_x_window_system" channel="inline" format="live/interrupt" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="display"/>
+</node>

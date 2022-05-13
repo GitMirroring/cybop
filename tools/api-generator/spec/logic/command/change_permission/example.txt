@@ -1,0 +1,10 @@
+<node name="chmod_file" channel="inline" format="command/change-permission" model="">
+    <node name="path" channel="inline" format="text/plain"
+      model="./shell_command_change_permission/example.txt"/>
+    <node name="user" channel="inline" format="text/plain" model="rwx"/>
+    <node name="group" channel="inline" format="text/plain" model="rwx"/>
+    <node name="other" channel="inline" format="text/plain" model="rw"/>
+    <node name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="verbose" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="silent" channel="inline" format="logicvalue/boolean" model="false"/>
+</node>

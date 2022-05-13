@@ -1,0 +1,4 @@
+<node name="echo" channel="inline" format="command/echo" model="">
+    <node name="message" channel="inline" format="text/plain"
+      model="hello, this is an echo over standard output"/>
+</node>

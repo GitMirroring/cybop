@@ -1,0 +1,7 @@
+<node>
+    <node name="name" channel="inline" format="text/plain" model="clear"/>
+    <node name="description" channel="inline" format="text/plain" model="Resets the bit at a given position."/>
+    <node name="example" channel="file" format="text/plain" model="api/spec/logic/manipulate/clear/example.txt"/>
+    <node name="format" channel="inline" format="text/plain" model="manipulate/clear"/>
+    <node name="properties" channel="file" format="element/part" model="api/spec/logic/manipulate/clear/properties.cybol"/>
+</node>

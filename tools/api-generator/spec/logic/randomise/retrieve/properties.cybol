@@ -1,0 +1,30 @@
+<node>
+    <node name="result" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="result"/>
+        <node name="description" channel="inline" format="text/plain" model="The path where the retrieved random value is written to."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="minimum" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="minimum"/>
+        <node name="description" channel="inline" format="text/plain" model="The lower bound of the to generate value. (inclusive)"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="meta/type"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="maximum" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="maximum"/>
+        <node name="description" channel="inline" format="text/plain" model="The upper bound of the to generate value."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="meta/type"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="seed" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="seed"/>
+        <node name="description" channel="inline" format="text/plain" model="The path to the seed used for generating the random value."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+</node>

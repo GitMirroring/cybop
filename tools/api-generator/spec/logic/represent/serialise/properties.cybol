@@ -1,0 +1,30 @@
+<node>
+    <node name="destination" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="destination"/>
+        <node name="description" channel="inline" format="text/plain" model="the destination part"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="number/integer"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="source" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="source"/>
+        <node name="description" channel="inline" format="text/plain" model="the source part"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="format" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="type"/>
+        <node name="description" channel="inline" format="text/plain" model="the destination part format"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="meta/type"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="language" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="language"/>
+        <node name="description" channel="inline" format="text/plain" model="the destination part language (cybol, http_request, xdt etc.)"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="meta/language"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+</node>

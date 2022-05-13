@@ -1,0 +1,4 @@
+<node name="collect_voltages" channel="inline" format="flow/loop" model="">
+    <node name="break" channel="inline" format="text/cybol-path" model=".settings.adc_break"/>
+    <node name="model" channel="file" format="element/part" model="adc/collect_voltages.cybol"/>
+</node>

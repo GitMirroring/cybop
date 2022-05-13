@@ -1,0 +1,6 @@
+<node name="branch_voltage" channel="inline" format="flow/branch" model="">
+    <node name="criterion" channel="inline" format="text/cybol-path" model=".settings.voltage_criterion"/>
+    <node name="true" channel="file" format="element/part" model="indoor_climate/add_voltage.cybol"/>
+    <node name="false" channel="file" format="element/part"
+      model="indoor_climate/report_voltage_failure.cybol"/>
+</node>

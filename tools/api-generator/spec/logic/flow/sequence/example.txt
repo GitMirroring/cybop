@@ -1,0 +1,3 @@
+<node name="start_playerinput" channel="inline" format="flow/sequence" model="">
+  <node name="model" channel="inline" format="text/cybol-path" model=".app.setrandom"/>
+</node>

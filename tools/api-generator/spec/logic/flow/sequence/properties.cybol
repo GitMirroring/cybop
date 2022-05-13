@@ -1,0 +1,9 @@
+<node>
+    <node name="model" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="model"/>
+        <node name="description" channel="inline" format="text/plain" model="the logic knowledge model to be executed as sequence"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+</node>

@@ -1,0 +1,14 @@
+<node>
+
+    <node name="wui_page" channel="file" format="element/part" model="api/logic/create/wui_page.cybol"/>
+
+    <node name="wui_toc_topic" channel="file" format="element/part" model="api/logic/create/wui_toc_topic.cybol"/>
+    <node name="wui_toc_category" channel="file" format="element/part" model="api/logic/create/wui_toc_category.cybol"/>
+    <node name="wui_toc_part" channel="file" format="element/part" model="api/logic/create/wui_toc_part.cybol"/>
+
+    <node name="wui_content_topic" channel="file" format="element/part" model="api/logic/create/wui_content_topic.cybol"/>
+    <node name="wui_content_category" channel="file" format="element/part" model="api/logic/create/wui_content_category.cybol"/>
+    <node name="wui_content_part" channel="file" format="element/part" model="api/logic/create/wui_content_part.cybol"/>
+    <node name="wui_content_properties" channel="file" format="element/part" model="api/logic/create/wui_content_properties.cybol"/>
+
+</node>

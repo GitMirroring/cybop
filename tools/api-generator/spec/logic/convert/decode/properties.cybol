@@ -1,0 +1,30 @@
+<node>
+    <node name="destination_item" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="destination_item"/>
+        <node name="description" channel="inline" format="text/plain" model="???"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="???"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="source_data" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="source_data ???"/>
+        <node name="description" channel="inline" format="text/plain" model="???"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="???"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="source_count" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="source_count ???"/>
+        <node name="description" channel="inline" format="text/plain" model="???"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="???"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="encoding" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="encoding"/>
+        <node name="description" channel="inline" format="text/plain" model="???"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="???"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+</node>

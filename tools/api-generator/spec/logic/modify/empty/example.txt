@@ -1,0 +1,5 @@
+<node name="reset_buffer" channel="inline" format="modify/empty" model="">
+    <node name="part" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer"/>
+    <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+</node>
