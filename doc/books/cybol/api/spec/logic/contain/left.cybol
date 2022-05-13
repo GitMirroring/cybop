@@ -1,7 +1,0 @@
-<node>
-    <node name="name" channel="inline" format="text/plain" model="left"/>
-    <node name="description" channel="inline" format="text/plain" model="Compare if bounded area contains value."/>
-    <node name="example" channel="file" format="text/plain" model="api/spec/logic/contain/left/example.txt"/>
-    <node name="format" channel="inline" format="text/plain" model="contain/left"/>
-    <node name="properties" channel="file" format="element/part" model="api/spec/logic/contain/left/properties.cybol"/>
-</node>

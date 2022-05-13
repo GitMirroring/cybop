@@ -1,7 +1,0 @@
-  <node>
-    <node name="name" channel="inline" format="text/plain" model="bubble"/>
-    <node name="description" channel="inline" format="text/plain" model="Sort numbers via bubble-algorithm."/>
-    <node name="example" channel="file" format="text/plain" model="api/spec/logic/sort/bubble/example.txt"/>
-    <node name="format" channel="inline" format="text/plain" model="sort/bubble"/>
-    <node name="properties" channel="file" format="element/part" model="api/spec/logic/sort/bubble/properties.cybol"/>
-</node>

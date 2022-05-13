@@ -1,7 +1,0 @@
-<node>
-    <node name="name" channel="inline" format="text/plain" model="fill"/>
-    <node name="description" channel="inline" format="text/plain" model="Fills the part up with a given element."/>
-    <node name="example" channel="file" format="text/plain" model="api/spec/logic/modify/fill/example.txt"/>
-    <node name="format" channel="inline" format="text/plain" model="modify/fill"/>
-    <node name="properties" channel="file" format="element/part" model="api/spec/logic/modify/fill/properties.cybol"/>
-</node>

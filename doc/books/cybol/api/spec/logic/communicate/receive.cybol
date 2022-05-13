@@ -1,7 +1,0 @@
-<node>
-    <node name="name" channel="inline" format="text/plain" model="receive"/>
-    <node name="description" channel="inline" format="text/plain" model="Receives a message via the given channel."/>
-    <node name="example" channel="file" format="text/plain" model="api/spec/logic/communicate/receive/example.txt"/>
-    <node name="format" channel="inline" format="text/plain" model="communicate/receive"/>
-    <node name="properties" channel="file" format="element/part" model="api/spec/logic/communicate/receive/properties.cybol"/>
-</node>

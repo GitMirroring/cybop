@@ -1,8 +1,0 @@
-<node>
-
-    <node name="heading" channel="inline" format="text/plain" model="">
-        <node name="tag" channel="inline" format="text/plain" model="div"/>
-        <node name="id" channel="inline" format="text/plain" model="title"/>
-    </node>
-
-</node>

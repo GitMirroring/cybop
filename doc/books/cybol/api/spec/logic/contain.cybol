@@ -1,6 +1,0 @@
-<node>
-    <node name="both" channel="file" format="element/part" model="api/spec/logic/contain/both.cybol"/>
-    <node name="left" channel="file" format="element/part" model="api/spec/logic/contain/left.cybol"/>
-    <node name="none" channel="file" format="element/part" model="api/spec/logic/contain/none.cybol"/>
-    <node name="right" channel="file" format="element/part" model="api/spec/logic/contain/right.cybol"/>
-</node>

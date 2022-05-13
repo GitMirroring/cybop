@@ -1,7 +1,0 @@
-<node>
-    <node name="name" channel="inline" format="text/plain" model="branch"/>
-    <node name="description" channel="inline" format="text/plain" model="Branches the programme flow, depending on the criterion flag."/>
-    <node name="example" channel="file" format="text/plain" model="api/spec/logic/flow/branch/example.txt"/>
-    <node name="format" channel="inline" format="text/plain" model="flow/branch"/>
-    <node name="properties" channel="file" format="element/part" model="api/spec/logic/flow/branch/properties.cybol"/>
-</node>

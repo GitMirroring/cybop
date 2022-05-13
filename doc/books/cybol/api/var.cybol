@@ -1,6 +1,0 @@
-<node>
-
-    <node name="file" channel="inline" format="text/plain" model="api.html"/>
-    <node name="title" channel="inline" format="text/plain" model="CYBOL Version 2016-03-07 API Specification"/>
-
-</node>

@@ -1,7 +1,0 @@
-<node>
-    <node name="name" channel="inline" format="text/plain" model="run"/>
-    <node name="description" channel="inline" format="text/plain" model="Runs a local program"/>
-    <node name="example" channel="file" format="text/plain" model="api/spec/logic/run/run/example.txt"/>
-    <node name="format" channel="inline" format="text/plain" model="run/run"/>
-    <node name="properties" channel="file" format="element/part" model="api/spec/logic/run/run/properties.cybol"/>
-</node>

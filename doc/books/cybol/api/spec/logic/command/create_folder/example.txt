@@ -1,4 +1,0 @@
-<node name="create_folder" channel="inline" format="command/create-folder" model="">
-    <node name="path" channel="inline" format="text/plain"
-      model="./shell_command_create_folder/i_am_a_created_folder"/>
-</node>

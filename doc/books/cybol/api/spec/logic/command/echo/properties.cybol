@@ -1,9 +1,0 @@
-<node>
-    <node name="message" channel="inline" format="text/plain" model="">
-        <node name="name" channel="inline" format="text/plain" model="message"/>
-        <node name="description" channel="inline" format="text/plain" model="the message which should be directed to the standard output"/>
-        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="format" channel="inline" format="text/plain" model="text/plain"/>
-        <node name="model" channel="inline" format="text/plain" model=""/>
-    </node>
-</node>
