@@ -32,36 +32,33 @@
 /**
  * Searches for a non-whitespace character from the BEGINNING of the given array.
  *
- * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the source data position (pointer reference)
- * @param p3 the source count remaining
- * @param p4 the member name data
- * @param p5 the member name count
- * @param p6 the array or object end flag
- * @param p7 the value end flag
- * @param p8 the object flag (true if this is an object; false for array or otherwise the default)
+ * @param p0 the destination item
+ * @param p1 the source data
+ * @param p2 the source count
  */
-void strip_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void strip_begin(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Strip begin.");
-    fwprintf(stdout, L"Debug: Strip begin. count remaining p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Strip begin. count remaining *p3: %i\n", *((int*) p3));
-    fwprintf(stdout, L"Debug: Strip begin. data position *p2: %i\n", *((void**) p2));
-    fwprintf(stdout, L"Debug: Strip begin. data position *p2 ls: %ls\n", (wchar_t*) *((void**) p2));
-    fwprintf(stdout, L"Debug: Strip begin. data position *p2 lc: %lc\n", *((wchar_t*) *((void**) p2)));
-    fwprintf(stdout, L"Debug: Strip begin. data position *p2 lc as int: %i\n", *((wchar_t*) *((void**) p2)));
+    fwprintf(stdout, L"Debug: Strip begin. count remaining p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Strip begin. count remaining *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Strip begin. data position p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Strip begin. data position p1 ls: %ls\n", (wchar_t*) p1);
+    fwprintf(stdout, L"Debug: Strip begin. data position *p1 lc: %lc\n", *((wchar_t*) p1));
+    fwprintf(stdout, L"Debug: Strip begin. data position *p1 lc as int: %i\n", *((wchar_t*) p1));
 
-    // The string data, count.
-    void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int sc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The source data position.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source count remaining.
+    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Initialise string.
-    copy_pointer((void*) &sd, p2);
+    // Copy source data position.
+    copy_pointer((void*) &d, (void*) &p1);
+    // Copy source count remaining.
+    copy_integer((void*) &c, p2);
 
-    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
         // CAUTION! If the loop count handed over as parametre is NULL,
@@ -78,14 +75,20 @@ void strip_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_less_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_less_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // CAUTION! Do NOT copy anything to the destination if the
+            // source is EMPTY or NO non-whitespace character could be found.
+            //
 
             break;
         }
 
-        strip_end((void*) &b, p1, p2);
+        // Search for a non-whitespace character within the given array.
+        strip_character((void*) &b, (void*) &d, (void*) &c);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -93,15 +96,16 @@ void strip_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
             // A non-whitespace character has been found.
             //
 
-            // Overwrite string part model.
-            modify_item(pm, sd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &sc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+            //
+            // Overwrite string destination item.
+            //
+            // CAUTION! The source count remaining got already adapted
+            // within the function "strip_character" above and can be
+            // used as COUNT parametre AS IS.
+            //
+            modify_item(p0, d, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
             break;
-
-        } else {
-
-            // Increment string count.
-            sc++;
         }
     }
 }

@@ -25,7 +25,7 @@
         * Copy cybol applications from project "resmedicinae" to "examples/resmedicinae/"
         * Make api generator in directory "tools/api-generator/" work again
         * Add minor files for manual and documentation
-        * Add file "executor/modifier/stripper.c"
+        * Add directory "executor/modifier/stripper/
 
 2022-05-12  Christian Heller  <christian.heller@cybop.org>
 

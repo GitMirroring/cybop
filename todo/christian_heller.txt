@@ -14,7 +14,7 @@
 String
 ______
 
-        * Continue with directory "executor/modifier/stripper/
+        * Continue with directory "executor/modifier/stripper/ (TEST_BACKWARD_character_stripper.c etc.)
         * Add file "executor/modifier/stripper.c" providing functionality for cybol operation "modify/strip"
         * Add file "executor/modifier/normaliser.c" providing functionality for cybol operation "modify/normalise"
         * Add file "executor/modifier/replacer.c" providing functionality for cybol operation "modify/replace"

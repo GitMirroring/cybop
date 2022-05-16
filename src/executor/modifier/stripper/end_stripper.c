@@ -32,26 +32,100 @@
 /**
  * Searches for a non-whitespace character from the END of the given array.
  *
- * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the source data position (pointer reference)
- * @param p3 the source count remaining
- * @param p4 the member name data
- * @param p5 the member name count
- * @param p6 the array or object end flag
- * @param p7 the value end flag
- * @param p8 the object flag (true if this is an object; false for array or otherwise the default)
+ * @param p0 the destination item
+ * @param p1 the source data
+ * @param p2 the source count
  */
-void strip_end(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void strip_end(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Strip end.");
-    fwprintf(stdout, L"Debug: Strip end. count remaining p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Strip end. count remaining *p3: %i\n", *((int*) p3));
-    fwprintf(stdout, L"Debug: Strip end. data position *p2: %i\n", *((void**) p2));
-    fwprintf(stdout, L"Debug: Strip end. data position *p2 ls: %ls\n", (wchar_t*) *((void**) p2));
-    fwprintf(stdout, L"Debug: Strip end. data position *p2 lc: %lc\n", *((wchar_t*) *((void**) p2)));
-    fwprintf(stdout, L"Debug: Strip end. data position *p2 lc as int: %i\n", *((wchar_t*) *((void**) p2)));
+    fwprintf(stdout, L"Debug: Strip end. source count p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Strip end. source count *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Strip end. source data p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Strip end. source data p1 ls: %ls\n", (wchar_t*) p1);
+    fwprintf(stdout, L"Debug: Strip end. source data *p1 lc: %lc\n", *((wchar_t*) p1));
+    fwprintf(stdout, L"Debug: Strip end. source data *p1 lc as int: %i\n", *((wchar_t*) p1));
 
+    //
+    //?? TODO: Let loop run BACKWARDS using function "move" with backwards flag set.
+    //
+    // All that is necessary is to adjust the count variable c,
+    // which is handed over to function "modify_item" below.
+    //
+
+    // The source data position.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source count remaining.
+    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    // Copy source data position.
+    copy_pointer((void*) &d, (void*) &p1);
+    // Copy source count remaining.
+    copy_integer((void*) &c, p2);
+
+    // Move source data position to LAST element.
+    move((void*) &d, (void*) &c, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &c, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        //
+        // CAUTION! If the loop count handed over as parametre is NULL,
+        // then the break flag will NEVER be set to true, because the loop
+        // variable comparison does (correctly) not consider null values.
+        // Therefore, in this case, the break flag is set to true already here.
+        //
+        // Initialising the break flag with true will NOT work either, since it:
+        // a) will be left untouched if a comparison operand is null;
+        // b) would have to be reset to true in each loop cycle.
+        //
+        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    }
+
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_less_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // CAUTION! Do NOT copy anything to the destination if the
+            // source is EMPTY or NO non-whitespace character could be found.
+            //
+
+            break;
+        }
+
+        // Search for a non-whitespace character within the given array.
+        strip_character((void*) &b, (void*) &d, (void*) &c);
+
+        //
+        //?? TODO: How best to move backward here?
+        // - do it in function "strip_character"
+        // - set last parametre of function "detect" to FALSE
+        // - move ONE element backwards (one that was detected and one more to step to the previous element)
+        // - each if-section knows the length of the searched character and hence the length to move
+        //
+
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // A non-whitespace character has been found.
+            //
+
+            //
+            // Overwrite string destination item.
+            //
+            // CAUTION! The source count remaining got already adapted
+            // within the function "strip_character" above and can be
+            // used as COUNT parametre AS IS.
+            //
+            modify_item(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+            break;
+        }
+    }
 }
 
 /* END_STRIPPER_SOURCE */

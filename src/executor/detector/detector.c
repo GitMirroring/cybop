@@ -88,6 +88,7 @@ void detect(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
                     //
                     // CAUTION! The remaining count may NOT be handed over as position count,
                     // since it might be greater than the array count and would thus differ.
+                    // Therefore, hand over the given count p5 as parametre TWICE.
                     //
                     check_operation(p0, *pos, p3, p5, p5, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, p4);
 
