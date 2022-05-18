@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-05-14  Christian Heller  <christian.heller@cybop.org>
+
+        * Continue files in directory "executor/modifier/stripper/"
+
 2022-05-13  Christian Heller  <christian.heller@cybop.org>
 
         * Move directories "api", "schema", "syntax" from "doc/books/cybol/" to "doc/cybol/"

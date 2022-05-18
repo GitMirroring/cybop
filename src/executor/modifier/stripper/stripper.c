@@ -26,85 +26,63 @@
 #ifndef STRIPPER_SOURCE
 #define STRIPPER_SOURCE
 
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../executor/modifier/fill_modifier.c"
-#include "../../executor/modifier/insert_modifier.c"
-#include "../../executor/modifier/overwrite_modifier.c"
-#include "../../executor/modifier/remove_modifier.c"
-#include "../../logger/logger.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/memoriser/allocator/array_allocator.c"
+#include "../../../executor/memoriser/deallocator/array_deallocator.c"
+#include "../../../executor/modifier/stripper/leading_stripper.c"
+#include "../../../executor/modifier/stripper/trailing_stripper.c"
+#include "../../../logger/logger.c"
 
 /**
  * Removes leading and trailing whitespaces from the string.
  *
  * @param p0 the destination array (pointer reference)
- * @param p1 the source array
- * @param p2 the type
- * @param p3 the deep copying flag
- * @param p4 the count
- * @param p5 the destination index
- * @param p6 the source index
- * @param p7 the destination array count
- * @param p8 the destination array size
- * @param p9 the adjust count flag
- * @param p10 the operation type
+ * @param p1 the destination array count
+ * @param p2 the destination array size
+ * @param p3 the source data
+ * @param p4 the source count
+ * @param p5 the type
  */
-void strip(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void strip(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Strip.");
     fwprintf(stdout, L"Debug: Strip. p10: %i\n", p10);
     fwprintf(stdout, L"Debug: Strip. *p10: %i\n", *((int*) p10));
 
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The begin index.
-    int b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The end index.
-    int e = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The count.
-    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    //
+    // The string array data, count, size.
+    //
+    // It is used for temporary storage of the string
+    // WITHOUT leading whitespaces.
+    //
+    void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int sc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int ss = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
-    // Check type, since stripping makes sense only for strings.
-    compare_integer_equal((void*) &r, p2-type, (void*) POINTER_STATE_CYBOI_TYPE);
+    //
+    // Allocate string array.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_array((void*) &sd, (void*) &ss, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    // Strip leading whitespaces from the string.
+    strip_leading((void*) &sd, (void*) &sc, (void*) &ss, p3, p4, p5);
+    // Strip trailing whitespaces from the string.
+    strip_trailing(p0, p1, p2, sd, (void*) &sc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-        //
-        // Loop from beginning towards end until first
-        // non-white-space character gets detected,
-        // and store its index.
-        //
-
-        //
-        // Loop from end towards beginning until first (actually last)
-        // non-white-space character gets detected,
-        // and store its index.
-        //
-
-        // Calculate count.
-        c = e - b;
-
- * @param p0 the destination array (pointer reference)
- * @param p1 the source array
- * @param p2 the type
- * @param p3 the deep copying flag
- * @param p4 the count
- * @param p5 the destination index
- * @param p6 the source index
- * @param p7 the destination array count
- * @param p8 the destination array size
- * @param p9 the adjust count flag
-        // Copy source from begin index to end index into destination.
-        modify_overwrite(p0, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &b, dest-array-count, dest-array-size, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-    } else {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not strip. The source type is not text.");
-        fwprintf(stdout, L"Warning: Could not strip. The source type is not text. p10: %i\n", p10);
-        fwprintf(stdout, L"Warning: Could not strip. The source type is not text. *p10: %i\n", *((int*) p10));
-    }
+    //
+    // Deallocate string array.
+    //
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    //
+    deallocate_array((void*) &sd, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &ss, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* STRIPPER_SOURCE */

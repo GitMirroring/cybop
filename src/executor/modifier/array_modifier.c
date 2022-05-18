@@ -30,6 +30,9 @@
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../executor/comparator/integer/equal_integer_comparator.c"
+#include "../../executor/modifier/stripper/leading_stripper.c"
+#include "../../executor/modifier/stripper/stripper.c"
+#include "../../executor/modifier/stripper/trailing_stripper.c"
 #include "../../executor/modifier/fill_modifier.c"
 #include "../../executor/modifier/insert_modifier.c"
 #include "../../executor/modifier/overwrite_modifier.c"
@@ -134,6 +137,36 @@ void modify_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             modify_remove(p0, p2, p4, p5, p7, p8, p9);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p10, (void*) STRIP_LEADING_MODIFY_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            strip_leading(p0, p7, p8, p1, p4, p2);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p10, (void*) STRIP_MODIFY_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            strip(p0, p7, p8, p1, p4, p2);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p10, (void*) STRIP_TRAILING_MODIFY_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            strip_trailing(p0, p7, p8, p1, p4, p2);
         }
     }
 

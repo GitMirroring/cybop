@@ -26,17 +26,30 @@
 #ifndef END_STRIPPER_SOURCE
 #define END_STRIPPER_SOURCE
 
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
+#include "../../../executor/copier/integer_copier.c"
+#include "../../../executor/copier/pointer_copier.c"
+#include "../../../executor/modifier/stripper/character_stripper.c"
+#include "../../../executor/modifier/array_modifier.c"
+#include "../../../executor/mover/mover.c"
 #include "../../../logger/logger.c"
 
 /**
  * Searches for a non-whitespace character from the END of the given array.
  *
- * @param p0 the destination item
- * @param p1 the source data
- * @param p2 the source count
+ * @param p0 the destination array (pointer reference)
+ * @param p1 the destination array count
+ * @param p2 the destination array size
+ * @param p3 the source data
+ * @param p4 the source count
  */
-void strip_end(void* p0, void* p1, void* p2) {
+void strip_end(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Strip end.");
     fwprintf(stdout, L"Debug: Strip end. source count p2: %i\n", p2);
@@ -46,13 +59,6 @@ void strip_end(void* p0, void* p1, void* p2) {
     fwprintf(stdout, L"Debug: Strip end. source data *p1 lc: %lc\n", *((wchar_t*) p1));
     fwprintf(stdout, L"Debug: Strip end. source data *p1 lc as int: %i\n", *((wchar_t*) p1));
 
-    //
-    //?? TODO: Let loop run BACKWARDS using function "move" with backwards flag set.
-    //
-    // All that is necessary is to adjust the count variable c,
-    // which is handed over to function "modify_item" below.
-    //
-
     // The source data position.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source count remaining.
@@ -61,14 +67,14 @@ void strip_end(void* p0, void* p1, void* p2) {
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Copy source data position.
-    copy_pointer((void*) &d, (void*) &p1);
+    copy_pointer((void*) &d, (void*) &p3);
     // Copy source count remaining.
-    copy_integer((void*) &c, p2);
+    copy_integer((void*) &c, p4);
 
     // Move source data position to LAST element.
     move((void*) &d, (void*) &c, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &c, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p4 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
         // CAUTION! If the loop count handed over as parametre is NULL,
@@ -85,7 +91,9 @@ void strip_end(void* p0, void* p1, void* p2) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_less_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        //?? TODO: Adapt comparison to GRETER or equal ??
+
+        compare_integer_less_or_equal((void*) &b, p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -100,14 +108,6 @@ void strip_end(void* p0, void* p1, void* p2) {
         // Search for a non-whitespace character within the given array.
         strip_character((void*) &b, (void*) &d, (void*) &c);
 
-        //
-        //?? TODO: How best to move backward here?
-        // - do it in function "strip_character"
-        // - set last parametre of function "detect" to FALSE
-        // - move ONE element backwards (one that was detected and one more to step to the previous element)
-        // - each if-section knows the length of the searched character and hence the length to move
-        //
-
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
@@ -117,13 +117,48 @@ void strip_end(void* p0, void* p1, void* p2) {
             //
             // Overwrite string destination item.
             //
+            // CAUTION! The ORIGINAL source data position is used here
+            // and NOT the local temporary one that was used for searching.
+            //
+            // CAUTION! All that is necessary is to adjust the count variable c,
+            // which is handed over to function "modify_item" below.
+            //
             // CAUTION! The source count remaining got already adapted
             // within the function "strip_character" above and can be
             // used as COUNT parametre AS IS.
             //
-            modify_item(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+            modify_array(p0, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
             break;
+
+        } else {
+
+            //
+            // A whitespace character has been found.
+            //
+
+            //
+            // Decrement the current position by TWO and increment
+            // the remaining count at the same time.
+            //
+            // CAUTION! It is moved by two for the following reasons:
+            // - one position move was caused by file "character_stripper.c",
+            //   so that this step has to be undone
+            // - a second step back is necessary, so that a new character
+            //   (and not the same from before) can be compared with
+            //
+            // CAUTION! Let loop run backwards using function "move"
+            // with BACKWARD flag (last argument) set to TRUE.
+            //
+            // CAUTION! Stepping backward here relies on a character size of ONE.
+            // If some day character SEQUENCES are to be detected,
+            // possibly even with varying length, then moving back by TWO
+            // as done here might be WRONG. In this case, the backward moving
+            // should better be done in file "character_stripper.c", since
+            // each if-comparison there knows how long the sequence is,
+            // so that the current position may be move back correctly.
+            //
+            move((void*) &d, (void*) &c, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 }

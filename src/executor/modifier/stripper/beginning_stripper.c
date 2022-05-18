@@ -23,28 +23,40 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef BEGIN_STRIPPER_SOURCE
-#define BEGIN_STRIPPER_SOURCE
+#ifndef BEGINNING_STRIPPER_SOURCE
+#define BEGINNING_STRIPPER_SOURCE
 
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
+#include "../../../executor/copier/integer_copier.c"
+#include "../../../executor/copier/pointer_copier.c"
+#include "../../../executor/modifier/stripper/character_stripper.c"
+#include "../../../executor/modifier/array_modifier.c"
 #include "../../../logger/logger.c"
 
 /**
  * Searches for a non-whitespace character from the BEGINNING of the given array.
  *
- * @param p0 the destination item
- * @param p1 the source data
- * @param p2 the source count
+ * @param p0 the destination array (pointer reference)
+ * @param p1 the destination array count
+ * @param p2 the destination array size
+ * @param p3 the source data
+ * @param p4 the source count
  */
-void strip_begin(void* p0, void* p1, void* p2) {
+void strip_beginning(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Strip begin.");
-    fwprintf(stdout, L"Debug: Strip begin. count remaining p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Strip begin. count remaining *p2: %i\n", *((int*) p2));
-    fwprintf(stdout, L"Debug: Strip begin. data position p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Strip begin. data position p1 ls: %ls\n", (wchar_t*) p1);
-    fwprintf(stdout, L"Debug: Strip begin. data position *p1 lc: %lc\n", *((wchar_t*) p1));
-    fwprintf(stdout, L"Debug: Strip begin. data position *p1 lc as int: %i\n", *((wchar_t*) p1));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Strip beginning.");
+    fwprintf(stdout, L"Debug: Strip beginning. count remaining p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Strip beginning. count remaining *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Strip beginning. data position p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Strip beginning. data position p1 ls: %ls\n", (wchar_t*) p1);
+    fwprintf(stdout, L"Debug: Strip beginning. data position *p1 lc: %lc\n", *((wchar_t*) p1));
+    fwprintf(stdout, L"Debug: Strip beginning. data position *p1 lc as int: %i\n", *((wchar_t*) p1));
 
     // The source data position.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -54,11 +66,11 @@ void strip_begin(void* p0, void* p1, void* p2) {
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Copy source data position.
-    copy_pointer((void*) &d, (void*) &p1);
+    copy_pointer((void*) &d, (void*) &p3);
     // Copy source count remaining.
-    copy_integer((void*) &c, p2);
+    copy_integer((void*) &c, p4);
 
-    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p4 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
         // CAUTION! If the loop count handed over as parametre is NULL,
@@ -75,7 +87,7 @@ void strip_begin(void* p0, void* p1, void* p2) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_less_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_less_or_equal((void*) &b, p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -103,12 +115,12 @@ void strip_begin(void* p0, void* p1, void* p2) {
             // within the function "strip_character" above and can be
             // used as COUNT parametre AS IS.
             //
-            modify_item(p0, d, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+            modify_array(p0, d, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
             break;
         }
     }
 }
 
-/* BEGIN_STRIPPER_SOURCE */
+/* BEGINNING_STRIPPER_SOURCE */
 #endif
