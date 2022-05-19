@@ -11,37 +11,18 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-String
-______
+XML
+___
 
-        * Run cybol application for directory "executor/modifier/stripper/"
+        * Offer properties "strip" and "normalise" for cybol operations "represent/deserialise" and "communicate/receive"
 
-        * Add file "executor/modifier/normaliser.c" providing functionality for cybol operation "modify/normalise"
-        * Add file "executor/modifier/replacer.c" providing functionality for cybol operation "modify/replace"
-        * Add file "executor/modifier/splitter.c" providing functionality for cybol operation "modify/split"
-        * Add file "executor/modifier/concatenator.c" providing functionality for cybol operation "modify/concatenate"
-        * Add file "executor/modifier/repeater.c" providing functionality for cybol operation "modify/repeat"
-        * Add file "executor/modifier/lowerer.c" providing functionality for cybol operation "modify/lower"
-        * Add file "executor/modifier/upperer.c" providing functionality for cybol operation "modify/upper"
-        * Add file "executor/modifier/reverser.c" providing functionality for cybol operation "modify/reverse"
-
-        * (Possibly NOT necessary, since all operations work on simple string arrays:) Adapt directory "applicator/modify/"
+JSON
+____
 
         * Adapt de-/serialisers for cybol/json/xml to be able to handle escape codes like "\n" for new line etc.
             they get converted into an internal control character of the corresponding platform,
             e.g. "\n" for new line on linux but "\r\n" for carriage return and new line on windows
         * Eliminate file "newline.txt" in cybol application "webstat"
-
-XML
-___
-
-        * Offer property for cybol operation "represent/deserialise" to remove spaces within xml strings when standing between opening and closing tag (not in attribute values)
-            Continue from file "element_content_xml_deserialiser.c"
-            Do this AFTER having extracted the string and ONLY remove leading and trailing space characters
-            Test with "serialisation/xml/examples/xml/web-app.xml"
-
-JSON
-____
 
         * Test json and xml deserialiser and compare results, e.g. with example file "glossary"
         * Continue json deserialiser and selector: number
@@ -50,14 +31,12 @@ ____
         * Test real-world json files of directory "serialisation/json/examples/" using a cybol application
         * Comment out testing log messages in json deserialiser and selector
 
-        * Make cybol api generator work again
-
-        CAUTION! Check call of function "move" in ALL kinds of deserialisers!
-        It could be the reason for ansi escape sequences and others to sporadously NOT work correctly.
-        The reason is that the function "detect" already MOVES the pointer and decrements the remaining count,
-        so that calling "move" JUMPS over some characters, which is NOT wanted. Therefore, DELETE
-        call of function "move" in these cases!
-        See and copy comment in file "begin_value_json_selector.c"!
+        * CAUTION! Check call of function "move" in ALL kinds of deserialisers!
+            It could be the reason for ansi escape sequences and others to sporadously NOT work correctly.
+            The reason is that the function "detect" already MOVES the pointer and decrements the remaining count,
+            so that calling "move" JUMPS over some characters, which is NOT wanted. Therefore, DELETE
+            call of function "move" in these cases!
+            See and copy comment in file "begin_value_json_selector.c"!
 
         * Check all source code if format and type are assigned wherever calling function "allocate_part"
         * Assign default format and type in file "part_allocator.c" ??
@@ -95,6 +74,18 @@ ______
         //
 
         * Implement part serialiser called from file "cybol_serialiser.c"
+
+String
+______
+
+        * Add file "executor/modifier/normaliser.c" providing functionality for cybol operation "modify/normalise"
+        * Add file "executor/modifier/replacer.c" providing functionality for cybol operation "modify/replace"
+        * Add file "executor/modifier/splitter.c" providing functionality for cybol operation "modify/split"
+        * Add file "executor/modifier/concatenator.c" providing functionality for cybol operation "modify/concatenate"
+        * Add file "executor/modifier/repeater.c" providing functionality for cybol operation "modify/repeat"
+        * Add file "executor/modifier/lowerer.c" providing functionality for cybol operation "modify/lower"
+        * Add file "executor/modifier/upperer.c" providing functionality for cybol operation "modify/upper"
+        * Add file "executor/modifier/reverser.c" providing functionality for cybol operation "modify/reverse"
 
 Tool
 ____

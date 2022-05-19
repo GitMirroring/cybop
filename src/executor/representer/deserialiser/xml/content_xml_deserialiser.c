@@ -105,14 +105,14 @@ void deserialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 // The end tag of the xml element has been reached.
                 //
 
+                //
                 // Overwrite destination model item.
-                modify_item(p0, cd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &cc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-
                 //
-                // Remove leading and trailing spaces.
+                // CAUTION! The function "strip" gets called inside.
+                // It removes leading and trailing whitespaces before
+                // writing the string into the destination.
                 //
-
-                //?? TODO: Call special function.
+                modify_item(p0, cd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &cc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) STRIP_MODIFY_LOGIC_CYBOI_FORMAT);
 
                 break;
 
