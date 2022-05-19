@@ -62,6 +62,7 @@
  * - sender (required): the device identification, e.g. file descriptor
  * - encoding (required): the encoding, e.g. utf-8, utf-32
  * - language (optional): the language defining which prefix or suffix indicates the message length, e.g. binary-crlf, http-request, xdt; not needed for file reading since that ends with EOF
+ * - normalisation (optional): the flag indicating whether or not the received message is to be normalised, i.e. leading and trailing whitespaces as well as line breaks removed and multiple ones merged into just ONE, e.g. from text in between two tags of an html or xml file; if NULL, the default is TRUE (normalisation enabled)
  * - medium (optional): the user interface window model hierarchy used to identify nested components and their action via mouse coordinates
  * - format (optional): the format of the data, e.g. logicvalue/boolean, number/integer, text/plain
  * - message (required): the cybol path to the knowledge tree node storing the received data
@@ -95,6 +96,8 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The language part.
     void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The normalisation part.
+    void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The medium part.
     void* me = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The format part.
@@ -122,6 +125,8 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* em = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The language part model item.
     void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The normalisation part model item.
+    void* nm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The medium part format, model, properties item.
     void* mef = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* mem = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -154,6 +159,8 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The language part model item data.
     void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The normalisation part model item data.
+    void* nmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The medium part format, model, properties item data, count.
     void* mefd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* memd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -185,6 +192,8 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     get_part_name((void*) &e, p0, (void*) ENCODING_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) ENCODING_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get language part.
     get_part_name((void*) &l, p0, (void*) LANGUAGE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) LANGUAGE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get normalisation part.
+    get_part_name((void*) &n, p0, (void*) NORMALISATION_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) NORMALISATION_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get medium part.
     get_part_name((void*) &me, p0, (void*) MEDIUM_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) MEDIUM_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get format part.
@@ -212,6 +221,8 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get language part model item.
     copy_array_forward((void*) &lm, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get normalisation part model item.
+    copy_array_forward((void*) &nm, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get medium part format, model, properties item.
     copy_array_forward((void*) &mef, me, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FORMAT_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &mem, me, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -244,6 +255,8 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get language part model item data.
     copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get normalisation part model item data.
+    copy_array_forward((void*) &nmd, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get medium part format, model, properties item data, count.
     copy_array_forward((void*) &mefd, mef, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &memd, mem, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -287,7 +300,7 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Functionality
     //
 
-    receive_data(mm, mp, srmd, srmc, srpd, srpc, srfd, memd, memc, mepd, mepc, mefd, p2, p3, p4, mimd, mamd, amd, fmd, lmd, emd, (void*) &port, (void*) &server, cmd);
+    receive_data(mm, mp, srmd, srmc, srpd, srpc, srfd, memd, memc, mepd, mepc, mefd, nmd, p2, p3, p4, mimd, mamd, amd, fmd, lmd, emd, (void*) &port, (void*) &server, cmd);
 }
 
 /* RECEIVE_SOURCE */

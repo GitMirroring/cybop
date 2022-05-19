@@ -14,7 +14,9 @@
 XML
 ___
 
-        * Offer properties "strip" and "normalise" for cybol operations "represent/deserialise" and "communicate/receive"
+        * Adapt file "content_xml_deserialiser.c" to new "normalisation" flag
+        * Add file "executor/modifier/normaliser.c" providing functionality for cybol operation "modify/normalise"
+        * Test normalisation using file "serialisation/xml/examples/xml/web-app.xml"
 
 JSON
 ____
@@ -78,7 +80,6 @@ ______
 String
 ______
 
-        * Add file "executor/modifier/normaliser.c" providing functionality for cybol operation "modify/normalise"
         * Add file "executor/modifier/replacer.c" providing functionality for cybol operation "modify/replace"
         * Add file "executor/modifier/splitter.c" providing functionality for cybol operation "modify/split"
         * Add file "executor/modifier/concatenator.c" providing functionality for cybol operation "modify/concatenate"

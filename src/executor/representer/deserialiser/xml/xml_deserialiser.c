@@ -41,8 +41,9 @@
  * @param p1 the destination properties item
  * @param p2 the source data
  * @param p3 the source count
+ * @param p4 the normalisation flag
  */
-void deserialise_xml(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xml.");
 
@@ -65,7 +66,7 @@ void deserialise_xml(void* p0, void* p1, void* p2, void* p3) {
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
     //
-    deserialise_xml_content(p0, p1, (void*) &d, (void*) &c, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    deserialise_xml_content(p0, p1, (void*) &d, (void*) &c, p4, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 }
 
 /* XML_DESERIALISER_SOURCE */

@@ -48,9 +48,10 @@
  * @param p1 the destination properties item
  * @param p2 the source data position (pointer reference)
  * @param p3 the source count remaining
- * @param p4 the part type
+ * @param p4 the normalisation flag
+ * @param p5 the part type
  */
-void deserialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xml content.");
 
@@ -61,11 +62,17 @@ void deserialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4) {
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The normalisation comparison result.
+    int r2 = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Initialise content data.
     copy_pointer((void*) &cd, p2);
     // Check if destination model item type is string.
-    compare_integer_equal((void*) &r, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    compare_integer_equal((void*) &r, p5, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Check if normalisation flag is set.
+    // CAUTION! Do NOT use "equal" comparison, since standalone client has to be the DEFAULT.
+    // compare_integer_unequal((void*) &r, p12, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r2, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -105,14 +112,32 @@ void deserialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 // The end tag of the xml element has been reached.
                 //
 
-                //
-                // Overwrite destination model item.
-                //
-                // CAUTION! The function "strip" gets called inside.
-                // It removes leading and trailing whitespaces before
-                // writing the string into the destination.
-                //
-                modify_item(p0, cd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &cc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) STRIP_MODIFY_LOGIC_CYBOI_FORMAT);
+                if (r2 != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                    //
+                    // The normalisation flag IS set.
+                    //
+
+                    //
+                    // Overwrite destination model item.
+                    //
+                    // CAUTION! The function "normalise" gets called inside.
+                    // It removes leading and trailing whitespaces as well as
+                    // line breaks and merges multiple ones into just ONE,
+                    // before writing the string into the destination.
+                    //
+                    modify_item(p0, cd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &cc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NORMALISE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+                } else {
+
+                    //
+                    // The normalisation flag is NOT set.
+                    //
+
+                    // Overwrite destination model item with
+                    // source data WITHOUT normalising.
+                    modify_item(p0, cd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &cc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+                }
 
                 break;
 

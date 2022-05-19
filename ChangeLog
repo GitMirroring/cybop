@@ -24,6 +24,7 @@
         * Add cybol application "examples/container_modification/stripper/"
         * Adapt file "element_content_xml_deserialiser.c" to strip whitespaces within xml strings when standing between opening and closing tag (not in attribute values)
         * Test string stripping with xml files "serialisation/xml/examples/xml/widget.xml" and "serialisation/xml/examples/xml/web-app.xml"
+        * Add property "normalisation" to cybol operations "represent/deserialise" and "communicate/receive"
 
 2022-05-18  Christian Heller  <christian.heller@cybop.org>
 

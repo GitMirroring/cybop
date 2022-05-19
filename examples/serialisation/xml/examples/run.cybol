@@ -32,6 +32,7 @@
         <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="application/xml"/>
+        <node name="normalisation" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".data"/>
     </node>

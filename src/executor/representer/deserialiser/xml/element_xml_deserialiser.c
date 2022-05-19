@@ -50,7 +50,7 @@
 // Forward declarations
 //
 
-void deserialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4);
+void deserialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
 
 /**
  * Deserialises the xml element.
@@ -142,7 +142,7 @@ void deserialise_xml_element(void* p0, void* p1, void* p2) {
     if (hc != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Deserialise the element's content.
-        deserialise_xml_content(pm, pp, p1, p2, (void*) &t);
+        deserialise_xml_content(pm, pp, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &t);
     }
 
     //
