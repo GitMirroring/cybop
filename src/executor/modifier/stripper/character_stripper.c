@@ -139,12 +139,12 @@ void strip_character(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Found non-whitespace character.");
-        fwprintf(stdout, L"Debug: Found non-whitespace character. count remaining p2: %i\n", p2);
-        fwprintf(stdout, L"Debug: Found non-whitespace character. count remaining *p2: %i\n", *((int*) p2));
-        fwprintf(stdout, L"Debug: Found non-whitespace character. data position *p1: %i\n", *((void**) p1));
-        fwprintf(stdout, L"Debug: Found non-whitespace character. data position *p1 ls: %ls\n", (wchar_t*) *((void**) p1));
-        fwprintf(stdout, L"Debug: Found non-whitespace character. data position *p1 lc: %lc\n", *((wchar_t*) *((void**) p1)));
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Strip character. Found non-whitespace character.");
+        fwprintf(stdout, L"Debug: Strip character. Found non-whitespace character. count remaining p2: %i\n", p2);
+        fwprintf(stdout, L"Debug: Strip character. Found non-whitespace character. count remaining *p2: %i\n", *((int*) p2));
+        fwprintf(stdout, L"Debug: Strip character. Found non-whitespace character. data position *p1: %i\n", *((void**) p1));
+        fwprintf(stdout, L"Debug: Strip character. Found non-whitespace character. data position *p1 ls: %ls\n", (wchar_t*) *((void**) p1));
+        fwprintf(stdout, L"Debug: Strip character. Found non-whitespace character. data position *p1 lc: %lc\n", *((wchar_t*) *((void**) p1)));
 
         // Set value end flag.
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

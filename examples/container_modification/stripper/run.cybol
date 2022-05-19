@@ -25,6 +25,14 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
+    <!-- Open standard output terminal console -->
+
+    <node name="open_stdout" channel="inline" format="dispatch/open" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="device" channel="inline" format="text/plain" model="standard-output"/>
+        <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
+    </node>
+
     <!-- Call stripping operations -->
 
     <node name="strip_leading" channel="inline" format="modify/strip-leading" model="">
@@ -35,23 +43,103 @@
         <node name="destination" channel="inline" format="text/cybol-path" model=".trailing"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".test"/>
     </node>
-    <node name="strip_leading_and_trailing" channel="inline" format="modify/strip" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".leading-and-trailing"/>
+    <node name="strip_both" channel="inline" format="modify/strip" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".both"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".test"/>
     </node>
     <node name="normalise" channel="inline" format="modify/normalise" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".normalised"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".normalise"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".test"/>
     </node>
 
     <!-- Write results to terminal -->
 
-    <node name="write_string" channel="inline" format="communicate/send" model="">
+    <node name="write_label_leading" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".TODO-STRING"/>
+        <node name="message" channel="inline" format="text/plain" model="The result of modify/strip-leading:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="write_value_leading" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".leading"/>
+    </node>
+    <node name="write_marker_leading" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="|"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="write_label_trailing" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="The result of modify/strip-trailing:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="write_value_trailing" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".trailing"/>
+    </node>
+    <node name="write_marker_trailing" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="|"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="write_label_both" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="The result of modify/strip:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="write_value_both" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".both"/>
+    </node>
+    <node name="write_marker_both" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="|"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="write_label_normalise" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="The result of modify/normalise:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="write_value_normalise" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".stdout"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".normalise"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 

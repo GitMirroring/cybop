@@ -54,17 +54,19 @@
 void strip_end(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Strip end.");
-    fwprintf(stdout, L"Debug: Strip end. source count p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Strip end. source count *p2: %i\n", *((int*) p2));
-    fwprintf(stdout, L"Debug: Strip end. source data p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Strip end. source data p1 ls: %ls\n", (wchar_t*) p1);
-    fwprintf(stdout, L"Debug: Strip end. source data *p1 lc: %lc\n", *((wchar_t*) p1));
-    fwprintf(stdout, L"Debug: Strip end. source data *p1 lc as int: %i\n", *((wchar_t*) p1));
+    fwprintf(stdout, L"Debug: Strip end. source count p4: %i\n", p4);
+    fwprintf(stdout, L"Debug: Strip end. source count *p4: %i\n", *((int*) p4));
+    fwprintf(stdout, L"Debug: Strip end. source data p3: %i\n", p3);
+    fwprintf(stdout, L"Debug: Strip end. source data p3 ls: %ls\n", (wchar_t*) p3);
+    fwprintf(stdout, L"Debug: Strip end. source data *p3 lc: %lc\n", *((wchar_t*) p3));
+    fwprintf(stdout, L"Debug: Strip end. source data *p3 lc as int: %i\n", *((wchar_t*) p3));
 
     // The source data position.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source count remaining.
     int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The move positions number for initialisation.
+    int m = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The number of characters to be copied.
     int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
@@ -75,8 +77,16 @@ void strip_end(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Copy source count remaining.
     copy_integer((void*) &c, p4);
 
+    // Initialise move positions number with source count remaining.
+    copy_integer((void*) &m, p4);
+    //
+    // Subtract ONE since otherwise, the source data position
+    // would point to the element AFTER the last.
+    //
+    calculate_integer_subtract((void*) &m, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+
     // Move source data position to LAST element.
-    move((void*) &d, (void*) &c, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &c, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    move((void*) &d, (void*) &c, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &m, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (p4 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
