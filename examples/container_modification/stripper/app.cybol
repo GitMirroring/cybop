@@ -1,0 +1,15 @@
+<node>
+
+    <!-- The standard output terminal console -->
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+
+    <!-- The test string -->
+    <node name="test" channel="inline" format="text/plain" model="     A string with five leading and five trailing whitespaces and five more in between the words 'and five' appearing three times.     "/>
+
+    <!-- The results -->
+    <node name="leading" channel="inline" format="text/plain" model=""/>
+    <node name="trailing" channel="inline" format="text/plain" model=""/>
+    <node name="leading-and-trailing" channel="inline" format="text/plain" model=""/>
+    <node name="normalised" channel="inline" format="text/plain" model=""/>
+
+</node>

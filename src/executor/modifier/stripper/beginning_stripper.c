@@ -70,24 +70,19 @@ void strip_beginning(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Copy source count remaining.
     copy_integer((void*) &c, p4);
 
-    if (p4 == *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        //
-        // CAUTION! If the loop count handed over as parametre is NULL,
-        // then the break flag will NEVER be set to true, because the loop
-        // variable comparison does (correctly) not consider null values.
-        // Therefore, in this case, the break flag is set to true already here.
-        //
-        // Initialising the break flag with true will NOT work either, since it:
-        // a) will be left untouched if a comparison operand is null;
-        // b) would have to be reset to true in each loop cycle.
-        //
-        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    }
+    //
+    // CAUTION! Checking the source count remaining for null is NOT necessary here.
+    // The local variable c gets initialised with the source count remaining above.
+    // But if that is null, then NOTHING gets copied since the copy function
+    // does (correctly) not consider null values, so that c just remains ZERO.
+    //
+    // Therefore, the loop can be left in its first cycle when realising
+    // that c is zero.
+    //
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_less_or_equal((void*) &b, p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_less_or_equal((void*) &b, (void*) &c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

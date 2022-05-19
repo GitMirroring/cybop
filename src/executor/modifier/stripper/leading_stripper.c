@@ -30,7 +30,7 @@
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/comparator/integer/equal_integer_comparator.c"
-#include "../../../executor/modifier/stripper/begin_stripper.c"
+#include "../../../executor/modifier/stripper/beginning_stripper.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -58,7 +58,7 @@ void strip_leading(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Search for non-whitespace character from the BEGINNING.
-        strip_begin(p0, p1, p2, p3, p4);
+        strip_beginning(p0, p1, p2, p3, p4);
 
     } else {
 

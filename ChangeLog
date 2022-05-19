@@ -18,7 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-2022-05-14  Christian Heller  <christian.heller@cybop.org>
+2022-05-19  Christian Heller  <christian.heller@cybop.org>
+
+        * Complete directory "executor/modifier/stripper/"
+        * Add cybol application "examples/container_modification/stripper/"
+
+2022-05-18  Christian Heller  <christian.heller@cybop.org>
 
         * Continue files in directory "executor/modifier/stripper/"
 

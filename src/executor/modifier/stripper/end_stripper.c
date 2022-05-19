@@ -32,7 +32,9 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
+#include "../../../executor/calculator/integer/add_integer_calculator.c"
+#include "../../../executor/calculator/integer/subtract_integer_calculator.c"
+#include "../../../executor/comparator/integer/greater_integer_comparator.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/copier/pointer_copier.c"
 #include "../../../executor/modifier/stripper/character_stripper.c"
@@ -63,6 +65,8 @@ void strip_end(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source count remaining.
     int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The number of characters to be copied.
+    int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -91,9 +95,11 @@ void strip_end(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        //?? TODO: Adapt comparison to GRETER or equal ??
-
-        compare_integer_less_or_equal((void*) &b, p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        //
+        // CAUTION! Do NOT compare for greater_or_equal,
+        // since the "equal" case still has to be processed.
+        //
+        compare_integer_greater((void*) &b, (void*) &c, p4);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -111,8 +117,24 @@ void strip_end(void* p0, void* p1, void* p2, void* p3, void* p4) {
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // A non-whitespace character has been found.
+            // A non-whitespace character HAS been found.
             //
+
+            //
+            // Calculate number of characters to be copied.
+            //
+
+            // Add original source count.
+            calculate_integer_add((void*) &n, p4);
+            // Subtract source count remaining (number of whitespaces).
+            calculate_integer_subtract((void*) &n, (void*) &c);
+            //
+            // Add one, since the number of whitespaces subtracted above is
+            // one too large and contains the found non-whitespace character.
+            //
+            calculate_integer_add((void*) &n, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+
+            fwprintf(stdout, L"Debug: Strip end. number of characters to be copied n: %i\n", n);
 
             //
             // Overwrite string destination item.
@@ -127,14 +149,16 @@ void strip_end(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // within the function "strip_character" above and can be
             // used as COUNT parametre AS IS.
             //
-            modify_array(p0, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+            modify_array(p0, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &n, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
             break;
 
         } else {
 
             //
-            // A whitespace character has been found.
+            // A non-whitespace character has NOT been found.
+            //
+            // (In other words: A whitespace character HAS been found.)
             //
 
             //

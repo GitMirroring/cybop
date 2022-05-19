@@ -14,9 +14,8 @@
 String
 ______
 
-        DONE: all other files in directory "executor/modifier/stripper/"
-        * Complete file "end_stripper.c" in directory "executor/modifier/stripper/"
-        * Add file "executor/modifier/stripper.c" providing functionality for cybol operation "modify/strip"
+        * Run cybol application for directory "executor/modifier/stripper/"
+
         * Add file "executor/modifier/normaliser.c" providing functionality for cybol operation "modify/normalise"
         * Add file "executor/modifier/replacer.c" providing functionality for cybol operation "modify/replace"
         * Add file "executor/modifier/splitter.c" providing functionality for cybol operation "modify/split"
@@ -25,7 +24,8 @@ ______
         * Add file "executor/modifier/lowerer.c" providing functionality for cybol operation "modify/lower"
         * Add file "executor/modifier/upperer.c" providing functionality for cybol operation "modify/upper"
         * Add file "executor/modifier/reverser.c" providing functionality for cybol operation "modify/reverse"
-        * Adapt directory "applicator/modify/"
+
+        * (Possibly NOT necessary, since all operations work on simple string arrays:) Adapt directory "applicator/modify/"
 
         * Adapt de-/serialisers for cybol/json/xml to be able to handle escape codes like "\n" for new line etc.
             they get converted into an internal control character of the corresponding platform,
