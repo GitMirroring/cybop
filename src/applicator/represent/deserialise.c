@@ -175,11 +175,26 @@ void apply_deserialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &mpc, mp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     //
+    // Default values
+    //
+
+    // Set normalisation flag to TRUE (enabled) by default.
+    int normalisation = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    //
+    // CAUTION! The following values are ONLY copied,
+    // if the source value is NOT NULL.
+    // This is tested inside the "copy_integer" function.
+    // Otherwise, the destination value remains as is.
+    //
+    copy_integer((void*) &normalisation, nmd);
+
+    //
     // Functionality
     //
 
     // Deserialise the source- into the destination part.
-    deserialise(dm, dp, smd, smc, spd, spc, sfd, mmd, mmc, mpd, mpc, mfd, nmd, p2, p3, p4, fmd, lmd);
+    deserialise(dm, dp, smd, smc, spd, spc, sfd, mmd, mmc, mpd, mpc, mfd, (void*) &normalisation, p2, p3, p4, fmd, lmd);
 }
 
 /* DESERIALISE_SOURCE */

@@ -286,6 +286,8 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // assigned to port ZERO at service startup.
     //
     int port = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // Set normalisation flag to TRUE (enabled) by default.
+    int normalisation = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
     // CAUTION! The following values are ONLY copied,
@@ -295,12 +297,13 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //
     copy_integer((void*) &server, smd);
     copy_integer((void*) &port, pmd);
+    copy_integer((void*) &normalisation, nmd);
 
     //
     // Functionality
     //
 
-    receive_data(mm, mp, srmd, srmc, srpd, srpc, srfd, memd, memc, mepd, mepc, mefd, nmd, p2, p3, p4, mimd, mamd, amd, fmd, lmd, emd, (void*) &port, (void*) &server, cmd);
+    receive_data(mm, mp, srmd, srmc, srpd, srpc, srfd, memd, memc, mepd, mepc, mefd, (void*) &normalisation, p2, p3, p4, mimd, mamd, amd, fmd, lmd, emd, (void*) &port, (void*) &server, cmd);
 }
 
 /* RECEIVE_SOURCE */

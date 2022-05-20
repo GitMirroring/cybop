@@ -14,7 +14,6 @@
 XML
 ___
 
-        * Adapt file "content_xml_deserialiser.c" to new "normalisation" flag
         * Add file "executor/modifier/normaliser.c" providing functionality for cybol operation "modify/normalise"
         * Test normalisation using file "serialisation/xml/examples/xml/web-app.xml"
 

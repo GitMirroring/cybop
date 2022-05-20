@@ -26,18 +26,14 @@
 #ifndef CONTENT_XML_DESERIALISER_SOURCE
 #define CONTENT_XML_DESERIALISER_SOURCE
 
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
-#include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/representer/deserialiser/xml/string_xml_deserialiser.c"
 #include "../../../../executor/selector/xml/content_xml_selector.c"
 #include "../../../../logger/logger.c"
 
@@ -60,19 +56,9 @@ void deserialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
     int cc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The normalisation comparison result.
-    int r2 = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Initialise content data.
     copy_pointer((void*) &cd, p2);
-    // Check if destination model item type is string.
-    compare_integer_equal((void*) &r, p5, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Check if normalisation flag is set.
-    // CAUTION! Do NOT use "equal" comparison, since standalone client has to be the DEFAULT.
-    // compare_integer_unequal((void*) &r, p12, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-    compare_integer_unequal((void*) &r2, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -100,52 +86,20 @@ void deserialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         select_xml_content(p0, p1, (void*) &b, p2, p3);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // This is a string xml element.
+            // The end tag of the xml element has been reached.
             //
 
-            if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            deserialise_xml_string(p0, cd, (void*) &cc, p4, p5);
 
-                //
-                // The end tag of the xml element has been reached.
-                //
+            break;
 
-                if (r2 != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        } else {
 
-                    //
-                    // The normalisation flag IS set.
-                    //
-
-                    //
-                    // Overwrite destination model item.
-                    //
-                    // CAUTION! The function "normalise" gets called inside.
-                    // It removes leading and trailing whitespaces as well as
-                    // line breaks and merges multiple ones into just ONE,
-                    // before writing the string into the destination.
-                    //
-                    modify_item(p0, cd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &cc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NORMALISE_MODIFY_LOGIC_CYBOI_FORMAT);
-
-                } else {
-
-                    //
-                    // The normalisation flag is NOT set.
-                    //
-
-                    // Overwrite destination model item with
-                    // source data WITHOUT normalising.
-                    modify_item(p0, cd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &cc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-                }
-
-                break;
-
-            } else {
-
-                // Increment content count.
-                cc++;
-            }
+            // Increment content count.
+            cc++;
         }
     }
 }
