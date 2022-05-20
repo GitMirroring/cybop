@@ -26,13 +26,10 @@
 #ifndef DETECTOR_SOURCE
 #define DETECTOR_SOURCE
 
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/checker/operation_checker.c"
-#include "../../executor/mover/mover.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../executor/comparator/integer/greater_or_equal_integer_comparator.c"
+#include "../../executor/detector/comparison_detector.c"
 #include "../../logger/logger.c"
 
 /**
@@ -60,64 +57,24 @@
  */
 void detect(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detect.");
 
-        int* m = (int*) p6;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    //
+    // CAUTION! This comparison ensures that array boundaries are not crossed.
+    // The count p5 is used for both, the array AND source data.
+    //
+    compare_integer_greater_or_equal((void*) &r, p2, p5);
 
-            void** pos = (void**) p1;
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                int* r = (int*) p0;
-
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detect.");
-
-                // The count flag.
-                int c = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-                //
-                // CAUTION! This comparison ensures that array boundaries are not crossed.
-                // The count p5 is used for both, the array AND source data.
-                //
-                compare_integer_greater_or_equal((void*) &c, p2, p5);
-
-                if (c != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                    //
-                    // CAUTION! The remaining count may NOT be handed over as position count,
-                    // since it might be greater than the array count and would thus differ.
-                    // Therefore, hand over the given count p5 as parametre TWICE.
-                    //
-                    check_operation(p0, *pos, p3, p5, p5, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, p4);
-
-                    if (*r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                        if (*m != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                            move(p1, p2, p4, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-                        }
-                    }
-
-                } else {
-
-                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not detect. The remaining count is smaller than the array count.");
-                }
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not detect. The comparison result is null.");
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not detect. The source data position is null.");
-        }
+        detect_comparison(p0, p1, p2, p3, p4, p5, p6);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not detect. The move flag is null.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not detect. The remaining count is smaller than the array count.");
     }
 }
 

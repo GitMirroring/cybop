@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-05-20  Christian Heller  <christian.heller@cybop.org>
+
+        * Split detector into many files
+
 2022-05-19  Christian Heller  <christian.heller@cybop.org>
 
         * Complete directory "executor/modifier/stripper/"
