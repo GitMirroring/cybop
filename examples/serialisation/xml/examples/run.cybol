@@ -25,7 +25,7 @@
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/plain" model="serialisation/xml/examples/xml/web-app.xml"/>
+        <node name="device" channel="inline" format="text/plain" model="serialisation/xml/examples/xml/widget.xml"/>
     </node>
     <node name="deserialise_data" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>

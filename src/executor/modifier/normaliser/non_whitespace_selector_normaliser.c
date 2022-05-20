@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHARACTER_STRIPPER_SOURCE
-#define CHARACTER_STRIPPER_SOURCE
+#ifndef NON_WHITESPACE_SELECTOR_NORMALISER_SOURCE
+#define NON_WHITESPACE_SELECTOR_NORMALISER_SOURCE
 
 #include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -39,19 +39,19 @@
  * Searches for a non-whitespace character within the given array.
  *
  * @param p0 the loop break flag
- * @param p1 the data position (pointer reference)
- * @param p2 the count remaining
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
  */
-void strip_character(void* p0, void* p1, void* p2) {
+void normalise_select_non_whitespace(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Strip character.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Normalise select non-whitespace.");
 /*??
-    fwprintf(stdout, L"Debug: Strip character. count remaining p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Strip character. count remaining *p2: %i\n", *((int*) p2));
-    fwprintf(stdout, L"Debug: Strip character. data position *p1: %i\n", *((void**) p1));
-    fwprintf(stdout, L"Debug: Strip character. data position *p1 ls: %ls\n", (wchar_t*) *((void**) p1));
-    fwprintf(stdout, L"Debug: Strip character. data position *p1 lc: %lc\n", *((wchar_t*) *((void**) p1)));
-    fwprintf(stdout, L"Debug: Strip character. data position *p1 lc as int: %i\n", *((wchar_t*) *((void**) p1)));
+    fwprintf(stdout, L"Debug: Normalise select non-whitespace. count remaining p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Normalise select non-whitespace. count remaining *p2: %i\n", *((int*) p2));
+    fwprintf(stdout, L"Debug: Normalise select non-whitespace. data position *p1: %i\n", *((void**) p1));
+    fwprintf(stdout, L"Debug: Normalise select non-whitespace. data position *p1 ls: %ls\n", (wchar_t*) *((void**) p1));
+    fwprintf(stdout, L"Debug: Normalise select non-whitespace. data position *p1 lc: %lc\n", *((wchar_t*) *((void**) p1)));
+    fwprintf(stdout, L"Debug: Normalise select non-whitespace. data position *p1 lc as int: %i\n", *((wchar_t*) *((void**) p1)));
 */
 
     // The comparison result.
@@ -141,19 +141,19 @@ void strip_character(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Strip character. Found non-whitespace character.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Normalise select non-whitespace. Found non-whitespace character.");
 /*??
-        fwprintf(stdout, L"Debug: Strip character. Found non-whitespace character. count remaining p2: %i\n", p2);
-        fwprintf(stdout, L"Debug: Strip character. Found non-whitespace character. count remaining *p2: %i\n", *((int*) p2));
-        fwprintf(stdout, L"Debug: Strip character. Found non-whitespace character. data position *p1: %i\n", *((void**) p1));
-        fwprintf(stdout, L"Debug: Strip character. Found non-whitespace character. data position *p1 ls: %ls\n", (wchar_t*) *((void**) p1));
-        fwprintf(stdout, L"Debug: Strip character. Found non-whitespace character. data position *p1 lc: %lc\n", *((wchar_t*) *((void**) p1)));
+        fwprintf(stdout, L"Debug: Normalise select non-whitespace. Found non-whitespace character. count remaining p2: %i\n", p2);
+        fwprintf(stdout, L"Debug: Normalise select non-whitespace. Found non-whitespace character. count remaining *p2: %i\n", *((int*) p2));
+        fwprintf(stdout, L"Debug: Normalise select non-whitespace. Found non-whitespace character. data position *p1: %i\n", *((void**) p1));
+        fwprintf(stdout, L"Debug: Normalise select non-whitespace. Found non-whitespace character. data position *p1 ls: %ls\n", (wchar_t*) *((void**) p1));
+        fwprintf(stdout, L"Debug: Normalise select non-whitespace. Found non-whitespace character. data position *p1 lc: %lc\n", *((wchar_t*) *((void**) p1)));
 */
 
-        // Set value end flag.
+        // Set loop break flag.
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 
-/* CHARACTER_STRIPPER_SOURCE */
+/* NON_WHITESPACE_SELECTOR_NORMALISER_SOURCE */
 #endif

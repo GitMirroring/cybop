@@ -11,12 +11,6 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-XML
-___
-
-        * Add file "executor/modifier/normaliser.c" providing functionality for cybol operation "modify/normalise"
-        * Test normalisation using file "serialisation/xml/examples/xml/web-app.xml"
-
 JSON
 ____
 

@@ -23,6 +23,7 @@
         * Split detector into many files
         * Refactor file "content_xml_deserialiser.c"
         * Add files "string_xml_deserialiser.c" and "normalisation_xml_deserialiser.c"
+        * Add directory "executor/modifier/normaliser/" providing functionality for cybol operation "modify/normalise"
 
 2022-05-19  Christian Heller  <christian.heller@cybop.org>
 

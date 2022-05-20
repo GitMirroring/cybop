@@ -46,8 +46,8 @@
 void strip_trailing(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Strip trailing.");
-    fwprintf(stdout, L"Debug: Strip trailing. p5: %i\n", p5);
-    fwprintf(stdout, L"Debug: Strip trailing. *p5: %i\n", *((int*) p5));
+    //?? fwprintf(stdout, L"Debug: Strip trailing. p5: %i\n", p5);
+    //?? fwprintf(stdout, L"Debug: Strip trailing. *p5: %i\n", *((int*) p5));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -63,8 +63,8 @@ void strip_trailing(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     } else {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not strip trailing. The source type is not text.");
-        fwprintf(stdout, L"Warning: Could not strip trailing. The source type is not text. p5: %i\n", p5);
-        fwprintf(stdout, L"Warning: Could not strip trailing. The source type is not text. *p5: %i\n", *((int*) p5));
+        //?? fwprintf(stdout, L"Warning: Could not strip trailing. The source type is not text. p5: %i\n", p5);
+        //?? fwprintf(stdout, L"Warning: Could not strip trailing. The source type is not text. *p5: %i\n", *((int*) p5));
     }
 }
 

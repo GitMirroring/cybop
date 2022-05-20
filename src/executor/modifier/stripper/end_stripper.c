@@ -54,12 +54,14 @@
 void strip_end(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Strip end.");
+/*??
     fwprintf(stdout, L"Debug: Strip end. source count p4: %i\n", p4);
     fwprintf(stdout, L"Debug: Strip end. source count *p4: %i\n", *((int*) p4));
     fwprintf(stdout, L"Debug: Strip end. source data p3: %i\n", p3);
     fwprintf(stdout, L"Debug: Strip end. source data p3 ls: %ls\n", (wchar_t*) p3);
     fwprintf(stdout, L"Debug: Strip end. source data *p3 lc: %lc\n", *((wchar_t*) p3));
     fwprintf(stdout, L"Debug: Strip end. source data *p3 lc as int: %i\n", *((wchar_t*) p3));
+*/
 
     // The source data position.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -144,7 +146,7 @@ void strip_end(void* p0, void* p1, void* p2, void* p3, void* p4) {
             //
             calculate_integer_add((void*) &n, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-            fwprintf(stdout, L"Debug: Strip end. number of characters to be copied n: %i\n", n);
+            //?? fwprintf(stdout, L"Debug: Strip end. number of characters to be copied n: %i\n", n);
 
             //
             // Overwrite string destination item.
