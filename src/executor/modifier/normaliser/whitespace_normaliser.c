@@ -90,16 +90,17 @@ void normalise_whitespace(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            break;
-        }
-
-        // Search for non-whitespace character.
-        normalise_select_non_whitespace((void*) &b, p3, p4);
-
-        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
             //
-            // A non-whitespace character has been found.
+            // Either a NON-whitespace character delimiting this
+            // sequence of whitespace characters has been found
+            // OR the source count remaining is ZERO.
+            // In BOTH cases, a space character is to be added.
+            //
+            // This function "normalise_whitespace" was entered only
+            // because a space character was detected, so that
+            // at least one space character is present in the source
+            // and in BOTH cases mentioned above, also if the
+            // source count remaining is zero, a space is to be added.
             //
 
             // Append ONE space character to destination.
@@ -107,6 +108,9 @@ void normalise_whitespace(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             break;
         }
+
+        // Search for non-whitespace character.
+        normalise_select_non_whitespace((void*) &b, p3, p4);
     }
 }
 
