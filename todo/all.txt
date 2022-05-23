@@ -11,14 +11,36 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+Tool
+____
+
+        * Update sensitive keyword list in cybol editor
+        * Enable code folding for single parts
+        * Add auto completion to cybol editor
+        * Generate required (not optional) nodes automatically in cybol editor
+        * Provide feedback link with email address for users to report wishes and errors
+        * Offer settings page for configuration of editor colours, tab width etc.
+        * Offer quickfixes in list for automatic error correction, as known from Eclipse Java plug-in
+
+        * Extend gui designer "cybol_generator" based on C++/Qt/QtCreator/QtDesigner with cybol/xml generator of Pit Braunsdorf, Sophia Kledzinski
+        * See:
+            examples/gui/gui.cybol
+            examples/gui/window.cybol
+            src/user_interface.cybol
+            src/user_interface.pdf
+            src/executor/representer/serialiser/gui/shape_gui_serialiser.c
+
+        * Extend benchmark tool with further algorithms, tui/gui/wui, languages, options, diagrams
+
 Documentation
 _____________
 
         * Update beginner's manual (LaTeX or LibreOffice), in order to get accepted as official GNU project
-            - Update list of external libraries and dependencies
-            - Add "path/reference" example in chapter on references (already contains file and "path/knowledge")
+        * Update list of external libraries and dependencies
+        * Add "path/reference" example in chapter on references (already contains file and "path/knowledge")
 
         * Visualise project history using Ajax-based SIMILE timeline tool (ResMedicinae - ResMedLib - CYBOP)
+
         * Update CYBOP poster in DIN A0 format, to be used at conferences and exhibitions
 
 Project
@@ -121,28 +143,4 @@ _____
         * Create css serialiser (and, optionally, deserialiser)
         * Prepare ldap communication (investigate protocol structure)
         * Create latex serialiser
-
-Tool
-____
-
-        * Extend gui designer "cybol_generator" based on C++/Qt/QtCreator/QtDesigner with cybol/xml generator of Pit Braunsdorf, Sophia Kledzinski
-        * See:
-            examples/gui/gui.cybol
-            examples/gui/window.cybol
-            src/user_interface.cybol
-            src/user_interface.pdf
-            src/executor/representer/serialiser/gui/shape_gui_serialiser.c
-
-        * Extend cybol editor, e.g. Eclipse plug-in
-        * Upload plug-in to official Eclipse website
-        * Update sensitive keyword list
-        * Add autocompletion for property tags
-        * Offer list of file links when "channel" is "file"
-        * Use complex annotations for syntax checking of erroneous structures
-        * Fix smaller bugs, e.g. race conditions between annotations and syntax highlighting
-        * Enable code folding for single parts
-        * Offer settings page for configuration of editor colours, tab width etc.
-        * Offer quickfixes in list for automatic error correction, as known from Eclipse Java plug-in
-
-        * Extend benchmark tool with further algorithms, tui/gui/wui, languages, options, diagrams
 
