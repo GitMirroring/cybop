@@ -14,7 +14,9 @@
 JSON
 ____
 
-        * Adapt de-/serialisers for cybol/json/xml to be able to handle escape codes like "\n" for new line etc.
+        * Add unicode sequence (OR numeric code as in html ??) serialiser and deserialiser
+        * Complete unicode section in backslash escape serialiser and deserialiser
+        * Adapt de-/serialisers for cybol/json/xml to be able to handle backslash escapes
             they get converted into an internal control character of the corresponding platform,
             e.g. "\n" for new line on linux but "\r\n" for carriage return and new line on windows
         * Eliminate file "newline.txt" in cybol application "webstat"
@@ -45,6 +47,8 @@ ____
             --> the output is probably NOT wrong, but the existing file just overwritten, leaving the old data at the end if its previous size was larger
                 (the same wrong data appeared at the end of json files when testing the json serialiser)
             --> therefore, set a special file flag when opening a file to shrink its size when the data are smaller than the already existing file size
+
+        * Release CYBOP 0.23.0
 
 Base64
 ______
