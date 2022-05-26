@@ -54,10 +54,14 @@
  */
 void deserialise_command_line_option(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
+    //
     // CAUTION! DO NOT use logging functionality here!
+    //
     // The logger will not work before its options are set.
     // Comment out this function call to avoid disturbing messages at system startup!
+    //
     // log_write((void*) stdout, L"Information: Deserialise command line.\n");
+    //
 
     // The option data, count.
     void* od = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -73,13 +77,16 @@ void deserialise_command_line_option(void* p0, void* p1, void* p2, void* p3, voi
 
     if (p6 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
         // Therefore, in this case, the break flag is set to true already here.
+        //
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
+        //
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
@@ -89,9 +96,11 @@ void deserialise_command_line_option(void* p0, void* p1, void* p2, void* p3, voi
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // There are no data left to be processed.
             // A separator was not found, which means
             // that no value was given.
+            //
 
             break;
         }
@@ -100,8 +109,10 @@ void deserialise_command_line_option(void* p0, void* p1, void* p2, void* p3, voi
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // The separator has been found.
             // All data following belong to the value.
+            //
 
             // Initialise value data, count.
             copy_pointer((void*) &vd, p5);
@@ -116,9 +127,11 @@ void deserialise_command_line_option(void* p0, void* p1, void* p2, void* p3, voi
         }
     }
 
+    //
     // Not all options require a value.
     // But the option has to be processed here anyway,
     // even if no separator was found, i.e. no value was given.
+    //
     select_command_line_mode(p0, p1, p2, p3, p4, vd, (void*) &vc, od, (void*) &oc);
 }
 

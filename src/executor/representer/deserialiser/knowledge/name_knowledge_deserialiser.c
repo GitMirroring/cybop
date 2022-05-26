@@ -78,6 +78,7 @@ void deserialise_knowledge_name(void* p0, void* p1, void* p2, void* p3, void* p4
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
         // Therefore, in this case, the break flag is set to true already here.
+        //
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.

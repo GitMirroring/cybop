@@ -64,13 +64,13 @@ void deserialise_json_member(void* p0, void* p1, void* p2, void* p3) {
     fwprintf(stdout, L"Debug: Deserialise json member. count remaining *p3: %i\n", *((int*) p3));
 
     // The member name data, count.
-    void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int mc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    void* nd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int nc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Initialise member name.
-    copy_pointer((void*) &md, p2);
+    copy_pointer((void*) &nd, p2);
 
     if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -96,17 +96,7 @@ void deserialise_json_member(void* p0, void* p1, void* p2, void* p3) {
             break;
         }
 
-        select_json_string_end(p2, p3, (void*) &b);
-
-        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            break;
-
-        } else {
-
-            // Increment member count.
-            mc++;
-        }
+        select_json_string_end(p2, p3, (void*) &nc, (void*) &b);
     }
 
     //
@@ -114,7 +104,7 @@ void deserialise_json_member(void* p0, void* p1, void* p2, void* p3) {
     // but function "deserialise_json_value" instead, since that contains
     // a loop which is necessary for detecting and skipping unnecessary characters.
     //
-    deserialise_json_value(p0, p1, p2, p3, md, (void*) &mc, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_json_value(p0, p1, p2, p3, nd, (void*) &nc, *NULL_POINTER_STATE_CYBOI_MODEL);
 }
 
 /* MEMBER_JSON_DESERIALISER_SOURCE */

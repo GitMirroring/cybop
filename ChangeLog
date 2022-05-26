@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-05-25  Christian Heller  <christian.heller@cybop.org>
+
+        * Catch backslash escape quotation mark '\"' in file "end_string_json_selector.c" before detecting standard quotation mark as end-of-string marker
+        * Verify adjustment of count (multi-increment) in all serialisers
+
 2022-05-24  Christian Heller  <christian.heller@cybop.org>
 
         * Add backslash escape constants in file "constant/model/backslash_escape/backslash_escape_model.c"

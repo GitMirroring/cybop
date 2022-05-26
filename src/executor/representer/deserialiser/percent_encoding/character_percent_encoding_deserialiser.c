@@ -62,13 +62,16 @@ void deserialise_percent_encoding_character(void* p0, void* p1, void* p2) {
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
         // Therefore, in this case, the break flag is set to true already here.
+        //
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
+        //
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
@@ -77,10 +80,14 @@ void deserialise_percent_encoding_character(void* p0, void* p1, void* p2) {
         // Test if characters are left.
         compare_integer_less_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
+        //
         // Test percent encoding character count.
+        //
         // CAUTION! Following the specification, it consists of TWO DIGITS at most.
+        //
         // CAUTION! The variable b may be used as return value once more,
         // since it is left untouched if the test above is false.
+        //
         compare_integer_greater_or_equal((void*) &b, (void*) &cc, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -97,21 +104,27 @@ void deserialise_percent_encoding_character(void* p0, void* p1, void* p2) {
         }
     }
 
+    //
     // Test for correct character count.
+    //
     // CAUTION! It may be unequal two if for instance just one character was found
     // and no more characters were left in the source character data.
+    //
     if (cc == *NUMBER_2_INTEGER_STATE_CYBOI_MODEL) {
 
         // The deserialised integer.
         int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+        //
         // Deserialise percent encoding character data into integer number.
         //
         // CAUTION! Hand over NUMBER BASE 16 as parametre!
         // Following the specification, a percent-encoded character
         // consists of two digits representing a HEXADECIMAL number.
+        //
         deserialise_cybol_integer_value_primitive_char((void*) &i, cd, (void*) &cc, (void*) NUMBER_16_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
+        //
         // Cast integer to character.
         //
         // CAUTION! The type "int" has a size of 4 Byte,

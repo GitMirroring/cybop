@@ -121,7 +121,7 @@ void deserialise_json_string(void* p0, void* p1, void* p2, void* p3, void* p4, v
             break;
         }
 
-        select_json_string_end(p2, p3, (void*) &b);
+        select_json_string_end(p2, p3, (void*) &sc, (void*) &b);
 
         fwprintf(stdout, L"Debug: Deserialise json string. END b: %i\n", b);
 
@@ -130,15 +130,12 @@ void deserialise_json_string(void* p0, void* p1, void* p2, void* p3, void* p4, v
             fwprintf(stdout, L"Debug: Deserialise json string. sc: %i\n", sc);
             fwprintf(stdout, L"Debug: Deserialise json string. sd: %ls\n", (wchar_t*) sd);
 
+            //?? TODO: Deserialise backslash escape ...
+
             // Overwrite string part model.
             modify_item(pm, sd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &sc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
             break;
-
-        } else {
-
-            // Increment string count.
-            sc++;
         }
     }
 

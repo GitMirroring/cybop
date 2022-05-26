@@ -83,28 +83,37 @@
  */
 void deserialise_command_line(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
+    //
     // CAUTION! DO NOT use logging functionality here!
+    //
     // The logger will not work before its options are set.
     // Comment out this function call to avoid disturbing messages at system startup!
+    //
     // log_write((void*) stdout, L"Information: Deserialise command line.\n");
+    //
 
+    //
     // The loop variable.
     //
     // CAUTION! Do NOT initialise it with 0, as the first command line
     // argument is the command itself, and not an option!
+    //
     int j = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (p6 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
         // Therefore, in this case, the break flag is set to true already here.
+        //
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
+        //
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 

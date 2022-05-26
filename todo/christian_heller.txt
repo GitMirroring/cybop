@@ -14,6 +14,13 @@
 JSON
 ____
 
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for ALL deserialisers that use such a count value within a loop
+            Is this the reason for having to press keyboard keys like ESC TWICE when using the text user interface (tui) ??
+        * Debug error that TWO characters are always missing at the end of a string containing backslash escapes --> reason is probably COUNT that does not consider backslashes anymore !
+
+        * HOW TO avoid backslash escapes for cyboi tree node names ?? Consider backslash escape characters ONLY if in value, but NOT if given as member name
+        * Ignore control characters if this is a member NAME, in order to avoid errors when using it in a cyboi tree node
+            write this hint into the source code as well
         * Add unicode sequence (OR numeric code as in html ??) serialiser and deserialiser
         * Complete unicode section in backslash escape serialiser and deserialiser
         * Adapt de-/serialisers for cybol/json/xml to be able to handle backslash escapes

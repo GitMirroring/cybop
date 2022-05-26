@@ -49,7 +49,9 @@ void serialise_xml_indentation(void* p0, void* p1, void* p2) {
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // The formatting flag IS set, i.e. indentation IS WANTED.
+        //
 
         // The loop variable.
         int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -58,13 +60,16 @@ void serialise_xml_indentation(void* p0, void* p1, void* p2) {
 
         if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+            //
             // CAUTION! If the loop count handed over as parametre is NULL,
             // then the break flag will NEVER be set to true, because the loop
             // variable comparison does (correctly) not consider null values.
             // Therefore, in this case, the break flag is set to true already here.
+            //
             // Initialising the break flag with true will NOT work either, since it:
             // a) will be left untouched if a comparison operand is null;
             // b) would have to be reset to true in each loop cycle.
+            //
             copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
 
@@ -85,10 +90,6 @@ void serialise_xml_indentation(void* p0, void* p1, void* p2) {
             modify_item(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
             // Append space character.
             modify_item(p0, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-
-            // Append tabulation character.
-            // CAUTION! This may be used as alternative to the four spaces.
-            // modify_item(p0, (void*) TABULATION_CONTROL_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
             // Increment loop count.
             j++;

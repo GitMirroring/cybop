@@ -55,19 +55,25 @@ void deserialise_cybol_fraction_decimal_vector(void* p0, void* p1, void* p2) {
 
     // The destination item count.
     void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //
     // The old destination item count.
+    //
     // CAUTION! This variable is necessary for inserting
     // values, rather than appending them.
+    //
     // While parsing a vector, the programme "dives" into
     // the vector first, so that last values are added first.
     // If values were now just appended, the order of
     // vector values would be swapped, which is not wanted.
+    //
     // On the other hand, inserting values at the beginning of the
     // destination item is wrong if values are already present.
+    //
     // Therefore, the destination item's "old" element count
     // is remembered here, so that new values may be inserted
     // starting from that count used as index, which has the
     // effect that elements are appended in the correct order.
+    //
     int oc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The element.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -86,13 +92,16 @@ void deserialise_cybol_fraction_decimal_vector(void* p0, void* p1, void* p2) {
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
         // Therefore, in this case, the break flag is set to true already here.
+        //
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
+        //
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 

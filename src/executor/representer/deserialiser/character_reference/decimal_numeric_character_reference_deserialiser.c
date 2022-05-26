@@ -58,13 +58,16 @@ void deserialise_character_reference_numeric_decimal(void* p0, void* p1, void* p
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
         // Therefore, in this case, the break flag is set to true already here.
+        //
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
+        //
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
@@ -86,16 +89,20 @@ void deserialise_character_reference_numeric_decimal(void* p0, void* p1, void* p
         }
     }
 
+    //
     // Deserialise decimal numeric character reference data into integer number.
     //
     // CAUTION! Hand over number base 10 as parametre!
+    //
     deserialise_cybol_integer_value((void*) &i, rd, (void*) &rc, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
+    //
     // Cast integer to wide character.
     //
     // CAUTION! This is ONLY POSSIBLE because the glibc types
     // "int" and "wchar_t" have a size of 4 Byte each.
     // If this changes one day, something will have to be adapted here.
+    //
     c = (wchar_t) i;
 
     // Append character to destination.

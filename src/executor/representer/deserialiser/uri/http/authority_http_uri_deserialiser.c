@@ -68,9 +68,12 @@ void deserialise_http_uri_authority_content(void* p0, void* p1, void* p2) {
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
     // Allocate hierarchy part.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_part((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
     // Get hierarchy part model, properties.
@@ -83,9 +86,12 @@ void deserialise_http_uri_authority_content(void* p0, void* p1, void* p2) {
     modify_part(p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) TYPE_PART_STATE_CYBOI_NAME);
 //??    receive_inline(pm, pd, p1, p2, (void*) AUTHORITY_TEXT_STATE_CYBOL_FORMAT);
 
+    //
     // Append hierarchy part to destination model.
+    //
     // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
     // This is necessary in order to activate rubbish (garbage) collection.
+    //
     modify_item(p0, (void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 }
 
@@ -112,13 +118,16 @@ void deserialise_http_uri_authority(void* p0, void* p1, void* p2, void* p3) {
 
     if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
         // variable comparison does (correctly) not consider null values.
         // Therefore, in this case, the break flag is set to true already here.
+        //
         // Initialising the break flag with true will NOT work either, since it:
         // a) will be left untouched if a comparison operand is null;
         // b) would have to be reset to true in each loop cycle.
+        //
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
@@ -140,12 +149,14 @@ void deserialise_http_uri_authority(void* p0, void* p1, void* p2, void* p3) {
         }
     }
 
+    //
     // The authority is always added, independent from whether
     // or not a path or query or fragment separator was found.
     //
     // If a path or query or fragment was found right at
     // the first position, then no authority was given.
     // In this case, an authority with empty value is added.
+    //
     deserialise_http_uri_authority_content(p0, e, (void*) &ec);
 }
 
