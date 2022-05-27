@@ -14,9 +14,42 @@
 JSON
 ____
 
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "authority"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "backslash_escape"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "binary_crlf"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "binary_crlf_termination"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "blank_line_termination"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "character_reference"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "command_line"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "cybol"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "ftp_line_end"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "gui"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "gui_action"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "gui_event"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "host_address"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "html"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "http_request"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "http_request_content_length"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "http_request_message_length"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "http_request_uri"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "http_response"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "json"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "knowledge"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "latex"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "message_length"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "network_service"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "percent_encoding"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "time_scale"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "tui"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "uri"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "win32_console"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "win32_display"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "xcb_event"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "xdt"
+        * Hand over count as parametre to selector which knows by how much to multi-increment the value, for deserialisers "xml"
+
         * Hand over count as parametre to selector which knows by how much to multi-increment the value, for ALL deserialisers that use such a count value within a loop
             Is this the reason for having to press keyboard keys like ESC TWICE when using the text user interface (tui) ??
-        * Debug error that TWO characters are always missing at the end of a string containing backslash escapes --> reason is probably COUNT that does not consider backslashes anymore !
 
         * HOW TO avoid backslash escapes for cyboi tree node names ?? Consider backslash escape characters ONLY if in value, but NOT if given as member name
         * Ignore control characters if this is a member NAME, in order to avoid errors when using it in a cyboi tree node

@@ -67,7 +67,6 @@ void select_ansi_escape_code(void* p0, void* p1, void* p2) {
 
             //
             // If ESC was pressed, then try to detect control button.
-            // Otherwise, just add escape character as is.
             //
             select_ansi_escape_code_command(p0, p1, p2);
         }
@@ -76,9 +75,9 @@ void select_ansi_escape_code(void* p0, void* p1, void* p2) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
-        // No ESC character found, that is no control key was pressed.
-        // Therefore, just add escape character as is.
+        // An ansi escape code prefix was NOT found.
         //
+
         select_ansi_escape_code_character(p0, p1, p2);
     }
 }

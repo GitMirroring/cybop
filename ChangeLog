@@ -18,9 +18,15 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-05-26  Christian Heller  <christian.heller@cybop.org>
+
+        * Add constants in file "ascii_newline_text_model.c"
+        * Adapt deserialisers "ansi_escape_code" and "ansi_escape_code_length"
+
 2022-05-25  Christian Heller  <christian.heller@cybop.org>
 
         * Catch backslash escape quotation mark '\"' in file "end_string_json_selector.c" before detecting standard quotation mark as end-of-string marker
+        * Debug error that two characters are missing at end of string containing backslash escapes by adjusting count in selector
         * Verify adjustment of count (multi-increment) in all serialisers
 
 2022-05-24  Christian Heller  <christian.heller@cybop.org>

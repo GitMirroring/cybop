@@ -23,43 +23,31 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CHARACTER_ANSI_ESCAPE_CODE_SELECTOR_SOURCE
-#define CHARACTER_ANSI_ESCAPE_CODE_SELECTOR_SOURCE
+#ifndef CHARACTER_ANSI_ESCAPE_CODE_LENGTH_SELECTOR_SOURCE
+#define CHARACTER_ANSI_ESCAPE_CODE_LENGTH_SELECTOR_SOURCE
 
-#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/model/text/ascii_newline_text_model.c"
-#include "../../../constant/name/cybol/state/keyboard/keyboard_state_cybol_name.c"
-#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/detector/detector.c"
-#include "../../../executor/modifier/item_modifier.c"
-#include "../../../executor/representer/deserialiser/ansi_escape_code/character_ansi_escape_code_deserialiser.c"
 #include "../../../logger/logger.c"
 
 /**
- * Selects the ansi escape code character.
+ * Selects the ansi escape code length character.
  *
- * This function changes the key codes into real names as defined by CYBOL.
- *
- * Example:
- *
- * The LINE_FEED_UNICODE_CHARACTER_CODE_MODEL (<enter> key) gets converted into the constant
- * ENTER_KEYBOARD_STATE_CYBOL_NAME with the value "enter", which is used so in CYBOL files.
- *
- * @param p0 the destination wide character item
+ * @param p0 the destination message length
  * @param p1 the source character data position (pointer reference)
  * @param p2 the source character count remaining
  */
-void select_ansi_escape_code_character(void* p0, void* p1, void* p2) {
+void select_ansi_escape_code_length_character(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select ansi escape code character.");
-    //?? fwprintf(stdout, L"Debug: Select ansi escape code character. count remaining p2: %i\n", p2);
-    //?? fwprintf(stdout, L"Debug: Select ansi escape code character. count remaining *p2: %i\n", *((int*) p2));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select ansi escape code length character.");
+    //?? fwprintf(stdout, L"Debug: Select ansi escape code length character. count remaining p2: %i\n", p2);
+    //?? fwprintf(stdout, L"Debug: Select ansi escape code length character. count remaining *p2: %i\n", *((int*) p2));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -80,7 +68,7 @@ void select_ansi_escape_code_character(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            modify_item(p0, (void*) ENTER_KEYBOARD_STATE_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ENTER_KEYBOARD_STATE_CYBOL_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+            copy_integer(p0, (void*) WINDOWS_ASCII_NEWLINE_TEXT_MODEL_COUNT);
         }
     }
 
@@ -90,7 +78,7 @@ void select_ansi_escape_code_character(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            modify_item(p0, (void*) ENTER_KEYBOARD_STATE_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ENTER_KEYBOARD_STATE_CYBOL_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+            copy_integer(p0, (void*) MACINTOSH_ASCII_NEWLINE_TEXT_MODEL_COUNT);
         }
     }
 
@@ -100,7 +88,7 @@ void select_ansi_escape_code_character(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            modify_item(p0, (void*) ENTER_KEYBOARD_STATE_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ENTER_KEYBOARD_STATE_CYBOL_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+            copy_integer(p0, (void*) UNIX_ASCII_NEWLINE_TEXT_MODEL_COUNT);
         }
     }
 
@@ -114,7 +102,7 @@ void select_ansi_escape_code_character(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            modify_item(p0, (void*) ESCAPE_KEYBOARD_STATE_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ESCAPE_KEYBOARD_STATE_CYBOL_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+            copy_integer(p0, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
         }
     }
 
@@ -126,12 +114,12 @@ void select_ansi_escape_code_character(void* p0, void* p1, void* p2) {
 
         //
         // None of the control characters above matched.
-        // Pass along character without modification.
         //
 
-        deserialise_ansi_escape_code_character(p0, p1, p2);
+        // Add standard character size.
+        copy_integer(p0, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
     }
 }
 
-/* CHARACTER_ANSI_ESCAPE_CODE_SELECTOR_SOURCE */
+/* CHARACTER_ANSI_ESCAPE_CODE_LENGTH_SELECTOR_SOURCE */
 #endif

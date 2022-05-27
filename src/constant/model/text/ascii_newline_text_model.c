@@ -23,39 +23,39 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef NEWLINE_TEXT_MODEL_CONSTANT_SOURCE
-#define NEWLINE_TEXT_MODEL_CONSTANT_SOURCE
+#ifndef ASCII_NEWLINE_TEXT_MODEL_CONSTANT_SOURCE
+#define ASCII_NEWLINE_TEXT_MODEL_CONSTANT_SOURCE
 
-#include <stddef.h> // wchar_t
+#include <stddef.h>
 
-#include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /**
- * The macintosh newline text model until version 9.
+ * The macintosh ascii newline text model until version 9.
  *
  * carriage return (cr)
  */
-static wchar_t* MACINTOSH_NEWLINE_TEXT_MODEL = CARRIAGE_RETURN_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* MACINTOSH_NEWLINE_TEXT_MODEL_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static unsigned char* MACINTOSH_ASCII_NEWLINE_TEXT_MODEL = CARRIAGE_RETURN_ASCII_CHARACTER_CODE_MODEL_ARRAY;
+static int* MACINTOSH_ASCII_NEWLINE_TEXT_MODEL_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The unix newline text model.
+ * The unix ascii newline text model.
  *
  * line feed (lf)
  */
-static wchar_t* UNIX_NEWLINE_TEXT_MODEL = LINE_FEED_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
-static int* UNIX_NEWLINE_TEXT_MODEL_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static unsigned char* UNIX_ASCII_NEWLINE_TEXT_MODEL = LINE_FEED_ASCII_CHARACTER_CODE_MODEL_ARRAY;
+static int* UNIX_ASCII_NEWLINE_TEXT_MODEL_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The windows newline text model.
+ * The windows ascii newline text model.
  *
  * carriage return (cr)
  * line feed (lf)
  */
-static wchar_t WINDOWS_NEWLINE_TEXT_MODEL_ARRAY[] = {0x000D, 0x000A};
-static wchar_t* WINDOWS_NEWLINE_TEXT_MODEL = WINDOWS_NEWLINE_TEXT_MODEL_ARRAY;
-static int* WINDOWS_NEWLINE_TEXT_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static unsigned char WINDOWS_ASCII_NEWLINE_TEXT_MODEL_ARRAY[] = {0x0D, 0x0A};
+static unsigned char* WINDOWS_ASCII_NEWLINE_TEXT_MODEL = WINDOWS_ASCII_NEWLINE_TEXT_MODEL_ARRAY;
+static int* WINDOWS_ASCII_NEWLINE_TEXT_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* NEWLINE_TEXT_MODEL_CONSTANT_SOURCE */
+/* ASCII_NEWLINE_TEXT_MODEL_CONSTANT_SOURCE */
 #endif

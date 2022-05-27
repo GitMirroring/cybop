@@ -34,6 +34,7 @@
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/selector/ansi_escape_code_length/add_ansi_escape_code_length_selector.c"
+#include "../../../executor/selector/ansi_escape_code_length/character_ansi_escape_code_length_selector.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -77,10 +78,11 @@ void select_ansi_escape_code_length(void* p0, void* p1, void* p2) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
-        // No ESC character found, that is no control key was pressed.
-        // Therefore, just add standard character size.
+        // An ansi escape code prefix was NOT found.
         //
-        copy_integer(p0, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+
+        // Handle other characters.
+        select_ansi_escape_code_length_character(p0, p1, p2);
     }
 }
 

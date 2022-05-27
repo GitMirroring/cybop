@@ -132,7 +132,14 @@ static unsigned char* LINE_FEED_ASCII_CHARACTER_CODE_MODEL = LINE_FEED_ASCII_CHA
 static unsigned char LINE_TABULATION_ASCII_CHARACTER_CODE_MODEL_ARRAY[] = {0x0B};
 static unsigned char* LINE_TABULATION_ASCII_CHARACTER_CODE_MODEL = LINE_TABULATION_ASCII_CHARACTER_CODE_MODEL_ARRAY;
 
-/** The form feed ascii character code model. U+000C */
+/**
+ * The form feed ascii character code model.
+ *
+ * U+000C
+ *
+ * Alias names:
+ * NEW PAGE (NP)
+ */
 static unsigned char FORM_FEED_ASCII_CHARACTER_CODE_MODEL_ARRAY[] = {0x0C};
 static unsigned char* FORM_FEED_ASCII_CHARACTER_CODE_MODEL = FORM_FEED_ASCII_CHARACTER_CODE_MODEL_ARRAY;
 
