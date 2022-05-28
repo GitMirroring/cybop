@@ -57,7 +57,6 @@
 //
 #include "../../../executor/representer/serialiser/json/break_json_serialiser.c"
 #include "../../../executor/representer/serialiser/json/json_serialiser.c"
-#include "../../../executor/representer/serialiser/latex/latex_serialiser.c"
 //
 // CAUTION! Do NOT include the "content_element_part_model_diagram_serialiser.c" module.
 // It is true, the "serialise_model_diagram_part_element_content" function is called from here,

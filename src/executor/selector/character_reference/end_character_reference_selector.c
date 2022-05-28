@@ -31,6 +31,7 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/character_reference/character_reference_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/mover/mover.c"
 #include "../../../logger/logger.c"
@@ -41,8 +42,9 @@
  * @param p0 the break flag
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
+ * @param p3 the character reference count
  */
-void select_character_reference_end(void* p0, void* p1, void* p2) {
+void select_character_reference_end(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select character reference end.");
 
@@ -61,8 +63,6 @@ void select_character_reference_end(void* p0, void* p1, void* p2) {
             // CAUTION! The current position and remaining count were already
             // changed in the called function, to be processed further.
             //
-            // The tag name and count are left as they are.
-            //
 
             // Set break flag.
             copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -71,7 +71,11 @@ void select_character_reference_end(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // Increment the current position by one.
         move(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        // Adjust character reference count.
+        calculate_integer_add(p3, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

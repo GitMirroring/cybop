@@ -30,6 +30,7 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/uri/separator_uri_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/mover/mover.c"
 #include "../../../logger/logger.c"
@@ -40,24 +41,24 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the break flag
- * @param p3 the source data position (pointer reference)
- * @param p4 the source count remaining
+ * @param p2 the source data position (pointer reference)
+ * @param p3 the source count remaining
+ * @param p4 the password count
  */
 void select_authority_password(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select authority password.");
-
-    //
-    // CAUTION! The order of the comparisons is IMPORTANT! Do NOT change it easily!
-    //
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        move(p3, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        // Increment the current position by one.
+        move(p2, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        // Adjust password count.
+        calculate_integer_add(p4, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

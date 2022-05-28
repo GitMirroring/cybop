@@ -78,13 +78,7 @@ void deserialise_character_reference_entity(void* p0, void* p1, void* p2) {
             break;
         }
 
-        select_character_reference_end((void*) &b, p1, p2);
-
-        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Increment entity character reference count.
-            rc++;
-        }
+        select_character_reference_end((void*) &b, p1, p2, (void*) &rc);
     }
 
     // Deserialise character entity reference data into character.

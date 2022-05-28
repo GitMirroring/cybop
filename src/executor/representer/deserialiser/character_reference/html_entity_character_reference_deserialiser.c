@@ -44,6 +44,8 @@
  */
 void deserialise_character_reference_entity_html(void* p0, void* p1, void* p2) {
 
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise character reference entity html.");
+
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -2575,6 +2577,12 @@ void deserialise_character_reference_entity_html(void* p0, void* p1, void* p2) {
 
             modify_item(p0, (void*) BLACK_DIAMOND_SUIT_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
         }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise character reference entity html. The character reference entity html is unknown.");
+        fwprintf(stdout, L"Warning: Could not deserialise character reference entity html. The character reference entity html is unknown. count remaining p1: %i\n", p1);
     }
 }
 

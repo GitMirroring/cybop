@@ -50,14 +50,14 @@ void deserialise_http_request_content_length_value(void* p0, void* p1, void* p2)
     //?? fwprintf(stdout, L"Debug: Deserialise http request content length value. p2: %i\n", p2);
     //?? fwprintf(stdout, L"Debug: Deserialise http request content length value. *p2: %i\n", *((int*) p2));
 
-    // The element.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The content length value data, count.
+    void* vd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int vc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Initialise element.
-    copy_pointer((void*) &e, p1);
+    // Initialise content length value data.
+    copy_pointer((void*) &vd, p1);
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -83,18 +83,13 @@ void deserialise_http_request_content_length_value(void* p0, void* p1, void* p2)
             break;
         }
 
-        select_http_request_content_length_value((void*) &b, p1, p2);
+        select_http_request_content_length_value(p1, p2, (void*) &vc, (void*) &b);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_http_request_content_length_decode(p0, e, (void*) &ec);
+            deserialise_http_request_content_length_decode(p0, vd, (void*) &vc);
 
             break;
-
-        } else {
-
-            // Increment element count.
-            ec++;
         }
     }
 }

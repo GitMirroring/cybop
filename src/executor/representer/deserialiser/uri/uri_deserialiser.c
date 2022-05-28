@@ -262,18 +262,20 @@ void deserialise_uri(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        deserialise_no_resource_http_request_uri(p0, p1, (void*) &r, (void*) &nord, (void*) &norc);
+        deserialise_no_resource_http_request_uri(p0, p1, (void*) &nord, (void*) &norc, (void*) &r);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // Do nothing, since the http request uri is empty "*",
             // which means that it points to nowhere, i.e. no resource is given.
+            //
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        deserialise_absolute_uri_http_request_uri(p0, p1, (void*) &r, (void*) &abud, (void*) &abuc);
+        deserialise_absolute_uri_http_request_uri(p0, p1, (void*) &abud, (void*) &abuc, (void*) &r);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -283,13 +285,16 @@ void deserialise_uri(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        deserialise_authority_form_http_request_uri(p0, p1, (void*) &r, (void*) &aufd, (void*) &aufc);
+        deserialise_authority_form_http_request_uri(p0, p1, (void*) &aufd, (void*) &aufc, (void*) &r);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // Add scheme as full text string.
+            //
             // The scheme is handed over as http request "protocol" header.
             // Add scheme as uri part here, because the authority does not contain one.
+            //
             deserialise_http_request_append(p0, (void*) SCHEME_URI_CYBOI_NAME, (void*) SCHEME_URI_CYBOI_NAME_COUNT, (void*) HTTP_SCHEME_URI_MODEL, (void*) HTTP_SCHEME_URI_MODEL_COUNT);
 
             deserialise_http_uri_authority_content(p0, (void*) &aufd, (void*) &aufc);
@@ -298,13 +303,16 @@ void deserialise_uri(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        deserialise_absolute_path_http_request_uri(p0, p1, (void*) &r, (void*) &abpd, (void*) &abpc);
+        deserialise_absolute_path_http_request_uri(p0, p1, (void*) &abpd, (void*) &abpc, (void*) &r);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // Add scheme as full text string.
+            //
             // The scheme is handed over as http request "protocol" header.
             // Add scheme as uri part here, because the path does not contain one.
+            //
             deserialise_http_request_append(p0, (void*) SCHEME_URI_CYBOI_NAME, (void*) SCHEME_URI_CYBOI_NAME_COUNT, (void*) HTTP_SCHEME_URI_MODEL, (void*) HTTP_SCHEME_URI_MODEL_COUNT);
 
             deserialise_http_uri_path(p0, p1, (void*) &abpd, (void*) &abpc);
@@ -314,7 +322,6 @@ void deserialise_uri(void* p0, void* p1, void* p2, void* p3) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise uri. The uri is invalid.");
-
         fwprintf(stdout, L"Warning: Could not deserialise uri. The uri is invalid.\n");
     }
 }

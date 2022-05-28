@@ -72,9 +72,9 @@ void deserialise_cybol_boolean_vector(void* p0, void* p1, void* p2) {
     // effect that elements are appended in the correct order.
     //
     int oc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The element.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The boolean values data, count.
+    void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -84,8 +84,8 @@ void deserialise_cybol_boolean_vector(void* p0, void* p1, void* p2) {
     // Initialise old destination item count.
     copy_integer((void*) &oc, dc);
 
-    // Initialise element.
-    copy_pointer((void*) &e, p1);
+    // Initialise boolean values data.
+    copy_pointer((void*) &bd, p1);
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -111,13 +111,7 @@ void deserialise_cybol_boolean_vector(void* p0, void* p1, void* p2) {
             break;
         }
 
-        select_cybol_boolean(p0, (void*) &b, p1, p2);
-
-        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Increment element count.
-            ec++;
-        }
+        select_cybol_boolean(p0, p1, p2, (void*) &bc, (void*) &b);
     }
 
     //
@@ -133,7 +127,7 @@ void deserialise_cybol_boolean_vector(void* p0, void* p1, void* p2) {
     // In the future, a cybol property or constraint for the given numbers
     // should be provided indicating their number base being interpreted here then.
     //
-    deserialise_cybol_boolean_value(p0, e, (void*) &ec, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &oc);
+    deserialise_cybol_boolean_value(p0, bd, (void*) &bc, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &oc);
 }
 
 /* VECTOR_BOOLEAN_CYBOL_DESERIALISER_SOURCE */

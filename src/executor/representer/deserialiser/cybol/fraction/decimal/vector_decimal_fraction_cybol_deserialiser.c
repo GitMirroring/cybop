@@ -75,9 +75,9 @@ void deserialise_cybol_fraction_decimal_vector(void* p0, void* p1, void* p2) {
     // effect that elements are appended in the correct order.
     //
     int oc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The element.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The double values data, count.
+    void* dod = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int doc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -87,8 +87,8 @@ void deserialise_cybol_fraction_decimal_vector(void* p0, void* p1, void* p2) {
     // Initialise old destination item count.
     copy_integer((void*) &oc, dc);
 
-    // Initialise element.
-    copy_pointer((void*) &e, p1);
+    // Initialise double values data.
+    copy_pointer((void*) &dod, p1);
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -114,17 +114,11 @@ void deserialise_cybol_fraction_decimal_vector(void* p0, void* p1, void* p2) {
             break;
         }
 
-        select_cybol_fraction_decimal(p0, (void*) &b, p1, p2);
-
-        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Increment element count.
-            ec++;
-        }
+        select_cybol_fraction_decimal(p0, p1, p2, (void*) &doc, (void*) &b);
     }
 
     // Prepend element to destination.
-    deserialise_cybol_fraction_decimal_value(p0, e, (void*) &ec, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &oc);
+    deserialise_cybol_fraction_decimal_value(p0, dod, (void*) &doc, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &oc);
 }
 
 /* VECTOR_DECIMAL_FRACTION_CYBOL_DESERIALISER_SOURCE */

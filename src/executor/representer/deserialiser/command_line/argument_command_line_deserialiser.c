@@ -53,17 +53,25 @@
  */
 void deserialise_command_line_argument(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
+    //
     // CAUTION! DO NOT use logging functionality here!
     // The logger will not work before its options are set.
     // Comment out this function call to avoid disturbing messages at system startup!
+    //
     // log_write((void*) stdout, L"Information: Deserialise command line.\n");
+    //
 
+    //
     // The argument data, count.
+    //
     // It is handed over as multibyte character array.
+    //
     void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
     int ac = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+    //
     // Get argument data.
+    //
     // Example: "--loglevel=error"
     //
     // CAUTION! The command line data handed over are of type char**.
@@ -82,6 +90,7 @@ void deserialise_command_line_argument(void* p0, void* p1, void* p2, void* p3, v
     // char** tmp1 = (char**) p5;
     // char** tmp2 = tmp1 + (*((int*) p6));
     // ad = (void*) *tmp2;
+    //
     copy_array_forward((void*) &ad, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
 
     if (ad != *NULL_POINTER_STATE_CYBOI_MODEL) {
@@ -105,8 +114,10 @@ void deserialise_command_line_argument(void* p0, void* p1, void* p2, void* p3, v
 
     } else {
 
+        //
         // CAUTION! DO NOT use logging functionality here!
         // The logger will not work before its options are set.
+        //
         log_write((void*) stdout, L"Error: Could not deserialise command line argument. The command line argument is null.\n");
     }
 }

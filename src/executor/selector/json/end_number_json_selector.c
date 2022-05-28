@@ -31,6 +31,7 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/name/json/json_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/mover/mover.c"
@@ -41,9 +42,10 @@
  *
  * @param p0 the source data position (pointer reference)
  * @param p1 the source count remaining
- * @param p2 the break flag
+ * @param p2 the number count
+ * @param p3 the break flag
  */
-void select_json_number_end(void* p0, void* p1, void* p2) {
+void select_json_number_end(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select json number end.");
     fwprintf(stdout, L"Debug: Select json number end. count remaining p1: %i\n", p1);
@@ -59,7 +61,7 @@ void select_json_number_end(void* p0, void* p1, void* p2) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set break flag.
-            copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -70,7 +72,7 @@ void select_json_number_end(void* p0, void* p1, void* p2) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set break flag.
-            copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -81,7 +83,7 @@ void select_json_number_end(void* p0, void* p1, void* p2) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set break flag.
-            copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -89,6 +91,9 @@ void select_json_number_end(void* p0, void* p1, void* p2) {
 
         // Increment the current position by one.
         move(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        // Adjust number count.
+        calculate_integer_add(p2, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

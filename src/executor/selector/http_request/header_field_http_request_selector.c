@@ -42,29 +42,6 @@
 #include "../../../executor/representer/deserialiser/http_request/decode_http_request_deserialiser.c"
 #include "../../../logger/logger.c"
 
-//
-// CAUTION! This comment is valid for all "select" functions below.
-//
-// The comparison result HAS TO BE ZERO (r == 0),
-// if a detection is to be taking place!
-//
-// Many "detect" functions are called in a sequence, below.
-// If the result of one detection function was positive (r == 1), then that
-// function increments the current position and decrements the remaining count.
-// In this case, further detection functions following afterwards might detect
-// further characters and CHANGE the current position and remaining count,
-// and so forth, which would have the effect of "JUMPING" over some characters
-// and produce WRONG RESULTS!
-//
-// Therefore, the checks for (r == 0) below avoid another detection,
-// if the result already has a value unequal zero.
-//
-// CAUTION! If a detection was successful, then the current position and remaining count
-// were already adapted within the corresponding "detect" function (as called below),
-// so that they now point to the first character following the detected character sequence.
-// Any "decode" function called afterwards can rely on this and start processing right away.
-//
-
 /**
  * Selects the http request header field.
  *
@@ -81,6 +58,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
     //
     // CAUTION! The comparisons below use the ascii character constant "CHARACTER_TEXT_STATE_CYBOI_TYPE"
     // and NOT "WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE".
+    //
     // The reason is that http metadata are available as ascii characters.
     // Converting them into wide characters only for comparison would not make sense.
     //
@@ -577,6 +555,7 @@ void select_http_request_header_field(void* p0, void* p1, void* p2, void* p3, vo
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select http request header field. The header http name is unknown.");
+        fwprintf(stdout, L"Warning: Could not select http request header field. The header http name is unknown. count remaining p2: %i\n", p2);
     }
 }
 

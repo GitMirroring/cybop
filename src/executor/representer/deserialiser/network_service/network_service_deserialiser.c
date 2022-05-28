@@ -125,6 +125,8 @@ void deserialise_network_service(void* p0, void* p1, void* p2) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise network service. The given network service is unknown.");
+        fwprintf(stdout, L"Warning: Could not deserialise network service. The given network service is unknown. network service count p2: %i\n", p2);
+        fwprintf(stdout, L"Warning: Could not deserialise network service. The given network service is unknown. network service count *p2: %i\n", *((int*) p2));
     }
 }
 

@@ -37,36 +37,39 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the comparison result
- * @param p3 the source data position (pointer reference)
- * @param p4 the source count remaining
+ * @param p2 the source data position (pointer reference)
+ * @param p3 the source count remaining
+ * @param p4 the comparison result
  */
 void deserialise_no_resource_http_request_uri(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* r = (int*) p2;
+        int* r = (int*) p4;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise no resource http request uri.");
 
         // The break flag.
         int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        if (p4 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+            //
             // CAUTION! If the loop count handed over as parametre is NULL,
             // then the break flag will NEVER be set to true, because the loop
             // variable comparison does (correctly) not consider null values.
             // Therefore, in this case, the break flag is set to true already here.
+            //
             // Initialising the break flag with true will NOT work either, since it:
             // a) will be left untouched if a comparison operand is null;
             // b) would have to be reset to true in each loop cycle.
+            //
             copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
 
         while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_less_or_equal((void*) &b, p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            compare_integer_less_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
             if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

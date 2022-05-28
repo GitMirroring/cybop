@@ -44,10 +44,13 @@
  */
 void select_command_line_log_level(void* p0, void* p1, void* p2) {
 
+    //
     // CAUTION! DO NOT use logging functionality here!
     // The logger will not work before its options are set.
     // Comment out this function call to avoid disturbing messages at system startup!
+    //
     // log_write((void*) stdout, L"Debug: Select command line log level.\n");
+    //
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -104,8 +107,10 @@ void select_command_line_log_level(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // CAUTION! DO NOT use logging functionality here!
         // The logger will not work before its options are set.
+        //
         log_write((void*) stdout, L"Warning: Could not select command line log level. The log level name is unknown.\n");
     }
 }

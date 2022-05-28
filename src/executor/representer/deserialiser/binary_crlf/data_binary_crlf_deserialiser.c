@@ -50,16 +50,16 @@ void deserialise_binary_crlf_data(void* p0, void* p1, void* p2) {
     fwprintf(stdout, L"Debug: Deserialise binary crlf data. *p2: %i\n", *((int*) p2));
     fwprintf(stdout, L"Debug: Deserialise binary crlf data. p1: %s\n", (char*) *((void**) p1));
 
-    // The element.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The binary crlf data, count.
+    void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The termination count.
     int tc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Initialise element.
-    copy_pointer((void*) &e, p1);
+    // Initialise binary crlf data.
+    copy_pointer((void*) &bd, p1);
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -94,17 +94,12 @@ void deserialise_binary_crlf_data(void* p0, void* p1, void* p2) {
         // count/characters have to be added/copied so that this message
         // deserialiser right here can detect the end of the message.
         //
-        select_binary_crlf_termination((void*) &b, p1, p2, (void*) &tc);
+        select_binary_crlf_termination((void*) &b, p1, p2, (void*) &bc, (void*) &tc);
 
-        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Increment element count.
-            ec++;
-
-        } else {
-
-            fwprintf(stdout, L"Debug: Deserialise binary crlf data. ec: %i\n", ec);
-            fwprintf(stdout, L"Debug: Deserialise binary crlf data. e: %s\n", (char*) e);
+            fwprintf(stdout, L"Debug: Deserialise binary crlf data. bc: %i\n", bc);
+            fwprintf(stdout, L"Debug: Deserialise binary crlf data. bd: %s\n", (char*) bd);
 
             //
             // Copy source data to destination item.
@@ -113,7 +108,7 @@ void deserialise_binary_crlf_data(void* p0, void* p1, void* p2) {
             // for the element count, since only the message data itself
             // but NOT the termination characters are to be copied.
             //
-            modify_item(p0, e, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &ec, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+            modify_item(p0, bd, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &bc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
             //?? TEST BEGIN
             void* testd = *NULL_POINTER_STATE_CYBOI_MODEL;

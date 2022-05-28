@@ -31,33 +31,11 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/name/binary/termination_binary_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/mover/mover.c"
 #include "../../../logger/logger.c"
-
-//
-// CAUTION! This comment is valid for all "select" functions below.
-//
-// The comparison result HAS TO BE ZERO (r == 0),
-// if a detection is to be taking place!
-//
-// Many "detect" functions are called in a sequence, below.
-// If the result of one detection function was positive (r == 1), then that
-// function increments the current position and decrements the remaining count.
-// In this case, further detection functions following afterwards might detect
-// further characters and CHANGE the current position and remaining count,
-// and so forth, which would have the effect of "JUMPING" over some characters
-// and produce WRONG RESULTS!
-//
-// Therefore, the checks for (r == 0) below avoid another detection,
-// if the result already has a value unequal zero.
-//
-// CAUTION! If a detection was successful, then the current position and remaining count
-// were already adapted within the corresponding "detect" function (as called below),
-// so that they now point to the first character following the detected character sequence.
-// Any "decode" function called afterwards can rely on this and start processing right away.
-//
 
 /**
  * Selects the binary crlf termination.
@@ -65,9 +43,10 @@
  * @param p0 the destination found flag
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
- * @param p3 the termination count
+ * @param p3 the binary crlf count
+ * @param p4 the termination count
  */
-void select_binary_crlf_termination(void* p0, void* p1, void* p2, void* p3) {
+void select_binary_crlf_termination(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select binary crlf termination.");
 
@@ -83,13 +62,17 @@ void select_binary_crlf_termination(void* p0, void* p1, void* p2, void* p3) {
             // Set found flag.
             copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
             // Copy termination count.
-            copy_integer(p3, (void*) CRLF_TERMINATION_BINARY_NAME_COUNT);
+            copy_integer(p4, (void*) CRLF_TERMINATION_BINARY_NAME_COUNT);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // Increment the current position by one.
         move(p1, p2, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        // Adjust binary crlf count.
+        calculate_integer_add(p3, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

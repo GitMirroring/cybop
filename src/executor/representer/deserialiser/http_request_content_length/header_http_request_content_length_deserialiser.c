@@ -49,14 +49,14 @@ void deserialise_http_request_content_length_header(void* p0, void* p1, void* p2
     //?? fwprintf(stdout, L"Debug: Deserialise http request content length header. p2: %i\n", p2);
     //?? fwprintf(stdout, L"Debug: Deserialise http request content length header. *p2: %i\n", *((int*) p2));
 
-    // The element.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The content length header data, count.
+    void* hd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int hc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Initialise element.
-    copy_pointer((void*) &e, p1);
+    // Initialise content length header count.
+    copy_pointer((void*) &hd, p1);
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -82,13 +82,7 @@ void deserialise_http_request_content_length_header(void* p0, void* p1, void* p2
             break;
         }
 
-        select_http_request_content_length_header(p0, (void*) &b, p1, p2);
-
-        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Increment element count.
-            ec++;
-        }
+        select_http_request_content_length_header(p0, p1, p2, (void*) &hc, (void*) &b);
     }
 }
 

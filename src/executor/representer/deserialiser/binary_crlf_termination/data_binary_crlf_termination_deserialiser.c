@@ -50,16 +50,16 @@ void deserialise_binary_crlf_termination_data(void* p0, void* p1, void* p2) {
     fwprintf(stdout, L"Debug: Deserialise binary crlf termination data. p2: %i\n", p2);
     fwprintf(stdout, L"Debug: Deserialise binary crlf termination data. *p2: %i\n", *((int*) p2));
 
-    // The element.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The binary crlf termination data, count.
+    void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The termination count.
     int tc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Initialise element.
-    copy_pointer((void*) &e, p1);
+    // Initialise binary crlf termination data.
+    copy_pointer((void*) &bd, p1);
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -85,17 +85,12 @@ void deserialise_binary_crlf_termination_data(void* p0, void* p1, void* p2) {
             break;
         }
 
-        select_binary_crlf_termination((void*) &b, p1, p2, (void*) &tc);
+        select_binary_crlf_termination((void*) &b, p1, p2, (void*) &bc, (void*) &tc);
 
-        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Increment element count.
-            ec++;
-
-        } else {
-
-            // Copy element count to destination message length.
-            copy_integer(p0, (void*) &ec);
+            // Copy binary crlf termination count to destination message length.
+            copy_integer(p0, (void*) &bc);
 
             //
             // Add termination count to destination message length.

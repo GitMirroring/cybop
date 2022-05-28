@@ -49,14 +49,14 @@ void deserialise_http_request_uri(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise http request uri.");
 
-    // The element.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The uri data, count.
+    void* ud = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int uc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Initialise element.
-    copy_pointer((void*) &e, p2);
+    // Initialise uri data.
+    copy_pointer((void*) &ud, p2);
 
     if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -82,18 +82,13 @@ void deserialise_http_request_uri(void* p0, void* p1, void* p2, void* p3) {
             break;
         }
 
-        select_http_request_uri(p0, p1, (void*) &b, p2, p3);
+        select_http_request_uri(p0, p1, p2, p3, (void*) &uc, (void*) &b);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_http_request_uri_content(p1, e, (void*) &ec);
+            deserialise_http_request_uri_content(p1, ud, (void*) &uc);
 
             break;
-
-        } else {
-
-            // Increment uri count.
-            ec++;
         }
     }
 }

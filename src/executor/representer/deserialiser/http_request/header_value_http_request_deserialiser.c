@@ -51,14 +51,14 @@ void deserialise_http_request_header_value(void* p0, void* p1, void* p2, void* p
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise http request header value.");
 
-    // The element.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The header value data, count.
+    void* hvd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int hvc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Initialise element.
-    copy_pointer((void*) &e, p2);
+    // Initialise header value data.
+    copy_pointer((void*) &hvd, p2);
 
     if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -84,18 +84,13 @@ void deserialise_http_request_header_value(void* p0, void* p1, void* p2, void* p
             break;
         }
 
-        select_http_request_header_value(p0, p1, (void*) &b, p2, p3);
+        select_http_request_header_value(p0, p1, p2, p3, (void*) &hvc, (void*) &b);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_http_request_header_field(p1, p4, p5, e, (void*) &ec);
+            select_http_request_header_field(p1, p4, p5, hvd, (void*) &hvc);
 
             break;
-
-        } else {
-
-            // Increment header value count.
-            ec++;
         }
     }
 }

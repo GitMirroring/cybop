@@ -30,8 +30,15 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cybol/state/separator_number_state_cybol_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/mover/mover.c"
+//
+// CAUTION! Do NOT include the following file, in order to avoid circular references.
+// It is forward-declared instead, further below.
+//
+// #include "../../../executor/representer/deserialiser/cybol/integer/vector_integer_cybol_deserialiser.c"
+//
 #include "../../../logger/logger.c"
 
 //
@@ -44,37 +51,38 @@ void deserialise_cybol_integer_vector(void* p0, void* p1, void* p2);
  * Selects the cybol integer.
  *
  * @param p0 the destination item
- * @param p1 the break flag
- * @param p2 the source data position (pointer reference)
- * @param p3 the source count remaining
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
+ * @param p3 the integer count
+ * @param p4 the break flag
  */
-void select_cybol_integer(void* p0, void* p1, void* p2, void* p3) {
+void select_cybol_integer(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select cybol integer.");
-
-    //
-    // CAUTION! The order of the comparisons is IMPORTANT! Do NOT change it easily!
-    //
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p2, p3, (void*) SEPARATOR_NUMBER_STATE_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SEPARATOR_NUMBER_STATE_CYBOL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p1, p2, (void*) SEPARATOR_NUMBER_STATE_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SEPARATOR_NUMBER_STATE_CYBOL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_cybol_integer_vector(p0, p2, p3);
+            deserialise_cybol_integer_vector(p0, p1, p2);
 
             // Set break flag.
-            copy_integer(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        move(p2, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        // Increment the current position by one.
+        move(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        // Adjust integer count.
+        calculate_integer_add(p3, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

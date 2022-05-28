@@ -47,14 +47,14 @@ void deserialise_http_request_protocol(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise http request protocol.");
 
-    // The element.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The protocol data, count.
+    void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int pc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Initialise element.
-    copy_pointer((void*) &e, p2);
+    // Initialise protocol data.
+    copy_pointer((void*) &pd, p2);
 
     if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -80,18 +80,13 @@ void deserialise_http_request_protocol(void* p0, void* p1, void* p2, void* p3) {
             break;
         }
 
-        select_http_request_protocol(p0, p1, (void*) &b, p2, p3);
+        select_http_request_protocol(p0, p1, p2, p3, (void*) &pc, (void*) &b);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_http_request_decode(p1, (void*) PROTOCOL_HTTP_CYBOI_NAME, (void*) PROTOCOL_HTTP_CYBOI_NAME_COUNT, e, (void*) &ec);
+            deserialise_http_request_decode(p1, (void*) PROTOCOL_HTTP_CYBOI_NAME, (void*) PROTOCOL_HTTP_CYBOI_NAME_COUNT, pd, (void*) &pc);
 
             break;
-
-        } else {
-
-            // Increment protocol count.
-            ec++;
         }
     }
 }

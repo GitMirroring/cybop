@@ -80,13 +80,7 @@ void deserialise_character_reference_numeric_decimal(void* p0, void* p1, void* p
             break;
         }
 
-        select_character_reference_end((void*) &b, p1, p2);
-
-        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Increment decimal numeric character reference count.
-            rc++;
-        }
+        select_character_reference_end((void*) &b, p1, p2, (void*) &rc);
     }
 
     //

@@ -57,12 +57,15 @@ void deserialise_character_reference(void* p0, void* p1, void* p2) {
     // Copy source count remaining.
     copy_integer((void*) &c, p2);
 
+    //
     // CAUTION! A copy of source count remaining is forwarded here,
     // so that the original source value does not get changed.
+    //
     // CAUTION! The source data position does NOT have to be copied,
     // since the parametre that was handed over is already a copy.
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
+    //
     deserialise_character_reference_any(p0, (void*) &d, (void*) &c);
 }
 

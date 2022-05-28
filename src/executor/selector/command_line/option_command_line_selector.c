@@ -36,8 +36,9 @@
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/modifier/item_modifier.c"
+#include "../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../executor/detector/detector.c"
+#include "../../../executor/modifier/item_modifier.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -46,8 +47,9 @@
  * @param p0 the break flag
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
+ * @param p3 the option count
  */
-void select_command_line_option(void* p0, void* p1, void* p2) {
+void select_command_line_option(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select command line option.");
 
@@ -67,7 +69,11 @@ void select_command_line_option(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // Increment the current position by one.
         move(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        // Adjust option count.
+        calculate_integer_add(p3, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

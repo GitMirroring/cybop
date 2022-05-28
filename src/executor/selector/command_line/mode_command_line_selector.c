@@ -51,10 +51,13 @@
  */
 void select_command_line_mode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
+    //
     // CAUTION! DO NOT use logging functionality here!
     // The logger will not work before its options are set.
     // Comment out this function call to avoid disturbing messages at system startup!
+    //
     // log_write((void*) stdout, L"Debug: Select command line mode.\n");
+    //
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -122,15 +125,19 @@ void select_command_line_mode(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // If no option was given, then assume "--knowledge" as default.
+        //
         // This is just convenient when starting cybol applications like:
         // cyboi helloworld/run.cybol
-        // Other interpreters like "perl", "php" etc. do it the same way.
+        //
 
+        //
         // Copy file path from OPTION to cybol knowledge file path.
         //
         // CAUTION! The OPTION has to be handed over INSTEAD OF the value,
         // since the value itself is null, because no separator was used.
+        //
         modify_item(p1, p7, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p8, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
         // Set knowledge operation mode.

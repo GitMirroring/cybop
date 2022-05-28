@@ -40,35 +40,32 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the break flag
- * @param p3 the source data position (pointer reference)
- * @param p4 the source count remaining
+ * @param p2 the source data position (pointer reference)
+ * @param p3 the source count remaining
+ * @param p4 the break flag
  */
 void select_authority_form_http_request_uri(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select authority form http request uri.");
-
-    //
-    // CAUTION! The order of the comparisons is IMPORTANT! Do NOT change it easily!
-    //
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p3, p4, (void*) AUTHORITY_FORM_HTTP_REQUEST_URI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) AUTHORITY_FORM_HTTP_REQUEST_URI_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p2, p3, (void*) AUTHORITY_FORM_HTTP_REQUEST_URI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) AUTHORITY_FORM_HTTP_REQUEST_URI_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set break flag.
-            copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        move(p3, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        // Increment the current position by one.
+        move(p2, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 

@@ -31,11 +31,11 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/character_reference/character_reference_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/detector/detector.c"
+#include "../../../executor/mover/mover.c"
 #include "../../../executor/representer/deserialiser/character_reference/decimal_numeric_character_reference_deserialiser.c"
 #include "../../../executor/representer/deserialiser/character_reference/entity_character_reference_deserialiser.c"
 #include "../../../executor/representer/deserialiser/character_reference/hexadecimal_numeric_character_reference_deserialiser.c"
-#include "../../../executor/detector/detector.c"
-#include "../../../executor/mover/mover.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -55,16 +55,6 @@ void select_character_reference_begin(void* p0, void* p1, void* p2) {
     // The hexadecimal numeric character reference has to be searched BEFORE
     // the decimal numeric character reference, which itself has to be searched BEFORE
     // the character entity reference.
-    //
-    // CAUTION! The comparison result HAS TO BE ZERO, if a detection is to be taking place!
-    // Many "detect" functions are called in a sequence, below.
-    // If the result of one detection function was positive (r == 1),
-    // then that function increments the current position and decrements the remaining count.
-    // In this case, further detection functions following afterwards might detect
-    // further characters and CHANGE the current position and remaining count, and so forth,
-    // which would have the effect of "jumping" over some characters and produce WRONG RESULTS!
-    // Therefore, the checks for (r == 0) below avoid another detection,
-    // if the result already has a value unequal zero.
     //
 
     // The comparison result.
@@ -108,6 +98,7 @@ void select_character_reference_begin(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // Increment the current position by one.
         move(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }

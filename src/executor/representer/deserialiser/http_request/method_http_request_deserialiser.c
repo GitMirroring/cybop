@@ -46,17 +46,16 @@
 void deserialise_http_request_method(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise http request method.");
-
     //?? fwprintf(stdout, L"Debug: Deserialise http request method. p3: %i\n", *((int*) p3));
 
-    // The element.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The method data, count.
+    void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int mc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Initialise element.
-    copy_pointer((void*) &e, p2);
+    // Initialise method data.
+    copy_pointer((void*) &md, p2);
 
     if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -82,18 +81,13 @@ void deserialise_http_request_method(void* p0, void* p1, void* p2, void* p3) {
             break;
         }
 
-        select_http_request_method(p0, p1, (void*) &b, p2, p3);
+        select_http_request_method(p0, p1, p2, p3, (void*) &mc, (void*) &b);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_http_request_decode(p1, (void*) METHOD_HTTP_CYBOI_NAME, (void*) METHOD_HTTP_CYBOI_NAME_COUNT, e, (void*) &ec);
+            deserialise_http_request_decode(p1, (void*) METHOD_HTTP_CYBOI_NAME, (void*) METHOD_HTTP_CYBOI_NAME_COUNT, md, (void*) &mc);
 
             break;
-
-        } else {
-
-            // Increment request method count.
-            ec++;
         }
     }
 }

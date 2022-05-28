@@ -686,6 +686,13 @@ void select_http_response_header_entry(void* p0, void* p1, void* p2, void* p3, v
             modify_item(p0, (void*) HEADER_SEPARATOR_HTTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) HEADER_SEPARATOR_HTTP_NAME_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
         }
     }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select http response header entry. The http response header entry is unknown.");
+        fwprintf(stdout, L"Warning: Could not select http response header entry. The http response header entry is unknown. name count p2: %i\n", p2);
+        fwprintf(stdout, L"Warning: Could not select http response header entry. The http response header entry is unknown. name count *p2: %i\n", *((int*) p2));
+    }
 }
 
 /* HEADER_ENTRY_HTTP_RESPONSE_SELECTOR_SOURCE */

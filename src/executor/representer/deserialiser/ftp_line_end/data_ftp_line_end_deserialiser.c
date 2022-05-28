@@ -49,14 +49,14 @@ void deserialise_ftp_line_end_data(void* p0, void* p1, void* p2) {
     //?? fwprintf(stdout, L"Debug: Deserialise ftp line end data. p2: %i\n", p2);
     //?? fwprintf(stdout, L"Debug: Deserialise ftp line end data. *p2: %i\n", *((int*) p2));
 
-    // The element.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The ftp line data, count.
+    void* fd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int fc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Initialise element.
-    copy_pointer((void*) &e, p1);
+    // Initialise ftp line data.
+    copy_pointer((void*) &fd, p1);
 
     if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -82,17 +82,7 @@ void deserialise_ftp_line_end_data(void* p0, void* p1, void* p2) {
             break;
         }
 
-        select_ftp_line_end(p0, (void*) &b, p1, p2);
-
-        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Increment element count.
-            ec++;
-
-        } else {
-
-            break;
-        }
+        select_ftp_line_end(p0, p1, p2, (void*) &fc, (void*) &b);
     }
 }
 

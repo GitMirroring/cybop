@@ -46,9 +46,9 @@ void deserialise_authority_userinfo(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise authority userinfo.");
 
-    // The element.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The userinfo data, count.
+    void* ud = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int uc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -67,8 +67,8 @@ void deserialise_authority_userinfo(void* p0, void* p1, void* p2, void* p3) {
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
-    // Initialise element.
-    copy_pointer((void*) &e, p2);
+    // Initialise userinfo data.
+    copy_pointer((void*) &ud, p2);
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -87,12 +87,12 @@ void deserialise_authority_userinfo(void* p0, void* p1, void* p2, void* p3) {
             // inside the "select_authority_userinfo" function.
             // Instead, hand over e and ec. REFERENCES are expected!
             //
-            deserialise_authority_hostname(p0, p1, (void*) &e, (void*) &ec);
+            deserialise_authority_hostname(p0, p1, (void*) &ud, (void*) &uc);
 
             break;
         }
 
-        select_authority_userinfo(p0, p1, (void*) &b, p2, p3);
+        select_authority_userinfo(p0, p1, p2, p3, (void*) &uc, (void*) &b);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -104,14 +104,9 @@ void deserialise_authority_userinfo(void* p0, void* p1, void* p2, void* p3) {
             // In this case, the hostname was already decoded
             // inside the "select_authority_userinfo" function.
             //
-            deserialise_authority_username(p0, p1, (void*) &e, (void*) &ec);
+            deserialise_authority_username(p0, p1, (void*) &ud, (void*) &uc);
 
             break;
-
-        } else {
-
-            // Increment element count.
-            ec++;
         }
     }
 }

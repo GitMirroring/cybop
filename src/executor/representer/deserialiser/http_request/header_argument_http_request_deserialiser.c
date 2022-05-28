@@ -48,14 +48,14 @@ void deserialise_http_request_header_argument(void* p0, void* p1, void* p2, void
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise http request header argument.");
 
-    // The element.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The header argument data, count.
+    void* had = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int hac = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Initialise element.
-    copy_pointer((void*) &e, p2);
+    // Initialise header argument data.
+    copy_pointer((void*) &had, p2);
 
     if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -81,13 +81,7 @@ void deserialise_http_request_header_argument(void* p0, void* p1, void* p2, void
             break;
         }
 
-        select_http_request_header_argument(p0, p1, (void*) &b, p2, p3, e, (void*) &ec);
-
-        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Increment element count.
-            ec++;
-        }
+        select_http_request_header_argument(p0, p1, p2, p3, had, (void*) &hac, (void*) &b);
     }
 }
 

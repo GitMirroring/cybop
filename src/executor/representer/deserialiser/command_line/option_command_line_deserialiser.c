@@ -98,14 +98,14 @@ void deserialise_command_line_option(void* p0, void* p1, void* p2, void* p3, voi
 
             //
             // There are no data left to be processed.
-            // A separator was not found, which means
-            // that no value was given.
+            //
+            // A separator was not found, which means that NO VALUE was given.
             //
 
             break;
         }
 
-        select_command_line_option((void*) &b, p5, p6);
+        select_command_line_option((void*) &b, p5, p6, (void*) &oc);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -119,11 +119,6 @@ void deserialise_command_line_option(void* p0, void* p1, void* p2, void* p3, voi
             copy_integer((void*) &vc, p6);
 
             break;
-
-        } else {
-
-            // Increment option count.
-            oc++;
         }
     }
 
