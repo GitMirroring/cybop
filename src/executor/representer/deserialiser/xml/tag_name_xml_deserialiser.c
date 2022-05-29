@@ -43,25 +43,25 @@
  * Deserialises the xml tag name.
  *
  * @param p0 the destination part name item
- * @param p1 the has attribute flag
- * @param p2 the has content flag
- * @param p3 the is empty flag
- * @param p4 the source data position (pointer reference)
- * @param p5 the source count remaining
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
+ * @param p3 the has attribute flag
+ * @param p4 the has content flag
+ * @param p5 the is empty flag
  */
 void deserialise_xml_tag_name(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* ie = (int*) p3;
+        int* ie = (int*) p5;
 
-        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* hc = (int*) p2;
+            int* hc = (int*) p4;
 
-            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                int* ha = (int*) p1;
+                int* ha = (int*) p3;
 
                 log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xml tag name.");
 
@@ -72,9 +72,9 @@ void deserialise_xml_tag_name(void* p0, void* p1, void* p2, void* p3, void* p4, 
                 int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
                 // Initialise tag name data.
-                copy_pointer((void*) &tnd, p4);
+                copy_pointer((void*) &tnd, p1);
 
-                if (p5 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+                if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                     //
                     // CAUTION! If the loop count handed over as parametre is NULL,
@@ -91,14 +91,14 @@ void deserialise_xml_tag_name(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
                 while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                    compare_integer_less_or_equal((void*) &b, p5, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+                    compare_integer_less_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
                     if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                         break;
                     }
 
-                    select_xml_attribute_begin_or_tag_end(p1, p2, p3, p4, p5);
+                    select_xml_attribute_begin_or_tag_end(p1, p2, p3, p4, p5, (void*) &tnc);
 
                     if ((*ha != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) || (*hc != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) || (*ie != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
 
@@ -112,11 +112,6 @@ void deserialise_xml_tag_name(void* p0, void* p1, void* p2, void* p3, void* p4, 
                         modify_item(p0, tnd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &tnc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
                         break;
-
-                    } else {
-
-                        // Increment tag name count.
-                        tnc++;
                     }
                 }
 

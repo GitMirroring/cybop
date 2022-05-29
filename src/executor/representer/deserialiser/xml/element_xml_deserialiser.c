@@ -128,7 +128,7 @@ void deserialise_xml_element(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &pp, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
     // Deserialise tag name into part name item.
-    deserialise_xml_tag_name(pn, (void*) &ha, (void*) &hc, (void*) &ie, p1, p2);
+    deserialise_xml_tag_name(pn, p1, p2, (void*) &ha, (void*) &hc, (void*) &ie);
 
     if (ha != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -136,7 +136,7 @@ void deserialise_xml_element(void* p0, void* p1, void* p2) {
         ha = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         // Deserialise attribute.
-        deserialise_xml_attribute(pp, (void*) &hc, (void*) &ie, p1, p2);
+        deserialise_xml_attribute(pp, p1, p2, (void*) &hc, (void*) &ie);
     }
 
     if (hc != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

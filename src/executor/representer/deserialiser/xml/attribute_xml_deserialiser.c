@@ -50,20 +50,20 @@
  * Deserialises the xml attribute.
  *
  * @param p0 the destination properties item
- * @param p1 the has content flag
- * @param p2 the is empty flag
- * @param p3 the source data position (pointer reference)
- * @param p4 the source count remaining
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
+ * @param p3 the has content flag
+ * @param p4 the is empty flag
  */
 void deserialise_xml_attribute(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* ie = (int*) p2;
+        int* ie = (int*) p4;
 
-        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* hc = (int*) p1;
+            int* hc = (int*) p3;
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xml attribute.");
 
@@ -84,11 +84,19 @@ void deserialise_xml_attribute(void* p0, void* p1, void* p2, void* p3, void* p4)
             // from a previous call of this function, which might lead to wrong results.
             //
             int ha = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+            //
+            // The tag name count.
+            //
+            // CAUTION! This variable is NOT needed in this context,
+            // but declared here anyway, since the below function
+            // "select_xml_attribute_begin_or_tag_end" expects it.
+            //
+            int tnc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // The break flag.
             int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-            deserialise_xml_attribute_name(p3, p4, (void*) &and, (void*) &anc);
-            deserialise_xml_attribute_value(p3, p4, (void*) &avd, (void*) &avc);
+            deserialise_xml_attribute_name(p1, p2, (void*) &and, (void*) &anc);
+            deserialise_xml_attribute_value(p1, p2, (void*) &avd, (void*) &avc);
 
             //
             // Allocate part.
@@ -112,7 +120,7 @@ void deserialise_xml_attribute(void* p0, void* p1, void* p2, void* p3, void* p4)
             //
             modify_item(p0, (void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
-            if (p4 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+            if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 //
                 // CAUTION! If the loop count handed over as parametre is NULL,
@@ -129,14 +137,14 @@ void deserialise_xml_attribute(void* p0, void* p1, void* p2, void* p3, void* p4)
 
             while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                compare_integer_less_or_equal((void*) &b, p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+                compare_integer_less_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
                 if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                     break;
                 }
 
-                select_xml_attribute_begin_or_tag_end((void*) &ha, p1, p2, p3, p4);
+                select_xml_attribute_begin_or_tag_end(p1, p2, (void*) &ha, p3, p4, (void*) &tnc);
 
                 if (ha != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
