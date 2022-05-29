@@ -18,8 +18,7 @@ ____
 
         * Hand over count as parametre to selector for ALL deserialisers that use such a count value for increment ++ within a loop:
             * Hand over count as parametre to selector for deserialisers "uri"
-            * Hand over count as parametre to selector for deserialisers "xdt"
-            * Hand over count as parametre to selector for deserialisers "xml"
+            * Complete "xml"
 
         * HOW TO avoid backslash escapes for cyboi tree node names ?? Consider backslash escape characters ONLY if in value, but NOT if given as member name
         * Ignore control characters if this is a member NAME, in order to avoid errors when using it in a cyboi tree node

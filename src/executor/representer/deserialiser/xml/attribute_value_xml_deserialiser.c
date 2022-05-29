@@ -39,61 +39,46 @@
 /**
  * Deserialises the xml attribute value.
  *
- * @param p0 the destination attribute value (pointer reference)
- * @param p1 the destination attribute value count
- * @param p2 the source data position (pointer reference)
- * @param p3 the source count remaining
+ * @param p0 the source data position (pointer reference)
+ * @param p1 the source count remaining
+ * @param p2 the destination attribute value (pointer reference)
+ * @param p3 the destination attribute value count
  */
 void deserialise_xml_attribute_value(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xml attribute value.");
 
-        int* avc = (int*) p1;
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xml attribute value.");
+    if (p1 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // The break flag.
-        int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        //
+        // CAUTION! If the loop count handed over as parametre is NULL,
+        // then the break flag will NEVER be set to true, because the loop
+        // variable comparison does (correctly) not consider null values.
+        // Therefore, in this case, the break flag is set to true already here.
+        //
+        // Initialising the break flag with true will NOT work either, since it:
+        // a) will be left untouched if a comparison operand is null;
+        // b) would have to be reset to true in each loop cycle.
+        //
+        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    }
 
-        if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // Initialise attribute value.
+    copy_pointer(p2, p0);
 
-            //
-            // CAUTION! If the loop count handed over as parametre is NULL,
-            // then the break flag will NEVER be set to true, because the loop
-            // variable comparison does (correctly) not consider null values.
-            // Therefore, in this case, the break flag is set to true already here.
-            //
-            // Initialising the break flag with true will NOT work either, since it:
-            // a) will be left untouched if a comparison operand is null;
-            // b) would have to be reset to true in each loop cycle.
-            //
-            copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_less_or_equal((void*) &b, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            break;
         }
 
-        // Initialise attribute value.
-        copy_pointer(p0, p2);
-
-        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            compare_integer_less_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-            if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                break;
-            }
-
-            select_xml_attribute_value((void*) &b, p2, p3);
-
-            if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // Increment attribute value count.
-                (*avc)++;
-            }
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xml attribute value. The attribute value count is null.");
+        select_xml_attribute_value(p0, p1, p3, (void*) &b);
     }
 }
 

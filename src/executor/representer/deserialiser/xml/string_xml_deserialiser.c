@@ -56,6 +56,9 @@ void deserialise_xml_string(void* p0, void* p1, void* p2, void* p3, void* p4) {
         //
         // This is a string xml element.
         //
+        // CAUTION! A normalisation and stripping of whitespace
+        // characters does make sense ONLY for strings.
+        //
 
         // Overwrite and possibly normalise data.
         deserialise_xml_normalisation(p0, p1, p2, p3);

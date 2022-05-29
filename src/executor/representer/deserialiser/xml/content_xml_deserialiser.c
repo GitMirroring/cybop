@@ -84,7 +84,7 @@ void deserialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
             break;
         }
 
-        select_xml_content(p0, p1, (void*) &b, p2, p3);
+        select_xml_content(p0, p1, p2, p3, (void*) &cc, (void*) &b);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -95,11 +95,6 @@ void deserialise_xml_content(void* p0, void* p1, void* p2, void* p3, void* p4, v
             deserialise_xml_string(p0, cd, (void*) &cc, p4, p5);
 
             break;
-
-        } else {
-
-            // Increment content count.
-            cc++;
         }
     }
 }

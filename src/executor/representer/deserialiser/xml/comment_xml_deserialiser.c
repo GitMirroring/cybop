@@ -72,10 +72,10 @@ void deserialise_xml_comment(void* p0, void* p1) {
             break;
         }
 
-        select_xml_comment((void*) &b, p0, p1);
+        select_xml_comment(p0, p1, (void*) &b);
 
         //
-        // Ignore comments, since they are not relevant here.
+        // Ignore xml comments, since they are not relevant here.
         //
     }
 }

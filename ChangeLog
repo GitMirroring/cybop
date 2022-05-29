@@ -20,7 +20,7 @@
 
 2022-05-29  Christian Heller  <christian.heller@cybop.org>
 
-        * Hand over count as parametre to selector for deserialisers "knowledge", "percent_encoding"
+        * Hand over count as parametre to selector for deserialisers "knowledge", "percent_encoding", "xml"
 
 2022-05-28  Christian Heller  <christian.heller@cybop.org>
 

@@ -73,7 +73,7 @@ void deserialise_xml_declaration(void* p0, void* p1, void* p2) {
             break;
         }
 
-        select_xml_declaration(p0, (void*) &b, p1, p2);
+        select_xml_declaration(p0, p1, p2, (void*) &b);
 
         //?? TODO: Process declaration string here.
     }

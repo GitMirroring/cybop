@@ -72,7 +72,7 @@ void deserialise_xml_end_tag(void* p0, void* p1) {
             break;
         }
 
-        select_xml_end_tag((void*) &b, p0, p1);
+        select_xml_end_tag(p0, p1, (void*) &b);
     }
 }
 

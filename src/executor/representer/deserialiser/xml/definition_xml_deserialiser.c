@@ -73,7 +73,7 @@ void deserialise_xml_definition(void* p0, void* p1, void* p2) {
             break;
         }
 
-        select_xml_definition((void*) &b, p1, p2);
+        select_xml_definition(p1, p2, (void*) &b);
 
         //?? TODO: Process definition string here.
     }

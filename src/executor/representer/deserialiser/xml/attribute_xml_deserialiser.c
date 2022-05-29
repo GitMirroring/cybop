@@ -87,8 +87,8 @@ void deserialise_xml_attribute(void* p0, void* p1, void* p2, void* p3, void* p4)
             // The break flag.
             int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-            deserialise_xml_attribute_name((void*) &and, (void*) &anc, p3, p4);
-            deserialise_xml_attribute_value((void*) &avd, (void*) &avc, p3, p4);
+            deserialise_xml_attribute_name(p3, p4, (void*) &and, (void*) &anc);
+            deserialise_xml_attribute_value(p3, p4, (void*) &avd, (void*) &avc);
 
             //
             // Allocate part.
