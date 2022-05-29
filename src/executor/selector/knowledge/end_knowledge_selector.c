@@ -31,44 +31,23 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/knowledge/separator_knowledge_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../executor/copier/integer_copier.c"
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/mover/mover.c"
 #include "../../../logger/logger.c"
 
-//
-// CAUTION! This comment is valid for all "select" functions below.
-//
-// The comparison result HAS TO BE ZERO (r == 0),
-// if a detection is to be taking place!
-//
-// Many "detect" functions are called in a sequence, below.
-// If the result of one detection function was positive (r == 1), then that
-// function increments the current position and decrements the remaining count.
-// In this case, further detection functions following afterwards might detect
-// further characters and CHANGE the current position and remaining count,
-// and so forth, which would have the effect of "JUMPING" over some characters
-// and produce WRONG RESULTS!
-//
-// Therefore, the checks for (r == 0) below avoid another detection,
-// if the result already has a value unequal zero.
-//
-// CAUTION! If a detection was successful, then the current position and remaining count
-// were already adapted within the corresponding "detect" function (as called below),
-// so that they now point to the first character FOLLOWING the detected character sequence.
-// Any "decode" function called afterwards can rely on this and start processing right away.
-//
-
 /**
  * Selects the knowledge end.
  *
- * @param p0 the break flag
- * @param p1 the knowledge path data position (pointer reference)
- * @param p2 the knowledge path count remaining
- * @param p3 the move flag
- * @param p4 the knowledge path end flag
+ * @param p0 the knowledge path data position (pointer reference)
+ * @param p1 the knowledge path count remaining
+ * @param p2 the move flag
+ * @param p3 the knowledge path end flag
+ * @param p4 the name count
+ * @param p5 the break flag
  */
-void select_knowledge_end(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void select_knowledge_end(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge end.");
 
@@ -82,12 +61,12 @@ void select_knowledge_end(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // The reason is that a potential new sub part's name or model or property, indicated by
         // a "." or ":" character, respectively, have to be detected once again in another function.
         //
-        detect((void*) &r, p1, p2, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p0, p1, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set break flag.
-            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -98,52 +77,18 @@ void select_knowledge_end(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // The reason is that a potential new sub part's name or model or property, indicated by
         // a "." or ":" character, respectively, have to be detected once again in another function.
         //
-        detect((void*) &r, p1, p2, (void*) PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p0, p1, (void*) PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set break flag.
-            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p1, p2, (void*) END_NAME_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) END_NAME_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, p3);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //
-            // Set knowledge path end flag.
-            //
-            // CAUTION! Setting this flag IS IMPORTANT
-            // for deciding whether to assign the whole (parent) or
-            // element (child) node in file "part_knowledge_deserialiser.c".
-            //
-            // There are two files, where the end flag is set:
-            // 1) knowledge_deserialiser.c
-            // 2) end_knowledge_selector.c
-            //
-            // Case 1 applies, when the absolute end of the knowledge path
-            // has been reached, i.e. count remaining is zero.
-            //
-            // Case 2 applies, when a SUB PATH was used:
-            // - either as name, like e.g. "(.some.path)"
-            // - or as index, like e.g. "[#some_index_on_stack]"
-            // and the end of that sub path has been reached:
-            // - either a ")"
-            // - or a "]"
-            //
-            copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-            // Set break flag.
-            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        detect((void*) &r, p1, p2, (void*) END_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) END_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, p3);
+        detect((void*) &r, p0, p1, (void*) END_NAME_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) END_NAME_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, p2);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -168,17 +113,54 @@ void select_knowledge_end(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // - either a ")"
             // - or a "]"
             //
-            copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // Set break flag.
-            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Move position by one if nothing was found.
-        move(p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p0, p1, (void*) END_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) END_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, p2);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // Set knowledge path end flag.
+            //
+            // CAUTION! Setting this flag IS IMPORTANT
+            // for deciding whether to assign the whole (parent) or
+            // element (child) node in file "part_knowledge_deserialiser.c".
+            //
+            // There are two files, where the end flag is set:
+            // 1) knowledge_deserialiser.c
+            // 2) end_knowledge_selector.c
+            //
+            // Case 1 applies, when the absolute end of the knowledge path
+            // has been reached, i.e. count remaining is zero.
+            //
+            // Case 2 applies, when a SUB PATH was used:
+            // - either as name, like e.g. "(.some.path)"
+            // - or as index, like e.g. "[#some_index_on_stack]"
+            // and the end of that sub path has been reached:
+            // - either a ")"
+            // - or a "]"
+            //
+            copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            // Set break flag.
+            copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Increment the current position by one.
+        move(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        // Adjust name count.
+        calculate_integer_add(p4, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

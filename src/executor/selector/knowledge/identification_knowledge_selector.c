@@ -71,14 +71,13 @@ void select_knowledge_identification(void* p0, void* p1, void* p2, void* p3, voi
 
             //
             // The index flag IS set.
-            // Treat part name data as index.
+            // Treat part name data as INDEX.
             //
 
             //
             // CAUTION! The stack memory argument p4 is NOT needed here,
             // since it is forbidden to access arbitrary stack variables via index.
-            // Otherwise, the whole stack order might get ignored,
-            // which is not wanted.
+            // Otherwise, the whole stack order might get ignored, which is NOT wanted.
             //
             // The argument p2 is used as source index related to the source whole part.
             // The part name count p3 is NOT needed, since there is only ONE integer pointer.
@@ -92,7 +91,7 @@ void select_knowledge_identification(void* p0, void* p1, void* p2, void* p3, voi
 
             //
             // The index flag is NOT set.
-            // Treat part name data as name.
+            // Treat part name data as NAME.
             //
 
             select_knowledge_memory(p0, *s, p2, p3, p4, p5);

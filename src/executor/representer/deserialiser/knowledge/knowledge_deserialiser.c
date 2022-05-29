@@ -52,7 +52,6 @@
 void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge.");
-
     //?? fwprintf(stdout, L"Debug: deserialise knowledge *p3: %i\n", *((int*) p3));
     //?? fwprintf(stdout, L"Debug: deserialise knowledge *p2: %ls\n", (wchar_t*) *((void**) p2));
 
@@ -74,7 +73,7 @@ void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
-        // The knowledge path contains further characters.
+        // The knowledge path contains FURTHER characters.
         //
 
         select_knowledge_root(p0, p1, p2, p3, p4, p5, p6, p7, p8);
@@ -82,7 +81,7 @@ void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     } else {
 
         //
-        // The knowledge path end has been reached.
+        // The knowledge path END has been reached.
         //
 
         //

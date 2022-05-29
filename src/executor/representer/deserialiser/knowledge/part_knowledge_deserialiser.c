@@ -78,7 +78,7 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
     if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
-        // A new whole (parent) exists.
+        // A new whole (parent) EXISTS.
         // Further processing of the knowledge path makes sense.
         //
 
@@ -107,7 +107,7 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
 
             //
             // The knowledge path does NOT contain further elements.
-            // Its end has been reached.
+            // Its END has been reached.
             //
 
             //
@@ -127,7 +127,7 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
             if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 //
-                // The element (child) was successfully retrieved.
+                // The element (child) WAS successfully retrieved.
                 //
 
                 //?? fwprintf(stdout, L"Debug: Deserialise knowledge part. element (child) exists: %i\n", e);

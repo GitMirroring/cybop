@@ -34,35 +34,12 @@
 #include "../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/copier/integer_copier.c"
+#include "../../../executor/detector/detector.c"
 #include "../../../executor/representer/deserialiser/knowledge/identification_knowledge_deserialiser.c"
 #include "../../../executor/representer/deserialiser/knowledge/name_knowledge_deserialiser.c"
 #include "../../../executor/representer/deserialiser/knowledge/part_knowledge_deserialiser.c"
 #include "../../../executor/representer/deserialiser/knowledge/reference_knowledge_deserialiser.c"
-#include "../../../executor/detector/detector.c"
 #include "../../../logger/logger.c"
-
-//
-// CAUTION! This comment is valid for all "select" functions below.
-//
-// The comparison result HAS TO BE ZERO (r == 0),
-// if a detection is to be taking place!
-//
-// Many "detect" functions are called in a sequence, below.
-// If the result of one detection function was positive (r == 1), then that
-// function increments the current position and decrements the remaining count.
-// In this case, further detection functions following afterwards might detect
-// further characters and CHANGE the current position and remaining count,
-// and so forth, which would have the effect of "JUMPING" over some characters
-// and produce WRONG RESULTS!
-//
-// Therefore, the checks for (r == 0) below avoid another detection,
-// if the result already has a value unequal zero.
-//
-// CAUTION! If a detection was successful, then the current position and remaining count
-// were already adapted within the corresponding "detect" function (as called below),
-// so that they now point to the first character FOLLOWING the detected character sequence.
-// Any "decode" function called afterwards can rely on this and start processing right away.
-//
 
 /**
  * Selects the knowledge begin.
@@ -83,7 +60,6 @@
 void select_knowledge_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge begin.");
-
     //?? fwprintf(stdout, L"Debug: select knowledge begin *p3: %i\n", *((int*) p3));
     //?? fwprintf(stdout, L"Debug: select knowledge begin *p2: %ls\n", (wchar_t*) *((void**) p2));
 

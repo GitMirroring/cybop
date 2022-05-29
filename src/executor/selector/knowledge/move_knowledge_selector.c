@@ -35,21 +35,22 @@
 /**
  * Selects the knowledge end with the move depending on the given flag.
  *
- * @param p0 the break flag
- * @param p1 the knowledge path data position (pointer reference)
- * @param p2 the knowledge path count remaining
- * @param p3 the source whole part element index:
+ * @param p0 the knowledge path data position (pointer reference)
+ * @param p1 the knowledge path count remaining
+ * @param p2 the source whole part element index:
  *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
  *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties
  *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for stack variables
  *           - *NULL_POINTER_STATE_CYBOI_MODEL if none of the above applies
- * @param p4 the knowledge path end flag
+ * @param p3 the knowledge path end flag
+ * @param p4 the name count
+ * @param p5 the break flag
  */
-void select_knowledge_move(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void select_knowledge_move(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge move.");
 
-    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
         // The source whole part element index is NOT null.
@@ -57,11 +58,12 @@ void select_knowledge_move(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // That is, this is the FIRST time that this function is called
         // from "deserialise_knowledge_part" via "deserialise_knowledge_name",
         // in order to deserialise a whole (parent) node.
+        //
         // Therefore, the move flag MUST NOT be set here,
         // so that the delimiters ")" and "]" may be detected once again.
         //
 
-        select_knowledge_end(p0, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p4);
+        select_knowledge_end(p0, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4, p5);
 
     } else {
 
@@ -71,12 +73,13 @@ void select_knowledge_move(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // That is, this is the SECOND time that this function is called
         // from "deserialise_knowledge_part" via "deserialise_knowledge_name"
         // in order to deserialise an element (child) node.
+        //
         // Therefore, the move flag HAS TO BE set here,
         // so that the delimiters ")" and "]" are NOT detected once again and
         // further characters may get processed down the knowledge path hierarchy.
         //
 
-        select_knowledge_end(p0, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p4);
+        select_knowledge_end(p0, p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4, p5);
     }
 }
 

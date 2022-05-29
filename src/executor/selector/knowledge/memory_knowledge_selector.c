@@ -54,8 +54,7 @@
 void select_knowledge_memory(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge memory.");
-
-    //?? fwprintf(stdout, L"Debug: select knowledge memory (legend: 7 = model; 8 = properties; -1 = stack) *p5: %i\n", *((int*) p5));
+    //?? fwprintf(stdout, L"Debug: Select knowledge memory. (legend: 7 = model; 8 = properties; -1 = stack) *p5: %i\n", *((int*) p5));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -68,6 +67,7 @@ void select_knowledge_memory(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             //
             // Get part with name from stack memory.
+            //
             // CAUTION! The last argument is TRUE to indicate last-in-first-out (lifo) retrieval.
             //
             get_name_item_element(p0, p4, p2, p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -106,12 +106,11 @@ void select_knowledge_memory(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         //
         // This is just a warning, since many files are calling
-        // function "deserialise_knowledge" handing over null
+        // function "deserialise_knowledge" handing over NULL
         // as whole part element index.
         //
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select knowledge memory. The source whole part element index is unknown.");
-
         //?? fwprintf(stdout, L"Warning: Could not select knowledge memory. The source whole part element index is unknown. part name data p2: %ls\n", (wchar_t*) p2);
         //?? fwprintf(stdout, L"Warning: Could not select knowledge memory. The source whole part element index is unknown. part name count *p3: %i\n", *((int*) p3));
         //?? fwprintf(stdout, L"Warning: Could not select knowledge memory. The source whole part element index is unknown. source whole part element index p5: %p\n", p5);

@@ -14,9 +14,9 @@
 JSON
 ____
 
+        * Simplify http or something else where comparison can be optimised (without pointer)
+
         * Hand over count as parametre to selector for ALL deserialisers that use such a count value for increment ++ within a loop:
-            * Hand over count as parametre to selector for deserialisers "knowledge"
-            * Hand over count as parametre to selector for deserialisers "percent_encoding"
             * Hand over count as parametre to selector for deserialisers "uri"
             * Hand over count as parametre to selector for deserialisers "xdt"
             * Hand over count as parametre to selector for deserialisers "xml"
