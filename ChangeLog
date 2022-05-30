@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-05-30  Christian Heller  <christian.heller@cybop.org>
+
+        * Complete adapting selector and deserialiser "xml"
+
 2022-05-29  Christian Heller  <christian.heller@cybop.org>
 
         * Hand over count as parametre to selector for deserialisers "knowledge", "percent_encoding", "xml"
