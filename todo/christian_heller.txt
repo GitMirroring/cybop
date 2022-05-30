@@ -14,8 +14,6 @@
 JSON
 ____
 
-        * Hand over count as parametre to selector for deserialisers "uri"
-
         * Simplify http or something else where comparison can be optimised (use local variable instead of pointer)
 
         * HOW TO avoid backslash escapes for cyboi tree node names ?? Consider backslash escape characters ONLY if in value, but NOT if given as member name

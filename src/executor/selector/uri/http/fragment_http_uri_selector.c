@@ -26,32 +26,22 @@
 #ifndef FRAGMENT_HTTP_URI_SELECTOR_SOURCE
 #define FRAGMENT_HTTP_URI_SELECTOR_SOURCE
 
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/uri/uri_cyboi_name.c"
-#include "../../../../constant/name/uri/separator_uri_name.c"
-#include "../../../../executor/detector/detector.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/mover/mover.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/type_size/integral_type_size.c"
 
 /**
  * Selects the http uri fragment.
  *
- * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the break flag
- * @param p3 the source data position (pointer reference)
- * @param p4 the source count remaining
+ * @param p0 the source data position (pointer reference)
+ * @param p1 the source count remaining
+ * @param p2 the fragment count
  */
-void select_http_uri_fragment(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void select_http_uri_fragment(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select http uri fragment.");
-
-    //
-    // CAUTION! The order of the comparisons is IMPORTANT! Do NOT change it easily!
-    //
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -59,7 +49,10 @@ void select_http_uri_fragment(void* p0, void* p1, void* p2, void* p3, void* p4) 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Increment the current position by one.
-        move(p3, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        move(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        // Adjust fragment count.
+        calculate_integer_add(p2, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

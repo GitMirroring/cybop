@@ -26,29 +26,28 @@
 #ifndef NAME_PARAMETRE_QUERY_HTTP_URI_SELECTOR_SOURCE
 #define NAME_PARAMETRE_QUERY_HTTP_URI_SELECTOR_SOURCE
 
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/uri/uri_cyboi_name.c"
 #include "../../../../constant/name/uri/separator_uri_name.c"
-#include "../../../../executor/representer/deserialiser/uri/http/fragment_http_uri_deserialiser.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../../executor/detector/detector.c"
 #include "../../../../executor/mover/mover.c"
+#include "../../../../executor/representer/deserialiser/uri/http/fragment_http_uri_deserialiser.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/type_size/integral_type_size.c"
 
 /**
  * Selects the http uri query parametre name.
  *
- * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the break flag
- * @param p3 the source data position (pointer reference)
- * @param p4 the source count remaining
- * @param p5 the parametre value (pointer reference)
- * @param p6 the parametre value count
+ * @param p0 the source data position (pointer reference)
+ * @param p1 the source count remaining
+ * @param p2 the parametre value (pointer reference)
+ * @param p3 the parametre value count
+ * @param p4 the name count
+ * @param p5 the break flag
  */
-void select_http_uri_query_parametre_name(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void select_http_uri_query_parametre_name(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select http uri query parametre name.");
 
@@ -61,7 +60,7 @@ void select_http_uri_query_parametre_name(void* p0, void* p1, void* p2, void* p3
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p3, p4, (void*) QUERY_PARAMETRE_ASSIGNMENT_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) QUERY_PARAMETRE_ASSIGNMENT_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p0, p1, (void*) QUERY_PARAMETRE_ASSIGNMENT_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) QUERY_PARAMETRE_ASSIGNMENT_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -73,18 +72,21 @@ void select_http_uri_query_parametre_name(void* p0, void* p1, void* p2, void* p3
             // The remaining data represent the parametre value,
             // which can now be assigned.
             //
-            copy_pointer(p5, p3);
-            copy_integer(p6, p4);
+            copy_pointer(p2, p0);
+            copy_integer(p3, p1);
 
             // Set break flag.
-            copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Increment the current position by one.
-        move(p3, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        move(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        // Adjust authority count.
+        calculate_integer_add(p4, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

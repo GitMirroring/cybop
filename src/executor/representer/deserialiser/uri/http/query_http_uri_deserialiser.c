@@ -115,14 +115,14 @@ void deserialise_http_uri_query(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise http uri query.");
 
-    // The element.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The query data, count.
+    void* qd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int qc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Initialise element.
-    copy_pointer((void*) &e, p2);
+    // Initialise query data.
+    copy_pointer((void*) &qd, p2);
 
     if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -148,13 +148,7 @@ void deserialise_http_uri_query(void* p0, void* p1, void* p2, void* p3) {
             break;
         }
 
-        select_http_uri_query(p0, p1, (void*) &b, p2, p3);
-
-        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Increment element count.
-            ec++;
-        }
+        select_http_uri_query(p0, p1, p2, p3, (void*) &qc, (void*) &b);
     }
 
     //
@@ -165,7 +159,7 @@ void deserialise_http_uri_query(void* p0, void* p1, void* p2, void* p3) {
     // the first position, then no query was given.
     // In this case, a query with empty value is added.
     //
-    deserialise_http_uri_query_content(p0, e, (void*) &ec);
+    deserialise_http_uri_query_content(p0, qd, (void*) &qc);
 }
 
 /* QUERY_HTTP_URI_DESERIALISER_SOURCE */

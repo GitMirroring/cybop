@@ -47,14 +47,14 @@ void deserialise_http_uri_query_parametre(void* p0, void* p1, void* p2, void* p3
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise http uri query parametre.");
 
-    // The element.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The parametre data, count.
+    void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int pc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Initialise element.
-    copy_pointer((void*) &e, p2);
+    // Initialise parametre data.
+    copy_pointer((void*) &pd, p2);
 
     if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -80,17 +80,13 @@ void deserialise_http_uri_query_parametre(void* p0, void* p1, void* p2, void* p3
             break;
         }
 
-        select_http_uri_query_parametre(p0, p1, (void*) &b, p2, p3);
-
-        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Increment element count.
-            ec++;
-        }
+        select_http_uri_query_parametre(p0, p1, p2, p3, (void*) &pc, (void*) &b);
     }
 
-    // CAUTION! Hand over e as reference!
-    deserialise_http_uri_query_parametre_name(p0, p1, (void*) &e, (void*) &ec);
+    //
+    // CAUTION! Hand over parametre data pd as REFERENCE!
+    //
+    deserialise_http_uri_query_parametre_name(p0, p1, (void*) &pd, (void*) &pc);
 }
 
 /* PARAMETRE_QUERY_HTTP_URI_DESERIALISER_SOURCE */
