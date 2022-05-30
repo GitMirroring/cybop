@@ -107,14 +107,14 @@ void deserialise_http_uri_authority(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise http uri authority.");
 
-    // The element.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The authority data, count.
+    void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int ac = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Initialise element.
-    copy_pointer((void*) &e, p2);
+    // Initialise authority data.
+    copy_pointer((void*) &ad, p2);
 
     if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -140,13 +140,7 @@ void deserialise_http_uri_authority(void* p0, void* p1, void* p2, void* p3) {
             break;
         }
 
-        select_http_uri_authority(p0, p1, (void*) &b, p2, p3);
-
-        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Increment element count.
-            ec++;
-        }
+        select_http_uri_authority(p0, p1, p2, p3, (void*) &ac, (void*) &b);
     }
 
     //
@@ -157,7 +151,7 @@ void deserialise_http_uri_authority(void* p0, void* p1, void* p2, void* p3) {
     // the first position, then no authority was given.
     // In this case, an authority with empty value is added.
     //
-    deserialise_http_uri_authority_content(p0, e, (void*) &ec);
+    deserialise_http_uri_authority_content(p0, ad, (void*) &ac);
 }
 
 /* AUTHORITY_HTTP_URI_DESERIALISER_SOURCE */

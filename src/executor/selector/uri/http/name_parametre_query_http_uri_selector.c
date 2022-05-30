@@ -69,6 +69,7 @@ void select_http_uri_query_parametre_name(void* p0, void* p1, void* p2, void* p3
             // The separator = was found.
             // It serves as delimiter for the parametre name,
             // so that the calling function knows its count (length).
+            //
             // The remaining data represent the parametre value,
             // which can now be assigned.
             //
@@ -82,6 +83,7 @@ void select_http_uri_query_parametre_name(void* p0, void* p1, void* p2, void* p3
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // Increment the current position by one.
         move(p3, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }

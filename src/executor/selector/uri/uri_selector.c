@@ -87,7 +87,18 @@ void select_uri(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_http_uri(p0, p1, *((void**) p2), p3);
+            if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                void** pos = (void**) p2;
+
+                deserialise_http_uri(p0, p1, *pos, p3);
+
+            } else {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select uri. The source data position is null.");
+                fwprintf(stdout, L"Error: Could not select uri. The source data position is null. scheme count p5: %i\n", p5);
+                fwprintf(stdout, L"Error: Could not select uri. The source data position is null. scheme count *p5: %i\n", *((int*) p5));
+            }
         }
     }
 

@@ -31,21 +31,20 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/uri/uri_cyboi_name.c"
 #include "../../../constant/name/uri/separator_uri_name.c"
+#include "../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../executor/detector/detector.c"
 #include "../../../executor/mover/mover.c"
 #include "../../../logger/logger.c"
-#include "../../../variable/type_size/integral_type_size.c"
 
 /**
  * Selects the uri scheme.
  *
- * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the break flag
- * @param p3 the source data position (pointer reference)
- * @param p4 the source count remaining
+ * @param p0 the source data position (pointer reference)
+ * @param p1 the source count remaining
+ * @param p2 the scheme count
+ * @param p3 the break flag
  */
-void select_uri_scheme(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void select_uri_scheme(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select uri scheme.");
 
@@ -56,42 +55,52 @@ void select_uri_scheme(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    //
     // This detection of (colon, solidus, solidus) is necessary,
     // in order to move the position pointer to the beginning of
     // the authority starting AFTER the two slashes.
+    //
     // All functions processing the authority afterwards do
     // expect it WITHOUT double slash at the beginning.
+    //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p3, p4, (void*) SCHEME_WITH_AUTHORITY_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SCHEME_WITH_AUTHORITY_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p0, p1, (void*) SCHEME_WITH_AUTHORITY_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SCHEME_WITH_AUTHORITY_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set break flag.
-            copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
+    //
     // Only if the sequence (colon, solidus, solidus) could not be found,
     // try detecting the scheme end separator (colon) alone.
+    //
     // The scheme "file", for example, may be given without authority,
     // but with path.
+    //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p3, p4, (void*) SCHEME_END_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SCHEME_END_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p0, p1, (void*) SCHEME_END_SEPARATOR_URI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SCHEME_END_SEPARATOR_URI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set break flag.
-            copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        move(p3, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        // Increment the current position by one.
+        move(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        // Adjust scheme count.
+        calculate_integer_add(p2, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

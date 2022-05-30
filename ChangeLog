@@ -21,6 +21,7 @@
 2022-05-30  Christian Heller  <christian.heller@cybop.org>
 
         * Complete adapting selector and deserialiser "xml"
+        * Hand over count as parametre to selector for deserialisers "uri"
 
 2022-05-29  Christian Heller  <christian.heller@cybop.org>
 
