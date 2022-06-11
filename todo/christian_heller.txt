@@ -14,8 +14,6 @@
 JSON
 ____
 
-        * Simplify http or something else where comparison can be optimised (use local variable instead of pointer)
-
         * HOW TO avoid backslash escapes for cyboi tree node names ?? Consider backslash escape characters ONLY if in value, but NOT if given as member name
         * Ignore control characters if this is a member NAME, in order to avoid errors when using it in a cyboi tree node
             write this hint into the source code as well
@@ -33,13 +31,6 @@ ____
         * Provide cybol deserialiser for numbers in scientific notation (10 to the power of x), to be used in json deserialiser
         * Test real-world json files of directory "serialisation/json/examples/" using a cybol application
         * Comment out testing log messages in json deserialiser and selector
-
-        * CAUTION! Check call of function "move" in ALL kinds of deserialisers!
-            It could be the reason for ansi escape sequences and others to sporadously NOT work correctly.
-            The reason is that the function "detect" already MOVES the pointer and decrements the remaining count,
-            so that calling "move" JUMPS over some characters, which is NOT wanted. Therefore, DELETE
-            call of function "move" in these cases!
-            See and copy comment in file "begin_value_json_selector.c"!
 
         * Check all source code if format and type are assigned wherever calling function "allocate_part"
         * Assign default format and type in file "part_allocator.c" ??

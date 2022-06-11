@@ -3267,6 +3267,7 @@
 2013-05-16  Christian Heller  <christian.heller@tuxtax.de>
 
         * Check in "cybol_web_creator" cybol source editor of Axel Petzka <zambatec@yahoo.de>
+        * Update cybol api specification
 
 2013-05-15  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -4470,6 +4471,7 @@
         * Remove redundant www files from directory "doc/" of SVN
         * Change link from "cybop.net/" to "cybop.org/" in all files
         * Insert prefix "cybop/" into SSI-includes and adapt web files
+        * Move project to GNU Savannah Portal, since BerliOS announced to close on 2011-12-31
 
 2011-09-29  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -6324,6 +6326,7 @@
 2007-07-31  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add "meta" property (a CYBOL model containing details) to "receive" operation, which is needed for creating HTML tags from CYBOL
+        * Publish Cybernetics Oriented Language (CYBOL) API Specification
 
 2007-07-30  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -6559,6 +6562,11 @@
 2007-01-21  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add information about cybop book to website
+
+2007-01-19  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Publish printed book on Cybernetics Oriented Programming (CYBOP)
+        * Upload book as pdf file to website
 
 2007-01-18  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -6815,6 +6823,14 @@
             Detlef Streitferdt <detlef.streitferdt@tu-ilmenau.de>,
             Ilka Philippow <ilka.philippow@tu-ilmenau.de>
 
+2005-05-12  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Update CYBOL specification as DTD, XSD and EBNF
+
+2005-04-25  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Update developer documentation and tutorials
+
 2005-02-28  Christian Heller  <christian.heller@tuxtax.de>
 
         * Release cyboi 0.4.0.0
@@ -6910,6 +6926,10 @@
         * Start writing or using an existing XML parser (like libxml)
         * Insert first graphics drawing routines (xlibs)
 
+2004-02-09  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add first version of CYBOL DTD and XSD
+
 2003-09-18  Christian Heller  <christian.heller@tuxtax.de>
 
         * Revise project and feature plan for CYBOP and Res Medicinae
@@ -6930,13 +6950,33 @@
 
         * Revise requirements analysis page and change a number of links
 
+2003-06-23  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Release Res Medicinae 0.0.7.0 with CYBOP as separate Framework
+
 2003-05-19  Claudia Neumann  <dr.claudia.neumann@gmx.de>
 
         * Update manual on how to use Electronic Health Record (EHR) applications in DOSemu under Linux
 
+2003-04-28  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Release Res Medicinae 0.0.6.0 with CYBOP as separate Framework
+
+2003-03-15  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Release Res Medicinae 0.0.5.0 with CYBOP as separate Framework
+
+2003-03-07  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Move design stuff, tutorials and some implementation issues from Res Medicinae project to this CYBOP project
+
 2003-02-20  Christian Heller  <christian.heller@tuxtax.de>
 
         * Factor out ResMedLib framework into an own project called Cybernetics Oriented Programming (CYBOP), since it has grown complex and provides a rather general architecture
+
+2003-02-10  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Launch new CYBOP project which is hosted on the German BerliOS free software developer portal
 
 2002-12-09  Christian Heller  <christian.heller@tuxtax.de>
 
