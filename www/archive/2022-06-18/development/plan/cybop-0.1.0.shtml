@@ -1,0 +1,38 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.1.0</h1>
+</section>
+
+<section class="container">
+    <h2>Project</h2>
+    <ul>
+        <li>Split java sources into CYBOL and CYBOI</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <ul>
+        <li>CYBOI is an interpreter that can read CYBOL files and create systems</li>
+        <li>Write CYBOI in Java</li>
+        <li>Catch events from Java AWT event queue</li>
+        <li>Use the Apache Xerces XML parser</li>
+        <li>Create static structures of instances in memory</li>
+        <li>Run dynamic loop catching signals from internal signal memory (queue)</li>
+        <li>Create GUI using Java Swing (as temporary workaround)</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOL Core</h2>
+    <ul>
+        <li>CYBOL is based on XML syntax</li>
+        <li>One file represents an abstract item/ category/ class/ hierarchy</li>
+        <li>Other files can be linked as complex data types</li>
+        <li>Primitive data types are treated as final abstraction</li>
+        <li>Include inheritance</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

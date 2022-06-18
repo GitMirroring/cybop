@@ -1,0 +1,30 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.2.0</h1>
+</section>
+
+<section class="container">
+    <h2>Project</h2>
+    <ul>
+        <li>Write make files for building CYBOI interpreter from C sources</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <ul>
+        <li>Rewrite CYBOI in C programming language</li>
+        <li>Start writing or using an existing XML parser (like <i>libxml</i>)</li>
+        <li>Insert first graphics drawing routines (xlibs)</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOL Core</h2>
+    <ul>
+        <li>Eliminate java object tags</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

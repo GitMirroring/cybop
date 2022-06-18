@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <!--
+        Copyright (c) 1999-2012. Christian Heller.
+
+        Permission is granted to copy, distribute and/or modify this document
+        under the terms of the GNU Free Documentation License, Version 1.1
+        or any later version published by the Free Software Foundation;
+        with no Invariant Sections, with no Front-Cover Texts and with no Back-Cover
+        Texts. A copy of the license is included in the section entitled
+        "GNU Free Documentation License".
+
+        http://www.cybop.org/
+        - Cybernetics Oriented Programming -
+    /-->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="date" content="2012-06-03"/>
+    <meta name="author" content="Christian Heller &lt;christian.heller@cybop.org&gt;"/>
+    <link rel="stylesheet" type="text/css" href="../cybop.css"/>
+    <title>CYBOP 0.11.0</title>
+</head>
+<body>
+    <div id="page">
+        <!--#include virtual="../menu.inc" -->
+        <div id="content">
+            <h1>CYBOP 0.11.0</h1>
+            <table>
+            <tr>
+                <th width="10"/>
+                <th>
+                    Features
+                </th>
+                <th width="250">
+                    Developer
+                </th>
+            </tr>
+            <tr>
+                <td class="done"/>
+                <td>
+                    <h2>CYBOI</h2>
+                    <ul>
+                        <li>Restructure executor directory</li>
+                        <li>Redesign modules for comparison, calculation</li>
+                        <li>Reimplement container framework using compound hierarchy part-item-dataarray-value</li>
+                        <li>Provide functions for copy/get/overwrite/append/insert/remove</li>
+                        <li>Split translation into representer for de-/serialisation and converter for de-/encoding</li>
+                        <li>Distinguish between language (e.g. text/cybol) and data format (e.g. number/integer) valid within the language</li>
+                        <li>Increase execution speed by using integer values instead of strings for runtime cybol meta attributes</li>
+                        <li>Restructure many constants into state- and logic directories</li>
+                        <li>Implement rubbish (garbage) collector in directory executor/referencer/ using new part field</li>
+                        <li>Debug a number of logical errors</li>
+                        <li>Debug memory allocation errors occuring on 64 Bit machines, using the valgrind memcheck tool</li>
+                        <li>Move test files into testing directory</li>
+                        <li>Simplify creation of model diagram output using special test function calls</li>
+                    </ul>
+                </td>
+                <td>
+                    Christian Heller<br/>
+                    &lt;<a href="mailto:christian.heller@cybop.org">christian.heller@cybop.org</a>&gt;<br/>
+                    Enrico Gallus<br/>
+                    &lt;<a href="mailto:enrico.gallus@googlemail.com">enrico.gallus@googlemail.com</a>&gt;<br/>
+                    Thomas Thiele<br/>
+                    Friedemann Simon<br/>
+                </td>
+            </tr>
+            <tr>
+                <td class="done"/>
+                <td>
+                    <h2>CYBOL</h2>
+                    <ul>
+                        <li>Add applications counter, addition, time_output, shell_output (for sequence, branch, loop)</li>
+                        <li>Complete list of cybol meta attributes: name, channel, encoding, language, format, model</li>
+                        <li>Decide that operations are distinguished by their format (type) and NOT model any longer</li>
+                    </ul>
+                </td>
+                <td>
+                    Christian Heller<br/>
+                    &lt;<a href="mailto:christian.heller@cybop.org">christian.heller@cybop.org</a>&gt;<br/>
+                    Patrick Sperl<br/>
+                    Jens Rudek<br/>
+                    Andy R&#246;hr<br/>
+                </td>
+            </tr>
+            <tr>
+                <td class="done"/>
+                <td>
+                    <h2>Project</h2>
+                    <ul>
+                        <li>Add (German language) beginner's manual written by two students</li>
+                        <li>Move project to GNU Savannah developer portal, since berliOS announced to close end of 2011</li>
+                        <li>Move website documents from directory doc to www</li>
+                        <li>Add directory www to CVS, as required by GNU Savannah</li>
+                    </ul>
+                </td>
+                <td>
+                    Christian Heller<br/>
+                    &lt;<a href="mailto:christian.heller@cybop.org">christian.heller@cybop.org</a>&gt;<br/>
+                    Stefan Bebber<br/>
+                    Enrico Nipper<br/>
+                    Patrick Westphal<br/>
+                    Mirco Gatz<br/>
+                    Patrick Lorenz<br/>
+                    Johannes Meinhardt<br/>
+                </td>
+            </tr>
+            </table>
+        </div>
+        <!--#include virtual="../footer.inc" -->
+    </div>
+</body>
+</html>

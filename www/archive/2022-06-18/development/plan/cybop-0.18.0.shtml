@@ -1,0 +1,59 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.18.0</h1>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <ul>
+        <li>Provide blocking input on channel "terminal" for "communicate/receive" operation</li>
+        <li>Add cyboi shell commands and cyboi operations of Christopher Stoneking, Christian Szech</li>
+        <li>Add cyboi shell commands of Leonard Franke, Jörg Broy, Richard Lüdtke</li>
+        <li>Add sort algorithms (quick, bubble) as cyboi operations of Alexander Heimann, Julius Krenkel, Paul Müller</li>
+        <li>Add new "chronology" language files for calendar systems</li>
+        <li>Clean up directory "tester/" and related constants and functionality</li>
+        <li>Introduce stack memory</li>
+        <li>Adapt cyboi functions to offer part search by FIFO or LIFO principle</li>
+        <li>Optimise file "knowledge_part_getter.c" using a recursive function call</li>
+        <li>Complete cloning functionality (deep copying)</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOL</h2>
+    <ul>
+        <li>Update cybol schema files</li>
+        <li>Add cybol api update of Christian Schulz, Lena Braun</li>
+        <li>Provide access to stack memory from within cybol via format "path/stack"</li>
+        <li>Add cybol application "counter_stack" for testing stack variables</li>
+        <li>Add cybol application "counter_stack_deep" for testing LIFO-principle with equally named stack variables within three nested loops</li>
+        <li>Add cybol application "copier" for testing shallow and deep copying</li>
+        <li>Add cybol application "addition_user_input" for testing blocking terminal input</li>
+        <li>Add cybol application game "minesweeper" [Minenräumer] of Matthias Thurow</li>
+        <li>Add cybol application game "blackjack" [Siebzehn und Vier] of Dmitry Brodskiy, Sven Haueisen, Jan Wellner</li>
+        <li>Add cybol application game "bullsandcows" (mastermind) of Ronny Zingler</li>
+        <li>Add cybol application "password_generator" of Florian Aurich, Andre Noldin</li>
+        <li>Add cybol application "webstat" of Markus Then, Stanley Sellig, Nico Schallehn</li>
+        <li>Create page links for retrieval of images and css file dynamically in cybol application "presence", so that hostname (ip address) is correct</li>
+        <li>Replace format "text/plain" with "path/knowledge" for some parts of cybol application "tui_control"</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>Project</h2>
+    <ul>
+        <li>Add german cybop manual update of Sebastian Wolff, Tobias Thurow</li>
+        <li>Add doxygen configuration files in directory "doxygen/", for automatically generating source code api documentation with module dependencies</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>Tools</h2>
+    <ul>
+        <li>Add ide "Code::Blocks" project file and user manual of Kevin Klein, Tobias Donix</li>
+        <li>Add benchmark tool comparing cybol with c++, java, python of Sebastian Kloppe, Patrick Hebner</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

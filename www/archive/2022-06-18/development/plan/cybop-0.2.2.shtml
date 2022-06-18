@@ -1,0 +1,20 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.2.2</h1>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <ul>
+        <li>Fix several bugs in model handling</li>
+        <li>Create transient copies of all persistent sources,
+            instead of pointing to persistent sources which get
+            freed after some time which resulted in null pointers</li>
+        <li>Extend number of command line parameters,
+            providing more options for running CYBOI</li>
+        <li>Enable reading of sources from inline and file location</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

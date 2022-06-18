@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <!--
+        Copyright (c) 1999-2013. Christian Heller.
+
+        Permission is granted to copy, distribute and/or modify this document
+        under the terms of the GNU Free Documentation License, Version 1.1
+        or any later version published by the Free Software Foundation;
+        with no Invariant Sections, with no Front-Cover Texts and with no Back-Cover
+        Texts. A copy of the license is included in the section entitled
+        "GNU Free Documentation License".
+
+        http://www.cybop.org/
+        - Cybernetics Oriented Programming -
+    /-->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="date" content="2013-03-29"/>
+    <meta name="author" content="Christian Heller &lt;christian.heller@cybop.org&gt;"/>
+    <link rel="stylesheet" type="text/css" href="../cybop.css"/>
+    <title>CYBOP 0.13.0</title>
+</head>
+<body>
+    <div id="page">
+        <!--#include virtual="../menu.inc" -->
+        <div id="content">
+            <h1>CYBOP 0.13.0</h1>
+            <table>
+            <tr>
+                <th width="10"/>
+                <th>
+                    Features
+                </th>
+                <th width="250">
+                    Developer
+                </th>
+            </tr>
+            <tr>
+                <td class="done"/>
+                <td>
+                    <h2>CYBOI</h2>
+                    <ul>
+                        <li>Implement new version of xdt deserialiser, needed for German medical data formats bdt/gdt/ldt</li>
+                        <li>Add character encodings: ascii, iso-8859-1, iso-8859-15, windows-1252, c0 and c1 control codes of iso 6429</li>
+                        <li>Adjust reference counting to make rubbish (garbage) collection work correctly</li>
+                        <li>Add communication channel "serial_port" for talking to microcontroller device via usb</li>
+                        <li>Add terminal mode line speed serialiser necessary for converting integer to POSIX.1 baudrate symbols</li>
+                    </ul>
+                </td>
+                <td>
+                    Christian Heller<br/>
+                    &lt;<a href="mailto:christian.heller@cybop.org">christian.heller@cybop.org</a>&gt;<br/>
+                </td>
+            </tr>
+            <tr>
+                <td class="done"/>
+                <td>
+                    <h2>CYBOL</h2>
+                    <ul>
+                        <li>Simplify cybol files by removing attributes like "encoding" and "language"</li>
+                        <li>Add new operations: run/sleep-second, run/sleep-nano, modify/fill, cast/character, cast/double, cast/integer</li>
+                        <li>Add formats: number/byte, in addition to "text/ascii", both internally mapped to "unsigned char"</li>
+                        <li>Add applications "indoor_climate"</li>
+                    </ul>
+                </td>
+                <td>
+                    Christian Heller<br/>
+                    &lt;<a href="mailto:christian.heller@cybop.org">christian.heller@cybop.org</a>&gt;<br/>
+                </td>
+            </tr>
+            <tr>
+                <td class="done"/>
+                <td>
+                    <h2>Project</h2>
+                    <ul>
+                        <li>Add cybol editor of Benjamin Teßmar and Sebastian Brückner</li>
+                        <li>Add cybop-python comparison article of Max Brauer</li>
+                    </ul>
+                </td>
+                <td>
+                    Benjamin Teßmar<br/>
+                    &lt;<a href="mailto:b.tessmar@gmx.de">b.tessmar@gmx.de</a>&gt;<br/>
+                    Sebastian Brückner<br/>
+                    &lt;<a href="mailto:sebastian.brueckner@live.com">sebastian.brueckner@live.com</a>&gt;<br/>
+                    Max Brauer<br/>
+                    &lt;<a href="mailto:max.brauer@it2009.ba-leipzig.de">max.brauer@it2009.ba-leipzig.de</a>&gt;<br/>
+                </td>
+            </tr>
+            </table>
+        </div>
+        <!--#include virtual="../footer.inc" -->
+    </div>
+</body>
+</html>

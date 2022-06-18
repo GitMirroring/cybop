@@ -1,0 +1,45 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.11.0</h1>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <ul>
+        <li>Restructure executor directory</li>
+        <li>Redesign modules for comparison, calculation</li>
+        <li>Reimplement container framework using compound hierarchy part-item-dataarray-value</li>
+        <li>Provide functions for copy/get/overwrite/append/insert/remove</li>
+        <li>Split translation into representer for de-/serialisation and converter for de-/encoding</li>
+        <li>Distinguish between language (e.g. text/cybol) and data format (e.g. number/integer) valid within the language</li>
+        <li>Increase execution speed by using integer values instead of strings for runtime cybol meta attributes</li>
+        <li>Restructure many constants into state- and logic directories</li>
+        <li>Implement rubbish (garbage) collector in directory executor/referencer/ using new part field</li>
+        <li>Debug a number of logical errors</li>
+        <li>Debug memory allocation errors occuring on 64 Bit machines, using the valgrind memcheck tool</li>
+        <li>Move test files into testing directory</li>
+        <li>Simplify creation of model diagram output using special test function calls</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOL</h2>
+    <ul>
+        <li>Add applications counter, addition, time_output, shell_output (for sequence, branch, loop)</li>
+        <li>Complete list of cybol meta attributes: name, channel, encoding, language, format, model</li>
+        <li>Decide that operations are distinguished by their format (type) and NOT model any longer</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>Project</h2>
+    <ul>
+        <li>Add (German language) beginner's manual written by two students</li>
+        <li>Move project to GNU Savannah developer portal, since berliOS announced to close end of 2011</li>
+        <li>Move website documents from directory doc to www</li>
+        <li>Add directory www to CVS, as required by GNU Savannah</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

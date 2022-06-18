@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="date" content="2020-07-29"/>
+    <meta name="author" content="Christian Heller &lt;christian.heller@cybop.org&gt;"/>
+    <link rel="stylesheet" type="text/css" href="cybop.css"/>
+    <title>CYBOP</title>
+</head>
+<body>
+    <div id="page">
+
+        <!--#include virtual="menu.inc" -->
+
+        <!--
+            This area has to be added BEFORE the content in the center,
+            even if it is displayed at last on the screen!
+            This is because no float was defined for the centered area,
+            so that its size may be calculated dynamically, depending on
+            the width of the left- and right areas.
+            Also, the wrong box model of the Internet Explorer can be equalised that way.
+        -->
+        <div id="advertisement">
+            <a href="http://www.cybop.org/">
+                <svg width="180px" height="150px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g transform="scale(0.3)">
+                        <image x="-50" y="-200" width="600px" height="700px" xlink:href="logo_transparent.svg"/>
+                    </g>
+                </svg>
+                <!-- CAUTION! The following did not work. The image did not appear in the web browser:
+                <object type="image/svg+xml" data="logo_transparent.svg" width="160px">You need an SVG-capable web browser!</object>
+                -->
+            </a>
+            <p>
+                <i>
+                    Sapere aude!<br/>
+                    Dare to know!<br/>
+                    Have courage to<br/>
+                    use your own<br/>
+                    understanding!<br/>
+                </i>
+                (Immanuel Kant)
+            </p>
+            <a href="books/cybop/index.html">
+                <img src="books/cybop/cover_3d_2.png" alt="CYBOP Book Cover" width="160px" vspace="2" border="0"/>
+            </a>
+            <p>
+                CYBOP - The Book
+            </p>
+        </div>
+        <div id="description">
+            <h1>Cybernetics Oriented Programming (CYBOP)</h1>
+            <p>
+                <b>CYBOP</b> stands for <i>Cybernetics Oriented Programming</i> and is a new theory
+                for software development, building on concepts which are taken from nature.
+            </p>
+            <p>
+                <b>CYBOL</b> is an XML-based application programming- and knowledge
+                specification language and thus completely platform-independent.
+            </p>
+            <p>
+                <b>CYBOI</b> is the corresponding interpreter, written in C,
+                that is needed to execute systems defined in CYBOL.
+            </p>
+        </div>
+        <div id="news">
+            <h1>News</h1>
+            <table>
+            <tr>
+                <th>2022-02-22</th>
+                <td>
+                    Release <a href="http://savannah.nongnu.org/files/?group=cybop">CYBOP 0.22.0</a>.
+                </td>
+            </tr>
+            <tr>
+                <th>2016-03-07</th>
+                <td>
+                    Update <a href="books/cybol/api.html">CYBOL API Specification</a>.
+                </td>
+            </tr>
+            <tr>
+                <th align="left" valign="top"><a href="news.html">more...</a></th>
+                <td></td>
+            </tr>
+            </table>
+        </div>
+
+        <!--#include virtual="footer.inc" -->
+
+    </div>
+</body>
+</html>
