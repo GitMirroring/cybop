@@ -18,6 +18,13 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-06-18  Christian Heller  <christian.heller@cybop.org>
+
+        * Modernise website to make it responsive using bootstrap 5
+        * Remove website from savannah.nongnu.org cvs
+        * Add website to subversion (svn) instead
+        * Upload website via ftp and host it outside savannah.nongnu.org on private webserver
+
 2022-05-30  Christian Heller  <christian.heller@cybop.org>
 
         * Hand over count as parametre to selector for deserialisers "uri"

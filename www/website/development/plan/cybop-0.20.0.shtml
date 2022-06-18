@@ -1,0 +1,49 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.20.0</h1>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <ul>
+        <li>Use new io entry structure for x window system for storage in internal memory and remove old display constants</li>
+        <li>Move create functionality of directory "executor/memoriser/creator/" to "applicator/memorise/"</li>
+        <li>Adapt applicators for operations "calculate", "cast", "compare", "logify", "manipulate" to use the type of one operand instead of explicitly given property</li>
+        <li>Optimise and restructure directory with focus on part | item | array, for "calculator", "caster", "comparator"</li>
+        <li>Adapt html serialiser to allow flexible document type</li>
+        <li>Add directory stream reader/writer</li>
+        <li>Add sort operations and implement bubble sorter</li>
+        <li>Add checker for lexicographical comparison, usable for all types, delegating to comparator for primitive types</li>
+        <li>Add file "controller/tester.c" for writing a part's model and properties to a file</li>
+        <li>Distinguish comparison with vector result and scalar result</li>
+        <li>Add part comparator for deep comparison</li>
+        <li>Adapt file "array_comparator.c", so that empty arrays are considered equal now, which is important for parts with empty properties</li>
+        <li>Add verifier for checking if index and count are outside a data array's boundaries, to be used in "item_comparator" and similar files</li>
+        <li>Determine minimum model count of operands before calling functions "compare", "calculate", "cast" (not applicable to "manipulate" and "modify")</li>
+        <li>Delete directory "executor/searcher/" and move content to "executor/" as detector, mover, selector</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOL</h2>
+    <ul>
+        <li>Rename property "element" into "whole_properties" for cybol operation "memorise/create"</li>
+        <li>Rename property "model" into "part" for cybol operation "memorise/destroy"</li>
+        <li>Delete superfluous property "type" in a number of cybol operations like "calculate", "cast", "compare", "logify", "manipulate"</li>
+        <li>Rename cybol operation "smaller" and "smaller-or-equal" into "less" and "less-or-equal"</li>
+        <li>Replace cybol operation "compare/equal" with "check/equal" for "text/plain" and remove property "selection" with value "all", in all cybol examples</li>
+        <li>Add cybol application "repertoire"</li>
+        <li>Add cybol operation "sort/bubble" with boolean property "descending" and use "ascending" as default</li>
+        <li>Extend cybol application "sorter"</li>
+        <li>Add comparison criterion as optional property for cybol sort operations used with compound parts</li>
+        <li>Replace cybol application "string_comparison" with "lexicographical_comparison"</li>
+        <li>Add properties "count", "left_index", "right_index" to cybol operation "compare"</li>
+        <li>Add new cybol application "comparator", covering string comparison via checker as well as boolean result vectors and scalar result values</li>
+        <li>Provide new cybol operations "calculate/minimum" and "calculate/maximum"</li>
+        <li>Rename existing cybol application "calculator" into "calculator_tui"</li>
+        <li>Use cybol application "calculator" for testing arithmetic operations</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

@@ -1,0 +1,136 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>Development</h1>
+</section>
+
+<section class="container">
+    <h2>Application Programming Interface (API)</h2>
+    <p>
+        The CYBOL language offers plenty of data formats (types) and operations,
+        all of which follow the MIME type standard in an extended version.
+    </p>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header h6">
+                    Data Format (Type) Examples
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>number/integer</li>
+                        <li>text/plain</li>
+                        <li>element/part</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header h6">
+                    Operation Examples
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>calculate/add</li>
+                        <li>communicate/send</li>
+                        <li>flow/loop</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="mt-4">
+        <a href="/development/api/">
+            <span class="badge rounded-pill p-3 cybop-bg-medium" style="font-size: 14pt;">View API documentation</span>
+        </a>
+    </p>
+</section>
+
+<section class="container">
+    <h2>Project Portal</h2>
+    <p>
+        The project is hosted on the GNU Savannah open source software portal.
+    </p>
+    <img src="/development/sv-nongnu.png" alt="GNU Savannah Logo" vspace="2" width="124" height="32" border="1"/>
+    <p>
+        <a href="http://savannah.nongnu.org/projects/">http://savannah.nongnu.org/projects/</a>
+    </p>
+</section>
+
+<section class="container">
+    <h2>Source Code</h2>
+    <p>
+        Our source code repository is managed using the Subversion (SVN) centralised version control system.
+    </p>
+    <p>
+        <a href="http://savannah.nongnu.org/svn/?group=cybop">http://savannah.nongnu.org/svn/?group=cybop</a>
+    </p>
+    <a href="https://svn.savannah.gnu.org/viewvc/trunk/">
+        <span class="badge rounded-pill p-3 cybop-bg-medium" style="font-size: 14pt;">Browse Sources Repository</span>
+    </a>
+</section>
+
+<section class="container">
+    <h2>Bug Reporting</h2>
+    <p>
+        Developers use their internal TODO lists.
+        Additionally, a list of errors and wishes sent by users is managed in the Savannah portal.
+    </p>
+    <p>
+        <a href="http://savannah.nongnu.org/bugs/?group=cybop">http://savannah.nongnu.org/bugs/?group=cybop</a>
+    </p>
+    <a href="https://savannah.nongnu.org/bugs/?group=cybop&func=additem">
+        <span class="badge rounded-pill p-3 cybop-bg-medium" style="font-size: 14pt;">Submit Bug Report</span>
+    </a>
+</section>
+
+<section class="container">
+    <h2>Mailing List</h2>
+    <p>
+        There is currently just one mailing list in the project,
+        which is used mainly for developer discussion.
+        However, interested users seeking support may address this list as well.
+    </p>
+    <ul>
+        <li>Developer List: <a href="mailto:cybop-developers@nongnu.org">cybop-developers@nongnu.org</a></li>
+        <li>Registration: <a href="https://lists.nongnu.org/mailman/listinfo/cybop-developers">https://lists.nongnu.org/mailman/listinfo/cybop-developers</a></li>
+        <li>Overview: <a href="http://savannah.nongnu.org/mail/?group=cybop">Mailing Lists</a></li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>Release Plan</h2>
+    <p>
+        <a href="/development/plan/" class="mt-4">
+            <span class="badge rounded-pill p-3 cybop-bg-medium" style="font-size: 14pt;">Study Release Plan</span>
+        </a>
+    </p>
+</section>
+
+<section class="container">
+    <h2>How to Help</h2>
+    <p>
+        We currently follow the development model of "Benevolent Dictatorship". This is for historical reasons.
+        Most contributions come from the project founder who implements ideas which he formulated over the years.
+    </p>
+    <p>
+        However, help from the Community is always welcome and could save time,
+        which can then better be invested in developing the core interpreter.
+        Here are some ideas where your support would be possible and useful:
+    </p>
+    <ul>
+        <li>Development Tool (create CYBOL editor with tree-table and possibly a designer)</li>
+        <li>Documentation (update API and write user manual)</li>
+        <li>Website (maintain and update content)</li>
+        <li>Build Process (integrate libraries or factor out plug-ins, currently using cmake)</li>
+        <li>Continuous Integration/Delivery (package software for CI/CD)</li>
+        <li>Import/Export (write parser and serialiser for new data formats)</li>
+        <li>Graphical User Interface (design GUI components, make use of fonts, implement layouts, control window)</li>
+        <li>Migration (port CYBOI interpreter to Windows, Mac OSX, Android, iOS)</li>
+        <li>CYBOL Library (provide basic functionality usable by CYBOL applications)</li>
+        <li>Bug Reporting (test cybol applications)</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

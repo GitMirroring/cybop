@@ -1,0 +1,39 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.10.0</h1>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <ul>
+        <li>Provide more specific global variables of primitive data type sizes</li>
+        <li>Add new primitive functions (assign, compare, add)</li>
+        <li>Unify array functions for all primitive data types</li>
+        <li>Restructure and clean up various container functions (append, replace etc.)</li>
+        <li>Factor out some controller functionality into sub directories (globaliser, checker etc.)</li>
+        <li>Restructure test functions</li>
+        <li>Complete tcp socket handling for web user interfaces</li>
+        <li>Optimise xml decoder functions</li>
+        <li>Add http request decoder</li>
+        <li>Add uri decoder (including percent-encoded characters)</li>
+        <li>Add html encoder</li>
+        <li>Add http response encoder</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOL</h2>
+    <ul>
+        <li>Add cybol application "http_communication"</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>Project</h2>
+    <ul>
+        <li>Convert source code repository from Concurrent Versions System (CVS) to Subversion (SVN)</li>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->

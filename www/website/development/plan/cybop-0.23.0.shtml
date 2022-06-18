@@ -1,0 +1,29 @@
+<!--#include virtual="/top.shtml" -->
+
+<section class="container mt-5">
+    <h1>CYBOP 0.23.0</h1>
+</section>
+
+<section class="container">
+    <h2>CYBOI</h2>
+    <ul>
+        <li>Continue gui and layout serialiser</li>
+        <li>Continue win32 console input deserialiser</li>
+        <li>Implement date-time handling and corresponding format de-/serialisers</li>
+        <li>Complete xdt (German medical exchange format) deserialiser</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>CYBOL</h2>
+    <ul>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>Project</h2>
+    <ul>
+    </ul>
+</section>
+
+<!--#include virtual="/bottom.shtml" -->
