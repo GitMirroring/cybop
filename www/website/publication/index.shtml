@@ -11,34 +11,6 @@
     <h2>Specification Book</h2>
     <div class="row mt-5">
         <div class="col-sm-6">
-            <p>
-                Christian Heller.
-                Cybernetics Oriented Language (CYBOL):
-                An interpretable Knowledge Modelling- and Programming Language.
-                Application Programming Interface (API) Specification.
-                Version 2.0.
-                Ilmenau: Tux Tax, 2007-07-31
-            </p>
-            <p class="mt-4">
-                <a href="/publication/book/2007_cybol/2007-07-31_cybol_2.0.pdf">
-                    <span class="badge rounded-pill p-3 cybop-bg-medium" style="font-size: 14pt;">Read CYBOL Book (PDF)</span>
-                </a>
-            </p>
-            <p class="mt-5">
-                Caution! There is a more up-to-date version of the API documentation available as Website:
-            </p>
-            <p class="mt-4">
-                <a href="/development/api/">
-                    <span class="badge rounded-pill p-3 cybop-bg-medium" style="font-size: 14pt;">View latest API documentation</span>
-                </a>
-            </p>
-        </div>
-        <div class="col-sm-6">
-            <img src="/publication/book/2007_cybol/cover.jpeg" alt="CYBOL Book Cover" class="img-fluid mx-auto d-block" style="width: 300px; border-style: solid; border-width: 10px; border-color: #3873c2;"/>
-        </div>
-    </div>
-    <div class="row mt-5">
-        <div class="col-sm-6">
             <img src="/publication/book/2006_cybop/cover.jpeg" alt="CYBOP Book Cover" class="img-fluid mx-auto d-block" style="width: 300px; border-style: solid; border-width: 10px; border-color: #3873c2;"/>
         </div>
         <div class="col-sm-6">
@@ -58,6 +30,34 @@
                     <span class="badge rounded-pill p-3 cybop-bg-medium" style="font-size: 14pt;">Read CYBOP Book (PDF)</span>
                 </a>
             </p>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-sm-6">
+            <p>
+                Christian Heller.
+                Cybernetics Oriented Language (CYBOL):
+                An interpretable Knowledge Modelling- and Programming Language.
+                Application Programming Interface (API) Specification.
+                Version 2.0.
+                Ilmenau: Tux Tax, 2007-07-31
+            </p>
+            <p class="mt-4">
+                <a href="/publication/book/2007_cybol/2007-07-31_cybol_2.0.pdf">
+                    <span class="badge rounded-pill p-3 cybop-bg-medium" style="font-size: 14pt;">Read CYBOL Book (PDF)</span>
+                </a>
+            </p>
+            <p class="mt-5">
+                Caution! There is a more up-to-date version of the CYBOL API documentation available as Website:
+            </p>
+            <p class="mt-4">
+                <a href="/development/api/">
+                    <span class="badge rounded-pill p-3 cybop-bg-medium" style="font-size: 14pt;">View latest API documentation</span>
+                </a>
+            </p>
+        </div>
+        <div class="col-sm-6">
+            <img src="/publication/book/2007_cybol/cover.jpeg" alt="CYBOL Book Cover" class="img-fluid mx-auto d-block" style="width: 300px; border-style: solid; border-width: 10px; border-color: #3873c2;"/>
         </div>
     </div>
 </section>
