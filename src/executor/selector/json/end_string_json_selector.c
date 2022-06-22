@@ -77,7 +77,13 @@ void select_json_string_end(void* p0, void* p1, void* p2, void* p3) {
             // got adapted by the function "detect" already.
             //
 
+            //
             // Adjust string count.
+            //
+            // CAUTION! Do NOT add NUMBER_1_INTEGER_STATE_CYBOI_MODEL
+            // but QUOTATION_MARK_BACKSLASH_ESCAPE_MODEL_COUNT instead,
+            // since the sequence consists of more than just one character.
+            //
             calculate_integer_add(p2, (void*) QUOTATION_MARK_BACKSLASH_ESCAPE_MODEL_COUNT);
         }
     }

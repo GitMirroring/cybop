@@ -14,17 +14,6 @@
 JSON
 ____
 
-        * HOW TO avoid backslash escapes for cyboi tree node names ?? Consider backslash escape characters ONLY if in value, but NOT if given as member name
-        * Ignore control characters if this is a member NAME, in order to avoid errors when using it in a cyboi tree node
-            write this hint into the source code as well
-        * Add unicode sequence (OR numeric code as in html ??) serialiser and deserialiser
-            see file "hexadecimal_numeric_character_reference_deserialiser.c"
-        * Complete unicode section in backslash escape serialiser and deserialiser
-        * Adapt de-/serialisers for cybol/json/xml to be able to handle backslash escapes
-            they get converted into an internal control character of the corresponding platform,
-            e.g. "\n" for new line on linux but "\r\n" for carriage return and new line on windows
-        * Eliminate file "newline.txt" in cybol application "webstat"
-
         * Test json and xml deserialiser and compare results, e.g. with example file "glossary"
         * Continue json deserialiser and selector: number
         * Handle special escaped string characters in file "string_json_deserialiser.c"
@@ -32,20 +21,49 @@ ____
         * Test real-world json files of directory "serialisation/json/examples/" using a cybol application
         * Comment out testing log messages in json deserialiser and selector
 
-        * Check all source code if format and type are assigned wherever calling function "allocate_part"
-        * Assign default format and type in file "part_allocator.c" ??
-
         * Reflect on how to handle binary data in files "cybol_serialiser.c" and "json_serialiser.c"
         * Consider formats "BYTE_NUMBER_STATE_CYBOI_FORMAT" and "ASCII_TEXT_STATE_CYBOI_FORMAT"
         * Implement base64 serialiser and deserialiser, in order to store binary data in cybol (xml) and json
         * Implement binary json (bson) data interchange format with mime type "application/bson" ??
+
+        * Release CYBOP 0.23.0
+
+OLD data
+________
 
         * Find out why model-diagram output is wrong when uncommenting entry "file" in "app.cybol" (the same happens in cybol application "presence", where "file" is a sub node of ".var")
             --> the output is probably NOT wrong, but the existing file just overwritten, leaving the old data at the end if its previous size was larger
                 (the same wrong data appeared at the end of json files when testing the json serialiser)
             --> therefore, set a special file flag when opening a file to shrink its size when the data are smaller than the already existing file size
 
-        * Release CYBOP 0.23.0
+        * Search bug that SOME generated files contain too many body end tags or other data, only at the end
+            --> since not only html files are affected, but also css files, the reason is NOT the html serialiser,
+            but rather old data in a cybol node or the file WRITER ...
+            --> Is "append" the reason? If yes, then empty variable before each request OR use a stack variable
+        * Empty request variables (AND properties) OR use stack variables in cybol application "presence", since request contains old data of previous request, e.g.:
+            [selected_node] | element/part |
+            :-referer | text/plain | http://localhost:1971/?year=2015&week=12&lecturer=meier&day=wednesday&choice=homeoffice&action=update
+            :-connection | text/plain | keep-alive
+            :-accept-encoding | text/plain | gzip, deflate
+            :-accept-language | text/plain | de,en-US;q=0.7,en;q=0.3
+            :-accept | text/plain | text/css,*/*;q=0.1
+            :-user-agent | text/plain | Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0
+            :-host | text/plain | localhost:1971
+            :-protocol | text/plain | HTTP/1.1
+            :-uri | text/plain | /page/presence.css
+            | :-scheme | text/plain | http
+            | :-path | text/plain | /page/presence.css
+            :-method | text/plain | GETffice&action=update
+            | :-scheme | text/plain | http
+            | :-query | element/part |
+            | | +-action | text/plain | update
+            | | +-choice | text/plain | homeoffice
+            | | +-day | text/plain | wednesday
+            | | +-lecturer | text/plain | meier
+            | | +-week | text/plain | 12
+            | | +-year | text/plain | 2015
+            | :-path | text/plain | /
+            :-method | text/plain | GETET| GET
 
 Base64
 ______
@@ -70,6 +88,21 @@ ______
         //
 
         * Implement part serialiser called from file "cybol_serialiser.c"
+
+De-/Serialiser
+______________
+
+        * Add unicode sequence (OR numeric code as in html ??) serialiser and deserialiser (with selector)
+            see file "hexadecimal_numeric_character_reference_deserialiser.c"
+        * Complete unicode section in backslash escape serialiser and deserialiser
+        * Handle backslash escape characters in ansi escape code serialiser ??
+
+        * Extend uri deserialiser
+        * Study "libcurl3" library for URL transfer for new ideas and keywords yet missing in cyboi
+
+        * Call percent encoding serialiser for attributes of all parts in html serialiser, e.g. "href" attribute of an "a" tag
+        * Ensure that non-encoded characters are copied as well in character reference deserialiser
+        * Ensure that non-encoded characters are copied as well in percent encoding deserialiser
 
 String
 ______
@@ -185,8 +218,6 @@ _____________
         * Provide cybol format "meta/model" to deserialise e.g. socket address etc. into an integer for more efficient processing ?? (equivalent of compilation)
 
         * Implement worker thread with cybol operations "work/move" and "work/break", for asynchronically sending message data
-
-        * Adapt all de-/serialisers in order to overwrite variable with received data instead of appending, to thereby eliminate the need for emptying variables in cybol before receiving new data
 
         * Eliminate superfluous signal loop and call processing directly after getting handler (signal) in file "empty_checker.c" ??
             OR: better leave signal loop for now, since it -- one day -- might be necessary for real time system features ??
@@ -309,35 +340,6 @@ ____________
 
         * Use stack variables in cybol application "ui" in order to delete "modify/empty" operations
 
-        * Search bug that SOME generated files contain too many body end tags or other data, only at the end
-            --> since not only html files are affected, but also css files, the reason is NOT the html serialiser,
-            but rather old data in a cybol node or the file WRITER ...
-            --> Is "append" the reason? If yes, then empty variable before each request OR use a stack variable
-        * Empty request variables (AND properties) OR use stack variables in cybol application "presence", since request contains old data of previous request, e.g.:
-            [selected_node] | element/part |
-            :-referer | text/plain | http://localhost:1971/?year=2015&week=12&lecturer=meier&day=wednesday&choice=homeoffice&action=update
-            :-connection | text/plain | keep-alive
-            :-accept-encoding | text/plain | gzip, deflate
-            :-accept-language | text/plain | de,en-US;q=0.7,en;q=0.3
-            :-accept | text/plain | text/css,*/*;q=0.1
-            :-user-agent | text/plain | Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0
-            :-host | text/plain | localhost:1971
-            :-protocol | text/plain | HTTP/1.1
-            :-uri | text/plain | /page/presence.css
-            | :-scheme | text/plain | http
-            | :-path | text/plain | /page/presence.css
-            :-method | text/plain | GETffice&action=update
-            | :-scheme | text/plain | http
-            | :-query | element/part |
-            | | +-action | text/plain | update
-            | | +-choice | text/plain | homeoffice
-            | | +-day | text/plain | wednesday
-            | | +-lecturer | text/plain | meier
-            | | +-week | text/plain | 12
-            | | +-year | text/plain | 2015
-            | :-path | text/plain | /
-            :-method | text/plain | GETET| GET
-
         //
         // Open device for each new request in cyboi,
         // as is done in JavaScript XMLHttpRequest (XHR) object.
@@ -419,13 +421,6 @@ ____________
         * Implement web socket
         * Use server push to update wui in web client (browser)
         * Test in "Hello World!" cybol application "user_interface/ui/"
-
-        * Extend uri deserialiser
-        * Study "libcurl3" library for URL transfer for new ideas and keywords yet missing in cyboi
-
-        * Call percent encoding serialiser for attributes of all parts in html serialiser, e.g. "href" attribute of an "a" tag
-        * Ensure that non-encoded characters are copied as well in character reference deserialiser
-        * Ensure that non-encoded characters are copied as well in percent encoding deserialiser
 
         * Activate ipv6 support for win32 in files "inet6_host_address_socket_starter.c" and "inet6_socket_address_socket_starter.c", as soon as the mingw compiler supports it
         * Activate function "inet_pton" for win32 in files "inet_host_address_socket_starter.c" and "inet6_host_address_socket_starter.c", as soon as the mingw compiler supports "Winsock2.h"

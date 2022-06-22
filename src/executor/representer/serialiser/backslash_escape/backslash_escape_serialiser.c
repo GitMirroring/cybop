@@ -57,6 +57,10 @@ void serialise_backslash_escape(void* p0, void* p1, void* p2) {
     fwprintf(stdout, L"Debug: Serialise backslash escape. source count *p2: %i\n", *((int*) p2));
     fwprintf(stdout, L"Debug: Serialise backslash escape. source data p1: %ls\n", (wchar_t*) p1);
 
+    //
+    // The sorting order follows the unicode.
+    //
+
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 

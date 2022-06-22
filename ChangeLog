@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-06-21  Christian Heller  <christian.heller@cybop.org>
+
+        * Decide to not translate backslash escape characters automatically within xml/json/cybol de-/serialiser, since this should be done when sending a string to a device
+        * Define that the appearance of backslash escape characters in a cyboi tree node name is not problematic
+
 2022-06-18  Christian Heller  <christian.heller@cybop.org>
 
         * Modernise website to make it responsive using bootstrap 5

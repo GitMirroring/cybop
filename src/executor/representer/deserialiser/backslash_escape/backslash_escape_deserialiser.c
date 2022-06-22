@@ -43,7 +43,8 @@
  * Deserialises the backslash escape wide character sequence into a
  * standard- or control wide character WITHOUT backslash prefix.
  *
- * CAUTION! The resulting wide character gets APPENDED to the destination.
+ * CAUTION! The resulting wide character gets APPENDED to
+ * the destination (NO overwriting).
  *
  * @param p0 the destination wide character item
  * @param p1 the source backslash escape wide character data
@@ -55,6 +56,10 @@ void deserialise_backslash_escape(void* p0, void* p1, void* p2) {
     fwprintf(stdout, L"Debug: Deserialise backslash escape. source count p2: %i\n", p2);
     fwprintf(stdout, L"Debug: Deserialise backslash escape. source count *p2: %i\n", *((int*) p2));
     fwprintf(stdout, L"Debug: Deserialise backslash escape. source data p1: %ls\n", (wchar_t*) p1);
+
+    //
+    // The sorting order follows the unicode.
+    //
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
