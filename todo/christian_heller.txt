@@ -21,9 +21,11 @@ ____
         * Test real-world json files of directory "serialisation/json/examples/" using a cybol application
         * Comment out testing log messages in json deserialiser and selector
 
-        * Reflect on how to handle binary data in files "cybol_serialiser.c" and "json_serialiser.c"
+        * Reflect on how to handle binary data in files "cybol_serialiser.c", "xml_serialiser.c", "json_serialiser.c"
+            how do dbms store blobs ??
+        * Offer two possibilities via cybol property: file AND base64
         * Consider formats "BYTE_NUMBER_STATE_CYBOI_FORMAT" and "ASCII_TEXT_STATE_CYBOI_FORMAT"
-        * Implement base64 serialiser and deserialiser, in order to store binary data in cybol (xml) and json
+        * Implement base64 serialiser and deserialiser
         * Implement binary json (bson) data interchange format with mime type "application/bson" ??
 
         * Release CYBOP 0.23.0
