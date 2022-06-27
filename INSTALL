@@ -210,7 +210,7 @@ cybop/tools/integer_state_cyboi_model_generator/
 cybop/tools/field_description_xdt_model_generator/
 cybop/tools/xdt_field_description_serialiser_generator/
 
-cybop/doc/books/cybol/api/
+cybop/doc/cybol/api/
 CAUTION! Always first change into the super directory
 and execute cyboi from there, e.g.:
 cd cybop/doc/books/cybol

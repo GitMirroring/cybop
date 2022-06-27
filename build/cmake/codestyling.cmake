@@ -1,10 +1,10 @@
 # additional target to perform clang-format run, requires clang-format
 
 # get all project files
-file(GLOB_RECURSE ALL_SOURCE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/../src/*.c)
+file(GLOB_RECURSE ALL_SOURCE_FILES ${ROOT_DIR}/src/*.c)
 
 if(UNIX AND NOT APPLE)
-    set(clang_command "/usr/bin/clang-format-3.5")
+    set(clang_command "/usr/bin/clang-format-11")
 elseif (APPLE)
     set(clang_command "/usr/local/bin/clang-format")
 else()
@@ -15,7 +15,10 @@ endif()
 add_custom_target(
         clangformat
         COMMAND ${clang_command}
+        --dry-run
+        --Werror
         -style=file
+        -verbose
         -i
         ${ALL_SOURCE_FILES}
 )
@@ -32,11 +35,12 @@ endif()
 add_custom_target(
         cppcheck
         COMMAND ${cppcheck_command}
-        --enable=warning,performance,portability,information,missingInclude
+        --enable=all
+        --inconclusive
+        --error-exitcode=13
         --std=c++11
         --library=qt.cfg
         --template="[{severity}][{id}] {message} {callstack} \(On {file}:{line}\)"
         --verbose
-        #--quiet
         ${ALL_SOURCE_FILES}
 )

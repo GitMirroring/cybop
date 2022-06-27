@@ -35,7 +35,7 @@
 #include "../../../src/executor/calculator/integer/multiply_integer_calculator.c"
 #include "../../../src/executor/calculator/integer/negate_integer_calculator.c"
 #include "../../../src/executor/calculator/integer/subtract_integer_calculator.c"
-#include "../../../src/executor/comparator/all/part_all_comparator.c"
+#include "../../../src/executor/comparator/part_comparator.c"
 #include "../../../src/executor/copier/array_copier.c"
 #include "../../../src/executor/memoriser/allocator/array_allocator.c"
 #include "../../../src/executor/memoriser/deallocator/array_deallocator.c"

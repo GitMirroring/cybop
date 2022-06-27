@@ -34,11 +34,10 @@ INSTALL(DIRECTORY ${ROOT_DIR}/src/ DESTINATION src)
 
 # The cybol component.
 INSTALL(FILES ${ROOT_DIR}/build/manpage/cybol.5.gz DESTINATION build/manpage)
-INSTALL(DIRECTORY ${ROOT_DIR}/doc/books/cybol/api/ DESTINATION doc/books/cybol/api)
-INSTALL(DIRECTORY ${ROOT_DIR}/doc/books/cybol/schema/ DESTINATION doc/books/cybol/schema)
-INSTALL(DIRECTORY ${ROOT_DIR}/doc/books/cybol/syntax/ DESTINATION doc/books/cybol/syntax)
-INSTALL(FILES ${ROOT_DIR}/doc/books/cybol/api.html DESTINATION doc/books/cybol)
-INSTALL(FILES ${ROOT_DIR}/doc/books/cybol/api.css DESTINATION doc/books/cybol)
+INSTALL(DIRECTORY ${ROOT_DIR}/doc/cybol/api/ DESTINATION doc/cybol/api)
+INSTALL(DIRECTORY ${ROOT_DIR}/doc/cybol/schema/ DESTINATION doc/cybol/schema)
+INSTALL(DIRECTORY ${ROOT_DIR}/doc/cybol/syntax/ DESTINATION doc/cybol/syntax)
+INSTALL(DIRECTORY ${ROOT_DIR}/doc/cybol/api/ DESTINATION doc/cybol/api)
 INSTALL(FILES ${ROOT_DIR}/doc/books/cybol/cybol_2007-07-31.pdf DESTINATION doc/books/cybol)
 INSTALL(DIRECTORY ${ROOT_DIR}/examples/ DESTINATION examples)
 

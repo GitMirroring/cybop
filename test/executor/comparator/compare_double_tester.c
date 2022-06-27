@@ -28,7 +28,7 @@
 
 #include <assert.h>
 
-#include "../../../src/executor/comparator/all/part_all_comparator.c"
+#include "../../../src/executor/comparator/part_comparator.c"
 #include "../../../src/executor/comparator/double_comparator.c"
 #include "../../../src/executor/copier/array_copier.c"
 #include "../../../src/executor/memoriser/allocator/array_allocator.c"
@@ -41,7 +41,7 @@
 //
 
 void allocate_array(void* p0, void* p1, void* p2) {
-void compare_integer_greater(void* p0, void* p1, void* p2);
+//void compare_integer_greater(void* p0, void* p1, void* p2);
 void compare_integer_unequal(void* p0, void* p1, void* p2);
 
 void compare_double_for_equal_should_fail() {

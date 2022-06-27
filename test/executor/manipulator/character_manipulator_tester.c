@@ -50,7 +50,7 @@
 #include "../../../src/executor/manipulator/character/rotate_right_character_manipulator.c"
 #include "../../../src/executor/manipulator/character/shift_left_character_manipulator.c"
 #include "../../../src/executor/manipulator/character/shift_right_character_manipulator.c"
-#include "../../../src/executor/comparator/all/part_all_comparator.c"
+#include "../../../src/executor/comparator/part_comparator.c"
 
 
 void manipulate_character_shift_left_by_one() {

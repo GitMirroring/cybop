@@ -32,7 +32,7 @@
 #include "../../../src/constant/type/cyboi/state_cyboi_type.c"
 #include "../../../src/executor/caster/double/integer_double_caster.c"
 #include "../../../src/executor/caster/double_caster.c"
-#include "../../../src/executor/comparator/all/part_all_comparator.c"
+#include "../../../src/executor/comparator/part_comparator.c"
 #include "../../../src/executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../src/executor/comparator/integer/greater_integer_comparator.c"
 #include "../../../src/executor/comparator/integer/smaller_or_equal_integer_comparator.c"

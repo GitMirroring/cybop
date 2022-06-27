@@ -28,12 +28,11 @@ INSTALL(DIRECTORY ${ROOT_DIR}/src/ DESTINATION src COMPONENT cyboi)
 
 # The cybol component.
 INSTALL(FILES ${ROOT_DIR}/build/manpage/cybol.5.gz DESTINATION build/manpage COMPONENT cybol)
-INSTALL(DIRECTORY ${ROOT_DIR}/doc/books/cybol/api/ DESTINATION doc/books/cybol/api COMPONENT cybol)
-INSTALL(DIRECTORY ${ROOT_DIR}/doc/books/cybol/schema/ DESTINATION doc/books/cybol/schema COMPONENT cybol)
-INSTALL(DIRECTORY ${ROOT_DIR}/doc/books/cybol/syntax/ DESTINATION doc/books/cybol/syntax COMPONENT cybol)
-INSTALL(FILES ${ROOT_DIR}/doc/books/cybol/api.html DESTINATION doc/books/cybol COMPONENT cybol)
-INSTALL(FILES ${ROOT_DIR}/doc/books/cybol/api.css DESTINATION doc/books/cybol COMPONENT cybol)
-INSTALL(FILES ${ROOT_DIR}/doc/books/cybol/cybol_2007-07-31.pdf DESTINATION doc/books/cybol COMPONENT cybol)
+INSTALL(DIRECTORY ${ROOT_DIR}/doc/cybol/api/ DESTINATION doc/cybol/api COMPONENT cybol)
+INSTALL(DIRECTORY ${ROOT_DIR}/doc/cybol/schema/ DESTINATION doc/cybol/schema COMPONENT cybol)
+INSTALL(DIRECTORY ${ROOT_DIR}/doc/cybol/syntax/ DESTINATION doc/cybol/syntax COMPONENT cybol)
+INSTALL(DIRECTORY ${ROOT_DIR}/doc/cybol/api/ DESTINATION doc/cybol/api COMPONENT cybol)
+INSTALL(FILES ${ROOT_DIR}/doc/cybol/cybol_2007-07-31.pdf DESTINATION doc/cybol COMPONENT cybol)
 INSTALL(DIRECTORY ${ROOT_DIR}/examples/ DESTINATION examples COMPONENT cybol)
 
 # The cybop component.

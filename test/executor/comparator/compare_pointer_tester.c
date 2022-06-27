@@ -28,7 +28,7 @@
 
 #include <assert.h>
 
-#include "../../../src/executor/comparator/all/part_all_comparator.c"
+#include "../../../src/executor/comparator/part_comparator.c"
 #include "../../../src/executor/comparator/pointer_comparator.c"
 #include "../../../src/executor/copier/array_copier.c"
 #include "../../../src/executor/memoriser/allocator/array_allocator.c"

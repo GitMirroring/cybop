@@ -105,7 +105,8 @@ static int* CSS_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MOD
  * - a stack memory variable whereby names have the number sign (#) prefix
  *
  * Defined in CYBOL specification:
- * http://www.nongnu.org/cybop/books/cybol/api.html
+ * todo link does not exist and needs to be adjusted
+ * http://www.nongnu.org/cybop/cybol/api/api.html
  */
 static wchar_t* CYBOL_PATH_TEXT_STATE_CYBOL_FORMAT = L"text/cybol-path";
 static int* CYBOL_PATH_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
