@@ -71,9 +71,12 @@ void deserialise_cybol_integer_value(void* p0, void* p1, void* p2, void* p3, voi
         // The temporary null-terminated string item data.
         void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+        //
         // Allocate temporary null-terminated string item.
+        //
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
+        //
         allocate_item((void*) &t, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         // Copy original string to temporary null-terminated string.
@@ -81,24 +84,34 @@ void deserialise_cybol_integer_value(void* p0, void* p1, void* p2, void* p3, voi
         // Add null termination character.
         modify_item(t, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
+        //
         // Get temporary null-terminated string item data.
+        //
         // CAUTION! Retrieve data ONLY AFTER having called desired functions!
         // Inside the structure, arrays may have been reallocated,
         // with elements pointing to different memory areas now.
+        //
         copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+        //
         // The tail variable is useless here and only needed for the string
         // transformation function. If the whole string array consists of
         // many sub strings, separated by space characters, then each sub
         // string gets interpreted as integer number.
+        //
         // The tail variable in this case points to the remaining sub string.
+        //
         wchar_t* tail = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
+        //
         // Initialise error number.
+        //
         // It is a global variable/ function and other operations
         // may have set some value that is not wanted here.
+        //
         errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+        //
         // Transform string to integer value.
         //
         // The third parametre is the number base:
@@ -115,6 +128,13 @@ void deserialise_cybol_integer_value(void* p0, void* p1, void* p2, void* p3, voi
         // the value stored in *tailptr is the value of string.
         // This is ideal for cyboi, since a value of zero is assigned
         // internally, in case the given cybol model string is empty.
+        //
+        // CAUTION! Do NOT use the "ato*" and "*scanf" functions, since they
+        // are broken by design. For instance, they make it impossible to tell
+        // when having received input outside the supported range.
+        // https://stackoverflow.com/questions/26221491/c-convert-string-to-number-when-the-value-is-arbitrarily-large
+        // (answer by user "zwol")
+        //
         int i = wcstol((wchar_t*) td, &tail, *nb);
 
         if (errno == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {

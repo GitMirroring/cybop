@@ -184,6 +184,10 @@ _____________
         * Move project to github, for more popularity ??
         * Eliminate bugs mentioned on project portal bug tracker at gnu savannah
 
+        * Carry out a swot analysis (strengths, weaknesses, opportunities, threats)
+
+        * Use a project management tool e.g. https://trello.com/
+
         * Reduce parametres of function "deallocate_array" to just one in all source code
 
         * Merge enable client input buffer item into interrupt pipe ?? use global variable IDENTIFICATION_INTERRUPT_INTERNAL_MEMORY_STATE_CYBOI_NAME as is done with sensing thread
