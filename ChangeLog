@@ -18,10 +18,23 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-07-01  Enrico Gallus <enrico.gallus@gmail.com>
+
+        * using volumes in docker-compose rather then copying files/directories
+        * adjust clangformat config to currently used format
+
 2022-06-30  Christian Heller  <christian.heller@cybop.org>
 
         * Prepare general number deserialiser
         * Add file "number_name.c"
+
+2022-06-27  Enrico Gallus <enrico.gallus@gmail.com>
+
+        * make compiling of cyboi possible on all platforms using docker
+        * fix cmake issues introduced when moving api,schema,syntax from doc/books to doc/cybol
+        * introduce TARGET_GROUP to be able to use cmake config for production and test
+        * update clang to stable debian release
+        * fix ctest cmake definition
 
 2022-06-21  Christian Heller  <christian.heller@cybop.org>
 

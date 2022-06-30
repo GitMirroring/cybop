@@ -4,3 +4,18 @@ services:
     build:
       context: ../..
       dockerfile: build/docker/dockerfile
+    container_name: dev
+    volumes:
+      - ../../build:/cybop/build
+      - ../../doc:/cybop/doc
+      - ../../src:/cybop/src
+      - ../../examples:/cybop/examples
+      - ../../tools:/cybop/tools
+      - ../../test:/cybop/test
+      - ../../AUTHORS:/cybop/AUTHORS
+      - ../../ChangeLog:/cybop/ChangeLog
+      - ../../COPYING:/cybop/COPYING
+      - ../../INSTALL:/cybop/INSTALL
+      - ../../NEWS:/cybop/NEWS
+      - ../../README:/cybop/README
+    working_dir: /cybop
