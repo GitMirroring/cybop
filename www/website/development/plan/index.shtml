@@ -8,7 +8,7 @@
 
     <table class="table table-striped">
         <thead>
-            <tr class="cybop-bg-light">
+            <tr>
                 <th width="20px" class="text-center">\</th>
                 <th>Planned or Released Version</th>
                 <th>Date</th>

@@ -22,12 +22,12 @@
             </p>
             <p class="mt-4">
                 <a href="/publication/book/2006_cybop/">
-                    <span class="badge rounded-pill p-3 cybop-bg-medium" style="font-size: 14pt;">View Book Description</span>
+                    <span class="badge rounded-pill p-3" style="font-size: 14pt;">View Book Description</span>
                 </a>
             </p>
             <p class="mt-4">
                 <a href="/publication/book/2006_cybop/cybop.pdf">
-                    <span class="badge rounded-pill p-3 cybop-bg-medium" style="font-size: 14pt;">Read CYBOP Book (PDF)</span>
+                    <span class="badge rounded-pill p-3" style="font-size: 14pt;">Read CYBOP Book (PDF)</span>
                 </a>
             </p>
         </div>
@@ -44,7 +44,7 @@
             </p>
             <p class="mt-4">
                 <a href="/publication/book/2007_cybol/2007-07-31_cybol_2.0.pdf">
-                    <span class="badge rounded-pill p-3 cybop-bg-medium" style="font-size: 14pt;">Read CYBOL Book (PDF)</span>
+                    <span class="badge rounded-pill p-3" style="font-size: 14pt;">Read CYBOL Book (PDF)</span>
                 </a>
             </p>
             <p class="mt-5">
@@ -52,7 +52,7 @@
             </p>
             <p class="mt-4">
                 <a href="/development/api/">
-                    <span class="badge rounded-pill p-3 cybop-bg-medium" style="font-size: 14pt;">View latest API documentation</span>
+                    <span class="badge rounded-pill p-3" style="font-size: 14pt;">View latest API documentation</span>
                 </a>
             </p>
         </div>

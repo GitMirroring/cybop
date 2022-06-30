@@ -13,21 +13,6 @@
  * - orange: #ffdca8
  */
 
-.cybop-bg-dark {
-
-    background-color: #3873c2;
-}
-
-.cybop-bg-medium {
-
-    background-color: #5287ce;
-}
-
-.cybop-bg-light {
-
-    background-color: #aed6f2;
-}
-
 /* Limit container width, so that the text does not span the whole page. */
 @media (min-width: 1200px) {
 
@@ -68,6 +53,11 @@ h3 {
     font-weight: bold;
     margin-top: 2.0rem;
     margin-bottom: 1.5rem;
+}
+
+thead {
+
+    background-color: #aed6f2;
 }
 
 .navbar {
@@ -129,30 +119,30 @@ section a {
     font-weight: bold;
 }
 
+.badge {
+
+    background-color: #5287ce;
+    color: #ffffff;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #5287ce;
+}
+
+.badge:hover {
+
+    background-color: #ffffff;
+    color: #5287ce;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #5287ce;
+}
+
 /* CAUTION! Do NOT change the ORDER of the link states, since it follows css order rules. */
 section a:link { color: #5287ce; text-decoration: none; }
 section a:visited { color: #5287ce; text-decoration: none; }
 section a:focus { color: #5287ce; text-decoration: underline; }
 section a:hover { color: #5287ce; text-decoration: underline; }
 section a:active { color: #5287ce; text-decoration: underline; }
-
-.todo {
-
-    background-color: #ff8080;
-    color: #000000;
-}
-
-.doing {
-
-    background-color: #ffffc0;
-    color: #000000;
-}
-
-.done {
-
-    background-color: #c0ffc0;
-    color: #000000;
-}
 
 footer {
 
@@ -178,29 +168,4 @@ footer a:visited { color: #ffffff; text-decoration: none; }
 footer a:focus { color: #ffffff; text-decoration: underline; }
 footer a:hover { color: #ffffff; text-decoration: underline; }
 footer a:active { color: #ffffff; text-decoration: underline; }
-
-/*
- * OLD settings
- */
-
-div#page table {
-    margin: 5px;
-    max-width: 800px;
-    padding: 0.2em;
-    font-size: 0.9em;
-}
-
-div#page tr {
-    text-align: left;
-    vertical-align: top;
-}
-
-div#page th {
-    background-color: #C0C0FF;
-    color: #000000;
-}
-
-div#page td {
-    margin: 5px;
-}
 

@@ -24,12 +24,12 @@
             </p>
             <p class="mt-4">
                 <a href="https://www.amazon.de/Cybernetics-Oriented-Programming-Christian-Heller/dp/3981089804/sr=8-1/qid=1169666060/ref=sr_1_1/302-7558907-0519230?ie=UTF8&s=books">
-                    <span class="badge rounded-pill p-3 cybop-bg-medium" style="font-size: 14pt;">Order Book via Amazon</span>
+                    <span class="badge rounded-pill p-3" style="font-size: 14pt;">Order Book via Amazon</span>
                 </a>
             </p>
             <p class="mt-4">
                 <a href="mailto:info@cybop.de">
-                    <span class="badge rounded-pill p-3 cybop-bg-medium" style="font-size: 14pt;">Order Book via E-Mail</span>
+                    <span class="badge rounded-pill p-3" style="font-size: 14pt;">Order Book via E-Mail</span>
                 </a>
             </p>
         </div>

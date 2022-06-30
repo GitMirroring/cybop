@@ -51,22 +51,22 @@
     <div class="row mt-5">
         <div class="col-sm-2">
             <a href="https://www.bitchute.com/channel/U8V0UgCN4SSw/">
-                <span class="badge rounded-pill p-3 cybop-bg-medium" style="font-size: 14pt;">BitChute</span>
+                <span class="badge rounded-pill p-3" style="font-size: 14pt;">BitChute</span>
             </a>
         </div>
         <div class="col-sm-2">
             <a href="https://odysee.com/@christian.heller:8">
-                <span class="badge rounded-pill p-3 cybop-bg-medium" style="font-size: 14pt;">Odysee</span>
+                <span class="badge rounded-pill p-3" style="font-size: 14pt;">Odysee</span>
             </a>
         </div>
         <div class="col-sm-2">
             <a href="https://rumble.com/c/c-1655383">
-                <span class="badge rounded-pill p-3 cybop-bg-medium" style="font-size: 14pt;">Rumble</span>
+                <span class="badge rounded-pill p-3" style="font-size: 14pt;">Rumble</span>
             </a>
         </div>
         <div class="col-sm-2">
             <a href="https://www.youtube.com/channel/UCTyTRyQ7Nq6DhcOrxa9BkEw">
-                <span class="badge rounded-pill p-3 cybop-bg-medium" style="font-size: 14pt;">YouTube</span>
+                <span class="badge rounded-pill p-3" style="font-size: 14pt;">YouTube</span>
             </a>
         </div>
         <div class="col-sm-4">

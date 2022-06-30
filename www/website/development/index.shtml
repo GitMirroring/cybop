@@ -42,7 +42,7 @@
     </div>
     <p class="mt-4">
         <a href="/development/api/">
-            <span class="badge rounded-pill p-3 cybop-bg-medium" style="font-size: 14pt;">View API documentation</span>
+            <span class="badge rounded-pill p-3" style="font-size: 14pt;">View API documentation</span>
         </a>
     </p>
 </section>
@@ -66,8 +66,8 @@
     <p>
         <a href="http://savannah.nongnu.org/svn/?group=cybop">http://savannah.nongnu.org/svn/?group=cybop</a>
     </p>
-    <a href="https://svn.savannah.gnu.org/viewvc/trunk/">
-        <span class="badge rounded-pill p-3 cybop-bg-medium" style="font-size: 14pt;">Browse Sources Repository</span>
+    <a href="http://svn.savannah.gnu.org/viewvc/cybop/trunk/">
+        <span class="badge rounded-pill p-3" style="font-size: 14pt;">Browse Sources Repository</span>
     </a>
 </section>
 
@@ -81,7 +81,7 @@
         <a href="http://savannah.nongnu.org/bugs/?group=cybop">http://savannah.nongnu.org/bugs/?group=cybop</a>
     </p>
     <a href="https://savannah.nongnu.org/bugs/?group=cybop&func=additem">
-        <span class="badge rounded-pill p-3 cybop-bg-medium" style="font-size: 14pt;">Submit Bug Report</span>
+        <span class="badge rounded-pill p-3" style="font-size: 14pt;">Submit Bug Report</span>
     </a>
 </section>
 
@@ -103,7 +103,7 @@
     <h2>Release Plan</h2>
     <p>
         <a href="/development/plan/" class="mt-4">
-            <span class="badge rounded-pill p-3 cybop-bg-medium" style="font-size: 14pt;">Study Release Plan</span>
+            <span class="badge rounded-pill p-3" style="font-size: 14pt;">Study Release Plan</span>
         </a>
     </p>
 </section>

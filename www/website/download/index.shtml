@@ -11,7 +11,7 @@
         The cyboi interpreter currently runs on Linux only.
     </p>
     <a href="http://savannah.nongnu.org/files/?group=cybop">
-        <span class="badge rounded-pill p-3 cybop-bg-medium" style="font-size: 14pt;">Download CYBOP</span>
+        <span class="badge rounded-pill p-3" style="font-size: 14pt;">Download CYBOP</span>
     </a>
 </section>
 
