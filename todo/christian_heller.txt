@@ -14,6 +14,10 @@
 JSON
 ____
 
+        * Add general number deserialiser
+        * Compare detected number type with possibly given one (as cybol format) and print warning if not identical
+        * Add file "type_json_deserialiser.c" with branching for the different number types
+
         * Test json and xml deserialiser and compare results, e.g. with example file "glossary"
         * Continue json deserialiser and selector: number
         * Handle special escaped string characters in file "string_json_deserialiser.c"

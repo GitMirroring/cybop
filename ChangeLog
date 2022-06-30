@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-06-30  Christian Heller  <christian.heller@cybop.org>
+
+        * Prepare general number deserialiser
+        * Add file "number_name.c"
+
 2022-06-21  Christian Heller  <christian.heller@cybop.org>
 
         * Decide to not translate backslash escape characters automatically within xml/json/cybol de-/serialiser, since this should be done when sending a string to a device
