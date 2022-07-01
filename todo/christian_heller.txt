@@ -14,9 +14,14 @@
 JSON
 ____
 
-        * Add general number deserialiser
+        * Split constants in file "number_name.c" into many files (for exponent, number base etc.)
+        * Continue with files "value_number_deserialiser.c" and "value_number_selector.c"
+        * Add general number deserialiser and -selector
         * Compare detected number type with possibly given one (as cybol format) and print warning if not identical
         * Add file "type_json_deserialiser.c" with branching for the different number types
+
+        * Complete file "begin_value_json_selector.c" with new number characters as used in file "number_name.c"
+        * Check in number- and json selector if detected whitespace characters are NOT considered in the resulting name (or other-) count
 
         * Test json and xml deserialiser and compare results, e.g. with example file "glossary"
         * Continue json deserialiser and selector: number

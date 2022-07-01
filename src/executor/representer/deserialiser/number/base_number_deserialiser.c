@@ -24,14 +24,14 @@
  * @author Falk Müller <falk89@web.de>
  */
 
-#ifndef VALUE_NUMBER_DESERIALISER_SOURCE
-#define VALUE_NUMBER_DESERIALISER_SOURCE
+#ifndef BASE_NUMBER_DESERIALISER_SOURCE
+#define BASE_NUMBER_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the number value.
+ * Deserialises the number base by prefix.
  *
  * @param p0 the destination format
  * @param p1 the destination type
@@ -42,22 +42,14 @@
  * @param p6 the source data position (pointer reference)
  * @param p7 the source count remaining
  */
-void deserialise_number_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void deserialise_number_base(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise number value.");
-    fwprintf(stdout, L"Debug: Deserialise number value. count remaining p8: %i\n", p8);
-    fwprintf(stdout, L"Debug: Deserialise number value. count remaining *p8: %i\n", *((int*) p8));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise number base.");
+    fwprintf(stdout, L"Debug: Deserialise number base. count remaining p7: %i\n", p7);
+    fwprintf(stdout, L"Debug: Deserialise number base. count remaining *p7: %i\n", *((int*) p7));
 
-    // The value data, count.
-    void* vd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int vc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The number one integer.
-    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    // Initialise number.
-    copy_pointer((void*) &vd, p6);
 
     if (p7 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -80,21 +72,13 @@ void deserialise_number_value(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            fwprintf(stdout, L"Debug: Deserialise number value. vc: %i\n", vc);
-            fwprintf(stdout, L"Debug: Deserialise number value. vd: %ls\n", (wchar_t*) vd);
-
-            // Deserialise number value integer.
-            deserialise_number_integer((void*) &i, vd, (void*) &vc);
-
             break;
         }
 
-        // Select number value.
-        select_number_value(p0, p1, p2, p3, p4, p5, p6, p7, (void*) &b);
-
-        fwprintf(stdout, L"Debug: Deserialise number value. END b: %i\n", b);
+        // Select number one.
+        select_number_base(p0, p1, p2, p3, p4, p5, p6, p7, (void*) &b);
     }
 }
 
-/* VALUE_NUMBER_DESERIALISER_SOURCE */
+/* BASE_NUMBER_DESERIALISER_SOURCE */
 #endif

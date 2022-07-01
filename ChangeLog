@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-07-01  Christian Heller  <christian.heller@cybop.org>
+
+        * Add file "base_number_model.c"
+        * Continue number deserialiser and -selector
+
 2022-07-01  Enrico Gallus <enrico.gallus@gmail.com>
 
         * using volumes in docker-compose rather then copying files/directories
@@ -25,7 +30,7 @@
 
 2022-06-30  Christian Heller  <christian.heller@cybop.org>
 
-        * Prepare general number deserialiser
+        * Prepare general number deserialiser and -selector
         * Add file "number_name.c"
 
 2022-06-27  Enrico Gallus <enrico.gallus@gmail.com>

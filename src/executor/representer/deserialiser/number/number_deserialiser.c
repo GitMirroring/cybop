@@ -39,9 +39,16 @@
 /**
  * Deserialises the wide character number into a double or integer item.
  *
- * By default, the returned value is an integer number.
- * However, if a decimal separator or an exponent is present,
- * then the returned value is a double number.
+ * Examples of possible number formats:
+ * - integer decimal: -24
+ * - integer hexadecimal: -0x18
+ * - integer octal: -030
+ * - fraction decimal: -1.23e4 -1.23e+4 11. .11e2 11e0 11.0 0.007 0.7e-2 .7E-2 7E-3
+ * - fraction vulgar: -1/2
+ * - complex cartesian: 1+2 2-7 -5+5 -3-2
+ *   CAUTION! The "i" (or "j" in electrical engineering) in the imaginary part is NEGLECTED: 1+2i --> 1+2
+ * - complex polar: -2*exp(-45) -2*E(-45) -2exp(-45) -2E(-45)
+ *   CAUTION! The "i" (or "j" in electrical engineering) in the exponent is NEGLECTED: -2*exp(i45) --> -2*exp(45)
  *
  * @param p0 the minus sign flag
  * @param p1 the destination format
@@ -56,6 +63,8 @@
 void deserialise_number(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise number.");
+    fwprintf(stdout, L"Debug: Deserialise number. source count p8: %i\n", p8);
+    fwprintf(stdout, L"Debug: Deserialise number. source count *p8: %i\n", *((int*) p8));
 
     // The source data position.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -76,7 +85,7 @@ void deserialise_number(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
     //
-    deserialise_number_value(p0, p1, p2, p3, p4, p5, (void*) &d, (void*) &c);
+    deserialise_number_sign(p0, p1, p2, p3, p4, p5, (void*) &d, (void*) &c);
 }
 
 /* NUMBER_DESERIALISER_SOURCE */

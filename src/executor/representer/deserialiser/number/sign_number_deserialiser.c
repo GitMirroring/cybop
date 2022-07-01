@@ -24,42 +24,35 @@
  * @author Falk Müller <falk89@web.de>
  */
 
-#ifndef VALUE_NUMBER_DESERIALISER_SOURCE
-#define VALUE_NUMBER_DESERIALISER_SOURCE
+#ifndef SIGN_NUMBER_DESERIALISER_SOURCE
+#define SIGN_NUMBER_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the number value.
+ * Deserialises the wide character sign into a flag.
  *
- * @param p0 the destination format
- * @param p1 the destination type
- * @param p2 the destination integer value one
- * @param p3 the destination integer value two
- * @param p4 the destination double value one
- * @param p5 the destination double value two
- * @param p6 the source data position (pointer reference)
- * @param p7 the source count remaining
+ * @param p0 the minus sign flag
+ * @param p1 the destination format
+ * @param p2 the destination type
+ * @param p3 the destination integer value one
+ * @param p4 the destination integer value two
+ * @param p5 the destination double value one
+ * @param p6 the destination double value two
+ * @param p7 the source data position (pointer reference)
+ * @param p8 the source count remaining
  */
-void deserialise_number_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void deserialise_number_sign(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise number value.");
-    fwprintf(stdout, L"Debug: Deserialise number value. count remaining p8: %i\n", p8);
-    fwprintf(stdout, L"Debug: Deserialise number value. count remaining *p8: %i\n", *((int*) p8));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise number sign.");
+    fwprintf(stdout, L"Debug: Deserialise number sign. count remaining p8: %i\n", p8);
+    fwprintf(stdout, L"Debug: Deserialise number sign. count remaining *p8: %i\n", *((int*) p8));
 
-    // The value data, count.
-    void* vd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int vc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The number one integer.
-    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Initialise number.
-    copy_pointer((void*) &vd, p6);
-
-    if (p7 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p8 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
         // CAUTION! If the loop count handed over as parametre is NULL,
@@ -76,25 +69,17 @@ void deserialise_number_value(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_less_or_equal((void*) &b, p7, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_less_or_equal((void*) &b, p8, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            fwprintf(stdout, L"Debug: Deserialise number value. vc: %i\n", vc);
-            fwprintf(stdout, L"Debug: Deserialise number value. vd: %ls\n", (wchar_t*) vd);
-
-            // Deserialise number value integer.
-            deserialise_number_integer((void*) &i, vd, (void*) &vc);
 
             break;
         }
 
-        // Select number value.
-        select_number_value(p0, p1, p2, p3, p4, p5, p6, p7, (void*) &b);
-
-        fwprintf(stdout, L"Debug: Deserialise number value. END b: %i\n", b);
+        // Select algebraic sign.
+        select_number_sign(p0, p1, p2, p3, p4, p5, p6, p7, p8, (void*) &b);
     }
 }
 
-/* VALUE_NUMBER_DESERIALISER_SOURCE */
+/* SIGN_NUMBER_DESERIALISER_SOURCE */
 #endif
