@@ -59,29 +59,30 @@
 
     <div class="row mt-5">
         <div class="col-sm-6 p-5">
+            <h2>Universal Communication via Channels</h2>
+            <p>
+                Exchange data seamlessly between various channels
+                in a star-like manner using synchronous or asynchronous mode.
+                For instance via RS-232, USB, VT100 pseudo terminal, XCB, socket.
+                By just one call of "send" or "receive".
+            </p>
+        </div>
+        <div class="col-sm-6 p-5">
+            <img src="/index/communication.png" alt="Universal CYBOL Communication" class="img-fluid mx-auto d-block"/>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-sm-6 p-5">
+            <img src="/index/api.png" alt="CYBOL API Documentation" class="img-fluid mx-auto d-block"/>
+        </div>
+        <div class="col-sm-6 p-5">
             <h2>Clear API following MIME Types</h2>
             <p>
                 Use the well-defined CYBOL operations
                 which are documented as API on our website.
                 To its standard categories belong:
                 calculate, communicate, compare and many more.
-            </p>
-        </div>
-        <div class="col-sm-6 p-5">
-            <img src="/index/api.png" alt="CYBOL API Documentation" class="img-fluid mx-auto d-block"/>
-        </div>
-    </div>
-
-    <div class="row mt-5">
-        <div class="col-sm-6 p-5">
-            <img src="/index/communication.png" alt="Universal CYBOL Communication" class="img-fluid mx-auto d-block"/>
-        </div>
-        <div class="col-sm-6 p-5">
-            <h2>Universal Communication via Channels</h2>
-            <p>
-                Exchange data seamlessly between various channels
-                in a star-like manner using synchronous or asynchronous mode.
-                For instance via RS-232, USB, VT100 pseudo terminal, XCB, socket.
             </p>
         </div>
     </div>
