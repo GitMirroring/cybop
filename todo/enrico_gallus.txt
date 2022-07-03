@@ -11,14 +11,41 @@
 # @author Enrico Gallus <enrico.gallus@googlemail.com>
 #
 
-PROJECT
-_______
+CYBOLE (IDE)
+____________
+
+Anwendung allgemein:
+- Die Anwendung im Arbeitsbereich-Menü (Desktop) besser nicht
+  einsortieren unter "Dienstprogramme", sondern unter "Entwicklung".
+- Im Desktop-Menü steht z. B. "Eclipse (Java IDE)". Vielleicht also die
+  Beschreibung ändern in "CYBOLE (CYBOL IDE)" oder so etwas wie
+  "CYBOLE (CYBOL File|Project Editor)". Ist ja kein klassischer "Text"-Editor.
+- Von der Größe her sind 70 MB schon stattlich. Kann man sie evtl. durch
+  Abwählen einiger Atom-Module/Plug-Ins verringern?
+
+XML-Modus:
+- die Knotenarbeit via Kontextmenü (Popup) funktioniert sehr gut
+- Item "Copy" im Kontextmenü evtl. umbenennen in "Duplicate"
+  (sonst denkt man an copy-paste und vermisst das "Paste")
+- Bearbeiten on Text geht auch gut (schön, dass auch die Enter-Taste
+  funktioniert und man nicht immer auf "OK" zu klicken braucht)
+- aktivierte Escape-Taste zum Beenden des Editier-Dialogs wäre schön
+- auch die vorbereitete Auswahl "inline" oder "file" klappt gut
+
+DataGrid (TreeTable):
+- multi-select mehrerer Zeilen (z. B. zum Löschen) wäre schön
+- erstellte property nodes (sub nodes) lassen sich nicht löschen
+- jede property kann wieder eigene properties (sub nodes) haben,
+  also das zweite Plus-Symbol auch dort belassen
+
+Distribution
+____________
 
         * Use "CPack" tool to create installers as: executable installer (for Windows using "NSIS" tool), rpm, deb, tar, tar.gz, self-extracting tar file
             - Check if the DEB CPACK_GENERATOR works as expected
             - INSTALL-File: 'CYBOP Packaging' should be replaced by cpack
 
-CYBOI
+Testing
 _______
 
         * tests need to be adjusted to the new preprocessor
