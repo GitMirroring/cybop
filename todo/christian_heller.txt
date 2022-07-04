@@ -14,7 +14,8 @@
 JSON
 ____
 
-        * Add general number deserialiser and -selector
+        * Continue with functions called from files "decimals_number_deserialiser.c" and from "decimals_number_selector.c" as well as "value_number_selector.c"
+        * Continue general number deserialiser and -selector
         * Compare detected number type with possibly given one (as cybol format) and print warning if not identical
         * Add file "type_json_deserialiser.c" with branching for the different number types
 

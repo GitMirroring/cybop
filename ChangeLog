@@ -23,6 +23,7 @@
         * Split constants in file "number_name.c" into many files, for exponent, number base etc.
         * Add files "digit_wide_character_to_integer_mapper.c" and "integer_to_digit_wide_character_mapper.c"
         * Continue number deserialiser and -selector with integer processing
+        * Continue number deserialiser and -selector with decimals (fractional digits) processing
 
 2022-07-01  Christian Heller  <christian.heller@cybop.org>
 

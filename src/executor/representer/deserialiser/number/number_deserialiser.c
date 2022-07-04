@@ -45,10 +45,10 @@
  * - integer octal: -030
  * - fraction decimal: 7E-3 -1.23e4 -1.23e+4 11. 11.0 .11e2 11e0 0.007 0.7e-2 .7E-2
  * - fraction vulgar: -1/2
- * - complex cartesian: 1+2 2-7 -5+5 -3-2
+ * - complex cartesian: 1+2 2-7 -5+5 -3-2 -1.23+5.0
  *   CAUTION! The "i" (or "j" in electrical engineering) in the imaginary part is NEGLECTED: 1+2i --> 1+2
  *   CAUTION! Using fractions for real and imaginary part of a complex number is NOT supported, e.g. -1/2+3/4
- * - complex polar: -2*exp(-45) -2*E(-45) -2exp(-45) -2E(-45)
+ * - complex polar: -2*exp(-45) -2*E(-45) -2exp(-45) -2E(-45) -1.23*exp(-45)
  *   CAUTION! The "i" (or "j" in electrical engineering) in the exponent is NEGLECTED: -2*exp(i45) --> -2*exp(45)
  *
  * @param p0 the minus sign flag
