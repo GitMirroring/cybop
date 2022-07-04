@@ -40,6 +40,7 @@
  * @param p5 the destination double value two
  * @param p6 the source data position (pointer reference)
  * @param p7 the source count remaining
+ * @param px the value count
  * @param p8 the loop break flag
  */
 void select_number_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
@@ -55,47 +56,69 @@ void select_number_value(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    //
+    // CAUTION! Do NOT easily change the ORDER of below comparisons since
+    // otherwise, some sequences may not get detected or lead to errors.
+    //
+    // Example:
+    //
+    // The MULTIPLICATION abbreviation begin exponent "*exp(" has to get
+    // detected BEFORE the same sequence without multiplication sign "exp(".
+    //
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p6, p7, (void*) DECIMAL_SEPARATOR_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DECIMAL_SEPARATOR_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p6, p7, (void*) SEPARATOR_DECIMAL_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SEPARATOR_DECIMAL_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise decimal places (decimals).
             deserialise_number_decimals(p1, p2, p3, p4, p5, p6, p7, p8);
+
+            // Set loop break flag.
+            copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p6, p7, (void*) CAPITAL_EXPONENT_CHARACTER_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CAPITAL_EXPONENT_CHARACTER_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p6, p7, (void*) CAPITAL_POWER_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CAPITAL_POWER_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise exponent.
             deserialise_number_exponent(p1, p2, p3, p4, p5, p6, p7, p8);
+
+            // Set loop break flag.
+            copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p6, p7, (void*) SMALL_EXPONENT_CHARACTER_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SMALL_EXPONENT_CHARACTER_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p6, p7, (void*) SMALL_POWER_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SMALL_POWER_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise exponent.
             deserialise_number_exponent(p1, p2, p3, p4, p5, p6, p7, p8);
+
+            // Set loop break flag.
+            copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p6, p7, (void*) FRACTION_BAR_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FRACTION_BAR_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p6, p7, (void*) BAR_FRACTION_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BAR_FRACTION_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise denominator as integer value TWO.
             deserialise_number_TODO(p1, p2, p3, p4, p5, p6, p7, p8);
+
+            // Set loop break flag.
+            copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -107,6 +130,9 @@ void select_number_value(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
             // Deserialise imaginary part of complex number.
             deserialise_number_TODO(p1, p2, p3, p4, p5, p6, p7, p8);
+
+            // Set loop break flag.
+            copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -118,50 +144,65 @@ void select_number_value(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
             // Deserialise imaginary part of complex number.
             deserialise_number_TODO(p1, p2, p3, p4, p5, p6, p7, p8);
+
+            // Set loop break flag.
+            copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p6, p7, (void*) BEGIN_EXPONENT_MULTIPLICATION_ABBREVIATION_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_EXPONENT_MULTIPLICATION_ABBREVIATION_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p6, p7, (void*) MULTIPLICATION_ABBREVIATION_BEGIN_EXPONENT_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MULTIPLICATION_ABBREVIATION_BEGIN_EXPONENT_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise imaginary part of complex number.
             deserialise_number_TODO(p1, p2, p3, p4, p5, p6, p7, p8);
+
+            // Set loop break flag.
+            copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p6, p7, (void*) BEGIN_EXPONENT_MULTIPLICATION_LETTER_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_EXPONENT_MULTIPLICATION_LETTER_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p6, p7, (void*) MULTIPLICATION_LETTER_BEGIN_EXPONENT_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MULTIPLICATION_LETTER_BEGIN_EXPONENT_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise imaginary part of complex number.
             deserialise_number_TODO(p1, p2, p3, p4, p5, p6, p7, p8);
+
+            // Set loop break flag.
+            copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p6, p7, (void*) BEGIN_EXPONENT_ABBREVIATION_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_EXPONENT_ABBREVIATION_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p6, p7, (void*) ABBREVIATION_BEGIN_EXPONENT_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ABBREVIATION_BEGIN_EXPONENT_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise imaginary part of complex number.
             deserialise_number_TODO(p1, p2, p3, p4, p5, p6, p7, p8);
+
+            // Set loop break flag.
+            copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p6, p7, (void*) BEGIN_EXPONENT_LETTER_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_EXPONENT_LETTER_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p6, p7, (void*) LETTER_BEGIN_EXPONENT_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LETTER_BEGIN_EXPONENT_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise imaginary part of complex number.
             deserialise_number_TODO(p1, p2, p3, p4, p5, p6, p7, p8);
+
+            // Set loop break flag.
+            copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -170,8 +211,8 @@ void select_number_value(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // Increment the current position by one.
         move(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        // Adjust number count.
-        calculate_integer_add(p2, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        // Adjust value count.
+        calculate_integer_add(px, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

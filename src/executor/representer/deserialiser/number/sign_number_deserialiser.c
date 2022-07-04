@@ -77,7 +77,7 @@ void deserialise_number_sign(void* p0, void* p1, void* p2, void* p3, void* p4, v
         }
 
         // Select algebraic sign.
-        select_number_sign(p0, p1, p2, p3, p4, p5, p6, p7, p8, (void*) &b);
+        select_number_sign(p0, p1, p2, p3, p4, p5, p6, p7, p8);
     }
 }
 

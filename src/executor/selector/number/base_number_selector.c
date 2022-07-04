@@ -40,9 +40,8 @@
  * @param p5 the destination double value two
  * @param p6 the source data position (pointer reference)
  * @param p7 the source count remaining
- * @param p8 the loop break flag
  */
-void select_number_base(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void select_number_base(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select number base.");
     fwprintf(stdout, L"Debug: Select number base. count remaining p7: %i\n", p7);
@@ -52,21 +51,24 @@ void select_number_base(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     fwprintf(stdout, L"Debug: Select number base. data position *p6 lc: %lc\n", *((wchar_t*) *((void**) p6)));
     fwprintf(stdout, L"Debug: Select number base. data position *p6 lc as int: %i\n", *((wchar_t*) *((void**) p6)));
 
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The number base with DECIMAL number base as default.
+    int b = *DECIMAL_BASE_NUMBER_MODEL;
+
     //
     // CAUTION! Do NOT easily change the ORDER of below comparisons since
     // otherwise, some sequences may not get detected or lead to errors.
-    // A hexadecimal integer with prefix "0x", for instance,
-    // would falsely get detected as octal integer with prefix "0".
+    //
+    // Example:
+    //
+    // The HEXADECIMAL integer with prefix "0x" has to get
+    // detected BEFORE the octal integer with prefix just "0".
     //
 
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The number base with decimal number base as default.
-    int b = *DECIMAL_BASE_NUMBER_MODEL;
-
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p6, p7, (void*) SMALL_HEXADECIMAL_PREFIX_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SMALL_HEXADECIMAL_PREFIX_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p6, p7, (void*) SMALL_HEXADECIMAL_BASE_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SMALL_HEXADECIMAL_BASE_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -77,7 +79,7 @@ void select_number_base(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p6, p7, (void*) CAPITAL_HEXADECIMAL_PREFIX_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CAPITAL_HEXADECIMAL_PREFIX_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p6, p7, (void*) CAPITAL_HEXADECIMAL_BASE_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CAPITAL_HEXADECIMAL_BASE_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -88,7 +90,7 @@ void select_number_base(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p6, p7, (void*) OCTAL_PREFIX_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) OCTAL_PREFIX_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p6, p7, (void*) OCTAL_BASE_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) OCTAL_BASE_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -100,7 +102,7 @@ void select_number_base(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     //
     // Deserialise number value.
     //
-    // CAUTION! Hand over the number base as parametre.
+    // CAUTION! Hand over number base as parametre.
     //
     deserialise_number_value(p0, p1, p2, p6, p7, (void*) &b);
 }

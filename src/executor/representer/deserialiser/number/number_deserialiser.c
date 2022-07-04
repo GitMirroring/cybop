@@ -43,10 +43,11 @@
  * - integer decimal: -24
  * - integer hexadecimal: -0x18
  * - integer octal: -030
- * - fraction decimal: -1.23e4 -1.23e+4 11. .11e2 11e0 11.0 0.007 0.7e-2 .7E-2 7E-3
+ * - fraction decimal: 7E-3 -1.23e4 -1.23e+4 11. 11.0 .11e2 11e0 0.007 0.7e-2 .7E-2
  * - fraction vulgar: -1/2
  * - complex cartesian: 1+2 2-7 -5+5 -3-2
  *   CAUTION! The "i" (or "j" in electrical engineering) in the imaginary part is NEGLECTED: 1+2i --> 1+2
+ *   CAUTION! Using fractions for real and imaginary part of a complex number is NOT supported, e.g. -1/2+3/4
  * - complex polar: -2*exp(-45) -2*E(-45) -2exp(-45) -2E(-45)
  *   CAUTION! The "i" (or "j" in electrical engineering) in the exponent is NEGLECTED: -2*exp(i45) --> -2*exp(45)
  *
@@ -85,7 +86,7 @@ void deserialise_number(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
     //
-    deserialise_number_sign(p0, p1, p2, p3, p4, p5, (void*) &d, (void*) &c);
+    deserialise_number_whitespace(p0, p1, p2, p3, p4, p5, (void*) &d, (void*) &c);
 }
 
 /* NUMBER_DESERIALISER_SOURCE */
