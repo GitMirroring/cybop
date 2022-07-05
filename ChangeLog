@@ -22,6 +22,7 @@
 
         * Add decimal power (power of 10) number deserialiser
         * Remove complete directory "test" with unit tests, since cybol applications themselves, in directory "examples", are the tests
+        * Add file "state.txt" with list of cybol formats and file "logic.txt" with list of operations to directory "doc/cybol/api/"
 
 2022-07-04  Christian Heller  <christian.heller@cybop.org>
 

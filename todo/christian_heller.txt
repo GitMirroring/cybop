@@ -11,6 +11,9 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+        * Update cybol api specification with state and logic, see file "todo/api.txt"
+        * Add state structures "http_request" and "gui_action" (or "gui_event" ??) to api documentation
+
 JSON
 ____
 
@@ -179,11 +182,6 @@ _____
 
 Documentation
 _____________
-
-        * Update cybol api specification with state and logic, see file "todo/api.txt"
-
-        * Parse cyboi source code to generate the api (most effective method, if possible)
-            constant/format/cybol/logic/ and constant/format/cybol/state/ needs to be read (maybe some kind of JavaDoc, maybe Regex expressions)
 
         * Write cybol developer manual
 
