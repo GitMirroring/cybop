@@ -18,7 +18,7 @@
         <node name="type" channel="inline" format="text/plain" model="text/css"/>
         <node name="href" channel="inline" format="text/plain" model="api.css"/>
     </node>
-    
+
     <node name="title" channel="inline" format="text/plain" model="">
         <node name="tag" channel="inline" format="text/plain" model="title"/>
     </node>

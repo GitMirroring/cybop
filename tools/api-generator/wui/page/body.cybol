@@ -1,5 +1,12 @@
 <node>
 
+<!--
+    <node name="toc_logic" channel="file" format="element/part" model="api-generator/wui/page/toc_logic.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="div"/>
+        <node name="id" channel="inline" format="text/plain" model="toc_logic"/>
+    </node>
+-->
+
     <node name="toc" channel="file" format="element/part" model="api-generator/wui/page/toc.cybol">
         <node name="tag" channel="inline" format="text/plain" model="div"/>
         <node name="id" channel="inline" format="text/plain" model="toc"/>
@@ -9,5 +16,12 @@
         <node name="tag" channel="inline" format="text/plain" model="div"/>
         <node name="id" channel="inline" format="text/plain" model="content"/>
     </node>
+
+<!--
+    <node name="toc_state" channel="file" format="element/part" model="api-generator/wui/page/toc_state.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="div"/>
+        <node name="id" channel="inline" format="text/plain" model="toc_state"/>
+    </node>
+-->
 
 </node>
