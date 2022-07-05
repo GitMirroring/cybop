@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-07-05  Christian Heller  <christian.heller@cybop.org>
+
+        * Add decimal power (power of 10) number deserialiser
+
 2022-07-04  Christian Heller  <christian.heller@cybop.org>
 
         * Split constants in file "number_name.c" into many files, for exponent, number base etc.

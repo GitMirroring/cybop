@@ -81,7 +81,7 @@ void deserialise_number_value(void* p0, void* p1, void* p2, void* p3, void* p4, 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // Either a number end character was found in the selector
+            // Either an end character was found in the selector
             // OR the source count remaining is zero.
             //
             // In BOTH cases, the value can now be deserialised.

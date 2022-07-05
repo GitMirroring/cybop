@@ -172,15 +172,15 @@ _____
 Documentation
 _____________
 
-        * Write cybol developer manual
-
         * Update cybol api specification with state and logic, see file "todo/api.txt"
-
-        * Replace hard-coded date in file "var.cybol" with new date type in api generator (current date seems not to be supported ATM)
-        * Try to use "command/list-directory-contents" in api generator, in order to reduce maintenance effort caused by manually updating the files "spec/logic.cybol" and "spec/state.cybol" containing a listing of all underlying files in the respective folder
 
         * Parse cyboi source code to generate the api (most effective method, if possible)
             constant/format/cybol/logic/ and constant/format/cybol/state/ needs to be read (maybe some kind of JavaDoc, maybe Regex expressions)
+
+        * Write cybol developer manual
+
+        * Replace hard-coded date in file "var.cybol" with new date type in api generator (current date seems not to be supported ATM)
+        * Try to use "command/list-directory-contents" in api generator, in order to reduce maintenance effort caused by manually updating the files "spec/logic.cybol" and "spec/state.cybol" containing a listing of all underlying files in the respective folder
 
         * Write style guide for cyboi programming in c
         * See template in file "/home/christian/projekt/cybop/doc/development/conventions/index.html"

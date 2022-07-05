@@ -23,14 +23,14 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef VALUE_NUMBER_SELECTOR_SOURCE
-#define VALUE_NUMBER_SELECTOR_SOURCE
+#ifndef POWER_NUMBER_SELECTOR_SOURCE
+#define POWER_NUMBER_SELECTOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../logger/logger.c"
 
 /**
- * Selects the number value.
+ * Selects the decimal power (power of 10).
  *
  * @param p0 the destination format
  * @param p1 the destination type
@@ -43,15 +43,15 @@
  * @param px the value count
  * @param p8 the loop break flag
  */
-void select_number_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void select_number_power(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select number value.");
-    fwprintf(stdout, L"Debug: Select number value. count remaining p7: %i\n", p7);
-    fwprintf(stdout, L"Debug: Select number value. count remaining *p7: %i\n", *((int*) p7));
-    fwprintf(stdout, L"Debug: Select number value. data position *p6: %i\n", *((void**) p6));
-    fwprintf(stdout, L"Debug: Select number value. data position *p6 ls: %ls\n", (wchar_t*) *((void**) p6));
-    fwprintf(stdout, L"Debug: Select number value. data position *p6 lc: %lc\n", *((wchar_t*) *((void**) p6)));
-    fwprintf(stdout, L"Debug: Select number value. data position *p6 lc as int: %i\n", *((wchar_t*) *((void**) p6)));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select number power.");
+    fwprintf(stdout, L"Debug: Select number power. count remaining p7: %i\n", p7);
+    fwprintf(stdout, L"Debug: Select number power. count remaining *p7: %i\n", *((int*) p7));
+    fwprintf(stdout, L"Debug: Select number power. data position *p6: %i\n", *((void**) p6));
+    fwprintf(stdout, L"Debug: Select number power. data position *p6 ls: %ls\n", (wchar_t*) *((void**) p6));
+    fwprintf(stdout, L"Debug: Select number power. data position *p6 lc: %lc\n", *((wchar_t*) *((void**) p6)));
+    fwprintf(stdout, L"Debug: Select number power. data position *p6 lc as int: %i\n", *((wchar_t*) *((void**) p6)));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -65,74 +65,6 @@ void select_number_value(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     // The MULTIPLICATION abbreviation begin exponent "*exp(" has to get
     // detected BEFORE the same sequence without multiplication sign "exp(".
     //
-
-    //
-    // decimals
-    //
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        detect((void*) &r, p6, p7, (void*) SEPARATOR_DECIMAL_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SEPARATOR_DECIMAL_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Deserialise decimal places (decimals).
-            deserialise_number_decimals(p1, p2, p3, p4, p5, p6, p7, p8);
-
-            // Set loop break flag.
-            copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
-    }
-
-    //
-    // power
-    //
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        detect((void*) &r, p6, p7, (void*) CAPITAL_POWER_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CAPITAL_POWER_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Deserialise power.
-            deserialise_number_power(p1, p2, p3, p4, p5, p6, p7, p8);
-
-            // Set loop break flag.
-            copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        detect((void*) &r, p6, p7, (void*) SMALL_POWER_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SMALL_POWER_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Deserialise power.
-            deserialise_number_power(p1, p2, p3, p4, p5, p6, p7, p8);
-
-            // Set loop break flag.
-            copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
-    }
-
-    //
-    // fraction
-    //
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        detect((void*) &r, p6, p7, (void*) BAR_FRACTION_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BAR_FRACTION_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Deserialise denominator as integer value TWO.
-            deserialise_number_TODO(p1, p2, p3, p4, p5, p6, p7, p8);
-
-            // Set loop break flag.
-            copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
-    }
 
     //
     // sign
@@ -240,5 +172,5 @@ void select_number_value(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     }
 }
 
-/* VALUE_NUMBER_SELECTOR_SOURCE */
+/* POWER_NUMBER_SELECTOR_SOURCE */
 #endif
