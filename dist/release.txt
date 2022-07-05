@@ -27,6 +27,11 @@ Create tarball using "cpack"
 Create GPG binary signature for tarball file
 Upload tarball file to Savannah
 
+API
+___
+
+Update api to latest functionality (logic and states)
+
 Website
 _______
 
@@ -36,7 +41,7 @@ Update www/cybop/plan/index.html
 Update www/cybop/news.html
 Update www/cybop/index.html
 Update www/cybop/footer.inc
-Commit CVS (website gets updated automatically)
+Upload website
 
 Announcement
 ____________

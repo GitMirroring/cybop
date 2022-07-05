@@ -41,6 +41,7 @@ ____
 Build
 _____
 
+        * Give feedback to Enrico to what has to be changed in python script adapting copyright
         * Correct formatting errors found by "ClangFormat"
         * Change variable names reported by "CppCheck"
         * Adapt incorrectly formatted comments reported by "Doxygen"

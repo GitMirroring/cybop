@@ -11,8 +11,35 @@
 # @author Enrico Gallus <enrico.gallus@googlemail.com>
 #
 
+General Working Areas
+_____________________
+
+- cmake (evtl. in Zukunft Bibliotheken/Plug-Ins, falls sinnvoll)
+- Paketierung als: deb rpm exe
+- Testen
+- CI/CD (zukünftig evtl. Online-Update, falls sinnvoll)
+
+- ClangFormat
+- CppCheck
+- Doxygen
+- python script for adapting copyright year
+
 CYBOLE (IDE)
 ____________
+
+Ideas:
+- execute cybol application directly in editor
+- show terminal output in editor
+- integrate visual gui designer
+- integrate api on left-hand side, for drag'n'drop of cybol operations
+
+- integrate tab pages on top for switching between many files
+- integrate tab pages on bottom for switching between different source code views:
+    - Reiner Text (wir im klassischen Texteditor)
+    - XML
+    - JSON
+    - Tabelle (DataGrid, TreeTable)
+    - Designer (visuell, bunte grafische Blöcke)
 
 Anwendung allgemein:
 - Die Anwendung im Arbeitsbereich-Menü (Desktop) besser nicht
@@ -44,14 +71,4 @@ ____________
         * Use "CPack" tool to create installers as: executable installer (for Windows using "NSIS" tool), rpm, deb, tar, tar.gz, self-extracting tar file
             - Check if the DEB CPACK_GENERATOR works as expected
             - INSTALL-File: 'CYBOP Packaging' should be replaced by cpack
-
-Testing
-_______
-
-        * tests need to be adjusted to the new preprocessor
-
-        * extract the tester files to the new "test" directory
-            - create an appropriate folder structure to easily identify unittests
-            - convert the existing tester files to the new approach using assert
-            - integrate the unittests afterwards to the ctest configuration which can be found in test/CMakeFiles.txt
 
