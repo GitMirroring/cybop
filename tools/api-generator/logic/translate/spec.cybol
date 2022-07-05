@@ -1,59 +1,23 @@
 <node>
 
-    <node name="get_spec_name" channel="inline" format="access/get-name" model="">
-        <node name="element" channel="inline" format="text/cybol-path" model="#spec_name"/>
-        <node name="part" channel="inline" format="text/cybol-path" model=".spec"/>
-    </node>
+    <node name="create_wui_page" channel="inline" format="text/cybol-path" model=".logic.create.wui_page"/>
 
-    <!-- Loop reset. -->
-    <!--
-        CAUTION! The count has to be reset even though it gets calculated below.
-        The reason is that calculation might fail for non-existing children,
-        and using an invalid count of a previous child would lead to wrong results.
-    -->
-    <node name="reset_count" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model="#topic_count"/>
-        <node name="source" channel="inline" format="number/integer" model="0"/>
-    </node>
-    <node name="reset_index" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model="#topic_index"/>
-        <node name="source" channel="inline" format="number/integer" model="0"/>
-    </node>
-    <node name="reset_break" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model="#topic_break"/>
-        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-    </node>
+    <!-- state -->
 
-    <!-- Model creation. -->
-    <node name="create_page" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="text/cybol-path" model="#topic_break"/>
-        <node name="false" channel="inline" format="text/cybol-path" model=".logic.create.wui_page"/>
+    <node name="assign_state_name" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#topic_name"/>
+        <node name="source" channel="inline" format="text/plain" model="state"/>
     </node>
+    <node name="translate_state" channel="inline" format="text/cybol-path" model=".logic.translate.topic"/>
 
-    <!-- Child translation. -->
-    <node name="count_topics" channel="inline" format="access/count" model="">
-        <node name="count" channel="inline" format="text/cybol-path" model="#topic_count"/>
-        <node name="part" channel="inline" format="text/cybol-path" model=".spec"/>
-    </node>
-    <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
-    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model="#topic_break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model="#topic_index"/>
-        <node name="right" channel="inline" format="text/cybol-path" model="#topic_count"/>
-    </node>
-    <!-- User information. -->
-    <node name="show_message" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="text/cybol-path" model="#topic_break"/>
-        <node name="true" channel="inline" format="text/cybol-path" model=".logic.show_failure"/>
-        <node name="false" channel="inline" format="text/cybol-path" model=".logic.show_success"/>
-    </node>
+    <!-- logic -->
 
-    <node name="loop_topics" channel="inline" format="flow/loop" model="">
-        <node name="break" channel="inline" format="text/cybol-path" model="#topic_break"/>
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.topic"/>
+    <node name="assign_logic_name" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#topic_name"/>
+        <node name="source" channel="inline" format="text/plain" model="logic"/>
     </node>
+    <node name="translate_logic" channel="inline" format="text/cybol-path" model=".logic.translate.topic"/>
 
-    <!-- Loop check. -->
-    <!-- It is NOT necessary, since this spec is NOT a child of some parent. -->
+    <node name="inform_user" channel="inline" format="text/cybol-path" model=".logic.show_success"/>
 
 </node>

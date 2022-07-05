@@ -2,17 +2,6 @@
 
     <node name="spec" channel="file" format="element/part" model="api-generator/logic/translate/spec.cybol">
 
-        <!-- The loop parametres (stack variables). -->
-        <node name="spec_count" channel="inline" format="number/integer" model="0"/>
-        <node name="spec_index" channel="inline" format="number/integer" model="0"/>
-        <node name="spec_break" channel="inline" format="logicvalue/boolean" model="false"/>
-        <!-- The element. -->
-        <node name="spec_name" channel="inline" format="text/plain" model=""/>
-
-        <!-- The loop parametres (stack variables). -->
-        <node name="topic_count" channel="inline" format="number/integer" model="0"/>
-        <node name="topic_index" channel="inline" format="number/integer" model="0"/>
-        <node name="topic_break" channel="inline" format="logicvalue/boolean" model="false"/>
         <!-- The element. -->
         <node name="topic_name" channel="inline" format="text/plain" model=""/>
 

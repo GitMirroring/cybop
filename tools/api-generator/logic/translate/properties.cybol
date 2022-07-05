@@ -3,7 +3,7 @@
     <!-- Identification. -->
     <node name="get_property_name" channel="inline" format="access/get-name" model="">
         <node name="element" channel="inline" format="text/cybol-path" model="#property_name"/>
-        <node name="part" channel="inline" format="text/cybol-path" model=".spec.[#topic_index].[#category_index].[#part_index].properties.[#property_index]"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".spec.(#topic_name).[#category_index].[#part_index].properties.[#property_index]"/>
     </node>
 
     <!-- Loop reset. -->
