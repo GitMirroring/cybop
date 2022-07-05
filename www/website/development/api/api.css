@@ -13,13 +13,36 @@
  * - orange: #ffdca8
  */
 
+/*
+#header {
+
+    float: left;
+    position: fixed;
+    overflow-y: scroll;
+    width: 100%;
+    padding-left: 50px;
+}
+*/
+
+nav {
+
+    float: left;
+    position: fixed;
+    overflow-y: scroll;
+    width: 20%;
+    height: 60%;
+    padding: 20px;
+    font-size: 8pt;
+}
+
+/*
 #toc_logic {
 
     float: left;
     position: fixed;
     overflow-y: scroll;
     width: 20%;
-    height: 90%;
+    height: 60%;
     padding: 20px;
     font-size: 8pt;
 }
@@ -30,40 +53,41 @@
     position: fixed;
     overflow-y: scroll;
     width: 20%;
-    height: 90%;
+    height: 60%;
     padding: 20px;
     font-size: 8pt;
 }
+*/
 
-#toc h1 {
+nav h1 {
 
     text-align: left;
     font-size: 10pt;
 }
 
-#toc a {
+nav a {
 
     display: block;
     text-decoration: none;
 }
 
-#toc a:link {
+nav a:link {
 
     color: #000000;
 }
 
-#toc a:visited {
+nav a:visited {
 
     color: #808080;
 }
 
-#toc a:hover {
+nav a:hover {
 
     background-color: #FF8080;
     color: #000000;
 }
 
-#toc a:active {
+nav a:active {
 
     background-color: #000000;
     color: #C0C0FF;
@@ -89,7 +113,7 @@
     background-color: #E0E0E0;
 }
 
-#content {
+section {
 
     margin-top: 10px;
     margin-bottom: 20px;
@@ -98,14 +122,7 @@
     font-size: 10pt;
 }
 
-#title {
-
-    padding: 10px;
-    text-align: center;
-    font-size: 14pt;
-}
-
-#content h1 {
+section h1 {
 
     margin-top: 50px;
     background-color: #FF8080;
@@ -114,7 +131,7 @@
     font-size: 14pt;
 }
 
-#content h2 {
+section h2 {
 
     margin-top: 50px;
     border-style: solid;
@@ -127,7 +144,7 @@
     font-size: 12pt;
 }
 
-#content h3 {
+section h3 {
 
     margin-top: 50px;
     display: block;

@@ -1,5 +1,9 @@
 <node>
 
+    <node name="header" channel="file" format="element/part" model="api-generator/wui/page/header.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="header"/>
+    </node>
+
 <!--
     <node name="toc_logic" channel="file" format="element/part" model="api-generator/wui/page/toc_logic.cybol">
         <node name="tag" channel="inline" format="text/plain" model="div"/>
@@ -7,14 +11,12 @@
     </node>
 -->
 
-    <node name="toc" channel="file" format="element/part" model="api-generator/wui/page/toc.cybol">
-        <node name="tag" channel="inline" format="text/plain" model="div"/>
-        <node name="id" channel="inline" format="text/plain" model="toc"/>
+    <node name="toc" channel="inline" format="element/part" model="">
+        <node name="tag" channel="inline" format="text/plain" model="nav"/>
     </node>
 
-    <node name="content" channel="file" format="element/part" model="api-generator/wui/page/content.cybol">
-        <node name="tag" channel="inline" format="text/plain" model="div"/>
-        <node name="id" channel="inline" format="text/plain" model="content"/>
+    <node name="content" channel="inline" format="element/part" model="">
+        <node name="tag" channel="inline" format="text/plain" model="section"/>
     </node>
 
 <!--
@@ -23,5 +25,9 @@
         <node name="id" channel="inline" format="text/plain" model="toc_state"/>
     </node>
 -->
+
+    <node name="footer" channel="file" format="element/part" model="api-generator/wui/page/footer.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="footer"/>
+    </node>
 
 </node>

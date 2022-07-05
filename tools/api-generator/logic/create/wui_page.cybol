@@ -7,6 +7,8 @@
         <node name="whole" channel="inline" format="text/cybol-path" model=""/>
     </node>
 
+    <!-- Page structure -->
+
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
@@ -24,6 +26,8 @@
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
+
+    <!-- Page properties -->
 
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -43,12 +47,14 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
+    <!-- Assign title -->
+
     <node name="overwrite_page_title" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".wui.head.title"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".var.title"/>
     </node>
-    <node name="overwrite_page_content_heading" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.content.heading"/>
+    <node name="overwrite_page_header_heading" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.header.heading"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".var.title"/>
     </node>
 

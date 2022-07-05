@@ -1,9 +1,20 @@
 <node>
 
-    <node name="http-equiv" channel="inline" format="text/plain" model="">
+    <node name="charset" channel="inline" format="text/plain" model="">
         <node name="tag" channel="inline" format="text/plain" model="meta"/>
-        <node name="http-equiv" channel="inline" format="text/plain" model="content-type"/>
-        <node name="content" channel="inline" format="text/plain" model="text/html; charset=utf-8"/>
+        <node name="charset" channel="inline" format="text/plain" model="utf-8"/>
+    </node>
+
+    <node name="viewport" channel="inline" format="text/plain" model="">
+        <node name="tag" channel="inline" format="text/plain" model="meta"/>
+        <node name="name" channel="inline" format="text/plain" model="viewport"/>
+        <node name="content" channel="inline" format="text/plain" model="width=device-width, initial-scale=1"/>
+    </node>
+
+    <node name="date" channel="inline" format="text/plain" model="">
+        <node name="tag" channel="inline" format="text/plain" model="meta"/>
+        <node name="name" channel="inline" format="text/plain" model="date"/>
+        <node name="content" channel="inline" format="text/plain" model="2022-02-22"/>
     </node>
 
     <node name="author" channel="inline" format="text/plain" model="">
@@ -16,7 +27,19 @@
         <node name="tag" channel="inline" format="text/plain" model="link"/>
         <node name="rel" channel="inline" format="text/plain" model="stylesheet"/>
         <node name="type" channel="inline" format="text/plain" model="text/css"/>
-        <node name="href" channel="inline" format="text/plain" model="api.css"/>
+        <node name="href" channel="inline" format="text/plain" model="./api.css"/>
+    </node>
+
+    <node name="description" channel="inline" format="text/plain" model="">
+        <node name="tag" channel="inline" format="text/plain" model="meta"/>
+        <node name="name" channel="inline" format="text/plain" model="description"/>
+        <node name="content" channel="inline" format="text/plain" model="Cybernetics Oriented Language (CYBOL) Application Programming Interface (API) Specification"/>
+    </node>
+
+    <node name="keywords" channel="inline" format="text/plain" model="">
+        <node name="tag" channel="inline" format="text/plain" model="meta"/>
+        <node name="name" channel="inline" format="text/plain" model="keywords"/>
+        <node name="content" channel="inline" format="text/plain" model="Cybernetics Oriented Language, CYBOL, API, Specification, Documentation, Overview"/>
     </node>
 
     <node name="title" channel="inline" format="text/plain" model="">
