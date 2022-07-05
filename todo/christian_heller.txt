@@ -38,6 +38,13 @@ ____
 
         * Release CYBOP 0.23.0
 
+Build
+_____
+
+        * Correct formatting errors found by "ClangFormat"
+        * Change variable names reported by "CppCheck"
+        * Adapt incorrectly formatted comments reported by "Doxygen"
+
 OLD data
 ________
 

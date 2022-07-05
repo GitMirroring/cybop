@@ -21,6 +21,7 @@
 2022-07-05  Christian Heller  <christian.heller@cybop.org>
 
         * Add decimal power (power of 10) number deserialiser
+        * Remove complete directory "test" with unit tests, since cybol applications themselves, in directory "examples", are the tests
 
 2022-07-04  Christian Heller  <christian.heller@cybop.org>
 
