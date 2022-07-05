@@ -1,6 +1,6 @@
 <node>
 
-    <node name="file" channel="inline" format="text/plain" model="api.html"/>
+    <node name="file" channel="inline" format="text/plain" model="index.html"/>
     <node name="title" channel="inline" format="text/plain" model="CYBOL API Specification for Release CYBOP 0.22.0"/>
 
 </node>
