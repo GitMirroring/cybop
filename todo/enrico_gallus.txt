@@ -44,20 +44,17 @@ Ideas:
 Anwendung allgemein:
 - Die Anwendung im Arbeitsbereich-Menü (Desktop) besser nicht
   einsortieren unter "Dienstprogramme", sondern unter "Entwicklung".
+  --> Needs to be confirmed with next version
 - Im Desktop-Menü steht z. B. "Eclipse (Java IDE)". Vielleicht also die
   Beschreibung ändern in "CYBOLE (CYBOL IDE)" oder so etwas wie
   "CYBOLE (CYBOL File|Project Editor)". Ist ja kein klassischer "Text"-Editor.
+  --> Needs to be confirmed with next version
 - Von der Größe her sind 70 MB schon stattlich. Kann man sie evtl. durch
   Abwählen einiger Atom-Module/Plug-Ins verringern?
 
+
 XML-Modus:
-- die Knotenarbeit via Kontextmenü (Popup) funktioniert sehr gut
-- Item "Copy" im Kontextmenü evtl. umbenennen in "Duplicate"
-  (sonst denkt man an copy-paste und vermisst das "Paste")
-- Bearbeiten on Text geht auch gut (schön, dass auch die Enter-Taste
-  funktioniert und man nicht immer auf "OK" zu klicken braucht)
 - aktivierte Escape-Taste zum Beenden des Editier-Dialogs wäre schön
-- auch die vorbereitete Auswahl "inline" oder "file" klappt gut
 
 DataGrid (TreeTable):
 - multi-select mehrerer Zeilen (z. B. zum Löschen) wäre schön

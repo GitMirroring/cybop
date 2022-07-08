@@ -13,8 +13,8 @@ activate/enable
 calculate/absolute
 calculate/add
 calculate/divide
-calculate/minimum
 calculate/maximum
+calculate/minimum
 calculate/modulo
 calculate/multiply
 calculate/negate
@@ -49,10 +49,10 @@ command/find-command
 command/find-file
 command/grep
 command/help
+command/hostname
 command/id
 command/ifconfig
 command/ifup
-command/hostname
 command/kill
 command/list-directory-contents
 command/list-open-files
