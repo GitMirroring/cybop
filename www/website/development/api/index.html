@@ -30,39 +30,8 @@
                 overflow: hidden;
             }
 
-            /* BEGIN of new stuff */
+            .position-fixed {
 
-            ul {
-
-                list-style-type: none;
-            }
-
-            li a {
-
-                display: block;
-                color: #000;
-                padding: 8px 16px;
-                text-decoration: none;
-            }
-
-            li a.active {
-
-                background-color: #04AA6D;
-                color: white;
-            }
-
-            li a:hover:not(.active) {
-
-                background-color: #555;
-                color: white;
-            }
-
-            /* END of new stuff */
-
-            nav, section {
-
-                margin: 0;
-                padding: 0;
                 top: 0;
                 bottom: 0;
                 /*
@@ -78,6 +47,8 @@
 
             .nav-left {
 
+                margin: 0;
+                padding: 0;
                 left: 0;
                 width: 15%;
                 background-color: #f1f1f1;
@@ -86,12 +57,17 @@
 
             .section-center {
 
+                margin: 0;
+                padding: 0;
                 left: 15%;
                 width: 70%;
+                font-size: 12pt;
             }
 
             .nav-right {
 
+                margin: 0;
+                padding: 0;
                 left: 85%;
                 width: 15%;
                 background-color: #f1f1f1;
@@ -131,6 +107,35 @@
                 color: #C0C0FF;
             }
 
+            /* BEGIN of new stuff */
+
+            ul {
+
+                list-style-type: none;
+            }
+
+            li a {
+
+                display: block;
+                color: #000;
+                padding: 8px 16px;
+                text-decoration: none;
+            }
+
+            li a.active {
+
+                background-color: #04AA6D;
+                color: white;
+            }
+
+            li a:hover:not(.active) {
+
+                background-color: #555;
+                color: white;
+            }
+
+            /* END of new stuff */
+
             .topic_toc {
 
                 margin-top: 10px;
@@ -149,24 +154,6 @@
 
                 padding-left: 20px;
                 background-color: #E0E0E0;
-            }
-
-            header {
-
-                margin-left: 15%;
-                margin-right: 15%;
-                text-align: center;
-            }
-
-            section {
-
-                margin-top: 10px;
-                margin-bottom: 20px;
-                margin-left: 15%;
-                margin-right: 15%;
-                padding-left: 20px;
-                padding-right: 20px;
-                font-size: 12pt;
             }
 
             section h1 {
@@ -233,17 +220,10 @@
                 font-family: Monospace, Bitstream Vera Sans Mono, DejaVu Sans Mono, Liberation Mono, Nimbus Mono L, FreeMono, Fixedsys, Courier;
                 font-size: 10pt;
             }
-
-            footer {
-
-                margin-left: 15%;
-                margin-right: 15%;
-                text-align: left;
-            }
         </style>
     </head>
     <body>
-        <nav class="nav-left">
+        <nav class="position-fixed nav-left">
             <div class="topic_toc">
                 <a href="#logic">
                     logic
@@ -720,7 +700,7 @@
                 </div>
             </div>
         </nav>
-        <nav class="nav-right">
+        <nav class="position-fixed nav-right">
             <div class="topic_toc">
                 <a href="#state">
                     state
@@ -762,8 +742,10 @@
                 </div>
             </div>
         </nav>
-        <section>
-            <h1>CYBOL API Specification Version 0.22.0</h1>
+        <section class="position-fixed section-center">
+            <header>
+                <h1>CYBOL API Specification Version 0.22.0</h1>
+            </header>
             <div>
                 <a name="state">
                     <h1>
@@ -10845,22 +10827,23 @@
                     </div>
                 </div>
             </div>
+            <footer>
+                <hr/>
+                <h4>
+                    Contact
+                </h4>
+                <a href="mailto:cybop-developers@nongnu.org">
+                    cybop-developers@nongnu.org
+                </a>
+                <br/>
+                <a href="http://www.cybop.org/">
+                    http://www.cybop.org/
+                </a>
+                <br/>
+                <p>
+                    Copyright &copy; 2014-2022. CYBOP Developers. Last Update: 2022-07-07
+                </p>
+            </footer>
         </section>
-        <footer>
-            <h4>
-                Contact
-            </h4>
-            <a href="mailto:cybop-developers@nongnu.org">
-                cybop-developers@nongnu.org
-            </a>
-            <br/>
-            <a href="http://www.cybop.org/">
-                http://www.cybop.org/
-            </a>
-            <br/>
-            <p>
-                Copyright &copy; 2014-2022. CYBOP Developers. Last Update: 2022-07-07
-            </p>
-        </footer>
     </body>
 </html>

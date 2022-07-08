@@ -1,0 +1,29 @@
+
+Hints for Creating the API Specification Documentation
+======================================================
+
+Design Objective:
+- simple
+- slim
+- displayable in older webbrowsers
+- using html with some css only
+- avoiding usage of external libraries or frameworks like e.g. bootstrap
+
+Requirement:
+- have a permanently visible navbar
+- navbar and content should be scrollable independently
+- ideally split navbar for cybol logic and cybol states
+
+Reflexions:
+- classical html frames: deprecated for various disadvantages
+- standard relative positioning: no independent navbar scrolling
+- html iframe: would work, each link (url) would have to reference the target iframe
+- css position fixed: requires quite modern browser, but fulfills ALL requirements
+
+Solution:
+- simple html file
+- css contained within the html file
+- css property "position: fixed;"
+- set "top: 0; bottom: 0;"
+- adjust left (or right) and width as needed
+
