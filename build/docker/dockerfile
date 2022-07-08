@@ -1,14 +1,12 @@
 FROM debian:latest as build
 
 RUN apt-get -y update && apt-get upgrade -y && apt-get install -y \
-    g++ curl cmake freeglut3-dev clang-format doxygen graphviz lcov cppcheck
+    g++ curl cmake freeglut3-dev clang-format doxygen cppcheck
 
-#RUN cmake -DTARGET_GROUP=test .
 #RUN make clangformat
 #RUN make doc
 #RUN make cppcheck
 #RUN make
-#RUN make test
 #RUN make codecoverage
 #RUN make generatehtml
 

@@ -244,7 +244,7 @@ ___________________________________________
 
     make clean
 
-- Create the cyboi binary including any test cases:
+- Create the cyboi binary:
 
     make
 
@@ -335,31 +335,7 @@ https://stackoverflow.com/questions/35869564/cmake-on-windows
 4 Development
 =============
 
-4.1 Testing
-___________
-
-- Change into cybop's build directory e.g.:
-
-    cd /home/cybop/build
-
-- Run the tests by invoking either:
-
-    make test
-
-    or:
-
-    ctest
-
-    or for verbose output on stdout:
-
-    ctest --verbose
-
-- Optionally, run the codecoverage (needs gcov, genhtml):
-
-    make codecoverage
-    make generatehtml
-
-4.2 Formatting
+4.1 Formatting
 ______________
 
 - Change into cybop's build directory e.g.:
@@ -374,7 +350,7 @@ ______________
 
     make cppcheck
 
-4.3 Documentation
+4.2 Documentation
 _________________
 
 - Change into cybop's build directory e.g.:
@@ -385,7 +361,7 @@ _________________
 
     make doc
 
-4.4 Homepage
+4.3 Homepage
 ____________
 
 https://savannah.gnu.org/maintenance/HomepageUpload/
