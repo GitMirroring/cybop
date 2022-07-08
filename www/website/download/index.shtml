@@ -58,4 +58,14 @@
     </p>
 </section>
 
+<section class="container">
+    <h2>CYBOL Editor (CYBOLE)</h2>
+    <p>
+        An external open source project is developing a CYBOL editor called CYBOLE.
+    </p>
+    <a href="https://github.com/EnricoGallus/cybole">
+        <span class="badge rounded-pill p-3" style="font-size: 14pt;">GitHub Project Page</span>
+    </a>
+</section>
+
 <!--#include virtual="/bottom.shtml" -->
