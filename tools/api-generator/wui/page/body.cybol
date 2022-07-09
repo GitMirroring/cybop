@@ -30,4 +30,8 @@
         <node name="tag" channel="inline" format="text/plain" model="footer"/>
     </node>
 
+    <node name="javascript" channel="file" format="text/plain" model="api-generator/wui/file/api.js">
+        <node name="tag" channel="inline" format="text/plain" model="script"/>
+    </node>
+
 </node>
