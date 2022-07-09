@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-07-09  Christian Heller  <christian.heller@cybop.org>
+
+        * Modernise appearance of api specification documentation by adapting css
+        * Add javascript functions which are marking the currently clicked link with a css class named "active"
+        * Merge css and javascript source code into file "index.html"
+
 2022-07-08  Enrico Gallus <enrico.gallus@gmail.com>
 
         * Adding python script to build to create API data fully automated
