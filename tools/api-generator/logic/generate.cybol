@@ -4,7 +4,7 @@
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/cybol-path" model=".var.file"/>
+        <node name="device" channel="inline" format="text/cybol-path" model=".file"/>
     </node>
     <node name="generate_html_file" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>

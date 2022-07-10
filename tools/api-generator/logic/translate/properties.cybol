@@ -1,22 +1,18 @@
 <node>
 
-    <!-- Identification. -->
+    <!-- Identification -->
+
     <node name="get_property_name" channel="inline" format="access/get-name" model="">
         <node name="element" channel="inline" format="text/cybol-path" model="#property_name"/>
         <node name="part" channel="inline" format="text/cybol-path" model=".spec.(#topic_name).[#category_index].[#part_index].properties.[#property_index]"/>
     </node>
 
-    <!-- Loop reset. -->
-    <!-- It is NOT necessary, since there are NO children. -->
+    <!-- Model creation -->
 
-    <!-- Model creation. -->
-    <!-- There is NO toc entry for the properties. -->
-    <node name="create_wui_content_properties" channel="inline" format="text/cybol-path" model=".logic.create.wui_content_properties"/>
+    <node name="create_wui_section_properties" channel="inline" format="text/cybol-path" model=".logic.create.wui_section_properties"/>
 
-    <!-- Child translation. -->
-    <!-- It is NOT necessary, since there are NO children. -->
+    <!-- Loop check -->
 
-    <!-- Loop check. -->
     <node name="increment_index" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model="#property_index"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>

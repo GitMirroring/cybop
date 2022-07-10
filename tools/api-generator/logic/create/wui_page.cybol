@@ -32,7 +32,7 @@
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/plain" model="api-generator/wui/page/page_properties.cybol"/>
+        <node name="device" channel="inline" format="text/plain" model="api-generator/wui/page/properties.cybol"/>
     </node>
     <node name="initialise_page_properties" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -51,11 +51,11 @@
 
     <node name="overwrite_page_title" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".wui.head.title"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".var.title"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".title"/>
     </node>
     <node name="overwrite_page_header_heading" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.header.heading"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".var.title"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.section.header.heading"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".title"/>
     </node>
 
 </node>

@@ -1,24 +1,28 @@
 <node>
 
-    <node name="create_wui_content_properties" channel="inline" format="memorise/create" model="">
+    <!-- Creation -->
+
+    <node name="create_properties" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/cybol-path" model="#property_name"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="element" channel="inline" format="text/plain" model="part"/>
-        <node name="whole" channel="inline" format="text/cybol-path" model=".wui.body.content.(#topic_name).(#category_name).(#part_name).properties.grid"/>
+        <node name="whole" channel="inline" format="text/cybol-path" model=".wui.body.section.(#category_part_name).properties.grid"/>
     </node>
+
+    <!-- Initialisation -->
 
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/plain" model="api-generator/wui/content/properties/data.cybol"/>
+        <node name="device" channel="inline" format="text/plain" model="api-generator/wui/properties/data.cybol"/>
     </node>
-    <node name="initialise_wui_content_properties_part" channel="inline" format="communicate/receive" model="">
+    <node name="initialise_part" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".wui.body.content.(#topic_name).(#category_name).(#part_name).properties.grid.(#property_name)"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.body.section.(#category_part_name).properties.grid.(#property_name)"/>
     </node>
     <node name="close_file" channel="inline" format="dispatch/close" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -28,41 +32,43 @@
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
-        <node name="device" channel="inline" format="text/plain" model="api-generator/wui/content/properties/data_properties.cybol"/>
+        <node name="device" channel="inline" format="text/plain" model="api-generator/wui/properties/data_properties.cybol"/>
     </node>
-    <node name="initialise_wui_content_properties_properties" channel="inline" format="communicate/receive" model="">
+    <node name="initialise_properties" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="sender" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/property"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".wui.body.content.(#topic_name).(#category_name).(#part_name).properties.grid.(#property_name)"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.body.section.(#category_part_name).properties.grid.(#property_name)"/>
     </node>
     <node name="close_file" channel="inline" format="dispatch/close" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
+    <!-- Assignment -->
+
     <node name="overwrite_name" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.content.(#topic_name).(#category_name).(#part_name).properties.grid.(#property_name).name"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.(#category_part_name).properties.grid.(#property_name).name"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".spec.(#topic_name).(#category_name).(#part_name).properties.(#property_name):name"/>
     </node>
     <node name="overwrite_description" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.content.(#topic_name).(#category_name).(#part_name).properties.grid.(#property_name).description"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.(#category_part_name).properties.grid.(#property_name).description"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".spec.(#topic_name).(#category_name).(#part_name).properties.(#property_name):description"/>
     </node>
     <node name="serialise_required" channel="inline" format="represent/serialise" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.content.(#topic_name).(#category_name).(#part_name).properties.grid.(#property_name).required"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.(#category_part_name).properties.grid.(#property_name).required"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".spec.(#topic_name).(#category_name).(#part_name).properties.(#property_name):required"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
     </node>
     <node name="overwrite_format" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.content.(#topic_name).(#category_name).(#part_name).properties.grid.(#property_name).format"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.(#category_part_name).properties.grid.(#property_name).format"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".spec.(#topic_name).(#category_name).(#part_name).properties.(#property_name):format"/>
     </node>
     <node name="overwrite_model" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.content.(#topic_name).(#category_name).(#part_name).properties.grid.(#property_name).model"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.(#category_part_name).properties.grid.(#property_name).model"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".spec.(#topic_name).(#category_name).(#part_name).properties.(#property_name):model"/>
     </node>
 

@@ -26,8 +26,7 @@
     </node>
 
     <!-- Model creation. -->
-    <node name="create_wui_toc_category" channel="inline" format="text/cybol-path" model=".logic.create.wui_toc_category"/>
-    <node name="create_wui_content_category" channel="inline" format="text/cybol-path" model=".logic.create.wui_content_category"/>
+    <node name="create_wui_nav_category" channel="inline" format="text/cybol-path" model=".logic.create.wui_nav_category"/>
 
     <!-- Child translation. -->
     <node name="count_parts" channel="inline" format="access/count" model="">

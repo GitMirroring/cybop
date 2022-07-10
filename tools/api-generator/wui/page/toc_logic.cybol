@@ -1,7 +1,0 @@
-<node>
-
-    <node name="heading" channel="inline" format="text/plain" model="Logic (Operations)">
-        <node name="tag" channel="inline" format="text/plain" model="h1"/>
-    </node>
-
-</node>

@@ -153,7 +153,7 @@
                 padding: 5px;
             }
 
-            .part_example {
+            .example {
 
                 padding: 2px;
                 background-color: #aed6f2;
@@ -182,87 +182,44 @@
         <nav class="position-fixed nav-left">
             <h1>Logic Operations</h1>
             <h2>access</h2>
-            <a href="#count">
-                count
-            </a>
-            <a href="#get-channel">
-                get-channel
-            </a>
-            <div class="part_toc">
-                <a href="#get-encoding">
-                    get-encoding
-                </a>
-            </div>
-            <div class="part_toc">
-                <a href="#get-format">
-                    get-format
-                </a>
-            </div>
-            <div class="part_toc">
-                <a href="#get-index">
-                    get-index
-                </a>
-            </div>
-            <div class="part_toc">
-                <a href="#get-language">
-                    get-language
-                </a>
-            </div>
-            <div class="part_toc">
-                <a href="#get-name">
-                    get-name
-                </a>
-            </div>
-            <div class="part_toc">
-                <a href="#get-type">
-                    get-type
-                </a>
-            </div>
-            <div class="part_toc">
-                <a href="#indicate-empty">
-                    indicate-empty
-                </a>
-            </div>
-            <div class="part_toc">
-                <a href="#indicate-exists">
-                    indicate-exists
-                </a>
-            </div>
+            <a href="#count">count</a>
+            <a href="#get-channel">get-channel</a>
+            <a href="#get-encoding">get-encoding</a>
+            <a href="#get-format">get-format</a>
+            <a href="#get-index">get-index</a>
+            <a href="#get-language">get-language</a>
+            <a href="#get-name">get-name</a>
+            <a href="#get-type">get-type</a>
+            <a href="#indicate-empty">indicate-empty</a>
+            <a href="#indicate-exists">indicate-exists</a>
             <h2>calculate</h2>
-            <a href="#absolute">
-                absolute
-            </a>
-            <a href="#add">
-                add
-            </a>
-            <a href="#divide">
-                divide
-            </a>
-                <div class="part_toc">
-                    <a href="#modulo">
-                        modulo
-                    </a>
-                </div>
-                <div class="part_toc">
-                    <a href="#multiply">
-                        multiply
-                    </a>
-                </div>
-                <div class="part_toc">
-                    <a href="#negate">
-                        negate
-                    </a>
-                </div>
-                <div class="part_toc">
-                    <a href="#reduce (OBSOLETE)">
-                        reduce (OBSOLETE)
-                    </a>
-                </div>
-                <div class="part_toc">
-                    <a href="#subtract">
-                        subtract
-                    </a>
-                </div>
+            <a href="#absolute">absolute</a>
+            <a href="#add">add</a>
+            <a href="#divide">divide</a>
+            <div class="part_toc">
+                <a href="#modulo">
+                    modulo
+                </a>
+            </div>
+            <div class="part_toc">
+                <a href="#multiply">
+                    multiply
+                </a>
+            </div>
+            <div class="part_toc">
+                <a href="#negate">
+                    negate
+                </a>
+            </div>
+            <div class="part_toc">
+                <a href="#reduce (OBSOLETE)">
+                    reduce (OBSOLETE)
+                </a>
+            </div>
+            <div class="part_toc">
+                <a href="#subtract">
+                    subtract
+                </a>
             </div>
             <div class="category_toc">
                 <a href="#cast">
@@ -680,7 +637,7 @@
                 <h3>
                     Example
                 </h3>
-                <p class="part_example">
+                <p class="example">
 &#x3C;node name=&#x22;count&#x22; channel=&#x22;inline&#x22; format=&#x22;access/count&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;count&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.count&#x22;/&#x3E;
     &#x3C;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.addition_application&#x22;/&#x3E;
@@ -774,8 +731,8 @@
                         </td>
                     </tr>
                 </table>
-            </div>
-            <div>
+            </section>
+            <section>
                 <a name="get-channel">
                     <h2>
                         access/get-channel
@@ -790,7 +747,7 @@
                 <h3>
                     Example
                 </h3>
-                <p class="part_example">
+                <p class="example">
 &#x3C;node name=&#x22;get_details&#x22; channel=&#x22;inline&#x22; format=&#x22;access/get-channel&#x22; model=&#x22;&#x22;&#x3E;
 &#x3C;node name=&#x22;element&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.details&#x22;/&#x3E;
 &#x3C;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.node&#x22;/&#x3E;
@@ -850,7 +807,7 @@
                         </td>
                     </tr>
                 </table>
-            </div>
+            </section>
             <div>
                 <a name="get-encoding">
                     <h2>
@@ -877,7 +834,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;get_details&#x22; channel=&#x22;inline&#x22; format=&#x22;access/get-encoding&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;element&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.details&#x22;/&#x3E;
     &#x3C;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.node&#x22;/&#x3E;
@@ -967,7 +924,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;get_details&#x22; channel=&#x22;inline&#x22; format=&#x22;access/get-format&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;element&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.details&#x22;/&#x3E;
     &#x3C;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.node&#x22;/&#x3E;
@@ -1057,7 +1014,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
                     </p>
                 </div>
                 <div>
@@ -1159,7 +1116,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;get_details&#x22; channel=&#x22;inline&#x22; format=&#x22;access/get-language&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;element&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.details&#x22;/&#x3E;
     &#x3C;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.node&#x22;/&#x3E;
@@ -1250,7 +1207,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;copy_name_of_part_1_into_model_of_part_2&#x22; channel=&#x22;inline&#x22; format=&#x22;access/get-name&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;element&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.part_2&#x22;/&#x3E;
     &#x3C;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.part_1&#x22;/&#x3E;
@@ -1340,7 +1297,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;copy_type_of_part_1_into_model_of_part_2&#x22; channel=&#x22;inline&#x22; format=&#x22;access/get-type&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;element&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.part_2&#x22;/&#x3E;
     &#x3C;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.part_1&#x22;/&#x3E;
@@ -1430,7 +1387,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;test_empty_number_empty&#x22; channel=&#x22;inline&#x22; format=&#x22;access/indicate-empty&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.flag&#x22;/&#x3E;
     &#x3C;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.empty_number&#x22;/&#x3E;
@@ -1521,7 +1478,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;test_empty_number_exists&#x22; channel=&#x22;inline&#x22; format=&#x22;access/indicate-exists&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.flag&#x22;/&#x3E;
     &#x3C;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.empty_number&#x22;/&#x3E;
@@ -1619,7 +1576,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;absolute&#x22; channel=&#x22;inline&#x22; format=&#x22;calculate/absolute&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
     &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1,2,3&#x22;/&#x3E;
@@ -1726,7 +1683,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;add&#x22; channel=&#x22;inline&#x22; format=&#x22;calculate/add&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
     &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1,2,&#x22;/&#x3E;
@@ -1833,7 +1790,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;divide&#x22; channel=&#x22;inline&#x22; format=&#x22;calculate/divide&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
     &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1,2,3&#x22;/&#x3E;
@@ -1940,7 +1897,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;modulo&#x22; channel=&#x22;inline&#x22; format=&#x22;calculate/modulo&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
     &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;2&#x22;/&#x3E;
@@ -2047,7 +2004,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;multiply&#x22; channel=&#x22;inline&#x22; format=&#x22;calculate/multiply&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
     &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1,2,3&#x22;/&#x3E;
@@ -2154,7 +2111,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;negate&#x22; channel=&#x22;inline&#x22; format=&#x22;calculate/negate&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
     &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1,2,3&#x22;/&#x3E;
@@ -2261,7 +2218,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
                     </p>
                 </div>
                 <div>
@@ -2315,7 +2272,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;subtract&#x22; channel=&#x22;inline&#x22; format=&#x22;calculate/subtract&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
     &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1,2,3&#x22;/&#x3E;
@@ -2429,7 +2386,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;cast_byte&#x22; channel=&#x22;inline&#x22; format=&#x22;cast/byte&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.part_2&#x22;/&#x3E;
     &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;number/byte&#x22; model=&#x22;123&#x22;/&#x3E;
@@ -2536,7 +2493,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;cast_character&#x22; channel=&#x22;inline&#x22; format=&#x22;cast/character&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.part_2&#x22;/&#x3E;
     &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.part_1&#x22;/&#x3E;
@@ -2643,7 +2600,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;cast_double&#x22; channel=&#x22;inline&#x22; format=&#x22;cast/double&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.part_2&#x22;/&#x3E;
     &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.part_1&#x22;/&#x3E;
@@ -2750,7 +2707,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;cast_double&#x22; channel=&#x22;inline&#x22; format=&#x22;cast/integer&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.part_2&#x22;/&#x3E;
     &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;number/byte&#x22; model=&#x22;12&#x22;/&#x3E;
@@ -2864,7 +2821,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;initialise&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/receive&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
     &#x3C;node name=&#x22;encoding&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/encoding&#x22; model=&#x22;utf-8&#x22;/&#x3E;
@@ -3086,7 +3043,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;print_adc&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
     &#x3C;node name=&#x22;encoding&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/encoding&#x22; model=&#x22;utf-8&#x22;/&#x3E;
@@ -3372,7 +3329,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;compare_equal&#x22; channel=&#x22;inline&#x22; format=&#x22;compare/equal&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.model.result&#x22;/&#x3E;
     &#x3C;node name=&#x22;left&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.model.left&#x22;/&#x3E;
@@ -3513,7 +3470,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;compare_loop_count&#x22; channel=&#x22;inline&#x22; format=&#x22;compare/greater&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.counter.break&#x22;/&#x3E;
     &#x3C;node name=&#x22;left&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.counter.count&#x22;/&#x3E;
@@ -3654,7 +3611,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;compare_loop_count&#x22; channel=&#x22;inline&#x22; format=&#x22;compare/greater-or-equal&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.domain.break&#x22;/&#x3E;
     &#x3C;node name=&#x22;left&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.domain.count&#x22;/&#x3E;
@@ -3795,7 +3752,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;compare_smaller&#x22; channel=&#x22;inline&#x22; format=&#x22;compare/smaller&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#break&#x22;/&#x3E;
     &#x3C;node name=&#x22;left&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#index&#x22;/&#x3E;
@@ -3936,7 +3893,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;compare_smaller&#x22; channel=&#x22;inline&#x22; format=&#x22;compare/smaller-or-equal&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#break&#x22;/&#x3E;
     &#x3C;node name=&#x22;left&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#index&#x22;/&#x3E;
@@ -4077,7 +4034,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;compare_unequal&#x22; channel=&#x22;inline&#x22; format=&#x22;compare/unequal&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.model.result&#x22;/&#x3E;
     &#x3C;node name=&#x22;left&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.model.left&#x22;/&#x3E;
@@ -4225,7 +4182,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
                     </p>
                 </div>
                 <div>
@@ -4359,7 +4316,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
                     </p>
                 </div>
                 <div>
@@ -4493,7 +4450,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
                     </p>
                 </div>
                 <div>
@@ -4627,7 +4584,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
                     </p>
                 </div>
                 <div>
@@ -4768,7 +4725,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
                     </p>
                 </div>
                 <div>
@@ -4886,7 +4843,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
                     </p>
                 </div>
                 <div>
@@ -5011,7 +4968,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;branch_voltage&#x22; channel=&#x22;inline&#x22; format=&#x22;flow/branch&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;criterion&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.settings.voltage_criterion&#x22;/&#x3E;
     &#x3C;node name=&#x22;true&#x22; channel=&#x22;file&#x22; format=&#x22;element/part&#x22; model=&#x22;indoor_climate/add_voltage.cybol&#x22;/&#x3E;
@@ -5119,7 +5076,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;collect_voltages&#x22; channel=&#x22;inline&#x22; format=&#x22;flow/loop&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;break&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.settings.adc_break&#x22;/&#x3E;
     &#x3C;node name=&#x22;model&#x22; channel=&#x22;file&#x22; format=&#x22;element/part&#x22; model=&#x22;adc/collect_voltages.cybol&#x22;/&#x3E;
@@ -5209,7 +5166,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;start_playerinput&#x22; channel=&#x22;inline&#x22; format=&#x22;flow/sequence&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;model&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.setrandom&#x22;/&#x3E;
     &#x3C;/node&#x3E;
@@ -5289,7 +5246,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;exit_application&#x22; channel=&#x22;inline&#x22; format=&#x22;live/exit&#x22; model=&#x22;&#x22;/&#x3E;
                     </p>
                 </div>
@@ -5360,7 +5317,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;interrupt_x_window_system&#x22; channel=&#x22;inline&#x22; format=&#x22;live/interrupt&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;display&#x22;/&#x3E;
     &#x3C;/node&#x3E;
@@ -5433,7 +5390,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;set_handler_commands_reading&#x22; channel=&#x22;inline&#x22; format=&#x22;live/sense&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
     &#x3C;node name=&#x22;handler&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.handler&#x22;/&#x3E;
@@ -5530,7 +5487,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;operation&#x22; channel=&#x22;inline&#x22; format=&#x22;logify/and&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;output&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.result&#x22;/&#x3E;
     &#x3C;node name=&#x22;input&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.operand&#x22;/&#x3E;
@@ -5637,7 +5594,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
     &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
     &#x3C;node name=&#x22;operation&#x22; channel=&#x22;inline&#x22; format=&#x22;logify/nand&#x22; model=&#x22;&#x22;&#x3E;
@@ -5746,7 +5703,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;number/byte&#x22; model=&#x22;25&#x22;/&#x3E;
     &#x3C;node name=&#x22;operation&#x22; channel=&#x22;inline&#x22; format=&#x22;logify/neg&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;output&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.result&#x22;/&#x3E;
@@ -5854,7 +5811,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
     &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
     &#x3C;node name=&#x22;operation&#x22; channel=&#x22;inline&#x22; format=&#x22;logify/nor&#x22; model=&#x22;&#x22;&#x3E;
@@ -5963,7 +5920,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
     &#x3C;node name=&#x22;operation&#x22; channel=&#x22;inline&#x22; format=&#x22;logify/not&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;output&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.result&#x22;/&#x3E;
@@ -6071,7 +6028,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
     &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
     &#x3C;node name=&#x22;operation&#x22; channel=&#x22;inline&#x22; format=&#x22;logify/or&#x22; model=&#x22;&#x22;&#x3E;
@@ -6180,7 +6137,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
     &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
     &#x3C;node name=&#x22;operation&#x22; channel=&#x22;inline&#x22; format=&#x22;logify/xnor&#x22; model=&#x22;&#x22;&#x3E;
@@ -6289,7 +6246,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
     &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
     &#x3C;node name=&#x22;operation&#x22; channel=&#x22;inline&#x22; format=&#x22;logify/xor&#x22; model=&#x22;&#x22;&#x3E;
@@ -6405,7 +6362,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;shutdown_serial_port&#x22; channel=&#x22;inline&#x22; format=&#x22;maintain/shutdown&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.settings.device&#x22;/&#x3E;
     &#x3C;/node&#x3E;
@@ -6478,7 +6435,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;startup_terminal&#x22; channel=&#x22;inline&#x22; format=&#x22;maintain/startup&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
     &#x3C;/node&#x3E;
@@ -6697,7 +6654,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
                     </p>
                 </div>
                 <div>
@@ -6831,7 +6788,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
                     </p>
                 </div>
                 <div>
@@ -6965,7 +6922,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
                     </p>
                 </div>
                 <div>
@@ -7099,7 +7056,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
                     </p>
                 </div>
                 <div>
@@ -7233,7 +7190,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
                     </p>
                 </div>
                 <div>
@@ -7367,7 +7324,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
                     </p>
                 </div>
                 <div>
@@ -7501,7 +7458,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
                     </p>
                 </div>
                 <div>
@@ -7635,7 +7592,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
                     </p>
                 </div>
                 <div>
@@ -7776,7 +7733,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;append_command&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/append&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.safetmp.path&#x22;/&#x3E;
     &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.safetmp.operation_type&#x22;/&#x3E;
@@ -7963,7 +7920,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;reset_buffer&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/empty&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.settings.voltage_buffer&#x22;/&#x3E;
     &#x3C;node name=&#x22;model&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
@@ -8102,7 +8059,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
                     </p>
                 </div>
                 <div>
@@ -8284,7 +8241,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
                     </p>
                 </div>
                 <div>
@@ -8466,7 +8423,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;reset_count&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/overwrite&#x22; model=&#x22;&#x22;&#x3E;
 
     &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.settings.voltage_count&#x22;/&#x3E;
@@ -8655,7 +8612,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;remove&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/remove&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.summand&#x22;/&#x3E;
     &#x3C;/node&#x3E;
@@ -8799,7 +8756,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;get_random_number_1&#x22; channel=&#x22;inline&#x22; format=&#x22;randomise/retrieve&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.var.field_1&#x22;/&#x3E;
     &#x3C;node name=&#x22;minimum&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;2&#x22;/&#x3E;
@@ -8923,7 +8880,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;set_seed&#x22; channel=&#x22;inline&#x22; format=&#x22;randomise/sow&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;seed&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.var.seed&#x22;/&#x3E;
     &#x3C;/node&#x3E;
@@ -9003,7 +8960,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;deserialise_operand&#x22; channel=&#x22;inline&#x22; format=&#x22;represent/deserialise&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.summand&#x22;/&#x3E;
     &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.text&#x22;/&#x3E;
@@ -9127,7 +9084,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;serialise_operand&#x22; channel=&#x22;inline&#x22; format=&#x22;represent/serialise&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.summand&#x22;/&#x3E;
     &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.text&#x22;/&#x3E;
@@ -9258,7 +9215,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;execute_shell_script&#x22; channel=&#x22;inline&#x22; format=&#x22;run/run&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;programme&#x22; channel=&#x22;file&#x22; format=&#x22;text/plain&#x22; model=&#x22;password_generator/sleep_timer.sh&#x22;/&#x3E;
     &#x3C;/node&#x3E;
@@ -9331,7 +9288,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;sleep&#x22; channel=&#x22;inline&#x22; format=&#x22;run/sleep-nano&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;duration&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.settings.voltage_sleep&#x22;/&#x3E;
     &#x3C;/node&#x3E;
@@ -9404,7 +9361,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;sleep&#x22; channel=&#x22;inline&#x22; format=&#x22;run/sleep-second&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;duration&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.settings.voltage_sleep&#x22;/&#x3E;
     &#x3C;/node&#x3E;
@@ -9484,7 +9441,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;sort&#x22; channel=&#x22;inline&#x22; format=&#x22;sort/bubble&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;output&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
     &#x3C;node name=&#x22;input&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.unsorted&#x22;/&#x3E;
@@ -9574,7 +9531,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;sort&#x22; channel=&#x22;inline&#x22; format=&#x22;sort/quick&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;output&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
     &#x3C;node name=&#x22;input&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.unsorted&#x22;/&#x3E;
@@ -9639,7 +9596,7 @@
                 </div>
             </div>
         </div>
-        <div>
+        <section>
             <a name="time">
                 <h3>
                     time
@@ -9671,7 +9628,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;retrieveCurrentTime&#x22; channel=&#x22;inline&#x22; format=&#x22;time/current&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.model&#x22;/&#x3E;
     &#x3C;/node&#x3E;
@@ -9734,7 +9691,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;arrow-up&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.logic.move_arrow_up&#x22;/&#x3E;
     &#x3C;node name=&#x22;arrow-down&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.logic.move_arrow_down&#x22;/&#x3E;
     &#x3C;node name=&#x22;arrow-left&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.logic.move_arrow_left&#x22;/&#x3E;
@@ -9895,7 +9852,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;exit_button&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;Exit&#x22;&#x3E;
     &#x3C;node name=&#x22;cell&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;east&#x22;/&#x3E;
     &#x3C;node name=&#x22;left-release&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.logic.exit_programme&#x22;/&#x3E;
@@ -10147,7 +10104,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;window&#x22; channel=&#x22;file&#x22; format=&#x22;element/part&#x22; model=&#x22;gui/window.cybol&#x22;&#x3E;
     &#x3C;node name=&#x22;position&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;0,0&#x22;/&#x3E;
     &#x3C;node name=&#x22;size&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;800,600&#x22;/&#x3E;
@@ -10359,7 +10316,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;window&#x22; channel=&#x22;file&#x22; format=&#x22;element/part&#x22; model=&#x22;tui/window.cybol&#x22;&#x3E;
     &#x3C;node name=&#x22;position&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;0,0&#x22;/&#x3E;
     &#x3C;node name=&#x22;size&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;80,15&#x22;/&#x3E;
@@ -10516,7 +10473,7 @@
                     </table>
                 </div>
             </div>
-            <div>
+            <section>
                 <a name="web">
                     <h4>
                         wui
@@ -10541,7 +10498,7 @@
                     <h5>
                         Example
                     </h5>
-                    <p class="part_example">
+                    <p class="example">
     &#x3C;node name=&#x22;heading&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;Web User Interface (WUI) Example&#x22;&#x3E;
     &#x3C;node name=&#x22;tag&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;h1&#x22;/&#x3E;
     &#x3C;/node&#x3E;

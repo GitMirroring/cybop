@@ -19,10 +19,6 @@
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
-    <!-- Model creation. -->
-    <node name="create_wui_toc_topic" channel="inline" format="text/cybol-path" model=".logic.create.wui_toc_topic"/>
-    <node name="create_wui_content_topic" channel="inline" format="text/cybol-path" model=".logic.create.wui_content_topic"/>
-
     <!-- Child translation. -->
     <node name="count_categories" channel="inline" format="access/count" model="">
         <node name="count" channel="inline" format="text/cybol-path" model="#category_count"/>

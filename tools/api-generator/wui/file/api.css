@@ -78,8 +78,8 @@ nav a {
 }
 
 /*
-    * The active class marks the menu item of the page which is currently displayed.
-    */
+ * The active class marks the menu item of the page which is currently displayed.
+ */
 nav a.active {
 
     background-color: #5287ce;
@@ -143,7 +143,7 @@ td {
     padding: 5px;
 }
 
-.part_example {
+.example {
 
     padding: 2px;
     background-color: #aed6f2;

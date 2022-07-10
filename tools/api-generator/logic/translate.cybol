@@ -2,6 +2,15 @@
 
     <node name="spec" channel="file" format="element/part" model="api-generator/logic/translate/spec.cybol">
 
+        <!--
+            The combined category-part name.
+            CAUTION! A combination of category and name is used AS NAME,
+            so that it is unique within the whole api file.
+            That is because some cybol operations may have an equal name,
+            but belong to different categories.
+        -->
+        <node name="category_part_name" channel="inline" format="text/plain" model=""/>
+
         <!-- The element. -->
         <node name="topic_name" channel="inline" format="text/plain" model=""/>
 

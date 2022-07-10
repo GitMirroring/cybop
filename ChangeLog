@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-07-10  Christian Heller  <christian.heller@cybop.org>
+
+        * Adapt api generator to new website layout
+
 2022-07-09  Christian Heller  <christian.heller@cybop.org>
 
         * Modernise appearance of api specification documentation by adapting css

@@ -1,9 +1,13 @@
 <node>
 
+    <!-- Creation -->
+
     <node name="create_id" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="id"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>
+
+    <!-- Initialisation -->
 
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -23,7 +27,7 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
-    <!-- Write knowledge tree into file. -->
+    <!-- Test (knowledge tree) -->
 
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -43,19 +47,27 @@
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
     </node>
 
+    <!-- Opening (terminal) -->
+
     <node name="open_stdout" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="device" channel="inline" format="text/plain" model="standard-output"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
     </node>
 
+    <!-- Processing -->
+
     <node name="translate_spec_to_wui" channel="inline" format="text/cybol-path" model=".logic.translate.spec"/>
     <node name="generate_html_file" channel="inline" format="text/cybol-path" model=".logic.generate"/>
+
+    <!-- Closing (terminal) -->
 
     <node name="close_stdout" channel="inline" format="dispatch/close" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".stdout"/>
     </node>
+
+    <!-- Shutdown -->
 
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
 

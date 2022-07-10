@@ -1,12 +1,33 @@
 <node>
 
-    <!-- Identification. -->
+    <!-- Identification -->
+
     <node name="get_part_name" channel="inline" format="access/get-name" model="">
         <node name="element" channel="inline" format="text/cybol-path" model="#part_name"/>
         <node name="part" channel="inline" format="text/cybol-path" model=".spec.(#topic_name).[#category_index].[#part_index]"/>
     </node>
 
-    <!-- Loop reset. -->
+    <!--
+        Assembling of combined category-part name
+
+        CAUTION! Use "overwrite" at first, so that the old value gets overwritten, and "append" at second.
+    -->
+
+    <node name="overwrite_category_name" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#category_part_name"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#category_name"/>
+    </node>
+    <node name="append_separator" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#category_part_name"/>
+        <node name="source" channel="inline" format="text/plain" model="/"/>
+    </node>
+    <node name="append_part_name" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#category_part_name"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#part_name"/>
+    </node>
+
+    <!-- Loop reset -->
+
     <!--
         CAUTION! The count has to be reset even though it gets calculated below.
         The reason is that calculation might fail for non-existing children,
@@ -25,9 +46,10 @@
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
-    <!-- Model creation. -->
-    <node name="create_wui_toc_part" channel="inline" format="text/cybol-path" model=".logic.create.wui_toc_part"/>
-    <node name="create_wui_content_part" channel="inline" format="text/cybol-path" model=".logic.create.wui_content_part"/>
+    <!-- Model creation -->
+
+    <node name="create_wui_nav_part" channel="inline" format="text/cybol-path" model=".logic.create.wui_nav_part"/>
+    <node name="create_wui_section_part" channel="inline" format="text/cybol-path" model=".logic.create.wui_section_part"/>
 
     <!-- Child translation. -->
     <node name="count_properties" channel="inline" format="access/count" model="">
@@ -46,7 +68,8 @@
         <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.properties"/>
     </node>
 
-    <!-- Loop check. -->
+    <!-- Loop check -->
+
     <node name="increment_index" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model="#part_index"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>

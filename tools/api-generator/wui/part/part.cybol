@@ -1,0 +1,11 @@
+<node>
+
+    <node name="anchor" channel="file" format="element/part" model="api-generator/wui/part/anchor.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="a"/>
+        <node name="name" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="description" channel="file" format="element/part" model="api-generator/wui/part/description.cybol"/>
+    <node name="example" channel="file" format="element/part" model="api-generator/wui/part/example.cybol"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/wui/part/properties.cybol"/>
+
+</node>
