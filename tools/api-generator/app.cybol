@@ -2,7 +2,7 @@
 
     <node name="stdout" channel="inline" format="number/integer" model="-1"/>
     <node name="title" channel="inline" format="text/plain" model="CYBOL API Specification Version 0.22.0"/>
-    <node name="file" channel="inline" format="text/plain" model="index.html"/>
+    <node name="file" channel="inline" format="text/plain" model="api-generator/index.html"/>
 
     <node name="spec" channel="file" format="element/part" model="api-generator/spec.cybol"/>
     <node name="logic" channel="file" format="element/part" model="api-generator/logic.cybol"/>

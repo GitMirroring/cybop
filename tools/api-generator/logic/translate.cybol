@@ -2,15 +2,6 @@
 
     <node name="spec" channel="file" format="element/part" model="api-generator/logic/translate/spec.cybol">
 
-        <!--
-            The combined category-part name.
-            CAUTION! A combination of category and name is used AS NAME,
-            so that it is unique within the whole api file.
-            That is because some cybol operations may have an equal name,
-            but belong to different categories.
-        -->
-        <node name="category_part_name" channel="inline" format="text/plain" model=""/>
-
         <!-- The element. -->
         <node name="topic_name" channel="inline" format="text/plain" model=""/>
 
@@ -35,11 +26,28 @@
         <!-- The element. -->
         <node name="property_name" channel="inline" format="text/plain" model=""/>
 
+        <!--
+            The combined category-part name and link.
+            CAUTION! A combination of category and name is used AS LINK,
+            so that it is unique within the whole api file.
+            That is because some cybol operations may have an equal name,
+            but belong to different categories.
+            Since a SLASH gets interpreted as path separator within LINKS (anchors),
+            it CANNOT be used as character within the NAME. Therefore, a MINUS sign
+            is used as separator instead within the link (anchor).
+            But since the name with slash is needed as well for the heading,
+            DIFFERENT variables are declared here.
+        -->
+        <node name="category_part_mime" channel="inline" format="text/plain" model=""/>
+        <node name="category_part_name" channel="inline" format="text/plain" model=""/>
+        <node name="category_part_href" channel="inline" format="text/plain" model=""/>
+
     </node>
 
     <node name="topic" channel="file" format="element/part" model="api-generator/logic/translate/topic.cybol"/>
     <node name="category" channel="file" format="element/part" model="api-generator/logic/translate/category.cybol"/>
     <node name="part" channel="file" format="element/part" model="api-generator/logic/translate/part.cybol"/>
     <node name="properties" channel="file" format="element/part" model="api-generator/logic/translate/properties.cybol"/>
+    <node name="mime" channel="file" format="element/part" model="api-generator/logic/translate/mime.cybol"/>
 
 </node>

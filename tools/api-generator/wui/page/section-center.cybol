@@ -4,7 +4,7 @@
         <node name="tag" channel="inline" format="text/plain" model="header"/>
     </node>
 
-    <node name="section" channel="inline" format="element/part" model="">
+    <node name="content" channel="inline" format="element/part" model="">
         <node name="tag" channel="inline" format="text/plain" model="section"/>
     </node>
 

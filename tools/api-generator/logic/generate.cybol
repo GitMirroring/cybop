@@ -1,6 +1,7 @@
 <node>
 
-    <!-- Write html into file. -->
+    <!-- Write website in html format into file -->
+
     <node name="open_file" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
@@ -11,8 +12,11 @@
         <node name="receiver" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/html"/>
-        <!-- The beautification with indentation and newline is optional. -->
-        <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
+        <!--
+            CAUTION! Do NOT set beautification flag to true since otherwise,
+            the first line of code examples will be indented, which is not wanted.
+        -->
+        <node name="indentation" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".wui"/>
     </node>

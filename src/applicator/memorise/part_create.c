@@ -66,24 +66,34 @@ void apply_create_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         // The part (model or property).
         void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+        //
         // Allocate temporary type item.
+        //
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
+        //
         // CAUTION! Initialise integer items with a size of ONE,
         // in order to avoid later reallocation when overwriting
         // the element and to thus increase efficiency.
+        //
         allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         // Deserialise format type into cyboi runtime type.
         deserialise_cybol_type(t, p4);
+        //
         // Get type item data.
+        //
         // CAUTION! Retrieve data ONLY AFTER having called desired functions!
         // Inside the structure, arrays may have been reallocated,
         // with elements pointing to different memory areas now.
+        //
         copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+        //
         // Allocate part (model or property).
+        //
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
+        //
         allocate_part((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, td);
         // Fill part (model or property).
         modify_part(p, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) NAME_PART_STATE_CYBOI_NAME);
@@ -95,29 +105,39 @@ void apply_create_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+            //
             // A whole part exists.
+            //
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply create part. Add part to whole part.");
 
+            //
             // Append element (handed over as array reference) to whole model (being a part itself).
+            //
             // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
             // This is necessary in order to activate rubbish (garbage) collection.
+            //
             modify_part(p0, (void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT, p5);
 
         } else {
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply create part. Add part to knowledge memory root part.");
 
+            //
             // The whole part is null.
             //
             // CAUTION! The new element allocated above HAS TO BE added to the
             // knowledge memory tree, so that it can be deallocated properly at
             // system shutdown and is not lost somewhere in Random Access Memory (RAM).
             // Therefore, if the whole part is null, the knowledge memory is used instead.
+            //
 
+            //
             // Append element (handed over as array reference) to knowledge memory root model (being a part itself).
+            //
             // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
             // This is necessary in order to activate rubbish (garbage) collection.
+            //
             modify_part(*k, (void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT, p5);
         }
 

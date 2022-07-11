@@ -11,8 +11,6 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-        * Beautify cybol api website
-        * Add logic toc on the left and state toc on the right of api website
         * Update cybol api specification with state and logic
         * Add state structures "http_request" and "gui_action" (or "gui_event" ??) to api documentation
 

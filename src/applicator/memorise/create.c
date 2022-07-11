@@ -120,11 +120,13 @@ void apply_create(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The default values.
     int whole_part_item_index = *MODEL_PART_STATE_CYBOI_NAME;
 
+    //
     // Set destination part item index depending on
     // the destination properties flag that was given as parametre.
     //
     // CAUTION! The function of directory "applicator/modify/"
     // is reused here, in order to avoid redundant source code.
+    //
     apply_modify_index((void*) &whole_part_item_index, wpmd);
 
     apply_create_part(w, p2, nmd, nmc, fmd, (void*) &whole_part_item_index);

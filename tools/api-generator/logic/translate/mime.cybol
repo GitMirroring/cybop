@@ -1,0 +1,57 @@
+<node>
+
+    <!-- Assembling of combined category-part names -->
+
+    <!--
+        CAUTION! Use "overwrite" at first, so that the old value gets overwritten, and "append" afterwards.
+    -->
+    <node name="overwrite_mime_category" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#category_part_mime"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#category_name"/>
+    </node>
+    <node name="append_mime_separator" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#category_part_mime"/>
+        <node name="source" channel="inline" format="text/plain" model="/"/>
+    </node>
+    <node name="append_mime_part" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#category_part_mime"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#part_name"/>
+    </node>
+
+    <!--
+        CAUTION! Use "overwrite" at first, so that the old value gets overwritten, and "append" afterwards.
+    -->
+    <node name="overwrite_name_category" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#category_part_name"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#category_name"/>
+    </node>
+    <node name="append_name_separator" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#category_part_name"/>
+        <node name="source" channel="inline" format="text/plain" model="-"/>
+    </node>
+    <node name="append_name_part" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#category_part_name"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#part_name"/>
+    </node>
+
+    <!--
+        CAUTION! Use "overwrite" at first, so that the old value gets overwritten, and "append" afterwards.
+    -->
+    <node name="overwrite_href_prefix" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#category_part_href"/>
+        <node name="source" channel="inline" format="text/plain" model="#"/>
+    </node>
+    <node name="append_href_category" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#category_part_href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#category_name"/>
+    </node>
+    <node name="append_href_separator" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#category_part_href"/>
+        <node name="source" channel="inline" format="text/plain" model="-"/>
+    </node>
+    <node name="append_href_part" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#category_part_href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#part_name"/>
+    </node>
+
+</node>

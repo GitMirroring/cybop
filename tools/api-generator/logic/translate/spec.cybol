@@ -1,26 +1,24 @@
 <node>
 
-    <!-- page -->
+    <!-- Creation -->
 
-    <node name="create_wui_page" channel="inline" format="text/cybol-path" model=".logic.create.wui_page"/>
+    <node name="create_page" channel="inline" format="text/cybol-path" model=".logic.create.page"/>
 
-    <!-- logic -->
+    <!-- Translation -->
 
-    <node name="assign_logic_name" channel="inline" format="modify/overwrite" model="">
+    <node name="assign_logic" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model="#topic_name"/>
         <node name="source" channel="inline" format="text/plain" model="logic"/>
     </node>
     <node name="translate_logic" channel="inline" format="text/cybol-path" model=".logic.translate.topic"/>
 
-    <!-- state -->
-
-    <node name="assign_state_name" channel="inline" format="modify/overwrite" model="">
+    <node name="assign_state" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model="#topic_name"/>
         <node name="source" channel="inline" format="text/plain" model="state"/>
     </node>
     <node name="translate_state" channel="inline" format="text/cybol-path" model=".logic.translate.topic"/>
 
-    <!-- feedback -->
+    <!-- Feedback -->
 
     <node name="inform_user" channel="inline" format="text/cybol-path" model=".logic.show_success"/>
 

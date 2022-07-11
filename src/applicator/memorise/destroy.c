@@ -66,11 +66,14 @@ void apply_destroy(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get part type item data.
     copy_array_forward((void*) &ptd, pt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    //
     // Deallocate part.
+    //
     // CAUTION! The reference counters of those parts referenced by this part
     // get decremented and, if zero, the (child) parts deallocated automatically inside.
     // Calling a special "destructor" here is therefore NOT necessary
     // (as opposed to the "creator" called by the "apply_create" function).
+    //
     deallocate_part((void*) &p);
 }
 

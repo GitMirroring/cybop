@@ -112,7 +112,6 @@
     <node name="create_gross" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="gross"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="element" channel="inline" format="text/plain" model="part"/>
     </node>
 
     <node name="initialise_gross" channel="inline" format="modify/overwrite" model="">

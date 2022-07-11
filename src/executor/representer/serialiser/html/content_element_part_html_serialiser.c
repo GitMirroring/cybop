@@ -31,7 +31,6 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/state/wui/tag_wui_state_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/character_reference/character_reference_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/begin_tag_html_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/break_html_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/document_type_html_serialiser.c"

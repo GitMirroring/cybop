@@ -42,7 +42,7 @@
  * Only that item of the destination part gets modified
  * whose index is given by the destination part item index parametre.
  *
- * The destination part item may be one of:
+ * The destination part item index may be one of:
  * - NAME_PART_STATE_CYBOI_NAME
  * - FORMAT_PART_STATE_CYBOI_NAME
  * - TYPE_PART_STATE_CYBOI_NAME
