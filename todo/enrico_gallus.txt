@@ -11,56 +11,49 @@
 # @author Enrico Gallus <enrico.gallus@googlemail.com>
 #
 
-General Working Areas
-_____________________
-
-- cmake (evtl. in Zukunft Bibliotheken/Plug-Ins, falls sinnvoll)
-- Paketierung als: deb rpm exe
-- Testen
-- CI/CD (zukünftig evtl. Online-Update, falls sinnvoll)
-
-- ClangFormat
-- CppCheck
-- Doxygen
-- python script for adapting copyright year
-
 CYBOLE (IDE)
 ____________
 
-Ideas:
-- execute cybol application directly in editor
-- show terminal output in editor
-- integrate visual gui designer
-- integrate api on left-hand side, for drag'n'drop of cybol operations
+Installation:
 
-- integrate tab pages on top for switching between many files
-- integrate tab pages on bottom for switching between different source code views:
-    - Reiner Text (wir im klassischen Texteditor)
-    - XML
-    - JSON
-    - Tabelle (DataGrid, TreeTable)
-    - Designer (visuell, bunte grafische Blöcke)
+        * small letter directory name for "/opt/cybole/"
 
-Anwendung allgemein:
-- Die Anwendung im Arbeitsbereich-Menü (Desktop) besser nicht
-  einsortieren unter "Dienstprogramme", sondern unter "Entwicklung".
-  --> Needs to be confirmed with next version
-- Im Desktop-Menü steht z. B. "Eclipse (Java IDE)". Vielleicht also die
-  Beschreibung ändern in "CYBOLE (CYBOL IDE)" oder so etwas wie
-  "CYBOLE (CYBOL File|Project Editor)". Ist ja kein klassischer "Text"-Editor.
-  --> Needs to be confirmed with next version
-- Von der Größe her sind 70 MB schon stattlich. Kann man sie evtl. durch
-  Abwählen einiger Atom-Module/Plug-Ins verringern?
+DataGrid (TreeTable) GUI:
 
+        * Debug problem with sub nodes when switching between xml- and table view
+        * multi-select mehrerer Zeilen (z. B. zum Löschen) wäre schön
+        * tooltips for buttons
+        * integrate tab pages on top for switching between many files
+        * integrate tab pages on bottom for switching between different source code views:
+            * Reiner Text (wir im klassischen Texteditor)
+            * XML
+            * JSON
+            * Tabelle (DataGrid, TreeTable)
+            * Designer (visuell, bunte grafische Blöcke)
 
 XML-Modus:
-- aktivierte Escape-Taste zum Beenden des Editier-Dialogs wäre schön
 
-DataGrid (TreeTable):
-- multi-select mehrerer Zeilen (z. B. zum Löschen) wäre schön
-- erstellte property nodes (sub nodes) lassen sich nicht löschen
-- jede property kann wieder eigene properties (sub nodes) haben,
-  also das zweite Plus-Symbol auch dort belassen
+        * aktivierte Escape-Taste zum Beenden des Editier-Dialogs wäre schön
+
+Ideas for the long future:
+
+        * execute cybol application directly in editor
+        * show terminal output in editor
+        * integrate visual gui designer
+        * integrate api on left-hand side, for drag'n'drop of cybol operations
+
+General Working Areas
+_____________________
+
+        * cmake (evtl. in Zukunft Bibliotheken/Plug-Ins, falls sinnvoll)
+        * Paketierung als: deb rpm exe
+        * Testen
+        * CI/CD (zukünftig evtl. Online-Update, falls sinnvoll)
+
+        * ClangFormat
+        * CppCheck
+        * Doxygen
+        * python script for adapting copyright year
 
 Distribution
 ____________
