@@ -1,7 +1,0 @@
-<node>
-    <node name="name" channel="inline" format="text/plain" model="sense"/>
-    <node name="description" channel="inline" format="text/plain" model="Senses an interrupt request happening on the given channel."/>
-    <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/live/sense/example.txt"/>
-    <node name="format" channel="inline" format="text/plain" model="live/sense"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/live/sense/properties.cybol"/>
-</node>

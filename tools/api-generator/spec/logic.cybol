@@ -3,183 +3,29 @@
     <!-- Logic Operation Format -->
 
     <node name="access" channel="file" format="element/part" model="api-generator/spec/logic/access.cybol"/>
+    <node name="activate" channel="file" format="element/part" model="api-generator/spec/logic/activate.cybol"/>
     <node name="calculate" channel="file" format="element/part" model="api-generator/spec/logic/calculate.cybol"/>
     <node name="cast" channel="file" format="element/part" model="api-generator/spec/logic/cast.cybol"/>
-<!--
+    <node name="check" channel="file" format="element/part" model="api-generator/spec/logic/check.cybol"/>
     <node name="command" channel="file" format="element/part" model="api-generator/spec/logic/command.cybol"/>
--->
     <node name="communicate" channel="file" format="element/part" model="api-generator/spec/logic/communicate.cybol"/>
     <node name="compare" channel="file" format="element/part" model="api-generator/spec/logic/compare.cybol"/>
     <node name="contain" channel="file" format="element/part" model="api-generator/spec/logic/contain.cybol"/>
     <node name="convert" channel="file" format="element/part" model="api-generator/spec/logic/convert.cybol"/>
+    <node name="dispatch" channel="file" format="element/part" model="api-generator/spec/logic/dispatch.cybol"/>
+    <node name="feel" channel="file" format="element/part" model="api-generator/spec/logic/feel.cybol"/>
     <node name="flow" channel="file" format="element/part" model="api-generator/spec/logic/flow.cybol"/>
     <node name="live" channel="file" format="element/part" model="api-generator/spec/logic/live.cybol"/>
     <node name="logify" channel="file" format="element/part" model="api-generator/spec/logic/logify.cybol"/>
     <node name="maintain" channel="file" format="element/part" model="api-generator/spec/logic/maintain.cybol"/>
     <node name="manipulate" channel="file" format="element/part" model="api-generator/spec/logic/manipulate.cybol"/>
-<!--
     <node name="memorise" channel="file" format="element/part" model="api-generator/spec/logic/memorise.cybol"/>
--->
     <node name="modify" channel="file" format="element/part" model="api-generator/spec/logic/modify.cybol"/>
     <node name="randomise" channel="file" format="element/part" model="api-generator/spec/logic/randomise.cybol"/>
     <node name="represent" channel="file" format="element/part" model="api-generator/spec/logic/represent.cybol"/>
     <node name="run" channel="file" format="element/part" model="api-generator/spec/logic/run.cybol"/>
     <node name="sort" channel="file" format="element/part" model="api-generator/spec/logic/sort.cybol"/>
+    <node name="stream" channel="file" format="element/part" model="api-generator/spec/logic/stream.cybol"/>
     <node name="time" channel="file" format="element/part" model="api-generator/spec/logic/time.cybol"/>
-
-<!--
-    access/count
-    access/get-channel
-    access/get-encoding
-    access/get-format
-    access/get-index
-    access/get-language
-    access/get-name
-    access/get-type
-    access/indicate-empty
-    access/indicate-exists
-    activate/disable
-    activate/enable
-    calculate/absolute
-    calculate/add
-    calculate/divide
-    calculate/minimum
-    calculate/maximum
-    calculate/modulo
-    calculate/multiply
-    calculate/negate
-    calculate/reduce
-    calculate/subtract
-    cast/byte
-    cast/character
-    cast/double
-    cast/integer
-    check/equal
-    check/greater
-    check/greater-or-equal
-    check/less
-    check/less-or-equal
-    check/unequal
-    command/archive
-    command/change-directory
-    command/change-permission
-    command/clear
-    command/compare-files
-    command/config-network
-    command/copy
-    command/create-folder
-    command/date
-    command/delay
-    command/diff
-    command/disk-free
-    command/disk-usage
-    command/display-content
-    command/echo
-    command/find-command
-    command/find-file
-    command/grep
-    command/help
-    command/id
-    command/ifconfig
-    command/ifup
-    command/hostname
-    command/kill
-    command/list-directory-contents
-    command/list-open-files
-    command/list-tasks
-    command/memory-free
-    command/move
-    command/netstat
-    command/ping
-    command/pwd
-    command/remove
-    command/sort
-    command/spellcheck
-    command/system-messages
-    command/tape-archiver
-    command/top
-    command/touch
-    command/traceroute
-    command/userlog
-    command/who
-    command/who-am-i
-    command/word-count
-    communicate/identify
-    communicate/receive
-    communicate/send
-    compare/equal
-    compare/greater
-    compare/greater-or-equal
-    compare/less
-    compare/less-or-equal
-    compare/unequal
-    contain/both
-    contain/left
-    contain/none
-    contain/right
-    convert/decode
-    convert/encode
-    dispatch/close
-    dispatch/open
-    feel/sense
-    feel/suspend
-    flow/branch
-    flow/loop
-    flow/sequence
-    live/exit
-    logify/and
-    logify/nand
-    logify/neg
-    logify/nor
-    logify/not
-    logify/or
-    logify/xnor
-    logify/xor
-    maintain/shutdown
-    maintain/startup
-    manipulate/check
-    manipulate/clear
-    manipulate/rotate-left
-    manipulate/rotate-right
-    manipulate/set
-    manipulate/shift-left
-    manipulate/shift-right
-    manipulate/toggle
-    memorise/create
-    memorise/destroy
-    memorise/pop
-    memorise/push
-    modify/append
-    modify/concatenate
-    modify/empty
-    modify/fill
-    modify/insert
-    modify/lower
-    modify/normalise
-    modify/overwrite
-    modify/remove
-    modify/repeat
-    modify/replace
-    modify/reverse
-    modify/split
-    modify/strip
-    modify/strip-leading
-    modify/strip-trailing
-    modify/upper
-    randomise/retrieve
-    randomise/sow
-    represent/deserialise
-    represent/serialise
-    run/run
-    run/sleep-nano
-    run/sleep-second
-    sort/bubble
-    sort/insertion
-    sort/quick
-    sort/selection
-    stream/read
-    stream/write
-    time/current
--->
 
 </node>
