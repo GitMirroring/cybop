@@ -21,6 +21,7 @@
 2022-07-11  Christian Heller  <christian.heller@cybop.org>
 
         * Complete functionality of api generator
+        * Add channels and encodings to api generator specification
 
 2022-07-10  Christian Heller  <christian.heller@cybop.org>
 
