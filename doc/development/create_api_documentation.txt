@@ -1,0 +1,74 @@
+
+Create API Documentation
+========================
+
+Contents
+________
+
+1 Introduction
+2 Directory
+3 Style
+4 Process
+
+1 Introduction
+______________
+
+The logic- and state formats available in cybol are documented in the
+javadoc comment blocks of the respective constants in c source code.
+
+A python script parses these documentation blocks automatically
+and generates cybol files from them.
+
+The cybol api generator then reads these cybol files and generates
+an html website including css and some javascript functions.
+
+2 Directory
+___________
+
+The python script needs to parse just ONE directory with constants:
+
+constant/format/cybol/
+
+3 Style
+_______
+
+The following two are taken as reference formats and are most up-to-date:
+
+- for state: number/integer
+- for logic: calculate/add
+
+There are three possible sections in the comment block of a constant:
+
+ * Description:
+ * Examples:
+ * Properties:
+
+All examples are copied 1:1 and written into just ONE file "examples.txt",
+including possibly existing blank lines.
+
+The properties are described using: name, required, format, description.
+If the section "Properties:" is missing, then a "properties.cybol" file
+does NOT get generated.
+
+4 Process
+_________
+
+4.1 Execute python script:
+
+?? build/TODO.py ??
+
+4.2 Execute cybol api generator:
+
+cd /home/christian/projekt/cybop/tools
+../src/controller/cyboi api-generator/run.cybol
+
+4.3 Copy generated file from:
+
+tools/api-generator/index.html
+
+to:
+
+www/website/development/api/index.html
+
+4.4 upload via ftp to webserver host
+

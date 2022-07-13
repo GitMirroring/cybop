@@ -69,11 +69,41 @@ static int* ABSOLUTE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
 /**
  * The calculate/add logic cybol format.
  *
- * Add two numbers.
+ * Description:
  *
- * sum = summand_1 + summand_2
+ * Adds the operand to the result.
+ * CAUTION! Do NOT use the "add" operation for characters!
+ * They may be concatenated by using the "modify/append"
+ * or "modify/overwrite" operation.
+ * CAUTION! There are several ways to use addition, with unary or
+ * binary operators. This function works like an UNARY operator.
+ * The "result" parametre represents the FIRST operand;
+ * the "operand" parametre the SECOND.
  *
- * This is a CYBOL extension.
+ * Examples:
+ *
+ * <node name="add_integer" channel="inline" format="calculate/add" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="operand" channel="inline" format="number/integer" model="2"/>
+ * </node>
+ *
+ * <node name="add_arrays_with_equal_size" channel="inline" format="calculate/add" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
+ *     <node name="operand" channel="inline" format="number/integer" model="1,2,3"/>
+ * </node>
+ *
+ * <node name="add_summand_to_sum" channel="inline" format="calculate/add" model="">
+ *     <node name="result" channel="inline" format="text/cybol-path" model=".sum"/>
+ *     <node name="operand" channel="inline" format="text/cybol-path" model=".summand"/>
+ * </node>
+ *
+ * Properties:
+ *
+ * @param result (required) [text/cybol-path]: The sum resulting from the addition. It initially contains the first summand.
+ * @param operand (required) [text/cybol-path | number/*]: The second summand for the addition.
+ * @param count (optional) [text/cybol-path | number/*]: The number of elements to be calculated. If null, the operand count will be used instead. This is relevant only for arrays with more than one element.
+ * @param result_index (optional) [text/cybol-path | number/*]: The result index from which to start calculating. If null, an index of zero will be used instead.
+ * @param operand_index (optional) [text/cybol-path | number/*]: The operand index from which to start calculating. If null, an index of zero will be used instead.
  */
 static wchar_t* ADD_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/add";
 static int* ADD_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;

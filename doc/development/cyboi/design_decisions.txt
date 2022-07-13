@@ -18,6 +18,7 @@ Design Decisions
 Contents
 ________
 
+MIME Types
 Terminology
 Language
 Arithmetic Operands
@@ -55,6 +56,24 @@ Sensing Threads
 Blocking and Non-blocking Mode
 Sending / Writing Data
 Storing Models in JSON
+
+MIME Types
+__________
+
+The CYBOL type constants' names and values have been adapted to follow
+the style of the Internet media type / content type that is also
+known under the name Multipurpose Internet Mail Extensions (MIME).
+These types are managed by the Internet Assigned Numbers Authority (IANA).
+See document "Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types":
+
+http://tools.ietf.org/html/rfc2046
+
+Since the MIME standard does not offer media types for certain data,
+CYBOL had to invent new languages (media types), e.g. for dates, numbers etc.
+This is not meant to pollute the MIME standard, just to fill a gap!
+In case IANA adopts these extensions one day -- fine.
+If, however, other media type values replacing ours are proposed,
+we are open to adapt the CYBOL language specification accordingly.
 
 Terminology
 ___________

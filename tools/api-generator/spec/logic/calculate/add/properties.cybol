@@ -1,23 +1,27 @@
 <node>
     <node name="result" channel="inline" format="text/plain" model="">
-        <node name="name" channel="inline" format="text/plain" model="result"/>
-        <node name="description" channel="inline" format="text/plain" model="The sum resulting from the addition. It initially contains the first summand."/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
-        <node name="format" channel="inline" format="text/plain" model="path/*"/>
-        <node name="model" channel="inline" format="text/plain" model=""/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
+        <node name="description" channel="inline" format="text/plain" model="The sum resulting from the addition. It initially contains the first summand."/>
     </node>
     <node name="operand" channel="inline" format="text/plain" model="">
-        <node name="name" channel="inline" format="text/plain" model="operand"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | number/*"/>
         <node name="description" channel="inline" format="text/plain" model="The second summand for the addition."/>
-        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
-        <node name="format" channel="inline" format="text/plain" model="path/* | number/*"/>
-        <node name="model" channel="inline" format="text/plain" model=""/>
     </node>
-    <node name="type" channel="inline" format="text/plain" model="">
-        <node name="name" channel="inline" format="text/plain" model="type"/>
-        <node name="description" channel="inline" format="text/plain" model="The number type. It has to be identical for all parametres."/>
-        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
-        <node name="format" channel="inline" format="text/plain" model="path/* | meta/type"/>
-        <node name="model" channel="inline" format="text/plain" model=""/>
+    <node name="count" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | number/*"/>
+        <node name="description" channel="inline" format="text/plain" model="The number of elements to be calculated. If null, the operand count will be used instead. This is relevant only for arrays with more than one element."/>
+    </node>
+    <node name="result_index" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | number/*"/>
+        <node name="description" channel="inline" format="text/plain" model="The result index from which to start calculating. If null, an index of zero will be used instead."/>
+    </node>
+    <node name="operand_index" channel="inline" format="text/plain" model="">
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path | number/*"/>
+        <node name="description" channel="inline" format="text/plain" model="The operand index from which to start calculating. If null, an index of zero will be used instead."/>
     </node>
 </node>

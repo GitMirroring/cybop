@@ -22,6 +22,10 @@
 
         * Clean up unused xml file parts of cybol api specification
         * Leave small padding on bottom of webpage
+        * Reflect upon useful syntax format for defining cybol api in cyboi source code
+        * Define reference formats "number/integer" and "calculate/add"
+        * Document api style and generation process in file "doc/development/create_api_documentation.txt"
+        * Adapt cybol api generator to eliminated specification details
 
 2022-07-12  Christian Heller  <christian.heller@cybop.org>
 

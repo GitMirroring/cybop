@@ -31,22 +31,6 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
-// The CYBOL type constants' names and values have been adapted to follow
-// the style of the Internet media type / content type that is also
-// known under the name Multipurpose Internet Mail Extensions (MIME).
-// These types are managed by the Internet Assigned Numbers Authority (IANA).
-// See document "Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types":
-// http://tools.ietf.org/html/rfc2046
-//
-// Since the MIME standard does not offer media types for certain data,
-// CYBOL had to invent new languages (media types), e.g. for dates, numbers etc.
-// This is not meant to pollute the MIME standard, just to fill a gap!
-// In case IANA adopts these extensions one day -- fine.
-// If, however, other media type values replacing ours are proposed,
-// we are open to adapt the CYBOL language specification accordingly.
-//
-
-//
 // Number (quantity).
 //
 // The symbol which represents a number is called a numeral.
@@ -142,9 +126,20 @@ static int* FRACTION_VULGAR_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
 /**
  * The number/integer state cybol format.
  *
- * Integer number (integral data type).
+ * Description:
  *
- * This is a CYBOL extension.
+ * An integer is a datum of integral data type, a data type
+ * that represents some range of mathematical integers.
+ * It is allowed to contain negative values.
+ * The standard type used internally is "int" with 32 Bits.
+ * It has a value range from −2,147,483,648 to 2,147,483,647,
+ * which is from −(2^31) to 2^31 - 1.
+ *
+ * Examples:
+ *
+ * <node name="x" channel="inline" format="number/integer" model="2"/>
+ * <node name="y" channel="inline" format="number/integer" model="4"/>
+ * <node name="array" channel="inline" format="number/integer" model="1,2,3,4"/>
  */
 static wchar_t* INTEGER_NUMBER_STATE_CYBOL_FORMAT = L"number/integer";
 static int* INTEGER_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;

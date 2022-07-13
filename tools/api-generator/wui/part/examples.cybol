@@ -1,6 +1,6 @@
 <node>
 
-    <node name="heading" channel="inline" format="text/plain" model="Example">
+    <node name="heading" channel="inline" format="text/plain" model="Examples">
         <node name="tag" channel="inline" format="text/plain" model="h3"/>
     </node>
     <node name="text" channel="inline" format="text/plain" model="">

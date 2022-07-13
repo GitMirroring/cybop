@@ -45,24 +45,6 @@
 /**
  * Calculates a result by applying the given operation to the given operands.
  *
- * Expected parametres:
- * - result (required): the knowledge model in which the result is stored; used as first operand
- * - operand (required): the second operand
- * - count (optional; if null, the operand part model count will be used instead):
- *   the number of elements to be calculated
- * - result_index (optional; if null, an index of zero will be used instead):
- *   the result index from which to start calculating
- * - operand_index (optional; if null, an index of zero will be used instead):
- *   the operand index from which to start calculating
- *
- * CAUTION! Do NOT use the "add" operation for characters!
- * They may be concatenated by using the "modify/append" or "modify/overwrite" operation.
- *
- * CAUTION! There are several ways to use addition, with unary or binary operators.
- * This function works like an UNARY operator.
- * The "result" parametre represents the FIRST operand;
- * the "operand" parametre the SECOND.
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)
