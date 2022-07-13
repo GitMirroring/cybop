@@ -1,7 +1,7 @@
 <node>
 
     <node name="description" channel="inline" format="text/plain" model="TODO"/>
-    <node name="example" channel="file" format="text/plain" model="api-generator/spec/state/application/TODO/example.txt"/>
+    <node name="example" channel="file" format="text/plain" model="api-generator/spec/state/meta/type/example.txt"/>
     <node name="properties" channel="inline" format="element/part" model=""/>
 
 </node>

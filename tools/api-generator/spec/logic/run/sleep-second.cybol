@@ -1,7 +1,5 @@
 <node>
-    <node name="name" channel="inline" format="text/plain" model="sleep-second"/>
     <node name="description" channel="inline" format="text/plain" model="Puts the executing thread to sleep for at least x seconds (the actual duration may differ depending on the systems load and timer accuracy)"/>
     <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/run/sleep-second/example.txt"/>
-    <node name="format" channel="inline" format="text/plain" model="run/sleep-second"/>
     <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/run/sleep-second/properties.cybol"/>
 </node>

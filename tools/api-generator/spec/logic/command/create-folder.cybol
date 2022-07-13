@@ -1,7 +1,5 @@
 <node>
-    <node name="name" channel="inline" format="text/plain" model="create-folder"/>
     <node name="description" channel="inline" format="text/plain" model="Creates a folder."/>
     <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/command/create_folder/example.txt"/>
-    <node name="format" channel="inline" format="text/plain" model="command/create-folder"/>
     <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/command/create_folder/properties.cybol"/>
 </node>

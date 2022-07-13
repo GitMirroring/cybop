@@ -1,7 +1,5 @@
 <node>
 
-    <!-- Logic Operation Format -->
-
     <node name="access" channel="file" format="element/part" model="api-generator/spec/logic/access.cybol"/>
     <node name="activate" channel="file" format="element/part" model="api-generator/spec/logic/activate.cybol"/>
     <node name="calculate" channel="file" format="element/part" model="api-generator/spec/logic/calculate.cybol"/>

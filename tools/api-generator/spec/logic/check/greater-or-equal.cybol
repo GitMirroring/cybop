@@ -1,7 +1,5 @@
 <node>
-    <node name="name" channel="inline" format="text/plain" model="greater-or-equal"/>
     <node name="description" channel="inline" format="text/plain" model="Compares left and right parametre."/>
     <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/compare/greater-or-equal/example.txt"/>
-    <node name="format" channel="inline" format="text/plain" model="compare/greater-or-equal"/>
     <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/compare/greater-or-equal/properties.cybol"/>
 </node>

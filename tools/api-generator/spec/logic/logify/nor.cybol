@@ -1,7 +1,5 @@
 <node>
-    <node name="name" channel="inline" format="text/plain" model="nor"/>
     <node name="description" channel="inline" format="text/plain" model="Applies the boolean logic operation NOR."/>
     <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/logify/nor/example.txt"/>
-    <node name="format" channel="inline" format="text/plain" model="logify/nor"/>
     <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/logify/nor/properties.cybol"/>
 </node>

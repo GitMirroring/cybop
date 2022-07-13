@@ -1,7 +1,5 @@
 <node>
-    <node name="name" channel="inline" format="text/plain" model="ping"/>
     <node name="description" channel="inline" format="text/plain" model="Pings a given host."/>
     <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/command/ping/example.txt"/>
-    <node name="format" channel="inline" format="text/plain" model="command/ping"/>
     <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/command/ping/properties.cybol"/>
 </node>

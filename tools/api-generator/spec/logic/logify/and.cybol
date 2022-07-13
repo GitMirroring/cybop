@@ -1,7 +1,5 @@
 <node>
-    <node name="name" channel="inline" format="text/plain" model="and"/>
     <node name="description" channel="inline" format="text/plain" model="Applies the boolean logic operation AND."/>
     <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/logify/and/example.txt"/>
-    <node name="format" channel="inline" format="text/plain" model="logify/and"/>
     <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/logify/and/properties.cybol"/>
 </node>

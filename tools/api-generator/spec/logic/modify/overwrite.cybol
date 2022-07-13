@@ -1,7 +1,5 @@
 <node>
-    <node name="name" channel="inline" format="text/plain" model="overwrite"/>
     <node name="description" channel="inline" format="text/plain" model="Overwrites the destination- with the source part."/>
     <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/modify/overwrite/example.txt"/>
-    <node name="format" channel="inline" format="text/plain" model="modify/overwrite"/>
     <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/modify/overwrite/properties.cybol"/>
 </node>

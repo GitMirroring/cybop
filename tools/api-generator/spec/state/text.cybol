@@ -1,5 +1,11 @@
 <node>
 
-    <node name="TODO" channel="file" format="element/part" model="api-generator/spec/state/TODO/TODO.cybol"/>
+    <node name="ascii" channel="file" format="element/part" model="api-generator/spec/state/text/ascii.cybol"/>
+    <node name="css" channel="file" format="element/part" model="api-generator/spec/state/text/css.cybol"/>
+    <node name="csv" channel="file" format="element/part" model="api-generator/spec/state/text/csv.cybol"/>
+    <node name="cybol-path" channel="file" format="element/part" model="api-generator/spec/state/text/cybol-path.cybol"/>
+    <node name="html" channel="file" format="element/part" model="api-generator/spec/state/text/html.cybol"/>
+    <node name="plain" channel="file" format="element/part" model="api-generator/spec/state/text/plain.cybol"/>
+    <node name="xml" channel="file" format="element/part" model="api-generator/spec/state/text/xml.cybol"/>
 
 </node>

@@ -1,0 +1,7 @@
+<node>
+
+    <node name="description" channel="inline" format="text/plain" model="A text user interface element."/>
+    <node name="example" channel="file" format="text/plain" model="api-generator/spec/state/userinterface/text/example.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/state/userinterface/text/properties.cybol"/>
+
+</node>

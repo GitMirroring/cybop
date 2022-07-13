@@ -1,5 +1,7 @@
 <node>
 
-    <node name="TODO" channel="file" format="element/part" model="api-generator/spec/state/TODO/TODO.cybol"/>
+    <node name="ddmmyyyyddmmyyyy" channel="file" format="element/part" model="api-generator/spec/state/duration/ddmmyyyyddmmyyyy.cybol"/>
+    <node name="iso" channel="file" format="element/part" model="api-generator/spec/state/duration/iso.cybol"/>
+    <node name="jd" channel="file" format="element/part" model="api-generator/spec/state/duration/jd.cybol"/>
 
 </node>

@@ -1,7 +1,5 @@
 <node>
-    <node name="name" channel="inline" format="text/plain" model="modulo"/>
     <node name="description" channel="inline" format="text/plain" model="Calculate the module of a given value."/>
     <node name="example" channel="file" format="text/plain" model="api-generator/spec/logic/calculate/modulo/example.txt"/>
-    <node name="format" channel="inline" format="text/plain" model="calculate/modulo"/>
     <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/calculate/modulo/properties.cybol"/>
 </node>

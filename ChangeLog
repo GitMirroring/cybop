@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-07-13  Christian Heller  <christian.heller@cybop.org>
+
+        * Clean up unused xml file parts of cybol api specification
+        * Leave small padding on bottom of webpage
+
 2022-07-12  Christian Heller  <christian.heller@cybop.org>
 
         * Archive old versions of api specification website
