@@ -120,12 +120,14 @@
         Here are some ideas where your support would be possible and useful:
     </p>
     <ul>
-        <li>Development Tool (create CYBOL editor with tree-table and possibly a designer)</li>
-        <li>Documentation (update API and write user manual)</li>
+        <li>CYBOL Editor (create development tool with several views: text, xml, json, tree-table, graphical blocks)</li>
+        <li>GUI Designer (develop RAD tool to create user interfaces quickly)</li>
+        <li>Documentation (write user manual and update API)</li>
         <li>Website (maintain and update content)</li>
         <li>Build Process (integrate libraries or factor out plug-ins, currently using cmake)</li>
         <li>Continuous Integration/Delivery (package software for CI/CD)</li>
-        <li>Import/Export (write parser and serialiser for new data formats)</li>
+        <li>Import/Export Filters (write parser and serialiser for new data formats)</li>
+        <li>Database Concept Integration (optimise JSON/XML file size for storage, provide SQL like queries)</li>
         <li>Graphical User Interface (design GUI components, make use of fonts, implement layouts, control window)</li>
         <li>Migration (port CYBOI interpreter to Windows, Mac OSX, Android, iOS)</li>
         <li>CYBOL Library (provide basic functionality usable by CYBOL applications)</li>
