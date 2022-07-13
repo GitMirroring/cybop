@@ -20,7 +20,33 @@ ______________
 API
 ___
 
+        * Think about useful syntax format for defining cybol api in cyboi source code
+        * Integrate api specification into javadoc documentation blocks
+        * Use constants- and applicator files, to be evaluated by python script of Enrico Gallus
+
         * Update cybol api specification with state and logic
+        * Handle special issues
+        * Provide an applicator for cybol operation "live/exit", in order to have a comment usable for api documentation
+        * Avoid additional text behind "(required)" or "(optional)", to ease parsing by python script
+        * Use brackets to define possible formats, separated by e.g. a pipe character
+        * Add cybol source code examples to javadoc comment blocks, e.g.:
+            /**
+             * Short description of cybol operation.
+             *
+             * Parametres:
+             *
+             * - param1: text
+             * - param2: text
+             *
+             * Examples:
+             *
+             * <node>
+             *     <node name="param1" channel="inline" format="number/integer" model="2"/>
+             *     <node name="param2" channel="inline" format="text/plain" model="test"/>
+             * </node>
+             */
+        * Remember that "check" and "modify" and some other operations have an identical description for all variants
+
         * Add state structures "http_request" and "gui_action" (or "gui_event" ??) to api documentation
 
 JSON
@@ -204,7 +230,7 @@ _____________
 General CYBOI
 _____________
 
-        * Move project to github, for more popularity ??
+        * Move project to github (??)
         * Eliminate bugs mentioned on project portal bug tracker at gnu savannah
 
         * Carry out a swot analysis (strengths, weaknesses, opportunities, threats)
