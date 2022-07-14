@@ -23,31 +23,7 @@ ___
         * Integrate api specification into javadoc documentation blocks
         * Update cybol api specification with state and logic
         * Handle special issues
-        * Provide an applicator for cybol operation "live/exit", in order to have a comment usable for api documentation
         * Provide an applicator for cybol operation category "check/", which is missing yet
-        * Avoid additional text behind "(required)" or "(optional)", to ease parsing by python script
-        * Use brackets to define possible formats, separated by e.g. a pipe character
-        * Add cybol source code examples to javadoc comment blocks, e.g.:
-            /**
-             * Short description of cybol operation.
-             *
-             * Parametres:
-             *
-             * - param1: text
-             * - param2: text
-             *
-             * Examples:
-             *
-             * <node>
-             *     <node name="param1" channel="inline" format="number/integer" model="2"/>
-             *     <node name="param2" channel="inline" format="text/plain" model="test"/>
-             * </node>
-             */
-        * Remember that "calculate", "check", "modify" and some other operations have a redundant description with identical parametres for all variants, which is no problem
-        * Delete the description of tui, gui, wui properties, since these belong to serialisation, but not to the mime type format
-
-        * Add state structures "http_request" and "gui_action" (or "gui_event" ??) to api documentation
-
         * Detect null value for properties and write something like "None." into html file
 
 JSON

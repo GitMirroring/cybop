@@ -1,7 +1,0 @@
-<node>
-
-    <node name="description" channel="inline" format="text/plain" model="A mouse button."/>
-    <node name="example" channel="file" format="text/plain" model="api-generator/spec/state/device/mouse/example.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/state/device/mouse/properties.cybol"/>
-
-</node>
