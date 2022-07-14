@@ -43,7 +43,8 @@ ___
              *     <node name="param2" channel="inline" format="text/plain" model="test"/>
              * </node>
              */
-        * Remember that "calculate", "check", "modify" and some other operations have an identical description for all variants
+        * Remember that "calculate", "check", "modify" and some other operations have a redundant description with identical parametres for all variants, which is no problem
+        * Delete the description of tui, gui, wui properties, since these belong to serialisation, but not to the mime type format
 
         * Add state structures "http_request" and "gui_action" (or "gui_event" ??) to api documentation
 

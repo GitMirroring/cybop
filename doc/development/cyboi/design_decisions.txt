@@ -19,6 +19,7 @@ Contents
 ________
 
 MIME Types
+CYBOL Properties
 Terminology
 Language
 Arithmetic Operands
@@ -74,6 +75,44 @@ This is not meant to pollute the MIME standard, just to fill a gap!
 In case IANA adopts these extensions one day -- fine.
 If, however, other media type values replacing ours are proposed,
 we are open to adapt the CYBOL language specification accordingly.
+
+CYBOL Properties
+________________
+
+Usage Matrix:
+
+-------------------------------------------------------------------------
+| Properties    | Logic                 | State                         |
+-------------------------------------------------------------------------
+| Primitive     | operation             | basic value                   |
+|               | fixed parametres      | stands for itself             |
+|               | pre-defined           | no properties                 |
+|               | e.g. result of add    | e.g. integer number           |
+-------------------------------------------------------------------------
+| Compound      | algorithm             | structure                     |
+|               | stack variables       | communication model           |
+|               | self-defined          | pre-defined dimension values  |
+|               | e.g. loop index       | e.g. gui window size          |
+-------------------------------------------------------------------------
+
+The dependencies are as follows:
+
+compound logic algorithm, e.g. sorting or workflow
+    |
+    | consists of basic operations
+    |
+    V
+primitive logic operation, e.g. addition or comparison
+    |
+    | requires arguments/parametres/operands
+    |
+    V
+compound state structure, e.g. gui window
+    |
+    | consists of simple value
+    |
+    V
+primitive state value, e.g. integer number
 
 Terminology
 ___________
