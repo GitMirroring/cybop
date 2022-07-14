@@ -43,11 +43,14 @@ There are three possible sections in the comment block of a constant:
  * Examples:
  * Properties:
 
+If there is no heading "Description:", then NOTHING gets generated.
+The reason is that there are many constants without implementation.
+
 All examples are copied 1:1 and written into just ONE file "examples.txt",
 including possibly existing blank lines.
 
 The properties are described using: name, required, format, description.
-If the section "Properties:" is missing, then a "properties.cybol" file
+If the heading "Properties:" is missing, then a "properties.cybol" file
 does NOT get generated.
 
 4 Process
