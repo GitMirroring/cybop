@@ -22,9 +22,6 @@ ___
 
         * Integrate api specification into javadoc documentation blocks
         * Update cybol api specification with state and logic
-        * Handle special issues
-        * Provide an applicator for cybol operation category "check/", which is missing yet
-        * Detect null value for properties and write something like "None." into html file
 
 JSON
 ____

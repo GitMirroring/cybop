@@ -1,0 +1,12 @@
+<node>
+
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+
+    <node name="result_1" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="result_2" channel="inline" format="logicvalue/boolean" model="false"/>
+
+    <node name="text_1" channel="inline" format="text/plain" model="Schreibtisch"/>
+    <node name="text_2" channel="inline" format="text/plain" model="Schreibtisch"/>
+    <node name="text_3" channel="inline" format="text/plain" model="Stift"/>
+
+</node>

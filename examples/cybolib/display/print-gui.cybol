@@ -4,7 +4,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
     </node>
 
-    <node name="initialise_cybol" channel="file" format="element/part" model="cybol/initialise-modules.cybol"/>
+    <node name="initialise_cybol" channel="file" format="element/part" model="cybolib/initialise-modules.cybol"/>
 
     <node name="configure_title" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".gui.window:title"/>

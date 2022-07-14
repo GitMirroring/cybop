@@ -10,7 +10,7 @@
         <node name="message" channel="inline" format="text/cybol-path" model=".gui.window"/>
     </node>
 
-    <node name="handler" channel="file" format="element/part" model="cybol/handler.cybol"/>
+    <node name="handler" channel="file" format="element/part" model="cybolib/handler.cybol"/>
 
     <node name="exit" channel="inline" format="live/exit" model=""/>
 

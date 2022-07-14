@@ -16,7 +16,8 @@ command/grep
 Processing Steps for Native CYBOL Operation
 ___________________________________________
 
-* Write cybol example application using operation, in order to identify an operation name as well as necessary properties
+* Write cybol example application using operation, which serves as test case
+* Identify an operation name as well as necessary properties
 
 * Add operation to file "constant/format/cybol/logic/*_logic_cybol_format.c"
 * Add operation to file "constant/format/cyboi/logic_cyboi_format.c"
@@ -33,7 +34,8 @@ ___________________________________________
 Processing Steps for Shell Script Operation
 ___________________________________________
 
-* Write cybol example application using operation, in order to identify an operation name as well as necessary properties
+* Write cybol example application using operation, which serves as test case
+* Identify an operation name as well as necessary properties
 
 * Add operation to directory "constant/model/command/"
     -> go here to change names (if different for Unix/Win32)

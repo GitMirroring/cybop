@@ -21,6 +21,8 @@
 2022-07-14  Christian Heller  <christian.heller@cybop.org>
 
         * Remove tui/gui/wui properties from api specification, since they represent languages comparable to http-response, relevant for serialisation, whose description does not belong into cybol but should be external to it
+        * Rename "examples/cybol/" into "examples/cybolib/"
+        * Add cybol application "checker" for testing lexicographical comparison, which was already implemented
 
 2022-07-13  Christian Heller  <christian.heller@cybop.org>
 

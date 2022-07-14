@@ -6,7 +6,7 @@
         <node name="title" channel="inline" format="text/plain" model="CYBOL GUI"/>
         <node name="icon_title" channel="inline" format="text/plain" model="Iconised GUI Example"/>
 <!--
-        <node name="icon" channel="file" format="png" model="cybol/gui/icon.png"/>
+        <node name="icon" channel="file" format="png" model="cybolib/gui/icon.png"/>
 -->
         <node name="position" channel="inline" format="number/integer" model="100,50"/>
         <node name="size" channel="inline" format="number/integer" model="640,480"/>
