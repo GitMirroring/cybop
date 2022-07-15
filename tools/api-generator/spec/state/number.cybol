@@ -1,0 +1,3 @@
+<node>
+    <node name="integer" channel="file" format="element/part" model="api-generator/spec/state/number/integer.cybol"/>
+</node>

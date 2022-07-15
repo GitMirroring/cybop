@@ -12,7 +12,7 @@ class Parser:
             "\/\*\*\s(?P<brief>.*)([\*\s]*?)(?=Description:)([\W\w\s]*?)static wchar_t\* .*(?P<type>LOGIC|STATE).* = L\"(?P<name>.*)\";")
         self.description_regex = re.compile("Description:\s(?P<description>[\W\w\s]*?)(Examples:|Properties:|(\*\/))")
         self.example_regex = re.compile("Examples:\s \*\s(?P<examples>[\W\w]*?)(Properties:|(\*\/))")
-        self.property_regex = re.compile("@param (?P<name>.*) \((?P<required>.*)\) \[(?P<format>.*)\]: (?P<description>.*)")
+        self.property_regex = re.compile(" - (?P<name>.*) \((?P<required>.*)\) \[(?P<format>.*)\]: (?P<description>.*)")
         #self.channel_regex = re.compile("^(?:static wchar_t\* )[A-Z_]+(?: = L\")(?P<channel>.+)(?:\";)")
         self.basePath = os.path.join(os.path.dirname(__file__), '..', '..')
         self.path_to_format = os.path.join(self.basePath, 'src', 'constant', 'format', 'cybol')

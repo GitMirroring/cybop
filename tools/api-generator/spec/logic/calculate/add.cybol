@@ -1,0 +1,5 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="Adds the operand to the result. The result parametre represents the FIRST operand; the operand parametre the SECOND. CAUTION! Do NOT use this operation for characters! They may be concatenated by using the modify/append operation."/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/calculate/add/examples.txt"/>
+    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/calculate/add/properties.cybol"/>
+</node>

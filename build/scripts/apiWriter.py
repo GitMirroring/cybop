@@ -3,6 +3,16 @@ from itertools import groupby
 from jinja2 import Template
 from apiData import ApiItem
 
+type_template_raw = '''<node>{% for element in elements %}
+    <node name="{{ element.group }}" channel="file" format="element/part" model="api-generator/spec/{{ type }}/{{ element.group }}.cybol"/>{% endfor %}
+</node>
+'''
+
+group_template_raw = '''<node>{% for element in elements %}
+    <node name="{{ element.specifier }}" channel="file" format="element/part" model="api-generator/spec/{{ type }}/{{ element.group }}/{{ element.specifier }}.cybol"/>{% endfor %}
+</node>
+'''
+
 specifier_template_raw = '''<node>
     <node name="description" channel="inline" format="text/plain" model="{{ element.description}}"/>
     <node name="examples" channel="file" format="text/plain" model="api-generator/spec/{{ element.type }}/{{ element.group }}/{{ element.specifier }}/examples.txt"/>{% if element.properties|length > 0 %}
@@ -29,13 +39,29 @@ class Writer:
         self.spec_output_path = os.path.join(self.basePath, 'tools', 'api-generator', 'spec')
 
     def update_api_data(self):
-        for key, result in groupby(self.api_items, key=lambda element: element.type):
-            group = list(result)
-            # skipping group template at the moment
-            for element in group:
-                self.__write_specifier(element)
-                self.__write_examples(element)
-                self.__write_properties(element)
+        for type_group_key, grouped_by_types_list in groupby(self.api_items, key=lambda element: element.type):
+            type_group = list(grouped_by_types_list)
+            self.__write_type_groups(type_group, type_group_key)
+            for group_key, grouped_by_group_list in groupby(type_group, key=lambda element: element.group):
+                group = list(grouped_by_group_list)
+                self.__write_groups(group, type_group_key, group_key)
+                # skipping type_group template at the moment
+                for element in group:
+                    self.__write_specifier(element)
+                    self.__write_examples(element)
+                    self.__write_properties(element)
+
+    def __write_type_groups(self, elements, type):
+        type_template = Template(type_template_raw)
+        type_template_content = type_template.render(elements=elements, type=type)
+        file_path = os.path.join(self.spec_output_path, type + '.cybol')
+        self.__write_file(file_path, type_template_content)
+
+    def __write_groups(self, elements, type, group):
+        group_template = Template(group_template_raw)
+        group_template_content = group_template.render(elements=elements, type=type)
+        file_path = os.path.join(self.spec_output_path, type, group + '.cybol')
+        self.__write_file(file_path, group_template_content)
 
     def __write_specifier(self, element: ApiItem):
         specifier_template = Template(specifier_template_raw)

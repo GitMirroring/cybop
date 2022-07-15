@@ -29,6 +29,7 @@
         * Move python build scripts to own directory
         * Add api parser and writer to work with the new specification of the javadoc-api
         * Enhance "create_api_documentation.txt" specification
+        * Adjust Python-Script after specification changes
 
 2022-07-14  Christian Heller  <christian.heller@cybop.org>
 

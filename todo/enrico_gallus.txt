@@ -14,15 +14,10 @@
 CYBOLE (IDE)
 ____________
 
-Installation:
-
-        * small letter directory name for "/opt/cybole/"
-
 DataGrid (TreeTable) GUI:
 
         * Debug problem with sub nodes when switching between xml- and table view
         * multi-select mehrerer Zeilen (z. B. zum Löschen) wäre schön
-        * tooltips for buttons
         * integrate tab pages on top for switching between many files
         * integrate tab pages on bottom for switching between different source code views:
             * Reiner Text (wir im klassischen Texteditor)
