@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-07-15  Enrico Gallus  <enrico.gallus@gmail.com>
+
+        * Move python build scripts to own directory
+        * Add api parser and writer to work with the new specification of the javadoc-api
+        * Enhance create_api_documentation.txt specification
+
 2022-07-14  Christian Heller  <christian.heller@cybop.org>
 
         * Remove tui/gui/wui properties from api specification, since they represent languages comparable to http-response, relevant for serialisation, whose description does not belong into cybol but should be external to it

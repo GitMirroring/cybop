@@ -47,11 +47,19 @@ If there is no heading "Description:", then NOTHING gets generated.
 The reason is that there are many constants without implementation.
 
 All examples are copied 1:1 and written into just ONE file "examples.txt",
-including possibly existing blank lines.
+including possibly existing blank lines. The file will not be generated if there
+is no section "Examples:"
 
 The properties are described using: name, required, format, description.
 If the heading "Properties:" is missing, then a "properties.cybol" file
 does NOT get generated.
+Properties are prefixed by ' - '.
+'@param' cannot be used, because this is a javadoc keyword and expects a parameter of the method that is described.
+It is also syntactically not correct to use '/*' inside a block comment. Instead of the format 'number/*' we should prefer 'number/any'
+The following structure is necessary to be parsed correctly:
+- propertyName (required|optional) [supported-format-list separated by the pipe symbol]: any free text as description
+Example:
+- name (required) [text/cybol-path | number/integer]: This is the description of the property.
 
 4 Process
 _________

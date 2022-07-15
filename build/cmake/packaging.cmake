@@ -72,6 +72,6 @@ include(CPack)
 #
 #add_custom_target(
 #        adjustcopyright
-#        COMMAND ${ROOT_DIR}/build/cmake/adjustcopyright.py ${ROOT_DIR} ${CPACK_PACKAGE_VERSION}
+#        COMMAND ${ROOT_DIR}/build/scripts/adjustcopyright.py ${ROOT_DIR} ${CPACK_PACKAGE_VERSION}
 #)
 

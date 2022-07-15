@@ -7,8 +7,8 @@ from datetime import datetime, timedelta
 
 # argument handling
 if len(sys.argv) != 3:
-    print "you must set two arguments. [this file] [root dir] [version number]"
-    exit
+    print("you must set two arguments. [this file] [root dir] [version number]")
+    exit()
 
 rootdir = sys.argv[1]
 version = sys.argv[2]
