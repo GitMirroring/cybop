@@ -31,6 +31,9 @@
         * Enhance "create_api_documentation.txt" specification
         * Adjust Python-Script after specification changes
         * Add support for Encoding and Channel to api data generator
+        * Create make target to automate api generation with all its processes
+        * Move Python Unittest to own file and add main to parser
+        * Enhance Dockerfile to support pip commands
 
 2022-07-14  Christian Heller  <christian.heller@cybop.org>
 

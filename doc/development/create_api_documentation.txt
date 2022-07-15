@@ -67,23 +67,10 @@ Therefore, use the format "number/any" INSTEAD of "number/*".
 4 Process
 _________
 
-4.1 Execute python script:
+4.1 Execute make:
 
 cd build/
-./scripts/apiDataGenerator.py
+make api
 
-4.2 Execute cybol api generator:
-
-cd tools/
-../src/controller/cyboi api-generator/run.cybol
-
-4.3 Copy generated file from:
-
-tools/api-generator/index.html
-
-to:
-
-www/website/development/api/index.html
-
-4.4 upload via ftp to webserver host
+4.2 upload via ftp to webserver host
 

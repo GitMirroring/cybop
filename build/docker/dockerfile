@@ -1,7 +1,7 @@
 FROM debian:latest as build
 
 RUN apt-get -y update && apt-get upgrade -y && apt-get install -y \
-    g++ curl cmake freeglut3-dev clang-format doxygen cppcheck
+    g++ curl cmake freeglut3-dev clang-format doxygen cppcheck python3-pip
 
 #RUN make clangformat
 #RUN make doc

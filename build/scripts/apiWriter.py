@@ -61,41 +61,33 @@ class Writer:
                         self.__write_properties(element)
 
     def __write_variable_groups(self, elements, type):
-        variable_template = Template(variable_template_raw)
-        variable_template_content = variable_template.render(elements=elements)
         file_path = os.path.join(self.spec_output_path, type + '.cybol')
-        self.__write_file(file_path, variable_template_content)
+        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        Template(variable_template_raw).stream(elements=elements).dump(file_path)
 
     def __write_type_groups(self, elements, type):
-        type_template = Template(type_template_raw)
-        type_template_content = type_template.render(elements=elements, type=type)
         file_path = os.path.join(self.spec_output_path, type + '.cybol')
-        self.__write_file(file_path, type_template_content)
+        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        Template(type_template_raw).stream(elements=elements, type=type).dump(file_path)
 
     def __write_groups(self, elements, type, group):
-        group_template = Template(group_template_raw)
-        group_template_content = group_template.render(elements=elements, type=type)
         file_path = os.path.join(self.spec_output_path, type, group + '.cybol')
-        self.__write_file(file_path, group_template_content)
+        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        Template(group_template_raw).stream(elements=elements, type=type).dump(file_path)
 
     def __write_specifier(self, element: ApiItem):
-        specifier_template = Template(specifier_template_raw)
-        specifier_template_content = specifier_template.render(element=element)
         file_path = os.path.join(self.spec_output_path, element.type, element.group, element.specifier + '.cybol')
-        self.__write_file(file_path, specifier_template_content)
+        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        Template(specifier_template_raw).stream(element=element).dump(file_path)
 
     def __write_examples(self, element: ApiItem):
         file_path = os.path.join(self.spec_output_path, element.type, element.group, element.specifier, 'examples.txt')
-        self.__write_file(file_path, element.examples)
+        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        with open(file_path, 'w') as outfile:
+            outfile.write(element.examples)
 
     def __write_properties(self, element: ApiItem):
         if len(element.properties) > 0:
-            properties_template = Template(properties_template_raw)
-            properties_template_content = properties_template.render(properties=element.properties)
             file_path = os.path.join(self.spec_output_path, element.type, element.group, element.specifier, 'properties.cybol')
-            self.__write_file(file_path, properties_template_content)
-
-    def __write_file(self, path_to_file: str, content: str):
-        os.makedirs(os.path.dirname(path_to_file), exist_ok=True)
-        with open(path_to_file, 'w') as outfile:
-            outfile.write(content)
+            os.makedirs(os.path.dirname(file_path), exist_ok=True)
+            Template(properties_template_raw).stream(properties=element.properties).dump(file_path)
