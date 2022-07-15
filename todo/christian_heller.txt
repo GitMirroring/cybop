@@ -11,12 +11,6 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-Error handling
-______________
-
-        * Get filename from device descriptor when reporting error messages
-            see: https://stackoverflow.com/questions/1188757/retrieve-filename-from-file-descriptor-in-c
-
 API
 ___
 
