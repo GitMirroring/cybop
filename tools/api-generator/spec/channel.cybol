@@ -1,0 +1,13 @@
+<node>
+    <node name="clock" channel="inline" format="text/plain" model="clock"/>
+    <node name="display" channel="inline" format="text/plain" model="display"/>
+    <node name="fifo" channel="inline" format="text/plain" model="fifo"/>
+    <node name="file" channel="inline" format="text/plain" model="file"/>
+    <node name="inline" channel="inline" format="text/plain" model="inline"/>
+    <node name="pipe" channel="inline" format="text/plain" model="pipe"/>
+    <node name="randomiser" channel="inline" format="text/plain" model="randomiser"/>
+    <node name="serial" channel="inline" format="text/plain" model="serial"/>
+    <node name="signal" channel="inline" format="text/plain" model="signal"/>
+    <node name="socket" channel="inline" format="text/plain" model="socket"/>
+    <node name="terminal" channel="inline" format="text/plain" model="terminal"/>
+</node>

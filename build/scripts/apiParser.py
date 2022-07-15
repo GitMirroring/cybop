@@ -13,15 +13,22 @@ class Parser:
         self.description_regex = re.compile("Description:\s(?P<description>[\W\w\s]*?)(Examples:|Properties:|(\*\/))")
         self.example_regex = re.compile("Examples:\s \*\s(?P<examples>[\W\w]*?)(Properties:|(\*\/))")
         self.property_regex = re.compile(" - (?P<name>.*) \((?P<required>.*)\) \[(?P<format>.*)\]: (?P<description>.*)")
-        #self.channel_regex = re.compile("^(?:static wchar_t\* )[A-Z_]+(?: = L\")(?P<channel>.+)(?:\";)")
+        self.variable_regex = re.compile("static wchar_t\* .*?(?P<type>(CHANNEL|ENCODING)) = L\"(?P<value>.+)\";")
+
         self.basePath = os.path.join(os.path.dirname(__file__), '..', '..')
         self.path_to_format = os.path.join(self.basePath, 'src', 'constant', 'format', 'cybol')
+        self.path_to_channel = os.path.join(self.basePath, 'src', 'constant', 'channel', 'cybol')
+        self.path_to_encoding = os.path.join(self.basePath, 'src', 'constant', 'encoding', 'cybol')
 
     def parse_structure(self):
         api_items = []
         for path, dirs, files in os.walk(self.path_to_format):
             for file in files:
                 api_items.extend(self.parse_api_javadoc(os.path.join(path, file)))
+        for path in [self.path_to_channel, self.path_to_encoding]:
+            for cybol_path, dirs, files in os.walk(path):
+                for file in files:
+                    api_items.extend(self.__parse_variables(os.path.join(cybol_path, file)))
 
         return api_items
 
@@ -46,6 +53,11 @@ class Parser:
             api_item.properties.append(ApiProperty(x[0], x[1], x[2], x[3]))
 
         return api_item
+
+    def __parse_variables(self, path_to_file):
+        with open(path_to_file) as file_content:
+            all_matched = re.findall(self.variable_regex, file_content.read())
+            return list(map(lambda x: ApiItem(x[2], '', x[0].lower()), all_matched))
 
 
 class MyTestCase(unittest.TestCase):
@@ -79,7 +91,7 @@ class MyTestCase(unittest.TestCase):
         parser = Parser()
         api_items = parser.parse_structure()
 
-        self.assertEqual(2, len(api_items))
+        self.assertEqual(59, len(api_items))
 
         writer = Writer(api_items)
         writer.update_api_data()

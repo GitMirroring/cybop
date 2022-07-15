@@ -3,6 +3,11 @@ from itertools import groupby
 from jinja2 import Template
 from apiData import ApiItem
 
+variable_template_raw = '''<node>{% for element in elements %}
+    <node name="{{ element.name }}" channel="inline" format="text/plain" model="{{ element.name }}"/>{% endfor %}
+</node>
+'''
+
 type_template_raw = '''<node>{% for element in elements %}
     <node name="{{ element.group }}" channel="file" format="element/part" model="api-generator/spec/{{ type }}/{{ element.group }}.cybol"/>{% endfor %}
 </node>
@@ -37,19 +42,29 @@ class Writer:
         self.basePath = os.path.join(os.path.dirname(__file__), '..', '..')
         self.path_to_format = os.path.join(self.basePath, 'src', 'constant', 'format', 'cybol')
         self.spec_output_path = os.path.join(self.basePath, 'tools', 'api-generator', 'spec')
+        self.variable_types = { 'encoding', 'channel' }
 
     def update_api_data(self):
         for type_group_key, grouped_by_types_list in groupby(self.api_items, key=lambda element: element.type):
             type_group = list(grouped_by_types_list)
-            self.__write_type_groups(type_group, type_group_key)
-            for group_key, grouped_by_group_list in groupby(type_group, key=lambda element: element.group):
-                group = list(grouped_by_group_list)
-                self.__write_groups(group, type_group_key, group_key)
-                # skipping type_group template at the moment
-                for element in group:
-                    self.__write_specifier(element)
-                    self.__write_examples(element)
-                    self.__write_properties(element)
+            if type_group_key in self.variable_types:
+                self.__write_variable_groups(type_group, type_group_key)
+            else:
+                self.__write_type_groups(type_group, type_group_key)
+                for group_key, grouped_by_group_list in groupby(type_group, key=lambda element: element.group):
+                    group = list(grouped_by_group_list)
+                    self.__write_groups(group, type_group_key, group_key)
+                    # skipping type_group template at the moment
+                    for element in group:
+                        self.__write_specifier(element)
+                        self.__write_examples(element)
+                        self.__write_properties(element)
+
+    def __write_variable_groups(self, elements, type):
+        variable_template = Template(variable_template_raw)
+        variable_template_content = variable_template.render(elements=elements)
+        file_path = os.path.join(self.spec_output_path, type + '.cybol')
+        self.__write_file(file_path, variable_template_content)
 
     def __write_type_groups(self, elements, type):
         type_template = Template(type_template_raw)
