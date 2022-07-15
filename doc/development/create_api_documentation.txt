@@ -54,23 +54,27 @@ The properties are described using: name, required, format, description.
 If the heading "Properties:" is missing, then a "properties.cybol" file
 does NOT get generated.
 Properties are prefixed by ' - '.
-'@param' cannot be used, because this is a javadoc keyword and expects a parameter of the method that is described.
-It is also syntactically not correct to use '/*' inside a block comment. Instead of the format 'number/*' we should prefer 'number/any'
-The following structure is necessary to be parsed correctly:
+Syntax:
 - propertyName (required|optional) [supported-format-list separated by the pipe symbol]: any free text as description
 Example:
-- name (required) [text/cybol-path | number/integer]: This is the description of the property.
+- operand (required) [text/cybol-path | number/any]: This is the description of the property.
+Remark:
+The keyword "@param" CANNOT be used, because it is specific to javadoc and
+expects a parameter of the method that is described.
+Furthermore, it is syntactically INCORRECT to use '/*' inside a block comment.
+Therefore, use the format "number/any" INSTEAD of "number/*".
 
 4 Process
 _________
 
 4.1 Execute python script:
 
-?? build/TODO.py ??
+cd build/
+./scripts/apiDataGenerator.py
 
 4.2 Execute cybol api generator:
 
-cd /home/christian/projekt/cybop/tools
+cd tools/
 ../src/controller/cyboi api-generator/run.cybol
 
 4.3 Copy generated file from:

@@ -14,8 +14,8 @@
 API
 ___
 
-        * Integrate api specification into javadoc documentation blocks
-        * Update cybol api specification with state and logic
+        * Update cybol api specification in javadoc comment blocks of directory "constant/format/cybol/"
+        * Delete directory "tools/api-generator/spec_backup_delete_later/" from svn, as soon as all api documentation comments have been converted to the new format
 
 JSON
 ____

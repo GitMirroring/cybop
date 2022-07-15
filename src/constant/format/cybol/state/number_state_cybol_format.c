@@ -131,7 +131,8 @@ static int* FRACTION_VULGAR_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
  * An integer is a datum of integral data type, a data type
  * that represents some range of mathematical integers.
  * It is allowed to contain negative values.
- * The standard type used internally is "int" with 32 Bits.
+ *
+ * The standard type used internally is int with 32 Bits.
  * It has a value range from −2,147,483,648 to 2,147,483,647,
  * which is from −(2^31) to 2^31 - 1.
  *
