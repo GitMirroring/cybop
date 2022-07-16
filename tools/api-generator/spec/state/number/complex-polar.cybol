@@ -1,0 +1,4 @@
+<node>
+    <node name="description" channel="inline" format="text/plain" model="A complex number written in polar form with absolute value and argument, separated by a (plus or minus) sign. CAUTION! The i (or j in electrical engineering) in the exponent is NEGLECTED: -2*exp(i45) --> -2*exp(45) The complex number given in trigonometric form: 2 (cos 30° + i sin 30°) which can also be written in exponential form, using Euler's formula: 2 e ^(i 30) would be written in CYBOL as: 2*exp(30) CAUTION! The cybol parser is able to recognise many variants, with sequence exp or capital letter E, with or without times sign, as shown in the examples below. However, the RECOMMENDED FORM is as follows: -2*exp(-45)"/>
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/state/number/complex-polar/examples.txt"/>
+</node>

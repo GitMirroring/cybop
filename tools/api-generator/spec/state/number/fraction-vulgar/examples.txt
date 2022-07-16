@@ -1,0 +1,2 @@
+<node name="f1" channel="inline" format="number/fraction-vulgar" model="1/2"/>
+<node name="f2" channel="inline" format="number/fraction-vulgar" model="-2/3"/>

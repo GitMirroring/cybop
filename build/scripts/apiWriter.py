@@ -8,8 +8,8 @@ variable_template_raw = '''<node>{% for element in elements %}
 </node>
 '''
 
-type_template_raw = '''<node>{% for element in elements %}
-    <node name="{{ element.group }}" channel="file" format="element/part" model="api-generator/spec/{{ type }}/{{ element.group }}.cybol"/>{% endfor %}
+type_template_raw = '''<node>{% for group in group_names %}
+    <node name="{{ group }}" channel="file" format="element/part" model="api-generator/spec/{{ type }}/{{ group }}.cybol"/>{% endfor %}
 </node>
 '''
 
@@ -43,7 +43,7 @@ class Writer:
         self.path_to_format = os.path.join(self.basePath, 'src', 'constant', 'format', 'cybol')
         self.spec_output_path = os.path.join(self.basePath, 'tools', 'api-generator', 'spec')
         self.api_output_path = os.path.join(self.basePath, 'doc', 'cybol', 'api')
-        self.variable_types = { 'encoding', 'channel' }
+        self.variable_types = {'encoding', 'channel'}
 
     def update_api_data(self):
         for type_group_key, grouped_by_types_list in groupby(self.api_items, key=lambda element: element.type):
@@ -77,7 +77,8 @@ class Writer:
     def __write_type_groups(self, elements, type):
         file_path = os.path.join(self.spec_output_path, type + '.cybol')
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
-        Template(type_template_raw).stream(elements=elements, type=type).dump(file_path)
+        group_names = set(map(lambda x: x.group, elements))
+        Template(type_template_raw).stream(group_names=group_names, type=type).dump(file_path)
 
     def __write_groups(self, elements, type, group):
         file_path = os.path.join(self.spec_output_path, type, group + '.cybol')

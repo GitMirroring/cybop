@@ -1,0 +1,13 @@
+<node name="f1" channel="inline" format="fraction-decimal" model="0.12"/>
+<node name="f2" channel="inline" format="fraction-decimal" model="24.68"/>
+<node name="array" channel="inline" format="fraction-decimal" model="1.2,3.4,5.6"/>
+<node name="scientific_notation" channel="inline" format="fraction-decimal" model="7E-3"/>
+<node name="small_letter_possible" channel="inline" format="fraction-decimal" model="-1.23e12"/>
+<node name="optional_plus_sign" channel="inline" format="fraction-decimal" model="-1.23e+4"/>
+<node name="simple_example" channel="inline" format="fraction-decimal" model="11.0"/>
+<node name="lacking_decimal_places" channel="inline" format="fraction-decimal" model="11."/>
+<node name="scientific_notation_1" channel="inline" format="fraction-decimal" model=".11e2"/>
+<node name="scientific_notation_2" channel="inline" format="fraction-decimal" model="11e0"/>
+<node name="another_example" channel="inline" format="fraction-decimal" model="0.007"/>
+<node name="scientific_notation_3" channel="inline" format="fraction-decimal" model="0.7e-2"/>
+<node name="scientific_notation_4" channel="inline" format="fraction-decimal" model=".7E-2"/>

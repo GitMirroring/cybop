@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-07-17  Enrico Gallus  <enrico.gallus@gmail.com>
+
+        * Fix writing group nodes distinct
+
 2022-07-16  Christian Heller  <christian.heller@cybop.org>
 
         * Add cybol property "mode" with value "write" to all cybol applications calling operation "communicate/send" with channel "file"
