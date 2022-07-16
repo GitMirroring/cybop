@@ -42,23 +42,32 @@ class Writer:
         self.basePath = os.path.join(os.path.dirname(__file__), '..', '..')
         self.path_to_format = os.path.join(self.basePath, 'src', 'constant', 'format', 'cybol')
         self.spec_output_path = os.path.join(self.basePath, 'tools', 'api-generator', 'spec')
+        self.api_output_path = os.path.join(self.basePath, 'doc', 'cybol', 'api')
         self.variable_types = { 'encoding', 'channel' }
 
     def update_api_data(self):
         for type_group_key, grouped_by_types_list in groupby(self.api_items, key=lambda element: element.type):
-            type_group = list(grouped_by_types_list)
+            type_group = list(sorted(grouped_by_types_list, key=lambda x: x.name))
+            self.__write_api_specification(type_group, type_group_key)
             if type_group_key in self.variable_types:
                 self.__write_variable_groups(type_group, type_group_key)
             else:
                 self.__write_type_groups(type_group, type_group_key)
                 for group_key, grouped_by_group_list in groupby(type_group, key=lambda element: element.group):
-                    group = list(grouped_by_group_list)
+                    group = list(sorted(grouped_by_group_list, key=lambda x: x.name))
                     self.__write_groups(group, type_group_key, group_key)
                     # skipping type_group template at the moment
                     for element in group:
                         self.__write_specifier(element)
                         self.__write_examples(element)
                         self.__write_properties(element)
+
+    def __write_api_specification(self, elements, type):
+        file_path = os.path.join(self.api_output_path, type + '.txt')
+        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        names = os.linesep.join(list(sorted(map(lambda x: x.name, elements))))
+        with open(file_path, 'w') as outfile:
+            outfile.write(names)
 
     def __write_variable_groups(self, elements, type):
         file_path = os.path.join(self.spec_output_path, type + '.cybol')
