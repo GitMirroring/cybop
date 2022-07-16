@@ -6,6 +6,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="device" channel="inline" format="text/plain" model="test_project_overview_stack.txt"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
     </node>
     <node name="TEST" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>

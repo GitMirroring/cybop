@@ -31,6 +31,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="device" channel="inline" format="text/plain" model="user_interface/wui/wui.html"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
     </node>
     <node name="generate_html" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -51,6 +52,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="device" channel="inline" format="text/plain" model="test_wui.txt"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
     </node>
     <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>

@@ -23,6 +23,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="device" channel="inline" format="text/plain" model="test_presence_wui.html"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
     </node>
     <node name="TEST_WUI" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -82,6 +83,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="device" channel="inline" format="text/plain" model="test_presence_http_response.txt"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
     </node>
     <node name="test_http_response" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>

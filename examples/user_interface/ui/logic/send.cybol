@@ -26,6 +26,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="device" channel="inline" format="text/plain" model="user_interface/ui/wui/index.html"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
     </node>
     <node name="test_wui" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>

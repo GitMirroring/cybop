@@ -26,6 +26,7 @@
 #ifndef OPEN_SOURCE
 #define OPEN_SOURCE
 
+#include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -40,6 +41,9 @@
 #include "../../executor/copier/array_copier.c"
 #include "../../executor/copier/integer_copier.c"
 #include "../../executor/dispatcher/opener/opener.c"
+#include "../../executor/memoriser/allocator/item_allocator.c"
+#include "../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../executor/modifier/item_modifier.c"
 #include "../../logger/logger.c"
 
 /**
@@ -52,6 +56,7 @@
  * - namespace (optional): the address family, e.g. ipv4 or ipv6
  * - style (optional): the communication style, e.g. stream or datagram
  * - protocol (optional): the protocol, e.g. tcp or udp
+ * - file open mode (optional): either read or write; if NULL, the default is read
  * - device (optional):
  *      = filename for channel "file" or "serialport" or "terminal" or "fifo", e.g. /path/to/file.txt or /dev/ttyS0
  *      = filename for channel "socket" with namespace "local" (unix domain socket), e.g. localbuffer.socket
@@ -86,6 +91,8 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The protocol part.
     void* pr = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The file open mode part.
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The device part.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The identification part.
@@ -103,6 +110,8 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The protocol part model item.
     void* prm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The file open mode part model item.
+    void* mm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The device part model item.
     void* dm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The identification part model item.
@@ -123,6 +132,9 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // The protocol part model item data, count.
     void* prmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* prmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The file open mode part model item data, count.
+    void* mmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* mmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The device part model item data, count.
     void* dmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* dmc = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -145,6 +157,8 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     get_part_name((void*) &s, p0, (void*) STYLE_OPEN_DISPATCHING_LOGIC_CYBOL_NAME, (void*) STYLE_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get protocol part.
     get_part_name((void*) &pr, p0, (void*) PROTOCOL_OPEN_DISPATCHING_LOGIC_CYBOL_NAME, (void*) PROTOCOL_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get file open mode part.
+    get_part_name((void*) &m, p0, (void*) MODE_OPEN_DISPATCHING_LOGIC_CYBOL_NAME, (void*) MODE_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get device part.
     get_part_name((void*) &d, p0, (void*) DEVICE_OPEN_DISPATCHING_LOGIC_CYBOL_NAME, (void*) DEVICE_OPEN_DISPATCHING_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get identification part.
@@ -162,6 +176,8 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get protocol part model item.
     copy_array_forward((void*) &prm, pr, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get file open mode part model item.
+    copy_array_forward((void*) &mm, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get device part model item.
     copy_array_forward((void*) &dm, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get identification part model item.
@@ -182,6 +198,9 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // Get protocol part model item data, count.
     copy_array_forward((void*) &prmd, prm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &prmc, prm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Get file open mode part model item data, count.
+    copy_array_forward((void*) &mmd, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &mmc, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get device part model item data, count.
     copy_array_forward((void*) &dmd, dm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &dmc, dm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
@@ -202,6 +221,22 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // assigned to port ZERO at service startup.
     //
     int port = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The file open mode default item.
+    void* mode = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The file open mode default item data, count.
+    void* moded = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* modec = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Allocate file open mode default item.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    //
+    allocate_item((void*) &mode, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+    // Set file open mode to READ by default.
+    modify_item(mode, (void*) READ_OPEN_MODE_FILE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) READ_OPEN_MODE_FILE_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
     //
     // CAUTION! The following values are ONLY copied,
@@ -209,16 +244,23 @@ void apply_open(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // This is tested inside the "copy_integer" function.
     // Otherwise, the destination value remains as is.
     //
-
     copy_integer((void*) &server, sfmd);
     copy_integer((void*) &port, pmd);
+    modify_item(mode, mmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, mmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+
+    // Get file open mode default item data, count.
+    copy_array_forward((void*) &moded, mode, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &modec, mode, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     //
     // Functionality
     //
 
     // Open up client.
-    open_client(idmd, (void*) &port, dmd, dmc, nmd, nmc, smd, smc, prmd, prmc, cmd, (void*) &server, p4, p5);
+    open_client(idmd, (void*) &port, dmd, dmc, moded, modec, nmd, nmc, smd, smc, prmd, prmc, cmd, (void*) &server, p4, p5);
+
+    // Deallocate file open mode default item.
+    deallocate_item((void*) &mode, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* OPEN_SOURCE */

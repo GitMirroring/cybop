@@ -144,7 +144,7 @@ void deserialise_cybol_file(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     int id = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Open file.
-    open_file((void*) &id, p1, p2);
+    open_file((void*) &id, p1, p2, (void*) READ_OPEN_MODE_FILE_MODEL, (void*) READ_OPEN_MODE_FILE_MODEL_COUNT);
 
     //
     // Fill part model item taken from cybol source part properties.

@@ -22,6 +22,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".test"/>
         <node name="device" channel="inline" format="text/plain" model="test_counter_stack_deep.txt"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
     </node>
     <!-- Write knowledge tree into file. -->
     <node name="test_knowledge" channel="inline" format="communicate/send" model="">

@@ -9,6 +9,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="device" channel="inline" format="text/plain" model="communication/file/data.txt"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
     </node>
 
     <node name="write_client" channel="inline" format="stream/write" model="">

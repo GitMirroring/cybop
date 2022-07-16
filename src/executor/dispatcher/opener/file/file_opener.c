@@ -27,10 +27,11 @@
 #define FILE_OPENER_SOURCE
 
 #include <sys/stat.h> // mode_t, S_IRWXU
-#include <fcntl.h> // O_RDWR, O_NOCTTY
+#include <fcntl.h> // O_RDONLY
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../executor/dispatcher/opener/basic/basic_opener.c"
+#include "../../../../executor/dispatcher/opener/file/mode_file_opener.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -39,38 +40,41 @@
  * @param p0 the file descriptor
  * @param p1 the filename data
  * @param p2 the filename count
+ * @param p3 the file open mode data
+ * @param p4 the file open mode count
  */
-void open_file(void* p0, void* p1, void* p2) {
+void open_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open file.");
-    // fwprintf(stdout, L"Debug: Open file. p0: %i\n", p0);
-    // fwprintf(stdout, L"Debug: Open file. *p0: %i\n", *((int*) p0));
+    //?? fwprintf(stdout, L"Debug: Open file. p0: %i\n", p0);
+    //?? fwprintf(stdout, L"Debug: Open file. *p0: %i\n", *((int*) p0));
 
     //
-    // The open flags.
+    // The file open mode.
     //
-    // Default settings:
-    // O_RDWR - open file for both reading and writing
-    // O_CREAT - create file if it doesn't already exist
+    // CAUTION! The default is READ mode.
     //
-    int f = O_RDWR | O_CREAT;
+    int m = O_RDONLY;
 
     //
-    // The open mode (access permission bits).
+    // The file access permissions.
     //
     // CAUTION! S_IRWXU is equivalent to (S_IRUSR | S_IWUSR | S_IXUSR).
     // It assigns the rights to read/write/execute for the owner of the file.
     //
-    // CAUTION! This mode is used only when a file is CREATED,
+    // CAUTION! These permissions are used only when a file is CREATED,
     // but it doesn't hurt to supply the argument in any case.
     //
-    mode_t m = S_IRWXU;
+    mode_t p = S_IRWXU;
 
-    // Cast to parametre type.
-    int mt = (int) m;
+    // Cast file access permissions to parametre type.
+    int pt = (int) p;
+
+    // Determine file open mode.
+    open_file_mode((void*) &m, p3, p4);
 
     // Open device.
-    open_basic(p0, p1, p2, (void*) &f, (void*) &mt);
+    open_basic(p0, p1, p2, (void*) &m, (void*) &pt);
 }
 
 /* FILE_OPENER_SOURCE */

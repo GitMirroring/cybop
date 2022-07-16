@@ -95,15 +95,13 @@ void modify_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
     } else {
 
-        //?? TODO: Comment out these log messages and call of "fwprintf".
-
         //
         // These lines are commented out, since this can be normal behaviour.
         // The model pointed to by a cybol path like ".var.request:uri:query.action"
         // might contain data in some cases, but in other cases be empty on purpose.
         //
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify item. The sum of the given index and count is outside the data array count. This may be regular behaviour. Probably, the model pointed to by a cybol path is null or empty or a cybol model (e.g. a string) is wrong since it was not emptied before being filled.");
-        fwprintf(stdout, L"Warning: Could not modify item. The sum of the given index and count is outside the data array count. This may be regular behaviour. Probably, the model pointed to by a cybol path is null or empty or a cybol model (e.g. a string) is wrong since it was not emptied before being filled. r: %i\n", r);
+        //?? log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify item. The sum of the given index and count is outside the data array count. This may be regular behaviour. Probably, the model pointed to by a cybol path is null or empty or a cybol model (e.g. a string) is wrong since it was not emptied before being filled.");
+        //?? fwprintf(stdout, L"Warning: Could not modify item. The sum of the given index and count is outside the data array count. This may be regular behaviour. Probably, the model pointed to by a cybol path is null or empty or a cybol model (e.g. a string) is wrong since it was not emptied before being filled. r: %i\n", r);
     }
 }
 

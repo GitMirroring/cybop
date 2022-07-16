@@ -45,37 +45,39 @@
  * @param p1 the port
  * @param p2 the host address data (network communication) OR filename data (device, file, local unix domain socket)
  * @param p3 the host address count (network communication) OR filename count (device, file, local unix domain socket)
- * @param p4 the family data (namespace)
- * @param p5 the family count
- * @param p6 the style data (communication type)
- * @param p7 the style count
- * @param p8 the protocol data
- * @param p9 the protocol count
- * @param p10 the client entry
- * @param p11 the channel
+ * @param p4 the file open mode data
+ * @param p5 the file open mode count
+ * @param p6 the family data (namespace)
+ * @param p7 the family count
+ * @param p8 the style data (communication type)
+ * @param p9 the style count
+ * @param p10 the protocol data
+ * @param p11 the protocol count
+ * @param p12 the client entry
+ * @param p13 the channel
  */
-void open_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void open_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open device.");
-    //?? fwprintf(stdout, L"Debug: Open device. p11: %i\n", p11);
-    //?? fwprintf(stdout, L"Debug: Open device. *p11: %i\n", *((int*) p11));
+    //?? fwprintf(stdout, L"Debug: Open device. p13: %i\n", p13);
+    //?? fwprintf(stdout, L"Debug: Open device. *p13: %i\n", *((int*) p13));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p11, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p13, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            open_display(p0, p10);
+            open_display(p0, p12);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p11, (void*) FIFO_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p13, (void*) FIFO_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -90,17 +92,17 @@ void open_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p11, (void*) FILE_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p13, (void*) FILE_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            open_file(p0, p2, p3);
+            open_file(p0, p2, p3, p4, p5);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p11, (void*) SERIAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p13, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -110,17 +112,17 @@ void open_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p11, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p13, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            open_socket(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
+            open_socket(p0, p1, p2, p3, p6, p7, p8, p9, p10, p11);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p11, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p13, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -131,8 +133,8 @@ void open_device(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not open device. The channel is unknown.");
-        fwprintf(stdout, L"Warning: Could not open device. The channel is unknown. channel p11: %i\n", p11);
-        fwprintf(stdout, L"Warning: Could not open device. The channel is unknown. channel *p11: %i\n", *((int*) p11));
+        fwprintf(stdout, L"Warning: Could not open device. The channel is unknown. channel p13: %i\n", p13);
+        fwprintf(stdout, L"Warning: Could not open device. The channel is unknown. channel *p13: %i\n", *((int*) p13));
     }
 }
 

@@ -53,25 +53,27 @@
  * @param p1 the port
  * @param p2 the host address data (network communication) OR filename data (device, file, local unix domain socket)
  * @param p3 the host address count (network communication) OR filename count (device, file, local unix domain socket)
- * @param p4 the family data (namespace)
- * @param p5 the family count
- * @param p6 the style data (communication type)
- * @param p7 the style count
- * @param p8 the protocol data
- * @param p9 the protocol count
- * @param p10 the channel
- * @param p11 the server flag
- * @param p12 the internal memory
- * @param p13 the internal memory (pointer reference)
+ * @param p4 the file open mode data
+ * @param p5 the file open mode count
+ * @param p6 the family data (namespace)
+ * @param p7 the family count
+ * @param p8 the style data (communication type)
+ * @param p9 the style count
+ * @param p10 the protocol data
+ * @param p11 the protocol count
+ * @param p12 the channel
+ * @param p13 the server flag
+ * @param p14 the internal memory
+ * @param p15 the internal memory (pointer reference)
  */
-void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
+void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Open client.");
-    //?? fwprintf(stdout, L"Information: Open client. channel p10: %i\n", p10);
-    //?? fwprintf(stdout, L"Information: Open client. channel *p10: %i\n", *((int*) p10));
+    //?? fwprintf(stdout, L"Information: Open client. channel p12: %i\n", p12);
+    //?? fwprintf(stdout, L"Information: Open client. channel *p12: %i\n", *((int*) p12));
 
     //?? fwprintf(stdout, L"Information: Open client. port *p1: %i\n", *((int*) p1));
-    //?? fwprintf(stdout, L"Information: Open client. server flag *p11: %i\n", *((int*) p11));
+    //?? fwprintf(stdout, L"Information: Open client. server flag *p13: %i\n", *((int*) p13));
 
     // The client entry.
     void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -81,7 +83,7 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate client entry.
-    allocate_client_entry((void*) &ce, p10);
+    allocate_client_entry((void*) &ce, p12);
 
     //
     // Initialise client entry.
@@ -89,10 +91,10 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // CAUTION! It has to get initialised BEFORE opening
     // the client below, since its values are used there.
     //
-    open_entry(ce, p12, p10, p11, p1, p13);
+    open_entry(ce, p14, p12, p13, p1, p15);
 
     // Open client device depending on server flag.
-    open_flag(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, ce, p10, p11);
+    open_flag(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, ce, p12, p13);
 
     // Assign identification to client entry.
     open_identification(ce, p0, p2, p3);
@@ -101,7 +103,7 @@ void open_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     copy_array_forward((void*) &io, ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_OUTPUT_BACKLINK_CLIENT_STATE_CYBOI_NAME);
 
     // Get suitable client list item.
-    find_mode((void*) &cl, io, p11, p1);
+    find_mode((void*) &cl, io, p13, p1);
 
     // Append client entry to client list.
     modify_item(cl, (void*) &ce, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);

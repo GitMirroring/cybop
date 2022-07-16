@@ -11,22 +11,6 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-OLD data
-________
-
-        * Complete implementation of read/write mode for cybol operation "dispatch/open"
-
-        * Find out why model-diagram output is wrong when uncommenting entry "file" in "app.cybol" (the same happens in cybol application "presence", where "file" is a sub node of ".var")
-            --> the output is probably NOT wrong, but the existing file just overwritten, leaving the old data at the end if its previous size was larger
-                (the same wrong data appeared at the end of json files when testing the json serialiser)
-            --> therefore, set a special file flag when opening a file to shrink its size when the data are smaller than the already existing file size
-
-        * Search bug that SOME generated files contain too many body end tags or other data, only at the end
-            --> since not only html files are affected, but also css files, the reason is NOT the html serialiser,
-            but rather old data in a cybol node or the file WRITER ...
-            --> Is "append" the reason? If yes, then empty variable before each request OR use a stack variable
-        * Empty request variables (AND properties) OR use stack variables in cybol application "presence", since request contains old data of previous request
-
 API
 ___
 

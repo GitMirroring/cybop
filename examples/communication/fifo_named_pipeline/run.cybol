@@ -11,6 +11,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="pipeline"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".id"/>
         <node name="device" channel="inline" format="text/plain" model="communication/fifo_named_pipe/special_file"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
     </node>
 
     <node name="write_client" channel="inline" format="stream/write" model="">

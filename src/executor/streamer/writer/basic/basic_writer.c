@@ -229,6 +229,7 @@ void write_basic(void* p0, void* p1, void* p2, void* p3, void* p4) {
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write basic. An error occured.");
             fwprintf(stdout, L"Error: Could not write basic. An error occured. n: %i\n", n);
             log_errno((void*) &errno);
+            fwprintf(stdout, L"Hint: Did you forget to specify the cybol \"mode\" property with value \"write\" when opening the file?\n");
 
             // Set loop break flag.
             copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

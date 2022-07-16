@@ -26,21 +26,25 @@
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".app"/>
         <node name="device" channel="inline" format="text/plain" model="counter/stack/app.cybol"/>
+        <node name="mode" channel="inline" format="text/plain" model="read"/>
     </node>
     <node name="open_stack-pre" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".stack-pre"/>
         <node name="device" channel="inline" format="text/plain" model="test_counter_stack_stack-pre.txt"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
     </node>
     <node name="open_stack-post" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".stack-post"/>
         <node name="device" channel="inline" format="text/plain" model="test_counter_stack_stack-post.txt"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
     </node>
     <node name="open_heap" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="identification" channel="inline" format="text/cybol-path" model=".heap"/>
         <node name="device" channel="inline" format="text/plain" model="test_counter_stack_heap.txt"/>
+        <node name="mode" channel="inline" format="text/plain" model="write"/>
     </node>
     <node name="open_stdout" channel="inline" format="dispatch/open" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
