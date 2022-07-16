@@ -263,8 +263,9 @@ ________
             hand over special close-handler from cybol app to be stored in client entry and called on client close
             alternative 1: function pointer handed over and called ??
             alternative 2: send internal signal ??
-            see: closer handler in sensor and reader
-            see: closer handler in cybol example "communication/server_socket/"
+                see: closer handler in sensor and reader
+                see: closer handler in cybol example "communication/server_socket/"
+            alternative 3: reactivate system signals ??
 
         * Update awakener
         * Reflect about how to implement file "socket_awakener.c" called within exit process
