@@ -1,3 +1,6 @@
 <node name="x" channel="inline" format="number/integer" model="2"/>
 <node name="y" channel="inline" format="number/integer" model="4"/>
 <node name="array" channel="inline" format="number/integer" model="1,2,3,4"/>
+<node name="negative" channel="inline" format="number/integer" model="-24"/>
+<node name="hexadecimal" channel="inline" format="number/integer" model="-0x18"/>
+<node name="octal" channel="inline" format="number/integer" model="-030"/>

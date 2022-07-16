@@ -26,12 +26,12 @@
 #ifndef MESSAGE_STATE_CYBOL_LANGUAGE_CONSTANT_SOURCE
 #define MESSAGE_STATE_CYBOL_LANGUAGE_CONSTANT_SOURCE
 
-#include <stddef.h>
+#include <stddef.h> // wchar_t
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
-// Message.
+// Message
 //
 // IANA media type: message
 //

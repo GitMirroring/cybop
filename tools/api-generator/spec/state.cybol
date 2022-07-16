@@ -1,3 +1,8 @@
 <node>
     <node name="number" channel="file" format="element/part" model="api-generator/spec/state/number.cybol"/>
+    <node name="number" channel="file" format="element/part" model="api-generator/spec/state/number.cybol"/>
+    <node name="number" channel="file" format="element/part" model="api-generator/spec/state/number.cybol"/>
+    <node name="number" channel="file" format="element/part" model="api-generator/spec/state/number.cybol"/>
+    <node name="number" channel="file" format="element/part" model="api-generator/spec/state/number.cybol"/>
+    <node name="number" channel="file" format="element/part" model="api-generator/spec/state/number.cybol"/>
 </node>

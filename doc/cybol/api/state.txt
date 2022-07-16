@@ -1,1 +1,6 @@
+number/byte
+number/complex-cartesian
+number/complex-polar
+number/fraction-decimal
+number/fraction-vulgar
 number/integer

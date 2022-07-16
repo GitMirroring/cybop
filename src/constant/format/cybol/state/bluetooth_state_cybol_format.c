@@ -26,12 +26,18 @@
 #ifndef BLUETOOTH_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 #define BLUETOOTH_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
-#include <stddef.h>
+#include <stddef.h> // wchar_t
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
-// This MIME type was taken from/ inspired by the KDE desktop.
+// Bluetooth
+//
+// IANA media type: not defined
+// Self-defined media type: bluetooth
+// This media type is a CYBOL extension.
+//
+// This MIME type was taken from/inspired by the KDE desktop.
 // It is not sure yet, whether it will be useful in the context of CYBOI.
 //
 

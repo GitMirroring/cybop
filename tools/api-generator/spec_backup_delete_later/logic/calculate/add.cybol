@@ -1,5 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="Adds the operand to the result. CAUTION! Do NOT use the "add" operation for characters! They may be concatenated by using the "modify/append" or "modify/overwrite" operation. CAUTION! There are several ways to use addition, with unary or binary operators. This function works like an UNARY operator. The "result" parametre represents the FIRST operand; the "operand" parametre the SECOND."/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/logic/calculate/add/examples.txt"/>
-    <node name="properties" channel="file" format="element/part" model="api-generator/spec/logic/calculate/add/properties.cybol"/>
-</node>

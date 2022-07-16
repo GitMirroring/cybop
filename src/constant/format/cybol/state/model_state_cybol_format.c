@@ -27,28 +27,12 @@
 #ifndef MODEL_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 #define MODEL_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
-#include <stddef.h>
+#include <stddef.h> // wchar_t
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
-// The CYBOL type constants' names and values have been adapted to follow
-// the style of the Internet media type / content type that is also
-// known under the name Multipurpose Internet Mail Extensions (MIME).
-// These types are managed by the Internet Assigned Numbers Authority (IANA).
-// See document "Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types":
-// http://tools.ietf.org/html/rfc2046
-//
-// Since the MIME standard does not offer media types for certain data,
-// CYBOL had to invent new languages (media types), e.g. for dates, numbers etc.
-// This is not meant to pollute the MIME standard, just to fill a gap!
-// In case IANA adopts these extensions one day -- fine.
-// If, however, other media type values replacing ours are proposed,
-// we are open to adapt the CYBOL language specification accordingly.
-//
-
-//
-// Model.
+// Model
 //
 // IANA media type: model
 //

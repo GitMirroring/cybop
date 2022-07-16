@@ -26,12 +26,18 @@
 #ifndef PRINT_MIME_TYPE_CONSTANTS_SOURCE
 #define PRINT_MIME_TYPE_CONSTANTS_SOURCE
 
-#include <stddef.h>
+#include <stddef.h> // wchar_t
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
-// This MIME type was taken from/ inspired by the KDE desktop.
+// Print (things related to printer devices)
+//
+// IANA media type: not defined
+// Self-defined media type: print
+// This media type is a CYBOL extension.
+//
+// This MIME type was taken from/inspired by the KDE desktop.
 // It is not sure yet, whether it will be useful in the context of CYBOI.
 //
 
