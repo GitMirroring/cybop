@@ -29,10 +29,9 @@ Contents
 3.3 Windows (MSVC)
 
 4 Development
-4.1 Testing
-4.2 Formatting
-4.3 Documentation
-4.4 Homepage
+4.1 Formatting
+4.2 Documentation
+4.3 Homepage
 
 5 Distribution
 5.1 Tagging
@@ -252,6 +251,14 @@ ___________________________________________
 - Create the cyboi binary only:
 
     make cyboi
+
+Make target overview:
+
+    make clean
+    make cyboi
+    make api
+    make test
+    make
 
 3.2 Under Linux for Windows (MinGW)
 ___________________________________
