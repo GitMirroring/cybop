@@ -23,6 +23,7 @@
         * Remove generated spec folder from svn
         * Add Unittests for apiWriter
         * Prevent generating example structure if there are no examples provided
+        * Add integrationTester python script
 
 2022-07-17  Enrico Gallus  <enrico.gallus@gmail.com>
 
