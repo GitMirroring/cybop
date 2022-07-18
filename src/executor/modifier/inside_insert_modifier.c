@@ -45,7 +45,7 @@
  * All current elements existing behind the given index in the destination array
  * are moved towards the end by the number of elements inserted.
  *
- * CAUTION! This is done in a backwards order, starting from the last element,
+ * CAUTION! This is done in a BACKWARDS order, starting from the last element,
  * since otherwise, some elements might overlap and get overwritten.
  *
  * Example:

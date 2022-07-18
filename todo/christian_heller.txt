@@ -17,12 +17,26 @@ ___
         * Update cybol api specification in javadoc comment blocks of directory "constant/format/cybol/"
         * Delete directory "tools/api-generator/spec_backup_delete_later/" from svn, as soon as all api documentation comments have been converted to the new format
 
+Number Deserialiser
+___________________
+
+        DONE: fraction_numeral_deserialiser.c, decimals_numeral_deserialiser.c
+
+        CONTINUE:
+        * Continue general number deserialiser and -selector ONLY for integer and double (other formats may follow LATER)
+        * Start from file "number_numeral_deserialiser.c" (see "TODO")
+        * Adapt loop section in file "number_json_deserialiser.c" to call function "deserialise_numeral"
+        * Adapt section "number" in file "cybol_deserialiser.c" to call function "deserialise_numeral"
+
+        * Use "+i" or "-i" or "exp(i" to recognise complex number, in order to distinguish sign from other signs in E
+        * check how to consider sign after E in file "power_number_deserialiser.c" ??
+        * functions called from file "value_number_selector.c" section "BAR_FRACTION_NUMBER_NAME" (find a different name, since "fraction_number_deserialiser.c" is already used for after-decimal-separator-digits)
+        * functions called from file "power_number_selector.c"
+        * functions called from file "decimals_number_selector.c"
+
 JSON
 ____
 
-        * Continue with functions called from files "decimals_number_deserialiser.c" and from "decimals_number_selector.c" as well as "value_number_selector.c"
-        * Continue general number deserialiser and -selector
-        * Compare detected number type with possibly given one (as cybol format) and print warning if not identical
         * Add file "type_json_deserialiser.c" with branching for the different number types
 
         * Complete file "begin_value_json_selector.c" with new number characters as used in file "number_name.c"

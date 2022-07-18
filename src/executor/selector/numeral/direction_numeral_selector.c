@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DIRECTION_NUMBER_SELECTOR_SOURCE
-#define DIRECTION_NUMBER_SELECTOR_SOURCE
+#ifndef DIRECTION_NUMERAL_SELECTOR_SOURCE
+#define DIRECTION_NUMERAL_SELECTOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../logger/logger.c"
@@ -43,22 +43,22 @@
  * @param p7 the source data position (pointer reference)
  * @param p8 the source count remaining
  */
-void select_number_direction(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void select_numeral_direction(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select number direction.");
-    fwprintf(stdout, L"Debug: Select number direction. count remaining p8: %i\n", p8);
-    fwprintf(stdout, L"Debug: Select number direction. count remaining *p8: %i\n", *((int*) p8));
-    fwprintf(stdout, L"Debug: Select number direction. data position *p7: %i\n", *((void**) p7));
-    fwprintf(stdout, L"Debug: Select number direction. data position *p7 ls: %ls\n", (wchar_t*) *((void**) p7));
-    fwprintf(stdout, L"Debug: Select number direction. data position *p7 lc: %lc\n", *((wchar_t*) *((void**) p7)));
-    fwprintf(stdout, L"Debug: Select number direction. data position *p7 lc as int: %i\n", *((wchar_t*) *((void**) p7)));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select numeral direction.");
+    fwprintf(stdout, L"Debug: Select numeral direction. count remaining p8: %i\n", p8);
+    fwprintf(stdout, L"Debug: Select numeral direction. count remaining *p8: %i\n", *((int*) p8));
+    fwprintf(stdout, L"Debug: Select numeral direction. data position *p7: %i\n", *((void**) p7));
+    fwprintf(stdout, L"Debug: Select numeral direction. data position *p7 ls: %ls\n", (wchar_t*) *((void**) p7));
+    fwprintf(stdout, L"Debug: Select numeral direction. data position *p7 lc: %lc\n", *((wchar_t*) *((void**) p7)));
+    fwprintf(stdout, L"Debug: Select numeral direction. data position *p7 lc as int: %i\n", *((wchar_t*) *((void**) p7)));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p7, p8, (void*) MINUS_SIGN_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MINUS_SIGN_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p7, p8, (void*) MINUS_SIGN_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MINUS_SIGN_NUMERAL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -68,13 +68,13 @@ void select_number_direction(void* p0, void* p1, void* p2, void* p3, void* p4, v
             // CAUTION! Hand over minus sign flag as parametre.
             // Set value to TRUE, which means MINUS.
             //
-            deserialise_number_power(p1, p2, p3, p4, p5, p6, p7, p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            deserialise_numeral_power(p1, p2, p3, p4, p5, p6, p7, p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p7, p8, (void*) PLUS_SIGN_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PLUS_SIGN_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p7, p8, (void*) PLUS_SIGN_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PLUS_SIGN_NUMERAL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -84,7 +84,7 @@ void select_number_direction(void* p0, void* p1, void* p2, void* p3, void* p4, v
             // CAUTION! Hand over minus sign flag as parametre.
             // Set value to FALSE, which means PLUS.
             //
-            deserialise_number_power(p1, p2, p3, p4, p5, p6, p7, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            deserialise_numeral_power(p1, p2, p3, p4, p5, p6, p7, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -101,9 +101,9 @@ void select_number_direction(void* p0, void* p1, void* p2, void* p3, void* p4, v
         // Set value to FALSE, which means PLUS.
         // This is the DEFAULT value.
         //
-        deserialise_number_power(p1, p2, p3, p4, p5, p6, p7, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        deserialise_numeral_power(p1, p2, p3, p4, p5, p6, p7, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 
-/* DIRECTION_NUMBER_SELECTOR_SOURCE */
+/* DIRECTION_NUMERAL_SELECTOR_SOURCE */
 #endif

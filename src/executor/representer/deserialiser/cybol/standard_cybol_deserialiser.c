@@ -58,7 +58,7 @@
 void deserialise_cybol_part(void* p0, void* p1, void* p2);
 
 /**
- * Deserialises a cybol andard node.
+ * Deserialises a cybol standard node.
  *
  * @param p0 the destination item
  * @param p1 the source name data

@@ -23,14 +23,14 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef DECIMALS_NUMBER_SELECTOR_SOURCE
-#define DECIMALS_NUMBER_SELECTOR_SOURCE
+#ifndef DECIMALS_NUMERAL_SELECTOR_SOURCE
+#define DECIMALS_NUMERAL_SELECTOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../logger/logger.c"
 
 /**
- * Selects the number decimal places (decimals).
+ * Selects the numeral decimal places (decimals).
  *
  * @param p0 the destination format
  * @param p1 the destination type
@@ -43,15 +43,15 @@
  * @param px the decimals count
  * @param p8 the loop break flag
  */
-void select_number_decimals(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void select_numeral_decimals(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select number decimals.");
-    fwprintf(stdout, L"Debug: Select number decimals. count remaining p7: %i\n", p7);
-    fwprintf(stdout, L"Debug: Select number decimals. count remaining *p7: %i\n", *((int*) p7));
-    fwprintf(stdout, L"Debug: Select number decimals. data position *p6: %i\n", *((void**) p6));
-    fwprintf(stdout, L"Debug: Select number decimals. data position *p6 ls: %ls\n", (wchar_t*) *((void**) p6));
-    fwprintf(stdout, L"Debug: Select number decimals. data position *p6 lc: %lc\n", *((wchar_t*) *((void**) p6)));
-    fwprintf(stdout, L"Debug: Select number decimals. data position *p6 lc as int: %i\n", *((wchar_t*) *((void**) p6)));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select numeral decimals.");
+    fwprintf(stdout, L"Debug: Select numeral decimals. count remaining p7: %i\n", p7);
+    fwprintf(stdout, L"Debug: Select numeral decimals. count remaining *p7: %i\n", *((int*) p7));
+    fwprintf(stdout, L"Debug: Select numeral decimals. data position *p6: %i\n", *((void**) p6));
+    fwprintf(stdout, L"Debug: Select numeral decimals. data position *p6 ls: %ls\n", (wchar_t*) *((void**) p6));
+    fwprintf(stdout, L"Debug: Select numeral decimals. data position *p6 lc: %lc\n", *((wchar_t*) *((void**) p6)));
+    fwprintf(stdout, L"Debug: Select numeral decimals. data position *p6 lc as int: %i\n", *((wchar_t*) *((void**) p6)));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -72,12 +72,12 @@ void select_number_decimals(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p6, p7, (void*) CAPITAL_POWER_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CAPITAL_POWER_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p6, p7, (void*) CAPITAL_POWER_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CAPITAL_POWER_NUMERAL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise exponent.
-            deserialise_number_exponent(p1, p2, p3, p4, p5, p6, p7, p8);
+            deserialise_numeral_exponent(p1, p2, p3, p4, p5, p6, p7, p8);
 
             // Set loop break flag.
             copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -86,12 +86,12 @@ void select_number_decimals(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p6, p7, (void*) SMALL_POWER_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SMALL_POWER_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p6, p7, (void*) SMALL_POWER_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SMALL_POWER_NUMERAL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise exponent.
-            deserialise_number_exponent(p1, p2, p3, p4, p5, p6, p7, p8);
+            deserialise_numeral_exponent(p1, p2, p3, p4, p5, p6, p7, p8);
 
             // Set loop break flag.
             copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -104,12 +104,12 @@ void select_number_decimals(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p6, p7, (void*) MINUS_SIGN_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MINUS_SIGN_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p6, p7, (void*) MINUS_SIGN_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MINUS_SIGN_NUMERAL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise imaginary part of complex number.
-            deserialise_number_TODO(p1, p2, p3, p4, p5, p6, p7, p8);
+            deserialise_numeral_TODO(p1, p2, p3, p4, p5, p6, p7, p8);
 
             // Set loop break flag.
             copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -118,12 +118,12 @@ void select_number_decimals(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p6, p7, (void*) PLUS_SIGN_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PLUS_SIGN_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p6, p7, (void*) PLUS_SIGN_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PLUS_SIGN_NUMERAL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise imaginary part of complex number.
-            deserialise_number_TODO(p1, p2, p3, p4, p5, p6, p7, p8);
+            deserialise_numeral_TODO(p1, p2, p3, p4, p5, p6, p7, p8);
 
             // Set loop break flag.
             copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -136,12 +136,12 @@ void select_number_decimals(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p6, p7, (void*) MULTIPLICATION_ABBREVIATION_BEGIN_EXPONENT_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MULTIPLICATION_ABBREVIATION_BEGIN_EXPONENT_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p6, p7, (void*) MULTIPLICATION_ABBREVIATION_BEGIN_EXPONENT_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MULTIPLICATION_ABBREVIATION_BEGIN_EXPONENT_NUMERAL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise imaginary part of complex number.
-            deserialise_number_TODO(p1, p2, p3, p4, p5, p6, p7, p8);
+            deserialise_numeral_TODO(p1, p2, p3, p4, p5, p6, p7, p8);
 
             // Set loop break flag.
             copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -150,12 +150,12 @@ void select_number_decimals(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p6, p7, (void*) MULTIPLICATION_LETTER_BEGIN_EXPONENT_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MULTIPLICATION_LETTER_BEGIN_EXPONENT_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p6, p7, (void*) MULTIPLICATION_LETTER_BEGIN_EXPONENT_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MULTIPLICATION_LETTER_BEGIN_EXPONENT_NUMERAL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise imaginary part of complex number.
-            deserialise_number_TODO(p1, p2, p3, p4, p5, p6, p7, p8);
+            deserialise_numeral_TODO(p1, p2, p3, p4, p5, p6, p7, p8);
 
             // Set loop break flag.
             copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -164,12 +164,12 @@ void select_number_decimals(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p6, p7, (void*) ABBREVIATION_BEGIN_EXPONENT_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ABBREVIATION_BEGIN_EXPONENT_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p6, p7, (void*) ABBREVIATION_BEGIN_EXPONENT_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ABBREVIATION_BEGIN_EXPONENT_NUMERAL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise imaginary part of complex number.
-            deserialise_number_TODO(p1, p2, p3, p4, p5, p6, p7, p8);
+            deserialise_numeral_TODO(p1, p2, p3, p4, p5, p6, p7, p8);
 
             // Set loop break flag.
             copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -178,12 +178,12 @@ void select_number_decimals(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p6, p7, (void*) LETTER_BEGIN_EXPONENT_NUMBER_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LETTER_BEGIN_EXPONENT_NUMBER_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p6, p7, (void*) LETTER_BEGIN_EXPONENT_NUMERAL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LETTER_BEGIN_EXPONENT_NUMERAL_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Deserialise imaginary part of complex number.
-            deserialise_number_TODO(p1, p2, p3, p4, p5, p6, p7, p8);
+            deserialise_numeral_TODO(p1, p2, p3, p4, p5, p6, p7, p8);
 
             // Set loop break flag.
             copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -204,5 +204,5 @@ void select_number_decimals(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     }
 }
 
-/* DECIMALS_NUMBER_SELECTOR_SOURCE */
+/* DECIMALS_NUMERAL_SELECTOR_SOURCE */
 #endif

@@ -69,6 +69,9 @@ static int* BYTE_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  * A complex number written in cartesian form as real and imaginary part,
  * separated by a (plus or minus) sign.
  *
+ * Each number can be an element of a vector (array), e.g.:
+ * - complex cartesian: 1.2e+3+0.4e-2,2-4
+ *
  * CAUTION! The i (or j in electrical engineering) in the imaginary part
  * is NEGLECTED: 1+2i --> 1+2.
  *
@@ -141,6 +144,9 @@ static int* COMPLEX_POLAR_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_ST
  * It has a value range from 2^−1022 to approximately 2^1024,
  * which is from 2 × 10^−308 to 2 × 10^308.
  *
+ * Each number can be an element of a vector (array), e.g.:
+ * - fraction decimal: 1.2,3.4,5.6
+ *
  * CAUTION! The cybol parser is able to recognise many variants,
  * with small or capital letter E, with or without plus sign,
  * as shown in the examples below. However, the RECOMMENDED FORM is as follows:
@@ -177,6 +183,9 @@ static int* FRACTION_DECIMAL_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER
  * A fraction number written as numerator and denominator,
  * separated by a bar (solidus, slash).
  *
+ * Each number can be an element of a vector (array), e.g.:
+ * - fraction vulgar: 1/2,3/4
+ *
  * Examples:
  *
  * <node name="f1" channel="inline" format="number/fraction-vulgar" model="1/2"/>
@@ -198,14 +207,17 @@ static int* FRACTION_VULGAR_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
  * It has a value range from −2,147,483,648 to 2,147,483,647,
  * which is from −(2^31) to 2^31 - 1.
  *
+ * Each number can be an element of a vector (array), e.g.:
+ * - integer: 1,2,3,4
+ *
  * Examples:
  *
- * <node name="x" channel="inline" format="number/integer" model="2"/>
- * <node name="y" channel="inline" format="number/integer" model="4"/>
- * <node name="array" channel="inline" format="number/integer" model="1,2,3,4"/>
+ * <node name="simple" channel="inline" format="number/integer" model="24"/>
+ * <node name="positive" channel="inline" format="number/integer" model="+24"/>
  * <node name="negative" channel="inline" format="number/integer" model="-24"/>
- * <node name="hexadecimal" channel="inline" format="number/integer" model="-0x18"/>
  * <node name="octal" channel="inline" format="number/integer" model="-030"/>
+ * <node name="hexadecimal" channel="inline" format="number/integer" model="-0x18"/>
+ * <node name="array" channel="inline" format="number/integer" model="1,2,3,4"/>
  */
 static wchar_t* INTEGER_NUMBER_STATE_CYBOL_FORMAT = L"number/integer";
 static int* INTEGER_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;

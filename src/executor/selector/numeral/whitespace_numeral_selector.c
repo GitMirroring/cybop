@@ -23,34 +23,28 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WHITESPACE_NUMBER_SELECTOR_SOURCE
-#define WHITESPACE_NUMBER_SELECTOR_SOURCE
+#ifndef WHITESPACE_NUMERAL_SELECTOR_SOURCE
+#define WHITESPACE_NUMERAL_SELECTOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../logger/logger.c"
 
 /**
- * Skips any whitespace characters.
+ * Detects and skips any whitespace characters.
  *
- * @param p0 the minus sign flag
- * @param p1 the destination format
- * @param p2 the destination type
- * @param p3 the destination integer value one
- * @param p4 the destination integer value two
- * @param p5 the destination double value one
- * @param p6 the destination double value two
- * @param p7 the source data position (pointer reference)
- * @param p8 the source count remaining
+ * @param p0 the destination loop break flag
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
  */
-void select_number_whitespace(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void select_numeral_whitespace(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select number whitespace.");
-    fwprintf(stdout, L"Debug: Select number whitespace. count remaining p8: %i\n", p8);
-    fwprintf(stdout, L"Debug: Select number whitespace. count remaining *p8: %i\n", *((int*) p8));
-    fwprintf(stdout, L"Debug: Select number whitespace. data position *p7: %i\n", *((void**) p7));
-    fwprintf(stdout, L"Debug: Select number whitespace. data position *p7 ls: %ls\n", (wchar_t*) *((void**) p7));
-    fwprintf(stdout, L"Debug: Select number whitespace. data position *p7 lc: %lc\n", *((wchar_t*) *((void**) p7)));
-    fwprintf(stdout, L"Debug: Select number whitespace. data position *p7 lc as int: %i\n", *((wchar_t*) *((void**) p7)));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select numeral whitespace.");
+    fwprintf(stdout, L"Debug: Select numeral whitespace. count remaining p8: %i\n", p8);
+    fwprintf(stdout, L"Debug: Select numeral whitespace. count remaining *p8: %i\n", *((int*) p8));
+    fwprintf(stdout, L"Debug: Select numeral whitespace. data position *p7: %i\n", *((void**) p7));
+    fwprintf(stdout, L"Debug: Select numeral whitespace. data position *p7 ls: %ls\n", (wchar_t*) *((void**) p7));
+    fwprintf(stdout, L"Debug: Select numeral whitespace. data position *p7 lc: %lc\n", *((wchar_t*) *((void**) p7)));
+    fwprintf(stdout, L"Debug: Select numeral whitespace. data position *p7 lc as int: %i\n", *((wchar_t*) *((void**) p7)));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -76,7 +70,7 @@ void select_number_whitespace(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p7, p8, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p1, p2, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         //
         // CAUTION! If the searched character sequence was found,
@@ -92,7 +86,7 @@ void select_number_whitespace(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p7, p8, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p1, p2, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         //
         // CAUTION! If the searched character sequence was found,
@@ -108,7 +102,7 @@ void select_number_whitespace(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p7, p8, (void*) CARRIAGE_RETURN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p1, p2, (void*) CARRIAGE_RETURN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         //
         // CAUTION! If the searched character sequence was found,
@@ -124,7 +118,7 @@ void select_number_whitespace(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p7, p8, (void*) CHARACTER_TABULATION_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        detect((void*) &r, p1, p2, (void*) CHARACTER_TABULATION_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         //
         // CAUTION! If the searched character sequence was found,
@@ -144,10 +138,10 @@ void select_number_whitespace(void* p0, void* p1, void* p2, void* p3, void* p4, 
         // A whitespace character was NOT detected.
         //
 
-        // Deserialise sign.
-        deserialise_number_sign(p1, p2, p3, p4, p5, p6, p7, p8);
+        // Set loop break flag.
+        copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 
-/* WHITESPACE_NUMBER_SELECTOR_SOURCE */
+/* WHITESPACE_NUMERAL_SELECTOR_SOURCE */
 #endif

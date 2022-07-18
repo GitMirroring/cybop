@@ -78,6 +78,10 @@ void modify_insert(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
+            // CAUTION! There is NO "adjust count" flag here,
+            // since the destination array count gets ALWAYS adjusted.
+            //
             modify_insert_inside(p0, p1, p2, p3, p4, p5, p6, p7, p8);
         }
     }

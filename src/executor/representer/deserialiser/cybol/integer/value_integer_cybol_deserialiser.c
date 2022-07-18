@@ -144,8 +144,15 @@ void deserialise_cybol_integer_value(void* p0, void* p1, void* p2, void* p3, voi
 
             compare_integer_unequal((void*) &b, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
+            //
+            // Add integer value to destination item.
+            //
             if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+                //
+                // CAUTION! The "adjust count" flag is set to NULL here,
+                // since the destination count gets ALWAYS adjusted.
+                //
                 modify_item(p0, (void*) &i, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p5, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INSERT_MODIFY_LOGIC_CYBOI_FORMAT);
 
             } else {

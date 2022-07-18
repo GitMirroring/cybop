@@ -365,6 +365,14 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             deserialise_cybol_integer(p0, p2, p3);
+
+            //
+            // Deserialise numeral.
+            //
+            // CAUTION! The number part parametre is NULL and not needed, since
+            // a destination item is already handed over to the called function.
+            //
+            //?? deserialise_numeral(p0, *NULL_POINTER_STATE_CYBOI_MODEL, nd, (void*) &nc);
         }
     }
 

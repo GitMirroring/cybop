@@ -24,14 +24,14 @@
  * @author Falk Müller <falk89@web.de>
  */
 
-#ifndef VALUE_NUMBER_DESERIALISER_SOURCE
-#define VALUE_NUMBER_DESERIALISER_SOURCE
+#ifndef VALUE_NUMERAL_DESERIALISER_SOURCE
+#define VALUE_NUMERAL_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the number value.
+ * Deserialises the numeral value.
  *
  * @param p0 the destination format
  * @param p1 the destination type
@@ -42,11 +42,11 @@
  * @param p6 the source data position (pointer reference)
  * @param p7 the source count remaining
  */
-void deserialise_number_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void deserialise_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise number value.");
-    fwprintf(stdout, L"Debug: Deserialise number value. count remaining p8: %i\n", p8);
-    fwprintf(stdout, L"Debug: Deserialise number value. count remaining *p8: %i\n", *((int*) p8));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral value.");
+    fwprintf(stdout, L"Debug: Deserialise numeral value. count remaining p8: %i\n", p8);
+    fwprintf(stdout, L"Debug: Deserialise numeral value. count remaining *p8: %i\n", *((int*) p8));
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -87,17 +87,17 @@ void deserialise_number_value(void* p0, void* p1, void* p2, void* p3, void* p4, 
             // In BOTH cases, the value can now be deserialised.
             //
 
-            fwprintf(stdout, L"Debug: Deserialise number value. vc: %i\n", vc);
-            fwprintf(stdout, L"Debug: Deserialise number value. vd: %ls\n", (wchar_t*) vd);
+            fwprintf(stdout, L"Debug: Deserialise numeral value. vc: %i\n", vc);
+            fwprintf(stdout, L"Debug: Deserialise numeral value. vd: %ls\n", (wchar_t*) vd);
 
             // Deserialise integer value.
-            deserialise_number_integer(p2, vd, (void*) &vc);
+            deserialise_numeral_integer(p2, vd, (void*) &vc);
 
             break;
         }
 
-        // Select number value.
-        select_number_value(p0, p1, p2, p3, p4, p5, p6, p7, (void*) &vc, (void*) &b);
+        // Select numeral value.
+        select_numeral_value(p0, p1, p2, p3, p4, p5, p6, p7, (void*) &vc, (void*) &b);
     }
 
     // Find out if format or type were set already.
@@ -121,10 +121,10 @@ void deserialise_number_value(void* p0, void* p1, void* p2, void* p3, void* p4, 
         //
 
         // Assign format and type.
-        copy_integer(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_FORMAT);
-        copy_integer(p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        copy_integer(p0, (void*) INTEGER_NUMERAL_STATE_CYBOI_FORMAT);
+        copy_integer(p1, (void*) INTEGER_NUMERAL_STATE_CYBOI_TYPE);
     }
 }
 
-/* VALUE_NUMBER_DESERIALISER_SOURCE */
+/* VALUE_NUMERAL_DESERIALISER_SOURCE */
 #endif
