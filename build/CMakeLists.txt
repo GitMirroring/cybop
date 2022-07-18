@@ -27,5 +27,8 @@ include(cmake/codestyling.cmake)
 # --- api generator --- #
 include(cmake/api.cmake)
 
+# --- api generator --- #
+include(cmake/test.cmake)
+
 # --- CPack Configuration --- #
 include(cmake/packaging.cmake)
