@@ -1,3 +1,0 @@
-<node>
-    <node name="add" channel="file" format="element/part" model="api-generator/spec/logic/calculate/add.cybol"/>
-</node>

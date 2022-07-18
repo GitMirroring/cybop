@@ -1,6 +1,0 @@
-<node name="standard" channel="inline" format="number/complex-cartesian" model="1+2"/>
-<node name="negative_imaginary_part" channel="inline" format="number/complex-cartesian" model="2-7"/>
-<node name="negative_real_part" channel="inline" format="number/complex-cartesian" model="-5+5"/>
-<node name="both_parts_negative" channel="inline" format="number/complex-cartesian" model="-3-2"/>
-<node name="decimal_fractions" channel="inline" format="number/complex-cartesian" model="-1.23+5.0"/>
-<node name="scientific_notation" channel="inline" format="number/complex-cartesian" model="-1.23e12+.11e2"/>

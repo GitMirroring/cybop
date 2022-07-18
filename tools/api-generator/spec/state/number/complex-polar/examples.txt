@@ -1,6 +1,0 @@
-<node name="standard" channel="inline" format="number/complex-polar" model="-2*exp(-45)"/>
-<node name="with_capital_letter_e" channel="inline" format="number/complex-polar" model="-2*E(-45)"/>
-<node name="without_times_sign_1" channel="inline" format="number/complex-polar" model="-2exp(-45)"/>
-<node name="without_times_sign_2" channel="inline" format="number/complex-polar" model="-2E(-45)"/>
-<node name="decimal_fraction" channel="inline" format="number/complex-polar" model="-1.23*exp(-45)"/>
-<node name="scientific_notation" channel="inline" format="number/complex-polar" model="-1.23E4E(-45)"/>

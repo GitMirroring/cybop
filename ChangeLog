@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-07-18  Enrico Gallus  <enrico.gallus@gmail.com>
+
+        * Remove generated spec folder from svn
+        * Add Unittests for apiWriter
+        * Prevent generating example structure if there are no examples provided
+
 2022-07-17  Enrico Gallus  <enrico.gallus@gmail.com>
 
         * Fix writing group nodes distinct

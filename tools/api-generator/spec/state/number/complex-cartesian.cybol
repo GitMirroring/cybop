@@ -1,4 +1,0 @@
-<node>
-    <node name="description" channel="inline" format="text/plain" model="A complex number written in cartesian form as real and imaginary part, separated by a (plus or minus) sign. CAUTION! The i (or j in electrical engineering) in the imaginary part is NEGLECTED: 1+2i --> 1+2. CAUTION! Using fractions for real and imaginary part of a complex number is NOT supported, e.g. -1/2+3/4. The complex number given in cartesian form: 2 + 3i which can also be written using a j instead of i: 2 + 3j would be written in CYBOL as: 2+3"/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/state/number/complex-cartesian/examples.txt"/>
-</node>

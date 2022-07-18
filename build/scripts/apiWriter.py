@@ -19,8 +19,8 @@ group_template_raw = '''<node>{% for element in elements %}
 '''
 
 specifier_template_raw = '''<node>
-    <node name="description" channel="inline" format="text/plain" model="{{ element.description}}"/>
-    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/{{ element.type }}/{{ element.group }}/{{ element.specifier }}/examples.txt"/>{% if element.properties|length > 0 %}
+    <node name="description" channel="inline" format="text/plain" model="{{ element.description}}"/>{% if element.examples is not none %}
+    <node name="examples" channel="file" format="text/plain" model="api-generator/spec/{{ element.type }}/{{ element.group }}/{{ element.specifier }}/examples.txt"/>{% endif %}{% if element.properties|length > 0 %}
     <node name="properties" channel="file" format="element/part" model="api-generator/spec/{{ element.type }}/{{ element.group }}/{{ element.specifier }}/properties.cybol"/>{% endif %}
 </node>
 
@@ -59,45 +59,42 @@ class Writer:
                     # skipping type_group template at the moment
                     for element in group:
                         self.__write_specifier(element)
-                        self.__write_examples(element)
+                        if element.examples is not None:
+                            self.__write_examples(element)
                         self.__write_properties(element)
 
     def __write_api_specification(self, elements, type):
         file_path = os.path.join(self.api_output_path, type + '.txt')
-        os.makedirs(os.path.dirname(file_path), exist_ok=True)
         names = os.linesep.join(list(sorted(map(lambda x: x.name, elements))))
-        with open(file_path, 'w') as outfile:
-            outfile.write(names)
+        self.__write_content(file_path, names)
 
     def __write_variable_groups(self, elements, type):
         file_path = os.path.join(self.spec_output_path, type + '.cybol')
-        os.makedirs(os.path.dirname(file_path), exist_ok=True)
-        Template(variable_template_raw).stream(elements=elements).dump(file_path)
+        self.__write_content(file_path, Template(variable_template_raw).render(elements=elements))
 
     def __write_type_groups(self, elements, type):
         file_path = os.path.join(self.spec_output_path, type + '.cybol')
-        os.makedirs(os.path.dirname(file_path), exist_ok=True)
         group_names = set(map(lambda x: x.group, elements))
-        Template(type_template_raw).stream(group_names=group_names, type=type).dump(file_path)
+        self.__write_content(file_path, Template(type_template_raw).render(group_names=group_names, type=type))
 
     def __write_groups(self, elements, type, group):
         file_path = os.path.join(self.spec_output_path, type, group + '.cybol')
-        os.makedirs(os.path.dirname(file_path), exist_ok=True)
-        Template(group_template_raw).stream(elements=elements, type=type).dump(file_path)
+        self.__write_content(file_path, Template(group_template_raw).render(elements=elements, type=type))
 
     def __write_specifier(self, element: ApiItem):
         file_path = os.path.join(self.spec_output_path, element.type, element.group, element.specifier + '.cybol')
-        os.makedirs(os.path.dirname(file_path), exist_ok=True)
-        Template(specifier_template_raw).stream(element=element).dump(file_path)
+        self.__write_content(file_path, Template(specifier_template_raw).render(element=element))
 
     def __write_examples(self, element: ApiItem):
         file_path = os.path.join(self.spec_output_path, element.type, element.group, element.specifier, 'examples.txt')
-        os.makedirs(os.path.dirname(file_path), exist_ok=True)
-        with open(file_path, 'w') as outfile:
-            outfile.write(element.examples)
+        self.__write_content(file_path, element.examples)
 
     def __write_properties(self, element: ApiItem):
         if len(element.properties) > 0:
             file_path = os.path.join(self.spec_output_path, element.type, element.group, element.specifier, 'properties.cybol')
-            os.makedirs(os.path.dirname(file_path), exist_ok=True)
-            Template(properties_template_raw).stream(properties=element.properties).dump(file_path)
+            self.__write_content(file_path, Template(properties_template_raw).render(properties=element.properties))
+
+    def __write_content(self, path_to_file: str, content: str):
+        os.makedirs(os.path.dirname(path_to_file), exist_ok=True)
+        with open(path_to_file, 'w') as outfile:
+            outfile.write(content)
