@@ -87,12 +87,12 @@ static int* BYTE_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  *
  * Examples:
  *
- * <node name="standard" channel="inline" format="number/complex-cartesian" model="1+2"/>
- * <node name="negative_imaginary_part" channel="inline" format="number/complex-cartesian" model="2-7"/>
- * <node name="negative_real_part" channel="inline" format="number/complex-cartesian" model="-5+5"/>
- * <node name="both_parts_negative" channel="inline" format="number/complex-cartesian" model="-3-2"/>
- * <node name="decimal_fractions" channel="inline" format="number/complex-cartesian" model="-1.23+5.0"/>
- * <node name="scientific_notation" channel="inline" format="number/complex-cartesian" model="-1.23e12+.11e2"/>
+ * <node name="standard" channel="inline" format="number/complex-cartesian" model="2+4"/>
+ * <node name="negative_imaginary_part" channel="inline" format="number/complex-cartesian" model="2-4"/>
+ * <node name="negative_real_part" channel="inline" format="number/complex-cartesian" model="-2+4"/>
+ * <node name="both_parts_negative" channel="inline" format="number/complex-cartesian" model="-2-4"/>
+ * <node name="decimal_fractions" channel="inline" format="number/complex-cartesian" model="-1.2+5.0"/>
+ * <node name="scientific_notation" channel="inline" format="number/complex-cartesian" model="-1.2e6+.11e2"/>
  */
 static wchar_t* COMPLEX_CARTESIAN_NUMBER_STATE_CYBOL_FORMAT = L"number/complex-cartesian";
 static int* COMPLEX_CARTESIAN_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -127,8 +127,8 @@ static int* COMPLEX_CARTESIAN_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGE
  * <node name="with_capital_letter_e" channel="inline" format="number/complex-polar" model="-2*E(-45)"/>
  * <node name="without_times_sign_1" channel="inline" format="number/complex-polar" model="-2exp(-45)"/>
  * <node name="without_times_sign_2" channel="inline" format="number/complex-polar" model="-2E(-45)"/>
- * <node name="decimal_fraction" channel="inline" format="number/complex-polar" model="-1.23*exp(-45)"/>
- * <node name="scientific_notation" channel="inline" format="number/complex-polar" model="-1.23E4E(-45)"/>
+ * <node name="decimal_fraction" channel="inline" format="number/complex-polar" model="-1.5*exp(-45)"/>
+ * <node name="scientific_notation" channel="inline" format="number/complex-polar" model="-1.5E4E(-45)"/>
  */
 static wchar_t* COMPLEX_POLAR_NUMBER_STATE_CYBOL_FORMAT = L"number/complex-polar";
 static int* COMPLEX_POLAR_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -158,19 +158,21 @@ static int* COMPLEX_POLAR_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_ST
  *
  * Examples:
  *
- * <node name="f1" channel="inline" format="fraction-decimal" model="0.12"/>
- * <node name="f2" channel="inline" format="fraction-decimal" model="24.68"/>
- * <node name="array" channel="inline" format="fraction-decimal" model="1.2,3.4,5.6"/>
- * <node name="scientific_notation" channel="inline" format="fraction-decimal" model="7E-3"/>
- * <node name="small_letter_possible" channel="inline" format="fraction-decimal" model="-1.23e12"/>
- * <node name="optional_plus_sign" channel="inline" format="fraction-decimal" model="-1.23e+4"/>
- * <node name="simple_example" channel="inline" format="fraction-decimal" model="11.0"/>
- * <node name="lacking_decimal_places" channel="inline" format="fraction-decimal" model="11."/>
- * <node name="scientific_notation_1" channel="inline" format="fraction-decimal" model=".11e2"/>
- * <node name="scientific_notation_2" channel="inline" format="fraction-decimal" model="11e0"/>
- * <node name="another_example" channel="inline" format="fraction-decimal" model="0.007"/>
- * <node name="scientific_notation_3" channel="inline" format="fraction-decimal" model="0.7e-2"/>
- * <node name="scientific_notation_4" channel="inline" format="fraction-decimal" model=".7E-2"/>
+ * <node name="simple" channel="inline" format="fraction-decimal" model="24.0"/>
+ * <node name="negative_sign" channel="inline" format="fraction-decimal" model="-24.0"/>
+ * <node name="array" channel="inline" format="fraction-decimal" model="1.5,2.5,3.5"/>
+ * <node name="standard" channel="inline" format="fraction-decimal" model="7.0"/>
+ * <node name="lacking_decimal_places" channel="inline" format="fraction-decimal" model="7."/>
+ * <node name="lacking_pre-decimal_point_position" channel="inline" format="fraction-decimal" model=".7"/>
+ * <node name="scientific_notation" channel="inline" format="fraction-decimal" model="7e-3"/>
+ * <node name="capital_letter_possible" channel="inline" format="fraction-decimal" model="7E-3"/>
+ * <node name="positive_without_sign" channel="inline" format="fraction-decimal" model="7e3"/>
+ * <node name="optional_plus_sign" channel="inline" format="fraction-decimal" model="7e+3"/>
+ * <node name="scientific_notation_1" channel="inline" format="fraction-decimal" model="11e0"/>
+ * <node name="scientific_notation_2" channel="inline" format="fraction-decimal" model=".11e2"/>
+ * <node name="scientific_notation_3" channel="inline" format="fraction-decimal" model="0.007"/>
+ * <node name="scientific_notation_4" channel="inline" format="fraction-decimal" model="0.7e-2"/>
+ * <node name="scientific_notation_5" channel="inline" format="fraction-decimal" model="7.0e-3"/>
  */
 static wchar_t* FRACTION_DECIMAL_NUMBER_STATE_CYBOL_FORMAT = L"number/fraction-decimal";
 static int* FRACTION_DECIMAL_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;

@@ -17,14 +17,14 @@ ___
         * Update cybol api specification in javadoc comment blocks of directory "constant/format/cybol/"
         * Delete directory "tools/api-generator/spec_backup_delete_later/" from svn, as soon as all api documentation comments have been converted to the new format
 
-Number Deserialiser
-___________________
+Numeral Deserialiser
+____________________
 
         DONE: fraction_numeral_deserialiser.c, decimals_numeral_deserialiser.c
 
         CONTINUE:
-        * Continue general number deserialiser and -selector ONLY for integer and double (other formats may follow LATER)
-        * Start from file "number_numeral_deserialiser.c" (see "TODO")
+        * Continue numeral deserialiser and -selector
+        * Start from files "part_numeral_deserialiser.c" and "assembler_numeral_selector.c"
         * Adapt loop section in file "number_json_deserialiser.c" to call function "deserialise_numeral"
         * Adapt section "number" in file "cybol_deserialiser.c" to call function "deserialise_numeral"
 
@@ -63,6 +63,8 @@ _____
         * Correct formatting errors found by "ClangFormat"
         * Change variable names reported by "CppCheck"
         * Adapt incorrectly formatted comments reported by "Doxygen"
+
+        * Ask enrico on how best to exclude log messages from release build (ifdef macro, build script, other idea)
 
         * Release CYBOP 0.23.0
         * Announce and reactivate mailing list "cybop-developers"

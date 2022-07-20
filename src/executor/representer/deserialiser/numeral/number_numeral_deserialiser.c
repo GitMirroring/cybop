@@ -45,8 +45,9 @@
  * @param p3 the source count remaining
  * @param p4 the number part name data
  * @param p5 the number part name count
+ * @param p6 the destination number item format
  */
-void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -56,74 +57,148 @@ void deserialise_numeral_number(void* p0, void* p1, void* p2, void* p3, void* p4
         fwprintf(stdout, L"Debug: Deserialise numeral number. source count remaining p3: %i\n", p3);
         fwprintf(stdout, L"Debug: Deserialise numeral number. source count remaining *p3: %i\n", *((int*) p3));
 
-        // The algebraic sign factor with PLUS (positive number one) as default.
-        int s = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-        // The number base with DECIMAL as default.
-        int b = *DECIMAL_BASE_NUMERAL_MODEL;
+        // The first algebraic sign factor with PLUS (positive number one) as default.
+        int s1 = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+        // The first number base (relevant for integer only) with DECIMAL as default.
+        int b1 = *DECIMAL_BASE_NUMERAL_MODEL;
+        // The first value.
+        int v1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The first decimal places (decimals).
+        int d1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The first decimal power.
+        int p1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+        // The second algebraic sign factor with PLUS (positive number one) as default.
+        int s2 = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+        // The second number base (relevant for integer only) with DECIMAL as default.
+        int b2 = *DECIMAL_BASE_NUMERAL_MODEL;
+        // The second value.
+        int v2 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The second decimal places (decimals).
+        int d2 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The second decimal power.
+        int p2 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+        // The second part flag with FIRST part as default.
+        int sf = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
         // The format with INTEGER as default.
         int f = *INTEGER_NUMERAL_STATE_CYBOI_FORMAT;
         // The type with INTEGER as default.
         int t = *INTEGER_NUMERAL_STATE_CYBOI_TYPE;
+        // The comparison result.
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        // The number.
+        void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The destination item count.
-        void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* ic = *NULL_POINTER_STATE_CYBOI_MODEL;
         //
         // The old destination item count.
         //
         // CAUTION! This variable is necessary for INSERTING values,
         // rather than appending them.
-        // While parsing a vector, the programme DIVES into the vector FIRST,
-        // so that last values are added first. If values were now just appended,
-        // the order of vector values would be swapped, which is NOT wanted.
-        // On the other hand, inserting values at the beginning of the
-        // destination item is wrong if values are already present.
-        // Therefore, the destination item's "old" element count
-        // is remembered here, so that new values may be inserted
-        // starting from that count used as index, which has the
-        // effect that elements are appended in the correct order.
         //
         int oc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        // Skip any whitespace characters.
-        deserialise_numeral_whitespace(p2, p3);
+        //
+        // Deserialise FIRST part of number.
+        //
+        // CAUTION! Hand over the second part FLAG so that it can
+        // be set inside, in case a suitable separator is found.
+        //
+        deserialise_numeral_part((void*) &s1, (void*) &b1, (void*) &v1, (void*) &d1, (void*) &p1, p2, p3, (void*) &f, (void*) &t, (void*) &sf);
 
-        // Deserialise algebraic sign.
-        select_numeral_sign((void*) &s, p2, p3);
+        if (sf != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Deserialise number base.
-        select_numeral_base((void*) &b, p2, p3);
+            //
+            // A second number part has been found.
+            //
 
-        // Deserialise numeral value.
-        //?? TODO
-        deserialise_numeral_value(number_1, number_2, p2, p3, (void*) &f, (void*) &t);
+            // Deserialise SECOND part of number.
+            deserialise_numeral_part((void*) &s2, (void*) &b2, (void*) &v2, (void*) &d2, (void*) &p2, p2, p3, (void*) &f, (void*) &t, (void*) &sf);
+        }
 
-        //
-        // Make sure a destination number item exists.
-        // If it does not, then a part gets allocated inside
-        // and its model item assigned as destination number item.
-        //
-        deserialise_numeral_existence(p0, p1, p4, p5, (void*) &f, (void*) &t);
+        // Verify detected format.
+        compare_integer_equal((void*) &r, (void*) &f, p6);
 
-        // Get destination item count.
-        copy_array_forward((void*) &dc, *i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-        // Initialise old destination item count.
-        copy_integer((void*) &oc, dc);
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        //
-        // Add data to number part model item.
-        //
-        // CAUTION! The "adjust count" flag is set to NULL here,
-        // since the destination count gets ALWAYS adjusted.
-        //
-        //?? TODO
-        modify_item(*i, (void*) &TODO_number, (void*) &t, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &oc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INSERT_MODIFY_LOGIC_CYBOI_FORMAT);
+            //
+            // The detected format and given destination number item format are identical.
+            //
 
-        //
-        // CAUTION Do NOT append the part to some destination here,
-        // since this is done in other deserialisers' files such as:
-        //
-        // - CYBOL: "standard_cybol_deserialiser.c"
-        // - JSON: "number_json_deserialiser.c", "string_json_deserialiser.c"
-        //
+            //
+            // Allocate temporary number.
+            //
+            // CAUTION! Due to memory allocation handling, the size MUST NOT
+            // be negative or zero, but have at least a value of ONE.
+            //
+            allocate_array((void*) &n, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) &t);
+
+            // Assemble number.
+            select_numeral_assembler(n, x, y, (void*) &f);
+
+            //
+            // Make sure a destination number item exists.
+            //
+            // If it does not, then a part gets allocated inside
+            // and its model item assigned as destination number item.
+            //
+            // Background:
+            //
+            // The cybol deserialiser DOES allocate an item already,
+            // since the format and hence type are given there.
+            //
+            // The json deserialiser does NOT allocate an item,
+            // since the number format is unknown and yet has to be detected.
+            //
+            deserialise_numeral_existence(p0, p1, p4, p5, (void*) &f, (void*) &t);
+
+            // Get destination item count.
+            copy_array_forward((void*) &ic, *i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+            // Initialise old destination item count.
+            copy_integer((void*) &oc, ic);
+
+            //
+            // Add number to destination number part model item.
+            //
+            // CAUTION! The "adjust count" flag is set to NULL here,
+            // since the destination count gets ALWAYS adjusted.
+            //
+            // CAUTION! While parsing a vector, the programme DIVES into the vector FIRST,
+            // so that last values are added first. If values were now just appended,
+            // the order of vector values would be swapped, which is NOT wanted.
+            // On the other hand, inserting values at the beginning of the
+            // destination item is WRONG if values are already present.
+            // Therefore, the destination item's OLD element count
+            // is remembered here, so that new values may be inserted
+            // starting from that count used as INDEX, which has the
+            // effect that elements are appended in the correct order.
+            //
+            modify_item(*i, n, (void*) &t, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &oc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INSERT_MODIFY_LOGIC_CYBOI_FORMAT);
+
+            //
+            // CAUTION Do NOT append the part to some destination here,
+            // since this is done in other deserialisers' files such as:
+            //
+            // - CYBOL: "standard_cybol_deserialiser.c"
+            // - JSON: "number_json_deserialiser.c", "string_json_deserialiser.c"
+            //
+
+            //
+            // Deallocate temporary number.
+            //
+            // CAUTION! The second argument "count" is NULL,
+            // since it is only needed for looping elements of type PART,
+            // in order to decrement the rubbish (garbage) collection counter.
+            //
+            deallocate_array((void*) &n, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) &t);
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise numeral number. The detected format and given destination number item format are not identical.");
+            fwprintf(stdout, L"Error: Could not deserialise numeral number. The detected format: %i and given destination number item format: p6 are not identical.\n", f, p6);
+            fwprintf(stdout, L"Error: Could not deserialise numeral number. The detected format: %i and given destination number item format: *p6 are not identical.\n", f, *((int*) p6));
+        }
 
     } else {
 

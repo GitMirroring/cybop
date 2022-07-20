@@ -38,7 +38,7 @@
  * A description of possible numeral formats can be found
  * in file "number_state_cybol_format.c".
  *
- * This function may be called WITH or WITHOUT existing destination item.
+ * This function may be called WITH or WITHOUT existing destination item, e.g.:
  *
  * CYBOL deserialiser:
  * - a destination part got allocated already and EXISTS
@@ -56,8 +56,9 @@
  * @param p3 the source wide character count
  * @param p4 the number part name data
  * @param p5 the number part name count
+ * @param p6 the destination number item format
  */
-void deserialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral.");
     fwprintf(stdout, L"Debug: Deserialise numeral. source count p3: %i\n", p3);
@@ -99,7 +100,7 @@ void deserialise_numeral(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
     //
-    deserialise_numeral_number((void*) &i, p1, (void*) &d, (void*) &c, p4, p5);
+    deserialise_numeral_number((void*) &i, p1, (void*) &d, (void*) &c, p4, p5, p6);
 }
 
 /* NUMERAL_DESERIALISER_SOURCE */

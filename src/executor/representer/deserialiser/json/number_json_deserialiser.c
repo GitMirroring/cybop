@@ -35,7 +35,7 @@
 #include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/copier/pointer_copier.c"
-//?? #include "../../../../executor/representer/deserialiser/number/number_deserialiser.c"
+//?? #include "../../../../executor/representer/deserialiser/numeral/numeral_deserialiser.c"
 #include "../../../../executor/selector/json/end_number_json_selector.c"
 #include "../../../../logger/logger.c"
 
@@ -120,7 +120,7 @@ void deserialise_json_number(void* p0, void* p1, void* p2, void* p3, void* p4, v
             // CAUTION! The number part gets allocated inside the called function.
             // Therefore, its name data and count (p4, p5) are handed over as parametre.
             //
-            //?? deserialise_numeral(*NULL_POINTER_STATE_CYBOI_MODEL, (void*) &p, nd, (void*) &nc, p4, p5);
+            //?? deserialise_numeral(*NULL_POINTER_STATE_CYBOI_MODEL, (void*) &p, nd, (void*) &nc, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL);
 
             //
             // Append number part to destination.

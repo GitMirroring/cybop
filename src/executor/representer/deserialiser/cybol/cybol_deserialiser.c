@@ -62,6 +62,7 @@
 #include "../../../../executor/representer/deserialiser/cybol/format_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/language_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/type_cybol_deserialiser.c"
+//?? #include "../../../../executor/representer/deserialiser/numeral/numeral_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xml/xml_deserialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -372,7 +373,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
             // CAUTION! The number part parametre is NULL and not needed, since
             // a destination item is already handed over to the called function.
             //
-            //?? deserialise_numeral(p0, *NULL_POINTER_STATE_CYBOI_MODEL, nd, (void*) &nc);
+            //?? deserialise_numeral(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4);
         }
     }
 
