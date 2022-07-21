@@ -598,12 +598,6 @@ static int* LINE_SPEED_NUMBER_STATE_CYBOI_FORMAT = NUMBER_556_INTEGER_STATE_CYBO
 /** The ascii text state cyboi format. */
 static int* ASCII_TEXT_STATE_CYBOI_FORMAT = NUMBER_600_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The comma-separated-values text state cyboi format. */
-static int* COMMA_SEPARATED_VALUES_TEXT_STATE_CYBOI_FORMAT = NUMBER_601_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The css text state cyboi format. */
-static int* CSS_TEXT_STATE_CYBOI_FORMAT = NUMBER_602_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The cybol-path text state cyboi format. */
 static int* CYBOL_PATH_TEXT_STATE_CYBOI_FORMAT = NUMBER_610_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

@@ -11,6 +11,36 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+CYBOL
+_____
+
+        * Move cybol properties of operations "communicate/send" and "communicate/receive" as well as "represent/serialise" and "represent/deserialise" to become CONSTRAINTS:
+
+            - constraints of language:
+
+                INDENTATION_SERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME
+                MEDIUM_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME (window of a gui)
+                NORMALISATION_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME
+                INDENTATION_SERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME
+                CLEAR_SEND_COMMUNICATION_LOGIC_CYBOL_NAME
+                NEWLINE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME
+                header
+                separator
+                delimiter
+                width
+
+            - constraints of message:
+
+                MAXIMUM_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME
+                MINIMUM_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME
+
+        * Simplify relative paths in cybol applications not expecting "examples/"
+            as parent directory but using that of the application as working directory
+        * See desktop links of any OS as example
+        * Alternatively, use relative paths from current file as is done in html files
+
+        * Make multi-channel "Hello World!" cybol application "ui" work again
+
 API
 ___
 
@@ -32,6 +62,7 @@ ____________________
 
         CONTINUE:
         * Use string function "modify_split" to separate the single numbers of a vector
+        * Consider thousands separator (forgotten up to now)
         * Continue numeral deserialiser and -selector
         * Start from files "part_numeral_deserialiser.c" and "assembler_numeral_selector.c"
         * Adapt loop section in file "number_json_deserialiser.c" to call function "deserialise_numeral"
@@ -148,16 +179,6 @@ ____
         * Use client-side javascript in addition to server-side cybol, if useful for reasons of efficiency
         * Add table to "cybol-editor" in directory "tools/cybol-editor/"
         * Add tree to "cybol-editor" in directory "tools/cybol-editor/"
-
-CYBOL
-_____
-
-        * Simplify relative paths in cybol applications not expecting "examples/"
-            as parent directory but using that of the application as working directory
-        * See desktop links of any OS as example
-        * Alternatively, use relative paths from current file as is done in html files
-
-        * Make multi-channel "Hello World!" cybol application "ui" work again
 
 Database
 ________

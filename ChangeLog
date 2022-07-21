@@ -21,6 +21,8 @@
 2022-07-21  Christian Heller  <christian.heller@cybop.org>
 
         * Add cybol application in directory "examples/serialisation/csv/table/"
+        * Add files "separator_csv_name.c" and "delimiter_csv_name.c"
+        * Add csv deserialiser for character/comma separated values
 
 2022-07-20  Christian Heller  <christian.heller@cybop.org>
 

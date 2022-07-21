@@ -33,6 +33,7 @@
 #include "../../../executor/modifier/item_modifier.c"
 #include "../../../executor/representer/deserialiser/authority/authority_deserialiser.c"
 #include "../../../executor/representer/deserialiser/binary_crlf/binary_crlf_deserialiser.c"
+#include "../../../executor/representer/deserialiser/csv/csv_deserialiser.c"
 #include "../../../executor/representer/deserialiser/cybol/cybol_deserialiser.c"
 #include "../../../executor/representer/deserialiser/gui_event/gui_event_deserialiser.c"
 #include "../../../executor/representer/deserialiser/gui/action_gui_deserialiser.c"
@@ -224,6 +225,16 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             deserialise_xdt(p0, p1, p2, p3, p17);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p17, (void*) CSV_TEXT_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_csv(p0, p1, p2, p3, p17);
         }
     }
 

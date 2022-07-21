@@ -56,28 +56,6 @@ static wchar_t* ASCII_TEXT_STATE_CYBOL_FORMAT = L"text/ascii";
 static int* ASCII_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The text/csv text state cybol format.
- *
- * Character-separated values
- * (also known as comma-separated values,
- * but other characters than comma may be used as well)
- * Registered.
- * Suffixes: csv
- */
-static wchar_t* CHARACTER_SEPARATED_VALUES_TEXT_STATE_CYBOL_FORMAT = L"text/csv";
-static int* CHARACTER_SEPARATED_VALUES_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The text/css text state cybol format.
- *
- * CSS Stylesheet
- * Registered.
- * Suffixes: css
- */
-static wchar_t* CSS_TEXT_STATE_CYBOL_FORMAT = L"text/css";
-static int* CSS_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
  * The text/cybol-path text state cybol format.
  *
  * A knowledge path pointing to:
