@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-07-21  Christian Heller  <christian.heller@cybop.org>
+
+        * Add cybol application in directory "examples/serialisation/csv/table/"
+
 2022-07-20  Christian Heller  <christian.heller@cybop.org>
 
         * Continue numeral deserialiser and -selector

@@ -17,12 +17,21 @@ ___
         * Update cybol api specification in javadoc comment blocks of directory "constant/format/cybol/"
         * Delete directory "tools/api-generator/spec_backup_delete_later/" from svn, as soon as all api documentation comments have been converted to the new format
 
+CSV Deserialiser
+________________
+
+        * Add character/comma separated value (csv) deserialiser
+        * Call string function "modify_split" within csv deserialiser
+
 Numeral Deserialiser
 ____________________
 
         DONE: fraction_numeral_deserialiser.c, decimals_numeral_deserialiser.c
 
+        CORRECT: Assign detected format and type in file "part_numeral_deserialiser.c" ONLY if not present yet since otherwise, a vulgar fraction or complex format might get overwritten by decimal fraction
+
         CONTINUE:
+        * Use string function "modify_split" to separate the single numbers of a vector
         * Continue numeral deserialiser and -selector
         * Start from files "part_numeral_deserialiser.c" and "assembler_numeral_selector.c"
         * Adapt loop section in file "number_json_deserialiser.c" to call function "deserialise_numeral"
@@ -33,6 +42,20 @@ ____________________
         * functions called from file "value_number_selector.c" section "BAR_FRACTION_NUMBER_NAME" (find a different name, since "fraction_number_deserialiser.c" is already used for after-decimal-separator-digits)
         * functions called from file "power_number_selector.c"
         * functions called from file "decimals_number_selector.c"
+
+Loop Simplification
+___________________
+
+
+        * Offer cybol property "increment" for operation "flow/loop", so that increment is done in c code for loop instead of in each cybol loop model
+        * Think about how to also provide the comparison as cybol property
+
+Presentation
+____________
+
+        * Simplification through uniform tree structure
+        * Disadvantage: Slightly more code
+        * Advantage: no more classes, containers, patterns, framework
 
 JSON
 ____

@@ -32,11 +32,11 @@
 /**
  * Deserialises the first or second part numeral.
  *
- * @param p0 the first algebraic sign
- * @param p1 the first number base (relevant for integer only)
- * @param p2 the first value
- * @param p3 the first decimal places (decimals)
- * @param p4 the first decimal power
+ * @param p0 the destination algebraic sign
+ * @param p1 the destination number base (relevant for integer only)
+ * @param p2 the destination value
+ * @param p3 the destination decimal places (decimals)
+ * @param p4 the destination decimal power
  * @param p5 the source data position (pointer reference)
  * @param p6 the source count remaining
  * @param p7 the detected format

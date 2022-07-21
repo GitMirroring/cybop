@@ -33,33 +33,29 @@
 /**
  * Deserialises the numeral value.
  *
- * @param p0 the destination format
- * @param p1 the destination type
- * @param p2 the destination integer value one
- * @param p3 the destination integer value two
- * @param p4 the destination double value one
- * @param p5 the destination double value two
- * @param p6 the source data position (pointer reference)
- * @param p7 the source count remaining
+ * @param p0 the destination value
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
+ * @param p3 the decimal places (decimals) flag
+ * @param p4 the decimal power flag
+ * @param p5 the second part flag
  */
-void deserialise_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void deserialise_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral value.");
-    fwprintf(stdout, L"Debug: Deserialise numeral value. count remaining p8: %i\n", p8);
-    fwprintf(stdout, L"Debug: Deserialise numeral value. count remaining *p8: %i\n", *((int*) p8));
+    fwprintf(stdout, L"Debug: Deserialise numeral value. source count remaining p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Deserialise numeral value. source count remaining *p2: %i\n", *((int*) p2));
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The value data, count.
     void* vd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int vc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Initialise value data.
-    copy_pointer((void*) &vd, p6);
+    copy_pointer((void*) &vd, p1);
 
-    if (p7 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
         // CAUTION! If the loop count handed over as parametre is NULL,
@@ -76,7 +72,7 @@ void deserialise_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_less_or_equal((void*) &b, p7, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_less_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -91,38 +87,13 @@ void deserialise_numeral_value(void* p0, void* p1, void* p2, void* p3, void* p4,
             fwprintf(stdout, L"Debug: Deserialise numeral value. vd: %ls\n", (wchar_t*) vd);
 
             // Deserialise integer value.
-            deserialise_numeral_integer(p2, vd, (void*) &vc);
+            deserialise_numeral_integer(p0, vd, (void*) &vc);
 
             break;
         }
 
         // Select numeral value.
-        select_numeral_value(p0, p1, p2, p3, p4, p5, p6, p7, (void*) &vc, (void*) &b);
-    }
-
-    // Find out if format or type were set already.
-    compare_integer_equal((void*) &r, p1, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
-
-    if (r == *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        //
-        // A format and type was NOT set before.
-        //
-        // CAUTION! This check is important, since for fraction
-        // or complex number, the format and type have been set BEFORE
-        // and MUST NOT be overwritten here.
-        //
-        // This is because the decimal places or imaginary part,
-        // respectively, get processed FIRST and the decimal point
-        // or sign are used to detect a fraction or complex number.
-        //
-        // However, if format and type were not set before,
-        // then this is clearly an INTEGER number.
-        //
-
-        // Assign format and type.
-        copy_integer(p0, (void*) INTEGER_NUMERAL_STATE_CYBOI_FORMAT);
-        copy_integer(p1, (void*) INTEGER_NUMERAL_STATE_CYBOI_TYPE);
+        select_numeral_value(p1, p2, p3, p4, p5, (void*) &vc, (void*) &b);
     }
 }
 

@@ -1,0 +1,31 @@
+<node>
+
+    <!-- State -->
+
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+
+    <node name="filename" channel="inline" format="text/plain" model="csv/table/test.csv"/>
+
+    <node name="table" channel="inline" format="element/part" model=""/>
+
+    <!-- Logic -->
+
+    <node name="read_file" channel="file" format="element/part" model="csv/table/read_file.cybol"/>
+
+    <node name="print_table" channel="file" format="element/part" model="csv/table/print_table.cybol">
+        <node name="row_break" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="row_index" channel="inline" format="number/integer" model="0"/>
+        <node name="row_count" channel="inline" format="number/integer" model="0"/>
+        <node name="row_model" channel="inline" format="text/cybol-path" model=".print_row"/>
+    </node>
+
+    <node name="print_row" channel="file" format="element/part" model="csv/table/print_row.cybol">
+        <node name="column_break" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="column_index" channel="inline" format="number/integer" model="0"/>
+        <node name="column_count" channel="inline" format="number/integer" model="0"/>
+        <node name="column_model" channel="inline" format="text/cybol-path" model=".print_column"/>
+    </node>
+
+    <node name="print_column" channel="file" format="element/part" model="csv/table/print_column.cybol"/>
+
+</node>
