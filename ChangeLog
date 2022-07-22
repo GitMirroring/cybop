@@ -18,11 +18,15 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-07-22  Christian Heller  <christian.heller@cybop.org>
+
+        * Add files "language_state_cybol_name.c" and "message_state_cybol_name.c"
+
 2022-07-21  Christian Heller  <christian.heller@cybop.org>
 
         * Add cybol application in directory "examples/serialisation/csv/table/"
-        * Add files "separator_csv_name.c" and "delimiter_csv_name.c"
-        * Add csv deserialiser for character/comma separated values
+        * Add files "delimiter_csv_name.c" and "quotation_csv_name.c"
+        * Add csv deserialiser for character (comma) separated values (csv)
 
 2022-07-20  Christian Heller  <christian.heller@cybop.org>
 

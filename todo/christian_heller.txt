@@ -11,36 +11,6 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
-CYBOL
-_____
-
-        * Move cybol properties of operations "communicate/send" and "communicate/receive" as well as "represent/serialise" and "represent/deserialise" to become CONSTRAINTS:
-
-            - constraints of language:
-
-                INDENTATION_SERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME
-                MEDIUM_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME (window of a gui)
-                NORMALISATION_DESERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME
-                INDENTATION_SERIALISE_REPRESENTATION_LOGIC_CYBOL_NAME
-                CLEAR_SEND_COMMUNICATION_LOGIC_CYBOL_NAME
-                NEWLINE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME
-                header
-                separator
-                delimiter
-                width
-
-            - constraints of message:
-
-                MAXIMUM_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME
-                MINIMUM_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME
-
-        * Simplify relative paths in cybol applications not expecting "examples/"
-            as parent directory but using that of the application as working directory
-        * See desktop links of any OS as example
-        * Alternatively, use relative paths from current file as is done in html files
-
-        * Make multi-channel "Hello World!" cybol application "ui" work again
-
 API
 ___
 
@@ -50,8 +20,15 @@ ___
 CSV Deserialiser
 ________________
 
-        * Add character/comma separated value (csv) deserialiser
+        * Implement function "modify_split" first, since csv deserialiser depends on it
+
         * Call string function "modify_split" within csv deserialiser
+
+        * Branch after check if with or without quotation character --> if yes, then escape it
+
+        * Add character (comma) separated value (csv) deserialiser
+        * Use files "language_state_cybol_name.c" and "message_state_cybol_name.c" in csv deserialiser
+        * Use files "delimiter_csv_name.c" and "quotation_csv_name.c" in csv deserialiser
 
 Numeral Deserialiser
 ____________________
@@ -172,6 +149,18 @@ ______
         * Add file "executor/modifier/lowerer.c" providing functionality for cybol operation "modify/lower"
         * Add file "executor/modifier/upperer.c" providing functionality for cybol operation "modify/upper"
         * Add file "executor/modifier/reverser.c" providing functionality for cybol operation "modify/reverse"
+
+CYBOL
+_____
+
+        * Rename either xml attribute "model" into "message" or cybol property "message" into "model"
+
+        * Simplify relative paths in cybol applications not expecting "examples/"
+            as parent directory but using that of the application as working directory
+        * See desktop links of any OS as example
+        * Alternatively, use relative paths from current file as is done in html files
+
+        * Make multi-channel "Hello World!" cybol application "ui" work again
 
 Tool
 ____

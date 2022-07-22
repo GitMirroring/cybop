@@ -46,28 +46,55 @@ void deserialise_csv(void* p0, void* p1, void* p2, void* p3) {
     fwprintf(stdout, L"Debug: Deserialise csv. source wide character count p3: %i\n", p3);
     fwprintf(stdout, L"Debug: Deserialise csv. source wide character count *p3: %i\n", *((int*) p3));
 
-    // The source data position.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The source count remaining.
-    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    //
+    // CAUTION! Do NOT use recursion here, since there may be thousands
+    // of lines (records), which would consume a lot of stack memory,
+    // for each function call. Therefore, work with a LOOP.
+    //
 
-    // Copy source data position.
-    copy_pointer((void*) &d, (void*) &p2);
-    // Copy source count remaining.
-    copy_integer((void*) &c, p3);
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    //
-    // Deserialise content.
-    //
-    // CAUTION! A copy of source count remaining is forwarded here,
-    // so that the original source value does not get changed.
-    //
-    // CAUTION! The source data position does NOT have to be copied,
-    // since the parametre that was handed over is already a copy.
-    // A local copy was made anyway, not to risk parametre falsification.
-    // Its reference is forwarded, as it gets incremented by sub routines inside.
-    //
-    deserialise_csv_content(p0, p1, (void*) &d, (void*) &c);
+    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        //
+        // CAUTION! If the loop count handed over as parametre is NULL,
+        // then the break flag will NEVER be set to true, because the loop
+        // variable comparison does (correctly) not consider null values.
+        // Therefore, in this case, the break flag is set to true already here.
+        //
+        // Initialising the break flag with true will NOT work either, since it:
+        // a) will be left untouched if a comparison operand is null;
+        // b) would have to be reset to true in each loop cycle.
+        //
+        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    }
+
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_less_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // Either an end character was found in the selector
+            // OR the source count remaining is zero.
+            //
+            // In BOTH cases, the value can now be deserialised.
+            //
+
+            fwprintf(stdout, L"Debug: Deserialise numeral decimals. dc: %i\n", dc);
+            fwprintf(stdout, L"Debug: Deserialise numeral decimals. dd: %ls\n", (wchar_t*) dd);
+
+            // Deserialise csv field.
+            deserialise_csv_field(p2, dd, (void*) &dc);
+
+            break;
+        }
+
+        // Select numeral decimals.
+        select_numeral_decimals(p0, p1, p2, p3, p4, p5, p6, p7, (void*) &dc, (void*) &b);
+    }
 }
 
 /* CSV_DESERIALISER_SOURCE */

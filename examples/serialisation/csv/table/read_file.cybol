@@ -20,14 +20,15 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/csv">
             <node name="header" channel="inline" format="logicvalue/boolean" model="true"/>
-            <!-- The field separator. -->
             <node name="separator" channel="inline" format="text/plain" model=","/>
-            <!-- The value quoting delimiter. alternative: apostrophe -->
             <node name="delimiter" channel="inline" format="text/plain" model="\""/>
-            <!-- The minimum width (relevant only for serialisation). -->
-            <node name="width" channel="inline" format="number/integer" model="4"/>
         </node>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <!--
+            The header will be written into the destination .table properties.
+            There is NO need to specify the cybol property "header" as sub node of "message" here,
+            since it is generated under that name automatically by the deserialiser inside.
+        -->
         <node name="message" channel="inline" format="text/cybol-path" model=".table"/>
     </node>
     <node name="close_file" channel="inline" format="dispatch/close" model="">
