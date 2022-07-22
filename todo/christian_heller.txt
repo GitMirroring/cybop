@@ -20,7 +20,9 @@ ___
 CSV Deserialiser
 ________________
 
-        * Implement function "modify_split" first, since csv deserialiser depends on it
+        * Add "joined_string" deserialiser replacing "modify_split"
+        * Delete "modify_split" and related constants
+        * Let csv deserialiser use "joined_string" deserialiser for each row (one row being a "joined_string")
 
         * Call string function "modify_split" within csv deserialiser
 
