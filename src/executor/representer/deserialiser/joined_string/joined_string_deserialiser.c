@@ -23,28 +23,25 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef CSV_DESERIALISER_SOURCE
-#define CSV_DESERIALISER_SOURCE
+#ifndef JOINED_STRING_DESERIALISER_SOURCE
+#define JOINED_STRING_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/representer/deserialiser/csv/content_csv_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the character separated value (csv) wide character sequence into separate parts.
+ * Deserialises the joined string into separate parts.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
  * @param p2 the source wide character data
  * @param p3 the source wide character count
  */
-void deserialise_csv(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_joined_string(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise csv.");
-    fwprintf(stdout, L"Debug: Deserialise csv. source wide character count p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Deserialise csv. source wide character count *p3: %i\n", *((int*) p3));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise joined string.");
+    fwprintf(stdout, L"Debug: Deserialise joined string. source wide character count p3: %i\n", p3);
+    fwprintf(stdout, L"Debug: Deserialise joined string. source wide character count *p3: %i\n", *((int*) p3));
 
     // The source data position.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -67,8 +64,8 @@ void deserialise_csv(void* p0, void* p1, void* p2, void* p3) {
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
     //
-    deserialise_csv_content(p0, p1, (void*) &d, (void*) &c);
+    deserialise_joined_string_values(p0, p1, (void*) &d, (void*) &c);
 }
 
-/* CSV_DESERIALISER_SOURCE */
+/* JOINED_STRING_DESERIALISER_SOURCE */
 #endif

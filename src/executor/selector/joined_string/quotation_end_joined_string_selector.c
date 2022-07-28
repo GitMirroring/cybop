@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef END_STRING_JSON_SELECTOR_SOURCE
-#define END_STRING_JSON_SELECTOR_SOURCE
+#ifndef QUOTATION_END_JOINED_STRING_SELECTOR_SOURCE
+#define QUOTATION_END_JOINED_STRING_SELECTOR_SOURCE
 
 #include "../../../constant/model/backslash_escape/backslash_escape_model.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -39,63 +39,78 @@
 #include "../../../logger/logger.c"
 
 /**
- * Selects the json string end.
+ * Selects the joined string quotation end.
  *
  * @param p0 the source data position (pointer reference)
  * @param p1 the source count remaining
- * @param p2 the string count
+ * @param p2 the value count
  * @param p3 the break flag
  */
-void select_json_string_end(void* p0, void* p1, void* p2, void* p3) {
+void select_joined_string_end_quotation(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select json string end.");
-    fwprintf(stdout, L"Debug: Select json string end. count remaining p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Select json string end. count remaining *p1: %i\n", *((int*) p1));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select joined string quotation end.");
+    fwprintf(stdout, L"Debug: Select joined string quotation end. count remaining p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Select joined string quotation end. count remaining *p1: %i\n", *((int*) p1));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    //
+    // CAUTION! The ORDER is important.
+    //
+
+    //
+    // CAUTION! Do NOT skip whitespace characters here,
+    // since they might belong to the actual VALUE.
+    //
+
+    //
+    // HINT: If a delimiter character is found, then it gets IGNORED,
+    // since it gets treated like any other character
+    // if standing WITHIN quotation mark characters.
+    //
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        detect((void*) &r, p0, p1, (void*) QUOTATION_MARK_BACKSLASH_ESCAPE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) QUOTATION_MARK_BACKSLASH_ESCAPE_MODEL_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        //
+        //?? TODO: Skip DOUBLE quotation characters (being ESCAPED)
+        // --> activate skipping possibly ONLY if a flag is set
+        //
+        // This skipping HAS TO BE done BEFORE detecting the combination
+        // of quotation mark and comma delimiter further below.
+        //
+        // Example: """value 1"", with additional content", "value 2", "value 3"
+        //
+        // The double quotation marks are escaped and represent just ONE quotation mark.
+        // The comma following after the double quotation marks does NOT represent
+        // a delimiter, since it is standing in between the quoted sequence.
+        //
+        detect((void*) &r, p0, p1, (void*) xx_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) xx_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // Ignore this backslash escape sequence '\"'.
+            // Adjust value count.
             //
-            // CAUTION! It is important to check for this escape sequence BEFORE
-            // detecting a standard quotation mark as end-of-string marker below
-            // since otherwise, the backslash quotation mark character might
-            // misleadingly be interpreted as end-of-string.
+            // CAUTION! Do NOT just use NUMBER_1_INTEGER_STATE_CYBOI_MODEL
+            // but correct quotation character sequence xx_COUNT instead!
             //
-            // CAUTION! But since the json specification permits usage of
-            // backslash escape characters, these have to be handled,
-            // which is done in another function of the json deserialiser.
-            //
-            // CAUTION! The data position and count remaining
-            // got adapted by the function "detect" already.
-            //
-
-            //
-            // Adjust string count.
-            //
-            // CAUTION! Do NOT add NUMBER_1_INTEGER_STATE_CYBOI_MODEL
-            // but QUOTATION_MARK_BACKSLASH_ESCAPE_MODEL_COUNT instead,
-            // since the sequence consists of more than just one character.
-            //
-            calculate_integer_add(p2, (void*) QUOTATION_MARK_BACKSLASH_ESCAPE_MODEL_COUNT);
+            calculate_integer_add(p2, (void*) xx_COUNT);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
+        // Detect COMBINATION of  arbitrary quotation character sequence
+        // (handed over as parametre) PLUS delimiter (e.g. comma).
+        //
         detect((void*) &r, p0, p1, (void*) BEGIN_END_STRING_JSON_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_END_STRING_JSON_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Set break flag.
-            copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            // Set loop break flag.
+            copy_integer(px, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -104,10 +119,10 @@ void select_json_string_end(void* p0, void* p1, void* p2, void* p3) {
         // Increment the current position by one.
         move(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        // Adjust string count.
+        // Adjust value count.
         calculate_integer_add(p2, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 
-/* END_STRING_JSON_SELECTOR_SOURCE */
+/* QUOTATION_END_JOINED_STRING_SELECTOR_SOURCE */
 #endif

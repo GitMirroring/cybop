@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-07-28  Christian Heller  <christian.heller@cybop.org>
+
+        * Add joined string deserialiser as prerequisite to the csv deserialiser
+
 2022-07-22  Christian Heller  <christian.heller@cybop.org>
 
         * Add files "language_state_cybol_name.c" and "message_state_cybol_name.c"

@@ -23,54 +23,33 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef STRING_JSON_DESERIALISER_SOURCE
-#define STRING_JSON_DESERIALISER_SOURCE
+#ifndef VALUE_JOINED_STRING_DESERIALISER_SOURCE
+#define VALUE_JOINED_STRING_DESERIALISER_SOURCE
 
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/part_state_cyboi_name.c"
-#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
-#include "../../../../executor/copier/array_copier.c"
-#include "../../../../executor/copier/integer_copier.c"
-#include "../../../../executor/copier/pointer_copier.c"
-#include "../../../../executor/memoriser/allocator/part_allocator.c"
-#include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../executor/selector/json/end_string_json_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the json string.
+ * Deserialises the joined string value.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source data position (pointer reference)
- * @param p3 the source count remaining
- * @param p4 the name data
- * @param p5 the name count
+ * @param p2 the source wide character data
+ * @param p3 the source wide character count
  */
-void deserialise_json_string(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_joined_string_value(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise json string.");
-    fwprintf(stdout, L"Debug: Deserialise json string. count remaining p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Deserialise json string. count remaining *p3: %i\n", *((int*) p3));
-    fwprintf(stdout, L"Debug: Deserialise json string. data position *p2 ls: %ls\n", (wchar_t*) *((void**) p2));
-    fwprintf(stdout, L"Debug: Deserialise json string. data position *p2 lc: %lc\n", *((wchar_t*) *((void**) p2)));
-    fwprintf(stdout, L"Debug: Deserialise json string. data position *p2 lc as int: %i\n", *((wchar_t*) *((void**) p2)));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise joined string value.");
+    fwprintf(stdout, L"Debug: Deserialise joined string value. source wide character count p3: %i\n", p3);
+    fwprintf(stdout, L"Debug: Deserialise joined string value. source wide character count *p3: %i\n", *((int*) p3));
 
     // The string part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The string part model item.
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The string data, count.
-    void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int sc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The value data, count.
+    void* vd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int vc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -94,8 +73,8 @@ void deserialise_json_string(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // Get string part model.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Initialise string data.
-    copy_pointer((void*) &sd, p2);
+    // Initialise value data.
+    copy_pointer((void*) &vd, p2);
 
     if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -118,23 +97,20 @@ void deserialise_json_string(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            break;
-        }
+            fwprintf(stdout, L"Debug: Deserialise json string. vc: %i\n", vc);
+            fwprintf(stdout, L"Debug: Deserialise json string. vd: %ls\n", (wchar_t*) vd);
 
-        select_json_string_end(p2, p3, (void*) &sc, (void*) &b);
-
-        fwprintf(stdout, L"Debug: Deserialise json string. END b: %i\n", b);
-
-        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            fwprintf(stdout, L"Debug: Deserialise json string. sc: %i\n", sc);
-            fwprintf(stdout, L"Debug: Deserialise json string. sd: %ls\n", (wchar_t*) sd);
-
+            //
             // Overwrite string part model.
-            modify_item(pm, sd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &sc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+            //
+            // CAUTION! If the value data is null, then nothing gets copied inside.
+            //
+            modify_item(pm, vd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &vc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
             break;
         }
+
+        select_joined_string_end(p2, p3, (void*) &vc, (void*) &b);
     }
 
     //
@@ -146,5 +122,5 @@ void deserialise_json_string(void* p0, void* p1, void* p2, void* p3, void* p4, v
     modify_item(p0, (void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 }
 
-/* STRING_JSON_DESERIALISER_SOURCE */
+/* VALUE_JOINED_STRING_DESERIALISER_SOURCE */
 #endif
