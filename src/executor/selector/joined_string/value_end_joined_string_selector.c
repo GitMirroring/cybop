@@ -26,11 +26,9 @@
 #ifndef VALUE_END_JOINED_STRING_SELECTOR_SOURCE
 #define VALUE_END_JOINED_STRING_SELECTOR_SOURCE
 
-#include "../../../constant/model/backslash_escape/backslash_escape_model.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/name/json/json_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../executor/copier/integer_copier.c"
@@ -39,18 +37,20 @@
 #include "../../../logger/logger.c"
 
 /**
- * Selects the joined string value end.
+ * Selects the joined string value end by searching for the given delimiter sequence.
  *
  * @param p0 the source data position (pointer reference)
  * @param p1 the source count remaining
- * @param p2 the value count
- * @param p3 the break flag
+ * @param p2 the delimiter data, e.g. a comma OR semicolon OR a sequence of comma and space
+ * @param p3 the delimiter count
+ * @param p4 the value count
+ * @param p5 the break flag
  */
-void select_joined_string_end_value(void* p0, void* p1, void* p2, void* p3) {
+void select_joined_string_end_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select joined string value end.");
-    fwprintf(stdout, L"Debug: Select joined string value end. count remaining p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Select joined string value end. count remaining *p1: %i\n", *((int*) p1));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select joined string end value.");
+    fwprintf(stdout, L"Debug: Select joined string end value. count remaining p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Select joined string end value. count remaining *p1: %i\n", *((int*) p1));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -62,13 +62,13 @@ void select_joined_string_end_value(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Detect given delimiter, e.g. a comma OR a sequence of comma and space.
-        detect((void*) &r, p0, p1, (void*) BEGIN_END_STRING_JSON_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_END_STRING_JSON_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        // Detect delimiter sequence.
+        detect((void*) &r, p0, p1, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set loop break flag.
-            copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -78,7 +78,7 @@ void select_joined_string_end_value(void* p0, void* p1, void* p2, void* p3) {
         move(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         // Adjust string count.
-        calculate_integer_add(p2, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        calculate_integer_add(p4, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 
