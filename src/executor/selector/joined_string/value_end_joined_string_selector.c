@@ -41,7 +41,7 @@
  *
  * @param p0 the source data position (pointer reference)
  * @param p1 the source count remaining
- * @param p2 the delimiter data, e.g. a comma OR semicolon OR a sequence of comma and space
+ * @param p2 the delimiter data, e.g. a comma OR semicolon OR some character sequence
  * @param p3 the delimiter count
  * @param p4 the value count
  * @param p5 the break flag
@@ -49,8 +49,8 @@
 void select_joined_string_end_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select joined string end value.");
-    fwprintf(stdout, L"Debug: Select joined string end value. count remaining p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Select joined string end value. count remaining *p1: %i\n", *((int*) p1));
+    fwprintf(stdout, L"Debug: Select joined string end value. source count remaining p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Select joined string end value. source count remaining *p1: %i\n", *((int*) p1));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

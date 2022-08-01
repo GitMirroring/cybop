@@ -30,20 +30,34 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the joined string content.
+ * Deserialises ALL joined string elements.
  *
- * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the source wide character data
- * @param p3 the source wide character count
+ * @param p0 the destination item
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
+ * @param p3 the delimiter data, e.g. a comma OR semicolon OR some character sequence
+ * @param p4 the delimiter count
+ * @param p5 the escape data, e.g. a DOUBLE quotation mark
+ * @param p6 the escape count
+ * @param p7 the quotation end PLUS delimiter data, e.g. a quotation mark + comma OR apostrophe + semicolon
+ * @param p8 the quotation end PLUS delimiter count
+ * @param p9 the quotation end data, e.g. a quotation mark
+ * @param p10 the quotation end count
+ * @param p11 the quotation begin data, e.g. a quotation mark
+ * @param p12 the quotation begin count
+ * @param p13 the part name data
+ * @param p14 the part name count
  */
-void deserialise_joined_string_content(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_joined_string_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise joined string content.");
-    fwprintf(stdout, L"Debug: Deserialise joined string content. source wide character count p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Deserialise joined string content. source wide character count *p3: %i\n", *((int*) p3));
+    fwprintf(stdout, L"Debug: Deserialise joined string content. source count remaining p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Deserialise joined string content. source count remaining *p2: %i\n", *((int*) p2));
 
-    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
         // CAUTION! If the loop count handed over as parametre is NULL,
@@ -60,7 +74,7 @@ void deserialise_joined_string_content(void* p0, void* p1, void* p2, void* p3) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_less_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_less_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

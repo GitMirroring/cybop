@@ -26,11 +26,9 @@
 #ifndef QUOTATION_END_JOINED_STRING_SELECTOR_SOURCE
 #define QUOTATION_END_JOINED_STRING_SELECTOR_SOURCE
 
-#include "../../../constant/model/backslash_escape/backslash_escape_model.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/name/json/json_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/calculator/integer/add_integer_calculator.c"
 #include "../../../executor/copier/integer_copier.c"
@@ -46,16 +44,18 @@
  * @param p1 the source count remaining
  * @param p2 the escape data, e.g. a DOUBLE quotation mark
  * @param p3 the escape count
- * @param p4 the end delimiter data, e.g. a quotation mark + comma OR apostrophe + semicolon + space
- * @param p5 the end delimiter count
- * @param p6 the value count
- * @param p7 the break flag
+ * @param p4 the quotation end PLUS delimiter data, e.g. a quotation mark + comma OR apostrophe + semicolon
+ * @param p5 the quotation end PLUS delimiter count
+ * @param p6 the quotation end data, e.g. a quotation mark
+ * @param p7 the quotation end count
+ * @param p8 the value count
+ * @param p9 the break flag
  */
-void select_joined_string_end_quotation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void select_joined_string_end_quotation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select joined string end quotation.");
-    fwprintf(stdout, L"Debug: Select joined string end quotation. count remaining p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Select joined string end quotation. count remaining *p1: %i\n", *((int*) p1));
+    fwprintf(stdout, L"Debug: Select joined string end quotation. source count remaining p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Select joined string end quotation. source count remaining *p1: %i\n", *((int*) p1));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -90,19 +90,36 @@ void select_joined_string_end_quotation(void* p0, void* p1, void* p2, void* p3, 
             // CAUTION! Do NOT just use NUMBER_1_INTEGER_STATE_CYBOI_MODEL
             // but correct quotation character sequence xx_COUNT instead!
             //
-            calculate_integer_add(p6, p3);
+            calculate_integer_add(p8, p3);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Detect delimiter sequence.
+        // Detect COMBINATION of quotation and delimiter sequence.
         detect((void*) &r, p0, p1, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set loop break flag.
-            copy_integer(p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p9, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        //
+        // Detect quotation end ONLY sequence.
+        //
+        // CAUTION! This is more proper than letting the loop detect a
+        // remaining count <= zero, since it is a well-defined end sequence.
+        //
+        detect((void*) &r, p0, p1, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Set loop break flag.
+            copy_integer(p9, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -118,7 +135,7 @@ void select_joined_string_end_quotation(void* p0, void* p1, void* p2, void* p3, 
         move(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         // Adjust value count.
-        calculate_integer_add(p6, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        calculate_integer_add(p8, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 

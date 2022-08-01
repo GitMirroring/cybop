@@ -42,6 +42,7 @@
 #include "../../../../executor/copier/pointer_copier.c"
 #include "../../../../executor/memoriser/allocator/part_allocator.c"
 #include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/modifier/part_modifier.c"
 #include "../../../../executor/selector/json/end_string_json_selector.c"
 #include "../../../../logger/logger.c"
 

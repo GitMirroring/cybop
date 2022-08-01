@@ -20,6 +20,19 @@ ___
 CSV Deserialiser
 ________________
 
+        DONE:
+            end_joined_string_selector.c, quotation_end_joined_string_selector.c, value_end_joined_string_selector.c
+
+        CONTINUE:
+            quotation_begin_joined_string_selector.c
+            value_joined_string_deserialiser.c
+            begin_joined_string_selector.c
+            quotation_joined_string_deserialiser.c
+
+        * Use new whitespace deserialiser and -selector in joined string deserialiser
+        * Use new whitespace deserialiser and -selector in numeral deserialiser
+        * Use new whitespace deserialiser and -selector in json deserialiser
+
         456,123,888
 
         "456","123","88""8"

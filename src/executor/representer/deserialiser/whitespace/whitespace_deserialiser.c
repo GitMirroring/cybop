@@ -24,8 +24,8 @@
  * @author Falk Müller <falk89@web.de>
  */
 
-#ifndef WHITESPACE_NUMERAL_DESERIALISER_SOURCE
-#define WHITESPACE_NUMERAL_DESERIALISER_SOURCE
+#ifndef WHITESPACE_DESERIALISER_SOURCE
+#define WHITESPACE_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
@@ -36,11 +36,11 @@
  * @param p0 the source data position (pointer reference)
  * @param p1 the source count remaining
  */
-void deserialise_numeral_whitespace(void* p0, void* p1) {
+void deserialise_whitespace(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise numeral whitespace.");
-    fwprintf(stdout, L"Debug: Deserialise numeral whitespace. count remaining p1: %i\n", p1);
-    fwprintf(stdout, L"Debug: Deserialise numeral whitespace. count remaining *p1: %i\n", *((int*) p1));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise whitespace.");
+    fwprintf(stdout, L"Debug: Deserialise whitespace. count remaining p1: %i\n", p1);
+    fwprintf(stdout, L"Debug: Deserialise whitespace. count remaining *p1: %i\n", *((int*) p1));
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -70,9 +70,9 @@ void deserialise_numeral_whitespace(void* p0, void* p1) {
         }
 
         // Detect and skip whitespace.
-        select_numeral_whitespace((void*) &b, p0, p1);
+        select_whitespace((void*) &b, p0, p1);
     }
 }
 
-/* WHITESPACE_NUMERAL_DESERIALISER_SOURCE */
+/* WHITESPACE_DESERIALISER_SOURCE */
 #endif

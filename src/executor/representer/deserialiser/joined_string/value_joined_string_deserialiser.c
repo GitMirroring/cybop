@@ -26,22 +26,48 @@
 #ifndef VALUE_JOINED_STRING_DESERIALISER_SOURCE
 #define VALUE_JOINED_STRING_DESERIALISER_SOURCE
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/part_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/comparator/integer/less_or_equal_integer_comparator.c"
+#include "../../../../executor/copier/array_copier.c"
+#include "../../../../executor/copier/integer_copier.c"
+#include "../../../../executor/copier/pointer_copier.c"
+#include "../../../../executor/memoriser/allocator/part_allocator.c"
+#include "../../../../executor/modifier/item_modifier.c"
+#include "../../../../executor/modifier/part_modifier.c"
+#include "../../../../executor/selector/end_joined_string_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises the joined string value.
+ * Deserialises the joined string value and appends it
+ * as new part to the destination model item.
  *
- * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the source wide character data
- * @param p3 the source wide character count
+ * @param p0 the destination item
+ * @param p1 the source data position (pointer reference)
+ * @param p2 the source count remaining
+ * @param p3 the delimiter data, e.g. a comma OR semicolon OR some character sequence
+ * @param p4 the delimiter count
+ * @param p5 the escape data, e.g. a DOUBLE quotation mark
+ * @param p6 the escape count
+ * @param p7 the quotation end PLUS delimiter data, e.g. a quotation mark + comma OR apostrophe + semicolon
+ * @param p8 the quotation end PLUS delimiter count
+ * @param p9 the quotation end data, e.g. a quotation mark
+ * @param p10 the quotation end count
+ * @param p11 the part name data
+ * @param p12 the part name count
  */
-void deserialise_joined_string_value(void* p0, void* p1, void* p2, void* p3) {
+void deserialise_joined_string_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise joined string value.");
-    fwprintf(stdout, L"Debug: Deserialise joined string value. source wide character count p3: %i\n", p3);
-    fwprintf(stdout, L"Debug: Deserialise joined string value. source wide character count *p3: %i\n", *((int*) p3));
+    fwprintf(stdout, L"Debug: Deserialise joined string value. source count remaining p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Deserialise joined string value. source count remaining *p2: %i\n", *((int*) p2));
 
     // The string part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -66,7 +92,7 @@ void deserialise_joined_string_value(void* p0, void* p1, void* p2, void* p3) {
     //
     // CAUTION! Do NOT forget to assign the format and type.
     //
-    modify_part(p, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p5, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) NAME_PART_STATE_CYBOI_NAME);
+    modify_part(p, p11, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p12, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) NAME_PART_STATE_CYBOI_NAME);
     modify_part(p, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) FORMAT_PART_STATE_CYBOI_NAME);
     modify_part(p, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) TYPE_PART_STATE_CYBOI_NAME);
 
@@ -74,9 +100,9 @@ void deserialise_joined_string_value(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Initialise value data.
-    copy_pointer((void*) &vd, p2);
+    copy_pointer((void*) &vd, p1);
 
-    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         //
         // CAUTION! If the loop count handed over as parametre is NULL,
@@ -93,12 +119,12 @@ void deserialise_joined_string_value(void* p0, void* p1, void* p2, void* p3) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_less_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_less_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            fwprintf(stdout, L"Debug: Deserialise json string. vc: %i\n", vc);
-            fwprintf(stdout, L"Debug: Deserialise json string. vd: %ls\n", (wchar_t*) vd);
+            fwprintf(stdout, L"Debug: Deserialise joined string value. vc: %i\n", vc);
+            fwprintf(stdout, L"Debug: Deserialise joined string value. vd: %ls\n", (wchar_t*) vd);
 
             //
             // Overwrite string part model.
@@ -110,7 +136,7 @@ void deserialise_joined_string_value(void* p0, void* p1, void* p2, void* p3) {
             break;
         }
 
-        select_joined_string_end(p2, p3, (void*) &vc, (void*) &b);
+        select_joined_string_end(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, (void*) &vc, (void*) &b);
     }
 
     //

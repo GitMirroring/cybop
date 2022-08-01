@@ -64,7 +64,7 @@ void deserialise_joined_string(void* p0, void* p1, void* p2, void* p3) {
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
     //
-    deserialise_joined_string_values(p0, p1, (void*) &d, (void*) &c);
+    deserialise_joined_string_content(p0, p1, (void*) &d, (void*) &c);
 }
 
 /* JOINED_STRING_DESERIALISER_SOURCE */

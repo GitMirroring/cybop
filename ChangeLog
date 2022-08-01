@@ -18,6 +18,14 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-08-01  Christian Heller  <christian.heller@cybop.org>
+
+        * Continue joined string deserialiser and selector
+
+2022-07-31  Christian Heller  <christian.heller@cybop.org>
+
+        * Add whitespace deserialiser and selector to be used for skipping whitespace characters in other deserialisers
+
 2022-07-28  Christian Heller  <christian.heller@cybop.org>
 
         * Add joined string deserialiser as prerequisite to the csv deserialiser
@@ -34,11 +42,11 @@
 
 2022-07-20  Christian Heller  <christian.heller@cybop.org>
 
-        * Continue numeral deserialiser and -selector
+        * Continue numeral deserialiser and selector
 
 2022-07-18  Christian Heller  <christian.heller@cybop.org>
 
-        * Rename "number" into "numeral" for numeral deserialiser and -selector
+        * Rename "number" into "numeral" for numeral deserialiser and selector
         * Call sub functions in file "number_numeral_deserialiser.c" to skip whitespace, detect algebraic sign, deserialise number base, deserialise the number value
         * Allocate number part in numeral deserialiser if destination number item is null
 

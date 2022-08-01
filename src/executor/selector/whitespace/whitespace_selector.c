@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef WHITESPACE_NUMERAL_SELECTOR_SOURCE
-#define WHITESPACE_NUMERAL_SELECTOR_SOURCE
+#ifndef WHITESPACE_SELECTOR_SOURCE
+#define WHITESPACE_SELECTOR_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../logger/logger.c"
@@ -32,41 +32,39 @@
 /**
  * Detects and skips any whitespace characters.
  *
+ * CAUTION! This function filters out the same kind of
+ * whitespace characters as mentioned in the JSON specification.
+ *
+ * The json standard defines five kinds of white space:
+ * - empty: ""
+ * - space: 0020
+ * - line feed: 000A
+ * - carriage return: 000D
+ * - character tabulation: 0009
+ *
+ * Reference:
+ * https://www.json.org/
+ *
+ * The first (empty) can obviously NOT be considered.
+ * Therefore, just FOUR comparisons are done below.
+ * All of these kinds of whitespace characters are skipped.
+ *
  * @param p0 the destination loop break flag
  * @param p1 the source data position (pointer reference)
  * @param p2 the source count remaining
  */
-void select_numeral_whitespace(void* p0, void* p1, void* p2) {
+void select_whitespace(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select numeral whitespace.");
-    fwprintf(stdout, L"Debug: Select numeral whitespace. count remaining p8: %i\n", p8);
-    fwprintf(stdout, L"Debug: Select numeral whitespace. count remaining *p8: %i\n", *((int*) p8));
-    fwprintf(stdout, L"Debug: Select numeral whitespace. data position *p7: %i\n", *((void**) p7));
-    fwprintf(stdout, L"Debug: Select numeral whitespace. data position *p7 ls: %ls\n", (wchar_t*) *((void**) p7));
-    fwprintf(stdout, L"Debug: Select numeral whitespace. data position *p7 lc: %lc\n", *((wchar_t*) *((void**) p7)));
-    fwprintf(stdout, L"Debug: Select numeral whitespace. data position *p7 lc as int: %i\n", *((wchar_t*) *((void**) p7)));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select whitespace.");
+    fwprintf(stdout, L"Debug: Select whitespace. count remaining p8: %i\n", p8);
+    fwprintf(stdout, L"Debug: Select whitespace. count remaining *p8: %i\n", *((int*) p8));
+    fwprintf(stdout, L"Debug: Select whitespace. data position *p7: %i\n", *((void**) p7));
+    fwprintf(stdout, L"Debug: Select whitespace. data position *p7 ls: %ls\n", (wchar_t*) *((void**) p7));
+    fwprintf(stdout, L"Debug: Select whitespace. data position *p7 lc: %lc\n", *((wchar_t*) *((void**) p7)));
+    fwprintf(stdout, L"Debug: Select whitespace. data position *p7 lc as int: %i\n", *((wchar_t*) *((void**) p7)));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    //
-    // CAUTION! The same kind of whitespace characters as used
-    // in JSON are filtered out here.
-    //
-    // The json standard defines five kinds of white space:
-    // - empty: ""
-    // - space: 0020
-    // - line feed: 000A
-    // - carriage return: 000D
-    // - character tabulation: 0009
-    //
-    // Reference:
-    // https://www.json.org/
-    //
-    // The first (empty) can obviously not be considered.
-    // Therefore, just four comparisons are done below.
-    // All kinds of whitespace characters are skipped.
-    //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -143,5 +141,5 @@ void select_numeral_whitespace(void* p0, void* p1, void* p2) {
     }
 }
 
-/* WHITESPACE_NUMERAL_SELECTOR_SOURCE */
+/* WHITESPACE_SELECTOR_SOURCE */
 #endif
