@@ -52,13 +52,13 @@ static int* CLEAR_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI
 /**
  * The delimiter language state cybol name.
  *
- * Used with character (comma) separated values (csv).
- * Delimits the single fields (values).
- * This is necessary if the separator character (e.g. comma) is part of the value.
+ * Used with joined strings or character (comma) separated values (csv).
+ * Separates the single fields (values).
+ * The delimiter may be a comma, for example.
  *
  * Example:
  *
- * "test_1","test_2","comma_,_end","test_3"
+ * blu,bla,test
  */
 static wchar_t* DELIMITER_LANGUAGE_STATE_CYBOL_NAME = L"delimiter";
 static int* DELIMITER_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -130,23 +130,23 @@ static wchar_t* NORMALISATION_LANGUAGE_STATE_CYBOL_NAME = L"normalisation";
 static int* NORMALISATION_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The separator language state cybol name.
+ * The quotation language state cybol name.
  *
- * Used with character (comma) separated values (csv).
- * Separates the single fields (values).
- * The separator may be a comma, for example.
+ * Used with joined strings or character (comma) separated values (csv).
+ * Quotes the single fields (values).
+ * This is necessary if the delimiter character (e.g. comma) is part of the value.
  *
  * Example:
  *
- * blu,bla,test
+ * "test_1","test_2","comma_,_end","test_3"
  */
-static wchar_t* SEPARATOR_LANGUAGE_STATE_CYBOL_NAME = L"separator";
-static int* SEPARATOR_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* QUOTATION_LANGUAGE_STATE_CYBOL_NAME = L"quotation";
+static int* QUOTATION_LANGUAGE_STATE_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The width language state cybol name.
  *
- * Used with character (comma) separated values (csv).
+ * Used with joined strings or character (comma) separated values (csv).
  * Fills up any free spaces with zero.
  * This was defined in the original specification of csv,
  * in order to have fields (values) with equal width.

@@ -20,37 +20,20 @@ ___
 CSV Deserialiser
 ________________
 
-        DONE:
-            end_joined_string_selector.c, quotation_end_joined_string_selector.c, value_end_joined_string_selector.c
+        * Create new cybol application "examples/serialisation/joined_string/"
+        * Test joined string deserialiser
 
-        CONTINUE:
-            quotation_begin_joined_string_selector.c
-            value_joined_string_deserialiser.c
-            begin_joined_string_selector.c
-            quotation_joined_string_deserialiser.c
-
-        * Use new whitespace deserialiser and -selector in joined string deserialiser
-        * Use new whitespace deserialiser and -selector in numeral deserialiser
-        * Use new whitespace deserialiser and -selector in json deserialiser
-
-        456,123,888
-
-        "456","123","88""8"
-
-        * Add "joined_string" deserialiser replacing "modify_split"
         * Delete "modify_split" and related constants
         * Let csv deserialiser use "joined_string" deserialiser for each row (one row being a "joined_string")
 
-        * Call string function "modify_split" within csv deserialiser
-
-        * Branch after check if with or without quotation character --> if yes, then escape it
-
         * Add character (comma) separated value (csv) deserialiser
-        * Use files "language_state_cybol_name.c" and "message_state_cybol_name.c" in csv deserialiser
-        * Use files "delimiter_csv_name.c" and "quotation_csv_name.c" in csv deserialiser
+        * Delete (since free choice of characters as cybol property) ?? OR Use files "language_state_cybol_name.c" and "message_state_cybol_name.c" in csv deserialiser
+        * Delete (since free choice of characters as cybol property) ?? OR Use files "delimiter_csv_name.c" and "quotation_csv_name.c" in csv deserialiser
 
 Numeral Deserialiser
 ____________________
+
+        * Use new whitespace deserialiser and -selector in numeral deserialiser
 
         DONE: fraction_numeral_deserialiser.c, decimals_numeral_deserialiser.c
 
@@ -86,6 +69,8 @@ ____________
 
 JSON
 ____
+
+        * Use new whitespace deserialiser and -selector in json deserialiser
 
         * Add file "type_json_deserialiser.c" with branching for the different number types
 

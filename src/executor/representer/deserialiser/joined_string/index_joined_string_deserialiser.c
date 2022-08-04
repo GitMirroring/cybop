@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@cybop.org>
  */
 
-#ifndef QUOTATION_JOINED_STRING_DESERIALISER_SOURCE
-#define QUOTATION_JOINED_STRING_DESERIALISER_SOURCE
+#ifndef INDEX_JOINED_STRING_DESERIALISER_SOURCE
+#define INDEX_JOINED_STRING_DESERIALISER_SOURCE
 
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -46,7 +46,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises ONE joined string element.
+ * Assigns an index for each joined string element.
  *
  * @param p0 the destination item
  * @param p1 the source data position (pointer reference)
@@ -62,12 +62,20 @@
  * @param p11 the quotation begin data, e.g. a quotation mark
  * @param p12 the quotation begin count
  */
-void deserialise_joined_string_quotation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void deserialise_joined_string_index(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise joined string quotation.");
-    fwprintf(stdout, L"Debug: Deserialise joined string quotation. source count remaining p2: %i\n", p2);
-    fwprintf(stdout, L"Debug: Deserialise joined string quotation. source count remaining *p2: %i\n", *((int*) p2));
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise joined string index.");
+    fwprintf(stdout, L"Debug: Deserialise joined string index. source count remaining p2: %i\n", p2);
+    fwprintf(stdout, L"Debug: Deserialise joined string index. source count remaining *p2: %i\n", *((int*) p2));
 
+    //
+    // The quotation flag.
+    //
+    // CAUTION! It is needed for detecting the end of a value,
+    // which may be either a SIMPLE value or a QUOTED value
+    // (if quotation flag is set).
+    //
+    int q = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The index item.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The index item data, count.
@@ -115,6 +123,9 @@ void deserialise_joined_string_quotation(void* p0, void* p1, void* p2, void* p3,
         // since the function "serialise_cybol_integer" appends
         // the result string instead of overwriting it.
         //
+        // CAUTION! It is more efficient to empty the index item
+        // than to allocate a new one in each loop cycle.
+        //
         modify_item(i, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) EMPTY_MODIFY_LOGIC_CYBOI_FORMAT);
         // Serialise loop variable to be used as array index.
         serialise_cybol_integer(i, (void*) &j, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
@@ -122,7 +133,11 @@ void deserialise_joined_string_quotation(void* p0, void* p1, void* p2, void* p3,
         copy_array_forward((void*) &id, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         copy_array_forward((void*) &ic, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-        select_joined_string_begin(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, id, ic, (void*) &b);
+        // Reset quotation flag.
+        copy_integer((void*) &q, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        // Select joined string begin.
+        select_joined_string_begin(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, (void*) &q, id, ic);
 
         // Increment loop variable.
         j++;
@@ -132,5 +147,5 @@ void deserialise_joined_string_quotation(void* p0, void* p1, void* p2, void* p3,
     deallocate_item((void*) &i, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
-/* QUOTATION_JOINED_STRING_DESERIALISER_SOURCE */
+/* INDEX_JOINED_STRING_DESERIALISER_SOURCE */
 #endif

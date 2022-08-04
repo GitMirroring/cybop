@@ -28,9 +28,10 @@
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/copier/integer_copier.c"
+#include "../../../executor/detector/detector.c"
 #include "../../../executor/representer/deserialiser/value_joined_string_deserialiser.c"
-#include "../../../executor/selector/quotation_begin_joined_string_selector.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -49,9 +50,9 @@
  * @param p10 the quotation end count
  * @param p11 the quotation begin data, e.g. a quotation mark
  * @param p12 the quotation begin count
- * @param p13 the part name data
- * @param p14 the part name count
- * @param p15 the break flag
+ * @param p13 the quotation flag
+ * @param p14 the part name data
+ * @param p15 the part name count
  */
 void select_joined_string_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
 
@@ -62,21 +63,36 @@ void select_joined_string_begin(void* p0, void* p1, void* p2, void* p3, void* p4
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (px == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    //
+    // CAUTION! Do NOT skip whitespace characters here.
+    // They can get considered by defining a suitable
+    // delimiter sequence containing a whitespace character.
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Detect quotation begin character sequence.
+        detect((void*) &r, p1, p2, p11, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p12, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Set quotation flag.
+            copy_integer(p13, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            // Deserialise value.
+            deserialise_joined_string_value(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p13, p14, p15);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
-        // A quotation begin character sequence is NOT given.
+        // The quotation begin character sequence could NOT be detected.
+        // Therefore, process any other data as simple values.
         //
 
-        deserialise_joined_string_value(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p13, p14);
-
-    } else {
-
-        //
-        // A quotation begin character sequence IS given.
-        //
-
-        select_joined_string_begin_quotation(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15);
+        // Deserialise value.
+        deserialise_joined_string_value(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p13, p14, p15);
     }
 }
 

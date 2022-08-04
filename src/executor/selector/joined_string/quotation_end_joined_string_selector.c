@@ -113,6 +113,7 @@ void select_joined_string_end_quotation(void* p0, void* p1, void* p2, void* p3, 
         //
         // CAUTION! This is more proper than letting the loop detect a
         // remaining count <= zero, since it is a well-defined end sequence.
+        // It applies for the LAST value only.
         //
         detect((void*) &r, p0, p1, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 

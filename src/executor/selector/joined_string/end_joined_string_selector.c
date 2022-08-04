@@ -28,7 +28,7 @@
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/comparator/integer/equal_integer_comparator.c"
 #include "../../../executor/selector/quotation_end_joined_string_selector.c"
 #include "../../../executor/selector/value_end_joined_string_selector.c"
 #include "../../../logger/logger.c"
@@ -46,10 +46,11 @@
  * @param p7 the quotation end PLUS delimiter count
  * @param p8 the quotation end data, e.g. a quotation mark
  * @param p9 the quotation end count
- * @param p10 the value count
- * @param p11 the break flag
+ * @param p10 the quotation flag
+ * @param p11 the value count
+ * @param p12 the break flag
  */
-void select_joined_string_end(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void select_joined_string_end(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select joined string end.");
     fwprintf(stdout, L"Debug: Select joined string end. source count remaining p1: %i\n", p1);
@@ -58,13 +59,15 @@ void select_joined_string_end(void* p0, void* p1, void* p2, void* p3, void* p4, 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (p6 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    compare_integer_equal((void*) &r, p10, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //
         // A quotation end character sequence is NOT given.
         //
 
-        select_joined_string_end_value(p0, p1, p2, p3, p10, p11);
+        select_joined_string_end_value(p0, p1, p2, p3, p11, p12);
 
     } else {
 
@@ -72,7 +75,7 @@ void select_joined_string_end(void* p0, void* p1, void* p2, void* p3, void* p4, 
         // A quotation end character sequence IS given.
         //
 
-        select_joined_string_end_quotation(p0, p1, p4, p5, p6, p7, p8, p9, p10, p11);
+        select_joined_string_end_quotation(p0, p1, p4, p5, p6, p7, p8, p9, p11, p12);
     }
 }
 

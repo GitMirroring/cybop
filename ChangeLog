@@ -18,6 +18,16 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-08-04  Christian Heller  <christian.heller@cybop.org>
+
+        * Optimise joined string deserialiser and selector
+        * Check for quotation always and process as simple value by default
+        * Set flag if quotation begin sequence gets detected, so that end selector can escape double characters and detect the end
+
+2022-08-02  Christian Heller  <christian.heller@cybop.org>
+
+        * Adapt cybol application "examples/serialisation/csv/"
+
 2022-08-01  Christian Heller  <christian.heller@cybop.org>
 
         * Continue joined string deserialiser and selector
@@ -28,7 +38,7 @@
 
 2022-07-28  Christian Heller  <christian.heller@cybop.org>
 
-        * Add joined string deserialiser as prerequisite to the csv deserialiser
+        * Add joined string deserialiser replacing "modify_split", as prerequisite to the csv deserialiser
 
 2022-07-22  Christian Heller  <christian.heller@cybop.org>
 
