@@ -20,8 +20,8 @@ ___
 CSV Deserialiser
 ________________
 
-        * Create new cybol application "examples/serialisation/joined_string/"
-        * Test joined string deserialiser
+        * Test joined string deserialiser using cybol application "examples/serialisation/joined_string/"
+        * Find solution for handing over quotation mark as constraint to property "language", since it CANNOT be done in xml which uses quotation marks to delimit xml attribute values
 
         * Delete "modify_split" and related constants
         * Let csv deserialiser use "joined_string" deserialiser for each row (one row being a "joined_string")

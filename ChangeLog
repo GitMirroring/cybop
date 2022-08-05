@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@cybop.org>
 #
 
+2022-08-05  Christian Heller  <christian.heller@cybop.org>
+
+        * Create new cybol application "serialisation/joined_string/"
+        * Rename sample file directory "exammples" to "test" for all cybol applications in directory "serialisation/"
+
 2022-08-04  Christian Heller  <christian.heller@cybop.org>
 
         * Optimise joined string deserialiser and selector
@@ -26,7 +31,7 @@
 
 2022-08-02  Christian Heller  <christian.heller@cybop.org>
 
-        * Adapt cybol application "examples/serialisation/csv/"
+        * Adapt cybol application "serialisation/csv/"
 
 2022-08-01  Christian Heller  <christian.heller@cybop.org>
 
@@ -46,7 +51,7 @@
 
 2022-07-21  Christian Heller  <christian.heller@cybop.org>
 
-        * Add cybol application in directory "examples/serialisation/csv/table/"
+        * Add cybol application in directory "serialisation/csv/table/"
         * Add files "delimiter_csv_name.c" and "quotation_csv_name.c"
         * Add csv deserialiser for character (comma) separated values (csv)
 
@@ -233,7 +238,7 @@
 2022-05-19  Christian Heller  <christian.heller@cybop.org>
 
         * Complete directory "executor/modifier/stripper/"
-        * Add cybol application "examples/container_modification/stripper/"
+        * Add cybol application "container_modification/stripper/"
         * Adapt file "element_content_xml_deserialiser.c" to strip whitespaces within xml strings when standing between opening and closing tag (not in attribute values)
         * Test string stripping with xml files "serialisation/xml/examples/xml/widget.xml" and "serialisation/xml/examples/xml/web-app.xml"
         * Add property "normalisation" to cybol operations "represent/deserialise" and "communicate/receive"
