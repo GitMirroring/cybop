@@ -1,0 +1,25 @@
+<node>
+
+    <node name="stdout" channel="inline" format="number/integer" model="-1"/>
+
+    <!--
+        CAUTION! The test strings HAVE TO be put into FILES,
+        since some of them contain quotation characters
+        which would mix up the xml if placed inline here.
+    -->
+
+    <node name="string_1" channel="file" format="text/plain" model="serialisation/joined_string/test/comma.txt"/>
+    <node name="string_2" channel="file" format="text/plain" model="serialisation/joined_string/test/semicolon.txt"/>
+    <node name="string_3" channel="file" format="text/plain" model="serialisation/joined_string/test/comma_space.txt"/>
+    <node name="string_4" channel="file" format="text/plain" model="serialisation/joined_string/test/sequence.txt"/>
+    <node name="string_5" channel="file" format="text/plain" model="serialisation/joined_string/test/quoted.txt"/>
+    <node name="string_6" channel="file" format="text/plain" model="serialisation/joined_string/test/mixed.txt"/>
+
+    <node name="result_1" channel="inline" format="element/part" model=""/>
+    <node name="result_2" channel="inline" format="element/part" model=""/>
+    <node name="result_3" channel="inline" format="element/part" model=""/>
+    <node name="result_4" channel="inline" format="element/part" model=""/>
+    <node name="result_5" channel="inline" format="element/part" model=""/>
+    <node name="result_6" channel="inline" format="element/part" model=""/>
+
+</node>

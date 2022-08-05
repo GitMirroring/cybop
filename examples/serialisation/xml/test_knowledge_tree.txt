@@ -1,0 +1,23 @@
+[selected_node] | element/part | 
++-widget | element/part | 
+| +-debug | text/plain | on
+| +-window | element/part | 
+| | +-name | text/plain | main_window
+| | +-width | text/plain | 500
+| | +-height | text/plain | 500
+| | :-title | text/plain | Sample Konfabulator Widget
+| +-image | element/part | 
+| | +-hOffset | text/plain | 250
+| | +-vOffset | text/plain | 250
+| | +-alignment | text/plain | center
+| | :-src | text/plain | Images/Sun.png
+| | :-name | text/plain | sun1
+| +-text | element/part | 
+| | +-name | text/plain | text1
+| | +-hOffset | text/plain | 250
+| | +-vOffset | text/plain | 100
+| | +-alignment | text/plain | center
+| | +-onMouseUp | text/plain | sun1.opacity = (sun1.opacity / 100) * 90;
+| | :-data | text/plain | Click Here
+| | :-size | text/plain | 36
+| | :-style | text/plain | bold

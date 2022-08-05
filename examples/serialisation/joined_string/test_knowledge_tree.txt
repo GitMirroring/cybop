@@ -1,0 +1,21 @@
+[selected_node] | element/part | 
++-id | number/integer | 
++-stdout | number/integer | 1
++-string_1 | text/plain | a,1,01.07.2022,1 EUR,10 %
+
++-string_2 | text/plain | a;1;01.07.2022;1 EUR;10 %
+
++-string_3 | text/plain | a, 1, 01.07.2022, 1 EUR, 10 %
+
++-string_4 | text/plain | a#?#1#?#01.07.2022#?#1 EUR#?#10 %
+
++-string_5 | text/plain | " begin space","01/07/2022","some ""quoted"" text"
+
++-string_6 | text/plain | " begin space",01/07/2022,"some ""quoted"" text"
+
++-result_1 | element/part | 
++-result_2 | element/part | 
++-result_3 | element/part | 
++-result_4 | element/part | 
++-result_5 | element/part | 
++-result_6 | element/part | 
